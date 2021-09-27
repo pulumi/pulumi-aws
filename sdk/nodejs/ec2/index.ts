@@ -82,6 +82,7 @@ export * from "./localGatewayRoute";
 export * from "./localGatewayRouteTableVpcAssociation";
 export * from "./mainRouteTableAssociation";
 export * from "./managedPrefixList";
+export * from "./managedPrefixListEntry";
 export * from "./natGateway";
 export * from "./networkAcl";
 export * from "./networkAclRule";
@@ -162,6 +163,7 @@ import { LocalGatewayRoute } from "./localGatewayRoute";
 import { LocalGatewayRouteTableVpcAssociation } from "./localGatewayRouteTableVpcAssociation";
 import { MainRouteTableAssociation } from "./mainRouteTableAssociation";
 import { ManagedPrefixList } from "./managedPrefixList";
+import { ManagedPrefixListEntry } from "./managedPrefixListEntry";
 import { NatGateway } from "./natGateway";
 import { NetworkAcl } from "./networkAcl";
 import { NetworkAclRule } from "./networkAclRule";
@@ -268,6 +270,8 @@ const _module = {
                 return new MainRouteTableAssociation(name, <any>undefined, { urn })
             case "aws:ec2/managedPrefixList:ManagedPrefixList":
                 return new ManagedPrefixList(name, <any>undefined, { urn })
+            case "aws:ec2/managedPrefixListEntry:ManagedPrefixListEntry":
+                return new ManagedPrefixListEntry(name, <any>undefined, { urn })
             case "aws:ec2/natGateway:NatGateway":
                 return new NatGateway(name, <any>undefined, { urn })
             case "aws:ec2/networkAcl:NetworkAcl":
@@ -388,6 +392,7 @@ pulumi.runtime.registerResourceModule("aws", "ec2/localGatewayRoute", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/localGatewayRouteTableVpcAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/mainRouteTableAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/managedPrefixList", _module)
+pulumi.runtime.registerResourceModule("aws", "ec2/managedPrefixListEntry", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/natGateway", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/networkAcl", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/networkAclRule", _module)

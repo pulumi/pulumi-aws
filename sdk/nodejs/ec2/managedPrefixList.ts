@@ -6,41 +6,6 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Provides a managed prefix list resource.
- *
- * > **NOTE on `maxEntries`:** When you reference a Prefix List in a resource,
- * the maximum number of entries for the prefix lists counts as the same number of rules
- * or entries for the resource. For example, if you create a prefix list with a maximum
- * of 20 entries and you reference that prefix list in a security group rule, this counts
- * as 20 rules for the security group.
- *
- * ## Example Usage
- *
- * Basic usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.ec2.ManagedPrefixList("example", {
- *     addressFamily: "IPv4",
- *     maxEntries: 5,
- *     entries: [
- *         {
- *             cidr: aws_vpc.example.cidr_block,
- *             description: "Primary",
- *         },
- *         {
- *             cidr: aws_vpc_ipv4_cidr_block_association.example.cidr_block,
- *             description: "Secondary",
- *         },
- *     ],
- *     tags: {
- *         Env: "live",
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * Prefix Lists can be imported using the `id`, e.g.
@@ -88,7 +53,7 @@ export class ManagedPrefixList extends pulumi.CustomResource {
     /**
      * Configuration block for prefix list entry. Detailed below. Different entries may have overlapping CIDR blocks, but a particular CIDR should not be duplicated.
      */
-    public readonly entries!: pulumi.Output<outputs.ec2.ManagedPrefixListEntry[] | undefined>;
+    public readonly entries!: pulumi.Output<outputs.ec2.ManagedPrefixListEntry[]>;
     /**
      * Maximum number of entries that this prefix list can contain.
      */

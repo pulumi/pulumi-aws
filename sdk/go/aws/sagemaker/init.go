@@ -37,6 +37,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &EndpointConfiguration{}
 	case "aws:sagemaker/featureGroup:FeatureGroup":
 		r = &FeatureGroup{}
+	case "aws:sagemaker/flowDefinition:FlowDefinition":
+		r = &FlowDefinition{}
 	case "aws:sagemaker/humanTaskUI:HumanTaskUI":
 		r = &HumanTaskUI{}
 	case "aws:sagemaker/image:Image":
@@ -108,6 +110,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"sagemaker/featureGroup",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"sagemaker/flowDefinition",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

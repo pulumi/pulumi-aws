@@ -20,6 +20,7 @@ export * from "./eventTarget";
 export * from "./getEventConnection";
 export * from "./getEventSource";
 export * from "./getLogGroup";
+export * from "./getLogGroups";
 export * from "./logDestination";
 export * from "./logDestinationPolicy";
 export * from "./logGroup";

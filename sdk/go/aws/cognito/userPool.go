@@ -136,7 +136,7 @@ type UserPool struct {
 	// A number estimating the size of the user pool.
 	EstimatedNumberOfUsers pulumi.IntOutput `pulumi:"estimatedNumberOfUsers"`
 	// Configuration block for the AWS Lambda triggers associated with the user pool. Detailed below.
-	LambdaConfig UserPoolLambdaConfigOutput `pulumi:"lambdaConfig"`
+	LambdaConfig UserPoolLambdaConfigPtrOutput `pulumi:"lambdaConfig"`
 	// Date the user pool was last modified.
 	LastModifiedDate pulumi.StringOutput `pulumi:"lastModifiedDate"`
 	// Multi-Factor Authentication (MFA) configuration for the User Pool. Defaults of `OFF`. Valid values are `OFF` (MFA Tokens are not required), `ON` (MFA is required for all users to sign in; requires at least one of `smsConfiguration` or `softwareTokenMfaConfiguration` to be configured), or `OPTIONAL` (MFA Will be required only for individual users who have MFA Enabled; requires at least one of `smsConfiguration` or `softwareTokenMfaConfiguration` to be configured).

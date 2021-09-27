@@ -431,12 +431,19 @@ class GetAccessPointRootDirectoryCreationInfoResult(dict):
 @pulumi.output_type
 class GetFileSystemLifecyclePolicyResult(dict):
     def __init__(__self__, *,
-                 transition_to_ia: str):
+                 transition_to_ia: str,
+                 transition_to_primary_storage_class: str):
         pulumi.set(__self__, "transition_to_ia", transition_to_ia)
+        pulumi.set(__self__, "transition_to_primary_storage_class", transition_to_primary_storage_class)
 
     @property
     @pulumi.getter(name="transitionToIa")
     def transition_to_ia(self) -> str:
         return pulumi.get(self, "transition_to_ia")
+
+    @property
+    @pulumi.getter(name="transitionToPrimaryStorageClass")
+    def transition_to_primary_storage_class(self) -> str:
+        return pulumi.get(self, "transition_to_primary_storage_class")
 
 

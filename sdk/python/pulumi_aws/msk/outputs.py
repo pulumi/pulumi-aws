@@ -26,6 +26,7 @@ __all__ = [
     'ClusterOpenMonitoringPrometheus',
     'ClusterOpenMonitoringPrometheusJmxExporter',
     'ClusterOpenMonitoringPrometheusNodeExporter',
+    'GetBrokerNodesNodeInfoListResult',
 ]
 
 @pulumi.output_type
@@ -696,5 +697,78 @@ class ClusterOpenMonitoringPrometheusNodeExporter(dict):
         Indicates whether you want to enable or disable the JMX Exporter.
         """
         return pulumi.get(self, "enabled_in_broker")
+
+
+@pulumi.output_type
+class GetBrokerNodesNodeInfoListResult(dict):
+    def __init__(__self__, *,
+                 attached_eni_id: str,
+                 broker_id: float,
+                 client_subnet: str,
+                 client_vpc_ip_address: str,
+                 endpoints: Sequence[str],
+                 node_arn: str):
+        """
+        :param str attached_eni_id: The attached elastic network interface of the broker
+        :param float broker_id: The ID of the broker
+        :param str client_subnet: The client subnet to which this broker node belongs
+        :param str client_vpc_ip_address: The client virtual private cloud (VPC) IP address
+        :param Sequence[str] endpoints: Set of endpoints for accessing the broker. This does not include ports
+        :param str node_arn: The Amazon Resource Name (ARN) of the node
+        """
+        pulumi.set(__self__, "attached_eni_id", attached_eni_id)
+        pulumi.set(__self__, "broker_id", broker_id)
+        pulumi.set(__self__, "client_subnet", client_subnet)
+        pulumi.set(__self__, "client_vpc_ip_address", client_vpc_ip_address)
+        pulumi.set(__self__, "endpoints", endpoints)
+        pulumi.set(__self__, "node_arn", node_arn)
+
+    @property
+    @pulumi.getter(name="attachedEniId")
+    def attached_eni_id(self) -> str:
+        """
+        The attached elastic network interface of the broker
+        """
+        return pulumi.get(self, "attached_eni_id")
+
+    @property
+    @pulumi.getter(name="brokerId")
+    def broker_id(self) -> float:
+        """
+        The ID of the broker
+        """
+        return pulumi.get(self, "broker_id")
+
+    @property
+    @pulumi.getter(name="clientSubnet")
+    def client_subnet(self) -> str:
+        """
+        The client subnet to which this broker node belongs
+        """
+        return pulumi.get(self, "client_subnet")
+
+    @property
+    @pulumi.getter(name="clientVpcIpAddress")
+    def client_vpc_ip_address(self) -> str:
+        """
+        The client virtual private cloud (VPC) IP address
+        """
+        return pulumi.get(self, "client_vpc_ip_address")
+
+    @property
+    @pulumi.getter
+    def endpoints(self) -> Sequence[str]:
+        """
+        Set of endpoints for accessing the broker. This does not include ports
+        """
+        return pulumi.get(self, "endpoints")
+
+    @property
+    @pulumi.getter(name="nodeArn")
+    def node_arn(self) -> str:
+        """
+        The Amazon Resource Name (ARN) of the node
+        """
+        return pulumi.get(self, "node_arn")
 
 

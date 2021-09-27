@@ -7,11 +7,178 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
+    'OntapFileSystemDiskIopsConfiguration',
+    'OntapFileSystemEndpoint',
+    'OntapFileSystemEndpointIntercluster',
+    'OntapFileSystemEndpointManagement',
     'WindowsFileSystemAuditLogConfiguration',
     'WindowsFileSystemSelfManagedActiveDirectory',
 ]
+
+@pulumi.output_type
+class OntapFileSystemDiskIopsConfiguration(dict):
+    def __init__(__self__, *,
+                 iops: Optional[int] = None,
+                 mode: Optional[str] = None):
+        """
+        :param int iops: - The total number of SSD IOPS provisioned for the file system.
+        :param str mode: - Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
+        """
+        if iops is not None:
+            pulumi.set(__self__, "iops", iops)
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+
+    @property
+    @pulumi.getter
+    def iops(self) -> Optional[int]:
+        """
+        - The total number of SSD IOPS provisioned for the file system.
+        """
+        return pulumi.get(self, "iops")
+
+    @property
+    @pulumi.getter
+    def mode(self) -> Optional[str]:
+        """
+        - Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
+        """
+        return pulumi.get(self, "mode")
+
+
+@pulumi.output_type
+class OntapFileSystemEndpoint(dict):
+    def __init__(__self__, *,
+                 interclusters: Optional[Sequence['outputs.OntapFileSystemEndpointIntercluster']] = None,
+                 managements: Optional[Sequence['outputs.OntapFileSystemEndpointManagement']] = None):
+        """
+        :param Sequence['OntapFileSystemEndpointInterclusterArgs'] interclusters: An endpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See Endpoint.
+        :param Sequence['OntapFileSystemEndpointManagementArgs'] managements: An endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
+        """
+        if interclusters is not None:
+            pulumi.set(__self__, "interclusters", interclusters)
+        if managements is not None:
+            pulumi.set(__self__, "managements", managements)
+
+    @property
+    @pulumi.getter
+    def interclusters(self) -> Optional[Sequence['outputs.OntapFileSystemEndpointIntercluster']]:
+        """
+        An endpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See Endpoint.
+        """
+        return pulumi.get(self, "interclusters")
+
+    @property
+    @pulumi.getter
+    def managements(self) -> Optional[Sequence['outputs.OntapFileSystemEndpointManagement']]:
+        """
+        An endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
+        """
+        return pulumi.get(self, "managements")
+
+
+@pulumi.output_type
+class OntapFileSystemEndpointIntercluster(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dnsName":
+            suggest = "dns_name"
+        elif key == "ipAddresses":
+            suggest = "ip_addresses"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OntapFileSystemEndpointIntercluster. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OntapFileSystemEndpointIntercluster.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OntapFileSystemEndpointIntercluster.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 dns_name: Optional[str] = None,
+                 ip_addresses: Optional[Sequence[str]] = None):
+        """
+        :param str dns_name: The Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
+        :param Sequence[str] ip_addresses: IP addresses of the file system endpoint.
+        """
+        if dns_name is not None:
+            pulumi.set(__self__, "dns_name", dns_name)
+        if ip_addresses is not None:
+            pulumi.set(__self__, "ip_addresses", ip_addresses)
+
+    @property
+    @pulumi.getter(name="dnsName")
+    def dns_name(self) -> Optional[str]:
+        """
+        The Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
+        """
+        return pulumi.get(self, "dns_name")
+
+    @property
+    @pulumi.getter(name="ipAddresses")
+    def ip_addresses(self) -> Optional[Sequence[str]]:
+        """
+        IP addresses of the file system endpoint.
+        """
+        return pulumi.get(self, "ip_addresses")
+
+
+@pulumi.output_type
+class OntapFileSystemEndpointManagement(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dnsName":
+            suggest = "dns_name"
+        elif key == "ipAddresses":
+            suggest = "ip_addresses"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OntapFileSystemEndpointManagement. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OntapFileSystemEndpointManagement.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OntapFileSystemEndpointManagement.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 dns_name: Optional[str] = None,
+                 ip_addresses: Optional[Sequence[str]] = None):
+        """
+        :param str dns_name: The Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
+        :param Sequence[str] ip_addresses: IP addresses of the file system endpoint.
+        """
+        if dns_name is not None:
+            pulumi.set(__self__, "dns_name", dns_name)
+        if ip_addresses is not None:
+            pulumi.set(__self__, "ip_addresses", ip_addresses)
+
+    @property
+    @pulumi.getter(name="dnsName")
+    def dns_name(self) -> Optional[str]:
+        """
+        The Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
+        """
+        return pulumi.get(self, "dns_name")
+
+    @property
+    @pulumi.getter(name="ipAddresses")
+    def ip_addresses(self) -> Optional[Sequence[str]]:
+        """
+        IP addresses of the file system endpoint.
+        """
+        return pulumi.get(self, "ip_addresses")
+
 
 @pulumi.output_type
 class WindowsFileSystemAuditLogConfiguration(dict):

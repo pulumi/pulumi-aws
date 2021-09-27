@@ -10,6 +10,480 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type OntapFileSystemDiskIopsConfiguration struct {
+	// - The total number of SSD IOPS provisioned for the file system.
+	Iops *int `pulumi:"iops"`
+	// - Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
+	Mode *string `pulumi:"mode"`
+}
+
+// OntapFileSystemDiskIopsConfigurationInput is an input type that accepts OntapFileSystemDiskIopsConfigurationArgs and OntapFileSystemDiskIopsConfigurationOutput values.
+// You can construct a concrete instance of `OntapFileSystemDiskIopsConfigurationInput` via:
+//
+//          OntapFileSystemDiskIopsConfigurationArgs{...}
+type OntapFileSystemDiskIopsConfigurationInput interface {
+	pulumi.Input
+
+	ToOntapFileSystemDiskIopsConfigurationOutput() OntapFileSystemDiskIopsConfigurationOutput
+	ToOntapFileSystemDiskIopsConfigurationOutputWithContext(context.Context) OntapFileSystemDiskIopsConfigurationOutput
+}
+
+type OntapFileSystemDiskIopsConfigurationArgs struct {
+	// - The total number of SSD IOPS provisioned for the file system.
+	Iops pulumi.IntPtrInput `pulumi:"iops"`
+	// - Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
+	Mode pulumi.StringPtrInput `pulumi:"mode"`
+}
+
+func (OntapFileSystemDiskIopsConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OntapFileSystemDiskIopsConfiguration)(nil)).Elem()
+}
+
+func (i OntapFileSystemDiskIopsConfigurationArgs) ToOntapFileSystemDiskIopsConfigurationOutput() OntapFileSystemDiskIopsConfigurationOutput {
+	return i.ToOntapFileSystemDiskIopsConfigurationOutputWithContext(context.Background())
+}
+
+func (i OntapFileSystemDiskIopsConfigurationArgs) ToOntapFileSystemDiskIopsConfigurationOutputWithContext(ctx context.Context) OntapFileSystemDiskIopsConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OntapFileSystemDiskIopsConfigurationOutput)
+}
+
+func (i OntapFileSystemDiskIopsConfigurationArgs) ToOntapFileSystemDiskIopsConfigurationPtrOutput() OntapFileSystemDiskIopsConfigurationPtrOutput {
+	return i.ToOntapFileSystemDiskIopsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i OntapFileSystemDiskIopsConfigurationArgs) ToOntapFileSystemDiskIopsConfigurationPtrOutputWithContext(ctx context.Context) OntapFileSystemDiskIopsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OntapFileSystemDiskIopsConfigurationOutput).ToOntapFileSystemDiskIopsConfigurationPtrOutputWithContext(ctx)
+}
+
+// OntapFileSystemDiskIopsConfigurationPtrInput is an input type that accepts OntapFileSystemDiskIopsConfigurationArgs, OntapFileSystemDiskIopsConfigurationPtr and OntapFileSystemDiskIopsConfigurationPtrOutput values.
+// You can construct a concrete instance of `OntapFileSystemDiskIopsConfigurationPtrInput` via:
+//
+//          OntapFileSystemDiskIopsConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type OntapFileSystemDiskIopsConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToOntapFileSystemDiskIopsConfigurationPtrOutput() OntapFileSystemDiskIopsConfigurationPtrOutput
+	ToOntapFileSystemDiskIopsConfigurationPtrOutputWithContext(context.Context) OntapFileSystemDiskIopsConfigurationPtrOutput
+}
+
+type ontapFileSystemDiskIopsConfigurationPtrType OntapFileSystemDiskIopsConfigurationArgs
+
+func OntapFileSystemDiskIopsConfigurationPtr(v *OntapFileSystemDiskIopsConfigurationArgs) OntapFileSystemDiskIopsConfigurationPtrInput {
+	return (*ontapFileSystemDiskIopsConfigurationPtrType)(v)
+}
+
+func (*ontapFileSystemDiskIopsConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OntapFileSystemDiskIopsConfiguration)(nil)).Elem()
+}
+
+func (i *ontapFileSystemDiskIopsConfigurationPtrType) ToOntapFileSystemDiskIopsConfigurationPtrOutput() OntapFileSystemDiskIopsConfigurationPtrOutput {
+	return i.ToOntapFileSystemDiskIopsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *ontapFileSystemDiskIopsConfigurationPtrType) ToOntapFileSystemDiskIopsConfigurationPtrOutputWithContext(ctx context.Context) OntapFileSystemDiskIopsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OntapFileSystemDiskIopsConfigurationPtrOutput)
+}
+
+type OntapFileSystemDiskIopsConfigurationOutput struct{ *pulumi.OutputState }
+
+func (OntapFileSystemDiskIopsConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OntapFileSystemDiskIopsConfiguration)(nil)).Elem()
+}
+
+func (o OntapFileSystemDiskIopsConfigurationOutput) ToOntapFileSystemDiskIopsConfigurationOutput() OntapFileSystemDiskIopsConfigurationOutput {
+	return o
+}
+
+func (o OntapFileSystemDiskIopsConfigurationOutput) ToOntapFileSystemDiskIopsConfigurationOutputWithContext(ctx context.Context) OntapFileSystemDiskIopsConfigurationOutput {
+	return o
+}
+
+func (o OntapFileSystemDiskIopsConfigurationOutput) ToOntapFileSystemDiskIopsConfigurationPtrOutput() OntapFileSystemDiskIopsConfigurationPtrOutput {
+	return o.ToOntapFileSystemDiskIopsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o OntapFileSystemDiskIopsConfigurationOutput) ToOntapFileSystemDiskIopsConfigurationPtrOutputWithContext(ctx context.Context) OntapFileSystemDiskIopsConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OntapFileSystemDiskIopsConfiguration) *OntapFileSystemDiskIopsConfiguration {
+		return &v
+	}).(OntapFileSystemDiskIopsConfigurationPtrOutput)
+}
+
+// - The total number of SSD IOPS provisioned for the file system.
+func (o OntapFileSystemDiskIopsConfigurationOutput) Iops() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v OntapFileSystemDiskIopsConfiguration) *int { return v.Iops }).(pulumi.IntPtrOutput)
+}
+
+// - Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
+func (o OntapFileSystemDiskIopsConfigurationOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OntapFileSystemDiskIopsConfiguration) *string { return v.Mode }).(pulumi.StringPtrOutput)
+}
+
+type OntapFileSystemDiskIopsConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (OntapFileSystemDiskIopsConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OntapFileSystemDiskIopsConfiguration)(nil)).Elem()
+}
+
+func (o OntapFileSystemDiskIopsConfigurationPtrOutput) ToOntapFileSystemDiskIopsConfigurationPtrOutput() OntapFileSystemDiskIopsConfigurationPtrOutput {
+	return o
+}
+
+func (o OntapFileSystemDiskIopsConfigurationPtrOutput) ToOntapFileSystemDiskIopsConfigurationPtrOutputWithContext(ctx context.Context) OntapFileSystemDiskIopsConfigurationPtrOutput {
+	return o
+}
+
+func (o OntapFileSystemDiskIopsConfigurationPtrOutput) Elem() OntapFileSystemDiskIopsConfigurationOutput {
+	return o.ApplyT(func(v *OntapFileSystemDiskIopsConfiguration) OntapFileSystemDiskIopsConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret OntapFileSystemDiskIopsConfiguration
+		return ret
+	}).(OntapFileSystemDiskIopsConfigurationOutput)
+}
+
+// - The total number of SSD IOPS provisioned for the file system.
+func (o OntapFileSystemDiskIopsConfigurationPtrOutput) Iops() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *OntapFileSystemDiskIopsConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Iops
+	}).(pulumi.IntPtrOutput)
+}
+
+// - Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
+func (o OntapFileSystemDiskIopsConfigurationPtrOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OntapFileSystemDiskIopsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Mode
+	}).(pulumi.StringPtrOutput)
+}
+
+type OntapFileSystemEndpoint struct {
+	// An endpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See Endpoint.
+	Interclusters []OntapFileSystemEndpointIntercluster `pulumi:"interclusters"`
+	// An endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
+	Managements []OntapFileSystemEndpointManagement `pulumi:"managements"`
+}
+
+// OntapFileSystemEndpointInput is an input type that accepts OntapFileSystemEndpointArgs and OntapFileSystemEndpointOutput values.
+// You can construct a concrete instance of `OntapFileSystemEndpointInput` via:
+//
+//          OntapFileSystemEndpointArgs{...}
+type OntapFileSystemEndpointInput interface {
+	pulumi.Input
+
+	ToOntapFileSystemEndpointOutput() OntapFileSystemEndpointOutput
+	ToOntapFileSystemEndpointOutputWithContext(context.Context) OntapFileSystemEndpointOutput
+}
+
+type OntapFileSystemEndpointArgs struct {
+	// An endpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See Endpoint.
+	Interclusters OntapFileSystemEndpointInterclusterArrayInput `pulumi:"interclusters"`
+	// An endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
+	Managements OntapFileSystemEndpointManagementArrayInput `pulumi:"managements"`
+}
+
+func (OntapFileSystemEndpointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OntapFileSystemEndpoint)(nil)).Elem()
+}
+
+func (i OntapFileSystemEndpointArgs) ToOntapFileSystemEndpointOutput() OntapFileSystemEndpointOutput {
+	return i.ToOntapFileSystemEndpointOutputWithContext(context.Background())
+}
+
+func (i OntapFileSystemEndpointArgs) ToOntapFileSystemEndpointOutputWithContext(ctx context.Context) OntapFileSystemEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OntapFileSystemEndpointOutput)
+}
+
+// OntapFileSystemEndpointArrayInput is an input type that accepts OntapFileSystemEndpointArray and OntapFileSystemEndpointArrayOutput values.
+// You can construct a concrete instance of `OntapFileSystemEndpointArrayInput` via:
+//
+//          OntapFileSystemEndpointArray{ OntapFileSystemEndpointArgs{...} }
+type OntapFileSystemEndpointArrayInput interface {
+	pulumi.Input
+
+	ToOntapFileSystemEndpointArrayOutput() OntapFileSystemEndpointArrayOutput
+	ToOntapFileSystemEndpointArrayOutputWithContext(context.Context) OntapFileSystemEndpointArrayOutput
+}
+
+type OntapFileSystemEndpointArray []OntapFileSystemEndpointInput
+
+func (OntapFileSystemEndpointArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OntapFileSystemEndpoint)(nil)).Elem()
+}
+
+func (i OntapFileSystemEndpointArray) ToOntapFileSystemEndpointArrayOutput() OntapFileSystemEndpointArrayOutput {
+	return i.ToOntapFileSystemEndpointArrayOutputWithContext(context.Background())
+}
+
+func (i OntapFileSystemEndpointArray) ToOntapFileSystemEndpointArrayOutputWithContext(ctx context.Context) OntapFileSystemEndpointArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OntapFileSystemEndpointArrayOutput)
+}
+
+type OntapFileSystemEndpointOutput struct{ *pulumi.OutputState }
+
+func (OntapFileSystemEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OntapFileSystemEndpoint)(nil)).Elem()
+}
+
+func (o OntapFileSystemEndpointOutput) ToOntapFileSystemEndpointOutput() OntapFileSystemEndpointOutput {
+	return o
+}
+
+func (o OntapFileSystemEndpointOutput) ToOntapFileSystemEndpointOutputWithContext(ctx context.Context) OntapFileSystemEndpointOutput {
+	return o
+}
+
+// An endpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See Endpoint.
+func (o OntapFileSystemEndpointOutput) Interclusters() OntapFileSystemEndpointInterclusterArrayOutput {
+	return o.ApplyT(func(v OntapFileSystemEndpoint) []OntapFileSystemEndpointIntercluster { return v.Interclusters }).(OntapFileSystemEndpointInterclusterArrayOutput)
+}
+
+// An endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
+func (o OntapFileSystemEndpointOutput) Managements() OntapFileSystemEndpointManagementArrayOutput {
+	return o.ApplyT(func(v OntapFileSystemEndpoint) []OntapFileSystemEndpointManagement { return v.Managements }).(OntapFileSystemEndpointManagementArrayOutput)
+}
+
+type OntapFileSystemEndpointArrayOutput struct{ *pulumi.OutputState }
+
+func (OntapFileSystemEndpointArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OntapFileSystemEndpoint)(nil)).Elem()
+}
+
+func (o OntapFileSystemEndpointArrayOutput) ToOntapFileSystemEndpointArrayOutput() OntapFileSystemEndpointArrayOutput {
+	return o
+}
+
+func (o OntapFileSystemEndpointArrayOutput) ToOntapFileSystemEndpointArrayOutputWithContext(ctx context.Context) OntapFileSystemEndpointArrayOutput {
+	return o
+}
+
+func (o OntapFileSystemEndpointArrayOutput) Index(i pulumi.IntInput) OntapFileSystemEndpointOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OntapFileSystemEndpoint {
+		return vs[0].([]OntapFileSystemEndpoint)[vs[1].(int)]
+	}).(OntapFileSystemEndpointOutput)
+}
+
+type OntapFileSystemEndpointIntercluster struct {
+	// The Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
+	DnsName *string `pulumi:"dnsName"`
+	// IP addresses of the file system endpoint.
+	IpAddresses []string `pulumi:"ipAddresses"`
+}
+
+// OntapFileSystemEndpointInterclusterInput is an input type that accepts OntapFileSystemEndpointInterclusterArgs and OntapFileSystemEndpointInterclusterOutput values.
+// You can construct a concrete instance of `OntapFileSystemEndpointInterclusterInput` via:
+//
+//          OntapFileSystemEndpointInterclusterArgs{...}
+type OntapFileSystemEndpointInterclusterInput interface {
+	pulumi.Input
+
+	ToOntapFileSystemEndpointInterclusterOutput() OntapFileSystemEndpointInterclusterOutput
+	ToOntapFileSystemEndpointInterclusterOutputWithContext(context.Context) OntapFileSystemEndpointInterclusterOutput
+}
+
+type OntapFileSystemEndpointInterclusterArgs struct {
+	// The Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
+	DnsName pulumi.StringPtrInput `pulumi:"dnsName"`
+	// IP addresses of the file system endpoint.
+	IpAddresses pulumi.StringArrayInput `pulumi:"ipAddresses"`
+}
+
+func (OntapFileSystemEndpointInterclusterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OntapFileSystemEndpointIntercluster)(nil)).Elem()
+}
+
+func (i OntapFileSystemEndpointInterclusterArgs) ToOntapFileSystemEndpointInterclusterOutput() OntapFileSystemEndpointInterclusterOutput {
+	return i.ToOntapFileSystemEndpointInterclusterOutputWithContext(context.Background())
+}
+
+func (i OntapFileSystemEndpointInterclusterArgs) ToOntapFileSystemEndpointInterclusterOutputWithContext(ctx context.Context) OntapFileSystemEndpointInterclusterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OntapFileSystemEndpointInterclusterOutput)
+}
+
+// OntapFileSystemEndpointInterclusterArrayInput is an input type that accepts OntapFileSystemEndpointInterclusterArray and OntapFileSystemEndpointInterclusterArrayOutput values.
+// You can construct a concrete instance of `OntapFileSystemEndpointInterclusterArrayInput` via:
+//
+//          OntapFileSystemEndpointInterclusterArray{ OntapFileSystemEndpointInterclusterArgs{...} }
+type OntapFileSystemEndpointInterclusterArrayInput interface {
+	pulumi.Input
+
+	ToOntapFileSystemEndpointInterclusterArrayOutput() OntapFileSystemEndpointInterclusterArrayOutput
+	ToOntapFileSystemEndpointInterclusterArrayOutputWithContext(context.Context) OntapFileSystemEndpointInterclusterArrayOutput
+}
+
+type OntapFileSystemEndpointInterclusterArray []OntapFileSystemEndpointInterclusterInput
+
+func (OntapFileSystemEndpointInterclusterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OntapFileSystemEndpointIntercluster)(nil)).Elem()
+}
+
+func (i OntapFileSystemEndpointInterclusterArray) ToOntapFileSystemEndpointInterclusterArrayOutput() OntapFileSystemEndpointInterclusterArrayOutput {
+	return i.ToOntapFileSystemEndpointInterclusterArrayOutputWithContext(context.Background())
+}
+
+func (i OntapFileSystemEndpointInterclusterArray) ToOntapFileSystemEndpointInterclusterArrayOutputWithContext(ctx context.Context) OntapFileSystemEndpointInterclusterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OntapFileSystemEndpointInterclusterArrayOutput)
+}
+
+type OntapFileSystemEndpointInterclusterOutput struct{ *pulumi.OutputState }
+
+func (OntapFileSystemEndpointInterclusterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OntapFileSystemEndpointIntercluster)(nil)).Elem()
+}
+
+func (o OntapFileSystemEndpointInterclusterOutput) ToOntapFileSystemEndpointInterclusterOutput() OntapFileSystemEndpointInterclusterOutput {
+	return o
+}
+
+func (o OntapFileSystemEndpointInterclusterOutput) ToOntapFileSystemEndpointInterclusterOutputWithContext(ctx context.Context) OntapFileSystemEndpointInterclusterOutput {
+	return o
+}
+
+// The Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
+func (o OntapFileSystemEndpointInterclusterOutput) DnsName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OntapFileSystemEndpointIntercluster) *string { return v.DnsName }).(pulumi.StringPtrOutput)
+}
+
+// IP addresses of the file system endpoint.
+func (o OntapFileSystemEndpointInterclusterOutput) IpAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v OntapFileSystemEndpointIntercluster) []string { return v.IpAddresses }).(pulumi.StringArrayOutput)
+}
+
+type OntapFileSystemEndpointInterclusterArrayOutput struct{ *pulumi.OutputState }
+
+func (OntapFileSystemEndpointInterclusterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OntapFileSystemEndpointIntercluster)(nil)).Elem()
+}
+
+func (o OntapFileSystemEndpointInterclusterArrayOutput) ToOntapFileSystemEndpointInterclusterArrayOutput() OntapFileSystemEndpointInterclusterArrayOutput {
+	return o
+}
+
+func (o OntapFileSystemEndpointInterclusterArrayOutput) ToOntapFileSystemEndpointInterclusterArrayOutputWithContext(ctx context.Context) OntapFileSystemEndpointInterclusterArrayOutput {
+	return o
+}
+
+func (o OntapFileSystemEndpointInterclusterArrayOutput) Index(i pulumi.IntInput) OntapFileSystemEndpointInterclusterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OntapFileSystemEndpointIntercluster {
+		return vs[0].([]OntapFileSystemEndpointIntercluster)[vs[1].(int)]
+	}).(OntapFileSystemEndpointInterclusterOutput)
+}
+
+type OntapFileSystemEndpointManagement struct {
+	// The Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
+	DnsName *string `pulumi:"dnsName"`
+	// IP addresses of the file system endpoint.
+	IpAddresses []string `pulumi:"ipAddresses"`
+}
+
+// OntapFileSystemEndpointManagementInput is an input type that accepts OntapFileSystemEndpointManagementArgs and OntapFileSystemEndpointManagementOutput values.
+// You can construct a concrete instance of `OntapFileSystemEndpointManagementInput` via:
+//
+//          OntapFileSystemEndpointManagementArgs{...}
+type OntapFileSystemEndpointManagementInput interface {
+	pulumi.Input
+
+	ToOntapFileSystemEndpointManagementOutput() OntapFileSystemEndpointManagementOutput
+	ToOntapFileSystemEndpointManagementOutputWithContext(context.Context) OntapFileSystemEndpointManagementOutput
+}
+
+type OntapFileSystemEndpointManagementArgs struct {
+	// The Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
+	DnsName pulumi.StringPtrInput `pulumi:"dnsName"`
+	// IP addresses of the file system endpoint.
+	IpAddresses pulumi.StringArrayInput `pulumi:"ipAddresses"`
+}
+
+func (OntapFileSystemEndpointManagementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OntapFileSystemEndpointManagement)(nil)).Elem()
+}
+
+func (i OntapFileSystemEndpointManagementArgs) ToOntapFileSystemEndpointManagementOutput() OntapFileSystemEndpointManagementOutput {
+	return i.ToOntapFileSystemEndpointManagementOutputWithContext(context.Background())
+}
+
+func (i OntapFileSystemEndpointManagementArgs) ToOntapFileSystemEndpointManagementOutputWithContext(ctx context.Context) OntapFileSystemEndpointManagementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OntapFileSystemEndpointManagementOutput)
+}
+
+// OntapFileSystemEndpointManagementArrayInput is an input type that accepts OntapFileSystemEndpointManagementArray and OntapFileSystemEndpointManagementArrayOutput values.
+// You can construct a concrete instance of `OntapFileSystemEndpointManagementArrayInput` via:
+//
+//          OntapFileSystemEndpointManagementArray{ OntapFileSystemEndpointManagementArgs{...} }
+type OntapFileSystemEndpointManagementArrayInput interface {
+	pulumi.Input
+
+	ToOntapFileSystemEndpointManagementArrayOutput() OntapFileSystemEndpointManagementArrayOutput
+	ToOntapFileSystemEndpointManagementArrayOutputWithContext(context.Context) OntapFileSystemEndpointManagementArrayOutput
+}
+
+type OntapFileSystemEndpointManagementArray []OntapFileSystemEndpointManagementInput
+
+func (OntapFileSystemEndpointManagementArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OntapFileSystemEndpointManagement)(nil)).Elem()
+}
+
+func (i OntapFileSystemEndpointManagementArray) ToOntapFileSystemEndpointManagementArrayOutput() OntapFileSystemEndpointManagementArrayOutput {
+	return i.ToOntapFileSystemEndpointManagementArrayOutputWithContext(context.Background())
+}
+
+func (i OntapFileSystemEndpointManagementArray) ToOntapFileSystemEndpointManagementArrayOutputWithContext(ctx context.Context) OntapFileSystemEndpointManagementArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OntapFileSystemEndpointManagementArrayOutput)
+}
+
+type OntapFileSystemEndpointManagementOutput struct{ *pulumi.OutputState }
+
+func (OntapFileSystemEndpointManagementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OntapFileSystemEndpointManagement)(nil)).Elem()
+}
+
+func (o OntapFileSystemEndpointManagementOutput) ToOntapFileSystemEndpointManagementOutput() OntapFileSystemEndpointManagementOutput {
+	return o
+}
+
+func (o OntapFileSystemEndpointManagementOutput) ToOntapFileSystemEndpointManagementOutputWithContext(ctx context.Context) OntapFileSystemEndpointManagementOutput {
+	return o
+}
+
+// The Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
+func (o OntapFileSystemEndpointManagementOutput) DnsName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OntapFileSystemEndpointManagement) *string { return v.DnsName }).(pulumi.StringPtrOutput)
+}
+
+// IP addresses of the file system endpoint.
+func (o OntapFileSystemEndpointManagementOutput) IpAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v OntapFileSystemEndpointManagement) []string { return v.IpAddresses }).(pulumi.StringArrayOutput)
+}
+
+type OntapFileSystemEndpointManagementArrayOutput struct{ *pulumi.OutputState }
+
+func (OntapFileSystemEndpointManagementArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OntapFileSystemEndpointManagement)(nil)).Elem()
+}
+
+func (o OntapFileSystemEndpointManagementArrayOutput) ToOntapFileSystemEndpointManagementArrayOutput() OntapFileSystemEndpointManagementArrayOutput {
+	return o
+}
+
+func (o OntapFileSystemEndpointManagementArrayOutput) ToOntapFileSystemEndpointManagementArrayOutputWithContext(ctx context.Context) OntapFileSystemEndpointManagementArrayOutput {
+	return o
+}
+
+func (o OntapFileSystemEndpointManagementArrayOutput) Index(i pulumi.IntInput) OntapFileSystemEndpointManagementOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OntapFileSystemEndpointManagement {
+		return vs[0].([]OntapFileSystemEndpointManagement)[vs[1].(int)]
+	}).(OntapFileSystemEndpointManagementOutput)
+}
+
 type WindowsFileSystemAuditLogConfiguration struct {
 	// The Amazon Resource Name (ARN) for the destination of the audit logs. The destination can be any Amazon CloudWatch Logs log group ARN or Amazon Kinesis Data Firehose delivery stream ARN. Can be specified when `fileAccessAuditLogLevel` and `fileShareAccessAuditLogLevel` are not set to `DISABLED`. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. The name of the Amazon Kinesis Data Firehouse delivery stream must begin with the `aws-fsx` prefix. If you do not provide a destination in `auditLogDestionation`, Amazon FSx will create and use a log stream in the CloudWatch Logs /aws/fsx/windows log group.
 	AuditLogDestination *string `pulumi:"auditLogDestination"`
@@ -420,6 +894,14 @@ func (o WindowsFileSystemSelfManagedActiveDirectoryPtrOutput) Username() pulumi.
 }
 
 func init() {
+	pulumi.RegisterOutputType(OntapFileSystemDiskIopsConfigurationOutput{})
+	pulumi.RegisterOutputType(OntapFileSystemDiskIopsConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(OntapFileSystemEndpointOutput{})
+	pulumi.RegisterOutputType(OntapFileSystemEndpointArrayOutput{})
+	pulumi.RegisterOutputType(OntapFileSystemEndpointInterclusterOutput{})
+	pulumi.RegisterOutputType(OntapFileSystemEndpointInterclusterArrayOutput{})
+	pulumi.RegisterOutputType(OntapFileSystemEndpointManagementOutput{})
+	pulumi.RegisterOutputType(OntapFileSystemEndpointManagementArrayOutput{})
 	pulumi.RegisterOutputType(WindowsFileSystemAuditLogConfigurationOutput{})
 	pulumi.RegisterOutputType(WindowsFileSystemAuditLogConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(WindowsFileSystemSelfManagedActiveDirectoryOutput{})

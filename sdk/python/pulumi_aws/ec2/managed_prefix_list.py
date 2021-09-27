@@ -250,40 +250,6 @@ class ManagedPrefixList(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Provides a managed prefix list resource.
-
-        > **NOTE on `max_entries`:** When you reference a Prefix List in a resource,
-        the maximum number of entries for the prefix lists counts as the same number of rules
-        or entries for the resource. For example, if you create a prefix list with a maximum
-        of 20 entries and you reference that prefix list in a security group rule, this counts
-        as 20 rules for the security group.
-
-        ## Example Usage
-
-        Basic usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2.ManagedPrefixList("example",
-            address_family="IPv4",
-            max_entries=5,
-            entries=[
-                aws.ec2.ManagedPrefixListEntryArgs(
-                    cidr=aws_vpc["example"]["cidr_block"],
-                    description="Primary",
-                ),
-                aws.ec2.ManagedPrefixListEntryArgs(
-                    cidr=aws_vpc_ipv4_cidr_block_association["example"]["cidr_block"],
-                    description="Secondary",
-                ),
-            ],
-            tags={
-                "Env": "live",
-            })
-        ```
-
         ## Import
 
         Prefix Lists can be imported using the `id`, e.g.
@@ -306,40 +272,6 @@ class ManagedPrefixList(pulumi.CustomResource):
                  args: ManagedPrefixListArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a managed prefix list resource.
-
-        > **NOTE on `max_entries`:** When you reference a Prefix List in a resource,
-        the maximum number of entries for the prefix lists counts as the same number of rules
-        or entries for the resource. For example, if you create a prefix list with a maximum
-        of 20 entries and you reference that prefix list in a security group rule, this counts
-        as 20 rules for the security group.
-
-        ## Example Usage
-
-        Basic usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.ec2.ManagedPrefixList("example",
-            address_family="IPv4",
-            max_entries=5,
-            entries=[
-                aws.ec2.ManagedPrefixListEntryArgs(
-                    cidr=aws_vpc["example"]["cidr_block"],
-                    description="Primary",
-                ),
-                aws.ec2.ManagedPrefixListEntryArgs(
-                    cidr=aws_vpc_ipv4_cidr_block_association["example"]["cidr_block"],
-                    description="Secondary",
-                ),
-            ],
-            tags={
-                "Env": "live",
-            })
-        ```
-
         ## Import
 
         Prefix Lists can be imported using the `id`, e.g.
@@ -460,7 +392,7 @@ class ManagedPrefixList(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def entries(self) -> pulumi.Output[Optional[Sequence['outputs.ManagedPrefixListEntry']]]:
+    def entries(self) -> pulumi.Output[Sequence['outputs.ManagedPrefixListEntry']]:
         """
         Configuration block for prefix list entry. Detailed below. Different entries may have overlapping CIDR blocks, but a particular CIDR should not be duplicated.
         """

@@ -4350,6 +4350,47 @@ export namespace apprunner {
 }
 
 export namespace appstream {
+    export interface FleetComputeCapacity {
+        /**
+         * Number of currently available instances that can be used to stream sessions.
+         */
+        available: number;
+        /**
+         * Desired number of streaming instances.
+         */
+        desiredInstances: number;
+        /**
+         * Number of instances in use for streaming.
+         */
+        inUse: number;
+        /**
+         * Total number of simultaneous streaming instances that are running.
+         */
+        running: number;
+    }
+
+    export interface FleetDomainJoinInfo {
+        /**
+         * Fully qualified name of the directory (for example, corp.example.com).
+         */
+        directoryName?: string;
+        /**
+         * Distinguished name of the organizational unit for computer accounts.
+         */
+        organizationalUnitDistinguishedName?: string;
+    }
+
+    export interface FleetVpcConfig {
+        /**
+         * Identifiers of the security groups for the fleet or image builder.
+         */
+        securityGroupIds: string[];
+        /**
+         * Identifiers of the subnets to which a network interface is attached from the fleet instance or image builder instance.
+         */
+        subnetIds: string[];
+    }
+
     export interface StackAccessEndpoint {
         endpointType: string;
         vpceId: string;
@@ -10412,6 +10453,7 @@ export namespace ec2 {
          * The state of the metadata service: `enabled`, `disabled`.
          */
         httpEndpoint: string;
+        httpProtocolIpv6: string;
         /**
          * The desired HTTP PUT response hop limit for instance metadata requests.
          */
@@ -12164,9 +12206,7 @@ export namespace ec2 {
         allowClassicLinkToRemoteVpc?: boolean;
         /**
          * Allow a local VPC to resolve public DNS hostnames to
-         * private IP addresses when queried from instances in the peer VPC. This is
-         * [not supported](https://docs.aws.amazon.com/vpc/latest/peering/modify-peering-connections.html) for
-         * inter-region VPC peering.
+         * private IP addresses when queried from instances in the peer VPC.
          */
         allowRemoteVpcDnsResolution?: boolean;
         /**
@@ -12222,9 +12262,7 @@ export namespace ec2 {
         allowClassicLinkToRemoteVpc?: boolean;
         /**
          * Allow a local VPC to resolve public DNS hostnames to
-         * private IP addresses when queried from instances in the peer VPC. This is
-         * [not supported](https://docs.aws.amazon.com/vpc/latest/peering/modify-peering-connections.html) for
-         * inter-region VPC peering.
+         * private IP addresses when queried from instances in the peer VPC.
          */
         allowRemoteVpcDnsResolution?: boolean;
         /**
@@ -12955,6 +12993,7 @@ export namespace efs {
 
     export interface GetFileSystemLifecyclePolicy {
         transitionToIa: string;
+        transitionToPrimaryStorageClass: string;
     }
 
 }
@@ -15552,6 +15591,50 @@ export namespace fms {
 }
 
 export namespace fsx {
+    export interface OntapFileSystemDiskIopsConfiguration {
+        /**
+         * - The total number of SSD IOPS provisioned for the file system.
+         */
+        iops: number;
+        /**
+         * - Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
+         */
+        mode?: string;
+    }
+
+    export interface OntapFileSystemEndpoint {
+        /**
+         * An endpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See Endpoint.
+         */
+        interclusters: outputs.fsx.OntapFileSystemEndpointIntercluster[];
+        /**
+         * An endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
+         */
+        managements: outputs.fsx.OntapFileSystemEndpointManagement[];
+    }
+
+    export interface OntapFileSystemEndpointIntercluster {
+        /**
+         * The Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
+         */
+        dnsName: string;
+        /**
+         * IP addresses of the file system endpoint.
+         */
+        ipAddresses: string[];
+    }
+
+    export interface OntapFileSystemEndpointManagement {
+        /**
+         * The Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
+         */
+        dnsName: string;
+        /**
+         * IP addresses of the file system endpoint.
+         */
+        ipAddresses: string[];
+    }
+
     export interface WindowsFileSystemAuditLogConfiguration {
         /**
          * The Amazon Resource Name (ARN) for the destination of the audit logs. The destination can be any Amazon CloudWatch Logs log group ARN or Amazon Kinesis Data Firehose delivery stream ARN. Can be specified when `fileAccessAuditLogLevel` and `fileShareAccessAuditLogLevel` are not set to `DISABLED`. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. The name of the Amazon Kinesis Data Firehouse delivery stream must begin with the `aws-fsx` prefix. If you do not provide a destination in `auditLogDestionation`, Amazon FSx will create and use a log stream in the CloudWatch Logs /aws/fsx/windows log group.
@@ -21649,6 +21732,33 @@ export namespace msk {
         enabledInBroker: boolean;
     }
 
+    export interface GetBrokerNodesNodeInfoList {
+        /**
+         * The attached elastic network interface of the broker
+         */
+        attachedEniId: string;
+        /**
+         * The ID of the broker
+         */
+        brokerId: number;
+        /**
+         * The client subnet to which this broker node belongs
+         */
+        clientSubnet: string;
+        /**
+         * The client virtual private cloud (VPC) IP address
+         */
+        clientVpcIpAddress: string;
+        /**
+         * Set of endpoints for accessing the broker. This does not include ports
+         */
+        endpoints: string[];
+        /**
+         * The Amazon Resource Name (ARN) of the node
+         */
+        nodeArn: string;
+    }
+
 }
 
 export namespace mwaa {
@@ -24551,6 +24661,99 @@ export namespace sagemaker {
          * The ID of the AWS Key Management Service (AWS KMS) key that SageMaker Feature Store uses to encrypt the Amazon S3 objects at rest using Amazon S3 server-side encryption.
          */
         kmsKeyId?: string;
+    }
+
+    export interface FlowDefinitionHumanLoopActivationConfig {
+        /**
+         * defines under what conditions SageMaker creates a human loop. See Human Loop Activation Conditions Config details below.
+         */
+        humanLoopActivationConditionsConfig?: outputs.sagemaker.FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfig;
+    }
+
+    export interface FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfig {
+        /**
+         * A JSON expressing use-case specific conditions declaratively. If any condition is matched, atomic tasks are created against the configured work team. For more information about how to structure the JSON, see [JSON Schema for Human Loop Activation Conditions in Amazon Augmented AI](https://docs.aws.amazon.com/sagemaker/latest/dg/a2i-human-fallback-conditions-json-schema.html).
+         */
+        humanLoopActivationConditions: string;
+    }
+
+    export interface FlowDefinitionHumanLoopConfig {
+        /**
+         * The Amazon Resource Name (ARN) of the human task user interface.
+         */
+        humanTaskUiArn: string;
+        /**
+         * Defines the amount of money paid to an Amazon Mechanical Turk worker for each task performed. See Public Workforce Task Price details below.
+         */
+        publicWorkforceTaskPrice?: outputs.sagemaker.FlowDefinitionHumanLoopConfigPublicWorkforceTaskPrice;
+        /**
+         * The length of time that a task remains available for review by human workers. Valid value range between `1` and `864000`.
+         */
+        taskAvailabilityLifetimeInSeconds?: number;
+        /**
+         * The number of distinct workers who will perform the same task on each object. Valid value range between `1` and `3`.
+         */
+        taskCount: number;
+        /**
+         * A description for the human worker task.
+         */
+        taskDescription: string;
+        /**
+         * An array of keywords used to describe the task so that workers can discover the task.
+         */
+        taskKeywords?: string[];
+        /**
+         * The amount of time that a worker has to complete a task. The default value is `3600` seconds.
+         */
+        taskTimeLimitInSeconds?: number;
+        /**
+         * A title for the human worker task.
+         */
+        taskTitle: string;
+        /**
+         * The Amazon Resource Name (ARN) of the human task user interface. Amazon Resource Name (ARN) of a team of workers. For Public workforces see [AWS Docs](https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-management-public.html).
+         */
+        workteamArn: string;
+    }
+
+    export interface FlowDefinitionHumanLoopConfigPublicWorkforceTaskPrice {
+        /**
+         * Defines the amount of money paid to an Amazon Mechanical Turk worker in United States dollars. See Amount In Usd details below.
+         */
+        amountInUsd?: outputs.sagemaker.FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsd;
+    }
+
+    export interface FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsd {
+        /**
+         * The fractional portion, in cents, of the amount. Valid value range between `0` and `99`.
+         */
+        cents?: number;
+        /**
+         * The whole number of dollars in the amount. Valid value range between `0` and `2`.
+         */
+        dollars?: number;
+        /**
+         * Fractions of a cent, in tenths. Valid value range between `0` and `9`.
+         */
+        tenthFractionsOfACent?: number;
+    }
+
+    export interface FlowDefinitionHumanLoopRequestSource {
+        /**
+         * Specifies whether Amazon Rekognition or Amazon Textract are used as the integration source. Valid values are: `AWS/Rekognition/DetectModerationLabels/Image/V3` and `AWS/Textract/AnalyzeDocument/Forms/V1`.
+         */
+        awsManagedHumanLoopRequestSource: string;
+    }
+
+    export interface FlowDefinitionOutputConfig {
+        /**
+         * The Amazon Key Management Service (KMS) key ARN for server-side encryption.
+         */
+        kmsKeyId?: string;
+        /**
+         * The Amazon S3 path where the object containing human output will be made available.
+         */
+        s3OutputPath: string;
     }
 
     export interface HumanTaskUIUiTemplate {

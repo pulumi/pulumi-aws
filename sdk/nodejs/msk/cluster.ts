@@ -225,6 +225,10 @@ export class Cluster extends pulumi.CustomResource {
      * A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster. The returned values are sorted alphbetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
      */
     public /*out*/ readonly zookeeperConnectString!: pulumi.Output<string>;
+    /**
+     * A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster via TLS. The returned values are sorted alphbetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
+     */
+    public /*out*/ readonly zookeeperConnectStringTls!: pulumi.Output<string>;
 
     /**
      * Create a Cluster resource with the given unique name, arguments, and options.
@@ -258,6 +262,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["tags"] = state ? state.tags : undefined;
             inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["zookeeperConnectString"] = state ? state.zookeeperConnectString : undefined;
+            inputs["zookeeperConnectStringTls"] = state ? state.zookeeperConnectStringTls : undefined;
         } else {
             const args = argsOrState as ClusterArgs | undefined;
             if ((!args || args.brokerNodeGroupInfo === undefined) && !opts.urn) {
@@ -288,6 +293,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["currentVersion"] = undefined /*out*/;
             inputs["tagsAll"] = undefined /*out*/;
             inputs["zookeeperConnectString"] = undefined /*out*/;
+            inputs["zookeeperConnectStringTls"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -377,6 +383,10 @@ export interface ClusterState {
      * A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster. The returned values are sorted alphbetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
      */
     zookeeperConnectString?: pulumi.Input<string>;
+    /**
+     * A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster via TLS. The returned values are sorted alphbetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
+     */
+    zookeeperConnectStringTls?: pulumi.Input<string>;
 }
 
 /**

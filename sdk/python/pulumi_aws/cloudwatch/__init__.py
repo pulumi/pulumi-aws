@@ -18,6 +18,7 @@ from .event_target import *
 from .get_event_connection import *
 from .get_event_source import *
 from .get_log_group import *
+from .get_log_groups import *
 from .log_destination import *
 from .log_destination_policy import *
 from .log_group import *

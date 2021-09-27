@@ -7,8 +7,10 @@ import typing
 # Export this package's modules as members:
 from .cluster import *
 from .configuration import *
+from .get_broker_nodes import *
 from .get_cluster import *
 from .get_configuration import *
+from .get_kafka_version import *
 from .scram_secret_association import *
 from ._inputs import *
 from . import outputs

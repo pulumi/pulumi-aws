@@ -101,8 +101,8 @@ type LookupManagedPrefixListResult struct {
 	// The ARN of the selected prefix list.
 	Arn string `pulumi:"arn"`
 	// The set of entries in this prefix list. Each entry is an object with `cidr` and `description`.
-	Entries []GetManagedPrefixListEntry  `pulumi:"entries"`
-	Filters []GetManagedPrefixListFilter `pulumi:"filters"`
+	Entries []GetManagedPrefixListEntryType `pulumi:"entries"`
+	Filters []GetManagedPrefixListFilter    `pulumi:"filters"`
 	// The ID of the selected prefix list.
 	Id string `pulumi:"id"`
 	// When then prefix list is managed, the maximum number of entries it supports, or null otherwise.
@@ -167,8 +167,8 @@ func (o LookupManagedPrefixListResultOutput) Arn() pulumi.StringOutput {
 }
 
 // The set of entries in this prefix list. Each entry is an object with `cidr` and `description`.
-func (o LookupManagedPrefixListResultOutput) Entries() GetManagedPrefixListEntryArrayOutput {
-	return o.ApplyT(func(v LookupManagedPrefixListResult) []GetManagedPrefixListEntry { return v.Entries }).(GetManagedPrefixListEntryArrayOutput)
+func (o LookupManagedPrefixListResultOutput) Entries() GetManagedPrefixListEntryTypeArrayOutput {
+	return o.ApplyT(func(v LookupManagedPrefixListResult) []GetManagedPrefixListEntryType { return v.Entries }).(GetManagedPrefixListEntryTypeArrayOutput)
 }
 
 func (o LookupManagedPrefixListResultOutput) Filters() GetManagedPrefixListFilterArrayOutput {

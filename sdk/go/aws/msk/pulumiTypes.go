@@ -2500,6 +2500,148 @@ func (o ClusterOpenMonitoringPrometheusNodeExporterPtrOutput) EnabledInBroker() 
 	}).(pulumi.BoolPtrOutput)
 }
 
+type GetBrokerNodesNodeInfoList struct {
+	// The attached elastic network interface of the broker
+	AttachedEniId string `pulumi:"attachedEniId"`
+	// The ID of the broker
+	BrokerId float64 `pulumi:"brokerId"`
+	// The client subnet to which this broker node belongs
+	ClientSubnet string `pulumi:"clientSubnet"`
+	// The client virtual private cloud (VPC) IP address
+	ClientVpcIpAddress string `pulumi:"clientVpcIpAddress"`
+	// Set of endpoints for accessing the broker. This does not include ports
+	Endpoints []string `pulumi:"endpoints"`
+	// The Amazon Resource Name (ARN) of the node
+	NodeArn string `pulumi:"nodeArn"`
+}
+
+// GetBrokerNodesNodeInfoListInput is an input type that accepts GetBrokerNodesNodeInfoListArgs and GetBrokerNodesNodeInfoListOutput values.
+// You can construct a concrete instance of `GetBrokerNodesNodeInfoListInput` via:
+//
+//          GetBrokerNodesNodeInfoListArgs{...}
+type GetBrokerNodesNodeInfoListInput interface {
+	pulumi.Input
+
+	ToGetBrokerNodesNodeInfoListOutput() GetBrokerNodesNodeInfoListOutput
+	ToGetBrokerNodesNodeInfoListOutputWithContext(context.Context) GetBrokerNodesNodeInfoListOutput
+}
+
+type GetBrokerNodesNodeInfoListArgs struct {
+	// The attached elastic network interface of the broker
+	AttachedEniId pulumi.StringInput `pulumi:"attachedEniId"`
+	// The ID of the broker
+	BrokerId pulumi.Float64Input `pulumi:"brokerId"`
+	// The client subnet to which this broker node belongs
+	ClientSubnet pulumi.StringInput `pulumi:"clientSubnet"`
+	// The client virtual private cloud (VPC) IP address
+	ClientVpcIpAddress pulumi.StringInput `pulumi:"clientVpcIpAddress"`
+	// Set of endpoints for accessing the broker. This does not include ports
+	Endpoints pulumi.StringArrayInput `pulumi:"endpoints"`
+	// The Amazon Resource Name (ARN) of the node
+	NodeArn pulumi.StringInput `pulumi:"nodeArn"`
+}
+
+func (GetBrokerNodesNodeInfoListArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBrokerNodesNodeInfoList)(nil)).Elem()
+}
+
+func (i GetBrokerNodesNodeInfoListArgs) ToGetBrokerNodesNodeInfoListOutput() GetBrokerNodesNodeInfoListOutput {
+	return i.ToGetBrokerNodesNodeInfoListOutputWithContext(context.Background())
+}
+
+func (i GetBrokerNodesNodeInfoListArgs) ToGetBrokerNodesNodeInfoListOutputWithContext(ctx context.Context) GetBrokerNodesNodeInfoListOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBrokerNodesNodeInfoListOutput)
+}
+
+// GetBrokerNodesNodeInfoListArrayInput is an input type that accepts GetBrokerNodesNodeInfoListArray and GetBrokerNodesNodeInfoListArrayOutput values.
+// You can construct a concrete instance of `GetBrokerNodesNodeInfoListArrayInput` via:
+//
+//          GetBrokerNodesNodeInfoListArray{ GetBrokerNodesNodeInfoListArgs{...} }
+type GetBrokerNodesNodeInfoListArrayInput interface {
+	pulumi.Input
+
+	ToGetBrokerNodesNodeInfoListArrayOutput() GetBrokerNodesNodeInfoListArrayOutput
+	ToGetBrokerNodesNodeInfoListArrayOutputWithContext(context.Context) GetBrokerNodesNodeInfoListArrayOutput
+}
+
+type GetBrokerNodesNodeInfoListArray []GetBrokerNodesNodeInfoListInput
+
+func (GetBrokerNodesNodeInfoListArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBrokerNodesNodeInfoList)(nil)).Elem()
+}
+
+func (i GetBrokerNodesNodeInfoListArray) ToGetBrokerNodesNodeInfoListArrayOutput() GetBrokerNodesNodeInfoListArrayOutput {
+	return i.ToGetBrokerNodesNodeInfoListArrayOutputWithContext(context.Background())
+}
+
+func (i GetBrokerNodesNodeInfoListArray) ToGetBrokerNodesNodeInfoListArrayOutputWithContext(ctx context.Context) GetBrokerNodesNodeInfoListArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBrokerNodesNodeInfoListArrayOutput)
+}
+
+type GetBrokerNodesNodeInfoListOutput struct{ *pulumi.OutputState }
+
+func (GetBrokerNodesNodeInfoListOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBrokerNodesNodeInfoList)(nil)).Elem()
+}
+
+func (o GetBrokerNodesNodeInfoListOutput) ToGetBrokerNodesNodeInfoListOutput() GetBrokerNodesNodeInfoListOutput {
+	return o
+}
+
+func (o GetBrokerNodesNodeInfoListOutput) ToGetBrokerNodesNodeInfoListOutputWithContext(ctx context.Context) GetBrokerNodesNodeInfoListOutput {
+	return o
+}
+
+// The attached elastic network interface of the broker
+func (o GetBrokerNodesNodeInfoListOutput) AttachedEniId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBrokerNodesNodeInfoList) string { return v.AttachedEniId }).(pulumi.StringOutput)
+}
+
+// The ID of the broker
+func (o GetBrokerNodesNodeInfoListOutput) BrokerId() pulumi.Float64Output {
+	return o.ApplyT(func(v GetBrokerNodesNodeInfoList) float64 { return v.BrokerId }).(pulumi.Float64Output)
+}
+
+// The client subnet to which this broker node belongs
+func (o GetBrokerNodesNodeInfoListOutput) ClientSubnet() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBrokerNodesNodeInfoList) string { return v.ClientSubnet }).(pulumi.StringOutput)
+}
+
+// The client virtual private cloud (VPC) IP address
+func (o GetBrokerNodesNodeInfoListOutput) ClientVpcIpAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBrokerNodesNodeInfoList) string { return v.ClientVpcIpAddress }).(pulumi.StringOutput)
+}
+
+// Set of endpoints for accessing the broker. This does not include ports
+func (o GetBrokerNodesNodeInfoListOutput) Endpoints() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetBrokerNodesNodeInfoList) []string { return v.Endpoints }).(pulumi.StringArrayOutput)
+}
+
+// The Amazon Resource Name (ARN) of the node
+func (o GetBrokerNodesNodeInfoListOutput) NodeArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBrokerNodesNodeInfoList) string { return v.NodeArn }).(pulumi.StringOutput)
+}
+
+type GetBrokerNodesNodeInfoListArrayOutput struct{ *pulumi.OutputState }
+
+func (GetBrokerNodesNodeInfoListArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBrokerNodesNodeInfoList)(nil)).Elem()
+}
+
+func (o GetBrokerNodesNodeInfoListArrayOutput) ToGetBrokerNodesNodeInfoListArrayOutput() GetBrokerNodesNodeInfoListArrayOutput {
+	return o
+}
+
+func (o GetBrokerNodesNodeInfoListArrayOutput) ToGetBrokerNodesNodeInfoListArrayOutputWithContext(ctx context.Context) GetBrokerNodesNodeInfoListArrayOutput {
+	return o
+}
+
+func (o GetBrokerNodesNodeInfoListArrayOutput) Index(i pulumi.IntInput) GetBrokerNodesNodeInfoListOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetBrokerNodesNodeInfoList {
+		return vs[0].([]GetBrokerNodesNodeInfoList)[vs[1].(int)]
+	}).(GetBrokerNodesNodeInfoListOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ClusterBrokerNodeGroupInfoOutput{})
 	pulumi.RegisterOutputType(ClusterBrokerNodeGroupInfoPtrOutput{})
@@ -2533,4 +2675,6 @@ func init() {
 	pulumi.RegisterOutputType(ClusterOpenMonitoringPrometheusJmxExporterPtrOutput{})
 	pulumi.RegisterOutputType(ClusterOpenMonitoringPrometheusNodeExporterOutput{})
 	pulumi.RegisterOutputType(ClusterOpenMonitoringPrometheusNodeExporterPtrOutput{})
+	pulumi.RegisterOutputType(GetBrokerNodesNodeInfoListOutput{})
+	pulumi.RegisterOutputType(GetBrokerNodesNodeInfoListArrayOutput{})
 }

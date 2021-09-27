@@ -40,6 +40,13 @@ __all__ = [
     'FeatureGroupOfflineStoreConfigS3StorageConfig',
     'FeatureGroupOnlineStoreConfig',
     'FeatureGroupOnlineStoreConfigSecurityConfig',
+    'FlowDefinitionHumanLoopActivationConfig',
+    'FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfig',
+    'FlowDefinitionHumanLoopConfig',
+    'FlowDefinitionHumanLoopConfigPublicWorkforceTaskPrice',
+    'FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsd',
+    'FlowDefinitionHumanLoopRequestSource',
+    'FlowDefinitionOutputConfig',
     'HumanTaskUIUiTemplate',
     'ModelContainer',
     'ModelContainerImageConfig',
@@ -1717,6 +1724,400 @@ class FeatureGroupOnlineStoreConfigSecurityConfig(dict):
     def kms_key_id(self) -> Optional[str]:
         """
         The ID of the AWS Key Management Service (AWS KMS) key that SageMaker Feature Store uses to encrypt the Amazon S3 objects at rest using Amazon S3 server-side encryption.
+        """
+        return pulumi.get(self, "kms_key_id")
+
+
+@pulumi.output_type
+class FlowDefinitionHumanLoopActivationConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "humanLoopActivationConditionsConfig":
+            suggest = "human_loop_activation_conditions_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowDefinitionHumanLoopActivationConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowDefinitionHumanLoopActivationConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowDefinitionHumanLoopActivationConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 human_loop_activation_conditions_config: Optional['outputs.FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfig'] = None):
+        """
+        :param 'FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigArgs' human_loop_activation_conditions_config: defines under what conditions SageMaker creates a human loop. See Human Loop Activation Conditions Config details below.
+        """
+        if human_loop_activation_conditions_config is not None:
+            pulumi.set(__self__, "human_loop_activation_conditions_config", human_loop_activation_conditions_config)
+
+    @property
+    @pulumi.getter(name="humanLoopActivationConditionsConfig")
+    def human_loop_activation_conditions_config(self) -> Optional['outputs.FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfig']:
+        """
+        defines under what conditions SageMaker creates a human loop. See Human Loop Activation Conditions Config details below.
+        """
+        return pulumi.get(self, "human_loop_activation_conditions_config")
+
+
+@pulumi.output_type
+class FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "humanLoopActivationConditions":
+            suggest = "human_loop_activation_conditions"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 human_loop_activation_conditions: str):
+        """
+        :param str human_loop_activation_conditions: A JSON expressing use-case specific conditions declaratively. If any condition is matched, atomic tasks are created against the configured work team. For more information about how to structure the JSON, see [JSON Schema for Human Loop Activation Conditions in Amazon Augmented AI](https://docs.aws.amazon.com/sagemaker/latest/dg/a2i-human-fallback-conditions-json-schema.html).
+        """
+        pulumi.set(__self__, "human_loop_activation_conditions", human_loop_activation_conditions)
+
+    @property
+    @pulumi.getter(name="humanLoopActivationConditions")
+    def human_loop_activation_conditions(self) -> str:
+        """
+        A JSON expressing use-case specific conditions declaratively. If any condition is matched, atomic tasks are created against the configured work team. For more information about how to structure the JSON, see [JSON Schema for Human Loop Activation Conditions in Amazon Augmented AI](https://docs.aws.amazon.com/sagemaker/latest/dg/a2i-human-fallback-conditions-json-schema.html).
+        """
+        return pulumi.get(self, "human_loop_activation_conditions")
+
+
+@pulumi.output_type
+class FlowDefinitionHumanLoopConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "humanTaskUiArn":
+            suggest = "human_task_ui_arn"
+        elif key == "taskCount":
+            suggest = "task_count"
+        elif key == "taskDescription":
+            suggest = "task_description"
+        elif key == "taskTitle":
+            suggest = "task_title"
+        elif key == "workteamArn":
+            suggest = "workteam_arn"
+        elif key == "publicWorkforceTaskPrice":
+            suggest = "public_workforce_task_price"
+        elif key == "taskAvailabilityLifetimeInSeconds":
+            suggest = "task_availability_lifetime_in_seconds"
+        elif key == "taskKeywords":
+            suggest = "task_keywords"
+        elif key == "taskTimeLimitInSeconds":
+            suggest = "task_time_limit_in_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowDefinitionHumanLoopConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowDefinitionHumanLoopConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowDefinitionHumanLoopConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 human_task_ui_arn: str,
+                 task_count: int,
+                 task_description: str,
+                 task_title: str,
+                 workteam_arn: str,
+                 public_workforce_task_price: Optional['outputs.FlowDefinitionHumanLoopConfigPublicWorkforceTaskPrice'] = None,
+                 task_availability_lifetime_in_seconds: Optional[int] = None,
+                 task_keywords: Optional[Sequence[str]] = None,
+                 task_time_limit_in_seconds: Optional[int] = None):
+        """
+        :param str human_task_ui_arn: The Amazon Resource Name (ARN) of the human task user interface.
+        :param int task_count: The number of distinct workers who will perform the same task on each object. Valid value range between `1` and `3`.
+        :param str task_description: A description for the human worker task.
+        :param str task_title: A title for the human worker task.
+        :param str workteam_arn: The Amazon Resource Name (ARN) of the human task user interface. Amazon Resource Name (ARN) of a team of workers. For Public workforces see [AWS Docs](https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-management-public.html).
+        :param 'FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceArgs' public_workforce_task_price: Defines the amount of money paid to an Amazon Mechanical Turk worker for each task performed. See Public Workforce Task Price details below.
+        :param int task_availability_lifetime_in_seconds: The length of time that a task remains available for review by human workers. Valid value range between `1` and `864000`.
+        :param Sequence[str] task_keywords: An array of keywords used to describe the task so that workers can discover the task.
+        :param int task_time_limit_in_seconds: The amount of time that a worker has to complete a task. The default value is `3600` seconds.
+        """
+        pulumi.set(__self__, "human_task_ui_arn", human_task_ui_arn)
+        pulumi.set(__self__, "task_count", task_count)
+        pulumi.set(__self__, "task_description", task_description)
+        pulumi.set(__self__, "task_title", task_title)
+        pulumi.set(__self__, "workteam_arn", workteam_arn)
+        if public_workforce_task_price is not None:
+            pulumi.set(__self__, "public_workforce_task_price", public_workforce_task_price)
+        if task_availability_lifetime_in_seconds is not None:
+            pulumi.set(__self__, "task_availability_lifetime_in_seconds", task_availability_lifetime_in_seconds)
+        if task_keywords is not None:
+            pulumi.set(__self__, "task_keywords", task_keywords)
+        if task_time_limit_in_seconds is not None:
+            pulumi.set(__self__, "task_time_limit_in_seconds", task_time_limit_in_seconds)
+
+    @property
+    @pulumi.getter(name="humanTaskUiArn")
+    def human_task_ui_arn(self) -> str:
+        """
+        The Amazon Resource Name (ARN) of the human task user interface.
+        """
+        return pulumi.get(self, "human_task_ui_arn")
+
+    @property
+    @pulumi.getter(name="taskCount")
+    def task_count(self) -> int:
+        """
+        The number of distinct workers who will perform the same task on each object. Valid value range between `1` and `3`.
+        """
+        return pulumi.get(self, "task_count")
+
+    @property
+    @pulumi.getter(name="taskDescription")
+    def task_description(self) -> str:
+        """
+        A description for the human worker task.
+        """
+        return pulumi.get(self, "task_description")
+
+    @property
+    @pulumi.getter(name="taskTitle")
+    def task_title(self) -> str:
+        """
+        A title for the human worker task.
+        """
+        return pulumi.get(self, "task_title")
+
+    @property
+    @pulumi.getter(name="workteamArn")
+    def workteam_arn(self) -> str:
+        """
+        The Amazon Resource Name (ARN) of the human task user interface. Amazon Resource Name (ARN) of a team of workers. For Public workforces see [AWS Docs](https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-management-public.html).
+        """
+        return pulumi.get(self, "workteam_arn")
+
+    @property
+    @pulumi.getter(name="publicWorkforceTaskPrice")
+    def public_workforce_task_price(self) -> Optional['outputs.FlowDefinitionHumanLoopConfigPublicWorkforceTaskPrice']:
+        """
+        Defines the amount of money paid to an Amazon Mechanical Turk worker for each task performed. See Public Workforce Task Price details below.
+        """
+        return pulumi.get(self, "public_workforce_task_price")
+
+    @property
+    @pulumi.getter(name="taskAvailabilityLifetimeInSeconds")
+    def task_availability_lifetime_in_seconds(self) -> Optional[int]:
+        """
+        The length of time that a task remains available for review by human workers. Valid value range between `1` and `864000`.
+        """
+        return pulumi.get(self, "task_availability_lifetime_in_seconds")
+
+    @property
+    @pulumi.getter(name="taskKeywords")
+    def task_keywords(self) -> Optional[Sequence[str]]:
+        """
+        An array of keywords used to describe the task so that workers can discover the task.
+        """
+        return pulumi.get(self, "task_keywords")
+
+    @property
+    @pulumi.getter(name="taskTimeLimitInSeconds")
+    def task_time_limit_in_seconds(self) -> Optional[int]:
+        """
+        The amount of time that a worker has to complete a task. The default value is `3600` seconds.
+        """
+        return pulumi.get(self, "task_time_limit_in_seconds")
+
+
+@pulumi.output_type
+class FlowDefinitionHumanLoopConfigPublicWorkforceTaskPrice(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "amountInUsd":
+            suggest = "amount_in_usd"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowDefinitionHumanLoopConfigPublicWorkforceTaskPrice. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowDefinitionHumanLoopConfigPublicWorkforceTaskPrice.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowDefinitionHumanLoopConfigPublicWorkforceTaskPrice.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 amount_in_usd: Optional['outputs.FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsd'] = None):
+        """
+        :param 'FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdArgs' amount_in_usd: Defines the amount of money paid to an Amazon Mechanical Turk worker in United States dollars. See Amount In Usd details below.
+        """
+        if amount_in_usd is not None:
+            pulumi.set(__self__, "amount_in_usd", amount_in_usd)
+
+    @property
+    @pulumi.getter(name="amountInUsd")
+    def amount_in_usd(self) -> Optional['outputs.FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsd']:
+        """
+        Defines the amount of money paid to an Amazon Mechanical Turk worker in United States dollars. See Amount In Usd details below.
+        """
+        return pulumi.get(self, "amount_in_usd")
+
+
+@pulumi.output_type
+class FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsd(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "tenthFractionsOfACent":
+            suggest = "tenth_fractions_of_a_cent"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsd. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsd.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsd.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cents: Optional[int] = None,
+                 dollars: Optional[int] = None,
+                 tenth_fractions_of_a_cent: Optional[int] = None):
+        """
+        :param int cents: The fractional portion, in cents, of the amount. Valid value range between `0` and `99`.
+        :param int dollars: The whole number of dollars in the amount. Valid value range between `0` and `2`.
+        :param int tenth_fractions_of_a_cent: Fractions of a cent, in tenths. Valid value range between `0` and `9`.
+        """
+        if cents is not None:
+            pulumi.set(__self__, "cents", cents)
+        if dollars is not None:
+            pulumi.set(__self__, "dollars", dollars)
+        if tenth_fractions_of_a_cent is not None:
+            pulumi.set(__self__, "tenth_fractions_of_a_cent", tenth_fractions_of_a_cent)
+
+    @property
+    @pulumi.getter
+    def cents(self) -> Optional[int]:
+        """
+        The fractional portion, in cents, of the amount. Valid value range between `0` and `99`.
+        """
+        return pulumi.get(self, "cents")
+
+    @property
+    @pulumi.getter
+    def dollars(self) -> Optional[int]:
+        """
+        The whole number of dollars in the amount. Valid value range between `0` and `2`.
+        """
+        return pulumi.get(self, "dollars")
+
+    @property
+    @pulumi.getter(name="tenthFractionsOfACent")
+    def tenth_fractions_of_a_cent(self) -> Optional[int]:
+        """
+        Fractions of a cent, in tenths. Valid value range between `0` and `9`.
+        """
+        return pulumi.get(self, "tenth_fractions_of_a_cent")
+
+
+@pulumi.output_type
+class FlowDefinitionHumanLoopRequestSource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "awsManagedHumanLoopRequestSource":
+            suggest = "aws_managed_human_loop_request_source"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowDefinitionHumanLoopRequestSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowDefinitionHumanLoopRequestSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowDefinitionHumanLoopRequestSource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 aws_managed_human_loop_request_source: str):
+        """
+        :param str aws_managed_human_loop_request_source: Specifies whether Amazon Rekognition or Amazon Textract are used as the integration source. Valid values are: `AWS/Rekognition/DetectModerationLabels/Image/V3` and `AWS/Textract/AnalyzeDocument/Forms/V1`.
+        """
+        pulumi.set(__self__, "aws_managed_human_loop_request_source", aws_managed_human_loop_request_source)
+
+    @property
+    @pulumi.getter(name="awsManagedHumanLoopRequestSource")
+    def aws_managed_human_loop_request_source(self) -> str:
+        """
+        Specifies whether Amazon Rekognition or Amazon Textract are used as the integration source. Valid values are: `AWS/Rekognition/DetectModerationLabels/Image/V3` and `AWS/Textract/AnalyzeDocument/Forms/V1`.
+        """
+        return pulumi.get(self, "aws_managed_human_loop_request_source")
+
+
+@pulumi.output_type
+class FlowDefinitionOutputConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3OutputPath":
+            suggest = "s3_output_path"
+        elif key == "kmsKeyId":
+            suggest = "kms_key_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowDefinitionOutputConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowDefinitionOutputConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowDefinitionOutputConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_output_path: str,
+                 kms_key_id: Optional[str] = None):
+        """
+        :param str s3_output_path: The Amazon S3 path where the object containing human output will be made available.
+        :param str kms_key_id: The Amazon Key Management Service (KMS) key ARN for server-side encryption.
+        """
+        pulumi.set(__self__, "s3_output_path", s3_output_path)
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+
+    @property
+    @pulumi.getter(name="s3OutputPath")
+    def s3_output_path(self) -> str:
+        """
+        The Amazon S3 path where the object containing human output will be made available.
+        """
+        return pulumi.get(self, "s3_output_path")
+
+    @property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[str]:
+        """
+        The Amazon Key Management Service (KMS) key ARN for server-side encryption.
         """
         return pulumi.get(self, "kms_key_id")
 

@@ -11,53 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a managed prefix list resource.
-//
-// > **NOTE on `maxEntries`:** When you reference a Prefix List in a resource,
-// the maximum number of entries for the prefix lists counts as the same number of rules
-// or entries for the resource. For example, if you create a prefix list with a maximum
-// of 20 entries and you reference that prefix list in a security group rule, this counts
-// as 20 rules for the security group.
-//
-// ## Example Usage
-//
-// Basic usage
-//
-// ```go
-// package main
-//
-// import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/ec2"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ec2.NewManagedPrefixList(ctx, "example", &ec2.ManagedPrefixListArgs{
-// 			AddressFamily: pulumi.String("IPv4"),
-// 			MaxEntries:    pulumi.Int(5),
-// 			Entries: ec2.ManagedPrefixListEntryArray{
-// 				&ec2.ManagedPrefixListEntryArgs{
-// 					Cidr:        pulumi.Any(aws_vpc.Example.Cidr_block),
-// 					Description: pulumi.String("Primary"),
-// 				},
-// 				&ec2.ManagedPrefixListEntryArgs{
-// 					Cidr:        pulumi.Any(aws_vpc_ipv4_cidr_block_association.Example.Cidr_block),
-// 					Description: pulumi.String("Secondary"),
-// 				},
-// 			},
-// 			Tags: pulumi.StringMap{
-// 				"Env": pulumi.String("live"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-// ```
-//
 // ## Import
 //
 // Prefix Lists can be imported using the `id`, e.g.
@@ -73,7 +26,7 @@ type ManagedPrefixList struct {
 	// ARN of the prefix list.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Configuration block for prefix list entry. Detailed below. Different entries may have overlapping CIDR blocks, but a particular CIDR should not be duplicated.
-	Entries ManagedPrefixListEntryArrayOutput `pulumi:"entries"`
+	Entries ManagedPrefixListEntryTypeArrayOutput `pulumi:"entries"`
 	// Maximum number of entries that this prefix list can contain.
 	MaxEntries pulumi.IntOutput `pulumi:"maxEntries"`
 	// Name of this resource. The name must not start with `com.amazonaws`.
@@ -126,7 +79,7 @@ type managedPrefixListState struct {
 	// ARN of the prefix list.
 	Arn *string `pulumi:"arn"`
 	// Configuration block for prefix list entry. Detailed below. Different entries may have overlapping CIDR blocks, but a particular CIDR should not be duplicated.
-	Entries []ManagedPrefixListEntry `pulumi:"entries"`
+	Entries []ManagedPrefixListEntryType `pulumi:"entries"`
 	// Maximum number of entries that this prefix list can contain.
 	MaxEntries *int `pulumi:"maxEntries"`
 	// Name of this resource. The name must not start with `com.amazonaws`.
@@ -145,7 +98,7 @@ type ManagedPrefixListState struct {
 	// ARN of the prefix list.
 	Arn pulumi.StringPtrInput
 	// Configuration block for prefix list entry. Detailed below. Different entries may have overlapping CIDR blocks, but a particular CIDR should not be duplicated.
-	Entries ManagedPrefixListEntryArrayInput
+	Entries ManagedPrefixListEntryTypeArrayInput
 	// Maximum number of entries that this prefix list can contain.
 	MaxEntries pulumi.IntPtrInput
 	// Name of this resource. The name must not start with `com.amazonaws`.
@@ -166,7 +119,7 @@ type managedPrefixListArgs struct {
 	// Address family (`IPv4` or `IPv6`) of this prefix list.
 	AddressFamily string `pulumi:"addressFamily"`
 	// Configuration block for prefix list entry. Detailed below. Different entries may have overlapping CIDR blocks, but a particular CIDR should not be duplicated.
-	Entries []ManagedPrefixListEntry `pulumi:"entries"`
+	Entries []ManagedPrefixListEntryType `pulumi:"entries"`
 	// Maximum number of entries that this prefix list can contain.
 	MaxEntries int `pulumi:"maxEntries"`
 	// Name of this resource. The name must not start with `com.amazonaws`.
@@ -179,7 +132,7 @@ type ManagedPrefixListArgs struct {
 	// Address family (`IPv4` or `IPv6`) of this prefix list.
 	AddressFamily pulumi.StringInput
 	// Configuration block for prefix list entry. Detailed below. Different entries may have overlapping CIDR blocks, but a particular CIDR should not be duplicated.
-	Entries ManagedPrefixListEntryArrayInput
+	Entries ManagedPrefixListEntryTypeArrayInput
 	// Maximum number of entries that this prefix list can contain.
 	MaxEntries pulumi.IntInput
 	// Name of this resource. The name must not start with `com.amazonaws`.

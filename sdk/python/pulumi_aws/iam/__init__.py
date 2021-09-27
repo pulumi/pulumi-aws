@@ -19,6 +19,7 @@ from .get_roles import *
 from .get_server_certificate import *
 from .get_session_context import *
 from .get_user import *
+from .get_users import *
 from .group import *
 from .group_membership import *
 from .group_policy import *

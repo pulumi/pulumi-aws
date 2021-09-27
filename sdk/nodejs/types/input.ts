@@ -4207,6 +4207,47 @@ export namespace apprunner {
 }
 
 export namespace appstream {
+    export interface FleetComputeCapacity {
+        /**
+         * Number of currently available instances that can be used to stream sessions.
+         */
+        available?: pulumi.Input<number>;
+        /**
+         * Desired number of streaming instances.
+         */
+        desiredInstances: pulumi.Input<number>;
+        /**
+         * Number of instances in use for streaming.
+         */
+        inUse?: pulumi.Input<number>;
+        /**
+         * Total number of simultaneous streaming instances that are running.
+         */
+        running?: pulumi.Input<number>;
+    }
+
+    export interface FleetDomainJoinInfo {
+        /**
+         * Fully qualified name of the directory (for example, corp.example.com).
+         */
+        directoryName?: pulumi.Input<string>;
+        /**
+         * Distinguished name of the organizational unit for computer accounts.
+         */
+        organizationalUnitDistinguishedName?: pulumi.Input<string>;
+    }
+
+    export interface FleetVpcConfig {
+        /**
+         * Identifiers of the security groups for the fleet or image builder.
+         */
+        securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Identifiers of the subnets to which a network interface is attached from the fleet instance or image builder instance.
+         */
+        subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
     export interface StackAccessEndpoint {
         endpointType: pulumi.Input<string>;
         vpceId?: pulumi.Input<string>;
@@ -11060,9 +11101,7 @@ export namespace ec2 {
         allowClassicLinkToRemoteVpc?: pulumi.Input<boolean>;
         /**
          * Allow a local VPC to resolve public DNS hostnames to
-         * private IP addresses when queried from instances in the peer VPC. This is
-         * [not supported](https://docs.aws.amazon.com/vpc/latest/peering/modify-peering-connections.html) for
-         * inter-region VPC peering.
+         * private IP addresses when queried from instances in the peer VPC.
          */
         allowRemoteVpcDnsResolution?: pulumi.Input<boolean>;
         /**
@@ -11118,9 +11157,7 @@ export namespace ec2 {
         allowClassicLinkToRemoteVpc?: pulumi.Input<boolean>;
         /**
          * Allow a local VPC to resolve public DNS hostnames to
-         * private IP addresses when queried from instances in the peer VPC. This is
-         * [not supported](https://docs.aws.amazon.com/vpc/latest/peering/modify-peering-connections.html) for
-         * inter-region VPC peering.
+         * private IP addresses when queried from instances in the peer VPC.
          */
         allowRemoteVpcDnsResolution?: pulumi.Input<boolean>;
         /**
@@ -13928,6 +13965,50 @@ export namespace fms {
 }
 
 export namespace fsx {
+    export interface OntapFileSystemDiskIopsConfiguration {
+        /**
+         * - The total number of SSD IOPS provisioned for the file system.
+         */
+        iops?: pulumi.Input<number>;
+        /**
+         * - Specifies whether the number of IOPS for the file system is using the system. Valid values are `AUTOMATIC` and `USER_PROVISIONED`. Default value is `AUTOMATIC`.
+         */
+        mode?: pulumi.Input<string>;
+    }
+
+    export interface OntapFileSystemEndpoint {
+        /**
+         * An endpoint for managing your file system by setting up NetApp SnapMirror with other ONTAP systems. See Endpoint.
+         */
+        interclusters?: pulumi.Input<pulumi.Input<inputs.fsx.OntapFileSystemEndpointIntercluster>[]>;
+        /**
+         * An endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
+         */
+        managements?: pulumi.Input<pulumi.Input<inputs.fsx.OntapFileSystemEndpointManagement>[]>;
+    }
+
+    export interface OntapFileSystemEndpointIntercluster {
+        /**
+         * The Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
+         */
+        dnsName?: pulumi.Input<string>;
+        /**
+         * IP addresses of the file system endpoint.
+         */
+        ipAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface OntapFileSystemEndpointManagement {
+        /**
+         * The Domain Name Service (DNS) name for the file system. You can mount your file system using its DNS name.
+         */
+        dnsName?: pulumi.Input<string>;
+        /**
+         * IP addresses of the file system endpoint.
+         */
+        ipAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
     export interface WindowsFileSystemAuditLogConfiguration {
         /**
          * The Amazon Resource Name (ARN) for the destination of the audit logs. The destination can be any Amazon CloudWatch Logs log group ARN or Amazon Kinesis Data Firehose delivery stream ARN. Can be specified when `fileAccessAuditLogLevel` and `fileShareAccessAuditLogLevel` are not set to `DISABLED`. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. The name of the Amazon Kinesis Data Firehouse delivery stream must begin with the `aws-fsx` prefix. If you do not provide a destination in `auditLogDestionation`, Amazon FSx will create and use a log stream in the CloudWatch Logs /aws/fsx/windows log group.
@@ -19529,6 +19610,7 @@ export namespace msk {
          */
         enabledInBroker: pulumi.Input<boolean>;
     }
+
 }
 
 export namespace mwaa {
@@ -22260,6 +22342,99 @@ export namespace sagemaker {
          * The ID of the AWS Key Management Service (AWS KMS) key that SageMaker Feature Store uses to encrypt the Amazon S3 objects at rest using Amazon S3 server-side encryption.
          */
         kmsKeyId?: pulumi.Input<string>;
+    }
+
+    export interface FlowDefinitionHumanLoopActivationConfig {
+        /**
+         * defines under what conditions SageMaker creates a human loop. See Human Loop Activation Conditions Config details below.
+         */
+        humanLoopActivationConditionsConfig?: pulumi.Input<inputs.sagemaker.FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfig>;
+    }
+
+    export interface FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfig {
+        /**
+         * A JSON expressing use-case specific conditions declaratively. If any condition is matched, atomic tasks are created against the configured work team. For more information about how to structure the JSON, see [JSON Schema for Human Loop Activation Conditions in Amazon Augmented AI](https://docs.aws.amazon.com/sagemaker/latest/dg/a2i-human-fallback-conditions-json-schema.html).
+         */
+        humanLoopActivationConditions: pulumi.Input<string>;
+    }
+
+    export interface FlowDefinitionHumanLoopConfig {
+        /**
+         * The Amazon Resource Name (ARN) of the human task user interface.
+         */
+        humanTaskUiArn: pulumi.Input<string>;
+        /**
+         * Defines the amount of money paid to an Amazon Mechanical Turk worker for each task performed. See Public Workforce Task Price details below.
+         */
+        publicWorkforceTaskPrice?: pulumi.Input<inputs.sagemaker.FlowDefinitionHumanLoopConfigPublicWorkforceTaskPrice>;
+        /**
+         * The length of time that a task remains available for review by human workers. Valid value range between `1` and `864000`.
+         */
+        taskAvailabilityLifetimeInSeconds?: pulumi.Input<number>;
+        /**
+         * The number of distinct workers who will perform the same task on each object. Valid value range between `1` and `3`.
+         */
+        taskCount: pulumi.Input<number>;
+        /**
+         * A description for the human worker task.
+         */
+        taskDescription: pulumi.Input<string>;
+        /**
+         * An array of keywords used to describe the task so that workers can discover the task.
+         */
+        taskKeywords?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The amount of time that a worker has to complete a task. The default value is `3600` seconds.
+         */
+        taskTimeLimitInSeconds?: pulumi.Input<number>;
+        /**
+         * A title for the human worker task.
+         */
+        taskTitle: pulumi.Input<string>;
+        /**
+         * The Amazon Resource Name (ARN) of the human task user interface. Amazon Resource Name (ARN) of a team of workers. For Public workforces see [AWS Docs](https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-management-public.html).
+         */
+        workteamArn: pulumi.Input<string>;
+    }
+
+    export interface FlowDefinitionHumanLoopConfigPublicWorkforceTaskPrice {
+        /**
+         * Defines the amount of money paid to an Amazon Mechanical Turk worker in United States dollars. See Amount In Usd details below.
+         */
+        amountInUsd?: pulumi.Input<inputs.sagemaker.FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsd>;
+    }
+
+    export interface FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsd {
+        /**
+         * The fractional portion, in cents, of the amount. Valid value range between `0` and `99`.
+         */
+        cents?: pulumi.Input<number>;
+        /**
+         * The whole number of dollars in the amount. Valid value range between `0` and `2`.
+         */
+        dollars?: pulumi.Input<number>;
+        /**
+         * Fractions of a cent, in tenths. Valid value range between `0` and `9`.
+         */
+        tenthFractionsOfACent?: pulumi.Input<number>;
+    }
+
+    export interface FlowDefinitionHumanLoopRequestSource {
+        /**
+         * Specifies whether Amazon Rekognition or Amazon Textract are used as the integration source. Valid values are: `AWS/Rekognition/DetectModerationLabels/Image/V3` and `AWS/Textract/AnalyzeDocument/Forms/V1`.
+         */
+        awsManagedHumanLoopRequestSource: pulumi.Input<string>;
+    }
+
+    export interface FlowDefinitionOutputConfig {
+        /**
+         * The Amazon Key Management Service (KMS) key ARN for server-side encryption.
+         */
+        kmsKeyId?: pulumi.Input<string>;
+        /**
+         * The Amazon S3 path where the object containing human output will be made available.
+         */
+        s3OutputPath: pulumi.Input<string>;
     }
 
     export interface HumanTaskUIUiTemplate {

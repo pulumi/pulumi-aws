@@ -6,21 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieve the EKS Node Groups associated with a named EKS cluster. This will allow you to pass a list of Node Group names to other resources.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleNodeGroups = aws.eks.getNodeGroups({
- *     clusterName: "example",
- * });
- * const exampleNodeGroup = .map(([, ]) => aws.eks.getNodeGroup({
- *     clusterName: "example",
- *     nodeGroupName: __value,
- * }));
- * ```
  */
 export function getNodeGroups(args: GetNodeGroupsArgs, opts?: pulumi.InvokeOptions): Promise<GetNodeGroupsResult> {
     if (!opts) {

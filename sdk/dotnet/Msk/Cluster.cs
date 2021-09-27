@@ -294,6 +294,12 @@ namespace Pulumi.Aws.Msk
         [Output("zookeeperConnectString")]
         public Output<string> ZookeeperConnectString { get; private set; } = null!;
 
+        /// <summary>
+        /// A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster via TLS. The returned values are sorted alphbetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
+        /// </summary>
+        [Output("zookeeperConnectStringTls")]
+        public Output<string> ZookeeperConnectStringTls { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Cluster resource with the given unique name, arguments, and options.
@@ -545,6 +551,12 @@ namespace Pulumi.Aws.Msk
         /// </summary>
         [Input("zookeeperConnectString")]
         public Input<string>? ZookeeperConnectString { get; set; }
+
+        /// <summary>
+        /// A comma separated list of one or more hostname:port pairs to use to connect to the Apache Zookeeper cluster via TLS. The returned values are sorted alphbetically. The AWS API may not return all endpoints, so this value is not guaranteed to be stable across applies.
+        /// </summary>
+        [Input("zookeeperConnectStringTls")]
+        public Input<string>? ZookeeperConnectStringTls { get; set; }
 
         public ClusterState()
         {
