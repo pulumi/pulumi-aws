@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v3.60.0 of the AWS Terraform Provider
+_(none)_
 
 ---
+
+## 4.22.0 (2021-09-28)
+* Upgrade to v3.60.0 of the AWS Terraform Provider
 
 ## 4.21.2 (2021-09-24)
 * Ensures Go SDK types are unique in ec2 and wafv2 packages
