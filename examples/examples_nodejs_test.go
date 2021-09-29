@@ -172,6 +172,7 @@ func TestAccLambdaLayer(t *testing.T) {
 }
 
 func TestAccLambdaContainerImages(t *testing.T) {
+	t.Skip("Temporarily skipped due to issues with docker image builds")
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
 			RunUpdateTest: false, // new feature!
