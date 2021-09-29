@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Add support for AWS Graviton 2 architecture to AWS Lambda Functions and Lambda Layers
+_(none)_
 
 ---
+
+## 4.22.1 (2021-09-29)
+* Add support for AWS Graviton 2 architecture to AWS Lambda Functions and Lambda Layers
 
 ## 4.22.0 (2021-09-28)
 * Upgrade to v3.60.0 of the AWS Terraform Provider
