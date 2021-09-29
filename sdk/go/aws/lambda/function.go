@@ -124,10 +124,7 @@ import (
 // 	})
 // }
 // ```
-// ### Lambda retries
-//
-// Lambda Functions allow you to configure error handling for asynchronous invocation. The settings that it supports are `Maximum age of event` and `Retry attempts` as stated in [Lambda documentation for Configuring error handling for asynchronous invocation](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-errors). To configure these settings, refer to the lambda.FunctionEventInvokeConfig resource.
-// ## CloudWatch Logging and Permissions
+// ### CloudWatch Logging and Permissions
 //
 // For more information about CloudWatch Logs for Lambda, see the [Lambda User Guide](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-functions-logs.html).
 //
@@ -195,6 +192,8 @@ import (
 type Function struct {
 	pulumi.CustomResourceState
 
+	// The target architectures for the function. Only a single value is value at this time. Valid values are `arm64` and `x8664`. If not provided, AWS will default to `x8664`.
+	Architectures pulumi.StringArrayOutput `pulumi:"architectures"`
 	// Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Path to the function's deployment package within the local filesystem. Conflicts with `imageUri`, `s3Bucket`, `s3Key`, and `s3ObjectVersion`.
@@ -300,6 +299,8 @@ func GetFunction(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Function resources.
 type functionState struct {
+	// The target architectures for the function. Only a single value is value at this time. Valid values are `arm64` and `x8664`. If not provided, AWS will default to `x8664`.
+	Architectures []string `pulumi:"architectures"`
 	// Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
 	Arn *string `pulumi:"arn"`
 	// Path to the function's deployment package within the local filesystem. Conflicts with `imageUri`, `s3Bucket`, `s3Key`, and `s3ObjectVersion`.
@@ -374,6 +375,8 @@ type functionState struct {
 }
 
 type FunctionState struct {
+	// The target architectures for the function. Only a single value is value at this time. Valid values are `arm64` and `x8664`. If not provided, AWS will default to `x8664`.
+	Architectures pulumi.StringArrayInput
 	// Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
 	Arn pulumi.StringPtrInput
 	// Path to the function's deployment package within the local filesystem. Conflicts with `imageUri`, `s3Bucket`, `s3Key`, and `s3ObjectVersion`.
@@ -452,6 +455,8 @@ func (FunctionState) ElementType() reflect.Type {
 }
 
 type functionArgs struct {
+	// The target architectures for the function. Only a single value is value at this time. Valid values are `arm64` and `x8664`. If not provided, AWS will default to `x8664`.
+	Architectures []string `pulumi:"architectures"`
 	// Path to the function's deployment package within the local filesystem. Conflicts with `imageUri`, `s3Bucket`, `s3Key`, and `s3ObjectVersion`.
 	Code pulumi.Archive `pulumi:"code"`
 	// To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes a set of signing profiles, which define the trusted publishers for this function.
@@ -508,6 +513,8 @@ type functionArgs struct {
 
 // The set of arguments for constructing a Function resource.
 type FunctionArgs struct {
+	// The target architectures for the function. Only a single value is value at this time. Valid values are `arm64` and `x8664`. If not provided, AWS will default to `x8664`.
+	Architectures pulumi.StringArrayInput
 	// Path to the function's deployment package within the local filesystem. Conflicts with `imageUri`, `s3Bucket`, `s3Key`, and `s3ObjectVersion`.
 	Code pulumi.ArchiveInput
 	// To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes a set of signing profiles, which define the trusted publishers for this function.

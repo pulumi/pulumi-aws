@@ -15,6 +15,7 @@ class LayerVersionArgs:
     def __init__(__self__, *,
                  layer_name: pulumi.Input[str],
                  code: Optional[pulumi.Input[pulumi.Archive]] = None,
+                 compatible_architectures: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  compatible_runtimes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  license_info: Optional[pulumi.Input[str]] = None,
@@ -26,6 +27,7 @@ class LayerVersionArgs:
         The set of arguments for constructing a LayerVersion resource.
         :param pulumi.Input[str] layer_name: A unique name for your Lambda Layer
         :param pulumi.Input[pulumi.Archive] code: The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] compatible_architectures: The compatible architectures for the specific Lambda Layer Version. Valid values are `arm64` and `x86_64`. If not supplied, a value of `null` is assumed and will default to the value used for the function architecture.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] compatible_runtimes: A list of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) this layer is compatible with. Up to 5 runtimes can be specified.
         :param pulumi.Input[str] description: Description of what your Lambda Layer does.
         :param pulumi.Input[str] license_info: License info for your Lambda Layer. See [License Info](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-LicenseInfo).
@@ -37,6 +39,8 @@ class LayerVersionArgs:
         pulumi.set(__self__, "layer_name", layer_name)
         if code is not None:
             pulumi.set(__self__, "code", code)
+        if compatible_architectures is not None:
+            pulumi.set(__self__, "compatible_architectures", compatible_architectures)
         if compatible_runtimes is not None:
             pulumi.set(__self__, "compatible_runtimes", compatible_runtimes)
         if description is not None:
@@ -75,6 +79,18 @@ class LayerVersionArgs:
     @code.setter
     def code(self, value: Optional[pulumi.Input[pulumi.Archive]]):
         pulumi.set(self, "code", value)
+
+    @property
+    @pulumi.getter(name="compatibleArchitectures")
+    def compatible_architectures(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The compatible architectures for the specific Lambda Layer Version. Valid values are `arm64` and `x86_64`. If not supplied, a value of `null` is assumed and will default to the value used for the function architecture.
+        """
+        return pulumi.get(self, "compatible_architectures")
+
+    @compatible_architectures.setter
+    def compatible_architectures(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "compatible_architectures", value)
 
     @property
     @pulumi.getter(name="compatibleRuntimes")
@@ -166,6 +182,7 @@ class _LayerVersionState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  code: Optional[pulumi.Input[pulumi.Archive]] = None,
+                 compatible_architectures: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  compatible_runtimes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  created_date: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -184,6 +201,7 @@ class _LayerVersionState:
         Input properties used for looking up and filtering LayerVersion resources.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the Lambda Layer with version.
         :param pulumi.Input[pulumi.Archive] code: The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] compatible_architectures: The compatible architectures for the specific Lambda Layer Version. Valid values are `arm64` and `x86_64`. If not supplied, a value of `null` is assumed and will default to the value used for the function architecture.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] compatible_runtimes: A list of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) this layer is compatible with. Up to 5 runtimes can be specified.
         :param pulumi.Input[str] created_date: The date this resource was created.
         :param pulumi.Input[str] description: Description of what your Lambda Layer does.
@@ -203,6 +221,8 @@ class _LayerVersionState:
             pulumi.set(__self__, "arn", arn)
         if code is not None:
             pulumi.set(__self__, "code", code)
+        if compatible_architectures is not None:
+            pulumi.set(__self__, "compatible_architectures", compatible_architectures)
         if compatible_runtimes is not None:
             pulumi.set(__self__, "compatible_runtimes", compatible_runtimes)
         if created_date is not None:
@@ -255,6 +275,18 @@ class _LayerVersionState:
     @code.setter
     def code(self, value: Optional[pulumi.Input[pulumi.Archive]]):
         pulumi.set(self, "code", value)
+
+    @property
+    @pulumi.getter(name="compatibleArchitectures")
+    def compatible_architectures(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The compatible architectures for the specific Lambda Layer Version. Valid values are `arm64` and `x86_64`. If not supplied, a value of `null` is assumed and will default to the value used for the function architecture.
+        """
+        return pulumi.get(self, "compatible_architectures")
+
+    @compatible_architectures.setter
+    def compatible_architectures(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "compatible_architectures", value)
 
     @property
     @pulumi.getter(name="compatibleRuntimes")
@@ -431,6 +463,7 @@ class LayerVersion(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  code: Optional[pulumi.Input[pulumi.Archive]] = None,
+                 compatible_architectures: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  compatible_runtimes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  layer_name: Optional[pulumi.Input[str]] = None,
@@ -446,12 +479,28 @@ class LayerVersion(pulumi.CustomResource):
         For information about Lambda Layers and how to use them, see [AWS Lambda Layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html)
 
         ## Example Usage
+        ### Basic Example
 
         ```python
         import pulumi
         import pulumi_aws as aws
 
         lambda_layer = aws.lambda_.LayerVersion("lambdaLayer",
+            compatible_runtimes=["nodejs12.x"],
+            code=pulumi.FileArchive("lambda_layer_payload.zip"),
+            layer_name="lambda_layer_name")
+        ```
+        ### Lambda Layer with Compatible Architectures
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        lambda_layer = aws.lambda_.LayerVersion("lambdaLayer",
+            compatible_architectures=[
+                "arm64",
+                "x86_64",
+            ],
             compatible_runtimes=["nodejs12.x"],
             code=pulumi.FileArchive("lambda_layer_payload.zip"),
             layer_name="lambda_layer_name")
@@ -483,6 +532,7 @@ class LayerVersion(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.Archive] code: The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] compatible_architectures: The compatible architectures for the specific Lambda Layer Version. Valid values are `arm64` and `x86_64`. If not supplied, a value of `null` is assumed and will default to the value used for the function architecture.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] compatible_runtimes: A list of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) this layer is compatible with. Up to 5 runtimes can be specified.
         :param pulumi.Input[str] description: Description of what your Lambda Layer does.
         :param pulumi.Input[str] layer_name: A unique name for your Lambda Layer
@@ -504,12 +554,28 @@ class LayerVersion(pulumi.CustomResource):
         For information about Lambda Layers and how to use them, see [AWS Lambda Layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html)
 
         ## Example Usage
+        ### Basic Example
 
         ```python
         import pulumi
         import pulumi_aws as aws
 
         lambda_layer = aws.lambda_.LayerVersion("lambdaLayer",
+            compatible_runtimes=["nodejs12.x"],
+            code=pulumi.FileArchive("lambda_layer_payload.zip"),
+            layer_name="lambda_layer_name")
+        ```
+        ### Lambda Layer with Compatible Architectures
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        lambda_layer = aws.lambda_.LayerVersion("lambdaLayer",
+            compatible_architectures=[
+                "arm64",
+                "x86_64",
+            ],
             compatible_runtimes=["nodejs12.x"],
             code=pulumi.FileArchive("lambda_layer_payload.zip"),
             layer_name="lambda_layer_name")
@@ -554,6 +620,7 @@ class LayerVersion(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  code: Optional[pulumi.Input[pulumi.Archive]] = None,
+                 compatible_architectures: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  compatible_runtimes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  layer_name: Optional[pulumi.Input[str]] = None,
@@ -575,6 +642,7 @@ class LayerVersion(pulumi.CustomResource):
             __props__ = LayerVersionArgs.__new__(LayerVersionArgs)
 
             __props__.__dict__["code"] = code
+            __props__.__dict__["compatible_architectures"] = compatible_architectures
             __props__.__dict__["compatible_runtimes"] = compatible_runtimes
             __props__.__dict__["description"] = description
             if layer_name is None and not opts.urn:
@@ -604,6 +672,7 @@ class LayerVersion(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
             code: Optional[pulumi.Input[pulumi.Archive]] = None,
+            compatible_architectures: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             compatible_runtimes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             created_date: Optional[pulumi.Input[str]] = None,
             description: Optional[pulumi.Input[str]] = None,
@@ -627,6 +696,7 @@ class LayerVersion(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the Lambda Layer with version.
         :param pulumi.Input[pulumi.Archive] code: The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] compatible_architectures: The compatible architectures for the specific Lambda Layer Version. Valid values are `arm64` and `x86_64`. If not supplied, a value of `null` is assumed and will default to the value used for the function architecture.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] compatible_runtimes: A list of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) this layer is compatible with. Up to 5 runtimes can be specified.
         :param pulumi.Input[str] created_date: The date this resource was created.
         :param pulumi.Input[str] description: Description of what your Lambda Layer does.
@@ -648,6 +718,7 @@ class LayerVersion(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = arn
         __props__.__dict__["code"] = code
+        __props__.__dict__["compatible_architectures"] = compatible_architectures
         __props__.__dict__["compatible_runtimes"] = compatible_runtimes
         __props__.__dict__["created_date"] = created_date
         __props__.__dict__["description"] = description
@@ -679,6 +750,14 @@ class LayerVersion(pulumi.CustomResource):
         The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
         """
         return pulumi.get(self, "code")
+
+    @property
+    @pulumi.getter(name="compatibleArchitectures")
+    def compatible_architectures(self) -> pulumi.Output[Optional[Sequence[str]]]:
+        """
+        The compatible architectures for the specific Lambda Layer Version. Valid values are `arm64` and `x86_64`. If not supplied, a value of `null` is assumed and will default to the value used for the function architecture.
+        """
+        return pulumi.get(self, "compatible_architectures")
 
     @property
     @pulumi.getter(name="compatibleRuntimes")

@@ -10,12 +10,29 @@ import * as utilities from "../utilities";
  * For information about Lambda Layers and how to use them, see [AWS Lambda Layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html)
  *
  * ## Example Usage
+ * ### Basic Example
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const lambdaLayer = new aws.lambda.LayerVersion("lambda_layer", {
+ *     compatibleRuntimes: ["nodejs12.x"],
+ *     code: new pulumi.asset.FileArchive("lambda_layer_payload.zip"),
+ *     layerName: "lambda_layer_name",
+ * });
+ * ```
+ * ### Lambda Layer with Compatible Architectures
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const lambdaLayer = new aws.lambda.LayerVersion("lambda_layer", {
+ *     compatibleArchitectures: [
+ *         "arm64",
+ *         "x86_64",
+ *     ],
  *     compatibleRuntimes: ["nodejs12.x"],
  *     code: new pulumi.asset.FileArchive("lambda_layer_payload.zip"),
  *     layerName: "lambda_layer_name",
@@ -81,6 +98,10 @@ export class LayerVersion extends pulumi.CustomResource {
      * The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
      */
     public readonly code!: pulumi.Output<pulumi.asset.Archive | undefined>;
+    /**
+     * The compatible architectures for the specific Lambda Layer Version. Valid values are `arm64` and `x8664`. If not supplied, a value of `null` is assumed and will default to the value used for the function architecture.
+     */
+    public readonly compatibleArchitectures!: pulumi.Output<string[] | undefined>;
     /**
      * A list of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) this layer is compatible with. Up to 5 runtimes can be specified.
      */
@@ -153,6 +174,7 @@ export class LayerVersion extends pulumi.CustomResource {
             const state = argsOrState as LayerVersionState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["code"] = state ? state.code : undefined;
+            inputs["compatibleArchitectures"] = state ? state.compatibleArchitectures : undefined;
             inputs["compatibleRuntimes"] = state ? state.compatibleRuntimes : undefined;
             inputs["createdDate"] = state ? state.createdDate : undefined;
             inputs["description"] = state ? state.description : undefined;
@@ -173,6 +195,7 @@ export class LayerVersion extends pulumi.CustomResource {
                 throw new Error("Missing required property 'layerName'");
             }
             inputs["code"] = args ? args.code : undefined;
+            inputs["compatibleArchitectures"] = args ? args.compatibleArchitectures : undefined;
             inputs["compatibleRuntimes"] = args ? args.compatibleRuntimes : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["layerName"] = args ? args.layerName : undefined;
@@ -208,6 +231,10 @@ export interface LayerVersionState {
      * The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
      */
     code?: pulumi.Input<pulumi.asset.Archive>;
+    /**
+     * The compatible architectures for the specific Lambda Layer Version. Valid values are `arm64` and `x8664`. If not supplied, a value of `null` is assumed and will default to the value used for the function architecture.
+     */
+    compatibleArchitectures?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A list of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) this layer is compatible with. Up to 5 runtimes can be specified.
      */
@@ -274,6 +301,10 @@ export interface LayerVersionArgs {
      * The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
      */
     code?: pulumi.Input<pulumi.asset.Archive>;
+    /**
+     * The compatible architectures for the specific Lambda Layer Version. Valid values are `arm64` and `x8664`. If not supplied, a value of `null` is assumed and will default to the value used for the function architecture.
+     */
+    compatibleArchitectures?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A list of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) this layer is compatible with. Up to 5 runtimes can be specified.
      */

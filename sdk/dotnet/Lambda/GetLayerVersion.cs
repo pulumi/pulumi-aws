@@ -77,6 +77,10 @@ namespace Pulumi.Aws.Lambda
         /// The Amazon Resource Name (ARN) of the Lambda Layer with version.
         /// </summary>
         public readonly string Arn;
+        /// <summary>
+        /// The compatible architectures of the specific Lambda Layer Version.
+        /// </summary>
+        public readonly ImmutableArray<string> CompatibleArchitectures;
         public readonly string? CompatibleRuntime;
         /// <summary>
         /// A list of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_GetLayerVersion.html#SSS-GetLayerVersion-response-CompatibleRuntimes) the specific Lambda Layer version is compatible with.
@@ -128,6 +132,8 @@ namespace Pulumi.Aws.Lambda
         private GetLayerVersionResult(
             string arn,
 
+            ImmutableArray<string> compatibleArchitectures,
+
             string? compatibleRuntime,
 
             ImmutableArray<string> compatibleRuntimes,
@@ -155,6 +161,7 @@ namespace Pulumi.Aws.Lambda
             int version)
         {
             Arn = arn;
+            CompatibleArchitectures = compatibleArchitectures;
             CompatibleRuntime = compatibleRuntime;
             CompatibleRuntimes = compatibleRuntimes;
             CreatedDate = createdDate;

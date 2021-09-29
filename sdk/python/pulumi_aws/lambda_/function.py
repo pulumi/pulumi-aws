@@ -17,6 +17,7 @@ __all__ = ['FunctionArgs', 'Function']
 class FunctionArgs:
     def __init__(__self__, *,
                  role: pulumi.Input[str],
+                 architectures: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  code: Optional[pulumi.Input[pulumi.Archive]] = None,
                  code_signing_config_arn: Optional[pulumi.Input[str]] = None,
                  dead_letter_config: Optional[pulumi.Input['FunctionDeadLetterConfigArgs']] = None,
@@ -45,6 +46,7 @@ class FunctionArgs:
         """
         The set of arguments for constructing a Function resource.
         :param pulumi.Input[str] role: Amazon Resource Name (ARN) of the function's execution role. The role provides the function's identity and access to AWS services and resources.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] architectures: The target architectures for the function. Only a single value is value at this time. Valid values are `arm64` and `x86_64`. If not provided, AWS will default to `x86_64`.
         :param pulumi.Input[pulumi.Archive] code: Path to the function's deployment package within the local filesystem. Conflicts with `image_uri`, `s3_bucket`, `s3_key`, and `s3_object_version`.
         :param pulumi.Input[str] code_signing_config_arn: To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes a set of signing profiles, which define the trusted publishers for this function.
         :param pulumi.Input['FunctionDeadLetterConfigArgs'] dead_letter_config: Configuration block. Detailed below.
@@ -72,6 +74,8 @@ class FunctionArgs:
         :param pulumi.Input['FunctionVpcConfigArgs'] vpc_config: Configuration block. Detailed below.
         """
         pulumi.set(__self__, "role", role)
+        if architectures is not None:
+            pulumi.set(__self__, "architectures", architectures)
         if code is not None:
             pulumi.set(__self__, "code", code)
         if code_signing_config_arn is not None:
@@ -134,6 +138,18 @@ class FunctionArgs:
     @role.setter
     def role(self, value: pulumi.Input[str]):
         pulumi.set(self, "role", value)
+
+    @property
+    @pulumi.getter
+    def architectures(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The target architectures for the function. Only a single value is value at this time. Valid values are `arm64` and `x86_64`. If not provided, AWS will default to `x86_64`.
+        """
+        return pulumi.get(self, "architectures")
+
+    @architectures.setter
+    def architectures(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "architectures", value)
 
     @property
     @pulumi.getter
@@ -439,6 +455,7 @@ class FunctionArgs:
 @pulumi.input_type
 class _FunctionState:
     def __init__(__self__, *,
+                 architectures: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  arn: Optional[pulumi.Input[str]] = None,
                  code: Optional[pulumi.Input[pulumi.Archive]] = None,
                  code_signing_config_arn: Optional[pulumi.Input[str]] = None,
@@ -476,6 +493,7 @@ class _FunctionState:
                  vpc_config: Optional[pulumi.Input['FunctionVpcConfigArgs']] = None):
         """
         Input properties used for looking up and filtering Function resources.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] architectures: The target architectures for the function. Only a single value is value at this time. Valid values are `arm64` and `x86_64`. If not provided, AWS will default to `x86_64`.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
         :param pulumi.Input[pulumi.Archive] code: Path to the function's deployment package within the local filesystem. Conflicts with `image_uri`, `s3_bucket`, `s3_key`, and `s3_object_version`.
         :param pulumi.Input[str] code_signing_config_arn: To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes a set of signing profiles, which define the trusted publishers for this function.
@@ -513,6 +531,8 @@ class _FunctionState:
                * `vpc_config.vpc_id` - ID of the VPC.
         :param pulumi.Input['FunctionVpcConfigArgs'] vpc_config: Configuration block. Detailed below.
         """
+        if architectures is not None:
+            pulumi.set(__self__, "architectures", architectures)
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
         if code is not None:
@@ -583,6 +603,18 @@ class _FunctionState:
             pulumi.set(__self__, "version", version)
         if vpc_config is not None:
             pulumi.set(__self__, "vpc_config", vpc_config)
+
+    @property
+    @pulumi.getter
+    def architectures(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The target architectures for the function. Only a single value is value at this time. Valid values are `arm64` and `x86_64`. If not provided, AWS will default to `x86_64`.
+        """
+        return pulumi.get(self, "architectures")
+
+    @architectures.setter
+    def architectures(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "architectures", value)
 
     @property
     @pulumi.getter
@@ -1011,6 +1043,7 @@ class Function(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 architectures: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  code: Optional[pulumi.Input[pulumi.Archive]] = None,
                  code_signing_config_arn: Optional[pulumi.Input[str]] = None,
                  dead_letter_config: Optional[pulumi.Input[pulumi.InputType['FunctionDeadLetterConfigArgs']]] = None,
@@ -1136,10 +1169,7 @@ class Function(pulumi.CustomResource):
             ),
             opts=pulumi.ResourceOptions(depends_on=[alpha]))
         ```
-        ### Lambda retries
-
-        Lambda Functions allow you to configure error handling for asynchronous invocation. The settings that it supports are `Maximum age of event` and `Retry attempts` as stated in [Lambda documentation for Configuring error handling for asynchronous invocation](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-errors). To configure these settings, refer to the lambda.FunctionEventInvokeConfig resource.
-        ## CloudWatch Logging and Permissions
+        ### CloudWatch Logging and Permissions
 
         For more information about CloudWatch Logs for Lambda, see the [Lambda User Guide](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-functions-logs.html).
 
@@ -1181,6 +1211,38 @@ class Function(pulumi.CustomResource):
                 example,
             ]))
         ```
+        ### Lambda with Targetted Architecture
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        iam_for_lambda = aws.iam.Role("iamForLambda", assume_role_policy=\"\"\"{
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Principal": {
+                "Service": "lambda.amazonaws.com"
+              },
+              "Effect": "Allow",
+              "Sid": ""
+            }
+          ]
+        }
+        \"\"\")
+        test_lambda = aws.lambda_.Function("testLambda",
+            code=pulumi.FileArchive("lambda_function_payload.zip"),
+            role=iam_for_lambda.arn,
+            handler="index.test",
+            runtime="nodejs12.x",
+            architectures=["arm64"],
+            environment=aws.lambda..FunctionEnvironmentArgs(
+                variables={
+                    "foo": "bar",
+                },
+            ))
+        ```
 
         ## Import
 
@@ -1192,6 +1254,7 @@ class Function(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] architectures: The target architectures for the function. Only a single value is value at this time. Valid values are `arm64` and `x86_64`. If not provided, AWS will default to `x86_64`.
         :param pulumi.Input[pulumi.Archive] code: Path to the function's deployment package within the local filesystem. Conflicts with `image_uri`, `s3_bucket`, `s3_key`, and `s3_object_version`.
         :param pulumi.Input[str] code_signing_config_arn: To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes a set of signing profiles, which define the trusted publishers for this function.
         :param pulumi.Input[pulumi.InputType['FunctionDeadLetterConfigArgs']] dead_letter_config: Configuration block. Detailed below.
@@ -1323,10 +1386,7 @@ class Function(pulumi.CustomResource):
             ),
             opts=pulumi.ResourceOptions(depends_on=[alpha]))
         ```
-        ### Lambda retries
-
-        Lambda Functions allow you to configure error handling for asynchronous invocation. The settings that it supports are `Maximum age of event` and `Retry attempts` as stated in [Lambda documentation for Configuring error handling for asynchronous invocation](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-errors). To configure these settings, refer to the lambda.FunctionEventInvokeConfig resource.
-        ## CloudWatch Logging and Permissions
+        ### CloudWatch Logging and Permissions
 
         For more information about CloudWatch Logs for Lambda, see the [Lambda User Guide](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-functions-logs.html).
 
@@ -1368,6 +1428,38 @@ class Function(pulumi.CustomResource):
                 example,
             ]))
         ```
+        ### Lambda with Targetted Architecture
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        iam_for_lambda = aws.iam.Role("iamForLambda", assume_role_policy=\"\"\"{
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Principal": {
+                "Service": "lambda.amazonaws.com"
+              },
+              "Effect": "Allow",
+              "Sid": ""
+            }
+          ]
+        }
+        \"\"\")
+        test_lambda = aws.lambda_.Function("testLambda",
+            code=pulumi.FileArchive("lambda_function_payload.zip"),
+            role=iam_for_lambda.arn,
+            handler="index.test",
+            runtime="nodejs12.x",
+            architectures=["arm64"],
+            environment=aws.lambda..FunctionEnvironmentArgs(
+                variables={
+                    "foo": "bar",
+                },
+            ))
+        ```
 
         ## Import
 
@@ -1392,6 +1484,7 @@ class Function(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 architectures: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  code: Optional[pulumi.Input[pulumi.Archive]] = None,
                  code_signing_config_arn: Optional[pulumi.Input[str]] = None,
                  dead_letter_config: Optional[pulumi.Input[pulumi.InputType['FunctionDeadLetterConfigArgs']]] = None,
@@ -1430,6 +1523,7 @@ class Function(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = FunctionArgs.__new__(FunctionArgs)
 
+            __props__.__dict__["architectures"] = architectures
             __props__.__dict__["code"] = code
             __props__.__dict__["code_signing_config_arn"] = code_signing_config_arn
             __props__.__dict__["dead_letter_config"] = dead_letter_config
@@ -1477,6 +1571,7 @@ class Function(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            architectures: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             arn: Optional[pulumi.Input[str]] = None,
             code: Optional[pulumi.Input[pulumi.Archive]] = None,
             code_signing_config_arn: Optional[pulumi.Input[str]] = None,
@@ -1519,6 +1614,7 @@ class Function(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] architectures: The target architectures for the function. Only a single value is value at this time. Valid values are `arm64` and `x86_64`. If not provided, AWS will default to `x86_64`.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
         :param pulumi.Input[pulumi.Archive] code: Path to the function's deployment package within the local filesystem. Conflicts with `image_uri`, `s3_bucket`, `s3_key`, and `s3_object_version`.
         :param pulumi.Input[str] code_signing_config_arn: To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes a set of signing profiles, which define the trusted publishers for this function.
@@ -1560,6 +1656,7 @@ class Function(pulumi.CustomResource):
 
         __props__ = _FunctionState.__new__(_FunctionState)
 
+        __props__.__dict__["architectures"] = architectures
         __props__.__dict__["arn"] = arn
         __props__.__dict__["code"] = code
         __props__.__dict__["code_signing_config_arn"] = code_signing_config_arn
@@ -1596,6 +1693,14 @@ class Function(pulumi.CustomResource):
         __props__.__dict__["version"] = version
         __props__.__dict__["vpc_config"] = vpc_config
         return Function(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def architectures(self) -> pulumi.Output[Sequence[str]]:
+        """
+        The target architectures for the function. Only a single value is value at this time. Valid values are `arm64` and `x86_64`. If not provided, AWS will default to `x86_64`.
+        """
+        return pulumi.get(self, "architectures")
 
     @property
     @pulumi.getter

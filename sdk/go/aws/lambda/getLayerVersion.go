@@ -59,8 +59,10 @@ type LookupLayerVersionArgs struct {
 // A collection of values returned by getLayerVersion.
 type LookupLayerVersionResult struct {
 	// The Amazon Resource Name (ARN) of the Lambda Layer with version.
-	Arn               string  `pulumi:"arn"`
-	CompatibleRuntime *string `pulumi:"compatibleRuntime"`
+	Arn string `pulumi:"arn"`
+	// The compatible architectures of the specific Lambda Layer Version.
+	CompatibleArchitectures []string `pulumi:"compatibleArchitectures"`
+	CompatibleRuntime       *string  `pulumi:"compatibleRuntime"`
 	// A list of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_GetLayerVersion.html#SSS-GetLayerVersion-response-CompatibleRuntimes) the specific Lambda Layer version is compatible with.
 	CompatibleRuntimes []string `pulumi:"compatibleRuntimes"`
 	// The date this resource was created.
@@ -127,6 +129,11 @@ func (o LookupLayerVersionResultOutput) ToLookupLayerVersionResultOutputWithCont
 // The Amazon Resource Name (ARN) of the Lambda Layer with version.
 func (o LookupLayerVersionResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLayerVersionResult) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The compatible architectures of the specific Lambda Layer Version.
+func (o LookupLayerVersionResultOutput) CompatibleArchitectures() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupLayerVersionResult) []string { return v.CompatibleArchitectures }).(pulumi.StringArrayOutput)
 }
 
 func (o LookupLayerVersionResultOutput) CompatibleRuntime() pulumi.StringPtrOutput {

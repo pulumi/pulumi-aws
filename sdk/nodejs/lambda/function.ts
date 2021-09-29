@@ -110,10 +110,7 @@ import {ARN} from "..";
  *     dependsOn: [alpha],
  * });
  * ```
- * ### Lambda retries
- *
- * Lambda Functions allow you to configure error handling for asynchronous invocation. The settings that it supports are `Maximum age of event` and `Retry attempts` as stated in [Lambda documentation for Configuring error handling for asynchronous invocation](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-errors). To configure these settings, refer to the aws.lambda.FunctionEventInvokeConfig resource.
- * ## CloudWatch Logging and Permissions
+ * ### CloudWatch Logging and Permissions
  *
  * For more information about CloudWatch Logs for Lambda, see the [Lambda User Guide](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-functions-logs.html).
  *
@@ -157,6 +154,39 @@ import {ARN} from "..";
  *     ],
  * });
  * ```
+ * ### Lambda with Targetted Architecture
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const iamForLambda = new aws.iam.Role("iamForLambda", {assumeRolePolicy: `{
+ *   "Version": "2012-10-17",
+ *   "Statement": [
+ *     {
+ *       "Action": "sts:AssumeRole",
+ *       "Principal": {
+ *         "Service": "lambda.amazonaws.com"
+ *       },
+ *       "Effect": "Allow",
+ *       "Sid": ""
+ *     }
+ *   ]
+ * }
+ * `});
+ * const testLambda = new aws.lambda.Function("testLambda", {
+ *     code: new pulumi.asset.FileArchive("lambda_function_payload.zip"),
+ *     role: iamForLambda.arn,
+ *     handler: "index.test",
+ *     runtime: "nodejs12.x",
+ *     architectures: ["arm64"],
+ *     environment: {
+ *         variables: {
+ *             foo: "bar",
+ *         },
+ *     },
+ * });
+ * ```
  *
  * ## Import
  *
@@ -194,6 +224,10 @@ export class Function extends pulumi.CustomResource {
         return obj['__pulumiType'] === Function.__pulumiType;
     }
 
+    /**
+     * The target architectures for the function. Only a single value is value at this time. Valid values are `arm64` and `x8664`. If not provided, AWS will default to `x8664`.
+     */
+    public readonly architectures!: pulumi.Output<string[]>;
     /**
      * Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
      */
@@ -349,6 +383,7 @@ export class Function extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FunctionState | undefined;
+            inputs["architectures"] = state ? state.architectures : undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["code"] = state ? state.code : undefined;
             inputs["codeSigningConfigArn"] = state ? state.codeSigningConfigArn : undefined;
@@ -389,6 +424,7 @@ export class Function extends pulumi.CustomResource {
             if ((!args || args.role === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'role'");
             }
+            inputs["architectures"] = args ? args.architectures : undefined;
             inputs["code"] = args ? args.code : undefined;
             inputs["codeSigningConfigArn"] = args ? args.codeSigningConfigArn : undefined;
             inputs["deadLetterConfig"] = args ? args.deadLetterConfig : undefined;
@@ -436,6 +472,10 @@ export class Function extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Function resources.
  */
 export interface FunctionState {
+    /**
+     * The target architectures for the function. Only a single value is value at this time. Valid values are `arm64` and `x8664`. If not provided, AWS will default to `x8664`.
+     */
+    architectures?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
      */
@@ -583,6 +623,10 @@ export interface FunctionState {
  * The set of arguments for constructing a Function resource.
  */
 export interface FunctionArgs {
+    /**
+     * The target architectures for the function. Only a single value is value at this time. Valid values are `arm64` and `x8664`. If not provided, AWS will default to `x8664`.
+     */
+    architectures?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Path to the function's deployment package within the local filesystem. Conflicts with `imageUri`, `s3Bucket`, `s3Key`, and `s3ObjectVersion`.
      */
