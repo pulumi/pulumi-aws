@@ -75,6 +75,7 @@ namespace Pulumi.Aws.Lambda
     [OutputType]
     public sealed class GetFunctionResult
     {
+        public readonly ImmutableArray<string> Architectures;
         /// <summary>
         /// Unqualified (no `:QUALIFIER` or `:VERSION` suffix) Amazon Resource Name (ARN) identifying your Lambda Function. See also `qualified_arn`.
         /// </summary>
@@ -181,6 +182,8 @@ namespace Pulumi.Aws.Lambda
 
         [OutputConstructor]
         private GetFunctionResult(
+            ImmutableArray<string> architectures,
+
             string arn,
 
             string codeSigningConfigArn,
@@ -237,6 +240,7 @@ namespace Pulumi.Aws.Lambda
 
             Outputs.GetFunctionVpcConfigResult vpcConfig)
         {
+            Architectures = architectures;
             Arn = arn;
             CodeSigningConfigArn = codeSigningConfigArn;
             DeadLetterConfig = deadLetterConfig;

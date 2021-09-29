@@ -2,7 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Add support for AWS Graviton 2 architecture to AWS Lambda Functions and Lambda Layers
 
 ---
 

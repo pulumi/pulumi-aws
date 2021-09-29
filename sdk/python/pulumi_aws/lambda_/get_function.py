@@ -21,7 +21,10 @@ class GetFunctionResult:
     """
     A collection of values returned by getFunction.
     """
-    def __init__(__self__, arn=None, code_signing_config_arn=None, dead_letter_config=None, description=None, environment=None, file_system_configs=None, function_name=None, handler=None, id=None, invoke_arn=None, kms_key_arn=None, last_modified=None, layers=None, memory_size=None, qualified_arn=None, qualifier=None, reserved_concurrent_executions=None, role=None, runtime=None, signing_job_arn=None, signing_profile_version_arn=None, source_code_hash=None, source_code_size=None, tags=None, timeout=None, tracing_config=None, version=None, vpc_config=None):
+    def __init__(__self__, architectures=None, arn=None, code_signing_config_arn=None, dead_letter_config=None, description=None, environment=None, file_system_configs=None, function_name=None, handler=None, id=None, invoke_arn=None, kms_key_arn=None, last_modified=None, layers=None, memory_size=None, qualified_arn=None, qualifier=None, reserved_concurrent_executions=None, role=None, runtime=None, signing_job_arn=None, signing_profile_version_arn=None, source_code_hash=None, source_code_size=None, tags=None, timeout=None, tracing_config=None, version=None, vpc_config=None):
+        if architectures and not isinstance(architectures, list):
+            raise TypeError("Expected argument 'architectures' to be a list")
+        pulumi.set(__self__, "architectures", architectures)
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -106,6 +109,11 @@ class GetFunctionResult:
         if vpc_config and not isinstance(vpc_config, dict):
             raise TypeError("Expected argument 'vpc_config' to be a dict")
         pulumi.set(__self__, "vpc_config", vpc_config)
+
+    @property
+    @pulumi.getter
+    def architectures(self) -> Sequence[str]:
+        return pulumi.get(self, "architectures")
 
     @property
     @pulumi.getter
@@ -329,6 +337,7 @@ class AwaitableGetFunctionResult(GetFunctionResult):
         if False:
             yield self
         return GetFunctionResult(
+            architectures=self.architectures,
             arn=self.arn,
             code_signing_config_arn=self.code_signing_config_arn,
             dead_letter_config=self.dead_letter_config,
@@ -392,6 +401,7 @@ def get_function(function_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:lambda/getFunction:getFunction', __args__, opts=opts, typ=GetFunctionResult).value
 
     return AwaitableGetFunctionResult(
+        architectures=__ret__.architectures,
         arn=__ret__.arn,
         code_signing_config_arn=__ret__.code_signing_config_arn,
         dead_letter_config=__ret__.dead_letter_config,

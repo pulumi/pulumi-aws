@@ -61,6 +61,10 @@ export interface GetLayerVersionResult {
      * The Amazon Resource Name (ARN) of the Lambda Layer with version.
      */
     readonly arn: string;
+    /**
+     * The compatible architectures of the specific Lambda Layer Version.
+     */
+    readonly compatibleArchitectures: string[];
     readonly compatibleRuntime?: string;
     /**
      * A list of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_GetLayerVersion.html#SSS-GetLayerVersion-response-CompatibleRuntimes) the specific Lambda Layer version is compatible with.

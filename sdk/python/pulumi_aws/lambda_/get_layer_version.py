@@ -20,10 +20,13 @@ class GetLayerVersionResult:
     """
     A collection of values returned by getLayerVersion.
     """
-    def __init__(__self__, arn=None, compatible_runtime=None, compatible_runtimes=None, created_date=None, description=None, id=None, layer_arn=None, layer_name=None, license_info=None, signing_job_arn=None, signing_profile_version_arn=None, source_code_hash=None, source_code_size=None, version=None):
+    def __init__(__self__, arn=None, compatible_architectures=None, compatible_runtime=None, compatible_runtimes=None, created_date=None, description=None, id=None, layer_arn=None, layer_name=None, license_info=None, signing_job_arn=None, signing_profile_version_arn=None, source_code_hash=None, source_code_size=None, version=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
+        if compatible_architectures and not isinstance(compatible_architectures, list):
+            raise TypeError("Expected argument 'compatible_architectures' to be a list")
+        pulumi.set(__self__, "compatible_architectures", compatible_architectures)
         if compatible_runtime and not isinstance(compatible_runtime, str):
             raise TypeError("Expected argument 'compatible_runtime' to be a str")
         pulumi.set(__self__, "compatible_runtime", compatible_runtime)
@@ -71,6 +74,14 @@ class GetLayerVersionResult:
         The Amazon Resource Name (ARN) of the Lambda Layer with version.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="compatibleArchitectures")
+    def compatible_architectures(self) -> Sequence[str]:
+        """
+        The compatible architectures of the specific Lambda Layer Version.
+        """
+        return pulumi.get(self, "compatible_architectures")
 
     @property
     @pulumi.getter(name="compatibleRuntime")
@@ -178,6 +189,7 @@ class AwaitableGetLayerVersionResult(GetLayerVersionResult):
             yield self
         return GetLayerVersionResult(
             arn=self.arn,
+            compatible_architectures=self.compatible_architectures,
             compatible_runtime=self.compatible_runtime,
             compatible_runtimes=self.compatible_runtimes,
             created_date=self.created_date,
@@ -228,6 +240,7 @@ def get_layer_version(compatible_runtime: Optional[str] = None,
 
     return AwaitableGetLayerVersionResult(
         arn=__ret__.arn,
+        compatible_architectures=__ret__.compatible_architectures,
         compatible_runtime=__ret__.compatible_runtime,
         compatible_runtimes=__ret__.compatible_runtimes,
         created_date=__ret__.created_date,

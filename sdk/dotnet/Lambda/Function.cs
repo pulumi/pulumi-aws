@@ -172,10 +172,7 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// }
     /// ```
-    /// ### Lambda retries
-    /// 
-    /// Lambda Functions allow you to configure error handling for asynchronous invocation. The settings that it supports are `Maximum age of event` and `Retry attempts` as stated in [Lambda documentation for Configuring error handling for asynchronous invocation](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-errors). To configure these settings, refer to the aws.lambda.FunctionEventInvokeConfig resource.
-    /// ## CloudWatch Logging and Permissions
+    /// ### CloudWatch Logging and Permissions
     /// 
     /// For more information about CloudWatch Logs for Lambda, see the [Lambda User Guide](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-functions-logs.html).
     /// 
@@ -235,6 +232,55 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// }
     /// ```
+    /// ### Lambda with Targetted Architecture
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var iamForLambda = new Aws.Iam.Role("iamForLambda", new Aws.Iam.RoleArgs
+    ///         {
+    ///             AssumeRolePolicy = @"{
+    ///   ""Version"": ""2012-10-17"",
+    ///   ""Statement"": [
+    ///     {
+    ///       ""Action"": ""sts:AssumeRole"",
+    ///       ""Principal"": {
+    ///         ""Service"": ""lambda.amazonaws.com""
+    ///       },
+    ///       ""Effect"": ""Allow"",
+    ///       ""Sid"": """"
+    ///     }
+    ///   ]
+    /// }
+    /// ",
+    ///         });
+    ///         var testLambda = new Aws.Lambda.Function("testLambda", new Aws.Lambda.FunctionArgs
+    ///         {
+    ///             Code = new FileArchive("lambda_function_payload.zip"),
+    ///             Role = iamForLambda.Arn,
+    ///             Handler = "index.test",
+    ///             Runtime = "nodejs12.x",
+    ///             Architectures = 
+    ///             {
+    ///                 "arm64",
+    ///             },
+    ///             Environment = new Aws.Lambda.Inputs.FunctionEnvironmentArgs
+    ///             {
+    ///                 Variables = 
+    ///                 {
+    ///                     { "foo", "bar" },
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// 
     /// ## Import
     /// 
@@ -247,6 +293,12 @@ namespace Pulumi.Aws.Lambda
     [AwsResourceType("aws:lambda/function:Function")]
     public partial class Function : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The target architectures for the function. Only a single value is value at this time. Valid values are `arm64` and `x86_64`. If not provided, AWS will default to `x86_64`.
+        /// </summary>
+        [Output("architectures")]
+        public Output<ImmutableArray<string>> Architectures { get; private set; } = null!;
+
         /// <summary>
         /// Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
         /// </summary>
@@ -504,6 +556,18 @@ namespace Pulumi.Aws.Lambda
 
     public sealed class FunctionArgs : Pulumi.ResourceArgs
     {
+        [Input("architectures")]
+        private InputList<string>? _architectures;
+
+        /// <summary>
+        /// The target architectures for the function. Only a single value is value at this time. Valid values are `arm64` and `x86_64`. If not provided, AWS will default to `x86_64`.
+        /// </summary>
+        public InputList<string> Architectures
+        {
+            get => _architectures ?? (_architectures = new InputList<string>());
+            set => _architectures = value;
+        }
+
         /// <summary>
         /// Path to the function's deployment package within the local filesystem. Conflicts with `image_uri`, `s3_bucket`, `s3_key`, and `s3_object_version`.
         /// </summary>
@@ -679,6 +743,18 @@ namespace Pulumi.Aws.Lambda
 
     public sealed class FunctionState : Pulumi.ResourceArgs
     {
+        [Input("architectures")]
+        private InputList<string>? _architectures;
+
+        /// <summary>
+        /// The target architectures for the function. Only a single value is value at this time. Valid values are `arm64` and `x86_64`. If not provided, AWS will default to `x86_64`.
+        /// </summary>
+        public InputList<string> Architectures
+        {
+            get => _architectures ?? (_architectures = new InputList<string>());
+            set => _architectures = value;
+        }
+
         /// <summary>
         /// Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
         /// </summary>

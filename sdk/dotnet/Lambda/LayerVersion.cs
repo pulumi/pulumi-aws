@@ -15,6 +15,7 @@ namespace Pulumi.Aws.Lambda
     /// For information about Lambda Layers and how to use them, see [AWS Lambda Layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html)
     /// 
     /// ## Example Usage
+    /// ### Basic Example
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -26,6 +27,34 @@ namespace Pulumi.Aws.Lambda
     ///     {
     ///         var lambdaLayer = new Aws.Lambda.LayerVersion("lambdaLayer", new Aws.Lambda.LayerVersionArgs
     ///         {
+    ///             CompatibleRuntimes = 
+    ///             {
+    ///                 "nodejs12.x",
+    ///             },
+    ///             Code = new FileArchive("lambda_layer_payload.zip"),
+    ///             LayerName = "lambda_layer_name",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### Lambda Layer with Compatible Architectures
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var lambdaLayer = new Aws.Lambda.LayerVersion("lambdaLayer", new Aws.Lambda.LayerVersionArgs
+    ///         {
+    ///             CompatibleArchitectures = 
+    ///             {
+    ///                 "arm64",
+    ///                 "x86_64",
+    ///             },
     ///             CompatibleRuntimes = 
     ///             {
     ///                 "nodejs12.x",
@@ -75,6 +104,12 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         [Output("code")]
         public Output<Archive?> Code { get; private set; } = null!;
+
+        /// <summary>
+        /// The compatible architectures for the specific Lambda Layer Version. Valid values are `arm64` and `x86_64`. If not supplied, a value of `null` is assumed and will default to the value used for the function architecture.
+        /// </summary>
+        [Output("compatibleArchitectures")]
+        public Output<ImmutableArray<string>> CompatibleArchitectures { get; private set; } = null!;
 
         /// <summary>
         /// A list of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) this layer is compatible with. Up to 5 runtimes can be specified.
@@ -212,6 +247,18 @@ namespace Pulumi.Aws.Lambda
         [Input("code")]
         public Input<Archive>? Code { get; set; }
 
+        [Input("compatibleArchitectures")]
+        private InputList<string>? _compatibleArchitectures;
+
+        /// <summary>
+        /// The compatible architectures for the specific Lambda Layer Version. Valid values are `arm64` and `x86_64`. If not supplied, a value of `null` is assumed and will default to the value used for the function architecture.
+        /// </summary>
+        public InputList<string> CompatibleArchitectures
+        {
+            get => _compatibleArchitectures ?? (_compatibleArchitectures = new InputList<string>());
+            set => _compatibleArchitectures = value;
+        }
+
         [Input("compatibleRuntimes")]
         private InputList<string>? _compatibleRuntimes;
 
@@ -284,6 +331,18 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         [Input("code")]
         public Input<Archive>? Code { get; set; }
+
+        [Input("compatibleArchitectures")]
+        private InputList<string>? _compatibleArchitectures;
+
+        /// <summary>
+        /// The compatible architectures for the specific Lambda Layer Version. Valid values are `arm64` and `x86_64`. If not supplied, a value of `null` is assumed and will default to the value used for the function architecture.
+        /// </summary>
+        public InputList<string> CompatibleArchitectures
+        {
+            get => _compatibleArchitectures ?? (_compatibleArchitectures = new InputList<string>());
+            set => _compatibleArchitectures = value;
+        }
 
         [Input("compatibleRuntimes")]
         private InputList<string>? _compatibleRuntimes;
