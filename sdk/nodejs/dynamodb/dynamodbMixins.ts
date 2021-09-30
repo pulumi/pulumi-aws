@@ -40,6 +40,12 @@ export interface TableEventSubscriptionArgs {
     readonly destinationConfig?: pulumi.Input<types.input.lambda.EventSourceMappingDestinationConfig>;
 
     /**
+     * A list of current response type enums applied to the event source mapping. Where valid values are:
+     * * `ReportBatchItemFailures`
+     */
+    readonly functionResponseTypes?: string[];
+
+    /**
      * The maximum amount of time to gather records before invoking the function, in seconds. Records will continue to buffer
      * until either maximum_batching_window_in_seconds expires or batch_size has been met. Defaults to as soon as records
      * are available in the stream. If the batch it reads from the stream only has one record in it, Lambda only sends one record to the function.
@@ -140,6 +146,7 @@ export class TableEventSubscription extends lambda.EventSubscription {
             maximumRetryAttempts: args.maximumRetryAttempts,
             parallelizationFactor: args.parallelizationFactor,
             startingPosition: args.startingPosition,
+            functionResponseTypes: args.functionResponseTypes,
         }, parentOpts);
 
         this.table = table;

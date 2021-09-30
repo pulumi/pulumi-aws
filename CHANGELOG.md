@@ -3,6 +3,7 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 * Add the ability to set `maximumBatchingWindowInSeconds` as part of `aws.sqs.QueueEventSubscription` in NodeJS SDK
+* Add the ability to set `functionResponseTypes` as part of `aws.dynamodb.TableEventSubscription` in NodeJS SDK
 
 ---
 
