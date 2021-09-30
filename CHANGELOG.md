@@ -2,7 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Add the ability to set `maximumBatchingWindowInSeconds` as part of `aws.sqs.QueueEventSubscription` in NodeJS SDK
 
 ---
 
