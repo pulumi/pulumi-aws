@@ -54,6 +54,12 @@ export type QueueEventSubscriptionArgs = {
      * See https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html for more details.
      */
     batchSize?: number;
+
+    /**
+     * The maximum amount of time, in seconds, that AWS Lambda spends gathering records before invoking the function.
+     * The default setting is 0.
+     */
+    maximumBatchingWindowInSeconds?: number;
  };
 
 export class QueueEventSubscription extends lambda.EventSubscription {
@@ -87,6 +93,7 @@ export class QueueEventSubscription extends lambda.EventSubscription {
 
         this.eventSourceMapping = new lambda.EventSourceMapping(name, {
             batchSize: args.batchSize,
+            maximumBatchingWindowInSeconds: args.maximumBatchingWindowInSeconds,
             enabled: true,
             eventSourceArn: queue.arn,
             functionName: this.func.name,
