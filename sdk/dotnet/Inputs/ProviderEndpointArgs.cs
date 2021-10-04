@@ -75,6 +75,9 @@ namespace Pulumi.Aws.Inputs
         [Input("cloud9")]
         public Input<string>? Cloud9 { get; set; }
 
+        [Input("cloudcontrolapi")]
+        public Input<string>? Cloudcontrolapi { get; set; }
+
         [Input("cloudformation")]
         public Input<string>? Cloudformation { get; set; }
 

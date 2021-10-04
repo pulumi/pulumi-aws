@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws:iot/authorizer:Authorizer":
+		r = &Authorizer{}
 	case "aws:iot/certificate:Certificate":
 		r = &Certificate{}
 	case "aws:iot/policy:Policy":
@@ -50,6 +52,11 @@ func init() {
 	if err != nil {
 		fmt.Printf("failed to determine package version. defaulting to v1: %v\n", err)
 	}
+	pulumi.RegisterResourceModule(
+		"aws",
+		"iot/authorizer",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"aws",
 		"iot/certificate",

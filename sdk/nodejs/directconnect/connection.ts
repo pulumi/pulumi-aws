@@ -90,7 +90,7 @@ export class Connection extends pulumi.CustomResource {
     /**
      * The name of the service provider associated with the connection.
      */
-    public readonly providerName!: pulumi.Output<string | undefined>;
+    public readonly providerName!: pulumi.Output<string>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

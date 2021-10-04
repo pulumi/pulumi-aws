@@ -108,6 +108,7 @@ __all__ = [
     'GetCoipPoolFilterResult',
     'GetCoipPoolsFilterResult',
     'GetCustomerGatewayFilterResult',
+    'GetDedicatedHostFilterResult',
     'GetElasticIpFilterResult',
     'GetInstanceCreditSpecificationResult',
     'GetInstanceEbsBlockDeviceResult',
@@ -3642,6 +3643,7 @@ class LaunchTemplateMetadataOptions(dict):
                  http_tokens: Optional[str] = None):
         """
         :param str http_endpoint: Whether the metadata service is available. Can be `"enabled"` or `"disabled"`. (Default: `"enabled"`).
+        :param str http_protocol_ipv6: Enables or disables the IPv6 endpoint for the instance metadata service. (Default: `disabled`).
         :param int http_put_response_hop_limit: The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
         :param str http_tokens: Whether or not the metadata service requires session tokens, also referred to as _Instance Metadata Service Version 2 (IMDSv2)_. Can be `"optional"` or `"required"`. (Default: `"optional"`).
         """
@@ -3665,6 +3667,9 @@ class LaunchTemplateMetadataOptions(dict):
     @property
     @pulumi.getter(name="httpProtocolIpv6")
     def http_protocol_ipv6(self) -> Optional[str]:
+        """
+        Enables or disables the IPv6 endpoint for the instance metadata service. (Default: `disabled`).
+        """
         return pulumi.get(self, "http_protocol_ipv6")
 
     @property
@@ -7321,6 +7326,35 @@ class GetCustomerGatewayFilterResult(dict):
 
 
 @pulumi.output_type
+class GetDedicatedHostFilterResult(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 values: Sequence[str]):
+        """
+        :param str name: The name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeHosts.html).
+        :param Sequence[str] values: Set of values that are accepted for the given field. A host will be selected if any one of the given values matches.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeHosts.html).
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        Set of values that are accepted for the given field. A host will be selected if any one of the given values matches.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
 class GetElasticIpFilterResult(dict):
     def __init__(__self__, *,
                  name: str,
@@ -8490,6 +8524,7 @@ class GetLaunchTemplateMetadataOptionResult(dict):
                  http_tokens: str):
         """
         :param str http_endpoint: The state of the metadata service: `enabled`, `disabled`.
+        :param str http_protocol_ipv6: The state of IPv6 endpoint for the instance metadata service: `enabled`, `disabled`.
         :param int http_put_response_hop_limit: The desired HTTP PUT response hop limit for instance metadata requests.
         :param str http_tokens: If session tokens are required: `optional`, `required`.
         """
@@ -8509,6 +8544,9 @@ class GetLaunchTemplateMetadataOptionResult(dict):
     @property
     @pulumi.getter(name="httpProtocolIpv6")
     def http_protocol_ipv6(self) -> str:
+        """
+        The state of IPv6 endpoint for the instance metadata service: `enabled`, `disabled`.
+        """
         return pulumi.get(self, "http_protocol_ipv6")
 
     @property

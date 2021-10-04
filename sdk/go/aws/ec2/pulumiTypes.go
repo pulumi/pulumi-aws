@@ -7429,7 +7429,8 @@ func (o LaunchTemplateLicenseSpecificationArrayOutput) Index(i pulumi.IntInput) 
 
 type LaunchTemplateMetadataOptions struct {
 	// Whether the metadata service is available. Can be `"enabled"` or `"disabled"`. (Default: `"enabled"`).
-	HttpEndpoint     *string `pulumi:"httpEndpoint"`
+	HttpEndpoint *string `pulumi:"httpEndpoint"`
+	// Enables or disables the IPv6 endpoint for the instance metadata service. (Default: `disabled`).
 	HttpProtocolIpv6 *string `pulumi:"httpProtocolIpv6"`
 	// The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
 	HttpPutResponseHopLimit *int `pulumi:"httpPutResponseHopLimit"`
@@ -7450,7 +7451,8 @@ type LaunchTemplateMetadataOptionsInput interface {
 
 type LaunchTemplateMetadataOptionsArgs struct {
 	// Whether the metadata service is available. Can be `"enabled"` or `"disabled"`. (Default: `"enabled"`).
-	HttpEndpoint     pulumi.StringPtrInput `pulumi:"httpEndpoint"`
+	HttpEndpoint pulumi.StringPtrInput `pulumi:"httpEndpoint"`
+	// Enables or disables the IPv6 endpoint for the instance metadata service. (Default: `disabled`).
 	HttpProtocolIpv6 pulumi.StringPtrInput `pulumi:"httpProtocolIpv6"`
 	// The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
 	HttpPutResponseHopLimit pulumi.IntPtrInput `pulumi:"httpPutResponseHopLimit"`
@@ -7540,6 +7542,7 @@ func (o LaunchTemplateMetadataOptionsOutput) HttpEndpoint() pulumi.StringPtrOutp
 	return o.ApplyT(func(v LaunchTemplateMetadataOptions) *string { return v.HttpEndpoint }).(pulumi.StringPtrOutput)
 }
 
+// Enables or disables the IPv6 endpoint for the instance metadata service. (Default: `disabled`).
 func (o LaunchTemplateMetadataOptionsOutput) HttpProtocolIpv6() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateMetadataOptions) *string { return v.HttpProtocolIpv6 }).(pulumi.StringPtrOutput)
 }
@@ -7588,6 +7591,7 @@ func (o LaunchTemplateMetadataOptionsPtrOutput) HttpEndpoint() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+// Enables or disables the IPv6 endpoint for the instance metadata service. (Default: `disabled`).
 func (o LaunchTemplateMetadataOptionsPtrOutput) HttpProtocolIpv6() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateMetadataOptions) *string {
 		if v == nil {
@@ -14971,6 +14975,112 @@ func (o GetCustomerGatewayFilterArrayOutput) Index(i pulumi.IntInput) GetCustome
 	}).(GetCustomerGatewayFilterOutput)
 }
 
+type GetDedicatedHostFilter struct {
+	// The name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeHosts.html).
+	Name string `pulumi:"name"`
+	// Set of values that are accepted for the given field. A host will be selected if any one of the given values matches.
+	Values []string `pulumi:"values"`
+}
+
+// GetDedicatedHostFilterInput is an input type that accepts GetDedicatedHostFilterArgs and GetDedicatedHostFilterOutput values.
+// You can construct a concrete instance of `GetDedicatedHostFilterInput` via:
+//
+//          GetDedicatedHostFilterArgs{...}
+type GetDedicatedHostFilterInput interface {
+	pulumi.Input
+
+	ToGetDedicatedHostFilterOutput() GetDedicatedHostFilterOutput
+	ToGetDedicatedHostFilterOutputWithContext(context.Context) GetDedicatedHostFilterOutput
+}
+
+type GetDedicatedHostFilterArgs struct {
+	// The name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeHosts.html).
+	Name pulumi.StringInput `pulumi:"name"`
+	// Set of values that are accepted for the given field. A host will be selected if any one of the given values matches.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetDedicatedHostFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDedicatedHostFilter)(nil)).Elem()
+}
+
+func (i GetDedicatedHostFilterArgs) ToGetDedicatedHostFilterOutput() GetDedicatedHostFilterOutput {
+	return i.ToGetDedicatedHostFilterOutputWithContext(context.Background())
+}
+
+func (i GetDedicatedHostFilterArgs) ToGetDedicatedHostFilterOutputWithContext(ctx context.Context) GetDedicatedHostFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDedicatedHostFilterOutput)
+}
+
+// GetDedicatedHostFilterArrayInput is an input type that accepts GetDedicatedHostFilterArray and GetDedicatedHostFilterArrayOutput values.
+// You can construct a concrete instance of `GetDedicatedHostFilterArrayInput` via:
+//
+//          GetDedicatedHostFilterArray{ GetDedicatedHostFilterArgs{...} }
+type GetDedicatedHostFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetDedicatedHostFilterArrayOutput() GetDedicatedHostFilterArrayOutput
+	ToGetDedicatedHostFilterArrayOutputWithContext(context.Context) GetDedicatedHostFilterArrayOutput
+}
+
+type GetDedicatedHostFilterArray []GetDedicatedHostFilterInput
+
+func (GetDedicatedHostFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDedicatedHostFilter)(nil)).Elem()
+}
+
+func (i GetDedicatedHostFilterArray) ToGetDedicatedHostFilterArrayOutput() GetDedicatedHostFilterArrayOutput {
+	return i.ToGetDedicatedHostFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetDedicatedHostFilterArray) ToGetDedicatedHostFilterArrayOutputWithContext(ctx context.Context) GetDedicatedHostFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDedicatedHostFilterArrayOutput)
+}
+
+type GetDedicatedHostFilterOutput struct{ *pulumi.OutputState }
+
+func (GetDedicatedHostFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDedicatedHostFilter)(nil)).Elem()
+}
+
+func (o GetDedicatedHostFilterOutput) ToGetDedicatedHostFilterOutput() GetDedicatedHostFilterOutput {
+	return o
+}
+
+func (o GetDedicatedHostFilterOutput) ToGetDedicatedHostFilterOutputWithContext(ctx context.Context) GetDedicatedHostFilterOutput {
+	return o
+}
+
+// The name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeHosts.html).
+func (o GetDedicatedHostFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDedicatedHostFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Set of values that are accepted for the given field. A host will be selected if any one of the given values matches.
+func (o GetDedicatedHostFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetDedicatedHostFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetDedicatedHostFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDedicatedHostFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDedicatedHostFilter)(nil)).Elem()
+}
+
+func (o GetDedicatedHostFilterArrayOutput) ToGetDedicatedHostFilterArrayOutput() GetDedicatedHostFilterArrayOutput {
+	return o
+}
+
+func (o GetDedicatedHostFilterArrayOutput) ToGetDedicatedHostFilterArrayOutputWithContext(ctx context.Context) GetDedicatedHostFilterArrayOutput {
+	return o
+}
+
+func (o GetDedicatedHostFilterArrayOutput) Index(i pulumi.IntInput) GetDedicatedHostFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDedicatedHostFilter {
+		return vs[0].([]GetDedicatedHostFilter)[vs[1].(int)]
+	}).(GetDedicatedHostFilterOutput)
+}
+
 type GetElasticIpFilter struct {
 	Name   string   `pulumi:"name"`
 	Values []string `pulumi:"values"`
@@ -18510,7 +18620,8 @@ func (o GetLaunchTemplateInstanceMarketOptionSpotOptionArrayOutput) Index(i pulu
 
 type GetLaunchTemplateMetadataOption struct {
 	// The state of the metadata service: `enabled`, `disabled`.
-	HttpEndpoint     string `pulumi:"httpEndpoint"`
+	HttpEndpoint string `pulumi:"httpEndpoint"`
+	// The state of IPv6 endpoint for the instance metadata service: `enabled`, `disabled`.
 	HttpProtocolIpv6 string `pulumi:"httpProtocolIpv6"`
 	// The desired HTTP PUT response hop limit for instance metadata requests.
 	HttpPutResponseHopLimit int `pulumi:"httpPutResponseHopLimit"`
@@ -18531,7 +18642,8 @@ type GetLaunchTemplateMetadataOptionInput interface {
 
 type GetLaunchTemplateMetadataOptionArgs struct {
 	// The state of the metadata service: `enabled`, `disabled`.
-	HttpEndpoint     pulumi.StringInput `pulumi:"httpEndpoint"`
+	HttpEndpoint pulumi.StringInput `pulumi:"httpEndpoint"`
+	// The state of IPv6 endpoint for the instance metadata service: `enabled`, `disabled`.
 	HttpProtocolIpv6 pulumi.StringInput `pulumi:"httpProtocolIpv6"`
 	// The desired HTTP PUT response hop limit for instance metadata requests.
 	HttpPutResponseHopLimit pulumi.IntInput `pulumi:"httpPutResponseHopLimit"`
@@ -18595,6 +18707,7 @@ func (o GetLaunchTemplateMetadataOptionOutput) HttpEndpoint() pulumi.StringOutpu
 	return o.ApplyT(func(v GetLaunchTemplateMetadataOption) string { return v.HttpEndpoint }).(pulumi.StringOutput)
 }
 
+// The state of IPv6 endpoint for the instance metadata service: `enabled`, `disabled`.
 func (o GetLaunchTemplateMetadataOptionOutput) HttpProtocolIpv6() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLaunchTemplateMetadataOption) string { return v.HttpProtocolIpv6 }).(pulumi.StringOutput)
 }
@@ -23732,6 +23845,8 @@ func init() {
 	pulumi.RegisterOutputType(GetCoipPoolsFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetCustomerGatewayFilterOutput{})
 	pulumi.RegisterOutputType(GetCustomerGatewayFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetDedicatedHostFilterOutput{})
+	pulumi.RegisterOutputType(GetDedicatedHostFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetElasticIpFilterOutput{})
 	pulumi.RegisterOutputType(GetElasticIpFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetInstanceCreditSpecificationOutput{})

@@ -30,12 +30,18 @@ func GetForbiddenAccountIds(ctx *pulumi.Context) string {
 	return config.Get(ctx, "aws:forbiddenAccountIds")
 }
 
+// The address of an HTTP proxy to use when accessing the AWS API. Can also be configured using the `HTTP_PROXY` or
+// `HTTPS_PROXY` environment variables.
+func GetHttpProxy(ctx *pulumi.Context) string {
+	return config.Get(ctx, "aws:httpProxy")
+}
+
 // Configuration block with settings to ignore resource tags across all resources.
 func GetIgnoreTags(ctx *pulumi.Context) string {
 	return config.Get(ctx, "aws:ignoreTags")
 }
 
-// Explicitly allow the provider to perform "insecure" SSL requests. If omitted,default value is `false`
+// Explicitly allow the provider to perform "insecure" SSL requests. If omitted, default value is `false`
 func GetInsecure(ctx *pulumi.Context) bool {
 	return config.GetBool(ctx, "aws:insecure")
 }

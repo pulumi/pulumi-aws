@@ -19,6 +19,9 @@ type Provider struct {
 
 	// The access key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.
 	AccessKey pulumi.StringPtrOutput `pulumi:"accessKey"`
+	// The address of an HTTP proxy to use when accessing the AWS API. Can also be configured using the `HTTP_PROXY` or
+	// `HTTPS_PROXY` environment variables.
+	HttpProxy pulumi.StringPtrOutput `pulumi:"httpProxy"`
 	// The profile for API operations. If not set, the default profile created with `aws configure` will be used.
 	Profile pulumi.StringPtrOutput `pulumi:"profile"`
 	// The region where AWS operations will take place. Examples are us-east-1, us-west-2, etc.
@@ -73,9 +76,12 @@ type providerArgs struct {
 	DefaultTags         *ProviderDefaultTags `pulumi:"defaultTags"`
 	Endpoints           []ProviderEndpoint   `pulumi:"endpoints"`
 	ForbiddenAccountIds []string             `pulumi:"forbiddenAccountIds"`
+	// The address of an HTTP proxy to use when accessing the AWS API. Can also be configured using the `HTTP_PROXY` or
+	// `HTTPS_PROXY` environment variables.
+	HttpProxy *string `pulumi:"httpProxy"`
 	// Configuration block with settings to ignore resource tags across all resources.
 	IgnoreTags *ProviderIgnoreTags `pulumi:"ignoreTags"`
-	// Explicitly allow the provider to perform "insecure" SSL requests. If omitted,default value is `false`
+	// Explicitly allow the provider to perform "insecure" SSL requests. If omitted, default value is `false`
 	Insecure *bool `pulumi:"insecure"`
 	// The maximum number of times an AWS API request is being executed. If the API request still fails, an error is thrown.
 	MaxRetries *int `pulumi:"maxRetries"`
@@ -116,9 +122,12 @@ type ProviderArgs struct {
 	DefaultTags         ProviderDefaultTagsPtrInput
 	Endpoints           ProviderEndpointArrayInput
 	ForbiddenAccountIds pulumi.StringArrayInput
+	// The address of an HTTP proxy to use when accessing the AWS API. Can also be configured using the `HTTP_PROXY` or
+	// `HTTPS_PROXY` environment variables.
+	HttpProxy pulumi.StringPtrInput
 	// Configuration block with settings to ignore resource tags across all resources.
 	IgnoreTags ProviderIgnoreTagsPtrInput
-	// Explicitly allow the provider to perform "insecure" SSL requests. If omitted,default value is `false`
+	// Explicitly allow the provider to perform "insecure" SSL requests. If omitted, default value is `false`
 	Insecure pulumi.BoolPtrInput
 	// The maximum number of times an AWS API request is being executed. If the API request still fails, an error is thrown.
 	MaxRetries pulumi.IntPtrInput

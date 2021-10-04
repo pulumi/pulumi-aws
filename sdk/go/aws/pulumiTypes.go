@@ -403,6 +403,7 @@ type ProviderEndpoint struct {
 	Budgets                      *string `pulumi:"budgets"`
 	Chime                        *string `pulumi:"chime"`
 	Cloud9                       *string `pulumi:"cloud9"`
+	Cloudcontrolapi              *string `pulumi:"cloudcontrolapi"`
 	Cloudformation               *string `pulumi:"cloudformation"`
 	Cloudfront                   *string `pulumi:"cloudfront"`
 	Cloudhsm                     *string `pulumi:"cloudhsm"`
@@ -578,6 +579,7 @@ type ProviderEndpointArgs struct {
 	Budgets                      pulumi.StringPtrInput `pulumi:"budgets"`
 	Chime                        pulumi.StringPtrInput `pulumi:"chime"`
 	Cloud9                       pulumi.StringPtrInput `pulumi:"cloud9"`
+	Cloudcontrolapi              pulumi.StringPtrInput `pulumi:"cloudcontrolapi"`
 	Cloudformation               pulumi.StringPtrInput `pulumi:"cloudformation"`
 	Cloudfront                   pulumi.StringPtrInput `pulumi:"cloudfront"`
 	Cloudhsm                     pulumi.StringPtrInput `pulumi:"cloudhsm"`
@@ -853,6 +855,10 @@ func (o ProviderEndpointOutput) Chime() pulumi.StringPtrOutput {
 
 func (o ProviderEndpointOutput) Cloud9() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Cloud9 }).(pulumi.StringPtrOutput)
+}
+
+func (o ProviderEndpointOutput) Cloudcontrolapi() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Cloudcontrolapi }).(pulumi.StringPtrOutput)
 }
 
 func (o ProviderEndpointOutput) Cloudformation() pulumi.StringPtrOutput {

@@ -438,12 +438,16 @@ class DomainDefaultUserSettingsArgs:
 @pulumi.input_type
 class DomainDefaultUserSettingsJupyterServerAppSettingsArgs:
     def __init__(__self__, *,
-                 default_resource_spec: Optional[pulumi.Input['DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs']] = None):
+                 default_resource_spec: Optional[pulumi.Input['DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs']] = None,
+                 lifecycle_config_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input['DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] lifecycle_config_arns: The Amazon Resource Name (ARN) of the Lifecycle Configurations.
         """
         if default_resource_spec is not None:
             pulumi.set(__self__, "default_resource_spec", default_resource_spec)
+        if lifecycle_config_arns is not None:
+            pulumi.set(__self__, "lifecycle_config_arns", lifecycle_config_arns)
 
     @property
     @pulumi.getter(name="defaultResourceSpec")
@@ -456,6 +460,18 @@ class DomainDefaultUserSettingsJupyterServerAppSettingsArgs:
     @default_resource_spec.setter
     def default_resource_spec(self, value: Optional[pulumi.Input['DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs']]):
         pulumi.set(self, "default_resource_spec", value)
+
+    @property
+    @pulumi.getter(name="lifecycleConfigArns")
+    def lifecycle_config_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+        """
+        return pulumi.get(self, "lifecycle_config_arns")
+
+    @lifecycle_config_arns.setter
+    def lifecycle_config_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "lifecycle_config_arns", value)
 
 
 @pulumi.input_type
@@ -501,15 +517,19 @@ class DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs:
 class DomainDefaultUserSettingsKernelGatewayAppSettingsArgs:
     def __init__(__self__, *,
                  custom_images: Optional[pulumi.Input[Sequence[pulumi.Input['DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArgs']]]] = None,
-                 default_resource_spec: Optional[pulumi.Input['DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs']] = None):
+                 default_resource_spec: Optional[pulumi.Input['DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs']] = None,
+                 lifecycle_config_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArgs']]] custom_images: A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
         :param pulumi.Input['DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] lifecycle_config_arns: The Amazon Resource Name (ARN) of the Lifecycle Configurations.
         """
         if custom_images is not None:
             pulumi.set(__self__, "custom_images", custom_images)
         if default_resource_spec is not None:
             pulumi.set(__self__, "default_resource_spec", default_resource_spec)
+        if lifecycle_config_arns is not None:
+            pulumi.set(__self__, "lifecycle_config_arns", lifecycle_config_arns)
 
     @property
     @pulumi.getter(name="customImages")
@@ -534,6 +554,18 @@ class DomainDefaultUserSettingsKernelGatewayAppSettingsArgs:
     @default_resource_spec.setter
     def default_resource_spec(self, value: Optional[pulumi.Input['DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs']]):
         pulumi.set(self, "default_resource_spec", value)
+
+    @property
+    @pulumi.getter(name="lifecycleConfigArns")
+    def lifecycle_config_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+        """
+        return pulumi.get(self, "lifecycle_config_arns")
+
+    @lifecycle_config_arns.setter
+    def lifecycle_config_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "lifecycle_config_arns", value)
 
 
 @pulumi.input_type
@@ -2221,11 +2253,15 @@ class UserProfileUserSettingsArgs:
 @pulumi.input_type
 class UserProfileUserSettingsJupyterServerAppSettingsArgs:
     def __init__(__self__, *,
-                 default_resource_spec: pulumi.Input['UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs']):
+                 default_resource_spec: pulumi.Input['UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs'],
+                 lifecycle_config_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input['UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] lifecycle_config_arns: The Amazon Resource Name (ARN) of the Lifecycle Configurations.
         """
         pulumi.set(__self__, "default_resource_spec", default_resource_spec)
+        if lifecycle_config_arns is not None:
+            pulumi.set(__self__, "lifecycle_config_arns", lifecycle_config_arns)
 
     @property
     @pulumi.getter(name="defaultResourceSpec")
@@ -2238,6 +2274,18 @@ class UserProfileUserSettingsJupyterServerAppSettingsArgs:
     @default_resource_spec.setter
     def default_resource_spec(self, value: pulumi.Input['UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs']):
         pulumi.set(self, "default_resource_spec", value)
+
+    @property
+    @pulumi.getter(name="lifecycleConfigArns")
+    def lifecycle_config_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+        """
+        return pulumi.get(self, "lifecycle_config_arns")
+
+    @lifecycle_config_arns.setter
+    def lifecycle_config_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "lifecycle_config_arns", value)
 
 
 @pulumi.input_type
@@ -2283,14 +2331,18 @@ class UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs:
 class UserProfileUserSettingsKernelGatewayAppSettingsArgs:
     def __init__(__self__, *,
                  default_resource_spec: pulumi.Input['UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs'],
-                 custom_images: Optional[pulumi.Input[Sequence[pulumi.Input['UserProfileUserSettingsKernelGatewayAppSettingsCustomImageArgs']]]] = None):
+                 custom_images: Optional[pulumi.Input[Sequence[pulumi.Input['UserProfileUserSettingsKernelGatewayAppSettingsCustomImageArgs']]]] = None,
+                 lifecycle_config_arns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         :param pulumi.Input['UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecArgs'] default_resource_spec: The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
         :param pulumi.Input[Sequence[pulumi.Input['UserProfileUserSettingsKernelGatewayAppSettingsCustomImageArgs']]] custom_images: A list of custom SageMaker images that are configured to run as a KernelGateway app. see Custom Image below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] lifecycle_config_arns: The Amazon Resource Name (ARN) of the Lifecycle Configurations.
         """
         pulumi.set(__self__, "default_resource_spec", default_resource_spec)
         if custom_images is not None:
             pulumi.set(__self__, "custom_images", custom_images)
+        if lifecycle_config_arns is not None:
+            pulumi.set(__self__, "lifecycle_config_arns", lifecycle_config_arns)
 
     @property
     @pulumi.getter(name="defaultResourceSpec")
@@ -2315,6 +2367,18 @@ class UserProfileUserSettingsKernelGatewayAppSettingsArgs:
     @custom_images.setter
     def custom_images(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UserProfileUserSettingsKernelGatewayAppSettingsCustomImageArgs']]]]):
         pulumi.set(self, "custom_images", value)
+
+    @property
+    @pulumi.getter(name="lifecycleConfigArns")
+    def lifecycle_config_arns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+        """
+        return pulumi.get(self, "lifecycle_config_arns")
+
+    @lifecycle_config_arns.setter
+    def lifecycle_config_arns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "lifecycle_config_arns", value)
 
 
 @pulumi.input_type

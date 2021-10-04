@@ -80,6 +80,17 @@ namespace Pulumi.Aws
             set => _forbiddenAccountIds.Set(value);
         }
 
+        private static readonly __Value<string?> _httpProxy = new __Value<string?>(() => __config.Get("httpProxy"));
+        /// <summary>
+        /// The address of an HTTP proxy to use when accessing the AWS API. Can also be configured using the `HTTP_PROXY` or
+        /// `HTTPS_PROXY` environment variables.
+        /// </summary>
+        public static string? HttpProxy
+        {
+            get => _httpProxy.Get();
+            set => _httpProxy.Set(value);
+        }
+
         private static readonly __Value<Pulumi.Aws.Config.Types.IgnoreTags?> _ignoreTags = new __Value<Pulumi.Aws.Config.Types.IgnoreTags?>(() => __config.GetObject<Pulumi.Aws.Config.Types.IgnoreTags>("ignoreTags"));
         /// <summary>
         /// Configuration block with settings to ignore resource tags across all resources.
@@ -92,7 +103,7 @@ namespace Pulumi.Aws
 
         private static readonly __Value<bool?> _insecure = new __Value<bool?>(() => __config.GetBoolean("insecure"));
         /// <summary>
-        /// Explicitly allow the provider to perform "insecure" SSL requests. If omitted,default value is `false`
+        /// Explicitly allow the provider to perform "insecure" SSL requests. If omitted, default value is `false`
         /// </summary>
         public static bool? Insecure
         {
@@ -264,6 +275,7 @@ namespace Pulumi.Aws
                 public string? Budgets { get; set; } = null!;
                 public string? Chime { get; set; } = null!;
                 public string? Cloud9 { get; set; } = null!;
+                public string? Cloudcontrolapi { get; set; } = null!;
                 public string? Cloudformation { get; set; } = null!;
                 public string? Cloudfront { get; set; } = null!;
                 public string? Cloudhsm { get; set; } = null!;

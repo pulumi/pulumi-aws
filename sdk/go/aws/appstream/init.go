@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws:appstream/fleet:Fleet":
 		r = &Fleet{}
+	case "aws:appstream/imageBuilder:ImageBuilder":
+		r = &ImageBuilder{}
 	case "aws:appstream/stack:Stack":
 		r = &Stack{}
 	default:
@@ -41,6 +43,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"appstream/fleet",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"appstream/imageBuilder",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

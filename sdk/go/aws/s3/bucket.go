@@ -442,11 +442,11 @@ type Bucket struct {
 	Acl pulumi.StringPtrOutput `pulumi:"acl"`
 	// The ARN of the bucket. Will be of format `arn:aws:s3:::bucketname`.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The name of the bucket. If omitted, this provider will assign a random, unique name. Must be less than or equal to 63 characters in length.
+	// The name of the bucket. If omitted, this provider will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
 	Bucket pulumi.StringOutput `pulumi:"bucket"`
 	// The bucket domain name. Will be of format `bucketname.s3.amazonaws.com`.
 	BucketDomainName pulumi.StringOutput `pulumi:"bucketDomainName"`
-	// Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`. Must be less than or equal to 37 characters in length.
+	// Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`. Must be lowercase and less than or equal to 37 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
 	BucketPrefix pulumi.StringPtrOutput `pulumi:"bucketPrefix"`
 	// The bucket region-specific domain name. The bucket domain name including the region name, please refer [here](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) for format. Note: The AWS CloudFront allows specifying S3 region-specific endpoint when creating S3 origin, it will prevent [redirect issues](https://forums.aws.amazon.com/thread.jspa?threadID=216814) from CloudFront to S3 Origin URL.
 	BucketRegionalDomainName pulumi.StringOutput `pulumi:"bucketRegionalDomainName"`
@@ -526,11 +526,11 @@ type bucketState struct {
 	Acl *string `pulumi:"acl"`
 	// The ARN of the bucket. Will be of format `arn:aws:s3:::bucketname`.
 	Arn *string `pulumi:"arn"`
-	// The name of the bucket. If omitted, this provider will assign a random, unique name. Must be less than or equal to 63 characters in length.
+	// The name of the bucket. If omitted, this provider will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
 	Bucket *string `pulumi:"bucket"`
 	// The bucket domain name. Will be of format `bucketname.s3.amazonaws.com`.
 	BucketDomainName *string `pulumi:"bucketDomainName"`
-	// Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`. Must be less than or equal to 37 characters in length.
+	// Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`. Must be lowercase and less than or equal to 37 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
 	BucketPrefix *string `pulumi:"bucketPrefix"`
 	// The bucket region-specific domain name. The bucket domain name including the region name, please refer [here](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) for format. Note: The AWS CloudFront allows specifying S3 region-specific endpoint when creating S3 origin, it will prevent [redirect issues](https://forums.aws.amazon.com/thread.jspa?threadID=216814) from CloudFront to S3 Origin URL.
 	BucketRegionalDomainName *string `pulumi:"bucketRegionalDomainName"`
@@ -582,11 +582,11 @@ type BucketState struct {
 	Acl pulumi.StringPtrInput
 	// The ARN of the bucket. Will be of format `arn:aws:s3:::bucketname`.
 	Arn pulumi.StringPtrInput
-	// The name of the bucket. If omitted, this provider will assign a random, unique name. Must be less than or equal to 63 characters in length.
+	// The name of the bucket. If omitted, this provider will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
 	Bucket pulumi.StringPtrInput
 	// The bucket domain name. Will be of format `bucketname.s3.amazonaws.com`.
 	BucketDomainName pulumi.StringPtrInput
-	// Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`. Must be less than or equal to 37 characters in length.
+	// Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`. Must be lowercase and less than or equal to 37 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
 	BucketPrefix pulumi.StringPtrInput
 	// The bucket region-specific domain name. The bucket domain name including the region name, please refer [here](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) for format. Note: The AWS CloudFront allows specifying S3 region-specific endpoint when creating S3 origin, it will prevent [redirect issues](https://forums.aws.amazon.com/thread.jspa?threadID=216814) from CloudFront to S3 Origin URL.
 	BucketRegionalDomainName pulumi.StringPtrInput
@@ -642,9 +642,9 @@ type bucketArgs struct {
 	Acl *string `pulumi:"acl"`
 	// The ARN of the bucket. Will be of format `arn:aws:s3:::bucketname`.
 	Arn *string `pulumi:"arn"`
-	// The name of the bucket. If omitted, this provider will assign a random, unique name. Must be less than or equal to 63 characters in length.
+	// The name of the bucket. If omitted, this provider will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
 	Bucket *string `pulumi:"bucket"`
-	// Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`. Must be less than or equal to 37 characters in length.
+	// Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`. Must be lowercase and less than or equal to 37 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
 	BucketPrefix *string `pulumi:"bucketPrefix"`
 	// A rule of [Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html) (documented below).
 	CorsRules []BucketCorsRule `pulumi:"corsRules"`
@@ -691,9 +691,9 @@ type BucketArgs struct {
 	Acl pulumi.StringPtrInput
 	// The ARN of the bucket. Will be of format `arn:aws:s3:::bucketname`.
 	Arn pulumi.StringPtrInput
-	// The name of the bucket. If omitted, this provider will assign a random, unique name. Must be less than or equal to 63 characters in length.
+	// The name of the bucket. If omitted, this provider will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
 	Bucket pulumi.StringPtrInput
-	// Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`. Must be less than or equal to 37 characters in length.
+	// Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`. Must be lowercase and less than or equal to 37 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
 	BucketPrefix pulumi.StringPtrInput
 	// A rule of [Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html) (documented below).
 	CorsRules BucketCorsRuleArrayInput

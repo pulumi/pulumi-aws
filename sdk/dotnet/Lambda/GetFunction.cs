@@ -75,6 +75,9 @@ namespace Pulumi.Aws.Lambda
     [OutputType]
     public sealed class GetFunctionResult
     {
+        /// <summary>
+        /// The instruction set architecture for the Lambda function.
+        /// </summary>
         public readonly ImmutableArray<string> Architectures;
         /// <summary>
         /// Unqualified (no `:QUALIFIER` or `:VERSION` suffix) Amazon Resource Name (ARN) identifying your Lambda Function. See also `qualified_arn`.

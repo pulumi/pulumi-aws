@@ -47,7 +47,7 @@ namespace Pulumi.Aws.SecurityHub
     ///             Provider = "aws.invitee",
     ///             DependsOn = 
     ///             {
-    ///                 aws_securityhub_account.Accepter,
+    ///                 inviteeAccount,
     ///             },
     ///         });
     ///     }

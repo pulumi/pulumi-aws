@@ -39,14 +39,14 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = securityhub.NewAccount(ctx, "inviteeAccount", nil, pulumi.Provider("aws.invitee"))
+// 		inviteeAccount, err := securityhub.NewAccount(ctx, "inviteeAccount", nil, pulumi.Provider("aws.invitee"))
 // 		if err != nil {
 // 			return err
 // 		}
 // 		_, err = securityhub.NewInviteAccepter(ctx, "inviteeInviteAccepter", &securityhub.InviteAccepterArgs{
 // 			MasterId: exampleMember.MasterId,
 // 		}, pulumi.Provider("aws.invitee"), pulumi.DependsOn([]pulumi.Resource{
-// 			aws_securityhub_account.Accepter,
+// 			inviteeAccount,
 // 		}))
 // 		if err != nil {
 // 			return err

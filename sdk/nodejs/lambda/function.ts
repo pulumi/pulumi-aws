@@ -225,7 +225,7 @@ export class Function extends pulumi.CustomResource {
     }
 
     /**
-     * The target architectures for the function. Only a single value is value at this time. Valid values are `arm64` and `x8664`. If not provided, AWS will default to `x8664`.
+     * Instruction set architecture for your Lambda function. Valid values are `["x8664"]` and `["arm64"]`. Default is `["x8664"]`. Removing this attribute, function's architecture stay the same.
      */
     public readonly architectures!: pulumi.Output<string[]>;
     /**
@@ -473,7 +473,7 @@ export class Function extends pulumi.CustomResource {
  */
 export interface FunctionState {
     /**
-     * The target architectures for the function. Only a single value is value at this time. Valid values are `arm64` and `x8664`. If not provided, AWS will default to `x8664`.
+     * Instruction set architecture for your Lambda function. Valid values are `["x8664"]` and `["arm64"]`. Default is `["x8664"]`. Removing this attribute, function's architecture stay the same.
      */
     architectures?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -624,7 +624,7 @@ export interface FunctionState {
  */
 export interface FunctionArgs {
     /**
-     * The target architectures for the function. Only a single value is value at this time. Valid values are `arm64` and `x8664`. If not provided, AWS will default to `x8664`.
+     * Instruction set architecture for your Lambda function. Valid values are `["x8664"]` and `["arm64"]`. Default is `["x8664"]`. Removing this attribute, function's architecture stay the same.
      */
     architectures?: pulumi.Input<pulumi.Input<string>[]>;
     /**

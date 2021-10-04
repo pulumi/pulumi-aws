@@ -56,6 +56,7 @@ import * as budgets from "./budgets";
 import * as cfg from "./cfg";
 import * as chime from "./chime";
 import * as cloud9 from "./cloud9";
+import * as cloudcontrol from "./cloudcontrol";
 import * as cloudformation from "./cloudformation";
 import * as cloudfront from "./cloudfront";
 import * as cloudhsmv2 from "./cloudhsmv2";
@@ -204,6 +205,7 @@ export {
     cfg,
     chime,
     cloud9,
+    cloudcontrol,
     cloudformation,
     cloudfront,
     cloudhsmv2,

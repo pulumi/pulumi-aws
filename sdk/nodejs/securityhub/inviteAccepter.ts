@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  * });
  * const inviteeInviteAccepter = new aws.securityhub.InviteAccepter("inviteeInviteAccepter", {masterId: exampleMember.masterId}, {
  *     provider: "aws.invitee",
- *     dependsOn: [aws_securityhub_account.accepter],
+ *     dependsOn: [inviteeAccount],
  * });
  * ```
  *

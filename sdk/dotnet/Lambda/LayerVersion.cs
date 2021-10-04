@@ -106,7 +106,7 @@ namespace Pulumi.Aws.Lambda
         public Output<Archive?> Code { get; private set; } = null!;
 
         /// <summary>
-        /// The compatible architectures for the specific Lambda Layer Version. Valid values are `arm64` and `x86_64`. If not supplied, a value of `null` is assumed and will default to the value used for the function architecture.
+        /// A list of [Architectures](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleArchitectures) this layer is compatible with. Currently `x86_64` and `arm64` can be specified.
         /// </summary>
         [Output("compatibleArchitectures")]
         public Output<ImmutableArray<string>> CompatibleArchitectures { get; private set; } = null!;
@@ -190,7 +190,7 @@ namespace Pulumi.Aws.Lambda
         public Output<int> SourceCodeSize { get; private set; } = null!;
 
         /// <summary>
-        /// This Lamba Layer version.
+        /// This Lambda Layer version.
         /// </summary>
         [Output("version")]
         public Output<string> Version { get; private set; } = null!;
@@ -251,7 +251,7 @@ namespace Pulumi.Aws.Lambda
         private InputList<string>? _compatibleArchitectures;
 
         /// <summary>
-        /// The compatible architectures for the specific Lambda Layer Version. Valid values are `arm64` and `x86_64`. If not supplied, a value of `null` is assumed and will default to the value used for the function architecture.
+        /// A list of [Architectures](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleArchitectures) this layer is compatible with. Currently `x86_64` and `arm64` can be specified.
         /// </summary>
         public InputList<string> CompatibleArchitectures
         {
@@ -336,7 +336,7 @@ namespace Pulumi.Aws.Lambda
         private InputList<string>? _compatibleArchitectures;
 
         /// <summary>
-        /// The compatible architectures for the specific Lambda Layer Version. Valid values are `arm64` and `x86_64`. If not supplied, a value of `null` is assumed and will default to the value used for the function architecture.
+        /// A list of [Architectures](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleArchitectures) this layer is compatible with. Currently `x86_64` and `arm64` can be specified.
         /// </summary>
         public InputList<string> CompatibleArchitectures
         {
@@ -429,7 +429,7 @@ namespace Pulumi.Aws.Lambda
         public Input<int>? SourceCodeSize { get; set; }
 
         /// <summary>
-        /// This Lamba Layer version.
+        /// This Lambda Layer version.
         /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }

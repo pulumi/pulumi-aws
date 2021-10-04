@@ -116,6 +116,7 @@ export interface ProviderEndpoint {
     budgets?: pulumi.Input<string>;
     chime?: pulumi.Input<string>;
     cloud9?: pulumi.Input<string>;
+    cloudcontrolapi?: pulumi.Input<string>;
     cloudformation?: pulumi.Input<string>;
     cloudfront?: pulumi.Input<string>;
     cloudhsm?: pulumi.Input<string>;
@@ -4244,6 +4245,39 @@ export namespace appstream {
         securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
         /**
          * Identifiers of the subnets to which a network interface is attached from the fleet instance or image builder instance.
+         */
+        subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface ImageBuilderAccessEndpoint {
+        /**
+         * Type of interface endpoint.
+         */
+        endpointType: pulumi.Input<string>;
+        /**
+         * Identifier (ID) of the VPC in which the interface endpoint is used.
+         */
+        vpceId?: pulumi.Input<string>;
+    }
+
+    export interface ImageBuilderDomainJoinInfo {
+        /**
+         * Fully qualified name of the directory (for example, corp.example.com).
+         */
+        directoryName?: pulumi.Input<string>;
+        /**
+         * Distinguished name of the organizational unit for computer accounts.
+         */
+        organizationalUnitDistinguishedName?: pulumi.Input<string>;
+    }
+
+    export interface ImageBuilderVpcConfig {
+        /**
+         * Identifiers of the security groups for the image builder or image builder.
+         */
+        securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Identifiers of the subnets to which a network interface is attached from the image builder instance or image builder instance.
          */
         subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -9474,6 +9508,17 @@ export namespace ec2 {
         values: string[];
     }
 
+    export interface GetDedicatedHostFilter {
+        /**
+         * The name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeHosts.html).
+         */
+        name: string;
+        /**
+         * Set of values that are accepted for the given field. A host will be selected if any one of the given values matches.
+         */
+        values: string[];
+    }
+
     export interface GetElasticIpFilter {
         name: string;
         values: string[];
@@ -10328,6 +10373,9 @@ export namespace ec2 {
          * Whether the metadata service is available. Can be `"enabled"` or `"disabled"`. (Default: `"enabled"`).
          */
         httpEndpoint?: pulumi.Input<string>;
+        /**
+         * Enables or disables the IPv6 endpoint for the instance metadata service. (Default: `disabled`).
+         */
         httpProtocolIpv6?: pulumi.Input<string>;
         /**
          * The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
@@ -20731,6 +20779,394 @@ export namespace pricing {
 
 }
 
+export namespace quicksight {
+    export interface DataSourceCredentials {
+        /**
+         * - The Amazon Resource Name (ARN) of a data source that has the credential pair that you want to use.
+         * When the value is not null, the `credentialPair` from the data source in the ARN is used.
+         */
+        copySourceArn?: pulumi.Input<string>;
+        /**
+         * - Credential pair. See Credential Pair below for more details.
+         */
+        credentialPair?: pulumi.Input<inputs.quicksight.DataSourceCredentialsCredentialPair>;
+    }
+
+    export interface DataSourceCredentialsCredentialPair {
+        /**
+         * Password, maximum length of 1024 characters.
+         */
+        password: pulumi.Input<string>;
+        /**
+         * User name, maximum length of 64 characters.
+         */
+        username: pulumi.Input<string>;
+    }
+
+    export interface DataSourceParameters {
+        /**
+         * Parameters for connecting to Amazon Elasticsearch.
+         */
+        amazonElasticsearch?: pulumi.Input<inputs.quicksight.DataSourceParametersAmazonElasticsearch>;
+        /**
+         * Parameters for connecting to Athena.
+         */
+        athena?: pulumi.Input<inputs.quicksight.DataSourceParametersAthena>;
+        /**
+         * Parameters for connecting to Aurora MySQL.
+         */
+        aurora?: pulumi.Input<inputs.quicksight.DataSourceParametersAurora>;
+        /**
+         * Parameters for connecting to Aurora Postgresql.
+         */
+        auroraPostgresql?: pulumi.Input<inputs.quicksight.DataSourceParametersAuroraPostgresql>;
+        /**
+         * Parameters for connecting to AWS IOT Analytics.
+         */
+        awsIotAnalytics?: pulumi.Input<inputs.quicksight.DataSourceParametersAwsIotAnalytics>;
+        /**
+         * Parameters for connecting to Jira.
+         */
+        jira?: pulumi.Input<inputs.quicksight.DataSourceParametersJira>;
+        /**
+         * Parameters for connecting to MariaDB.
+         */
+        mariaDb?: pulumi.Input<inputs.quicksight.DataSourceParametersMariaDb>;
+        /**
+         * Parameters for connecting to MySQL.
+         */
+        mysql?: pulumi.Input<inputs.quicksight.DataSourceParametersMysql>;
+        /**
+         * Parameters for connecting to Oracle.
+         */
+        oracle?: pulumi.Input<inputs.quicksight.DataSourceParametersOracle>;
+        /**
+         * Parameters for connecting to Postgresql.
+         */
+        postgresql?: pulumi.Input<inputs.quicksight.DataSourceParametersPostgresql>;
+        /**
+         * Parameters for connecting to Presto.
+         */
+        presto?: pulumi.Input<inputs.quicksight.DataSourceParametersPresto>;
+        /**
+         * Parameters for connecting to RDS.
+         */
+        rds?: pulumi.Input<inputs.quicksight.DataSourceParametersRds>;
+        /**
+         * Parameters for connecting to Redshift.
+         */
+        redshift?: pulumi.Input<inputs.quicksight.DataSourceParametersRedshift>;
+        /**
+         * Parameters for connecting to S3.
+         */
+        s3?: pulumi.Input<inputs.quicksight.DataSourceParametersS3>;
+        /**
+         * Parameters for connecting to ServiceNow.
+         */
+        serviceNow?: pulumi.Input<inputs.quicksight.DataSourceParametersServiceNow>;
+        /**
+         * Parameters for connecting to Snowflake.
+         */
+        snowflake?: pulumi.Input<inputs.quicksight.DataSourceParametersSnowflake>;
+        /**
+         * Parameters for connecting to Spark.
+         */
+        spark?: pulumi.Input<inputs.quicksight.DataSourceParametersSpark>;
+        /**
+         * Parameters for connecting to SQL Server.
+         */
+        sqlServer?: pulumi.Input<inputs.quicksight.DataSourceParametersSqlServer>;
+        /**
+         * Parameters for connecting to Teradata.
+         */
+        teradata?: pulumi.Input<inputs.quicksight.DataSourceParametersTeradata>;
+        /**
+         * Parameters for connecting to Twitter.
+         */
+        twitter?: pulumi.Input<inputs.quicksight.DataSourceParametersTwitter>;
+    }
+
+    export interface DataSourceParametersAmazonElasticsearch {
+        /**
+         * The OpenSearch domain.
+         */
+        domain: pulumi.Input<string>;
+    }
+
+    export interface DataSourceParametersAthena {
+        /**
+         * The work-group to which to connect.
+         */
+        workGroup?: pulumi.Input<string>;
+    }
+
+    export interface DataSourceParametersAurora {
+        /**
+         * The database to which to connect.
+         */
+        database: pulumi.Input<string>;
+        /**
+         * The host to which to connect.
+         */
+        host: pulumi.Input<string>;
+        /**
+         * The port to which to connect.
+         */
+        port: pulumi.Input<number>;
+    }
+
+    export interface DataSourceParametersAuroraPostgresql {
+        /**
+         * The database to which to connect.
+         */
+        database: pulumi.Input<string>;
+        /**
+         * The host to which to connect.
+         */
+        host: pulumi.Input<string>;
+        /**
+         * The port to which to connect.
+         */
+        port: pulumi.Input<number>;
+    }
+
+    export interface DataSourceParametersAwsIotAnalytics {
+        /**
+         * The name of the data set to which to connect.
+         */
+        dataSetName: pulumi.Input<string>;
+    }
+
+    export interface DataSourceParametersJira {
+        /**
+         * The base URL of the Jira instance's site to which to connect.
+         */
+        siteBaseUrl: pulumi.Input<string>;
+    }
+
+    export interface DataSourceParametersMariaDb {
+        /**
+         * The database to which to connect.
+         */
+        database: pulumi.Input<string>;
+        /**
+         * The host to which to connect.
+         */
+        host: pulumi.Input<string>;
+        /**
+         * The port to which to connect.
+         */
+        port: pulumi.Input<number>;
+    }
+
+    export interface DataSourceParametersMysql {
+        /**
+         * The database to which to connect.
+         */
+        database: pulumi.Input<string>;
+        /**
+         * The host to which to connect.
+         */
+        host: pulumi.Input<string>;
+        /**
+         * The port to which to connect.
+         */
+        port: pulumi.Input<number>;
+    }
+
+    export interface DataSourceParametersOracle {
+        /**
+         * The database to which to connect.
+         */
+        database: pulumi.Input<string>;
+        /**
+         * The host to which to connect.
+         */
+        host: pulumi.Input<string>;
+        /**
+         * The port to which to connect.
+         */
+        port: pulumi.Input<number>;
+    }
+
+    export interface DataSourceParametersPostgresql {
+        /**
+         * The database to which to connect.
+         */
+        database: pulumi.Input<string>;
+        /**
+         * The host to which to connect.
+         */
+        host: pulumi.Input<string>;
+        /**
+         * The port to which to connect.
+         */
+        port: pulumi.Input<number>;
+    }
+
+    export interface DataSourceParametersPresto {
+        /**
+         * The catalog to which to connect.
+         */
+        catalog: pulumi.Input<string>;
+        /**
+         * The host to which to connect.
+         */
+        host: pulumi.Input<string>;
+        /**
+         * The port to which to connect.
+         */
+        port: pulumi.Input<number>;
+    }
+
+    export interface DataSourceParametersRds {
+        /**
+         * The database to which to connect.
+         */
+        database: pulumi.Input<string>;
+        /**
+         * The instance ID to which to connect.
+         */
+        instanceId: pulumi.Input<string>;
+    }
+
+    export interface DataSourceParametersRedshift {
+        /**
+         * The ID of the cluster to which to connect.
+         */
+        clusterId?: pulumi.Input<string>;
+        /**
+         * The database to which to connect.
+         */
+        database: pulumi.Input<string>;
+        /**
+         * The host to which to connect.
+         */
+        host?: pulumi.Input<string>;
+        /**
+         * The port to which to connect.
+         */
+        port?: pulumi.Input<number>;
+    }
+
+    export interface DataSourceParametersS3 {
+        /**
+         * An object containing the S3 location of the S3 manifest file.
+         */
+        manifestFileLocation: pulumi.Input<inputs.quicksight.DataSourceParametersS3ManifestFileLocation>;
+    }
+
+    export interface DataSourceParametersS3ManifestFileLocation {
+        /**
+         * The name of the bucket that contains the manifest file.
+         */
+        bucket: pulumi.Input<string>;
+        /**
+         * The key of the manifest file within the bucket.
+         */
+        key: pulumi.Input<string>;
+    }
+
+    export interface DataSourceParametersServiceNow {
+        /**
+         * The base URL of the Jira instance's site to which to connect.
+         */
+        siteBaseUrl: pulumi.Input<string>;
+    }
+
+    export interface DataSourceParametersSnowflake {
+        /**
+         * The database to which to connect.
+         */
+        database: pulumi.Input<string>;
+        /**
+         * The host to which to connect.
+         */
+        host: pulumi.Input<string>;
+        /**
+         * The warehouse to which to connect.
+         */
+        warehouse: pulumi.Input<string>;
+    }
+
+    export interface DataSourceParametersSpark {
+        /**
+         * The host to which to connect.
+         */
+        host: pulumi.Input<string>;
+        /**
+         * The warehouse to which to connect.
+         */
+        port: pulumi.Input<number>;
+    }
+
+    export interface DataSourceParametersSqlServer {
+        /**
+         * The database to which to connect.
+         */
+        database: pulumi.Input<string>;
+        /**
+         * The host to which to connect.
+         */
+        host: pulumi.Input<string>;
+        /**
+         * The warehouse to which to connect.
+         */
+        port: pulumi.Input<number>;
+    }
+
+    export interface DataSourceParametersTeradata {
+        /**
+         * The database to which to connect.
+         */
+        database: pulumi.Input<string>;
+        /**
+         * The host to which to connect.
+         */
+        host: pulumi.Input<string>;
+        /**
+         * The warehouse to which to connect.
+         */
+        port: pulumi.Input<number>;
+    }
+
+    export interface DataSourceParametersTwitter {
+        /**
+         * The maximum number of rows to query.
+         */
+        maxRows: pulumi.Input<number>;
+        /**
+         * The Twitter query to retrieve the data.
+         */
+        query: pulumi.Input<string>;
+    }
+
+    export interface DataSourcePermission {
+        /**
+         * Set of IAM actions to grant or revoke permissions on. Max of 16 items.
+         */
+        actions: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The Amazon Resource Name (ARN) of the principal.
+         */
+        principal: pulumi.Input<string>;
+    }
+
+    export interface DataSourceSslProperties {
+        /**
+         * A Boolean option to control whether SSL should be disabled.
+         */
+        disableSsl: pulumi.Input<boolean>;
+    }
+
+    export interface DataSourceVpcConnectionProperties {
+        /**
+         * The Amazon Resource Name (ARN) for the VPC connection.
+         */
+        vpcConnectionArn: pulumi.Input<string>;
+    }
+}
+
 export namespace ram {
     export interface GetResourceShareFilter {
         /**
@@ -21056,6 +21492,58 @@ export namespace redshift {
          * The value of the Redshift parameter.
          */
         value: pulumi.Input<string>;
+    }
+
+    export interface ScheduledActionTargetAction {
+        /**
+         * An action that runs a `PauseCluster` API operation. Documented below.
+         */
+        pauseCluster?: pulumi.Input<inputs.redshift.ScheduledActionTargetActionPauseCluster>;
+        /**
+         * An action that runs a `ResizeCluster` API operation. Documented below.
+         */
+        resizeCluster?: pulumi.Input<inputs.redshift.ScheduledActionTargetActionResizeCluster>;
+        /**
+         * An action that runs a `ResumeCluster` API operation. Documented below.
+         */
+        resumeCluster?: pulumi.Input<inputs.redshift.ScheduledActionTargetActionResumeCluster>;
+    }
+
+    export interface ScheduledActionTargetActionPauseCluster {
+        /**
+         * The identifier of the cluster to be resumed.
+         */
+        clusterIdentifier: pulumi.Input<string>;
+    }
+
+    export interface ScheduledActionTargetActionResizeCluster {
+        /**
+         * A boolean value indicating whether the resize operation is using the classic resize process. Default: `false`.
+         */
+        classic?: pulumi.Input<boolean>;
+        /**
+         * The identifier of the cluster to be resumed.
+         */
+        clusterIdentifier: pulumi.Input<string>;
+        /**
+         * The new cluster type for the specified cluster.
+         */
+        clusterType?: pulumi.Input<string>;
+        /**
+         * The new node type for the nodes you are adding.
+         */
+        nodeType?: pulumi.Input<string>;
+        /**
+         * The new number of nodes for the cluster.
+         */
+        numberOfNodes?: pulumi.Input<number>;
+    }
+
+    export interface ScheduledActionTargetActionResumeCluster {
+        /**
+         * The identifier of the cluster to be resumed.
+         */
+        clusterIdentifier: pulumi.Input<string>;
     }
 
     export interface SecurityGroupIngress {
@@ -22068,6 +22556,10 @@ export namespace sagemaker {
          * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
          */
         defaultResourceSpec?: pulumi.Input<inputs.sagemaker.DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec>;
+        /**
+         * The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+         */
+        lifecycleConfigArns?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec {
@@ -22090,6 +22582,10 @@ export namespace sagemaker {
          * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
          */
         defaultResourceSpec?: pulumi.Input<inputs.sagemaker.DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec>;
+        /**
+         * The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+         */
+        lifecycleConfigArns?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImage {
@@ -22566,6 +23062,10 @@ export namespace sagemaker {
          * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
          */
         defaultResourceSpec: pulumi.Input<inputs.sagemaker.UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec>;
+        /**
+         * The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+         */
+        lifecycleConfigArns?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec {
@@ -22588,6 +23088,10 @@ export namespace sagemaker {
          * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
          */
         defaultResourceSpec: pulumi.Input<inputs.sagemaker.UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpec>;
+        /**
+         * The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+         */
+        lifecycleConfigArns?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface UserProfileUserSettingsKernelGatewayAppSettingsCustomImage {

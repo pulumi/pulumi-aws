@@ -18,6 +18,9 @@ namespace Pulumi.Aws.Ec2.Inputs
         [Input("httpEndpoint")]
         public Input<string>? HttpEndpoint { get; set; }
 
+        /// <summary>
+        /// Enables or disables the IPv6 endpoint for the instance metadata service. (Default: `disabled`).
+        /// </summary>
         [Input("httpProtocolIpv6")]
         public Input<string>? HttpProtocolIpv6 { get; set; }
 

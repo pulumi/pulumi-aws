@@ -585,6 +585,668 @@ func (o ParameterGroupParameterArrayOutput) Index(i pulumi.IntInput) ParameterGr
 	}).(ParameterGroupParameterOutput)
 }
 
+type ScheduledActionTargetAction struct {
+	// An action that runs a `PauseCluster` API operation. Documented below.
+	PauseCluster *ScheduledActionTargetActionPauseCluster `pulumi:"pauseCluster"`
+	// An action that runs a `ResizeCluster` API operation. Documented below.
+	ResizeCluster *ScheduledActionTargetActionResizeCluster `pulumi:"resizeCluster"`
+	// An action that runs a `ResumeCluster` API operation. Documented below.
+	ResumeCluster *ScheduledActionTargetActionResumeCluster `pulumi:"resumeCluster"`
+}
+
+// ScheduledActionTargetActionInput is an input type that accepts ScheduledActionTargetActionArgs and ScheduledActionTargetActionOutput values.
+// You can construct a concrete instance of `ScheduledActionTargetActionInput` via:
+//
+//          ScheduledActionTargetActionArgs{...}
+type ScheduledActionTargetActionInput interface {
+	pulumi.Input
+
+	ToScheduledActionTargetActionOutput() ScheduledActionTargetActionOutput
+	ToScheduledActionTargetActionOutputWithContext(context.Context) ScheduledActionTargetActionOutput
+}
+
+type ScheduledActionTargetActionArgs struct {
+	// An action that runs a `PauseCluster` API operation. Documented below.
+	PauseCluster ScheduledActionTargetActionPauseClusterPtrInput `pulumi:"pauseCluster"`
+	// An action that runs a `ResizeCluster` API operation. Documented below.
+	ResizeCluster ScheduledActionTargetActionResizeClusterPtrInput `pulumi:"resizeCluster"`
+	// An action that runs a `ResumeCluster` API operation. Documented below.
+	ResumeCluster ScheduledActionTargetActionResumeClusterPtrInput `pulumi:"resumeCluster"`
+}
+
+func (ScheduledActionTargetActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduledActionTargetAction)(nil)).Elem()
+}
+
+func (i ScheduledActionTargetActionArgs) ToScheduledActionTargetActionOutput() ScheduledActionTargetActionOutput {
+	return i.ToScheduledActionTargetActionOutputWithContext(context.Background())
+}
+
+func (i ScheduledActionTargetActionArgs) ToScheduledActionTargetActionOutputWithContext(ctx context.Context) ScheduledActionTargetActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledActionTargetActionOutput)
+}
+
+func (i ScheduledActionTargetActionArgs) ToScheduledActionTargetActionPtrOutput() ScheduledActionTargetActionPtrOutput {
+	return i.ToScheduledActionTargetActionPtrOutputWithContext(context.Background())
+}
+
+func (i ScheduledActionTargetActionArgs) ToScheduledActionTargetActionPtrOutputWithContext(ctx context.Context) ScheduledActionTargetActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledActionTargetActionOutput).ToScheduledActionTargetActionPtrOutputWithContext(ctx)
+}
+
+// ScheduledActionTargetActionPtrInput is an input type that accepts ScheduledActionTargetActionArgs, ScheduledActionTargetActionPtr and ScheduledActionTargetActionPtrOutput values.
+// You can construct a concrete instance of `ScheduledActionTargetActionPtrInput` via:
+//
+//          ScheduledActionTargetActionArgs{...}
+//
+//  or:
+//
+//          nil
+type ScheduledActionTargetActionPtrInput interface {
+	pulumi.Input
+
+	ToScheduledActionTargetActionPtrOutput() ScheduledActionTargetActionPtrOutput
+	ToScheduledActionTargetActionPtrOutputWithContext(context.Context) ScheduledActionTargetActionPtrOutput
+}
+
+type scheduledActionTargetActionPtrType ScheduledActionTargetActionArgs
+
+func ScheduledActionTargetActionPtr(v *ScheduledActionTargetActionArgs) ScheduledActionTargetActionPtrInput {
+	return (*scheduledActionTargetActionPtrType)(v)
+}
+
+func (*scheduledActionTargetActionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScheduledActionTargetAction)(nil)).Elem()
+}
+
+func (i *scheduledActionTargetActionPtrType) ToScheduledActionTargetActionPtrOutput() ScheduledActionTargetActionPtrOutput {
+	return i.ToScheduledActionTargetActionPtrOutputWithContext(context.Background())
+}
+
+func (i *scheduledActionTargetActionPtrType) ToScheduledActionTargetActionPtrOutputWithContext(ctx context.Context) ScheduledActionTargetActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledActionTargetActionPtrOutput)
+}
+
+type ScheduledActionTargetActionOutput struct{ *pulumi.OutputState }
+
+func (ScheduledActionTargetActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduledActionTargetAction)(nil)).Elem()
+}
+
+func (o ScheduledActionTargetActionOutput) ToScheduledActionTargetActionOutput() ScheduledActionTargetActionOutput {
+	return o
+}
+
+func (o ScheduledActionTargetActionOutput) ToScheduledActionTargetActionOutputWithContext(ctx context.Context) ScheduledActionTargetActionOutput {
+	return o
+}
+
+func (o ScheduledActionTargetActionOutput) ToScheduledActionTargetActionPtrOutput() ScheduledActionTargetActionPtrOutput {
+	return o.ToScheduledActionTargetActionPtrOutputWithContext(context.Background())
+}
+
+func (o ScheduledActionTargetActionOutput) ToScheduledActionTargetActionPtrOutputWithContext(ctx context.Context) ScheduledActionTargetActionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScheduledActionTargetAction) *ScheduledActionTargetAction {
+		return &v
+	}).(ScheduledActionTargetActionPtrOutput)
+}
+
+// An action that runs a `PauseCluster` API operation. Documented below.
+func (o ScheduledActionTargetActionOutput) PauseCluster() ScheduledActionTargetActionPauseClusterPtrOutput {
+	return o.ApplyT(func(v ScheduledActionTargetAction) *ScheduledActionTargetActionPauseCluster { return v.PauseCluster }).(ScheduledActionTargetActionPauseClusterPtrOutput)
+}
+
+// An action that runs a `ResizeCluster` API operation. Documented below.
+func (o ScheduledActionTargetActionOutput) ResizeCluster() ScheduledActionTargetActionResizeClusterPtrOutput {
+	return o.ApplyT(func(v ScheduledActionTargetAction) *ScheduledActionTargetActionResizeCluster { return v.ResizeCluster }).(ScheduledActionTargetActionResizeClusterPtrOutput)
+}
+
+// An action that runs a `ResumeCluster` API operation. Documented below.
+func (o ScheduledActionTargetActionOutput) ResumeCluster() ScheduledActionTargetActionResumeClusterPtrOutput {
+	return o.ApplyT(func(v ScheduledActionTargetAction) *ScheduledActionTargetActionResumeCluster { return v.ResumeCluster }).(ScheduledActionTargetActionResumeClusterPtrOutput)
+}
+
+type ScheduledActionTargetActionPtrOutput struct{ *pulumi.OutputState }
+
+func (ScheduledActionTargetActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScheduledActionTargetAction)(nil)).Elem()
+}
+
+func (o ScheduledActionTargetActionPtrOutput) ToScheduledActionTargetActionPtrOutput() ScheduledActionTargetActionPtrOutput {
+	return o
+}
+
+func (o ScheduledActionTargetActionPtrOutput) ToScheduledActionTargetActionPtrOutputWithContext(ctx context.Context) ScheduledActionTargetActionPtrOutput {
+	return o
+}
+
+func (o ScheduledActionTargetActionPtrOutput) Elem() ScheduledActionTargetActionOutput {
+	return o.ApplyT(func(v *ScheduledActionTargetAction) ScheduledActionTargetAction {
+		if v != nil {
+			return *v
+		}
+		var ret ScheduledActionTargetAction
+		return ret
+	}).(ScheduledActionTargetActionOutput)
+}
+
+// An action that runs a `PauseCluster` API operation. Documented below.
+func (o ScheduledActionTargetActionPtrOutput) PauseCluster() ScheduledActionTargetActionPauseClusterPtrOutput {
+	return o.ApplyT(func(v *ScheduledActionTargetAction) *ScheduledActionTargetActionPauseCluster {
+		if v == nil {
+			return nil
+		}
+		return v.PauseCluster
+	}).(ScheduledActionTargetActionPauseClusterPtrOutput)
+}
+
+// An action that runs a `ResizeCluster` API operation. Documented below.
+func (o ScheduledActionTargetActionPtrOutput) ResizeCluster() ScheduledActionTargetActionResizeClusterPtrOutput {
+	return o.ApplyT(func(v *ScheduledActionTargetAction) *ScheduledActionTargetActionResizeCluster {
+		if v == nil {
+			return nil
+		}
+		return v.ResizeCluster
+	}).(ScheduledActionTargetActionResizeClusterPtrOutput)
+}
+
+// An action that runs a `ResumeCluster` API operation. Documented below.
+func (o ScheduledActionTargetActionPtrOutput) ResumeCluster() ScheduledActionTargetActionResumeClusterPtrOutput {
+	return o.ApplyT(func(v *ScheduledActionTargetAction) *ScheduledActionTargetActionResumeCluster {
+		if v == nil {
+			return nil
+		}
+		return v.ResumeCluster
+	}).(ScheduledActionTargetActionResumeClusterPtrOutput)
+}
+
+type ScheduledActionTargetActionPauseCluster struct {
+	// The identifier of the cluster to be resumed.
+	ClusterIdentifier string `pulumi:"clusterIdentifier"`
+}
+
+// ScheduledActionTargetActionPauseClusterInput is an input type that accepts ScheduledActionTargetActionPauseClusterArgs and ScheduledActionTargetActionPauseClusterOutput values.
+// You can construct a concrete instance of `ScheduledActionTargetActionPauseClusterInput` via:
+//
+//          ScheduledActionTargetActionPauseClusterArgs{...}
+type ScheduledActionTargetActionPauseClusterInput interface {
+	pulumi.Input
+
+	ToScheduledActionTargetActionPauseClusterOutput() ScheduledActionTargetActionPauseClusterOutput
+	ToScheduledActionTargetActionPauseClusterOutputWithContext(context.Context) ScheduledActionTargetActionPauseClusterOutput
+}
+
+type ScheduledActionTargetActionPauseClusterArgs struct {
+	// The identifier of the cluster to be resumed.
+	ClusterIdentifier pulumi.StringInput `pulumi:"clusterIdentifier"`
+}
+
+func (ScheduledActionTargetActionPauseClusterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduledActionTargetActionPauseCluster)(nil)).Elem()
+}
+
+func (i ScheduledActionTargetActionPauseClusterArgs) ToScheduledActionTargetActionPauseClusterOutput() ScheduledActionTargetActionPauseClusterOutput {
+	return i.ToScheduledActionTargetActionPauseClusterOutputWithContext(context.Background())
+}
+
+func (i ScheduledActionTargetActionPauseClusterArgs) ToScheduledActionTargetActionPauseClusterOutputWithContext(ctx context.Context) ScheduledActionTargetActionPauseClusterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledActionTargetActionPauseClusterOutput)
+}
+
+func (i ScheduledActionTargetActionPauseClusterArgs) ToScheduledActionTargetActionPauseClusterPtrOutput() ScheduledActionTargetActionPauseClusterPtrOutput {
+	return i.ToScheduledActionTargetActionPauseClusterPtrOutputWithContext(context.Background())
+}
+
+func (i ScheduledActionTargetActionPauseClusterArgs) ToScheduledActionTargetActionPauseClusterPtrOutputWithContext(ctx context.Context) ScheduledActionTargetActionPauseClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledActionTargetActionPauseClusterOutput).ToScheduledActionTargetActionPauseClusterPtrOutputWithContext(ctx)
+}
+
+// ScheduledActionTargetActionPauseClusterPtrInput is an input type that accepts ScheduledActionTargetActionPauseClusterArgs, ScheduledActionTargetActionPauseClusterPtr and ScheduledActionTargetActionPauseClusterPtrOutput values.
+// You can construct a concrete instance of `ScheduledActionTargetActionPauseClusterPtrInput` via:
+//
+//          ScheduledActionTargetActionPauseClusterArgs{...}
+//
+//  or:
+//
+//          nil
+type ScheduledActionTargetActionPauseClusterPtrInput interface {
+	pulumi.Input
+
+	ToScheduledActionTargetActionPauseClusterPtrOutput() ScheduledActionTargetActionPauseClusterPtrOutput
+	ToScheduledActionTargetActionPauseClusterPtrOutputWithContext(context.Context) ScheduledActionTargetActionPauseClusterPtrOutput
+}
+
+type scheduledActionTargetActionPauseClusterPtrType ScheduledActionTargetActionPauseClusterArgs
+
+func ScheduledActionTargetActionPauseClusterPtr(v *ScheduledActionTargetActionPauseClusterArgs) ScheduledActionTargetActionPauseClusterPtrInput {
+	return (*scheduledActionTargetActionPauseClusterPtrType)(v)
+}
+
+func (*scheduledActionTargetActionPauseClusterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScheduledActionTargetActionPauseCluster)(nil)).Elem()
+}
+
+func (i *scheduledActionTargetActionPauseClusterPtrType) ToScheduledActionTargetActionPauseClusterPtrOutput() ScheduledActionTargetActionPauseClusterPtrOutput {
+	return i.ToScheduledActionTargetActionPauseClusterPtrOutputWithContext(context.Background())
+}
+
+func (i *scheduledActionTargetActionPauseClusterPtrType) ToScheduledActionTargetActionPauseClusterPtrOutputWithContext(ctx context.Context) ScheduledActionTargetActionPauseClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledActionTargetActionPauseClusterPtrOutput)
+}
+
+type ScheduledActionTargetActionPauseClusterOutput struct{ *pulumi.OutputState }
+
+func (ScheduledActionTargetActionPauseClusterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduledActionTargetActionPauseCluster)(nil)).Elem()
+}
+
+func (o ScheduledActionTargetActionPauseClusterOutput) ToScheduledActionTargetActionPauseClusterOutput() ScheduledActionTargetActionPauseClusterOutput {
+	return o
+}
+
+func (o ScheduledActionTargetActionPauseClusterOutput) ToScheduledActionTargetActionPauseClusterOutputWithContext(ctx context.Context) ScheduledActionTargetActionPauseClusterOutput {
+	return o
+}
+
+func (o ScheduledActionTargetActionPauseClusterOutput) ToScheduledActionTargetActionPauseClusterPtrOutput() ScheduledActionTargetActionPauseClusterPtrOutput {
+	return o.ToScheduledActionTargetActionPauseClusterPtrOutputWithContext(context.Background())
+}
+
+func (o ScheduledActionTargetActionPauseClusterOutput) ToScheduledActionTargetActionPauseClusterPtrOutputWithContext(ctx context.Context) ScheduledActionTargetActionPauseClusterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScheduledActionTargetActionPauseCluster) *ScheduledActionTargetActionPauseCluster {
+		return &v
+	}).(ScheduledActionTargetActionPauseClusterPtrOutput)
+}
+
+// The identifier of the cluster to be resumed.
+func (o ScheduledActionTargetActionPauseClusterOutput) ClusterIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v ScheduledActionTargetActionPauseCluster) string { return v.ClusterIdentifier }).(pulumi.StringOutput)
+}
+
+type ScheduledActionTargetActionPauseClusterPtrOutput struct{ *pulumi.OutputState }
+
+func (ScheduledActionTargetActionPauseClusterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScheduledActionTargetActionPauseCluster)(nil)).Elem()
+}
+
+func (o ScheduledActionTargetActionPauseClusterPtrOutput) ToScheduledActionTargetActionPauseClusterPtrOutput() ScheduledActionTargetActionPauseClusterPtrOutput {
+	return o
+}
+
+func (o ScheduledActionTargetActionPauseClusterPtrOutput) ToScheduledActionTargetActionPauseClusterPtrOutputWithContext(ctx context.Context) ScheduledActionTargetActionPauseClusterPtrOutput {
+	return o
+}
+
+func (o ScheduledActionTargetActionPauseClusterPtrOutput) Elem() ScheduledActionTargetActionPauseClusterOutput {
+	return o.ApplyT(func(v *ScheduledActionTargetActionPauseCluster) ScheduledActionTargetActionPauseCluster {
+		if v != nil {
+			return *v
+		}
+		var ret ScheduledActionTargetActionPauseCluster
+		return ret
+	}).(ScheduledActionTargetActionPauseClusterOutput)
+}
+
+// The identifier of the cluster to be resumed.
+func (o ScheduledActionTargetActionPauseClusterPtrOutput) ClusterIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScheduledActionTargetActionPauseCluster) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ClusterIdentifier
+	}).(pulumi.StringPtrOutput)
+}
+
+type ScheduledActionTargetActionResizeCluster struct {
+	// A boolean value indicating whether the resize operation is using the classic resize process. Default: `false`.
+	Classic *bool `pulumi:"classic"`
+	// The identifier of the cluster to be resumed.
+	ClusterIdentifier string `pulumi:"clusterIdentifier"`
+	// The new cluster type for the specified cluster.
+	ClusterType *string `pulumi:"clusterType"`
+	// The new node type for the nodes you are adding.
+	NodeType *string `pulumi:"nodeType"`
+	// The new number of nodes for the cluster.
+	NumberOfNodes *int `pulumi:"numberOfNodes"`
+}
+
+// ScheduledActionTargetActionResizeClusterInput is an input type that accepts ScheduledActionTargetActionResizeClusterArgs and ScheduledActionTargetActionResizeClusterOutput values.
+// You can construct a concrete instance of `ScheduledActionTargetActionResizeClusterInput` via:
+//
+//          ScheduledActionTargetActionResizeClusterArgs{...}
+type ScheduledActionTargetActionResizeClusterInput interface {
+	pulumi.Input
+
+	ToScheduledActionTargetActionResizeClusterOutput() ScheduledActionTargetActionResizeClusterOutput
+	ToScheduledActionTargetActionResizeClusterOutputWithContext(context.Context) ScheduledActionTargetActionResizeClusterOutput
+}
+
+type ScheduledActionTargetActionResizeClusterArgs struct {
+	// A boolean value indicating whether the resize operation is using the classic resize process. Default: `false`.
+	Classic pulumi.BoolPtrInput `pulumi:"classic"`
+	// The identifier of the cluster to be resumed.
+	ClusterIdentifier pulumi.StringInput `pulumi:"clusterIdentifier"`
+	// The new cluster type for the specified cluster.
+	ClusterType pulumi.StringPtrInput `pulumi:"clusterType"`
+	// The new node type for the nodes you are adding.
+	NodeType pulumi.StringPtrInput `pulumi:"nodeType"`
+	// The new number of nodes for the cluster.
+	NumberOfNodes pulumi.IntPtrInput `pulumi:"numberOfNodes"`
+}
+
+func (ScheduledActionTargetActionResizeClusterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduledActionTargetActionResizeCluster)(nil)).Elem()
+}
+
+func (i ScheduledActionTargetActionResizeClusterArgs) ToScheduledActionTargetActionResizeClusterOutput() ScheduledActionTargetActionResizeClusterOutput {
+	return i.ToScheduledActionTargetActionResizeClusterOutputWithContext(context.Background())
+}
+
+func (i ScheduledActionTargetActionResizeClusterArgs) ToScheduledActionTargetActionResizeClusterOutputWithContext(ctx context.Context) ScheduledActionTargetActionResizeClusterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledActionTargetActionResizeClusterOutput)
+}
+
+func (i ScheduledActionTargetActionResizeClusterArgs) ToScheduledActionTargetActionResizeClusterPtrOutput() ScheduledActionTargetActionResizeClusterPtrOutput {
+	return i.ToScheduledActionTargetActionResizeClusterPtrOutputWithContext(context.Background())
+}
+
+func (i ScheduledActionTargetActionResizeClusterArgs) ToScheduledActionTargetActionResizeClusterPtrOutputWithContext(ctx context.Context) ScheduledActionTargetActionResizeClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledActionTargetActionResizeClusterOutput).ToScheduledActionTargetActionResizeClusterPtrOutputWithContext(ctx)
+}
+
+// ScheduledActionTargetActionResizeClusterPtrInput is an input type that accepts ScheduledActionTargetActionResizeClusterArgs, ScheduledActionTargetActionResizeClusterPtr and ScheduledActionTargetActionResizeClusterPtrOutput values.
+// You can construct a concrete instance of `ScheduledActionTargetActionResizeClusterPtrInput` via:
+//
+//          ScheduledActionTargetActionResizeClusterArgs{...}
+//
+//  or:
+//
+//          nil
+type ScheduledActionTargetActionResizeClusterPtrInput interface {
+	pulumi.Input
+
+	ToScheduledActionTargetActionResizeClusterPtrOutput() ScheduledActionTargetActionResizeClusterPtrOutput
+	ToScheduledActionTargetActionResizeClusterPtrOutputWithContext(context.Context) ScheduledActionTargetActionResizeClusterPtrOutput
+}
+
+type scheduledActionTargetActionResizeClusterPtrType ScheduledActionTargetActionResizeClusterArgs
+
+func ScheduledActionTargetActionResizeClusterPtr(v *ScheduledActionTargetActionResizeClusterArgs) ScheduledActionTargetActionResizeClusterPtrInput {
+	return (*scheduledActionTargetActionResizeClusterPtrType)(v)
+}
+
+func (*scheduledActionTargetActionResizeClusterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScheduledActionTargetActionResizeCluster)(nil)).Elem()
+}
+
+func (i *scheduledActionTargetActionResizeClusterPtrType) ToScheduledActionTargetActionResizeClusterPtrOutput() ScheduledActionTargetActionResizeClusterPtrOutput {
+	return i.ToScheduledActionTargetActionResizeClusterPtrOutputWithContext(context.Background())
+}
+
+func (i *scheduledActionTargetActionResizeClusterPtrType) ToScheduledActionTargetActionResizeClusterPtrOutputWithContext(ctx context.Context) ScheduledActionTargetActionResizeClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledActionTargetActionResizeClusterPtrOutput)
+}
+
+type ScheduledActionTargetActionResizeClusterOutput struct{ *pulumi.OutputState }
+
+func (ScheduledActionTargetActionResizeClusterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduledActionTargetActionResizeCluster)(nil)).Elem()
+}
+
+func (o ScheduledActionTargetActionResizeClusterOutput) ToScheduledActionTargetActionResizeClusterOutput() ScheduledActionTargetActionResizeClusterOutput {
+	return o
+}
+
+func (o ScheduledActionTargetActionResizeClusterOutput) ToScheduledActionTargetActionResizeClusterOutputWithContext(ctx context.Context) ScheduledActionTargetActionResizeClusterOutput {
+	return o
+}
+
+func (o ScheduledActionTargetActionResizeClusterOutput) ToScheduledActionTargetActionResizeClusterPtrOutput() ScheduledActionTargetActionResizeClusterPtrOutput {
+	return o.ToScheduledActionTargetActionResizeClusterPtrOutputWithContext(context.Background())
+}
+
+func (o ScheduledActionTargetActionResizeClusterOutput) ToScheduledActionTargetActionResizeClusterPtrOutputWithContext(ctx context.Context) ScheduledActionTargetActionResizeClusterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScheduledActionTargetActionResizeCluster) *ScheduledActionTargetActionResizeCluster {
+		return &v
+	}).(ScheduledActionTargetActionResizeClusterPtrOutput)
+}
+
+// A boolean value indicating whether the resize operation is using the classic resize process. Default: `false`.
+func (o ScheduledActionTargetActionResizeClusterOutput) Classic() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ScheduledActionTargetActionResizeCluster) *bool { return v.Classic }).(pulumi.BoolPtrOutput)
+}
+
+// The identifier of the cluster to be resumed.
+func (o ScheduledActionTargetActionResizeClusterOutput) ClusterIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v ScheduledActionTargetActionResizeCluster) string { return v.ClusterIdentifier }).(pulumi.StringOutput)
+}
+
+// The new cluster type for the specified cluster.
+func (o ScheduledActionTargetActionResizeClusterOutput) ClusterType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScheduledActionTargetActionResizeCluster) *string { return v.ClusterType }).(pulumi.StringPtrOutput)
+}
+
+// The new node type for the nodes you are adding.
+func (o ScheduledActionTargetActionResizeClusterOutput) NodeType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ScheduledActionTargetActionResizeCluster) *string { return v.NodeType }).(pulumi.StringPtrOutput)
+}
+
+// The new number of nodes for the cluster.
+func (o ScheduledActionTargetActionResizeClusterOutput) NumberOfNodes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ScheduledActionTargetActionResizeCluster) *int { return v.NumberOfNodes }).(pulumi.IntPtrOutput)
+}
+
+type ScheduledActionTargetActionResizeClusterPtrOutput struct{ *pulumi.OutputState }
+
+func (ScheduledActionTargetActionResizeClusterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScheduledActionTargetActionResizeCluster)(nil)).Elem()
+}
+
+func (o ScheduledActionTargetActionResizeClusterPtrOutput) ToScheduledActionTargetActionResizeClusterPtrOutput() ScheduledActionTargetActionResizeClusterPtrOutput {
+	return o
+}
+
+func (o ScheduledActionTargetActionResizeClusterPtrOutput) ToScheduledActionTargetActionResizeClusterPtrOutputWithContext(ctx context.Context) ScheduledActionTargetActionResizeClusterPtrOutput {
+	return o
+}
+
+func (o ScheduledActionTargetActionResizeClusterPtrOutput) Elem() ScheduledActionTargetActionResizeClusterOutput {
+	return o.ApplyT(func(v *ScheduledActionTargetActionResizeCluster) ScheduledActionTargetActionResizeCluster {
+		if v != nil {
+			return *v
+		}
+		var ret ScheduledActionTargetActionResizeCluster
+		return ret
+	}).(ScheduledActionTargetActionResizeClusterOutput)
+}
+
+// A boolean value indicating whether the resize operation is using the classic resize process. Default: `false`.
+func (o ScheduledActionTargetActionResizeClusterPtrOutput) Classic() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ScheduledActionTargetActionResizeCluster) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Classic
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The identifier of the cluster to be resumed.
+func (o ScheduledActionTargetActionResizeClusterPtrOutput) ClusterIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScheduledActionTargetActionResizeCluster) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ClusterIdentifier
+	}).(pulumi.StringPtrOutput)
+}
+
+// The new cluster type for the specified cluster.
+func (o ScheduledActionTargetActionResizeClusterPtrOutput) ClusterType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScheduledActionTargetActionResizeCluster) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClusterType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The new node type for the nodes you are adding.
+func (o ScheduledActionTargetActionResizeClusterPtrOutput) NodeType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScheduledActionTargetActionResizeCluster) *string {
+		if v == nil {
+			return nil
+		}
+		return v.NodeType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The new number of nodes for the cluster.
+func (o ScheduledActionTargetActionResizeClusterPtrOutput) NumberOfNodes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ScheduledActionTargetActionResizeCluster) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NumberOfNodes
+	}).(pulumi.IntPtrOutput)
+}
+
+type ScheduledActionTargetActionResumeCluster struct {
+	// The identifier of the cluster to be resumed.
+	ClusterIdentifier string `pulumi:"clusterIdentifier"`
+}
+
+// ScheduledActionTargetActionResumeClusterInput is an input type that accepts ScheduledActionTargetActionResumeClusterArgs and ScheduledActionTargetActionResumeClusterOutput values.
+// You can construct a concrete instance of `ScheduledActionTargetActionResumeClusterInput` via:
+//
+//          ScheduledActionTargetActionResumeClusterArgs{...}
+type ScheduledActionTargetActionResumeClusterInput interface {
+	pulumi.Input
+
+	ToScheduledActionTargetActionResumeClusterOutput() ScheduledActionTargetActionResumeClusterOutput
+	ToScheduledActionTargetActionResumeClusterOutputWithContext(context.Context) ScheduledActionTargetActionResumeClusterOutput
+}
+
+type ScheduledActionTargetActionResumeClusterArgs struct {
+	// The identifier of the cluster to be resumed.
+	ClusterIdentifier pulumi.StringInput `pulumi:"clusterIdentifier"`
+}
+
+func (ScheduledActionTargetActionResumeClusterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduledActionTargetActionResumeCluster)(nil)).Elem()
+}
+
+func (i ScheduledActionTargetActionResumeClusterArgs) ToScheduledActionTargetActionResumeClusterOutput() ScheduledActionTargetActionResumeClusterOutput {
+	return i.ToScheduledActionTargetActionResumeClusterOutputWithContext(context.Background())
+}
+
+func (i ScheduledActionTargetActionResumeClusterArgs) ToScheduledActionTargetActionResumeClusterOutputWithContext(ctx context.Context) ScheduledActionTargetActionResumeClusterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledActionTargetActionResumeClusterOutput)
+}
+
+func (i ScheduledActionTargetActionResumeClusterArgs) ToScheduledActionTargetActionResumeClusterPtrOutput() ScheduledActionTargetActionResumeClusterPtrOutput {
+	return i.ToScheduledActionTargetActionResumeClusterPtrOutputWithContext(context.Background())
+}
+
+func (i ScheduledActionTargetActionResumeClusterArgs) ToScheduledActionTargetActionResumeClusterPtrOutputWithContext(ctx context.Context) ScheduledActionTargetActionResumeClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledActionTargetActionResumeClusterOutput).ToScheduledActionTargetActionResumeClusterPtrOutputWithContext(ctx)
+}
+
+// ScheduledActionTargetActionResumeClusterPtrInput is an input type that accepts ScheduledActionTargetActionResumeClusterArgs, ScheduledActionTargetActionResumeClusterPtr and ScheduledActionTargetActionResumeClusterPtrOutput values.
+// You can construct a concrete instance of `ScheduledActionTargetActionResumeClusterPtrInput` via:
+//
+//          ScheduledActionTargetActionResumeClusterArgs{...}
+//
+//  or:
+//
+//          nil
+type ScheduledActionTargetActionResumeClusterPtrInput interface {
+	pulumi.Input
+
+	ToScheduledActionTargetActionResumeClusterPtrOutput() ScheduledActionTargetActionResumeClusterPtrOutput
+	ToScheduledActionTargetActionResumeClusterPtrOutputWithContext(context.Context) ScheduledActionTargetActionResumeClusterPtrOutput
+}
+
+type scheduledActionTargetActionResumeClusterPtrType ScheduledActionTargetActionResumeClusterArgs
+
+func ScheduledActionTargetActionResumeClusterPtr(v *ScheduledActionTargetActionResumeClusterArgs) ScheduledActionTargetActionResumeClusterPtrInput {
+	return (*scheduledActionTargetActionResumeClusterPtrType)(v)
+}
+
+func (*scheduledActionTargetActionResumeClusterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScheduledActionTargetActionResumeCluster)(nil)).Elem()
+}
+
+func (i *scheduledActionTargetActionResumeClusterPtrType) ToScheduledActionTargetActionResumeClusterPtrOutput() ScheduledActionTargetActionResumeClusterPtrOutput {
+	return i.ToScheduledActionTargetActionResumeClusterPtrOutputWithContext(context.Background())
+}
+
+func (i *scheduledActionTargetActionResumeClusterPtrType) ToScheduledActionTargetActionResumeClusterPtrOutputWithContext(ctx context.Context) ScheduledActionTargetActionResumeClusterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ScheduledActionTargetActionResumeClusterPtrOutput)
+}
+
+type ScheduledActionTargetActionResumeClusterOutput struct{ *pulumi.OutputState }
+
+func (ScheduledActionTargetActionResumeClusterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ScheduledActionTargetActionResumeCluster)(nil)).Elem()
+}
+
+func (o ScheduledActionTargetActionResumeClusterOutput) ToScheduledActionTargetActionResumeClusterOutput() ScheduledActionTargetActionResumeClusterOutput {
+	return o
+}
+
+func (o ScheduledActionTargetActionResumeClusterOutput) ToScheduledActionTargetActionResumeClusterOutputWithContext(ctx context.Context) ScheduledActionTargetActionResumeClusterOutput {
+	return o
+}
+
+func (o ScheduledActionTargetActionResumeClusterOutput) ToScheduledActionTargetActionResumeClusterPtrOutput() ScheduledActionTargetActionResumeClusterPtrOutput {
+	return o.ToScheduledActionTargetActionResumeClusterPtrOutputWithContext(context.Background())
+}
+
+func (o ScheduledActionTargetActionResumeClusterOutput) ToScheduledActionTargetActionResumeClusterPtrOutputWithContext(ctx context.Context) ScheduledActionTargetActionResumeClusterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScheduledActionTargetActionResumeCluster) *ScheduledActionTargetActionResumeCluster {
+		return &v
+	}).(ScheduledActionTargetActionResumeClusterPtrOutput)
+}
+
+// The identifier of the cluster to be resumed.
+func (o ScheduledActionTargetActionResumeClusterOutput) ClusterIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v ScheduledActionTargetActionResumeCluster) string { return v.ClusterIdentifier }).(pulumi.StringOutput)
+}
+
+type ScheduledActionTargetActionResumeClusterPtrOutput struct{ *pulumi.OutputState }
+
+func (ScheduledActionTargetActionResumeClusterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ScheduledActionTargetActionResumeCluster)(nil)).Elem()
+}
+
+func (o ScheduledActionTargetActionResumeClusterPtrOutput) ToScheduledActionTargetActionResumeClusterPtrOutput() ScheduledActionTargetActionResumeClusterPtrOutput {
+	return o
+}
+
+func (o ScheduledActionTargetActionResumeClusterPtrOutput) ToScheduledActionTargetActionResumeClusterPtrOutputWithContext(ctx context.Context) ScheduledActionTargetActionResumeClusterPtrOutput {
+	return o
+}
+
+func (o ScheduledActionTargetActionResumeClusterPtrOutput) Elem() ScheduledActionTargetActionResumeClusterOutput {
+	return o.ApplyT(func(v *ScheduledActionTargetActionResumeCluster) ScheduledActionTargetActionResumeCluster {
+		if v != nil {
+			return *v
+		}
+		var ret ScheduledActionTargetActionResumeCluster
+		return ret
+	}).(ScheduledActionTargetActionResumeClusterOutput)
+}
+
+// The identifier of the cluster to be resumed.
+func (o ScheduledActionTargetActionResumeClusterPtrOutput) ClusterIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ScheduledActionTargetActionResumeCluster) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ClusterIdentifier
+	}).(pulumi.StringPtrOutput)
+}
+
 type SecurityGroupIngress struct {
 	// The CIDR block to accept
 	Cidr *string `pulumi:"cidr"`
@@ -712,6 +1374,14 @@ func init() {
 	pulumi.RegisterOutputType(ClusterSnapshotCopyPtrOutput{})
 	pulumi.RegisterOutputType(ParameterGroupParameterOutput{})
 	pulumi.RegisterOutputType(ParameterGroupParameterArrayOutput{})
+	pulumi.RegisterOutputType(ScheduledActionTargetActionOutput{})
+	pulumi.RegisterOutputType(ScheduledActionTargetActionPtrOutput{})
+	pulumi.RegisterOutputType(ScheduledActionTargetActionPauseClusterOutput{})
+	pulumi.RegisterOutputType(ScheduledActionTargetActionPauseClusterPtrOutput{})
+	pulumi.RegisterOutputType(ScheduledActionTargetActionResizeClusterOutput{})
+	pulumi.RegisterOutputType(ScheduledActionTargetActionResizeClusterPtrOutput{})
+	pulumi.RegisterOutputType(ScheduledActionTargetActionResumeClusterOutput{})
+	pulumi.RegisterOutputType(ScheduledActionTargetActionResumeClusterPtrOutput{})
 	pulumi.RegisterOutputType(SecurityGroupIngressOutput{})
 	pulumi.RegisterOutputType(SecurityGroupIngressArrayOutput{})
 }

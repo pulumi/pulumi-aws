@@ -46,7 +46,7 @@ class FunctionArgs:
         """
         The set of arguments for constructing a Function resource.
         :param pulumi.Input[str] role: Amazon Resource Name (ARN) of the function's execution role. The role provides the function's identity and access to AWS services and resources.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] architectures: The target architectures for the function. Only a single value is value at this time. Valid values are `arm64` and `x86_64`. If not provided, AWS will default to `x86_64`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] architectures: Instruction set architecture for your Lambda function. Valid values are `["x86_64"]` and `["arm64"]`. Default is `["x86_64"]`. Removing this attribute, function's architecture stay the same.
         :param pulumi.Input[pulumi.Archive] code: Path to the function's deployment package within the local filesystem. Conflicts with `image_uri`, `s3_bucket`, `s3_key`, and `s3_object_version`.
         :param pulumi.Input[str] code_signing_config_arn: To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes a set of signing profiles, which define the trusted publishers for this function.
         :param pulumi.Input['FunctionDeadLetterConfigArgs'] dead_letter_config: Configuration block. Detailed below.
@@ -143,7 +143,7 @@ class FunctionArgs:
     @pulumi.getter
     def architectures(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The target architectures for the function. Only a single value is value at this time. Valid values are `arm64` and `x86_64`. If not provided, AWS will default to `x86_64`.
+        Instruction set architecture for your Lambda function. Valid values are `["x86_64"]` and `["arm64"]`. Default is `["x86_64"]`. Removing this attribute, function's architecture stay the same.
         """
         return pulumi.get(self, "architectures")
 
@@ -493,7 +493,7 @@ class _FunctionState:
                  vpc_config: Optional[pulumi.Input['FunctionVpcConfigArgs']] = None):
         """
         Input properties used for looking up and filtering Function resources.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] architectures: The target architectures for the function. Only a single value is value at this time. Valid values are `arm64` and `x86_64`. If not provided, AWS will default to `x86_64`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] architectures: Instruction set architecture for your Lambda function. Valid values are `["x86_64"]` and `["arm64"]`. Default is `["x86_64"]`. Removing this attribute, function's architecture stay the same.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
         :param pulumi.Input[pulumi.Archive] code: Path to the function's deployment package within the local filesystem. Conflicts with `image_uri`, `s3_bucket`, `s3_key`, and `s3_object_version`.
         :param pulumi.Input[str] code_signing_config_arn: To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes a set of signing profiles, which define the trusted publishers for this function.
@@ -608,7 +608,7 @@ class _FunctionState:
     @pulumi.getter
     def architectures(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The target architectures for the function. Only a single value is value at this time. Valid values are `arm64` and `x86_64`. If not provided, AWS will default to `x86_64`.
+        Instruction set architecture for your Lambda function. Valid values are `["x86_64"]` and `["arm64"]`. Default is `["x86_64"]`. Removing this attribute, function's architecture stay the same.
         """
         return pulumi.get(self, "architectures")
 
@@ -1254,7 +1254,7 @@ class Function(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] architectures: The target architectures for the function. Only a single value is value at this time. Valid values are `arm64` and `x86_64`. If not provided, AWS will default to `x86_64`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] architectures: Instruction set architecture for your Lambda function. Valid values are `["x86_64"]` and `["arm64"]`. Default is `["x86_64"]`. Removing this attribute, function's architecture stay the same.
         :param pulumi.Input[pulumi.Archive] code: Path to the function's deployment package within the local filesystem. Conflicts with `image_uri`, `s3_bucket`, `s3_key`, and `s3_object_version`.
         :param pulumi.Input[str] code_signing_config_arn: To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes a set of signing profiles, which define the trusted publishers for this function.
         :param pulumi.Input[pulumi.InputType['FunctionDeadLetterConfigArgs']] dead_letter_config: Configuration block. Detailed below.
@@ -1614,7 +1614,7 @@ class Function(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] architectures: The target architectures for the function. Only a single value is value at this time. Valid values are `arm64` and `x86_64`. If not provided, AWS will default to `x86_64`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] architectures: Instruction set architecture for your Lambda function. Valid values are `["x86_64"]` and `["arm64"]`. Default is `["x86_64"]`. Removing this attribute, function's architecture stay the same.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the Amazon EFS Access Point that provides access to the file system.
         :param pulumi.Input[pulumi.Archive] code: Path to the function's deployment package within the local filesystem. Conflicts with `image_uri`, `s3_bucket`, `s3_key`, and `s3_object_version`.
         :param pulumi.Input[str] code_signing_config_arn: To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes a set of signing profiles, which define the trusted publishers for this function.
@@ -1698,7 +1698,7 @@ class Function(pulumi.CustomResource):
     @pulumi.getter
     def architectures(self) -> pulumi.Output[Sequence[str]]:
         """
-        The target architectures for the function. Only a single value is value at this time. Valid values are `arm64` and `x86_64`. If not provided, AWS will default to `x86_64`.
+        Instruction set architecture for your Lambda function. Valid values are `["x86_64"]` and `["arm64"]`. Default is `["x86_64"]`. Removing this attribute, function's architecture stay the same.
         """
         return pulumi.get(self, "architectures")
 

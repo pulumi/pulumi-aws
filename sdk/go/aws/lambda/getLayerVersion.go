@@ -48,19 +48,22 @@ func LookupLayerVersion(ctx *pulumi.Context, args *LookupLayerVersionArgs, opts 
 
 // A collection of arguments for invoking getLayerVersion.
 type LookupLayerVersionArgs struct {
+	// Specific architecture the layer version could support. Conflicts with `version`. If specified, the latest available layer version supporting the provided architecture will be used.
+	CompatibleArchitecture *string `pulumi:"compatibleArchitecture"`
 	// Specific runtime the layer version must support. Conflicts with `version`. If specified, the latest available layer version supporting the provided runtime will be used.
 	CompatibleRuntime *string `pulumi:"compatibleRuntime"`
 	// Name of the lambda layer.
 	LayerName string `pulumi:"layerName"`
-	// Specific layer version. Conflicts with `compatibleRuntime`. If omitted, the latest available layer version will be used.
+	// Specific layer version. Conflicts with `compatibleRuntime` and `compatibleArchitecture`. If omitted, the latest available layer version will be used.
 	Version *int `pulumi:"version"`
 }
 
 // A collection of values returned by getLayerVersion.
 type LookupLayerVersionResult struct {
 	// The Amazon Resource Name (ARN) of the Lambda Layer with version.
-	Arn string `pulumi:"arn"`
-	// The compatible architectures of the specific Lambda Layer Version.
+	Arn                    string  `pulumi:"arn"`
+	CompatibleArchitecture *string `pulumi:"compatibleArchitecture"`
+	// A list of [Architectures](https://docs.aws.amazon.com/lambda/latest/dg/API_GetLayerVersion.html#SSS-GetLayerVersion-response-CompatibleArchitectures) the specific Lambda Layer version is compatible with.
 	CompatibleArchitectures []string `pulumi:"compatibleArchitectures"`
 	CompatibleRuntime       *string  `pulumi:"compatibleRuntime"`
 	// A list of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_GetLayerVersion.html#SSS-GetLayerVersion-response-CompatibleRuntimes) the specific Lambda Layer version is compatible with.
@@ -99,11 +102,13 @@ func LookupLayerVersionOutput(ctx *pulumi.Context, args LookupLayerVersionOutput
 
 // A collection of arguments for invoking getLayerVersion.
 type LookupLayerVersionOutputArgs struct {
+	// Specific architecture the layer version could support. Conflicts with `version`. If specified, the latest available layer version supporting the provided architecture will be used.
+	CompatibleArchitecture pulumi.StringPtrInput `pulumi:"compatibleArchitecture"`
 	// Specific runtime the layer version must support. Conflicts with `version`. If specified, the latest available layer version supporting the provided runtime will be used.
 	CompatibleRuntime pulumi.StringPtrInput `pulumi:"compatibleRuntime"`
 	// Name of the lambda layer.
 	LayerName pulumi.StringInput `pulumi:"layerName"`
-	// Specific layer version. Conflicts with `compatibleRuntime`. If omitted, the latest available layer version will be used.
+	// Specific layer version. Conflicts with `compatibleRuntime` and `compatibleArchitecture`. If omitted, the latest available layer version will be used.
 	Version pulumi.IntPtrInput `pulumi:"version"`
 }
 
@@ -131,7 +136,11 @@ func (o LookupLayerVersionResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLayerVersionResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The compatible architectures of the specific Lambda Layer Version.
+func (o LookupLayerVersionResultOutput) CompatibleArchitecture() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLayerVersionResult) *string { return v.CompatibleArchitecture }).(pulumi.StringPtrOutput)
+}
+
+// A list of [Architectures](https://docs.aws.amazon.com/lambda/latest/dg/API_GetLayerVersion.html#SSS-GetLayerVersion-response-CompatibleArchitectures) the specific Lambda Layer version is compatible with.
 func (o LookupLayerVersionResultOutput) CompatibleArchitectures() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupLayerVersionResult) []string { return v.CompatibleArchitectures }).(pulumi.StringArrayOutput)
 }

@@ -2101,6 +2101,118 @@ func (o SecurityGroupIngressArrayOutput) Index(i pulumi.IntInput) SecurityGroupI
 	}).(SecurityGroupIngressOutput)
 }
 
+type GetProxyAuth struct {
+	AuthScheme  string `pulumi:"authScheme"`
+	Description string `pulumi:"description"`
+	IamAuth     string `pulumi:"iamAuth"`
+	SecretArn   string `pulumi:"secretArn"`
+}
+
+// GetProxyAuthInput is an input type that accepts GetProxyAuthArgs and GetProxyAuthOutput values.
+// You can construct a concrete instance of `GetProxyAuthInput` via:
+//
+//          GetProxyAuthArgs{...}
+type GetProxyAuthInput interface {
+	pulumi.Input
+
+	ToGetProxyAuthOutput() GetProxyAuthOutput
+	ToGetProxyAuthOutputWithContext(context.Context) GetProxyAuthOutput
+}
+
+type GetProxyAuthArgs struct {
+	AuthScheme  pulumi.StringInput `pulumi:"authScheme"`
+	Description pulumi.StringInput `pulumi:"description"`
+	IamAuth     pulumi.StringInput `pulumi:"iamAuth"`
+	SecretArn   pulumi.StringInput `pulumi:"secretArn"`
+}
+
+func (GetProxyAuthArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetProxyAuth)(nil)).Elem()
+}
+
+func (i GetProxyAuthArgs) ToGetProxyAuthOutput() GetProxyAuthOutput {
+	return i.ToGetProxyAuthOutputWithContext(context.Background())
+}
+
+func (i GetProxyAuthArgs) ToGetProxyAuthOutputWithContext(ctx context.Context) GetProxyAuthOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetProxyAuthOutput)
+}
+
+// GetProxyAuthArrayInput is an input type that accepts GetProxyAuthArray and GetProxyAuthArrayOutput values.
+// You can construct a concrete instance of `GetProxyAuthArrayInput` via:
+//
+//          GetProxyAuthArray{ GetProxyAuthArgs{...} }
+type GetProxyAuthArrayInput interface {
+	pulumi.Input
+
+	ToGetProxyAuthArrayOutput() GetProxyAuthArrayOutput
+	ToGetProxyAuthArrayOutputWithContext(context.Context) GetProxyAuthArrayOutput
+}
+
+type GetProxyAuthArray []GetProxyAuthInput
+
+func (GetProxyAuthArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetProxyAuth)(nil)).Elem()
+}
+
+func (i GetProxyAuthArray) ToGetProxyAuthArrayOutput() GetProxyAuthArrayOutput {
+	return i.ToGetProxyAuthArrayOutputWithContext(context.Background())
+}
+
+func (i GetProxyAuthArray) ToGetProxyAuthArrayOutputWithContext(ctx context.Context) GetProxyAuthArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetProxyAuthArrayOutput)
+}
+
+type GetProxyAuthOutput struct{ *pulumi.OutputState }
+
+func (GetProxyAuthOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetProxyAuth)(nil)).Elem()
+}
+
+func (o GetProxyAuthOutput) ToGetProxyAuthOutput() GetProxyAuthOutput {
+	return o
+}
+
+func (o GetProxyAuthOutput) ToGetProxyAuthOutputWithContext(ctx context.Context) GetProxyAuthOutput {
+	return o
+}
+
+func (o GetProxyAuthOutput) AuthScheme() pulumi.StringOutput {
+	return o.ApplyT(func(v GetProxyAuth) string { return v.AuthScheme }).(pulumi.StringOutput)
+}
+
+func (o GetProxyAuthOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetProxyAuth) string { return v.Description }).(pulumi.StringOutput)
+}
+
+func (o GetProxyAuthOutput) IamAuth() pulumi.StringOutput {
+	return o.ApplyT(func(v GetProxyAuth) string { return v.IamAuth }).(pulumi.StringOutput)
+}
+
+func (o GetProxyAuthOutput) SecretArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetProxyAuth) string { return v.SecretArn }).(pulumi.StringOutput)
+}
+
+type GetProxyAuthArrayOutput struct{ *pulumi.OutputState }
+
+func (GetProxyAuthArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetProxyAuth)(nil)).Elem()
+}
+
+func (o GetProxyAuthArrayOutput) ToGetProxyAuthArrayOutput() GetProxyAuthArrayOutput {
+	return o
+}
+
+func (o GetProxyAuthArrayOutput) ToGetProxyAuthArrayOutputWithContext(ctx context.Context) GetProxyAuthArrayOutput {
+	return o
+}
+
+func (o GetProxyAuthArrayOutput) Index(i pulumi.IntInput) GetProxyAuthOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetProxyAuth {
+		return vs[0].([]GetProxyAuth)[vs[1].(int)]
+	}).(GetProxyAuthOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ClusterParameterGroupParameterOutput{})
 	pulumi.RegisterOutputType(ClusterParameterGroupParameterArrayOutput{})
@@ -2128,4 +2240,6 @@ func init() {
 	pulumi.RegisterOutputType(ProxyDefaultTargetGroupConnectionPoolConfigPtrOutput{})
 	pulumi.RegisterOutputType(SecurityGroupIngressOutput{})
 	pulumi.RegisterOutputType(SecurityGroupIngressArrayOutput{})
+	pulumi.RegisterOutputType(GetProxyAuthOutput{})
+	pulumi.RegisterOutputType(GetProxyAuthArrayOutput{})
 }

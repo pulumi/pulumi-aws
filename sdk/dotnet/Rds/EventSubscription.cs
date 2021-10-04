@@ -109,7 +109,7 @@ namespace Pulumi.Aws.Rds
         /// The name of the DB event subscription. Conflicts with `name`.
         /// </summary>
         [Output("namePrefix")]
-        public Output<string?> NamePrefix { get; private set; } = null!;
+        public Output<string> NamePrefix { get; private set; } = null!;
 
         /// <summary>
         /// The SNS topic to send events to.

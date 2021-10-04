@@ -27,7 +27,7 @@ class LayerVersionArgs:
         The set of arguments for constructing a LayerVersion resource.
         :param pulumi.Input[str] layer_name: A unique name for your Lambda Layer
         :param pulumi.Input[pulumi.Archive] code: The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] compatible_architectures: The compatible architectures for the specific Lambda Layer Version. Valid values are `arm64` and `x86_64`. If not supplied, a value of `null` is assumed and will default to the value used for the function architecture.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] compatible_architectures: A list of [Architectures](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleArchitectures) this layer is compatible with. Currently `x86_64` and `arm64` can be specified.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] compatible_runtimes: A list of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) this layer is compatible with. Up to 5 runtimes can be specified.
         :param pulumi.Input[str] description: Description of what your Lambda Layer does.
         :param pulumi.Input[str] license_info: License info for your Lambda Layer. See [License Info](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-LicenseInfo).
@@ -84,7 +84,7 @@ class LayerVersionArgs:
     @pulumi.getter(name="compatibleArchitectures")
     def compatible_architectures(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The compatible architectures for the specific Lambda Layer Version. Valid values are `arm64` and `x86_64`. If not supplied, a value of `null` is assumed and will default to the value used for the function architecture.
+        A list of [Architectures](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleArchitectures) this layer is compatible with. Currently `x86_64` and `arm64` can be specified.
         """
         return pulumi.get(self, "compatible_architectures")
 
@@ -201,7 +201,7 @@ class _LayerVersionState:
         Input properties used for looking up and filtering LayerVersion resources.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the Lambda Layer with version.
         :param pulumi.Input[pulumi.Archive] code: The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] compatible_architectures: The compatible architectures for the specific Lambda Layer Version. Valid values are `arm64` and `x86_64`. If not supplied, a value of `null` is assumed and will default to the value used for the function architecture.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] compatible_architectures: A list of [Architectures](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleArchitectures) this layer is compatible with. Currently `x86_64` and `arm64` can be specified.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] compatible_runtimes: A list of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) this layer is compatible with. Up to 5 runtimes can be specified.
         :param pulumi.Input[str] created_date: The date this resource was created.
         :param pulumi.Input[str] description: Description of what your Lambda Layer does.
@@ -215,7 +215,7 @@ class _LayerVersionState:
         :param pulumi.Input[str] signing_profile_version_arn: The Amazon Resource Name (ARN) for a signing profile version.
         :param pulumi.Input[str] source_code_hash: Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`. The usual way to set this is `${filebase64sha256("file.zip")}` (this provider 0.11.12 or later) or `${base64sha256(file("file.zip"))}` (this provider 0.11.11 and earlier), where "file.zip" is the local filename of the lambda layer source archive.
         :param pulumi.Input[int] source_code_size: The size in bytes of the function .zip file.
-        :param pulumi.Input[str] version: This Lamba Layer version.
+        :param pulumi.Input[str] version: This Lambda Layer version.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -280,7 +280,7 @@ class _LayerVersionState:
     @pulumi.getter(name="compatibleArchitectures")
     def compatible_architectures(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The compatible architectures for the specific Lambda Layer Version. Valid values are `arm64` and `x86_64`. If not supplied, a value of `null` is assumed and will default to the value used for the function architecture.
+        A list of [Architectures](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleArchitectures) this layer is compatible with. Currently `x86_64` and `arm64` can be specified.
         """
         return pulumi.get(self, "compatible_architectures")
 
@@ -448,7 +448,7 @@ class _LayerVersionState:
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[str]]:
         """
-        This Lamba Layer version.
+        This Lambda Layer version.
         """
         return pulumi.get(self, "version")
 
@@ -532,7 +532,7 @@ class LayerVersion(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.Archive] code: The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] compatible_architectures: The compatible architectures for the specific Lambda Layer Version. Valid values are `arm64` and `x86_64`. If not supplied, a value of `null` is assumed and will default to the value used for the function architecture.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] compatible_architectures: A list of [Architectures](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleArchitectures) this layer is compatible with. Currently `x86_64` and `arm64` can be specified.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] compatible_runtimes: A list of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) this layer is compatible with. Up to 5 runtimes can be specified.
         :param pulumi.Input[str] description: Description of what your Lambda Layer does.
         :param pulumi.Input[str] layer_name: A unique name for your Lambda Layer
@@ -696,7 +696,7 @@ class LayerVersion(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the Lambda Layer with version.
         :param pulumi.Input[pulumi.Archive] code: The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] compatible_architectures: The compatible architectures for the specific Lambda Layer Version. Valid values are `arm64` and `x86_64`. If not supplied, a value of `null` is assumed and will default to the value used for the function architecture.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] compatible_architectures: A list of [Architectures](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleArchitectures) this layer is compatible with. Currently `x86_64` and `arm64` can be specified.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] compatible_runtimes: A list of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) this layer is compatible with. Up to 5 runtimes can be specified.
         :param pulumi.Input[str] created_date: The date this resource was created.
         :param pulumi.Input[str] description: Description of what your Lambda Layer does.
@@ -710,7 +710,7 @@ class LayerVersion(pulumi.CustomResource):
         :param pulumi.Input[str] signing_profile_version_arn: The Amazon Resource Name (ARN) for a signing profile version.
         :param pulumi.Input[str] source_code_hash: Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the package file specified with either `filename` or `s3_key`. The usual way to set this is `${filebase64sha256("file.zip")}` (this provider 0.11.12 or later) or `${base64sha256(file("file.zip"))}` (this provider 0.11.11 and earlier), where "file.zip" is the local filename of the lambda layer source archive.
         :param pulumi.Input[int] source_code_size: The size in bytes of the function .zip file.
-        :param pulumi.Input[str] version: This Lamba Layer version.
+        :param pulumi.Input[str] version: This Lambda Layer version.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -755,7 +755,7 @@ class LayerVersion(pulumi.CustomResource):
     @pulumi.getter(name="compatibleArchitectures")
     def compatible_architectures(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        The compatible architectures for the specific Lambda Layer Version. Valid values are `arm64` and `x86_64`. If not supplied, a value of `null` is assumed and will default to the value used for the function architecture.
+        A list of [Architectures](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleArchitectures) this layer is compatible with. Currently `x86_64` and `arm64` can be specified.
         """
         return pulumi.get(self, "compatible_architectures")
 
@@ -867,7 +867,7 @@ class LayerVersion(pulumi.CustomResource):
     @pulumi.getter
     def version(self) -> pulumi.Output[str]:
         """
-        This Lamba Layer version.
+        This Lambda Layer version.
         """
         return pulumi.get(self, "version")
 

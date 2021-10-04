@@ -121,6 +121,7 @@ class Endpoints(dict):
                  budgets: Optional[str] = None,
                  chime: Optional[str] = None,
                  cloud9: Optional[str] = None,
+                 cloudcontrolapi: Optional[str] = None,
                  cloudformation: Optional[str] = None,
                  cloudfront: Optional[str] = None,
                  cloudhsm: Optional[str] = None,
@@ -303,6 +304,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "chime", chime)
         if cloud9 is not None:
             pulumi.set(__self__, "cloud9", cloud9)
+        if cloudcontrolapi is not None:
+            pulumi.set(__self__, "cloudcontrolapi", cloudcontrolapi)
         if cloudformation is not None:
             pulumi.set(__self__, "cloudformation", cloudformation)
         if cloudfront is not None:
@@ -688,6 +691,11 @@ class Endpoints(dict):
     @pulumi.getter
     def cloud9(self) -> Optional[str]:
         return pulumi.get(self, "cloud9")
+
+    @property
+    @pulumi.getter
+    def cloudcontrolapi(self) -> Optional[str]:
+        return pulumi.get(self, "cloudcontrolapi")
 
     @property
     @pulumi.getter

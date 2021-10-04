@@ -5,6 +5,7 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .authorizer import *
 from .certificate import *
 from .get_endpoint import *
 from .policy import *

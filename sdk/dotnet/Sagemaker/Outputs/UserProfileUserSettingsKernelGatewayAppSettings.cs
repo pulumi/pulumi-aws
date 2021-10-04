@@ -21,15 +21,22 @@ namespace Pulumi.Aws.Sagemaker.Outputs
         /// The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
         /// </summary>
         public readonly Outputs.UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpec DefaultResourceSpec;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+        /// </summary>
+        public readonly ImmutableArray<string> LifecycleConfigArns;
 
         [OutputConstructor]
         private UserProfileUserSettingsKernelGatewayAppSettings(
             ImmutableArray<Outputs.UserProfileUserSettingsKernelGatewayAppSettingsCustomImage> customImages,
 
-            Outputs.UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpec defaultResourceSpec)
+            Outputs.UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpec defaultResourceSpec,
+
+            ImmutableArray<string> lifecycleConfigArns)
         {
             CustomImages = customImages;
             DefaultResourceSpec = defaultResourceSpec;
+            LifecycleConfigArns = lifecycleConfigArns;
         }
     }
 }

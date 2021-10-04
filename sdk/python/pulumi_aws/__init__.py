@@ -76,6 +76,8 @@ if typing.TYPE_CHECKING:
     chime = __chime
     import pulumi_aws.cloud9 as __cloud9
     cloud9 = __cloud9
+    import pulumi_aws.cloudcontrol as __cloudcontrol
+    cloudcontrol = __cloudcontrol
     import pulumi_aws.cloudformation as __cloudformation
     cloudformation = __cloudformation
     import pulumi_aws.cloudfront as __cloudfront
@@ -341,6 +343,7 @@ else:
     cfg = _utilities.lazy_import('pulumi_aws.cfg')
     chime = _utilities.lazy_import('pulumi_aws.chime')
     cloud9 = _utilities.lazy_import('pulumi_aws.cloud9')
+    cloudcontrol = _utilities.lazy_import('pulumi_aws.cloudcontrol')
     cloudformation = _utilities.lazy_import('pulumi_aws.cloudformation')
     cloudfront = _utilities.lazy_import('pulumi_aws.cloudfront')
     cloudhsmv2 = _utilities.lazy_import('pulumi_aws.cloudhsmv2')
@@ -1115,6 +1118,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "appstream/imageBuilder",
+  "fqn": "pulumi_aws.appstream",
+  "classes": {
+   "aws:appstream/imageBuilder:ImageBuilder": "ImageBuilder"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "appstream/stack",
   "fqn": "pulumi_aws.appstream",
   "classes": {
@@ -1487,6 +1498,14 @@ _utilities.register(
   "fqn": "pulumi_aws.cloud9",
   "classes": {
    "aws:cloud9/environmentEC2:EnvironmentEC2": "EnvironmentEC2"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "cloudcontrol/resource",
+  "fqn": "pulumi_aws.cloudcontrol",
+  "classes": {
+   "aws:cloudcontrol/resource:Resource": "Resource"
   }
  },
  {
@@ -4243,6 +4262,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "iot/authorizer",
+  "fqn": "pulumi_aws.iot",
+  "classes": {
+   "aws:iot/authorizer:Authorizer": "Authorizer"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "iot/certificate",
   "fqn": "pulumi_aws.iot",
   "classes": {
@@ -5163,6 +5190,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "quicksight/dataSource",
+  "fqn": "pulumi_aws.quicksight",
+  "classes": {
+   "aws:quicksight/dataSource:DataSource": "DataSource"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "quicksight/group",
   "fqn": "pulumi_aws.quicksight",
   "classes": {
@@ -5391,6 +5426,14 @@ _utilities.register(
   "fqn": "pulumi_aws.redshift",
   "classes": {
    "aws:redshift/parameterGroup:ParameterGroup": "ParameterGroup"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "redshift/scheduledAction",
+  "fqn": "pulumi_aws.redshift",
+  "classes": {
+   "aws:redshift/scheduledAction:ScheduledAction": "ScheduledAction"
   }
  },
  {
@@ -5919,6 +5962,14 @@ _utilities.register(
   "fqn": "pulumi_aws.sagemaker",
   "classes": {
    "aws:sagemaker/notebookInstanceLifecycleConfiguration:NotebookInstanceLifecycleConfiguration": "NotebookInstanceLifecycleConfiguration"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "sagemaker/studioLifecycleConfig",
+  "fqn": "pulumi_aws.sagemaker",
+  "classes": {
+   "aws:sagemaker/studioLifecycleConfig:StudioLifecycleConfig": "StudioLifecycleConfig"
   }
  },
  {

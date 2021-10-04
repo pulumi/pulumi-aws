@@ -46,7 +46,7 @@ type LayerVersion struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
 	Code pulumi.ArchiveOutput `pulumi:"code"`
-	// The compatible architectures for the specific Lambda Layer Version. Valid values are `arm64` and `x8664`. If not supplied, a value of `null` is assumed and will default to the value used for the function architecture.
+	// A list of [Architectures](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleArchitectures) this layer is compatible with. Currently `x8664` and `arm64` can be specified.
 	CompatibleArchitectures pulumi.StringArrayOutput `pulumi:"compatibleArchitectures"`
 	// A list of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) this layer is compatible with. Up to 5 runtimes can be specified.
 	CompatibleRuntimes pulumi.StringArrayOutput `pulumi:"compatibleRuntimes"`
@@ -74,7 +74,7 @@ type LayerVersion struct {
 	SourceCodeHash pulumi.StringOutput `pulumi:"sourceCodeHash"`
 	// The size in bytes of the function .zip file.
 	SourceCodeSize pulumi.IntOutput `pulumi:"sourceCodeSize"`
-	// This Lamba Layer version.
+	// This Lambda Layer version.
 	Version pulumi.StringOutput `pulumi:"version"`
 }
 
@@ -114,7 +114,7 @@ type layerVersionState struct {
 	Arn *string `pulumi:"arn"`
 	// The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
 	Code pulumi.Archive `pulumi:"code"`
-	// The compatible architectures for the specific Lambda Layer Version. Valid values are `arm64` and `x8664`. If not supplied, a value of `null` is assumed and will default to the value used for the function architecture.
+	// A list of [Architectures](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleArchitectures) this layer is compatible with. Currently `x8664` and `arm64` can be specified.
 	CompatibleArchitectures []string `pulumi:"compatibleArchitectures"`
 	// A list of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) this layer is compatible with. Up to 5 runtimes can be specified.
 	CompatibleRuntimes []string `pulumi:"compatibleRuntimes"`
@@ -142,7 +142,7 @@ type layerVersionState struct {
 	SourceCodeHash *string `pulumi:"sourceCodeHash"`
 	// The size in bytes of the function .zip file.
 	SourceCodeSize *int `pulumi:"sourceCodeSize"`
-	// This Lamba Layer version.
+	// This Lambda Layer version.
 	Version *string `pulumi:"version"`
 }
 
@@ -151,7 +151,7 @@ type LayerVersionState struct {
 	Arn pulumi.StringPtrInput
 	// The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
 	Code pulumi.ArchiveInput
-	// The compatible architectures for the specific Lambda Layer Version. Valid values are `arm64` and `x8664`. If not supplied, a value of `null` is assumed and will default to the value used for the function architecture.
+	// A list of [Architectures](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleArchitectures) this layer is compatible with. Currently `x8664` and `arm64` can be specified.
 	CompatibleArchitectures pulumi.StringArrayInput
 	// A list of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) this layer is compatible with. Up to 5 runtimes can be specified.
 	CompatibleRuntimes pulumi.StringArrayInput
@@ -179,7 +179,7 @@ type LayerVersionState struct {
 	SourceCodeHash pulumi.StringPtrInput
 	// The size in bytes of the function .zip file.
 	SourceCodeSize pulumi.IntPtrInput
-	// This Lamba Layer version.
+	// This Lambda Layer version.
 	Version pulumi.StringPtrInput
 }
 
@@ -190,7 +190,7 @@ func (LayerVersionState) ElementType() reflect.Type {
 type layerVersionArgs struct {
 	// The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
 	Code pulumi.Archive `pulumi:"code"`
-	// The compatible architectures for the specific Lambda Layer Version. Valid values are `arm64` and `x8664`. If not supplied, a value of `null` is assumed and will default to the value used for the function architecture.
+	// A list of [Architectures](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleArchitectures) this layer is compatible with. Currently `x8664` and `arm64` can be specified.
 	CompatibleArchitectures []string `pulumi:"compatibleArchitectures"`
 	// A list of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) this layer is compatible with. Up to 5 runtimes can be specified.
 	CompatibleRuntimes []string `pulumi:"compatibleRuntimes"`
@@ -214,7 +214,7 @@ type layerVersionArgs struct {
 type LayerVersionArgs struct {
 	// The path to the function's deployment package within the local filesystem. If defined, The `s3_`-prefixed options cannot be used.
 	Code pulumi.ArchiveInput
-	// The compatible architectures for the specific Lambda Layer Version. Valid values are `arm64` and `x8664`. If not supplied, a value of `null` is assumed and will default to the value used for the function architecture.
+	// A list of [Architectures](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleArchitectures) this layer is compatible with. Currently `x8664` and `arm64` can be specified.
 	CompatibleArchitectures pulumi.StringArrayInput
 	// A list of [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleRuntimes) this layer is compatible with. Up to 5 runtimes can be specified.
 	CompatibleRuntimes pulumi.StringArrayInput

@@ -33,6 +33,11 @@ export class Provider extends pulumi.ProviderResource {
      */
     public readonly accessKey!: pulumi.Output<string | undefined>;
     /**
+     * The address of an HTTP proxy to use when accessing the AWS API. Can also be configured using the `HTTP_PROXY` or
+     * `HTTPS_PROXY` environment variables.
+     */
+    public readonly httpProxy!: pulumi.Output<string | undefined>;
+    /**
      * The profile for API operations. If not set, the default profile created with `aws configure` will be used.
      */
     public readonly profile!: pulumi.Output<string | undefined>;
@@ -70,6 +75,7 @@ export class Provider extends pulumi.ProviderResource {
             inputs["defaultTags"] = pulumi.output(args ? args.defaultTags : undefined).apply(JSON.stringify);
             inputs["endpoints"] = pulumi.output(args ? args.endpoints : undefined).apply(JSON.stringify);
             inputs["forbiddenAccountIds"] = pulumi.output(args ? args.forbiddenAccountIds : undefined).apply(JSON.stringify);
+            inputs["httpProxy"] = args ? args.httpProxy : undefined;
             inputs["ignoreTags"] = pulumi.output(args ? args.ignoreTags : undefined).apply(JSON.stringify);
             inputs["insecure"] = pulumi.output(args ? args.insecure : undefined).apply(JSON.stringify);
             inputs["maxRetries"] = pulumi.output(args ? args.maxRetries : undefined).apply(JSON.stringify);
@@ -109,11 +115,16 @@ export interface ProviderArgs {
     endpoints?: pulumi.Input<pulumi.Input<inputs.ProviderEndpoint>[]>;
     forbiddenAccountIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * The address of an HTTP proxy to use when accessing the AWS API. Can also be configured using the `HTTP_PROXY` or
+     * `HTTPS_PROXY` environment variables.
+     */
+    httpProxy?: pulumi.Input<string>;
+    /**
      * Configuration block with settings to ignore resource tags across all resources.
      */
     ignoreTags?: pulumi.Input<inputs.ProviderIgnoreTags>;
     /**
-     * Explicitly allow the provider to perform "insecure" SSL requests. If omitted,default value is `false`
+     * Explicitly allow the provider to perform "insecure" SSL requests. If omitted, default value is `false`
      */
     insecure?: pulumi.Input<boolean>;
     /**

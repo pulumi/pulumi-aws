@@ -21,6 +21,7 @@ export * from "./getEngineVersion";
 export * from "./getEventCategories";
 export * from "./getInstance";
 export * from "./getOrderableDbInstance";
+export * from "./getProxy";
 export * from "./getSnapshot";
 export * from "./getSubnetGroup";
 export * from "./globalCluster";

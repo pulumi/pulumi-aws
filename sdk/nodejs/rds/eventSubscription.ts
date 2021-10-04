@@ -103,7 +103,7 @@ export class EventSubscription extends pulumi.CustomResource {
     /**
      * The name of the DB event subscription. Conflicts with `name`.
      */
-    public readonly namePrefix!: pulumi.Output<string | undefined>;
+    public readonly namePrefix!: pulumi.Output<string>;
     /**
      * The SNS topic to send events to.
      */

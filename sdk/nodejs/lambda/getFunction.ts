@@ -55,6 +55,9 @@ export interface GetFunctionArgs {
  * A collection of values returned by getFunction.
  */
 export interface GetFunctionResult {
+    /**
+     * The instruction set architecture for the Lambda function.
+     */
     readonly architectures: string[];
     /**
      * Unqualified (no `:QUALIFIER` or `:VERSION` suffix) Amazon Resource Name (ARN) identifying your Lambda Function. See also `qualifiedArn`.

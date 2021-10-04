@@ -24,6 +24,7 @@ __all__ = [
     'ProxyAuth',
     'ProxyDefaultTargetGroupConnectionPoolConfig',
     'SecurityGroupIngress',
+    'GetProxyAuthResult',
 ]
 
 @pulumi.output_type
@@ -999,5 +1000,38 @@ class SecurityGroupIngress(dict):
         by `security_group_name`.
         """
         return pulumi.get(self, "security_group_owner_id")
+
+
+@pulumi.output_type
+class GetProxyAuthResult(dict):
+    def __init__(__self__, *,
+                 auth_scheme: str,
+                 description: str,
+                 iam_auth: str,
+                 secret_arn: str):
+        pulumi.set(__self__, "auth_scheme", auth_scheme)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "iam_auth", iam_auth)
+        pulumi.set(__self__, "secret_arn", secret_arn)
+
+    @property
+    @pulumi.getter(name="authScheme")
+    def auth_scheme(self) -> str:
+        return pulumi.get(self, "auth_scheme")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="iamAuth")
+    def iam_auth(self) -> str:
+        return pulumi.get(self, "iam_auth")
+
+    @property
+    @pulumi.getter(name="secretArn")
+    def secret_arn(self) -> str:
+        return pulumi.get(self, "secret_arn")
 
 

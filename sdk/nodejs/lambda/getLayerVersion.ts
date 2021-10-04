@@ -29,6 +29,7 @@ export function getLayerVersion(args: GetLayerVersionArgs, opts?: pulumi.InvokeO
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("aws:lambda/getLayerVersion:getLayerVersion", {
+        "compatibleArchitecture": args.compatibleArchitecture,
         "compatibleRuntime": args.compatibleRuntime,
         "layerName": args.layerName,
         "version": args.version,
@@ -40,6 +41,10 @@ export function getLayerVersion(args: GetLayerVersionArgs, opts?: pulumi.InvokeO
  */
 export interface GetLayerVersionArgs {
     /**
+     * Specific architecture the layer version could support. Conflicts with `version`. If specified, the latest available layer version supporting the provided architecture will be used.
+     */
+    compatibleArchitecture?: string;
+    /**
      * Specific runtime the layer version must support. Conflicts with `version`. If specified, the latest available layer version supporting the provided runtime will be used.
      */
     compatibleRuntime?: string;
@@ -48,7 +53,7 @@ export interface GetLayerVersionArgs {
      */
     layerName: string;
     /**
-     * Specific layer version. Conflicts with `compatibleRuntime`. If omitted, the latest available layer version will be used.
+     * Specific layer version. Conflicts with `compatibleRuntime` and `compatibleArchitecture`. If omitted, the latest available layer version will be used.
      */
     version?: number;
 }
@@ -61,8 +66,9 @@ export interface GetLayerVersionResult {
      * The Amazon Resource Name (ARN) of the Lambda Layer with version.
      */
     readonly arn: string;
+    readonly compatibleArchitecture?: string;
     /**
-     * The compatible architectures of the specific Lambda Layer Version.
+     * A list of [Architectures](https://docs.aws.amazon.com/lambda/latest/dg/API_GetLayerVersion.html#SSS-GetLayerVersion-response-CompatibleArchitectures) the specific Lambda Layer version is compatible with.
      */
     readonly compatibleArchitectures: string[];
     readonly compatibleRuntime?: string;

@@ -22,6 +22,7 @@ export * from "./model";
 export * from "./modelPackageGroup";
 export * from "./notebookInstance";
 export * from "./notebookInstanceLifecycleConfiguration";
+export * from "./studioLifecycleConfig";
 export * from "./userProfile";
 export * from "./workforce";
 export * from "./workteam";
@@ -43,6 +44,7 @@ import { Model } from "./model";
 import { ModelPackageGroup } from "./modelPackageGroup";
 import { NotebookInstance } from "./notebookInstance";
 import { NotebookInstanceLifecycleConfiguration } from "./notebookInstanceLifecycleConfiguration";
+import { StudioLifecycleConfig } from "./studioLifecycleConfig";
 import { UserProfile } from "./userProfile";
 import { Workforce } from "./workforce";
 import { Workteam } from "./workteam";
@@ -83,6 +85,8 @@ const _module = {
                 return new NotebookInstance(name, <any>undefined, { urn })
             case "aws:sagemaker/notebookInstanceLifecycleConfiguration:NotebookInstanceLifecycleConfiguration":
                 return new NotebookInstanceLifecycleConfiguration(name, <any>undefined, { urn })
+            case "aws:sagemaker/studioLifecycleConfig:StudioLifecycleConfig":
+                return new StudioLifecycleConfig(name, <any>undefined, { urn })
             case "aws:sagemaker/userProfile:UserProfile":
                 return new UserProfile(name, <any>undefined, { urn })
             case "aws:sagemaker/workforce:Workforce":
@@ -110,6 +114,7 @@ pulumi.runtime.registerResourceModule("aws", "sagemaker/model", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/modelPackageGroup", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/notebookInstance", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/notebookInstanceLifecycleConfiguration", _module)
+pulumi.runtime.registerResourceModule("aws", "sagemaker/studioLifecycleConfig", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/userProfile", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/workforce", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/workteam", _module)

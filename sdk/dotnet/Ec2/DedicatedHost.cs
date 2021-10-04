@@ -10,8 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2
 {
     /// <summary>
-    /// Provides an EC2 host resource. This allows hosts to be created, updated,
-    /// and deleted.
+    /// Provides an EC2 Host resource. This allows Dedicated Hosts to be allocated, modified, and released.
     /// 
     /// ## Example Usage
     /// 
@@ -23,17 +22,15 @@ namespace Pulumi.Aws.Ec2
     /// {
     ///     public MyStack()
     ///     {
+    ///         // Create a new host with instance type of c5.18xlarge with Auto Placement 
+    ///         // and Host Recovery enabled. 
     ///         var test = new Aws.Ec2.DedicatedHost("test", new Aws.Ec2.DedicatedHostArgs
     ///         {
     ///             AutoPlacement = "on",
-    ///             AvailabilityZone = "us-west-1a",
+    ///             AvailabilityZone = "us-west-2a",
     ///             HostRecovery = "on",
     ///             InstanceType = "c5.18xlarge",
     ///         });
-    ///         var testData = test.Id.Apply(id =&gt; Aws.Ec2.GetDedicatedHost.InvokeAsync(new Aws.Ec2.GetDedicatedHostArgs
-    ///         {
-    ///             HostId = id,
-    ///         }));
     ///     }
     /// 
     /// }
@@ -41,47 +38,62 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// hosts can be imported using the `host_id`, e.g.
+    /// Hosts can be imported using the host `id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ec2/dedicatedHost:DedicatedHost host_id h-0385a99d0e4b20cbb
+    ///  $ pulumi import aws:ec2/dedicatedHost:DedicatedHost example h-0385a99d0e4b20cbb
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/dedicatedHost:DedicatedHost")]
     public partial class DedicatedHost : Pulumi.CustomResource
     {
         /// <summary>
-        /// Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID.
+        /// The ARN of the Dedicated Host.
         /// </summary>
-        [Output("autoPlacement")]
-        public Output<string> AutoPlacement { get; private set; } = null!;
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The AZ to start the host in.
+        /// Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID. Valid values: `on`, `off`. Default: `on`.
+        /// </summary>
+        [Output("autoPlacement")]
+        public Output<string?> AutoPlacement { get; private set; } = null!;
+
+        /// <summary>
+        /// The Availability Zone in which to allocate the Dedicated Host.
         /// </summary>
         [Output("availabilityZone")]
         public Output<string> AvailabilityZone { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates whether to enable or disable host recovery for the Dedicated Host. Host recovery is disabled by default.
+        /// Indicates whether to enable or disable host recovery for the Dedicated Host. Valid values: `on`, `off`. Default: `off`.
         /// </summary>
         [Output("hostRecovery")]
-        public Output<string> HostRecovery { get; private set; } = null!;
+        public Output<string?> HostRecovery { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the instance family for which to configure your Dedicated Host. Mutually exclusive with `instance_type`.
+        /// Specifies the instance family to be supported by the Dedicated Hosts. If you specify an instance family, the Dedicated Hosts support multiple instance types within that instance family. Exactly one of `instance_family` or `instance_type` must be specified.
         /// </summary>
         [Output("instanceFamily")]
         public Output<string?> InstanceFamily { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the instance type for which to configure your Dedicated Host. When you specify the instance type, that is the only instance type that you can launch onto that host. Mutually exclusive with `instance_family`.
+        /// Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only.  Exactly one of `instance_family` or `instance_type` must be specified.
         /// </summary>
         [Output("instanceType")]
         public Output<string?> InstanceType { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the AWS account that owns the Dedicated Host.
+        /// </summary>
+        [Output("ownerId")]
+        public Output<string> OwnerId { get; private set; } = null!;
+
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        [Output("tagsAll")]
+        public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
 
         /// <summary>
@@ -130,31 +142,31 @@ namespace Pulumi.Aws.Ec2
     public sealed class DedicatedHostArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID.
+        /// Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID. Valid values: `on`, `off`. Default: `on`.
         /// </summary>
         [Input("autoPlacement")]
         public Input<string>? AutoPlacement { get; set; }
 
         /// <summary>
-        /// The AZ to start the host in.
+        /// The Availability Zone in which to allocate the Dedicated Host.
         /// </summary>
         [Input("availabilityZone", required: true)]
         public Input<string> AvailabilityZone { get; set; } = null!;
 
         /// <summary>
-        /// Indicates whether to enable or disable host recovery for the Dedicated Host. Host recovery is disabled by default.
+        /// Indicates whether to enable or disable host recovery for the Dedicated Host. Valid values: `on`, `off`. Default: `off`.
         /// </summary>
         [Input("hostRecovery")]
         public Input<string>? HostRecovery { get; set; }
 
         /// <summary>
-        /// Specifies the instance family for which to configure your Dedicated Host. Mutually exclusive with `instance_type`.
+        /// Specifies the instance family to be supported by the Dedicated Hosts. If you specify an instance family, the Dedicated Hosts support multiple instance types within that instance family. Exactly one of `instance_family` or `instance_type` must be specified.
         /// </summary>
         [Input("instanceFamily")]
         public Input<string>? InstanceFamily { get; set; }
 
         /// <summary>
-        /// Specifies the instance type for which to configure your Dedicated Host. When you specify the instance type, that is the only instance type that you can launch onto that host. Mutually exclusive with `instance_family`.
+        /// Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only.  Exactly one of `instance_family` or `instance_type` must be specified.
         /// </summary>
         [Input("instanceType")]
         public Input<string>? InstanceType { get; set; }
@@ -165,6 +177,14 @@ namespace Pulumi.Aws.Ec2
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
+        }
+
+        [Input("tagsAll")]
+        private InputMap<string>? _tagsAll;
+        public InputMap<string> TagsAll
+        {
+            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
+            set => _tagsAll = value;
         }
 
         public DedicatedHostArgs()
@@ -175,34 +195,46 @@ namespace Pulumi.Aws.Ec2
     public sealed class DedicatedHostState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID.
+        /// The ARN of the Dedicated Host.
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
+        /// <summary>
+        /// Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID. Valid values: `on`, `off`. Default: `on`.
         /// </summary>
         [Input("autoPlacement")]
         public Input<string>? AutoPlacement { get; set; }
 
         /// <summary>
-        /// The AZ to start the host in.
+        /// The Availability Zone in which to allocate the Dedicated Host.
         /// </summary>
         [Input("availabilityZone")]
         public Input<string>? AvailabilityZone { get; set; }
 
         /// <summary>
-        /// Indicates whether to enable or disable host recovery for the Dedicated Host. Host recovery is disabled by default.
+        /// Indicates whether to enable or disable host recovery for the Dedicated Host. Valid values: `on`, `off`. Default: `off`.
         /// </summary>
         [Input("hostRecovery")]
         public Input<string>? HostRecovery { get; set; }
 
         /// <summary>
-        /// Specifies the instance family for which to configure your Dedicated Host. Mutually exclusive with `instance_type`.
+        /// Specifies the instance family to be supported by the Dedicated Hosts. If you specify an instance family, the Dedicated Hosts support multiple instance types within that instance family. Exactly one of `instance_family` or `instance_type` must be specified.
         /// </summary>
         [Input("instanceFamily")]
         public Input<string>? InstanceFamily { get; set; }
 
         /// <summary>
-        /// Specifies the instance type for which to configure your Dedicated Host. When you specify the instance type, that is the only instance type that you can launch onto that host. Mutually exclusive with `instance_family`.
+        /// Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only.  Exactly one of `instance_family` or `instance_type` must be specified.
         /// </summary>
         [Input("instanceType")]
         public Input<string>? InstanceType { get; set; }
+
+        /// <summary>
+        /// The ID of the AWS account that owns the Dedicated Host.
+        /// </summary>
+        [Input("ownerId")]
+        public Input<string>? OwnerId { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -210,6 +242,14 @@ namespace Pulumi.Aws.Ec2
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
+        }
+
+        [Input("tagsAll")]
+        private InputMap<string>? _tagsAll;
+        public InputMap<string> TagsAll
+        {
+            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
+            set => _tagsAll = value;
         }
 
         public DedicatedHostState()

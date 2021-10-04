@@ -113,6 +113,9 @@ class GetFunctionResult:
     @property
     @pulumi.getter
     def architectures(self) -> Sequence[str]:
+        """
+        The instruction set architecture for the Lambda function.
+        """
         return pulumi.get(self, "architectures")
 
     @property

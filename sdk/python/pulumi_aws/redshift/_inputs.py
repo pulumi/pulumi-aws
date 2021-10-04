@@ -13,6 +13,10 @@ __all__ = [
     'ClusterLoggingArgs',
     'ClusterSnapshotCopyArgs',
     'ParameterGroupParameterArgs',
+    'ScheduledActionTargetActionArgs',
+    'ScheduledActionTargetActionPauseClusterArgs',
+    'ScheduledActionTargetActionResizeClusterArgs',
+    'ScheduledActionTargetActionResumeClusterArgs',
     'SecurityGroupIngressArgs',
 ]
 
@@ -216,6 +220,191 @@ class ParameterGroupParameterArgs:
     @value.setter
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class ScheduledActionTargetActionArgs:
+    def __init__(__self__, *,
+                 pause_cluster: Optional[pulumi.Input['ScheduledActionTargetActionPauseClusterArgs']] = None,
+                 resize_cluster: Optional[pulumi.Input['ScheduledActionTargetActionResizeClusterArgs']] = None,
+                 resume_cluster: Optional[pulumi.Input['ScheduledActionTargetActionResumeClusterArgs']] = None):
+        """
+        :param pulumi.Input['ScheduledActionTargetActionPauseClusterArgs'] pause_cluster: An action that runs a `PauseCluster` API operation. Documented below.
+        :param pulumi.Input['ScheduledActionTargetActionResizeClusterArgs'] resize_cluster: An action that runs a `ResizeCluster` API operation. Documented below.
+        :param pulumi.Input['ScheduledActionTargetActionResumeClusterArgs'] resume_cluster: An action that runs a `ResumeCluster` API operation. Documented below.
+        """
+        if pause_cluster is not None:
+            pulumi.set(__self__, "pause_cluster", pause_cluster)
+        if resize_cluster is not None:
+            pulumi.set(__self__, "resize_cluster", resize_cluster)
+        if resume_cluster is not None:
+            pulumi.set(__self__, "resume_cluster", resume_cluster)
+
+    @property
+    @pulumi.getter(name="pauseCluster")
+    def pause_cluster(self) -> Optional[pulumi.Input['ScheduledActionTargetActionPauseClusterArgs']]:
+        """
+        An action that runs a `PauseCluster` API operation. Documented below.
+        """
+        return pulumi.get(self, "pause_cluster")
+
+    @pause_cluster.setter
+    def pause_cluster(self, value: Optional[pulumi.Input['ScheduledActionTargetActionPauseClusterArgs']]):
+        pulumi.set(self, "pause_cluster", value)
+
+    @property
+    @pulumi.getter(name="resizeCluster")
+    def resize_cluster(self) -> Optional[pulumi.Input['ScheduledActionTargetActionResizeClusterArgs']]:
+        """
+        An action that runs a `ResizeCluster` API operation. Documented below.
+        """
+        return pulumi.get(self, "resize_cluster")
+
+    @resize_cluster.setter
+    def resize_cluster(self, value: Optional[pulumi.Input['ScheduledActionTargetActionResizeClusterArgs']]):
+        pulumi.set(self, "resize_cluster", value)
+
+    @property
+    @pulumi.getter(name="resumeCluster")
+    def resume_cluster(self) -> Optional[pulumi.Input['ScheduledActionTargetActionResumeClusterArgs']]:
+        """
+        An action that runs a `ResumeCluster` API operation. Documented below.
+        """
+        return pulumi.get(self, "resume_cluster")
+
+    @resume_cluster.setter
+    def resume_cluster(self, value: Optional[pulumi.Input['ScheduledActionTargetActionResumeClusterArgs']]):
+        pulumi.set(self, "resume_cluster", value)
+
+
+@pulumi.input_type
+class ScheduledActionTargetActionPauseClusterArgs:
+    def __init__(__self__, *,
+                 cluster_identifier: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] cluster_identifier: The identifier of the cluster to be resumed.
+        """
+        pulumi.set(__self__, "cluster_identifier", cluster_identifier)
+
+    @property
+    @pulumi.getter(name="clusterIdentifier")
+    def cluster_identifier(self) -> pulumi.Input[str]:
+        """
+        The identifier of the cluster to be resumed.
+        """
+        return pulumi.get(self, "cluster_identifier")
+
+    @cluster_identifier.setter
+    def cluster_identifier(self, value: pulumi.Input[str]):
+        pulumi.set(self, "cluster_identifier", value)
+
+
+@pulumi.input_type
+class ScheduledActionTargetActionResizeClusterArgs:
+    def __init__(__self__, *,
+                 cluster_identifier: pulumi.Input[str],
+                 classic: Optional[pulumi.Input[bool]] = None,
+                 cluster_type: Optional[pulumi.Input[str]] = None,
+                 node_type: Optional[pulumi.Input[str]] = None,
+                 number_of_nodes: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[str] cluster_identifier: The identifier of the cluster to be resumed.
+        :param pulumi.Input[bool] classic: A boolean value indicating whether the resize operation is using the classic resize process. Default: `false`.
+        :param pulumi.Input[str] cluster_type: The new cluster type for the specified cluster.
+        :param pulumi.Input[str] node_type: The new node type for the nodes you are adding.
+        :param pulumi.Input[int] number_of_nodes: The new number of nodes for the cluster.
+        """
+        pulumi.set(__self__, "cluster_identifier", cluster_identifier)
+        if classic is not None:
+            pulumi.set(__self__, "classic", classic)
+        if cluster_type is not None:
+            pulumi.set(__self__, "cluster_type", cluster_type)
+        if node_type is not None:
+            pulumi.set(__self__, "node_type", node_type)
+        if number_of_nodes is not None:
+            pulumi.set(__self__, "number_of_nodes", number_of_nodes)
+
+    @property
+    @pulumi.getter(name="clusterIdentifier")
+    def cluster_identifier(self) -> pulumi.Input[str]:
+        """
+        The identifier of the cluster to be resumed.
+        """
+        return pulumi.get(self, "cluster_identifier")
+
+    @cluster_identifier.setter
+    def cluster_identifier(self, value: pulumi.Input[str]):
+        pulumi.set(self, "cluster_identifier", value)
+
+    @property
+    @pulumi.getter
+    def classic(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A boolean value indicating whether the resize operation is using the classic resize process. Default: `false`.
+        """
+        return pulumi.get(self, "classic")
+
+    @classic.setter
+    def classic(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "classic", value)
+
+    @property
+    @pulumi.getter(name="clusterType")
+    def cluster_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The new cluster type for the specified cluster.
+        """
+        return pulumi.get(self, "cluster_type")
+
+    @cluster_type.setter
+    def cluster_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cluster_type", value)
+
+    @property
+    @pulumi.getter(name="nodeType")
+    def node_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The new node type for the nodes you are adding.
+        """
+        return pulumi.get(self, "node_type")
+
+    @node_type.setter
+    def node_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "node_type", value)
+
+    @property
+    @pulumi.getter(name="numberOfNodes")
+    def number_of_nodes(self) -> Optional[pulumi.Input[int]]:
+        """
+        The new number of nodes for the cluster.
+        """
+        return pulumi.get(self, "number_of_nodes")
+
+    @number_of_nodes.setter
+    def number_of_nodes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "number_of_nodes", value)
+
+
+@pulumi.input_type
+class ScheduledActionTargetActionResumeClusterArgs:
+    def __init__(__self__, *,
+                 cluster_identifier: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] cluster_identifier: The identifier of the cluster to be resumed.
+        """
+        pulumi.set(__self__, "cluster_identifier", cluster_identifier)
+
+    @property
+    @pulumi.getter(name="clusterIdentifier")
+    def cluster_identifier(self) -> pulumi.Input[str]:
+        """
+        The identifier of the cluster to be resumed.
+        """
+        return pulumi.get(self, "cluster_identifier")
+
+    @cluster_identifier.setter
+    def cluster_identifier(self, value: pulumi.Input[str]):
+        pulumi.set(self, "cluster_identifier", value)
 
 
 @pulumi.input_type

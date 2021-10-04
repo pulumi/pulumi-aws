@@ -599,7 +599,7 @@ class EventSubscription(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="namePrefix")
-    def name_prefix(self) -> pulumi.Output[Optional[str]]:
+    def name_prefix(self) -> pulumi.Output[str]:
         """
         The name of the DB event subscription. Conflicts with `name`.
         """

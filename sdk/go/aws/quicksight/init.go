@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws:quicksight/dataSource:DataSource":
+		r = &DataSource{}
 	case "aws:quicksight/group:Group":
 		r = &Group{}
 	case "aws:quicksight/groupMembership:GroupMembership":
@@ -40,6 +42,11 @@ func init() {
 	if err != nil {
 		fmt.Printf("failed to determine package version. defaulting to v1: %v\n", err)
 	}
+	pulumi.RegisterResourceModule(
+		"aws",
+		"quicksight/dataSource",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"aws",
 		"quicksight/group",
