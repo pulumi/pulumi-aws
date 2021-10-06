@@ -2,12 +2,15 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
+_(none)_
+
+---
+
+## 4.23.0 (2021-10-06)
 * Upgrade to v3.61.0 of the AWS Terraform Provider
   * **Please note**, `aws.ec2.getDedicatedHost` no longer supports the `instanceState` output. 
 * Add the ability to set `maximumBatchingWindowInSeconds` as part of `aws.sqs.QueueEventSubscription` in NodeJS SDK
 * Add the ability to set `functionResponseTypes` as part of `aws.dynamodb.TableEventSubscription` in NodeJS SDK
-
----
 
 ## 4.22.1 (2021-09-29)
 * Add support for AWS Graviton 2 architecture to AWS Lambda Functions and Lambda Layers
