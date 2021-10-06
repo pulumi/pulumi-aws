@@ -57,6 +57,7 @@ type LookupFunctionArgs struct {
 
 // A collection of values returned by getFunction.
 type LookupFunctionResult struct {
+	// The instruction set architecture for the Lambda function.
 	Architectures []string `pulumi:"architectures"`
 	// Unqualified (no `:QUALIFIER` or `:VERSION` suffix) Amazon Resource Name (ARN) identifying your Lambda Function. See also `qualifiedArn`.
 	Arn string `pulumi:"arn"`
@@ -150,6 +151,7 @@ func (o LookupFunctionResultOutput) ToLookupFunctionResultOutputWithContext(ctx 
 	return o
 }
 
+// The instruction set architecture for the Lambda function.
 func (o LookupFunctionResultOutput) Architectures() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupFunctionResult) []string { return v.Architectures }).(pulumi.StringArrayOutput)
 }

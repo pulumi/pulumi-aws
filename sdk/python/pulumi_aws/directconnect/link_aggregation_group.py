@@ -555,7 +555,7 @@ class LinkAggregationGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="providerName")
-    def provider_name(self) -> pulumi.Output[Optional[str]]:
+    def provider_name(self) -> pulumi.Output[str]:
         """
         The name of the service provider associated with the LAG.
         """

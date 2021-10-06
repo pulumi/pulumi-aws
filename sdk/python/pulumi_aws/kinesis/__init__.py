@@ -7,6 +7,7 @@ import typing
 # Export this package's modules as members:
 from .analytics_application import *
 from .firehose_delivery_stream import *
+from .get_firehose_delivery_stream import *
 from .get_stream import *
 from .get_stream_consumer import *
 from .stream import *

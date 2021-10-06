@@ -27,6 +27,12 @@ endpoints: Optional[str]
 
 forbiddenAccountIds: Optional[str]
 
+httpProxy: Optional[str]
+"""
+The address of an HTTP proxy to use when accessing the AWS API. Can also be configured using the `HTTP_PROXY` or
+`HTTPS_PROXY` environment variables.
+"""
+
 ignoreTags: Optional[str]
 """
 Configuration block with settings to ignore resource tags across all resources.
@@ -34,7 +40,7 @@ Configuration block with settings to ignore resource tags across all resources.
 
 insecure: Optional[bool]
 """
-Explicitly allow the provider to perform "insecure" SSL requests. If omitted,default value is `false`
+Explicitly allow the provider to perform "insecure" SSL requests. If omitted, default value is `false`
 """
 
 maxRetries: Optional[int]

@@ -7,6 +7,7 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./analyticsApplication";
 export * from "./firehoseDeliveryStream";
+export * from "./getFirehoseDeliveryStream";
 export * from "./getStream";
 export * from "./getStreamConsumer";
 export * from "./kinesisMixins";

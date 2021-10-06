@@ -2,6 +2,8 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
+* Upgrade to v3.61.0 of the AWS Terraform Provider
+  * **Please note**, `aws.ec2.getDedicatedHost` no longer supports the `instanceState` output. 
 * Add the ability to set `maximumBatchingWindowInSeconds` as part of `aws.sqs.QueueEventSubscription` in NodeJS SDK
 * Add the ability to set `functionResponseTypes` as part of `aws.dynamodb.TableEventSubscription` in NodeJS SDK
 

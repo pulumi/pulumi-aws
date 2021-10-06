@@ -4391,6 +4391,39 @@ export namespace appstream {
         subnetIds: string[];
     }
 
+    export interface ImageBuilderAccessEndpoint {
+        /**
+         * Type of interface endpoint.
+         */
+        endpointType: string;
+        /**
+         * Identifier (ID) of the VPC in which the interface endpoint is used.
+         */
+        vpceId: string;
+    }
+
+    export interface ImageBuilderDomainJoinInfo {
+        /**
+         * Fully qualified name of the directory (for example, corp.example.com).
+         */
+        directoryName?: string;
+        /**
+         * Distinguished name of the organizational unit for computer accounts.
+         */
+        organizationalUnitDistinguishedName?: string;
+    }
+
+    export interface ImageBuilderVpcConfig {
+        /**
+         * Identifiers of the security groups for the image builder or image builder.
+         */
+        securityGroupIds: string[];
+        /**
+         * Identifiers of the subnets to which a network interface is attached from the image builder instance or image builder instance.
+         */
+        subnetIds: string[];
+    }
+
     export interface StackAccessEndpoint {
         endpointType: string;
         vpceId: string;
@@ -8687,6 +8720,7 @@ export namespace config {
         budgets?: string;
         chime?: string;
         cloud9?: string;
+        cloudcontrolapi?: string;
         cloudformation?: string;
         cloudfront?: string;
         cloudhsm?: string;
@@ -10072,6 +10106,17 @@ export namespace ec2 {
         values: string[];
     }
 
+    export interface GetDedicatedHostFilter {
+        /**
+         * The name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeHosts.html).
+         */
+        name: string;
+        /**
+         * Set of values that are accepted for the given field. A host will be selected if any one of the given values matches.
+         */
+        values: string[];
+    }
+
     export interface GetElasticIpFilter {
         name: string;
         values: string[];
@@ -10453,6 +10498,9 @@ export namespace ec2 {
          * The state of the metadata service: `enabled`, `disabled`.
          */
         httpEndpoint: string;
+        /**
+         * The state of IPv6 endpoint for the instance metadata service: `enabled`, `disabled`.
+         */
         httpProtocolIpv6: string;
         /**
          * The desired HTTP PUT response hop limit for instance metadata requests.
@@ -11433,6 +11481,9 @@ export namespace ec2 {
          * Whether the metadata service is available. Can be `"enabled"` or `"disabled"`. (Default: `"enabled"`).
          */
         httpEndpoint: string;
+        /**
+         * Enables or disables the IPv6 endpoint for the instance metadata service. (Default: `disabled`).
+         */
         httpProtocolIpv6?: string;
         /**
          * The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).
@@ -23016,6 +23067,395 @@ export namespace pricing {
 
 }
 
+export namespace quicksight {
+    export interface DataSourceCredentials {
+        /**
+         * - The Amazon Resource Name (ARN) of a data source that has the credential pair that you want to use.
+         * When the value is not null, the `credentialPair` from the data source in the ARN is used.
+         */
+        copySourceArn?: string;
+        /**
+         * - Credential pair. See Credential Pair below for more details.
+         */
+        credentialPair?: outputs.quicksight.DataSourceCredentialsCredentialPair;
+    }
+
+    export interface DataSourceCredentialsCredentialPair {
+        /**
+         * Password, maximum length of 1024 characters.
+         */
+        password: string;
+        /**
+         * User name, maximum length of 64 characters.
+         */
+        username: string;
+    }
+
+    export interface DataSourceParameters {
+        /**
+         * Parameters for connecting to Amazon Elasticsearch.
+         */
+        amazonElasticsearch?: outputs.quicksight.DataSourceParametersAmazonElasticsearch;
+        /**
+         * Parameters for connecting to Athena.
+         */
+        athena?: outputs.quicksight.DataSourceParametersAthena;
+        /**
+         * Parameters for connecting to Aurora MySQL.
+         */
+        aurora?: outputs.quicksight.DataSourceParametersAurora;
+        /**
+         * Parameters for connecting to Aurora Postgresql.
+         */
+        auroraPostgresql?: outputs.quicksight.DataSourceParametersAuroraPostgresql;
+        /**
+         * Parameters for connecting to AWS IOT Analytics.
+         */
+        awsIotAnalytics?: outputs.quicksight.DataSourceParametersAwsIotAnalytics;
+        /**
+         * Parameters for connecting to Jira.
+         */
+        jira?: outputs.quicksight.DataSourceParametersJira;
+        /**
+         * Parameters for connecting to MariaDB.
+         */
+        mariaDb?: outputs.quicksight.DataSourceParametersMariaDb;
+        /**
+         * Parameters for connecting to MySQL.
+         */
+        mysql?: outputs.quicksight.DataSourceParametersMysql;
+        /**
+         * Parameters for connecting to Oracle.
+         */
+        oracle?: outputs.quicksight.DataSourceParametersOracle;
+        /**
+         * Parameters for connecting to Postgresql.
+         */
+        postgresql?: outputs.quicksight.DataSourceParametersPostgresql;
+        /**
+         * Parameters for connecting to Presto.
+         */
+        presto?: outputs.quicksight.DataSourceParametersPresto;
+        /**
+         * Parameters for connecting to RDS.
+         */
+        rds?: outputs.quicksight.DataSourceParametersRds;
+        /**
+         * Parameters for connecting to Redshift.
+         */
+        redshift?: outputs.quicksight.DataSourceParametersRedshift;
+        /**
+         * Parameters for connecting to S3.
+         */
+        s3?: outputs.quicksight.DataSourceParametersS3;
+        /**
+         * Parameters for connecting to ServiceNow.
+         */
+        serviceNow?: outputs.quicksight.DataSourceParametersServiceNow;
+        /**
+         * Parameters for connecting to Snowflake.
+         */
+        snowflake?: outputs.quicksight.DataSourceParametersSnowflake;
+        /**
+         * Parameters for connecting to Spark.
+         */
+        spark?: outputs.quicksight.DataSourceParametersSpark;
+        /**
+         * Parameters for connecting to SQL Server.
+         */
+        sqlServer?: outputs.quicksight.DataSourceParametersSqlServer;
+        /**
+         * Parameters for connecting to Teradata.
+         */
+        teradata?: outputs.quicksight.DataSourceParametersTeradata;
+        /**
+         * Parameters for connecting to Twitter.
+         */
+        twitter?: outputs.quicksight.DataSourceParametersTwitter;
+    }
+
+    export interface DataSourceParametersAmazonElasticsearch {
+        /**
+         * The OpenSearch domain.
+         */
+        domain: string;
+    }
+
+    export interface DataSourceParametersAthena {
+        /**
+         * The work-group to which to connect.
+         */
+        workGroup?: string;
+    }
+
+    export interface DataSourceParametersAurora {
+        /**
+         * The database to which to connect.
+         */
+        database: string;
+        /**
+         * The host to which to connect.
+         */
+        host: string;
+        /**
+         * The port to which to connect.
+         */
+        port: number;
+    }
+
+    export interface DataSourceParametersAuroraPostgresql {
+        /**
+         * The database to which to connect.
+         */
+        database: string;
+        /**
+         * The host to which to connect.
+         */
+        host: string;
+        /**
+         * The port to which to connect.
+         */
+        port: number;
+    }
+
+    export interface DataSourceParametersAwsIotAnalytics {
+        /**
+         * The name of the data set to which to connect.
+         */
+        dataSetName: string;
+    }
+
+    export interface DataSourceParametersJira {
+        /**
+         * The base URL of the Jira instance's site to which to connect.
+         */
+        siteBaseUrl: string;
+    }
+
+    export interface DataSourceParametersMariaDb {
+        /**
+         * The database to which to connect.
+         */
+        database: string;
+        /**
+         * The host to which to connect.
+         */
+        host: string;
+        /**
+         * The port to which to connect.
+         */
+        port: number;
+    }
+
+    export interface DataSourceParametersMysql {
+        /**
+         * The database to which to connect.
+         */
+        database: string;
+        /**
+         * The host to which to connect.
+         */
+        host: string;
+        /**
+         * The port to which to connect.
+         */
+        port: number;
+    }
+
+    export interface DataSourceParametersOracle {
+        /**
+         * The database to which to connect.
+         */
+        database: string;
+        /**
+         * The host to which to connect.
+         */
+        host: string;
+        /**
+         * The port to which to connect.
+         */
+        port: number;
+    }
+
+    export interface DataSourceParametersPostgresql {
+        /**
+         * The database to which to connect.
+         */
+        database: string;
+        /**
+         * The host to which to connect.
+         */
+        host: string;
+        /**
+         * The port to which to connect.
+         */
+        port: number;
+    }
+
+    export interface DataSourceParametersPresto {
+        /**
+         * The catalog to which to connect.
+         */
+        catalog: string;
+        /**
+         * The host to which to connect.
+         */
+        host: string;
+        /**
+         * The port to which to connect.
+         */
+        port: number;
+    }
+
+    export interface DataSourceParametersRds {
+        /**
+         * The database to which to connect.
+         */
+        database: string;
+        /**
+         * The instance ID to which to connect.
+         */
+        instanceId: string;
+    }
+
+    export interface DataSourceParametersRedshift {
+        /**
+         * The ID of the cluster to which to connect.
+         */
+        clusterId?: string;
+        /**
+         * The database to which to connect.
+         */
+        database: string;
+        /**
+         * The host to which to connect.
+         */
+        host?: string;
+        /**
+         * The port to which to connect.
+         */
+        port?: number;
+    }
+
+    export interface DataSourceParametersS3 {
+        /**
+         * An object containing the S3 location of the S3 manifest file.
+         */
+        manifestFileLocation: outputs.quicksight.DataSourceParametersS3ManifestFileLocation;
+    }
+
+    export interface DataSourceParametersS3ManifestFileLocation {
+        /**
+         * The name of the bucket that contains the manifest file.
+         */
+        bucket: string;
+        /**
+         * The key of the manifest file within the bucket.
+         */
+        key: string;
+    }
+
+    export interface DataSourceParametersServiceNow {
+        /**
+         * The base URL of the Jira instance's site to which to connect.
+         */
+        siteBaseUrl: string;
+    }
+
+    export interface DataSourceParametersSnowflake {
+        /**
+         * The database to which to connect.
+         */
+        database: string;
+        /**
+         * The host to which to connect.
+         */
+        host: string;
+        /**
+         * The warehouse to which to connect.
+         */
+        warehouse: string;
+    }
+
+    export interface DataSourceParametersSpark {
+        /**
+         * The host to which to connect.
+         */
+        host: string;
+        /**
+         * The warehouse to which to connect.
+         */
+        port: number;
+    }
+
+    export interface DataSourceParametersSqlServer {
+        /**
+         * The database to which to connect.
+         */
+        database: string;
+        /**
+         * The host to which to connect.
+         */
+        host: string;
+        /**
+         * The warehouse to which to connect.
+         */
+        port: number;
+    }
+
+    export interface DataSourceParametersTeradata {
+        /**
+         * The database to which to connect.
+         */
+        database: string;
+        /**
+         * The host to which to connect.
+         */
+        host: string;
+        /**
+         * The warehouse to which to connect.
+         */
+        port: number;
+    }
+
+    export interface DataSourceParametersTwitter {
+        /**
+         * The maximum number of rows to query.
+         */
+        maxRows: number;
+        /**
+         * The Twitter query to retrieve the data.
+         */
+        query: string;
+    }
+
+    export interface DataSourcePermission {
+        /**
+         * Set of IAM actions to grant or revoke permissions on. Max of 16 items.
+         */
+        actions: string[];
+        /**
+         * The Amazon Resource Name (ARN) of the principal.
+         */
+        principal: string;
+    }
+
+    export interface DataSourceSslProperties {
+        /**
+         * A Boolean option to control whether SSL should be disabled.
+         */
+        disableSsl: boolean;
+    }
+
+    export interface DataSourceVpcConnectionProperties {
+        /**
+         * The Amazon Resource Name (ARN) for the VPC connection.
+         */
+        vpcConnectionArn: string;
+    }
+
+}
+
 export namespace ram {
     export interface GetResourceShareFilter {
         /**
@@ -23112,6 +23552,13 @@ export namespace rds {
          * The action to take when the timeout is reached. Valid values: `ForceApplyCapacityChange`, `RollbackCapacityChange`. Defaults to `RollbackCapacityChange`. See [documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless.how-it-works.html#aurora-serverless.how-it-works.timeout-action).
          */
         timeoutAction?: string;
+    }
+
+    export interface GetProxyAuth {
+        authScheme: string;
+        description: string;
+        iamAuth: string;
+        secretArn: string;
     }
 
     export interface GlobalClusterGlobalClusterMember {
@@ -23342,6 +23789,58 @@ export namespace redshift {
          * The value of the Redshift parameter.
          */
         value: string;
+    }
+
+    export interface ScheduledActionTargetAction {
+        /**
+         * An action that runs a `PauseCluster` API operation. Documented below.
+         */
+        pauseCluster?: outputs.redshift.ScheduledActionTargetActionPauseCluster;
+        /**
+         * An action that runs a `ResizeCluster` API operation. Documented below.
+         */
+        resizeCluster?: outputs.redshift.ScheduledActionTargetActionResizeCluster;
+        /**
+         * An action that runs a `ResumeCluster` API operation. Documented below.
+         */
+        resumeCluster?: outputs.redshift.ScheduledActionTargetActionResumeCluster;
+    }
+
+    export interface ScheduledActionTargetActionPauseCluster {
+        /**
+         * The identifier of the cluster to be resumed.
+         */
+        clusterIdentifier: string;
+    }
+
+    export interface ScheduledActionTargetActionResizeCluster {
+        /**
+         * A boolean value indicating whether the resize operation is using the classic resize process. Default: `false`.
+         */
+        classic?: boolean;
+        /**
+         * The identifier of the cluster to be resumed.
+         */
+        clusterIdentifier: string;
+        /**
+         * The new cluster type for the specified cluster.
+         */
+        clusterType?: string;
+        /**
+         * The new node type for the nodes you are adding.
+         */
+        nodeType?: string;
+        /**
+         * The new number of nodes for the cluster.
+         */
+        numberOfNodes?: number;
+    }
+
+    export interface ScheduledActionTargetActionResumeCluster {
+        /**
+         * The identifier of the cluster to be resumed.
+         */
+        clusterIdentifier: string;
     }
 
     export interface SecurityGroupIngress {
@@ -24387,6 +24886,10 @@ export namespace sagemaker {
          * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
          */
         defaultResourceSpec?: outputs.sagemaker.DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec;
+        /**
+         * The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+         */
+        lifecycleConfigArns?: string[];
     }
 
     export interface DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec {
@@ -24409,6 +24912,10 @@ export namespace sagemaker {
          * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
          */
         defaultResourceSpec?: outputs.sagemaker.DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec;
+        /**
+         * The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+         */
+        lifecycleConfigArns?: string[];
     }
 
     export interface DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImage {
@@ -24885,6 +25392,10 @@ export namespace sagemaker {
          * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
          */
         defaultResourceSpec: outputs.sagemaker.UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec;
+        /**
+         * The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+         */
+        lifecycleConfigArns?: string[];
     }
 
     export interface UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec {
@@ -24907,6 +25418,10 @@ export namespace sagemaker {
          * The default instance type and the Amazon Resource Name (ARN) of the SageMaker image created on the instance. see Default Resource Spec below.
          */
         defaultResourceSpec: outputs.sagemaker.UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpec;
+        /**
+         * The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+         */
+        lifecycleConfigArns?: string[];
     }
 
     export interface UserProfileUserSettingsKernelGatewayAppSettingsCustomImage {

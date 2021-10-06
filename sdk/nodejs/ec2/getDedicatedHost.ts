@@ -2,29 +2,29 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Use this data source to get information about the host when allocating an EC2 Dedicated Host.
+ * Use this data source to get information about an EC2 Dedicated Host.
  *
  * ## Example Usage
+ * ### Filter Example
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const test = new aws.ec2.DedicatedHost("test", {
- *     autoPlacement: "on",
- *     availabilityZone: "us-west-1a",
- *     hostRecovery: "on",
- *     instanceType: "c5.18xlarge",
- * });
- * const testData = test.id.apply(id => aws.ec2.getDedicatedHost({
- *     hostId: id,
+ * const test = pulumi.output(aws.ec2.getDedicatedHost({
+ *     filters: [{
+ *         name: "instance-type",
+ *         values: ["c5.18xlarge"],
+ *     }],
  * }));
  * ```
  */
-export function getDedicatedHost(args: GetDedicatedHostArgs, opts?: pulumi.InvokeOptions): Promise<GetDedicatedHostResult> {
+export function getDedicatedHost(args?: GetDedicatedHostArgs, opts?: pulumi.InvokeOptions): Promise<GetDedicatedHostResult> {
+    args = args || {};
     if (!opts) {
         opts = {}
     }
@@ -33,6 +33,7 @@ export function getDedicatedHost(args: GetDedicatedHostArgs, opts?: pulumi.Invok
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("aws:ec2/getDedicatedHost:getDedicatedHost", {
+        "filters": args.filters,
         "hostId": args.hostId,
         "tags": args.tags,
     }, opts);
@@ -43,9 +44,13 @@ export function getDedicatedHost(args: GetDedicatedHostArgs, opts?: pulumi.Invok
  */
 export interface GetDedicatedHostArgs {
     /**
-     * The host ID.
+     * Configuration block. Detailed below.
      */
-    hostId: string;
+    filters?: inputs.ec2.GetDedicatedHostFilter[];
+    /**
+     * The ID of the Dedicated Host.
+     */
+    hostId?: string;
     tags?: {[key: string]: string};
 }
 
@@ -53,30 +58,46 @@ export interface GetDedicatedHostArgs {
  * A collection of values returned by getDedicatedHost.
  */
 export interface GetDedicatedHostResult {
+    /**
+     * The ARN of the Dedicated Host.
+     */
+    readonly arn: string;
+    /**
+     * Whether auto-placement is on or off.
+     */
     readonly autoPlacement: string;
+    /**
+     * The Availability Zone of the Dedicated Host.
+     */
     readonly availabilityZone: string;
     /**
      * The number of cores on the Dedicated Host.
      */
     readonly cores: number;
-    /**
-     * The host ID.
-     */
+    readonly filters?: outputs.ec2.GetDedicatedHostFilter[];
     readonly hostId: string;
+    /**
+     * Indicates whether host recovery is enabled or disabled for the Dedicated Host.
+     */
     readonly hostRecovery: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
     /**
-     * The instance family supported by the Dedicated Host. For example, m5.
-     * * `instanceType` -The instance type supported by the Dedicated Host. For example, m5.large. If the host supports multiple instance types, no instanceType is returned.
+     * The instance family supported by the Dedicated Host. For example, "m5".
      */
     readonly instanceFamily: string;
-    readonly instanceState: string;
+    /**
+     * The instance type supported by the Dedicated Host. For example, "m5.large". If the host supports multiple instance types, no instanceType is returned.
+     */
     readonly instanceType: string;
     /**
-     * The instance family supported by the Dedicated Host. For example, m5.
+     * The ID of the AWS account that owns the Dedicated Host.
+     */
+    readonly ownerId: string;
+    /**
+     * The number of sockets on the Dedicated Host.
      */
     readonly sockets: number;
     readonly tags: {[key: string]: string};

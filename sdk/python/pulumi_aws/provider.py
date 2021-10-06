@@ -20,6 +20,7 @@ class ProviderArgs:
                  default_tags: Optional[pulumi.Input['ProviderDefaultTagsArgs']] = None,
                  endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['ProviderEndpointArgs']]]] = None,
                  forbidden_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 http_proxy: Optional[pulumi.Input[str]] = None,
                  ignore_tags: Optional[pulumi.Input['ProviderIgnoreTagsArgs']] = None,
                  insecure: Optional[pulumi.Input[bool]] = None,
                  max_retries: Optional[pulumi.Input[int]] = None,
@@ -38,8 +39,10 @@ class ProviderArgs:
         The set of arguments for constructing a Provider resource.
         :param pulumi.Input[str] access_key: The access key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.
         :param pulumi.Input['ProviderDefaultTagsArgs'] default_tags: Configuration block with settings to default resource tags across all resources.
+        :param pulumi.Input[str] http_proxy: The address of an HTTP proxy to use when accessing the AWS API. Can also be configured using the `HTTP_PROXY` or
+               `HTTPS_PROXY` environment variables.
         :param pulumi.Input['ProviderIgnoreTagsArgs'] ignore_tags: Configuration block with settings to ignore resource tags across all resources.
-        :param pulumi.Input[bool] insecure: Explicitly allow the provider to perform "insecure" SSL requests. If omitted,default value is `false`
+        :param pulumi.Input[bool] insecure: Explicitly allow the provider to perform "insecure" SSL requests. If omitted, default value is `false`
         :param pulumi.Input[int] max_retries: The maximum number of times an AWS API request is being executed. If the API request still fails, an error is thrown.
         :param pulumi.Input[str] profile: The profile for API operations. If not set, the default profile created with `aws configure` will be used.
         :param pulumi.Input[str] region: The region where AWS operations will take place. Examples are us-east-1, us-west-2, etc.
@@ -68,6 +71,8 @@ class ProviderArgs:
             pulumi.set(__self__, "endpoints", endpoints)
         if forbidden_account_ids is not None:
             pulumi.set(__self__, "forbidden_account_ids", forbidden_account_ids)
+        if http_proxy is not None:
+            pulumi.set(__self__, "http_proxy", http_proxy)
         if ignore_tags is not None:
             pulumi.set(__self__, "ignore_tags", ignore_tags)
         if insecure is not None:
@@ -170,6 +175,19 @@ class ProviderArgs:
         pulumi.set(self, "forbidden_account_ids", value)
 
     @property
+    @pulumi.getter(name="httpProxy")
+    def http_proxy(self) -> Optional[pulumi.Input[str]]:
+        """
+        The address of an HTTP proxy to use when accessing the AWS API. Can also be configured using the `HTTP_PROXY` or
+        `HTTPS_PROXY` environment variables.
+        """
+        return pulumi.get(self, "http_proxy")
+
+    @http_proxy.setter
+    def http_proxy(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "http_proxy", value)
+
+    @property
     @pulumi.getter(name="ignoreTags")
     def ignore_tags(self) -> Optional[pulumi.Input['ProviderIgnoreTagsArgs']]:
         """
@@ -185,7 +203,7 @@ class ProviderArgs:
     @pulumi.getter
     def insecure(self) -> Optional[pulumi.Input[bool]]:
         """
-        Explicitly allow the provider to perform "insecure" SSL requests. If omitted,default value is `false`
+        Explicitly allow the provider to perform "insecure" SSL requests. If omitted, default value is `false`
         """
         return pulumi.get(self, "insecure")
 
@@ -350,6 +368,7 @@ class Provider(pulumi.ProviderResource):
                  default_tags: Optional[pulumi.Input[pulumi.InputType['ProviderDefaultTagsArgs']]] = None,
                  endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProviderEndpointArgs']]]]] = None,
                  forbidden_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 http_proxy: Optional[pulumi.Input[str]] = None,
                  ignore_tags: Optional[pulumi.Input[pulumi.InputType['ProviderIgnoreTagsArgs']]] = None,
                  insecure: Optional[pulumi.Input[bool]] = None,
                  max_retries: Optional[pulumi.Input[int]] = None,
@@ -375,8 +394,10 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] access_key: The access key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.
         :param pulumi.Input[pulumi.InputType['ProviderDefaultTagsArgs']] default_tags: Configuration block with settings to default resource tags across all resources.
+        :param pulumi.Input[str] http_proxy: The address of an HTTP proxy to use when accessing the AWS API. Can also be configured using the `HTTP_PROXY` or
+               `HTTPS_PROXY` environment variables.
         :param pulumi.Input[pulumi.InputType['ProviderIgnoreTagsArgs']] ignore_tags: Configuration block with settings to ignore resource tags across all resources.
-        :param pulumi.Input[bool] insecure: Explicitly allow the provider to perform "insecure" SSL requests. If omitted,default value is `false`
+        :param pulumi.Input[bool] insecure: Explicitly allow the provider to perform "insecure" SSL requests. If omitted, default value is `false`
         :param pulumi.Input[int] max_retries: The maximum number of times an AWS API request is being executed. If the API request still fails, an error is thrown.
         :param pulumi.Input[str] profile: The profile for API operations. If not set, the default profile created with `aws configure` will be used.
         :param pulumi.Input[str] region: The region where AWS operations will take place. Examples are us-east-1, us-west-2, etc.
@@ -426,6 +447,7 @@ class Provider(pulumi.ProviderResource):
                  default_tags: Optional[pulumi.Input[pulumi.InputType['ProviderDefaultTagsArgs']]] = None,
                  endpoints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ProviderEndpointArgs']]]]] = None,
                  forbidden_account_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 http_proxy: Optional[pulumi.Input[str]] = None,
                  ignore_tags: Optional[pulumi.Input[pulumi.InputType['ProviderIgnoreTagsArgs']]] = None,
                  insecure: Optional[pulumi.Input[bool]] = None,
                  max_retries: Optional[pulumi.Input[int]] = None,
@@ -458,6 +480,7 @@ class Provider(pulumi.ProviderResource):
             __props__.__dict__["default_tags"] = pulumi.Output.from_input(default_tags).apply(pulumi.runtime.to_json) if default_tags is not None else None
             __props__.__dict__["endpoints"] = pulumi.Output.from_input(endpoints).apply(pulumi.runtime.to_json) if endpoints is not None else None
             __props__.__dict__["forbidden_account_ids"] = pulumi.Output.from_input(forbidden_account_ids).apply(pulumi.runtime.to_json) if forbidden_account_ids is not None else None
+            __props__.__dict__["http_proxy"] = http_proxy
             __props__.__dict__["ignore_tags"] = pulumi.Output.from_input(ignore_tags).apply(pulumi.runtime.to_json) if ignore_tags is not None else None
             __props__.__dict__["insecure"] = pulumi.Output.from_input(insecure).apply(pulumi.runtime.to_json) if insecure is not None else None
             __props__.__dict__["max_retries"] = pulumi.Output.from_input(max_retries).apply(pulumi.runtime.to_json) if max_retries is not None else None
@@ -497,6 +520,15 @@ class Provider(pulumi.ProviderResource):
         The access key for API operations. You can retrieve this from the 'Security & Credentials' section of the AWS console.
         """
         return pulumi.get(self, "access_key")
+
+    @property
+    @pulumi.getter(name="httpProxy")
+    def http_proxy(self) -> pulumi.Output[Optional[str]]:
+        """
+        The address of an HTTP proxy to use when accessing the AWS API. Can also be configured using the `HTTP_PROXY` or
+        `HTTPS_PROXY` environment variables.
+        """
+        return pulumi.get(self, "http_proxy")
 
     @property
     @pulumi.getter

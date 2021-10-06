@@ -294,7 +294,7 @@ namespace Pulumi.Aws.Lambda
     public partial class Function : Pulumi.CustomResource
     {
         /// <summary>
-        /// The target architectures for the function. Only a single value is value at this time. Valid values are `arm64` and `x86_64`. If not provided, AWS will default to `x86_64`.
+        /// Instruction set architecture for your Lambda function. Valid values are `["x86_64"]` and `["arm64"]`. Default is `["x86_64"]`. Removing this attribute, function's architecture stay the same.
         /// </summary>
         [Output("architectures")]
         public Output<ImmutableArray<string>> Architectures { get; private set; } = null!;
@@ -560,7 +560,7 @@ namespace Pulumi.Aws.Lambda
         private InputList<string>? _architectures;
 
         /// <summary>
-        /// The target architectures for the function. Only a single value is value at this time. Valid values are `arm64` and `x86_64`. If not provided, AWS will default to `x86_64`.
+        /// Instruction set architecture for your Lambda function. Valid values are `["x86_64"]` and `["arm64"]`. Default is `["x86_64"]`. Removing this attribute, function's architecture stay the same.
         /// </summary>
         public InputList<string> Architectures
         {
@@ -747,7 +747,7 @@ namespace Pulumi.Aws.Lambda
         private InputList<string>? _architectures;
 
         /// <summary>
-        /// The target architectures for the function. Only a single value is value at this time. Valid values are `arm64` and `x86_64`. If not provided, AWS will default to `x86_64`.
+        /// Instruction set architecture for your Lambda function. Valid values are `["x86_64"]` and `["arm64"]`. Default is `["x86_64"]`. Removing this attribute, function's architecture stay the same.
         /// </summary>
         public InputList<string> Architectures
         {

@@ -345,7 +345,7 @@ export class Bucket extends pulumi.CustomResource {
      */
     public readonly arn!: pulumi.Output<string>;
     /**
-     * The name of the bucket. If omitted, this provider will assign a random, unique name. Must be less than or equal to 63 characters in length.
+     * The name of the bucket. If omitted, this provider will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
      */
     public readonly bucket!: pulumi.Output<string>;
     /**
@@ -353,7 +353,7 @@ export class Bucket extends pulumi.CustomResource {
      */
     public /*out*/ readonly bucketDomainName!: pulumi.Output<string>;
     /**
-     * Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`. Must be less than or equal to 37 characters in length.
+     * Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`. Must be lowercase and less than or equal to 37 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
      */
     public readonly bucketPrefix!: pulumi.Output<string | undefined>;
     /**
@@ -526,7 +526,7 @@ export interface BucketState {
      */
     arn?: pulumi.Input<string>;
     /**
-     * The name of the bucket. If omitted, this provider will assign a random, unique name. Must be less than or equal to 63 characters in length.
+     * The name of the bucket. If omitted, this provider will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
      */
     bucket?: pulumi.Input<string>;
     /**
@@ -534,7 +534,7 @@ export interface BucketState {
      */
     bucketDomainName?: pulumi.Input<string>;
     /**
-     * Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`. Must be less than or equal to 37 characters in length.
+     * Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`. Must be lowercase and less than or equal to 37 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
      */
     bucketPrefix?: pulumi.Input<string>;
     /**
@@ -635,11 +635,11 @@ export interface BucketArgs {
      */
     arn?: pulumi.Input<string>;
     /**
-     * The name of the bucket. If omitted, this provider will assign a random, unique name. Must be less than or equal to 63 characters in length.
+     * The name of the bucket. If omitted, this provider will assign a random, unique name. Must be lowercase and less than or equal to 63 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
      */
     bucket?: pulumi.Input<string>;
     /**
-     * Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`. Must be less than or equal to 37 characters in length.
+     * Creates a unique bucket name beginning with the specified prefix. Conflicts with `bucket`. Must be lowercase and less than or equal to 37 characters in length. A full list of bucket naming rules [may be found here](https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucketnamingrules.html).
      */
     bucketPrefix?: pulumi.Input<string>;
     /**

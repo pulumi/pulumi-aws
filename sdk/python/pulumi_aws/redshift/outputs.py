@@ -7,12 +7,17 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'ClusterClusterNode',
     'ClusterLogging',
     'ClusterSnapshotCopy',
     'ParameterGroupParameter',
+    'ScheduledActionTargetAction',
+    'ScheduledActionTargetActionPauseCluster',
+    'ScheduledActionTargetActionResizeCluster',
+    'ScheduledActionTargetActionResumeCluster',
     'SecurityGroupIngress',
 ]
 
@@ -233,6 +238,229 @@ class ParameterGroupParameter(dict):
         The value of the Redshift parameter.
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ScheduledActionTargetAction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "pauseCluster":
+            suggest = "pause_cluster"
+        elif key == "resizeCluster":
+            suggest = "resize_cluster"
+        elif key == "resumeCluster":
+            suggest = "resume_cluster"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScheduledActionTargetAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScheduledActionTargetAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScheduledActionTargetAction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 pause_cluster: Optional['outputs.ScheduledActionTargetActionPauseCluster'] = None,
+                 resize_cluster: Optional['outputs.ScheduledActionTargetActionResizeCluster'] = None,
+                 resume_cluster: Optional['outputs.ScheduledActionTargetActionResumeCluster'] = None):
+        """
+        :param 'ScheduledActionTargetActionPauseClusterArgs' pause_cluster: An action that runs a `PauseCluster` API operation. Documented below.
+        :param 'ScheduledActionTargetActionResizeClusterArgs' resize_cluster: An action that runs a `ResizeCluster` API operation. Documented below.
+        :param 'ScheduledActionTargetActionResumeClusterArgs' resume_cluster: An action that runs a `ResumeCluster` API operation. Documented below.
+        """
+        if pause_cluster is not None:
+            pulumi.set(__self__, "pause_cluster", pause_cluster)
+        if resize_cluster is not None:
+            pulumi.set(__self__, "resize_cluster", resize_cluster)
+        if resume_cluster is not None:
+            pulumi.set(__self__, "resume_cluster", resume_cluster)
+
+    @property
+    @pulumi.getter(name="pauseCluster")
+    def pause_cluster(self) -> Optional['outputs.ScheduledActionTargetActionPauseCluster']:
+        """
+        An action that runs a `PauseCluster` API operation. Documented below.
+        """
+        return pulumi.get(self, "pause_cluster")
+
+    @property
+    @pulumi.getter(name="resizeCluster")
+    def resize_cluster(self) -> Optional['outputs.ScheduledActionTargetActionResizeCluster']:
+        """
+        An action that runs a `ResizeCluster` API operation. Documented below.
+        """
+        return pulumi.get(self, "resize_cluster")
+
+    @property
+    @pulumi.getter(name="resumeCluster")
+    def resume_cluster(self) -> Optional['outputs.ScheduledActionTargetActionResumeCluster']:
+        """
+        An action that runs a `ResumeCluster` API operation. Documented below.
+        """
+        return pulumi.get(self, "resume_cluster")
+
+
+@pulumi.output_type
+class ScheduledActionTargetActionPauseCluster(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clusterIdentifier":
+            suggest = "cluster_identifier"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScheduledActionTargetActionPauseCluster. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScheduledActionTargetActionPauseCluster.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScheduledActionTargetActionPauseCluster.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cluster_identifier: str):
+        """
+        :param str cluster_identifier: The identifier of the cluster to be resumed.
+        """
+        pulumi.set(__self__, "cluster_identifier", cluster_identifier)
+
+    @property
+    @pulumi.getter(name="clusterIdentifier")
+    def cluster_identifier(self) -> str:
+        """
+        The identifier of the cluster to be resumed.
+        """
+        return pulumi.get(self, "cluster_identifier")
+
+
+@pulumi.output_type
+class ScheduledActionTargetActionResizeCluster(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clusterIdentifier":
+            suggest = "cluster_identifier"
+        elif key == "clusterType":
+            suggest = "cluster_type"
+        elif key == "nodeType":
+            suggest = "node_type"
+        elif key == "numberOfNodes":
+            suggest = "number_of_nodes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScheduledActionTargetActionResizeCluster. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScheduledActionTargetActionResizeCluster.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScheduledActionTargetActionResizeCluster.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cluster_identifier: str,
+                 classic: Optional[bool] = None,
+                 cluster_type: Optional[str] = None,
+                 node_type: Optional[str] = None,
+                 number_of_nodes: Optional[int] = None):
+        """
+        :param str cluster_identifier: The identifier of the cluster to be resumed.
+        :param bool classic: A boolean value indicating whether the resize operation is using the classic resize process. Default: `false`.
+        :param str cluster_type: The new cluster type for the specified cluster.
+        :param str node_type: The new node type for the nodes you are adding.
+        :param int number_of_nodes: The new number of nodes for the cluster.
+        """
+        pulumi.set(__self__, "cluster_identifier", cluster_identifier)
+        if classic is not None:
+            pulumi.set(__self__, "classic", classic)
+        if cluster_type is not None:
+            pulumi.set(__self__, "cluster_type", cluster_type)
+        if node_type is not None:
+            pulumi.set(__self__, "node_type", node_type)
+        if number_of_nodes is not None:
+            pulumi.set(__self__, "number_of_nodes", number_of_nodes)
+
+    @property
+    @pulumi.getter(name="clusterIdentifier")
+    def cluster_identifier(self) -> str:
+        """
+        The identifier of the cluster to be resumed.
+        """
+        return pulumi.get(self, "cluster_identifier")
+
+    @property
+    @pulumi.getter
+    def classic(self) -> Optional[bool]:
+        """
+        A boolean value indicating whether the resize operation is using the classic resize process. Default: `false`.
+        """
+        return pulumi.get(self, "classic")
+
+    @property
+    @pulumi.getter(name="clusterType")
+    def cluster_type(self) -> Optional[str]:
+        """
+        The new cluster type for the specified cluster.
+        """
+        return pulumi.get(self, "cluster_type")
+
+    @property
+    @pulumi.getter(name="nodeType")
+    def node_type(self) -> Optional[str]:
+        """
+        The new node type for the nodes you are adding.
+        """
+        return pulumi.get(self, "node_type")
+
+    @property
+    @pulumi.getter(name="numberOfNodes")
+    def number_of_nodes(self) -> Optional[int]:
+        """
+        The new number of nodes for the cluster.
+        """
+        return pulumi.get(self, "number_of_nodes")
+
+
+@pulumi.output_type
+class ScheduledActionTargetActionResumeCluster(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clusterIdentifier":
+            suggest = "cluster_identifier"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ScheduledActionTargetActionResumeCluster. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ScheduledActionTargetActionResumeCluster.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ScheduledActionTargetActionResumeCluster.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cluster_identifier: str):
+        """
+        :param str cluster_identifier: The identifier of the cluster to be resumed.
+        """
+        pulumi.set(__self__, "cluster_identifier", cluster_identifier)
+
+    @property
+    @pulumi.getter(name="clusterIdentifier")
+    def cluster_identifier(self) -> str:
+        """
+        The identifier of the cluster to be resumed.
+        """
+        return pulumi.get(self, "cluster_identifier")
 
 
 @pulumi.output_type

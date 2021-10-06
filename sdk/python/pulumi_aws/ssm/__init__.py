@@ -11,6 +11,7 @@ from .association import *
 from .document import *
 from .get_document import *
 from .get_parameter import *
+from .get_parameters_by_path import *
 from .get_patch_baseline import *
 from .maintenance_window import *
 from .maintenance_window_target import *

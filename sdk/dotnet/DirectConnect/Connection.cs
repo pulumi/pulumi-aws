@@ -95,7 +95,7 @@ namespace Pulumi.Aws.DirectConnect
         /// The name of the service provider associated with the connection.
         /// </summary>
         [Output("providerName")]
-        public Output<string?> ProviderName { get; private set; } = null!;
+        public Output<string> ProviderName { get; private set; } = null!;
 
         /// <summary>
         /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

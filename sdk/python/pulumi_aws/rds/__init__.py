@@ -20,6 +20,7 @@ from .get_engine_version import *
 from .get_event_categories import *
 from .get_instance import *
 from .get_orderable_db_instance import *
+from .get_proxy import *
 from .get_snapshot import *
 from .get_subnet_group import *
 from .global_cluster import *

@@ -17,6 +17,9 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// Whether the metadata service is available. Can be `"enabled"` or `"disabled"`. (Default: `"enabled"`).
         /// </summary>
         public readonly string? HttpEndpoint;
+        /// <summary>
+        /// Enables or disables the IPv6 endpoint for the instance metadata service. (Default: `disabled`).
+        /// </summary>
         public readonly string? HttpProtocolIpv6;
         /// <summary>
         /// The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel. Can be an integer from `1` to `64`. (Default: `1`).

@@ -12,11 +12,12 @@ namespace Pulumi.Aws.Ec2
     public static class GetDedicatedHost
     {
         /// <summary>
-        /// Use this data source to get information about the host when allocating an EC2 Dedicated Host.
+        /// Use this data source to get information about an EC2 Dedicated Host.
         /// 
         /// {{% examples %}}
         /// ## Example Usage
         /// {{% example %}}
+        /// ### Filter Example
         /// 
         /// ```csharp
         /// using Pulumi;
@@ -26,16 +27,19 @@ namespace Pulumi.Aws.Ec2
         /// {
         ///     public MyStack()
         ///     {
-        ///         var test = new Aws.Ec2.DedicatedHost("test", new Aws.Ec2.DedicatedHostArgs
+        ///         var test = Output.Create(Aws.Ec2.GetDedicatedHost.InvokeAsync(new Aws.Ec2.GetDedicatedHostArgs
         ///         {
-        ///             AutoPlacement = "on",
-        ///             AvailabilityZone = "us-west-1a",
-        ///             HostRecovery = "on",
-        ///             InstanceType = "c5.18xlarge",
-        ///         });
-        ///         var testData = test.Id.Apply(id =&gt; Aws.Ec2.GetDedicatedHost.InvokeAsync(new Aws.Ec2.GetDedicatedHostArgs
-        ///         {
-        ///             HostId = id,
+        ///             Filters = 
+        ///             {
+        ///                 new Aws.Ec2.Inputs.GetDedicatedHostFilterArgs
+        ///                 {
+        ///                     Name = "instance-type",
+        ///                     Values = 
+        ///                     {
+        ///                         "c5.18xlarge",
+        ///                     },
+        ///                 },
+        ///             },
         ///         }));
         ///     }
         /// 
@@ -44,18 +48,30 @@ namespace Pulumi.Aws.Ec2
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
-        public static Task<GetDedicatedHostResult> InvokeAsync(GetDedicatedHostArgs args, InvokeOptions? options = null)
+        public static Task<GetDedicatedHostResult> InvokeAsync(GetDedicatedHostArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDedicatedHostResult>("aws:ec2/getDedicatedHost:getDedicatedHost", args ?? new GetDedicatedHostArgs(), options.WithVersion());
     }
 
 
     public sealed class GetDedicatedHostArgs : Pulumi.InvokeArgs
     {
+        [Input("filters")]
+        private List<Inputs.GetDedicatedHostFilterArgs>? _filters;
+
         /// <summary>
-        /// The host ID.
+        /// Configuration block. Detailed below.
         /// </summary>
-        [Input("hostId", required: true)]
-        public string HostId { get; set; } = null!;
+        public List<Inputs.GetDedicatedHostFilterArgs> Filters
+        {
+            get => _filters ?? (_filters = new List<Inputs.GetDedicatedHostFilterArgs>());
+            set => _filters = value;
+        }
+
+        /// <summary>
+        /// The ID of the Dedicated Host.
+        /// </summary>
+        [Input("hostId")]
+        public string? HostId { get; set; }
 
         [Input("tags")]
         private Dictionary<string, string>? _tags;
@@ -74,30 +90,46 @@ namespace Pulumi.Aws.Ec2
     [OutputType]
     public sealed class GetDedicatedHostResult
     {
+        /// <summary>
+        /// The ARN of the Dedicated Host.
+        /// </summary>
+        public readonly string Arn;
+        /// <summary>
+        /// Whether auto-placement is on or off.
+        /// </summary>
         public readonly string AutoPlacement;
+        /// <summary>
+        /// The Availability Zone of the Dedicated Host.
+        /// </summary>
         public readonly string AvailabilityZone;
         /// <summary>
         /// The number of cores on the Dedicated Host.
         /// </summary>
         public readonly int Cores;
-        /// <summary>
-        /// The host ID.
-        /// </summary>
+        public readonly ImmutableArray<Outputs.GetDedicatedHostFilterResult> Filters;
         public readonly string HostId;
+        /// <summary>
+        /// Indicates whether host recovery is enabled or disabled for the Dedicated Host.
+        /// </summary>
         public readonly string HostRecovery;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The instance family supported by the Dedicated Host. For example, m5.
-        /// * `instance_type` -The instance type supported by the Dedicated Host. For example, m5.large. If the host supports multiple instance types, no instanceType is returned.
+        /// The instance family supported by the Dedicated Host. For example, "m5".
         /// </summary>
         public readonly string InstanceFamily;
-        public readonly string InstanceState;
+        /// <summary>
+        /// The instance type supported by the Dedicated Host. For example, "m5.large". If the host supports multiple instance types, no instanceType is returned.
+        /// </summary>
         public readonly string InstanceType;
         /// <summary>
-        /// The instance family supported by the Dedicated Host. For example, m5.
+        /// The ID of the AWS account that owns the Dedicated Host.
+        /// </summary>
+        public readonly string OwnerId;
+        /// <summary>
+        /// The number of sockets on the Dedicated Host.
         /// </summary>
         public readonly int Sockets;
         public readonly ImmutableDictionary<string, string> Tags;
@@ -108,11 +140,15 @@ namespace Pulumi.Aws.Ec2
 
         [OutputConstructor]
         private GetDedicatedHostResult(
+            string arn,
+
             string autoPlacement,
 
             string availabilityZone,
 
             int cores,
+
+            ImmutableArray<Outputs.GetDedicatedHostFilterResult> filters,
 
             string hostId,
 
@@ -122,9 +158,9 @@ namespace Pulumi.Aws.Ec2
 
             string instanceFamily,
 
-            string instanceState,
-
             string instanceType,
+
+            string ownerId,
 
             int sockets,
 
@@ -132,15 +168,17 @@ namespace Pulumi.Aws.Ec2
 
             int totalVcpus)
         {
+            Arn = arn;
             AutoPlacement = autoPlacement;
             AvailabilityZone = availabilityZone;
             Cores = cores;
+            Filters = filters;
             HostId = hostId;
             HostRecovery = hostRecovery;
             Id = id;
             InstanceFamily = instanceFamily;
-            InstanceState = instanceState;
             InstanceType = instanceType;
+            OwnerId = ownerId;
             Sockets = sockets;
             Tags = tags;
             TotalVcpus = totalVcpus;

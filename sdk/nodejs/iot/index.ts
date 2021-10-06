@@ -5,6 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./authorizer";
 export * from "./certificate";
 export * from "./getEndpoint";
 export * from "./policy";
@@ -16,6 +17,7 @@ export * from "./thingType";
 export * from "./topicRule";
 
 // Import resources to register:
+import { Authorizer } from "./authorizer";
 import { Certificate } from "./certificate";
 import { Policy } from "./policy";
 import { PolicyAttachment } from "./policyAttachment";
@@ -29,6 +31,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws:iot/authorizer:Authorizer":
+                return new Authorizer(name, <any>undefined, { urn })
             case "aws:iot/certificate:Certificate":
                 return new Certificate(name, <any>undefined, { urn })
             case "aws:iot/policy:Policy":
@@ -50,6 +54,7 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("aws", "iot/authorizer", _module)
 pulumi.runtime.registerResourceModule("aws", "iot/certificate", _module)
 pulumi.runtime.registerResourceModule("aws", "iot/policy", _module)
 pulumi.runtime.registerResourceModule("aws", "iot/policyAttachment", _module)

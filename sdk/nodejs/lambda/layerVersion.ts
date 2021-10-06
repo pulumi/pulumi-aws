@@ -99,7 +99,7 @@ export class LayerVersion extends pulumi.CustomResource {
      */
     public readonly code!: pulumi.Output<pulumi.asset.Archive | undefined>;
     /**
-     * The compatible architectures for the specific Lambda Layer Version. Valid values are `arm64` and `x8664`. If not supplied, a value of `null` is assumed and will default to the value used for the function architecture.
+     * A list of [Architectures](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleArchitectures) this layer is compatible with. Currently `x8664` and `arm64` can be specified.
      */
     public readonly compatibleArchitectures!: pulumi.Output<string[] | undefined>;
     /**
@@ -155,7 +155,7 @@ export class LayerVersion extends pulumi.CustomResource {
      */
     public /*out*/ readonly sourceCodeSize!: pulumi.Output<number>;
     /**
-     * This Lamba Layer version.
+     * This Lambda Layer version.
      */
     public /*out*/ readonly version!: pulumi.Output<string>;
 
@@ -232,7 +232,7 @@ export interface LayerVersionState {
      */
     code?: pulumi.Input<pulumi.asset.Archive>;
     /**
-     * The compatible architectures for the specific Lambda Layer Version. Valid values are `arm64` and `x8664`. If not supplied, a value of `null` is assumed and will default to the value used for the function architecture.
+     * A list of [Architectures](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleArchitectures) this layer is compatible with. Currently `x8664` and `arm64` can be specified.
      */
     compatibleArchitectures?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -288,7 +288,7 @@ export interface LayerVersionState {
      */
     sourceCodeSize?: pulumi.Input<number>;
     /**
-     * This Lamba Layer version.
+     * This Lambda Layer version.
      */
     version?: pulumi.Input<string>;
 }
@@ -302,7 +302,7 @@ export interface LayerVersionArgs {
      */
     code?: pulumi.Input<pulumi.asset.Archive>;
     /**
-     * The compatible architectures for the specific Lambda Layer Version. Valid values are `arm64` and `x8664`. If not supplied, a value of `null` is assumed and will default to the value used for the function architecture.
+     * A list of [Architectures](https://docs.aws.amazon.com/lambda/latest/dg/API_PublishLayerVersion.html#SSS-PublishLayerVersion-request-CompatibleArchitectures) this layer is compatible with. Currently `x8664` and `arm64` can be specified.
      */
     compatibleArchitectures?: pulumi.Input<pulumi.Input<string>[]>;
     /**

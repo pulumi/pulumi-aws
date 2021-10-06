@@ -5,8 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Provides an EC2 host resource. This allows hosts to be created, updated,
- * and deleted.
+ * Provides an EC2 Host resource. This allows Dedicated Hosts to be allocated, modified, and released.
  *
  * ## Example Usage
  *
@@ -14,23 +13,22 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
+ * // Create a new host with instance type of c5.18xlarge with Auto Placement 
+ * // and Host Recovery enabled. 
  * const test = new aws.ec2.DedicatedHost("test", {
  *     autoPlacement: "on",
- *     availabilityZone: "us-west-1a",
+ *     availabilityZone: "us-west-2a",
  *     hostRecovery: "on",
  *     instanceType: "c5.18xlarge",
  * });
- * const testData = test.id.apply(id => aws.ec2.getDedicatedHost({
- *     hostId: id,
- * }));
  * ```
  *
  * ## Import
  *
- * hosts can be imported using the `host_id`, e.g.
+ * Hosts can be imported using the host `id`, e.g.
  *
  * ```sh
- *  $ pulumi import aws:ec2/dedicatedHost:DedicatedHost host_id h-0385a99d0e4b20cbb
+ *  $ pulumi import aws:ec2/dedicatedHost:DedicatedHost example h-0385a99d0e4b20cbb
  * ```
  */
 export class DedicatedHost extends pulumi.CustomResource {
@@ -62,26 +60,35 @@ export class DedicatedHost extends pulumi.CustomResource {
     }
 
     /**
-     * Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID.
+     * The ARN of the Dedicated Host.
      */
-    public readonly autoPlacement!: pulumi.Output<string>;
+    public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * The AZ to start the host in.
+     * Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID. Valid values: `on`, `off`. Default: `on`.
+     */
+    public readonly autoPlacement!: pulumi.Output<string | undefined>;
+    /**
+     * The Availability Zone in which to allocate the Dedicated Host.
      */
     public readonly availabilityZone!: pulumi.Output<string>;
     /**
-     * Indicates whether to enable or disable host recovery for the Dedicated Host. Host recovery is disabled by default.
+     * Indicates whether to enable or disable host recovery for the Dedicated Host. Valid values: `on`, `off`. Default: `off`.
      */
-    public readonly hostRecovery!: pulumi.Output<string>;
+    public readonly hostRecovery!: pulumi.Output<string | undefined>;
     /**
-     * Specifies the instance family for which to configure your Dedicated Host. Mutually exclusive with `instanceType`.
+     * Specifies the instance family to be supported by the Dedicated Hosts. If you specify an instance family, the Dedicated Hosts support multiple instance types within that instance family. Exactly one of `instanceFamily` or `instanceType` must be specified.
      */
     public readonly instanceFamily!: pulumi.Output<string | undefined>;
     /**
-     * Specifies the instance type for which to configure your Dedicated Host. When you specify the instance type, that is the only instance type that you can launch onto that host. Mutually exclusive with `instanceFamily`.
+     * Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only.  Exactly one of `instanceFamily` or `instanceType` must be specified.
      */
     public readonly instanceType!: pulumi.Output<string | undefined>;
+    /**
+     * The ID of the AWS account that owns the Dedicated Host.
+     */
+    public /*out*/ readonly ownerId!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a DedicatedHost resource with the given unique name, arguments, and options.
@@ -96,12 +103,15 @@ export class DedicatedHost extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DedicatedHostState | undefined;
+            inputs["arn"] = state ? state.arn : undefined;
             inputs["autoPlacement"] = state ? state.autoPlacement : undefined;
             inputs["availabilityZone"] = state ? state.availabilityZone : undefined;
             inputs["hostRecovery"] = state ? state.hostRecovery : undefined;
             inputs["instanceFamily"] = state ? state.instanceFamily : undefined;
             inputs["instanceType"] = state ? state.instanceType : undefined;
+            inputs["ownerId"] = state ? state.ownerId : undefined;
             inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as DedicatedHostArgs | undefined;
             if ((!args || args.availabilityZone === undefined) && !opts.urn) {
@@ -113,6 +123,9 @@ export class DedicatedHost extends pulumi.CustomResource {
             inputs["instanceFamily"] = args ? args.instanceFamily : undefined;
             inputs["instanceType"] = args ? args.instanceType : undefined;
             inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
+            inputs["arn"] = undefined /*out*/;
+            inputs["ownerId"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -126,26 +139,35 @@ export class DedicatedHost extends pulumi.CustomResource {
  */
 export interface DedicatedHostState {
     /**
-     * Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID.
+     * The ARN of the Dedicated Host.
+     */
+    arn?: pulumi.Input<string>;
+    /**
+     * Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID. Valid values: `on`, `off`. Default: `on`.
      */
     autoPlacement?: pulumi.Input<string>;
     /**
-     * The AZ to start the host in.
+     * The Availability Zone in which to allocate the Dedicated Host.
      */
     availabilityZone?: pulumi.Input<string>;
     /**
-     * Indicates whether to enable or disable host recovery for the Dedicated Host. Host recovery is disabled by default.
+     * Indicates whether to enable or disable host recovery for the Dedicated Host. Valid values: `on`, `off`. Default: `off`.
      */
     hostRecovery?: pulumi.Input<string>;
     /**
-     * Specifies the instance family for which to configure your Dedicated Host. Mutually exclusive with `instanceType`.
+     * Specifies the instance family to be supported by the Dedicated Hosts. If you specify an instance family, the Dedicated Hosts support multiple instance types within that instance family. Exactly one of `instanceFamily` or `instanceType` must be specified.
      */
     instanceFamily?: pulumi.Input<string>;
     /**
-     * Specifies the instance type for which to configure your Dedicated Host. When you specify the instance type, that is the only instance type that you can launch onto that host. Mutually exclusive with `instanceFamily`.
+     * Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only.  Exactly one of `instanceFamily` or `instanceType` must be specified.
      */
     instanceType?: pulumi.Input<string>;
+    /**
+     * The ID of the AWS account that owns the Dedicated Host.
+     */
+    ownerId?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -153,24 +175,25 @@ export interface DedicatedHostState {
  */
 export interface DedicatedHostArgs {
     /**
-     * Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID.
+     * Indicates whether the host accepts any untargeted instance launches that match its instance type configuration, or if it only accepts Host tenancy instance launches that specify its unique host ID. Valid values: `on`, `off`. Default: `on`.
      */
     autoPlacement?: pulumi.Input<string>;
     /**
-     * The AZ to start the host in.
+     * The Availability Zone in which to allocate the Dedicated Host.
      */
     availabilityZone: pulumi.Input<string>;
     /**
-     * Indicates whether to enable or disable host recovery for the Dedicated Host. Host recovery is disabled by default.
+     * Indicates whether to enable or disable host recovery for the Dedicated Host. Valid values: `on`, `off`. Default: `off`.
      */
     hostRecovery?: pulumi.Input<string>;
     /**
-     * Specifies the instance family for which to configure your Dedicated Host. Mutually exclusive with `instanceType`.
+     * Specifies the instance family to be supported by the Dedicated Hosts. If you specify an instance family, the Dedicated Hosts support multiple instance types within that instance family. Exactly one of `instanceFamily` or `instanceType` must be specified.
      */
     instanceFamily?: pulumi.Input<string>;
     /**
-     * Specifies the instance type for which to configure your Dedicated Host. When you specify the instance type, that is the only instance type that you can launch onto that host. Mutually exclusive with `instanceFamily`.
+     * Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only.  Exactly one of `instanceFamily` or `instanceType` must be specified.
      */
     instanceType?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

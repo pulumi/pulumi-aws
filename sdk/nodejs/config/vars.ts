@@ -65,6 +65,18 @@ Object.defineProperty(exports, "forbiddenAccountIds", {
 });
 
 /**
+ * The address of an HTTP proxy to use when accessing the AWS API. Can also be configured using the `HTTP_PROXY` or
+ * `HTTPS_PROXY` environment variables.
+ */
+export declare const httpProxy: string | undefined;
+Object.defineProperty(exports, "httpProxy", {
+    get() {
+        return __config.get("httpProxy");
+    },
+    enumerable: true,
+});
+
+/**
  * Configuration block with settings to ignore resource tags across all resources.
  */
 export declare const ignoreTags: outputs.config.IgnoreTags | undefined;
@@ -76,7 +88,7 @@ Object.defineProperty(exports, "ignoreTags", {
 });
 
 /**
- * Explicitly allow the provider to perform "insecure" SSL requests. If omitted,default value is `false`
+ * Explicitly allow the provider to perform "insecure" SSL requests. If omitted, default value is `false`
  */
 export declare const insecure: boolean | undefined;
 Object.defineProperty(exports, "insecure", {

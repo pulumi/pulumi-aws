@@ -516,6 +516,424 @@ func (o FleetVpcConfigPtrOutput) SubnetIds() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
+type ImageBuilderAccessEndpoint struct {
+	// Type of interface endpoint.
+	EndpointType string `pulumi:"endpointType"`
+	// Identifier (ID) of the VPC in which the interface endpoint is used.
+	VpceId *string `pulumi:"vpceId"`
+}
+
+// ImageBuilderAccessEndpointInput is an input type that accepts ImageBuilderAccessEndpointArgs and ImageBuilderAccessEndpointOutput values.
+// You can construct a concrete instance of `ImageBuilderAccessEndpointInput` via:
+//
+//          ImageBuilderAccessEndpointArgs{...}
+type ImageBuilderAccessEndpointInput interface {
+	pulumi.Input
+
+	ToImageBuilderAccessEndpointOutput() ImageBuilderAccessEndpointOutput
+	ToImageBuilderAccessEndpointOutputWithContext(context.Context) ImageBuilderAccessEndpointOutput
+}
+
+type ImageBuilderAccessEndpointArgs struct {
+	// Type of interface endpoint.
+	EndpointType pulumi.StringInput `pulumi:"endpointType"`
+	// Identifier (ID) of the VPC in which the interface endpoint is used.
+	VpceId pulumi.StringPtrInput `pulumi:"vpceId"`
+}
+
+func (ImageBuilderAccessEndpointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageBuilderAccessEndpoint)(nil)).Elem()
+}
+
+func (i ImageBuilderAccessEndpointArgs) ToImageBuilderAccessEndpointOutput() ImageBuilderAccessEndpointOutput {
+	return i.ToImageBuilderAccessEndpointOutputWithContext(context.Background())
+}
+
+func (i ImageBuilderAccessEndpointArgs) ToImageBuilderAccessEndpointOutputWithContext(ctx context.Context) ImageBuilderAccessEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageBuilderAccessEndpointOutput)
+}
+
+// ImageBuilderAccessEndpointArrayInput is an input type that accepts ImageBuilderAccessEndpointArray and ImageBuilderAccessEndpointArrayOutput values.
+// You can construct a concrete instance of `ImageBuilderAccessEndpointArrayInput` via:
+//
+//          ImageBuilderAccessEndpointArray{ ImageBuilderAccessEndpointArgs{...} }
+type ImageBuilderAccessEndpointArrayInput interface {
+	pulumi.Input
+
+	ToImageBuilderAccessEndpointArrayOutput() ImageBuilderAccessEndpointArrayOutput
+	ToImageBuilderAccessEndpointArrayOutputWithContext(context.Context) ImageBuilderAccessEndpointArrayOutput
+}
+
+type ImageBuilderAccessEndpointArray []ImageBuilderAccessEndpointInput
+
+func (ImageBuilderAccessEndpointArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ImageBuilderAccessEndpoint)(nil)).Elem()
+}
+
+func (i ImageBuilderAccessEndpointArray) ToImageBuilderAccessEndpointArrayOutput() ImageBuilderAccessEndpointArrayOutput {
+	return i.ToImageBuilderAccessEndpointArrayOutputWithContext(context.Background())
+}
+
+func (i ImageBuilderAccessEndpointArray) ToImageBuilderAccessEndpointArrayOutputWithContext(ctx context.Context) ImageBuilderAccessEndpointArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageBuilderAccessEndpointArrayOutput)
+}
+
+type ImageBuilderAccessEndpointOutput struct{ *pulumi.OutputState }
+
+func (ImageBuilderAccessEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageBuilderAccessEndpoint)(nil)).Elem()
+}
+
+func (o ImageBuilderAccessEndpointOutput) ToImageBuilderAccessEndpointOutput() ImageBuilderAccessEndpointOutput {
+	return o
+}
+
+func (o ImageBuilderAccessEndpointOutput) ToImageBuilderAccessEndpointOutputWithContext(ctx context.Context) ImageBuilderAccessEndpointOutput {
+	return o
+}
+
+// Type of interface endpoint.
+func (o ImageBuilderAccessEndpointOutput) EndpointType() pulumi.StringOutput {
+	return o.ApplyT(func(v ImageBuilderAccessEndpoint) string { return v.EndpointType }).(pulumi.StringOutput)
+}
+
+// Identifier (ID) of the VPC in which the interface endpoint is used.
+func (o ImageBuilderAccessEndpointOutput) VpceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageBuilderAccessEndpoint) *string { return v.VpceId }).(pulumi.StringPtrOutput)
+}
+
+type ImageBuilderAccessEndpointArrayOutput struct{ *pulumi.OutputState }
+
+func (ImageBuilderAccessEndpointArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ImageBuilderAccessEndpoint)(nil)).Elem()
+}
+
+func (o ImageBuilderAccessEndpointArrayOutput) ToImageBuilderAccessEndpointArrayOutput() ImageBuilderAccessEndpointArrayOutput {
+	return o
+}
+
+func (o ImageBuilderAccessEndpointArrayOutput) ToImageBuilderAccessEndpointArrayOutputWithContext(ctx context.Context) ImageBuilderAccessEndpointArrayOutput {
+	return o
+}
+
+func (o ImageBuilderAccessEndpointArrayOutput) Index(i pulumi.IntInput) ImageBuilderAccessEndpointOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ImageBuilderAccessEndpoint {
+		return vs[0].([]ImageBuilderAccessEndpoint)[vs[1].(int)]
+	}).(ImageBuilderAccessEndpointOutput)
+}
+
+type ImageBuilderDomainJoinInfo struct {
+	// Fully qualified name of the directory (for example, corp.example.com).
+	DirectoryName *string `pulumi:"directoryName"`
+	// Distinguished name of the organizational unit for computer accounts.
+	OrganizationalUnitDistinguishedName *string `pulumi:"organizationalUnitDistinguishedName"`
+}
+
+// ImageBuilderDomainJoinInfoInput is an input type that accepts ImageBuilderDomainJoinInfoArgs and ImageBuilderDomainJoinInfoOutput values.
+// You can construct a concrete instance of `ImageBuilderDomainJoinInfoInput` via:
+//
+//          ImageBuilderDomainJoinInfoArgs{...}
+type ImageBuilderDomainJoinInfoInput interface {
+	pulumi.Input
+
+	ToImageBuilderDomainJoinInfoOutput() ImageBuilderDomainJoinInfoOutput
+	ToImageBuilderDomainJoinInfoOutputWithContext(context.Context) ImageBuilderDomainJoinInfoOutput
+}
+
+type ImageBuilderDomainJoinInfoArgs struct {
+	// Fully qualified name of the directory (for example, corp.example.com).
+	DirectoryName pulumi.StringPtrInput `pulumi:"directoryName"`
+	// Distinguished name of the organizational unit for computer accounts.
+	OrganizationalUnitDistinguishedName pulumi.StringPtrInput `pulumi:"organizationalUnitDistinguishedName"`
+}
+
+func (ImageBuilderDomainJoinInfoArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageBuilderDomainJoinInfo)(nil)).Elem()
+}
+
+func (i ImageBuilderDomainJoinInfoArgs) ToImageBuilderDomainJoinInfoOutput() ImageBuilderDomainJoinInfoOutput {
+	return i.ToImageBuilderDomainJoinInfoOutputWithContext(context.Background())
+}
+
+func (i ImageBuilderDomainJoinInfoArgs) ToImageBuilderDomainJoinInfoOutputWithContext(ctx context.Context) ImageBuilderDomainJoinInfoOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageBuilderDomainJoinInfoOutput)
+}
+
+func (i ImageBuilderDomainJoinInfoArgs) ToImageBuilderDomainJoinInfoPtrOutput() ImageBuilderDomainJoinInfoPtrOutput {
+	return i.ToImageBuilderDomainJoinInfoPtrOutputWithContext(context.Background())
+}
+
+func (i ImageBuilderDomainJoinInfoArgs) ToImageBuilderDomainJoinInfoPtrOutputWithContext(ctx context.Context) ImageBuilderDomainJoinInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageBuilderDomainJoinInfoOutput).ToImageBuilderDomainJoinInfoPtrOutputWithContext(ctx)
+}
+
+// ImageBuilderDomainJoinInfoPtrInput is an input type that accepts ImageBuilderDomainJoinInfoArgs, ImageBuilderDomainJoinInfoPtr and ImageBuilderDomainJoinInfoPtrOutput values.
+// You can construct a concrete instance of `ImageBuilderDomainJoinInfoPtrInput` via:
+//
+//          ImageBuilderDomainJoinInfoArgs{...}
+//
+//  or:
+//
+//          nil
+type ImageBuilderDomainJoinInfoPtrInput interface {
+	pulumi.Input
+
+	ToImageBuilderDomainJoinInfoPtrOutput() ImageBuilderDomainJoinInfoPtrOutput
+	ToImageBuilderDomainJoinInfoPtrOutputWithContext(context.Context) ImageBuilderDomainJoinInfoPtrOutput
+}
+
+type imageBuilderDomainJoinInfoPtrType ImageBuilderDomainJoinInfoArgs
+
+func ImageBuilderDomainJoinInfoPtr(v *ImageBuilderDomainJoinInfoArgs) ImageBuilderDomainJoinInfoPtrInput {
+	return (*imageBuilderDomainJoinInfoPtrType)(v)
+}
+
+func (*imageBuilderDomainJoinInfoPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImageBuilderDomainJoinInfo)(nil)).Elem()
+}
+
+func (i *imageBuilderDomainJoinInfoPtrType) ToImageBuilderDomainJoinInfoPtrOutput() ImageBuilderDomainJoinInfoPtrOutput {
+	return i.ToImageBuilderDomainJoinInfoPtrOutputWithContext(context.Background())
+}
+
+func (i *imageBuilderDomainJoinInfoPtrType) ToImageBuilderDomainJoinInfoPtrOutputWithContext(ctx context.Context) ImageBuilderDomainJoinInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageBuilderDomainJoinInfoPtrOutput)
+}
+
+type ImageBuilderDomainJoinInfoOutput struct{ *pulumi.OutputState }
+
+func (ImageBuilderDomainJoinInfoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageBuilderDomainJoinInfo)(nil)).Elem()
+}
+
+func (o ImageBuilderDomainJoinInfoOutput) ToImageBuilderDomainJoinInfoOutput() ImageBuilderDomainJoinInfoOutput {
+	return o
+}
+
+func (o ImageBuilderDomainJoinInfoOutput) ToImageBuilderDomainJoinInfoOutputWithContext(ctx context.Context) ImageBuilderDomainJoinInfoOutput {
+	return o
+}
+
+func (o ImageBuilderDomainJoinInfoOutput) ToImageBuilderDomainJoinInfoPtrOutput() ImageBuilderDomainJoinInfoPtrOutput {
+	return o.ToImageBuilderDomainJoinInfoPtrOutputWithContext(context.Background())
+}
+
+func (o ImageBuilderDomainJoinInfoOutput) ToImageBuilderDomainJoinInfoPtrOutputWithContext(ctx context.Context) ImageBuilderDomainJoinInfoPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ImageBuilderDomainJoinInfo) *ImageBuilderDomainJoinInfo {
+		return &v
+	}).(ImageBuilderDomainJoinInfoPtrOutput)
+}
+
+// Fully qualified name of the directory (for example, corp.example.com).
+func (o ImageBuilderDomainJoinInfoOutput) DirectoryName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageBuilderDomainJoinInfo) *string { return v.DirectoryName }).(pulumi.StringPtrOutput)
+}
+
+// Distinguished name of the organizational unit for computer accounts.
+func (o ImageBuilderDomainJoinInfoOutput) OrganizationalUnitDistinguishedName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageBuilderDomainJoinInfo) *string { return v.OrganizationalUnitDistinguishedName }).(pulumi.StringPtrOutput)
+}
+
+type ImageBuilderDomainJoinInfoPtrOutput struct{ *pulumi.OutputState }
+
+func (ImageBuilderDomainJoinInfoPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImageBuilderDomainJoinInfo)(nil)).Elem()
+}
+
+func (o ImageBuilderDomainJoinInfoPtrOutput) ToImageBuilderDomainJoinInfoPtrOutput() ImageBuilderDomainJoinInfoPtrOutput {
+	return o
+}
+
+func (o ImageBuilderDomainJoinInfoPtrOutput) ToImageBuilderDomainJoinInfoPtrOutputWithContext(ctx context.Context) ImageBuilderDomainJoinInfoPtrOutput {
+	return o
+}
+
+func (o ImageBuilderDomainJoinInfoPtrOutput) Elem() ImageBuilderDomainJoinInfoOutput {
+	return o.ApplyT(func(v *ImageBuilderDomainJoinInfo) ImageBuilderDomainJoinInfo {
+		if v != nil {
+			return *v
+		}
+		var ret ImageBuilderDomainJoinInfo
+		return ret
+	}).(ImageBuilderDomainJoinInfoOutput)
+}
+
+// Fully qualified name of the directory (for example, corp.example.com).
+func (o ImageBuilderDomainJoinInfoPtrOutput) DirectoryName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImageBuilderDomainJoinInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DirectoryName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Distinguished name of the organizational unit for computer accounts.
+func (o ImageBuilderDomainJoinInfoPtrOutput) OrganizationalUnitDistinguishedName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ImageBuilderDomainJoinInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OrganizationalUnitDistinguishedName
+	}).(pulumi.StringPtrOutput)
+}
+
+type ImageBuilderVpcConfig struct {
+	// Identifiers of the security groups for the image builder or image builder.
+	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+	// Identifiers of the subnets to which a network interface is attached from the image builder instance or image builder instance.
+	SubnetIds []string `pulumi:"subnetIds"`
+}
+
+// ImageBuilderVpcConfigInput is an input type that accepts ImageBuilderVpcConfigArgs and ImageBuilderVpcConfigOutput values.
+// You can construct a concrete instance of `ImageBuilderVpcConfigInput` via:
+//
+//          ImageBuilderVpcConfigArgs{...}
+type ImageBuilderVpcConfigInput interface {
+	pulumi.Input
+
+	ToImageBuilderVpcConfigOutput() ImageBuilderVpcConfigOutput
+	ToImageBuilderVpcConfigOutputWithContext(context.Context) ImageBuilderVpcConfigOutput
+}
+
+type ImageBuilderVpcConfigArgs struct {
+	// Identifiers of the security groups for the image builder or image builder.
+	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
+	// Identifiers of the subnets to which a network interface is attached from the image builder instance or image builder instance.
+	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
+}
+
+func (ImageBuilderVpcConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageBuilderVpcConfig)(nil)).Elem()
+}
+
+func (i ImageBuilderVpcConfigArgs) ToImageBuilderVpcConfigOutput() ImageBuilderVpcConfigOutput {
+	return i.ToImageBuilderVpcConfigOutputWithContext(context.Background())
+}
+
+func (i ImageBuilderVpcConfigArgs) ToImageBuilderVpcConfigOutputWithContext(ctx context.Context) ImageBuilderVpcConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageBuilderVpcConfigOutput)
+}
+
+func (i ImageBuilderVpcConfigArgs) ToImageBuilderVpcConfigPtrOutput() ImageBuilderVpcConfigPtrOutput {
+	return i.ToImageBuilderVpcConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ImageBuilderVpcConfigArgs) ToImageBuilderVpcConfigPtrOutputWithContext(ctx context.Context) ImageBuilderVpcConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageBuilderVpcConfigOutput).ToImageBuilderVpcConfigPtrOutputWithContext(ctx)
+}
+
+// ImageBuilderVpcConfigPtrInput is an input type that accepts ImageBuilderVpcConfigArgs, ImageBuilderVpcConfigPtr and ImageBuilderVpcConfigPtrOutput values.
+// You can construct a concrete instance of `ImageBuilderVpcConfigPtrInput` via:
+//
+//          ImageBuilderVpcConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type ImageBuilderVpcConfigPtrInput interface {
+	pulumi.Input
+
+	ToImageBuilderVpcConfigPtrOutput() ImageBuilderVpcConfigPtrOutput
+	ToImageBuilderVpcConfigPtrOutputWithContext(context.Context) ImageBuilderVpcConfigPtrOutput
+}
+
+type imageBuilderVpcConfigPtrType ImageBuilderVpcConfigArgs
+
+func ImageBuilderVpcConfigPtr(v *ImageBuilderVpcConfigArgs) ImageBuilderVpcConfigPtrInput {
+	return (*imageBuilderVpcConfigPtrType)(v)
+}
+
+func (*imageBuilderVpcConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImageBuilderVpcConfig)(nil)).Elem()
+}
+
+func (i *imageBuilderVpcConfigPtrType) ToImageBuilderVpcConfigPtrOutput() ImageBuilderVpcConfigPtrOutput {
+	return i.ToImageBuilderVpcConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *imageBuilderVpcConfigPtrType) ToImageBuilderVpcConfigPtrOutputWithContext(ctx context.Context) ImageBuilderVpcConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageBuilderVpcConfigPtrOutput)
+}
+
+type ImageBuilderVpcConfigOutput struct{ *pulumi.OutputState }
+
+func (ImageBuilderVpcConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageBuilderVpcConfig)(nil)).Elem()
+}
+
+func (o ImageBuilderVpcConfigOutput) ToImageBuilderVpcConfigOutput() ImageBuilderVpcConfigOutput {
+	return o
+}
+
+func (o ImageBuilderVpcConfigOutput) ToImageBuilderVpcConfigOutputWithContext(ctx context.Context) ImageBuilderVpcConfigOutput {
+	return o
+}
+
+func (o ImageBuilderVpcConfigOutput) ToImageBuilderVpcConfigPtrOutput() ImageBuilderVpcConfigPtrOutput {
+	return o.ToImageBuilderVpcConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ImageBuilderVpcConfigOutput) ToImageBuilderVpcConfigPtrOutputWithContext(ctx context.Context) ImageBuilderVpcConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ImageBuilderVpcConfig) *ImageBuilderVpcConfig {
+		return &v
+	}).(ImageBuilderVpcConfigPtrOutput)
+}
+
+// Identifiers of the security groups for the image builder or image builder.
+func (o ImageBuilderVpcConfigOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ImageBuilderVpcConfig) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
+}
+
+// Identifiers of the subnets to which a network interface is attached from the image builder instance or image builder instance.
+func (o ImageBuilderVpcConfigOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ImageBuilderVpcConfig) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
+}
+
+type ImageBuilderVpcConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ImageBuilderVpcConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ImageBuilderVpcConfig)(nil)).Elem()
+}
+
+func (o ImageBuilderVpcConfigPtrOutput) ToImageBuilderVpcConfigPtrOutput() ImageBuilderVpcConfigPtrOutput {
+	return o
+}
+
+func (o ImageBuilderVpcConfigPtrOutput) ToImageBuilderVpcConfigPtrOutputWithContext(ctx context.Context) ImageBuilderVpcConfigPtrOutput {
+	return o
+}
+
+func (o ImageBuilderVpcConfigPtrOutput) Elem() ImageBuilderVpcConfigOutput {
+	return o.ApplyT(func(v *ImageBuilderVpcConfig) ImageBuilderVpcConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ImageBuilderVpcConfig
+		return ret
+	}).(ImageBuilderVpcConfigOutput)
+}
+
+// Identifiers of the security groups for the image builder or image builder.
+func (o ImageBuilderVpcConfigPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ImageBuilderVpcConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroupIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// Identifiers of the subnets to which a network interface is attached from the image builder instance or image builder instance.
+func (o ImageBuilderVpcConfigPtrOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ImageBuilderVpcConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SubnetIds
+	}).(pulumi.StringArrayOutput)
+}
+
 type StackAccessEndpoint struct {
 	EndpointType string  `pulumi:"endpointType"`
 	VpceId       *string `pulumi:"vpceId"`
@@ -992,6 +1410,12 @@ func init() {
 	pulumi.RegisterOutputType(FleetDomainJoinInfoPtrOutput{})
 	pulumi.RegisterOutputType(FleetVpcConfigOutput{})
 	pulumi.RegisterOutputType(FleetVpcConfigPtrOutput{})
+	pulumi.RegisterOutputType(ImageBuilderAccessEndpointOutput{})
+	pulumi.RegisterOutputType(ImageBuilderAccessEndpointArrayOutput{})
+	pulumi.RegisterOutputType(ImageBuilderDomainJoinInfoOutput{})
+	pulumi.RegisterOutputType(ImageBuilderDomainJoinInfoPtrOutput{})
+	pulumi.RegisterOutputType(ImageBuilderVpcConfigOutput{})
+	pulumi.RegisterOutputType(ImageBuilderVpcConfigPtrOutput{})
 	pulumi.RegisterOutputType(StackAccessEndpointOutput{})
 	pulumi.RegisterOutputType(StackAccessEndpointArrayOutput{})
 	pulumi.RegisterOutputType(StackApplicationSettingsOutput{})

@@ -62,6 +62,7 @@ const (
 	budgetsMod                  = "Budgets"                  // Budgets
 	chimeMod                    = "Chime"                    // Chime
 	cloud9Mod                   = "Cloud9"                   // Cloud9
+	cloudControlMod             = "CloudControl"             // CloudControl API
 	cloudformationMod           = "CloudFormation"           // Cloud Formation
 	cloudhsmv2Mod               = "CloudHsmV2"               // Cloud HSM
 	cloudfrontMod               = "CloudFront"               // Cloud Front
@@ -700,6 +701,8 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_chime_voice_connector_streaming":   {Tok: awsResource(chimeMod, "VoiceConnectorStreaming")},
 			// Cloud9
 			"aws_cloud9_environment_ec2": {Tok: awsResource(cloud9Mod, "EnvironmentEC2")},
+			// Cloud Control API
+			"aws_cloudcontrolapi_resource": {Tok: awsResource(cloudControlMod, "Resource")},
 			// CloudFormation
 			"aws_cloudformation_stack":              {Tok: awsResource(cloudformationMod, "Stack")},
 			"aws_cloudformation_stack_set":          {Tok: awsResource(cloudformationMod, "StackSet")},
@@ -1270,7 +1273,7 @@ func Provider() tfbridge.ProviderInfo {
 				Tok: awsResource(ec2Mod, "LocalGatewayRouteTableVpcAssociation"),
 			},
 			"aws_ec2_tag":                       {Tok: awsResource(ec2Mod, "Tag")},
-			"aws_dedicated_host":                {Tok: awsResource(ec2Mod, "DedicatedHost")},
+			"aws_ec2_host":                      {Tok: awsResource(ec2Mod, "DedicatedHost")},
 			"aws_ec2_managed_prefix_list":       {Tok: awsResource(ec2Mod, "ManagedPrefixList")},
 			"aws_ec2_carrier_gateway":           {Tok: awsResource(ec2Mod, "CarrierGateway")},
 			"aws_ec2_managed_prefix_list_entry": {Tok: awsResource(ec2Mod, "ManagedPrefixListEntry")},
@@ -1747,6 +1750,7 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			"aws_iot_thing_type": {Tok: awsResource(iotMod, "ThingType")},
+			"aws_iot_authorizer": {Tok: awsResource(iotMod, "Authorizer")},
 			"aws_iot_topic_rule": {
 				Tok: awsResource(iotMod, "TopicRule"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -2082,6 +2086,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_db_proxy_endpoint":             {Tok: awsResource(rdsMod, "ProxyEndpoint")},
 			// RedShift
 			"aws_redshift_cluster":            {Tok: awsResource(redshiftMod, "Cluster")},
+			"aws_redshift_scheduled_action":   {Tok: awsResource(redshiftMod, "ScheduledAction")},
 			"aws_redshift_event_subscription": {Tok: awsResource(redshiftMod, "EventSubscription")},
 			"aws_redshift_parameter_group": {
 				Tok: awsResource(redshiftMod, "ParameterGroup"),
@@ -2186,9 +2191,10 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_sagemaker_notebook_instance_lifecycle_configuration": {
 				Tok: awsResource(sagemakerMod, "NotebookInstanceLifecycleConfiguration"),
 			},
-			"aws_sagemaker_device_fleet":    {Tok: awsResource(sagemakerMod, "DeviceFleet")},
-			"aws_sagemaker_human_task_ui":   {Tok: awsResource(sagemakerMod, "HumanTaskUI")},
-			"aws_sagemaker_flow_definition": {Tok: awsResource(sagemakerMod, "FlowDefinition")},
+			"aws_sagemaker_device_fleet":            {Tok: awsResource(sagemakerMod, "DeviceFleet")},
+			"aws_sagemaker_human_task_ui":           {Tok: awsResource(sagemakerMod, "HumanTaskUI")},
+			"aws_sagemaker_flow_definition":         {Tok: awsResource(sagemakerMod, "FlowDefinition")},
+			"aws_sagemaker_studio_lifecycle_config": {Tok: awsResource(sagemakerMod, "StudioLifecycleConfig")},
 			// Schemas
 			"aws_schemas_discoverer": {Tok: awsResource(schemasMod, "Discoverer")},
 			"aws_schemas_registry":   {Tok: awsResource(schemasMod, "Registry")},
@@ -2547,6 +2553,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_quicksight_group":            {Tok: awsResource(quicksightMod, "Group")},
 			"aws_quicksight_user":             {Tok: awsResource(quicksightMod, "User")},
 			"aws_quicksight_group_membership": {Tok: awsResource(quicksightMod, "GroupMembership")},
+			"aws_quicksight_data_source":      {Tok: awsResource(quicksightMod, "DataSource")},
 			// Service Quotas
 			"aws_servicequotas_service_quota": {Tok: awsResource(servicequotasMod, "ServiceQuota")},
 			// FMS
@@ -2742,8 +2749,9 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_appconfig_deployment":                   {Tok: awsResource(appConfigMod, "Deployment")},
 
 			// AppStream
-			"aws_appstream_stack": {Tok: awsResource(appStreamMod, "Stack")},
-			"aws_appstream_fleet": {Tok: awsResource(appStreamMod, "Fleet")},
+			"aws_appstream_stack":         {Tok: awsResource(appStreamMod, "Stack")},
+			"aws_appstream_fleet":         {Tok: awsResource(appStreamMod, "Fleet")},
+			"aws_appstream_image_builder": {Tok: awsResource(appStreamMod, "ImageBuilder")},
 
 			// mwaa
 			"aws_mwaa_environment": {Tok: awsResource(mwaaMod, "Environment")},
@@ -3785,6 +3793,8 @@ func Provider() tfbridge.ProviderInfo {
 			// Batch
 			"aws_batch_compute_environment": {Tok: awsDataSource(batchMod, "getComputeEnvironment")},
 			"aws_batch_job_queue":           {Tok: awsDataSource(batchMod, "getJobQueue")},
+			// cloud control api
+			"aws_cloudcontrolapi_resource": {Tok: awsDataSource(cloudControlMod, "getResource")},
 			// CloudFormation
 			"aws_cloudformation_stack":  {Tok: awsDataSource(cloudformationMod, "getStack")},
 			"aws_cloudformation_export": {Tok: awsDataSource(cloudformationMod, "getExport")},
@@ -3895,7 +3905,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_ec2_local_gateway_virtual_interface_groups": {
 				Tok: awsDataSource(ec2Mod, "getLocalGatewayVirtualInterfaceGroups"),
 			},
-			"aws_dedicated_host":                   {Tok: awsDataSource(ec2Mod, "getDedicatedHost")},
+			"aws_ec2_host":                         {Tok: awsDataSource(ec2Mod, "getDedicatedHost")},
 			"aws_ec2_managed_prefix_list":          {Tok: awsDataSource(ec2Mod, "getManagedPrefixList")},
 			"aws_ec2_transit_gateway_route_tables": {Tok: awsDataSource(ec2Mod, "getTransitGatewayRouteTables")},
 			// EC2 Transit Gateway
@@ -4041,8 +4051,9 @@ func Provider() tfbridge.ProviderInfo {
 			// Inspector
 			"aws_inspector_rules_packages": {Tok: awsDataSource(inspectorMod, "getRulesPackages")},
 			// Kinesis
-			"aws_kinesis_stream":          {Tok: awsDataSource(kinesisMod, "getStream")},
-			"aws_kinesis_stream_consumer": {Tok: awsDataSource(kinesisMod, "getStreamConsumer")},
+			"aws_kinesis_stream":                   {Tok: awsDataSource(kinesisMod, "getStream")},
+			"aws_kinesis_stream_consumer":          {Tok: awsDataSource(kinesisMod, "getStreamConsumer")},
+			"aws_kinesis_firehose_delivery_stream": {Tok: awsDataSource(kinesisMod, "getFirehoseDeliveryStream")},
 			// Key Management Service
 			"aws_kms_alias":      {Tok: awsDataSource(kmsMod, "getAlias")},
 			"aws_kms_ciphertext": {Tok: awsDataSource(kmsMod, "getCipherText")},
@@ -4062,6 +4073,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_rds_orderable_db_instance": {Tok: awsDataSource(rdsMod, "getOrderableDbInstance")},
 			"aws_rds_engine_version":        {Tok: awsDataSource(rdsMod, "getEngineVersion")},
 			"aws_rds_certificate":           {Tok: awsDataSource(rdsMod, "getCertificate")},
+			"aws_db_proxy":                  {Tok: awsDataSource(rdsMod, "getProxy")},
 			// Ram
 			"aws_ram_resource_share": {Tok: awsDataSource(ramMod, "getResourceShare")},
 			// RedShift
@@ -4087,9 +4099,10 @@ func Provider() tfbridge.ProviderInfo {
 			// SQS
 			"aws_sqs_queue": {Tok: awsDataSource(sqsMod, "getQueue")},
 			// SSM
-			"aws_ssm_document":       {Tok: awsDataSource(ssmMod, "getDocument")},
-			"aws_ssm_parameter":      {Tok: awsDataSource(ssmMod, "getParameter")},
-			"aws_ssm_patch_baseline": {Tok: awsDataSource(ssmMod, "getPatchBaseline")},
+			"aws_ssm_document":           {Tok: awsDataSource(ssmMod, "getDocument")},
+			"aws_ssm_parameter":          {Tok: awsDataSource(ssmMod, "getParameter")},
+			"aws_ssm_patch_baseline":     {Tok: awsDataSource(ssmMod, "getPatchBaseline")},
+			"aws_ssm_parameters_by_path": {Tok: awsDataSource(ssmMod, "getParametersByPath")},
 			// Storage Gateway
 			"aws_storagegateway_local_disk": {Tok: awsDataSource(storagegatewayMod, "getLocalDisk")},
 			// Transfer

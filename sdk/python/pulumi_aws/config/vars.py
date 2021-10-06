@@ -46,6 +46,14 @@ class _ExportableConfig(types.ModuleType):
         return __config__.get('forbiddenAccountIds')
 
     @property
+    def http_proxy(self) -> Optional[str]:
+        """
+        The address of an HTTP proxy to use when accessing the AWS API. Can also be configured using the `HTTP_PROXY` or
+        `HTTPS_PROXY` environment variables.
+        """
+        return __config__.get('httpProxy')
+
+    @property
     def ignore_tags(self) -> Optional[str]:
         """
         Configuration block with settings to ignore resource tags across all resources.
@@ -55,7 +63,7 @@ class _ExportableConfig(types.ModuleType):
     @property
     def insecure(self) -> Optional[bool]:
         """
-        Explicitly allow the provider to perform "insecure" SSL requests. If omitted,default value is `false`
+        Explicitly allow the provider to perform "insecure" SSL requests. If omitted, default value is `false`
         """
         return __config__.get_bool('insecure')
 

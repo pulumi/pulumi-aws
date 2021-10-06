@@ -166,6 +166,7 @@ class ProviderEndpointArgs:
                  budgets: Optional[pulumi.Input[str]] = None,
                  chime: Optional[pulumi.Input[str]] = None,
                  cloud9: Optional[pulumi.Input[str]] = None,
+                 cloudcontrolapi: Optional[pulumi.Input[str]] = None,
                  cloudformation: Optional[pulumi.Input[str]] = None,
                  cloudfront: Optional[pulumi.Input[str]] = None,
                  cloudhsm: Optional[pulumi.Input[str]] = None,
@@ -348,6 +349,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "chime", chime)
         if cloud9 is not None:
             pulumi.set(__self__, "cloud9", cloud9)
+        if cloudcontrolapi is not None:
+            pulumi.set(__self__, "cloudcontrolapi", cloudcontrolapi)
         if cloudformation is not None:
             pulumi.set(__self__, "cloudformation", cloudformation)
         if cloudfront is not None:
@@ -817,6 +820,15 @@ class ProviderEndpointArgs:
     @cloud9.setter
     def cloud9(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "cloud9", value)
+
+    @property
+    @pulumi.getter
+    def cloudcontrolapi(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "cloudcontrolapi")
+
+    @cloudcontrolapi.setter
+    def cloudcontrolapi(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cloudcontrolapi", value)
 
     @property
     @pulumi.getter

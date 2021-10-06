@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &EventSubscription{}
 	case "aws:redshift/parameterGroup:ParameterGroup":
 		r = &ParameterGroup{}
+	case "aws:redshift/scheduledAction:ScheduledAction":
+		r = &ScheduledAction{}
 	case "aws:redshift/securityGroup:SecurityGroup":
 		r = &SecurityGroup{}
 	case "aws:redshift/snapshotCopyGrant:SnapshotCopyGrant":
@@ -63,6 +65,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"redshift/parameterGroup",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"redshift/scheduledAction",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

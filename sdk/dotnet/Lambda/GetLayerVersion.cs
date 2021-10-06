@@ -47,6 +47,12 @@ namespace Pulumi.Aws.Lambda
     public sealed class GetLayerVersionArgs : Pulumi.InvokeArgs
     {
         /// <summary>
+        /// Specific architecture the layer version could support. Conflicts with `version`. If specified, the latest available layer version supporting the provided architecture will be used.
+        /// </summary>
+        [Input("compatibleArchitecture")]
+        public string? CompatibleArchitecture { get; set; }
+
+        /// <summary>
         /// Specific runtime the layer version must support. Conflicts with `version`. If specified, the latest available layer version supporting the provided runtime will be used.
         /// </summary>
         [Input("compatibleRuntime")]
@@ -59,7 +65,7 @@ namespace Pulumi.Aws.Lambda
         public string LayerName { get; set; } = null!;
 
         /// <summary>
-        /// Specific layer version. Conflicts with `compatible_runtime`. If omitted, the latest available layer version will be used.
+        /// Specific layer version. Conflicts with `compatible_runtime` and `compatible_architecture`. If omitted, the latest available layer version will be used.
         /// </summary>
         [Input("version")]
         public int? Version { get; set; }
@@ -77,8 +83,9 @@ namespace Pulumi.Aws.Lambda
         /// The Amazon Resource Name (ARN) of the Lambda Layer with version.
         /// </summary>
         public readonly string Arn;
+        public readonly string? CompatibleArchitecture;
         /// <summary>
-        /// The compatible architectures of the specific Lambda Layer Version.
+        /// A list of [Architectures](https://docs.aws.amazon.com/lambda/latest/dg/API_GetLayerVersion.html#SSS-GetLayerVersion-response-CompatibleArchitectures) the specific Lambda Layer version is compatible with.
         /// </summary>
         public readonly ImmutableArray<string> CompatibleArchitectures;
         public readonly string? CompatibleRuntime;
@@ -132,6 +139,8 @@ namespace Pulumi.Aws.Lambda
         private GetLayerVersionResult(
             string arn,
 
+            string? compatibleArchitecture,
+
             ImmutableArray<string> compatibleArchitectures,
 
             string? compatibleRuntime,
@@ -161,6 +170,7 @@ namespace Pulumi.Aws.Lambda
             int version)
         {
             Arn = arn;
+            CompatibleArchitecture = compatibleArchitecture;
             CompatibleArchitectures = compatibleArchitectures;
             CompatibleRuntime = compatibleRuntime;
             CompatibleRuntimes = compatibleRuntimes;

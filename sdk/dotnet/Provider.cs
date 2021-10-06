@@ -25,6 +25,13 @@ namespace Pulumi.Aws
         public Output<string?> AccessKey { get; private set; } = null!;
 
         /// <summary>
+        /// The address of an HTTP proxy to use when accessing the AWS API. Can also be configured using the `HTTP_PROXY` or
+        /// `HTTPS_PROXY` environment variables.
+        /// </summary>
+        [Output("httpProxy")]
+        public Output<string?> HttpProxy { get; private set; } = null!;
+
+        /// <summary>
         /// The profile for API operations. If not set, the default profile created with `aws configure` will be used.
         /// </summary>
         [Output("profile")]
@@ -122,13 +129,20 @@ namespace Pulumi.Aws
         }
 
         /// <summary>
+        /// The address of an HTTP proxy to use when accessing the AWS API. Can also be configured using the `HTTP_PROXY` or
+        /// `HTTPS_PROXY` environment variables.
+        /// </summary>
+        [Input("httpProxy")]
+        public Input<string>? HttpProxy { get; set; }
+
+        /// <summary>
         /// Configuration block with settings to ignore resource tags across all resources.
         /// </summary>
         [Input("ignoreTags", json: true)]
         public Input<Inputs.ProviderIgnoreTagsArgs>? IgnoreTags { get; set; }
 
         /// <summary>
-        /// Explicitly allow the provider to perform "insecure" SSL requests. If omitted,default value is `false`
+        /// Explicitly allow the provider to perform "insecure" SSL requests. If omitted, default value is `false`
         /// </summary>
         [Input("insecure", json: true)]
         public Input<bool>? Insecure { get; set; }

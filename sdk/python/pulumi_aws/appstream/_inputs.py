@@ -12,6 +12,9 @@ __all__ = [
     'FleetComputeCapacityArgs',
     'FleetDomainJoinInfoArgs',
     'FleetVpcConfigArgs',
+    'ImageBuilderAccessEndpointArgs',
+    'ImageBuilderDomainJoinInfoArgs',
+    'ImageBuilderVpcConfigArgs',
     'StackAccessEndpointArgs',
     'StackApplicationSettingsArgs',
     'StackStorageConnectorArgs',
@@ -158,6 +161,122 @@ class FleetVpcConfigArgs:
     def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Identifiers of the subnets to which a network interface is attached from the fleet instance or image builder instance.
+        """
+        return pulumi.get(self, "subnet_ids")
+
+    @subnet_ids.setter
+    def subnet_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "subnet_ids", value)
+
+
+@pulumi.input_type
+class ImageBuilderAccessEndpointArgs:
+    def __init__(__self__, *,
+                 endpoint_type: pulumi.Input[str],
+                 vpce_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] endpoint_type: Type of interface endpoint.
+        :param pulumi.Input[str] vpce_id: Identifier (ID) of the VPC in which the interface endpoint is used.
+        """
+        pulumi.set(__self__, "endpoint_type", endpoint_type)
+        if vpce_id is not None:
+            pulumi.set(__self__, "vpce_id", vpce_id)
+
+    @property
+    @pulumi.getter(name="endpointType")
+    def endpoint_type(self) -> pulumi.Input[str]:
+        """
+        Type of interface endpoint.
+        """
+        return pulumi.get(self, "endpoint_type")
+
+    @endpoint_type.setter
+    def endpoint_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "endpoint_type", value)
+
+    @property
+    @pulumi.getter(name="vpceId")
+    def vpce_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Identifier (ID) of the VPC in which the interface endpoint is used.
+        """
+        return pulumi.get(self, "vpce_id")
+
+    @vpce_id.setter
+    def vpce_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vpce_id", value)
+
+
+@pulumi.input_type
+class ImageBuilderDomainJoinInfoArgs:
+    def __init__(__self__, *,
+                 directory_name: Optional[pulumi.Input[str]] = None,
+                 organizational_unit_distinguished_name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] directory_name: Fully qualified name of the directory (for example, corp.example.com).
+        :param pulumi.Input[str] organizational_unit_distinguished_name: Distinguished name of the organizational unit for computer accounts.
+        """
+        if directory_name is not None:
+            pulumi.set(__self__, "directory_name", directory_name)
+        if organizational_unit_distinguished_name is not None:
+            pulumi.set(__self__, "organizational_unit_distinguished_name", organizational_unit_distinguished_name)
+
+    @property
+    @pulumi.getter(name="directoryName")
+    def directory_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Fully qualified name of the directory (for example, corp.example.com).
+        """
+        return pulumi.get(self, "directory_name")
+
+    @directory_name.setter
+    def directory_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "directory_name", value)
+
+    @property
+    @pulumi.getter(name="organizationalUnitDistinguishedName")
+    def organizational_unit_distinguished_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Distinguished name of the organizational unit for computer accounts.
+        """
+        return pulumi.get(self, "organizational_unit_distinguished_name")
+
+    @organizational_unit_distinguished_name.setter
+    def organizational_unit_distinguished_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "organizational_unit_distinguished_name", value)
+
+
+@pulumi.input_type
+class ImageBuilderVpcConfigArgs:
+    def __init__(__self__, *,
+                 security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_group_ids: Identifiers of the security groups for the image builder or image builder.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: Identifiers of the subnets to which a network interface is attached from the image builder instance or image builder instance.
+        """
+        if security_group_ids is not None:
+            pulumi.set(__self__, "security_group_ids", security_group_ids)
+        if subnet_ids is not None:
+            pulumi.set(__self__, "subnet_ids", subnet_ids)
+
+    @property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Identifiers of the security groups for the image builder or image builder.
+        """
+        return pulumi.get(self, "security_group_ids")
+
+    @security_group_ids.setter
+    def security_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "security_group_ids", value)
+
+    @property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Identifiers of the subnets to which a network interface is attached from the image builder instance or image builder instance.
         """
         return pulumi.get(self, "subnet_ids")
 

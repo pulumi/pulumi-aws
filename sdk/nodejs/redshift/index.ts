@@ -11,6 +11,7 @@ export * from "./getCluster";
 export * from "./getOrderableCluster";
 export * from "./getServiceAccount";
 export * from "./parameterGroup";
+export * from "./scheduledAction";
 export * from "./securityGroup";
 export * from "./snapshotCopyGrant";
 export * from "./snapshotSchedule";
@@ -21,6 +22,7 @@ export * from "./subnetGroup";
 import { Cluster } from "./cluster";
 import { EventSubscription } from "./eventSubscription";
 import { ParameterGroup } from "./parameterGroup";
+import { ScheduledAction } from "./scheduledAction";
 import { SecurityGroup } from "./securityGroup";
 import { SnapshotCopyGrant } from "./snapshotCopyGrant";
 import { SnapshotSchedule } from "./snapshotSchedule";
@@ -37,6 +39,8 @@ const _module = {
                 return new EventSubscription(name, <any>undefined, { urn })
             case "aws:redshift/parameterGroup:ParameterGroup":
                 return new ParameterGroup(name, <any>undefined, { urn })
+            case "aws:redshift/scheduledAction:ScheduledAction":
+                return new ScheduledAction(name, <any>undefined, { urn })
             case "aws:redshift/securityGroup:SecurityGroup":
                 return new SecurityGroup(name, <any>undefined, { urn })
             case "aws:redshift/snapshotCopyGrant:SnapshotCopyGrant":
@@ -55,6 +59,7 @@ const _module = {
 pulumi.runtime.registerResourceModule("aws", "redshift/cluster", _module)
 pulumi.runtime.registerResourceModule("aws", "redshift/eventSubscription", _module)
 pulumi.runtime.registerResourceModule("aws", "redshift/parameterGroup", _module)
+pulumi.runtime.registerResourceModule("aws", "redshift/scheduledAction", _module)
 pulumi.runtime.registerResourceModule("aws", "redshift/securityGroup", _module)
 pulumi.runtime.registerResourceModule("aws", "redshift/snapshotCopyGrant", _module)
 pulumi.runtime.registerResourceModule("aws", "redshift/snapshotSchedule", _module)
