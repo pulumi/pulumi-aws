@@ -97,3 +97,25 @@ export interface GetCustomerGatewayResult {
      */
     readonly type: string;
 }
+
+export function getCustomerGatewayOutput(args?: GetCustomerGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomerGatewayResult> {
+    return pulumi.output(args).apply(a => getCustomerGateway(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getCustomerGateway.
+ */
+export interface GetCustomerGatewayOutputArgs {
+    /**
+     * One or more [name-value pairs][dcg-filters] to filter by.
+     */
+    filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetCustomerGatewayFilterArgs>[]>;
+    /**
+     * The ID of the gateway.
+     */
+    id?: pulumi.Input<string>;
+    /**
+     * Map of key-value pairs assigned to the gateway.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+}

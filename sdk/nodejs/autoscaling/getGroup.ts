@@ -118,3 +118,17 @@ export interface GetGroupResult {
      */
     readonly vpcZoneIdentifier: string;
 }
+
+export function getGroupOutput(args: GetGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGroupResult> {
+    return pulumi.output(args).apply(a => getGroup(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getGroup.
+ */
+export interface GetGroupOutputArgs {
+    /**
+     * Specify the exact name of the desired autoscaling group.
+     */
+    name: pulumi.Input<string>;
+}

@@ -62,3 +62,21 @@ export interface GetActivityResult {
     readonly id: string;
     readonly name: string;
 }
+
+export function getActivityOutput(args?: GetActivityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetActivityResult> {
+    return pulumi.output(args).apply(a => getActivity(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getActivity.
+ */
+export interface GetActivityOutputArgs {
+    /**
+     * The Amazon Resource Name (ARN) that identifies the activity.
+     */
+    arn?: pulumi.Input<string>;
+    /**
+     * The name that identifies the activity.
+     */
+    name?: pulumi.Input<string>;
+}

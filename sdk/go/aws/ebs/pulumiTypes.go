@@ -970,6 +970,20 @@ func (o GetVolumeFilterArrayOutput) Index(i pulumi.IntInput) GetVolumeFilterOutp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotImportClientDataInput)(nil)).Elem(), SnapshotImportClientDataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotImportClientDataPtrInput)(nil)).Elem(), SnapshotImportClientDataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotImportDiskContainerInput)(nil)).Elem(), SnapshotImportDiskContainerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotImportDiskContainerPtrInput)(nil)).Elem(), SnapshotImportDiskContainerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotImportDiskContainerUserBucketInput)(nil)).Elem(), SnapshotImportDiskContainerUserBucketArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotImportDiskContainerUserBucketPtrInput)(nil)).Elem(), SnapshotImportDiskContainerUserBucketArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEbsVolumesFilterInput)(nil)).Elem(), GetEbsVolumesFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEbsVolumesFilterArrayInput)(nil)).Elem(), GetEbsVolumesFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSnapshotFilterInput)(nil)).Elem(), GetSnapshotFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSnapshotFilterArrayInput)(nil)).Elem(), GetSnapshotFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSnapshotIdsFilterInput)(nil)).Elem(), GetSnapshotIdsFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSnapshotIdsFilterArrayInput)(nil)).Elem(), GetSnapshotIdsFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVolumeFilterInput)(nil)).Elem(), GetVolumeFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVolumeFilterArrayInput)(nil)).Elem(), GetVolumeFilterArray{})
 	pulumi.RegisterOutputType(SnapshotImportClientDataOutput{})
 	pulumi.RegisterOutputType(SnapshotImportClientDataPtrOutput{})
 	pulumi.RegisterOutputType(SnapshotImportDiskContainerOutput{})

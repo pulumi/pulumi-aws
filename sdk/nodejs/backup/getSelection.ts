@@ -70,3 +70,21 @@ export interface GetSelectionResult {
     readonly resources: string[];
     readonly selectionId: string;
 }
+
+export function getSelectionOutput(args: GetSelectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSelectionResult> {
+    return pulumi.output(args).apply(a => getSelection(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getSelection.
+ */
+export interface GetSelectionOutputArgs {
+    /**
+     * The backup plan ID associated with the selection of resources.
+     */
+    planId: pulumi.Input<string>;
+    /**
+     * The backup selection ID.
+     */
+    selectionId: pulumi.Input<string>;
+}

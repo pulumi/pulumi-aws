@@ -691,6 +691,14 @@ func (o DomainAssociationSubDomainArrayOutput) Index(i pulumi.IntInput) DomainAs
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AppAutoBranchCreationConfigInput)(nil)).Elem(), AppAutoBranchCreationConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AppAutoBranchCreationConfigPtrInput)(nil)).Elem(), AppAutoBranchCreationConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AppCustomRuleInput)(nil)).Elem(), AppCustomRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AppCustomRuleArrayInput)(nil)).Elem(), AppCustomRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AppProductionBranchInput)(nil)).Elem(), AppProductionBranchArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AppProductionBranchArrayInput)(nil)).Elem(), AppProductionBranchArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainAssociationSubDomainInput)(nil)).Elem(), DomainAssociationSubDomainArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainAssociationSubDomainArrayInput)(nil)).Elem(), DomainAssociationSubDomainArray{})
 	pulumi.RegisterOutputType(AppAutoBranchCreationConfigOutput{})
 	pulumi.RegisterOutputType(AppAutoBranchCreationConfigPtrOutput{})
 	pulumi.RegisterOutputType(AppCustomRuleOutput{})

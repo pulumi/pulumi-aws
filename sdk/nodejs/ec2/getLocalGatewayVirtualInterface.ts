@@ -86,3 +86,25 @@ export interface GetLocalGatewayVirtualInterfaceResult {
      */
     readonly vlan: number;
 }
+
+export function getLocalGatewayVirtualInterfaceOutput(args?: GetLocalGatewayVirtualInterfaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalGatewayVirtualInterfaceResult> {
+    return pulumi.output(args).apply(a => getLocalGatewayVirtualInterface(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getLocalGatewayVirtualInterface.
+ */
+export interface GetLocalGatewayVirtualInterfaceOutputArgs {
+    /**
+     * One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayVirtualInterfaces.html) for supported filters. Detailed below.
+     */
+    filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetLocalGatewayVirtualInterfaceFilterArgs>[]>;
+    /**
+     * Identifier of EC2 Local Gateway Virtual Interface.
+     */
+    id?: pulumi.Input<string>;
+    /**
+     * Key-value map of resource tags, each pair of which must exactly match a pair on the desired local gateway route table.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+}

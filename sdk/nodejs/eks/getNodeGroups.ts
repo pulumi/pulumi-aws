@@ -44,3 +44,17 @@ export interface GetNodeGroupsResult {
      */
     readonly names: string[];
 }
+
+export function getNodeGroupsOutput(args: GetNodeGroupsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNodeGroupsResult> {
+    return pulumi.output(args).apply(a => getNodeGroups(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getNodeGroups.
+ */
+export interface GetNodeGroupsOutputArgs {
+    /**
+     * The name of the cluster.
+     */
+    clusterName: pulumi.Input<string>;
+}

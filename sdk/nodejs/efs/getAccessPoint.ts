@@ -79,3 +79,21 @@ export interface GetAccessPointResult {
      */
     readonly tags?: {[key: string]: string};
 }
+
+export function getAccessPointOutput(args: GetAccessPointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessPointResult> {
+    return pulumi.output(args).apply(a => getAccessPoint(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getAccessPoint.
+ */
+export interface GetAccessPointOutputArgs {
+    /**
+     * The ID that identifies the file system.
+     */
+    accessPointId: pulumi.Input<string>;
+    /**
+     * Key-value mapping of resource tags.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+}

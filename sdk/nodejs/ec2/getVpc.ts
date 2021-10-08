@@ -121,3 +121,44 @@ export interface GetVpcResult {
     readonly state: string;
     readonly tags: {[key: string]: string};
 }
+
+export function getVpcOutput(args?: GetVpcOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcResult> {
+    return pulumi.output(args).apply(a => getVpc(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getVpc.
+ */
+export interface GetVpcOutputArgs {
+    /**
+     * The cidr block of the desired VPC.
+     */
+    cidrBlock?: pulumi.Input<string>;
+    /**
+     * Boolean constraint on whether the desired VPC is
+     * the default VPC for the region.
+     */
+    default?: pulumi.Input<boolean>;
+    /**
+     * The DHCP options id of the desired VPC.
+     */
+    dhcpOptionsId?: pulumi.Input<string>;
+    /**
+     * Custom filter block as described below.
+     */
+    filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetVpcFilterArgs>[]>;
+    /**
+     * The id of the specific VPC to retrieve.
+     */
+    id?: pulumi.Input<string>;
+    /**
+     * The current state of the desired VPC.
+     * Can be either `"pending"` or `"available"`.
+     */
+    state?: pulumi.Input<string>;
+    /**
+     * A map of tags, each pair of which must exactly match
+     * a pair on the desired VPC.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+}

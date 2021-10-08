@@ -102,3 +102,25 @@ export interface GetBundleResult {
      */
     readonly userStorages: outputs.workspaces.GetBundleUserStorage[];
 }
+
+export function getBundleOutput(args?: GetBundleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBundleResult> {
+    return pulumi.output(args).apply(a => getBundle(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getBundle.
+ */
+export interface GetBundleOutputArgs {
+    /**
+     * The ID of the bundle.
+     */
+    bundleId?: pulumi.Input<string>;
+    /**
+     * The name of the bundle. You cannot combine this parameter with `bundleId`.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * The owner of the bundles. You have to leave it blank for own bundles. You cannot combine this parameter with `bundleId`.
+     */
+    owner?: pulumi.Input<string>;
+}

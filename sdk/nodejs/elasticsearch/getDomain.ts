@@ -135,3 +135,21 @@ export interface GetDomainResult {
      */
     readonly vpcOptions: outputs.elasticsearch.GetDomainVpcOption[];
 }
+
+export function getDomainOutput(args: GetDomainOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainResult> {
+    return pulumi.output(args).apply(a => getDomain(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getDomain.
+ */
+export interface GetDomainOutputArgs {
+    /**
+     * Name of the domain.
+     */
+    domainName: pulumi.Input<string>;
+    /**
+     * The tags assigned to the domain.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+}

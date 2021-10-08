@@ -641,6 +641,14 @@ func (o CanaryVpcConfigPtrOutput) VpcId() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CanaryRunConfigInput)(nil)).Elem(), CanaryRunConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CanaryRunConfigPtrInput)(nil)).Elem(), CanaryRunConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CanaryScheduleInput)(nil)).Elem(), CanaryScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CanarySchedulePtrInput)(nil)).Elem(), CanaryScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CanaryTimelineInput)(nil)).Elem(), CanaryTimelineArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CanaryTimelineArrayInput)(nil)).Elem(), CanaryTimelineArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CanaryVpcConfigInput)(nil)).Elem(), CanaryVpcConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CanaryVpcConfigPtrInput)(nil)).Elem(), CanaryVpcConfigArgs{})
 	pulumi.RegisterOutputType(CanaryRunConfigOutput{})
 	pulumi.RegisterOutputType(CanaryRunConfigPtrOutput{})
 	pulumi.RegisterOutputType(CanaryScheduleOutput{})

@@ -109,3 +109,21 @@ export interface GetApiResult {
      */
     readonly version: string;
 }
+
+export function getApiOutput(args: GetApiOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiResult> {
+    return pulumi.output(args).apply(a => getApi(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getApi.
+ */
+export interface GetApiOutputArgs {
+    /**
+     * The API identifier.
+     */
+    apiId: pulumi.Input<string>;
+    /**
+     * A map of resource tags.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+}

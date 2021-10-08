@@ -144,6 +144,8 @@ func (o TriggerTriggerArrayOutput) Index(i pulumi.IntInput) TriggerTriggerOutput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TriggerTriggerInput)(nil)).Elem(), TriggerTriggerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TriggerTriggerArrayInput)(nil)).Elem(), TriggerTriggerArray{})
 	pulumi.RegisterOutputType(TriggerTriggerOutput{})
 	pulumi.RegisterOutputType(TriggerTriggerArrayOutput{})
 }

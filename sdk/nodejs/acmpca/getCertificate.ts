@@ -66,3 +66,21 @@ export interface GetCertificateResult {
      */
     readonly id: string;
 }
+
+export function getCertificateOutput(args: GetCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCertificateResult> {
+    return pulumi.output(args).apply(a => getCertificate(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getCertificate.
+ */
+export interface GetCertificateOutputArgs {
+    /**
+     * Amazon Resource Name (ARN) of the certificate issued by the private certificate authority.
+     */
+    arn: pulumi.Input<string>;
+    /**
+     * Amazon Resource Name (ARN) of the certificate authority.
+     */
+    certificateAuthorityArn: pulumi.Input<string>;
+}

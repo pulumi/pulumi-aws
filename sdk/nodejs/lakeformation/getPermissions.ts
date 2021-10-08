@@ -116,3 +116,41 @@ export interface GetPermissionsResult {
     readonly table: outputs.lakeformation.GetPermissionsTable;
     readonly tableWithColumns: outputs.lakeformation.GetPermissionsTableWithColumns;
 }
+
+export function getPermissionsOutput(args: GetPermissionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPermissionsResult> {
+    return pulumi.output(args).apply(a => getPermissions(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getPermissions.
+ */
+export interface GetPermissionsOutputArgs {
+    /**
+     * Identifier for the Data Catalog. By default, it is the account ID of the caller.
+     */
+    catalogId?: pulumi.Input<string>;
+    /**
+     * Whether the permissions are to be granted for the Data Catalog. Defaults to `false`.
+     */
+    catalogResource?: pulumi.Input<boolean>;
+    /**
+     * Configuration block for a data location resource. Detailed below.
+     */
+    dataLocation?: pulumi.Input<inputs.lakeformation.GetPermissionsDataLocationArgs>;
+    /**
+     * Configuration block for a database resource. Detailed below.
+     */
+    database?: pulumi.Input<inputs.lakeformation.GetPermissionsDatabaseArgs>;
+    /**
+     * Principal to be granted the permissions on the resource. Supported principals are IAM users or IAM roles.
+     */
+    principal: pulumi.Input<string>;
+    /**
+     * Configuration block for a table resource. Detailed below.
+     */
+    table?: pulumi.Input<inputs.lakeformation.GetPermissionsTableArgs>;
+    /**
+     * Configuration block for a table with columns resource. Detailed below.
+     */
+    tableWithColumns?: pulumi.Input<inputs.lakeformation.GetPermissionsTableWithColumnsArgs>;
+}

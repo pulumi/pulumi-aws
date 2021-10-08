@@ -353,6 +353,12 @@ func (o GetSecretsSecretArrayOutput) Index(i pulumi.IntInput) GetSecretsSecretOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GrantConstraintInput)(nil)).Elem(), GrantConstraintArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GrantConstraintArrayInput)(nil)).Elem(), GrantConstraintArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSecretSecretInput)(nil)).Elem(), GetSecretSecretArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSecretSecretArrayInput)(nil)).Elem(), GetSecretSecretArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSecretsSecretInput)(nil)).Elem(), GetSecretsSecretArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSecretsSecretArrayInput)(nil)).Elem(), GetSecretsSecretArray{})
 	pulumi.RegisterOutputType(GrantConstraintOutput{})
 	pulumi.RegisterOutputType(GrantConstraintArrayOutput{})
 	pulumi.RegisterOutputType(GetSecretSecretOutput{})

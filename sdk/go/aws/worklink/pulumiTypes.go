@@ -342,6 +342,10 @@ func (o FleetNetworkPtrOutput) VpcId() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetIdentityProviderInput)(nil)).Elem(), FleetIdentityProviderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetIdentityProviderPtrInput)(nil)).Elem(), FleetIdentityProviderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetNetworkInput)(nil)).Elem(), FleetNetworkArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetNetworkPtrInput)(nil)).Elem(), FleetNetworkArgs{})
 	pulumi.RegisterOutputType(FleetIdentityProviderOutput{})
 	pulumi.RegisterOutputType(FleetIdentityProviderPtrOutput{})
 	pulumi.RegisterOutputType(FleetNetworkOutput{})

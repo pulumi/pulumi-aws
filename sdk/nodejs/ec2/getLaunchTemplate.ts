@@ -202,3 +202,29 @@ export interface GetLaunchTemplateResult {
      */
     readonly vpcSecurityGroupIds: string[];
 }
+
+export function getLaunchTemplateOutput(args?: GetLaunchTemplateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLaunchTemplateResult> {
+    return pulumi.output(args).apply(a => getLaunchTemplate(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getLaunchTemplate.
+ */
+export interface GetLaunchTemplateOutputArgs {
+    /**
+     * Configuration block(s) for filtering. Detailed below.
+     */
+    filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetLaunchTemplateFilterArgs>[]>;
+    /**
+     * The ID of the specific launch template to retrieve.
+     */
+    id?: pulumi.Input<string>;
+    /**
+     * The name of the filter field. Valid values can be found in the [EC2 DescribeLaunchTemplates API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html).
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * A map of tags, each pair of which must exactly match a pair on the desired Launch Template.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+}

@@ -205,6 +205,8 @@ func (o HostVpcConfigurationPtrOutput) VpcId() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*HostVpcConfigurationInput)(nil)).Elem(), HostVpcConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HostVpcConfigurationPtrInput)(nil)).Elem(), HostVpcConfigurationArgs{})
 	pulumi.RegisterOutputType(HostVpcConfigurationOutput{})
 	pulumi.RegisterOutputType(HostVpcConfigurationPtrOutput{})
 }

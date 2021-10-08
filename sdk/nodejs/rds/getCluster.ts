@@ -80,3 +80,18 @@ export interface GetClusterResult {
     readonly tags: {[key: string]: string};
     readonly vpcSecurityGroupIds: string[];
 }
+
+export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterResult> {
+    return pulumi.output(args).apply(a => getCluster(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getCluster.
+ */
+export interface GetClusterOutputArgs {
+    /**
+     * The cluster identifier of the RDS cluster.
+     */
+    clusterIdentifier: pulumi.Input<string>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+}

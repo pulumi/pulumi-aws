@@ -54,3 +54,22 @@ export interface GetVpcPeeringConnectionsResult {
     readonly ids: string[];
     readonly tags: {[key: string]: string};
 }
+
+export function getVpcPeeringConnectionsOutput(args?: GetVpcPeeringConnectionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcPeeringConnectionsResult> {
+    return pulumi.output(args).apply(a => getVpcPeeringConnections(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getVpcPeeringConnections.
+ */
+export interface GetVpcPeeringConnectionsOutputArgs {
+    /**
+     * Custom filter block as described below.
+     */
+    filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetVpcPeeringConnectionsFilterArgs>[]>;
+    /**
+     * A mapping of tags, each pair of which must exactly match
+     * a pair on the desired VPC Peering Connection.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+}

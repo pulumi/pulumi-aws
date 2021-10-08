@@ -119,3 +119,37 @@ export interface GetRouteTableResult {
     readonly tags: {[key: string]: string};
     readonly vpcId: string;
 }
+
+export function getRouteTableOutput(args?: GetRouteTableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRouteTableResult> {
+    return pulumi.output(args).apply(a => getRouteTable(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getRouteTable.
+ */
+export interface GetRouteTableOutputArgs {
+    /**
+     * Configuration block. Detailed below.
+     */
+    filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetRouteTableFilterArgs>[]>;
+    /**
+     * ID of an Internet Gateway or Virtual Private Gateway which is connected to the Route Table (not exported if not passed as a parameter).
+     */
+    gatewayId?: pulumi.Input<string>;
+    /**
+     * ID of the specific Route Table to retrieve.
+     */
+    routeTableId?: pulumi.Input<string>;
+    /**
+     * ID of a Subnet which is connected to the Route Table (not exported if not passed as a parameter).
+     */
+    subnetId?: pulumi.Input<string>;
+    /**
+     * Map of tags, each pair of which must exactly match a pair on the desired Route Table.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * ID of the VPC that the desired Route Table belongs to.
+     */
+    vpcId?: pulumi.Input<string>;
+}

@@ -74,3 +74,21 @@ export interface GetRegionResult {
      */
     readonly name: string;
 }
+
+export function getRegionOutput(args?: GetRegionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegionResult> {
+    return pulumi.output(args).apply(a => getRegion(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getRegion.
+ */
+export interface GetRegionOutputArgs {
+    /**
+     * The EC2 endpoint of the region to select.
+     */
+    endpoint?: pulumi.Input<string>;
+    /**
+     * The full name of the region to select.
+     */
+    name?: pulumi.Input<string>;
+}

@@ -63,3 +63,21 @@ export interface GetParameterResult {
     readonly version: number;
     readonly withDecryption?: boolean;
 }
+
+export function getParameterOutput(args: GetParameterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetParameterResult> {
+    return pulumi.output(args).apply(a => getParameter(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getParameter.
+ */
+export interface GetParameterOutputArgs {
+    /**
+     * The name of the parameter.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Whether to return decrypted `SecureString` value. Defaults to `true`.
+     */
+    withDecryption?: pulumi.Input<boolean>;
+}

@@ -65,3 +65,21 @@ export interface GetLocalGatewayVirtualInterfaceGroupsResult {
     readonly localGatewayVirtualInterfaceIds: string[];
     readonly tags: {[key: string]: string};
 }
+
+export function getLocalGatewayVirtualInterfaceGroupsOutput(args?: GetLocalGatewayVirtualInterfaceGroupsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalGatewayVirtualInterfaceGroupsResult> {
+    return pulumi.output(args).apply(a => getLocalGatewayVirtualInterfaceGroups(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getLocalGatewayVirtualInterfaceGroups.
+ */
+export interface GetLocalGatewayVirtualInterfaceGroupsOutputArgs {
+    /**
+     * One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayVirtualInterfaceGroups.html) for supported filters. Detailed below.
+     */
+    filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetLocalGatewayVirtualInterfaceGroupsFilterArgs>[]>;
+    /**
+     * Key-value map of resource tags, each pair of which must exactly match a pair on the desired local gateway route table.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+}

@@ -91,3 +91,25 @@ export interface GetDocumentResult {
     readonly id: string;
     readonly name: string;
 }
+
+export function getDocumentOutput(args: GetDocumentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDocumentResult> {
+    return pulumi.output(args).apply(a => getDocument(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getDocument.
+ */
+export interface GetDocumentOutputArgs {
+    /**
+     * Returns the document in the specified format. The document format can be either JSON or YAML. JSON is the default format.
+     */
+    documentFormat?: pulumi.Input<string>;
+    /**
+     * The document version for which you want information.
+     */
+    documentVersion?: pulumi.Input<string>;
+    /**
+     * The name of the Systems Manager document.
+     */
+    name: pulumi.Input<string>;
+}

@@ -84,3 +84,21 @@ export interface GetConnectionResult {
      */
     readonly tags: {[key: string]: string};
 }
+
+export function getConnectionOutput(args: GetConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectionResult> {
+    return pulumi.output(args).apply(a => getConnection(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getConnection.
+ */
+export interface GetConnectionOutputArgs {
+    /**
+     * The name of the connection to retrieve.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * A map of tags for the resource.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+}

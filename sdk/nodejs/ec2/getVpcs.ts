@@ -55,3 +55,22 @@ export interface GetVpcsResult {
     readonly ids: string[];
     readonly tags: {[key: string]: string};
 }
+
+export function getVpcsOutput(args?: GetVpcsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcsResult> {
+    return pulumi.output(args).apply(a => getVpcs(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getVpcs.
+ */
+export interface GetVpcsOutputArgs {
+    /**
+     * Custom filter block as described below.
+     */
+    filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetVpcsFilterArgs>[]>;
+    /**
+     * A map of tags, each pair of which must exactly match
+     * a pair on the desired vpcs.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+}

@@ -55,3 +55,17 @@ export interface GetOutpostInstanceTypesResult {
      */
     readonly instanceTypes: string[];
 }
+
+export function getOutpostInstanceTypesOutput(args: GetOutpostInstanceTypesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOutpostInstanceTypesResult> {
+    return pulumi.output(args).apply(a => getOutpostInstanceTypes(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getOutpostInstanceTypes.
+ */
+export interface GetOutpostInstanceTypesOutputArgs {
+    /**
+     * Outpost Amazon Resource Name (ARN).
+     */
+    arn: pulumi.Input<string>;
+}

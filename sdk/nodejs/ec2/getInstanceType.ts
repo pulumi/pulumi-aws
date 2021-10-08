@@ -307,3 +307,73 @@ export interface GetInstanceTypeResult {
      */
     readonly validThreadsPerCores: number[];
 }
+
+export function getInstanceTypeOutput(args: GetInstanceTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInstanceTypeResult> {
+    return pulumi.output(args).apply(a => getInstanceType(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getInstanceType.
+ */
+export interface GetInstanceTypeOutputArgs {
+    /**
+     * The default number of cores for the instance type.
+     */
+    defaultCores?: pulumi.Input<number>;
+    /**
+     * The  default  number of threads per core for the instance type.
+     */
+    defaultThreadsPerCore?: pulumi.Input<number>;
+    /**
+     * Describes the FPGA accelerator settings for the instance type.
+     * * `fpgas.#.count` - The count of FPGA accelerators for the instance type.
+     * * `fpgas.#.manufacturer` - The manufacturer of the FPGA accelerator.
+     * * `fpgas.#.memory_size` - The size (in MiB) for the memory available to the FPGA accelerator.
+     * * `fpgas.#.name` - The name of the FPGA accelerator.
+     */
+    fpgas?: pulumi.Input<pulumi.Input<inputs.ec2.GetInstanceTypeFpgaArgs>[]>;
+    /**
+     * Describes the GPU accelerators for the instance type.
+     * * `gpus.#.count` - The number of GPUs for the instance type.
+     * * `gpus.#.manufacturer` - The manufacturer of the GPU accelerator.
+     * * `gpus.#.memory_size` - The size (in MiB) for the memory available to the GPU accelerator.
+     * * `gpus.#.name` - The name of the GPU accelerator.
+     */
+    gpuses?: pulumi.Input<pulumi.Input<inputs.ec2.GetInstanceTypeGpusArgs>[]>;
+    /**
+     * Indicates the hypervisor used for the instance type.
+     * * `inferenceAccelerators` Describes the Inference accelerators for the instance type.
+     * * `inference_accelerators.#.count` - The number of Inference accelerators for the instance type.
+     * * `inference_accelerators.#.manufacturer` - The manufacturer of the Inference accelerator.
+     * * `inference_accelerators.#.name` - The name of the Inference accelerator.
+     */
+    hypervisor?: pulumi.Input<string>;
+    inferenceAccelerators?: pulumi.Input<pulumi.Input<inputs.ec2.GetInstanceTypeInferenceAcceleratorArgs>[]>;
+    /**
+     * Describes the disks for the instance type.
+     * * `instance_disks.#.count` - The number of disks with this configuration.
+     * * `instance_disks.#.size` - The size of the disk in GB.
+     * * `instance_disks.#.type` - The type of disk.
+     */
+    instanceDisks?: pulumi.Input<pulumi.Input<inputs.ec2.GetInstanceTypeInstanceDiskArgs>[]>;
+    /**
+     * Instance
+     */
+    instanceType: pulumi.Input<string>;
+    /**
+     * The maximum number of IPv6 addresses per network interface.
+     */
+    maximumIpv6AddressesPerInterface?: pulumi.Input<number>;
+    /**
+     * The total memory of all FPGA accelerators for the instance type (in MiB).
+     */
+    totalFpgaMemory?: pulumi.Input<number>;
+    /**
+     * The total size of the memory for the GPU accelerators for the instance type (in MiB).
+     */
+    totalGpuMemory?: pulumi.Input<number>;
+    /**
+     * The total size of the instance disks, in GB.
+     */
+    totalInstanceStorage?: pulumi.Input<number>;
+}

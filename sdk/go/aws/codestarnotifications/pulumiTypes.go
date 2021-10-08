@@ -126,6 +126,8 @@ func (o NotificationRuleTargetArrayOutput) Index(i pulumi.IntInput) Notification
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*NotificationRuleTargetInput)(nil)).Elem(), NotificationRuleTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NotificationRuleTargetArrayInput)(nil)).Elem(), NotificationRuleTargetArray{})
 	pulumi.RegisterOutputType(NotificationRuleTargetOutput{})
 	pulumi.RegisterOutputType(NotificationRuleTargetArrayOutput{})
 }

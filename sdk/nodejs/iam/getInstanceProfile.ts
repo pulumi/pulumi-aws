@@ -78,3 +78,17 @@ export interface GetInstanceProfileResult {
      */
     readonly roleName: string;
 }
+
+export function getInstanceProfileOutput(args: GetInstanceProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInstanceProfileResult> {
+    return pulumi.output(args).apply(a => getInstanceProfile(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getInstanceProfile.
+ */
+export interface GetInstanceProfileOutputArgs {
+    /**
+     * The friendly IAM instance profile name to match.
+     */
+    name: pulumi.Input<string>;
+}

@@ -193,3 +193,30 @@ export interface GetBucketObjectResult {
      */
     readonly websiteRedirectLocation: string;
 }
+
+export function getBucketObjectOutput(args: GetBucketObjectOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBucketObjectResult> {
+    return pulumi.output(args).apply(a => getBucketObject(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getBucketObject.
+ */
+export interface GetBucketObjectOutputArgs {
+    /**
+     * The name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
+     */
+    bucket: pulumi.Input<string>;
+    /**
+     * The full path to the object inside the bucket
+     */
+    key: pulumi.Input<string>;
+    range?: pulumi.Input<string>;
+    /**
+     * A map of tags assigned to the object.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Specific version ID of the object returned (defaults to latest version)
+     */
+    versionId?: pulumi.Input<string>;
+}

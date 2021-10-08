@@ -75,3 +75,25 @@ export interface GetPortfolioConstraintsResult {
      */
     readonly productId?: string;
 }
+
+export function getPortfolioConstraintsOutput(args: GetPortfolioConstraintsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPortfolioConstraintsResult> {
+    return pulumi.output(args).apply(a => getPortfolioConstraints(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getPortfolioConstraints.
+ */
+export interface GetPortfolioConstraintsOutputArgs {
+    /**
+     * Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
+     */
+    acceptLanguage?: pulumi.Input<string>;
+    /**
+     * Portfolio identifier.
+     */
+    portfolioId: pulumi.Input<string>;
+    /**
+     * Product identifier.
+     */
+    productId?: pulumi.Input<string>;
+}

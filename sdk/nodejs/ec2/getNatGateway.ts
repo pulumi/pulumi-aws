@@ -116,3 +116,38 @@ export interface GetNatGatewayResult {
     readonly tags: {[key: string]: string};
     readonly vpcId: string;
 }
+
+export function getNatGatewayOutput(args?: GetNatGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNatGatewayResult> {
+    return pulumi.output(args).apply(a => getNatGateway(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getNatGateway.
+ */
+export interface GetNatGatewayOutputArgs {
+    /**
+     * Custom filter block as described below.
+     */
+    filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetNatGatewayFilterArgs>[]>;
+    /**
+     * The id of the specific Nat Gateway to retrieve.
+     */
+    id?: pulumi.Input<string>;
+    /**
+     * The state of the NAT gateway (pending | failed | available | deleting | deleted ).
+     */
+    state?: pulumi.Input<string>;
+    /**
+     * The id of subnet that the Nat Gateway resides in.
+     */
+    subnetId?: pulumi.Input<string>;
+    /**
+     * A map of tags, each pair of which must exactly match
+     * a pair on the desired Nat Gateway.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The id of the VPC that the Nat Gateway resides in.
+     */
+    vpcId?: pulumi.Input<string>;
+}

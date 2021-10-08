@@ -88,3 +88,35 @@ export interface GetLocalGatewayRouteTableResult {
     readonly state: string;
     readonly tags: {[key: string]: string};
 }
+
+export function getLocalGatewayRouteTableOutput(args?: GetLocalGatewayRouteTableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalGatewayRouteTableResult> {
+    return pulumi.output(args).apply(a => getLocalGatewayRouteTable(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getLocalGatewayRouteTable.
+ */
+export interface GetLocalGatewayRouteTableOutputArgs {
+    filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetLocalGatewayRouteTableFilterArgs>[]>;
+    /**
+     * The id of the specific local gateway route table to retrieve.
+     */
+    localGatewayId?: pulumi.Input<string>;
+    /**
+     * Local Gateway Route Table Id assigned to desired local gateway route table
+     */
+    localGatewayRouteTableId?: pulumi.Input<string>;
+    /**
+     * The arn of the Outpost the local gateway route table is associated with.
+     */
+    outpostArn?: pulumi.Input<string>;
+    /**
+     * The state of the local gateway route table.
+     */
+    state?: pulumi.Input<string>;
+    /**
+     * A mapping of tags, each pair of which must exactly match
+     * a pair on the desired local gateway route table.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+}

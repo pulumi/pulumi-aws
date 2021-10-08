@@ -79,3 +79,21 @@ export interface GetCachePolicyResult {
      */
     readonly parametersInCacheKeyAndForwardedToOrigins: outputs.cloudfront.GetCachePolicyParametersInCacheKeyAndForwardedToOrigin[];
 }
+
+export function getCachePolicyOutput(args?: GetCachePolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCachePolicyResult> {
+    return pulumi.output(args).apply(a => getCachePolicy(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getCachePolicy.
+ */
+export interface GetCachePolicyOutputArgs {
+    /**
+     * The identifier for the cache policy.
+     */
+    id?: pulumi.Input<string>;
+    /**
+     * A unique name to identify the cache policy.
+     */
+    name?: pulumi.Input<string>;
+}

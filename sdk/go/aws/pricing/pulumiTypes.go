@@ -117,6 +117,8 @@ func (o GetProductFilterArrayOutput) Index(i pulumi.IntInput) GetProductFilterOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GetProductFilterInput)(nil)).Elem(), GetProductFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetProductFilterArrayInput)(nil)).Elem(), GetProductFilterArray{})
 	pulumi.RegisterOutputType(GetProductFilterOutput{})
 	pulumi.RegisterOutputType(GetProductFilterArrayOutput{})
 }

@@ -1266,6 +1266,11 @@ func (o IgnoreTagsOutput) Keys() pulumi.StringArrayOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AssumeRoleInput)(nil)).Elem(), AssumeRoleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DefaultTagsInput)(nil)).Elem(), DefaultTagsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointsInput)(nil)).Elem(), EndpointsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointsArrayInput)(nil)).Elem(), EndpointsArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IgnoreTagsInput)(nil)).Elem(), IgnoreTagsArgs{})
 	pulumi.RegisterOutputType(AssumeRoleOutput{})
 	pulumi.RegisterOutputType(DefaultTagsOutput{})
 	pulumi.RegisterOutputType(EndpointsOutput{})

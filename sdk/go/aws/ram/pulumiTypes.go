@@ -117,6 +117,8 @@ func (o GetResourceShareFilterArrayOutput) Index(i pulumi.IntInput) GetResourceS
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GetResourceShareFilterInput)(nil)).Elem(), GetResourceShareFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetResourceShareFilterArrayInput)(nil)).Elem(), GetResourceShareFilterArray{})
 	pulumi.RegisterOutputType(GetResourceShareFilterOutput{})
 	pulumi.RegisterOutputType(GetResourceShareFilterArrayOutput{})
 }

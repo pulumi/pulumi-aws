@@ -72,3 +72,22 @@ export interface GetAcceleratorResult {
     readonly name: string;
     readonly tags: {[key: string]: string};
 }
+
+export function getAcceleratorOutput(args?: GetAcceleratorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAcceleratorResult> {
+    return pulumi.output(args).apply(a => getAccelerator(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getAccelerator.
+ */
+export interface GetAcceleratorOutputArgs {
+    /**
+     * The full ARN of the Global Accelerator.
+     */
+    arn?: pulumi.Input<string>;
+    /**
+     * The unique name of the Global Accelerator.
+     */
+    name?: pulumi.Input<string>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+}

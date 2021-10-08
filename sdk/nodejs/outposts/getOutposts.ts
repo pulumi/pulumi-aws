@@ -78,3 +78,29 @@ export interface GetOutpostsResult {
     readonly ownerId: string;
     readonly siteId: string;
 }
+
+export function getOutpostsOutput(args?: GetOutpostsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOutpostsResult> {
+    return pulumi.output(args).apply(a => getOutposts(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getOutposts.
+ */
+export interface GetOutpostsOutputArgs {
+    /**
+     * Availability Zone name.
+     */
+    availabilityZone?: pulumi.Input<string>;
+    /**
+     * Availability Zone identifier.
+     */
+    availabilityZoneId?: pulumi.Input<string>;
+    /**
+     * AWS Account identifier of the Outpost owner.
+     */
+    ownerId?: pulumi.Input<string>;
+    /**
+     * Site identifier.
+     */
+    siteId?: pulumi.Input<string>;
+}

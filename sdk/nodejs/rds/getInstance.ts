@@ -202,3 +202,18 @@ export interface GetInstanceResult {
      */
     readonly vpcSecurityGroups: string[];
 }
+
+export function getInstanceOutput(args: GetInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInstanceResult> {
+    return pulumi.output(args).apply(a => getInstance(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getInstance.
+ */
+export interface GetInstanceOutputArgs {
+    /**
+     * The name of the RDS instance
+     */
+    dbInstanceIdentifier: pulumi.Input<string>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+}

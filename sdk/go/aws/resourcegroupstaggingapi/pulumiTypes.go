@@ -351,6 +351,12 @@ func (o GetResourcesTagFilterArrayOutput) Index(i pulumi.IntInput) GetResourcesT
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GetResourcesResourceTagMappingListInput)(nil)).Elem(), GetResourcesResourceTagMappingListArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetResourcesResourceTagMappingListArrayInput)(nil)).Elem(), GetResourcesResourceTagMappingListArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetResourcesResourceTagMappingListComplianceDetailInput)(nil)).Elem(), GetResourcesResourceTagMappingListComplianceDetailArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetResourcesResourceTagMappingListComplianceDetailArrayInput)(nil)).Elem(), GetResourcesResourceTagMappingListComplianceDetailArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetResourcesTagFilterInput)(nil)).Elem(), GetResourcesTagFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetResourcesTagFilterArrayInput)(nil)).Elem(), GetResourcesTagFilterArray{})
 	pulumi.RegisterOutputType(GetResourcesResourceTagMappingListOutput{})
 	pulumi.RegisterOutputType(GetResourcesResourceTagMappingListArrayOutput{})
 	pulumi.RegisterOutputType(GetResourcesResourceTagMappingListComplianceDetailOutput{})

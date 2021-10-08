@@ -1373,6 +1373,22 @@ func (o TaskSchedulePtrOutput) ScheduleExpression() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*EfsLocationEc2ConfigInput)(nil)).Elem(), EfsLocationEc2ConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EfsLocationEc2ConfigPtrInput)(nil)).Elem(), EfsLocationEc2ConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationSmbMountOptionsInput)(nil)).Elem(), LocationSmbMountOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationSmbMountOptionsPtrInput)(nil)).Elem(), LocationSmbMountOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NfsLocationMountOptionsInput)(nil)).Elem(), NfsLocationMountOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NfsLocationMountOptionsPtrInput)(nil)).Elem(), NfsLocationMountOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NfsLocationOnPremConfigInput)(nil)).Elem(), NfsLocationOnPremConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NfsLocationOnPremConfigPtrInput)(nil)).Elem(), NfsLocationOnPremConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*S3LocationS3ConfigInput)(nil)).Elem(), S3LocationS3ConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*S3LocationS3ConfigPtrInput)(nil)).Elem(), S3LocationS3ConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskExcludesInput)(nil)).Elem(), TaskExcludesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskExcludesPtrInput)(nil)).Elem(), TaskExcludesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskOptionsInput)(nil)).Elem(), TaskOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskOptionsPtrInput)(nil)).Elem(), TaskOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskScheduleInput)(nil)).Elem(), TaskScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskSchedulePtrInput)(nil)).Elem(), TaskScheduleArgs{})
 	pulumi.RegisterOutputType(EfsLocationEc2ConfigOutput{})
 	pulumi.RegisterOutputType(EfsLocationEc2ConfigPtrOutput{})
 	pulumi.RegisterOutputType(LocationSmbMountOptionsOutput{})

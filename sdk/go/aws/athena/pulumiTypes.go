@@ -698,6 +698,14 @@ func (o WorkgroupConfigurationResultConfigurationEncryptionConfigurationPtrOutpu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseEncryptionConfigurationInput)(nil)).Elem(), DatabaseEncryptionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseEncryptionConfigurationPtrInput)(nil)).Elem(), DatabaseEncryptionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupConfigurationInput)(nil)).Elem(), WorkgroupConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupConfigurationPtrInput)(nil)).Elem(), WorkgroupConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupConfigurationResultConfigurationInput)(nil)).Elem(), WorkgroupConfigurationResultConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupConfigurationResultConfigurationPtrInput)(nil)).Elem(), WorkgroupConfigurationResultConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupConfigurationResultConfigurationEncryptionConfigurationInput)(nil)).Elem(), WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupConfigurationResultConfigurationEncryptionConfigurationPtrInput)(nil)).Elem(), WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs{})
 	pulumi.RegisterOutputType(DatabaseEncryptionConfigurationOutput{})
 	pulumi.RegisterOutputType(DatabaseEncryptionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(WorkgroupConfigurationOutput{})

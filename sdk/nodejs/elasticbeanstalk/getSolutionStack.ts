@@ -65,3 +65,24 @@ export interface GetSolutionStackResult {
     readonly name: string;
     readonly nameRegex: string;
 }
+
+export function getSolutionStackOutput(args: GetSolutionStackOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSolutionStackResult> {
+    return pulumi.output(args).apply(a => getSolutionStack(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getSolutionStack.
+ */
+export interface GetSolutionStackOutputArgs {
+    /**
+     * If more than one result is returned, use the most
+     * recent solution stack.
+     */
+    mostRecent?: pulumi.Input<boolean>;
+    /**
+     * A regex string to apply to the solution stack list returned
+     * by AWS. See [Elastic Beanstalk Supported Platforms][beanstalk-platforms] from
+     * AWS documentation for reference solution stack names.
+     */
+    nameRegex: pulumi.Input<string>;
+}

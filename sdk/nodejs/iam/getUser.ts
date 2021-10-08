@@ -81,3 +81,21 @@ export interface GetUserResult {
      */
     readonly userName: string;
 }
+
+export function getUserOutput(args: GetUserOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserResult> {
+    return pulumi.output(args).apply(a => getUser(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getUser.
+ */
+export interface GetUserOutputArgs {
+    /**
+     * Map of key-value pairs associated with the user.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The friendly IAM user name to match.
+     */
+    userName: pulumi.Input<string>;
+}

@@ -110,3 +110,21 @@ export interface GetImageResult {
      */
     readonly version: string;
 }
+
+export function getImageOutput(args: GetImageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetImageResult> {
+    return pulumi.output(args).apply(a => getImage(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getImage.
+ */
+export interface GetImageOutputArgs {
+    /**
+     * Amazon Resource Name (ARN) of the image. The suffix can either be specified with wildcards (`x.x.x`) to fetch the latest build version or a full build version (e.g. `2020.11.26/1`) to fetch an exact version.
+     */
+    arn: pulumi.Input<string>;
+    /**
+     * Key-value map of resource tags for the image.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+}

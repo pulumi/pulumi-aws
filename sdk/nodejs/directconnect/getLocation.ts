@@ -66,3 +66,17 @@ export interface GetLocationResult {
      */
     readonly locationName: string;
 }
+
+export function getLocationOutput(args: GetLocationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocationResult> {
+    return pulumi.output(args).apply(a => getLocation(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getLocation.
+ */
+export interface GetLocationOutputArgs {
+    /**
+     * The code for the location to retrieve.
+     */
+    locationCode: pulumi.Input<string>;
+}

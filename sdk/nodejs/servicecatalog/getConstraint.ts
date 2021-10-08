@@ -88,3 +88,25 @@ export interface GetConstraintResult {
      */
     readonly type: string;
 }
+
+export function getConstraintOutput(args: GetConstraintOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConstraintResult> {
+    return pulumi.output(args).apply(a => getConstraint(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getConstraint.
+ */
+export interface GetConstraintOutputArgs {
+    /**
+     * Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
+     */
+    acceptLanguage?: pulumi.Input<string>;
+    /**
+     * Description of the constraint.
+     */
+    description?: pulumi.Input<string>;
+    /**
+     * Constraint identifier.
+     */
+    id: pulumi.Input<string>;
+}

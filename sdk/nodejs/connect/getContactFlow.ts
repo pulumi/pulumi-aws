@@ -108,3 +108,33 @@ export interface GetContactFlowResult {
      */
     readonly type?: string;
 }
+
+export function getContactFlowOutput(args: GetContactFlowOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContactFlowResult> {
+    return pulumi.output(args).apply(a => getContactFlow(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getContactFlow.
+ */
+export interface GetContactFlowOutputArgs {
+    /**
+     * Returns information on a specific Contact Flow by contact flow id
+     */
+    contactFlowId?: pulumi.Input<string>;
+    /**
+     * Reference to the hosting Amazon Connect Instance
+     */
+    instanceId: pulumi.Input<string>;
+    /**
+     * Returns information on a specific Contact Flow by name
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * A the map of tags to assign to the Contact Flow.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Specifies the type of Contact Flow.
+     */
+    type?: pulumi.Input<string>;
+}

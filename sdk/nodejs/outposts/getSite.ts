@@ -62,3 +62,21 @@ export interface GetSiteResult {
     readonly id: string;
     readonly name: string;
 }
+
+export function getSiteOutput(args?: GetSiteOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSiteResult> {
+    return pulumi.output(args).apply(a => getSite(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getSite.
+ */
+export interface GetSiteOutputArgs {
+    /**
+     * Identifier of the Site.
+     */
+    id?: pulumi.Input<string>;
+    /**
+     * Name of the Site.
+     */
+    name?: pulumi.Input<string>;
+}

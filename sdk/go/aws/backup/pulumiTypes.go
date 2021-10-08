@@ -819,6 +819,18 @@ func (o SelectionSelectionTagArrayOutput) Index(i pulumi.IntInput) SelectionSele
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanAdvancedBackupSettingInput)(nil)).Elem(), PlanAdvancedBackupSettingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanAdvancedBackupSettingArrayInput)(nil)).Elem(), PlanAdvancedBackupSettingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanRuleInput)(nil)).Elem(), PlanRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanRuleArrayInput)(nil)).Elem(), PlanRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanRuleCopyActionInput)(nil)).Elem(), PlanRuleCopyActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanRuleCopyActionArrayInput)(nil)).Elem(), PlanRuleCopyActionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanRuleCopyActionLifecycleInput)(nil)).Elem(), PlanRuleCopyActionLifecycleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanRuleCopyActionLifecyclePtrInput)(nil)).Elem(), PlanRuleCopyActionLifecycleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanRuleLifecycleInput)(nil)).Elem(), PlanRuleLifecycleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanRuleLifecyclePtrInput)(nil)).Elem(), PlanRuleLifecycleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SelectionSelectionTagInput)(nil)).Elem(), SelectionSelectionTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SelectionSelectionTagArrayInput)(nil)).Elem(), SelectionSelectionTagArray{})
 	pulumi.RegisterOutputType(PlanAdvancedBackupSettingOutput{})
 	pulumi.RegisterOutputType(PlanAdvancedBackupSettingArrayOutput{})
 	pulumi.RegisterOutputType(PlanRuleOutput{})

@@ -429,6 +429,12 @@ func (o GetCloudFormationTypeLoggingConfigArrayOutput) Index(i pulumi.IntInput) 
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CloudFormationTypeLoggingConfigInput)(nil)).Elem(), CloudFormationTypeLoggingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CloudFormationTypeLoggingConfigPtrInput)(nil)).Elem(), CloudFormationTypeLoggingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StackSetAutoDeploymentInput)(nil)).Elem(), StackSetAutoDeploymentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StackSetAutoDeploymentPtrInput)(nil)).Elem(), StackSetAutoDeploymentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCloudFormationTypeLoggingConfigInput)(nil)).Elem(), GetCloudFormationTypeLoggingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCloudFormationTypeLoggingConfigArrayInput)(nil)).Elem(), GetCloudFormationTypeLoggingConfigArray{})
 	pulumi.RegisterOutputType(CloudFormationTypeLoggingConfigOutput{})
 	pulumi.RegisterOutputType(CloudFormationTypeLoggingConfigPtrOutput{})
 	pulumi.RegisterOutputType(StackSetAutoDeploymentOutput{})

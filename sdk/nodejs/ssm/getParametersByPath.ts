@@ -47,3 +47,21 @@ export interface GetParametersByPathResult {
     readonly values: string[];
     readonly withDecryption?: boolean;
 }
+
+export function getParametersByPathOutput(args: GetParametersByPathOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetParametersByPathResult> {
+    return pulumi.output(args).apply(a => getParametersByPath(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getParametersByPath.
+ */
+export interface GetParametersByPathOutputArgs {
+    /**
+     * The prefix path of the parameter.
+     */
+    path: pulumi.Input<string>;
+    /**
+     * Whether to return decrypted `SecureString` value. Defaults to `true`.
+     */
+    withDecryption?: pulumi.Input<boolean>;
+}

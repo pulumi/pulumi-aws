@@ -53,3 +53,22 @@ export interface GetSubnetsResult {
     readonly ids: string[];
     readonly tags: {[key: string]: string};
 }
+
+export function getSubnetsOutput(args?: GetSubnetsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubnetsResult> {
+    return pulumi.output(args).apply(a => getSubnets(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getSubnets.
+ */
+export interface GetSubnetsOutputArgs {
+    /**
+     * Custom filter block as described below.
+     */
+    filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetSubnetsFilterArgs>[]>;
+    /**
+     * A map of tags, each pair of which must exactly match
+     * a pair on the desired subnets.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+}

@@ -653,6 +653,18 @@ func (o GetVpnAttachmentFilterArrayOutput) Index(i pulumi.IntInput) GetVpnAttach
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDirectConnectGatewayAttachmentFilterInput)(nil)).Elem(), GetDirectConnectGatewayAttachmentFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDirectConnectGatewayAttachmentFilterArrayInput)(nil)).Elem(), GetDirectConnectGatewayAttachmentFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPeeringAttachmentFilterInput)(nil)).Elem(), GetPeeringAttachmentFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPeeringAttachmentFilterArrayInput)(nil)).Elem(), GetPeeringAttachmentFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteTableFilterInput)(nil)).Elem(), GetRouteTableFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRouteTableFilterArrayInput)(nil)).Elem(), GetRouteTableFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTransitGatewayFilterInput)(nil)).Elem(), GetTransitGatewayFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTransitGatewayFilterArrayInput)(nil)).Elem(), GetTransitGatewayFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcAttachmentFilterInput)(nil)).Elem(), GetVpcAttachmentFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcAttachmentFilterArrayInput)(nil)).Elem(), GetVpcAttachmentFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVpnAttachmentFilterInput)(nil)).Elem(), GetVpnAttachmentFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVpnAttachmentFilterArrayInput)(nil)).Elem(), GetVpnAttachmentFilterArray{})
 	pulumi.RegisterOutputType(GetDirectConnectGatewayAttachmentFilterOutput{})
 	pulumi.RegisterOutputType(GetDirectConnectGatewayAttachmentFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetPeeringAttachmentFilterOutput{})

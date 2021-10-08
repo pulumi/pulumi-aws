@@ -167,6 +167,8 @@ func (o VaultNotificationPtrOutput) SnsTopic() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*VaultNotificationInput)(nil)).Elem(), VaultNotificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VaultNotificationPtrInput)(nil)).Elem(), VaultNotificationArgs{})
 	pulumi.RegisterOutputType(VaultNotificationOutput{})
 	pulumi.RegisterOutputType(VaultNotificationPtrOutput{})
 }

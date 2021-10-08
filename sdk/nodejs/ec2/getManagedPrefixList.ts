@@ -113,3 +113,29 @@ export interface GetManagedPrefixListResult {
     readonly tags: {[key: string]: string};
     readonly version: number;
 }
+
+export function getManagedPrefixListOutput(args?: GetManagedPrefixListOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedPrefixListResult> {
+    return pulumi.output(args).apply(a => getManagedPrefixList(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getManagedPrefixList.
+ */
+export interface GetManagedPrefixListOutputArgs {
+    /**
+     * Configuration block(s) for filtering. Detailed below.
+     */
+    filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetManagedPrefixListFilterArgs>[]>;
+    /**
+     * The ID of the prefix list to select.
+     */
+    id?: pulumi.Input<string>;
+    /**
+     * The name of the filter field. Valid values can be found in the EC2 [DescribeManagedPrefixLists](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeManagedPrefixLists.html) API Reference.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * A map of tags assigned to the resource.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+}

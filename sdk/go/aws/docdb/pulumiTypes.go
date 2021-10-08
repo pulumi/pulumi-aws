@@ -126,6 +126,8 @@ func (o ClusterParameterGroupParameterArrayOutput) Index(i pulumi.IntInput) Clus
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterParameterGroupParameterInput)(nil)).Elem(), ClusterParameterGroupParameterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterParameterGroupParameterArrayInput)(nil)).Elem(), ClusterParameterGroupParameterArray{})
 	pulumi.RegisterOutputType(ClusterParameterGroupParameterOutput{})
 	pulumi.RegisterOutputType(ClusterParameterGroupParameterArrayOutput{})
 }

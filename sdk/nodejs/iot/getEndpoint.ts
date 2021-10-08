@@ -50,3 +50,17 @@ export interface GetEndpointResult {
      */
     readonly id: string;
 }
+
+export function getEndpointOutput(args?: GetEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEndpointResult> {
+    return pulumi.output(args).apply(a => getEndpoint(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getEndpoint.
+ */
+export interface GetEndpointOutputArgs {
+    /**
+     * Endpoint type. Valid values: `iot:CredentialProvider`, `iot:Data`, `iot:Data-ATS`, `iot:Job`.
+     */
+    endpointType?: pulumi.Input<string>;
+}

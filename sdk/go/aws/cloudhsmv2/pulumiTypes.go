@@ -202,6 +202,9 @@ func (o GetClusterClusterCertificatesOutput) ManufacturerHardwareCertificate() p
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterClusterCertificateInput)(nil)).Elem(), ClusterClusterCertificateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterClusterCertificateArrayInput)(nil)).Elem(), ClusterClusterCertificateArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterClusterCertificatesInput)(nil)).Elem(), GetClusterClusterCertificatesArgs{})
 	pulumi.RegisterOutputType(ClusterClusterCertificateOutput{})
 	pulumi.RegisterOutputType(ClusterClusterCertificateArrayOutput{})
 	pulumi.RegisterOutputType(GetClusterClusterCertificatesOutput{})

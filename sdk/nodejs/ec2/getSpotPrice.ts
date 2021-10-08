@@ -78,3 +78,25 @@ export interface GetSpotPriceResult {
      */
     readonly spotPriceTimestamp: string;
 }
+
+export function getSpotPriceOutput(args?: GetSpotPriceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSpotPriceResult> {
+    return pulumi.output(args).apply(a => getSpotPrice(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getSpotPrice.
+ */
+export interface GetSpotPriceOutputArgs {
+    /**
+     * The availability zone in which to query Spot price information.
+     */
+    availabilityZone?: pulumi.Input<string>;
+    /**
+     * One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSpotPriceHistory.html) for supported filters. Detailed below.
+     */
+    filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetSpotPriceFilterArgs>[]>;
+    /**
+     * The type of instance for which to query Spot Price information.
+     */
+    instanceType?: pulumi.Input<string>;
+}

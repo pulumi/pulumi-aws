@@ -74,3 +74,21 @@ export interface GetAliasResult {
     readonly invokeArn: string;
     readonly name: string;
 }
+
+export function getAliasOutput(args: GetAliasOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAliasResult> {
+    return pulumi.output(args).apply(a => getAlias(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getAlias.
+ */
+export interface GetAliasOutputArgs {
+    /**
+     * Name of the aliased Lambda function.
+     */
+    functionName: pulumi.Input<string>;
+    /**
+     * Name of the Lambda alias.
+     */
+    name: pulumi.Input<string>;
+}

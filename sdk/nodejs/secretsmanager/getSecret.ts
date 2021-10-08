@@ -107,3 +107,21 @@ export interface GetSecretResult {
      */
     readonly tags: {[key: string]: string};
 }
+
+export function getSecretOutput(args?: GetSecretOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecretResult> {
+    return pulumi.output(args).apply(a => getSecret(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getSecret.
+ */
+export interface GetSecretOutputArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the secret to retrieve.
+     */
+    arn?: pulumi.Input<string>;
+    /**
+     * The name of the secret to retrieve.
+     */
+    name?: pulumi.Input<string>;
+}

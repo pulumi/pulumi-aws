@@ -138,3 +138,38 @@ export interface GetVpcEndpointResult {
     readonly vpcEndpointType: string;
     readonly vpcId: string;
 }
+
+export function getVpcEndpointOutput(args?: GetVpcEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcEndpointResult> {
+    return pulumi.output(args).apply(a => getVpcEndpoint(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getVpcEndpoint.
+ */
+export interface GetVpcEndpointOutputArgs {
+    /**
+     * Custom filter block as described below.
+     */
+    filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetVpcEndpointFilterArgs>[]>;
+    /**
+     * The ID of the specific VPC Endpoint to retrieve.
+     */
+    id?: pulumi.Input<string>;
+    /**
+     * The service name of the specific VPC Endpoint to retrieve. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
+     */
+    serviceName?: pulumi.Input<string>;
+    /**
+     * The state of the specific VPC Endpoint to retrieve.
+     */
+    state?: pulumi.Input<string>;
+    /**
+     * A map of tags, each pair of which must exactly match
+     * a pair on the specific VPC Endpoint to retrieve.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The ID of the VPC in which the specific VPC Endpoint is used.
+     */
+    vpcId?: pulumi.Input<string>;
+}

@@ -69,3 +69,21 @@ export interface GetKafkaVersionResult {
     readonly status: string;
     readonly version: string;
 }
+
+export function getKafkaVersionOutput(args?: GetKafkaVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKafkaVersionResult> {
+    return pulumi.output(args).apply(a => getKafkaVersion(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getKafkaVersion.
+ */
+export interface GetKafkaVersionOutputArgs {
+    /**
+     * Ordered list of preferred Kafka versions. The first match in this list will be returned. Either `preferredVersions` or `version` must be set.
+     */
+    preferredVersions?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Version of MSK Kafka. For example 2.4.1.1 or "2.2.1" etc. Either `preferredVersions` or `version` must be set.
+     */
+    version?: pulumi.Input<string>;
+}

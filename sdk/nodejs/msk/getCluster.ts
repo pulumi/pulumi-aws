@@ -92,3 +92,21 @@ export interface GetClusterResult {
      */
     readonly zookeeperConnectString: string;
 }
+
+export function getClusterOutput(args: GetClusterOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterResult> {
+    return pulumi.output(args).apply(a => getCluster(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getCluster.
+ */
+export interface GetClusterOutputArgs {
+    /**
+     * Name of the cluster.
+     */
+    clusterName: pulumi.Input<string>;
+    /**
+     * Map of key-value pairs assigned to the cluster.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+}

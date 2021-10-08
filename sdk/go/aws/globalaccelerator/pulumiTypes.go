@@ -828,6 +828,20 @@ func (o GetAcceleratorIpSetArrayOutput) Index(i pulumi.IntInput) GetAcceleratorI
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AcceleratorAttributesInput)(nil)).Elem(), AcceleratorAttributesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AcceleratorAttributesPtrInput)(nil)).Elem(), AcceleratorAttributesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AcceleratorIpSetInput)(nil)).Elem(), AcceleratorIpSetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AcceleratorIpSetArrayInput)(nil)).Elem(), AcceleratorIpSetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointGroupEndpointConfigurationInput)(nil)).Elem(), EndpointGroupEndpointConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointGroupEndpointConfigurationArrayInput)(nil)).Elem(), EndpointGroupEndpointConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointGroupPortOverrideInput)(nil)).Elem(), EndpointGroupPortOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointGroupPortOverrideArrayInput)(nil)).Elem(), EndpointGroupPortOverrideArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ListenerPortRangeInput)(nil)).Elem(), ListenerPortRangeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ListenerPortRangeArrayInput)(nil)).Elem(), ListenerPortRangeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAcceleratorAttributeInput)(nil)).Elem(), GetAcceleratorAttributeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAcceleratorAttributeArrayInput)(nil)).Elem(), GetAcceleratorAttributeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAcceleratorIpSetInput)(nil)).Elem(), GetAcceleratorIpSetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAcceleratorIpSetArrayInput)(nil)).Elem(), GetAcceleratorIpSetArray{})
 	pulumi.RegisterOutputType(AcceleratorAttributesOutput{})
 	pulumi.RegisterOutputType(AcceleratorAttributesPtrOutput{})
 	pulumi.RegisterOutputType(AcceleratorIpSetOutput{})

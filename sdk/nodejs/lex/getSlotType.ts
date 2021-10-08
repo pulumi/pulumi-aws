@@ -95,3 +95,21 @@ export interface GetSlotTypeResult {
      */
     readonly version?: string;
 }
+
+export function getSlotTypeOutput(args: GetSlotTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSlotTypeResult> {
+    return pulumi.output(args).apply(a => getSlotType(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getSlotType.
+ */
+export interface GetSlotTypeOutputArgs {
+    /**
+     * The name of the slot type. The name is case sensitive.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The version of the slot type.
+     */
+    version?: pulumi.Input<string>;
+}

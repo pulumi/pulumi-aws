@@ -114,3 +114,31 @@ export interface GetCertificateAuthorityResult {
      */
     readonly type: string;
 }
+
+export function getCertificateAuthorityOutput(args: GetCertificateAuthorityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCertificateAuthorityResult> {
+    return pulumi.output(args).apply(a => getCertificateAuthority(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getCertificateAuthority.
+ */
+export interface GetCertificateAuthorityOutputArgs {
+    /**
+     * Amazon Resource Name (ARN) of the certificate authority.
+     */
+    arn: pulumi.Input<string>;
+    /**
+     * Nested attribute containing revocation configuration.
+     * * `revocation_configuration.0.crl_configuration` - Nested attribute containing configuration of the certificate revocation list (CRL), if any, maintained by the certificate authority.
+     * * `revocation_configuration.0.crl_configuration.0.custom_cname` - Name inserted into the certificate CRL Distribution Points extension that enables the use of an alias for the CRL distribution point.
+     * * `revocation_configuration.0.crl_configuration.0.enabled` - Boolean value that specifies whether certificate revocation lists (CRLs) are enabled.
+     * * `revocation_configuration.0.crl_configuration.0.expiration_in_days` - Number of days until a certificate expires.
+     * * `revocation_configuration.0.crl_configuration.0.s3_bucket_name` - Name of the S3 bucket that contains the CRL.
+     * * `revocation_configuration.0.crl_configuration.0.s3_object_acl` - Whether the CRL is publicly readable or privately held in the CRL Amazon S3 bucket.
+     */
+    revocationConfigurations?: pulumi.Input<pulumi.Input<inputs.acmpca.GetCertificateAuthorityRevocationConfigurationArgs>[]>;
+    /**
+     * Specifies a key-value map of user-defined tags that are attached to the certificate authority.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+}

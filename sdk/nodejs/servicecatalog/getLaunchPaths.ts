@@ -63,3 +63,21 @@ export interface GetLaunchPathsResult {
      */
     readonly summaries: outputs.servicecatalog.GetLaunchPathsSummary[];
 }
+
+export function getLaunchPathsOutput(args: GetLaunchPathsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLaunchPathsResult> {
+    return pulumi.output(args).apply(a => getLaunchPaths(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getLaunchPaths.
+ */
+export interface GetLaunchPathsOutputArgs {
+    /**
+     * Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
+     */
+    acceptLanguage?: pulumi.Input<string>;
+    /**
+     * Product identifier.
+     */
+    productId: pulumi.Input<string>;
+}

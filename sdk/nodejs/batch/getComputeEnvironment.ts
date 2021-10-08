@@ -89,3 +89,21 @@ export interface GetComputeEnvironmentResult {
      */
     readonly type: string;
 }
+
+export function getComputeEnvironmentOutput(args: GetComputeEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetComputeEnvironmentResult> {
+    return pulumi.output(args).apply(a => getComputeEnvironment(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getComputeEnvironment.
+ */
+export interface GetComputeEnvironmentOutputArgs {
+    /**
+     * The name of the Batch Compute Environment
+     */
+    computeEnvironmentName: pulumi.Input<string>;
+    /**
+     * Key-value map of resource tags
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+}

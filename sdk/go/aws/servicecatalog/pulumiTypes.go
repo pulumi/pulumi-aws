@@ -1172,6 +1172,20 @@ func (o GetPortfolioConstraintsDetailArrayOutput) Index(i pulumi.IntInput) GetPo
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ProductProvisioningArtifactParametersInput)(nil)).Elem(), ProductProvisioningArtifactParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProductProvisioningArtifactParametersPtrInput)(nil)).Elem(), ProductProvisioningArtifactParametersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProvisionedProductProvisioningParameterInput)(nil)).Elem(), ProvisionedProductProvisioningParameterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProvisionedProductProvisioningParameterArrayInput)(nil)).Elem(), ProvisionedProductProvisioningParameterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProvisionedProductStackSetProvisioningPreferencesInput)(nil)).Elem(), ProvisionedProductStackSetProvisioningPreferencesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProvisionedProductStackSetProvisioningPreferencesPtrInput)(nil)).Elem(), ProvisionedProductStackSetProvisioningPreferencesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceActionDefinitionInput)(nil)).Elem(), ServiceActionDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceActionDefinitionPtrInput)(nil)).Elem(), ServiceActionDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLaunchPathsSummaryInput)(nil)).Elem(), GetLaunchPathsSummaryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLaunchPathsSummaryArrayInput)(nil)).Elem(), GetLaunchPathsSummaryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLaunchPathsSummaryConstraintSummaryInput)(nil)).Elem(), GetLaunchPathsSummaryConstraintSummaryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLaunchPathsSummaryConstraintSummaryArrayInput)(nil)).Elem(), GetLaunchPathsSummaryConstraintSummaryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPortfolioConstraintsDetailInput)(nil)).Elem(), GetPortfolioConstraintsDetailArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPortfolioConstraintsDetailArrayInput)(nil)).Elem(), GetPortfolioConstraintsDetailArray{})
 	pulumi.RegisterOutputType(ProductProvisioningArtifactParametersOutput{})
 	pulumi.RegisterOutputType(ProductProvisioningArtifactParametersPtrOutput{})
 	pulumi.RegisterOutputType(ProvisionedProductProvisioningParameterOutput{})

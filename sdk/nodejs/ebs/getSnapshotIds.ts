@@ -82,3 +82,27 @@ export interface GetSnapshotIdsResult {
     readonly owners?: string[];
     readonly restorableByUserIds?: string[];
 }
+
+export function getSnapshotIdsOutput(args?: GetSnapshotIdsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSnapshotIdsResult> {
+    return pulumi.output(args).apply(a => getSnapshotIds(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getSnapshotIds.
+ */
+export interface GetSnapshotIdsOutputArgs {
+    /**
+     * One or more name/value pairs to filter off of. There are
+     * several valid keys, for a full reference, check out
+     * [describe-volumes in the AWS CLI reference][1].
+     */
+    filters?: pulumi.Input<pulumi.Input<inputs.ebs.GetSnapshotIdsFilterArgs>[]>;
+    /**
+     * Returns the snapshots owned by the specified owner id. Multiple owners can be specified.
+     */
+    owners?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * One or more AWS accounts IDs that can create volumes from the snapshot.
+     */
+    restorableByUserIds?: pulumi.Input<pulumi.Input<string>[]>;
+}

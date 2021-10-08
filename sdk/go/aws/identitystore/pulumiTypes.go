@@ -223,6 +223,10 @@ func (o GetUserFilterArrayOutput) Index(i pulumi.IntInput) GetUserFilterOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GetGroupFilterInput)(nil)).Elem(), GetGroupFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetGroupFilterArrayInput)(nil)).Elem(), GetGroupFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUserFilterInput)(nil)).Elem(), GetUserFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUserFilterArrayInput)(nil)).Elem(), GetUserFilterArray{})
 	pulumi.RegisterOutputType(GetGroupFilterOutput{})
 	pulumi.RegisterOutputType(GetGroupFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetUserFilterOutput{})

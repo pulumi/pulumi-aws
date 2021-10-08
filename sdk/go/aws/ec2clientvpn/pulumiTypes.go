@@ -319,6 +319,10 @@ func (o EndpointConnectionLogOptionsPtrOutput) Enabled() pulumi.BoolPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointAuthenticationOptionInput)(nil)).Elem(), EndpointAuthenticationOptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointAuthenticationOptionArrayInput)(nil)).Elem(), EndpointAuthenticationOptionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConnectionLogOptionsInput)(nil)).Elem(), EndpointConnectionLogOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConnectionLogOptionsPtrInput)(nil)).Elem(), EndpointConnectionLogOptionsArgs{})
 	pulumi.RegisterOutputType(EndpointAuthenticationOptionOutput{})
 	pulumi.RegisterOutputType(EndpointAuthenticationOptionArrayOutput{})
 	pulumi.RegisterOutputType(EndpointConnectionLogOptionsOutput{})

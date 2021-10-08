@@ -80,3 +80,26 @@ export interface GetInternetGatewayResult {
     readonly ownerId: string;
     readonly tags: {[key: string]: string};
 }
+
+export function getInternetGatewayOutput(args?: GetInternetGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInternetGatewayResult> {
+    return pulumi.output(args).apply(a => getInternetGateway(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getInternetGateway.
+ */
+export interface GetInternetGatewayOutputArgs {
+    /**
+     * Custom filter block as described below.
+     */
+    filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetInternetGatewayFilterArgs>[]>;
+    /**
+     * The id of the specific Internet Gateway to retrieve.
+     */
+    internetGatewayId?: pulumi.Input<string>;
+    /**
+     * A map of tags, each pair of which must exactly match
+     * a pair on the desired Internet Gateway.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+}

@@ -108,6 +108,8 @@ func (o EndpointNetworkInterfaceArrayOutput) Index(i pulumi.IntInput) EndpointNe
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointNetworkInterfaceInput)(nil)).Elem(), EndpointNetworkInterfaceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointNetworkInterfaceArrayInput)(nil)).Elem(), EndpointNetworkInterfaceArray{})
 	pulumi.RegisterOutputType(EndpointNetworkInterfaceOutput{})
 	pulumi.RegisterOutputType(EndpointNetworkInterfaceArrayOutput{})
 }

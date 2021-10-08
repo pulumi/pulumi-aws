@@ -81,3 +81,23 @@ export interface GetResolverEndpointResult {
     readonly status: string;
     readonly vpcId: string;
 }
+
+export function getResolverEndpointOutput(args?: GetResolverEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResolverEndpointResult> {
+    return pulumi.output(args).apply(a => getResolverEndpoint(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getResolverEndpoint.
+ */
+export interface GetResolverEndpointOutputArgs {
+    /**
+     * One or more name/value pairs to use as filters. There are
+     * several valid keys, for a full reference, check out
+     * [Route53resolver Filter value in the AWS API reference][1].
+     */
+    filters?: pulumi.Input<pulumi.Input<inputs.route53.GetResolverEndpointFilterArgs>[]>;
+    /**
+     * The ID of the Route53 Resolver Endpoint.
+     */
+    resolverEndpointId?: pulumi.Input<string>;
+}

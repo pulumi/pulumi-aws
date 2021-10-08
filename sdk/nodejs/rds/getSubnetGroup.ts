@@ -71,3 +71,17 @@ export interface GetSubnetGroupResult {
      */
     readonly vpcId: string;
 }
+
+export function getSubnetGroupOutput(args: GetSubnetGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubnetGroupResult> {
+    return pulumi.output(args).apply(a => getSubnetGroup(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getSubnetGroup.
+ */
+export interface GetSubnetGroupOutputArgs {
+    /**
+     * The name of the RDS database subnet group.
+     */
+    name: pulumi.Input<string>;
+}

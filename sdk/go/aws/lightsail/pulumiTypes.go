@@ -135,6 +135,8 @@ func (o InstancePublicPortsPortInfoArrayOutput) Index(i pulumi.IntInput) Instanc
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*InstancePublicPortsPortInfoInput)(nil)).Elem(), InstancePublicPortsPortInfoArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstancePublicPortsPortInfoArrayInput)(nil)).Elem(), InstancePublicPortsPortInfoArray{})
 	pulumi.RegisterOutputType(InstancePublicPortsPortInfoOutput{})
 	pulumi.RegisterOutputType(InstancePublicPortsPortInfoArrayOutput{})
 }

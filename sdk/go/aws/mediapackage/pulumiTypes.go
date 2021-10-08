@@ -223,6 +223,10 @@ func (o ChannelHlsIngestIngestEndpointArrayOutput) Index(i pulumi.IntInput) Chan
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelHlsIngestInput)(nil)).Elem(), ChannelHlsIngestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelHlsIngestArrayInput)(nil)).Elem(), ChannelHlsIngestArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelHlsIngestIngestEndpointInput)(nil)).Elem(), ChannelHlsIngestIngestEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelHlsIngestIngestEndpointArrayInput)(nil)).Elem(), ChannelHlsIngestIngestEndpointArray{})
 	pulumi.RegisterOutputType(ChannelHlsIngestOutput{})
 	pulumi.RegisterOutputType(ChannelHlsIngestArrayOutput{})
 	pulumi.RegisterOutputType(ChannelHlsIngestIngestEndpointOutput{})

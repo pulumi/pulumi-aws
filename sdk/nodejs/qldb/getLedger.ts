@@ -54,3 +54,17 @@ export interface GetLedgerResult {
     readonly name: string;
     readonly permissionsMode: string;
 }
+
+export function getLedgerOutput(args: GetLedgerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLedgerResult> {
+    return pulumi.output(args).apply(a => getLedger(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getLedger.
+ */
+export interface GetLedgerOutputArgs {
+    /**
+     * The friendly name of the ledger to match.
+     */
+    name: pulumi.Input<string>;
+}

@@ -112,3 +112,21 @@ export interface GetProductResult {
     readonly result: string;
     readonly serviceCode: string;
 }
+
+export function getProductOutput(args: GetProductOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProductResult> {
+    return pulumi.output(args).apply(a => getProduct(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getProduct.
+ */
+export interface GetProductOutputArgs {
+    /**
+     * A list of filters. Passed directly to the API (see GetProducts API reference). These filters must describe a single product, this resource will fail if more than one product is returned by the API.
+     */
+    filters: pulumi.Input<pulumi.Input<inputs.pricing.GetProductFilterArgs>[]>;
+    /**
+     * The code of the service. Available service codes can be fetched using the DescribeServices pricing API call.
+     */
+    serviceCode: pulumi.Input<string>;
+}

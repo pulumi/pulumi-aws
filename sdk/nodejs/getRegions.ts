@@ -89,3 +89,21 @@ export interface GetRegionsResult {
      */
     readonly names: string[];
 }
+
+export function getRegionsOutput(args?: GetRegionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegionsResult> {
+    return pulumi.output(args).apply(a => getRegions(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getRegions.
+ */
+export interface GetRegionsOutputArgs {
+    /**
+     * If true the source will query all regions regardless of availability.
+     */
+    allRegions?: pulumi.Input<boolean>;
+    /**
+     * Configuration block(s) to use as filters. Detailed below.
+     */
+    filters?: pulumi.Input<pulumi.Input<inputs.GetRegionsFilterArgs>[]>;
+}

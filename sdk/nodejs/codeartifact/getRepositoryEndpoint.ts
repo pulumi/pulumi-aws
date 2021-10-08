@@ -75,3 +75,29 @@ export interface GetRepositoryEndpointResult {
      */
     readonly repositoryEndpoint: string;
 }
+
+export function getRepositoryEndpointOutput(args: GetRepositoryEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRepositoryEndpointResult> {
+    return pulumi.output(args).apply(a => getRepositoryEndpoint(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getRepositoryEndpoint.
+ */
+export interface GetRepositoryEndpointOutputArgs {
+    /**
+     * The name of the domain that contains the repository.
+     */
+    domain: pulumi.Input<string>;
+    /**
+     * The account number of the AWS account that owns the domain.
+     */
+    domainOwner?: pulumi.Input<string>;
+    /**
+     * Which endpoint of a repository to return. A repository has one endpoint for each package format: `npm`, `pypi`, `maven`, and `nuget`.
+     */
+    format: pulumi.Input<string>;
+    /**
+     * The name of the repository.
+     */
+    repository: pulumi.Input<string>;
+}

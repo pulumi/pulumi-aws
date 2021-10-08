@@ -167,6 +167,8 @@ func (o GroupResourceQueryPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupResourceQueryInput)(nil)).Elem(), GroupResourceQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupResourceQueryPtrInput)(nil)).Elem(), GroupResourceQueryArgs{})
 	pulumi.RegisterOutputType(GroupResourceQueryOutput{})
 	pulumi.RegisterOutputType(GroupResourceQueryPtrOutput{})
 }

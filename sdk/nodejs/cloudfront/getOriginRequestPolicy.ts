@@ -75,3 +75,21 @@ export interface GetOriginRequestPolicyResult {
      */
     readonly queryStringsConfigs: outputs.cloudfront.GetOriginRequestPolicyQueryStringsConfig[];
 }
+
+export function getOriginRequestPolicyOutput(args?: GetOriginRequestPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOriginRequestPolicyResult> {
+    return pulumi.output(args).apply(a => getOriginRequestPolicy(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getOriginRequestPolicy.
+ */
+export interface GetOriginRequestPolicyOutputArgs {
+    /**
+     * The identifier for the origin request policy.
+     */
+    id?: pulumi.Input<string>;
+    /**
+     * Unique name to identify the origin request policy.
+     */
+    name?: pulumi.Input<string>;
+}

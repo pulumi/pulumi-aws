@@ -82,3 +82,25 @@ export interface GetPortfolioResult {
      */
     readonly tags: {[key: string]: string};
 }
+
+export function getPortfolioOutput(args: GetPortfolioOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPortfolioResult> {
+    return pulumi.output(args).apply(a => getPortfolio(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getPortfolio.
+ */
+export interface GetPortfolioOutputArgs {
+    /**
+     * Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
+     */
+    acceptLanguage?: pulumi.Input<string>;
+    /**
+     * Portfolio identifier.
+     */
+    id: pulumi.Input<string>;
+    /**
+     * Tags applied to the portfolio.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+}

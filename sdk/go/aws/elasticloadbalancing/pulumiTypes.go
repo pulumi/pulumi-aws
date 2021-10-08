@@ -1036,6 +1036,20 @@ func (o GetLoadBalancerListenerArrayOutput) Index(i pulumi.IntInput) GetLoadBala
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerAccessLogsInput)(nil)).Elem(), LoadBalancerAccessLogsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerAccessLogsPtrInput)(nil)).Elem(), LoadBalancerAccessLogsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerHealthCheckInput)(nil)).Elem(), LoadBalancerHealthCheckArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerHealthCheckPtrInput)(nil)).Elem(), LoadBalancerHealthCheckArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerListenerInput)(nil)).Elem(), LoadBalancerListenerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerListenerArrayInput)(nil)).Elem(), LoadBalancerListenerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerPolicyPolicyAttributeInput)(nil)).Elem(), LoadBalancerPolicyPolicyAttributeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerPolicyPolicyAttributeArrayInput)(nil)).Elem(), LoadBalancerPolicyPolicyAttributeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SslNegotiationPolicyAttributeInput)(nil)).Elem(), SslNegotiationPolicyAttributeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SslNegotiationPolicyAttributeArrayInput)(nil)).Elem(), SslNegotiationPolicyAttributeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLoadBalancerAccessLogsInput)(nil)).Elem(), GetLoadBalancerAccessLogsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLoadBalancerHealthCheckInput)(nil)).Elem(), GetLoadBalancerHealthCheckArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLoadBalancerListenerInput)(nil)).Elem(), GetLoadBalancerListenerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLoadBalancerListenerArrayInput)(nil)).Elem(), GetLoadBalancerListenerArray{})
 	pulumi.RegisterOutputType(LoadBalancerAccessLogsOutput{})
 	pulumi.RegisterOutputType(LoadBalancerAccessLogsPtrOutput{})
 	pulumi.RegisterOutputType(LoadBalancerHealthCheckOutput{})

@@ -71,3 +71,25 @@ export interface GetAuthorizationTokenResult {
      */
     readonly id: string;
 }
+
+export function getAuthorizationTokenOutput(args: GetAuthorizationTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAuthorizationTokenResult> {
+    return pulumi.output(args).apply(a => getAuthorizationToken(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getAuthorizationToken.
+ */
+export interface GetAuthorizationTokenOutputArgs {
+    /**
+     * The name of the domain that is in scope for the generated authorization token.
+     */
+    domain: pulumi.Input<string>;
+    /**
+     * The account number of the AWS account that owns the domain.
+     */
+    domainOwner?: pulumi.Input<string>;
+    /**
+     * The time, in seconds, that the generated authorization token is valid. Valid values are `0` and between `900` and `43200`.
+     */
+    durationSeconds?: pulumi.Input<number>;
+}

@@ -1133,6 +1133,16 @@ func (o EndpointS3SettingsPtrOutput) ServiceAccessRoleArn() pulumi.StringPtrOutp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointElasticsearchSettingsInput)(nil)).Elem(), EndpointElasticsearchSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointElasticsearchSettingsPtrInput)(nil)).Elem(), EndpointElasticsearchSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointKafkaSettingsInput)(nil)).Elem(), EndpointKafkaSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointKafkaSettingsPtrInput)(nil)).Elem(), EndpointKafkaSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointKinesisSettingsInput)(nil)).Elem(), EndpointKinesisSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointKinesisSettingsPtrInput)(nil)).Elem(), EndpointKinesisSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointMongodbSettingsInput)(nil)).Elem(), EndpointMongodbSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointMongodbSettingsPtrInput)(nil)).Elem(), EndpointMongodbSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointS3SettingsInput)(nil)).Elem(), EndpointS3SettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointS3SettingsPtrInput)(nil)).Elem(), EndpointS3SettingsArgs{})
 	pulumi.RegisterOutputType(EndpointElasticsearchSettingsOutput{})
 	pulumi.RegisterOutputType(EndpointElasticsearchSettingsPtrOutput{})
 	pulumi.RegisterOutputType(EndpointKafkaSettingsOutput{})

@@ -1226,6 +1226,20 @@ func (o ScheduledActionScalableTargetActionPtrOutput) MinCapacity() pulumi.IntPt
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyStepScalingPolicyConfigurationInput)(nil)).Elem(), PolicyStepScalingPolicyConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyStepScalingPolicyConfigurationPtrInput)(nil)).Elem(), PolicyStepScalingPolicyConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyStepScalingPolicyConfigurationStepAdjustmentInput)(nil)).Elem(), PolicyStepScalingPolicyConfigurationStepAdjustmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyStepScalingPolicyConfigurationStepAdjustmentArrayInput)(nil)).Elem(), PolicyStepScalingPolicyConfigurationStepAdjustmentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyTargetTrackingScalingPolicyConfigurationInput)(nil)).Elem(), PolicyTargetTrackingScalingPolicyConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyTargetTrackingScalingPolicyConfigurationPtrInput)(nil)).Elem(), PolicyTargetTrackingScalingPolicyConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationInput)(nil)).Elem(), PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationPtrInput)(nil)).Elem(), PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimensionInput)(nil)).Elem(), PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimensionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimensionArrayInput)(nil)).Elem(), PolicyTargetTrackingScalingPolicyConfigurationCustomizedMetricSpecificationDimensionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationInput)(nil)).Elem(), PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationPtrInput)(nil)).Elem(), PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledActionScalableTargetActionInput)(nil)).Elem(), ScheduledActionScalableTargetActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledActionScalableTargetActionPtrInput)(nil)).Elem(), ScheduledActionScalableTargetActionArgs{})
 	pulumi.RegisterOutputType(PolicyStepScalingPolicyConfigurationOutput{})
 	pulumi.RegisterOutputType(PolicyStepScalingPolicyConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(PolicyStepScalingPolicyConfigurationStepAdjustmentOutput{})

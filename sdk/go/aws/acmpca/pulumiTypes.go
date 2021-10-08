@@ -1281,6 +1281,20 @@ func (o GetCertificateAuthorityRevocationConfigurationCrlConfigurationArrayOutpu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CertificateAuthorityCertificateAuthorityConfigurationInput)(nil)).Elem(), CertificateAuthorityCertificateAuthorityConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CertificateAuthorityCertificateAuthorityConfigurationPtrInput)(nil)).Elem(), CertificateAuthorityCertificateAuthorityConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CertificateAuthorityCertificateAuthorityConfigurationSubjectInput)(nil)).Elem(), CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CertificateAuthorityCertificateAuthorityConfigurationSubjectPtrInput)(nil)).Elem(), CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CertificateAuthorityRevocationConfigurationInput)(nil)).Elem(), CertificateAuthorityRevocationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CertificateAuthorityRevocationConfigurationPtrInput)(nil)).Elem(), CertificateAuthorityRevocationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CertificateAuthorityRevocationConfigurationCrlConfigurationInput)(nil)).Elem(), CertificateAuthorityRevocationConfigurationCrlConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CertificateAuthorityRevocationConfigurationCrlConfigurationPtrInput)(nil)).Elem(), CertificateAuthorityRevocationConfigurationCrlConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CertificateValidityInput)(nil)).Elem(), CertificateValidityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CertificateValidityPtrInput)(nil)).Elem(), CertificateValidityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCertificateAuthorityRevocationConfigurationInput)(nil)).Elem(), GetCertificateAuthorityRevocationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCertificateAuthorityRevocationConfigurationArrayInput)(nil)).Elem(), GetCertificateAuthorityRevocationConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCertificateAuthorityRevocationConfigurationCrlConfigurationInput)(nil)).Elem(), GetCertificateAuthorityRevocationConfigurationCrlConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetCertificateAuthorityRevocationConfigurationCrlConfigurationArrayInput)(nil)).Elem(), GetCertificateAuthorityRevocationConfigurationCrlConfigurationArray{})
 	pulumi.RegisterOutputType(CertificateAuthorityCertificateAuthorityConfigurationOutput{})
 	pulumi.RegisterOutputType(CertificateAuthorityCertificateAuthorityConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(CertificateAuthorityCertificateAuthorityConfigurationSubjectOutput{})

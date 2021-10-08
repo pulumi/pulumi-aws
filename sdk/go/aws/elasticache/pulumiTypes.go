@@ -512,6 +512,14 @@ func (o GetClusterCacheNodeArrayOutput) Index(i pulumi.IntInput) GetClusterCache
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCacheNodeInput)(nil)).Elem(), ClusterCacheNodeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCacheNodeArrayInput)(nil)).Elem(), ClusterCacheNodeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ParameterGroupParameterInput)(nil)).Elem(), ParameterGroupParameterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ParameterGroupParameterArrayInput)(nil)).Elem(), ParameterGroupParameterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationGroupClusterModeInput)(nil)).Elem(), ReplicationGroupClusterModeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationGroupClusterModePtrInput)(nil)).Elem(), ReplicationGroupClusterModeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterCacheNodeInput)(nil)).Elem(), GetClusterCacheNodeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterCacheNodeArrayInput)(nil)).Elem(), GetClusterCacheNodeArray{})
 	pulumi.RegisterOutputType(ClusterCacheNodeOutput{})
 	pulumi.RegisterOutputType(ClusterCacheNodeArrayOutput{})
 	pulumi.RegisterOutputType(ParameterGroupParameterOutput{})

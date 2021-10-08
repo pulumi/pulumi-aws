@@ -786,6 +786,16 @@ func (o UserPosixProfilePtrOutput) Uid() pulumi.IntPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessHomeDirectoryMappingInput)(nil)).Elem(), AccessHomeDirectoryMappingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessHomeDirectoryMappingArrayInput)(nil)).Elem(), AccessHomeDirectoryMappingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessPosixProfileInput)(nil)).Elem(), AccessPosixProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessPosixProfilePtrInput)(nil)).Elem(), AccessPosixProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerEndpointDetailsInput)(nil)).Elem(), ServerEndpointDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerEndpointDetailsPtrInput)(nil)).Elem(), ServerEndpointDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserHomeDirectoryMappingInput)(nil)).Elem(), UserHomeDirectoryMappingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserHomeDirectoryMappingArrayInput)(nil)).Elem(), UserHomeDirectoryMappingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPosixProfileInput)(nil)).Elem(), UserPosixProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPosixProfilePtrInput)(nil)).Elem(), UserPosixProfileArgs{})
 	pulumi.RegisterOutputType(AccessHomeDirectoryMappingOutput{})
 	pulumi.RegisterOutputType(AccessHomeDirectoryMappingArrayOutput{})
 	pulumi.RegisterOutputType(AccessPosixProfileOutput{})
