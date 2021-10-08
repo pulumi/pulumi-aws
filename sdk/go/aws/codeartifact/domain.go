@@ -46,7 +46,7 @@ import (
 type Domain struct {
 	pulumi.CustomResourceState
 
-	// The ARN of Domain.
+	// The ARN of the Domain.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The total size of all assets in the domain.
 	AssetSizeBytes pulumi.IntOutput `pulumi:"assetSizeBytes"`
@@ -98,7 +98,7 @@ func GetDomain(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Domain resources.
 type domainState struct {
-	// The ARN of Domain.
+	// The ARN of the Domain.
 	Arn *string `pulumi:"arn"`
 	// The total size of all assets in the domain.
 	AssetSizeBytes *int `pulumi:"assetSizeBytes"`
@@ -119,7 +119,7 @@ type domainState struct {
 }
 
 type DomainState struct {
-	// The ARN of Domain.
+	// The ARN of the Domain.
 	Arn pulumi.StringPtrInput
 	// The total size of all assets in the domain.
 	AssetSizeBytes pulumi.IntPtrInput

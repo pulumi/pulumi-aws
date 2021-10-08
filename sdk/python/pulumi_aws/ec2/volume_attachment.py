@@ -17,7 +17,8 @@ class VolumeAttachmentArgs:
                  instance_id: pulumi.Input[str],
                  volume_id: pulumi.Input[str],
                  force_detach: Optional[pulumi.Input[bool]] = None,
-                 skip_destroy: Optional[pulumi.Input[bool]] = None):
+                 skip_destroy: Optional[pulumi.Input[bool]] = None,
+                 stop_instance_before_detaching: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a VolumeAttachment resource.
         :param pulumi.Input[str] device_name: The device name to expose to the instance (for
@@ -33,6 +34,8 @@ class VolumeAttachmentArgs:
                time, and instead just remove the attachment from this provider state. This is
                useful when destroying an instance which has volumes created by some other
                means attached.
+        :param pulumi.Input[bool] stop_instance_before_detaching: Set this to true to ensure that the target instance is stopped
+               before trying to detach the volume. Stops the instance, if it is not already stopped.
         """
         pulumi.set(__self__, "device_name", device_name)
         pulumi.set(__self__, "instance_id", instance_id)
@@ -41,6 +44,8 @@ class VolumeAttachmentArgs:
             pulumi.set(__self__, "force_detach", force_detach)
         if skip_destroy is not None:
             pulumi.set(__self__, "skip_destroy", skip_destroy)
+        if stop_instance_before_detaching is not None:
+            pulumi.set(__self__, "stop_instance_before_detaching", stop_instance_before_detaching)
 
     @property
     @pulumi.getter(name="deviceName")
@@ -110,6 +115,19 @@ class VolumeAttachmentArgs:
     def skip_destroy(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "skip_destroy", value)
 
+    @property
+    @pulumi.getter(name="stopInstanceBeforeDetaching")
+    def stop_instance_before_detaching(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Set this to true to ensure that the target instance is stopped
+        before trying to detach the volume. Stops the instance, if it is not already stopped.
+        """
+        return pulumi.get(self, "stop_instance_before_detaching")
+
+    @stop_instance_before_detaching.setter
+    def stop_instance_before_detaching(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "stop_instance_before_detaching", value)
+
 
 @pulumi.input_type
 class _VolumeAttachmentState:
@@ -118,6 +136,7 @@ class _VolumeAttachmentState:
                  force_detach: Optional[pulumi.Input[bool]] = None,
                  instance_id: Optional[pulumi.Input[str]] = None,
                  skip_destroy: Optional[pulumi.Input[bool]] = None,
+                 stop_instance_before_detaching: Optional[pulumi.Input[bool]] = None,
                  volume_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering VolumeAttachment resources.
@@ -133,6 +152,8 @@ class _VolumeAttachmentState:
                time, and instead just remove the attachment from this provider state. This is
                useful when destroying an instance which has volumes created by some other
                means attached.
+        :param pulumi.Input[bool] stop_instance_before_detaching: Set this to true to ensure that the target instance is stopped
+               before trying to detach the volume. Stops the instance, if it is not already stopped.
         :param pulumi.Input[str] volume_id: ID of the Volume to be attached
         """
         if device_name is not None:
@@ -143,6 +164,8 @@ class _VolumeAttachmentState:
             pulumi.set(__self__, "instance_id", instance_id)
         if skip_destroy is not None:
             pulumi.set(__self__, "skip_destroy", skip_destroy)
+        if stop_instance_before_detaching is not None:
+            pulumi.set(__self__, "stop_instance_before_detaching", stop_instance_before_detaching)
         if volume_id is not None:
             pulumi.set(__self__, "volume_id", volume_id)
 
@@ -203,6 +226,19 @@ class _VolumeAttachmentState:
         pulumi.set(self, "skip_destroy", value)
 
     @property
+    @pulumi.getter(name="stopInstanceBeforeDetaching")
+    def stop_instance_before_detaching(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Set this to true to ensure that the target instance is stopped
+        before trying to detach the volume. Stops the instance, if it is not already stopped.
+        """
+        return pulumi.get(self, "stop_instance_before_detaching")
+
+    @stop_instance_before_detaching.setter
+    def stop_instance_before_detaching(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "stop_instance_before_detaching", value)
+
+    @property
     @pulumi.getter(name="volumeId")
     def volume_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -224,6 +260,7 @@ class VolumeAttachment(pulumi.CustomResource):
                  force_detach: Optional[pulumi.Input[bool]] = None,
                  instance_id: Optional[pulumi.Input[str]] = None,
                  skip_destroy: Optional[pulumi.Input[bool]] = None,
+                 stop_instance_before_detaching: Optional[pulumi.Input[bool]] = None,
                  volume_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -278,6 +315,8 @@ class VolumeAttachment(pulumi.CustomResource):
                time, and instead just remove the attachment from this provider state. This is
                useful when destroying an instance which has volumes created by some other
                means attached.
+        :param pulumi.Input[bool] stop_instance_before_detaching: Set this to true to ensure that the target instance is stopped
+               before trying to detach the volume. Stops the instance, if it is not already stopped.
         :param pulumi.Input[str] volume_id: ID of the Volume to be attached
         """
         ...
@@ -343,6 +382,7 @@ class VolumeAttachment(pulumi.CustomResource):
                  force_detach: Optional[pulumi.Input[bool]] = None,
                  instance_id: Optional[pulumi.Input[str]] = None,
                  skip_destroy: Optional[pulumi.Input[bool]] = None,
+                 stop_instance_before_detaching: Optional[pulumi.Input[bool]] = None,
                  volume_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
@@ -364,6 +404,7 @@ class VolumeAttachment(pulumi.CustomResource):
                 raise TypeError("Missing required property 'instance_id'")
             __props__.__dict__["instance_id"] = instance_id
             __props__.__dict__["skip_destroy"] = skip_destroy
+            __props__.__dict__["stop_instance_before_detaching"] = stop_instance_before_detaching
             if volume_id is None and not opts.urn:
                 raise TypeError("Missing required property 'volume_id'")
             __props__.__dict__["volume_id"] = volume_id
@@ -381,6 +422,7 @@ class VolumeAttachment(pulumi.CustomResource):
             force_detach: Optional[pulumi.Input[bool]] = None,
             instance_id: Optional[pulumi.Input[str]] = None,
             skip_destroy: Optional[pulumi.Input[bool]] = None,
+            stop_instance_before_detaching: Optional[pulumi.Input[bool]] = None,
             volume_id: Optional[pulumi.Input[str]] = None) -> 'VolumeAttachment':
         """
         Get an existing VolumeAttachment resource's state with the given name, id, and optional extra
@@ -401,6 +443,8 @@ class VolumeAttachment(pulumi.CustomResource):
                time, and instead just remove the attachment from this provider state. This is
                useful when destroying an instance which has volumes created by some other
                means attached.
+        :param pulumi.Input[bool] stop_instance_before_detaching: Set this to true to ensure that the target instance is stopped
+               before trying to detach the volume. Stops the instance, if it is not already stopped.
         :param pulumi.Input[str] volume_id: ID of the Volume to be attached
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -411,6 +455,7 @@ class VolumeAttachment(pulumi.CustomResource):
         __props__.__dict__["force_detach"] = force_detach
         __props__.__dict__["instance_id"] = instance_id
         __props__.__dict__["skip_destroy"] = skip_destroy
+        __props__.__dict__["stop_instance_before_detaching"] = stop_instance_before_detaching
         __props__.__dict__["volume_id"] = volume_id
         return VolumeAttachment(resource_name, opts=opts, __props__=__props__)
 
@@ -453,6 +498,15 @@ class VolumeAttachment(pulumi.CustomResource):
         means attached.
         """
         return pulumi.get(self, "skip_destroy")
+
+    @property
+    @pulumi.getter(name="stopInstanceBeforeDetaching")
+    def stop_instance_before_detaching(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Set this to true to ensure that the target instance is stopped
+        before trying to detach the volume. Stops the instance, if it is not already stopped.
+        """
+        return pulumi.get(self, "stop_instance_before_detaching")
 
     @property
     @pulumi.getter(name="volumeId")

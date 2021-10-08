@@ -18,11 +18,11 @@ namespace Pulumi.Aws.Emr.Outputs
         /// </summary>
         public readonly ImmutableArray<string> Args;
         /// <summary>
-        /// Friendly name given to the instance fleet.
+        /// Name of the step.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Location of the script to run during a bootstrap action. Can be either a location in Amazon S3 or on a local file system
+        /// Location of the script to run during a bootstrap action. Can be either a location in Amazon S3 or on a local file system.
         /// </summary>
         public readonly string Path;
 

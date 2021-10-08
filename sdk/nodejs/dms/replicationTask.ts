@@ -66,6 +66,10 @@ export class ReplicationTask extends pulumi.CustomResource {
     }
 
     /**
+     * Indicates when you want a change data capture (CDC) operation to start. The value can be in date, checkpoint, or LSN/SCN format depending on the source engine. For more information, see [Determining a CDC native start point](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Task.CDC.html#CHAP_Task.CDC.StartPoint.Native).
+     */
+    public readonly cdcStartPosition!: pulumi.Output<string | undefined>;
+    /**
      * The Unix timestamp integer for the start of the Change Data Capture (CDC) operation.
      */
     public readonly cdcStartTime!: pulumi.Output<string | undefined>;
@@ -123,6 +127,7 @@ export class ReplicationTask extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ReplicationTaskState | undefined;
+            inputs["cdcStartPosition"] = state ? state.cdcStartPosition : undefined;
             inputs["cdcStartTime"] = state ? state.cdcStartTime : undefined;
             inputs["migrationType"] = state ? state.migrationType : undefined;
             inputs["replicationInstanceArn"] = state ? state.replicationInstanceArn : undefined;
@@ -154,6 +159,7 @@ export class ReplicationTask extends pulumi.CustomResource {
             if ((!args || args.targetEndpointArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetEndpointArn'");
             }
+            inputs["cdcStartPosition"] = args ? args.cdcStartPosition : undefined;
             inputs["cdcStartTime"] = args ? args.cdcStartTime : undefined;
             inputs["migrationType"] = args ? args.migrationType : undefined;
             inputs["replicationInstanceArn"] = args ? args.replicationInstanceArn : undefined;
@@ -177,6 +183,10 @@ export class ReplicationTask extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ReplicationTask resources.
  */
 export interface ReplicationTaskState {
+    /**
+     * Indicates when you want a change data capture (CDC) operation to start. The value can be in date, checkpoint, or LSN/SCN format depending on the source engine. For more information, see [Determining a CDC native start point](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Task.CDC.html#CHAP_Task.CDC.StartPoint.Native).
+     */
+    cdcStartPosition?: pulumi.Input<string>;
     /**
      * The Unix timestamp integer for the start of the Change Data Capture (CDC) operation.
      */
@@ -227,6 +237,10 @@ export interface ReplicationTaskState {
  * The set of arguments for constructing a ReplicationTask resource.
  */
 export interface ReplicationTaskArgs {
+    /**
+     * Indicates when you want a change data capture (CDC) operation to start. The value can be in date, checkpoint, or LSN/SCN format depending on the source engine. For more information, see [Determining a CDC native start point](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Task.CDC.html#CHAP_Task.CDC.StartPoint.Native).
+     */
+    cdcStartPosition?: pulumi.Input<string>;
     /**
      * The Unix timestamp integer for the start of the Change Data Capture (CDC) operation.
      */

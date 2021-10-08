@@ -89,12 +89,76 @@ class EndpointElasticsearchSettingsArgs:
 class EndpointKafkaSettingsArgs:
     def __init__(__self__, *,
                  broker: pulumi.Input[str],
+                 include_control_details: Optional[pulumi.Input[bool]] = None,
+                 include_null_and_empty: Optional[pulumi.Input[bool]] = None,
+                 include_partition_value: Optional[pulumi.Input[bool]] = None,
+                 include_table_alter_operations: Optional[pulumi.Input[bool]] = None,
+                 include_transaction_details: Optional[pulumi.Input[bool]] = None,
+                 message_format: Optional[pulumi.Input[str]] = None,
+                 message_max_bytes: Optional[pulumi.Input[int]] = None,
+                 no_hex_prefix: Optional[pulumi.Input[bool]] = None,
+                 partition_include_schema_table: Optional[pulumi.Input[bool]] = None,
+                 sasl_password: Optional[pulumi.Input[str]] = None,
+                 sasl_username: Optional[pulumi.Input[str]] = None,
+                 security_protocol: Optional[pulumi.Input[str]] = None,
+                 ssl_ca_certificate_arn: Optional[pulumi.Input[str]] = None,
+                 ssl_client_certificate_arn: Optional[pulumi.Input[str]] = None,
+                 ssl_client_key_arn: Optional[pulumi.Input[str]] = None,
+                 ssl_client_key_password: Optional[pulumi.Input[str]] = None,
                  topic: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] broker: Kafka broker location. Specify in the form broker-hostname-or-ip:port.
+        :param pulumi.Input[bool] include_control_details: Shows detailed control information for table definition, column definition, and table and column changes in the Kafka message output. The default is `false`.
+        :param pulumi.Input[bool] include_null_and_empty: Include NULL and empty columns for records migrated to the endpoint. The default is `false`.
+        :param pulumi.Input[bool] include_partition_value: Shows the partition value within the Kafka message output unless the partition type is `schema-table-type`. The default is `false`.
+        :param pulumi.Input[bool] include_table_alter_operations: Includes any data definition language (DDL) operations that change the table in the control data, such as `rename-table`, `drop-table`, `add-column`, `drop-column`, and `rename-column`. The default is `false`.
+        :param pulumi.Input[bool] include_transaction_details: Provides detailed transaction information from the source database. This information includes a commit timestamp, a log position, and values for `transaction_id`, previous `transaction_id`, and `transaction_record_id` (the record offset within a transaction). The default is `false`.
+        :param pulumi.Input[str] message_format: The output format for the records created on the endpoint. The message format is `JSON` (default) or `JSON_UNFORMATTED` (a single line with no tab).
+        :param pulumi.Input[int] message_max_bytes: The maximum size in bytes for records created on the endpoint The default is `1,000,000`.
+        :param pulumi.Input[bool] no_hex_prefix: Set this optional parameter to true to avoid adding a '0x' prefix to raw data in hexadecimal format. For example, by default, AWS DMS adds a '0x' prefix to the LOB column type in hexadecimal format moving from an Oracle source to a Kafka target. Use the `no_hex_prefix` endpoint setting to enable migration of RAW data type columns without adding the `'0x'` prefix.
+        :param pulumi.Input[bool] partition_include_schema_table: Prefixes schema and table names to partition values, when the partition type is `primary-key-type`. Doing this increases data distribution among Kafka partitions. For example, suppose that a SysBench schema has thousands of tables and each table has only limited range for a primary key. In this case, the same primary key is sent from thousands of tables to the same partition, which causes throttling. The default is `false`.
+        :param pulumi.Input[str] sasl_password: The secure password you created when you first set up your MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
+        :param pulumi.Input[str] sasl_username: The secure user name you created when you first set up your MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
+        :param pulumi.Input[str] security_protocol: Set secure connection to a Kafka target endpoint using Transport Layer Security (TLS). Options include `ssl-encryption`, `ssl-authentication`, and `sasl-ssl`. `sasl-ssl` requires `sasl_username` and `sasl_password`.
+        :param pulumi.Input[str] ssl_ca_certificate_arn: The Amazon Resource Name (ARN) for the private certificate authority (CA) cert that AWS DMS uses to securely connect to your Kafka target endpoint.
+        :param pulumi.Input[str] ssl_client_certificate_arn: The Amazon Resource Name (ARN) of the client certificate used to securely connect to a Kafka target endpoint.
+        :param pulumi.Input[str] ssl_client_key_arn: The Amazon Resource Name (ARN) for the client private key used to securely connect to a Kafka target endpoint.
+        :param pulumi.Input[str] ssl_client_key_password: The password for the client private key used to securely connect to a Kafka target endpoint.
         :param pulumi.Input[str] topic: Kafka topic for migration. Defaults to `kafka-default-topic`.
         """
         pulumi.set(__self__, "broker", broker)
+        if include_control_details is not None:
+            pulumi.set(__self__, "include_control_details", include_control_details)
+        if include_null_and_empty is not None:
+            pulumi.set(__self__, "include_null_and_empty", include_null_and_empty)
+        if include_partition_value is not None:
+            pulumi.set(__self__, "include_partition_value", include_partition_value)
+        if include_table_alter_operations is not None:
+            pulumi.set(__self__, "include_table_alter_operations", include_table_alter_operations)
+        if include_transaction_details is not None:
+            pulumi.set(__self__, "include_transaction_details", include_transaction_details)
+        if message_format is not None:
+            pulumi.set(__self__, "message_format", message_format)
+        if message_max_bytes is not None:
+            pulumi.set(__self__, "message_max_bytes", message_max_bytes)
+        if no_hex_prefix is not None:
+            pulumi.set(__self__, "no_hex_prefix", no_hex_prefix)
+        if partition_include_schema_table is not None:
+            pulumi.set(__self__, "partition_include_schema_table", partition_include_schema_table)
+        if sasl_password is not None:
+            pulumi.set(__self__, "sasl_password", sasl_password)
+        if sasl_username is not None:
+            pulumi.set(__self__, "sasl_username", sasl_username)
+        if security_protocol is not None:
+            pulumi.set(__self__, "security_protocol", security_protocol)
+        if ssl_ca_certificate_arn is not None:
+            pulumi.set(__self__, "ssl_ca_certificate_arn", ssl_ca_certificate_arn)
+        if ssl_client_certificate_arn is not None:
+            pulumi.set(__self__, "ssl_client_certificate_arn", ssl_client_certificate_arn)
+        if ssl_client_key_arn is not None:
+            pulumi.set(__self__, "ssl_client_key_arn", ssl_client_key_arn)
+        if ssl_client_key_password is not None:
+            pulumi.set(__self__, "ssl_client_key_password", ssl_client_key_password)
         if topic is not None:
             pulumi.set(__self__, "topic", topic)
 
@@ -109,6 +173,198 @@ class EndpointKafkaSettingsArgs:
     @broker.setter
     def broker(self, value: pulumi.Input[str]):
         pulumi.set(self, "broker", value)
+
+    @property
+    @pulumi.getter(name="includeControlDetails")
+    def include_control_details(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Shows detailed control information for table definition, column definition, and table and column changes in the Kafka message output. The default is `false`.
+        """
+        return pulumi.get(self, "include_control_details")
+
+    @include_control_details.setter
+    def include_control_details(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "include_control_details", value)
+
+    @property
+    @pulumi.getter(name="includeNullAndEmpty")
+    def include_null_and_empty(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Include NULL and empty columns for records migrated to the endpoint. The default is `false`.
+        """
+        return pulumi.get(self, "include_null_and_empty")
+
+    @include_null_and_empty.setter
+    def include_null_and_empty(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "include_null_and_empty", value)
+
+    @property
+    @pulumi.getter(name="includePartitionValue")
+    def include_partition_value(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Shows the partition value within the Kafka message output unless the partition type is `schema-table-type`. The default is `false`.
+        """
+        return pulumi.get(self, "include_partition_value")
+
+    @include_partition_value.setter
+    def include_partition_value(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "include_partition_value", value)
+
+    @property
+    @pulumi.getter(name="includeTableAlterOperations")
+    def include_table_alter_operations(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Includes any data definition language (DDL) operations that change the table in the control data, such as `rename-table`, `drop-table`, `add-column`, `drop-column`, and `rename-column`. The default is `false`.
+        """
+        return pulumi.get(self, "include_table_alter_operations")
+
+    @include_table_alter_operations.setter
+    def include_table_alter_operations(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "include_table_alter_operations", value)
+
+    @property
+    @pulumi.getter(name="includeTransactionDetails")
+    def include_transaction_details(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Provides detailed transaction information from the source database. This information includes a commit timestamp, a log position, and values for `transaction_id`, previous `transaction_id`, and `transaction_record_id` (the record offset within a transaction). The default is `false`.
+        """
+        return pulumi.get(self, "include_transaction_details")
+
+    @include_transaction_details.setter
+    def include_transaction_details(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "include_transaction_details", value)
+
+    @property
+    @pulumi.getter(name="messageFormat")
+    def message_format(self) -> Optional[pulumi.Input[str]]:
+        """
+        The output format for the records created on the endpoint. The message format is `JSON` (default) or `JSON_UNFORMATTED` (a single line with no tab).
+        """
+        return pulumi.get(self, "message_format")
+
+    @message_format.setter
+    def message_format(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "message_format", value)
+
+    @property
+    @pulumi.getter(name="messageMaxBytes")
+    def message_max_bytes(self) -> Optional[pulumi.Input[int]]:
+        """
+        The maximum size in bytes for records created on the endpoint The default is `1,000,000`.
+        """
+        return pulumi.get(self, "message_max_bytes")
+
+    @message_max_bytes.setter
+    def message_max_bytes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "message_max_bytes", value)
+
+    @property
+    @pulumi.getter(name="noHexPrefix")
+    def no_hex_prefix(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Set this optional parameter to true to avoid adding a '0x' prefix to raw data in hexadecimal format. For example, by default, AWS DMS adds a '0x' prefix to the LOB column type in hexadecimal format moving from an Oracle source to a Kafka target. Use the `no_hex_prefix` endpoint setting to enable migration of RAW data type columns without adding the `'0x'` prefix.
+        """
+        return pulumi.get(self, "no_hex_prefix")
+
+    @no_hex_prefix.setter
+    def no_hex_prefix(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "no_hex_prefix", value)
+
+    @property
+    @pulumi.getter(name="partitionIncludeSchemaTable")
+    def partition_include_schema_table(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Prefixes schema and table names to partition values, when the partition type is `primary-key-type`. Doing this increases data distribution among Kafka partitions. For example, suppose that a SysBench schema has thousands of tables and each table has only limited range for a primary key. In this case, the same primary key is sent from thousands of tables to the same partition, which causes throttling. The default is `false`.
+        """
+        return pulumi.get(self, "partition_include_schema_table")
+
+    @partition_include_schema_table.setter
+    def partition_include_schema_table(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "partition_include_schema_table", value)
+
+    @property
+    @pulumi.getter(name="saslPassword")
+    def sasl_password(self) -> Optional[pulumi.Input[str]]:
+        """
+        The secure password you created when you first set up your MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
+        """
+        return pulumi.get(self, "sasl_password")
+
+    @sasl_password.setter
+    def sasl_password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sasl_password", value)
+
+    @property
+    @pulumi.getter(name="saslUsername")
+    def sasl_username(self) -> Optional[pulumi.Input[str]]:
+        """
+        The secure user name you created when you first set up your MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
+        """
+        return pulumi.get(self, "sasl_username")
+
+    @sasl_username.setter
+    def sasl_username(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "sasl_username", value)
+
+    @property
+    @pulumi.getter(name="securityProtocol")
+    def security_protocol(self) -> Optional[pulumi.Input[str]]:
+        """
+        Set secure connection to a Kafka target endpoint using Transport Layer Security (TLS). Options include `ssl-encryption`, `ssl-authentication`, and `sasl-ssl`. `sasl-ssl` requires `sasl_username` and `sasl_password`.
+        """
+        return pulumi.get(self, "security_protocol")
+
+    @security_protocol.setter
+    def security_protocol(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "security_protocol", value)
+
+    @property
+    @pulumi.getter(name="sslCaCertificateArn")
+    def ssl_ca_certificate_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) for the private certificate authority (CA) cert that AWS DMS uses to securely connect to your Kafka target endpoint.
+        """
+        return pulumi.get(self, "ssl_ca_certificate_arn")
+
+    @ssl_ca_certificate_arn.setter
+    def ssl_ca_certificate_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ssl_ca_certificate_arn", value)
+
+    @property
+    @pulumi.getter(name="sslClientCertificateArn")
+    def ssl_client_certificate_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the client certificate used to securely connect to a Kafka target endpoint.
+        """
+        return pulumi.get(self, "ssl_client_certificate_arn")
+
+    @ssl_client_certificate_arn.setter
+    def ssl_client_certificate_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ssl_client_certificate_arn", value)
+
+    @property
+    @pulumi.getter(name="sslClientKeyArn")
+    def ssl_client_key_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) for the client private key used to securely connect to a Kafka target endpoint.
+        """
+        return pulumi.get(self, "ssl_client_key_arn")
+
+    @ssl_client_key_arn.setter
+    def ssl_client_key_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ssl_client_key_arn", value)
+
+    @property
+    @pulumi.getter(name="sslClientKeyPassword")
+    def ssl_client_key_password(self) -> Optional[pulumi.Input[str]]:
+        """
+        The password for the client private key used to securely connect to a Kafka target endpoint.
+        """
+        return pulumi.get(self, "ssl_client_key_password")
+
+    @ssl_client_key_password.setter
+    def ssl_client_key_password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ssl_client_key_password", value)
 
     @property
     @pulumi.getter

@@ -12,7 +12,7 @@ namespace Pulumi.Aws.DirectConnect
     /// <summary>
     /// Provides a Direct Connect LAG. Connections can be added to the LAG via the `aws.directconnect.Connection` and `aws.directconnect.ConnectionAssociation` resources.
     /// 
-    /// &gt; *NOTE:* When creating a LAG, Direct Connect requires creating a Connection. This provider will remove this unmanaged connection during resource creation.
+    /// &gt; *NOTE:* When creating a LAG, if no existing connection is specified, Direct Connect will create a connection and this provider will remove this unmanaged connection during resource creation.
     /// 
     /// ## Example Usage
     /// 
@@ -51,6 +51,12 @@ namespace Pulumi.Aws.DirectConnect
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
+        /// The ID of an existing dedicated connection to migrate to the LAG.
+        /// </summary>
+        [Output("connectionId")]
+        public Output<string?> ConnectionId { get; private set; } = null!;
 
         /// <summary>
         /// The bandwidth of the individual physical connections bundled by the LAG. Valid values: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, 10Gbps and 100Gbps. Case sensitive.
@@ -156,6 +162,12 @@ namespace Pulumi.Aws.DirectConnect
     public sealed class LinkAggregationGroupArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The ID of an existing dedicated connection to migrate to the LAG.
+        /// </summary>
+        [Input("connectionId")]
+        public Input<string>? ConnectionId { get; set; }
+
+        /// <summary>
         /// The bandwidth of the individual physical connections bundled by the LAG. Valid values: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, 10Gbps and 100Gbps. Case sensitive.
         /// </summary>
         [Input("connectionsBandwidth", required: true)]
@@ -221,6 +233,12 @@ namespace Pulumi.Aws.DirectConnect
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
+
+        /// <summary>
+        /// The ID of an existing dedicated connection to migrate to the LAG.
+        /// </summary>
+        [Input("connectionId")]
+        public Input<string>? ConnectionId { get; set; }
 
         /// <summary>
         /// The bandwidth of the individual physical connections bundled by the LAG. Valid values: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, 10Gbps and 100Gbps. Case sensitive.

@@ -13,6 +13,7 @@ import * as utilities from "../utilities";
  * schema version you must recreate the resource.
  *
  * ## Example Usage
+ * ### Create an ssm document in JSON format
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -37,6 +38,27 @@ import * as utilities from "../utilities";
  *     }
  *   }
  * `,
+ *     documentType: "Command",
+ * });
+ * ```
+ * ### Create an ssm document in YAML format
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const foo = new aws.ssm.Document("foo", {
+ *     content: `schemaVersion: '1.2'
+ * description: Check ip configuration of a Linux instance.
+ * parameters: {}
+ * runtimeConfig:
+ *   'aws:runShellScript':
+ *     properties:
+ *       - id: '0.aws:runShellScript'
+ *         runCommand:
+ *           - ifconfig
+ * `,
+ *     documentFormat: "YAML",
  *     documentType: "Command",
  * });
  * ```

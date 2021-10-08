@@ -435,6 +435,13 @@ namespace Pulumi.Aws.Rds
         [Output("publiclyAccessible")]
         public Output<bool?> PubliclyAccessible { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies whether the replica is in either `mounted` or `open-read-only` mode. This attribute
+        /// is only supported by Oracle instances. Oracle replicas operate in `open-read-only` mode unless otherwise specified. See [Working with Oracle Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html) for more information.
+        /// </summary>
+        [Output("replicaMode")]
+        public Output<string?> ReplicaMode { get; private set; } = null!;
+
         [Output("replicas")]
         public Output<ImmutableArray<string>> Replicas { get; private set; } = null!;
 
@@ -913,6 +920,13 @@ namespace Pulumi.Aws.Rds
         public Input<bool>? PubliclyAccessible { get; set; }
 
         /// <summary>
+        /// Specifies whether the replica is in either `mounted` or `open-read-only` mode. This attribute
+        /// is only supported by Oracle instances. Oracle replicas operate in `open-read-only` mode unless otherwise specified. See [Working with Oracle Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html) for more information.
+        /// </summary>
+        [Input("replicaMode")]
+        public Input<string>? ReplicaMode { get; set; }
+
+        /// <summary>
         /// Specifies that this resource is a Replicate
         /// database, and to use this value as the source database. This correlates to the
         /// `identifier` of another Amazon RDS Database to replicate (if replicating within
@@ -1383,6 +1397,13 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         [Input("publiclyAccessible")]
         public Input<bool>? PubliclyAccessible { get; set; }
+
+        /// <summary>
+        /// Specifies whether the replica is in either `mounted` or `open-read-only` mode. This attribute
+        /// is only supported by Oracle instances. Oracle replicas operate in `open-read-only` mode unless otherwise specified. See [Working with Oracle Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html) for more information.
+        /// </summary>
+        [Input("replicaMode")]
+        public Input<string>? ReplicaMode { get; set; }
 
         [Input("replicas")]
         private InputList<string>? _replicas;

@@ -43,7 +43,7 @@ namespace Pulumi.Aws.CodeArtifact
     public partial class Domain : Pulumi.CustomResource
     {
         /// <summary>
-        /// The ARN of Domain.
+        /// The ARN of the Domain.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -174,7 +174,7 @@ namespace Pulumi.Aws.CodeArtifact
     public sealed class DomainState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of Domain.
+        /// The ARN of the Domain.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

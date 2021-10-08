@@ -104,6 +104,32 @@ namespace Pulumi.Aws.CloudFormation
     /// 
     /// }
     /// ```
+    /// ### Example Deployment across Organizations account
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.CloudFormation.StackSetInstance("example", new Aws.CloudFormation.StackSetInstanceArgs
+    ///         {
+    ///             DeploymentTargets = new Aws.CloudFormation.Inputs.StackSetInstanceDeploymentTargetsArgs
+    ///             {
+    ///                 OrganizationalUnitIds = 
+    ///                 {
+    ///                     aws_organizations_organization.Example.Roots[0].Id,
+    ///                 },
+    ///             },
+    ///             Region = "us-east-1",
+    ///             StackSetName = aws_cloudformation_stack_set.Example.Name,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// 
     /// ## Import
     /// 
@@ -121,6 +147,18 @@ namespace Pulumi.Aws.CloudFormation
         /// </summary>
         [Output("accountId")]
         public Output<string> AccountId { get; private set; } = null!;
+
+        /// <summary>
+        /// The AWS Organizations accounts to which StackSets deploys. StackSets doesn't deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for this argument. See deployment_targets below.
+        /// </summary>
+        [Output("deploymentTargets")]
+        public Output<Outputs.StackSetInstanceDeploymentTargets?> DeploymentTargets { get; private set; } = null!;
+
+        /// <summary>
+        /// The organization root ID or organizational unit (OU) IDs specified for `deployment_targets`.
+        /// </summary>
+        [Output("organizationalUnitId")]
+        public Output<string> OrganizationalUnitId { get; private set; } = null!;
 
         /// <summary>
         /// Key-value map of input parameters to override from the StackSet for this Instance.
@@ -204,6 +242,12 @@ namespace Pulumi.Aws.CloudFormation
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
+        /// <summary>
+        /// The AWS Organizations accounts to which StackSets deploys. StackSets doesn't deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for this argument. See deployment_targets below.
+        /// </summary>
+        [Input("deploymentTargets")]
+        public Input<Inputs.StackSetInstanceDeploymentTargetsArgs>? DeploymentTargets { get; set; }
+
         [Input("parameterOverrides")]
         private InputMap<string>? _parameterOverrides;
 
@@ -246,6 +290,18 @@ namespace Pulumi.Aws.CloudFormation
         /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
+
+        /// <summary>
+        /// The AWS Organizations accounts to which StackSets deploys. StackSets doesn't deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for this argument. See deployment_targets below.
+        /// </summary>
+        [Input("deploymentTargets")]
+        public Input<Inputs.StackSetInstanceDeploymentTargetsGetArgs>? DeploymentTargets { get; set; }
+
+        /// <summary>
+        /// The organization root ID or organizational unit (OU) IDs specified for `deployment_targets`.
+        /// </summary>
+        [Input("organizationalUnitId")]
+        public Input<string>? OrganizationalUnitId { get; set; }
 
         [Input("parameterOverrides")]
         private InputMap<string>? _parameterOverrides;

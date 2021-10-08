@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Emr.Outputs
         /// </summary>
         public readonly string? MainClass;
         /// <summary>
-        /// A map of properties specified within a configuration classification
+        /// Key-Value map of Java properties that are set when the step runs. You can use these properties to pass key value pairs to your main function.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Properties;
 

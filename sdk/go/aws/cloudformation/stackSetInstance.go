@@ -41,6 +41,34 @@ import (
 // 	})
 // }
 // ```
+// ### Example Deployment across Organizations account
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/cloudformation"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := cloudformation.NewStackSetInstance(ctx, "example", &cloudformation.StackSetInstanceArgs{
+// 			DeploymentTargets: &cloudformation.StackSetInstanceDeploymentTargetsArgs{
+// 				OrganizationalUnitIds: pulumi.StringArray{
+// 					pulumi.Any(aws_organizations_organization.Example.Roots[0].Id),
+// 				},
+// 			},
+// 			Region:       pulumi.String("us-east-1"),
+// 			StackSetName: pulumi.Any(aws_cloudformation_stack_set.Example.Name),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 //
 // ## Import
 //
@@ -54,6 +82,10 @@ type StackSetInstance struct {
 
 	// Target AWS Account ID to create a Stack based on the StackSet. Defaults to current account.
 	AccountId pulumi.StringOutput `pulumi:"accountId"`
+	// The AWS Organizations accounts to which StackSets deploys. StackSets doesn't deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for this argument. See deploymentTargets below.
+	DeploymentTargets StackSetInstanceDeploymentTargetsPtrOutput `pulumi:"deploymentTargets"`
+	// The organization root ID or organizational unit (OU) IDs specified for `deploymentTargets`.
+	OrganizationalUnitId pulumi.StringOutput `pulumi:"organizationalUnitId"`
 	// Key-value map of input parameters to override from the StackSet for this Instance.
 	ParameterOverrides pulumi.StringMapOutput `pulumi:"parameterOverrides"`
 	// Target AWS Region to create a Stack based on the StackSet. Defaults to current region.
@@ -100,6 +132,10 @@ func GetStackSetInstance(ctx *pulumi.Context,
 type stackSetInstanceState struct {
 	// Target AWS Account ID to create a Stack based on the StackSet. Defaults to current account.
 	AccountId *string `pulumi:"accountId"`
+	// The AWS Organizations accounts to which StackSets deploys. StackSets doesn't deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for this argument. See deploymentTargets below.
+	DeploymentTargets *StackSetInstanceDeploymentTargets `pulumi:"deploymentTargets"`
+	// The organization root ID or organizational unit (OU) IDs specified for `deploymentTargets`.
+	OrganizationalUnitId *string `pulumi:"organizationalUnitId"`
 	// Key-value map of input parameters to override from the StackSet for this Instance.
 	ParameterOverrides map[string]string `pulumi:"parameterOverrides"`
 	// Target AWS Region to create a Stack based on the StackSet. Defaults to current region.
@@ -115,6 +151,10 @@ type stackSetInstanceState struct {
 type StackSetInstanceState struct {
 	// Target AWS Account ID to create a Stack based on the StackSet. Defaults to current account.
 	AccountId pulumi.StringPtrInput
+	// The AWS Organizations accounts to which StackSets deploys. StackSets doesn't deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for this argument. See deploymentTargets below.
+	DeploymentTargets StackSetInstanceDeploymentTargetsPtrInput
+	// The organization root ID or organizational unit (OU) IDs specified for `deploymentTargets`.
+	OrganizationalUnitId pulumi.StringPtrInput
 	// Key-value map of input parameters to override from the StackSet for this Instance.
 	ParameterOverrides pulumi.StringMapInput
 	// Target AWS Region to create a Stack based on the StackSet. Defaults to current region.
@@ -134,6 +174,8 @@ func (StackSetInstanceState) ElementType() reflect.Type {
 type stackSetInstanceArgs struct {
 	// Target AWS Account ID to create a Stack based on the StackSet. Defaults to current account.
 	AccountId *string `pulumi:"accountId"`
+	// The AWS Organizations accounts to which StackSets deploys. StackSets doesn't deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for this argument. See deploymentTargets below.
+	DeploymentTargets *StackSetInstanceDeploymentTargets `pulumi:"deploymentTargets"`
 	// Key-value map of input parameters to override from the StackSet for this Instance.
 	ParameterOverrides map[string]string `pulumi:"parameterOverrides"`
 	// Target AWS Region to create a Stack based on the StackSet. Defaults to current region.
@@ -148,6 +190,8 @@ type stackSetInstanceArgs struct {
 type StackSetInstanceArgs struct {
 	// Target AWS Account ID to create a Stack based on the StackSet. Defaults to current account.
 	AccountId pulumi.StringPtrInput
+	// The AWS Organizations accounts to which StackSets deploys. StackSets doesn't deploy stack instances to the organization management account, even if the organization management account is in your organization or in an OU in your organization. Drift detection is not possible for this argument. See deploymentTargets below.
+	DeploymentTargets StackSetInstanceDeploymentTargetsPtrInput
 	// Key-value map of input parameters to override from the StackSet for this Instance.
 	ParameterOverrides pulumi.StringMapInput
 	// Target AWS Region to create a Stack based on the StackSet. Defaults to current region.

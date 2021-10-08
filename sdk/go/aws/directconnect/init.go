@@ -27,12 +27,16 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Connection{}
 	case "aws:directconnect/connectionAssociation:ConnectionAssociation":
 		r = &ConnectionAssociation{}
+	case "aws:directconnect/connectionConfirmation:ConnectionConfirmation":
+		r = &ConnectionConfirmation{}
 	case "aws:directconnect/gateway:Gateway":
 		r = &Gateway{}
 	case "aws:directconnect/gatewayAssociation:GatewayAssociation":
 		r = &GatewayAssociation{}
 	case "aws:directconnect/gatewayAssociationProposal:GatewayAssociationProposal":
 		r = &GatewayAssociationProposal{}
+	case "aws:directconnect/hostedConnection:HostedConnection":
+		r = &HostedConnection{}
 	case "aws:directconnect/hostedPrivateVirtualInterface:HostedPrivateVirtualInterface":
 		r = &HostedPrivateVirtualInterface{}
 	case "aws:directconnect/hostedPrivateVirtualInterfaceAccepter:HostedPrivateVirtualInterfaceAccepter":
@@ -83,6 +87,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"aws",
+		"directconnect/connectionConfirmation",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
 		"directconnect/gateway",
 		&module{version},
 	)
@@ -94,6 +103,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"directconnect/gatewayAssociationProposal",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"directconnect/hostedConnection",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

@@ -483,6 +483,7 @@ class Association(pulumi.CustomResource):
         Associates an SSM Document to an instance or EC2 tag.
 
         ## Example Usage
+        ### Create an association for a specific instance
 
         ```python
         import pulumi
@@ -491,6 +492,32 @@ class Association(pulumi.CustomResource):
         example = aws.ssm.Association("example", targets=[aws.ssm.AssociationTargetArgs(
             key="InstanceIds",
             values=[aws_instance["example"]["id"]],
+        )])
+        ```
+        ### Create an association for all managed instances in an AWS account
+
+        To target all managed instances in an AWS account, set the `key` as `"InstanceIds"` with `values` set as `["*"]`. This example also illustrates how to use an Amazon owned SSM document named `AmazonCloudWatch-ManageAgent`.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ssm.Association("example", targets=[aws.ssm.AssociationTargetArgs(
+            key="InstanceIds",
+            values=["*"],
+        )])
+        ```
+        ### Create an association for a specific tag
+
+        This example shows how to target all managed instances that are assigned a tag key of `Environment` and value of `Development`.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ssm.Association("example", targets=[aws.ssm.AssociationTargetArgs(
+            key="tag:Environment",
+            values=["Development"],
         )])
         ```
 
@@ -528,6 +555,7 @@ class Association(pulumi.CustomResource):
         Associates an SSM Document to an instance or EC2 tag.
 
         ## Example Usage
+        ### Create an association for a specific instance
 
         ```python
         import pulumi
@@ -536,6 +564,32 @@ class Association(pulumi.CustomResource):
         example = aws.ssm.Association("example", targets=[aws.ssm.AssociationTargetArgs(
             key="InstanceIds",
             values=[aws_instance["example"]["id"]],
+        )])
+        ```
+        ### Create an association for all managed instances in an AWS account
+
+        To target all managed instances in an AWS account, set the `key` as `"InstanceIds"` with `values` set as `["*"]`. This example also illustrates how to use an Amazon owned SSM document named `AmazonCloudWatch-ManageAgent`.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ssm.Association("example", targets=[aws.ssm.AssociationTargetArgs(
+            key="InstanceIds",
+            values=["*"],
+        )])
+        ```
+        ### Create an association for a specific tag
+
+        This example shows how to target all managed instances that are assigned a tag key of `Environment` and value of `Development`.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ssm.Association("example", targets=[aws.ssm.AssociationTargetArgs(
+            key="tag:Environment",
+            values=["Development"],
         )])
         ```
 

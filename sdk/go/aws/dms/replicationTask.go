@@ -58,6 +58,8 @@ import (
 type ReplicationTask struct {
 	pulumi.CustomResourceState
 
+	// Indicates when you want a change data capture (CDC) operation to start. The value can be in date, checkpoint, or LSN/SCN format depending on the source engine. For more information, see [Determining a CDC native start point](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Task.CDC.html#CHAP_Task.CDC.StartPoint.Native).
+	CdcStartPosition pulumi.StringPtrOutput `pulumi:"cdcStartPosition"`
 	// The Unix timestamp integer for the start of the Change Data Capture (CDC) operation.
 	CdcStartTime pulumi.StringPtrOutput `pulumi:"cdcStartTime"`
 	// The migration type. Can be one of `full-load | cdc | full-load-and-cdc`.
@@ -129,6 +131,8 @@ func GetReplicationTask(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ReplicationTask resources.
 type replicationTaskState struct {
+	// Indicates when you want a change data capture (CDC) operation to start. The value can be in date, checkpoint, or LSN/SCN format depending on the source engine. For more information, see [Determining a CDC native start point](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Task.CDC.html#CHAP_Task.CDC.StartPoint.Native).
+	CdcStartPosition *string `pulumi:"cdcStartPosition"`
 	// The Unix timestamp integer for the start of the Change Data Capture (CDC) operation.
 	CdcStartTime *string `pulumi:"cdcStartTime"`
 	// The migration type. Can be one of `full-load | cdc | full-load-and-cdc`.
@@ -154,6 +158,8 @@ type replicationTaskState struct {
 }
 
 type ReplicationTaskState struct {
+	// Indicates when you want a change data capture (CDC) operation to start. The value can be in date, checkpoint, or LSN/SCN format depending on the source engine. For more information, see [Determining a CDC native start point](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Task.CDC.html#CHAP_Task.CDC.StartPoint.Native).
+	CdcStartPosition pulumi.StringPtrInput
 	// The Unix timestamp integer for the start of the Change Data Capture (CDC) operation.
 	CdcStartTime pulumi.StringPtrInput
 	// The migration type. Can be one of `full-load | cdc | full-load-and-cdc`.
@@ -183,6 +189,8 @@ func (ReplicationTaskState) ElementType() reflect.Type {
 }
 
 type replicationTaskArgs struct {
+	// Indicates when you want a change data capture (CDC) operation to start. The value can be in date, checkpoint, or LSN/SCN format depending on the source engine. For more information, see [Determining a CDC native start point](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Task.CDC.html#CHAP_Task.CDC.StartPoint.Native).
+	CdcStartPosition *string `pulumi:"cdcStartPosition"`
 	// The Unix timestamp integer for the start of the Change Data Capture (CDC) operation.
 	CdcStartTime *string `pulumi:"cdcStartTime"`
 	// The migration type. Can be one of `full-load | cdc | full-load-and-cdc`.
@@ -205,6 +213,8 @@ type replicationTaskArgs struct {
 
 // The set of arguments for constructing a ReplicationTask resource.
 type ReplicationTaskArgs struct {
+	// Indicates when you want a change data capture (CDC) operation to start. The value can be in date, checkpoint, or LSN/SCN format depending on the source engine. For more information, see [Determining a CDC native start point](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Task.CDC.html#CHAP_Task.CDC.StartPoint.Native).
+	CdcStartPosition pulumi.StringPtrInput
 	// The Unix timestamp integer for the start of the Change Data Capture (CDC) operation.
 	CdcStartTime pulumi.StringPtrInput
 	// The migration type. Can be one of `full-load | cdc | full-load-and-cdc`.

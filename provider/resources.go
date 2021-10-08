@@ -968,6 +968,8 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_dx_lag":                              {Tok: awsResource(dxMod, "LinkAggregationGroup")},
 			"aws_dx_transit_virtual_interface":        {Tok: awsResource(dxMod, "TransitVirtualInterface")},
 			"aws_dx_hosted_transit_virtual_interface": {Tok: awsResource(dxMod, "HostedTransitVirtualInterface")},
+			"aws_dx_connection_confirmation":          {Tok: awsResource(dxMod, "ConnectionConfirmation")},
+			"aws_dx_hosted_connection":                {Tok: awsResource(dxMod, "HostedConnection")},
 			"aws_dx_hosted_transit_virtual_interface_accepter": {
 				Tok: awsResource(dxMod, "HostedTransitVirtualInterfaceAcceptor"),
 			},

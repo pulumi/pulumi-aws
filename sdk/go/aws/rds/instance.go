@@ -250,8 +250,11 @@ type Instance struct {
 	Port pulumi.IntOutput `pulumi:"port"`
 	// Bool to control if instance is publicly
 	// accessible. Default is `false`.
-	PubliclyAccessible pulumi.BoolPtrOutput     `pulumi:"publiclyAccessible"`
-	Replicas           pulumi.StringArrayOutput `pulumi:"replicas"`
+	PubliclyAccessible pulumi.BoolPtrOutput `pulumi:"publiclyAccessible"`
+	// Specifies whether the replica is in either `mounted` or `open-read-only` mode. This attribute
+	// is only supported by Oracle instances. Oracle replicas operate in `open-read-only` mode unless otherwise specified. See [Working with Oracle Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html) for more information.
+	ReplicaMode pulumi.StringPtrOutput   `pulumi:"replicaMode"`
+	Replicas    pulumi.StringArrayOutput `pulumi:"replicas"`
 	// Specifies that this resource is a Replicate
 	// database, and to use this value as the source database. This correlates to the
 	// `identifier` of another Amazon RDS Database to replicate (if replicating within
@@ -492,8 +495,11 @@ type instanceState struct {
 	Port *int `pulumi:"port"`
 	// Bool to control if instance is publicly
 	// accessible. Default is `false`.
-	PubliclyAccessible *bool    `pulumi:"publiclyAccessible"`
-	Replicas           []string `pulumi:"replicas"`
+	PubliclyAccessible *bool `pulumi:"publiclyAccessible"`
+	// Specifies whether the replica is in either `mounted` or `open-read-only` mode. This attribute
+	// is only supported by Oracle instances. Oracle replicas operate in `open-read-only` mode unless otherwise specified. See [Working with Oracle Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html) for more information.
+	ReplicaMode *string  `pulumi:"replicaMode"`
+	Replicas    []string `pulumi:"replicas"`
 	// Specifies that this resource is a Replicate
 	// database, and to use this value as the source database. This correlates to the
 	// `identifier` of another Amazon RDS Database to replicate (if replicating within
@@ -704,7 +710,10 @@ type InstanceState struct {
 	// Bool to control if instance is publicly
 	// accessible. Default is `false`.
 	PubliclyAccessible pulumi.BoolPtrInput
-	Replicas           pulumi.StringArrayInput
+	// Specifies whether the replica is in either `mounted` or `open-read-only` mode. This attribute
+	// is only supported by Oracle instances. Oracle replicas operate in `open-read-only` mode unless otherwise specified. See [Working with Oracle Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html) for more information.
+	ReplicaMode pulumi.StringPtrInput
+	Replicas    pulumi.StringArrayInput
 	// Specifies that this resource is a Replicate
 	// database, and to use this value as the source database. This correlates to the
 	// `identifier` of another Amazon RDS Database to replicate (if replicating within
@@ -906,6 +915,9 @@ type instanceArgs struct {
 	// Bool to control if instance is publicly
 	// accessible. Default is `false`.
 	PubliclyAccessible *bool `pulumi:"publiclyAccessible"`
+	// Specifies whether the replica is in either `mounted` or `open-read-only` mode. This attribute
+	// is only supported by Oracle instances. Oracle replicas operate in `open-read-only` mode unless otherwise specified. See [Working with Oracle Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html) for more information.
+	ReplicaMode *string `pulumi:"replicaMode"`
 	// Specifies that this resource is a Replicate
 	// database, and to use this value as the source database. This correlates to the
 	// `identifier` of another Amazon RDS Database to replicate (if replicating within
@@ -1098,6 +1110,9 @@ type InstanceArgs struct {
 	// Bool to control if instance is publicly
 	// accessible. Default is `false`.
 	PubliclyAccessible pulumi.BoolPtrInput
+	// Specifies whether the replica is in either `mounted` or `open-read-only` mode. This attribute
+	// is only supported by Oracle instances. Oracle replicas operate in `open-read-only` mode unless otherwise specified. See [Working with Oracle Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html) for more information.
+	ReplicaMode pulumi.StringPtrInput
 	// Specifies that this resource is a Replicate
 	// database, and to use this value as the source database. This correlates to the
 	// `identifier` of another Amazon RDS Database to replicate (if replicating within

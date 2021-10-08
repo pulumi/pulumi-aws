@@ -13,6 +13,7 @@ namespace Pulumi.Aws.Ssm
     /// Associates an SSM Document to an instance or EC2 tag.
     /// 
     /// ## Example Usage
+    /// ### Create an association for a specific instance
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -32,6 +33,66 @@ namespace Pulumi.Aws.Ssm
     ///                     Values = 
     ///                     {
     ///                         aws_instance.Example.Id,
+    ///                     },
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### Create an association for all managed instances in an AWS account
+    /// 
+    /// To target all managed instances in an AWS account, set the `key` as `"InstanceIds"` with `values` set as `["*"]`. This example also illustrates how to use an Amazon owned SSM document named `AmazonCloudWatch-ManageAgent`.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Ssm.Association("example", new Aws.Ssm.AssociationArgs
+    ///         {
+    ///             Targets = 
+    ///             {
+    ///                 new Aws.Ssm.Inputs.AssociationTargetArgs
+    ///                 {
+    ///                     Key = "InstanceIds",
+    ///                     Values = 
+    ///                     {
+    ///                         "*",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### Create an association for a specific tag
+    /// 
+    /// This example shows how to target all managed instances that are assigned a tag key of `Environment` and value of `Development`.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Ssm.Association("example", new Aws.Ssm.AssociationArgs
+    ///         {
+    ///             Targets = 
+    ///             {
+    ///                 new Aws.Ssm.Inputs.AssociationTargetArgs
+    ///                 {
+    ///                     Key = "tag:Environment",
+    ///                     Values = 
+    ///                     {
+    ///                         "Development",
     ///                     },
     ///                 },
     ///             },

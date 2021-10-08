@@ -14,29 +14,29 @@ namespace Pulumi.Aws.Emr.Outputs
     public sealed class ClusterMasterInstanceFleet
     {
         /// <summary>
-        /// The ID of the EMR Cluster
+        /// ID of the cluster.
         /// </summary>
         public readonly string? Id;
         /// <summary>
-        /// Configuration block for instance fleet
+        /// Configuration block for instance fleet.
         /// </summary>
         public readonly ImmutableArray<Outputs.ClusterMasterInstanceFleetInstanceTypeConfig> InstanceTypeConfigs;
         /// <summary>
-        /// Configuration block for launch specification
+        /// Configuration block for launch specification.
         /// </summary>
         public readonly Outputs.ClusterMasterInstanceFleetLaunchSpecifications? LaunchSpecifications;
         /// <summary>
-        /// Friendly name given to the instance fleet.
+        /// Name of the step.
         /// </summary>
         public readonly string? Name;
         public readonly int? ProvisionedOnDemandCapacity;
         public readonly int? ProvisionedSpotCapacity;
         /// <summary>
-        /// The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
+        /// Target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
         /// </summary>
         public readonly int? TargetOnDemandCapacity;
         /// <summary>
-        /// The target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
+        /// Target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
         /// </summary>
         public readonly int? TargetSpotCapacity;
 

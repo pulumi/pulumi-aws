@@ -203,7 +203,7 @@ namespace Pulumi.Aws.ElastiCache
         public Output<string?> NotificationTopicArn { get; private set; } = null!;
 
         /// <summary>
-        /// The initial number of cache nodes that the cache cluster will have. For Redis, this value must be 1. For Memcached, this value must be between 1 and 20. If this number is reduced on subsequent runs, the highest numbered nodes will be removed.
+        /// The initial number of cache nodes that the cache cluster will have. For Redis, this value must be 1. For Memcached, this value must be between 1 and 40. If this number is reduced on subsequent runs, the highest numbered nodes will be removed.
         /// </summary>
         [Output("numCacheNodes")]
         public Output<int> NumCacheNodes { get; private set; } = null!;
@@ -391,7 +391,7 @@ namespace Pulumi.Aws.ElastiCache
         public Input<string>? NotificationTopicArn { get; set; }
 
         /// <summary>
-        /// The initial number of cache nodes that the cache cluster will have. For Redis, this value must be 1. For Memcached, this value must be between 1 and 20. If this number is reduced on subsequent runs, the highest numbered nodes will be removed.
+        /// The initial number of cache nodes that the cache cluster will have. For Redis, this value must be 1. For Memcached, this value must be between 1 and 40. If this number is reduced on subsequent runs, the highest numbered nodes will be removed.
         /// </summary>
         [Input("numCacheNodes")]
         public Input<int>? NumCacheNodes { get; set; }
@@ -596,7 +596,7 @@ namespace Pulumi.Aws.ElastiCache
         public Input<string>? NotificationTopicArn { get; set; }
 
         /// <summary>
-        /// The initial number of cache nodes that the cache cluster will have. For Redis, this value must be 1. For Memcached, this value must be between 1 and 20. If this number is reduced on subsequent runs, the highest numbered nodes will be removed.
+        /// The initial number of cache nodes that the cache cluster will have. For Redis, this value must be 1. For Memcached, this value must be between 1 and 40. If this number is reduced on subsequent runs, the highest numbered nodes will be removed.
         /// </summary>
         [Input("numCacheNodes")]
         public Input<int>? NumCacheNodes { get; set; }

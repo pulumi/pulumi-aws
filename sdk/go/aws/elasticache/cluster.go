@@ -153,7 +153,7 @@ type Cluster struct {
 	NodeType pulumi.StringOutput `pulumi:"nodeType"`
 	// ARN of an SNS topic to send ElastiCache notifications to. Example: `arn:aws:sns:us-east-1:012345678999:my_sns_topic`.
 	NotificationTopicArn pulumi.StringPtrOutput `pulumi:"notificationTopicArn"`
-	// The initial number of cache nodes that the cache cluster will have. For Redis, this value must be 1. For Memcached, this value must be between 1 and 20. If this number is reduced on subsequent runs, the highest numbered nodes will be removed.
+	// The initial number of cache nodes that the cache cluster will have. For Redis, this value must be 1. For Memcached, this value must be between 1 and 40. If this number is reduced on subsequent runs, the highest numbered nodes will be removed.
 	NumCacheNodes pulumi.IntOutput `pulumi:"numCacheNodes"`
 	// The name of the parameter group to associate with this cache cluster.
 	ParameterGroupName pulumi.StringOutput `pulumi:"parameterGroupName"`
@@ -244,7 +244,7 @@ type clusterState struct {
 	NodeType *string `pulumi:"nodeType"`
 	// ARN of an SNS topic to send ElastiCache notifications to. Example: `arn:aws:sns:us-east-1:012345678999:my_sns_topic`.
 	NotificationTopicArn *string `pulumi:"notificationTopicArn"`
-	// The initial number of cache nodes that the cache cluster will have. For Redis, this value must be 1. For Memcached, this value must be between 1 and 20. If this number is reduced on subsequent runs, the highest numbered nodes will be removed.
+	// The initial number of cache nodes that the cache cluster will have. For Redis, this value must be 1. For Memcached, this value must be between 1 and 40. If this number is reduced on subsequent runs, the highest numbered nodes will be removed.
 	NumCacheNodes *int `pulumi:"numCacheNodes"`
 	// The name of the parameter group to associate with this cache cluster.
 	ParameterGroupName *string `pulumi:"parameterGroupName"`
@@ -307,7 +307,7 @@ type ClusterState struct {
 	NodeType pulumi.StringPtrInput
 	// ARN of an SNS topic to send ElastiCache notifications to. Example: `arn:aws:sns:us-east-1:012345678999:my_sns_topic`.
 	NotificationTopicArn pulumi.StringPtrInput
-	// The initial number of cache nodes that the cache cluster will have. For Redis, this value must be 1. For Memcached, this value must be between 1 and 20. If this number is reduced on subsequent runs, the highest numbered nodes will be removed.
+	// The initial number of cache nodes that the cache cluster will have. For Redis, this value must be 1. For Memcached, this value must be between 1 and 40. If this number is reduced on subsequent runs, the highest numbered nodes will be removed.
 	NumCacheNodes pulumi.IntPtrInput
 	// The name of the parameter group to associate with this cache cluster.
 	ParameterGroupName pulumi.StringPtrInput
@@ -364,7 +364,7 @@ type clusterArgs struct {
 	NodeType *string `pulumi:"nodeType"`
 	// ARN of an SNS topic to send ElastiCache notifications to. Example: `arn:aws:sns:us-east-1:012345678999:my_sns_topic`.
 	NotificationTopicArn *string `pulumi:"notificationTopicArn"`
-	// The initial number of cache nodes that the cache cluster will have. For Redis, this value must be 1. For Memcached, this value must be between 1 and 20. If this number is reduced on subsequent runs, the highest numbered nodes will be removed.
+	// The initial number of cache nodes that the cache cluster will have. For Redis, this value must be 1. For Memcached, this value must be between 1 and 40. If this number is reduced on subsequent runs, the highest numbered nodes will be removed.
 	NumCacheNodes *int `pulumi:"numCacheNodes"`
 	// The name of the parameter group to associate with this cache cluster.
 	ParameterGroupName *string `pulumi:"parameterGroupName"`
@@ -417,7 +417,7 @@ type ClusterArgs struct {
 	NodeType pulumi.StringPtrInput
 	// ARN of an SNS topic to send ElastiCache notifications to. Example: `arn:aws:sns:us-east-1:012345678999:my_sns_topic`.
 	NotificationTopicArn pulumi.StringPtrInput
-	// The initial number of cache nodes that the cache cluster will have. For Redis, this value must be 1. For Memcached, this value must be between 1 and 20. If this number is reduced on subsequent runs, the highest numbered nodes will be removed.
+	// The initial number of cache nodes that the cache cluster will have. For Redis, this value must be 1. For Memcached, this value must be between 1 and 40. If this number is reduced on subsequent runs, the highest numbered nodes will be removed.
 	NumCacheNodes pulumi.IntPtrInput
 	// The name of the parameter group to associate with this cache cluster.
 	ParameterGroupName pulumi.StringPtrInput
