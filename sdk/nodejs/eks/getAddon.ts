@@ -84,3 +84,23 @@ export interface GetAddonResult {
     readonly serviceAccountRoleArn: string;
     readonly tags: {[key: string]: string};
 }
+
+export function getAddonOutput(args: GetAddonOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAddonResult> {
+    return pulumi.output(args).apply(a => getAddon(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getAddon.
+ */
+export interface GetAddonOutputArgs {
+    /**
+     * Name of the EKS add-on. The name must match one of
+     * the names returned by [list-addon](https://docs.aws.amazon.com/cli/latest/reference/eks/list-addons.html).
+     */
+    addonName: pulumi.Input<string>;
+    /**
+     * Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+     */
+    clusterName: pulumi.Input<string>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+}

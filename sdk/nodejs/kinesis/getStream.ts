@@ -94,3 +94,21 @@ export interface GetStreamResult {
      */
     readonly tags: {[key: string]: string};
 }
+
+export function getStreamOutput(args: GetStreamOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStreamResult> {
+    return pulumi.output(args).apply(a => getStream(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getStream.
+ */
+export interface GetStreamOutputArgs {
+    /**
+     * The name of the Kinesis Stream.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * A map of tags to assigned to the stream.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+}

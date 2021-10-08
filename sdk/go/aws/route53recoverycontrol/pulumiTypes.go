@@ -292,6 +292,10 @@ func (o SafetyRuleRuleConfigPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterClusterEndpointInput)(nil)).Elem(), ClusterClusterEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterClusterEndpointArrayInput)(nil)).Elem(), ClusterClusterEndpointArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SafetyRuleRuleConfigInput)(nil)).Elem(), SafetyRuleRuleConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SafetyRuleRuleConfigPtrInput)(nil)).Elem(), SafetyRuleRuleConfigArgs{})
 	pulumi.RegisterOutputType(ClusterClusterEndpointOutput{})
 	pulumi.RegisterOutputType(ClusterClusterEndpointArrayOutput{})
 	pulumi.RegisterOutputType(SafetyRuleRuleConfigOutput{})

@@ -186,6 +186,8 @@ func (o QueueReservationPlanSettingsPtrOutput) ReservedSlots() pulumi.IntPtrOutp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*QueueReservationPlanSettingsInput)(nil)).Elem(), QueueReservationPlanSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*QueueReservationPlanSettingsPtrInput)(nil)).Elem(), QueueReservationPlanSettingsArgs{})
 	pulumi.RegisterOutputType(QueueReservationPlanSettingsOutput{})
 	pulumi.RegisterOutputType(QueueReservationPlanSettingsPtrOutput{})
 }

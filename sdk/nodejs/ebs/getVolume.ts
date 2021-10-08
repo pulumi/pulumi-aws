@@ -130,3 +130,28 @@ export interface GetVolumeResult {
      */
     readonly volumeType: string;
 }
+
+export function getVolumeOutput(args?: GetVolumeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVolumeResult> {
+    return pulumi.output(args).apply(a => getVolume(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getVolume.
+ */
+export interface GetVolumeOutputArgs {
+    /**
+     * One or more name/value pairs to filter off of. There are
+     * several valid keys, for a full reference, check out
+     * [describe-volumes in the AWS CLI reference][1].
+     */
+    filters?: pulumi.Input<pulumi.Input<inputs.ebs.GetVolumeFilterArgs>[]>;
+    /**
+     * If more than one result is returned, use the most
+     * recent Volume.
+     */
+    mostRecent?: pulumi.Input<boolean>;
+    /**
+     * A map of tags for the resource.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+}

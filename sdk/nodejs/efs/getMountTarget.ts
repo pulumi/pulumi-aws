@@ -106,3 +106,25 @@ export interface GetMountTargetResult {
      */
     readonly subnetId: string;
 }
+
+export function getMountTargetOutput(args?: GetMountTargetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMountTargetResult> {
+    return pulumi.output(args).apply(a => getMountTarget(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getMountTarget.
+ */
+export interface GetMountTargetOutputArgs {
+    /**
+     * ID or ARN of the access point whose mount target that you want to find. It must be included if a `fileSystemId` and `mountTargetId` are not included.
+     */
+    accessPointId?: pulumi.Input<string>;
+    /**
+     * ID or ARN of the file system whose mount target that you want to find. It must be included if an `accessPointId` and `mountTargetId` are not included.
+     */
+    fileSystemId?: pulumi.Input<string>;
+    /**
+     * ID or ARN of the mount target that you want to find. It must be included in your request if an `accessPointId` and `fileSystemId` are not included.
+     */
+    mountTargetId?: pulumi.Input<string>;
+}

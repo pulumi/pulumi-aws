@@ -103,3 +103,25 @@ export interface GetRouteTableResult {
      */
     readonly transitGatewayId: string;
 }
+
+export function getRouteTableOutput(args?: GetRouteTableOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRouteTableResult> {
+    return pulumi.output(args).apply(a => getRouteTable(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getRouteTable.
+ */
+export interface GetRouteTableOutputArgs {
+    /**
+     * One or more configuration blocks containing name-values filters. Detailed below.
+     */
+    filters?: pulumi.Input<pulumi.Input<inputs.ec2transitgateway.GetRouteTableFilterArgs>[]>;
+    /**
+     * Identifier of the EC2 Transit Gateway Route Table.
+     */
+    id?: pulumi.Input<string>;
+    /**
+     * Key-value tags for the EC2 Transit Gateway Route Table
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+}

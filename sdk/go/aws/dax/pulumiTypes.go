@@ -369,6 +369,12 @@ func (o ParameterGroupParameterArrayOutput) Index(i pulumi.IntInput) ParameterGr
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterNodeInput)(nil)).Elem(), ClusterNodeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterNodeArrayInput)(nil)).Elem(), ClusterNodeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterServerSideEncryptionInput)(nil)).Elem(), ClusterServerSideEncryptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterServerSideEncryptionPtrInput)(nil)).Elem(), ClusterServerSideEncryptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ParameterGroupParameterInput)(nil)).Elem(), ParameterGroupParameterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ParameterGroupParameterArrayInput)(nil)).Elem(), ParameterGroupParameterArray{})
 	pulumi.RegisterOutputType(ClusterNodeOutput{})
 	pulumi.RegisterOutputType(ClusterNodeArrayOutput{})
 	pulumi.RegisterOutputType(ClusterServerSideEncryptionOutput{})

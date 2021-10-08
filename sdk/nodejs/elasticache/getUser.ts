@@ -81,3 +81,28 @@ export interface GetUserResult {
      */
     readonly userName?: string;
 }
+
+export function getUserOutput(args: GetUserOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserResult> {
+    return pulumi.output(args).apply(a => getUser(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getUser.
+ */
+export interface GetUserOutputArgs {
+    /**
+     * A string for what access a user possesses within the associated ElastiCache replication groups or clusters.
+     */
+    accessString?: pulumi.Input<string>;
+    engine?: pulumi.Input<string>;
+    noPasswordRequired?: pulumi.Input<boolean>;
+    passwords?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The identifier for the user.
+     */
+    userId: pulumi.Input<string>;
+    /**
+     * The user name of the user.
+     */
+    userName?: pulumi.Input<string>;
+}

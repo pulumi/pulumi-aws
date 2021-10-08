@@ -73,3 +73,17 @@ export interface GetArnResult {
      */
     readonly service: string;
 }
+
+export function getArnOutput(args: GetArnOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetArnResult> {
+    return pulumi.output(args).apply(a => getArn(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getArn.
+ */
+export interface GetArnOutputArgs {
+    /**
+     * The ARN to parse.
+     */
+    arn: pulumi.Input<string>;
+}

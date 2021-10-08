@@ -56,3 +56,17 @@ export interface GetLogDeliveryCanonicalUserIdResult {
     readonly id: string;
     readonly region?: string;
 }
+
+export function getLogDeliveryCanonicalUserIdOutput(args?: GetLogDeliveryCanonicalUserIdOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLogDeliveryCanonicalUserIdResult> {
+    return pulumi.output(args).apply(a => getLogDeliveryCanonicalUserId(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getLogDeliveryCanonicalUserId.
+ */
+export interface GetLogDeliveryCanonicalUserIdOutputArgs {
+    /**
+     * The region you'd like the zone for. By default, fetches the current region.
+     */
+    region?: pulumi.Input<string>;
+}

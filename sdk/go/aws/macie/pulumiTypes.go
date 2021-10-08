@@ -472,6 +472,12 @@ func (o S3BucketAssociationClassificationTypePtrOutput) OneTime() pulumi.StringP
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*FindingsFilterFindingCriteriaInput)(nil)).Elem(), FindingsFilterFindingCriteriaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FindingsFilterFindingCriteriaPtrInput)(nil)).Elem(), FindingsFilterFindingCriteriaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FindingsFilterFindingCriteriaCriterionInput)(nil)).Elem(), FindingsFilterFindingCriteriaCriterionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FindingsFilterFindingCriteriaCriterionArrayInput)(nil)).Elem(), FindingsFilterFindingCriteriaCriterionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*S3BucketAssociationClassificationTypeInput)(nil)).Elem(), S3BucketAssociationClassificationTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*S3BucketAssociationClassificationTypePtrInput)(nil)).Elem(), S3BucketAssociationClassificationTypeArgs{})
 	pulumi.RegisterOutputType(FindingsFilterFindingCriteriaOutput{})
 	pulumi.RegisterOutputType(FindingsFilterFindingCriteriaPtrOutput{})
 	pulumi.RegisterOutputType(FindingsFilterFindingCriteriaCriterionOutput{})

@@ -586,6 +586,16 @@ func (o TrailInsightSelectorArrayOutput) Index(i pulumi.IntInput) TrailInsightSe
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TrailAdvancedEventSelectorInput)(nil)).Elem(), TrailAdvancedEventSelectorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrailAdvancedEventSelectorArrayInput)(nil)).Elem(), TrailAdvancedEventSelectorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrailAdvancedEventSelectorFieldSelectorInput)(nil)).Elem(), TrailAdvancedEventSelectorFieldSelectorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrailAdvancedEventSelectorFieldSelectorArrayInput)(nil)).Elem(), TrailAdvancedEventSelectorFieldSelectorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrailEventSelectorInput)(nil)).Elem(), TrailEventSelectorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrailEventSelectorArrayInput)(nil)).Elem(), TrailEventSelectorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrailEventSelectorDataResourceInput)(nil)).Elem(), TrailEventSelectorDataResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrailEventSelectorDataResourceArrayInput)(nil)).Elem(), TrailEventSelectorDataResourceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrailInsightSelectorInput)(nil)).Elem(), TrailInsightSelectorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrailInsightSelectorArrayInput)(nil)).Elem(), TrailInsightSelectorArray{})
 	pulumi.RegisterOutputType(TrailAdvancedEventSelectorOutput{})
 	pulumi.RegisterOutputType(TrailAdvancedEventSelectorArrayOutput{})
 	pulumi.RegisterOutputType(TrailAdvancedEventSelectorFieldSelectorOutput{})

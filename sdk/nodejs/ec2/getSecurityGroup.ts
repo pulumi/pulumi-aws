@@ -96,3 +96,35 @@ export interface GetSecurityGroupResult {
     readonly tags: {[key: string]: string};
     readonly vpcId: string;
 }
+
+export function getSecurityGroupOutput(args?: GetSecurityGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityGroupResult> {
+    return pulumi.output(args).apply(a => getSecurityGroup(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getSecurityGroup.
+ */
+export interface GetSecurityGroupOutputArgs {
+    /**
+     * Custom filter block as described below.
+     */
+    filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetSecurityGroupFilterArgs>[]>;
+    /**
+     * The id of the specific security group to retrieve.
+     */
+    id?: pulumi.Input<string>;
+    /**
+     * The name of the field to filter by, as defined by
+     * [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroups.html).
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * A map of tags, each pair of which must exactly match
+     * a pair on the desired security group.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The id of the VPC that the desired security group belongs to.
+     */
+    vpcId?: pulumi.Input<string>;
+}

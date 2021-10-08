@@ -800,6 +800,16 @@ func (o ResourceSetResourceDnsTargetResourceTargetResourceR53ResourcePtrOutput) 
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceSetResourceInput)(nil)).Elem(), ResourceSetResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceSetResourceArrayInput)(nil)).Elem(), ResourceSetResourceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceSetResourceDnsTargetResourceInput)(nil)).Elem(), ResourceSetResourceDnsTargetResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceSetResourceDnsTargetResourcePtrInput)(nil)).Elem(), ResourceSetResourceDnsTargetResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceSetResourceDnsTargetResourceTargetResourceInput)(nil)).Elem(), ResourceSetResourceDnsTargetResourceTargetResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceSetResourceDnsTargetResourceTargetResourcePtrInput)(nil)).Elem(), ResourceSetResourceDnsTargetResourceTargetResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceSetResourceDnsTargetResourceTargetResourceNlbResourceInput)(nil)).Elem(), ResourceSetResourceDnsTargetResourceTargetResourceNlbResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceSetResourceDnsTargetResourceTargetResourceNlbResourcePtrInput)(nil)).Elem(), ResourceSetResourceDnsTargetResourceTargetResourceNlbResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceSetResourceDnsTargetResourceTargetResourceR53ResourceInput)(nil)).Elem(), ResourceSetResourceDnsTargetResourceTargetResourceR53ResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceSetResourceDnsTargetResourceTargetResourceR53ResourcePtrInput)(nil)).Elem(), ResourceSetResourceDnsTargetResourceTargetResourceR53ResourceArgs{})
 	pulumi.RegisterOutputType(ResourceSetResourceOutput{})
 	pulumi.RegisterOutputType(ResourceSetResourceArrayOutput{})
 	pulumi.RegisterOutputType(ResourceSetResourceDnsTargetResourceOutput{})

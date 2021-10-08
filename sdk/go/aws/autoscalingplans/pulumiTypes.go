@@ -1433,6 +1433,22 @@ func (o ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalin
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ScalingPlanApplicationSourceInput)(nil)).Elem(), ScalingPlanApplicationSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScalingPlanApplicationSourcePtrInput)(nil)).Elem(), ScalingPlanApplicationSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScalingPlanApplicationSourceTagFilterInput)(nil)).Elem(), ScalingPlanApplicationSourceTagFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScalingPlanApplicationSourceTagFilterArrayInput)(nil)).Elem(), ScalingPlanApplicationSourceTagFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScalingPlanScalingInstructionInput)(nil)).Elem(), ScalingPlanScalingInstructionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScalingPlanScalingInstructionArrayInput)(nil)).Elem(), ScalingPlanScalingInstructionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScalingPlanScalingInstructionCustomizedLoadMetricSpecificationInput)(nil)).Elem(), ScalingPlanScalingInstructionCustomizedLoadMetricSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScalingPlanScalingInstructionCustomizedLoadMetricSpecificationPtrInput)(nil)).Elem(), ScalingPlanScalingInstructionCustomizedLoadMetricSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScalingPlanScalingInstructionPredefinedLoadMetricSpecificationInput)(nil)).Elem(), ScalingPlanScalingInstructionPredefinedLoadMetricSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScalingPlanScalingInstructionPredefinedLoadMetricSpecificationPtrInput)(nil)).Elem(), ScalingPlanScalingInstructionPredefinedLoadMetricSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScalingPlanScalingInstructionTargetTrackingConfigurationInput)(nil)).Elem(), ScalingPlanScalingInstructionTargetTrackingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScalingPlanScalingInstructionTargetTrackingConfigurationArrayInput)(nil)).Elem(), ScalingPlanScalingInstructionTargetTrackingConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecificationInput)(nil)).Elem(), ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecificationPtrInput)(nil)).Elem(), ScalingPlanScalingInstructionTargetTrackingConfigurationCustomizedScalingMetricSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationInput)(nil)).Elem(), ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationPtrInput)(nil)).Elem(), ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationArgs{})
 	pulumi.RegisterOutputType(ScalingPlanApplicationSourceOutput{})
 	pulumi.RegisterOutputType(ScalingPlanApplicationSourcePtrOutput{})
 	pulumi.RegisterOutputType(ScalingPlanApplicationSourceTagFilterOutput{})

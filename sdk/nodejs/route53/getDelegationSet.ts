@@ -54,3 +54,17 @@ export interface GetDelegationSetResult {
     readonly id: string;
     readonly nameServers: string[];
 }
+
+export function getDelegationSetOutput(args: GetDelegationSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDelegationSetResult> {
+    return pulumi.output(args).apply(a => getDelegationSet(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getDelegationSet.
+ */
+export interface GetDelegationSetOutputArgs {
+    /**
+     * The Hosted Zone id of the desired delegation set.
+     */
+    id: pulumi.Input<string>;
+}

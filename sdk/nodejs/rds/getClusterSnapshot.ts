@@ -164,3 +164,46 @@ export interface GetClusterSnapshotResult {
      */
     readonly vpcId: string;
 }
+
+export function getClusterSnapshotOutput(args?: GetClusterSnapshotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterSnapshotResult> {
+    return pulumi.output(args).apply(a => getClusterSnapshot(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getClusterSnapshot.
+ */
+export interface GetClusterSnapshotOutputArgs {
+    /**
+     * Returns the list of snapshots created by the specific db_cluster
+     */
+    dbClusterIdentifier?: pulumi.Input<string>;
+    /**
+     * Returns information on a specific snapshot_id.
+     */
+    dbClusterSnapshotIdentifier?: pulumi.Input<string>;
+    /**
+     * Set this value to true to include manual DB Cluster Snapshots that are public and can be
+     * copied or restored by any AWS account, otherwise set this value to false. The default is `false`.
+     */
+    includePublic?: pulumi.Input<boolean>;
+    /**
+     * Set this value to true to include shared manual DB Cluster Snapshots from other
+     * AWS accounts that this AWS account has been given permission to copy or restore, otherwise set this value to false.
+     * The default is `false`.
+     */
+    includeShared?: pulumi.Input<boolean>;
+    /**
+     * If more than one result is returned, use the most recent Snapshot.
+     */
+    mostRecent?: pulumi.Input<boolean>;
+    /**
+     * The type of snapshots to be returned. If you don't specify a SnapshotType
+     * value, then both automated and manual DB cluster snapshots are returned. Shared and public DB Cluster Snapshots are not
+     * included in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.
+     */
+    snapshotType?: pulumi.Input<string>;
+    /**
+     * A map of tags for the resource.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+}

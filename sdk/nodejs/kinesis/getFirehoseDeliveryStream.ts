@@ -57,3 +57,17 @@ export interface GetFirehoseDeliveryStreamResult {
     readonly id: string;
     readonly name: string;
 }
+
+export function getFirehoseDeliveryStreamOutput(args: GetFirehoseDeliveryStreamOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFirehoseDeliveryStreamResult> {
+    return pulumi.output(args).apply(a => getFirehoseDeliveryStream(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getFirehoseDeliveryStream.
+ */
+export interface GetFirehoseDeliveryStreamOutputArgs {
+    /**
+     * The name of the Kinesis Stream.
+     */
+    name: pulumi.Input<string>;
+}

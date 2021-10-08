@@ -112,3 +112,21 @@ export interface GetInstanceResult {
      */
     readonly status: string;
 }
+
+export function getInstanceOutput(args?: GetInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInstanceResult> {
+    return pulumi.output(args).apply(a => getInstance(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getInstance.
+ */
+export interface GetInstanceOutputArgs {
+    /**
+     * Returns information on a specific connect instance by alias
+     */
+    instanceAlias?: pulumi.Input<string>;
+    /**
+     * Returns information on a specific connect instance by id
+     */
+    instanceId?: pulumi.Input<string>;
+}

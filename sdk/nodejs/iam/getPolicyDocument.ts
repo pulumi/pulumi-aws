@@ -371,3 +371,41 @@ export interface GetPolicyDocumentResult {
     readonly statements?: outputs.iam.GetPolicyDocumentStatement[];
     readonly version?: string;
 }
+
+export function getPolicyDocumentOutput(args?: GetPolicyDocumentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPolicyDocumentResult> {
+    return pulumi.output(args).apply(a => getPolicyDocument(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getPolicyDocument.
+ */
+export interface GetPolicyDocumentOutputArgs {
+    /**
+     * IAM policy document whose statements with non-blank `sid`s will override statements with the same `sid` from documents assigned to the `sourceJson`, `sourcePolicyDocuments`, and `overridePolicyDocuments` arguments. Non-overriding statements will be added to the exported document.
+     */
+    overrideJson?: pulumi.Input<string>;
+    /**
+     * List of IAM policy documents that are merged together into the exported document. In merging, statements with non-blank `sid`s will override statements with the same `sid` from earlier documents in the list. Statements with non-blank `sid`s will also override statements with the same `sid` from documents provided in the `sourceJson` and `sourcePolicyDocuments` arguments.  Non-overriding statements will be added to the exported document.
+     */
+    overridePolicyDocuments?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * ID for the policy document.
+     */
+    policyId?: pulumi.Input<string>;
+    /**
+     * IAM policy document used as a base for the exported policy document. Statements with the same `sid` from documents assigned to the `overrideJson` and `overridePolicyDocuments` arguments will override source statements.
+     */
+    sourceJson?: pulumi.Input<string>;
+    /**
+     * List of IAM policy documents that are merged together into the exported document. Statements defined in `sourcePolicyDocuments` or `sourceJson` must have unique `sid`s. Statements with the same `sid` from documents assigned to the `overrideJson` and `overridePolicyDocuments` arguments will override source statements.
+     */
+    sourcePolicyDocuments?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Configuration block for a policy statement. Detailed below.
+     */
+    statements?: pulumi.Input<pulumi.Input<inputs.iam.GetPolicyDocumentStatementArgs>[]>;
+    /**
+     * IAM policy document version. Valid values are `2008-10-17` and `2012-10-17`. Defaults to `2012-10-17`. For more information, see the [AWS IAM User Guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_version.html).
+     */
+    version?: pulumi.Input<string>;
+}

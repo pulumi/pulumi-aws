@@ -275,6 +275,10 @@ func (o RepositoryUpstreamArrayOutput) Index(i pulumi.IntInput) RepositoryUpstre
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryExternalConnectionsInput)(nil)).Elem(), RepositoryExternalConnectionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryExternalConnectionsPtrInput)(nil)).Elem(), RepositoryExternalConnectionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryUpstreamInput)(nil)).Elem(), RepositoryUpstreamArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryUpstreamArrayInput)(nil)).Elem(), RepositoryUpstreamArray{})
 	pulumi.RegisterOutputType(RepositoryExternalConnectionsOutput{})
 	pulumi.RegisterOutputType(RepositoryExternalConnectionsPtrOutput{})
 	pulumi.RegisterOutputType(RepositoryUpstreamOutput{})

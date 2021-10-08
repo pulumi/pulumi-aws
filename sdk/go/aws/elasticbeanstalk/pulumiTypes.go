@@ -635,6 +635,15 @@ func (o GetApplicationAppversionLifecycleOutput) ServiceRole() pulumi.StringOutp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationAppversionLifecycleInput)(nil)).Elem(), ApplicationAppversionLifecycleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationAppversionLifecyclePtrInput)(nil)).Elem(), ApplicationAppversionLifecycleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationTemplateSettingInput)(nil)).Elem(), ConfigurationTemplateSettingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationTemplateSettingArrayInput)(nil)).Elem(), ConfigurationTemplateSettingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentAllSettingInput)(nil)).Elem(), EnvironmentAllSettingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentAllSettingArrayInput)(nil)).Elem(), EnvironmentAllSettingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentSettingInput)(nil)).Elem(), EnvironmentSettingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentSettingArrayInput)(nil)).Elem(), EnvironmentSettingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationAppversionLifecycleInput)(nil)).Elem(), GetApplicationAppversionLifecycleArgs{})
 	pulumi.RegisterOutputType(ApplicationAppversionLifecycleOutput{})
 	pulumi.RegisterOutputType(ApplicationAppversionLifecyclePtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationTemplateSettingOutput{})

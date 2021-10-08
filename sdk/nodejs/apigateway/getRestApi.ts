@@ -100,3 +100,21 @@ export interface GetRestApiResult {
      */
     readonly tags: {[key: string]: string};
 }
+
+export function getRestApiOutput(args: GetRestApiOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRestApiResult> {
+    return pulumi.output(args).apply(a => getRestApi(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getRestApi.
+ */
+export interface GetRestApiOutputArgs {
+    /**
+     * The name of the REST API to look up. If no REST API is found with this name, an error will be returned. If multiple REST APIs are found with this name, an error will be returned.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Key-value map of resource tags.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+}

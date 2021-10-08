@@ -445,6 +445,12 @@ func (o LifecyclePolicyPolicyDetailsScheduleRetainRuleOutput) Count() pulumi.Int
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyPolicyDetailsInput)(nil)).Elem(), LifecyclePolicyPolicyDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyPolicyDetailsPtrInput)(nil)).Elem(), LifecyclePolicyPolicyDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyPolicyDetailsScheduleInput)(nil)).Elem(), LifecyclePolicyPolicyDetailsScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyPolicyDetailsScheduleArrayInput)(nil)).Elem(), LifecyclePolicyPolicyDetailsScheduleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyPolicyDetailsScheduleCreateRuleInput)(nil)).Elem(), LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyPolicyDetailsScheduleRetainRuleInput)(nil)).Elem(), LifecyclePolicyPolicyDetailsScheduleRetainRuleArgs{})
 	pulumi.RegisterOutputType(LifecyclePolicyPolicyDetailsOutput{})
 	pulumi.RegisterOutputType(LifecyclePolicyPolicyDetailsPtrOutput{})
 	pulumi.RegisterOutputType(LifecyclePolicyPolicyDetailsScheduleOutput{})

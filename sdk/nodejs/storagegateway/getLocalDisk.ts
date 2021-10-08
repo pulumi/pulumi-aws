@@ -68,3 +68,25 @@ export interface GetLocalDiskResult {
      */
     readonly id: string;
 }
+
+export function getLocalDiskOutput(args: GetLocalDiskOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalDiskResult> {
+    return pulumi.output(args).apply(a => getLocalDisk(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getLocalDisk.
+ */
+export interface GetLocalDiskOutputArgs {
+    /**
+     * The device node of the local disk to retrieve. For example, `/dev/sdb`.
+     */
+    diskNode?: pulumi.Input<string>;
+    /**
+     * The device path of the local disk to retrieve. For example, `/dev/xvdb` or `/dev/nvme1n1`.
+     */
+    diskPath?: pulumi.Input<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the gateway.
+     */
+    gatewayArn: pulumi.Input<string>;
+}

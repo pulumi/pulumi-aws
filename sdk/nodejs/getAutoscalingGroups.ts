@@ -83,3 +83,17 @@ export interface GetAutoscalingGroupsResult {
      */
     readonly names: string[];
 }
+
+export function getAutoscalingGroupsOutput(args?: GetAutoscalingGroupsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAutoscalingGroupsResult> {
+    return pulumi.output(args).apply(a => getAutoscalingGroups(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getAutoscalingGroups.
+ */
+export interface GetAutoscalingGroupsOutputArgs {
+    /**
+     * A filter used to scope the list e.g. by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
+     */
+    filters?: pulumi.Input<pulumi.Input<inputs.GetAutoscalingGroupsFilterArgs>[]>;
+}

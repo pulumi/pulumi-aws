@@ -163,3 +163,22 @@ export interface GetFunctionResult {
      */
     readonly vpcConfig: outputs.lambda.GetFunctionVpcConfig;
 }
+
+export function getFunctionOutput(args: GetFunctionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFunctionResult> {
+    return pulumi.output(args).apply(a => getFunction(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getFunction.
+ */
+export interface GetFunctionOutputArgs {
+    /**
+     * Name of the lambda function.
+     */
+    functionName: pulumi.Input<string>;
+    /**
+     * Alias name or version number of the lambda function. e.g. `$LATEST`, `my-alias`, or `1`
+     */
+    qualifier?: pulumi.Input<string>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+}

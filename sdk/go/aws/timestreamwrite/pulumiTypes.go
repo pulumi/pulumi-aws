@@ -167,6 +167,8 @@ func (o TableRetentionPropertiesPtrOutput) MemoryStoreRetentionPeriodInHours() p
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TableRetentionPropertiesInput)(nil)).Elem(), TableRetentionPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableRetentionPropertiesPtrInput)(nil)).Elem(), TableRetentionPropertiesArgs{})
 	pulumi.RegisterOutputType(TableRetentionPropertiesOutput{})
 	pulumi.RegisterOutputType(TableRetentionPropertiesPtrOutput{})
 }

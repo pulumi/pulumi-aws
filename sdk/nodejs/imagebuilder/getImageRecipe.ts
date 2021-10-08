@@ -101,3 +101,21 @@ export interface GetImageRecipeResult {
      */
     readonly workingDirectory: string;
 }
+
+export function getImageRecipeOutput(args: GetImageRecipeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetImageRecipeResult> {
+    return pulumi.output(args).apply(a => getImageRecipe(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getImageRecipe.
+ */
+export interface GetImageRecipeOutputArgs {
+    /**
+     * Amazon Resource Name (ARN) of the image recipe.
+     */
+    arn: pulumi.Input<string>;
+    /**
+     * Key-value map of resource tags for the image recipe.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+}

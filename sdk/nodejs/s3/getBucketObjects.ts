@@ -90,3 +90,41 @@ export interface GetBucketObjectsResult {
     readonly prefix?: string;
     readonly startAfter?: string;
 }
+
+export function getBucketObjectsOutput(args: GetBucketObjectsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBucketObjectsResult> {
+    return pulumi.output(args).apply(a => getBucketObjects(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getBucketObjects.
+ */
+export interface GetBucketObjectsOutputArgs {
+    /**
+     * Lists object keys in this S3 bucket. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
+     */
+    bucket: pulumi.Input<string>;
+    /**
+     * A character used to group keys (Default: none)
+     */
+    delimiter?: pulumi.Input<string>;
+    /**
+     * Encodes keys using this method (Default: none; besides none, only "url" can be used)
+     */
+    encodingType?: pulumi.Input<string>;
+    /**
+     * Boolean specifying whether to populate the owner list (Default: false)
+     */
+    fetchOwner?: pulumi.Input<boolean>;
+    /**
+     * Maximum object keys to return (Default: 1000)
+     */
+    maxKeys?: pulumi.Input<number>;
+    /**
+     * Limits results to object keys with this prefix (Default: none)
+     */
+    prefix?: pulumi.Input<string>;
+    /**
+     * Returns key names lexicographically after a specific object key in your bucket (Default: none; S3 lists object keys in UTF-8 character encoding in lexicographical order)
+     */
+    startAfter?: pulumi.Input<string>;
+}

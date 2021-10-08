@@ -120,3 +120,21 @@ export interface GetBotResult {
      */
     readonly voiceId: string;
 }
+
+export function getBotOutput(args: GetBotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBotResult> {
+    return pulumi.output(args).apply(a => getBot(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getBot.
+ */
+export interface GetBotOutputArgs {
+    /**
+     * The name of the bot. The name is case sensitive.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The version or alias of the bot.
+     */
+    version?: pulumi.Input<string>;
+}

@@ -147,3 +147,37 @@ export interface GetOrderableDbInstanceResult {
     readonly supportsStorageEncryption: boolean;
     readonly vpc: boolean;
 }
+
+export function getOrderableDbInstanceOutput(args?: GetOrderableDbInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOrderableDbInstanceResult> {
+    return pulumi.output(args).apply(a => getOrderableDbInstance(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getOrderableDbInstance.
+ */
+export interface GetOrderableDbInstanceOutputArgs {
+    /**
+     * DB engine. (Default: `neptune`)
+     */
+    engine?: pulumi.Input<string>;
+    /**
+     * Version of the DB engine. For example, `1.0.1.0`, `1.0.1.2`, `1.0.2.2`, and `1.0.3.0`.
+     */
+    engineVersion?: pulumi.Input<string>;
+    /**
+     * DB instance class. Examples of classes are `db.r5.large`, `db.r5.xlarge`, `db.r4.large`, `db.r5.4xlarge`, `db.r5.12xlarge`, `db.r4.xlarge`, and `db.t3.medium`.
+     */
+    instanceClass?: pulumi.Input<string>;
+    /**
+     * License model. (Default: `amazon-license`)
+     */
+    licenseModel?: pulumi.Input<string>;
+    /**
+     * Ordered list of preferred Neptune DB instance classes. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
+     */
+    preferredInstanceClasses?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Enable to show only VPC offerings.
+     */
+    vpc?: pulumi.Input<boolean>;
+}

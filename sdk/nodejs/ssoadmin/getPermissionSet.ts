@@ -74,3 +74,29 @@ export interface GetPermissionSetResult {
      */
     readonly tags: {[key: string]: string};
 }
+
+export function getPermissionSetOutput(args: GetPermissionSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPermissionSetResult> {
+    return pulumi.output(args).apply(a => getPermissionSet(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getPermissionSet.
+ */
+export interface GetPermissionSetOutputArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the permission set.
+     */
+    arn?: pulumi.Input<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the SSO Instance associated with the permission set.
+     */
+    instanceArn: pulumi.Input<string>;
+    /**
+     * The name of the SSO Permission Set.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Key-value map of resource tags.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+}

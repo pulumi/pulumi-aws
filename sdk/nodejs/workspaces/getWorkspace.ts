@@ -100,3 +100,29 @@ export interface GetWorkspaceResult {
     readonly workspaceId: string;
     readonly workspaceProperties: outputs.workspaces.GetWorkspaceWorkspaceProperty[];
 }
+
+export function getWorkspaceOutput(args?: GetWorkspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceResult> {
+    return pulumi.output(args).apply(a => getWorkspace(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getWorkspace.
+ */
+export interface GetWorkspaceOutputArgs {
+    /**
+     * The ID of the directory for the WorkSpace. You have to specify `userName` along with `directoryId`. You cannot combine this parameter with `workspaceId`.
+     */
+    directoryId?: pulumi.Input<string>;
+    /**
+     * The tags for the WorkSpace.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The user name of the user for the WorkSpace. This user name must exist in the directory for the WorkSpace. You cannot combine this parameter with `workspaceId`.
+     */
+    userName?: pulumi.Input<string>;
+    /**
+     * The ID of the WorkSpace. You cannot combine this parameter with `directoryId`.
+     */
+    workspaceId?: pulumi.Input<string>;
+}

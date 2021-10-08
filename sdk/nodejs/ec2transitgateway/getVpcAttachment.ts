@@ -109,3 +109,25 @@ export interface GetVpcAttachmentResult {
      */
     readonly vpcOwnerId: string;
 }
+
+export function getVpcAttachmentOutput(args?: GetVpcAttachmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcAttachmentResult> {
+    return pulumi.output(args).apply(a => getVpcAttachment(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getVpcAttachment.
+ */
+export interface GetVpcAttachmentOutputArgs {
+    /**
+     * One or more configuration blocks containing name-values filters. Detailed below.
+     */
+    filters?: pulumi.Input<pulumi.Input<inputs.ec2transitgateway.GetVpcAttachmentFilterArgs>[]>;
+    /**
+     * Identifier of the EC2 Transit Gateway VPC Attachment.
+     */
+    id?: pulumi.Input<string>;
+    /**
+     * Key-value tags for the EC2 Transit Gateway VPC Attachment
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+}

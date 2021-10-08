@@ -223,6 +223,10 @@ func (o EnvironmentMonitorArrayOutput) Index(i pulumi.IntInput) EnvironmentMonit
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationProfileValidatorInput)(nil)).Elem(), ConfigurationProfileValidatorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationProfileValidatorArrayInput)(nil)).Elem(), ConfigurationProfileValidatorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentMonitorInput)(nil)).Elem(), EnvironmentMonitorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentMonitorArrayInput)(nil)).Elem(), EnvironmentMonitorArray{})
 	pulumi.RegisterOutputType(ConfigurationProfileValidatorOutput{})
 	pulumi.RegisterOutputType(ConfigurationProfileValidatorArrayOutput{})
 	pulumi.RegisterOutputType(EnvironmentMonitorOutput{})

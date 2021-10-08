@@ -96,3 +96,17 @@ export interface GetProxyResult {
      */
     readonly vpcSubnetIds: string[];
 }
+
+export function getProxyOutput(args: GetProxyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProxyResult> {
+    return pulumi.output(args).apply(a => getProxy(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getProxy.
+ */
+export interface GetProxyOutputArgs {
+    /**
+     * The name of the DB proxy.
+     */
+    name: pulumi.Input<string>;
+}

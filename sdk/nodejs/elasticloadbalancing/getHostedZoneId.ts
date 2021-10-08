@@ -64,3 +64,18 @@ export interface GetHostedZoneIdResult {
     readonly id: string;
     readonly region?: string;
 }
+
+export function getHostedZoneIdOutput(args?: GetHostedZoneIdOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHostedZoneIdResult> {
+    return pulumi.output(args).apply(a => getHostedZoneId(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getHostedZoneId.
+ */
+export interface GetHostedZoneIdOutputArgs {
+    /**
+     * Name of the region whose AWS ELB HostedZoneId is desired.
+     * Defaults to the region from the AWS provider configuration.
+     */
+    region?: pulumi.Input<string>;
+}

@@ -101,3 +101,37 @@ export interface GetResolverRuleResult {
      */
     readonly tags: {[key: string]: string};
 }
+
+export function getResolverRuleOutput(args?: GetResolverRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResolverRuleResult> {
+    return pulumi.output(args).apply(a => getResolverRule(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getResolverRule.
+ */
+export interface GetResolverRuleOutputArgs {
+    /**
+     * The domain name the desired resolver rule forwards DNS queries for. Conflicts with `resolverRuleId`.
+     */
+    domainName?: pulumi.Input<string>;
+    /**
+     * The friendly name of the desired resolver rule. Conflicts with `resolverRuleId`.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * The ID of the outbound resolver endpoint of the desired resolver rule. Conflicts with `resolverRuleId`.
+     */
+    resolverEndpointId?: pulumi.Input<string>;
+    /**
+     * The ID of the desired resolver rule. Conflicts with `domainName`, `name`, `resolverEndpointId` and `ruleType`.
+     */
+    resolverRuleId?: pulumi.Input<string>;
+    /**
+     * The rule type of the desired resolver rule. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`. Conflicts with `resolverRuleId`.
+     */
+    ruleType?: pulumi.Input<string>;
+    /**
+     * A map of tags assigned to the resolver rule.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+}

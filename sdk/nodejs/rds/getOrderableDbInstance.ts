@@ -221,3 +221,81 @@ export interface GetOrderableDbInstanceResult {
     readonly supportsStorageEncryption: boolean;
     readonly vpc: boolean;
 }
+
+export function getOrderableDbInstanceOutput(args: GetOrderableDbInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOrderableDbInstanceResult> {
+    return pulumi.output(args).apply(a => getOrderableDbInstance(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getOrderableDbInstance.
+ */
+export interface GetOrderableDbInstanceOutputArgs {
+    /**
+     * Availability zone group.
+     */
+    availabilityZoneGroup?: pulumi.Input<string>;
+    /**
+     * DB engine. Engine values include `aurora`, `aurora-mysql`, `aurora-postgresql`, `docdb`, `mariadb`, `mysql`, `neptune`, `oracle-ee`, `oracle-se`, `oracle-se1`, `oracle-se2`, `postgres`, `sqlserver-ee`, `sqlserver-ex`, `sqlserver-se`, and `sqlserver-web`.
+     */
+    engine: pulumi.Input<string>;
+    /**
+     * Version of the DB engine. If none is provided, the AWS-defined default version will be used.
+     */
+    engineVersion?: pulumi.Input<string>;
+    /**
+     * DB instance class. Examples of classes are `db.m3.2xlarge`, `db.t2.small`, and `db.m3.medium`.
+     */
+    instanceClass?: pulumi.Input<string>;
+    /**
+     * License model. Examples of license models are `general-public-license`, `bring-your-own-license`, and `amazon-license`.
+     */
+    licenseModel?: pulumi.Input<string>;
+    /**
+     * Ordered list of preferred RDS DB instance engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
+     */
+    preferredEngineVersions?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Ordered list of preferred RDS DB instance classes. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
+     */
+    preferredInstanceClasses?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Storage types. Examples of storage types are `standard`, `io1`, `gp2`, and `aurora`.
+     */
+    storageType?: pulumi.Input<string>;
+    /**
+     * Enable this to ensure a DB instance supports Enhanced Monitoring at intervals from 1 to 60 seconds.
+     */
+    supportsEnhancedMonitoring?: pulumi.Input<boolean>;
+    /**
+     * Enable this to ensure a DB instance supports Aurora global databases with a specific combination of other DB engine attributes.
+     */
+    supportsGlobalDatabases?: pulumi.Input<boolean>;
+    /**
+     * Enable this to ensure a DB instance supports IAM database authentication.
+     */
+    supportsIamDatabaseAuthentication?: pulumi.Input<boolean>;
+    /**
+     * Enable this to ensure a DB instance supports provisioned IOPS.
+     */
+    supportsIops?: pulumi.Input<boolean>;
+    /**
+     * Enable this to ensure a DB instance supports Kerberos Authentication.
+     */
+    supportsKerberosAuthentication?: pulumi.Input<boolean>;
+    /**
+     * Enable this to ensure a DB instance supports Performance Insights.
+     */
+    supportsPerformanceInsights?: pulumi.Input<boolean>;
+    /**
+     * Enable this to ensure Amazon RDS can automatically scale storage for DB instances that use the specified DB instance class.
+     */
+    supportsStorageAutoscaling?: pulumi.Input<boolean>;
+    /**
+     * Enable this to ensure a DB instance supports encrypted storage.
+     */
+    supportsStorageEncryption?: pulumi.Input<boolean>;
+    /**
+     * Boolean that indicates whether to show only VPC or non-VPC offerings.
+     */
+    vpc?: pulumi.Input<boolean>;
+}

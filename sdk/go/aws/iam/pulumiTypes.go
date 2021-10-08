@@ -737,6 +737,18 @@ func (o GetPolicyDocumentStatementPrincipalArrayOutput) Index(i pulumi.IntInput)
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RoleInlinePolicyInput)(nil)).Elem(), RoleInlinePolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RoleInlinePolicyArrayInput)(nil)).Elem(), RoleInlinePolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetGroupUserInput)(nil)).Elem(), GetGroupUserArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetGroupUserArrayInput)(nil)).Elem(), GetGroupUserArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPolicyDocumentStatementInput)(nil)).Elem(), GetPolicyDocumentStatementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPolicyDocumentStatementArrayInput)(nil)).Elem(), GetPolicyDocumentStatementArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPolicyDocumentStatementConditionInput)(nil)).Elem(), GetPolicyDocumentStatementConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPolicyDocumentStatementConditionArrayInput)(nil)).Elem(), GetPolicyDocumentStatementConditionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPolicyDocumentStatementNotPrincipalInput)(nil)).Elem(), GetPolicyDocumentStatementNotPrincipalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPolicyDocumentStatementNotPrincipalArrayInput)(nil)).Elem(), GetPolicyDocumentStatementNotPrincipalArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPolicyDocumentStatementPrincipalInput)(nil)).Elem(), GetPolicyDocumentStatementPrincipalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPolicyDocumentStatementPrincipalArrayInput)(nil)).Elem(), GetPolicyDocumentStatementPrincipalArray{})
 	pulumi.RegisterOutputType(RoleInlinePolicyOutput{})
 	pulumi.RegisterOutputType(RoleInlinePolicyArrayOutput{})
 	pulumi.RegisterOutputType(GetGroupUserOutput{})

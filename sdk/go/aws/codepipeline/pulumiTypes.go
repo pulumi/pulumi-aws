@@ -925,6 +925,18 @@ func (o WebhookFilterArrayOutput) Index(i pulumi.IntInput) WebhookFilterOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineArtifactStoreInput)(nil)).Elem(), PipelineArtifactStoreArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineArtifactStorePtrInput)(nil)).Elem(), PipelineArtifactStoreArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineArtifactStoreEncryptionKeyInput)(nil)).Elem(), PipelineArtifactStoreEncryptionKeyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineArtifactStoreEncryptionKeyPtrInput)(nil)).Elem(), PipelineArtifactStoreEncryptionKeyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineStageInput)(nil)).Elem(), PipelineStageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineStageArrayInput)(nil)).Elem(), PipelineStageArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineStageActionInput)(nil)).Elem(), PipelineStageActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PipelineStageActionArrayInput)(nil)).Elem(), PipelineStageActionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebhookAuthenticationConfigurationInput)(nil)).Elem(), WebhookAuthenticationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebhookAuthenticationConfigurationPtrInput)(nil)).Elem(), WebhookAuthenticationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebhookFilterInput)(nil)).Elem(), WebhookFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebhookFilterArrayInput)(nil)).Elem(), WebhookFilterArray{})
 	pulumi.RegisterOutputType(PipelineArtifactStoreOutput{})
 	pulumi.RegisterOutputType(PipelineArtifactStorePtrOutput{})
 	pulumi.RegisterOutputType(PipelineArtifactStoreEncryptionKeyOutput{})

@@ -250,6 +250,10 @@ func (o VoiceConnectorOrganizationRouteArrayOutput) Index(i pulumi.IntInput) Voi
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*VoiceConnectorGroupConnectorInput)(nil)).Elem(), VoiceConnectorGroupConnectorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VoiceConnectorGroupConnectorArrayInput)(nil)).Elem(), VoiceConnectorGroupConnectorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VoiceConnectorOrganizationRouteInput)(nil)).Elem(), VoiceConnectorOrganizationRouteArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VoiceConnectorOrganizationRouteArrayInput)(nil)).Elem(), VoiceConnectorOrganizationRouteArray{})
 	pulumi.RegisterOutputType(VoiceConnectorGroupConnectorOutput{})
 	pulumi.RegisterOutputType(VoiceConnectorGroupConnectorArrayOutput{})
 	pulumi.RegisterOutputType(VoiceConnectorOrganizationRouteOutput{})

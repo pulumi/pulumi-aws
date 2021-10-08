@@ -243,6 +243,8 @@ func (o RepositoryCatalogDataPtrOutput) UsageText() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryCatalogDataInput)(nil)).Elem(), RepositoryCatalogDataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryCatalogDataPtrInput)(nil)).Elem(), RepositoryCatalogDataArgs{})
 	pulumi.RegisterOutputType(RepositoryCatalogDataOutput{})
 	pulumi.RegisterOutputType(RepositoryCatalogDataPtrOutput{})
 }

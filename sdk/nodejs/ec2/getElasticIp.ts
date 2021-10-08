@@ -160,3 +160,29 @@ export interface GetElasticIpResult {
      */
     readonly tags: {[key: string]: string};
 }
+
+export function getElasticIpOutput(args?: GetElasticIpOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetElasticIpResult> {
+    return pulumi.output(args).apply(a => getElasticIp(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getElasticIp.
+ */
+export interface GetElasticIpOutputArgs {
+    /**
+     * One or more name/value pairs to use as filters. There are several valid keys, for a full reference, check out the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAddresses.html).
+     */
+    filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetElasticIpFilterArgs>[]>;
+    /**
+     * The allocation id of the specific VPC EIP to retrieve. If a classic EIP is required, do NOT set `id`, only set `publicIp`
+     */
+    id?: pulumi.Input<string>;
+    /**
+     * The public IP of the specific EIP to retrieve.
+     */
+    publicIp?: pulumi.Input<string>;
+    /**
+     * A map of tags, each pair of which must exactly match a pair on the desired Elastic IP
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+}

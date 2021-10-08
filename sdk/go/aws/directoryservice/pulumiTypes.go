@@ -661,6 +661,14 @@ func (o GetDirectoryVpcSettingArrayOutput) Index(i pulumi.IntInput) GetDirectory
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryConnectSettingsInput)(nil)).Elem(), DirectoryConnectSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryConnectSettingsPtrInput)(nil)).Elem(), DirectoryConnectSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryVpcSettingsInput)(nil)).Elem(), DirectoryVpcSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryVpcSettingsPtrInput)(nil)).Elem(), DirectoryVpcSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDirectoryConnectSettingInput)(nil)).Elem(), GetDirectoryConnectSettingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDirectoryConnectSettingArrayInput)(nil)).Elem(), GetDirectoryConnectSettingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDirectoryVpcSettingInput)(nil)).Elem(), GetDirectoryVpcSettingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDirectoryVpcSettingArrayInput)(nil)).Elem(), GetDirectoryVpcSettingArray{})
 	pulumi.RegisterOutputType(DirectoryConnectSettingsOutput{})
 	pulumi.RegisterOutputType(DirectoryConnectSettingsPtrOutput{})
 	pulumi.RegisterOutputType(DirectoryVpcSettingsOutput{})

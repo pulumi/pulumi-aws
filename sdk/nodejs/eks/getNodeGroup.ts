@@ -120,3 +120,25 @@ export interface GetNodeGroupResult {
      */
     readonly version: string;
 }
+
+export function getNodeGroupOutput(args: GetNodeGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNodeGroupResult> {
+    return pulumi.output(args).apply(a => getNodeGroup(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getNodeGroup.
+ */
+export interface GetNodeGroupOutputArgs {
+    /**
+     * The name of the cluster.
+     */
+    clusterName: pulumi.Input<string>;
+    /**
+     * The name of the node group.
+     */
+    nodeGroupName: pulumi.Input<string>;
+    /**
+     * Key-value map of resource tags.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+}

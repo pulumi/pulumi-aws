@@ -992,6 +992,18 @@ func (o SmbFileShareCacheAttributesPtrOutput) CacheStaleTimeoutInSeconds() pulum
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemAssociationCacheAttributesInput)(nil)).Elem(), FileSystemAssociationCacheAttributesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemAssociationCacheAttributesPtrInput)(nil)).Elem(), FileSystemAssociationCacheAttributesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayGatewayNetworkInterfaceInput)(nil)).Elem(), GatewayGatewayNetworkInterfaceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayGatewayNetworkInterfaceArrayInput)(nil)).Elem(), GatewayGatewayNetworkInterfaceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewaySmbActiveDirectorySettingsInput)(nil)).Elem(), GatewaySmbActiveDirectorySettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewaySmbActiveDirectorySettingsPtrInput)(nil)).Elem(), GatewaySmbActiveDirectorySettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NfsFileShareCacheAttributesInput)(nil)).Elem(), NfsFileShareCacheAttributesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NfsFileShareCacheAttributesPtrInput)(nil)).Elem(), NfsFileShareCacheAttributesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NfsFileShareNfsFileShareDefaultsInput)(nil)).Elem(), NfsFileShareNfsFileShareDefaultsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NfsFileShareNfsFileShareDefaultsPtrInput)(nil)).Elem(), NfsFileShareNfsFileShareDefaultsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SmbFileShareCacheAttributesInput)(nil)).Elem(), SmbFileShareCacheAttributesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SmbFileShareCacheAttributesPtrInput)(nil)).Elem(), SmbFileShareCacheAttributesArgs{})
 	pulumi.RegisterOutputType(FileSystemAssociationCacheAttributesOutput{})
 	pulumi.RegisterOutputType(FileSystemAssociationCacheAttributesPtrOutput{})
 	pulumi.RegisterOutputType(GatewayGatewayNetworkInterfaceOutput{})

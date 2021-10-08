@@ -53,3 +53,17 @@ export interface GetSessionContextResult {
      */
     readonly sessionName: string;
 }
+
+export function getSessionContextOutput(args: GetSessionContextOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSessionContextResult> {
+    return pulumi.output(args).apply(a => getSessionContext(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getSessionContext.
+ */
+export interface GetSessionContextOutputArgs {
+    /**
+     * ARN for an assumed role.
+     */
+    arn: pulumi.Input<string>;
+}

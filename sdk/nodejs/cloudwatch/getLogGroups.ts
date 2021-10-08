@@ -59,3 +59,17 @@ export interface GetLogGroupsResult {
      */
     readonly logGroupNames: string[];
 }
+
+export function getLogGroupsOutput(args: GetLogGroupsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLogGroupsResult> {
+    return pulumi.output(args).apply(a => getLogGroups(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getLogGroups.
+ */
+export interface GetLogGroupsOutputArgs {
+    /**
+     * The group prefix of the Cloudwatch log groups to list
+     */
+    logGroupNamePrefix: pulumi.Input<string>;
+}

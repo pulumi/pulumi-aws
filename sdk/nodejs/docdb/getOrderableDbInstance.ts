@@ -93,3 +93,37 @@ export interface GetOrderableDbInstanceResult {
     readonly preferredInstanceClasses?: string[];
     readonly vpc: boolean;
 }
+
+export function getOrderableDbInstanceOutput(args?: GetOrderableDbInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOrderableDbInstanceResult> {
+    return pulumi.output(args).apply(a => getOrderableDbInstance(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getOrderableDbInstance.
+ */
+export interface GetOrderableDbInstanceOutputArgs {
+    /**
+     * DB engine. Default: `docdb`
+     */
+    engine?: pulumi.Input<string>;
+    /**
+     * Version of the DB engine.
+     */
+    engineVersion?: pulumi.Input<string>;
+    /**
+     * DB instance class. Examples of classes are `db.r5.12xlarge`, `db.r5.24xlarge`, `db.r5.2xlarge`, `db.r5.4xlarge`, `db.r5.large`, `db.r5.xlarge`, and `db.t3.medium`. (Conflicts with `preferredInstanceClasses`.)
+     */
+    instanceClass?: pulumi.Input<string>;
+    /**
+     * License model. Default: `na`
+     */
+    licenseModel?: pulumi.Input<string>;
+    /**
+     * Ordered list of preferred DocumentDB DB instance classes. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. (Conflicts with `instanceClass`.)
+     */
+    preferredInstanceClasses?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Enable to show only VPC.
+     */
+    vpc?: pulumi.Input<boolean>;
+}

@@ -606,6 +606,16 @@ func (o GetSecretRotationRuleArrayOutput) Index(i pulumi.IntInput) GetSecretRota
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SecretReplicaInput)(nil)).Elem(), SecretReplicaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecretReplicaArrayInput)(nil)).Elem(), SecretReplicaArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecretRotationRotationRulesInput)(nil)).Elem(), SecretRotationRotationRulesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecretRotationRotationRulesPtrInput)(nil)).Elem(), SecretRotationRotationRulesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecretRotationRulesInput)(nil)).Elem(), SecretRotationRulesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecretRotationRulesPtrInput)(nil)).Elem(), SecretRotationRulesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSecretRotationRotationRuleInput)(nil)).Elem(), GetSecretRotationRotationRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSecretRotationRotationRuleArrayInput)(nil)).Elem(), GetSecretRotationRotationRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSecretRotationRuleInput)(nil)).Elem(), GetSecretRotationRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSecretRotationRuleArrayInput)(nil)).Elem(), GetSecretRotationRuleArray{})
 	pulumi.RegisterOutputType(SecretReplicaOutput{})
 	pulumi.RegisterOutputType(SecretReplicaArrayOutput{})
 	pulumi.RegisterOutputType(SecretRotationRotationRulesOutput{})

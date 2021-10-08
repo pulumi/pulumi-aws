@@ -73,3 +73,17 @@ export interface GetStateMachineResult {
      */
     readonly status: string;
 }
+
+export function getStateMachineOutput(args: GetStateMachineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStateMachineResult> {
+    return pulumi.output(args).apply(a => getStateMachine(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getStateMachine.
+ */
+export interface GetStateMachineOutputArgs {
+    /**
+     * The friendly name of the state machine to match.
+     */
+    name: pulumi.Input<string>;
+}

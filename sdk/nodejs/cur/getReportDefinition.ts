@@ -95,3 +95,17 @@ export interface GetReportDefinitionResult {
      */
     readonly timeUnit: string;
 }
+
+export function getReportDefinitionOutput(args: GetReportDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReportDefinitionResult> {
+    return pulumi.output(args).apply(a => getReportDefinition(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getReportDefinition.
+ */
+export interface GetReportDefinitionOutputArgs {
+    /**
+     * The name of the report definition to match.
+     */
+    reportName: pulumi.Input<string>;
+}

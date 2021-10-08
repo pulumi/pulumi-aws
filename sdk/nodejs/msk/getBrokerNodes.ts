@@ -53,3 +53,17 @@ export interface GetBrokerNodesResult {
     readonly id: string;
     readonly nodeInfoLists: outputs.msk.GetBrokerNodesNodeInfoList[];
 }
+
+export function getBrokerNodesOutput(args: GetBrokerNodesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBrokerNodesResult> {
+    return pulumi.output(args).apply(a => getBrokerNodes(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getBrokerNodes.
+ */
+export interface GetBrokerNodesOutputArgs {
+    /**
+     * The ARN of the cluster the nodes belong to.
+     */
+    clusterArn: pulumi.Input<string>;
+}

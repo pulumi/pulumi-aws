@@ -98,3 +98,25 @@ export interface GetMeshResult {
      */
     readonly tags: {[key: string]: string};
 }
+
+export function getMeshOutput(args: GetMeshOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMeshResult> {
+    return pulumi.output(args).apply(a => getMesh(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getMesh.
+ */
+export interface GetMeshOutputArgs {
+    /**
+     * The AWS account ID of the service mesh's owner.
+     */
+    meshOwner?: pulumi.Input<string>;
+    /**
+     * The name of the service mesh.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * A map of tags.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+}

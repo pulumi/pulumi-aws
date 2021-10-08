@@ -84,3 +84,31 @@ export interface GetLocalGatewayResult {
     readonly state: string;
     readonly tags: {[key: string]: string};
 }
+
+export function getLocalGatewayOutput(args?: GetLocalGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalGatewayResult> {
+    return pulumi.output(args).apply(a => getLocalGateway(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getLocalGateway.
+ */
+export interface GetLocalGatewayOutputArgs {
+    /**
+     * Custom filter block as described below.
+     */
+    filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetLocalGatewayFilterArgs>[]>;
+    /**
+     * The id of the specific Local Gateway to retrieve.
+     */
+    id?: pulumi.Input<string>;
+    /**
+     * The current state of the desired Local Gateway.
+     * Can be either `"pending"` or `"available"`.
+     */
+    state?: pulumi.Input<string>;
+    /**
+     * A mapping of tags, each pair of which must exactly match
+     * a pair on the desired Local Gateway.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+}

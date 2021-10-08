@@ -71,3 +71,29 @@ export interface GetResourceResult {
     readonly typeName: string;
     readonly typeVersionId?: string;
 }
+
+export function getResourceOutput(args: GetResourceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceResult> {
+    return pulumi.output(args).apply(a => getResource(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getResource.
+ */
+export interface GetResourceOutputArgs {
+    /**
+     * Identifier of the CloudFormation resource type. For example, `vpc-12345678`.
+     */
+    identifier: pulumi.Input<string>;
+    /**
+     * Amazon Resource Name (ARN) of the IAM Role to assume for operations.
+     */
+    roleArn?: pulumi.Input<string>;
+    /**
+     * CloudFormation resource type name. For example, `AWS::EC2::VPC`.
+     */
+    typeName: pulumi.Input<string>;
+    /**
+     * Identifier of the CloudFormation resource type version.
+     */
+    typeVersionId?: pulumi.Input<string>;
+}

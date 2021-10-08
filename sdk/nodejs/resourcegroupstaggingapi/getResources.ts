@@ -106,3 +106,33 @@ export interface GetResourcesResult {
     readonly resourceTypeFilters?: string[];
     readonly tagFilters?: outputs.resourcegroupstaggingapi.GetResourcesTagFilter[];
 }
+
+export function getResourcesOutput(args?: GetResourcesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourcesResult> {
+    return pulumi.output(args).apply(a => getResources(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getResources.
+ */
+export interface GetResourcesOutputArgs {
+    /**
+     * Specifies whether to exclude resources that are compliant with the tag policy. You can use this parameter only if the `includeComplianceDetails` argument is also set to `true`.
+     */
+    excludeCompliantResources?: pulumi.Input<boolean>;
+    /**
+     * Specifies whether to include details regarding the compliance with the effective tag policy.
+     */
+    includeComplianceDetails?: pulumi.Input<boolean>;
+    /**
+     * Specifies a list of ARNs of resources for which you want to retrieve tag data. Conflicts with `filter`.
+     */
+    resourceArnLists?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The constraints on the resources that you want returned. The format of each resource type is `service:resourceType`. For example, specifying a resource type of `ec2` returns all Amazon EC2 resources (which includes EC2 instances). Specifying a resource type of `ec2:instance` returns only EC2 instances.
+     */
+    resourceTypeFilters?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Specifies a list of Tag Filters (keys and values) to restrict the output to only those resources that have the specified tag and, if included, the specified value. See Tag Filter below. Conflicts with `resourceArnList`.
+     */
+    tagFilters?: pulumi.Input<pulumi.Input<inputs.resourcegroupstaggingapi.GetResourcesTagFilterArgs>[]>;
+}

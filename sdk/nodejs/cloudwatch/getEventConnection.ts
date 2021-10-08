@@ -68,3 +68,17 @@ export interface GetEventConnectionResult {
      */
     readonly secretArn: string;
 }
+
+export function getEventConnectionOutput(args: GetEventConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventConnectionResult> {
+    return pulumi.output(args).apply(a => getEventConnection(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getEventConnection.
+ */
+export interface GetEventConnectionOutputArgs {
+    /**
+     * The name of the connection.
+     */
+    name: pulumi.Input<string>;
+}

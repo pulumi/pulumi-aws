@@ -272,6 +272,10 @@ func (o CertificateOptionsPtrOutput) CertificateTransparencyLoggingPreference() 
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CertificateDomainValidationOptionInput)(nil)).Elem(), CertificateDomainValidationOptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CertificateDomainValidationOptionArrayInput)(nil)).Elem(), CertificateDomainValidationOptionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CertificateOptionsInput)(nil)).Elem(), CertificateOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CertificateOptionsPtrInput)(nil)).Elem(), CertificateOptionsArgs{})
 	pulumi.RegisterOutputType(CertificateDomainValidationOptionOutput{})
 	pulumi.RegisterOutputType(CertificateDomainValidationOptionArrayOutput{})
 	pulumi.RegisterOutputType(CertificateOptionsOutput{})

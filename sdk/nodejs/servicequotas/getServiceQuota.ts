@@ -94,3 +94,25 @@ export interface GetServiceQuotaResult {
      */
     readonly value: number;
 }
+
+export function getServiceQuotaOutput(args: GetServiceQuotaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceQuotaResult> {
+    return pulumi.output(args).apply(a => getServiceQuota(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getServiceQuota.
+ */
+export interface GetServiceQuotaOutputArgs {
+    /**
+     * Quota code within the service. When configured, the data source directly looks up the service quota. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html).
+     */
+    quotaCode?: pulumi.Input<string>;
+    /**
+     * Quota name within the service. When configured, the data source searches through all service quotas to find the matching quota name. Available values can be found with the [AWS CLI service-quotas list-service-quotas command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-service-quotas.html).
+     */
+    quotaName?: pulumi.Input<string>;
+    /**
+     * Service code for the quota. Available values can be found with the `aws.servicequotas.getService` data source or [AWS CLI service-quotas list-services command](https://docs.aws.amazon.com/cli/latest/reference/service-quotas/list-services.html).
+     */
+    serviceCode: pulumi.Input<string>;
+}

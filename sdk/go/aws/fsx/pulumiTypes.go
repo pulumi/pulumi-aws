@@ -894,6 +894,18 @@ func (o WindowsFileSystemSelfManagedActiveDirectoryPtrOutput) Username() pulumi.
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*OntapFileSystemDiskIopsConfigurationInput)(nil)).Elem(), OntapFileSystemDiskIopsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OntapFileSystemDiskIopsConfigurationPtrInput)(nil)).Elem(), OntapFileSystemDiskIopsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OntapFileSystemEndpointInput)(nil)).Elem(), OntapFileSystemEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OntapFileSystemEndpointArrayInput)(nil)).Elem(), OntapFileSystemEndpointArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OntapFileSystemEndpointInterclusterInput)(nil)).Elem(), OntapFileSystemEndpointInterclusterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OntapFileSystemEndpointInterclusterArrayInput)(nil)).Elem(), OntapFileSystemEndpointInterclusterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OntapFileSystemEndpointManagementInput)(nil)).Elem(), OntapFileSystemEndpointManagementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OntapFileSystemEndpointManagementArrayInput)(nil)).Elem(), OntapFileSystemEndpointManagementArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WindowsFileSystemAuditLogConfigurationInput)(nil)).Elem(), WindowsFileSystemAuditLogConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WindowsFileSystemAuditLogConfigurationPtrInput)(nil)).Elem(), WindowsFileSystemAuditLogConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WindowsFileSystemSelfManagedActiveDirectoryInput)(nil)).Elem(), WindowsFileSystemSelfManagedActiveDirectoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WindowsFileSystemSelfManagedActiveDirectoryPtrInput)(nil)).Elem(), WindowsFileSystemSelfManagedActiveDirectoryArgs{})
 	pulumi.RegisterOutputType(OntapFileSystemDiskIopsConfigurationOutput{})
 	pulumi.RegisterOutputType(OntapFileSystemDiskIopsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(OntapFileSystemEndpointOutput{})

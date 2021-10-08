@@ -243,3 +243,40 @@ export interface GetInstanceResult {
      */
     readonly vpcSecurityGroupIds: string[];
 }
+
+export function getInstanceOutput(args?: GetInstanceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInstanceResult> {
+    return pulumi.output(args).apply(a => getInstance(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getInstance.
+ */
+export interface GetInstanceOutputArgs {
+    /**
+     * One or more name/value pairs to use as filters. There are
+     * several valid keys, for a full reference, check out
+     * [describe-instances in the AWS CLI reference][1].
+     */
+    filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetInstanceFilterArgs>[]>;
+    /**
+     * If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `passwordData` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
+     */
+    getPasswordData?: pulumi.Input<boolean>;
+    /**
+     * Retrieve Base64 encoded User Data contents into the `userDataBase64` attribute. A SHA-1 hash of the User Data contents will always be present in the `userData` attribute. Defaults to `false`.
+     */
+    getUserData?: pulumi.Input<boolean>;
+    /**
+     * Specify the exact Instance ID with which to populate the data source.
+     */
+    instanceId?: pulumi.Input<string>;
+    /**
+     * A map of tags, each pair of which must
+     * exactly match a pair on the desired Instance.
+     */
+    instanceTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the Instance.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+}

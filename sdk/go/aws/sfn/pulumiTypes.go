@@ -323,6 +323,10 @@ func (o StateMachineTracingConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutpu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*StateMachineLoggingConfigurationInput)(nil)).Elem(), StateMachineLoggingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StateMachineLoggingConfigurationPtrInput)(nil)).Elem(), StateMachineLoggingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StateMachineTracingConfigurationInput)(nil)).Elem(), StateMachineTracingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StateMachineTracingConfigurationPtrInput)(nil)).Elem(), StateMachineTracingConfigurationArgs{})
 	pulumi.RegisterOutputType(StateMachineLoggingConfigurationOutput{})
 	pulumi.RegisterOutputType(StateMachineLoggingConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(StateMachineTracingConfigurationOutput{})

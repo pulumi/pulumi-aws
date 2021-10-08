@@ -841,6 +841,20 @@ func (o GetRepositoryImageScanningConfigurationArrayOutput) Index(i pulumi.IntIn
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigurationReplicationConfigurationInput)(nil)).Elem(), ReplicationConfigurationReplicationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigurationReplicationConfigurationPtrInput)(nil)).Elem(), ReplicationConfigurationReplicationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigurationReplicationConfigurationRuleInput)(nil)).Elem(), ReplicationConfigurationReplicationConfigurationRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigurationReplicationConfigurationRulePtrInput)(nil)).Elem(), ReplicationConfigurationReplicationConfigurationRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigurationReplicationConfigurationRuleDestinationInput)(nil)).Elem(), ReplicationConfigurationReplicationConfigurationRuleDestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigurationReplicationConfigurationRuleDestinationArrayInput)(nil)).Elem(), ReplicationConfigurationReplicationConfigurationRuleDestinationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryEncryptionConfigurationInput)(nil)).Elem(), RepositoryEncryptionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryEncryptionConfigurationArrayInput)(nil)).Elem(), RepositoryEncryptionConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryImageScanningConfigurationInput)(nil)).Elem(), RepositoryImageScanningConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryImageScanningConfigurationPtrInput)(nil)).Elem(), RepositoryImageScanningConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryEncryptionConfigurationInput)(nil)).Elem(), GetRepositoryEncryptionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryEncryptionConfigurationArrayInput)(nil)).Elem(), GetRepositoryEncryptionConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryImageScanningConfigurationInput)(nil)).Elem(), GetRepositoryImageScanningConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryImageScanningConfigurationArrayInput)(nil)).Elem(), GetRepositoryImageScanningConfigurationArray{})
 	pulumi.RegisterOutputType(ReplicationConfigurationReplicationConfigurationOutput{})
 	pulumi.RegisterOutputType(ReplicationConfigurationReplicationConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ReplicationConfigurationReplicationConfigurationRuleOutput{})

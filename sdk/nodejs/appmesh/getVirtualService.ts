@@ -106,3 +106,29 @@ export interface GetVirtualServiceResult {
      */
     readonly tags?: {[key: string]: string};
 }
+
+export function getVirtualServiceOutput(args: GetVirtualServiceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualServiceResult> {
+    return pulumi.output(args).apply(a => getVirtualService(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getVirtualService.
+ */
+export interface GetVirtualServiceOutputArgs {
+    /**
+     * The name of the service mesh in which the virtual service exists.
+     */
+    meshName: pulumi.Input<string>;
+    /**
+     * The AWS account ID of the service mesh's owner.
+     */
+    meshOwner?: pulumi.Input<string>;
+    /**
+     * The name of the virtual service.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * A map of tags.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+}

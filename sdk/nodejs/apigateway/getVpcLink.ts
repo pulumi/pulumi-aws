@@ -80,3 +80,22 @@ export interface GetVpcLinkResult {
      */
     readonly targetArns: string[];
 }
+
+export function getVpcLinkOutput(args: GetVpcLinkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcLinkResult> {
+    return pulumi.output(args).apply(a => getVpcLink(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getVpcLink.
+ */
+export interface GetVpcLinkOutputArgs {
+    /**
+     * The name of the API Gateway VPC Link to look up. If no API Gateway VPC Link is found with this name, an error will be returned.
+     * If multiple API Gateway VPC Links are found with this name, an error will be returned.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Key-value map of resource tags
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+}

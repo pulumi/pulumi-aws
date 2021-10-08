@@ -75,3 +75,28 @@ export interface GetInstancesResult {
      */
     readonly publicIps: string[];
 }
+
+export function getInstancesOutput(args?: GetInstancesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInstancesResult> {
+    return pulumi.output(args).apply(a => getInstances(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getInstances.
+ */
+export interface GetInstancesOutputArgs {
+    /**
+     * One or more name/value pairs to use as filters. There are
+     * several valid keys, for a full reference, check out
+     * [describe-instances in the AWS CLI reference][1].
+     */
+    filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetInstancesFilterArgs>[]>;
+    /**
+     * A list of instance states that should be applicable to the desired instances. The permitted values are: `pending, running, shutting-down, stopped, stopping, terminated`. The default value is `running`.
+     */
+    instanceStateNames?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A map of tags, each pair of which must
+     * exactly match a pair on desired instances.
+     */
+    instanceTags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+}

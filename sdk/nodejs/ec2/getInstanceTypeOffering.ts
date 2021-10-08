@@ -79,3 +79,25 @@ export interface GetInstanceTypeOfferingResult {
     readonly locationType?: string;
     readonly preferredInstanceTypes?: string[];
 }
+
+export function getInstanceTypeOfferingOutput(args?: GetInstanceTypeOfferingOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInstanceTypeOfferingResult> {
+    return pulumi.output(args).apply(a => getInstanceTypeOffering(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getInstanceTypeOffering.
+ */
+export interface GetInstanceTypeOfferingOutputArgs {
+    /**
+     * One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceTypeOfferings.html) for supported filters. Detailed below.
+     */
+    filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetInstanceTypeOfferingFilterArgs>[]>;
+    /**
+     * Location type. Defaults to `region`. Valid values: `availability-zone`, `availability-zone-id`, and `region`.
+     */
+    locationType?: pulumi.Input<string>;
+    /**
+     * Ordered list of preferred EC2 Instance Types. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
+     */
+    preferredInstanceTypes?: pulumi.Input<pulumi.Input<string>[]>;
+}

@@ -93,3 +93,22 @@ export interface GetNetworkInterfacesResult {
     readonly ids: string[];
     readonly tags: {[key: string]: string};
 }
+
+export function getNetworkInterfacesOutput(args?: GetNetworkInterfacesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkInterfacesResult> {
+    return pulumi.output(args).apply(a => getNetworkInterfaces(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getNetworkInterfaces.
+ */
+export interface GetNetworkInterfacesOutputArgs {
+    /**
+     * Custom filter block as described below.
+     */
+    filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetNetworkInterfacesFilterArgs>[]>;
+    /**
+     * A map of tags, each pair of which must exactly match
+     * a pair on the desired network interfaces.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+}

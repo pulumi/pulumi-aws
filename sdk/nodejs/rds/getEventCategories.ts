@@ -67,3 +67,17 @@ export interface GetEventCategoriesResult {
     readonly id: string;
     readonly sourceType?: string;
 }
+
+export function getEventCategoriesOutput(args?: GetEventCategoriesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventCategoriesResult> {
+    return pulumi.output(args).apply(a => getEventCategories(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getEventCategories.
+ */
+export interface GetEventCategoriesOutputArgs {
+    /**
+     * The type of source that will be generating the events. Valid options are db-instance, db-security-group, db-parameter-group, db-snapshot, db-cluster or db-cluster-snapshot.
+     */
+    sourceType?: pulumi.Input<string>;
+}

@@ -59,3 +59,17 @@ export interface GetAccessPointsResult {
      */
     readonly ids: string[];
 }
+
+export function getAccessPointsOutput(args: GetAccessPointsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessPointsResult> {
+    return pulumi.output(args).apply(a => getAccessPoints(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getAccessPoints.
+ */
+export interface GetAccessPointsOutputArgs {
+    /**
+     * EFS File System identifier.
+     */
+    fileSystemId: pulumi.Input<string>;
+}

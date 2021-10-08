@@ -1506,6 +1506,23 @@ func (o BudgetNotificationArrayOutput) Index(i pulumi.IntInput) BudgetNotificati
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetActionActionThresholdInput)(nil)).Elem(), BudgetActionActionThresholdArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetActionActionThresholdPtrInput)(nil)).Elem(), BudgetActionActionThresholdArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetActionDefinitionInput)(nil)).Elem(), BudgetActionDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetActionDefinitionPtrInput)(nil)).Elem(), BudgetActionDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetActionDefinitionIamActionDefinitionInput)(nil)).Elem(), BudgetActionDefinitionIamActionDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetActionDefinitionIamActionDefinitionPtrInput)(nil)).Elem(), BudgetActionDefinitionIamActionDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetActionDefinitionScpActionDefinitionInput)(nil)).Elem(), BudgetActionDefinitionScpActionDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetActionDefinitionScpActionDefinitionPtrInput)(nil)).Elem(), BudgetActionDefinitionScpActionDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetActionDefinitionSsmActionDefinitionInput)(nil)).Elem(), BudgetActionDefinitionSsmActionDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetActionDefinitionSsmActionDefinitionPtrInput)(nil)).Elem(), BudgetActionDefinitionSsmActionDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetActionSubscriberInput)(nil)).Elem(), BudgetActionSubscriberArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetActionSubscriberArrayInput)(nil)).Elem(), BudgetActionSubscriberArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetCostFilterInput)(nil)).Elem(), BudgetCostFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetCostTypesInput)(nil)).Elem(), BudgetCostTypesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetCostTypesPtrInput)(nil)).Elem(), BudgetCostTypesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetNotificationInput)(nil)).Elem(), BudgetNotificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetNotificationArrayInput)(nil)).Elem(), BudgetNotificationArray{})
 	pulumi.RegisterOutputType(BudgetActionActionThresholdOutput{})
 	pulumi.RegisterOutputType(BudgetActionActionThresholdPtrOutput{})
 	pulumi.RegisterOutputType(BudgetActionDefinitionOutput{})

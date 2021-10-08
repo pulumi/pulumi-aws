@@ -536,6 +536,12 @@ func (o AppQuietTimePtrOutput) Start() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AppCampaignHookInput)(nil)).Elem(), AppCampaignHookArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AppCampaignHookPtrInput)(nil)).Elem(), AppCampaignHookArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AppLimitsInput)(nil)).Elem(), AppLimitsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AppLimitsPtrInput)(nil)).Elem(), AppLimitsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AppQuietTimeInput)(nil)).Elem(), AppQuietTimeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AppQuietTimePtrInput)(nil)).Elem(), AppQuietTimeArgs{})
 	pulumi.RegisterOutputType(AppCampaignHookOutput{})
 	pulumi.RegisterOutputType(AppCampaignHookPtrOutput{})
 	pulumi.RegisterOutputType(AppLimitsOutput{})

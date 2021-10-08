@@ -71,3 +71,21 @@ export interface GetRegexPatternSetResult {
     readonly regularExpressions: outputs.wafv2.GetRegexPatternSetRegularExpression[];
     readonly scope: string;
 }
+
+export function getRegexPatternSetOutput(args: GetRegexPatternSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegexPatternSetResult> {
+    return pulumi.output(args).apply(a => getRegexPatternSet(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getRegexPatternSet.
+ */
+export interface GetRegexPatternSetOutputArgs {
+    /**
+     * The name of the WAFv2 Regex Pattern Set.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
+     */
+    scope: pulumi.Input<string>;
+}

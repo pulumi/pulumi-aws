@@ -845,6 +845,18 @@ func (o OrganizationConfigurationDatasourcesS3LogsPtrOutput) AutoEnable() pulumi
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DetectorDatasourcesInput)(nil)).Elem(), DetectorDatasourcesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DetectorDatasourcesPtrInput)(nil)).Elem(), DetectorDatasourcesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DetectorDatasourcesS3LogsInput)(nil)).Elem(), DetectorDatasourcesS3LogsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DetectorDatasourcesS3LogsPtrInput)(nil)).Elem(), DetectorDatasourcesS3LogsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FilterFindingCriteriaInput)(nil)).Elem(), FilterFindingCriteriaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FilterFindingCriteriaPtrInput)(nil)).Elem(), FilterFindingCriteriaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FilterFindingCriteriaCriterionInput)(nil)).Elem(), FilterFindingCriteriaCriterionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FilterFindingCriteriaCriterionArrayInput)(nil)).Elem(), FilterFindingCriteriaCriterionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationConfigurationDatasourcesInput)(nil)).Elem(), OrganizationConfigurationDatasourcesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationConfigurationDatasourcesPtrInput)(nil)).Elem(), OrganizationConfigurationDatasourcesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationConfigurationDatasourcesS3LogsInput)(nil)).Elem(), OrganizationConfigurationDatasourcesS3LogsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationConfigurationDatasourcesS3LogsPtrInput)(nil)).Elem(), OrganizationConfigurationDatasourcesS3LogsArgs{})
 	pulumi.RegisterOutputType(DetectorDatasourcesOutput{})
 	pulumi.RegisterOutputType(DetectorDatasourcesPtrOutput{})
 	pulumi.RegisterOutputType(DetectorDatasourcesS3LogsOutput{})

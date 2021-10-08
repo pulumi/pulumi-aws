@@ -41,3 +41,17 @@ export interface GetDefaultTagsResult {
      */
     readonly tags: {[key: string]: string};
 }
+
+export function getDefaultTagsOutput(args?: GetDefaultTagsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDefaultTagsResult> {
+    return pulumi.output(args).apply(a => getDefaultTags(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getDefaultTags.
+ */
+export interface GetDefaultTagsOutputArgs {
+    /**
+     * Blocks of default tags set on the provider. See details below.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+}

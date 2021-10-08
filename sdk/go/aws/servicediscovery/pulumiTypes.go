@@ -604,6 +604,14 @@ func (o ServiceHealthCheckCustomConfigPtrOutput) FailureThreshold() pulumi.IntPt
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDnsConfigInput)(nil)).Elem(), ServiceDnsConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDnsConfigPtrInput)(nil)).Elem(), ServiceDnsConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDnsConfigDnsRecordInput)(nil)).Elem(), ServiceDnsConfigDnsRecordArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDnsConfigDnsRecordArrayInput)(nil)).Elem(), ServiceDnsConfigDnsRecordArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceHealthCheckConfigInput)(nil)).Elem(), ServiceHealthCheckConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceHealthCheckConfigPtrInput)(nil)).Elem(), ServiceHealthCheckConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceHealthCheckCustomConfigInput)(nil)).Elem(), ServiceHealthCheckCustomConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceHealthCheckCustomConfigPtrInput)(nil)).Elem(), ServiceHealthCheckCustomConfigArgs{})
 	pulumi.RegisterOutputType(ServiceDnsConfigOutput{})
 	pulumi.RegisterOutputType(ServiceDnsConfigPtrOutput{})
 	pulumi.RegisterOutputType(ServiceDnsConfigDnsRecordOutput{})

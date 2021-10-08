@@ -113,3 +113,25 @@ export interface GetProductResult {
      */
     readonly type: string;
 }
+
+export function getProductOutput(args: GetProductOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProductResult> {
+    return pulumi.output(args).apply(a => getProduct(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getProduct.
+ */
+export interface GetProductOutputArgs {
+    /**
+     * Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
+     */
+    acceptLanguage?: pulumi.Input<string>;
+    /**
+     * Product ID.
+     */
+    id: pulumi.Input<string>;
+    /**
+     * Tags to apply to the product.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+}

@@ -89,3 +89,18 @@ export interface GetDistributionResult {
     readonly status: string;
     readonly tags?: {[key: string]: string};
 }
+
+export function getDistributionOutput(args: GetDistributionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDistributionResult> {
+    return pulumi.output(args).apply(a => getDistribution(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getDistribution.
+ */
+export interface GetDistributionOutputArgs {
+    /**
+     * The identifier for the distribution. For example: `EDFDVBD632BHDS5`.
+     */
+    id: pulumi.Input<string>;
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+}

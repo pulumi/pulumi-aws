@@ -117,3 +117,21 @@ export interface GetImagePipelineResult {
      */
     readonly tags: {[key: string]: string};
 }
+
+export function getImagePipelineOutput(args: GetImagePipelineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetImagePipelineResult> {
+    return pulumi.output(args).apply(a => getImagePipeline(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getImagePipeline.
+ */
+export interface GetImagePipelineOutputArgs {
+    /**
+     * Amazon Resource Name (ARN) of the image pipeline.
+     */
+    arn: pulumi.Input<string>;
+    /**
+     * Key-value map of resource tags for the image pipeline.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+}

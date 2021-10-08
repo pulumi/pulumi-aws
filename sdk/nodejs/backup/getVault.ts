@@ -72,3 +72,21 @@ export interface GetVaultResult {
      */
     readonly tags: {[key: string]: string};
 }
+
+export function getVaultOutput(args: GetVaultOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVaultResult> {
+    return pulumi.output(args).apply(a => getVault(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getVault.
+ */
+export interface GetVaultOutputArgs {
+    /**
+     * The name of the backup vault.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Metadata that you can assign to help organize the resources that you create.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+}

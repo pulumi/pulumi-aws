@@ -479,6 +479,12 @@ func (o PolicySecurityServicePolicyDataPtrOutput) Type() pulumi.StringPtrOutput 
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyExcludeMapInput)(nil)).Elem(), PolicyExcludeMapArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyExcludeMapPtrInput)(nil)).Elem(), PolicyExcludeMapArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyIncludeMapInput)(nil)).Elem(), PolicyIncludeMapArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyIncludeMapPtrInput)(nil)).Elem(), PolicyIncludeMapArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicySecurityServicePolicyDataInput)(nil)).Elem(), PolicySecurityServicePolicyDataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicySecurityServicePolicyDataPtrInput)(nil)).Elem(), PolicySecurityServicePolicyDataArgs{})
 	pulumi.RegisterOutputType(PolicyExcludeMapOutput{})
 	pulumi.RegisterOutputType(PolicyExcludeMapPtrOutput{})
 	pulumi.RegisterOutputType(PolicyIncludeMapOutput{})

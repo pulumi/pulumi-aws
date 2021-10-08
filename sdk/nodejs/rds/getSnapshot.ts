@@ -174,3 +174,43 @@ export interface GetSnapshotResult {
      */
     readonly vpcId: string;
 }
+
+export function getSnapshotOutput(args?: GetSnapshotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSnapshotResult> {
+    return pulumi.output(args).apply(a => getSnapshot(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getSnapshot.
+ */
+export interface GetSnapshotOutputArgs {
+    /**
+     * Returns the list of snapshots created by the specific db_instance
+     */
+    dbInstanceIdentifier?: pulumi.Input<string>;
+    /**
+     * Returns information on a specific snapshot_id.
+     */
+    dbSnapshotIdentifier?: pulumi.Input<string>;
+    /**
+     * Set this value to true to include manual DB snapshots that are public and can be
+     * copied or restored by any AWS account, otherwise set this value to false. The default is `false`.
+     */
+    includePublic?: pulumi.Input<boolean>;
+    /**
+     * Set this value to true to include shared manual DB snapshots from other
+     * AWS accounts that this AWS account has been given permission to copy or restore, otherwise set this value to false.
+     * The default is `false`.
+     */
+    includeShared?: pulumi.Input<boolean>;
+    /**
+     * If more than one result is returned, use the most
+     * recent Snapshot.
+     */
+    mostRecent?: pulumi.Input<boolean>;
+    /**
+     * The type of snapshots to be returned. If you don't specify a SnapshotType
+     * value, then both automated and manual snapshots are returned. Shared and public DB snapshots are not
+     * included in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.
+     */
+    snapshotType?: pulumi.Input<string>;
+}

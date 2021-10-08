@@ -74,3 +74,17 @@ export interface GetCodeSigningConfigResult {
      */
     readonly policies: outputs.lambda.GetCodeSigningConfigPolicy[];
 }
+
+export function getCodeSigningConfigOutput(args: GetCodeSigningConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCodeSigningConfigResult> {
+    return pulumi.output(args).apply(a => getCodeSigningConfig(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getCodeSigningConfig.
+ */
+export interface GetCodeSigningConfigOutputArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the code signing configuration.
+     */
+    arn: pulumi.Input<string>;
+}

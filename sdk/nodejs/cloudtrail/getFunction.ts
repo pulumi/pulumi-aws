@@ -87,3 +87,21 @@ export interface GetFunctionResult {
      */
     readonly status: string;
 }
+
+export function getFunctionOutput(args: GetFunctionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFunctionResult> {
+    return pulumi.output(args).apply(a => getFunction(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getFunction.
+ */
+export interface GetFunctionOutputArgs {
+    /**
+     * Name of the CloudFront function.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The function’s stage, either `DEVELOPMENT` or `LIVE`.
+     */
+    stage: pulumi.Input<string>;
+}

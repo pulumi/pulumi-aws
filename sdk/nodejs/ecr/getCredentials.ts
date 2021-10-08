@@ -37,3 +37,14 @@ export interface GetCredentialsResult {
     readonly proxyEndpoint: string;
     readonly registryId: string;
 }
+
+export function getCredentialsOutput(args: GetCredentialsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCredentialsResult> {
+    return pulumi.output(args).apply(a => getCredentials(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getCredentials.
+ */
+export interface GetCredentialsOutputArgs {
+    registryId: pulumi.Input<string>;
+}

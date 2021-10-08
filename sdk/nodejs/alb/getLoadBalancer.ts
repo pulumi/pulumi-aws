@@ -91,3 +91,25 @@ export interface GetLoadBalancerResult {
     readonly vpcId: string;
     readonly zoneId: string;
 }
+
+export function getLoadBalancerOutput(args?: GetLoadBalancerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLoadBalancerResult> {
+    return pulumi.output(args).apply(a => getLoadBalancer(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getLoadBalancer.
+ */
+export interface GetLoadBalancerOutputArgs {
+    /**
+     * The full ARN of the load balancer.
+     */
+    arn?: pulumi.Input<string>;
+    /**
+     * The unique name of the load balancer.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * A mapping of tags, each pair of which must exactly match a pair on the desired load balancer.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+}

@@ -113,3 +113,23 @@ export interface GetRolesResult {
     readonly names: string[];
     readonly pathPrefix?: string;
 }
+
+export function getRolesOutput(args?: GetRolesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRolesResult> {
+    return pulumi.output(args).apply(a => getRoles(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getRoles.
+ */
+export interface GetRolesOutputArgs {
+    /**
+     * A regex string to apply to the IAM roles list returned by AWS. This allows more advanced filtering not supported from the AWS API.
+     * This filtering is done locally on what AWS returns, and could have a performance impact if the result is large. It is recommended to combine this with other
+     * options to narrow down the list AWS returns.
+     */
+    nameRegex?: pulumi.Input<string>;
+    /**
+     * The path prefix for filtering the results. For example, the prefix `/application_abc/component_xyz/` gets all roles whose path starts with `/application_abc/component_xyz/`. If it is not included, it defaults to a slash (`/`), listing all roles. For more details, check out [list-roles in the AWS CLI reference][1].
+     */
+    pathPrefix?: pulumi.Input<string>;
+}
