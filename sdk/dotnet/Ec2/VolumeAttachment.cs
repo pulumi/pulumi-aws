@@ -97,6 +97,13 @@ namespace Pulumi.Aws.Ec2
         public Output<bool?> SkipDestroy { get; private set; } = null!;
 
         /// <summary>
+        /// Set this to true to ensure that the target instance is stopped
+        /// before trying to detach the volume. Stops the instance, if it is not already stopped.
+        /// </summary>
+        [Output("stopInstanceBeforeDetaching")]
+        public Output<bool?> StopInstanceBeforeDetaching { get; private set; } = null!;
+
+        /// <summary>
         /// ID of the Volume to be attached
         /// </summary>
         [Output("volumeId")]
@@ -181,6 +188,13 @@ namespace Pulumi.Aws.Ec2
         public Input<bool>? SkipDestroy { get; set; }
 
         /// <summary>
+        /// Set this to true to ensure that the target instance is stopped
+        /// before trying to detach the volume. Stops the instance, if it is not already stopped.
+        /// </summary>
+        [Input("stopInstanceBeforeDetaching")]
+        public Input<bool>? StopInstanceBeforeDetaching { get; set; }
+
+        /// <summary>
         /// ID of the Volume to be attached
         /// </summary>
         [Input("volumeId", required: true)]
@@ -224,6 +238,13 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("skipDestroy")]
         public Input<bool>? SkipDestroy { get; set; }
+
+        /// <summary>
+        /// Set this to true to ensure that the target instance is stopped
+        /// before trying to detach the volume. Stops the instance, if it is not already stopped.
+        /// </summary>
+        [Input("stopInstanceBeforeDetaching")]
+        public Input<bool>? StopInstanceBeforeDetaching { get; set; }
 
         /// <summary>
         /// ID of the Volume to be attached

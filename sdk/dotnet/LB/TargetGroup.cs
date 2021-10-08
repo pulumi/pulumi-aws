@@ -110,7 +110,7 @@ namespace Pulumi.Aws.LB
         /// Amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is 0-3600 seconds. The default value is 300 seconds.
         /// </summary>
         [Output("deregistrationDelay")]
-        public Output<int?> DeregistrationDelay { get; private set; } = null!;
+        public Output<string?> DeregistrationDelay { get; private set; } = null!;
 
         /// <summary>
         /// Health Check configuration block. Detailed below.
@@ -185,7 +185,7 @@ namespace Pulumi.Aws.LB
         public Output<Outputs.TargetGroupStickiness> Stickiness { get; private set; } = null!;
 
         /// <summary>
-        /// Map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -197,7 +197,7 @@ namespace Pulumi.Aws.LB
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// Type of target that you must specify when registering targets with this target group. The possible values are `instance` (targets are specified by instance ID) or `ip` (targets are specified by IP address) or `lambda` (targets are specified by lambda arn). The default is `instance`. Note that you can't specify targets for a target group using both instance IDs and IP addresses. If the target type is `ip`, specify IP addresses from the subnets of the virtual private cloud (VPC) for the target group, the RFC 1918 range (10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16), and the RFC 6598 range (100.64.0.0/10). You can't specify publicly routable IP addresses.
+        /// Type of target that you must specify when registering targets with this target group. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values. The default is `instance`.
         /// </summary>
         [Output("targetType")]
         public Output<string?> TargetType { get; private set; } = null!;
@@ -262,7 +262,7 @@ namespace Pulumi.Aws.LB
         /// Amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is 0-3600 seconds. The default value is 300 seconds.
         /// </summary>
         [Input("deregistrationDelay")]
-        public Input<int>? DeregistrationDelay { get; set; }
+        public Input<string>? DeregistrationDelay { get; set; }
 
         /// <summary>
         /// Health Check configuration block. Detailed below.
@@ -340,7 +340,7 @@ namespace Pulumi.Aws.LB
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -349,7 +349,7 @@ namespace Pulumi.Aws.LB
         }
 
         /// <summary>
-        /// Type of target that you must specify when registering targets with this target group. The possible values are `instance` (targets are specified by instance ID) or `ip` (targets are specified by IP address) or `lambda` (targets are specified by lambda arn). The default is `instance`. Note that you can't specify targets for a target group using both instance IDs and IP addresses. If the target type is `ip`, specify IP addresses from the subnets of the virtual private cloud (VPC) for the target group, the RFC 1918 range (10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16), and the RFC 6598 range (100.64.0.0/10). You can't specify publicly routable IP addresses.
+        /// Type of target that you must specify when registering targets with this target group. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values. The default is `instance`.
         /// </summary>
         [Input("targetType")]
         public Input<string>? TargetType { get; set; }
@@ -383,7 +383,7 @@ namespace Pulumi.Aws.LB
         /// Amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is 0-3600 seconds. The default value is 300 seconds.
         /// </summary>
         [Input("deregistrationDelay")]
-        public Input<int>? DeregistrationDelay { get; set; }
+        public Input<string>? DeregistrationDelay { get; set; }
 
         /// <summary>
         /// Health Check configuration block. Detailed below.
@@ -461,7 +461,7 @@ namespace Pulumi.Aws.LB
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -482,7 +482,7 @@ namespace Pulumi.Aws.LB
         }
 
         /// <summary>
-        /// Type of target that you must specify when registering targets with this target group. The possible values are `instance` (targets are specified by instance ID) or `ip` (targets are specified by IP address) or `lambda` (targets are specified by lambda arn). The default is `instance`. Note that you can't specify targets for a target group using both instance IDs and IP addresses. If the target type is `ip`, specify IP addresses from the subnets of the virtual private cloud (VPC) for the target group, the RFC 1918 range (10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16), and the RFC 6598 range (100.64.0.0/10). You can't specify publicly routable IP addresses.
+        /// Type of target that you must specify when registering targets with this target group. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values. The default is `instance`.
         /// </summary>
         [Input("targetType")]
         public Input<string>? TargetType { get; set; }

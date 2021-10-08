@@ -98,6 +98,11 @@ export class VolumeAttachment extends pulumi.CustomResource {
      */
     public readonly skipDestroy!: pulumi.Output<boolean | undefined>;
     /**
+     * Set this to true to ensure that the target instance is stopped
+     * before trying to detach the volume. Stops the instance, if it is not already stopped.
+     */
+    public readonly stopInstanceBeforeDetaching!: pulumi.Output<boolean | undefined>;
+    /**
      * ID of the Volume to be attached
      */
     public readonly volumeId!: pulumi.Output<string>;
@@ -119,6 +124,7 @@ export class VolumeAttachment extends pulumi.CustomResource {
             inputs["forceDetach"] = state ? state.forceDetach : undefined;
             inputs["instanceId"] = state ? state.instanceId : undefined;
             inputs["skipDestroy"] = state ? state.skipDestroy : undefined;
+            inputs["stopInstanceBeforeDetaching"] = state ? state.stopInstanceBeforeDetaching : undefined;
             inputs["volumeId"] = state ? state.volumeId : undefined;
         } else {
             const args = argsOrState as VolumeAttachmentArgs | undefined;
@@ -135,6 +141,7 @@ export class VolumeAttachment extends pulumi.CustomResource {
             inputs["forceDetach"] = args ? args.forceDetach : undefined;
             inputs["instanceId"] = args ? args.instanceId : undefined;
             inputs["skipDestroy"] = args ? args.skipDestroy : undefined;
+            inputs["stopInstanceBeforeDetaching"] = args ? args.stopInstanceBeforeDetaching : undefined;
             inputs["volumeId"] = args ? args.volumeId : undefined;
         }
         if (!opts.version) {
@@ -173,6 +180,11 @@ export interface VolumeAttachmentState {
      */
     skipDestroy?: pulumi.Input<boolean>;
     /**
+     * Set this to true to ensure that the target instance is stopped
+     * before trying to detach the volume. Stops the instance, if it is not already stopped.
+     */
+    stopInstanceBeforeDetaching?: pulumi.Input<boolean>;
+    /**
      * ID of the Volume to be attached
      */
     volumeId?: pulumi.Input<string>;
@@ -206,6 +218,11 @@ export interface VolumeAttachmentArgs {
      * means attached.
      */
     skipDestroy?: pulumi.Input<boolean>;
+    /**
+     * Set this to true to ensure that the target instance is stopped
+     * before trying to detach the volume. Stops the instance, if it is not already stopped.
+     */
+    stopInstanceBeforeDetaching?: pulumi.Input<boolean>;
     /**
      * ID of the Volume to be attached
      */

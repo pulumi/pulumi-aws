@@ -13,7 +13,7 @@ import (
 
 // Provides a Direct Connect LAG. Connections can be added to the LAG via the `directconnect.Connection` and `directconnect.ConnectionAssociation` resources.
 //
-// > *NOTE:* When creating a LAG, Direct Connect requires creating a Connection. This provider will remove this unmanaged connection during resource creation.
+// > *NOTE:* When creating a LAG, if no existing connection is specified, Direct Connect will create a connection and this provider will remove this unmanaged connection during resource creation.
 //
 // ## Example Usage
 //
@@ -52,6 +52,8 @@ type LinkAggregationGroup struct {
 
 	// The ARN of the LAG.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The ID of an existing dedicated connection to migrate to the LAG.
+	ConnectionId pulumi.StringPtrOutput `pulumi:"connectionId"`
 	// The bandwidth of the individual physical connections bundled by the LAG. Valid values: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, 10Gbps and 100Gbps. Case sensitive.
 	ConnectionsBandwidth pulumi.StringOutput `pulumi:"connectionsBandwidth"`
 	// A boolean that indicates all connections associated with the LAG should be deleted so that the LAG can be destroyed without error. These objects are *not* recoverable.
@@ -110,6 +112,8 @@ func GetLinkAggregationGroup(ctx *pulumi.Context,
 type linkAggregationGroupState struct {
 	// The ARN of the LAG.
 	Arn *string `pulumi:"arn"`
+	// The ID of an existing dedicated connection to migrate to the LAG.
+	ConnectionId *string `pulumi:"connectionId"`
 	// The bandwidth of the individual physical connections bundled by the LAG. Valid values: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, 10Gbps and 100Gbps. Case sensitive.
 	ConnectionsBandwidth *string `pulumi:"connectionsBandwidth"`
 	// A boolean that indicates all connections associated with the LAG should be deleted so that the LAG can be destroyed without error. These objects are *not* recoverable.
@@ -134,6 +138,8 @@ type linkAggregationGroupState struct {
 type LinkAggregationGroupState struct {
 	// The ARN of the LAG.
 	Arn pulumi.StringPtrInput
+	// The ID of an existing dedicated connection to migrate to the LAG.
+	ConnectionId pulumi.StringPtrInput
 	// The bandwidth of the individual physical connections bundled by the LAG. Valid values: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, 10Gbps and 100Gbps. Case sensitive.
 	ConnectionsBandwidth pulumi.StringPtrInput
 	// A boolean that indicates all connections associated with the LAG should be deleted so that the LAG can be destroyed without error. These objects are *not* recoverable.
@@ -160,6 +166,8 @@ func (LinkAggregationGroupState) ElementType() reflect.Type {
 }
 
 type linkAggregationGroupArgs struct {
+	// The ID of an existing dedicated connection to migrate to the LAG.
+	ConnectionId *string `pulumi:"connectionId"`
 	// The bandwidth of the individual physical connections bundled by the LAG. Valid values: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, 10Gbps and 100Gbps. Case sensitive.
 	ConnectionsBandwidth string `pulumi:"connectionsBandwidth"`
 	// A boolean that indicates all connections associated with the LAG should be deleted so that the LAG can be destroyed without error. These objects are *not* recoverable.
@@ -178,6 +186,8 @@ type linkAggregationGroupArgs struct {
 
 // The set of arguments for constructing a LinkAggregationGroup resource.
 type LinkAggregationGroupArgs struct {
+	// The ID of an existing dedicated connection to migrate to the LAG.
+	ConnectionId pulumi.StringPtrInput
 	// The bandwidth of the individual physical connections bundled by the LAG. Valid values: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, 10Gbps and 100Gbps. Case sensitive.
 	ConnectionsBandwidth pulumi.StringInput
 	// A boolean that indicates all connections associated with the LAG should be deleted so that the LAG can be destroyed without error. These objects are *not* recoverable.

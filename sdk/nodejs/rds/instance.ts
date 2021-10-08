@@ -344,6 +344,11 @@ export class Instance extends pulumi.CustomResource {
      * accessible. Default is `false`.
      */
     public readonly publiclyAccessible!: pulumi.Output<boolean | undefined>;
+    /**
+     * Specifies whether the replica is in either `mounted` or `open-read-only` mode. This attribute
+     * is only supported by Oracle instances. Oracle replicas operate in `open-read-only` mode unless otherwise specified. See [Working with Oracle Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html) for more information.
+     */
+    public readonly replicaMode!: pulumi.Output<string | undefined>;
     public /*out*/ readonly replicas!: pulumi.Output<string[]>;
     /**
      * Specifies that this resource is a Replicate
@@ -494,6 +499,7 @@ export class Instance extends pulumi.CustomResource {
             inputs["performanceInsightsRetentionPeriod"] = state ? state.performanceInsightsRetentionPeriod : undefined;
             inputs["port"] = state ? state.port : undefined;
             inputs["publiclyAccessible"] = state ? state.publiclyAccessible : undefined;
+            inputs["replicaMode"] = state ? state.replicaMode : undefined;
             inputs["replicas"] = state ? state.replicas : undefined;
             inputs["replicateSourceDb"] = state ? state.replicateSourceDb : undefined;
             inputs["resourceId"] = state ? state.resourceId : undefined;
@@ -557,6 +563,7 @@ export class Instance extends pulumi.CustomResource {
             inputs["performanceInsightsRetentionPeriod"] = args ? args.performanceInsightsRetentionPeriod : undefined;
             inputs["port"] = args ? args.port : undefined;
             inputs["publiclyAccessible"] = args ? args.publiclyAccessible : undefined;
+            inputs["replicaMode"] = args ? args.replicaMode : undefined;
             inputs["replicateSourceDb"] = args ? args.replicateSourceDb : undefined;
             inputs["restoreToPointInTime"] = args ? args.restoreToPointInTime : undefined;
             inputs["s3Import"] = args ? args.s3Import : undefined;
@@ -837,6 +844,11 @@ export interface InstanceState {
      * accessible. Default is `false`.
      */
     publiclyAccessible?: pulumi.Input<boolean>;
+    /**
+     * Specifies whether the replica is in either `mounted` or `open-read-only` mode. This attribute
+     * is only supported by Oracle instances. Oracle replicas operate in `open-read-only` mode unless otherwise specified. See [Working with Oracle Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html) for more information.
+     */
+    replicaMode?: pulumi.Input<string>;
     replicas?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies that this resource is a Replicate
@@ -1152,6 +1164,11 @@ export interface InstanceArgs {
      * accessible. Default is `false`.
      */
     publiclyAccessible?: pulumi.Input<boolean>;
+    /**
+     * Specifies whether the replica is in either `mounted` or `open-read-only` mode. This attribute
+     * is only supported by Oracle instances. Oracle replicas operate in `open-read-only` mode unless otherwise specified. See [Working with Oracle Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html) for more information.
+     */
+    replicaMode?: pulumi.Input<string>;
     /**
      * Specifies that this resource is a Replicate
      * database, and to use this value as the source database. This correlates to the

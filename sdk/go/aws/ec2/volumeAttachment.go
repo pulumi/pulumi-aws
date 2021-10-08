@@ -88,6 +88,9 @@ type VolumeAttachment struct {
 	// useful when destroying an instance which has volumes created by some other
 	// means attached.
 	SkipDestroy pulumi.BoolPtrOutput `pulumi:"skipDestroy"`
+	// Set this to true to ensure that the target instance is stopped
+	// before trying to detach the volume. Stops the instance, if it is not already stopped.
+	StopInstanceBeforeDetaching pulumi.BoolPtrOutput `pulumi:"stopInstanceBeforeDetaching"`
 	// ID of the Volume to be attached
 	VolumeId pulumi.StringOutput `pulumi:"volumeId"`
 }
@@ -146,6 +149,9 @@ type volumeAttachmentState struct {
 	// useful when destroying an instance which has volumes created by some other
 	// means attached.
 	SkipDestroy *bool `pulumi:"skipDestroy"`
+	// Set this to true to ensure that the target instance is stopped
+	// before trying to detach the volume. Stops the instance, if it is not already stopped.
+	StopInstanceBeforeDetaching *bool `pulumi:"stopInstanceBeforeDetaching"`
 	// ID of the Volume to be attached
 	VolumeId *string `pulumi:"volumeId"`
 }
@@ -167,6 +173,9 @@ type VolumeAttachmentState struct {
 	// useful when destroying an instance which has volumes created by some other
 	// means attached.
 	SkipDestroy pulumi.BoolPtrInput
+	// Set this to true to ensure that the target instance is stopped
+	// before trying to detach the volume. Stops the instance, if it is not already stopped.
+	StopInstanceBeforeDetaching pulumi.BoolPtrInput
 	// ID of the Volume to be attached
 	VolumeId pulumi.StringPtrInput
 }
@@ -192,6 +201,9 @@ type volumeAttachmentArgs struct {
 	// useful when destroying an instance which has volumes created by some other
 	// means attached.
 	SkipDestroy *bool `pulumi:"skipDestroy"`
+	// Set this to true to ensure that the target instance is stopped
+	// before trying to detach the volume. Stops the instance, if it is not already stopped.
+	StopInstanceBeforeDetaching *bool `pulumi:"stopInstanceBeforeDetaching"`
 	// ID of the Volume to be attached
 	VolumeId string `pulumi:"volumeId"`
 }
@@ -214,6 +226,9 @@ type VolumeAttachmentArgs struct {
 	// useful when destroying an instance which has volumes created by some other
 	// means attached.
 	SkipDestroy pulumi.BoolPtrInput
+	// Set this to true to ensure that the target instance is stopped
+	// before trying to detach the volume. Stops the instance, if it is not already stopped.
+	StopInstanceBeforeDetaching pulumi.BoolPtrInput
 	// ID of the Volume to be attached
 	VolumeId pulumi.StringInput
 }

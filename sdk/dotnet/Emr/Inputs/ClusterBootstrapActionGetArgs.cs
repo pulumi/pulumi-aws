@@ -25,13 +25,13 @@ namespace Pulumi.Aws.Emr.Inputs
         }
 
         /// <summary>
-        /// Friendly name given to the instance fleet.
+        /// Name of the step.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Location of the script to run during a bootstrap action. Can be either a location in Amazon S3 or on a local file system
+        /// Location of the script to run during a bootstrap action. Can be either a location in Amazon S3 or on a local file system.
         /// </summary>
         [Input("path", required: true)]
         public Input<string> Path { get; set; } = null!;

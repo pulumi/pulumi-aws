@@ -2158,6 +2158,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "directconnect/connectionConfirmation",
+  "fqn": "pulumi_aws.directconnect",
+  "classes": {
+   "aws:directconnect/connectionConfirmation:ConnectionConfirmation": "ConnectionConfirmation"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "directconnect/gateway",
   "fqn": "pulumi_aws.directconnect",
   "classes": {
@@ -2178,6 +2186,14 @@ _utilities.register(
   "fqn": "pulumi_aws.directconnect",
   "classes": {
    "aws:directconnect/gatewayAssociationProposal:GatewayAssociationProposal": "GatewayAssociationProposal"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "directconnect/hostedConnection",
+  "fqn": "pulumi_aws.directconnect",
+  "classes": {
+   "aws:directconnect/hostedConnection:HostedConnection": "HostedConnection"
   }
  },
  {

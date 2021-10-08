@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Emr.Inputs
     public sealed class ClusterKerberosAttributesGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Active Directory password for `ad_domain_join_user`. This provider cannot perform drift detection of this configuration.
+        /// Active Directory password for `ad_domain_join_user`. This provider cannot perform drift detection of this configuration.
         /// </summary>
         [Input("adDomainJoinPassword")]
         public Input<string>? AdDomainJoinPassword { get; set; }
@@ -31,13 +31,13 @@ namespace Pulumi.Aws.Emr.Inputs
         public Input<string>? CrossRealmTrustPrincipalPassword { get; set; }
 
         /// <summary>
-        /// The password used within the cluster for the kadmin service on the cluster-dedicated KDC, which maintains Kerberos principals, password policies, and keytabs for the cluster. This provider cannot perform drift detection of this configuration.
+        /// Password used within the cluster for the kadmin service on the cluster-dedicated KDC, which maintains Kerberos principals, password policies, and keytabs for the cluster. This provider cannot perform drift detection of this configuration.
         /// </summary>
         [Input("kdcAdminPassword", required: true)]
         public Input<string> KdcAdminPassword { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Kerberos realm to which all nodes in a cluster belong. For example, `EC2.INTERNAL`
+        /// Name of the Kerberos realm to which all nodes in a cluster belong. For example, `EC2.INTERNAL`
         /// </summary>
         [Input("realm", required: true)]
         public Input<string> Realm { get; set; } = null!;

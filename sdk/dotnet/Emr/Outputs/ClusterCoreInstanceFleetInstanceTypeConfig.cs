@@ -14,15 +14,15 @@ namespace Pulumi.Aws.Emr.Outputs
     public sealed class ClusterCoreInstanceFleetInstanceTypeConfig
     {
         /// <summary>
-        /// The bid price for each EC2 Spot instance type as defined by `instance_type`. Expressed in USD. If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
+        /// Bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
         /// </summary>
         public readonly string? BidPrice;
         /// <summary>
-        /// The bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instance_type`. Expressed as a number (for example, 20 specifies 20%). If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
+        /// Bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instance_type`. Expressed as a number (for example, 20 specifies 20%). If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
         /// </summary>
         public readonly double? BidPriceAsPercentageOfOnDemandPrice;
         /// <summary>
-        /// A configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
+        /// Configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
         /// </summary>
         public readonly ImmutableArray<Outputs.ClusterCoreInstanceFleetInstanceTypeConfigConfiguration> Configurations;
         /// <summary>
@@ -30,11 +30,11 @@ namespace Pulumi.Aws.Emr.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.ClusterCoreInstanceFleetInstanceTypeConfigEbsConfig> EbsConfigs;
         /// <summary>
-        /// An EC2 instance type, such as m4.xlarge.
+        /// EC2 instance type for all instances in the instance group.
         /// </summary>
         public readonly string InstanceType;
         /// <summary>
-        /// The number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in `aws.emr.InstanceFleet`.
+        /// Number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in `aws.emr.InstanceFleet`.
         /// </summary>
         public readonly int? WeightedCapacity;
 

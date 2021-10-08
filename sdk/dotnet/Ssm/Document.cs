@@ -17,6 +17,7 @@ namespace Pulumi.Aws.Ssm
     /// schema version you must recreate the resource.
     /// 
     /// ## Example Usage
+    /// ### Create an ssm document in JSON format
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -47,6 +48,36 @@ namespace Pulumi.Aws.Ssm
     ///   }
     /// 
     /// ",
+    ///             DocumentType = "Command",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### Create an ssm document in YAML format
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var foo = new Aws.Ssm.Document("foo", new Aws.Ssm.DocumentArgs
+    ///         {
+    ///             Content = @"schemaVersion: '1.2'
+    /// description: Check ip configuration of a Linux instance.
+    /// parameters: {}
+    /// runtimeConfig:
+    ///   'aws:runShellScript':
+    ///     properties:
+    ///       - id: '0.aws:runShellScript'
+    ///         runCommand:
+    ///           - ifconfig
+    /// 
+    /// ",
+    ///             DocumentFormat = "YAML",
     ///             DocumentType = "Command",
     ///         });
     ///     }

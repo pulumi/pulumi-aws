@@ -79,7 +79,7 @@ class _DomainState:
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Domain resources.
-        :param pulumi.Input[str] arn: The ARN of Domain.
+        :param pulumi.Input[str] arn: The ARN of the Domain.
         :param pulumi.Input[int] asset_size_bytes: The total size of all assets in the domain.
         :param pulumi.Input[str] created_time: A timestamp that represents the date and time the domain was created in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         :param pulumi.Input[str] domain: The name of the domain to create. All domain names in an AWS Region that are in the same AWS account must be unique. The domain name is used as the prefix in DNS hostnames. Do not use sensitive information in a domain name because it is publicly discoverable.
@@ -112,7 +112,7 @@ class _DomainState:
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
         """
-        The ARN of Domain.
+        The ARN of the Domain.
         """
         return pulumi.get(self, "arn")
 
@@ -345,7 +345,7 @@ class Domain(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] arn: The ARN of Domain.
+        :param pulumi.Input[str] arn: The ARN of the Domain.
         :param pulumi.Input[int] asset_size_bytes: The total size of all assets in the domain.
         :param pulumi.Input[str] created_time: A timestamp that represents the date and time the domain was created in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         :param pulumi.Input[str] domain: The name of the domain to create. All domain names in an AWS Region that are in the same AWS account must be unique. The domain name is used as the prefix in DNS hostnames. Do not use sensitive information in a domain name because it is publicly discoverable.
@@ -374,7 +374,7 @@ class Domain(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         """
-        The ARN of Domain.
+        The ARN of the Domain.
         """
         return pulumi.get(self, "arn")
 

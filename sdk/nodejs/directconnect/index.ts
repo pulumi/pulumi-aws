@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
 export * from "./bgpPeer";
 export * from "./connection";
 export * from "./connectionAssociation";
+export * from "./connectionConfirmation";
 export * from "./gateway";
 export * from "./gatewayAssociation";
 export * from "./gatewayAssociationProposal";
@@ -15,6 +16,7 @@ export * from "./getConnection";
 export * from "./getGateway";
 export * from "./getLocation";
 export * from "./getLocations";
+export * from "./hostedConnection";
 export * from "./hostedPrivateVirtualInterface";
 export * from "./hostedPrivateVirtualInterfaceAccepter";
 export * from "./hostedPublicVirtualInterface";
@@ -30,9 +32,11 @@ export * from "./transitVirtualInterface";
 import { BgpPeer } from "./bgpPeer";
 import { Connection } from "./connection";
 import { ConnectionAssociation } from "./connectionAssociation";
+import { ConnectionConfirmation } from "./connectionConfirmation";
 import { Gateway } from "./gateway";
 import { GatewayAssociation } from "./gatewayAssociation";
 import { GatewayAssociationProposal } from "./gatewayAssociationProposal";
+import { HostedConnection } from "./hostedConnection";
 import { HostedPrivateVirtualInterface } from "./hostedPrivateVirtualInterface";
 import { HostedPrivateVirtualInterfaceAccepter } from "./hostedPrivateVirtualInterfaceAccepter";
 import { HostedPublicVirtualInterface } from "./hostedPublicVirtualInterface";
@@ -54,12 +58,16 @@ const _module = {
                 return new Connection(name, <any>undefined, { urn })
             case "aws:directconnect/connectionAssociation:ConnectionAssociation":
                 return new ConnectionAssociation(name, <any>undefined, { urn })
+            case "aws:directconnect/connectionConfirmation:ConnectionConfirmation":
+                return new ConnectionConfirmation(name, <any>undefined, { urn })
             case "aws:directconnect/gateway:Gateway":
                 return new Gateway(name, <any>undefined, { urn })
             case "aws:directconnect/gatewayAssociation:GatewayAssociation":
                 return new GatewayAssociation(name, <any>undefined, { urn })
             case "aws:directconnect/gatewayAssociationProposal:GatewayAssociationProposal":
                 return new GatewayAssociationProposal(name, <any>undefined, { urn })
+            case "aws:directconnect/hostedConnection:HostedConnection":
+                return new HostedConnection(name, <any>undefined, { urn })
             case "aws:directconnect/hostedPrivateVirtualInterface:HostedPrivateVirtualInterface":
                 return new HostedPrivateVirtualInterface(name, <any>undefined, { urn })
             case "aws:directconnect/hostedPrivateVirtualInterfaceAccepter:HostedPrivateVirtualInterfaceAccepter":
@@ -88,9 +96,11 @@ const _module = {
 pulumi.runtime.registerResourceModule("aws", "directconnect/bgpPeer", _module)
 pulumi.runtime.registerResourceModule("aws", "directconnect/connection", _module)
 pulumi.runtime.registerResourceModule("aws", "directconnect/connectionAssociation", _module)
+pulumi.runtime.registerResourceModule("aws", "directconnect/connectionConfirmation", _module)
 pulumi.runtime.registerResourceModule("aws", "directconnect/gateway", _module)
 pulumi.runtime.registerResourceModule("aws", "directconnect/gatewayAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "directconnect/gatewayAssociationProposal", _module)
+pulumi.runtime.registerResourceModule("aws", "directconnect/hostedConnection", _module)
 pulumi.runtime.registerResourceModule("aws", "directconnect/hostedPrivateVirtualInterface", _module)
 pulumi.runtime.registerResourceModule("aws", "directconnect/hostedPrivateVirtualInterfaceAccepter", _module)
 pulumi.runtime.registerResourceModule("aws", "directconnect/hostedPublicVirtualInterface", _module)

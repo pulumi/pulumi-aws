@@ -168,7 +168,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly notificationTopicArn!: pulumi.Output<string | undefined>;
     /**
-     * The initial number of cache nodes that the cache cluster will have. For Redis, this value must be 1. For Memcached, this value must be between 1 and 20. If this number is reduced on subsequent runs, the highest numbered nodes will be removed.
+     * The initial number of cache nodes that the cache cluster will have. For Redis, this value must be 1. For Memcached, this value must be between 1 and 40. If this number is reduced on subsequent runs, the highest numbered nodes will be removed.
      */
     public readonly numCacheNodes!: pulumi.Output<number>;
     /**
@@ -368,7 +368,7 @@ export interface ClusterState {
      */
     notificationTopicArn?: pulumi.Input<string>;
     /**
-     * The initial number of cache nodes that the cache cluster will have. For Redis, this value must be 1. For Memcached, this value must be between 1 and 20. If this number is reduced on subsequent runs, the highest numbered nodes will be removed.
+     * The initial number of cache nodes that the cache cluster will have. For Redis, this value must be 1. For Memcached, this value must be between 1 and 40. If this number is reduced on subsequent runs, the highest numbered nodes will be removed.
      */
     numCacheNodes?: pulumi.Input<number>;
     /**
@@ -468,7 +468,7 @@ export interface ClusterArgs {
      */
     notificationTopicArn?: pulumi.Input<string>;
     /**
-     * The initial number of cache nodes that the cache cluster will have. For Redis, this value must be 1. For Memcached, this value must be between 1 and 20. If this number is reduced on subsequent runs, the highest numbered nodes will be removed.
+     * The initial number of cache nodes that the cache cluster will have. For Redis, this value must be 1. For Memcached, this value must be between 1 and 40. If this number is reduced on subsequent runs, the highest numbered nodes will be removed.
      */
     numCacheNodes?: pulumi.Input<number>;
     /**

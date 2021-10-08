@@ -5766,6 +5766,10 @@ export namespace cloudformation {
          */
         retainStacksOnAccountRemoval?: pulumi.Input<boolean>;
     }
+
+    export interface StackSetInstanceDeploymentTargets {
+        organizationalUnitIds?: pulumi.Input<pulumi.Input<string>[]>;
+    }
 }
 
 export namespace cloudfront {
@@ -8747,6 +8751,70 @@ export namespace dms {
          * Kafka broker location. Specify in the form broker-hostname-or-ip:port.
          */
         broker: pulumi.Input<string>;
+        /**
+         * Shows detailed control information for table definition, column definition, and table and column changes in the Kafka message output. The default is `false`.
+         */
+        includeControlDetails?: pulumi.Input<boolean>;
+        /**
+         * Include NULL and empty columns for records migrated to the endpoint. The default is `false`.
+         */
+        includeNullAndEmpty?: pulumi.Input<boolean>;
+        /**
+         * Shows the partition value within the Kafka message output unless the partition type is `schema-table-type`. The default is `false`.
+         */
+        includePartitionValue?: pulumi.Input<boolean>;
+        /**
+         * Includes any data definition language (DDL) operations that change the table in the control data, such as `rename-table`, `drop-table`, `add-column`, `drop-column`, and `rename-column`. The default is `false`.
+         */
+        includeTableAlterOperations?: pulumi.Input<boolean>;
+        /**
+         * Provides detailed transaction information from the source database. This information includes a commit timestamp, a log position, and values for `transactionId`, previous `transactionId`, and `transactionRecordId` (the record offset within a transaction). The default is `false`.
+         */
+        includeTransactionDetails?: pulumi.Input<boolean>;
+        /**
+         * The output format for the records created on the endpoint. The message format is `JSON` (default) or `JSON_UNFORMATTED` (a single line with no tab).
+         */
+        messageFormat?: pulumi.Input<string>;
+        /**
+         * The maximum size in bytes for records created on the endpoint The default is `1,000,000`.
+         */
+        messageMaxBytes?: pulumi.Input<number>;
+        /**
+         * Set this optional parameter to true to avoid adding a '0x' prefix to raw data in hexadecimal format. For example, by default, AWS DMS adds a '0x' prefix to the LOB column type in hexadecimal format moving from an Oracle source to a Kafka target. Use the `noHexPrefix` endpoint setting to enable migration of RAW data type columns without adding the `'0x'` prefix.
+         */
+        noHexPrefix?: pulumi.Input<boolean>;
+        /**
+         * Prefixes schema and table names to partition values, when the partition type is `primary-key-type`. Doing this increases data distribution among Kafka partitions. For example, suppose that a SysBench schema has thousands of tables and each table has only limited range for a primary key. In this case, the same primary key is sent from thousands of tables to the same partition, which causes throttling. The default is `false`.
+         */
+        partitionIncludeSchemaTable?: pulumi.Input<boolean>;
+        /**
+         * The secure password you created when you first set up your MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
+         */
+        saslPassword?: pulumi.Input<string>;
+        /**
+         * The secure user name you created when you first set up your MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
+         */
+        saslUsername?: pulumi.Input<string>;
+        /**
+         * Set secure connection to a Kafka target endpoint using Transport Layer Security (TLS). Options include `ssl-encryption`, `ssl-authentication`, and `sasl-ssl`. `sasl-ssl` requires `saslUsername` and `saslPassword`.
+         */
+        securityProtocol?: pulumi.Input<string>;
+        /**
+         * The Amazon Resource Name (ARN) for the private certificate authority (CA) cert that AWS DMS uses to securely connect to your Kafka target endpoint.
+         */
+        sslCaCertificateArn?: pulumi.Input<string>;
+        /**
+         * The Amazon Resource Name (ARN) of the client certificate used to securely connect to a Kafka target endpoint.
+         */
+        sslClientCertificateArn?: pulumi.Input<string>;
+        /**
+         * The Amazon Resource Name (ARN) for the client private key used to securely connect to a Kafka target endpoint.
+         */
+        sslClientKeyArn?: pulumi.Input<string>;
+        /**
+         * The password for the client private key used to securely connect to a Kafka target endpoint.
+         */
+        sslClientKeyPassword?: pulumi.Input<string>;
         /**
          * Kafka topic for migration. Defaults to `kafka-default-topic`.
          */
@@ -14092,55 +14160,55 @@ export namespace emr {
          */
         args?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * Friendly name given to the instance fleet.
+         * Name of the step.
          */
         name: pulumi.Input<string>;
         /**
-         * Location of the script to run during a bootstrap action. Can be either a location in Amazon S3 or on a local file system
+         * Location of the script to run during a bootstrap action. Can be either a location in Amazon S3 or on a local file system.
          */
         path: pulumi.Input<string>;
     }
 
     export interface ClusterCoreInstanceFleet {
         /**
-         * The ID of the EMR Cluster
+         * ID of the cluster.
          */
         id?: pulumi.Input<string>;
         /**
-         * Configuration block for instance fleet
+         * Configuration block for instance fleet.
          */
         instanceTypeConfigs?: pulumi.Input<pulumi.Input<inputs.emr.ClusterCoreInstanceFleetInstanceTypeConfig>[]>;
         /**
-         * Configuration block for launch specification
+         * Configuration block for launch specification.
          */
         launchSpecifications?: pulumi.Input<inputs.emr.ClusterCoreInstanceFleetLaunchSpecifications>;
         /**
-         * Friendly name given to the instance fleet.
+         * Name of the step.
          */
         name?: pulumi.Input<string>;
         provisionedOnDemandCapacity?: pulumi.Input<number>;
         provisionedSpotCapacity?: pulumi.Input<number>;
         /**
-         * The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
+         * Target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
          */
         targetOnDemandCapacity?: pulumi.Input<number>;
         /**
-         * The target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
+         * Target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
          */
         targetSpotCapacity?: pulumi.Input<number>;
     }
 
     export interface ClusterCoreInstanceFleetInstanceTypeConfig {
         /**
-         * The bid price for each EC2 Spot instance type as defined by `instanceType`. Expressed in USD. If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
+         * Bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
          */
         bidPrice?: pulumi.Input<string>;
         /**
-         * The bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instanceType`. Expressed as a number (for example, 20 specifies 20%). If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
+         * Bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instanceType`. Expressed as a number (for example, 20 specifies 20%). If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
          */
         bidPriceAsPercentageOfOnDemandPrice?: pulumi.Input<number>;
         /**
-         * A configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
+         * Configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
          */
         configurations?: pulumi.Input<pulumi.Input<inputs.emr.ClusterCoreInstanceFleetInstanceTypeConfigConfiguration>[]>;
         /**
@@ -14148,52 +14216,52 @@ export namespace emr {
          */
         ebsConfigs?: pulumi.Input<pulumi.Input<inputs.emr.ClusterCoreInstanceFleetInstanceTypeConfigEbsConfig>[]>;
         /**
-         * An EC2 instance type, such as m4.xlarge.
+         * EC2 instance type for all instances in the instance group.
          */
         instanceType: pulumi.Input<string>;
         /**
-         * The number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in `aws.emr.InstanceFleet`.
+         * Number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in `aws.emr.InstanceFleet`.
          */
         weightedCapacity?: pulumi.Input<number>;
     }
 
     export interface ClusterCoreInstanceFleetInstanceTypeConfigConfiguration {
         /**
-         * The classification within a configuration.
+         * Classification within a configuration.
          */
         classification?: pulumi.Input<string>;
         /**
-         * A map of properties specified within a configuration classification
+         * Key-Value map of Java properties that are set when the step runs. You can use these properties to pass key value pairs to your main function.
          */
         properties?: pulumi.Input<{[key: string]: any}>;
     }
 
     export interface ClusterCoreInstanceFleetInstanceTypeConfigEbsConfig {
         /**
-         * The number of I/O operations per second (IOPS) that the volume supports
+         * Number of I/O operations per second (IOPS) that the volume supports.
          */
         iops?: pulumi.Input<number>;
         /**
-         * The volume size, in gibibytes (GiB).
+         * Volume size, in gibibytes (GiB).
          */
         size: pulumi.Input<number>;
         /**
-         * The volume type. Valid options are `gp2`, `io1`, `standard` and `st1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
+         * Volume type. Valid options are `gp2`, `io1`, `standard` and `st1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
          */
         type: pulumi.Input<string>;
         /**
-         * The number of EBS volumes with this configuration to attach to each EC2 instance in the instance group (default is 1)
+         * Number of EBS volumes with this configuration to attach to each EC2 instance in the instance group (default is 1).
          */
         volumesPerInstance?: pulumi.Input<number>;
     }
 
     export interface ClusterCoreInstanceFleetLaunchSpecifications {
         /**
-         * Configuration block for on demand instances launch specifications
+         * Configuration block for on demand instances launch specifications.
          */
         onDemandSpecifications?: pulumi.Input<pulumi.Input<inputs.emr.ClusterCoreInstanceFleetLaunchSpecificationsOnDemandSpecification>[]>;
         /**
-         * Configuration block for spot instances launch specifications
+         * Configuration block for spot instances launch specifications.
          */
         spotSpecifications?: pulumi.Input<pulumi.Input<inputs.emr.ClusterCoreInstanceFleetLaunchSpecificationsSpotSpecification>[]>;
     }
@@ -14211,15 +14279,15 @@ export namespace emr {
          */
         allocationStrategy: pulumi.Input<string>;
         /**
-         * The defined duration for Spot instances (also known as Spot blocks) in minutes. When specified, the Spot instance does not terminate before the defined duration expires, and defined duration pricing for Spot instances applies. Valid values are 60, 120, 180, 240, 300, or 360. The duration period starts as soon as a Spot instance receives its instance ID. At the end of the duration, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
+         * Defined duration for Spot instances (also known as Spot blocks) in minutes. When specified, the Spot instance does not terminate before the defined duration expires, and defined duration pricing for Spot instances applies. Valid values are 60, 120, 180, 240, 300, or 360. The duration period starts as soon as a Spot instance receives its instance ID. At the end of the duration, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
          */
         blockDurationMinutes?: pulumi.Input<number>;
         /**
-         * The action to take when TargetSpotCapacity has not been fulfilled when the TimeoutDurationMinutes has expired; that is, when all Spot instances could not be provisioned within the Spot provisioning timeout. Valid values are `TERMINATE_CLUSTER` and `SWITCH_TO_ON_DEMAND`. SWITCH_TO_ON_DEMAND specifies that if no Spot instances are available, On-Demand Instances should be provisioned to fulfill any remaining Spot capacity.
+         * Action to take when TargetSpotCapacity has not been fulfilled when the TimeoutDurationMinutes has expired; that is, when all Spot instances could not be provisioned within the Spot provisioning timeout. Valid values are `TERMINATE_CLUSTER` and `SWITCH_TO_ON_DEMAND`. SWITCH_TO_ON_DEMAND specifies that if no Spot instances are available, On-Demand Instances should be provisioned to fulfill any remaining Spot capacity.
          */
         timeoutAction: pulumi.Input<string>;
         /**
-         * The spot provisioning timeout period in minutes. If Spot instances are not provisioned within this time period, the TimeOutAction is taken. Minimum value is 5 and maximum value is 1440. The timeout applies only during initial provisioning, when the cluster is first created.
+         * Spot provisioning timeout period in minutes. If Spot instances are not provisioned within this time period, the TimeOutAction is taken. Minimum value is 5 and maximum value is 1440. The timeout applies only during initial provisioning, when the cluster is first created.
          */
         timeoutDurationMinutes: pulumi.Input<number>;
     }
@@ -14230,7 +14298,7 @@ export namespace emr {
          */
         autoscalingPolicy?: pulumi.Input<string>;
         /**
-         * The bid price for each EC2 Spot instance type as defined by `instanceType`. Expressed in USD. If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
+         * Bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
          */
         bidPrice?: pulumi.Input<string>;
         /**
@@ -14238,84 +14306,84 @@ export namespace emr {
          */
         ebsConfigs?: pulumi.Input<pulumi.Input<inputs.emr.ClusterCoreInstanceGroupEbsConfig>[]>;
         /**
-         * The ID of the EMR Cluster
+         * ID of the cluster.
          */
         id?: pulumi.Input<string>;
         /**
-         * Target number of instances for the instance group. Must be 1 or 3. Defaults to 1. Launching with multiple master nodes is only supported in EMR version 5.23.0+, and requires this resource's `coreInstanceGroup` to be configured. Public (Internet accessible) instances must be created in VPC subnets that have `map public IP on launch` enabled. Termination protection is automatically enabled when launched with multiple master nodes and this provider must have the `terminationProtection = false` configuration applied before destroying this resource.
+         * Target number of instances for the instance group. Must be 1 or 3. Defaults to 1. Launching with multiple master nodes is only supported in EMR version 5.23.0+, and requires this resource's `coreInstanceGroup` to be configured. Public (Internet accessible) instances must be created in VPC subnets that have map public IP on launch enabled. Termination protection is automatically enabled when launched with multiple master nodes and this provider must have the `terminationProtection = false` configuration applied before destroying this resource.
          */
         instanceCount?: pulumi.Input<number>;
         /**
-         * An EC2 instance type, such as m4.xlarge.
+         * EC2 instance type for all instances in the instance group.
          */
         instanceType: pulumi.Input<string>;
         /**
-         * Friendly name given to the instance fleet.
+         * Name of the step.
          */
         name?: pulumi.Input<string>;
     }
 
     export interface ClusterCoreInstanceGroupEbsConfig {
         /**
-         * The number of I/O operations per second (IOPS) that the volume supports
+         * Number of I/O operations per second (IOPS) that the volume supports.
          */
         iops?: pulumi.Input<number>;
         /**
-         * The volume size, in gibibytes (GiB).
+         * Volume size, in gibibytes (GiB).
          */
         size: pulumi.Input<number>;
         /**
-         * The volume type. Valid options are `gp2`, `io1`, `standard` and `st1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
+         * Volume type. Valid options are `gp2`, `io1`, `standard` and `st1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
          */
         type: pulumi.Input<string>;
         /**
-         * The number of EBS volumes with this configuration to attach to each EC2 instance in the instance group (default is 1)
+         * Number of EBS volumes with this configuration to attach to each EC2 instance in the instance group (default is 1).
          */
         volumesPerInstance?: pulumi.Input<number>;
     }
 
     export interface ClusterEc2Attributes {
         /**
-         * String containing a comma separated list of additional Amazon EC2 security group IDs for the master node
+         * String containing a comma separated list of additional Amazon EC2 security group IDs for the master node.
          */
         additionalMasterSecurityGroups?: pulumi.Input<string>;
         /**
-         * String containing a comma separated list of additional Amazon EC2 security group IDs for the slave nodes as a comma separated string
+         * String containing a comma separated list of additional Amazon EC2 security group IDs for the slave nodes as a comma separated string.
          */
         additionalSlaveSecurityGroups?: pulumi.Input<string>;
         /**
-         * Identifier of the Amazon EC2 EMR-Managed security group for the master node
+         * Identifier of the Amazon EC2 EMR-Managed security group for the master node.
          */
         emrManagedMasterSecurityGroup?: pulumi.Input<string>;
         /**
-         * Identifier of the Amazon EC2 EMR-Managed security group for the slave nodes
+         * Identifier of the Amazon EC2 EMR-Managed security group for the slave nodes.
          */
         emrManagedSlaveSecurityGroup?: pulumi.Input<string>;
         /**
-         * Instance Profile for EC2 instances of the cluster assume this role
+         * Instance Profile for EC2 instances of the cluster assume this role.
          */
         instanceProfile: pulumi.Input<string>;
         /**
-         * Amazon EC2 key pair that can be used to ssh to the master node as the user called `hadoop`
+         * Amazon EC2 key pair that can be used to ssh to the master node as the user called `hadoop`.
          */
         keyName?: pulumi.Input<string>;
         /**
-         * Identifier of the Amazon EC2 service-access security group - required when the cluster runs on a private subnet
+         * Identifier of the Amazon EC2 service-access security group - required when the cluster runs on a private subnet.
          */
         serviceAccessSecurityGroup?: pulumi.Input<string>;
         /**
-         * VPC subnet id where you want the job flow to launch. Cannot specify the `cc1.4xlarge` instance type for nodes of a job flow launched in a Amazon VPC
+         * VPC subnet id where you want the job flow to launch. Cannot specify the `cc1.4xlarge` instance type for nodes of a job flow launched in an Amazon VPC.
          */
         subnetId?: pulumi.Input<string>;
         /**
-         * List of VPC subnet id-s where you want the job flow to launch.  Amazon EMR identifies the best Availability Zone to launch instances according to your fleet specifications
+         * List of VPC subnet id-s where you want the job flow to launch.  Amazon EMR identifies the best Availability Zone to launch instances according to your fleet specifications.
          */
         subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface ClusterKerberosAttributes {
         /**
-         * The Active Directory password for `adDomainJoinUser`. This provider cannot perform drift detection of this configuration.
+         * Active Directory password for `adDomainJoinUser`. This provider cannot perform drift detection of this configuration.
          */
         adDomainJoinPassword?: pulumi.Input<string>;
         /**
@@ -14327,55 +14395,55 @@ export namespace emr {
          */
         crossRealmTrustPrincipalPassword?: pulumi.Input<string>;
         /**
-         * The password used within the cluster for the kadmin service on the cluster-dedicated KDC, which maintains Kerberos principals, password policies, and keytabs for the cluster. This provider cannot perform drift detection of this configuration.
+         * Password used within the cluster for the kadmin service on the cluster-dedicated KDC, which maintains Kerberos principals, password policies, and keytabs for the cluster. This provider cannot perform drift detection of this configuration.
          */
         kdcAdminPassword: pulumi.Input<string>;
         /**
-         * The name of the Kerberos realm to which all nodes in a cluster belong. For example, `EC2.INTERNAL`
+         * Name of the Kerberos realm to which all nodes in a cluster belong. For example, `EC2.INTERNAL`
          */
         realm: pulumi.Input<string>;
     }
 
     export interface ClusterMasterInstanceFleet {
         /**
-         * The ID of the EMR Cluster
+         * ID of the cluster.
          */
         id?: pulumi.Input<string>;
         /**
-         * Configuration block for instance fleet
+         * Configuration block for instance fleet.
          */
         instanceTypeConfigs?: pulumi.Input<pulumi.Input<inputs.emr.ClusterMasterInstanceFleetInstanceTypeConfig>[]>;
         /**
-         * Configuration block for launch specification
+         * Configuration block for launch specification.
          */
         launchSpecifications?: pulumi.Input<inputs.emr.ClusterMasterInstanceFleetLaunchSpecifications>;
         /**
-         * Friendly name given to the instance fleet.
+         * Name of the step.
          */
         name?: pulumi.Input<string>;
         provisionedOnDemandCapacity?: pulumi.Input<number>;
         provisionedSpotCapacity?: pulumi.Input<number>;
         /**
-         * The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
+         * Target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
          */
         targetOnDemandCapacity?: pulumi.Input<number>;
         /**
-         * The target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
+         * Target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
          */
         targetSpotCapacity?: pulumi.Input<number>;
     }
 
     export interface ClusterMasterInstanceFleetInstanceTypeConfig {
         /**
-         * The bid price for each EC2 Spot instance type as defined by `instanceType`. Expressed in USD. If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
+         * Bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
          */
         bidPrice?: pulumi.Input<string>;
         /**
-         * The bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instanceType`. Expressed as a number (for example, 20 specifies 20%). If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
+         * Bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instanceType`. Expressed as a number (for example, 20 specifies 20%). If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
          */
         bidPriceAsPercentageOfOnDemandPrice?: pulumi.Input<number>;
         /**
-         * A configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
+         * Configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
          */
         configurations?: pulumi.Input<pulumi.Input<inputs.emr.ClusterMasterInstanceFleetInstanceTypeConfigConfiguration>[]>;
         /**
@@ -14383,52 +14451,52 @@ export namespace emr {
          */
         ebsConfigs?: pulumi.Input<pulumi.Input<inputs.emr.ClusterMasterInstanceFleetInstanceTypeConfigEbsConfig>[]>;
         /**
-         * An EC2 instance type, such as m4.xlarge.
+         * EC2 instance type for all instances in the instance group.
          */
         instanceType: pulumi.Input<string>;
         /**
-         * The number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in `aws.emr.InstanceFleet`.
+         * Number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in `aws.emr.InstanceFleet`.
          */
         weightedCapacity?: pulumi.Input<number>;
     }
 
     export interface ClusterMasterInstanceFleetInstanceTypeConfigConfiguration {
         /**
-         * The classification within a configuration.
+         * Classification within a configuration.
          */
         classification?: pulumi.Input<string>;
         /**
-         * A map of properties specified within a configuration classification
+         * Key-Value map of Java properties that are set when the step runs. You can use these properties to pass key value pairs to your main function.
          */
         properties?: pulumi.Input<{[key: string]: any}>;
     }
 
     export interface ClusterMasterInstanceFleetInstanceTypeConfigEbsConfig {
         /**
-         * The number of I/O operations per second (IOPS) that the volume supports
+         * Number of I/O operations per second (IOPS) that the volume supports.
          */
         iops?: pulumi.Input<number>;
         /**
-         * The volume size, in gibibytes (GiB).
+         * Volume size, in gibibytes (GiB).
          */
         size: pulumi.Input<number>;
         /**
-         * The volume type. Valid options are `gp2`, `io1`, `standard` and `st1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
+         * Volume type. Valid options are `gp2`, `io1`, `standard` and `st1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
          */
         type: pulumi.Input<string>;
         /**
-         * The number of EBS volumes with this configuration to attach to each EC2 instance in the instance group (default is 1)
+         * Number of EBS volumes with this configuration to attach to each EC2 instance in the instance group (default is 1).
          */
         volumesPerInstance?: pulumi.Input<number>;
     }
 
     export interface ClusterMasterInstanceFleetLaunchSpecifications {
         /**
-         * Configuration block for on demand instances launch specifications
+         * Configuration block for on demand instances launch specifications.
          */
         onDemandSpecifications?: pulumi.Input<pulumi.Input<inputs.emr.ClusterMasterInstanceFleetLaunchSpecificationsOnDemandSpecification>[]>;
         /**
-         * Configuration block for spot instances launch specifications
+         * Configuration block for spot instances launch specifications.
          */
         spotSpecifications?: pulumi.Input<pulumi.Input<inputs.emr.ClusterMasterInstanceFleetLaunchSpecificationsSpotSpecification>[]>;
     }
@@ -14446,22 +14514,22 @@ export namespace emr {
          */
         allocationStrategy: pulumi.Input<string>;
         /**
-         * The defined duration for Spot instances (also known as Spot blocks) in minutes. When specified, the Spot instance does not terminate before the defined duration expires, and defined duration pricing for Spot instances applies. Valid values are 60, 120, 180, 240, 300, or 360. The duration period starts as soon as a Spot instance receives its instance ID. At the end of the duration, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
+         * Defined duration for Spot instances (also known as Spot blocks) in minutes. When specified, the Spot instance does not terminate before the defined duration expires, and defined duration pricing for Spot instances applies. Valid values are 60, 120, 180, 240, 300, or 360. The duration period starts as soon as a Spot instance receives its instance ID. At the end of the duration, Amazon EC2 marks the Spot instance for termination and provides a Spot instance termination notice, which gives the instance a two-minute warning before it terminates.
          */
         blockDurationMinutes?: pulumi.Input<number>;
         /**
-         * The action to take when TargetSpotCapacity has not been fulfilled when the TimeoutDurationMinutes has expired; that is, when all Spot instances could not be provisioned within the Spot provisioning timeout. Valid values are `TERMINATE_CLUSTER` and `SWITCH_TO_ON_DEMAND`. SWITCH_TO_ON_DEMAND specifies that if no Spot instances are available, On-Demand Instances should be provisioned to fulfill any remaining Spot capacity.
+         * Action to take when TargetSpotCapacity has not been fulfilled when the TimeoutDurationMinutes has expired; that is, when all Spot instances could not be provisioned within the Spot provisioning timeout. Valid values are `TERMINATE_CLUSTER` and `SWITCH_TO_ON_DEMAND`. SWITCH_TO_ON_DEMAND specifies that if no Spot instances are available, On-Demand Instances should be provisioned to fulfill any remaining Spot capacity.
          */
         timeoutAction: pulumi.Input<string>;
         /**
-         * The spot provisioning timeout period in minutes. If Spot instances are not provisioned within this time period, the TimeOutAction is taken. Minimum value is 5 and maximum value is 1440. The timeout applies only during initial provisioning, when the cluster is first created.
+         * Spot provisioning timeout period in minutes. If Spot instances are not provisioned within this time period, the TimeOutAction is taken. Minimum value is 5 and maximum value is 1440. The timeout applies only during initial provisioning, when the cluster is first created.
          */
         timeoutDurationMinutes: pulumi.Input<number>;
     }
 
     export interface ClusterMasterInstanceGroup {
         /**
-         * The bid price for each EC2 Spot instance type as defined by `instanceType`. Expressed in USD. If neither `bidPrice` nor `bidPriceAsPercentageOfOnDemandPrice` is provided, `bidPriceAsPercentageOfOnDemandPrice` defaults to 100%.
+         * Bid price for each EC2 instance in the instance group, expressed in USD. By setting this attribute, the instance group is being declared as a Spot Instance, and will implicitly create a Spot request. Leave this blank to use On-Demand Instances.
          */
         bidPrice?: pulumi.Input<string>;
         /**
@@ -14469,53 +14537,53 @@ export namespace emr {
          */
         ebsConfigs?: pulumi.Input<pulumi.Input<inputs.emr.ClusterMasterInstanceGroupEbsConfig>[]>;
         /**
-         * The ID of the EMR Cluster
+         * ID of the cluster.
          */
         id?: pulumi.Input<string>;
         /**
-         * Target number of instances for the instance group. Must be 1 or 3. Defaults to 1. Launching with multiple master nodes is only supported in EMR version 5.23.0+, and requires this resource's `coreInstanceGroup` to be configured. Public (Internet accessible) instances must be created in VPC subnets that have `map public IP on launch` enabled. Termination protection is automatically enabled when launched with multiple master nodes and this provider must have the `terminationProtection = false` configuration applied before destroying this resource.
+         * Target number of instances for the instance group. Must be 1 or 3. Defaults to 1. Launching with multiple master nodes is only supported in EMR version 5.23.0+, and requires this resource's `coreInstanceGroup` to be configured. Public (Internet accessible) instances must be created in VPC subnets that have map public IP on launch enabled. Termination protection is automatically enabled when launched with multiple master nodes and this provider must have the `terminationProtection = false` configuration applied before destroying this resource.
          */
         instanceCount?: pulumi.Input<number>;
         /**
-         * An EC2 instance type, such as m4.xlarge.
+         * EC2 instance type for all instances in the instance group.
          */
         instanceType: pulumi.Input<string>;
         /**
-         * Friendly name given to the instance fleet.
+         * Name of the step.
          */
         name?: pulumi.Input<string>;
     }
 
     export interface ClusterMasterInstanceGroupEbsConfig {
         /**
-         * The number of I/O operations per second (IOPS) that the volume supports
+         * Number of I/O operations per second (IOPS) that the volume supports.
          */
         iops?: pulumi.Input<number>;
         /**
-         * The volume size, in gibibytes (GiB).
+         * Volume size, in gibibytes (GiB).
          */
         size: pulumi.Input<number>;
         /**
-         * The volume type. Valid options are `gp2`, `io1`, `standard` and `st1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
+         * Volume type. Valid options are `gp2`, `io1`, `standard` and `st1`. See [EBS Volume Types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html).
          */
         type: pulumi.Input<string>;
         /**
-         * The number of EBS volumes with this configuration to attach to each EC2 instance in the instance group (default is 1)
+         * Number of EBS volumes with this configuration to attach to each EC2 instance in the instance group (default is 1).
          */
         volumesPerInstance?: pulumi.Input<number>;
     }
 
     export interface ClusterStep {
         /**
-         * The action to take if the step fails. Valid values: `TERMINATE_JOB_FLOW`, `TERMINATE_CLUSTER`, `CANCEL_AND_WAIT`, and `CONTINUE`
+         * Action to take if the step fails. Valid values: `TERMINATE_JOB_FLOW`, `TERMINATE_CLUSTER`, `CANCEL_AND_WAIT`, and `CONTINUE`
          */
         actionOnFailure: pulumi.Input<string>;
         /**
-         * The JAR file used for the step. Defined below.
+         * JAR file used for the step. See below.
          */
         hadoopJarStep: pulumi.Input<inputs.emr.ClusterStepHadoopJarStep>;
         /**
-         * Friendly name given to the instance fleet.
+         * Name of the step.
          */
         name: pulumi.Input<string>;
     }
@@ -14534,7 +14602,7 @@ export namespace emr {
          */
         mainClass?: pulumi.Input<string>;
         /**
-         * A map of properties specified within a configuration classification
+         * Key-Value map of Java properties that are set when the step runs. You can use these properties to pass key value pairs to your main function.
          */
         properties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     }

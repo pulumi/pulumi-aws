@@ -15,6 +15,7 @@ class LinkAggregationGroupArgs:
     def __init__(__self__, *,
                  connections_bandwidth: pulumi.Input[str],
                  location: pulumi.Input[str],
+                 connection_id: Optional[pulumi.Input[str]] = None,
                  force_destroy: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  provider_name: Optional[pulumi.Input[str]] = None,
@@ -24,6 +25,7 @@ class LinkAggregationGroupArgs:
         The set of arguments for constructing a LinkAggregationGroup resource.
         :param pulumi.Input[str] connections_bandwidth: The bandwidth of the individual physical connections bundled by the LAG. Valid values: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, 10Gbps and 100Gbps. Case sensitive.
         :param pulumi.Input[str] location: The AWS Direct Connect location in which the LAG should be allocated. See [DescribeLocations](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLocations.html) for the list of AWS Direct Connect locations. Use `locationCode`.
+        :param pulumi.Input[str] connection_id: The ID of an existing dedicated connection to migrate to the LAG.
         :param pulumi.Input[bool] force_destroy: A boolean that indicates all connections associated with the LAG should be deleted so that the LAG can be destroyed without error. These objects are *not* recoverable.
         :param pulumi.Input[str] name: The name of the LAG.
         :param pulumi.Input[str] provider_name: The name of the service provider associated with the LAG.
@@ -32,6 +34,8 @@ class LinkAggregationGroupArgs:
         """
         pulumi.set(__self__, "connections_bandwidth", connections_bandwidth)
         pulumi.set(__self__, "location", location)
+        if connection_id is not None:
+            pulumi.set(__self__, "connection_id", connection_id)
         if force_destroy is not None:
             pulumi.set(__self__, "force_destroy", force_destroy)
         if name is not None:
@@ -66,6 +70,18 @@ class LinkAggregationGroupArgs:
     @location.setter
     def location(self, value: pulumi.Input[str]):
         pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="connectionId")
+    def connection_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of an existing dedicated connection to migrate to the LAG.
+        """
+        return pulumi.get(self, "connection_id")
+
+    @connection_id.setter
+    def connection_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "connection_id", value)
 
     @property
     @pulumi.getter(name="forceDestroy")
@@ -132,6 +148,7 @@ class LinkAggregationGroupArgs:
 class _LinkAggregationGroupState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
+                 connection_id: Optional[pulumi.Input[str]] = None,
                  connections_bandwidth: Optional[pulumi.Input[str]] = None,
                  force_destroy: Optional[pulumi.Input[bool]] = None,
                  has_logical_redundancy: Optional[pulumi.Input[str]] = None,
@@ -145,6 +162,7 @@ class _LinkAggregationGroupState:
         """
         Input properties used for looking up and filtering LinkAggregationGroup resources.
         :param pulumi.Input[str] arn: The ARN of the LAG.
+        :param pulumi.Input[str] connection_id: The ID of an existing dedicated connection to migrate to the LAG.
         :param pulumi.Input[str] connections_bandwidth: The bandwidth of the individual physical connections bundled by the LAG. Valid values: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, 10Gbps and 100Gbps. Case sensitive.
         :param pulumi.Input[bool] force_destroy: A boolean that indicates all connections associated with the LAG should be deleted so that the LAG can be destroyed without error. These objects are *not* recoverable.
         :param pulumi.Input[str] has_logical_redundancy: Indicates whether the LAG supports a secondary BGP peer in the same address family (IPv4/IPv6).
@@ -157,6 +175,8 @@ class _LinkAggregationGroupState:
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
+        if connection_id is not None:
+            pulumi.set(__self__, "connection_id", connection_id)
         if connections_bandwidth is not None:
             pulumi.set(__self__, "connections_bandwidth", connections_bandwidth)
         if force_destroy is not None:
@@ -189,6 +209,18 @@ class _LinkAggregationGroupState:
     @arn.setter
     def arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="connectionId")
+    def connection_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of an existing dedicated connection to migrate to the LAG.
+        """
+        return pulumi.get(self, "connection_id")
+
+    @connection_id.setter
+    def connection_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "connection_id", value)
 
     @property
     @pulumi.getter(name="connectionsBandwidth")
@@ -313,6 +345,7 @@ class LinkAggregationGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 connection_id: Optional[pulumi.Input[str]] = None,
                  connections_bandwidth: Optional[pulumi.Input[str]] = None,
                  force_destroy: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -324,7 +357,7 @@ class LinkAggregationGroup(pulumi.CustomResource):
         """
         Provides a Direct Connect LAG. Connections can be added to the LAG via the `directconnect.Connection` and `directconnect.ConnectionAssociation` resources.
 
-        > *NOTE:* When creating a LAG, Direct Connect requires creating a Connection. This provider will remove this unmanaged connection during resource creation.
+        > *NOTE:* When creating a LAG, if no existing connection is specified, Direct Connect will create a connection and this provider will remove this unmanaged connection during resource creation.
 
         ## Example Usage
 
@@ -348,6 +381,7 @@ class LinkAggregationGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] connection_id: The ID of an existing dedicated connection to migrate to the LAG.
         :param pulumi.Input[str] connections_bandwidth: The bandwidth of the individual physical connections bundled by the LAG. Valid values: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, 10Gbps and 100Gbps. Case sensitive.
         :param pulumi.Input[bool] force_destroy: A boolean that indicates all connections associated with the LAG should be deleted so that the LAG can be destroyed without error. These objects are *not* recoverable.
         :param pulumi.Input[str] location: The AWS Direct Connect location in which the LAG should be allocated. See [DescribeLocations](https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeLocations.html) for the list of AWS Direct Connect locations. Use `locationCode`.
@@ -365,7 +399,7 @@ class LinkAggregationGroup(pulumi.CustomResource):
         """
         Provides a Direct Connect LAG. Connections can be added to the LAG via the `directconnect.Connection` and `directconnect.ConnectionAssociation` resources.
 
-        > *NOTE:* When creating a LAG, Direct Connect requires creating a Connection. This provider will remove this unmanaged connection during resource creation.
+        > *NOTE:* When creating a LAG, if no existing connection is specified, Direct Connect will create a connection and this provider will remove this unmanaged connection during resource creation.
 
         ## Example Usage
 
@@ -402,6 +436,7 @@ class LinkAggregationGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 connection_id: Optional[pulumi.Input[str]] = None,
                  connections_bandwidth: Optional[pulumi.Input[str]] = None,
                  force_destroy: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -421,6 +456,7 @@ class LinkAggregationGroup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = LinkAggregationGroupArgs.__new__(LinkAggregationGroupArgs)
 
+            __props__.__dict__["connection_id"] = connection_id
             if connections_bandwidth is None and not opts.urn:
                 raise TypeError("Missing required property 'connections_bandwidth'")
             __props__.__dict__["connections_bandwidth"] = connections_bandwidth
@@ -447,6 +483,7 @@ class LinkAggregationGroup(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
+            connection_id: Optional[pulumi.Input[str]] = None,
             connections_bandwidth: Optional[pulumi.Input[str]] = None,
             force_destroy: Optional[pulumi.Input[bool]] = None,
             has_logical_redundancy: Optional[pulumi.Input[str]] = None,
@@ -465,6 +502,7 @@ class LinkAggregationGroup(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The ARN of the LAG.
+        :param pulumi.Input[str] connection_id: The ID of an existing dedicated connection to migrate to the LAG.
         :param pulumi.Input[str] connections_bandwidth: The bandwidth of the individual physical connections bundled by the LAG. Valid values: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, 10Gbps and 100Gbps. Case sensitive.
         :param pulumi.Input[bool] force_destroy: A boolean that indicates all connections associated with the LAG should be deleted so that the LAG can be destroyed without error. These objects are *not* recoverable.
         :param pulumi.Input[str] has_logical_redundancy: Indicates whether the LAG supports a secondary BGP peer in the same address family (IPv4/IPv6).
@@ -480,6 +518,7 @@ class LinkAggregationGroup(pulumi.CustomResource):
         __props__ = _LinkAggregationGroupState.__new__(_LinkAggregationGroupState)
 
         __props__.__dict__["arn"] = arn
+        __props__.__dict__["connection_id"] = connection_id
         __props__.__dict__["connections_bandwidth"] = connections_bandwidth
         __props__.__dict__["force_destroy"] = force_destroy
         __props__.__dict__["has_logical_redundancy"] = has_logical_redundancy
@@ -499,6 +538,14 @@ class LinkAggregationGroup(pulumi.CustomResource):
         The ARN of the LAG.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="connectionId")
+    def connection_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID of an existing dedicated connection to migrate to the LAG.
+        """
+        return pulumi.get(self, "connection_id")
 
     @property
     @pulumi.getter(name="connectionsBandwidth")

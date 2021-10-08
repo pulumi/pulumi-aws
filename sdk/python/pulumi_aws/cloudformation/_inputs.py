@@ -11,6 +11,7 @@ from .. import _utilities
 __all__ = [
     'CloudFormationTypeLoggingConfigArgs',
     'StackSetAutoDeploymentArgs',
+    'StackSetInstanceDeploymentTargetsArgs',
 ]
 
 @pulumi.input_type
@@ -87,5 +88,22 @@ class StackSetAutoDeploymentArgs:
     @retain_stacks_on_account_removal.setter
     def retain_stacks_on_account_removal(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "retain_stacks_on_account_removal", value)
+
+
+@pulumi.input_type
+class StackSetInstanceDeploymentTargetsArgs:
+    def __init__(__self__, *,
+                 organizational_unit_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        if organizational_unit_ids is not None:
+            pulumi.set(__self__, "organizational_unit_ids", organizational_unit_ids)
+
+    @property
+    @pulumi.getter(name="organizationalUnitIds")
+    def organizational_unit_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "organizational_unit_ids")
+
+    @organizational_unit_ids.setter
+    def organizational_unit_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "organizational_unit_ids", value)
 
 

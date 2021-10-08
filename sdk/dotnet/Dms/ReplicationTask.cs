@@ -55,6 +55,12 @@ namespace Pulumi.Aws.Dms
     public partial class ReplicationTask : Pulumi.CustomResource
     {
         /// <summary>
+        /// Indicates when you want a change data capture (CDC) operation to start. The value can be in date, checkpoint, or LSN/SCN format depending on the source engine. For more information, see [Determining a CDC native start point](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Task.CDC.html#CHAP_Task.CDC.StartPoint.Native).
+        /// </summary>
+        [Output("cdcStartPosition")]
+        public Output<string?> CdcStartPosition { get; private set; } = null!;
+
+        /// <summary>
         /// The Unix timestamp integer for the start of the Change Data Capture (CDC) operation.
         /// </summary>
         [Output("cdcStartTime")]
@@ -167,6 +173,12 @@ namespace Pulumi.Aws.Dms
     public sealed class ReplicationTaskArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Indicates when you want a change data capture (CDC) operation to start. The value can be in date, checkpoint, or LSN/SCN format depending on the source engine. For more information, see [Determining a CDC native start point](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Task.CDC.html#CHAP_Task.CDC.StartPoint.Native).
+        /// </summary>
+        [Input("cdcStartPosition")]
+        public Input<string>? CdcStartPosition { get; set; }
+
+        /// <summary>
         /// The Unix timestamp integer for the start of the Change Data Capture (CDC) operation.
         /// </summary>
         [Input("cdcStartTime")]
@@ -233,6 +245,12 @@ namespace Pulumi.Aws.Dms
 
     public sealed class ReplicationTaskState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Indicates when you want a change data capture (CDC) operation to start. The value can be in date, checkpoint, or LSN/SCN format depending on the source engine. For more information, see [Determining a CDC native start point](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Task.CDC.html#CHAP_Task.CDC.StartPoint.Native).
+        /// </summary>
+        [Input("cdcStartPosition")]
+        public Input<string>? CdcStartPosition { get; set; }
+
         /// <summary>
         /// The Unix timestamp integer for the start of the Change Data Capture (CDC) operation.
         /// </summary>

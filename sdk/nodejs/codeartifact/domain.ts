@@ -55,7 +55,7 @@ export class Domain extends pulumi.CustomResource {
     }
 
     /**
-     * The ARN of Domain.
+     * The ARN of the Domain.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
@@ -140,7 +140,7 @@ export class Domain extends pulumi.CustomResource {
  */
 export interface DomainState {
     /**
-     * The ARN of Domain.
+     * The ARN of the Domain.
      */
     arn?: pulumi.Input<string>;
     /**

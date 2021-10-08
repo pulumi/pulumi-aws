@@ -557,6 +557,7 @@ class Document(pulumi.CustomResource):
         schema version you must recreate the resource.
 
         ## Example Usage
+        ### Create an ssm document in JSON format
 
         ```python
         import pulumi
@@ -582,6 +583,27 @@ class Document(pulumi.CustomResource):
           }
 
         \"\"\",
+            document_type="Command")
+        ```
+        ### Create an ssm document in YAML format
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        foo = aws.ssm.Document("foo",
+            content=\"\"\"schemaVersion: '1.2'
+        description: Check ip configuration of a Linux instance.
+        parameters: {}
+        runtimeConfig:
+          'aws:runShellScript':
+            properties:
+              - id: '0.aws:runShellScript'
+                runCommand:
+                  - ifconfig
+
+        \"\"\",
+            document_format="YAML",
             document_type="Command")
         ```
         ## Permissions
@@ -655,6 +677,7 @@ class Document(pulumi.CustomResource):
         schema version you must recreate the resource.
 
         ## Example Usage
+        ### Create an ssm document in JSON format
 
         ```python
         import pulumi
@@ -680,6 +703,27 @@ class Document(pulumi.CustomResource):
           }
 
         \"\"\",
+            document_type="Command")
+        ```
+        ### Create an ssm document in YAML format
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        foo = aws.ssm.Document("foo",
+            content=\"\"\"schemaVersion: '1.2'
+        description: Check ip configuration of a Linux instance.
+        parameters: {}
+        runtimeConfig:
+          'aws:runShellScript':
+            properties:
+              - id: '0.aws:runShellScript'
+                runCommand:
+                  - ifconfig
+
+        \"\"\",
+            document_format="YAML",
             document_type="Command")
         ```
         ## Permissions

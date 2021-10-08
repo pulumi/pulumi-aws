@@ -322,6 +322,139 @@ func (o StackSetAutoDeploymentPtrOutput) RetainStacksOnAccountRemoval() pulumi.B
 	}).(pulumi.BoolPtrOutput)
 }
 
+type StackSetInstanceDeploymentTargets struct {
+	OrganizationalUnitIds []string `pulumi:"organizationalUnitIds"`
+}
+
+// StackSetInstanceDeploymentTargetsInput is an input type that accepts StackSetInstanceDeploymentTargetsArgs and StackSetInstanceDeploymentTargetsOutput values.
+// You can construct a concrete instance of `StackSetInstanceDeploymentTargetsInput` via:
+//
+//          StackSetInstanceDeploymentTargetsArgs{...}
+type StackSetInstanceDeploymentTargetsInput interface {
+	pulumi.Input
+
+	ToStackSetInstanceDeploymentTargetsOutput() StackSetInstanceDeploymentTargetsOutput
+	ToStackSetInstanceDeploymentTargetsOutputWithContext(context.Context) StackSetInstanceDeploymentTargetsOutput
+}
+
+type StackSetInstanceDeploymentTargetsArgs struct {
+	OrganizationalUnitIds pulumi.StringArrayInput `pulumi:"organizationalUnitIds"`
+}
+
+func (StackSetInstanceDeploymentTargetsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StackSetInstanceDeploymentTargets)(nil)).Elem()
+}
+
+func (i StackSetInstanceDeploymentTargetsArgs) ToStackSetInstanceDeploymentTargetsOutput() StackSetInstanceDeploymentTargetsOutput {
+	return i.ToStackSetInstanceDeploymentTargetsOutputWithContext(context.Background())
+}
+
+func (i StackSetInstanceDeploymentTargetsArgs) ToStackSetInstanceDeploymentTargetsOutputWithContext(ctx context.Context) StackSetInstanceDeploymentTargetsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StackSetInstanceDeploymentTargetsOutput)
+}
+
+func (i StackSetInstanceDeploymentTargetsArgs) ToStackSetInstanceDeploymentTargetsPtrOutput() StackSetInstanceDeploymentTargetsPtrOutput {
+	return i.ToStackSetInstanceDeploymentTargetsPtrOutputWithContext(context.Background())
+}
+
+func (i StackSetInstanceDeploymentTargetsArgs) ToStackSetInstanceDeploymentTargetsPtrOutputWithContext(ctx context.Context) StackSetInstanceDeploymentTargetsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StackSetInstanceDeploymentTargetsOutput).ToStackSetInstanceDeploymentTargetsPtrOutputWithContext(ctx)
+}
+
+// StackSetInstanceDeploymentTargetsPtrInput is an input type that accepts StackSetInstanceDeploymentTargetsArgs, StackSetInstanceDeploymentTargetsPtr and StackSetInstanceDeploymentTargetsPtrOutput values.
+// You can construct a concrete instance of `StackSetInstanceDeploymentTargetsPtrInput` via:
+//
+//          StackSetInstanceDeploymentTargetsArgs{...}
+//
+//  or:
+//
+//          nil
+type StackSetInstanceDeploymentTargetsPtrInput interface {
+	pulumi.Input
+
+	ToStackSetInstanceDeploymentTargetsPtrOutput() StackSetInstanceDeploymentTargetsPtrOutput
+	ToStackSetInstanceDeploymentTargetsPtrOutputWithContext(context.Context) StackSetInstanceDeploymentTargetsPtrOutput
+}
+
+type stackSetInstanceDeploymentTargetsPtrType StackSetInstanceDeploymentTargetsArgs
+
+func StackSetInstanceDeploymentTargetsPtr(v *StackSetInstanceDeploymentTargetsArgs) StackSetInstanceDeploymentTargetsPtrInput {
+	return (*stackSetInstanceDeploymentTargetsPtrType)(v)
+}
+
+func (*stackSetInstanceDeploymentTargetsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StackSetInstanceDeploymentTargets)(nil)).Elem()
+}
+
+func (i *stackSetInstanceDeploymentTargetsPtrType) ToStackSetInstanceDeploymentTargetsPtrOutput() StackSetInstanceDeploymentTargetsPtrOutput {
+	return i.ToStackSetInstanceDeploymentTargetsPtrOutputWithContext(context.Background())
+}
+
+func (i *stackSetInstanceDeploymentTargetsPtrType) ToStackSetInstanceDeploymentTargetsPtrOutputWithContext(ctx context.Context) StackSetInstanceDeploymentTargetsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StackSetInstanceDeploymentTargetsPtrOutput)
+}
+
+type StackSetInstanceDeploymentTargetsOutput struct{ *pulumi.OutputState }
+
+func (StackSetInstanceDeploymentTargetsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StackSetInstanceDeploymentTargets)(nil)).Elem()
+}
+
+func (o StackSetInstanceDeploymentTargetsOutput) ToStackSetInstanceDeploymentTargetsOutput() StackSetInstanceDeploymentTargetsOutput {
+	return o
+}
+
+func (o StackSetInstanceDeploymentTargetsOutput) ToStackSetInstanceDeploymentTargetsOutputWithContext(ctx context.Context) StackSetInstanceDeploymentTargetsOutput {
+	return o
+}
+
+func (o StackSetInstanceDeploymentTargetsOutput) ToStackSetInstanceDeploymentTargetsPtrOutput() StackSetInstanceDeploymentTargetsPtrOutput {
+	return o.ToStackSetInstanceDeploymentTargetsPtrOutputWithContext(context.Background())
+}
+
+func (o StackSetInstanceDeploymentTargetsOutput) ToStackSetInstanceDeploymentTargetsPtrOutputWithContext(ctx context.Context) StackSetInstanceDeploymentTargetsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StackSetInstanceDeploymentTargets) *StackSetInstanceDeploymentTargets {
+		return &v
+	}).(StackSetInstanceDeploymentTargetsPtrOutput)
+}
+
+func (o StackSetInstanceDeploymentTargetsOutput) OrganizationalUnitIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v StackSetInstanceDeploymentTargets) []string { return v.OrganizationalUnitIds }).(pulumi.StringArrayOutput)
+}
+
+type StackSetInstanceDeploymentTargetsPtrOutput struct{ *pulumi.OutputState }
+
+func (StackSetInstanceDeploymentTargetsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StackSetInstanceDeploymentTargets)(nil)).Elem()
+}
+
+func (o StackSetInstanceDeploymentTargetsPtrOutput) ToStackSetInstanceDeploymentTargetsPtrOutput() StackSetInstanceDeploymentTargetsPtrOutput {
+	return o
+}
+
+func (o StackSetInstanceDeploymentTargetsPtrOutput) ToStackSetInstanceDeploymentTargetsPtrOutputWithContext(ctx context.Context) StackSetInstanceDeploymentTargetsPtrOutput {
+	return o
+}
+
+func (o StackSetInstanceDeploymentTargetsPtrOutput) Elem() StackSetInstanceDeploymentTargetsOutput {
+	return o.ApplyT(func(v *StackSetInstanceDeploymentTargets) StackSetInstanceDeploymentTargets {
+		if v != nil {
+			return *v
+		}
+		var ret StackSetInstanceDeploymentTargets
+		return ret
+	}).(StackSetInstanceDeploymentTargetsOutput)
+}
+
+func (o StackSetInstanceDeploymentTargetsPtrOutput) OrganizationalUnitIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *StackSetInstanceDeploymentTargets) []string {
+		if v == nil {
+			return nil
+		}
+		return v.OrganizationalUnitIds
+	}).(pulumi.StringArrayOutput)
+}
+
 type GetCloudFormationTypeLoggingConfig struct {
 	// Name of the CloudWatch Log Group where CloudFormation sends error logging information when invoking the type's handlers.
 	LogGroupName string `pulumi:"logGroupName"`
@@ -433,12 +566,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CloudFormationTypeLoggingConfigPtrInput)(nil)).Elem(), CloudFormationTypeLoggingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StackSetAutoDeploymentInput)(nil)).Elem(), StackSetAutoDeploymentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StackSetAutoDeploymentPtrInput)(nil)).Elem(), StackSetAutoDeploymentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StackSetInstanceDeploymentTargetsInput)(nil)).Elem(), StackSetInstanceDeploymentTargetsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StackSetInstanceDeploymentTargetsPtrInput)(nil)).Elem(), StackSetInstanceDeploymentTargetsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCloudFormationTypeLoggingConfigInput)(nil)).Elem(), GetCloudFormationTypeLoggingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetCloudFormationTypeLoggingConfigArrayInput)(nil)).Elem(), GetCloudFormationTypeLoggingConfigArray{})
 	pulumi.RegisterOutputType(CloudFormationTypeLoggingConfigOutput{})
 	pulumi.RegisterOutputType(CloudFormationTypeLoggingConfigPtrOutput{})
 	pulumi.RegisterOutputType(StackSetAutoDeploymentOutput{})
 	pulumi.RegisterOutputType(StackSetAutoDeploymentPtrOutput{})
+	pulumi.RegisterOutputType(StackSetInstanceDeploymentTargetsOutput{})
+	pulumi.RegisterOutputType(StackSetInstanceDeploymentTargetsPtrOutput{})
 	pulumi.RegisterOutputType(GetCloudFormationTypeLoggingConfigOutput{})
 	pulumi.RegisterOutputType(GetCloudFormationTypeLoggingConfigArrayOutput{})
 }

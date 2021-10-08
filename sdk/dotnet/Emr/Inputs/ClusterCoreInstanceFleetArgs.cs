@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Emr.Inputs
     public sealed class ClusterCoreInstanceFleetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the EMR Cluster
+        /// ID of the cluster.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Emr.Inputs
         private InputList<Inputs.ClusterCoreInstanceFleetInstanceTypeConfigArgs>? _instanceTypeConfigs;
 
         /// <summary>
-        /// Configuration block for instance fleet
+        /// Configuration block for instance fleet.
         /// </summary>
         public InputList<Inputs.ClusterCoreInstanceFleetInstanceTypeConfigArgs> InstanceTypeConfigs
         {
@@ -31,13 +31,13 @@ namespace Pulumi.Aws.Emr.Inputs
         }
 
         /// <summary>
-        /// Configuration block for launch specification
+        /// Configuration block for launch specification.
         /// </summary>
         [Input("launchSpecifications")]
         public Input<Inputs.ClusterCoreInstanceFleetLaunchSpecificationsArgs>? LaunchSpecifications { get; set; }
 
         /// <summary>
-        /// Friendly name given to the instance fleet.
+        /// Name of the step.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -49,13 +49,13 @@ namespace Pulumi.Aws.Emr.Inputs
         public Input<int>? ProvisionedSpotCapacity { get; set; }
 
         /// <summary>
-        /// The target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
+        /// Target capacity of On-Demand units for the instance fleet, which determines how many On-Demand instances to provision.
         /// </summary>
         [Input("targetOnDemandCapacity")]
         public Input<int>? TargetOnDemandCapacity { get; set; }
 
         /// <summary>
-        /// The target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
+        /// Target capacity of Spot units for the instance fleet, which determines how many Spot instances to provision.
         /// </summary>
         [Input("targetSpotCapacity")]
         public Input<int>? TargetSpotCapacity { get; set; }

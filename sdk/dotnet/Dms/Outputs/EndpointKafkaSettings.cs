@@ -18,6 +18,70 @@ namespace Pulumi.Aws.Dms.Outputs
         /// </summary>
         public readonly string Broker;
         /// <summary>
+        /// Shows detailed control information for table definition, column definition, and table and column changes in the Kafka message output. The default is `false`.
+        /// </summary>
+        public readonly bool? IncludeControlDetails;
+        /// <summary>
+        /// Include NULL and empty columns for records migrated to the endpoint. The default is `false`.
+        /// </summary>
+        public readonly bool? IncludeNullAndEmpty;
+        /// <summary>
+        /// Shows the partition value within the Kafka message output unless the partition type is `schema-table-type`. The default is `false`.
+        /// </summary>
+        public readonly bool? IncludePartitionValue;
+        /// <summary>
+        /// Includes any data definition language (DDL) operations that change the table in the control data, such as `rename-table`, `drop-table`, `add-column`, `drop-column`, and `rename-column`. The default is `false`.
+        /// </summary>
+        public readonly bool? IncludeTableAlterOperations;
+        /// <summary>
+        /// Provides detailed transaction information from the source database. This information includes a commit timestamp, a log position, and values for `transaction_id`, previous `transaction_id`, and `transaction_record_id` (the record offset within a transaction). The default is `false`.
+        /// </summary>
+        public readonly bool? IncludeTransactionDetails;
+        /// <summary>
+        /// The output format for the records created on the endpoint. The message format is `JSON` (default) or `JSON_UNFORMATTED` (a single line with no tab).
+        /// </summary>
+        public readonly string? MessageFormat;
+        /// <summary>
+        /// The maximum size in bytes for records created on the endpoint The default is `1,000,000`.
+        /// </summary>
+        public readonly int? MessageMaxBytes;
+        /// <summary>
+        /// Set this optional parameter to true to avoid adding a '0x' prefix to raw data in hexadecimal format. For example, by default, AWS DMS adds a '0x' prefix to the LOB column type in hexadecimal format moving from an Oracle source to a Kafka target. Use the `no_hex_prefix` endpoint setting to enable migration of RAW data type columns without adding the `'0x'` prefix.
+        /// </summary>
+        public readonly bool? NoHexPrefix;
+        /// <summary>
+        /// Prefixes schema and table names to partition values, when the partition type is `primary-key-type`. Doing this increases data distribution among Kafka partitions. For example, suppose that a SysBench schema has thousands of tables and each table has only limited range for a primary key. In this case, the same primary key is sent from thousands of tables to the same partition, which causes throttling. The default is `false`.
+        /// </summary>
+        public readonly bool? PartitionIncludeSchemaTable;
+        /// <summary>
+        /// The secure password you created when you first set up your MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
+        /// </summary>
+        public readonly string? SaslPassword;
+        /// <summary>
+        /// The secure user name you created when you first set up your MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
+        /// </summary>
+        public readonly string? SaslUsername;
+        /// <summary>
+        /// Set secure connection to a Kafka target endpoint using Transport Layer Security (TLS). Options include `ssl-encryption`, `ssl-authentication`, and `sasl-ssl`. `sasl-ssl` requires `sasl_username` and `sasl_password`.
+        /// </summary>
+        public readonly string? SecurityProtocol;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) for the private certificate authority (CA) cert that AWS DMS uses to securely connect to your Kafka target endpoint.
+        /// </summary>
+        public readonly string? SslCaCertificateArn;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the client certificate used to securely connect to a Kafka target endpoint.
+        /// </summary>
+        public readonly string? SslClientCertificateArn;
+        /// <summary>
+        /// The Amazon Resource Name (ARN) for the client private key used to securely connect to a Kafka target endpoint.
+        /// </summary>
+        public readonly string? SslClientKeyArn;
+        /// <summary>
+        /// The password for the client private key used to securely connect to a Kafka target endpoint.
+        /// </summary>
+        public readonly string? SslClientKeyPassword;
+        /// <summary>
         /// Kafka topic for migration. Defaults to `kafka-default-topic`.
         /// </summary>
         public readonly string? Topic;
@@ -26,9 +90,57 @@ namespace Pulumi.Aws.Dms.Outputs
         private EndpointKafkaSettings(
             string broker,
 
+            bool? includeControlDetails,
+
+            bool? includeNullAndEmpty,
+
+            bool? includePartitionValue,
+
+            bool? includeTableAlterOperations,
+
+            bool? includeTransactionDetails,
+
+            string? messageFormat,
+
+            int? messageMaxBytes,
+
+            bool? noHexPrefix,
+
+            bool? partitionIncludeSchemaTable,
+
+            string? saslPassword,
+
+            string? saslUsername,
+
+            string? securityProtocol,
+
+            string? sslCaCertificateArn,
+
+            string? sslClientCertificateArn,
+
+            string? sslClientKeyArn,
+
+            string? sslClientKeyPassword,
+
             string? topic)
         {
             Broker = broker;
+            IncludeControlDetails = includeControlDetails;
+            IncludeNullAndEmpty = includeNullAndEmpty;
+            IncludePartitionValue = includePartitionValue;
+            IncludeTableAlterOperations = includeTableAlterOperations;
+            IncludeTransactionDetails = includeTransactionDetails;
+            MessageFormat = messageFormat;
+            MessageMaxBytes = messageMaxBytes;
+            NoHexPrefix = noHexPrefix;
+            PartitionIncludeSchemaTable = partitionIncludeSchemaTable;
+            SaslPassword = saslPassword;
+            SaslUsername = saslUsername;
+            SecurityProtocol = securityProtocol;
+            SslCaCertificateArn = sslCaCertificateArn;
+            SslClientCertificateArn = sslClientCertificateArn;
+            SslClientKeyArn = sslClientKeyArn;
+            SslClientKeyPassword = sslClientKeyPassword;
             Topic = topic;
         }
     }

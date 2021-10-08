@@ -19,6 +19,7 @@ class ReplicationTaskArgs:
                  source_endpoint_arn: pulumi.Input[str],
                  table_mappings: pulumi.Input[str],
                  target_endpoint_arn: pulumi.Input[str],
+                 cdc_start_position: Optional[pulumi.Input[str]] = None,
                  cdc_start_time: Optional[pulumi.Input[str]] = None,
                  replication_task_settings: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
@@ -30,6 +31,7 @@ class ReplicationTaskArgs:
         :param pulumi.Input[str] source_endpoint_arn: The Amazon Resource Name (ARN) string that uniquely identifies the source endpoint.
         :param pulumi.Input[str] table_mappings: An escaped JSON string that contains the table mappings. For information on table mapping see [Using Table Mapping with an AWS Database Migration Service Task to Select and Filter Data](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TableMapping.html)
         :param pulumi.Input[str] target_endpoint_arn: The Amazon Resource Name (ARN) string that uniquely identifies the target endpoint.
+        :param pulumi.Input[str] cdc_start_position: Indicates when you want a change data capture (CDC) operation to start. The value can be in date, checkpoint, or LSN/SCN format depending on the source engine. For more information, see [Determining a CDC native start point](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Task.CDC.html#CHAP_Task.CDC.StartPoint.Native).
         :param pulumi.Input[str] cdc_start_time: The Unix timestamp integer for the start of the Change Data Capture (CDC) operation.
         :param pulumi.Input[str] replication_task_settings: An escaped JSON string that contains the task settings. For a complete list of task settings, see [Task Settings for AWS Database Migration Service Tasks](http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.CustomizingTasks.TaskSettings.html).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -40,6 +42,8 @@ class ReplicationTaskArgs:
         pulumi.set(__self__, "source_endpoint_arn", source_endpoint_arn)
         pulumi.set(__self__, "table_mappings", table_mappings)
         pulumi.set(__self__, "target_endpoint_arn", target_endpoint_arn)
+        if cdc_start_position is not None:
+            pulumi.set(__self__, "cdc_start_position", cdc_start_position)
         if cdc_start_time is not None:
             pulumi.set(__self__, "cdc_start_time", cdc_start_time)
         if replication_task_settings is not None:
@@ -120,6 +124,18 @@ class ReplicationTaskArgs:
         pulumi.set(self, "target_endpoint_arn", value)
 
     @property
+    @pulumi.getter(name="cdcStartPosition")
+    def cdc_start_position(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates when you want a change data capture (CDC) operation to start. The value can be in date, checkpoint, or LSN/SCN format depending on the source engine. For more information, see [Determining a CDC native start point](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Task.CDC.html#CHAP_Task.CDC.StartPoint.Native).
+        """
+        return pulumi.get(self, "cdc_start_position")
+
+    @cdc_start_position.setter
+    def cdc_start_position(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cdc_start_position", value)
+
+    @property
     @pulumi.getter(name="cdcStartTime")
     def cdc_start_time(self) -> Optional[pulumi.Input[str]]:
         """
@@ -159,6 +175,7 @@ class ReplicationTaskArgs:
 @pulumi.input_type
 class _ReplicationTaskState:
     def __init__(__self__, *,
+                 cdc_start_position: Optional[pulumi.Input[str]] = None,
                  cdc_start_time: Optional[pulumi.Input[str]] = None,
                  migration_type: Optional[pulumi.Input[str]] = None,
                  replication_instance_arn: Optional[pulumi.Input[str]] = None,
@@ -172,6 +189,7 @@ class _ReplicationTaskState:
                  target_endpoint_arn: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ReplicationTask resources.
+        :param pulumi.Input[str] cdc_start_position: Indicates when you want a change data capture (CDC) operation to start. The value can be in date, checkpoint, or LSN/SCN format depending on the source engine. For more information, see [Determining a CDC native start point](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Task.CDC.html#CHAP_Task.CDC.StartPoint.Native).
         :param pulumi.Input[str] cdc_start_time: The Unix timestamp integer for the start of the Change Data Capture (CDC) operation.
         :param pulumi.Input[str] migration_type: The migration type. Can be one of `full-load | cdc | full-load-and-cdc`.
         :param pulumi.Input[str] replication_instance_arn: The Amazon Resource Name (ARN) of the replication instance.
@@ -184,6 +202,8 @@ class _ReplicationTaskState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         :param pulumi.Input[str] target_endpoint_arn: The Amazon Resource Name (ARN) string that uniquely identifies the target endpoint.
         """
+        if cdc_start_position is not None:
+            pulumi.set(__self__, "cdc_start_position", cdc_start_position)
         if cdc_start_time is not None:
             pulumi.set(__self__, "cdc_start_time", cdc_start_time)
         if migration_type is not None:
@@ -206,6 +226,18 @@ class _ReplicationTaskState:
             pulumi.set(__self__, "tags_all", tags_all)
         if target_endpoint_arn is not None:
             pulumi.set(__self__, "target_endpoint_arn", target_endpoint_arn)
+
+    @property
+    @pulumi.getter(name="cdcStartPosition")
+    def cdc_start_position(self) -> Optional[pulumi.Input[str]]:
+        """
+        Indicates when you want a change data capture (CDC) operation to start. The value can be in date, checkpoint, or LSN/SCN format depending on the source engine. For more information, see [Determining a CDC native start point](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Task.CDC.html#CHAP_Task.CDC.StartPoint.Native).
+        """
+        return pulumi.get(self, "cdc_start_position")
+
+    @cdc_start_position.setter
+    def cdc_start_position(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cdc_start_position", value)
 
     @property
     @pulumi.getter(name="cdcStartTime")
@@ -345,6 +377,7 @@ class ReplicationTask(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 cdc_start_position: Optional[pulumi.Input[str]] = None,
                  cdc_start_time: Optional[pulumi.Input[str]] = None,
                  migration_type: Optional[pulumi.Input[str]] = None,
                  replication_instance_arn: Optional[pulumi.Input[str]] = None,
@@ -389,6 +422,7 @@ class ReplicationTask(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] cdc_start_position: Indicates when you want a change data capture (CDC) operation to start. The value can be in date, checkpoint, or LSN/SCN format depending on the source engine. For more information, see [Determining a CDC native start point](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Task.CDC.html#CHAP_Task.CDC.StartPoint.Native).
         :param pulumi.Input[str] cdc_start_time: The Unix timestamp integer for the start of the Change Data Capture (CDC) operation.
         :param pulumi.Input[str] migration_type: The migration type. Can be one of `full-load | cdc | full-load-and-cdc`.
         :param pulumi.Input[str] replication_instance_arn: The Amazon Resource Name (ARN) of the replication instance.
@@ -452,6 +486,7 @@ class ReplicationTask(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 cdc_start_position: Optional[pulumi.Input[str]] = None,
                  cdc_start_time: Optional[pulumi.Input[str]] = None,
                  migration_type: Optional[pulumi.Input[str]] = None,
                  replication_instance_arn: Optional[pulumi.Input[str]] = None,
@@ -473,6 +508,7 @@ class ReplicationTask(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ReplicationTaskArgs.__new__(ReplicationTaskArgs)
 
+            __props__.__dict__["cdc_start_position"] = cdc_start_position
             __props__.__dict__["cdc_start_time"] = cdc_start_time
             if migration_type is None and not opts.urn:
                 raise TypeError("Missing required property 'migration_type'")
@@ -506,6 +542,7 @@ class ReplicationTask(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            cdc_start_position: Optional[pulumi.Input[str]] = None,
             cdc_start_time: Optional[pulumi.Input[str]] = None,
             migration_type: Optional[pulumi.Input[str]] = None,
             replication_instance_arn: Optional[pulumi.Input[str]] = None,
@@ -524,6 +561,7 @@ class ReplicationTask(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] cdc_start_position: Indicates when you want a change data capture (CDC) operation to start. The value can be in date, checkpoint, or LSN/SCN format depending on the source engine. For more information, see [Determining a CDC native start point](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Task.CDC.html#CHAP_Task.CDC.StartPoint.Native).
         :param pulumi.Input[str] cdc_start_time: The Unix timestamp integer for the start of the Change Data Capture (CDC) operation.
         :param pulumi.Input[str] migration_type: The migration type. Can be one of `full-load | cdc | full-load-and-cdc`.
         :param pulumi.Input[str] replication_instance_arn: The Amazon Resource Name (ARN) of the replication instance.
@@ -540,6 +578,7 @@ class ReplicationTask(pulumi.CustomResource):
 
         __props__ = _ReplicationTaskState.__new__(_ReplicationTaskState)
 
+        __props__.__dict__["cdc_start_position"] = cdc_start_position
         __props__.__dict__["cdc_start_time"] = cdc_start_time
         __props__.__dict__["migration_type"] = migration_type
         __props__.__dict__["replication_instance_arn"] = replication_instance_arn
@@ -552,6 +591,14 @@ class ReplicationTask(pulumi.CustomResource):
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["target_endpoint_arn"] = target_endpoint_arn
         return ReplicationTask(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="cdcStartPosition")
+    def cdc_start_position(self) -> pulumi.Output[Optional[str]]:
+        """
+        Indicates when you want a change data capture (CDC) operation to start. The value can be in date, checkpoint, or LSN/SCN format depending on the source engine. For more information, see [Determining a CDC native start point](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Task.CDC.html#CHAP_Task.CDC.StartPoint.Native).
+        """
+        return pulumi.get(self, "cdc_start_position")
 
     @property
     @pulumi.getter(name="cdcStartTime")

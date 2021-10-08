@@ -58,6 +58,7 @@ class InstanceArgs:
                  performance_insights_retention_period: Optional[pulumi.Input[int]] = None,
                  port: Optional[pulumi.Input[int]] = None,
                  publicly_accessible: Optional[pulumi.Input[bool]] = None,
+                 replica_mode: Optional[pulumi.Input[str]] = None,
                  replicate_source_db: Optional[pulumi.Input[str]] = None,
                  restore_to_point_in_time: Optional[pulumi.Input['InstanceRestoreToPointInTimeArgs']] = None,
                  s3_import: Optional[pulumi.Input['InstanceS3ImportArgs']] = None,
@@ -167,6 +168,8 @@ class InstanceArgs:
         :param pulumi.Input[int] port: The port on which the DB accepts connections.
         :param pulumi.Input[bool] publicly_accessible: Bool to control if instance is publicly
                accessible. Default is `false`.
+        :param pulumi.Input[str] replica_mode: Specifies whether the replica is in either `mounted` or `open-read-only` mode. This attribute
+               is only supported by Oracle instances. Oracle replicas operate in `open-read-only` mode unless otherwise specified. See [Working with Oracle Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html) for more information.
         :param pulumi.Input[str] replicate_source_db: Specifies that this resource is a Replicate
                database, and to use this value as the source database. This correlates to the
                `identifier` of another Amazon RDS Database to replicate (if replicating within
@@ -290,6 +293,8 @@ class InstanceArgs:
             pulumi.set(__self__, "port", port)
         if publicly_accessible is not None:
             pulumi.set(__self__, "publicly_accessible", publicly_accessible)
+        if replica_mode is not None:
+            pulumi.set(__self__, "replica_mode", replica_mode)
         if replicate_source_db is not None:
             pulumi.set(__self__, "replicate_source_db", replicate_source_db)
         if restore_to_point_in_time is not None:
@@ -873,6 +878,19 @@ class InstanceArgs:
         pulumi.set(self, "publicly_accessible", value)
 
     @property
+    @pulumi.getter(name="replicaMode")
+    def replica_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies whether the replica is in either `mounted` or `open-read-only` mode. This attribute
+        is only supported by Oracle instances. Oracle replicas operate in `open-read-only` mode unless otherwise specified. See [Working with Oracle Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html) for more information.
+        """
+        return pulumi.get(self, "replica_mode")
+
+    @replica_mode.setter
+    def replica_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "replica_mode", value)
+
+    @property
     @pulumi.getter(name="replicateSourceDb")
     def replicate_source_db(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1095,6 +1113,7 @@ class _InstanceState:
                  performance_insights_retention_period: Optional[pulumi.Input[int]] = None,
                  port: Optional[pulumi.Input[int]] = None,
                  publicly_accessible: Optional[pulumi.Input[bool]] = None,
+                 replica_mode: Optional[pulumi.Input[str]] = None,
                  replicas: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  replicate_source_db: Optional[pulumi.Input[str]] = None,
                  resource_id: Optional[pulumi.Input[str]] = None,
@@ -1215,6 +1234,8 @@ class _InstanceState:
         :param pulumi.Input[int] port: The port on which the DB accepts connections.
         :param pulumi.Input[bool] publicly_accessible: Bool to control if instance is publicly
                accessible. Default is `false`.
+        :param pulumi.Input[str] replica_mode: Specifies whether the replica is in either `mounted` or `open-read-only` mode. This attribute
+               is only supported by Oracle instances. Oracle replicas operate in `open-read-only` mode unless otherwise specified. See [Working with Oracle Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html) for more information.
         :param pulumi.Input[str] replicate_source_db: Specifies that this resource is a Replicate
                database, and to use this value as the source database. This correlates to the
                `identifier` of another Amazon RDS Database to replicate (if replicating within
@@ -1354,6 +1375,8 @@ class _InstanceState:
             pulumi.set(__self__, "port", port)
         if publicly_accessible is not None:
             pulumi.set(__self__, "publicly_accessible", publicly_accessible)
+        if replica_mode is not None:
+            pulumi.set(__self__, "replica_mode", replica_mode)
         if replicas is not None:
             pulumi.set(__self__, "replicas", replicas)
         if replicate_source_db is not None:
@@ -2018,6 +2041,19 @@ class _InstanceState:
         pulumi.set(self, "publicly_accessible", value)
 
     @property
+    @pulumi.getter(name="replicaMode")
+    def replica_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies whether the replica is in either `mounted` or `open-read-only` mode. This attribute
+        is only supported by Oracle instances. Oracle replicas operate in `open-read-only` mode unless otherwise specified. See [Working with Oracle Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html) for more information.
+        """
+        return pulumi.get(self, "replica_mode")
+
+    @replica_mode.setter
+    def replica_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "replica_mode", value)
+
+    @property
     @pulumi.getter
     def replicas(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         return pulumi.get(self, "replicas")
@@ -2281,6 +2317,7 @@ class Instance(pulumi.CustomResource):
                  performance_insights_retention_period: Optional[pulumi.Input[int]] = None,
                  port: Optional[pulumi.Input[int]] = None,
                  publicly_accessible: Optional[pulumi.Input[bool]] = None,
+                 replica_mode: Optional[pulumi.Input[str]] = None,
                  replicate_source_db: Optional[pulumi.Input[str]] = None,
                  restore_to_point_in_time: Optional[pulumi.Input[pulumi.InputType['InstanceRestoreToPointInTimeArgs']]] = None,
                  s3_import: Optional[pulumi.Input[pulumi.InputType['InstanceS3ImportArgs']]] = None,
@@ -2454,6 +2491,8 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[int] port: The port on which the DB accepts connections.
         :param pulumi.Input[bool] publicly_accessible: Bool to control if instance is publicly
                accessible. Default is `false`.
+        :param pulumi.Input[str] replica_mode: Specifies whether the replica is in either `mounted` or `open-read-only` mode. This attribute
+               is only supported by Oracle instances. Oracle replicas operate in `open-read-only` mode unless otherwise specified. See [Working with Oracle Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html) for more information.
         :param pulumi.Input[str] replicate_source_db: Specifies that this resource is a Replicate
                database, and to use this value as the source database. This correlates to the
                `identifier` of another Amazon RDS Database to replicate (if replicating within
@@ -2620,6 +2659,7 @@ class Instance(pulumi.CustomResource):
                  performance_insights_retention_period: Optional[pulumi.Input[int]] = None,
                  port: Optional[pulumi.Input[int]] = None,
                  publicly_accessible: Optional[pulumi.Input[bool]] = None,
+                 replica_mode: Optional[pulumi.Input[str]] = None,
                  replicate_source_db: Optional[pulumi.Input[str]] = None,
                  restore_to_point_in_time: Optional[pulumi.Input[pulumi.InputType['InstanceRestoreToPointInTimeArgs']]] = None,
                  s3_import: Optional[pulumi.Input[pulumi.InputType['InstanceS3ImportArgs']]] = None,
@@ -2688,6 +2728,7 @@ class Instance(pulumi.CustomResource):
             __props__.__dict__["performance_insights_retention_period"] = performance_insights_retention_period
             __props__.__dict__["port"] = port
             __props__.__dict__["publicly_accessible"] = publicly_accessible
+            __props__.__dict__["replica_mode"] = replica_mode
             __props__.__dict__["replicate_source_db"] = replicate_source_db
             __props__.__dict__["restore_to_point_in_time"] = restore_to_point_in_time
             __props__.__dict__["s3_import"] = s3_import
@@ -2768,6 +2809,7 @@ class Instance(pulumi.CustomResource):
             performance_insights_retention_period: Optional[pulumi.Input[int]] = None,
             port: Optional[pulumi.Input[int]] = None,
             publicly_accessible: Optional[pulumi.Input[bool]] = None,
+            replica_mode: Optional[pulumi.Input[str]] = None,
             replicas: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             replicate_source_db: Optional[pulumi.Input[str]] = None,
             resource_id: Optional[pulumi.Input[str]] = None,
@@ -2893,6 +2935,8 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[int] port: The port on which the DB accepts connections.
         :param pulumi.Input[bool] publicly_accessible: Bool to control if instance is publicly
                accessible. Default is `false`.
+        :param pulumi.Input[str] replica_mode: Specifies whether the replica is in either `mounted` or `open-read-only` mode. This attribute
+               is only supported by Oracle instances. Oracle replicas operate in `open-read-only` mode unless otherwise specified. See [Working with Oracle Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html) for more information.
         :param pulumi.Input[str] replicate_source_db: Specifies that this resource is a Replicate
                database, and to use this value as the source database. This correlates to the
                `identifier` of another Amazon RDS Database to replicate (if replicating within
@@ -2988,6 +3032,7 @@ class Instance(pulumi.CustomResource):
         __props__.__dict__["performance_insights_retention_period"] = performance_insights_retention_period
         __props__.__dict__["port"] = port
         __props__.__dict__["publicly_accessible"] = publicly_accessible
+        __props__.__dict__["replica_mode"] = replica_mode
         __props__.__dict__["replicas"] = replicas
         __props__.__dict__["replicate_source_db"] = replicate_source_db
         __props__.__dict__["resource_id"] = resource_id
@@ -3443,6 +3488,15 @@ class Instance(pulumi.CustomResource):
         accessible. Default is `false`.
         """
         return pulumi.get(self, "publicly_accessible")
+
+    @property
+    @pulumi.getter(name="replicaMode")
+    def replica_mode(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies whether the replica is in either `mounted` or `open-read-only` mode. This attribute
+        is only supported by Oracle instances. Oracle replicas operate in `open-read-only` mode unless otherwise specified. See [Working with Oracle Read Replicas](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/oracle-read-replicas.html) for more information.
+        """
+        return pulumi.get(self, "replica_mode")
 
     @property
     @pulumi.getter

@@ -11,6 +11,7 @@ from .. import _utilities
 __all__ = [
     'CloudFormationTypeLoggingConfig',
     'StackSetAutoDeployment',
+    'StackSetInstanceDeploymentTargets',
     'GetCloudFormationTypeLoggingConfigResult',
 ]
 
@@ -108,6 +109,36 @@ class StackSetAutoDeployment(dict):
         Whether or not to retain stacks when the account is removed.
         """
         return pulumi.get(self, "retain_stacks_on_account_removal")
+
+
+@pulumi.output_type
+class StackSetInstanceDeploymentTargets(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "organizationalUnitIds":
+            suggest = "organizational_unit_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StackSetInstanceDeploymentTargets. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StackSetInstanceDeploymentTargets.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StackSetInstanceDeploymentTargets.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 organizational_unit_ids: Optional[Sequence[str]] = None):
+        if organizational_unit_ids is not None:
+            pulumi.set(__self__, "organizational_unit_ids", organizational_unit_ids)
+
+    @property
+    @pulumi.getter(name="organizationalUnitIds")
+    def organizational_unit_ids(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "organizational_unit_ids")
 
 
 @pulumi.output_type

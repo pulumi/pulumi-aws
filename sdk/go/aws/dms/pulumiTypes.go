@@ -207,6 +207,38 @@ func (o EndpointElasticsearchSettingsPtrOutput) ServiceAccessRoleArn() pulumi.St
 type EndpointKafkaSettings struct {
 	// Kafka broker location. Specify in the form broker-hostname-or-ip:port.
 	Broker string `pulumi:"broker"`
+	// Shows detailed control information for table definition, column definition, and table and column changes in the Kafka message output. The default is `false`.
+	IncludeControlDetails *bool `pulumi:"includeControlDetails"`
+	// Include NULL and empty columns for records migrated to the endpoint. The default is `false`.
+	IncludeNullAndEmpty *bool `pulumi:"includeNullAndEmpty"`
+	// Shows the partition value within the Kafka message output unless the partition type is `schema-table-type`. The default is `false`.
+	IncludePartitionValue *bool `pulumi:"includePartitionValue"`
+	// Includes any data definition language (DDL) operations that change the table in the control data, such as `rename-table`, `drop-table`, `add-column`, `drop-column`, and `rename-column`. The default is `false`.
+	IncludeTableAlterOperations *bool `pulumi:"includeTableAlterOperations"`
+	// Provides detailed transaction information from the source database. This information includes a commit timestamp, a log position, and values for `transactionId`, previous `transactionId`, and `transactionRecordId` (the record offset within a transaction). The default is `false`.
+	IncludeTransactionDetails *bool `pulumi:"includeTransactionDetails"`
+	// The output format for the records created on the endpoint. The message format is `JSON` (default) or `JSON_UNFORMATTED` (a single line with no tab).
+	MessageFormat *string `pulumi:"messageFormat"`
+	// The maximum size in bytes for records created on the endpoint The default is `1,000,000`.
+	MessageMaxBytes *int `pulumi:"messageMaxBytes"`
+	// Set this optional parameter to true to avoid adding a '0x' prefix to raw data in hexadecimal format. For example, by default, AWS DMS adds a '0x' prefix to the LOB column type in hexadecimal format moving from an Oracle source to a Kafka target. Use the `noHexPrefix` endpoint setting to enable migration of RAW data type columns without adding the `'0x'` prefix.
+	NoHexPrefix *bool `pulumi:"noHexPrefix"`
+	// Prefixes schema and table names to partition values, when the partition type is `primary-key-type`. Doing this increases data distribution among Kafka partitions. For example, suppose that a SysBench schema has thousands of tables and each table has only limited range for a primary key. In this case, the same primary key is sent from thousands of tables to the same partition, which causes throttling. The default is `false`.
+	PartitionIncludeSchemaTable *bool `pulumi:"partitionIncludeSchemaTable"`
+	// The secure password you created when you first set up your MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
+	SaslPassword *string `pulumi:"saslPassword"`
+	// The secure user name you created when you first set up your MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
+	SaslUsername *string `pulumi:"saslUsername"`
+	// Set secure connection to a Kafka target endpoint using Transport Layer Security (TLS). Options include `ssl-encryption`, `ssl-authentication`, and `sasl-ssl`. `sasl-ssl` requires `saslUsername` and `saslPassword`.
+	SecurityProtocol *string `pulumi:"securityProtocol"`
+	// The Amazon Resource Name (ARN) for the private certificate authority (CA) cert that AWS DMS uses to securely connect to your Kafka target endpoint.
+	SslCaCertificateArn *string `pulumi:"sslCaCertificateArn"`
+	// The Amazon Resource Name (ARN) of the client certificate used to securely connect to a Kafka target endpoint.
+	SslClientCertificateArn *string `pulumi:"sslClientCertificateArn"`
+	// The Amazon Resource Name (ARN) for the client private key used to securely connect to a Kafka target endpoint.
+	SslClientKeyArn *string `pulumi:"sslClientKeyArn"`
+	// The password for the client private key used to securely connect to a Kafka target endpoint.
+	SslClientKeyPassword *string `pulumi:"sslClientKeyPassword"`
 	// Kafka topic for migration. Defaults to `kafka-default-topic`.
 	Topic *string `pulumi:"topic"`
 }
@@ -225,6 +257,38 @@ type EndpointKafkaSettingsInput interface {
 type EndpointKafkaSettingsArgs struct {
 	// Kafka broker location. Specify in the form broker-hostname-or-ip:port.
 	Broker pulumi.StringInput `pulumi:"broker"`
+	// Shows detailed control information for table definition, column definition, and table and column changes in the Kafka message output. The default is `false`.
+	IncludeControlDetails pulumi.BoolPtrInput `pulumi:"includeControlDetails"`
+	// Include NULL and empty columns for records migrated to the endpoint. The default is `false`.
+	IncludeNullAndEmpty pulumi.BoolPtrInput `pulumi:"includeNullAndEmpty"`
+	// Shows the partition value within the Kafka message output unless the partition type is `schema-table-type`. The default is `false`.
+	IncludePartitionValue pulumi.BoolPtrInput `pulumi:"includePartitionValue"`
+	// Includes any data definition language (DDL) operations that change the table in the control data, such as `rename-table`, `drop-table`, `add-column`, `drop-column`, and `rename-column`. The default is `false`.
+	IncludeTableAlterOperations pulumi.BoolPtrInput `pulumi:"includeTableAlterOperations"`
+	// Provides detailed transaction information from the source database. This information includes a commit timestamp, a log position, and values for `transactionId`, previous `transactionId`, and `transactionRecordId` (the record offset within a transaction). The default is `false`.
+	IncludeTransactionDetails pulumi.BoolPtrInput `pulumi:"includeTransactionDetails"`
+	// The output format for the records created on the endpoint. The message format is `JSON` (default) or `JSON_UNFORMATTED` (a single line with no tab).
+	MessageFormat pulumi.StringPtrInput `pulumi:"messageFormat"`
+	// The maximum size in bytes for records created on the endpoint The default is `1,000,000`.
+	MessageMaxBytes pulumi.IntPtrInput `pulumi:"messageMaxBytes"`
+	// Set this optional parameter to true to avoid adding a '0x' prefix to raw data in hexadecimal format. For example, by default, AWS DMS adds a '0x' prefix to the LOB column type in hexadecimal format moving from an Oracle source to a Kafka target. Use the `noHexPrefix` endpoint setting to enable migration of RAW data type columns without adding the `'0x'` prefix.
+	NoHexPrefix pulumi.BoolPtrInput `pulumi:"noHexPrefix"`
+	// Prefixes schema and table names to partition values, when the partition type is `primary-key-type`. Doing this increases data distribution among Kafka partitions. For example, suppose that a SysBench schema has thousands of tables and each table has only limited range for a primary key. In this case, the same primary key is sent from thousands of tables to the same partition, which causes throttling. The default is `false`.
+	PartitionIncludeSchemaTable pulumi.BoolPtrInput `pulumi:"partitionIncludeSchemaTable"`
+	// The secure password you created when you first set up your MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
+	SaslPassword pulumi.StringPtrInput `pulumi:"saslPassword"`
+	// The secure user name you created when you first set up your MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
+	SaslUsername pulumi.StringPtrInput `pulumi:"saslUsername"`
+	// Set secure connection to a Kafka target endpoint using Transport Layer Security (TLS). Options include `ssl-encryption`, `ssl-authentication`, and `sasl-ssl`. `sasl-ssl` requires `saslUsername` and `saslPassword`.
+	SecurityProtocol pulumi.StringPtrInput `pulumi:"securityProtocol"`
+	// The Amazon Resource Name (ARN) for the private certificate authority (CA) cert that AWS DMS uses to securely connect to your Kafka target endpoint.
+	SslCaCertificateArn pulumi.StringPtrInput `pulumi:"sslCaCertificateArn"`
+	// The Amazon Resource Name (ARN) of the client certificate used to securely connect to a Kafka target endpoint.
+	SslClientCertificateArn pulumi.StringPtrInput `pulumi:"sslClientCertificateArn"`
+	// The Amazon Resource Name (ARN) for the client private key used to securely connect to a Kafka target endpoint.
+	SslClientKeyArn pulumi.StringPtrInput `pulumi:"sslClientKeyArn"`
+	// The password for the client private key used to securely connect to a Kafka target endpoint.
+	SslClientKeyPassword pulumi.StringPtrInput `pulumi:"sslClientKeyPassword"`
 	// Kafka topic for migration. Defaults to `kafka-default-topic`.
 	Topic pulumi.StringPtrInput `pulumi:"topic"`
 }
@@ -311,6 +375,86 @@ func (o EndpointKafkaSettingsOutput) Broker() pulumi.StringOutput {
 	return o.ApplyT(func(v EndpointKafkaSettings) string { return v.Broker }).(pulumi.StringOutput)
 }
 
+// Shows detailed control information for table definition, column definition, and table and column changes in the Kafka message output. The default is `false`.
+func (o EndpointKafkaSettingsOutput) IncludeControlDetails() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointKafkaSettings) *bool { return v.IncludeControlDetails }).(pulumi.BoolPtrOutput)
+}
+
+// Include NULL and empty columns for records migrated to the endpoint. The default is `false`.
+func (o EndpointKafkaSettingsOutput) IncludeNullAndEmpty() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointKafkaSettings) *bool { return v.IncludeNullAndEmpty }).(pulumi.BoolPtrOutput)
+}
+
+// Shows the partition value within the Kafka message output unless the partition type is `schema-table-type`. The default is `false`.
+func (o EndpointKafkaSettingsOutput) IncludePartitionValue() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointKafkaSettings) *bool { return v.IncludePartitionValue }).(pulumi.BoolPtrOutput)
+}
+
+// Includes any data definition language (DDL) operations that change the table in the control data, such as `rename-table`, `drop-table`, `add-column`, `drop-column`, and `rename-column`. The default is `false`.
+func (o EndpointKafkaSettingsOutput) IncludeTableAlterOperations() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointKafkaSettings) *bool { return v.IncludeTableAlterOperations }).(pulumi.BoolPtrOutput)
+}
+
+// Provides detailed transaction information from the source database. This information includes a commit timestamp, a log position, and values for `transactionId`, previous `transactionId`, and `transactionRecordId` (the record offset within a transaction). The default is `false`.
+func (o EndpointKafkaSettingsOutput) IncludeTransactionDetails() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointKafkaSettings) *bool { return v.IncludeTransactionDetails }).(pulumi.BoolPtrOutput)
+}
+
+// The output format for the records created on the endpoint. The message format is `JSON` (default) or `JSON_UNFORMATTED` (a single line with no tab).
+func (o EndpointKafkaSettingsOutput) MessageFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointKafkaSettings) *string { return v.MessageFormat }).(pulumi.StringPtrOutput)
+}
+
+// The maximum size in bytes for records created on the endpoint The default is `1,000,000`.
+func (o EndpointKafkaSettingsOutput) MessageMaxBytes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointKafkaSettings) *int { return v.MessageMaxBytes }).(pulumi.IntPtrOutput)
+}
+
+// Set this optional parameter to true to avoid adding a '0x' prefix to raw data in hexadecimal format. For example, by default, AWS DMS adds a '0x' prefix to the LOB column type in hexadecimal format moving from an Oracle source to a Kafka target. Use the `noHexPrefix` endpoint setting to enable migration of RAW data type columns without adding the `'0x'` prefix.
+func (o EndpointKafkaSettingsOutput) NoHexPrefix() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointKafkaSettings) *bool { return v.NoHexPrefix }).(pulumi.BoolPtrOutput)
+}
+
+// Prefixes schema and table names to partition values, when the partition type is `primary-key-type`. Doing this increases data distribution among Kafka partitions. For example, suppose that a SysBench schema has thousands of tables and each table has only limited range for a primary key. In this case, the same primary key is sent from thousands of tables to the same partition, which causes throttling. The default is `false`.
+func (o EndpointKafkaSettingsOutput) PartitionIncludeSchemaTable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointKafkaSettings) *bool { return v.PartitionIncludeSchemaTable }).(pulumi.BoolPtrOutput)
+}
+
+// The secure password you created when you first set up your MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
+func (o EndpointKafkaSettingsOutput) SaslPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointKafkaSettings) *string { return v.SaslPassword }).(pulumi.StringPtrOutput)
+}
+
+// The secure user name you created when you first set up your MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
+func (o EndpointKafkaSettingsOutput) SaslUsername() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointKafkaSettings) *string { return v.SaslUsername }).(pulumi.StringPtrOutput)
+}
+
+// Set secure connection to a Kafka target endpoint using Transport Layer Security (TLS). Options include `ssl-encryption`, `ssl-authentication`, and `sasl-ssl`. `sasl-ssl` requires `saslUsername` and `saslPassword`.
+func (o EndpointKafkaSettingsOutput) SecurityProtocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointKafkaSettings) *string { return v.SecurityProtocol }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) for the private certificate authority (CA) cert that AWS DMS uses to securely connect to your Kafka target endpoint.
+func (o EndpointKafkaSettingsOutput) SslCaCertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointKafkaSettings) *string { return v.SslCaCertificateArn }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the client certificate used to securely connect to a Kafka target endpoint.
+func (o EndpointKafkaSettingsOutput) SslClientCertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointKafkaSettings) *string { return v.SslClientCertificateArn }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) for the client private key used to securely connect to a Kafka target endpoint.
+func (o EndpointKafkaSettingsOutput) SslClientKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointKafkaSettings) *string { return v.SslClientKeyArn }).(pulumi.StringPtrOutput)
+}
+
+// The password for the client private key used to securely connect to a Kafka target endpoint.
+func (o EndpointKafkaSettingsOutput) SslClientKeyPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointKafkaSettings) *string { return v.SslClientKeyPassword }).(pulumi.StringPtrOutput)
+}
+
 // Kafka topic for migration. Defaults to `kafka-default-topic`.
 func (o EndpointKafkaSettingsOutput) Topic() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointKafkaSettings) *string { return v.Topic }).(pulumi.StringPtrOutput)
@@ -347,6 +491,166 @@ func (o EndpointKafkaSettingsPtrOutput) Broker() pulumi.StringPtrOutput {
 			return nil
 		}
 		return &v.Broker
+	}).(pulumi.StringPtrOutput)
+}
+
+// Shows detailed control information for table definition, column definition, and table and column changes in the Kafka message output. The default is `false`.
+func (o EndpointKafkaSettingsPtrOutput) IncludeControlDetails() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointKafkaSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeControlDetails
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Include NULL and empty columns for records migrated to the endpoint. The default is `false`.
+func (o EndpointKafkaSettingsPtrOutput) IncludeNullAndEmpty() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointKafkaSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeNullAndEmpty
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Shows the partition value within the Kafka message output unless the partition type is `schema-table-type`. The default is `false`.
+func (o EndpointKafkaSettingsPtrOutput) IncludePartitionValue() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointKafkaSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludePartitionValue
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Includes any data definition language (DDL) operations that change the table in the control data, such as `rename-table`, `drop-table`, `add-column`, `drop-column`, and `rename-column`. The default is `false`.
+func (o EndpointKafkaSettingsPtrOutput) IncludeTableAlterOperations() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointKafkaSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeTableAlterOperations
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Provides detailed transaction information from the source database. This information includes a commit timestamp, a log position, and values for `transactionId`, previous `transactionId`, and `transactionRecordId` (the record offset within a transaction). The default is `false`.
+func (o EndpointKafkaSettingsPtrOutput) IncludeTransactionDetails() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointKafkaSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeTransactionDetails
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The output format for the records created on the endpoint. The message format is `JSON` (default) or `JSON_UNFORMATTED` (a single line with no tab).
+func (o EndpointKafkaSettingsPtrOutput) MessageFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointKafkaSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MessageFormat
+	}).(pulumi.StringPtrOutput)
+}
+
+// The maximum size in bytes for records created on the endpoint The default is `1,000,000`.
+func (o EndpointKafkaSettingsPtrOutput) MessageMaxBytes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointKafkaSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MessageMaxBytes
+	}).(pulumi.IntPtrOutput)
+}
+
+// Set this optional parameter to true to avoid adding a '0x' prefix to raw data in hexadecimal format. For example, by default, AWS DMS adds a '0x' prefix to the LOB column type in hexadecimal format moving from an Oracle source to a Kafka target. Use the `noHexPrefix` endpoint setting to enable migration of RAW data type columns without adding the `'0x'` prefix.
+func (o EndpointKafkaSettingsPtrOutput) NoHexPrefix() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointKafkaSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.NoHexPrefix
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Prefixes schema and table names to partition values, when the partition type is `primary-key-type`. Doing this increases data distribution among Kafka partitions. For example, suppose that a SysBench schema has thousands of tables and each table has only limited range for a primary key. In this case, the same primary key is sent from thousands of tables to the same partition, which causes throttling. The default is `false`.
+func (o EndpointKafkaSettingsPtrOutput) PartitionIncludeSchemaTable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointKafkaSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PartitionIncludeSchemaTable
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The secure password you created when you first set up your MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
+func (o EndpointKafkaSettingsPtrOutput) SaslPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointKafkaSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SaslPassword
+	}).(pulumi.StringPtrOutput)
+}
+
+// The secure user name you created when you first set up your MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
+func (o EndpointKafkaSettingsPtrOutput) SaslUsername() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointKafkaSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SaslUsername
+	}).(pulumi.StringPtrOutput)
+}
+
+// Set secure connection to a Kafka target endpoint using Transport Layer Security (TLS). Options include `ssl-encryption`, `ssl-authentication`, and `sasl-ssl`. `sasl-ssl` requires `saslUsername` and `saslPassword`.
+func (o EndpointKafkaSettingsPtrOutput) SecurityProtocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointKafkaSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityProtocol
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) for the private certificate authority (CA) cert that AWS DMS uses to securely connect to your Kafka target endpoint.
+func (o EndpointKafkaSettingsPtrOutput) SslCaCertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointKafkaSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SslCaCertificateArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the client certificate used to securely connect to a Kafka target endpoint.
+func (o EndpointKafkaSettingsPtrOutput) SslClientCertificateArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointKafkaSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SslClientCertificateArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) for the client private key used to securely connect to a Kafka target endpoint.
+func (o EndpointKafkaSettingsPtrOutput) SslClientKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointKafkaSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SslClientKeyArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The password for the client private key used to securely connect to a Kafka target endpoint.
+func (o EndpointKafkaSettingsPtrOutput) SslClientKeyPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointKafkaSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SslClientKeyPassword
 	}).(pulumi.StringPtrOutput)
 }
 

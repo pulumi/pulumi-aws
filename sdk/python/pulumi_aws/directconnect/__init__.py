@@ -8,6 +8,7 @@ import typing
 from .bgp_peer import *
 from .connection import *
 from .connection_association import *
+from .connection_confirmation import *
 from .gateway import *
 from .gateway_association import *
 from .gateway_association_proposal import *
@@ -15,6 +16,7 @@ from .get_connection import *
 from .get_gateway import *
 from .get_location import *
 from .get_locations import *
+from .hosted_connection import *
 from .hosted_private_virtual_interface import *
 from .hosted_private_virtual_interface_accepter import *
 from .hosted_public_virtual_interface import *

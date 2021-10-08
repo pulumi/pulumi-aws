@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Provides a Direct Connect LAG. Connections can be added to the LAG via the `aws.directconnect.Connection` and `aws.directconnect.ConnectionAssociation` resources.
  *
- * > *NOTE:* When creating a LAG, Direct Connect requires creating a Connection. This provider will remove this unmanaged connection during resource creation.
+ * > *NOTE:* When creating a LAG, if no existing connection is specified, Direct Connect will create a connection and this provider will remove this unmanaged connection during resource creation.
  *
  * ## Example Usage
  *
@@ -63,6 +63,10 @@ export class LinkAggregationGroup extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * The ID of an existing dedicated connection to migrate to the LAG.
+     */
+    public readonly connectionId!: pulumi.Output<string | undefined>;
+    /**
      * The bandwidth of the individual physical connections bundled by the LAG. Valid values: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, 10Gbps and 100Gbps. Case sensitive.
      */
     public readonly connectionsBandwidth!: pulumi.Output<string>;
@@ -114,6 +118,7 @@ export class LinkAggregationGroup extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as LinkAggregationGroupState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
+            inputs["connectionId"] = state ? state.connectionId : undefined;
             inputs["connectionsBandwidth"] = state ? state.connectionsBandwidth : undefined;
             inputs["forceDestroy"] = state ? state.forceDestroy : undefined;
             inputs["hasLogicalRedundancy"] = state ? state.hasLogicalRedundancy : undefined;
@@ -132,6 +137,7 @@ export class LinkAggregationGroup extends pulumi.CustomResource {
             if ((!args || args.location === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'location'");
             }
+            inputs["connectionId"] = args ? args.connectionId : undefined;
             inputs["connectionsBandwidth"] = args ? args.connectionsBandwidth : undefined;
             inputs["forceDestroy"] = args ? args.forceDestroy : undefined;
             inputs["location"] = args ? args.location : undefined;
@@ -159,6 +165,10 @@ export interface LinkAggregationGroupState {
      * The ARN of the LAG.
      */
     arn?: pulumi.Input<string>;
+    /**
+     * The ID of an existing dedicated connection to migrate to the LAG.
+     */
+    connectionId?: pulumi.Input<string>;
     /**
      * The bandwidth of the individual physical connections bundled by the LAG. Valid values: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, 10Gbps and 100Gbps. Case sensitive.
      */
@@ -202,6 +212,10 @@ export interface LinkAggregationGroupState {
  * The set of arguments for constructing a LinkAggregationGroup resource.
  */
 export interface LinkAggregationGroupArgs {
+    /**
+     * The ID of an existing dedicated connection to migrate to the LAG.
+     */
+    connectionId?: pulumi.Input<string>;
     /**
      * The bandwidth of the individual physical connections bundled by the LAG. Valid values: 50Mbps, 100Mbps, 200Mbps, 300Mbps, 400Mbps, 500Mbps, 1Gbps, 2Gbps, 5Gbps, 10Gbps and 100Gbps. Case sensitive.
      */

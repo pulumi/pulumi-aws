@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Emr.Outputs
     public sealed class ClusterCoreInstanceFleetInstanceTypeConfigConfiguration
     {
         /// <summary>
-        /// The classification within a configuration.
+        /// Classification within a configuration.
         /// </summary>
         public readonly string? Classification;
         /// <summary>
-        /// A map of properties specified within a configuration classification
+        /// Key-Value map of Java properties that are set when the step runs. You can use these properties to pass key value pairs to your main function.
         /// </summary>
         public readonly ImmutableDictionary<string, object>? Properties;
 
