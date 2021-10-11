@@ -2,7 +2,8 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Ensure `aws.lb.TargetGroup`, `aws.alb.TargetGroup`, `aws.elasticloadbalancingv2.TargetGroup` and 
+ `aws.applicationloadbalancing.TargetGroup` have their `deregistrationDelay` parameter set to the correct type of `int` not `string`
 
 ---
 

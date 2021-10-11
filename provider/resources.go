@@ -4451,6 +4451,9 @@ func Provider() tfbridge.ProviderInfo {
 			Fields: map[string]*tfbridge.SchemaInfo{
 				// https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html
 				"name": tfbridge.AutoName("name", 63, "-"),
+				"deregistration_delay": {
+					Type: "int",
+				},
 			},
 		})
 	prov.RenameResourceWithAlias("aws_lb_target_group_attachment",
@@ -4503,6 +4506,11 @@ func Provider() tfbridge.ProviderInfo {
 	prov.RenameResourceWithAlias("aws_alb_target_group", awsResource(legacyAlbMod, "TargetGroup"),
 		awsResource(albMod, "TargetGroup"), legacyAlbMod, albMod, &tfbridge.ResourceInfo{
 			Docs: &tfbridge.DocInfo{Source: "lb_target_group.html.markdown"},
+			Fields: map[string]*tfbridge.SchemaInfo{
+				"deregistration_delay": {
+					Type: "int",
+				},
+			},
 		})
 	prov.RenameResourceWithAlias("aws_alb_target_group_attachment", awsResource(legacyAlbMod, "TargetGroupAttachment"),
 		awsResource(albMod, "TargetGroupAttachment"), legacyAlbMod, albMod, &tfbridge.ResourceInfo{
