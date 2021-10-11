@@ -96,7 +96,7 @@ export class TargetGroup extends pulumi.CustomResource {
     /**
      * Amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is 0-3600 seconds. The default value is 300 seconds.
      */
-    public readonly deregistrationDelay!: pulumi.Output<string | undefined>;
+    public readonly deregistrationDelay!: pulumi.Output<number | undefined>;
     /**
      * Health Check configuration block. Detailed below.
      */
@@ -240,7 +240,7 @@ export interface TargetGroupState {
     /**
      * Amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is 0-3600 seconds. The default value is 300 seconds.
      */
-    deregistrationDelay?: pulumi.Input<string>;
+    deregistrationDelay?: pulumi.Input<number>;
     /**
      * Health Check configuration block. Detailed below.
      */
@@ -314,7 +314,7 @@ export interface TargetGroupArgs {
     /**
      * Amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is 0-3600 seconds. The default value is 300 seconds.
      */
-    deregistrationDelay?: pulumi.Input<string>;
+    deregistrationDelay?: pulumi.Input<number>;
     /**
      * Health Check configuration block. Detailed below.
      */

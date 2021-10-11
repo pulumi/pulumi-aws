@@ -4452,7 +4452,7 @@ func Provider() tfbridge.ProviderInfo {
 				// https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html
 				"name": tfbridge.AutoName("name", 63, "-"),
 				"deregistration_delay": {
-					Type: "int",
+					Type: "integer",
 				},
 			},
 		})
@@ -4508,7 +4508,7 @@ func Provider() tfbridge.ProviderInfo {
 			Docs: &tfbridge.DocInfo{Source: "lb_target_group.html.markdown"},
 			Fields: map[string]*tfbridge.SchemaInfo{
 				"deregistration_delay": {
-					Type: "int",
+					Type: "integer",
 				},
 			},
 		})

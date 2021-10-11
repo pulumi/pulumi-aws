@@ -111,7 +111,7 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2
         /// Amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is 0-3600 seconds. The default value is 300 seconds.
         /// </summary>
         [Output("deregistrationDelay")]
-        public Output<string?> DeregistrationDelay { get; private set; } = null!;
+        public Output<int?> DeregistrationDelay { get; private set; } = null!;
 
         /// <summary>
         /// Health Check configuration block. Detailed below.
@@ -259,7 +259,7 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2
         /// Amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is 0-3600 seconds. The default value is 300 seconds.
         /// </summary>
         [Input("deregistrationDelay")]
-        public Input<string>? DeregistrationDelay { get; set; }
+        public Input<int>? DeregistrationDelay { get; set; }
 
         /// <summary>
         /// Health Check configuration block. Detailed below.
@@ -380,7 +380,7 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2
         /// Amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is 0-3600 seconds. The default value is 300 seconds.
         /// </summary>
         [Input("deregistrationDelay")]
-        public Input<string>? DeregistrationDelay { get; set; }
+        public Input<int>? DeregistrationDelay { get; set; }
 
         /// <summary>
         /// Health Check configuration block. Detailed below.

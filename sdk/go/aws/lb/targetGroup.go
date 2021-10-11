@@ -116,7 +116,7 @@ type TargetGroup struct {
 	// ARN suffix for use with CloudWatch Metrics.
 	ArnSuffix pulumi.StringOutput `pulumi:"arnSuffix"`
 	// Amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is 0-3600 seconds. The default value is 300 seconds.
-	DeregistrationDelay pulumi.StringPtrOutput `pulumi:"deregistrationDelay"`
+	DeregistrationDelay pulumi.IntPtrOutput `pulumi:"deregistrationDelay"`
 	// Health Check configuration block. Detailed below.
 	HealthCheck TargetGroupHealthCheckOutput `pulumi:"healthCheck"`
 	// Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `targetType` is `lambda`. Default is `false`.
@@ -191,7 +191,7 @@ type targetGroupState struct {
 	// ARN suffix for use with CloudWatch Metrics.
 	ArnSuffix *string `pulumi:"arnSuffix"`
 	// Amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is 0-3600 seconds. The default value is 300 seconds.
-	DeregistrationDelay *string `pulumi:"deregistrationDelay"`
+	DeregistrationDelay *int `pulumi:"deregistrationDelay"`
 	// Health Check configuration block. Detailed below.
 	HealthCheck *TargetGroupHealthCheck `pulumi:"healthCheck"`
 	// Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `targetType` is `lambda`. Default is `false`.
@@ -232,7 +232,7 @@ type TargetGroupState struct {
 	// ARN suffix for use with CloudWatch Metrics.
 	ArnSuffix pulumi.StringPtrInput
 	// Amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is 0-3600 seconds. The default value is 300 seconds.
-	DeregistrationDelay pulumi.StringPtrInput
+	DeregistrationDelay pulumi.IntPtrInput
 	// Health Check configuration block. Detailed below.
 	HealthCheck TargetGroupHealthCheckPtrInput
 	// Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `targetType` is `lambda`. Default is `false`.
@@ -273,7 +273,7 @@ func (TargetGroupState) ElementType() reflect.Type {
 
 type targetGroupArgs struct {
 	// Amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is 0-3600 seconds. The default value is 300 seconds.
-	DeregistrationDelay *string `pulumi:"deregistrationDelay"`
+	DeregistrationDelay *int `pulumi:"deregistrationDelay"`
 	// Health Check configuration block. Detailed below.
 	HealthCheck *TargetGroupHealthCheck `pulumi:"healthCheck"`
 	// Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `targetType` is `lambda`. Default is `false`.
@@ -309,7 +309,7 @@ type targetGroupArgs struct {
 // The set of arguments for constructing a TargetGroup resource.
 type TargetGroupArgs struct {
 	// Amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is 0-3600 seconds. The default value is 300 seconds.
-	DeregistrationDelay pulumi.StringPtrInput
+	DeregistrationDelay pulumi.IntPtrInput
 	// Health Check configuration block. Detailed below.
 	HealthCheck TargetGroupHealthCheckPtrInput
 	// Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `targetType` is `lambda`. Default is `false`.
