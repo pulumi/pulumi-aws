@@ -2,10 +2,13 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Ensure `aws.lb.TargetGroup`, `aws.alb.TargetGroup`, `aws.elasticloadbalancingv2.TargetGroup` and 
- `aws.applicationloadbalancing.TargetGroup` have their `deregistrationDelay` parameter set to the correct type of `int` not `string`
+_(none)_
 
 ---
+
+## 4.24.1 (2021-10-11)
+* Ensure `aws.lb.TargetGroup`, `aws.alb.TargetGroup`, `aws.elasticloadbalancingv2.TargetGroup` and 
+ `aws.applicationloadbalancing.TargetGroup` have their `deregistrationDelay` parameter set to the correct type of `int` not `string`
 
 ## 4.24.0 (2021-10-08)
 * Upgrade to v3.62.0 of the AWS Terraform Provider
