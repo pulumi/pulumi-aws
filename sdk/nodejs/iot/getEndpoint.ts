@@ -26,7 +26,7 @@ export function getEndpoint(args?: GetEndpointArgs, opts?: pulumi.InvokeOptions)
  */
 export interface GetEndpointArgs {
     /**
-     * Endpoint type. Valid values: `iot:CredentialProvider`, `iot:Data`, `iot:Data-ATS`, `iot:Job`.
+     * Endpoint type. Valid values: `iot:CredentialProvider`, `iot:Data`, `iot:Data-ATS`, `iot:Jobs`.
      */
     endpointType?: string;
 }
@@ -41,7 +41,7 @@ export interface GetEndpointResult {
      * * `iot:CredentialsProvider`: `IDENTIFIER.credentials.iot.REGION.amazonaws.com`
      * * `iot:Data`: `IDENTIFIER.iot.REGION.amazonaws.com`
      * * `iot:Data-ATS`: `IDENTIFIER-ats.iot.REGION.amazonaws.com`
-     * * `iot:Job`: `IDENTIFIER.jobs.iot.REGION.amazonaws.com`
+     * * `iot:Jobs`: `IDENTIFIER.jobs.iot.REGION.amazonaws.com`
      */
     readonly endpointAddress: string;
     readonly endpointType?: string;
@@ -60,7 +60,7 @@ export function getEndpointOutput(args?: GetEndpointOutputArgs, opts?: pulumi.In
  */
 export interface GetEndpointOutputArgs {
     /**
-     * Endpoint type. Valid values: `iot:CredentialProvider`, `iot:Data`, `iot:Data-ATS`, `iot:Job`.
+     * Endpoint type. Valid values: `iot:CredentialProvider`, `iot:Data`, `iot:Data-ATS`, `iot:Jobs`.
      */
     endpointType?: pulumi.Input<string>;
 }

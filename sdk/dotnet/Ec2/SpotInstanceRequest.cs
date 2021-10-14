@@ -258,6 +258,12 @@ namespace Pulumi.Aws.Ec2
         [Output("placementGroup")]
         public Output<string> PlacementGroup { get; private set; } = null!;
 
+        /// <summary>
+        /// The number of the partition the instance is in. Valid only if the `aws.ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
+        /// </summary>
+        [Output("placementPartitionNumber")]
+        public Output<int> PlacementPartitionNumber { get; private set; } = null!;
+
         [Output("primaryNetworkInterfaceId")]
         public Output<string> PrimaryNetworkInterfaceId { get; private set; } = null!;
 
@@ -301,7 +307,7 @@ namespace Pulumi.Aws.Ec2
         public Output<ImmutableArray<string>> SecondaryPrivateIps { get; private set; } = null!;
 
         /// <summary>
-        /// A list of security group names (EC2-Classic) or IDs (default VPC) to associate with.
+        /// A list of security group names to associate with.
         /// </summary>
         [Output("securityGroups")]
         public Output<ImmutableArray<string>> SecurityGroups { get; private set; } = null!;
@@ -669,6 +675,12 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? PlacementGroup { get; set; }
 
         /// <summary>
+        /// The number of the partition the instance is in. Valid only if the `aws.ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
+        /// </summary>
+        [Input("placementPartitionNumber")]
+        public Input<int>? PlacementPartitionNumber { get; set; }
+
+        /// <summary>
         /// Private IP address to associate with the instance in a VPC.
         /// </summary>
         [Input("privateIp")]
@@ -696,7 +708,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<string>? _securityGroups;
 
         /// <summary>
-        /// A list of security group names (EC2-Classic) or IDs (default VPC) to associate with.
+        /// A list of security group names to associate with.
         /// </summary>
         public InputList<string> SecurityGroups
         {
@@ -1030,6 +1042,12 @@ namespace Pulumi.Aws.Ec2
         [Input("placementGroup")]
         public Input<string>? PlacementGroup { get; set; }
 
+        /// <summary>
+        /// The number of the partition the instance is in. Valid only if the `aws.ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
+        /// </summary>
+        [Input("placementPartitionNumber")]
+        public Input<int>? PlacementPartitionNumber { get; set; }
+
         [Input("primaryNetworkInterfaceId")]
         public Input<string>? PrimaryNetworkInterfaceId { get; set; }
 
@@ -1082,7 +1100,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<string>? _securityGroups;
 
         /// <summary>
-        /// A list of security group names (EC2-Classic) or IDs (default VPC) to associate with.
+        /// A list of security group names to associate with.
         /// </summary>
         public InputList<string> SecurityGroups
         {

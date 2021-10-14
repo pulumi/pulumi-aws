@@ -40,7 +40,7 @@ class GetEndpointResult:
         * `iot:CredentialsProvider`: `IDENTIFIER.credentials.iot.REGION.amazonaws.com`
         * `iot:Data`: `IDENTIFIER.iot.REGION.amazonaws.com`
         * `iot:Data-ATS`: `IDENTIFIER-ats.iot.REGION.amazonaws.com`
-        * `iot:Job`: `IDENTIFIER.jobs.iot.REGION.amazonaws.com`
+        * `iot:Jobs`: `IDENTIFIER.jobs.iot.REGION.amazonaws.com`
         """
         return pulumi.get(self, "endpoint_address")
 
@@ -75,7 +75,7 @@ def get_endpoint(endpoint_type: Optional[str] = None,
     Returns a unique endpoint specific to the AWS account making the call.
 
 
-    :param str endpoint_type: Endpoint type. Valid values: `iot:CredentialProvider`, `iot:Data`, `iot:Data-ATS`, `iot:Job`.
+    :param str endpoint_type: Endpoint type. Valid values: `iot:CredentialProvider`, `iot:Data`, `iot:Data-ATS`, `iot:Jobs`.
     """
     __args__ = dict()
     __args__['endpointType'] = endpoint_type
@@ -98,6 +98,6 @@ def get_endpoint_output(endpoint_type: Optional[pulumi.Input[Optional[str]]] = N
     Returns a unique endpoint specific to the AWS account making the call.
 
 
-    :param str endpoint_type: Endpoint type. Valid values: `iot:CredentialProvider`, `iot:Data`, `iot:Data-ATS`, `iot:Job`.
+    :param str endpoint_type: Endpoint type. Valid values: `iot:CredentialProvider`, `iot:Data`, `iot:Data-ATS`, `iot:Jobs`.
     """
     ...

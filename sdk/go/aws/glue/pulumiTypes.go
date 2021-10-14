@@ -5260,6 +5260,177 @@ func (o MLTransformSchemaArrayOutput) Index(i pulumi.IntInput) MLTransformSchema
 	}).(MLTransformSchemaOutput)
 }
 
+type PartitionIndexPartitionIndex struct {
+	// Name of the partition index.
+	IndexName   *string `pulumi:"indexName"`
+	IndexStatus *string `pulumi:"indexStatus"`
+	// Keys for the partition index.
+	Keys []string `pulumi:"keys"`
+}
+
+// PartitionIndexPartitionIndexInput is an input type that accepts PartitionIndexPartitionIndexArgs and PartitionIndexPartitionIndexOutput values.
+// You can construct a concrete instance of `PartitionIndexPartitionIndexInput` via:
+//
+//          PartitionIndexPartitionIndexArgs{...}
+type PartitionIndexPartitionIndexInput interface {
+	pulumi.Input
+
+	ToPartitionIndexPartitionIndexOutput() PartitionIndexPartitionIndexOutput
+	ToPartitionIndexPartitionIndexOutputWithContext(context.Context) PartitionIndexPartitionIndexOutput
+}
+
+type PartitionIndexPartitionIndexArgs struct {
+	// Name of the partition index.
+	IndexName   pulumi.StringPtrInput `pulumi:"indexName"`
+	IndexStatus pulumi.StringPtrInput `pulumi:"indexStatus"`
+	// Keys for the partition index.
+	Keys pulumi.StringArrayInput `pulumi:"keys"`
+}
+
+func (PartitionIndexPartitionIndexArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartitionIndexPartitionIndex)(nil)).Elem()
+}
+
+func (i PartitionIndexPartitionIndexArgs) ToPartitionIndexPartitionIndexOutput() PartitionIndexPartitionIndexOutput {
+	return i.ToPartitionIndexPartitionIndexOutputWithContext(context.Background())
+}
+
+func (i PartitionIndexPartitionIndexArgs) ToPartitionIndexPartitionIndexOutputWithContext(ctx context.Context) PartitionIndexPartitionIndexOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartitionIndexPartitionIndexOutput)
+}
+
+func (i PartitionIndexPartitionIndexArgs) ToPartitionIndexPartitionIndexPtrOutput() PartitionIndexPartitionIndexPtrOutput {
+	return i.ToPartitionIndexPartitionIndexPtrOutputWithContext(context.Background())
+}
+
+func (i PartitionIndexPartitionIndexArgs) ToPartitionIndexPartitionIndexPtrOutputWithContext(ctx context.Context) PartitionIndexPartitionIndexPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartitionIndexPartitionIndexOutput).ToPartitionIndexPartitionIndexPtrOutputWithContext(ctx)
+}
+
+// PartitionIndexPartitionIndexPtrInput is an input type that accepts PartitionIndexPartitionIndexArgs, PartitionIndexPartitionIndexPtr and PartitionIndexPartitionIndexPtrOutput values.
+// You can construct a concrete instance of `PartitionIndexPartitionIndexPtrInput` via:
+//
+//          PartitionIndexPartitionIndexArgs{...}
+//
+//  or:
+//
+//          nil
+type PartitionIndexPartitionIndexPtrInput interface {
+	pulumi.Input
+
+	ToPartitionIndexPartitionIndexPtrOutput() PartitionIndexPartitionIndexPtrOutput
+	ToPartitionIndexPartitionIndexPtrOutputWithContext(context.Context) PartitionIndexPartitionIndexPtrOutput
+}
+
+type partitionIndexPartitionIndexPtrType PartitionIndexPartitionIndexArgs
+
+func PartitionIndexPartitionIndexPtr(v *PartitionIndexPartitionIndexArgs) PartitionIndexPartitionIndexPtrInput {
+	return (*partitionIndexPartitionIndexPtrType)(v)
+}
+
+func (*partitionIndexPartitionIndexPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PartitionIndexPartitionIndex)(nil)).Elem()
+}
+
+func (i *partitionIndexPartitionIndexPtrType) ToPartitionIndexPartitionIndexPtrOutput() PartitionIndexPartitionIndexPtrOutput {
+	return i.ToPartitionIndexPartitionIndexPtrOutputWithContext(context.Background())
+}
+
+func (i *partitionIndexPartitionIndexPtrType) ToPartitionIndexPartitionIndexPtrOutputWithContext(ctx context.Context) PartitionIndexPartitionIndexPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PartitionIndexPartitionIndexPtrOutput)
+}
+
+type PartitionIndexPartitionIndexOutput struct{ *pulumi.OutputState }
+
+func (PartitionIndexPartitionIndexOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PartitionIndexPartitionIndex)(nil)).Elem()
+}
+
+func (o PartitionIndexPartitionIndexOutput) ToPartitionIndexPartitionIndexOutput() PartitionIndexPartitionIndexOutput {
+	return o
+}
+
+func (o PartitionIndexPartitionIndexOutput) ToPartitionIndexPartitionIndexOutputWithContext(ctx context.Context) PartitionIndexPartitionIndexOutput {
+	return o
+}
+
+func (o PartitionIndexPartitionIndexOutput) ToPartitionIndexPartitionIndexPtrOutput() PartitionIndexPartitionIndexPtrOutput {
+	return o.ToPartitionIndexPartitionIndexPtrOutputWithContext(context.Background())
+}
+
+func (o PartitionIndexPartitionIndexOutput) ToPartitionIndexPartitionIndexPtrOutputWithContext(ctx context.Context) PartitionIndexPartitionIndexPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PartitionIndexPartitionIndex) *PartitionIndexPartitionIndex {
+		return &v
+	}).(PartitionIndexPartitionIndexPtrOutput)
+}
+
+// Name of the partition index.
+func (o PartitionIndexPartitionIndexOutput) IndexName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PartitionIndexPartitionIndex) *string { return v.IndexName }).(pulumi.StringPtrOutput)
+}
+
+func (o PartitionIndexPartitionIndexOutput) IndexStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PartitionIndexPartitionIndex) *string { return v.IndexStatus }).(pulumi.StringPtrOutput)
+}
+
+// Keys for the partition index.
+func (o PartitionIndexPartitionIndexOutput) Keys() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PartitionIndexPartitionIndex) []string { return v.Keys }).(pulumi.StringArrayOutput)
+}
+
+type PartitionIndexPartitionIndexPtrOutput struct{ *pulumi.OutputState }
+
+func (PartitionIndexPartitionIndexPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PartitionIndexPartitionIndex)(nil)).Elem()
+}
+
+func (o PartitionIndexPartitionIndexPtrOutput) ToPartitionIndexPartitionIndexPtrOutput() PartitionIndexPartitionIndexPtrOutput {
+	return o
+}
+
+func (o PartitionIndexPartitionIndexPtrOutput) ToPartitionIndexPartitionIndexPtrOutputWithContext(ctx context.Context) PartitionIndexPartitionIndexPtrOutput {
+	return o
+}
+
+func (o PartitionIndexPartitionIndexPtrOutput) Elem() PartitionIndexPartitionIndexOutput {
+	return o.ApplyT(func(v *PartitionIndexPartitionIndex) PartitionIndexPartitionIndex {
+		if v != nil {
+			return *v
+		}
+		var ret PartitionIndexPartitionIndex
+		return ret
+	}).(PartitionIndexPartitionIndexOutput)
+}
+
+// Name of the partition index.
+func (o PartitionIndexPartitionIndexPtrOutput) IndexName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PartitionIndexPartitionIndex) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IndexName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o PartitionIndexPartitionIndexPtrOutput) IndexStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PartitionIndexPartitionIndex) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IndexStatus
+	}).(pulumi.StringPtrOutput)
+}
+
+// Keys for the partition index.
+func (o PartitionIndexPartitionIndexPtrOutput) Keys() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PartitionIndexPartitionIndex) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Keys
+	}).(pulumi.StringArrayOutput)
+}
+
 type PartitionStorageDescriptor struct {
 	// A list of reducer grouping columns, clustering columns, and bucketing columns in the table.
 	BucketColumns []string `pulumi:"bucketColumns"`
@@ -8355,6 +8526,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MLTransformParametersFindMatchesParametersPtrInput)(nil)).Elem(), MLTransformParametersFindMatchesParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MLTransformSchemaInput)(nil)).Elem(), MLTransformSchemaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MLTransformSchemaArrayInput)(nil)).Elem(), MLTransformSchemaArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PartitionIndexPartitionIndexInput)(nil)).Elem(), PartitionIndexPartitionIndexArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PartitionIndexPartitionIndexPtrInput)(nil)).Elem(), PartitionIndexPartitionIndexArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PartitionStorageDescriptorInput)(nil)).Elem(), PartitionStorageDescriptorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PartitionStorageDescriptorPtrInput)(nil)).Elem(), PartitionStorageDescriptorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PartitionStorageDescriptorColumnInput)(nil)).Elem(), PartitionStorageDescriptorColumnArgs{})
@@ -8465,6 +8638,8 @@ func init() {
 	pulumi.RegisterOutputType(MLTransformParametersFindMatchesParametersPtrOutput{})
 	pulumi.RegisterOutputType(MLTransformSchemaOutput{})
 	pulumi.RegisterOutputType(MLTransformSchemaArrayOutput{})
+	pulumi.RegisterOutputType(PartitionIndexPartitionIndexOutput{})
+	pulumi.RegisterOutputType(PartitionIndexPartitionIndexPtrOutput{})
 	pulumi.RegisterOutputType(PartitionStorageDescriptorOutput{})
 	pulumi.RegisterOutputType(PartitionStorageDescriptorPtrOutput{})
 	pulumi.RegisterOutputType(PartitionStorageDescriptorColumnOutput{})

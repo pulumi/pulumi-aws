@@ -5816,6 +5816,17 @@ export namespace chime {
         weight: number;
     }
 
+    export interface VoiceConnectorTerminationCredentialsCredential {
+        /**
+         * RFC2617 compliant password associated with the SIP credentials.
+         */
+        password: string;
+        /**
+         * RFC2617 compliant username associated with the SIP credentials.
+         */
+        username: string;
+    }
+
 }
 
 export namespace cloudformation {
@@ -10106,6 +10117,21 @@ export namespace ec2 {
         totalTargetCapacity: number;
     }
 
+    export interface FlowLogDestinationOptions {
+        /**
+         * The format for the flow log. Default value: `plain-text`. Valid values: `plain-text`, `parquet`.
+         */
+        fileFormat?: string;
+        /**
+         * Indicates whether to use Hive-compatible prefixes for flow logs stored in Amazon S3. Default value: `false`.
+         */
+        hiveCompatiblePartitions?: boolean;
+        /**
+         * Indicates whether to partition the flow log per hour. This reduces the cost and response time for queries. Default value: `false`.
+         */
+        perHourPartition?: boolean;
+    }
+
     export interface GetAmiBlockDeviceMapping {
         /**
          * The physical name of the device.
@@ -12405,7 +12431,6 @@ export namespace ec2 {
         status: string;
         statusMessage: string;
     }
-
 }
 
 export namespace ec2clientvpn {
@@ -16578,6 +16603,18 @@ export namespace glue {
         name: string;
     }
 
+    export interface PartitionIndexPartitionIndex {
+        /**
+         * Name of the partition index.
+         */
+        indexName?: string;
+        indexStatus: string;
+        /**
+         * Keys for the partition index.
+         */
+        keys?: string[];
+    }
+
     export interface PartitionStorageDescriptor {
         /**
          * A list of reducer grouping columns, clustering columns, and bucketing columns in the table.
@@ -16805,7 +16842,6 @@ export namespace glue {
          */
         uri: string;
     }
-
 }
 
 export namespace guardduty {

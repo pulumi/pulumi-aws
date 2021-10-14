@@ -141,7 +141,7 @@ export class ClusterInstance extends pulumi.CustomResource {
      */
     public readonly engine!: pulumi.Output<EngineType | undefined>;
     /**
-     * The database engine version. When managing the engine version in the cluster, it is recommended to add the `ignoreChanges` for this argument to prevent the provider from proposing changes to the instance engine version directly.
+     * The database engine version.
      */
     public readonly engineVersion!: pulumi.Output<string>;
     /**
@@ -180,9 +180,13 @@ export class ClusterInstance extends pulumi.CustomResource {
      */
     public readonly performanceInsightsEnabled!: pulumi.Output<boolean>;
     /**
-     * The ARN for the KMS key to encrypt Performance Insights data. When specifying `performanceInsightsKmsKeyId`, `performanceInsightsEnabled` needs to be set to true.
+     * ARN for the KMS key to encrypt Performance Insights data. When specifying `performanceInsightsKmsKeyId`, `performanceInsightsEnabled` needs to be set to true.
      */
     public readonly performanceInsightsKmsKeyId!: pulumi.Output<string>;
+    /**
+     * Amount of time in days to retain Performance Insights data. Either 7 (7 days) or 731 (2 years). When specifying `performanceInsightsRetentionPeriod`, `performanceInsightsEnabled` needs to be set to true. Defaults to '7'.
+     */
+    public readonly performanceInsightsRetentionPeriod!: pulumi.Output<number>;
     /**
      * The database port
      */
@@ -259,6 +263,7 @@ export class ClusterInstance extends pulumi.CustomResource {
             inputs["monitoringRoleArn"] = state ? state.monitoringRoleArn : undefined;
             inputs["performanceInsightsEnabled"] = state ? state.performanceInsightsEnabled : undefined;
             inputs["performanceInsightsKmsKeyId"] = state ? state.performanceInsightsKmsKeyId : undefined;
+            inputs["performanceInsightsRetentionPeriod"] = state ? state.performanceInsightsRetentionPeriod : undefined;
             inputs["port"] = state ? state.port : undefined;
             inputs["preferredBackupWindow"] = state ? state.preferredBackupWindow : undefined;
             inputs["preferredMaintenanceWindow"] = state ? state.preferredMaintenanceWindow : undefined;
@@ -293,6 +298,7 @@ export class ClusterInstance extends pulumi.CustomResource {
             inputs["monitoringRoleArn"] = args ? args.monitoringRoleArn : undefined;
             inputs["performanceInsightsEnabled"] = args ? args.performanceInsightsEnabled : undefined;
             inputs["performanceInsightsKmsKeyId"] = args ? args.performanceInsightsKmsKeyId : undefined;
+            inputs["performanceInsightsRetentionPeriod"] = args ? args.performanceInsightsRetentionPeriod : undefined;
             inputs["preferredBackupWindow"] = args ? args.preferredBackupWindow : undefined;
             inputs["preferredMaintenanceWindow"] = args ? args.preferredMaintenanceWindow : undefined;
             inputs["promotionTier"] = args ? args.promotionTier : undefined;
@@ -372,7 +378,7 @@ export interface ClusterInstanceState {
      */
     engine?: pulumi.Input<EngineType>;
     /**
-     * The database engine version. When managing the engine version in the cluster, it is recommended to add the `ignoreChanges` for this argument to prevent the provider from proposing changes to the instance engine version directly.
+     * The database engine version.
      */
     engineVersion?: pulumi.Input<string>;
     /**
@@ -411,9 +417,13 @@ export interface ClusterInstanceState {
      */
     performanceInsightsEnabled?: pulumi.Input<boolean>;
     /**
-     * The ARN for the KMS key to encrypt Performance Insights data. When specifying `performanceInsightsKmsKeyId`, `performanceInsightsEnabled` needs to be set to true.
+     * ARN for the KMS key to encrypt Performance Insights data. When specifying `performanceInsightsKmsKeyId`, `performanceInsightsEnabled` needs to be set to true.
      */
     performanceInsightsKmsKeyId?: pulumi.Input<string>;
+    /**
+     * Amount of time in days to retain Performance Insights data. Either 7 (7 days) or 731 (2 years). When specifying `performanceInsightsRetentionPeriod`, `performanceInsightsEnabled` needs to be set to true. Defaults to '7'.
+     */
+    performanceInsightsRetentionPeriod?: pulumi.Input<number>;
     /**
      * The database port
      */
@@ -501,7 +511,7 @@ export interface ClusterInstanceArgs {
      */
     engine?: pulumi.Input<EngineType>;
     /**
-     * The database engine version. When managing the engine version in the cluster, it is recommended to add the `ignoreChanges` for this argument to prevent the provider from proposing changes to the instance engine version directly.
+     * The database engine version.
      */
     engineVersion?: pulumi.Input<string>;
     /**
@@ -532,9 +542,13 @@ export interface ClusterInstanceArgs {
      */
     performanceInsightsEnabled?: pulumi.Input<boolean>;
     /**
-     * The ARN for the KMS key to encrypt Performance Insights data. When specifying `performanceInsightsKmsKeyId`, `performanceInsightsEnabled` needs to be set to true.
+     * ARN for the KMS key to encrypt Performance Insights data. When specifying `performanceInsightsKmsKeyId`, `performanceInsightsEnabled` needs to be set to true.
      */
     performanceInsightsKmsKeyId?: pulumi.Input<string>;
+    /**
+     * Amount of time in days to retain Performance Insights data. Either 7 (7 days) or 731 (2 years). When specifying `performanceInsightsRetentionPeriod`, `performanceInsightsEnabled` needs to be set to true. Defaults to '7'.
+     */
+    performanceInsightsRetentionPeriod?: pulumi.Input<number>;
     /**
      * The daily time range during which automated backups are created if automated backups are enabled.
      * Eg: "04:00-09:00"

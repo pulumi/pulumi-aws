@@ -29,6 +29,7 @@ export function getConnection(args: GetConnectionArgs, opts?: pulumi.InvokeOptio
     }
     return pulumi.runtime.invoke("aws:glue/getConnection:getConnection", {
         "id": args.id,
+        "tags": args.tags,
     }, opts);
 }
 
@@ -41,6 +42,10 @@ export interface GetConnectionArgs {
      * `123456789123` and the connection name is `conn` then the ID is `123456789123:conn`.
      */
     id: string;
+    /**
+     * The tags assigned to the resource
+     */
+    tags?: {[key: string]: string};
 }
 
 /**
@@ -77,6 +82,10 @@ export interface GetConnectionResult {
      * A map of physical connection requirements, such as VPC and SecurityGroup.
      */
     readonly physicalConnectionRequirements: outputs.glue.GetConnectionPhysicalConnectionRequirement[];
+    /**
+     * The tags assigned to the resource
+     */
+    readonly tags: {[key: string]: string};
 }
 
 export function getConnectionOutput(args: GetConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectionResult> {
@@ -92,4 +101,8 @@ export interface GetConnectionOutputArgs {
      * `123456789123` and the connection name is `conn` then the ID is `123456789123:conn`.
      */
     id: pulumi.Input<string>;
+    /**
+     * The tags assigned to the resource
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

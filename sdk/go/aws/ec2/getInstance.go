@@ -133,6 +133,8 @@ type LookupInstanceResult struct {
 	PasswordData string `pulumi:"passwordData"`
 	// The placement group of the Instance.
 	PlacementGroup string `pulumi:"placementGroup"`
+	// The number of the partition the instance is in.
+	PlacementPartitionNumber int `pulumi:"placementPartitionNumber"`
 	// The private DNS name assigned to the Instance. Can only be
 	// used inside the Amazon EC2, and only available if you've enabled DNS hostnames
 	// for your VPC.
@@ -348,6 +350,11 @@ func (o LookupInstanceResultOutput) PasswordData() pulumi.StringOutput {
 // The placement group of the Instance.
 func (o LookupInstanceResultOutput) PlacementGroup() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupInstanceResult) string { return v.PlacementGroup }).(pulumi.StringOutput)
+}
+
+// The number of the partition the instance is in.
+func (o LookupInstanceResultOutput) PlacementPartitionNumber() pulumi.IntOutput {
+	return o.ApplyT(func(v LookupInstanceResult) int { return v.PlacementPartitionNumber }).(pulumi.IntOutput)
 }
 
 // The private DNS name assigned to the Instance. Can only be

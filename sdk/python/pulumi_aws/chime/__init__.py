@@ -11,5 +11,6 @@ from .voice_connector_logging import *
 from .voice_connector_organization import *
 from .voice_connector_streaming import *
 from .voice_connector_termination import *
+from .voice_connector_termination_credentials import *
 from ._inputs import *
 from . import outputs

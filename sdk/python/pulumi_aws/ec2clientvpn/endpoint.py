@@ -31,7 +31,7 @@ class EndpointArgs:
         :param pulumi.Input[str] client_cidr_block: The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater.
         :param pulumi.Input['EndpointConnectionLogOptionsArgs'] connection_log_options: Information about the client connection logging options.
         :param pulumi.Input[str] server_certificate_arn: The ARN of the ACM server certificate.
-        :param pulumi.Input[str] description: Name of the repository.
+        :param pulumi.Input[str] description: A brief description of the Client VPN endpoint.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_servers: Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the VPC that is to be associated with Client VPN endpoint is used as the DNS server.
         :param pulumi.Input[str] self_service_portal: Specify whether to enable the self-service portal for the Client VPN endpoint. Values can be `enabled` or `disabled`. Default value is `disabled`.
         :param pulumi.Input[bool] split_tunnel: Indicates whether split-tunnel is enabled on VPN endpoint. Default value is `false`.
@@ -106,7 +106,7 @@ class EndpointArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the repository.
+        A brief description of the Client VPN endpoint.
         """
         return pulumi.get(self, "description")
 
@@ -195,7 +195,7 @@ class _EndpointState:
         :param pulumi.Input[Sequence[pulumi.Input['EndpointAuthenticationOptionArgs']]] authentication_options: Information about the authentication method to be used to authenticate clients.
         :param pulumi.Input[str] client_cidr_block: The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater.
         :param pulumi.Input['EndpointConnectionLogOptionsArgs'] connection_log_options: Information about the client connection logging options.
-        :param pulumi.Input[str] description: Name of the repository.
+        :param pulumi.Input[str] description: A brief description of the Client VPN endpoint.
         :param pulumi.Input[str] dns_name: The DNS name to be used by clients when establishing their VPN session.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_servers: Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the VPC that is to be associated with Client VPN endpoint is used as the DNS server.
         :param pulumi.Input[str] self_service_portal: Specify whether to enable the self-service portal for the Client VPN endpoint. Values can be `enabled` or `disabled`. Default value is `disabled`.
@@ -285,7 +285,7 @@ class _EndpointState:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the repository.
+        A brief description of the Client VPN endpoint.
         """
         return pulumi.get(self, "description")
 
@@ -450,7 +450,7 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointAuthenticationOptionArgs']]]] authentication_options: Information about the authentication method to be used to authenticate clients.
         :param pulumi.Input[str] client_cidr_block: The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater.
         :param pulumi.Input[pulumi.InputType['EndpointConnectionLogOptionsArgs']] connection_log_options: Information about the client connection logging options.
-        :param pulumi.Input[str] description: Name of the repository.
+        :param pulumi.Input[str] description: A brief description of the Client VPN endpoint.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_servers: Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the VPC that is to be associated with Client VPN endpoint is used as the DNS server.
         :param pulumi.Input[str] self_service_portal: Specify whether to enable the self-service portal for the Client VPN endpoint. Values can be `enabled` or `disabled`. Default value is `disabled`.
         :param pulumi.Input[str] server_certificate_arn: The ARN of the ACM server certificate.
@@ -590,7 +590,7 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['EndpointAuthenticationOptionArgs']]]] authentication_options: Information about the authentication method to be used to authenticate clients.
         :param pulumi.Input[str] client_cidr_block: The IPv4 address range, in CIDR notation, from which to assign client IP addresses. The address range cannot overlap with the local CIDR of the VPC in which the associated subnet is located, or the routes that you add manually. The address range cannot be changed after the Client VPN endpoint has been created. The CIDR block should be /22 or greater.
         :param pulumi.Input[pulumi.InputType['EndpointConnectionLogOptionsArgs']] connection_log_options: Information about the client connection logging options.
-        :param pulumi.Input[str] description: Name of the repository.
+        :param pulumi.Input[str] description: A brief description of the Client VPN endpoint.
         :param pulumi.Input[str] dns_name: The DNS name to be used by clients when establishing their VPN session.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] dns_servers: Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the VPC that is to be associated with Client VPN endpoint is used as the DNS server.
         :param pulumi.Input[str] self_service_portal: Specify whether to enable the self-service portal for the Client VPN endpoint. Values can be `enabled` or `disabled`. Default value is `disabled`.
@@ -655,7 +655,7 @@ class Endpoint(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
         """
-        Name of the repository.
+        A brief description of the Client VPN endpoint.
         """
         return pulumi.get(self, "description")
 

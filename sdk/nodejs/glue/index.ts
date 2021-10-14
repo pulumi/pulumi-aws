@@ -18,6 +18,7 @@ export * from "./getScript";
 export * from "./job";
 export * from "./mltransform";
 export * from "./partition";
+export * from "./partitionIndex";
 export * from "./registry";
 export * from "./resourcePolicy";
 export * from "./schema";
@@ -37,6 +38,7 @@ import { DevEndpoint } from "./devEndpoint";
 import { Job } from "./job";
 import { MLTransform } from "./mltransform";
 import { Partition } from "./partition";
+import { PartitionIndex } from "./partitionIndex";
 import { Registry } from "./registry";
 import { ResourcePolicy } from "./resourcePolicy";
 import { Schema } from "./schema";
@@ -69,6 +71,8 @@ const _module = {
                 return new MLTransform(name, <any>undefined, { urn })
             case "aws:glue/partition:Partition":
                 return new Partition(name, <any>undefined, { urn })
+            case "aws:glue/partitionIndex:PartitionIndex":
+                return new PartitionIndex(name, <any>undefined, { urn })
             case "aws:glue/registry:Registry":
                 return new Registry(name, <any>undefined, { urn })
             case "aws:glue/resourcePolicy:ResourcePolicy":
@@ -98,6 +102,7 @@ pulumi.runtime.registerResourceModule("aws", "glue/devEndpoint", _module)
 pulumi.runtime.registerResourceModule("aws", "glue/job", _module)
 pulumi.runtime.registerResourceModule("aws", "glue/mLTransform", _module)
 pulumi.runtime.registerResourceModule("aws", "glue/partition", _module)
+pulumi.runtime.registerResourceModule("aws", "glue/partitionIndex", _module)
 pulumi.runtime.registerResourceModule("aws", "glue/registry", _module)
 pulumi.runtime.registerResourceModule("aws", "glue/resourcePolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "glue/schema", _module)

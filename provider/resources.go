@@ -693,12 +693,13 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_budgets_budget":        {Tok: awsResource(budgetsMod, "Budget")},
 			"aws_budgets_budget_action": {Tok: awsResource(budgetsMod, "BudgetAction")},
 			// Chime
-			"aws_chime_voice_connector":             {Tok: awsResource(chimeMod, "VoiceConnector")},
-			"aws_chime_voice_connector_group":       {Tok: awsResource(chimeMod, "VoiceConnectorGroup")},
-			"aws_chime_voice_connector_origination": {Tok: awsResource(chimeMod, "VoiceConnectorOrganization")},
-			"aws_chime_voice_connector_termination": {Tok: awsResource(chimeMod, "VoiceConnectorTermination")},
-			"aws_chime_voice_connector_logging":     {Tok: awsResource(chimeMod, "VoiceConnectorLogging")},
-			"aws_chime_voice_connector_streaming":   {Tok: awsResource(chimeMod, "VoiceConnectorStreaming")},
+			"aws_chime_voice_connector":                         {Tok: awsResource(chimeMod, "VoiceConnector")},
+			"aws_chime_voice_connector_group":                   {Tok: awsResource(chimeMod, "VoiceConnectorGroup")},
+			"aws_chime_voice_connector_origination":             {Tok: awsResource(chimeMod, "VoiceConnectorOrganization")},
+			"aws_chime_voice_connector_termination":             {Tok: awsResource(chimeMod, "VoiceConnectorTermination")},
+			"aws_chime_voice_connector_logging":                 {Tok: awsResource(chimeMod, "VoiceConnectorLogging")},
+			"aws_chime_voice_connector_streaming":               {Tok: awsResource(chimeMod, "VoiceConnectorStreaming")},
+			"aws_chime_voice_connector_termination_credentials": {Tok: awsResource(chimeMod, "VoiceConnectorTerminationCredentials")},
 			// Cloud9
 			"aws_cloud9_environment_ec2": {Tok: awsResource(cloud9Mod, "EnvironmentEC2")},
 			// Cloud Control API
@@ -1540,6 +1541,14 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_glue_dev_endpoint":    {Tok: awsResource(glueMod, "DevEndpoint")},
 			"aws_glue_registry":        {Tok: awsResource(glueMod, "Registry")},
 			"aws_glue_schema":          {Tok: awsResource(glueMod, "Schema")},
+			"aws_glue_partition_index": {
+				Tok: awsResource(glueMod, "PartitionIndex"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"partition_index": {
+						CSharpName: "PartitionIndexConfig",
+					},
+				},
+			},
 			// GuardDuty
 			"aws_guardduty_detector":                   {Tok: awsResource(guarddutyMod, "Detector")},
 			"aws_guardduty_invite_accepter":            {Tok: awsResource(guarddutyMod, "InviteAccepter")},
@@ -2193,10 +2202,11 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_sagemaker_notebook_instance_lifecycle_configuration": {
 				Tok: awsResource(sagemakerMod, "NotebookInstanceLifecycleConfiguration"),
 			},
-			"aws_sagemaker_device_fleet":            {Tok: awsResource(sagemakerMod, "DeviceFleet")},
-			"aws_sagemaker_human_task_ui":           {Tok: awsResource(sagemakerMod, "HumanTaskUI")},
-			"aws_sagemaker_flow_definition":         {Tok: awsResource(sagemakerMod, "FlowDefinition")},
-			"aws_sagemaker_studio_lifecycle_config": {Tok: awsResource(sagemakerMod, "StudioLifecycleConfig")},
+			"aws_sagemaker_device_fleet":               {Tok: awsResource(sagemakerMod, "DeviceFleet")},
+			"aws_sagemaker_human_task_ui":              {Tok: awsResource(sagemakerMod, "HumanTaskUI")},
+			"aws_sagemaker_flow_definition":            {Tok: awsResource(sagemakerMod, "FlowDefinition")},
+			"aws_sagemaker_studio_lifecycle_config":    {Tok: awsResource(sagemakerMod, "StudioLifecycleConfig")},
+			"aws_sagemaker_model_package_group_policy": {Tok: awsResource(sagemakerMod, "ModelPackageGroupPolicy")},
 			// Schemas
 			"aws_schemas_discoverer": {Tok: awsResource(schemasMod, "Discoverer")},
 			"aws_schemas_registry":   {Tok: awsResource(schemasMod, "Registry")},

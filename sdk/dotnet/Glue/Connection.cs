@@ -130,6 +130,18 @@ namespace Pulumi.Aws.Glue
         [Output("physicalConnectionRequirements")]
         public Output<Outputs.ConnectionPhysicalConnectionRequirements?> PhysicalConnectionRequirements { get; private set; } = null!;
 
+        /// <summary>
+        /// Key-value map of resource tags. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+        /// </summary>
+        [Output("tagsAll")]
+        public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Connection resource with the given unique name, arguments, and options.
@@ -230,6 +242,30 @@ namespace Pulumi.Aws.Glue
         [Input("physicalConnectionRequirements")]
         public Input<Inputs.ConnectionPhysicalConnectionRequirementsArgs>? PhysicalConnectionRequirements { get; set; }
 
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value map of resource tags. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        [Input("tagsAll")]
+        private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+        /// </summary>
+        public InputMap<string> TagsAll
+        {
+            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
+            set => _tagsAll = value;
+        }
+
         public ConnectionArgs()
         {
         }
@@ -296,6 +332,30 @@ namespace Pulumi.Aws.Glue
         /// </summary>
         [Input("physicalConnectionRequirements")]
         public Input<Inputs.ConnectionPhysicalConnectionRequirementsGetArgs>? PhysicalConnectionRequirements { get; set; }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value map of resource tags. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        [Input("tagsAll")]
+        private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+        /// </summary>
+        public InputMap<string> TagsAll
+        {
+            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
+            set => _tagsAll = value;
+        }
 
         public ConnectionState()
         {

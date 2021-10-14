@@ -68,7 +68,7 @@ type Endpoint struct {
 	ClientCidrBlock pulumi.StringOutput `pulumi:"clientCidrBlock"`
 	// Information about the client connection logging options.
 	ConnectionLogOptions EndpointConnectionLogOptionsOutput `pulumi:"connectionLogOptions"`
-	// Name of the repository.
+	// A brief description of the Client VPN endpoint.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The DNS name to be used by clients when establishing their VPN session.
 	DnsName pulumi.StringOutput `pulumi:"dnsName"`
@@ -137,7 +137,7 @@ type endpointState struct {
 	ClientCidrBlock *string `pulumi:"clientCidrBlock"`
 	// Information about the client connection logging options.
 	ConnectionLogOptions *EndpointConnectionLogOptions `pulumi:"connectionLogOptions"`
-	// Name of the repository.
+	// A brief description of the Client VPN endpoint.
 	Description *string `pulumi:"description"`
 	// The DNS name to be used by clients when establishing their VPN session.
 	DnsName *string `pulumi:"dnsName"`
@@ -166,7 +166,7 @@ type EndpointState struct {
 	ClientCidrBlock pulumi.StringPtrInput
 	// Information about the client connection logging options.
 	ConnectionLogOptions EndpointConnectionLogOptionsPtrInput
-	// Name of the repository.
+	// A brief description of the Client VPN endpoint.
 	Description pulumi.StringPtrInput
 	// The DNS name to be used by clients when establishing their VPN session.
 	DnsName pulumi.StringPtrInput
@@ -197,7 +197,7 @@ type endpointArgs struct {
 	ClientCidrBlock string `pulumi:"clientCidrBlock"`
 	// Information about the client connection logging options.
 	ConnectionLogOptions EndpointConnectionLogOptions `pulumi:"connectionLogOptions"`
-	// Name of the repository.
+	// A brief description of the Client VPN endpoint.
 	Description *string `pulumi:"description"`
 	// Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the VPC that is to be associated with Client VPN endpoint is used as the DNS server.
 	DnsServers []string `pulumi:"dnsServers"`
@@ -220,7 +220,7 @@ type EndpointArgs struct {
 	ClientCidrBlock pulumi.StringInput
 	// Information about the client connection logging options.
 	ConnectionLogOptions EndpointConnectionLogOptionsInput
-	// Name of the repository.
+	// A brief description of the Client VPN endpoint.
 	Description pulumi.StringPtrInput
 	// Information about the DNS servers to be used for DNS resolution. A Client VPN endpoint can have up to two DNS servers. If no DNS server is specified, the DNS address of the VPC that is to be associated with Client VPN endpoint is used as the DNS server.
 	DnsServers pulumi.StringArrayInput

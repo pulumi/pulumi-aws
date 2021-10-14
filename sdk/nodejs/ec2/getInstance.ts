@@ -184,6 +184,10 @@ export interface GetInstanceResult {
      */
     readonly placementGroup: string;
     /**
+     * The number of the partition the instance is in.
+     */
+    readonly placementPartitionNumber: number;
+    /**
      * The private DNS name assigned to the Instance. Can only be
      * used inside the Amazon EC2, and only available if you've enabled DNS hostnames
      * for your VPC.

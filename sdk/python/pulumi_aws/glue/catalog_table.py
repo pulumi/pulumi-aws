@@ -869,7 +869,7 @@ class CatalogTable(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="partitionIndices")
-    def partition_indices(self) -> pulumi.Output[Optional[Sequence['outputs.CatalogTablePartitionIndex']]]:
+    def partition_indices(self) -> pulumi.Output[Sequence['outputs.CatalogTablePartitionIndex']]:
         """
         Configuration block for a maximum of 3 partition indexes. See `partition_index` below.
         """

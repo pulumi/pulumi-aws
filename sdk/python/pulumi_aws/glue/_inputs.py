@@ -43,6 +43,7 @@ __all__ = [
     'MLTransformParametersArgs',
     'MLTransformParametersFindMatchesParametersArgs',
     'MLTransformSchemaArgs',
+    'PartitionIndexPartitionIndexArgs',
     'PartitionStorageDescriptorArgs',
     'PartitionStorageDescriptorColumnArgs',
     'PartitionStorageDescriptorSerDeInfoArgs',
@@ -1844,6 +1845,57 @@ class MLTransformSchemaArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+
+@pulumi.input_type
+class PartitionIndexPartitionIndexArgs:
+    def __init__(__self__, *,
+                 index_name: Optional[pulumi.Input[str]] = None,
+                 index_status: Optional[pulumi.Input[str]] = None,
+                 keys: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] index_name: Name of the partition index.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] keys: Keys for the partition index.
+        """
+        if index_name is not None:
+            pulumi.set(__self__, "index_name", index_name)
+        if index_status is not None:
+            pulumi.set(__self__, "index_status", index_status)
+        if keys is not None:
+            pulumi.set(__self__, "keys", keys)
+
+    @property
+    @pulumi.getter(name="indexName")
+    def index_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the partition index.
+        """
+        return pulumi.get(self, "index_name")
+
+    @index_name.setter
+    def index_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "index_name", value)
+
+    @property
+    @pulumi.getter(name="indexStatus")
+    def index_status(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "index_status")
+
+    @index_status.setter
+    def index_status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "index_status", value)
+
+    @property
+    @pulumi.getter
+    def keys(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Keys for the partition index.
+        """
+        return pulumi.get(self, "keys")
+
+    @keys.setter
+    def keys(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "keys", value)
 
 
 @pulumi.input_type

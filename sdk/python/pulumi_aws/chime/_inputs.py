@@ -11,6 +11,7 @@ from .. import _utilities
 __all__ = [
     'VoiceConnectorGroupConnectorArgs',
     'VoiceConnectorOrganizationRouteArgs',
+    'VoiceConnectorTerminationCredentialsCredentialArgs',
 ]
 
 @pulumi.input_type
@@ -131,5 +132,42 @@ class VoiceConnectorOrganizationRouteArgs:
     @port.setter
     def port(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "port", value)
+
+
+@pulumi.input_type
+class VoiceConnectorTerminationCredentialsCredentialArgs:
+    def __init__(__self__, *,
+                 password: pulumi.Input[str],
+                 username: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] password: RFC2617 compliant password associated with the SIP credentials.
+        :param pulumi.Input[str] username: RFC2617 compliant username associated with the SIP credentials.
+        """
+        pulumi.set(__self__, "password", password)
+        pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter
+    def password(self) -> pulumi.Input[str]:
+        """
+        RFC2617 compliant password associated with the SIP credentials.
+        """
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: pulumi.Input[str]):
+        pulumi.set(self, "password", value)
+
+    @property
+    @pulumi.getter
+    def username(self) -> pulumi.Input[str]:
+        """
+        RFC2617 compliant username associated with the SIP credentials.
+        """
+        return pulumi.get(self, "username")
+
+    @username.setter
+    def username(self, value: pulumi.Input[str]):
+        pulumi.set(self, "username", value)
 
 

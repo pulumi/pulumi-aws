@@ -85,6 +85,7 @@ import (
 type ResourcePolicy struct {
 	pulumi.CustomResourceState
 
+	EnableHybrid pulumi.StringPtrOutput `pulumi:"enableHybrid"`
 	// The policy to be applied to the aws glue data catalog.
 	Policy pulumi.StringOutput `pulumi:"policy"`
 }
@@ -121,11 +122,13 @@ func GetResourcePolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ResourcePolicy resources.
 type resourcePolicyState struct {
+	EnableHybrid *string `pulumi:"enableHybrid"`
 	// The policy to be applied to the aws glue data catalog.
 	Policy *string `pulumi:"policy"`
 }
 
 type ResourcePolicyState struct {
+	EnableHybrid pulumi.StringPtrInput
 	// The policy to be applied to the aws glue data catalog.
 	Policy pulumi.StringPtrInput
 }
@@ -135,12 +138,14 @@ func (ResourcePolicyState) ElementType() reflect.Type {
 }
 
 type resourcePolicyArgs struct {
+	EnableHybrid *string `pulumi:"enableHybrid"`
 	// The policy to be applied to the aws glue data catalog.
 	Policy string `pulumi:"policy"`
 }
 
 // The set of arguments for constructing a ResourcePolicy resource.
 type ResourcePolicyArgs struct {
+	EnableHybrid pulumi.StringPtrInput
 	// The policy to be applied to the aws glue data catalog.
 	Policy pulumi.StringInput
 }

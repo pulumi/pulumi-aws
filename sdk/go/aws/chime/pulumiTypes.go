@@ -249,13 +249,123 @@ func (o VoiceConnectorOrganizationRouteArrayOutput) Index(i pulumi.IntInput) Voi
 	}).(VoiceConnectorOrganizationRouteOutput)
 }
 
+type VoiceConnectorTerminationCredentialsCredential struct {
+	// RFC2617 compliant password associated with the SIP credentials.
+	Password string `pulumi:"password"`
+	// RFC2617 compliant username associated with the SIP credentials.
+	Username string `pulumi:"username"`
+}
+
+// VoiceConnectorTerminationCredentialsCredentialInput is an input type that accepts VoiceConnectorTerminationCredentialsCredentialArgs and VoiceConnectorTerminationCredentialsCredentialOutput values.
+// You can construct a concrete instance of `VoiceConnectorTerminationCredentialsCredentialInput` via:
+//
+//          VoiceConnectorTerminationCredentialsCredentialArgs{...}
+type VoiceConnectorTerminationCredentialsCredentialInput interface {
+	pulumi.Input
+
+	ToVoiceConnectorTerminationCredentialsCredentialOutput() VoiceConnectorTerminationCredentialsCredentialOutput
+	ToVoiceConnectorTerminationCredentialsCredentialOutputWithContext(context.Context) VoiceConnectorTerminationCredentialsCredentialOutput
+}
+
+type VoiceConnectorTerminationCredentialsCredentialArgs struct {
+	// RFC2617 compliant password associated with the SIP credentials.
+	Password pulumi.StringInput `pulumi:"password"`
+	// RFC2617 compliant username associated with the SIP credentials.
+	Username pulumi.StringInput `pulumi:"username"`
+}
+
+func (VoiceConnectorTerminationCredentialsCredentialArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VoiceConnectorTerminationCredentialsCredential)(nil)).Elem()
+}
+
+func (i VoiceConnectorTerminationCredentialsCredentialArgs) ToVoiceConnectorTerminationCredentialsCredentialOutput() VoiceConnectorTerminationCredentialsCredentialOutput {
+	return i.ToVoiceConnectorTerminationCredentialsCredentialOutputWithContext(context.Background())
+}
+
+func (i VoiceConnectorTerminationCredentialsCredentialArgs) ToVoiceConnectorTerminationCredentialsCredentialOutputWithContext(ctx context.Context) VoiceConnectorTerminationCredentialsCredentialOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VoiceConnectorTerminationCredentialsCredentialOutput)
+}
+
+// VoiceConnectorTerminationCredentialsCredentialArrayInput is an input type that accepts VoiceConnectorTerminationCredentialsCredentialArray and VoiceConnectorTerminationCredentialsCredentialArrayOutput values.
+// You can construct a concrete instance of `VoiceConnectorTerminationCredentialsCredentialArrayInput` via:
+//
+//          VoiceConnectorTerminationCredentialsCredentialArray{ VoiceConnectorTerminationCredentialsCredentialArgs{...} }
+type VoiceConnectorTerminationCredentialsCredentialArrayInput interface {
+	pulumi.Input
+
+	ToVoiceConnectorTerminationCredentialsCredentialArrayOutput() VoiceConnectorTerminationCredentialsCredentialArrayOutput
+	ToVoiceConnectorTerminationCredentialsCredentialArrayOutputWithContext(context.Context) VoiceConnectorTerminationCredentialsCredentialArrayOutput
+}
+
+type VoiceConnectorTerminationCredentialsCredentialArray []VoiceConnectorTerminationCredentialsCredentialInput
+
+func (VoiceConnectorTerminationCredentialsCredentialArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VoiceConnectorTerminationCredentialsCredential)(nil)).Elem()
+}
+
+func (i VoiceConnectorTerminationCredentialsCredentialArray) ToVoiceConnectorTerminationCredentialsCredentialArrayOutput() VoiceConnectorTerminationCredentialsCredentialArrayOutput {
+	return i.ToVoiceConnectorTerminationCredentialsCredentialArrayOutputWithContext(context.Background())
+}
+
+func (i VoiceConnectorTerminationCredentialsCredentialArray) ToVoiceConnectorTerminationCredentialsCredentialArrayOutputWithContext(ctx context.Context) VoiceConnectorTerminationCredentialsCredentialArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VoiceConnectorTerminationCredentialsCredentialArrayOutput)
+}
+
+type VoiceConnectorTerminationCredentialsCredentialOutput struct{ *pulumi.OutputState }
+
+func (VoiceConnectorTerminationCredentialsCredentialOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VoiceConnectorTerminationCredentialsCredential)(nil)).Elem()
+}
+
+func (o VoiceConnectorTerminationCredentialsCredentialOutput) ToVoiceConnectorTerminationCredentialsCredentialOutput() VoiceConnectorTerminationCredentialsCredentialOutput {
+	return o
+}
+
+func (o VoiceConnectorTerminationCredentialsCredentialOutput) ToVoiceConnectorTerminationCredentialsCredentialOutputWithContext(ctx context.Context) VoiceConnectorTerminationCredentialsCredentialOutput {
+	return o
+}
+
+// RFC2617 compliant password associated with the SIP credentials.
+func (o VoiceConnectorTerminationCredentialsCredentialOutput) Password() pulumi.StringOutput {
+	return o.ApplyT(func(v VoiceConnectorTerminationCredentialsCredential) string { return v.Password }).(pulumi.StringOutput)
+}
+
+// RFC2617 compliant username associated with the SIP credentials.
+func (o VoiceConnectorTerminationCredentialsCredentialOutput) Username() pulumi.StringOutput {
+	return o.ApplyT(func(v VoiceConnectorTerminationCredentialsCredential) string { return v.Username }).(pulumi.StringOutput)
+}
+
+type VoiceConnectorTerminationCredentialsCredentialArrayOutput struct{ *pulumi.OutputState }
+
+func (VoiceConnectorTerminationCredentialsCredentialArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VoiceConnectorTerminationCredentialsCredential)(nil)).Elem()
+}
+
+func (o VoiceConnectorTerminationCredentialsCredentialArrayOutput) ToVoiceConnectorTerminationCredentialsCredentialArrayOutput() VoiceConnectorTerminationCredentialsCredentialArrayOutput {
+	return o
+}
+
+func (o VoiceConnectorTerminationCredentialsCredentialArrayOutput) ToVoiceConnectorTerminationCredentialsCredentialArrayOutputWithContext(ctx context.Context) VoiceConnectorTerminationCredentialsCredentialArrayOutput {
+	return o
+}
+
+func (o VoiceConnectorTerminationCredentialsCredentialArrayOutput) Index(i pulumi.IntInput) VoiceConnectorTerminationCredentialsCredentialOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VoiceConnectorTerminationCredentialsCredential {
+		return vs[0].([]VoiceConnectorTerminationCredentialsCredential)[vs[1].(int)]
+	}).(VoiceConnectorTerminationCredentialsCredentialOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VoiceConnectorGroupConnectorInput)(nil)).Elem(), VoiceConnectorGroupConnectorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VoiceConnectorGroupConnectorArrayInput)(nil)).Elem(), VoiceConnectorGroupConnectorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VoiceConnectorOrganizationRouteInput)(nil)).Elem(), VoiceConnectorOrganizationRouteArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VoiceConnectorOrganizationRouteArrayInput)(nil)).Elem(), VoiceConnectorOrganizationRouteArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VoiceConnectorTerminationCredentialsCredentialInput)(nil)).Elem(), VoiceConnectorTerminationCredentialsCredentialArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VoiceConnectorTerminationCredentialsCredentialArrayInput)(nil)).Elem(), VoiceConnectorTerminationCredentialsCredentialArray{})
 	pulumi.RegisterOutputType(VoiceConnectorGroupConnectorOutput{})
 	pulumi.RegisterOutputType(VoiceConnectorGroupConnectorArrayOutput{})
 	pulumi.RegisterOutputType(VoiceConnectorOrganizationRouteOutput{})
 	pulumi.RegisterOutputType(VoiceConnectorOrganizationRouteArrayOutput{})
+	pulumi.RegisterOutputType(VoiceConnectorTerminationCredentialsCredentialOutput{})
+	pulumi.RegisterOutputType(VoiceConnectorTerminationCredentialsCredentialArrayOutput{})
 }

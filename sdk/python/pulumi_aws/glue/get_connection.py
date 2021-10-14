@@ -21,7 +21,7 @@ class GetConnectionResult:
     """
     A collection of values returned by getConnection.
     """
-    def __init__(__self__, arn=None, catalog_id=None, connection_properties=None, connection_type=None, description=None, id=None, match_criterias=None, name=None, physical_connection_requirements=None):
+    def __init__(__self__, arn=None, catalog_id=None, connection_properties=None, connection_type=None, description=None, id=None, match_criterias=None, name=None, physical_connection_requirements=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -49,6 +49,9 @@ class GetConnectionResult:
         if physical_connection_requirements and not isinstance(physical_connection_requirements, list):
             raise TypeError("Expected argument 'physical_connection_requirements' to be a list")
         pulumi.set(__self__, "physical_connection_requirements", physical_connection_requirements)
+        if tags and not isinstance(tags, dict):
+            raise TypeError("Expected argument 'tags' to be a dict")
+        pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -116,6 +119,14 @@ class GetConnectionResult:
         """
         return pulumi.get(self, "physical_connection_requirements")
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Mapping[str, str]:
+        """
+        The tags assigned to the resource
+        """
+        return pulumi.get(self, "tags")
+
 
 class AwaitableGetConnectionResult(GetConnectionResult):
     # pylint: disable=using-constant-test
@@ -131,10 +142,12 @@ class AwaitableGetConnectionResult(GetConnectionResult):
             id=self.id,
             match_criterias=self.match_criterias,
             name=self.name,
-            physical_connection_requirements=self.physical_connection_requirements)
+            physical_connection_requirements=self.physical_connection_requirements,
+            tags=self.tags)
 
 
 def get_connection(id: Optional[str] = None,
+                   tags: Optional[Mapping[str, str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectionResult:
     """
     This data source can be used to fetch information about a specific Glue Connection.
@@ -151,9 +164,11 @@ def get_connection(id: Optional[str] = None,
 
     :param str id: A concatenation of the catalog ID and connection name. For example, if your account ID is
            `123456789123` and the connection name is `conn` then the ID is `123456789123:conn`.
+    :param Mapping[str, str] tags: The tags assigned to the resource
     """
     __args__ = dict()
     __args__['id'] = id
+    __args__['tags'] = tags
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
@@ -169,11 +184,13 @@ def get_connection(id: Optional[str] = None,
         id=__ret__.id,
         match_criterias=__ret__.match_criterias,
         name=__ret__.name,
-        physical_connection_requirements=__ret__.physical_connection_requirements)
+        physical_connection_requirements=__ret__.physical_connection_requirements,
+        tags=__ret__.tags)
 
 
 @_utilities.lift_output_func(get_connection)
 def get_connection_output(id: Optional[pulumi.Input[str]] = None,
+                          tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetConnectionResult]:
     """
     This data source can be used to fetch information about a specific Glue Connection.
@@ -190,5 +207,6 @@ def get_connection_output(id: Optional[pulumi.Input[str]] = None,
 
     :param str id: A concatenation of the catalog ID and connection name. For example, if your account ID is
            `123456789123` and the connection name is `conn` then the ID is `123456789123:conn`.
+    :param Mapping[str, str] tags: The tags assigned to the resource
     """
     ...

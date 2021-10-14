@@ -21,7 +21,9 @@ class ConnectionArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  match_criterias: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 physical_connection_requirements: Optional[pulumi.Input['ConnectionPhysicalConnectionRequirementsArgs']] = None):
+                 physical_connection_requirements: Optional[pulumi.Input['ConnectionPhysicalConnectionRequirementsArgs']] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Connection resource.
         :param pulumi.Input[str] catalog_id: The ID of the Data Catalog in which to create the connection. If none is supplied, the AWS account ID is used by default.
@@ -31,6 +33,8 @@ class ConnectionArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] match_criterias: A list of criteria that can be used in selecting this connection.
         :param pulumi.Input[str] name: The name of the connection.
         :param pulumi.Input['ConnectionPhysicalConnectionRequirementsArgs'] physical_connection_requirements: A map of physical connection requirements, such as VPC and SecurityGroup. Defined below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
         """
         if catalog_id is not None:
             pulumi.set(__self__, "catalog_id", catalog_id)
@@ -46,6 +50,10 @@ class ConnectionArgs:
             pulumi.set(__self__, "name", name)
         if physical_connection_requirements is not None:
             pulumi.set(__self__, "physical_connection_requirements", physical_connection_requirements)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="catalogId")
@@ -131,6 +139,30 @@ class ConnectionArgs:
     def physical_connection_requirements(self, value: Optional[pulumi.Input['ConnectionPhysicalConnectionRequirementsArgs']]):
         pulumi.set(self, "physical_connection_requirements", value)
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value map of resource tags. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
+
 
 @pulumi.input_type
 class _ConnectionState:
@@ -142,7 +174,9 @@ class _ConnectionState:
                  description: Optional[pulumi.Input[str]] = None,
                  match_criterias: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
-                 physical_connection_requirements: Optional[pulumi.Input['ConnectionPhysicalConnectionRequirementsArgs']] = None):
+                 physical_connection_requirements: Optional[pulumi.Input['ConnectionPhysicalConnectionRequirementsArgs']] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering Connection resources.
         :param pulumi.Input[str] arn: The ARN of the Glue Connection.
@@ -153,6 +187,8 @@ class _ConnectionState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] match_criterias: A list of criteria that can be used in selecting this connection.
         :param pulumi.Input[str] name: The name of the connection.
         :param pulumi.Input['ConnectionPhysicalConnectionRequirementsArgs'] physical_connection_requirements: A map of physical connection requirements, such as VPC and SecurityGroup. Defined below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -170,6 +206,10 @@ class _ConnectionState:
             pulumi.set(__self__, "name", name)
         if physical_connection_requirements is not None:
             pulumi.set(__self__, "physical_connection_requirements", physical_connection_requirements)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -267,6 +307,30 @@ class _ConnectionState:
     def physical_connection_requirements(self, value: Optional[pulumi.Input['ConnectionPhysicalConnectionRequirementsArgs']]):
         pulumi.set(self, "physical_connection_requirements", value)
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value map of resource tags. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
+
 
 class Connection(pulumi.CustomResource):
     @overload
@@ -280,6 +344,8 @@ class Connection(pulumi.CustomResource):
                  match_criterias: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  physical_connection_requirements: Optional[pulumi.Input[pulumi.InputType['ConnectionPhysicalConnectionRequirementsArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Provides a Glue Connection resource.
@@ -335,6 +401,8 @@ class Connection(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] match_criterias: A list of criteria that can be used in selecting this connection.
         :param pulumi.Input[str] name: The name of the connection.
         :param pulumi.Input[pulumi.InputType['ConnectionPhysicalConnectionRequirementsArgs']] physical_connection_requirements: A map of physical connection requirements, such as VPC and SecurityGroup. Defined below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
         """
         ...
     @overload
@@ -409,6 +477,8 @@ class Connection(pulumi.CustomResource):
                  match_criterias: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  physical_connection_requirements: Optional[pulumi.Input[pulumi.InputType['ConnectionPhysicalConnectionRequirementsArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -428,6 +498,8 @@ class Connection(pulumi.CustomResource):
             __props__.__dict__["match_criterias"] = match_criterias
             __props__.__dict__["name"] = name
             __props__.__dict__["physical_connection_requirements"] = physical_connection_requirements
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
         super(Connection, __self__).__init__(
             'aws:glue/connection:Connection',
@@ -446,7 +518,9 @@ class Connection(pulumi.CustomResource):
             description: Optional[pulumi.Input[str]] = None,
             match_criterias: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
-            physical_connection_requirements: Optional[pulumi.Input[pulumi.InputType['ConnectionPhysicalConnectionRequirementsArgs']]] = None) -> 'Connection':
+            physical_connection_requirements: Optional[pulumi.Input[pulumi.InputType['ConnectionPhysicalConnectionRequirementsArgs']]] = None,
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'Connection':
         """
         Get an existing Connection resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -462,6 +536,8 @@ class Connection(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] match_criterias: A list of criteria that can be used in selecting this connection.
         :param pulumi.Input[str] name: The name of the connection.
         :param pulumi.Input[pulumi.InputType['ConnectionPhysicalConnectionRequirementsArgs']] physical_connection_requirements: A map of physical connection requirements, such as VPC and SecurityGroup. Defined below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -475,6 +551,8 @@ class Connection(pulumi.CustomResource):
         __props__.__dict__["match_criterias"] = match_criterias
         __props__.__dict__["name"] = name
         __props__.__dict__["physical_connection_requirements"] = physical_connection_requirements
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["tags_all"] = tags_all
         return Connection(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -540,4 +618,20 @@ class Connection(pulumi.CustomResource):
         A map of physical connection requirements, such as VPC and SecurityGroup. Defined below.
         """
         return pulumi.get(self, "physical_connection_requirements")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Key-value map of resource tags. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+        """
+        return pulumi.get(self, "tags_all")
 

@@ -199,6 +199,8 @@ type Instance struct {
 	PasswordData pulumi.StringOutput `pulumi:"passwordData"`
 	// Placement Group to start the instance in.
 	PlacementGroup pulumi.StringOutput `pulumi:"placementGroup"`
+	// The number of the partition the instance is in. Valid only if the `ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
+	PlacementPartitionNumber pulumi.IntOutput `pulumi:"placementPartitionNumber"`
 	// The ID of the instance's primary network interface.
 	PrimaryNetworkInterfaceId pulumi.StringOutput `pulumi:"primaryNetworkInterfaceId"`
 	// The private DNS name assigned to the instance. Can only be used inside the Amazon EC2, and only available if you've enabled DNS hostnames for your VPC.
@@ -213,7 +215,7 @@ type Instance struct {
 	RootBlockDevice InstanceRootBlockDeviceOutput `pulumi:"rootBlockDevice"`
 	// A list of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e. referenced in a `networkInterface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
 	SecondaryPrivateIps pulumi.StringArrayOutput `pulumi:"secondaryPrivateIps"`
-	// A list of security group names (EC2-Classic) or IDs (default VPC) to associate with.
+	// A list of security group names to associate with.
 	//
 	// Deprecated: Use of `securityGroups` is discouraged as it does not allow for changes and will force your instance to be replaced if changes are made. To avoid this, use `vpcSecurityGroupIds` which allows for updates.
 	SecurityGroups pulumi.StringArrayOutput `pulumi:"securityGroups"`
@@ -327,6 +329,8 @@ type instanceState struct {
 	PasswordData *string `pulumi:"passwordData"`
 	// Placement Group to start the instance in.
 	PlacementGroup *string `pulumi:"placementGroup"`
+	// The number of the partition the instance is in. Valid only if the `ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
+	PlacementPartitionNumber *int `pulumi:"placementPartitionNumber"`
 	// The ID of the instance's primary network interface.
 	PrimaryNetworkInterfaceId *string `pulumi:"primaryNetworkInterfaceId"`
 	// The private DNS name assigned to the instance. Can only be used inside the Amazon EC2, and only available if you've enabled DNS hostnames for your VPC.
@@ -341,7 +345,7 @@ type instanceState struct {
 	RootBlockDevice *InstanceRootBlockDevice `pulumi:"rootBlockDevice"`
 	// A list of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e. referenced in a `networkInterface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
 	SecondaryPrivateIps []string `pulumi:"secondaryPrivateIps"`
-	// A list of security group names (EC2-Classic) or IDs (default VPC) to associate with.
+	// A list of security group names to associate with.
 	//
 	// Deprecated: Use of `securityGroups` is discouraged as it does not allow for changes and will force your instance to be replaced if changes are made. To avoid this, use `vpcSecurityGroupIds` which allows for updates.
 	SecurityGroups []string `pulumi:"securityGroups"`
@@ -427,6 +431,8 @@ type InstanceState struct {
 	PasswordData pulumi.StringPtrInput
 	// Placement Group to start the instance in.
 	PlacementGroup pulumi.StringPtrInput
+	// The number of the partition the instance is in. Valid only if the `ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
+	PlacementPartitionNumber pulumi.IntPtrInput
 	// The ID of the instance's primary network interface.
 	PrimaryNetworkInterfaceId pulumi.StringPtrInput
 	// The private DNS name assigned to the instance. Can only be used inside the Amazon EC2, and only available if you've enabled DNS hostnames for your VPC.
@@ -441,7 +447,7 @@ type InstanceState struct {
 	RootBlockDevice InstanceRootBlockDevicePtrInput
 	// A list of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e. referenced in a `networkInterface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
 	SecondaryPrivateIps pulumi.StringArrayInput
-	// A list of security group names (EC2-Classic) or IDs (default VPC) to associate with.
+	// A list of security group names to associate with.
 	//
 	// Deprecated: Use of `securityGroups` is discouraged as it does not allow for changes and will force your instance to be replaced if changes are made. To avoid this, use `vpcSecurityGroupIds` which allows for updates.
 	SecurityGroups pulumi.StringArrayInput
@@ -523,13 +529,15 @@ type instanceArgs struct {
 	NetworkInterfaces []InstanceNetworkInterface `pulumi:"networkInterfaces"`
 	// Placement Group to start the instance in.
 	PlacementGroup *string `pulumi:"placementGroup"`
+	// The number of the partition the instance is in. Valid only if the `ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
+	PlacementPartitionNumber *int `pulumi:"placementPartitionNumber"`
 	// Private IP address to associate with the instance in a VPC.
 	PrivateIp *string `pulumi:"privateIp"`
 	// Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
 	RootBlockDevice *InstanceRootBlockDevice `pulumi:"rootBlockDevice"`
 	// A list of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e. referenced in a `networkInterface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
 	SecondaryPrivateIps []string `pulumi:"secondaryPrivateIps"`
-	// A list of security group names (EC2-Classic) or IDs (default VPC) to associate with.
+	// A list of security group names to associate with.
 	//
 	// Deprecated: Use of `securityGroups` is discouraged as it does not allow for changes and will force your instance to be replaced if changes are made. To avoid this, use `vpcSecurityGroupIds` which allows for updates.
 	SecurityGroups []string `pulumi:"securityGroups"`
@@ -606,13 +614,15 @@ type InstanceArgs struct {
 	NetworkInterfaces InstanceNetworkInterfaceArrayInput
 	// Placement Group to start the instance in.
 	PlacementGroup pulumi.StringPtrInput
+	// The number of the partition the instance is in. Valid only if the `ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
+	PlacementPartitionNumber pulumi.IntPtrInput
 	// Private IP address to associate with the instance in a VPC.
 	PrivateIp pulumi.StringPtrInput
 	// Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
 	RootBlockDevice InstanceRootBlockDevicePtrInput
 	// A list of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e. referenced in a `networkInterface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
 	SecondaryPrivateIps pulumi.StringArrayInput
-	// A list of security group names (EC2-Classic) or IDs (default VPC) to associate with.
+	// A list of security group names to associate with.
 	//
 	// Deprecated: Use of `securityGroups` is discouraged as it does not allow for changes and will force your instance to be replaced if changes are made. To avoid this, use `vpcSecurityGroupIds` which allows for updates.
 	SecurityGroups pulumi.StringArrayInput

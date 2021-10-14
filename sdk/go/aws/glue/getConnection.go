@@ -48,6 +48,8 @@ type LookupConnectionArgs struct {
 	// A concatenation of the catalog ID and connection name. For example, if your account ID is
 	// `123456789123` and the connection name is `conn` then the ID is `123456789123:conn`.
 	Id string `pulumi:"id"`
+	// The tags assigned to the resource
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getConnection.
@@ -68,6 +70,8 @@ type LookupConnectionResult struct {
 	Name string `pulumi:"name"`
 	// A map of physical connection requirements, such as VPC and SecurityGroup.
 	PhysicalConnectionRequirements []GetConnectionPhysicalConnectionRequirement `pulumi:"physicalConnectionRequirements"`
+	// The tags assigned to the resource
+	Tags map[string]string `pulumi:"tags"`
 }
 
 func LookupConnectionOutput(ctx *pulumi.Context, args LookupConnectionOutputArgs, opts ...pulumi.InvokeOption) LookupConnectionResultOutput {
@@ -84,6 +88,8 @@ type LookupConnectionOutputArgs struct {
 	// A concatenation of the catalog ID and connection name. For example, if your account ID is
 	// `123456789123` and the connection name is `conn` then the ID is `123456789123:conn`.
 	Id pulumi.StringInput `pulumi:"id"`
+	// The tags assigned to the resource
+	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (LookupConnectionOutputArgs) ElementType() reflect.Type {
@@ -148,6 +154,11 @@ func (o LookupConnectionResultOutput) PhysicalConnectionRequirements() GetConnec
 	return o.ApplyT(func(v LookupConnectionResult) []GetConnectionPhysicalConnectionRequirement {
 		return v.PhysicalConnectionRequirements
 	}).(GetConnectionPhysicalConnectionRequirementArrayOutput)
+}
+
+// The tags assigned to the resource
+func (o LookupConnectionResultOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v LookupConnectionResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 func init() {

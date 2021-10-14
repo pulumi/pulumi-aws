@@ -45,6 +45,7 @@ class SpotInstanceRequestArgs:
                  monitoring: Optional[pulumi.Input[bool]] = None,
                  network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['SpotInstanceRequestNetworkInterfaceArgs']]]] = None,
                  placement_group: Optional[pulumi.Input[str]] = None,
+                 placement_partition_number: Optional[pulumi.Input[int]] = None,
                  private_ip: Optional[pulumi.Input[str]] = None,
                  root_block_device: Optional[pulumi.Input['SpotInstanceRequestRootBlockDeviceArgs']] = None,
                  secondary_private_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -98,10 +99,11 @@ class SpotInstanceRequestArgs:
         :param pulumi.Input[bool] monitoring: If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
         :param pulumi.Input[Sequence[pulumi.Input['SpotInstanceRequestNetworkInterfaceArgs']]] network_interfaces: Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
         :param pulumi.Input[str] placement_group: Placement Group to start the instance in.
+        :param pulumi.Input[int] placement_partition_number: The number of the partition the instance is in. Valid only if the `ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
         :param pulumi.Input[str] private_ip: Private IP address to associate with the instance in a VPC.
         :param pulumi.Input['SpotInstanceRequestRootBlockDeviceArgs'] root_block_device: Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] secondary_private_ips: A list of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e. referenced in a `network_interface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: A list of security group names (EC2-Classic) or IDs (default VPC) to associate with.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: A list of security group names to associate with.
         :param pulumi.Input[bool] source_dest_check: Controls if traffic is routed to the instance when the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
         :param pulumi.Input[str] spot_price: The maximum price to request on the spot market.
         :param pulumi.Input[str] spot_type: If set to `one-time`, after
@@ -182,6 +184,8 @@ class SpotInstanceRequestArgs:
             pulumi.set(__self__, "network_interfaces", network_interfaces)
         if placement_group is not None:
             pulumi.set(__self__, "placement_group", placement_group)
+        if placement_partition_number is not None:
+            pulumi.set(__self__, "placement_partition_number", placement_partition_number)
         if private_ip is not None:
             pulumi.set(__self__, "private_ip", private_ip)
         if root_block_device is not None:
@@ -582,6 +586,18 @@ class SpotInstanceRequestArgs:
         pulumi.set(self, "placement_group", value)
 
     @property
+    @pulumi.getter(name="placementPartitionNumber")
+    def placement_partition_number(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of the partition the instance is in. Valid only if the `ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
+        """
+        return pulumi.get(self, "placement_partition_number")
+
+    @placement_partition_number.setter
+    def placement_partition_number(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "placement_partition_number", value)
+
+    @property
     @pulumi.getter(name="privateIp")
     def private_ip(self) -> Optional[pulumi.Input[str]]:
         """
@@ -621,7 +637,7 @@ class SpotInstanceRequestArgs:
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of security group names (EC2-Classic) or IDs (default VPC) to associate with.
+        A list of security group names to associate with.
         """
         return pulumi.get(self, "security_groups")
 
@@ -826,6 +842,7 @@ class _SpotInstanceRequestState:
                  outpost_arn: Optional[pulumi.Input[str]] = None,
                  password_data: Optional[pulumi.Input[str]] = None,
                  placement_group: Optional[pulumi.Input[str]] = None,
+                 placement_partition_number: Optional[pulumi.Input[int]] = None,
                  primary_network_interface_id: Optional[pulumi.Input[str]] = None,
                  private_dns: Optional[pulumi.Input[str]] = None,
                  private_ip: Optional[pulumi.Input[str]] = None,
@@ -887,6 +904,7 @@ class _SpotInstanceRequestState:
         :param pulumi.Input[bool] monitoring: If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
         :param pulumi.Input[Sequence[pulumi.Input['SpotInstanceRequestNetworkInterfaceArgs']]] network_interfaces: Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
         :param pulumi.Input[str] placement_group: Placement Group to start the instance in.
+        :param pulumi.Input[int] placement_partition_number: The number of the partition the instance is in. Valid only if the `ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
         :param pulumi.Input[str] private_dns: The private DNS name assigned to the instance. Can only be
                used inside the Amazon EC2, and only available if you've enabled DNS hostnames
                for your VPC
@@ -896,7 +914,7 @@ class _SpotInstanceRequestState:
         :param pulumi.Input[str] public_ip: The public IP address assigned to the instance, if applicable.
         :param pulumi.Input['SpotInstanceRequestRootBlockDeviceArgs'] root_block_device: Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] secondary_private_ips: A list of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e. referenced in a `network_interface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: A list of security group names (EC2-Classic) or IDs (default VPC) to associate with.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: A list of security group names to associate with.
         :param pulumi.Input[bool] source_dest_check: Controls if traffic is routed to the instance when the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
         :param pulumi.Input[str] spot_bid_status: The current [bid
                status](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html)
@@ -994,6 +1012,8 @@ class _SpotInstanceRequestState:
             pulumi.set(__self__, "password_data", password_data)
         if placement_group is not None:
             pulumi.set(__self__, "placement_group", placement_group)
+        if placement_partition_number is not None:
+            pulumi.set(__self__, "placement_partition_number", placement_partition_number)
         if primary_network_interface_id is not None:
             pulumi.set(__self__, "primary_network_interface_id", primary_network_interface_id)
         if private_dns is not None:
@@ -1446,6 +1466,18 @@ class _SpotInstanceRequestState:
         pulumi.set(self, "placement_group", value)
 
     @property
+    @pulumi.getter(name="placementPartitionNumber")
+    def placement_partition_number(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of the partition the instance is in. Valid only if the `ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
+        """
+        return pulumi.get(self, "placement_partition_number")
+
+    @placement_partition_number.setter
+    def placement_partition_number(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "placement_partition_number", value)
+
+    @property
     @pulumi.getter(name="primaryNetworkInterfaceId")
     def primary_network_interface_id(self) -> Optional[pulumi.Input[str]]:
         return pulumi.get(self, "primary_network_interface_id")
@@ -1533,7 +1565,7 @@ class _SpotInstanceRequestState:
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of security group names (EC2-Classic) or IDs (default VPC) to associate with.
+        A list of security group names to associate with.
         """
         return pulumi.get(self, "security_groups")
 
@@ -1787,6 +1819,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
                  monitoring: Optional[pulumi.Input[bool]] = None,
                  network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpotInstanceRequestNetworkInterfaceArgs']]]]] = None,
                  placement_group: Optional[pulumi.Input[str]] = None,
+                 placement_partition_number: Optional[pulumi.Input[int]] = None,
                  private_ip: Optional[pulumi.Input[str]] = None,
                  root_block_device: Optional[pulumi.Input[pulumi.InputType['SpotInstanceRequestRootBlockDeviceArgs']]] = None,
                  secondary_private_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1881,10 +1914,11 @@ class SpotInstanceRequest(pulumi.CustomResource):
         :param pulumi.Input[bool] monitoring: If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpotInstanceRequestNetworkInterfaceArgs']]]] network_interfaces: Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
         :param pulumi.Input[str] placement_group: Placement Group to start the instance in.
+        :param pulumi.Input[int] placement_partition_number: The number of the partition the instance is in. Valid only if the `ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
         :param pulumi.Input[str] private_ip: Private IP address to associate with the instance in a VPC.
         :param pulumi.Input[pulumi.InputType['SpotInstanceRequestRootBlockDeviceArgs']] root_block_device: Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] secondary_private_ips: A list of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e. referenced in a `network_interface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: A list of security group names (EC2-Classic) or IDs (default VPC) to associate with.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: A list of security group names to associate with.
         :param pulumi.Input[bool] source_dest_check: Controls if traffic is routed to the instance when the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
         :param pulumi.Input[str] spot_price: The maximum price to request on the spot market.
         :param pulumi.Input[str] spot_type: If set to `one-time`, after
@@ -1993,6 +2027,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
                  monitoring: Optional[pulumi.Input[bool]] = None,
                  network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpotInstanceRequestNetworkInterfaceArgs']]]]] = None,
                  placement_group: Optional[pulumi.Input[str]] = None,
+                 placement_partition_number: Optional[pulumi.Input[int]] = None,
                  private_ip: Optional[pulumi.Input[str]] = None,
                  root_block_device: Optional[pulumi.Input[pulumi.InputType['SpotInstanceRequestRootBlockDeviceArgs']]] = None,
                  secondary_private_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -2055,6 +2090,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
             __props__.__dict__["monitoring"] = monitoring
             __props__.__dict__["network_interfaces"] = network_interfaces
             __props__.__dict__["placement_group"] = placement_group
+            __props__.__dict__["placement_partition_number"] = placement_partition_number
             __props__.__dict__["private_ip"] = private_ip
             __props__.__dict__["root_block_device"] = root_block_device
             __props__.__dict__["secondary_private_ips"] = secondary_private_ips
@@ -2128,6 +2164,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
             outpost_arn: Optional[pulumi.Input[str]] = None,
             password_data: Optional[pulumi.Input[str]] = None,
             placement_group: Optional[pulumi.Input[str]] = None,
+            placement_partition_number: Optional[pulumi.Input[int]] = None,
             primary_network_interface_id: Optional[pulumi.Input[str]] = None,
             private_dns: Optional[pulumi.Input[str]] = None,
             private_ip: Optional[pulumi.Input[str]] = None,
@@ -2194,6 +2231,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
         :param pulumi.Input[bool] monitoring: If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpotInstanceRequestNetworkInterfaceArgs']]]] network_interfaces: Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
         :param pulumi.Input[str] placement_group: Placement Group to start the instance in.
+        :param pulumi.Input[int] placement_partition_number: The number of the partition the instance is in. Valid only if the `ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
         :param pulumi.Input[str] private_dns: The private DNS name assigned to the instance. Can only be
                used inside the Amazon EC2, and only available if you've enabled DNS hostnames
                for your VPC
@@ -2203,7 +2241,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
         :param pulumi.Input[str] public_ip: The public IP address assigned to the instance, if applicable.
         :param pulumi.Input[pulumi.InputType['SpotInstanceRequestRootBlockDeviceArgs']] root_block_device: Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] secondary_private_ips: A list of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e. referenced in a `network_interface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: A list of security group names (EC2-Classic) or IDs (default VPC) to associate with.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: A list of security group names to associate with.
         :param pulumi.Input[bool] source_dest_check: Controls if traffic is routed to the instance when the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
         :param pulumi.Input[str] spot_bid_status: The current [bid
                status](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html)
@@ -2268,6 +2306,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
         __props__.__dict__["outpost_arn"] = outpost_arn
         __props__.__dict__["password_data"] = password_data
         __props__.__dict__["placement_group"] = placement_group
+        __props__.__dict__["placement_partition_number"] = placement_partition_number
         __props__.__dict__["primary_network_interface_id"] = primary_network_interface_id
         __props__.__dict__["private_dns"] = private_dns
         __props__.__dict__["private_ip"] = private_ip
@@ -2560,6 +2599,14 @@ class SpotInstanceRequest(pulumi.CustomResource):
         return pulumi.get(self, "placement_group")
 
     @property
+    @pulumi.getter(name="placementPartitionNumber")
+    def placement_partition_number(self) -> pulumi.Output[int]:
+        """
+        The number of the partition the instance is in. Valid only if the `ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
+        """
+        return pulumi.get(self, "placement_partition_number")
+
+    @property
     @pulumi.getter(name="primaryNetworkInterfaceId")
     def primary_network_interface_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "primary_network_interface_id")
@@ -2619,7 +2666,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> pulumi.Output[Sequence[str]]:
         """
-        A list of security group names (EC2-Classic) or IDs (default VPC) to associate with.
+        A list of security group names to associate with.
         """
         return pulumi.get(self, "security_groups")
 

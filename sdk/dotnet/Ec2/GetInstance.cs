@@ -228,6 +228,10 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string PlacementGroup;
         /// <summary>
+        /// The number of the partition the instance is in.
+        /// </summary>
+        public readonly int PlacementPartitionNumber;
+        /// <summary>
         /// The private DNS name assigned to the Instance. Can only be
         /// used inside the Amazon EC2, and only available if you've enabled DNS hostnames
         /// for your VPC.
@@ -345,6 +349,8 @@ namespace Pulumi.Aws.Ec2
 
             string placementGroup,
 
+            int placementPartitionNumber,
+
             string privateDns,
 
             string privateIp,
@@ -401,6 +407,7 @@ namespace Pulumi.Aws.Ec2
             OutpostArn = outpostArn;
             PasswordData = passwordData;
             PlacementGroup = placementGroup;
+            PlacementPartitionNumber = placementPartitionNumber;
             PrivateDns = privateDns;
             PrivateIp = privateIp;
             PublicDns = publicDns;

@@ -49,6 +49,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Model{}
 	case "aws:sagemaker/modelPackageGroup:ModelPackageGroup":
 		r = &ModelPackageGroup{}
+	case "aws:sagemaker/modelPackageGroupPolicy:ModelPackageGroupPolicy":
+		r = &ModelPackageGroupPolicy{}
 	case "aws:sagemaker/notebookInstance:NotebookInstance":
 		r = &NotebookInstance{}
 	case "aws:sagemaker/notebookInstanceLifecycleConfiguration:NotebookInstanceLifecycleConfiguration":
@@ -142,6 +144,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"sagemaker/modelPackageGroup",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"sagemaker/modelPackageGroupPolicy",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

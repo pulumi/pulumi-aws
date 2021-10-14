@@ -194,6 +194,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly dbClusterParameterGroupName!: pulumi.Output<string>;
     /**
+     * Instance parameter group to associate with all instances of the DB cluster. The `dbInstanceParameterGroupName` parameter is only valid in combination with the `allowMajorVersionUpgrade` parameter.
+     */
+    public readonly dbInstanceParameterGroupName!: pulumi.Output<string | undefined>;
+    /**
      * A DB subnet group to associate with this DB instance. **NOTE:** This must match the `dbSubnetGroupName` specified on every `aws.rds.ClusterInstance` in the cluster.
      */
     public readonly dbSubnetGroupName!: pulumi.Output<string>;
@@ -201,6 +205,10 @@ export class Cluster extends pulumi.CustomResource {
      * If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
      */
     public readonly deletionProtection!: pulumi.Output<boolean | undefined>;
+    /**
+     * Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `aws.rds.GlobalCluster`'s primary cluster. See the [Aurora Userguide documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
+     */
+    public readonly enableGlobalWriteForwarding!: pulumi.Output<boolean | undefined>;
     /**
      * Enable HTTP endpoint (data API). Only valid when `engineMode` is set to `serverless`.
      */
@@ -346,8 +354,10 @@ export class Cluster extends pulumi.CustomResource {
             inputs["copyTagsToSnapshot"] = state ? state.copyTagsToSnapshot : undefined;
             inputs["databaseName"] = state ? state.databaseName : undefined;
             inputs["dbClusterParameterGroupName"] = state ? state.dbClusterParameterGroupName : undefined;
+            inputs["dbInstanceParameterGroupName"] = state ? state.dbInstanceParameterGroupName : undefined;
             inputs["dbSubnetGroupName"] = state ? state.dbSubnetGroupName : undefined;
             inputs["deletionProtection"] = state ? state.deletionProtection : undefined;
+            inputs["enableGlobalWriteForwarding"] = state ? state.enableGlobalWriteForwarding : undefined;
             inputs["enableHttpEndpoint"] = state ? state.enableHttpEndpoint : undefined;
             inputs["enabledCloudwatchLogsExports"] = state ? state.enabledCloudwatchLogsExports : undefined;
             inputs["endpoint"] = state ? state.endpoint : undefined;
@@ -391,8 +401,10 @@ export class Cluster extends pulumi.CustomResource {
             inputs["copyTagsToSnapshot"] = args ? args.copyTagsToSnapshot : undefined;
             inputs["databaseName"] = args ? args.databaseName : undefined;
             inputs["dbClusterParameterGroupName"] = args ? args.dbClusterParameterGroupName : undefined;
+            inputs["dbInstanceParameterGroupName"] = args ? args.dbInstanceParameterGroupName : undefined;
             inputs["dbSubnetGroupName"] = args ? args.dbSubnetGroupName : undefined;
             inputs["deletionProtection"] = args ? args.deletionProtection : undefined;
+            inputs["enableGlobalWriteForwarding"] = args ? args.enableGlobalWriteForwarding : undefined;
             inputs["enableHttpEndpoint"] = args ? args.enableHttpEndpoint : undefined;
             inputs["enabledCloudwatchLogsExports"] = args ? args.enabledCloudwatchLogsExports : undefined;
             inputs["engine"] = args ? args.engine : undefined;
@@ -490,6 +502,10 @@ export interface ClusterState {
      */
     dbClusterParameterGroupName?: pulumi.Input<string>;
     /**
+     * Instance parameter group to associate with all instances of the DB cluster. The `dbInstanceParameterGroupName` parameter is only valid in combination with the `allowMajorVersionUpgrade` parameter.
+     */
+    dbInstanceParameterGroupName?: pulumi.Input<string>;
+    /**
      * A DB subnet group to associate with this DB instance. **NOTE:** This must match the `dbSubnetGroupName` specified on every `aws.rds.ClusterInstance` in the cluster.
      */
     dbSubnetGroupName?: pulumi.Input<string>;
@@ -497,6 +513,10 @@ export interface ClusterState {
      * If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
      */
     deletionProtection?: pulumi.Input<boolean>;
+    /**
+     * Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `aws.rds.GlobalCluster`'s primary cluster. See the [Aurora Userguide documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
+     */
+    enableGlobalWriteForwarding?: pulumi.Input<boolean>;
     /**
      * Enable HTTP endpoint (data API). Only valid when `engineMode` is set to `serverless`.
      */
@@ -666,6 +686,10 @@ export interface ClusterArgs {
      */
     dbClusterParameterGroupName?: pulumi.Input<string>;
     /**
+     * Instance parameter group to associate with all instances of the DB cluster. The `dbInstanceParameterGroupName` parameter is only valid in combination with the `allowMajorVersionUpgrade` parameter.
+     */
+    dbInstanceParameterGroupName?: pulumi.Input<string>;
+    /**
      * A DB subnet group to associate with this DB instance. **NOTE:** This must match the `dbSubnetGroupName` specified on every `aws.rds.ClusterInstance` in the cluster.
      */
     dbSubnetGroupName?: pulumi.Input<string>;
@@ -673,6 +697,10 @@ export interface ClusterArgs {
      * If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
      */
     deletionProtection?: pulumi.Input<boolean>;
+    /**
+     * Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `aws.rds.GlobalCluster`'s primary cluster. See the [Aurora Userguide documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
+     */
+    enableGlobalWriteForwarding?: pulumi.Input<boolean>;
     /**
      * Enable HTTP endpoint (data API). Only valid when `engineMode` is set to `serverless`.
      */

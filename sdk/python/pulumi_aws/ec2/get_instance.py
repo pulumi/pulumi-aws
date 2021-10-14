@@ -22,7 +22,7 @@ class GetInstanceResult:
     """
     A collection of values returned by getInstance.
     """
-    def __init__(__self__, ami=None, arn=None, associate_public_ip_address=None, availability_zone=None, credit_specifications=None, disable_api_termination=None, ebs_block_devices=None, ebs_optimized=None, enclave_options=None, ephemeral_block_devices=None, filters=None, get_password_data=None, get_user_data=None, host_id=None, iam_instance_profile=None, id=None, instance_id=None, instance_state=None, instance_tags=None, instance_type=None, ipv6_addresses=None, key_name=None, metadata_options=None, monitoring=None, network_interface_id=None, outpost_arn=None, password_data=None, placement_group=None, private_dns=None, private_ip=None, public_dns=None, public_ip=None, root_block_devices=None, secondary_private_ips=None, security_groups=None, source_dest_check=None, subnet_id=None, tags=None, tenancy=None, user_data=None, user_data_base64=None, vpc_security_group_ids=None):
+    def __init__(__self__, ami=None, arn=None, associate_public_ip_address=None, availability_zone=None, credit_specifications=None, disable_api_termination=None, ebs_block_devices=None, ebs_optimized=None, enclave_options=None, ephemeral_block_devices=None, filters=None, get_password_data=None, get_user_data=None, host_id=None, iam_instance_profile=None, id=None, instance_id=None, instance_state=None, instance_tags=None, instance_type=None, ipv6_addresses=None, key_name=None, metadata_options=None, monitoring=None, network_interface_id=None, outpost_arn=None, password_data=None, placement_group=None, placement_partition_number=None, private_dns=None, private_ip=None, public_dns=None, public_ip=None, root_block_devices=None, secondary_private_ips=None, security_groups=None, source_dest_check=None, subnet_id=None, tags=None, tenancy=None, user_data=None, user_data_base64=None, vpc_security_group_ids=None):
         if ami and not isinstance(ami, str):
             raise TypeError("Expected argument 'ami' to be a str")
         pulumi.set(__self__, "ami", ami)
@@ -107,6 +107,9 @@ class GetInstanceResult:
         if placement_group and not isinstance(placement_group, str):
             raise TypeError("Expected argument 'placement_group' to be a str")
         pulumi.set(__self__, "placement_group", placement_group)
+        if placement_partition_number and not isinstance(placement_partition_number, int):
+            raise TypeError("Expected argument 'placement_partition_number' to be a int")
+        pulumi.set(__self__, "placement_partition_number", placement_partition_number)
         if private_dns and not isinstance(private_dns, str):
             raise TypeError("Expected argument 'private_dns' to be a str")
         pulumi.set(__self__, "private_dns", private_dns)
@@ -360,6 +363,14 @@ class GetInstanceResult:
         return pulumi.get(self, "placement_group")
 
     @property
+    @pulumi.getter(name="placementPartitionNumber")
+    def placement_partition_number(self) -> int:
+        """
+        The number of the partition the instance is in.
+        """
+        return pulumi.get(self, "placement_partition_number")
+
+    @property
     @pulumi.getter(name="privateDns")
     def private_dns(self) -> str:
         """
@@ -509,6 +520,7 @@ class AwaitableGetInstanceResult(GetInstanceResult):
             outpost_arn=self.outpost_arn,
             password_data=self.password_data,
             placement_group=self.placement_group,
+            placement_partition_number=self.placement_partition_number,
             private_dns=self.private_dns,
             private_ip=self.private_ip,
             public_dns=self.public_dns,
@@ -608,6 +620,7 @@ def get_instance(filters: Optional[Sequence[pulumi.InputType['GetInstanceFilterA
         outpost_arn=__ret__.outpost_arn,
         password_data=__ret__.password_data,
         placement_group=__ret__.placement_group,
+        placement_partition_number=__ret__.placement_partition_number,
         private_dns=__ret__.private_dns,
         private_ip=__ret__.private_ip,
         public_dns=__ret__.public_dns,

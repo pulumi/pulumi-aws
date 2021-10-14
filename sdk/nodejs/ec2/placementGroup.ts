@@ -65,6 +65,12 @@ export class PlacementGroup extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
+     * The number of partitions to create in the
+     * placement group.  Can only be specified when the `strategy` is set to
+     * `"partition"`.  Valid values are 1 - 7 (default is `2`).
+     */
+    public readonly partitionCount!: pulumi.Output<number | undefined>;
+    /**
      * The ID of the placement group.
      */
     public /*out*/ readonly placementGroupId!: pulumi.Output<string>;
@@ -96,6 +102,7 @@ export class PlacementGroup extends pulumi.CustomResource {
             const state = argsOrState as PlacementGroupState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["name"] = state ? state.name : undefined;
+            inputs["partitionCount"] = state ? state.partitionCount : undefined;
             inputs["placementGroupId"] = state ? state.placementGroupId : undefined;
             inputs["strategy"] = state ? state.strategy : undefined;
             inputs["tags"] = state ? state.tags : undefined;
@@ -106,6 +113,7 @@ export class PlacementGroup extends pulumi.CustomResource {
                 throw new Error("Missing required property 'strategy'");
             }
             inputs["name"] = args ? args.name : undefined;
+            inputs["partitionCount"] = args ? args.partitionCount : undefined;
             inputs["strategy"] = args ? args.strategy : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
@@ -132,6 +140,12 @@ export interface PlacementGroupState {
      */
     name?: pulumi.Input<string>;
     /**
+     * The number of partitions to create in the
+     * placement group.  Can only be specified when the `strategy` is set to
+     * `"partition"`.  Valid values are 1 - 7 (default is `2`).
+     */
+    partitionCount?: pulumi.Input<number>;
+    /**
      * The ID of the placement group.
      */
     placementGroupId?: pulumi.Input<string>;
@@ -157,6 +171,12 @@ export interface PlacementGroupArgs {
      * The name of the placement group.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The number of partitions to create in the
+     * placement group.  Can only be specified when the `strategy` is set to
+     * `"partition"`.  Valid values are 1 - 7 (default is `2`).
+     */
+    partitionCount?: pulumi.Input<number>;
     /**
      * The placement strategy. Can be `"cluster"`, `"partition"` or `"spread"`.
      */

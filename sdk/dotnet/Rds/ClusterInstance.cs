@@ -155,7 +155,7 @@ namespace Pulumi.Aws.Rds
         public Output<string?> Engine { get; private set; } = null!;
 
         /// <summary>
-        /// The database engine version. When managing the engine version in the cluster, it is recommended to add the `ignore_changes` for this argument to prevent the provider from proposing changes to the instance engine version directly.
+        /// The database engine version.
         /// </summary>
         [Output("engineVersion")]
         public Output<string> EngineVersion { get; private set; } = null!;
@@ -212,10 +212,16 @@ namespace Pulumi.Aws.Rds
         public Output<bool> PerformanceInsightsEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN for the KMS key to encrypt Performance Insights data. When specifying `performance_insights_kms_key_id`, `performance_insights_enabled` needs to be set to true.
+        /// ARN for the KMS key to encrypt Performance Insights data. When specifying `performance_insights_kms_key_id`, `performance_insights_enabled` needs to be set to true.
         /// </summary>
         [Output("performanceInsightsKmsKeyId")]
         public Output<string> PerformanceInsightsKmsKeyId { get; private set; } = null!;
+
+        /// <summary>
+        /// Amount of time in days to retain Performance Insights data. Either 7 (7 days) or 731 (2 years). When specifying `performance_insights_retention_period`, `performance_insights_enabled` needs to be set to true. Defaults to '7'.
+        /// </summary>
+        [Output("performanceInsightsRetentionPeriod")]
+        public Output<int> PerformanceInsightsRetentionPeriod { get; private set; } = null!;
 
         /// <summary>
         /// The database port
@@ -380,7 +386,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? Engine { get; set; }
 
         /// <summary>
-        /// The database engine version. When managing the engine version in the cluster, it is recommended to add the `ignore_changes` for this argument to prevent the provider from proposing changes to the instance engine version directly.
+        /// The database engine version.
         /// </summary>
         [Input("engineVersion")]
         public Input<string>? EngineVersion { get; set; }
@@ -425,10 +431,16 @@ namespace Pulumi.Aws.Rds
         public Input<bool>? PerformanceInsightsEnabled { get; set; }
 
         /// <summary>
-        /// The ARN for the KMS key to encrypt Performance Insights data. When specifying `performance_insights_kms_key_id`, `performance_insights_enabled` needs to be set to true.
+        /// ARN for the KMS key to encrypt Performance Insights data. When specifying `performance_insights_kms_key_id`, `performance_insights_enabled` needs to be set to true.
         /// </summary>
         [Input("performanceInsightsKmsKeyId")]
         public Input<string>? PerformanceInsightsKmsKeyId { get; set; }
+
+        /// <summary>
+        /// Amount of time in days to retain Performance Insights data. Either 7 (7 days) or 731 (2 years). When specifying `performance_insights_retention_period`, `performance_insights_enabled` needs to be set to true. Defaults to '7'.
+        /// </summary>
+        [Input("performanceInsightsRetentionPeriod")]
+        public Input<int>? PerformanceInsightsRetentionPeriod { get; set; }
 
         /// <summary>
         /// The daily time range during which automated backups are created if automated backups are enabled.
@@ -554,7 +566,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? Engine { get; set; }
 
         /// <summary>
-        /// The database engine version. When managing the engine version in the cluster, it is recommended to add the `ignore_changes` for this argument to prevent the provider from proposing changes to the instance engine version directly.
+        /// The database engine version.
         /// </summary>
         [Input("engineVersion")]
         public Input<string>? EngineVersion { get; set; }
@@ -611,10 +623,16 @@ namespace Pulumi.Aws.Rds
         public Input<bool>? PerformanceInsightsEnabled { get; set; }
 
         /// <summary>
-        /// The ARN for the KMS key to encrypt Performance Insights data. When specifying `performance_insights_kms_key_id`, `performance_insights_enabled` needs to be set to true.
+        /// ARN for the KMS key to encrypt Performance Insights data. When specifying `performance_insights_kms_key_id`, `performance_insights_enabled` needs to be set to true.
         /// </summary>
         [Input("performanceInsightsKmsKeyId")]
         public Input<string>? PerformanceInsightsKmsKeyId { get; set; }
+
+        /// <summary>
+        /// Amount of time in days to retain Performance Insights data. Either 7 (7 days) or 731 (2 years). When specifying `performance_insights_retention_period`, `performance_insights_enabled` needs to be set to true. Defaults to '7'.
+        /// </summary>
+        [Input("performanceInsightsRetentionPeriod")]
+        public Input<int>? PerformanceInsightsRetentionPeriod { get; set; }
 
         /// <summary>
         /// The database port

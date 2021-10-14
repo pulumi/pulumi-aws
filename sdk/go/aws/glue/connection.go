@@ -103,6 +103,10 @@ type Connection struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A map of physical connection requirements, such as VPC and SecurityGroup. Defined below.
 	PhysicalConnectionRequirements ConnectionPhysicalConnectionRequirementsPtrOutput `pulumi:"physicalConnectionRequirements"`
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewConnection registers a new resource with the given unique name, arguments, and options.
@@ -150,6 +154,10 @@ type connectionState struct {
 	Name *string `pulumi:"name"`
 	// A map of physical connection requirements, such as VPC and SecurityGroup. Defined below.
 	PhysicalConnectionRequirements *ConnectionPhysicalConnectionRequirements `pulumi:"physicalConnectionRequirements"`
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type ConnectionState struct {
@@ -169,6 +177,10 @@ type ConnectionState struct {
 	Name pulumi.StringPtrInput
 	// A map of physical connection requirements, such as VPC and SecurityGroup. Defined below.
 	PhysicalConnectionRequirements ConnectionPhysicalConnectionRequirementsPtrInput
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	TagsAll pulumi.StringMapInput
 }
 
 func (ConnectionState) ElementType() reflect.Type {
@@ -190,6 +202,10 @@ type connectionArgs struct {
 	Name *string `pulumi:"name"`
 	// A map of physical connection requirements, such as VPC and SecurityGroup. Defined below.
 	PhysicalConnectionRequirements *ConnectionPhysicalConnectionRequirements `pulumi:"physicalConnectionRequirements"`
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a Connection resource.
@@ -208,6 +224,10 @@ type ConnectionArgs struct {
 	Name pulumi.StringPtrInput
 	// A map of physical connection requirements, such as VPC and SecurityGroup. Defined below.
 	PhysicalConnectionRequirements ConnectionPhysicalConnectionRequirementsPtrInput
+	// Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	TagsAll pulumi.StringMapInput
 }
 
 func (ConnectionArgs) ElementType() reflect.Type {

@@ -1494,6 +1494,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "chime/voiceConnectorTerminationCredentials",
+  "fqn": "pulumi_aws.chime",
+  "classes": {
+   "aws:chime/voiceConnectorTerminationCredentials:VoiceConnectorTerminationCredentials": "VoiceConnectorTerminationCredentials"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "cloud9/environmentEC2",
   "fqn": "pulumi_aws.cloud9",
   "classes": {
@@ -3894,6 +3902,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "glue/partitionIndex",
+  "fqn": "pulumi_aws.glue",
+  "classes": {
+   "aws:glue/partitionIndex:PartitionIndex": "PartitionIndex"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "glue/registry",
   "fqn": "pulumi_aws.glue",
   "classes": {
@@ -5962,6 +5978,14 @@ _utilities.register(
   "fqn": "pulumi_aws.sagemaker",
   "classes": {
    "aws:sagemaker/modelPackageGroup:ModelPackageGroup": "ModelPackageGroup"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "sagemaker/modelPackageGroupPolicy",
+  "fqn": "pulumi_aws.sagemaker",
+  "classes": {
+   "aws:sagemaker/modelPackageGroupPolicy:ModelPackageGroupPolicy": "ModelPackageGroupPolicy"
   }
  },
  {

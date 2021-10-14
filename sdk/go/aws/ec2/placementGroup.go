@@ -51,6 +51,10 @@ type PlacementGroup struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The name of the placement group.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The number of partitions to create in the
+	// placement group.  Can only be specified when the `strategy` is set to
+	// `"partition"`.  Valid values are 1 - 7 (default is `2`).
+	PartitionCount pulumi.IntPtrOutput `pulumi:"partitionCount"`
 	// The ID of the placement group.
 	PlacementGroupId pulumi.StringOutput `pulumi:"placementGroupId"`
 	// The placement strategy. Can be `"cluster"`, `"partition"` or `"spread"`.
@@ -97,6 +101,10 @@ type placementGroupState struct {
 	Arn *string `pulumi:"arn"`
 	// The name of the placement group.
 	Name *string `pulumi:"name"`
+	// The number of partitions to create in the
+	// placement group.  Can only be specified when the `strategy` is set to
+	// `"partition"`.  Valid values are 1 - 7 (default is `2`).
+	PartitionCount *int `pulumi:"partitionCount"`
 	// The ID of the placement group.
 	PlacementGroupId *string `pulumi:"placementGroupId"`
 	// The placement strategy. Can be `"cluster"`, `"partition"` or `"spread"`.
@@ -112,6 +120,10 @@ type PlacementGroupState struct {
 	Arn pulumi.StringPtrInput
 	// The name of the placement group.
 	Name pulumi.StringPtrInput
+	// The number of partitions to create in the
+	// placement group.  Can only be specified when the `strategy` is set to
+	// `"partition"`.  Valid values are 1 - 7 (default is `2`).
+	PartitionCount pulumi.IntPtrInput
 	// The ID of the placement group.
 	PlacementGroupId pulumi.StringPtrInput
 	// The placement strategy. Can be `"cluster"`, `"partition"` or `"spread"`.
@@ -129,6 +141,10 @@ func (PlacementGroupState) ElementType() reflect.Type {
 type placementGroupArgs struct {
 	// The name of the placement group.
 	Name *string `pulumi:"name"`
+	// The number of partitions to create in the
+	// placement group.  Can only be specified when the `strategy` is set to
+	// `"partition"`.  Valid values are 1 - 7 (default is `2`).
+	PartitionCount *int `pulumi:"partitionCount"`
 	// The placement strategy. Can be `"cluster"`, `"partition"` or `"spread"`.
 	Strategy string `pulumi:"strategy"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -139,6 +155,10 @@ type placementGroupArgs struct {
 type PlacementGroupArgs struct {
 	// The name of the placement group.
 	Name pulumi.StringPtrInput
+	// The number of partitions to create in the
+	// placement group.  Can only be specified when the `strategy` is set to
+	// `"partition"`.  Valid values are 1 - 7 (default is `2`).
+	PartitionCount pulumi.IntPtrInput
 	// The placement strategy. Can be `"cluster"`, `"partition"` or `"spread"`.
 	Strategy pulumi.StringInput
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

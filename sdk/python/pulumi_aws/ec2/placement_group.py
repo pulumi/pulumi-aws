@@ -16,16 +16,22 @@ class PlacementGroupArgs:
     def __init__(__self__, *,
                  strategy: pulumi.Input[Union[str, 'PlacementStrategy']],
                  name: Optional[pulumi.Input[str]] = None,
+                 partition_count: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a PlacementGroup resource.
         :param pulumi.Input[Union[str, 'PlacementStrategy']] strategy: The placement strategy. Can be `"cluster"`, `"partition"` or `"spread"`.
         :param pulumi.Input[str] name: The name of the placement group.
+        :param pulumi.Input[int] partition_count: The number of partitions to create in the
+               placement group.  Can only be specified when the `strategy` is set to
+               `"partition"`.  Valid values are 1 - 7 (default is `2`).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "strategy", strategy)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if partition_count is not None:
+            pulumi.set(__self__, "partition_count", partition_count)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -54,6 +60,20 @@ class PlacementGroupArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="partitionCount")
+    def partition_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of partitions to create in the
+        placement group.  Can only be specified when the `strategy` is set to
+        `"partition"`.  Valid values are 1 - 7 (default is `2`).
+        """
+        return pulumi.get(self, "partition_count")
+
+    @partition_count.setter
+    def partition_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "partition_count", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -71,6 +91,7 @@ class _PlacementGroupState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 partition_count: Optional[pulumi.Input[int]] = None,
                  placement_group_id: Optional[pulumi.Input[str]] = None,
                  strategy: Optional[pulumi.Input[Union[str, 'PlacementStrategy']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -79,6 +100,9 @@ class _PlacementGroupState:
         Input properties used for looking up and filtering PlacementGroup resources.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the placement group.
         :param pulumi.Input[str] name: The name of the placement group.
+        :param pulumi.Input[int] partition_count: The number of partitions to create in the
+               placement group.  Can only be specified when the `strategy` is set to
+               `"partition"`.  Valid values are 1 - 7 (default is `2`).
         :param pulumi.Input[str] placement_group_id: The ID of the placement group.
         :param pulumi.Input[Union[str, 'PlacementStrategy']] strategy: The placement strategy. Can be `"cluster"`, `"partition"` or `"spread"`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -88,6 +112,8 @@ class _PlacementGroupState:
             pulumi.set(__self__, "arn", arn)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if partition_count is not None:
+            pulumi.set(__self__, "partition_count", partition_count)
         if placement_group_id is not None:
             pulumi.set(__self__, "placement_group_id", placement_group_id)
         if strategy is not None:
@@ -120,6 +146,20 @@ class _PlacementGroupState:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="partitionCount")
+    def partition_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of partitions to create in the
+        placement group.  Can only be specified when the `strategy` is set to
+        `"partition"`.  Valid values are 1 - 7 (default is `2`).
+        """
+        return pulumi.get(self, "partition_count")
+
+    @partition_count.setter
+    def partition_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "partition_count", value)
 
     @property
     @pulumi.getter(name="placementGroupId")
@@ -176,6 +216,7 @@ class PlacementGroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 partition_count: Optional[pulumi.Input[int]] = None,
                  strategy: Optional[pulumi.Input[Union[str, 'PlacementStrategy']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -203,6 +244,9 @@ class PlacementGroup(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the placement group.
+        :param pulumi.Input[int] partition_count: The number of partitions to create in the
+               placement group.  Can only be specified when the `strategy` is set to
+               `"partition"`.  Valid values are 1 - 7 (default is `2`).
         :param pulumi.Input[Union[str, 'PlacementStrategy']] strategy: The placement strategy. Can be `"cluster"`, `"partition"` or `"spread"`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -249,6 +293,7 @@ class PlacementGroup(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 partition_count: Optional[pulumi.Input[int]] = None,
                  strategy: Optional[pulumi.Input[Union[str, 'PlacementStrategy']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -264,6 +309,7 @@ class PlacementGroup(pulumi.CustomResource):
             __props__ = PlacementGroupArgs.__new__(PlacementGroupArgs)
 
             __props__.__dict__["name"] = name
+            __props__.__dict__["partition_count"] = partition_count
             if strategy is None and not opts.urn:
                 raise TypeError("Missing required property 'strategy'")
             __props__.__dict__["strategy"] = strategy
@@ -283,6 +329,7 @@ class PlacementGroup(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            partition_count: Optional[pulumi.Input[int]] = None,
             placement_group_id: Optional[pulumi.Input[str]] = None,
             strategy: Optional[pulumi.Input[Union[str, 'PlacementStrategy']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -296,6 +343,9 @@ class PlacementGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the placement group.
         :param pulumi.Input[str] name: The name of the placement group.
+        :param pulumi.Input[int] partition_count: The number of partitions to create in the
+               placement group.  Can only be specified when the `strategy` is set to
+               `"partition"`.  Valid values are 1 - 7 (default is `2`).
         :param pulumi.Input[str] placement_group_id: The ID of the placement group.
         :param pulumi.Input[Union[str, 'PlacementStrategy']] strategy: The placement strategy. Can be `"cluster"`, `"partition"` or `"spread"`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -307,6 +357,7 @@ class PlacementGroup(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = arn
         __props__.__dict__["name"] = name
+        __props__.__dict__["partition_count"] = partition_count
         __props__.__dict__["placement_group_id"] = placement_group_id
         __props__.__dict__["strategy"] = strategy
         __props__.__dict__["tags"] = tags
@@ -328,6 +379,16 @@ class PlacementGroup(pulumi.CustomResource):
         The name of the placement group.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="partitionCount")
+    def partition_count(self) -> pulumi.Output[Optional[int]]:
+        """
+        The number of partitions to create in the
+        placement group.  Can only be specified when the `strategy` is set to
+        `"partition"`.  Valid values are 1 - 7 (default is `2`).
+        """
+        return pulumi.get(self, "partition_count")
 
     @property
     @pulumi.getter(name="placementGroupId")

@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -71,6 +72,24 @@ import * as utilities from "../utilities";
  *     vpcId: aws_vpc.example.id,
  * });
  * ```
+ * ### S3 Logging in Apache Parquet format with per-hour partitions
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleBucket = new aws.s3.Bucket("exampleBucket", {});
+ * const exampleFlowLog = new aws.ec2.FlowLog("exampleFlowLog", {
+ *     logDestination: exampleBucket.arn,
+ *     logDestinationType: "s3",
+ *     trafficType: "ALL",
+ *     vpcId: aws_vpc.example.id,
+ *     destinationOptions: {
+ *         fileFormat: "parquet",
+ *         perHourPartition: true,
+ *     },
+ * });
+ * ```
  *
  * ## Import
  *
@@ -112,6 +131,10 @@ export class FlowLog extends pulumi.CustomResource {
      * The ARN of the Flow Log.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * Describes the destination options for a flow log. More details below.
+     */
+    public readonly destinationOptions!: pulumi.Output<outputs.ec2.FlowLogDestinationOptions | undefined>;
     /**
      * Elastic Network Interface ID to attach to
      */
@@ -180,6 +203,7 @@ export class FlowLog extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as FlowLogState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
+            inputs["destinationOptions"] = state ? state.destinationOptions : undefined;
             inputs["eniId"] = state ? state.eniId : undefined;
             inputs["iamRoleArn"] = state ? state.iamRoleArn : undefined;
             inputs["logDestination"] = state ? state.logDestination : undefined;
@@ -197,6 +221,7 @@ export class FlowLog extends pulumi.CustomResource {
             if ((!args || args.trafficType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'trafficType'");
             }
+            inputs["destinationOptions"] = args ? args.destinationOptions : undefined;
             inputs["eniId"] = args ? args.eniId : undefined;
             inputs["iamRoleArn"] = args ? args.iamRoleArn : undefined;
             inputs["logDestination"] = args ? args.logDestination : undefined;
@@ -226,6 +251,10 @@ export interface FlowLogState {
      * The ARN of the Flow Log.
      */
     arn?: pulumi.Input<string>;
+    /**
+     * Describes the destination options for a flow log. More details below.
+     */
+    destinationOptions?: pulumi.Input<inputs.ec2.FlowLogDestinationOptions>;
     /**
      * Elastic Network Interface ID to attach to
      */
@@ -285,6 +314,10 @@ export interface FlowLogState {
  * The set of arguments for constructing a FlowLog resource.
  */
 export interface FlowLogArgs {
+    /**
+     * Describes the destination options for a flow log. More details below.
+     */
+    destinationOptions?: pulumi.Input<inputs.ec2.FlowLogDestinationOptions>;
     /**
      * Elastic Network Interface ID to attach to
      */

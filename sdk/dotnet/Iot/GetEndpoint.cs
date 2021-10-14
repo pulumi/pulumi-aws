@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Iot
     public sealed class GetEndpointArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Endpoint type. Valid values: `iot:CredentialProvider`, `iot:Data`, `iot:Data-ATS`, `iot:Job`.
+        /// Endpoint type. Valid values: `iot:CredentialProvider`, `iot:Data`, `iot:Data-ATS`, `iot:Jobs`.
         /// </summary>
         [Input("endpointType")]
         public string? EndpointType { get; set; }
@@ -42,7 +42,7 @@ namespace Pulumi.Aws.Iot
         /// * `iot:CredentialsProvider`: `IDENTIFIER.credentials.iot.REGION.amazonaws.com`
         /// * `iot:Data`: `IDENTIFIER.iot.REGION.amazonaws.com`
         /// * `iot:Data-ATS`: `IDENTIFIER-ats.iot.REGION.amazonaws.com`
-        /// * `iot:Job`: `IDENTIFIER.jobs.iot.REGION.amazonaws.com`
+        /// * `iot:Jobs`: `IDENTIFIER.jobs.iot.REGION.amazonaws.com`
         /// </summary>
         public readonly string EndpointAddress;
         public readonly string? EndpointType;
