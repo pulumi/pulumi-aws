@@ -44,6 +44,7 @@ __all__ = [
     'MLTransformParameters',
     'MLTransformParametersFindMatchesParameters',
     'MLTransformSchema',
+    'PartitionIndexPartitionIndex',
     'PartitionStorageDescriptor',
     'PartitionStorageDescriptorColumn',
     'PartitionStorageDescriptorSerDeInfo',
@@ -2073,6 +2074,64 @@ class MLTransformSchema(dict):
         The name you assign to this ML Transform. It must be unique in your account.
         """
         return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class PartitionIndexPartitionIndex(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "indexName":
+            suggest = "index_name"
+        elif key == "indexStatus":
+            suggest = "index_status"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PartitionIndexPartitionIndex. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PartitionIndexPartitionIndex.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PartitionIndexPartitionIndex.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 index_name: Optional[str] = None,
+                 index_status: Optional[str] = None,
+                 keys: Optional[Sequence[str]] = None):
+        """
+        :param str index_name: Name of the partition index.
+        :param Sequence[str] keys: Keys for the partition index.
+        """
+        if index_name is not None:
+            pulumi.set(__self__, "index_name", index_name)
+        if index_status is not None:
+            pulumi.set(__self__, "index_status", index_status)
+        if keys is not None:
+            pulumi.set(__self__, "keys", keys)
+
+    @property
+    @pulumi.getter(name="indexName")
+    def index_name(self) -> Optional[str]:
+        """
+        Name of the partition index.
+        """
+        return pulumi.get(self, "index_name")
+
+    @property
+    @pulumi.getter(name="indexStatus")
+    def index_status(self) -> Optional[str]:
+        return pulumi.get(self, "index_status")
+
+    @property
+    @pulumi.getter
+    def keys(self) -> Optional[Sequence[str]]:
+        """
+        Keys for the partition index.
+        """
+        return pulumi.get(self, "keys")
 
 
 @pulumi.output_type

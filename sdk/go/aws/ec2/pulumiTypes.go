@@ -3010,6 +3010,181 @@ func (o FleetTargetCapacitySpecificationPtrOutput) TotalTargetCapacity() pulumi.
 	}).(pulumi.IntPtrOutput)
 }
 
+type FlowLogDestinationOptions struct {
+	// The format for the flow log. Default value: `plain-text`. Valid values: `plain-text`, `parquet`.
+	FileFormat *string `pulumi:"fileFormat"`
+	// Indicates whether to use Hive-compatible prefixes for flow logs stored in Amazon S3. Default value: `false`.
+	HiveCompatiblePartitions *bool `pulumi:"hiveCompatiblePartitions"`
+	// Indicates whether to partition the flow log per hour. This reduces the cost and response time for queries. Default value: `false`.
+	PerHourPartition *bool `pulumi:"perHourPartition"`
+}
+
+// FlowLogDestinationOptionsInput is an input type that accepts FlowLogDestinationOptionsArgs and FlowLogDestinationOptionsOutput values.
+// You can construct a concrete instance of `FlowLogDestinationOptionsInput` via:
+//
+//          FlowLogDestinationOptionsArgs{...}
+type FlowLogDestinationOptionsInput interface {
+	pulumi.Input
+
+	ToFlowLogDestinationOptionsOutput() FlowLogDestinationOptionsOutput
+	ToFlowLogDestinationOptionsOutputWithContext(context.Context) FlowLogDestinationOptionsOutput
+}
+
+type FlowLogDestinationOptionsArgs struct {
+	// The format for the flow log. Default value: `plain-text`. Valid values: `plain-text`, `parquet`.
+	FileFormat pulumi.StringPtrInput `pulumi:"fileFormat"`
+	// Indicates whether to use Hive-compatible prefixes for flow logs stored in Amazon S3. Default value: `false`.
+	HiveCompatiblePartitions pulumi.BoolPtrInput `pulumi:"hiveCompatiblePartitions"`
+	// Indicates whether to partition the flow log per hour. This reduces the cost and response time for queries. Default value: `false`.
+	PerHourPartition pulumi.BoolPtrInput `pulumi:"perHourPartition"`
+}
+
+func (FlowLogDestinationOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowLogDestinationOptions)(nil)).Elem()
+}
+
+func (i FlowLogDestinationOptionsArgs) ToFlowLogDestinationOptionsOutput() FlowLogDestinationOptionsOutput {
+	return i.ToFlowLogDestinationOptionsOutputWithContext(context.Background())
+}
+
+func (i FlowLogDestinationOptionsArgs) ToFlowLogDestinationOptionsOutputWithContext(ctx context.Context) FlowLogDestinationOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowLogDestinationOptionsOutput)
+}
+
+func (i FlowLogDestinationOptionsArgs) ToFlowLogDestinationOptionsPtrOutput() FlowLogDestinationOptionsPtrOutput {
+	return i.ToFlowLogDestinationOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i FlowLogDestinationOptionsArgs) ToFlowLogDestinationOptionsPtrOutputWithContext(ctx context.Context) FlowLogDestinationOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowLogDestinationOptionsOutput).ToFlowLogDestinationOptionsPtrOutputWithContext(ctx)
+}
+
+// FlowLogDestinationOptionsPtrInput is an input type that accepts FlowLogDestinationOptionsArgs, FlowLogDestinationOptionsPtr and FlowLogDestinationOptionsPtrOutput values.
+// You can construct a concrete instance of `FlowLogDestinationOptionsPtrInput` via:
+//
+//          FlowLogDestinationOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type FlowLogDestinationOptionsPtrInput interface {
+	pulumi.Input
+
+	ToFlowLogDestinationOptionsPtrOutput() FlowLogDestinationOptionsPtrOutput
+	ToFlowLogDestinationOptionsPtrOutputWithContext(context.Context) FlowLogDestinationOptionsPtrOutput
+}
+
+type flowLogDestinationOptionsPtrType FlowLogDestinationOptionsArgs
+
+func FlowLogDestinationOptionsPtr(v *FlowLogDestinationOptionsArgs) FlowLogDestinationOptionsPtrInput {
+	return (*flowLogDestinationOptionsPtrType)(v)
+}
+
+func (*flowLogDestinationOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowLogDestinationOptions)(nil)).Elem()
+}
+
+func (i *flowLogDestinationOptionsPtrType) ToFlowLogDestinationOptionsPtrOutput() FlowLogDestinationOptionsPtrOutput {
+	return i.ToFlowLogDestinationOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *flowLogDestinationOptionsPtrType) ToFlowLogDestinationOptionsPtrOutputWithContext(ctx context.Context) FlowLogDestinationOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FlowLogDestinationOptionsPtrOutput)
+}
+
+type FlowLogDestinationOptionsOutput struct{ *pulumi.OutputState }
+
+func (FlowLogDestinationOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FlowLogDestinationOptions)(nil)).Elem()
+}
+
+func (o FlowLogDestinationOptionsOutput) ToFlowLogDestinationOptionsOutput() FlowLogDestinationOptionsOutput {
+	return o
+}
+
+func (o FlowLogDestinationOptionsOutput) ToFlowLogDestinationOptionsOutputWithContext(ctx context.Context) FlowLogDestinationOptionsOutput {
+	return o
+}
+
+func (o FlowLogDestinationOptionsOutput) ToFlowLogDestinationOptionsPtrOutput() FlowLogDestinationOptionsPtrOutput {
+	return o.ToFlowLogDestinationOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o FlowLogDestinationOptionsOutput) ToFlowLogDestinationOptionsPtrOutputWithContext(ctx context.Context) FlowLogDestinationOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowLogDestinationOptions) *FlowLogDestinationOptions {
+		return &v
+	}).(FlowLogDestinationOptionsPtrOutput)
+}
+
+// The format for the flow log. Default value: `plain-text`. Valid values: `plain-text`, `parquet`.
+func (o FlowLogDestinationOptionsOutput) FileFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FlowLogDestinationOptions) *string { return v.FileFormat }).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether to use Hive-compatible prefixes for flow logs stored in Amazon S3. Default value: `false`.
+func (o FlowLogDestinationOptionsOutput) HiveCompatiblePartitions() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FlowLogDestinationOptions) *bool { return v.HiveCompatiblePartitions }).(pulumi.BoolPtrOutput)
+}
+
+// Indicates whether to partition the flow log per hour. This reduces the cost and response time for queries. Default value: `false`.
+func (o FlowLogDestinationOptionsOutput) PerHourPartition() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FlowLogDestinationOptions) *bool { return v.PerHourPartition }).(pulumi.BoolPtrOutput)
+}
+
+type FlowLogDestinationOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (FlowLogDestinationOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FlowLogDestinationOptions)(nil)).Elem()
+}
+
+func (o FlowLogDestinationOptionsPtrOutput) ToFlowLogDestinationOptionsPtrOutput() FlowLogDestinationOptionsPtrOutput {
+	return o
+}
+
+func (o FlowLogDestinationOptionsPtrOutput) ToFlowLogDestinationOptionsPtrOutputWithContext(ctx context.Context) FlowLogDestinationOptionsPtrOutput {
+	return o
+}
+
+func (o FlowLogDestinationOptionsPtrOutput) Elem() FlowLogDestinationOptionsOutput {
+	return o.ApplyT(func(v *FlowLogDestinationOptions) FlowLogDestinationOptions {
+		if v != nil {
+			return *v
+		}
+		var ret FlowLogDestinationOptions
+		return ret
+	}).(FlowLogDestinationOptionsOutput)
+}
+
+// The format for the flow log. Default value: `plain-text`. Valid values: `plain-text`, `parquet`.
+func (o FlowLogDestinationOptionsPtrOutput) FileFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FlowLogDestinationOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FileFormat
+	}).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether to use Hive-compatible prefixes for flow logs stored in Amazon S3. Default value: `false`.
+func (o FlowLogDestinationOptionsPtrOutput) HiveCompatiblePartitions() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FlowLogDestinationOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.HiveCompatiblePartitions
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Indicates whether to partition the flow log per hour. This reduces the cost and response time for queries. Default value: `false`.
+func (o FlowLogDestinationOptionsPtrOutput) PerHourPartition() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FlowLogDestinationOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PerHourPartition
+	}).(pulumi.BoolPtrOutput)
+}
+
 type InstanceCapacityReservationSpecification struct {
 	// Indicates the instance's Capacity Reservation preferences. Can be `"open"` or `"none"`. (Default: `"open"`).
 	CapacityReservationPreference *string `pulumi:"capacityReservationPreference"`
@@ -23690,6 +23865,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetSpotOptionsMaintenanceStrategiesCapacityRebalancePtrInput)(nil)).Elem(), FleetSpotOptionsMaintenanceStrategiesCapacityRebalanceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetTargetCapacitySpecificationInput)(nil)).Elem(), FleetTargetCapacitySpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetTargetCapacitySpecificationPtrInput)(nil)).Elem(), FleetTargetCapacitySpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowLogDestinationOptionsInput)(nil)).Elem(), FlowLogDestinationOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowLogDestinationOptionsPtrInput)(nil)).Elem(), FlowLogDestinationOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceCapacityReservationSpecificationInput)(nil)).Elem(), InstanceCapacityReservationSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceCapacityReservationSpecificationPtrInput)(nil)).Elem(), InstanceCapacityReservationSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceCapacityReservationSpecificationCapacityReservationTargetInput)(nil)).Elem(), InstanceCapacityReservationSpecificationCapacityReservationTargetArgs{})
@@ -24035,6 +24212,8 @@ func init() {
 	pulumi.RegisterOutputType(FleetSpotOptionsMaintenanceStrategiesCapacityRebalancePtrOutput{})
 	pulumi.RegisterOutputType(FleetTargetCapacitySpecificationOutput{})
 	pulumi.RegisterOutputType(FleetTargetCapacitySpecificationPtrOutput{})
+	pulumi.RegisterOutputType(FlowLogDestinationOptionsOutput{})
+	pulumi.RegisterOutputType(FlowLogDestinationOptionsPtrOutput{})
 	pulumi.RegisterOutputType(InstanceCapacityReservationSpecificationOutput{})
 	pulumi.RegisterOutputType(InstanceCapacityReservationSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(InstanceCapacityReservationSpecificationCapacityReservationTargetOutput{})

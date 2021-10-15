@@ -42,6 +42,7 @@ class InstanceArgs:
                  monitoring: Optional[pulumi.Input[bool]] = None,
                  network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['InstanceNetworkInterfaceArgs']]]] = None,
                  placement_group: Optional[pulumi.Input[str]] = None,
+                 placement_partition_number: Optional[pulumi.Input[int]] = None,
                  private_ip: Optional[pulumi.Input[str]] = None,
                  root_block_device: Optional[pulumi.Input['InstanceRootBlockDeviceArgs']] = None,
                  secondary_private_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -83,10 +84,11 @@ class InstanceArgs:
         :param pulumi.Input[bool] monitoring: If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
         :param pulumi.Input[Sequence[pulumi.Input['InstanceNetworkInterfaceArgs']]] network_interfaces: Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
         :param pulumi.Input[str] placement_group: Placement Group to start the instance in.
+        :param pulumi.Input[int] placement_partition_number: The number of the partition the instance is in. Valid only if the `ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
         :param pulumi.Input[str] private_ip: Private IP address to associate with the instance in a VPC.
         :param pulumi.Input['InstanceRootBlockDeviceArgs'] root_block_device: Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] secondary_private_ips: A list of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e. referenced in a `network_interface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: A list of security group names (EC2-Classic) or IDs (default VPC) to associate with.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: A list of security group names to associate with.
         :param pulumi.Input[bool] source_dest_check: Controls if traffic is routed to the instance when the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
         :param pulumi.Input[str] subnet_id: VPC Subnet ID to launch in.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -148,6 +150,8 @@ class InstanceArgs:
             pulumi.set(__self__, "network_interfaces", network_interfaces)
         if placement_group is not None:
             pulumi.set(__self__, "placement_group", placement_group)
+        if placement_partition_number is not None:
+            pulumi.set(__self__, "placement_partition_number", placement_partition_number)
         if private_ip is not None:
             pulumi.set(__self__, "private_ip", private_ip)
         if root_block_device is not None:
@@ -490,6 +494,18 @@ class InstanceArgs:
         pulumi.set(self, "placement_group", value)
 
     @property
+    @pulumi.getter(name="placementPartitionNumber")
+    def placement_partition_number(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of the partition the instance is in. Valid only if the `ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
+        """
+        return pulumi.get(self, "placement_partition_number")
+
+    @placement_partition_number.setter
+    def placement_partition_number(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "placement_partition_number", value)
+
+    @property
     @pulumi.getter(name="privateIp")
     def private_ip(self) -> Optional[pulumi.Input[str]]:
         """
@@ -529,7 +545,7 @@ class InstanceArgs:
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of security group names (EC2-Classic) or IDs (default VPC) to associate with.
+        A list of security group names to associate with.
         """
         return pulumi.get(self, "security_groups")
 
@@ -667,6 +683,7 @@ class _InstanceState:
                  outpost_arn: Optional[pulumi.Input[str]] = None,
                  password_data: Optional[pulumi.Input[str]] = None,
                  placement_group: Optional[pulumi.Input[str]] = None,
+                 placement_partition_number: Optional[pulumi.Input[int]] = None,
                  primary_network_interface_id: Optional[pulumi.Input[str]] = None,
                  private_dns: Optional[pulumi.Input[str]] = None,
                  private_ip: Optional[pulumi.Input[str]] = None,
@@ -717,6 +734,7 @@ class _InstanceState:
         :param pulumi.Input[str] outpost_arn: The ARN of the Outpost the instance is assigned to.
         :param pulumi.Input[str] password_data: Base-64 encoded encrypted password data for the instance. Useful for getting the administrator password for instances running Microsoft Windows. This attribute is only exported if `get_password_data` is true. Note that this encrypted value will be stored in the state file, as with all exported attributes. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
         :param pulumi.Input[str] placement_group: Placement Group to start the instance in.
+        :param pulumi.Input[int] placement_partition_number: The number of the partition the instance is in. Valid only if the `ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
         :param pulumi.Input[str] primary_network_interface_id: The ID of the instance's primary network interface.
         :param pulumi.Input[str] private_dns: The private DNS name assigned to the instance. Can only be used inside the Amazon EC2, and only available if you've enabled DNS hostnames for your VPC.
         :param pulumi.Input[str] private_ip: Private IP address to associate with the instance in a VPC.
@@ -724,7 +742,7 @@ class _InstanceState:
         :param pulumi.Input[str] public_ip: The public IP address assigned to the instance, if applicable. **NOTE**: If you are using an `ec2.Eip` with your instance, you should refer to the EIP's address directly and not use `public_ip` as this field will change after the EIP is attached.
         :param pulumi.Input['InstanceRootBlockDeviceArgs'] root_block_device: Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] secondary_private_ips: A list of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e. referenced in a `network_interface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: A list of security group names (EC2-Classic) or IDs (default VPC) to associate with.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: A list of security group names to associate with.
         :param pulumi.Input[bool] source_dest_check: Controls if traffic is routed to the instance when the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
         :param pulumi.Input[str] subnet_id: VPC Subnet ID to launch in.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -795,6 +813,8 @@ class _InstanceState:
             pulumi.set(__self__, "password_data", password_data)
         if placement_group is not None:
             pulumi.set(__self__, "placement_group", placement_group)
+        if placement_partition_number is not None:
+            pulumi.set(__self__, "placement_partition_number", placement_partition_number)
         if primary_network_interface_id is not None:
             pulumi.set(__self__, "primary_network_interface_id", primary_network_interface_id)
         if private_dns is not None:
@@ -1195,6 +1215,18 @@ class _InstanceState:
         pulumi.set(self, "placement_group", value)
 
     @property
+    @pulumi.getter(name="placementPartitionNumber")
+    def placement_partition_number(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of the partition the instance is in. Valid only if the `ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
+        """
+        return pulumi.get(self, "placement_partition_number")
+
+    @placement_partition_number.setter
+    def placement_partition_number(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "placement_partition_number", value)
+
+    @property
     @pulumi.getter(name="primaryNetworkInterfaceId")
     def primary_network_interface_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1282,7 +1314,7 @@ class _InstanceState:
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of security group names (EC2-Classic) or IDs (default VPC) to associate with.
+        A list of security group names to associate with.
         """
         return pulumi.get(self, "security_groups")
 
@@ -1430,6 +1462,7 @@ class Instance(pulumi.CustomResource):
                  monitoring: Optional[pulumi.Input[bool]] = None,
                  network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceNetworkInterfaceArgs']]]]] = None,
                  placement_group: Optional[pulumi.Input[str]] = None,
+                 placement_partition_number: Optional[pulumi.Input[int]] = None,
                  private_ip: Optional[pulumi.Input[str]] = None,
                  root_block_device: Optional[pulumi.Input[pulumi.InputType['InstanceRootBlockDeviceArgs']]] = None,
                  secondary_private_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1545,10 +1578,11 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[bool] monitoring: If true, the launched EC2 instance will have detailed monitoring enabled. (Available since v0.6.0)
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceNetworkInterfaceArgs']]]] network_interfaces: Customize network interfaces to be attached at instance boot time. See Network Interfaces below for more details.
         :param pulumi.Input[str] placement_group: Placement Group to start the instance in.
+        :param pulumi.Input[int] placement_partition_number: The number of the partition the instance is in. Valid only if the `ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
         :param pulumi.Input[str] private_ip: Private IP address to associate with the instance in a VPC.
         :param pulumi.Input[pulumi.InputType['InstanceRootBlockDeviceArgs']] root_block_device: Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] secondary_private_ips: A list of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e. referenced in a `network_interface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: A list of security group names (EC2-Classic) or IDs (default VPC) to associate with.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: A list of security group names to associate with.
         :param pulumi.Input[bool] source_dest_check: Controls if traffic is routed to the instance when the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
         :param pulumi.Input[str] subnet_id: VPC Subnet ID to launch in.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -1678,6 +1712,7 @@ class Instance(pulumi.CustomResource):
                  monitoring: Optional[pulumi.Input[bool]] = None,
                  network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['InstanceNetworkInterfaceArgs']]]]] = None,
                  placement_group: Optional[pulumi.Input[str]] = None,
+                 placement_partition_number: Optional[pulumi.Input[int]] = None,
                  private_ip: Optional[pulumi.Input[str]] = None,
                  root_block_device: Optional[pulumi.Input[pulumi.InputType['InstanceRootBlockDeviceArgs']]] = None,
                  secondary_private_ips: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1728,6 +1763,7 @@ class Instance(pulumi.CustomResource):
             __props__.__dict__["monitoring"] = monitoring
             __props__.__dict__["network_interfaces"] = network_interfaces
             __props__.__dict__["placement_group"] = placement_group
+            __props__.__dict__["placement_partition_number"] = placement_partition_number
             __props__.__dict__["private_ip"] = private_ip
             __props__.__dict__["root_block_device"] = root_block_device
             __props__.__dict__["secondary_private_ips"] = secondary_private_ips
@@ -1792,6 +1828,7 @@ class Instance(pulumi.CustomResource):
             outpost_arn: Optional[pulumi.Input[str]] = None,
             password_data: Optional[pulumi.Input[str]] = None,
             placement_group: Optional[pulumi.Input[str]] = None,
+            placement_partition_number: Optional[pulumi.Input[int]] = None,
             primary_network_interface_id: Optional[pulumi.Input[str]] = None,
             private_dns: Optional[pulumi.Input[str]] = None,
             private_ip: Optional[pulumi.Input[str]] = None,
@@ -1847,6 +1884,7 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[str] outpost_arn: The ARN of the Outpost the instance is assigned to.
         :param pulumi.Input[str] password_data: Base-64 encoded encrypted password data for the instance. Useful for getting the administrator password for instances running Microsoft Windows. This attribute is only exported if `get_password_data` is true. Note that this encrypted value will be stored in the state file, as with all exported attributes. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
         :param pulumi.Input[str] placement_group: Placement Group to start the instance in.
+        :param pulumi.Input[int] placement_partition_number: The number of the partition the instance is in. Valid only if the `ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
         :param pulumi.Input[str] primary_network_interface_id: The ID of the instance's primary network interface.
         :param pulumi.Input[str] private_dns: The private DNS name assigned to the instance. Can only be used inside the Amazon EC2, and only available if you've enabled DNS hostnames for your VPC.
         :param pulumi.Input[str] private_ip: Private IP address to associate with the instance in a VPC.
@@ -1854,7 +1892,7 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[str] public_ip: The public IP address assigned to the instance, if applicable. **NOTE**: If you are using an `ec2.Eip` with your instance, you should refer to the EIP's address directly and not use `public_ip` as this field will change after the EIP is attached.
         :param pulumi.Input[pulumi.InputType['InstanceRootBlockDeviceArgs']] root_block_device: Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] secondary_private_ips: A list of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e. referenced in a `network_interface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: A list of security group names (EC2-Classic) or IDs (default VPC) to associate with.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: A list of security group names to associate with.
         :param pulumi.Input[bool] source_dest_check: Controls if traffic is routed to the instance when the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
         :param pulumi.Input[str] subnet_id: VPC Subnet ID to launch in.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. Note that these tags apply to the instance and not block storage devices. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -1899,6 +1937,7 @@ class Instance(pulumi.CustomResource):
         __props__.__dict__["outpost_arn"] = outpost_arn
         __props__.__dict__["password_data"] = password_data
         __props__.__dict__["placement_group"] = placement_group
+        __props__.__dict__["placement_partition_number"] = placement_partition_number
         __props__.__dict__["primary_network_interface_id"] = primary_network_interface_id
         __props__.__dict__["private_dns"] = private_dns
         __props__.__dict__["private_ip"] = private_ip
@@ -2160,6 +2199,14 @@ class Instance(pulumi.CustomResource):
         return pulumi.get(self, "placement_group")
 
     @property
+    @pulumi.getter(name="placementPartitionNumber")
+    def placement_partition_number(self) -> pulumi.Output[int]:
+        """
+        The number of the partition the instance is in. Valid only if the `ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
+        """
+        return pulumi.get(self, "placement_partition_number")
+
+    @property
     @pulumi.getter(name="primaryNetworkInterfaceId")
     def primary_network_interface_id(self) -> pulumi.Output[str]:
         """
@@ -2219,7 +2266,7 @@ class Instance(pulumi.CustomResource):
     @pulumi.getter(name="securityGroups")
     def security_groups(self) -> pulumi.Output[Sequence[str]]:
         """
-        A list of security group names (EC2-Classic) or IDs (default VPC) to associate with.
+        A list of security group names to associate with.
         """
         return pulumi.get(self, "security_groups")
 

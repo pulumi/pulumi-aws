@@ -41,6 +41,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &MLTransform{}
 	case "aws:glue/partition:Partition":
 		r = &Partition{}
+	case "aws:glue/partitionIndex:PartitionIndex":
+		r = &PartitionIndex{}
 	case "aws:glue/registry:Registry":
 		r = &Registry{}
 	case "aws:glue/resourcePolicy:ResourcePolicy":
@@ -116,6 +118,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"glue/partition",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"glue/partitionIndex",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

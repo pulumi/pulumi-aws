@@ -121,7 +121,7 @@ type Association struct {
 	AssociationId pulumi.StringOutput `pulumi:"associationId"`
 	// The descriptive name for the association.
 	AssociationName pulumi.StringPtrOutput `pulumi:"associationName"`
-	// Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls.
+	// Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls. This should be set to the SSM document `parameter` that will define how your automation will branch out.
 	AutomationTargetParameterName pulumi.StringPtrOutput `pulumi:"automationTargetParameterName"`
 	// The compliance severity for the association. Can be one of the following: `UNSPECIFIED`, `LOW`, `MEDIUM`, `HIGH` or `CRITICAL`
 	ComplianceSeverity pulumi.StringPtrOutput `pulumi:"complianceSeverity"`
@@ -180,7 +180,7 @@ type associationState struct {
 	AssociationId *string `pulumi:"associationId"`
 	// The descriptive name for the association.
 	AssociationName *string `pulumi:"associationName"`
-	// Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls.
+	// Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls. This should be set to the SSM document `parameter` that will define how your automation will branch out.
 	AutomationTargetParameterName *string `pulumi:"automationTargetParameterName"`
 	// The compliance severity for the association. Can be one of the following: `UNSPECIFIED`, `LOW`, `MEDIUM`, `HIGH` or `CRITICAL`
 	ComplianceSeverity *string `pulumi:"complianceSeverity"`
@@ -211,7 +211,7 @@ type AssociationState struct {
 	AssociationId pulumi.StringPtrInput
 	// The descriptive name for the association.
 	AssociationName pulumi.StringPtrInput
-	// Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls.
+	// Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls. This should be set to the SSM document `parameter` that will define how your automation will branch out.
 	AutomationTargetParameterName pulumi.StringPtrInput
 	// The compliance severity for the association. Can be one of the following: `UNSPECIFIED`, `LOW`, `MEDIUM`, `HIGH` or `CRITICAL`
 	ComplianceSeverity pulumi.StringPtrInput
@@ -244,7 +244,7 @@ type associationArgs struct {
 	ApplyOnlyAtCronInterval *bool `pulumi:"applyOnlyAtCronInterval"`
 	// The descriptive name for the association.
 	AssociationName *string `pulumi:"associationName"`
-	// Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls.
+	// Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls. This should be set to the SSM document `parameter` that will define how your automation will branch out.
 	AutomationTargetParameterName *string `pulumi:"automationTargetParameterName"`
 	// The compliance severity for the association. Can be one of the following: `UNSPECIFIED`, `LOW`, `MEDIUM`, `HIGH` or `CRITICAL`
 	ComplianceSeverity *string `pulumi:"complianceSeverity"`
@@ -274,7 +274,7 @@ type AssociationArgs struct {
 	ApplyOnlyAtCronInterval pulumi.BoolPtrInput
 	// The descriptive name for the association.
 	AssociationName pulumi.StringPtrInput
-	// Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls.
+	// Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls. This should be set to the SSM document `parameter` that will define how your automation will branch out.
 	AutomationTargetParameterName pulumi.StringPtrInput
 	// The compliance severity for the association. Can be one of the following: `UNSPECIFIED`, `LOW`, `MEDIUM`, `HIGH` or `CRITICAL`
 	ComplianceSeverity pulumi.StringPtrInput

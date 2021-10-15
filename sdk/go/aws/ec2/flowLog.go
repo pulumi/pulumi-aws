@@ -91,6 +91,40 @@ import (
 // 	})
 // }
 // ```
+// ### S3 Logging in Apache Parquet format with per-hour partitions
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/ec2"
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/s3"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleBucket, err := s3.NewBucket(ctx, "exampleBucket", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = ec2.NewFlowLog(ctx, "exampleFlowLog", &ec2.FlowLogArgs{
+// 			LogDestination:     exampleBucket.Arn,
+// 			LogDestinationType: pulumi.String("s3"),
+// 			TrafficType:        pulumi.String("ALL"),
+// 			VpcId:              pulumi.Any(aws_vpc.Example.Id),
+// 			DestinationOptions: &ec2.FlowLogDestinationOptionsArgs{
+// 				FileFormat:       pulumi.String("parquet"),
+// 				PerHourPartition: pulumi.Bool(true),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 //
 // ## Import
 //
@@ -104,6 +138,8 @@ type FlowLog struct {
 
 	// The ARN of the Flow Log.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Describes the destination options for a flow log. More details below.
+	DestinationOptions FlowLogDestinationOptionsPtrOutput `pulumi:"destinationOptions"`
 	// Elastic Network Interface ID to attach to
 	EniId pulumi.StringPtrOutput `pulumi:"eniId"`
 	// The ARN for the IAM role that's used to post flow logs to a CloudWatch Logs log group
@@ -169,6 +205,8 @@ func GetFlowLog(ctx *pulumi.Context,
 type flowLogState struct {
 	// The ARN of the Flow Log.
 	Arn *string `pulumi:"arn"`
+	// Describes the destination options for a flow log. More details below.
+	DestinationOptions *FlowLogDestinationOptions `pulumi:"destinationOptions"`
 	// Elastic Network Interface ID to attach to
 	EniId *string `pulumi:"eniId"`
 	// The ARN for the IAM role that's used to post flow logs to a CloudWatch Logs log group
@@ -203,6 +241,8 @@ type flowLogState struct {
 type FlowLogState struct {
 	// The ARN of the Flow Log.
 	Arn pulumi.StringPtrInput
+	// Describes the destination options for a flow log. More details below.
+	DestinationOptions FlowLogDestinationOptionsPtrInput
 	// Elastic Network Interface ID to attach to
 	EniId pulumi.StringPtrInput
 	// The ARN for the IAM role that's used to post flow logs to a CloudWatch Logs log group
@@ -239,6 +279,8 @@ func (FlowLogState) ElementType() reflect.Type {
 }
 
 type flowLogArgs struct {
+	// Describes the destination options for a flow log. More details below.
+	DestinationOptions *FlowLogDestinationOptions `pulumi:"destinationOptions"`
 	// Elastic Network Interface ID to attach to
 	EniId *string `pulumi:"eniId"`
 	// The ARN for the IAM role that's used to post flow logs to a CloudWatch Logs log group
@@ -270,6 +312,8 @@ type flowLogArgs struct {
 
 // The set of arguments for constructing a FlowLog resource.
 type FlowLogArgs struct {
+	// Describes the destination options for a flow log. More details below.
+	DestinationOptions FlowLogDestinationOptionsPtrInput
 	// Elastic Network Interface ID to attach to
 	EniId pulumi.StringPtrInput
 	// The ARN for the IAM role that's used to post flow logs to a CloudWatch Logs log group

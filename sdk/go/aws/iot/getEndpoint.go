@@ -22,7 +22,7 @@ func GetEndpoint(ctx *pulumi.Context, args *GetEndpointArgs, opts ...pulumi.Invo
 
 // A collection of arguments for invoking getEndpoint.
 type GetEndpointArgs struct {
-	// Endpoint type. Valid values: `iot:CredentialProvider`, `iot:Data`, `iot:Data-ATS`, `iot:Job`.
+	// Endpoint type. Valid values: `iot:CredentialProvider`, `iot:Data`, `iot:Data-ATS`, `iot:Jobs`.
 	EndpointType *string `pulumi:"endpointType"`
 }
 
@@ -33,7 +33,7 @@ type GetEndpointResult struct {
 	// * `iot:CredentialsProvider`: `IDENTIFIER.credentials.iot.REGION.amazonaws.com`
 	// * `iot:Data`: `IDENTIFIER.iot.REGION.amazonaws.com`
 	// * `iot:Data-ATS`: `IDENTIFIER-ats.iot.REGION.amazonaws.com`
-	// * `iot:Job`: `IDENTIFIER.jobs.iot.REGION.amazonaws.com`
+	// * `iot:Jobs`: `IDENTIFIER.jobs.iot.REGION.amazonaws.com`
 	EndpointAddress string  `pulumi:"endpointAddress"`
 	EndpointType    *string `pulumi:"endpointType"`
 	// The provider-assigned unique ID for this managed resource.
@@ -51,7 +51,7 @@ func GetEndpointOutput(ctx *pulumi.Context, args GetEndpointOutputArgs, opts ...
 
 // A collection of arguments for invoking getEndpoint.
 type GetEndpointOutputArgs struct {
-	// Endpoint type. Valid values: `iot:CredentialProvider`, `iot:Data`, `iot:Data-ATS`, `iot:Job`.
+	// Endpoint type. Valid values: `iot:CredentialProvider`, `iot:Data`, `iot:Data-ATS`, `iot:Jobs`.
 	EndpointType pulumi.StringPtrInput `pulumi:"endpointType"`
 }
 
@@ -79,7 +79,7 @@ func (o GetEndpointResultOutput) ToGetEndpointResultOutputWithContext(ctx contex
 // * `iot:CredentialsProvider`: `IDENTIFIER.credentials.iot.REGION.amazonaws.com`
 // * `iot:Data`: `IDENTIFIER.iot.REGION.amazonaws.com`
 // * `iot:Data-ATS`: `IDENTIFIER-ats.iot.REGION.amazonaws.com`
-// * `iot:Job`: `IDENTIFIER.jobs.iot.REGION.amazonaws.com`
+// * `iot:Jobs`: `IDENTIFIER.jobs.iot.REGION.amazonaws.com`
 func (o GetEndpointResultOutput) EndpointAddress() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEndpointResult) string { return v.EndpointAddress }).(pulumi.StringOutput)
 }

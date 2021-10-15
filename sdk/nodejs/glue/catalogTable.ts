@@ -141,7 +141,7 @@ export class CatalogTable extends pulumi.CustomResource {
     /**
      * Configuration block for a maximum of 3 partition indexes. See `partitionIndex` below.
      */
-    public readonly partitionIndices!: pulumi.Output<outputs.glue.CatalogTablePartitionIndex[] | undefined>;
+    public readonly partitionIndices!: pulumi.Output<outputs.glue.CatalogTablePartitionIndex[]>;
     /**
      * Configuration block of columns by which the table is partitioned. Only primitive types are supported as partition keys. See `partitionKeys` below.
      */

@@ -111,7 +111,7 @@ type ClusterInstance struct {
 	// see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
 	// in the Amazon RDS User Guide.
 	Engine pulumi.StringPtrOutput `pulumi:"engine"`
-	// The database engine version. When managing the engine version in the cluster, it is recommended to add the `ignoreChanges` for this argument to prevent the provider from proposing changes to the instance engine version directly.
+	// The database engine version.
 	EngineVersion pulumi.StringOutput `pulumi:"engineVersion"`
 	// The database engine version
 	EngineVersionActual pulumi.StringOutput `pulumi:"engineVersionActual"`
@@ -132,8 +132,10 @@ type ClusterInstance struct {
 	MonitoringRoleArn pulumi.StringOutput `pulumi:"monitoringRoleArn"`
 	// Specifies whether Performance Insights is enabled or not.
 	PerformanceInsightsEnabled pulumi.BoolOutput `pulumi:"performanceInsightsEnabled"`
-	// The ARN for the KMS key to encrypt Performance Insights data. When specifying `performanceInsightsKmsKeyId`, `performanceInsightsEnabled` needs to be set to true.
+	// ARN for the KMS key to encrypt Performance Insights data. When specifying `performanceInsightsKmsKeyId`, `performanceInsightsEnabled` needs to be set to true.
 	PerformanceInsightsKmsKeyId pulumi.StringOutput `pulumi:"performanceInsightsKmsKeyId"`
+	// Amount of time in days to retain Performance Insights data. Either 7 (7 days) or 731 (2 years). When specifying `performanceInsightsRetentionPeriod`, `performanceInsightsEnabled` needs to be set to true. Defaults to '7'.
+	PerformanceInsightsRetentionPeriod pulumi.IntOutput `pulumi:"performanceInsightsRetentionPeriod"`
 	// The database port
 	Port pulumi.IntOutput `pulumi:"port"`
 	// The daily time range during which automated backups are created if automated backups are enabled.
@@ -221,7 +223,7 @@ type clusterInstanceState struct {
 	// see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
 	// in the Amazon RDS User Guide.
 	Engine *string `pulumi:"engine"`
-	// The database engine version. When managing the engine version in the cluster, it is recommended to add the `ignoreChanges` for this argument to prevent the provider from proposing changes to the instance engine version directly.
+	// The database engine version.
 	EngineVersion *string `pulumi:"engineVersion"`
 	// The database engine version
 	EngineVersionActual *string `pulumi:"engineVersionActual"`
@@ -242,8 +244,10 @@ type clusterInstanceState struct {
 	MonitoringRoleArn *string `pulumi:"monitoringRoleArn"`
 	// Specifies whether Performance Insights is enabled or not.
 	PerformanceInsightsEnabled *bool `pulumi:"performanceInsightsEnabled"`
-	// The ARN for the KMS key to encrypt Performance Insights data. When specifying `performanceInsightsKmsKeyId`, `performanceInsightsEnabled` needs to be set to true.
+	// ARN for the KMS key to encrypt Performance Insights data. When specifying `performanceInsightsKmsKeyId`, `performanceInsightsEnabled` needs to be set to true.
 	PerformanceInsightsKmsKeyId *string `pulumi:"performanceInsightsKmsKeyId"`
+	// Amount of time in days to retain Performance Insights data. Either 7 (7 days) or 731 (2 years). When specifying `performanceInsightsRetentionPeriod`, `performanceInsightsEnabled` needs to be set to true. Defaults to '7'.
+	PerformanceInsightsRetentionPeriod *int `pulumi:"performanceInsightsRetentionPeriod"`
 	// The database port
 	Port *int `pulumi:"port"`
 	// The daily time range during which automated backups are created if automated backups are enabled.
@@ -297,7 +301,7 @@ type ClusterInstanceState struct {
 	// see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
 	// in the Amazon RDS User Guide.
 	Engine pulumi.StringPtrInput
-	// The database engine version. When managing the engine version in the cluster, it is recommended to add the `ignoreChanges` for this argument to prevent the provider from proposing changes to the instance engine version directly.
+	// The database engine version.
 	EngineVersion pulumi.StringPtrInput
 	// The database engine version
 	EngineVersionActual pulumi.StringPtrInput
@@ -318,8 +322,10 @@ type ClusterInstanceState struct {
 	MonitoringRoleArn pulumi.StringPtrInput
 	// Specifies whether Performance Insights is enabled or not.
 	PerformanceInsightsEnabled pulumi.BoolPtrInput
-	// The ARN for the KMS key to encrypt Performance Insights data. When specifying `performanceInsightsKmsKeyId`, `performanceInsightsEnabled` needs to be set to true.
+	// ARN for the KMS key to encrypt Performance Insights data. When specifying `performanceInsightsKmsKeyId`, `performanceInsightsEnabled` needs to be set to true.
 	PerformanceInsightsKmsKeyId pulumi.StringPtrInput
+	// Amount of time in days to retain Performance Insights data. Either 7 (7 days) or 731 (2 years). When specifying `performanceInsightsRetentionPeriod`, `performanceInsightsEnabled` needs to be set to true. Defaults to '7'.
+	PerformanceInsightsRetentionPeriod pulumi.IntPtrInput
 	// The database port
 	Port pulumi.IntPtrInput
 	// The daily time range during which automated backups are created if automated backups are enabled.
@@ -371,7 +377,7 @@ type clusterInstanceArgs struct {
 	// see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
 	// in the Amazon RDS User Guide.
 	Engine *string `pulumi:"engine"`
-	// The database engine version. When managing the engine version in the cluster, it is recommended to add the `ignoreChanges` for this argument to prevent the provider from proposing changes to the instance engine version directly.
+	// The database engine version.
 	EngineVersion *string `pulumi:"engineVersion"`
 	// The indentifier for the RDS instance, if omitted, this provider will assign a random, unique identifier.
 	Identifier *string `pulumi:"identifier"`
@@ -388,8 +394,10 @@ type clusterInstanceArgs struct {
 	MonitoringRoleArn *string `pulumi:"monitoringRoleArn"`
 	// Specifies whether Performance Insights is enabled or not.
 	PerformanceInsightsEnabled *bool `pulumi:"performanceInsightsEnabled"`
-	// The ARN for the KMS key to encrypt Performance Insights data. When specifying `performanceInsightsKmsKeyId`, `performanceInsightsEnabled` needs to be set to true.
+	// ARN for the KMS key to encrypt Performance Insights data. When specifying `performanceInsightsKmsKeyId`, `performanceInsightsEnabled` needs to be set to true.
 	PerformanceInsightsKmsKeyId *string `pulumi:"performanceInsightsKmsKeyId"`
+	// Amount of time in days to retain Performance Insights data. Either 7 (7 days) or 731 (2 years). When specifying `performanceInsightsRetentionPeriod`, `performanceInsightsEnabled` needs to be set to true. Defaults to '7'.
+	PerformanceInsightsRetentionPeriod *int `pulumi:"performanceInsightsRetentionPeriod"`
 	// The daily time range during which automated backups are created if automated backups are enabled.
 	// Eg: "04:00-09:00"
 	PreferredBackupWindow *string `pulumi:"preferredBackupWindow"`
@@ -430,7 +438,7 @@ type ClusterInstanceArgs struct {
 	// see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
 	// in the Amazon RDS User Guide.
 	Engine pulumi.StringPtrInput
-	// The database engine version. When managing the engine version in the cluster, it is recommended to add the `ignoreChanges` for this argument to prevent the provider from proposing changes to the instance engine version directly.
+	// The database engine version.
 	EngineVersion pulumi.StringPtrInput
 	// The indentifier for the RDS instance, if omitted, this provider will assign a random, unique identifier.
 	Identifier pulumi.StringPtrInput
@@ -447,8 +455,10 @@ type ClusterInstanceArgs struct {
 	MonitoringRoleArn pulumi.StringPtrInput
 	// Specifies whether Performance Insights is enabled or not.
 	PerformanceInsightsEnabled pulumi.BoolPtrInput
-	// The ARN for the KMS key to encrypt Performance Insights data. When specifying `performanceInsightsKmsKeyId`, `performanceInsightsEnabled` needs to be set to true.
+	// ARN for the KMS key to encrypt Performance Insights data. When specifying `performanceInsightsKmsKeyId`, `performanceInsightsEnabled` needs to be set to true.
 	PerformanceInsightsKmsKeyId pulumi.StringPtrInput
+	// Amount of time in days to retain Performance Insights data. Either 7 (7 days) or 731 (2 years). When specifying `performanceInsightsRetentionPeriod`, `performanceInsightsEnabled` needs to be set to true. Defaults to '7'.
+	PerformanceInsightsRetentionPeriod pulumi.IntPtrInput
 	// The daily time range during which automated backups are created if automated backups are enabled.
 	// Eg: "04:00-09:00"
 	PreferredBackupWindow pulumi.StringPtrInput

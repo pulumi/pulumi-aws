@@ -32,7 +32,7 @@ class AssociationArgs:
         The set of arguments for constructing a Association resource.
         :param pulumi.Input[bool] apply_only_at_cron_interval: By default, when you create a new or update associations, the system runs it immediately and then according to the schedule you specified. Enable this option if you do not want an association to run immediately after you create or update it. This parameter is not supported for rate expressions. Default: `false`.
         :param pulumi.Input[str] association_name: The descriptive name for the association.
-        :param pulumi.Input[str] automation_target_parameter_name: Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls.
+        :param pulumi.Input[str] automation_target_parameter_name: Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls. This should be set to the SSM document `parameter` that will define how your automation will branch out.
         :param pulumi.Input[str] compliance_severity: The compliance severity for the association. Can be one of the following: `UNSPECIFIED`, `LOW`, `MEDIUM`, `HIGH` or `CRITICAL`
         :param pulumi.Input[str] document_version: The document version you want to associate with the target(s). Can be a specific version or the default version.
         :param pulumi.Input[str] instance_id: The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above.
@@ -99,7 +99,7 @@ class AssociationArgs:
     @pulumi.getter(name="automationTargetParameterName")
     def automation_target_parameter_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls.
+        Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls. This should be set to the SSM document `parameter` that will define how your automation will branch out.
         """
         return pulumi.get(self, "automation_target_parameter_name")
 
@@ -250,7 +250,7 @@ class _AssociationState:
         :param pulumi.Input[bool] apply_only_at_cron_interval: By default, when you create a new or update associations, the system runs it immediately and then according to the schedule you specified. Enable this option if you do not want an association to run immediately after you create or update it. This parameter is not supported for rate expressions. Default: `false`.
         :param pulumi.Input[str] association_id: The ID of the SSM association.
         :param pulumi.Input[str] association_name: The descriptive name for the association.
-        :param pulumi.Input[str] automation_target_parameter_name: Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls.
+        :param pulumi.Input[str] automation_target_parameter_name: Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls. This should be set to the SSM document `parameter` that will define how your automation will branch out.
         :param pulumi.Input[str] compliance_severity: The compliance severity for the association. Can be one of the following: `UNSPECIFIED`, `LOW`, `MEDIUM`, `HIGH` or `CRITICAL`
         :param pulumi.Input[str] document_version: The document version you want to associate with the target(s). Can be a specific version or the default version.
         :param pulumi.Input[str] instance_id: The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above.
@@ -331,7 +331,7 @@ class _AssociationState:
     @pulumi.getter(name="automationTargetParameterName")
     def automation_target_parameter_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls.
+        Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls. This should be set to the SSM document `parameter` that will define how your automation will branch out.
         """
         return pulumi.get(self, "automation_target_parameter_name")
 
@@ -533,7 +533,7 @@ class Association(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] apply_only_at_cron_interval: By default, when you create a new or update associations, the system runs it immediately and then according to the schedule you specified. Enable this option if you do not want an association to run immediately after you create or update it. This parameter is not supported for rate expressions. Default: `false`.
         :param pulumi.Input[str] association_name: The descriptive name for the association.
-        :param pulumi.Input[str] automation_target_parameter_name: Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls.
+        :param pulumi.Input[str] automation_target_parameter_name: Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls. This should be set to the SSM document `parameter` that will define how your automation will branch out.
         :param pulumi.Input[str] compliance_severity: The compliance severity for the association. Can be one of the following: `UNSPECIFIED`, `LOW`, `MEDIUM`, `HIGH` or `CRITICAL`
         :param pulumi.Input[str] document_version: The document version you want to associate with the target(s). Can be a specific version or the default version.
         :param pulumi.Input[str] instance_id: The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above.
@@ -689,7 +689,7 @@ class Association(pulumi.CustomResource):
         :param pulumi.Input[bool] apply_only_at_cron_interval: By default, when you create a new or update associations, the system runs it immediately and then according to the schedule you specified. Enable this option if you do not want an association to run immediately after you create or update it. This parameter is not supported for rate expressions. Default: `false`.
         :param pulumi.Input[str] association_id: The ID of the SSM association.
         :param pulumi.Input[str] association_name: The descriptive name for the association.
-        :param pulumi.Input[str] automation_target_parameter_name: Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls.
+        :param pulumi.Input[str] automation_target_parameter_name: Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls. This should be set to the SSM document `parameter` that will define how your automation will branch out.
         :param pulumi.Input[str] compliance_severity: The compliance severity for the association. Can be one of the following: `UNSPECIFIED`, `LOW`, `MEDIUM`, `HIGH` or `CRITICAL`
         :param pulumi.Input[str] document_version: The document version you want to associate with the target(s). Can be a specific version or the default version.
         :param pulumi.Input[str] instance_id: The instance ID to apply an SSM document to. Use `targets` with key `InstanceIds` for document schema versions 2.0 and above.
@@ -749,7 +749,7 @@ class Association(pulumi.CustomResource):
     @pulumi.getter(name="automationTargetParameterName")
     def automation_target_parameter_name(self) -> pulumi.Output[Optional[str]]:
         """
-        Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls.
+        Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls. This should be set to the SSM document `parameter` that will define how your automation will branch out.
         """
         return pulumi.get(self, "automation_target_parameter_name")
 

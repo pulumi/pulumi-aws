@@ -7,6 +7,8 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['FlowLogArgs', 'FlowLog']
 
@@ -14,6 +16,7 @@ __all__ = ['FlowLogArgs', 'FlowLog']
 class FlowLogArgs:
     def __init__(__self__, *,
                  traffic_type: pulumi.Input[str],
+                 destination_options: Optional[pulumi.Input['FlowLogDestinationOptionsArgs']] = None,
                  eni_id: Optional[pulumi.Input[str]] = None,
                  iam_role_arn: Optional[pulumi.Input[str]] = None,
                  log_destination: Optional[pulumi.Input[str]] = None,
@@ -27,6 +30,7 @@ class FlowLogArgs:
         """
         The set of arguments for constructing a FlowLog resource.
         :param pulumi.Input[str] traffic_type: The type of traffic to capture. Valid values: `ACCEPT`,`REJECT`, `ALL`.
+        :param pulumi.Input['FlowLogDestinationOptionsArgs'] destination_options: Describes the destination options for a flow log. More details below.
         :param pulumi.Input[str] eni_id: Elastic Network Interface ID to attach to
         :param pulumi.Input[str] iam_role_arn: The ARN for the IAM role that's used to post flow logs to a CloudWatch Logs log group
         :param pulumi.Input[str] log_destination: The ARN of the logging destination.
@@ -42,6 +46,8 @@ class FlowLogArgs:
         :param pulumi.Input[str] vpc_id: VPC ID to attach to
         """
         pulumi.set(__self__, "traffic_type", traffic_type)
+        if destination_options is not None:
+            pulumi.set(__self__, "destination_options", destination_options)
         if eni_id is not None:
             pulumi.set(__self__, "eni_id", eni_id)
         if iam_role_arn is not None:
@@ -77,6 +83,18 @@ class FlowLogArgs:
     @traffic_type.setter
     def traffic_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "traffic_type", value)
+
+    @property
+    @pulumi.getter(name="destinationOptions")
+    def destination_options(self) -> Optional[pulumi.Input['FlowLogDestinationOptionsArgs']]:
+        """
+        Describes the destination options for a flow log. More details below.
+        """
+        return pulumi.get(self, "destination_options")
+
+    @destination_options.setter
+    def destination_options(self, value: Optional[pulumi.Input['FlowLogDestinationOptionsArgs']]):
+        pulumi.set(self, "destination_options", value)
 
     @property
     @pulumi.getter(name="eniId")
@@ -206,6 +224,7 @@ class FlowLogArgs:
 class _FlowLogState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
+                 destination_options: Optional[pulumi.Input['FlowLogDestinationOptionsArgs']] = None,
                  eni_id: Optional[pulumi.Input[str]] = None,
                  iam_role_arn: Optional[pulumi.Input[str]] = None,
                  log_destination: Optional[pulumi.Input[str]] = None,
@@ -221,6 +240,7 @@ class _FlowLogState:
         """
         Input properties used for looking up and filtering FlowLog resources.
         :param pulumi.Input[str] arn: The ARN of the Flow Log.
+        :param pulumi.Input['FlowLogDestinationOptionsArgs'] destination_options: Describes the destination options for a flow log. More details below.
         :param pulumi.Input[str] eni_id: Elastic Network Interface ID to attach to
         :param pulumi.Input[str] iam_role_arn: The ARN for the IAM role that's used to post flow logs to a CloudWatch Logs log group
         :param pulumi.Input[str] log_destination: The ARN of the logging destination.
@@ -239,6 +259,8 @@ class _FlowLogState:
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
+        if destination_options is not None:
+            pulumi.set(__self__, "destination_options", destination_options)
         if eni_id is not None:
             pulumi.set(__self__, "eni_id", eni_id)
         if iam_role_arn is not None:
@@ -278,6 +300,18 @@ class _FlowLogState:
     @arn.setter
     def arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="destinationOptions")
+    def destination_options(self) -> Optional[pulumi.Input['FlowLogDestinationOptionsArgs']]:
+        """
+        Describes the destination options for a flow log. More details below.
+        """
+        return pulumi.get(self, "destination_options")
+
+    @destination_options.setter
+    def destination_options(self, value: Optional[pulumi.Input['FlowLogDestinationOptionsArgs']]):
+        pulumi.set(self, "destination_options", value)
 
     @property
     @pulumi.getter(name="eniId")
@@ -432,6 +466,7 @@ class FlowLog(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 destination_options: Optional[pulumi.Input[pulumi.InputType['FlowLogDestinationOptionsArgs']]] = None,
                  eni_id: Optional[pulumi.Input[str]] = None,
                  iam_role_arn: Optional[pulumi.Input[str]] = None,
                  log_destination: Optional[pulumi.Input[str]] = None,
@@ -508,6 +543,23 @@ class FlowLog(pulumi.CustomResource):
             traffic_type="ALL",
             vpc_id=aws_vpc["example"]["id"])
         ```
+        ### S3 Logging in Apache Parquet format with per-hour partitions
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_bucket = aws.s3.Bucket("exampleBucket")
+        example_flow_log = aws.ec2.FlowLog("exampleFlowLog",
+            log_destination=example_bucket.arn,
+            log_destination_type="s3",
+            traffic_type="ALL",
+            vpc_id=aws_vpc["example"]["id"],
+            destination_options=aws.ec2.FlowLogDestinationOptionsArgs(
+                file_format="parquet",
+                per_hour_partition=True,
+            ))
+        ```
 
         ## Import
 
@@ -519,6 +571,7 @@ class FlowLog(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['FlowLogDestinationOptionsArgs']] destination_options: Describes the destination options for a flow log. More details below.
         :param pulumi.Input[str] eni_id: Elastic Network Interface ID to attach to
         :param pulumi.Input[str] iam_role_arn: The ARN for the IAM role that's used to post flow logs to a CloudWatch Logs log group
         :param pulumi.Input[str] log_destination: The ARN of the logging destination.
@@ -604,6 +657,23 @@ class FlowLog(pulumi.CustomResource):
             traffic_type="ALL",
             vpc_id=aws_vpc["example"]["id"])
         ```
+        ### S3 Logging in Apache Parquet format with per-hour partitions
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_bucket = aws.s3.Bucket("exampleBucket")
+        example_flow_log = aws.ec2.FlowLog("exampleFlowLog",
+            log_destination=example_bucket.arn,
+            log_destination_type="s3",
+            traffic_type="ALL",
+            vpc_id=aws_vpc["example"]["id"],
+            destination_options=aws.ec2.FlowLogDestinationOptionsArgs(
+                file_format="parquet",
+                per_hour_partition=True,
+            ))
+        ```
 
         ## Import
 
@@ -628,6 +698,7 @@ class FlowLog(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 destination_options: Optional[pulumi.Input[pulumi.InputType['FlowLogDestinationOptionsArgs']]] = None,
                  eni_id: Optional[pulumi.Input[str]] = None,
                  iam_role_arn: Optional[pulumi.Input[str]] = None,
                  log_destination: Optional[pulumi.Input[str]] = None,
@@ -651,6 +722,7 @@ class FlowLog(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = FlowLogArgs.__new__(FlowLogArgs)
 
+            __props__.__dict__["destination_options"] = destination_options
             __props__.__dict__["eni_id"] = eni_id
             __props__.__dict__["iam_role_arn"] = iam_role_arn
             __props__.__dict__["log_destination"] = log_destination
@@ -680,6 +752,7 @@ class FlowLog(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
+            destination_options: Optional[pulumi.Input[pulumi.InputType['FlowLogDestinationOptionsArgs']]] = None,
             eni_id: Optional[pulumi.Input[str]] = None,
             iam_role_arn: Optional[pulumi.Input[str]] = None,
             log_destination: Optional[pulumi.Input[str]] = None,
@@ -700,6 +773,7 @@ class FlowLog(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The ARN of the Flow Log.
+        :param pulumi.Input[pulumi.InputType['FlowLogDestinationOptionsArgs']] destination_options: Describes the destination options for a flow log. More details below.
         :param pulumi.Input[str] eni_id: Elastic Network Interface ID to attach to
         :param pulumi.Input[str] iam_role_arn: The ARN for the IAM role that's used to post flow logs to a CloudWatch Logs log group
         :param pulumi.Input[str] log_destination: The ARN of the logging destination.
@@ -721,6 +795,7 @@ class FlowLog(pulumi.CustomResource):
         __props__ = _FlowLogState.__new__(_FlowLogState)
 
         __props__.__dict__["arn"] = arn
+        __props__.__dict__["destination_options"] = destination_options
         __props__.__dict__["eni_id"] = eni_id
         __props__.__dict__["iam_role_arn"] = iam_role_arn
         __props__.__dict__["log_destination"] = log_destination
@@ -742,6 +817,14 @@ class FlowLog(pulumi.CustomResource):
         The ARN of the Flow Log.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="destinationOptions")
+    def destination_options(self) -> pulumi.Output[Optional['outputs.FlowLogDestinationOptions']]:
+        """
+        Describes the destination options for a flow log. More details below.
+        """
+        return pulumi.get(self, "destination_options")
 
     @property
     @pulumi.getter(name="eniId")

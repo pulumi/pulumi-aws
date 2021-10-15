@@ -79,6 +79,9 @@ namespace Pulumi.Aws.Glue
     [AwsResourceType("aws:glue/resourcePolicy:ResourcePolicy")]
     public partial class ResourcePolicy : Pulumi.CustomResource
     {
+        [Output("enableHybrid")]
+        public Output<string?> EnableHybrid { get; private set; } = null!;
+
         /// <summary>
         /// The policy to be applied to the aws glue data catalog.
         /// </summary>
@@ -131,6 +134,9 @@ namespace Pulumi.Aws.Glue
 
     public sealed class ResourcePolicyArgs : Pulumi.ResourceArgs
     {
+        [Input("enableHybrid")]
+        public Input<string>? EnableHybrid { get; set; }
+
         /// <summary>
         /// The policy to be applied to the aws glue data catalog.
         /// </summary>
@@ -144,6 +150,9 @@ namespace Pulumi.Aws.Glue
 
     public sealed class ResourcePolicyState : Pulumi.ResourceArgs
     {
+        [Input("enableHybrid")]
+        public Input<string>? EnableHybrid { get; set; }
+
         /// <summary>
         /// The policy to be applied to the aws glue data catalog.
         /// </summary>

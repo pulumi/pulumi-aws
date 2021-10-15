@@ -29,6 +29,7 @@ __all__ = [
     'FleetSpotOptionsMaintenanceStrategiesArgs',
     'FleetSpotOptionsMaintenanceStrategiesCapacityRebalanceArgs',
     'FleetTargetCapacitySpecificationArgs',
+    'FlowLogDestinationOptionsArgs',
     'InstanceCapacityReservationSpecificationArgs',
     'InstanceCapacityReservationSpecificationCapacityReservationTargetArgs',
     'InstanceCreditSpecificationArgs',
@@ -1883,6 +1884,61 @@ class FleetTargetCapacitySpecificationArgs:
     @spot_target_capacity.setter
     def spot_target_capacity(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "spot_target_capacity", value)
+
+
+@pulumi.input_type
+class FlowLogDestinationOptionsArgs:
+    def __init__(__self__, *,
+                 file_format: Optional[pulumi.Input[str]] = None,
+                 hive_compatible_partitions: Optional[pulumi.Input[bool]] = None,
+                 per_hour_partition: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[str] file_format: The format for the flow log. Default value: `plain-text`. Valid values: `plain-text`, `parquet`.
+        :param pulumi.Input[bool] hive_compatible_partitions: Indicates whether to use Hive-compatible prefixes for flow logs stored in Amazon S3. Default value: `false`.
+        :param pulumi.Input[bool] per_hour_partition: Indicates whether to partition the flow log per hour. This reduces the cost and response time for queries. Default value: `false`.
+        """
+        if file_format is not None:
+            pulumi.set(__self__, "file_format", file_format)
+        if hive_compatible_partitions is not None:
+            pulumi.set(__self__, "hive_compatible_partitions", hive_compatible_partitions)
+        if per_hour_partition is not None:
+            pulumi.set(__self__, "per_hour_partition", per_hour_partition)
+
+    @property
+    @pulumi.getter(name="fileFormat")
+    def file_format(self) -> Optional[pulumi.Input[str]]:
+        """
+        The format for the flow log. Default value: `plain-text`. Valid values: `plain-text`, `parquet`.
+        """
+        return pulumi.get(self, "file_format")
+
+    @file_format.setter
+    def file_format(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "file_format", value)
+
+    @property
+    @pulumi.getter(name="hiveCompatiblePartitions")
+    def hive_compatible_partitions(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether to use Hive-compatible prefixes for flow logs stored in Amazon S3. Default value: `false`.
+        """
+        return pulumi.get(self, "hive_compatible_partitions")
+
+    @hive_compatible_partitions.setter
+    def hive_compatible_partitions(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "hive_compatible_partitions", value)
+
+    @property
+    @pulumi.getter(name="perHourPartition")
+    def per_hour_partition(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether to partition the flow log per hour. This reduces the cost and response time for queries. Default value: `false`.
+        """
+        return pulumi.get(self, "per_hour_partition")
+
+    @per_hour_partition.setter
+    def per_hour_partition(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "per_hour_partition", value)
 
 
 @pulumi.input_type

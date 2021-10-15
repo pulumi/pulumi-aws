@@ -65,6 +65,7 @@ export class ResourcePolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === ResourcePolicy.__pulumiType;
     }
 
+    public readonly enableHybrid!: pulumi.Output<string | undefined>;
     /**
      * The policy to be applied to the aws glue data catalog.
      */
@@ -83,12 +84,14 @@ export class ResourcePolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ResourcePolicyState | undefined;
+            inputs["enableHybrid"] = state ? state.enableHybrid : undefined;
             inputs["policy"] = state ? state.policy : undefined;
         } else {
             const args = argsOrState as ResourcePolicyArgs | undefined;
             if ((!args || args.policy === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policy'");
             }
+            inputs["enableHybrid"] = args ? args.enableHybrid : undefined;
             inputs["policy"] = args ? args.policy : undefined;
         }
         if (!opts.version) {
@@ -102,6 +105,7 @@ export class ResourcePolicy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ResourcePolicy resources.
  */
 export interface ResourcePolicyState {
+    enableHybrid?: pulumi.Input<string>;
     /**
      * The policy to be applied to the aws glue data catalog.
      */
@@ -112,6 +116,7 @@ export interface ResourcePolicyState {
  * The set of arguments for constructing a ResourcePolicy resource.
  */
 export interface ResourcePolicyArgs {
+    enableHybrid?: pulumi.Input<string>;
     /**
      * The policy to be applied to the aws glue data catalog.
      */

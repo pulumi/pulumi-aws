@@ -27,8 +27,10 @@ class ClusterArgs:
                  copy_tags_to_snapshot: Optional[pulumi.Input[bool]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
                  db_cluster_parameter_group_name: Optional[pulumi.Input[str]] = None,
+                 db_instance_parameter_group_name: Optional[pulumi.Input[str]] = None,
                  db_subnet_group_name: Optional[pulumi.Input[str]] = None,
                  deletion_protection: Optional[pulumi.Input[bool]] = None,
+                 enable_global_write_forwarding: Optional[pulumi.Input[bool]] = None,
                  enable_http_endpoint: Optional[pulumi.Input[bool]] = None,
                  enabled_cloudwatch_logs_exports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  engine: Optional[pulumi.Input[Union[str, 'EngineType']]] = None,
@@ -67,8 +69,10 @@ class ClusterArgs:
         :param pulumi.Input[bool] copy_tags_to_snapshot: Copy all Cluster `tags` to snapshots. Default is `false`.
         :param pulumi.Input[str] database_name: Name for an automatically created database on cluster creation. There are different naming restrictions per database engine: [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
         :param pulumi.Input[str] db_cluster_parameter_group_name: A cluster parameter group to associate with the cluster.
+        :param pulumi.Input[str] db_instance_parameter_group_name: Instance parameter group to associate with all instances of the DB cluster. The `db_instance_parameter_group_name` parameter is only valid in combination with the `allow_major_version_upgrade` parameter.
         :param pulumi.Input[str] db_subnet_group_name: A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` specified on every `rds.ClusterInstance` in the cluster.
         :param pulumi.Input[bool] deletion_protection: If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
+        :param pulumi.Input[bool] enable_global_write_forwarding: Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `rds.GlobalCluster`'s primary cluster. See the [Aurora Userguide documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
         :param pulumi.Input[bool] enable_http_endpoint: Enable HTTP endpoint (data API). Only valid when `engine_mode` is set to `serverless`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_cloudwatch_logs_exports: Set of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `slowquery`, `postgresql` (PostgreSQL).
         :param pulumi.Input[Union[str, 'EngineType']] engine: The name of the database engine to be used for this DB cluster. Defaults to `aurora`. Valid Values: `aurora`, `aurora-mysql`, `aurora-postgresql`
@@ -116,10 +120,14 @@ class ClusterArgs:
             pulumi.set(__self__, "database_name", database_name)
         if db_cluster_parameter_group_name is not None:
             pulumi.set(__self__, "db_cluster_parameter_group_name", db_cluster_parameter_group_name)
+        if db_instance_parameter_group_name is not None:
+            pulumi.set(__self__, "db_instance_parameter_group_name", db_instance_parameter_group_name)
         if db_subnet_group_name is not None:
             pulumi.set(__self__, "db_subnet_group_name", db_subnet_group_name)
         if deletion_protection is not None:
             pulumi.set(__self__, "deletion_protection", deletion_protection)
+        if enable_global_write_forwarding is not None:
+            pulumi.set(__self__, "enable_global_write_forwarding", enable_global_write_forwarding)
         if enable_http_endpoint is not None:
             pulumi.set(__self__, "enable_http_endpoint", enable_http_endpoint)
         if enabled_cloudwatch_logs_exports is not None:
@@ -304,6 +312,18 @@ class ClusterArgs:
         pulumi.set(self, "db_cluster_parameter_group_name", value)
 
     @property
+    @pulumi.getter(name="dbInstanceParameterGroupName")
+    def db_instance_parameter_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Instance parameter group to associate with all instances of the DB cluster. The `db_instance_parameter_group_name` parameter is only valid in combination with the `allow_major_version_upgrade` parameter.
+        """
+        return pulumi.get(self, "db_instance_parameter_group_name")
+
+    @db_instance_parameter_group_name.setter
+    def db_instance_parameter_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "db_instance_parameter_group_name", value)
+
+    @property
     @pulumi.getter(name="dbSubnetGroupName")
     def db_subnet_group_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -326,6 +346,18 @@ class ClusterArgs:
     @deletion_protection.setter
     def deletion_protection(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "deletion_protection", value)
+
+    @property
+    @pulumi.getter(name="enableGlobalWriteForwarding")
+    def enable_global_write_forwarding(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `rds.GlobalCluster`'s primary cluster. See the [Aurora Userguide documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
+        """
+        return pulumi.get(self, "enable_global_write_forwarding")
+
+    @enable_global_write_forwarding.setter
+    def enable_global_write_forwarding(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_global_write_forwarding", value)
 
     @property
     @pulumi.getter(name="enableHttpEndpoint")
@@ -641,8 +673,10 @@ class _ClusterState:
                  copy_tags_to_snapshot: Optional[pulumi.Input[bool]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
                  db_cluster_parameter_group_name: Optional[pulumi.Input[str]] = None,
+                 db_instance_parameter_group_name: Optional[pulumi.Input[str]] = None,
                  db_subnet_group_name: Optional[pulumi.Input[str]] = None,
                  deletion_protection: Optional[pulumi.Input[bool]] = None,
+                 enable_global_write_forwarding: Optional[pulumi.Input[bool]] = None,
                  enable_http_endpoint: Optional[pulumi.Input[bool]] = None,
                  enabled_cloudwatch_logs_exports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  endpoint: Optional[pulumi.Input[str]] = None,
@@ -688,8 +722,10 @@ class _ClusterState:
         :param pulumi.Input[bool] copy_tags_to_snapshot: Copy all Cluster `tags` to snapshots. Default is `false`.
         :param pulumi.Input[str] database_name: Name for an automatically created database on cluster creation. There are different naming restrictions per database engine: [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
         :param pulumi.Input[str] db_cluster_parameter_group_name: A cluster parameter group to associate with the cluster.
+        :param pulumi.Input[str] db_instance_parameter_group_name: Instance parameter group to associate with all instances of the DB cluster. The `db_instance_parameter_group_name` parameter is only valid in combination with the `allow_major_version_upgrade` parameter.
         :param pulumi.Input[str] db_subnet_group_name: A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` specified on every `rds.ClusterInstance` in the cluster.
         :param pulumi.Input[bool] deletion_protection: If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
+        :param pulumi.Input[bool] enable_global_write_forwarding: Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `rds.GlobalCluster`'s primary cluster. See the [Aurora Userguide documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
         :param pulumi.Input[bool] enable_http_endpoint: Enable HTTP endpoint (data API). Only valid when `engine_mode` is set to `serverless`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_cloudwatch_logs_exports: Set of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `slowquery`, `postgresql` (PostgreSQL).
         :param pulumi.Input[str] endpoint: The DNS address of the RDS instance
@@ -747,10 +783,14 @@ class _ClusterState:
             pulumi.set(__self__, "database_name", database_name)
         if db_cluster_parameter_group_name is not None:
             pulumi.set(__self__, "db_cluster_parameter_group_name", db_cluster_parameter_group_name)
+        if db_instance_parameter_group_name is not None:
+            pulumi.set(__self__, "db_instance_parameter_group_name", db_instance_parameter_group_name)
         if db_subnet_group_name is not None:
             pulumi.set(__self__, "db_subnet_group_name", db_subnet_group_name)
         if deletion_protection is not None:
             pulumi.set(__self__, "deletion_protection", deletion_protection)
+        if enable_global_write_forwarding is not None:
+            pulumi.set(__self__, "enable_global_write_forwarding", enable_global_write_forwarding)
         if enable_http_endpoint is not None:
             pulumi.set(__self__, "enable_http_endpoint", enable_http_endpoint)
         if enabled_cloudwatch_logs_exports is not None:
@@ -969,6 +1009,18 @@ class _ClusterState:
         pulumi.set(self, "db_cluster_parameter_group_name", value)
 
     @property
+    @pulumi.getter(name="dbInstanceParameterGroupName")
+    def db_instance_parameter_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Instance parameter group to associate with all instances of the DB cluster. The `db_instance_parameter_group_name` parameter is only valid in combination with the `allow_major_version_upgrade` parameter.
+        """
+        return pulumi.get(self, "db_instance_parameter_group_name")
+
+    @db_instance_parameter_group_name.setter
+    def db_instance_parameter_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "db_instance_parameter_group_name", value)
+
+    @property
     @pulumi.getter(name="dbSubnetGroupName")
     def db_subnet_group_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -991,6 +1043,18 @@ class _ClusterState:
     @deletion_protection.setter
     def deletion_protection(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "deletion_protection", value)
+
+    @property
+    @pulumi.getter(name="enableGlobalWriteForwarding")
+    def enable_global_write_forwarding(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `rds.GlobalCluster`'s primary cluster. See the [Aurora Userguide documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
+        """
+        return pulumi.get(self, "enable_global_write_forwarding")
+
+    @enable_global_write_forwarding.setter
+    def enable_global_write_forwarding(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_global_write_forwarding", value)
 
     @property
     @pulumi.getter(name="enableHttpEndpoint")
@@ -1367,8 +1431,10 @@ class Cluster(pulumi.CustomResource):
                  copy_tags_to_snapshot: Optional[pulumi.Input[bool]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
                  db_cluster_parameter_group_name: Optional[pulumi.Input[str]] = None,
+                 db_instance_parameter_group_name: Optional[pulumi.Input[str]] = None,
                  db_subnet_group_name: Optional[pulumi.Input[str]] = None,
                  deletion_protection: Optional[pulumi.Input[bool]] = None,
+                 enable_global_write_forwarding: Optional[pulumi.Input[bool]] = None,
                  enable_http_endpoint: Optional[pulumi.Input[bool]] = None,
                  enabled_cloudwatch_logs_exports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  engine: Optional[pulumi.Input[Union[str, 'EngineType']]] = None,
@@ -1512,8 +1578,10 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[bool] copy_tags_to_snapshot: Copy all Cluster `tags` to snapshots. Default is `false`.
         :param pulumi.Input[str] database_name: Name for an automatically created database on cluster creation. There are different naming restrictions per database engine: [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
         :param pulumi.Input[str] db_cluster_parameter_group_name: A cluster parameter group to associate with the cluster.
+        :param pulumi.Input[str] db_instance_parameter_group_name: Instance parameter group to associate with all instances of the DB cluster. The `db_instance_parameter_group_name` parameter is only valid in combination with the `allow_major_version_upgrade` parameter.
         :param pulumi.Input[str] db_subnet_group_name: A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` specified on every `rds.ClusterInstance` in the cluster.
         :param pulumi.Input[bool] deletion_protection: If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
+        :param pulumi.Input[bool] enable_global_write_forwarding: Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `rds.GlobalCluster`'s primary cluster. See the [Aurora Userguide documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
         :param pulumi.Input[bool] enable_http_endpoint: Enable HTTP endpoint (data API). Only valid when `engine_mode` is set to `serverless`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_cloudwatch_logs_exports: Set of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `slowquery`, `postgresql` (PostgreSQL).
         :param pulumi.Input[Union[str, 'EngineType']] engine: The name of the database engine to be used for this DB cluster. Defaults to `aurora`. Valid Values: `aurora`, `aurora-mysql`, `aurora-postgresql`
@@ -1675,8 +1743,10 @@ class Cluster(pulumi.CustomResource):
                  copy_tags_to_snapshot: Optional[pulumi.Input[bool]] = None,
                  database_name: Optional[pulumi.Input[str]] = None,
                  db_cluster_parameter_group_name: Optional[pulumi.Input[str]] = None,
+                 db_instance_parameter_group_name: Optional[pulumi.Input[str]] = None,
                  db_subnet_group_name: Optional[pulumi.Input[str]] = None,
                  deletion_protection: Optional[pulumi.Input[bool]] = None,
+                 enable_global_write_forwarding: Optional[pulumi.Input[bool]] = None,
                  enable_http_endpoint: Optional[pulumi.Input[bool]] = None,
                  enabled_cloudwatch_logs_exports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  engine: Optional[pulumi.Input[Union[str, 'EngineType']]] = None,
@@ -1725,8 +1795,10 @@ class Cluster(pulumi.CustomResource):
             __props__.__dict__["copy_tags_to_snapshot"] = copy_tags_to_snapshot
             __props__.__dict__["database_name"] = database_name
             __props__.__dict__["db_cluster_parameter_group_name"] = db_cluster_parameter_group_name
+            __props__.__dict__["db_instance_parameter_group_name"] = db_instance_parameter_group_name
             __props__.__dict__["db_subnet_group_name"] = db_subnet_group_name
             __props__.__dict__["deletion_protection"] = deletion_protection
+            __props__.__dict__["enable_global_write_forwarding"] = enable_global_write_forwarding
             __props__.__dict__["enable_http_endpoint"] = enable_http_endpoint
             __props__.__dict__["enabled_cloudwatch_logs_exports"] = enabled_cloudwatch_logs_exports
             __props__.__dict__["engine"] = engine
@@ -1782,8 +1854,10 @@ class Cluster(pulumi.CustomResource):
             copy_tags_to_snapshot: Optional[pulumi.Input[bool]] = None,
             database_name: Optional[pulumi.Input[str]] = None,
             db_cluster_parameter_group_name: Optional[pulumi.Input[str]] = None,
+            db_instance_parameter_group_name: Optional[pulumi.Input[str]] = None,
             db_subnet_group_name: Optional[pulumi.Input[str]] = None,
             deletion_protection: Optional[pulumi.Input[bool]] = None,
+            enable_global_write_forwarding: Optional[pulumi.Input[bool]] = None,
             enable_http_endpoint: Optional[pulumi.Input[bool]] = None,
             enabled_cloudwatch_logs_exports: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             endpoint: Optional[pulumi.Input[str]] = None,
@@ -1834,8 +1908,10 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[bool] copy_tags_to_snapshot: Copy all Cluster `tags` to snapshots. Default is `false`.
         :param pulumi.Input[str] database_name: Name for an automatically created database on cluster creation. There are different naming restrictions per database engine: [RDS Naming Constraints](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Limits.html#RDS_Limits.Constraints)
         :param pulumi.Input[str] db_cluster_parameter_group_name: A cluster parameter group to associate with the cluster.
+        :param pulumi.Input[str] db_instance_parameter_group_name: Instance parameter group to associate with all instances of the DB cluster. The `db_instance_parameter_group_name` parameter is only valid in combination with the `allow_major_version_upgrade` parameter.
         :param pulumi.Input[str] db_subnet_group_name: A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` specified on every `rds.ClusterInstance` in the cluster.
         :param pulumi.Input[bool] deletion_protection: If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
+        :param pulumi.Input[bool] enable_global_write_forwarding: Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `rds.GlobalCluster`'s primary cluster. See the [Aurora Userguide documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
         :param pulumi.Input[bool] enable_http_endpoint: Enable HTTP endpoint (data API). Only valid when `engine_mode` is set to `serverless`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_cloudwatch_logs_exports: Set of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `slowquery`, `postgresql` (PostgreSQL).
         :param pulumi.Input[str] endpoint: The DNS address of the RDS instance
@@ -1884,8 +1960,10 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["copy_tags_to_snapshot"] = copy_tags_to_snapshot
         __props__.__dict__["database_name"] = database_name
         __props__.__dict__["db_cluster_parameter_group_name"] = db_cluster_parameter_group_name
+        __props__.__dict__["db_instance_parameter_group_name"] = db_instance_parameter_group_name
         __props__.__dict__["db_subnet_group_name"] = db_subnet_group_name
         __props__.__dict__["deletion_protection"] = deletion_protection
+        __props__.__dict__["enable_global_write_forwarding"] = enable_global_write_forwarding
         __props__.__dict__["enable_http_endpoint"] = enable_http_endpoint
         __props__.__dict__["enabled_cloudwatch_logs_exports"] = enabled_cloudwatch_logs_exports
         __props__.__dict__["endpoint"] = endpoint
@@ -2023,6 +2101,14 @@ class Cluster(pulumi.CustomResource):
         return pulumi.get(self, "db_cluster_parameter_group_name")
 
     @property
+    @pulumi.getter(name="dbInstanceParameterGroupName")
+    def db_instance_parameter_group_name(self) -> pulumi.Output[Optional[str]]:
+        """
+        Instance parameter group to associate with all instances of the DB cluster. The `db_instance_parameter_group_name` parameter is only valid in combination with the `allow_major_version_upgrade` parameter.
+        """
+        return pulumi.get(self, "db_instance_parameter_group_name")
+
+    @property
     @pulumi.getter(name="dbSubnetGroupName")
     def db_subnet_group_name(self) -> pulumi.Output[str]:
         """
@@ -2037,6 +2123,14 @@ class Cluster(pulumi.CustomResource):
         If the DB instance should have deletion protection enabled. The database can't be deleted when this value is set to `true`. The default is `false`.
         """
         return pulumi.get(self, "deletion_protection")
+
+    @property
+    @pulumi.getter(name="enableGlobalWriteForwarding")
+    def enable_global_write_forwarding(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `rds.GlobalCluster`'s primary cluster. See the [Aurora Userguide documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
+        """
+        return pulumi.get(self, "enable_global_write_forwarding")
 
     @property
     @pulumi.getter(name="enableHttpEndpoint")

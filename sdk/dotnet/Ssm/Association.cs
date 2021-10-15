@@ -132,7 +132,7 @@ namespace Pulumi.Aws.Ssm
         public Output<string?> AssociationName { get; private set; } = null!;
 
         /// <summary>
-        /// Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls.
+        /// Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls. This should be set to the SSM document `parameter` that will define how your automation will branch out.
         /// </summary>
         [Output("automationTargetParameterName")]
         public Output<string?> AutomationTargetParameterName { get; private set; } = null!;
@@ -256,7 +256,7 @@ namespace Pulumi.Aws.Ssm
         public Input<string>? AssociationName { get; set; }
 
         /// <summary>
-        /// Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls.
+        /// Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls. This should be set to the SSM document `parameter` that will define how your automation will branch out.
         /// </summary>
         [Input("automationTargetParameterName")]
         public Input<string>? AutomationTargetParameterName { get; set; }
@@ -359,7 +359,7 @@ namespace Pulumi.Aws.Ssm
         public Input<string>? AssociationName { get; set; }
 
         /// <summary>
-        /// Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls.
+        /// Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls. This should be set to the SSM document `parameter` that will define how your automation will branch out.
         /// </summary>
         [Input("automationTargetParameterName")]
         public Input<string>? AutomationTargetParameterName { get; set; }

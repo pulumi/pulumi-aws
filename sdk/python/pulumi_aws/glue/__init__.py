@@ -18,6 +18,7 @@ from .get_script import *
 from .job import *
 from .ml_transform import *
 from .partition import *
+from .partition_index import *
 from .registry import *
 from .resource_policy import *
 from .schema import *

@@ -51,6 +51,18 @@ namespace Pulumi.Aws.Glue
         [Input("id", required: true)]
         public string Id { get; set; } = null!;
 
+        [Input("tags")]
+        private Dictionary<string, string>? _tags;
+
+        /// <summary>
+        /// The tags assigned to the resource
+        /// </summary>
+        public Dictionary<string, string> Tags
+        {
+            get => _tags ?? (_tags = new Dictionary<string, string>());
+            set => _tags = value;
+        }
+
         public GetConnectionArgs()
         {
         }
@@ -90,6 +102,10 @@ namespace Pulumi.Aws.Glue
         /// A map of physical connection requirements, such as VPC and SecurityGroup.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetConnectionPhysicalConnectionRequirementResult> PhysicalConnectionRequirements;
+        /// <summary>
+        /// The tags assigned to the resource
+        /// </summary>
+        public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]
         private GetConnectionResult(
@@ -109,7 +125,9 @@ namespace Pulumi.Aws.Glue
 
             string name,
 
-            ImmutableArray<Outputs.GetConnectionPhysicalConnectionRequirementResult> physicalConnectionRequirements)
+            ImmutableArray<Outputs.GetConnectionPhysicalConnectionRequirementResult> physicalConnectionRequirements,
+
+            ImmutableDictionary<string, string> tags)
         {
             Arn = arn;
             CatalogId = catalogId;
@@ -120,6 +138,7 @@ namespace Pulumi.Aws.Glue
             MatchCriterias = matchCriterias;
             Name = name;
             PhysicalConnectionRequirements = physicalConnectionRequirements;
+            Tags = tags;
         }
     }
 }

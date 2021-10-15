@@ -234,6 +234,12 @@ namespace Pulumi.Aws.Rds
         public Output<string> DbClusterParameterGroupName { get; private set; } = null!;
 
         /// <summary>
+        /// Instance parameter group to associate with all instances of the DB cluster. The `db_instance_parameter_group_name` parameter is only valid in combination with the `allow_major_version_upgrade` parameter.
+        /// </summary>
+        [Output("dbInstanceParameterGroupName")]
+        public Output<string?> DbInstanceParameterGroupName { get; private set; } = null!;
+
+        /// <summary>
         /// A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` specified on every `aws.rds.ClusterInstance` in the cluster.
         /// </summary>
         [Output("dbSubnetGroupName")]
@@ -244,6 +250,12 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         [Output("deletionProtection")]
         public Output<bool?> DeletionProtection { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `aws.rds.GlobalCluster`'s primary cluster. See the [Aurora Userguide documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
+        /// </summary>
+        [Output("enableGlobalWriteForwarding")]
+        public Output<bool?> EnableGlobalWriteForwarding { get; private set; } = null!;
 
         /// <summary>
         /// Enable HTTP endpoint (data API). Only valid when `engine_mode` is set to `serverless`.
@@ -548,6 +560,12 @@ namespace Pulumi.Aws.Rds
         public Input<string>? DbClusterParameterGroupName { get; set; }
 
         /// <summary>
+        /// Instance parameter group to associate with all instances of the DB cluster. The `db_instance_parameter_group_name` parameter is only valid in combination with the `allow_major_version_upgrade` parameter.
+        /// </summary>
+        [Input("dbInstanceParameterGroupName")]
+        public Input<string>? DbInstanceParameterGroupName { get; set; }
+
+        /// <summary>
         /// A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` specified on every `aws.rds.ClusterInstance` in the cluster.
         /// </summary>
         [Input("dbSubnetGroupName")]
@@ -558,6 +576,12 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         [Input("deletionProtection")]
         public Input<bool>? DeletionProtection { get; set; }
+
+        /// <summary>
+        /// Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `aws.rds.GlobalCluster`'s primary cluster. See the [Aurora Userguide documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
+        /// </summary>
+        [Input("enableGlobalWriteForwarding")]
+        public Input<bool>? EnableGlobalWriteForwarding { get; set; }
 
         /// <summary>
         /// Enable HTTP endpoint (data API). Only valid when `engine_mode` is set to `serverless`.
@@ -828,6 +852,12 @@ namespace Pulumi.Aws.Rds
         public Input<string>? DbClusterParameterGroupName { get; set; }
 
         /// <summary>
+        /// Instance parameter group to associate with all instances of the DB cluster. The `db_instance_parameter_group_name` parameter is only valid in combination with the `allow_major_version_upgrade` parameter.
+        /// </summary>
+        [Input("dbInstanceParameterGroupName")]
+        public Input<string>? DbInstanceParameterGroupName { get; set; }
+
+        /// <summary>
         /// A DB subnet group to associate with this DB instance. **NOTE:** This must match the `db_subnet_group_name` specified on every `aws.rds.ClusterInstance` in the cluster.
         /// </summary>
         [Input("dbSubnetGroupName")]
@@ -838,6 +868,12 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         [Input("deletionProtection")]
         public Input<bool>? DeletionProtection { get; set; }
+
+        /// <summary>
+        /// Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `aws.rds.GlobalCluster`'s primary cluster. See the [Aurora Userguide documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
+        /// </summary>
+        [Input("enableGlobalWriteForwarding")]
+        public Input<bool>? EnableGlobalWriteForwarding { get; set; }
 
         /// <summary>
         /// Enable HTTP endpoint (data API). Only valid when `engine_mode` is set to `serverless`.

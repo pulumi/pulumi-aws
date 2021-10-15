@@ -31,6 +31,7 @@ class ClusterInstanceArgs:
                  monitoring_role_arn: Optional[pulumi.Input[str]] = None,
                  performance_insights_enabled: Optional[pulumi.Input[bool]] = None,
                  performance_insights_kms_key_id: Optional[pulumi.Input[str]] = None,
+                 performance_insights_retention_period: Optional[pulumi.Input[int]] = None,
                  preferred_backup_window: Optional[pulumi.Input[str]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
                  promotion_tier: Optional[pulumi.Input[int]] = None,
@@ -53,7 +54,7 @@ class ClusterInstanceArgs:
                For information on the difference between the available Aurora MySQL engines
                see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
                in the Amazon RDS User Guide.
-        :param pulumi.Input[str] engine_version: The database engine version. When managing the engine version in the cluster, it is recommended to add the `ignore_changes` for this argument to prevent the provider from proposing changes to the instance engine version directly.
+        :param pulumi.Input[str] engine_version: The database engine version.
         :param pulumi.Input[str] identifier: The indentifier for the RDS instance, if omitted, this provider will assign a random, unique identifier.
         :param pulumi.Input[str] identifier_prefix: Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
         :param pulumi.Input[int] monitoring_interval: The interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0. The default is 0. Valid Values: 0, 1, 5, 10, 15, 30, 60.
@@ -61,7 +62,8 @@ class ClusterInstanceArgs:
                enhanced monitoring metrics to CloudWatch Logs. You can find more information on the [AWS Documentation](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html)
                what IAM permissions are needed to allow Enhanced Monitoring for RDS Instances.
         :param pulumi.Input[bool] performance_insights_enabled: Specifies whether Performance Insights is enabled or not.
-        :param pulumi.Input[str] performance_insights_kms_key_id: The ARN for the KMS key to encrypt Performance Insights data. When specifying `performance_insights_kms_key_id`, `performance_insights_enabled` needs to be set to true.
+        :param pulumi.Input[str] performance_insights_kms_key_id: ARN for the KMS key to encrypt Performance Insights data. When specifying `performance_insights_kms_key_id`, `performance_insights_enabled` needs to be set to true.
+        :param pulumi.Input[int] performance_insights_retention_period: Amount of time in days to retain Performance Insights data. Either 7 (7 days) or 731 (2 years). When specifying `performance_insights_retention_period`, `performance_insights_enabled` needs to be set to true. Defaults to '7'.
         :param pulumi.Input[str] preferred_backup_window: The daily time range during which automated backups are created if automated backups are enabled.
                Eg: "04:00-09:00"
         :param pulumi.Input[str] preferred_maintenance_window: The window to perform maintenance in.
@@ -104,6 +106,8 @@ class ClusterInstanceArgs:
             pulumi.set(__self__, "performance_insights_enabled", performance_insights_enabled)
         if performance_insights_kms_key_id is not None:
             pulumi.set(__self__, "performance_insights_kms_key_id", performance_insights_kms_key_id)
+        if performance_insights_retention_period is not None:
+            pulumi.set(__self__, "performance_insights_retention_period", performance_insights_retention_period)
         if preferred_backup_window is not None:
             pulumi.set(__self__, "preferred_backup_window", preferred_backup_window)
         if preferred_maintenance_window is not None:
@@ -244,7 +248,7 @@ class ClusterInstanceArgs:
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The database engine version. When managing the engine version in the cluster, it is recommended to add the `ignore_changes` for this argument to prevent the provider from proposing changes to the instance engine version directly.
+        The database engine version.
         """
         return pulumi.get(self, "engine_version")
 
@@ -318,13 +322,25 @@ class ClusterInstanceArgs:
     @pulumi.getter(name="performanceInsightsKmsKeyId")
     def performance_insights_kms_key_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ARN for the KMS key to encrypt Performance Insights data. When specifying `performance_insights_kms_key_id`, `performance_insights_enabled` needs to be set to true.
+        ARN for the KMS key to encrypt Performance Insights data. When specifying `performance_insights_kms_key_id`, `performance_insights_enabled` needs to be set to true.
         """
         return pulumi.get(self, "performance_insights_kms_key_id")
 
     @performance_insights_kms_key_id.setter
     def performance_insights_kms_key_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "performance_insights_kms_key_id", value)
+
+    @property
+    @pulumi.getter(name="performanceInsightsRetentionPeriod")
+    def performance_insights_retention_period(self) -> Optional[pulumi.Input[int]]:
+        """
+        Amount of time in days to retain Performance Insights data. Either 7 (7 days) or 731 (2 years). When specifying `performance_insights_retention_period`, `performance_insights_enabled` needs to be set to true. Defaults to '7'.
+        """
+        return pulumi.get(self, "performance_insights_retention_period")
+
+    @performance_insights_retention_period.setter
+    def performance_insights_retention_period(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "performance_insights_retention_period", value)
 
     @property
     @pulumi.getter(name="preferredBackupWindow")
@@ -416,6 +432,7 @@ class _ClusterInstanceState:
                  monitoring_role_arn: Optional[pulumi.Input[str]] = None,
                  performance_insights_enabled: Optional[pulumi.Input[bool]] = None,
                  performance_insights_kms_key_id: Optional[pulumi.Input[str]] = None,
+                 performance_insights_retention_period: Optional[pulumi.Input[int]] = None,
                  port: Optional[pulumi.Input[int]] = None,
                  preferred_backup_window: Optional[pulumi.Input[str]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
@@ -443,7 +460,7 @@ class _ClusterInstanceState:
                For information on the difference between the available Aurora MySQL engines
                see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
                in the Amazon RDS User Guide.
-        :param pulumi.Input[str] engine_version: The database engine version. When managing the engine version in the cluster, it is recommended to add the `ignore_changes` for this argument to prevent the provider from proposing changes to the instance engine version directly.
+        :param pulumi.Input[str] engine_version: The database engine version.
         :param pulumi.Input[str] engine_version_actual: The database engine version
         :param pulumi.Input[str] identifier: The indentifier for the RDS instance, if omitted, this provider will assign a random, unique identifier.
         :param pulumi.Input[str] identifier_prefix: Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
@@ -455,7 +472,8 @@ class _ClusterInstanceState:
                enhanced monitoring metrics to CloudWatch Logs. You can find more information on the [AWS Documentation](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html)
                what IAM permissions are needed to allow Enhanced Monitoring for RDS Instances.
         :param pulumi.Input[bool] performance_insights_enabled: Specifies whether Performance Insights is enabled or not.
-        :param pulumi.Input[str] performance_insights_kms_key_id: The ARN for the KMS key to encrypt Performance Insights data. When specifying `performance_insights_kms_key_id`, `performance_insights_enabled` needs to be set to true.
+        :param pulumi.Input[str] performance_insights_kms_key_id: ARN for the KMS key to encrypt Performance Insights data. When specifying `performance_insights_kms_key_id`, `performance_insights_enabled` needs to be set to true.
+        :param pulumi.Input[int] performance_insights_retention_period: Amount of time in days to retain Performance Insights data. Either 7 (7 days) or 731 (2 years). When specifying `performance_insights_retention_period`, `performance_insights_enabled` needs to be set to true. Defaults to '7'.
         :param pulumi.Input[int] port: The database port
         :param pulumi.Input[str] preferred_backup_window: The daily time range during which automated backups are created if automated backups are enabled.
                Eg: "04:00-09:00"
@@ -514,6 +532,8 @@ class _ClusterInstanceState:
             pulumi.set(__self__, "performance_insights_enabled", performance_insights_enabled)
         if performance_insights_kms_key_id is not None:
             pulumi.set(__self__, "performance_insights_kms_key_id", performance_insights_kms_key_id)
+        if performance_insights_retention_period is not None:
+            pulumi.set(__self__, "performance_insights_retention_period", performance_insights_retention_period)
         if port is not None:
             pulumi.set(__self__, "port", port)
         if preferred_backup_window is not None:
@@ -685,7 +705,7 @@ class _ClusterInstanceState:
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> Optional[pulumi.Input[str]]:
         """
-        The database engine version. When managing the engine version in the cluster, it is recommended to add the `ignore_changes` for this argument to prevent the provider from proposing changes to the instance engine version directly.
+        The database engine version.
         """
         return pulumi.get(self, "engine_version")
 
@@ -796,13 +816,25 @@ class _ClusterInstanceState:
     @pulumi.getter(name="performanceInsightsKmsKeyId")
     def performance_insights_kms_key_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ARN for the KMS key to encrypt Performance Insights data. When specifying `performance_insights_kms_key_id`, `performance_insights_enabled` needs to be set to true.
+        ARN for the KMS key to encrypt Performance Insights data. When specifying `performance_insights_kms_key_id`, `performance_insights_enabled` needs to be set to true.
         """
         return pulumi.get(self, "performance_insights_kms_key_id")
 
     @performance_insights_kms_key_id.setter
     def performance_insights_kms_key_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "performance_insights_kms_key_id", value)
+
+    @property
+    @pulumi.getter(name="performanceInsightsRetentionPeriod")
+    def performance_insights_retention_period(self) -> Optional[pulumi.Input[int]]:
+        """
+        Amount of time in days to retain Performance Insights data. Either 7 (7 days) or 731 (2 years). When specifying `performance_insights_retention_period`, `performance_insights_enabled` needs to be set to true. Defaults to '7'.
+        """
+        return pulumi.get(self, "performance_insights_retention_period")
+
+    @performance_insights_retention_period.setter
+    def performance_insights_retention_period(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "performance_insights_retention_period", value)
 
     @property
     @pulumi.getter
@@ -939,6 +971,7 @@ class ClusterInstance(pulumi.CustomResource):
                  monitoring_role_arn: Optional[pulumi.Input[str]] = None,
                  performance_insights_enabled: Optional[pulumi.Input[bool]] = None,
                  performance_insights_kms_key_id: Optional[pulumi.Input[str]] = None,
+                 performance_insights_retention_period: Optional[pulumi.Input[int]] = None,
                  preferred_backup_window: Optional[pulumi.Input[str]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
                  promotion_tier: Optional[pulumi.Input[int]] = None,
@@ -1010,7 +1043,7 @@ class ClusterInstance(pulumi.CustomResource):
                For information on the difference between the available Aurora MySQL engines
                see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
                in the Amazon RDS User Guide.
-        :param pulumi.Input[str] engine_version: The database engine version. When managing the engine version in the cluster, it is recommended to add the `ignore_changes` for this argument to prevent the provider from proposing changes to the instance engine version directly.
+        :param pulumi.Input[str] engine_version: The database engine version.
         :param pulumi.Input[str] identifier: The indentifier for the RDS instance, if omitted, this provider will assign a random, unique identifier.
         :param pulumi.Input[str] identifier_prefix: Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
         :param pulumi.Input[Union[str, 'InstanceType']] instance_class: The instance class to use. For details on CPU
@@ -1020,7 +1053,8 @@ class ClusterInstance(pulumi.CustomResource):
                enhanced monitoring metrics to CloudWatch Logs. You can find more information on the [AWS Documentation](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html)
                what IAM permissions are needed to allow Enhanced Monitoring for RDS Instances.
         :param pulumi.Input[bool] performance_insights_enabled: Specifies whether Performance Insights is enabled or not.
-        :param pulumi.Input[str] performance_insights_kms_key_id: The ARN for the KMS key to encrypt Performance Insights data. When specifying `performance_insights_kms_key_id`, `performance_insights_enabled` needs to be set to true.
+        :param pulumi.Input[str] performance_insights_kms_key_id: ARN for the KMS key to encrypt Performance Insights data. When specifying `performance_insights_kms_key_id`, `performance_insights_enabled` needs to be set to true.
+        :param pulumi.Input[int] performance_insights_retention_period: Amount of time in days to retain Performance Insights data. Either 7 (7 days) or 731 (2 years). When specifying `performance_insights_retention_period`, `performance_insights_enabled` needs to be set to true. Defaults to '7'.
         :param pulumi.Input[str] preferred_backup_window: The daily time range during which automated backups are created if automated backups are enabled.
                Eg: "04:00-09:00"
         :param pulumi.Input[str] preferred_maintenance_window: The window to perform maintenance in.
@@ -1119,6 +1153,7 @@ class ClusterInstance(pulumi.CustomResource):
                  monitoring_role_arn: Optional[pulumi.Input[str]] = None,
                  performance_insights_enabled: Optional[pulumi.Input[bool]] = None,
                  performance_insights_kms_key_id: Optional[pulumi.Input[str]] = None,
+                 performance_insights_retention_period: Optional[pulumi.Input[int]] = None,
                  preferred_backup_window: Optional[pulumi.Input[str]] = None,
                  preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
                  promotion_tier: Optional[pulumi.Input[int]] = None,
@@ -1157,6 +1192,7 @@ class ClusterInstance(pulumi.CustomResource):
             __props__.__dict__["monitoring_role_arn"] = monitoring_role_arn
             __props__.__dict__["performance_insights_enabled"] = performance_insights_enabled
             __props__.__dict__["performance_insights_kms_key_id"] = performance_insights_kms_key_id
+            __props__.__dict__["performance_insights_retention_period"] = performance_insights_retention_period
             __props__.__dict__["preferred_backup_window"] = preferred_backup_window
             __props__.__dict__["preferred_maintenance_window"] = preferred_maintenance_window
             __props__.__dict__["promotion_tier"] = promotion_tier
@@ -1203,6 +1239,7 @@ class ClusterInstance(pulumi.CustomResource):
             monitoring_role_arn: Optional[pulumi.Input[str]] = None,
             performance_insights_enabled: Optional[pulumi.Input[bool]] = None,
             performance_insights_kms_key_id: Optional[pulumi.Input[str]] = None,
+            performance_insights_retention_period: Optional[pulumi.Input[int]] = None,
             port: Optional[pulumi.Input[int]] = None,
             preferred_backup_window: Optional[pulumi.Input[str]] = None,
             preferred_maintenance_window: Optional[pulumi.Input[str]] = None,
@@ -1235,7 +1272,7 @@ class ClusterInstance(pulumi.CustomResource):
                For information on the difference between the available Aurora MySQL engines
                see [Comparison between Aurora MySQL 1 and Aurora MySQL 2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Updates.20180206.html)
                in the Amazon RDS User Guide.
-        :param pulumi.Input[str] engine_version: The database engine version. When managing the engine version in the cluster, it is recommended to add the `ignore_changes` for this argument to prevent the provider from proposing changes to the instance engine version directly.
+        :param pulumi.Input[str] engine_version: The database engine version.
         :param pulumi.Input[str] engine_version_actual: The database engine version
         :param pulumi.Input[str] identifier: The indentifier for the RDS instance, if omitted, this provider will assign a random, unique identifier.
         :param pulumi.Input[str] identifier_prefix: Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
@@ -1247,7 +1284,8 @@ class ClusterInstance(pulumi.CustomResource):
                enhanced monitoring metrics to CloudWatch Logs. You can find more information on the [AWS Documentation](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html)
                what IAM permissions are needed to allow Enhanced Monitoring for RDS Instances.
         :param pulumi.Input[bool] performance_insights_enabled: Specifies whether Performance Insights is enabled or not.
-        :param pulumi.Input[str] performance_insights_kms_key_id: The ARN for the KMS key to encrypt Performance Insights data. When specifying `performance_insights_kms_key_id`, `performance_insights_enabled` needs to be set to true.
+        :param pulumi.Input[str] performance_insights_kms_key_id: ARN for the KMS key to encrypt Performance Insights data. When specifying `performance_insights_kms_key_id`, `performance_insights_enabled` needs to be set to true.
+        :param pulumi.Input[int] performance_insights_retention_period: Amount of time in days to retain Performance Insights data. Either 7 (7 days) or 731 (2 years). When specifying `performance_insights_retention_period`, `performance_insights_enabled` needs to be set to true. Defaults to '7'.
         :param pulumi.Input[int] port: The database port
         :param pulumi.Input[str] preferred_backup_window: The daily time range during which automated backups are created if automated backups are enabled.
                Eg: "04:00-09:00"
@@ -1288,6 +1326,7 @@ class ClusterInstance(pulumi.CustomResource):
         __props__.__dict__["monitoring_role_arn"] = monitoring_role_arn
         __props__.__dict__["performance_insights_enabled"] = performance_insights_enabled
         __props__.__dict__["performance_insights_kms_key_id"] = performance_insights_kms_key_id
+        __props__.__dict__["performance_insights_retention_period"] = performance_insights_retention_period
         __props__.__dict__["port"] = port
         __props__.__dict__["preferred_backup_window"] = preferred_backup_window
         __props__.__dict__["preferred_maintenance_window"] = preferred_maintenance_window
@@ -1403,7 +1442,7 @@ class ClusterInstance(pulumi.CustomResource):
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> pulumi.Output[str]:
         """
-        The database engine version. When managing the engine version in the cluster, it is recommended to add the `ignore_changes` for this argument to prevent the provider from proposing changes to the instance engine version directly.
+        The database engine version.
         """
         return pulumi.get(self, "engine_version")
 
@@ -1478,9 +1517,17 @@ class ClusterInstance(pulumi.CustomResource):
     @pulumi.getter(name="performanceInsightsKmsKeyId")
     def performance_insights_kms_key_id(self) -> pulumi.Output[str]:
         """
-        The ARN for the KMS key to encrypt Performance Insights data. When specifying `performance_insights_kms_key_id`, `performance_insights_enabled` needs to be set to true.
+        ARN for the KMS key to encrypt Performance Insights data. When specifying `performance_insights_kms_key_id`, `performance_insights_enabled` needs to be set to true.
         """
         return pulumi.get(self, "performance_insights_kms_key_id")
+
+    @property
+    @pulumi.getter(name="performanceInsightsRetentionPeriod")
+    def performance_insights_retention_period(self) -> pulumi.Output[int]:
+        """
+        Amount of time in days to retain Performance Insights data. Either 7 (7 days) or 731 (2 years). When specifying `performance_insights_retention_period`, `performance_insights_enabled` needs to be set to true. Defaults to '7'.
+        """
+        return pulumi.get(self, "performance_insights_retention_period")
 
     @property
     @pulumi.getter

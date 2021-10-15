@@ -56,6 +56,14 @@ namespace Pulumi.Aws.Ec2
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The number of partitions to create in the
+        /// placement group.  Can only be specified when the `strategy` is set to
+        /// `"partition"`.  Valid values are 1 - 7 (default is `2`).
+        /// </summary>
+        [Output("partitionCount")]
+        public Output<int?> PartitionCount { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of the placement group.
         /// </summary>
         [Output("placementGroupId")]
@@ -132,6 +140,14 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// The number of partitions to create in the
+        /// placement group.  Can only be specified when the `strategy` is set to
+        /// `"partition"`.  Valid values are 1 - 7 (default is `2`).
+        /// </summary>
+        [Input("partitionCount")]
+        public Input<int>? PartitionCount { get; set; }
+
+        /// <summary>
         /// The placement strategy. Can be `"cluster"`, `"partition"` or `"spread"`.
         /// </summary>
         [Input("strategy", required: true)]
@@ -167,6 +183,14 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The number of partitions to create in the
+        /// placement group.  Can only be specified when the `strategy` is set to
+        /// `"partition"`.  Valid values are 1 - 7 (default is `2`).
+        /// </summary>
+        [Input("partitionCount")]
+        public Input<int>? PartitionCount { get; set; }
 
         /// <summary>
         /// The ID of the placement group.

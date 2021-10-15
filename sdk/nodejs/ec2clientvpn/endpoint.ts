@@ -84,7 +84,7 @@ export class Endpoint extends pulumi.CustomResource {
      */
     public readonly connectionLogOptions!: pulumi.Output<outputs.ec2clientvpn.EndpointConnectionLogOptions>;
     /**
-     * Name of the repository.
+     * A brief description of the Client VPN endpoint.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
@@ -202,7 +202,7 @@ export interface EndpointState {
      */
     connectionLogOptions?: pulumi.Input<inputs.ec2clientvpn.EndpointConnectionLogOptions>;
     /**
-     * Name of the repository.
+     * A brief description of the Client VPN endpoint.
      */
     description?: pulumi.Input<string>;
     /**
@@ -254,7 +254,7 @@ export interface EndpointArgs {
      */
     connectionLogOptions: pulumi.Input<inputs.ec2clientvpn.EndpointConnectionLogOptions>;
     /**
-     * Name of the repository.
+     * A brief description of the Client VPN endpoint.
      */
     description?: pulumi.Input<string>;
     /**

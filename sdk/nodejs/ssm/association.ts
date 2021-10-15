@@ -100,7 +100,7 @@ export class Association extends pulumi.CustomResource {
      */
     public readonly associationName!: pulumi.Output<string | undefined>;
     /**
-     * Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls.
+     * Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls. This should be set to the SSM document `parameter` that will define how your automation will branch out.
      */
     public readonly automationTargetParameterName!: pulumi.Output<string | undefined>;
     /**
@@ -212,7 +212,7 @@ export interface AssociationState {
      */
     associationName?: pulumi.Input<string>;
     /**
-     * Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls.
+     * Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls. This should be set to the SSM document `parameter` that will define how your automation will branch out.
      */
     automationTargetParameterName?: pulumi.Input<string>;
     /**
@@ -270,7 +270,7 @@ export interface AssociationArgs {
      */
     associationName?: pulumi.Input<string>;
     /**
-     * Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls.
+     * Specify the target for the association. This target is required for associations that use an `Automation` document and target resources by using rate controls. This should be set to the SSM document `parameter` that will define how your automation will branch out.
      */
     automationTargetParameterName?: pulumi.Input<string>;
     /**

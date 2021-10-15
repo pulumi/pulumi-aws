@@ -13,12 +13,15 @@ __all__ = ['ResourcePolicyArgs', 'ResourcePolicy']
 @pulumi.input_type
 class ResourcePolicyArgs:
     def __init__(__self__, *,
-                 policy: pulumi.Input[str]):
+                 policy: pulumi.Input[str],
+                 enable_hybrid: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ResourcePolicy resource.
         :param pulumi.Input[str] policy: The policy to be applied to the aws glue data catalog.
         """
         pulumi.set(__self__, "policy", policy)
+        if enable_hybrid is not None:
+            pulumi.set(__self__, "enable_hybrid", enable_hybrid)
 
     @property
     @pulumi.getter
@@ -32,17 +35,38 @@ class ResourcePolicyArgs:
     def policy(self, value: pulumi.Input[str]):
         pulumi.set(self, "policy", value)
 
+    @property
+    @pulumi.getter(name="enableHybrid")
+    def enable_hybrid(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "enable_hybrid")
+
+    @enable_hybrid.setter
+    def enable_hybrid(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "enable_hybrid", value)
+
 
 @pulumi.input_type
 class _ResourcePolicyState:
     def __init__(__self__, *,
+                 enable_hybrid: Optional[pulumi.Input[str]] = None,
                  policy: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ResourcePolicy resources.
         :param pulumi.Input[str] policy: The policy to be applied to the aws glue data catalog.
         """
+        if enable_hybrid is not None:
+            pulumi.set(__self__, "enable_hybrid", enable_hybrid)
         if policy is not None:
             pulumi.set(__self__, "policy", policy)
+
+    @property
+    @pulumi.getter(name="enableHybrid")
+    def enable_hybrid(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "enable_hybrid")
+
+    @enable_hybrid.setter
+    def enable_hybrid(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "enable_hybrid", value)
 
     @property
     @pulumi.getter
@@ -62,6 +86,7 @@ class ResourcePolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 enable_hybrid: Optional[pulumi.Input[str]] = None,
                  policy: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -151,6 +176,7 @@ class ResourcePolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 enable_hybrid: Optional[pulumi.Input[str]] = None,
                  policy: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
@@ -164,6 +190,7 @@ class ResourcePolicy(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ResourcePolicyArgs.__new__(ResourcePolicyArgs)
 
+            __props__.__dict__["enable_hybrid"] = enable_hybrid
             if policy is None and not opts.urn:
                 raise TypeError("Missing required property 'policy'")
             __props__.__dict__["policy"] = policy
@@ -177,6 +204,7 @@ class ResourcePolicy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            enable_hybrid: Optional[pulumi.Input[str]] = None,
             policy: Optional[pulumi.Input[str]] = None) -> 'ResourcePolicy':
         """
         Get an existing ResourcePolicy resource's state with the given name, id, and optional extra
@@ -191,8 +219,14 @@ class ResourcePolicy(pulumi.CustomResource):
 
         __props__ = _ResourcePolicyState.__new__(_ResourcePolicyState)
 
+        __props__.__dict__["enable_hybrid"] = enable_hybrid
         __props__.__dict__["policy"] = policy
         return ResourcePolicy(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="enableHybrid")
+    def enable_hybrid(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "enable_hybrid")
 
     @property
     @pulumi.getter

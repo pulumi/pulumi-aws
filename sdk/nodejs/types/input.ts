@@ -5742,6 +5742,17 @@ export namespace chime {
          */
         weight: pulumi.Input<number>;
     }
+
+    export interface VoiceConnectorTerminationCredentialsCredential {
+        /**
+         * RFC2617 compliant password associated with the SIP credentials.
+         */
+        password: pulumi.Input<string>;
+        /**
+         * RFC2617 compliant username associated with the SIP credentials.
+         */
+        username: pulumi.Input<string>;
+    }
 }
 
 export namespace cloudformation {
@@ -9661,12 +9672,19 @@ export namespace ec2 {
         totalTargetCapacity: pulumi.Input<number>;
     }
 
-    export interface GetAmiFilter {
+    export interface FlowLogDestinationOptions {
         /**
-         * The name of the AMI that was provided during image creation.
+         * The format for the flow log. Default value: `plain-text`. Valid values: `plain-text`, `parquet`.
          */
-        name: string;
-        values: string[];
+        fileFormat?: pulumi.Input<string>;
+        /**
+         * Indicates whether to use Hive-compatible prefixes for flow logs stored in Amazon S3. Default value: `false`.
+         */
+        hiveCompatiblePartitions?: pulumi.Input<boolean>;
+        /**
+         * Indicates whether to partition the flow log per hour. This reduces the cost and response time for queries. Default value: `false`.
+         */
+        perHourPartition?: pulumi.Input<boolean>;
     }
 
     export interface GetAmiFilterArgs {
@@ -9675,6 +9693,14 @@ export namespace ec2 {
          */
         name: pulumi.Input<string>;
         values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface GetAmiFilter {
+        /**
+         * The name of the AMI that was provided during image creation.
+         */
+        name: string;
+        values: string[];
     }
 
     export interface GetAmiIdsFilterArgs {
@@ -9713,19 +9739,6 @@ export namespace ec2 {
         values: string[];
     }
 
-    export interface GetCoipPoolsFilterArgs {
-        /**
-         * The name of the field to filter by, as defined by
-         * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCoipPools.html).
-         */
-        name: pulumi.Input<string>;
-        /**
-         * Set of values that are accepted for the given field.
-         * A COIP Pool will be selected if any one of the given values matches.
-         */
-        values: pulumi.Input<pulumi.Input<string>[]>;
-    }
-
     export interface GetCoipPoolsFilter {
         /**
          * The name of the field to filter by, as defined by
@@ -9739,14 +9752,27 @@ export namespace ec2 {
         values: string[];
     }
 
-    export interface GetCustomerGatewayFilter {
-        name: string;
-        values: string[];
+    export interface GetCoipPoolsFilterArgs {
+        /**
+         * The name of the field to filter by, as defined by
+         * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCoipPools.html).
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Set of values that are accepted for the given field.
+         * A COIP Pool will be selected if any one of the given values matches.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface GetCustomerGatewayFilterArgs {
         name: pulumi.Input<string>;
         values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface GetCustomerGatewayFilter {
+        name: string;
+        values: string[];
     }
 
     export interface GetDedicatedHostFilterArgs {
@@ -9771,17 +9797,12 @@ export namespace ec2 {
         values: string[];
     }
 
-    export interface GetElasticIpFilter {
-        name: string;
-        values: string[];
-    }
-
     export interface GetElasticIpFilterArgs {
         name: pulumi.Input<string>;
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
-    export interface GetInstanceFilter {
+    export interface GetElasticIpFilter {
         name: string;
         values: string[];
     }
@@ -9789,6 +9810,11 @@ export namespace ec2 {
     export interface GetInstanceFilterArgs {
         name: pulumi.Input<string>;
         values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface GetInstanceFilter {
+        name: string;
+        values: string[];
     }
 
     export interface GetInstanceTypeFpga {
@@ -9811,16 +9837,6 @@ export namespace ec2 {
         name?: pulumi.Input<string>;
     }
 
-    export interface GetInstanceTypeGpus {
-        count?: number;
-        manufacturer?: string;
-        /**
-         * Size of the instance memory, in MiB.
-         */
-        memorySize?: number;
-        name?: string;
-    }
-
     export interface GetInstanceTypeGpusArgs {
         count?: pulumi.Input<number>;
         manufacturer?: pulumi.Input<string>;
@@ -9831,16 +9847,26 @@ export namespace ec2 {
         name?: pulumi.Input<string>;
     }
 
-    export interface GetInstanceTypeInferenceAcceleratorArgs {
-        count?: pulumi.Input<number>;
-        manufacturer?: pulumi.Input<string>;
-        name?: pulumi.Input<string>;
+    export interface GetInstanceTypeGpus {
+        count?: number;
+        manufacturer?: string;
+        /**
+         * Size of the instance memory, in MiB.
+         */
+        memorySize?: number;
+        name?: string;
     }
 
     export interface GetInstanceTypeInferenceAccelerator {
         count?: number;
         manufacturer?: string;
         name?: string;
+    }
+
+    export interface GetInstanceTypeInferenceAcceleratorArgs {
+        count?: pulumi.Input<number>;
+        manufacturer?: pulumi.Input<string>;
+        name?: pulumi.Input<string>;
     }
 
     export interface GetInstanceTypeInstanceDisk {
@@ -9855,17 +9881,6 @@ export namespace ec2 {
         type?: pulumi.Input<string>;
     }
 
-    export interface GetInstanceTypeOfferingFilter {
-        /**
-         * Name of the filter. The `location` filter depends on the top-level `locationType` argument and if not specified, defaults to the current region.
-         */
-        name: string;
-        /**
-         * List of one or more values for the filter.
-         */
-        values: string[];
-    }
-
     export interface GetInstanceTypeOfferingFilterArgs {
         /**
          * Name of the filter. The `location` filter depends on the top-level `locationType` argument and if not specified, defaults to the current region.
@@ -9875,6 +9890,17 @@ export namespace ec2 {
          * List of one or more values for the filter.
          */
         values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface GetInstanceTypeOfferingFilter {
+        /**
+         * Name of the filter. The `location` filter depends on the top-level `locationType` argument and if not specified, defaults to the current region.
+         */
+        name: string;
+        /**
+         * List of one or more values for the filter.
+         */
+        values: string[];
     }
 
     export interface GetInstanceTypeOfferingsFilter {
@@ -9909,19 +9935,6 @@ export namespace ec2 {
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
-    export interface GetInternetGatewayFilter {
-        /**
-         * The name of the field to filter by, as defined by
-         * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInternetGateways.html).
-         */
-        name: string;
-        /**
-         * Set of values that are accepted for the given field.
-         * An Internet Gateway will be selected if any one of the given values matches.
-         */
-        values: string[];
-    }
-
     export interface GetInternetGatewayFilterArgs {
         /**
          * The name of the field to filter by, as defined by
@@ -9935,15 +9948,17 @@ export namespace ec2 {
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
-    export interface GetLaunchTemplateFilterArgs {
+    export interface GetInternetGatewayFilter {
         /**
-         * The name of the filter field. Valid values can be found in the [EC2 DescribeLaunchTemplates API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html).
+         * The name of the field to filter by, as defined by
+         * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInternetGateways.html).
          */
-        name: pulumi.Input<string>;
+        name: string;
         /**
-         * Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+         * Set of values that are accepted for the given field.
+         * An Internet Gateway will be selected if any one of the given values matches.
          */
-        values: pulumi.Input<pulumi.Input<string>[]>;
+        values: string[];
     }
 
     export interface GetLaunchTemplateFilter {
@@ -9955,6 +9970,17 @@ export namespace ec2 {
          * Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
          */
         values: string[];
+    }
+
+    export interface GetLaunchTemplateFilterArgs {
+        /**
+         * The name of the filter field. Valid values can be found in the [EC2 DescribeLaunchTemplates API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html).
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface GetLocalGatewayFilterArgs {
@@ -10079,17 +10105,6 @@ export namespace ec2 {
         values: string[];
     }
 
-    export interface GetLocalGatewayVirtualInterfaceGroupsFilter {
-        /**
-         * Name of the filter.
-         */
-        name: string;
-        /**
-         * List of one or more values for the filter.
-         */
-        values: string[];
-    }
-
     export interface GetLocalGatewayVirtualInterfaceGroupsFilterArgs {
         /**
          * Name of the filter.
@@ -10099,6 +10114,17 @@ export namespace ec2 {
          * List of one or more values for the filter.
          */
         values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface GetLocalGatewayVirtualInterfaceGroupsFilter {
+        /**
+         * Name of the filter.
+         */
+        name: string;
+        /**
+         * List of one or more values for the filter.
+         */
+        values: string[];
     }
 
     export interface GetLocalGatewaysFilter {
@@ -10127,17 +10153,6 @@ export namespace ec2 {
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
-    export interface GetManagedPrefixListFilterArgs {
-        /**
-         * The name of the filter field. Valid values can be found in the EC2 [DescribeManagedPrefixLists](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeManagedPrefixLists.html) API Reference.
-         */
-        name: pulumi.Input<string>;
-        /**
-         * Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
-         */
-        values: pulumi.Input<pulumi.Input<string>[]>;
-    }
-
     export interface GetManagedPrefixListFilter {
         /**
          * The name of the filter field. Valid values can be found in the EC2 [DescribeManagedPrefixLists](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeManagedPrefixLists.html) API Reference.
@@ -10147,6 +10162,17 @@ export namespace ec2 {
          * Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
          */
         values: string[];
+    }
+
+    export interface GetManagedPrefixListFilterArgs {
+        /**
+         * The name of the filter field. Valid values can be found in the EC2 [DescribeManagedPrefixLists](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeManagedPrefixLists.html) API Reference.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface GetNatGatewayFilter {
@@ -10201,25 +10227,13 @@ export namespace ec2 {
         values: string[];
     }
 
-    export interface GetNetworkInterfaceFilterArgs {
-        name: pulumi.Input<string>;
-        values: pulumi.Input<pulumi.Input<string>[]>;
-    }
-
     export interface GetNetworkInterfaceFilter {
         name: string;
         values: string[];
     }
 
-    export interface GetNetworkInterfacesFilterArgs {
-        /**
-         * The name of the field to filter by, as defined by
-         * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInterfaces.html).
-         */
+    export interface GetNetworkInterfaceFilterArgs {
         name: pulumi.Input<string>;
-        /**
-         * Set of values that are accepted for the given field.
-         */
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
@@ -10233,6 +10247,18 @@ export namespace ec2 {
          * Set of values that are accepted for the given field.
          */
         values: string[];
+    }
+
+    export interface GetNetworkInterfacesFilterArgs {
+        /**
+         * The name of the field to filter by, as defined by
+         * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNetworkInterfaces.html).
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Set of values that are accepted for the given field.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface GetPrefixListFilterArgs {
@@ -10341,17 +10367,6 @@ export namespace ec2 {
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
-    export interface GetSpotPriceFilter {
-        /**
-         * Name of the filter.
-         */
-        name: string;
-        /**
-         * List of one or more values for the filter.
-         */
-        values: string[];
-    }
-
     export interface GetSpotPriceFilterArgs {
         /**
          * Name of the filter.
@@ -10363,13 +10378,13 @@ export namespace ec2 {
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
-    export interface GetSubnetFilter {
+    export interface GetSpotPriceFilter {
         /**
-         * The name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
+         * Name of the filter.
          */
         name: string;
         /**
-         * Set of values that are accepted for the given field. A subnet will be selected if any one of the given values matches.
+         * List of one or more values for the filter.
          */
         values: string[];
     }
@@ -10385,16 +10400,13 @@ export namespace ec2 {
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
-    export interface GetSubnetIdsFilter {
+    export interface GetSubnetFilter {
         /**
-         * The name of the field to filter by, as defined by
-         * [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
-         * For example, if matching against tag `Name`, use:
+         * The name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
          */
         name: string;
         /**
-         * Set of values that are accepted for the given field.
-         * Subnet IDs will be selected if any one of the given values match.
+         * Set of values that are accepted for the given field. A subnet will be selected if any one of the given values matches.
          */
         values: string[];
     }
@@ -10413,18 +10425,18 @@ export namespace ec2 {
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
-    export interface GetSubnetsFilterArgs {
+    export interface GetSubnetIdsFilter {
         /**
          * The name of the field to filter by, as defined by
          * [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
          * For example, if matching against tag `Name`, use:
          */
-        name: pulumi.Input<string>;
+        name: string;
         /**
          * Set of values that are accepted for the given field.
          * Subnet IDs will be selected if any one of the given values match.
          */
-        values: pulumi.Input<pulumi.Input<string>[]>;
+        values: string[];
     }
 
     export interface GetSubnetsFilter {
@@ -10441,17 +10453,18 @@ export namespace ec2 {
         values: string[];
     }
 
-    export interface GetTransitGatewayRouteTablesFilter {
+    export interface GetSubnetsFilterArgs {
         /**
          * The name of the field to filter by, as defined by
-         * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayRouteTables.html).
+         * [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
+         * For example, if matching against tag `Name`, use:
          */
-        name: string;
+        name: pulumi.Input<string>;
         /**
          * Set of values that are accepted for the given field.
-         * A Transit Gateway Route Table will be selected if any one of the given values matches.
+         * Subnet IDs will be selected if any one of the given values match.
          */
-        values: string[];
+        values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface GetTransitGatewayRouteTablesFilterArgs {
@@ -10467,15 +10480,17 @@ export namespace ec2 {
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
-    export interface GetVpcDhcpOptionsFilterArgs {
+    export interface GetTransitGatewayRouteTablesFilter {
         /**
-         * The name of the field to filter.
+         * The name of the field to filter by, as defined by
+         * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayRouteTables.html).
          */
-        name: pulumi.Input<string>;
+        name: string;
         /**
-         * Set of values for filtering.
+         * Set of values that are accepted for the given field.
+         * A Transit Gateway Route Table will be selected if any one of the given values matches.
          */
-        values: pulumi.Input<pulumi.Input<string>[]>;
+        values: string[];
     }
 
     export interface GetVpcDhcpOptionsFilter {
@@ -10487,6 +10502,17 @@ export namespace ec2 {
          * Set of values for filtering.
          */
         values: string[];
+    }
+
+    export interface GetVpcDhcpOptionsFilterArgs {
+        /**
+         * The name of the field to filter.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Set of values for filtering.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface GetVpcEndpointFilter {
@@ -10515,17 +10541,6 @@ export namespace ec2 {
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
-    export interface GetVpcEndpointServiceFilter {
-        /**
-         * The name of the filter field. Valid values can be found in the [EC2 DescribeVpcEndpointServices API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcEndpointServices.html).
-         */
-        name: string;
-        /**
-         * Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
-         */
-        values: string[];
-    }
-
     export interface GetVpcEndpointServiceFilterArgs {
         /**
          * The name of the filter field. Valid values can be found in the [EC2 DescribeVpcEndpointServices API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcEndpointServices.html).
@@ -10535,6 +10550,17 @@ export namespace ec2 {
          * Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
          */
         values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface GetVpcEndpointServiceFilter {
+        /**
+         * The name of the filter field. Valid values can be found in the [EC2 DescribeVpcEndpointServices API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcEndpointServices.html).
+         */
+        name: string;
+        /**
+         * Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+         */
+        values: string[];
     }
 
     export interface GetVpcFilter {
@@ -10641,19 +10667,6 @@ export namespace ec2 {
         values: string[];
     }
 
-    export interface GetVpnGatewayFilter {
-        /**
-         * The name of the field to filter by, as defined by
-         * [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpnGateways.html).
-         */
-        name: string;
-        /**
-         * Set of values that are accepted for the given field.
-         * A VPN Gateway will be selected if any one of the given values matches.
-         */
-        values: string[];
-    }
-
     export interface GetVpnGatewayFilterArgs {
         /**
          * The name of the field to filter by, as defined by
@@ -10665,6 +10678,19 @@ export namespace ec2 {
          * A VPN Gateway will be selected if any one of the given values matches.
          */
         values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface GetVpnGatewayFilter {
+        /**
+         * The name of the field to filter by, as defined by
+         * [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpnGateways.html).
+         */
+        name: string;
+        /**
+         * Set of values that are accepted for the given field.
+         * A VPN Gateway will be selected if any one of the given values matches.
+         */
+        values: string[];
     }
 
     export interface InstanceCapacityReservationSpecification {
@@ -11929,7 +11955,6 @@ export namespace ec2 {
         status?: pulumi.Input<string>;
         statusMessage?: pulumi.Input<string>;
     }
-
 }
 
 export namespace ec2clientvpn {
@@ -15456,21 +15481,6 @@ export namespace glue {
         sseAwsKmsKeyId?: pulumi.Input<string>;
     }
 
-    export interface GetScriptDagEdge {
-        /**
-         * The ID of the node at which the edge starts.
-         */
-        source: string;
-        /**
-         * The ID of the node at which the edge ends.
-         */
-        target: string;
-        /**
-         * The target of the edge.
-         */
-        targetParameter?: string;
-    }
-
     export interface GetScriptDagEdgeArgs {
         /**
          * The ID of the node at which the edge starts.
@@ -15486,23 +15496,19 @@ export namespace glue {
         targetParameter?: pulumi.Input<string>;
     }
 
-    export interface GetScriptDagNodeArgs {
+    export interface GetScriptDagEdge {
         /**
-         * Nested configuration an argument or property of a node. Defined below.
+         * The ID of the node at which the edge starts.
          */
-        args: pulumi.Input<pulumi.Input<inputs.glue.GetScriptDagNodeArgArgs>[]>;
+        source: string;
         /**
-         * A node identifier that is unique within the node's graph.
+         * The ID of the node at which the edge ends.
          */
-        id: pulumi.Input<string>;
+        target: string;
         /**
-         * The line number of the node.
+         * The target of the edge.
          */
-        lineNumber?: pulumi.Input<number>;
-        /**
-         * The type of node this is.
-         */
-        nodeType: pulumi.Input<string>;
+        targetParameter?: string;
     }
 
     export interface GetScriptDagNode {
@@ -15522,6 +15528,25 @@ export namespace glue {
          * The type of node this is.
          */
         nodeType: string;
+    }
+
+    export interface GetScriptDagNodeArgs {
+        /**
+         * Nested configuration an argument or property of a node. Defined below.
+         */
+        args: pulumi.Input<pulumi.Input<inputs.glue.GetScriptDagNodeArgArgs>[]>;
+        /**
+         * A node identifier that is unique within the node's graph.
+         */
+        id: pulumi.Input<string>;
+        /**
+         * The line number of the node.
+         */
+        lineNumber?: pulumi.Input<number>;
+        /**
+         * The type of node this is.
+         */
+        nodeType: pulumi.Input<string>;
     }
 
     export interface GetScriptDagNodeArg {
@@ -15641,6 +15666,18 @@ export namespace glue {
          * The name you assign to this ML Transform. It must be unique in your account.
          */
         name?: pulumi.Input<string>;
+    }
+
+    export interface PartitionIndexPartitionIndex {
+        /**
+         * Name of the partition index.
+         */
+        indexName?: pulumi.Input<string>;
+        indexStatus?: pulumi.Input<string>;
+        /**
+         * Keys for the partition index.
+         */
+        keys?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface PartitionStorageDescriptor {
@@ -15870,6 +15907,7 @@ export namespace glue {
          */
         uri: pulumi.Input<string>;
     }
+
 }
 
 export namespace guardduty {

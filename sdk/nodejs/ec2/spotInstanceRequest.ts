@@ -204,6 +204,10 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
      * Placement Group to start the instance in.
      */
     public readonly placementGroup!: pulumi.Output<string>;
+    /**
+     * The number of the partition the instance is in. Valid only if the `aws.ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
+     */
+    public readonly placementPartitionNumber!: pulumi.Output<number>;
     public /*out*/ readonly primaryNetworkInterfaceId!: pulumi.Output<string>;
     /**
      * The private DNS name assigned to the instance. Can only be
@@ -233,7 +237,7 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
      */
     public readonly secondaryPrivateIps!: pulumi.Output<string[]>;
     /**
-     * A list of security group names (EC2-Classic) or IDs (default VPC) to associate with.
+     * A list of security group names to associate with.
      */
     public readonly securityGroups!: pulumi.Output<string[]>;
     /**
@@ -358,6 +362,7 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
             inputs["outpostArn"] = state ? state.outpostArn : undefined;
             inputs["passwordData"] = state ? state.passwordData : undefined;
             inputs["placementGroup"] = state ? state.placementGroup : undefined;
+            inputs["placementPartitionNumber"] = state ? state.placementPartitionNumber : undefined;
             inputs["primaryNetworkInterfaceId"] = state ? state.primaryNetworkInterfaceId : undefined;
             inputs["privateDns"] = state ? state.privateDns : undefined;
             inputs["privateIp"] = state ? state.privateIp : undefined;
@@ -415,6 +420,7 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
             inputs["monitoring"] = args ? args.monitoring : undefined;
             inputs["networkInterfaces"] = args ? args.networkInterfaces : undefined;
             inputs["placementGroup"] = args ? args.placementGroup : undefined;
+            inputs["placementPartitionNumber"] = args ? args.placementPartitionNumber : undefined;
             inputs["privateIp"] = args ? args.privateIp : undefined;
             inputs["rootBlockDevice"] = args ? args.rootBlockDevice : undefined;
             inputs["secondaryPrivateIps"] = args ? args.secondaryPrivateIps : undefined;
@@ -586,6 +592,10 @@ export interface SpotInstanceRequestState {
      * Placement Group to start the instance in.
      */
     placementGroup?: pulumi.Input<string>;
+    /**
+     * The number of the partition the instance is in. Valid only if the `aws.ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
+     */
+    placementPartitionNumber?: pulumi.Input<number>;
     primaryNetworkInterfaceId?: pulumi.Input<string>;
     /**
      * The private DNS name assigned to the instance. Can only be
@@ -615,7 +625,7 @@ export interface SpotInstanceRequestState {
      */
     secondaryPrivateIps?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A list of security group names (EC2-Classic) or IDs (default VPC) to associate with.
+     * A list of security group names to associate with.
      */
     securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -825,6 +835,10 @@ export interface SpotInstanceRequestArgs {
      */
     placementGroup?: pulumi.Input<string>;
     /**
+     * The number of the partition the instance is in. Valid only if the `aws.ec2.PlacementGroup` resource's `strategy` argument is set to `"partition"`.
+     */
+    placementPartitionNumber?: pulumi.Input<number>;
+    /**
      * Private IP address to associate with the instance in a VPC.
      */
     privateIp?: pulumi.Input<string>;
@@ -837,7 +851,7 @@ export interface SpotInstanceRequestArgs {
      */
     secondaryPrivateIps?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A list of security group names (EC2-Classic) or IDs (default VPC) to associate with.
+     * A list of security group names to associate with.
      */
     securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
     /**

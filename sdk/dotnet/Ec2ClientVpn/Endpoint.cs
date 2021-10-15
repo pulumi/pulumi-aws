@@ -84,7 +84,7 @@ namespace Pulumi.Aws.Ec2ClientVpn
         public Output<Outputs.EndpointConnectionLogOptions> ConnectionLogOptions { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the repository.
+        /// A brief description of the Client VPN endpoint.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
@@ -208,7 +208,7 @@ namespace Pulumi.Aws.Ec2ClientVpn
         public Input<Inputs.EndpointConnectionLogOptionsArgs> ConnectionLogOptions { get; set; } = null!;
 
         /// <summary>
-        /// Name of the repository.
+        /// A brief description of the Client VPN endpoint.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
@@ -295,7 +295,7 @@ namespace Pulumi.Aws.Ec2ClientVpn
         public Input<Inputs.EndpointConnectionLogOptionsGetArgs>? ConnectionLogOptions { get; set; }
 
         /// <summary>
-        /// Name of the repository.
+        /// A brief description of the Client VPN endpoint.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }

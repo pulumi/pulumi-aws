@@ -100,6 +100,35 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// }
     /// ```
+    /// ### S3 Logging in Apache Parquet format with per-hour partitions
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleBucket = new Aws.S3.Bucket("exampleBucket", new Aws.S3.BucketArgs
+    ///         {
+    ///         });
+    ///         var exampleFlowLog = new Aws.Ec2.FlowLog("exampleFlowLog", new Aws.Ec2.FlowLogArgs
+    ///         {
+    ///             LogDestination = exampleBucket.Arn,
+    ///             LogDestinationType = "s3",
+    ///             TrafficType = "ALL",
+    ///             VpcId = aws_vpc.Example.Id,
+    ///             DestinationOptions = new Aws.Ec2.Inputs.FlowLogDestinationOptionsArgs
+    ///             {
+    ///                 FileFormat = "parquet",
+    ///                 PerHourPartition = true,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// 
     /// ## Import
     /// 
@@ -117,6 +146,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
+        /// Describes the destination options for a flow log. More details below.
+        /// </summary>
+        [Output("destinationOptions")]
+        public Output<Outputs.FlowLogDestinationOptions?> DestinationOptions { get; private set; } = null!;
 
         /// <summary>
         /// Elastic Network Interface ID to attach to
@@ -240,6 +275,12 @@ namespace Pulumi.Aws.Ec2
     public sealed class FlowLogArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Describes the destination options for a flow log. More details below.
+        /// </summary>
+        [Input("destinationOptions")]
+        public Input<Inputs.FlowLogDestinationOptionsArgs>? DestinationOptions { get; set; }
+
+        /// <summary>
         /// Elastic Network Interface ID to attach to
         /// </summary>
         [Input("eniId")]
@@ -326,6 +367,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
+
+        /// <summary>
+        /// Describes the destination options for a flow log. More details below.
+        /// </summary>
+        [Input("destinationOptions")]
+        public Input<Inputs.FlowLogDestinationOptionsGetArgs>? DestinationOptions { get; set; }
 
         /// <summary>
         /// Elastic Network Interface ID to attach to

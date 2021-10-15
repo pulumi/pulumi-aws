@@ -20,6 +20,7 @@ export * from "./image";
 export * from "./imageVersion";
 export * from "./model";
 export * from "./modelPackageGroup";
+export * from "./modelPackageGroupPolicy";
 export * from "./notebookInstance";
 export * from "./notebookInstanceLifecycleConfiguration";
 export * from "./studioLifecycleConfig";
@@ -42,6 +43,7 @@ import { Image } from "./image";
 import { ImageVersion } from "./imageVersion";
 import { Model } from "./model";
 import { ModelPackageGroup } from "./modelPackageGroup";
+import { ModelPackageGroupPolicy } from "./modelPackageGroupPolicy";
 import { NotebookInstance } from "./notebookInstance";
 import { NotebookInstanceLifecycleConfiguration } from "./notebookInstanceLifecycleConfiguration";
 import { StudioLifecycleConfig } from "./studioLifecycleConfig";
@@ -81,6 +83,8 @@ const _module = {
                 return new Model(name, <any>undefined, { urn })
             case "aws:sagemaker/modelPackageGroup:ModelPackageGroup":
                 return new ModelPackageGroup(name, <any>undefined, { urn })
+            case "aws:sagemaker/modelPackageGroupPolicy:ModelPackageGroupPolicy":
+                return new ModelPackageGroupPolicy(name, <any>undefined, { urn })
             case "aws:sagemaker/notebookInstance:NotebookInstance":
                 return new NotebookInstance(name, <any>undefined, { urn })
             case "aws:sagemaker/notebookInstanceLifecycleConfiguration:NotebookInstanceLifecycleConfiguration":
@@ -112,6 +116,7 @@ pulumi.runtime.registerResourceModule("aws", "sagemaker/image", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/imageVersion", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/model", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/modelPackageGroup", _module)
+pulumi.runtime.registerResourceModule("aws", "sagemaker/modelPackageGroupPolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/notebookInstance", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/notebookInstanceLifecycleConfiguration", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/studioLifecycleConfig", _module)

@@ -11,6 +11,7 @@ from .. import _utilities
 __all__ = [
     'VoiceConnectorGroupConnector',
     'VoiceConnectorOrganizationRoute',
+    'VoiceConnectorTerminationCredentialsCredential',
 ]
 
 @pulumi.output_type
@@ -120,5 +121,34 @@ class VoiceConnectorOrganizationRoute(dict):
         The designated origination route port. Defaults to `5060`.
         """
         return pulumi.get(self, "port")
+
+
+@pulumi.output_type
+class VoiceConnectorTerminationCredentialsCredential(dict):
+    def __init__(__self__, *,
+                 password: str,
+                 username: str):
+        """
+        :param str password: RFC2617 compliant password associated with the SIP credentials.
+        :param str username: RFC2617 compliant username associated with the SIP credentials.
+        """
+        pulumi.set(__self__, "password", password)
+        pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter
+    def password(self) -> str:
+        """
+        RFC2617 compliant password associated with the SIP credentials.
+        """
+        return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter
+    def username(self) -> str:
+        """
+        RFC2617 compliant username associated with the SIP credentials.
+        """
+        return pulumi.get(self, "username")
 
 
