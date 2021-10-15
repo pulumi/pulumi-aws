@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v3.63.0 of the AWS Terraform Provider
+_(none)_
 
 ---
+
+## 4.25.0 (2021-10-15)
+* Upgrade to v3.63.0 of the AWS Terraform Provider
 
 ## 4.24.1 (2021-10-11)
 * Ensure `aws.lb.TargetGroup`, `aws.alb.TargetGroup`, `aws.elasticloadbalancingv2.TargetGroup` and 
