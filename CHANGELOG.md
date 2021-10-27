@@ -2,7 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Add support for autonaming `aws.mq.Broker` resources
 
 ---
 
