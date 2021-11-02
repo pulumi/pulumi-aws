@@ -17,18 +17,21 @@ function getContentType() {
   return mime.contentType(".js");
 }
 
-const testFunc = new aws.serverless.Function("f", {
-  includePaths: ['./Pulumi.yaml'],
-}, async (ev, ctx, cb) => {
-  // These variables exist only to ensure that capturing modules doesn't cause any problems.
-  var _awsSdk = awsSdk;
-  var _express = express;
-  var _os = os;
-  var _slack = slack;
+const testFunc = new aws.lambda.CallbackFunction("f", {
+  codePathOptions: {
+    extraIncludePaths: ["./Pulumi.yaml"]
+  },
+  callback: (event, context, callback) => {
+    // These variables exist only to ensure that capturing modules doesn't cause any problems.
+    var _awsSdk = awsSdk;
+    var _express = express;
+    var _os = os;
+    var _slack = slack;
 
-  var answer = other.answer;
-  console.log(answer);
-  getContentType();
+    var answer = other.answer;
+    console.log(answer);
+    getContentType();
+  }
 }, providerOpts);
 
-exports.functionARN = testFunc.lambda.arn;
+export const functionARN = testFunc.arn;
