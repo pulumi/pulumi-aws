@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Efs
 {
@@ -41,6 +42,37 @@ namespace Pulumi.Aws.Efs
         /// </summary>
         public static Task<GetMountTargetResult> InvokeAsync(GetMountTargetArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMountTargetResult>("aws:efs/getMountTarget:getMountTarget", args ?? new GetMountTargetArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Provides information about an Elastic File System Mount Target (EFS).
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var config = new Config();
+        ///         var mountTargetId = config.Get("mountTargetId") ?? "";
+        ///         var byId = Output.Create(Aws.Efs.GetMountTarget.InvokeAsync(new Aws.Efs.GetMountTargetArgs
+        ///         {
+        ///             MountTargetId = mountTargetId,
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetMountTargetResult> Invoke(GetMountTargetInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetMountTargetResult>("aws:efs/getMountTarget:getMountTarget", args ?? new GetMountTargetInvokeArgs(), options.WithVersion());
     }
 
 
@@ -65,6 +97,31 @@ namespace Pulumi.Aws.Efs
         public string? MountTargetId { get; set; }
 
         public GetMountTargetArgs()
+        {
+        }
+    }
+
+    public sealed class GetMountTargetInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// ID or ARN of the access point whose mount target that you want to find. It must be included if a `file_system_id` and `mount_target_id` are not included.
+        /// </summary>
+        [Input("accessPointId")]
+        public Input<string>? AccessPointId { get; set; }
+
+        /// <summary>
+        /// ID or ARN of the file system whose mount target that you want to find. It must be included if an `access_point_id` and `mount_target_id` are not included.
+        /// </summary>
+        [Input("fileSystemId")]
+        public Input<string>? FileSystemId { get; set; }
+
+        /// <summary>
+        /// ID or ARN of the mount target that you want to find. It must be included in your request if an `access_point_id` and `file_system_id` are not included.
+        /// </summary>
+        [Input("mountTargetId")]
+        public Input<string>? MountTargetId { get; set; }
+
+        public GetMountTargetInvokeArgs()
         {
         }
     }

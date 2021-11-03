@@ -339,6 +339,10 @@ func (o WebsiteCertificateAuthorityAssociationMapOutput) MapIndex(k pulumi.Strin
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*WebsiteCertificateAuthorityAssociationInput)(nil)).Elem(), &WebsiteCertificateAuthorityAssociation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebsiteCertificateAuthorityAssociationPtrInput)(nil)).Elem(), &WebsiteCertificateAuthorityAssociation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebsiteCertificateAuthorityAssociationArrayInput)(nil)).Elem(), WebsiteCertificateAuthorityAssociationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebsiteCertificateAuthorityAssociationMapInput)(nil)).Elem(), WebsiteCertificateAuthorityAssociationMap{})
 	pulumi.RegisterOutputType(WebsiteCertificateAuthorityAssociationOutput{})
 	pulumi.RegisterOutputType(WebsiteCertificateAuthorityAssociationPtrOutput{})
 	pulumi.RegisterOutputType(WebsiteCertificateAuthorityAssociationArrayOutput{})

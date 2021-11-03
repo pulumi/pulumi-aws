@@ -412,6 +412,10 @@ func (o EventRuleMapOutput) MapIndex(k pulumi.StringInput) EventRuleOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*EventRuleInput)(nil)).Elem(), &EventRule{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventRulePtrInput)(nil)).Elem(), &EventRule{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventRuleArrayInput)(nil)).Elem(), EventRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventRuleMapInput)(nil)).Elem(), EventRuleMap{})
 	pulumi.RegisterOutputType(EventRuleOutput{})
 	pulumi.RegisterOutputType(EventRulePtrOutput{})
 	pulumi.RegisterOutputType(EventRuleArrayOutput{})

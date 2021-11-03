@@ -519,6 +519,12 @@ func (in *notificationTypePtr) ToNotificationTypePtrOutputWithContext(ctx contex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*MetricInput)(nil)).Elem(), Metric("GroupMinSize"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MetricPtrInput)(nil)).Elem(), Metric("GroupMinSize"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MetricsGranularityInput)(nil)).Elem(), MetricsGranularity("1Minute"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MetricsGranularityPtrInput)(nil)).Elem(), MetricsGranularity("1Minute"))
+	pulumi.RegisterInputType(reflect.TypeOf((*NotificationTypeInput)(nil)).Elem(), NotificationType("autoscaling:EC2_INSTANCE_LAUNCH"))
+	pulumi.RegisterInputType(reflect.TypeOf((*NotificationTypePtrInput)(nil)).Elem(), NotificationType("autoscaling:EC2_INSTANCE_LAUNCH"))
 	pulumi.RegisterOutputType(MetricOutput{})
 	pulumi.RegisterOutputType(MetricPtrOutput{})
 	pulumi.RegisterOutputType(MetricsGranularityOutput{})

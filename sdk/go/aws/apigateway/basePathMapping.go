@@ -369,6 +369,10 @@ func (o BasePathMappingMapOutput) MapIndex(k pulumi.StringInput) BasePathMapping
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BasePathMappingInput)(nil)).Elem(), &BasePathMapping{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BasePathMappingPtrInput)(nil)).Elem(), &BasePathMapping{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BasePathMappingArrayInput)(nil)).Elem(), BasePathMappingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BasePathMappingMapInput)(nil)).Elem(), BasePathMappingMap{})
 	pulumi.RegisterOutputType(BasePathMappingOutput{})
 	pulumi.RegisterOutputType(BasePathMappingPtrOutput{})
 	pulumi.RegisterOutputType(BasePathMappingArrayOutput{})

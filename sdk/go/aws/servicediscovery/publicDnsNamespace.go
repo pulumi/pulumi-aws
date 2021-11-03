@@ -331,6 +331,10 @@ func (o PublicDnsNamespaceMapOutput) MapIndex(k pulumi.StringInput) PublicDnsNam
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PublicDnsNamespaceInput)(nil)).Elem(), &PublicDnsNamespace{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PublicDnsNamespacePtrInput)(nil)).Elem(), &PublicDnsNamespace{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PublicDnsNamespaceArrayInput)(nil)).Elem(), PublicDnsNamespaceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PublicDnsNamespaceMapInput)(nil)).Elem(), PublicDnsNamespaceMap{})
 	pulumi.RegisterOutputType(PublicDnsNamespaceOutput{})
 	pulumi.RegisterOutputType(PublicDnsNamespacePtrOutput{})
 	pulumi.RegisterOutputType(PublicDnsNamespaceArrayOutput{})

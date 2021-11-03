@@ -343,6 +343,10 @@ func (o VoiceConnectorOrganizationMapOutput) MapIndex(k pulumi.StringInput) Voic
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*VoiceConnectorOrganizationInput)(nil)).Elem(), &VoiceConnectorOrganization{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VoiceConnectorOrganizationPtrInput)(nil)).Elem(), &VoiceConnectorOrganization{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VoiceConnectorOrganizationArrayInput)(nil)).Elem(), VoiceConnectorOrganizationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VoiceConnectorOrganizationMapInput)(nil)).Elem(), VoiceConnectorOrganizationMap{})
 	pulumi.RegisterOutputType(VoiceConnectorOrganizationOutput{})
 	pulumi.RegisterOutputType(VoiceConnectorOrganizationPtrOutput{})
 	pulumi.RegisterOutputType(VoiceConnectorOrganizationArrayOutput{})

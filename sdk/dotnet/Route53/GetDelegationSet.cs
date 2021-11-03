@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Route53
 {
@@ -43,6 +44,39 @@ namespace Pulumi.Aws.Route53
         /// </summary>
         public static Task<GetDelegationSetResult> InvokeAsync(GetDelegationSetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDelegationSetResult>("aws:route53/getDelegationSet:getDelegationSet", args ?? new GetDelegationSetArgs(), options.WithVersion());
+
+        /// <summary>
+        /// `aws.route53.DelegationSet` provides details about a specific Route 53 Delegation Set.
+        /// 
+        /// This data source allows to find a list of name servers associated with a specific delegation set.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// The following example shows how to get a delegation set from its id.
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var dset = Output.Create(Aws.Route53.GetDelegationSet.InvokeAsync(new Aws.Route53.GetDelegationSetArgs
+        ///         {
+        ///             Id = "MQWGHCBFAKEID",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetDelegationSetResult> Invoke(GetDelegationSetInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetDelegationSetResult>("aws:route53/getDelegationSet:getDelegationSet", args ?? new GetDelegationSetInvokeArgs(), options.WithVersion());
     }
 
 
@@ -55,6 +89,19 @@ namespace Pulumi.Aws.Route53
         public string Id { get; set; } = null!;
 
         public GetDelegationSetArgs()
+        {
+        }
+    }
+
+    public sealed class GetDelegationSetInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The Hosted Zone id of the desired delegation set.
+        /// </summary>
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
+
+        public GetDelegationSetInvokeArgs()
         {
         }
     }

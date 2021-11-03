@@ -614,6 +614,10 @@ func (o TopicMapOutput) MapIndex(k pulumi.StringInput) TopicOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicInput)(nil)).Elem(), &Topic{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicPtrInput)(nil)).Elem(), &Topic{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicArrayInput)(nil)).Elem(), TopicArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicMapInput)(nil)).Elem(), TopicMap{})
 	pulumi.RegisterOutputType(TopicOutput{})
 	pulumi.RegisterOutputType(TopicPtrOutput{})
 	pulumi.RegisterOutputType(TopicArrayOutput{})

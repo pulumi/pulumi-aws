@@ -313,6 +313,10 @@ func (o ResourceAssociationMapOutput) MapIndex(k pulumi.StringInput) ResourceAss
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceAssociationInput)(nil)).Elem(), &ResourceAssociation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceAssociationPtrInput)(nil)).Elem(), &ResourceAssociation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceAssociationArrayInput)(nil)).Elem(), ResourceAssociationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceAssociationMapInput)(nil)).Elem(), ResourceAssociationMap{})
 	pulumi.RegisterOutputType(ResourceAssociationOutput{})
 	pulumi.RegisterOutputType(ResourceAssociationPtrOutput{})
 	pulumi.RegisterOutputType(ResourceAssociationArrayOutput{})

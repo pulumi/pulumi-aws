@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Acmpca
 {
@@ -39,6 +40,35 @@ namespace Pulumi.Aws.Acmpca
         /// </summary>
         public static Task<GetCertificateAuthorityResult> InvokeAsync(GetCertificateAuthorityArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCertificateAuthorityResult>("aws:acmpca/getCertificateAuthority:getCertificateAuthority", args ?? new GetCertificateAuthorityArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Get information on a AWS Certificate Manager Private Certificate Authority (ACM PCA Certificate Authority).
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.Acmpca.GetCertificateAuthority.InvokeAsync(new Aws.Acmpca.GetCertificateAuthorityArgs
+        ///         {
+        ///             Arn = "arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetCertificateAuthorityResult> Invoke(GetCertificateAuthorityInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetCertificateAuthorityResult>("aws:acmpca/getCertificateAuthority:getCertificateAuthority", args ?? new GetCertificateAuthorityInvokeArgs(), options.WithVersion());
     }
 
 
@@ -81,6 +111,49 @@ namespace Pulumi.Aws.Acmpca
         }
 
         public GetCertificateAuthorityArgs()
+        {
+        }
+    }
+
+    public sealed class GetCertificateAuthorityInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the certificate authority.
+        /// </summary>
+        [Input("arn", required: true)]
+        public Input<string> Arn { get; set; } = null!;
+
+        [Input("revocationConfigurations")]
+        private InputList<Inputs.GetCertificateAuthorityRevocationConfigurationInputArgs>? _revocationConfigurations;
+
+        /// <summary>
+        /// Nested attribute containing revocation configuration.
+        /// * `revocation_configuration.0.crl_configuration` - Nested attribute containing configuration of the certificate revocation list (CRL), if any, maintained by the certificate authority.
+        /// * `revocation_configuration.0.crl_configuration.0.custom_cname` - Name inserted into the certificate CRL Distribution Points extension that enables the use of an alias for the CRL distribution point.
+        /// * `revocation_configuration.0.crl_configuration.0.enabled` - Boolean value that specifies whether certificate revocation lists (CRLs) are enabled.
+        /// * `revocation_configuration.0.crl_configuration.0.expiration_in_days` - Number of days until a certificate expires.
+        /// * `revocation_configuration.0.crl_configuration.0.s3_bucket_name` - Name of the S3 bucket that contains the CRL.
+        /// * `revocation_configuration.0.crl_configuration.0.s3_object_acl` - Whether the CRL is publicly readable or privately held in the CRL Amazon S3 bucket.
+        /// </summary>
+        public InputList<Inputs.GetCertificateAuthorityRevocationConfigurationInputArgs> RevocationConfigurations
+        {
+            get => _revocationConfigurations ?? (_revocationConfigurations = new InputList<Inputs.GetCertificateAuthorityRevocationConfigurationInputArgs>());
+            set => _revocationConfigurations = value;
+        }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Specifies a key-value map of user-defined tags that are attached to the certificate authority.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        public GetCertificateAuthorityInvokeArgs()
         {
         }
     }

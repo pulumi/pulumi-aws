@@ -438,6 +438,10 @@ func (o SnapshotMapOutput) MapIndex(k pulumi.StringInput) SnapshotOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotInput)(nil)).Elem(), &Snapshot{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotPtrInput)(nil)).Elem(), &Snapshot{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotArrayInput)(nil)).Elem(), SnapshotArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotMapInput)(nil)).Elem(), SnapshotMap{})
 	pulumi.RegisterOutputType(SnapshotOutput{})
 	pulumi.RegisterOutputType(SnapshotPtrOutput{})
 	pulumi.RegisterOutputType(SnapshotArrayOutput{})

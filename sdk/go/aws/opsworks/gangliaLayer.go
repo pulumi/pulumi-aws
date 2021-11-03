@@ -510,6 +510,10 @@ func (o GangliaLayerMapOutput) MapIndex(k pulumi.StringInput) GangliaLayerOutput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GangliaLayerInput)(nil)).Elem(), &GangliaLayer{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GangliaLayerPtrInput)(nil)).Elem(), &GangliaLayer{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GangliaLayerArrayInput)(nil)).Elem(), GangliaLayerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GangliaLayerMapInput)(nil)).Elem(), GangliaLayerMap{})
 	pulumi.RegisterOutputType(GangliaLayerOutput{})
 	pulumi.RegisterOutputType(GangliaLayerPtrOutput{})
 	pulumi.RegisterOutputType(GangliaLayerArrayOutput{})

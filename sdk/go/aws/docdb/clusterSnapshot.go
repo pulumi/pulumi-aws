@@ -371,6 +371,10 @@ func (o ClusterSnapshotMapOutput) MapIndex(k pulumi.StringInput) ClusterSnapshot
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSnapshotInput)(nil)).Elem(), &ClusterSnapshot{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSnapshotPtrInput)(nil)).Elem(), &ClusterSnapshot{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSnapshotArrayInput)(nil)).Elem(), ClusterSnapshotArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterSnapshotMapInput)(nil)).Elem(), ClusterSnapshotMap{})
 	pulumi.RegisterOutputType(ClusterSnapshotOutput{})
 	pulumi.RegisterOutputType(ClusterSnapshotPtrOutput{})
 	pulumi.RegisterOutputType(ClusterSnapshotArrayOutput{})

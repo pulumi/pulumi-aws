@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Backup
 {
@@ -39,6 +40,35 @@ namespace Pulumi.Aws.Backup
         /// </summary>
         public static Task<GetVaultResult> InvokeAsync(GetVaultArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVaultResult>("aws:backup/getVault:getVault", args ?? new GetVaultArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to get information on an existing backup vault.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.Backup.GetVault.InvokeAsync(new Aws.Backup.GetVaultArgs
+        ///         {
+        ///             Name = "example_backup_vault",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetVaultResult> Invoke(GetVaultInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetVaultResult>("aws:backup/getVault:getVault", args ?? new GetVaultInvokeArgs(), options.WithVersion());
     }
 
 
@@ -63,6 +93,31 @@ namespace Pulumi.Aws.Backup
         }
 
         public GetVaultArgs()
+        {
+        }
+    }
+
+    public sealed class GetVaultInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the backup vault.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Metadata that you can assign to help organize the resources that you create.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        public GetVaultInvokeArgs()
         {
         }
     }

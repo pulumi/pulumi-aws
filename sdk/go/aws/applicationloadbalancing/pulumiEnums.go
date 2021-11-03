@@ -339,6 +339,10 @@ func (in *loadBalancerTypePtr) ToLoadBalancerTypePtrOutputWithContext(ctx contex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*IpAddressTypeInput)(nil)).Elem(), IpAddressType("ipv4"))
+	pulumi.RegisterInputType(reflect.TypeOf((*IpAddressTypePtrInput)(nil)).Elem(), IpAddressType("ipv4"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerTypeInput)(nil)).Elem(), LoadBalancerType("application"))
+	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerTypePtrInput)(nil)).Elem(), LoadBalancerType("application"))
 	pulumi.RegisterOutputType(IpAddressTypeOutput{})
 	pulumi.RegisterOutputType(IpAddressTypePtrOutput{})
 	pulumi.RegisterOutputType(LoadBalancerTypeOutput{})

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Msk
 {
@@ -48,6 +49,44 @@ namespace Pulumi.Aws.Msk
         /// </summary>
         public static Task<GetKafkaVersionResult> InvokeAsync(GetKafkaVersionArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetKafkaVersionResult>("aws:msk/getKafkaVersion:getKafkaVersion", args ?? new GetKafkaVersionArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Get information on a Amazon MSK Kafka Version
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var preferred = Output.Create(Aws.Msk.GetKafkaVersion.InvokeAsync(new Aws.Msk.GetKafkaVersionArgs
+        ///         {
+        ///             PreferredVersions = 
+        ///             {
+        ///                 "2.4.1.1",
+        ///                 "2.4.1",
+        ///                 "2.2.1",
+        ///             },
+        ///         }));
+        ///         var example = Output.Create(Aws.Msk.GetKafkaVersion.InvokeAsync(new Aws.Msk.GetKafkaVersionArgs
+        ///         {
+        ///             Version = "2.8.0",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetKafkaVersionResult> Invoke(GetKafkaVersionInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetKafkaVersionResult>("aws:msk/getKafkaVersion:getKafkaVersion", args ?? new GetKafkaVersionInvokeArgs(), options.WithVersion());
     }
 
 
@@ -72,6 +111,31 @@ namespace Pulumi.Aws.Msk
         public string? Version { get; set; }
 
         public GetKafkaVersionArgs()
+        {
+        }
+    }
+
+    public sealed class GetKafkaVersionInvokeArgs : Pulumi.InvokeArgs
+    {
+        [Input("preferredVersions")]
+        private InputList<string>? _preferredVersions;
+
+        /// <summary>
+        /// Ordered list of preferred Kafka versions. The first match in this list will be returned. Either `preferred_versions` or `version` must be set.
+        /// </summary>
+        public InputList<string> PreferredVersions
+        {
+            get => _preferredVersions ?? (_preferredVersions = new InputList<string>());
+            set => _preferredVersions = value;
+        }
+
+        /// <summary>
+        /// Version of MSK Kafka. For example 2.4.1.1 or "2.2.1" etc. Either `preferred_versions` or `version` must be set.
+        /// </summary>
+        [Input("version")]
+        public Input<string>? Version { get; set; }
+
+        public GetKafkaVersionInvokeArgs()
         {
         }
     }

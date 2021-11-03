@@ -332,6 +332,10 @@ func (o VpnConnectionRouteMapOutput) MapIndex(k pulumi.StringInput) VpnConnectio
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionRouteInput)(nil)).Elem(), &VpnConnectionRoute{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionRoutePtrInput)(nil)).Elem(), &VpnConnectionRoute{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionRouteArrayInput)(nil)).Elem(), VpnConnectionRouteArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionRouteMapInput)(nil)).Elem(), VpnConnectionRouteMap{})
 	pulumi.RegisterOutputType(VpnConnectionRouteOutput{})
 	pulumi.RegisterOutputType(VpnConnectionRoutePtrOutput{})
 	pulumi.RegisterOutputType(VpnConnectionRouteArrayOutput{})

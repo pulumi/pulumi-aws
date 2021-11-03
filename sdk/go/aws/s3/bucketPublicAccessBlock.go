@@ -368,6 +368,10 @@ func (o BucketPublicAccessBlockMapOutput) MapIndex(k pulumi.StringInput) BucketP
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketPublicAccessBlockInput)(nil)).Elem(), &BucketPublicAccessBlock{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketPublicAccessBlockPtrInput)(nil)).Elem(), &BucketPublicAccessBlock{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketPublicAccessBlockArrayInput)(nil)).Elem(), BucketPublicAccessBlockArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketPublicAccessBlockMapInput)(nil)).Elem(), BucketPublicAccessBlockMap{})
 	pulumi.RegisterOutputType(BucketPublicAccessBlockOutput{})
 	pulumi.RegisterOutputType(BucketPublicAccessBlockPtrOutput{})
 	pulumi.RegisterOutputType(BucketPublicAccessBlockArrayOutput{})

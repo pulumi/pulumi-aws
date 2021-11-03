@@ -408,6 +408,10 @@ func (o ResolverFirewallRuleMapOutput) MapIndex(k pulumi.StringInput) ResolverFi
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ResolverFirewallRuleInput)(nil)).Elem(), &ResolverFirewallRule{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResolverFirewallRulePtrInput)(nil)).Elem(), &ResolverFirewallRule{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResolverFirewallRuleArrayInput)(nil)).Elem(), ResolverFirewallRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResolverFirewallRuleMapInput)(nil)).Elem(), ResolverFirewallRuleMap{})
 	pulumi.RegisterOutputType(ResolverFirewallRuleOutput{})
 	pulumi.RegisterOutputType(ResolverFirewallRulePtrOutput{})
 	pulumi.RegisterOutputType(ResolverFirewallRuleArrayOutput{})

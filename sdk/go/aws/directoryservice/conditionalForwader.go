@@ -328,6 +328,10 @@ func (o ConditionalForwaderMapOutput) MapIndex(k pulumi.StringInput) Conditional
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ConditionalForwaderInput)(nil)).Elem(), &ConditionalForwader{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConditionalForwaderPtrInput)(nil)).Elem(), &ConditionalForwader{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConditionalForwaderArrayInput)(nil)).Elem(), ConditionalForwaderArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConditionalForwaderMapInput)(nil)).Elem(), ConditionalForwaderMap{})
 	pulumi.RegisterOutputType(ConditionalForwaderOutput{})
 	pulumi.RegisterOutputType(ConditionalForwaderPtrOutput{})
 	pulumi.RegisterOutputType(ConditionalForwaderArrayOutput{})

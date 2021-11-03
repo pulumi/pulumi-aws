@@ -343,6 +343,10 @@ func (o KeyGroupMapOutput) MapIndex(k pulumi.StringInput) KeyGroupOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*KeyGroupInput)(nil)).Elem(), &KeyGroup{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KeyGroupPtrInput)(nil)).Elem(), &KeyGroup{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KeyGroupArrayInput)(nil)).Elem(), KeyGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KeyGroupMapInput)(nil)).Elem(), KeyGroupMap{})
 	pulumi.RegisterOutputType(KeyGroupOutput{})
 	pulumi.RegisterOutputType(KeyGroupPtrOutput{})
 	pulumi.RegisterOutputType(KeyGroupArrayOutput{})

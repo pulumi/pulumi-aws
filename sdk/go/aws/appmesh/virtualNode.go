@@ -554,6 +554,10 @@ func (o VirtualNodeMapOutput) MapIndex(k pulumi.StringInput) VirtualNodeOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNodeInput)(nil)).Elem(), &VirtualNode{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNodePtrInput)(nil)).Elem(), &VirtualNode{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNodeArrayInput)(nil)).Elem(), VirtualNodeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualNodeMapInput)(nil)).Elem(), VirtualNodeMap{})
 	pulumi.RegisterOutputType(VirtualNodeOutput{})
 	pulumi.RegisterOutputType(VirtualNodePtrOutput{})
 	pulumi.RegisterOutputType(VirtualNodeArrayOutput{})

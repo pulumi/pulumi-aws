@@ -551,6 +551,10 @@ func (o ServerMapOutput) MapIndex(k pulumi.StringInput) ServerOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerInput)(nil)).Elem(), &Server{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerPtrInput)(nil)).Elem(), &Server{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerArrayInput)(nil)).Elem(), ServerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServerMapInput)(nil)).Elem(), ServerMap{})
 	pulumi.RegisterOutputType(ServerOutput{})
 	pulumi.RegisterOutputType(ServerPtrOutput{})
 	pulumi.RegisterOutputType(ServerArrayOutput{})

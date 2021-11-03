@@ -387,6 +387,10 @@ func (o CloudFormationTypeMapOutput) MapIndex(k pulumi.StringInput) CloudFormati
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CloudFormationTypeInput)(nil)).Elem(), &CloudFormationType{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CloudFormationTypePtrInput)(nil)).Elem(), &CloudFormationType{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CloudFormationTypeArrayInput)(nil)).Elem(), CloudFormationTypeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CloudFormationTypeMapInput)(nil)).Elem(), CloudFormationTypeMap{})
 	pulumi.RegisterOutputType(CloudFormationTypeOutput{})
 	pulumi.RegisterOutputType(CloudFormationTypePtrOutput{})
 	pulumi.RegisterOutputType(CloudFormationTypeArrayOutput{})

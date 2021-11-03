@@ -425,6 +425,10 @@ func (o LayerVersionMapOutput) MapIndex(k pulumi.StringInput) LayerVersionOutput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LayerVersionInput)(nil)).Elem(), &LayerVersion{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LayerVersionPtrInput)(nil)).Elem(), &LayerVersion{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LayerVersionArrayInput)(nil)).Elem(), LayerVersionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LayerVersionMapInput)(nil)).Elem(), LayerVersionMap{})
 	pulumi.RegisterOutputType(LayerVersionOutput{})
 	pulumi.RegisterOutputType(LayerVersionPtrOutput{})
 	pulumi.RegisterOutputType(LayerVersionArrayOutput{})

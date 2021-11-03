@@ -515,6 +515,10 @@ func (o BotMapOutput) MapIndex(k pulumi.StringInput) BotOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BotInput)(nil)).Elem(), &Bot{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotPtrInput)(nil)).Elem(), &Bot{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotArrayInput)(nil)).Elem(), BotArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BotMapInput)(nil)).Elem(), BotMap{})
 	pulumi.RegisterOutputType(BotOutput{})
 	pulumi.RegisterOutputType(BotPtrOutput{})
 	pulumi.RegisterOutputType(BotArrayOutput{})

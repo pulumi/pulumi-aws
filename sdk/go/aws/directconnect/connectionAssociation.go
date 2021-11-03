@@ -317,6 +317,10 @@ func (o ConnectionAssociationMapOutput) MapIndex(k pulumi.StringInput) Connectio
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionAssociationInput)(nil)).Elem(), &ConnectionAssociation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionAssociationPtrInput)(nil)).Elem(), &ConnectionAssociation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionAssociationArrayInput)(nil)).Elem(), ConnectionAssociationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionAssociationMapInput)(nil)).Elem(), ConnectionAssociationMap{})
 	pulumi.RegisterOutputType(ConnectionAssociationOutput{})
 	pulumi.RegisterOutputType(ConnectionAssociationPtrOutput{})
 	pulumi.RegisterOutputType(ConnectionAssociationArrayOutput{})

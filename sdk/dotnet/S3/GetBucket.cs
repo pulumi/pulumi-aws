@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.S3
 {
@@ -92,6 +93,88 @@ namespace Pulumi.Aws.S3
         /// </summary>
         public static Task<GetBucketResult> InvokeAsync(GetBucketArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBucketResult>("aws:s3/getBucket:getBucket", args ?? new GetBucketArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Provides details about a specific S3 bucket.
+        /// 
+        /// This resource may prove useful when setting up a Route53 record, or an origin for a CloudFront
+        /// Distribution.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// ### Route53 Record
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var selected = Output.Create(Aws.S3.GetBucket.InvokeAsync(new Aws.S3.GetBucketArgs
+        ///         {
+        ///             Bucket = "bucket.test.com",
+        ///         }));
+        ///         var testZone = Output.Create(Aws.Route53.GetZone.InvokeAsync(new Aws.Route53.GetZoneArgs
+        ///         {
+        ///             Name = "test.com.",
+        ///         }));
+        ///         var example = new Aws.Route53.Record("example", new Aws.Route53.RecordArgs
+        ///         {
+        ///             ZoneId = testZone.Apply(testZone =&gt; testZone.Id),
+        ///             Name = "bucket",
+        ///             Type = "A",
+        ///             Aliases = 
+        ///             {
+        ///                 new Aws.Route53.Inputs.RecordAliasArgs
+        ///                 {
+        ///                     Name = selected.Apply(selected =&gt; selected.WebsiteDomain),
+        ///                     ZoneId = selected.Apply(selected =&gt; selected.HostedZoneId),
+        ///                 },
+        ///             },
+        ///         });
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% example %}}
+        /// ### CloudFront Origin
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var selected = Output.Create(Aws.S3.GetBucket.InvokeAsync(new Aws.S3.GetBucketArgs
+        ///         {
+        ///             Bucket = "a-test-bucket",
+        ///         }));
+        ///         var test = new Aws.CloudFront.Distribution("test", new Aws.CloudFront.DistributionArgs
+        ///         {
+        ///             Origins = 
+        ///             {
+        ///                 new Aws.CloudFront.Inputs.DistributionOriginArgs
+        ///                 {
+        ///                     DomainName = selected.Apply(selected =&gt; selected.BucketDomainName),
+        ///                     OriginId = "s3-selected-bucket",
+        ///                 },
+        ///             },
+        ///         });
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetBucketResult> Invoke(GetBucketInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetBucketResult>("aws:s3/getBucket:getBucket", args ?? new GetBucketInvokeArgs(), options.WithVersion());
     }
 
 
@@ -104,6 +187,19 @@ namespace Pulumi.Aws.S3
         public string Bucket { get; set; } = null!;
 
         public GetBucketArgs()
+        {
+        }
+    }
+
+    public sealed class GetBucketInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the bucket
+        /// </summary>
+        [Input("bucket", required: true)]
+        public Input<string> Bucket { get; set; } = null!;
+
+        public GetBucketInvokeArgs()
         {
         }
     }

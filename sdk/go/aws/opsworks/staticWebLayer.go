@@ -479,6 +479,10 @@ func (o StaticWebLayerMapOutput) MapIndex(k pulumi.StringInput) StaticWebLayerOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*StaticWebLayerInput)(nil)).Elem(), &StaticWebLayer{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StaticWebLayerPtrInput)(nil)).Elem(), &StaticWebLayer{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StaticWebLayerArrayInput)(nil)).Elem(), StaticWebLayerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StaticWebLayerMapInput)(nil)).Elem(), StaticWebLayerMap{})
 	pulumi.RegisterOutputType(StaticWebLayerOutput{})
 	pulumi.RegisterOutputType(StaticWebLayerPtrOutput{})
 	pulumi.RegisterOutputType(StaticWebLayerArrayOutput{})

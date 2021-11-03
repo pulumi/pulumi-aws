@@ -372,6 +372,10 @@ func (o AppCookieStickinessPolicyMapOutput) MapIndex(k pulumi.StringInput) AppCo
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AppCookieStickinessPolicyInput)(nil)).Elem(), &AppCookieStickinessPolicy{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AppCookieStickinessPolicyPtrInput)(nil)).Elem(), &AppCookieStickinessPolicy{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AppCookieStickinessPolicyArrayInput)(nil)).Elem(), AppCookieStickinessPolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AppCookieStickinessPolicyMapInput)(nil)).Elem(), AppCookieStickinessPolicyMap{})
 	pulumi.RegisterOutputType(AppCookieStickinessPolicyOutput{})
 	pulumi.RegisterOutputType(AppCookieStickinessPolicyPtrOutput{})
 	pulumi.RegisterOutputType(AppCookieStickinessPolicyArrayOutput{})

@@ -356,6 +356,10 @@ func (o RecorderStatusMapOutput) MapIndex(k pulumi.StringInput) RecorderStatusOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RecorderStatusInput)(nil)).Elem(), &RecorderStatus{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RecorderStatusPtrInput)(nil)).Elem(), &RecorderStatus{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RecorderStatusArrayInput)(nil)).Elem(), RecorderStatusArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RecorderStatusMapInput)(nil)).Elem(), RecorderStatusMap{})
 	pulumi.RegisterOutputType(RecorderStatusOutput{})
 	pulumi.RegisterOutputType(RecorderStatusPtrOutput{})
 	pulumi.RegisterOutputType(RecorderStatusArrayOutput{})

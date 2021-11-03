@@ -415,6 +415,10 @@ func (o OptionGroupMapOutput) MapIndex(k pulumi.StringInput) OptionGroupOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*OptionGroupInput)(nil)).Elem(), &OptionGroup{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OptionGroupPtrInput)(nil)).Elem(), &OptionGroup{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OptionGroupArrayInput)(nil)).Elem(), OptionGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OptionGroupMapInput)(nil)).Elem(), OptionGroupMap{})
 	pulumi.RegisterOutputType(OptionGroupOutput{})
 	pulumi.RegisterOutputType(OptionGroupPtrOutput{})
 	pulumi.RegisterOutputType(OptionGroupArrayOutput{})

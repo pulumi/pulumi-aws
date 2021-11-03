@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Ec2
 {
@@ -43,6 +44,39 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public static Task<GetLocalGatewayResult> InvokeAsync(GetLocalGatewayArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLocalGatewayResult>("aws:ec2/getLocalGateway:getLocalGateway", args ?? new GetLocalGatewayArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Provides details about an EC2 Local Gateway.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// The following example shows how one might accept a local gateway id as a variable.
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var config = new Config();
+        ///         var localGatewayId = config.RequireObject&lt;dynamic&gt;("localGatewayId");
+        ///         var selected = Output.Create(Aws.Ec2.GetLocalGateway.InvokeAsync(new Aws.Ec2.GetLocalGatewayArgs
+        ///         {
+        ///             Id = localGatewayId,
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetLocalGatewayResult> Invoke(GetLocalGatewayInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetLocalGatewayResult>("aws:ec2/getLocalGateway:getLocalGateway", args ?? new GetLocalGatewayInvokeArgs(), options.WithVersion());
     }
 
 
@@ -87,6 +121,51 @@ namespace Pulumi.Aws.Ec2
         }
 
         public GetLocalGatewayArgs()
+        {
+        }
+    }
+
+    public sealed class GetLocalGatewayInvokeArgs : Pulumi.InvokeArgs
+    {
+        [Input("filters")]
+        private InputList<Inputs.GetLocalGatewayFilterInputArgs>? _filters;
+
+        /// <summary>
+        /// Custom filter block as described below.
+        /// </summary>
+        public InputList<Inputs.GetLocalGatewayFilterInputArgs> Filters
+        {
+            get => _filters ?? (_filters = new InputList<Inputs.GetLocalGatewayFilterInputArgs>());
+            set => _filters = value;
+        }
+
+        /// <summary>
+        /// The id of the specific Local Gateway to retrieve.
+        /// </summary>
+        [Input("id")]
+        public Input<string>? Id { get; set; }
+
+        /// <summary>
+        /// The current state of the desired Local Gateway.
+        /// Can be either `"pending"` or `"available"`.
+        /// </summary>
+        [Input("state")]
+        public Input<string>? State { get; set; }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A mapping of tags, each pair of which must exactly match
+        /// a pair on the desired Local Gateway.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        public GetLocalGatewayInvokeArgs()
         {
         }
     }

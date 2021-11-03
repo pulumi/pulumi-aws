@@ -352,6 +352,10 @@ func (o BackupMapOutput) MapIndex(k pulumi.StringInput) BackupOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupInput)(nil)).Elem(), &Backup{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupPtrInput)(nil)).Elem(), &Backup{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupArrayInput)(nil)).Elem(), BackupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupMapInput)(nil)).Elem(), BackupMap{})
 	pulumi.RegisterOutputType(BackupOutput{})
 	pulumi.RegisterOutputType(BackupPtrOutput{})
 	pulumi.RegisterOutputType(BackupArrayOutput{})

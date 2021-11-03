@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.CloudWatch
 {
@@ -39,6 +40,35 @@ namespace Pulumi.Aws.CloudWatch
         /// </summary>
         public static Task<GetLogGroupResult> InvokeAsync(GetLogGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLogGroupResult>("aws:cloudwatch/getLogGroup:getLogGroup", args ?? new GetLogGroupArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to get information about an AWS Cloudwatch Log Group
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.CloudWatch.GetLogGroup.InvokeAsync(new Aws.CloudWatch.GetLogGroupArgs
+        ///         {
+        ///             Name = "MyImportantLogs",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetLogGroupResult> Invoke(GetLogGroupInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetLogGroupResult>("aws:cloudwatch/getLogGroup:getLogGroup", args ?? new GetLogGroupInvokeArgs(), options.WithVersion());
     }
 
 
@@ -63,6 +93,31 @@ namespace Pulumi.Aws.CloudWatch
         }
 
         public GetLogGroupArgs()
+        {
+        }
+    }
+
+    public sealed class GetLogGroupInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the Cloudwatch log group
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags to assign to the resource.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        public GetLogGroupInvokeArgs()
         {
         }
     }

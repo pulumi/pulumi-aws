@@ -319,6 +319,10 @@ func (o OrganizationAdminAccountMapOutput) MapIndex(k pulumi.StringInput) Organi
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationAdminAccountInput)(nil)).Elem(), &OrganizationAdminAccount{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationAdminAccountPtrInput)(nil)).Elem(), &OrganizationAdminAccount{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationAdminAccountArrayInput)(nil)).Elem(), OrganizationAdminAccountArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationAdminAccountMapInput)(nil)).Elem(), OrganizationAdminAccountMap{})
 	pulumi.RegisterOutputType(OrganizationAdminAccountOutput{})
 	pulumi.RegisterOutputType(OrganizationAdminAccountPtrOutput{})
 	pulumi.RegisterOutputType(OrganizationAdminAccountArrayOutput{})

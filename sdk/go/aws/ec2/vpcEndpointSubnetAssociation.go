@@ -311,6 +311,10 @@ func (o VpcEndpointSubnetAssociationMapOutput) MapIndex(k pulumi.StringInput) Vp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointSubnetAssociationInput)(nil)).Elem(), &VpcEndpointSubnetAssociation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointSubnetAssociationPtrInput)(nil)).Elem(), &VpcEndpointSubnetAssociation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointSubnetAssociationArrayInput)(nil)).Elem(), VpcEndpointSubnetAssociationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointSubnetAssociationMapInput)(nil)).Elem(), VpcEndpointSubnetAssociationMap{})
 	pulumi.RegisterOutputType(VpcEndpointSubnetAssociationOutput{})
 	pulumi.RegisterOutputType(VpcEndpointSubnetAssociationPtrOutput{})
 	pulumi.RegisterOutputType(VpcEndpointSubnetAssociationArrayOutput{})

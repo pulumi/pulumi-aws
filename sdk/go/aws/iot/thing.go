@@ -333,6 +333,10 @@ func (o ThingMapOutput) MapIndex(k pulumi.StringInput) ThingOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ThingInput)(nil)).Elem(), &Thing{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ThingPtrInput)(nil)).Elem(), &Thing{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ThingArrayInput)(nil)).Elem(), ThingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ThingMapInput)(nil)).Elem(), ThingMap{})
 	pulumi.RegisterOutputType(ThingOutput{})
 	pulumi.RegisterOutputType(ThingPtrOutput{})
 	pulumi.RegisterOutputType(ThingArrayOutput{})

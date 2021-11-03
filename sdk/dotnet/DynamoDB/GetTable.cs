@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.DynamoDB
 {
@@ -39,6 +40,35 @@ namespace Pulumi.Aws.DynamoDB
         /// </summary>
         public static Task<GetTableResult> InvokeAsync(GetTableArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTableResult>("aws:dynamodb/getTable:getTable", args ?? new GetTableArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Provides information about a DynamoDB table.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var tableName = Output.Create(Aws.DynamoDB.GetTable.InvokeAsync(new Aws.DynamoDB.GetTableArgs
+        ///         {
+        ///             Name = "tableName",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetTableResult> Invoke(GetTableInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetTableResult>("aws:dynamodb/getTable:getTable", args ?? new GetTableInvokeArgs(), options.WithVersion());
     }
 
 
@@ -62,6 +92,30 @@ namespace Pulumi.Aws.DynamoDB
         }
 
         public GetTableArgs()
+        {
+        }
+    }
+
+    public sealed class GetTableInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the DynamoDB table.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        [Input("serverSideEncryption")]
+        public Input<Inputs.GetTableServerSideEncryptionInputArgs>? ServerSideEncryption { get; set; }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        public GetTableInvokeArgs()
         {
         }
     }

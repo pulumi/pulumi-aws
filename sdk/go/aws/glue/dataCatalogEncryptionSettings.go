@@ -316,6 +316,10 @@ func (o DataCatalogEncryptionSettingsMapOutput) MapIndex(k pulumi.StringInput) D
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DataCatalogEncryptionSettingsInput)(nil)).Elem(), &DataCatalogEncryptionSettings{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataCatalogEncryptionSettingsPtrInput)(nil)).Elem(), &DataCatalogEncryptionSettings{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataCatalogEncryptionSettingsArrayInput)(nil)).Elem(), DataCatalogEncryptionSettingsArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataCatalogEncryptionSettingsMapInput)(nil)).Elem(), DataCatalogEncryptionSettingsMap{})
 	pulumi.RegisterOutputType(DataCatalogEncryptionSettingsOutput{})
 	pulumi.RegisterOutputType(DataCatalogEncryptionSettingsPtrOutput{})
 	pulumi.RegisterOutputType(DataCatalogEncryptionSettingsArrayOutput{})

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Sfn
 {
@@ -39,6 +40,35 @@ namespace Pulumi.Aws.Sfn
         /// </summary>
         public static Task<GetActivityResult> InvokeAsync(GetActivityArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetActivityResult>("aws:sfn/getActivity:getActivity", args ?? new GetActivityArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Provides a Step Functions Activity data source
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var sfnActivity = Output.Create(Aws.Sfn.GetActivity.InvokeAsync(new Aws.Sfn.GetActivityArgs
+        ///         {
+        ///             Name = "my-activity",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetActivityResult> Invoke(GetActivityInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetActivityResult>("aws:sfn/getActivity:getActivity", args ?? new GetActivityInvokeArgs(), options.WithVersion());
     }
 
 
@@ -57,6 +87,25 @@ namespace Pulumi.Aws.Sfn
         public string? Name { get; set; }
 
         public GetActivityArgs()
+        {
+        }
+    }
+
+    public sealed class GetActivityInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) that identifies the activity.
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
+        /// <summary>
+        /// The name that identifies the activity.
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
+
+        public GetActivityInvokeArgs()
         {
         }
     }

@@ -328,6 +328,10 @@ func (o ContainerPolicyMapOutput) MapIndex(k pulumi.StringInput) ContainerPolicy
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerPolicyInput)(nil)).Elem(), &ContainerPolicy{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerPolicyPtrInput)(nil)).Elem(), &ContainerPolicy{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerPolicyArrayInput)(nil)).Elem(), ContainerPolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerPolicyMapInput)(nil)).Elem(), ContainerPolicyMap{})
 	pulumi.RegisterOutputType(ContainerPolicyOutput{})
 	pulumi.RegisterOutputType(ContainerPolicyPtrOutput{})
 	pulumi.RegisterOutputType(ContainerPolicyArrayOutput{})

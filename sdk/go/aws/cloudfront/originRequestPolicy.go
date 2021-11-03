@@ -369,6 +369,10 @@ func (o OriginRequestPolicyMapOutput) MapIndex(k pulumi.StringInput) OriginReque
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*OriginRequestPolicyInput)(nil)).Elem(), &OriginRequestPolicy{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OriginRequestPolicyPtrInput)(nil)).Elem(), &OriginRequestPolicy{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OriginRequestPolicyArrayInput)(nil)).Elem(), OriginRequestPolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OriginRequestPolicyMapInput)(nil)).Elem(), OriginRequestPolicyMap{})
 	pulumi.RegisterOutputType(OriginRequestPolicyOutput{})
 	pulumi.RegisterOutputType(OriginRequestPolicyPtrOutput{})
 	pulumi.RegisterOutputType(OriginRequestPolicyArrayOutput{})

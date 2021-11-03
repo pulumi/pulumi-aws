@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Iam
 {
@@ -41,6 +42,37 @@ namespace Pulumi.Aws.Iam
         /// </summary>
         public static Task<GetInstanceProfileResult> InvokeAsync(GetInstanceProfileArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetInstanceProfileResult>("aws:iam/getInstanceProfile:getInstanceProfile", args ?? new GetInstanceProfileArgs(), options.WithVersion());
+
+        /// <summary>
+        /// This data source can be used to fetch information about a specific
+        /// IAM instance profile. By using this data source, you can reference IAM
+        /// instance profile properties without having to hard code ARNs as input.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.Iam.GetInstanceProfile.InvokeAsync(new Aws.Iam.GetInstanceProfileArgs
+        ///         {
+        ///             Name = "an_example_instance_profile_name",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetInstanceProfileResult> Invoke(GetInstanceProfileInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetInstanceProfileResult>("aws:iam/getInstanceProfile:getInstanceProfile", args ?? new GetInstanceProfileInvokeArgs(), options.WithVersion());
     }
 
 
@@ -53,6 +85,19 @@ namespace Pulumi.Aws.Iam
         public string Name { get; set; } = null!;
 
         public GetInstanceProfileArgs()
+        {
+        }
+    }
+
+    public sealed class GetInstanceProfileInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The friendly IAM instance profile name to match.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        public GetInstanceProfileInvokeArgs()
         {
         }
     }

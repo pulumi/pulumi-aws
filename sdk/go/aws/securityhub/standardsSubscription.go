@@ -315,6 +315,10 @@ func (o StandardsSubscriptionMapOutput) MapIndex(k pulumi.StringInput) Standards
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*StandardsSubscriptionInput)(nil)).Elem(), &StandardsSubscription{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StandardsSubscriptionPtrInput)(nil)).Elem(), &StandardsSubscription{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StandardsSubscriptionArrayInput)(nil)).Elem(), StandardsSubscriptionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StandardsSubscriptionMapInput)(nil)).Elem(), StandardsSubscriptionMap{})
 	pulumi.RegisterOutputType(StandardsSubscriptionOutput{})
 	pulumi.RegisterOutputType(StandardsSubscriptionPtrOutput{})
 	pulumi.RegisterOutputType(StandardsSubscriptionArrayOutput{})

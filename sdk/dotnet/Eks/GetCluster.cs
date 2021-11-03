@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Eks
 {
@@ -48,6 +49,44 @@ namespace Pulumi.Aws.Eks
         /// </summary>
         public static Task<GetClusterResult> InvokeAsync(GetClusterArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("aws:eks/getCluster:getCluster", args ?? new GetClusterArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Retrieve information about an EKS Cluster.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.Eks.GetCluster.InvokeAsync(new Aws.Eks.GetClusterArgs
+        ///         {
+        ///             Name = "example",
+        ///         }));
+        ///         this.Endpoint = example.Apply(example =&gt; example.Endpoint);
+        ///         this.Kubeconfig_certificate_authority_data = example.Apply(example =&gt; example.CertificateAuthority?.Data);
+        ///         this.Identity_oidc_issuer = example.Apply(example =&gt; example.Identities?[0]?.Oidcs?[0]?.Issuer);
+        ///     }
+        /// 
+        ///     [Output("endpoint")]
+        ///     public Output&lt;string&gt; Endpoint { get; set; }
+        ///     [Output("kubeconfig-certificate-authority-data")]
+        ///     public Output&lt;string&gt; Kubeconfig_certificate_authority_data { get; set; }
+        ///     [Output("identity-oidc-issuer")]
+        ///     public Output&lt;string&gt; Identity_oidc_issuer { get; set; }
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetClusterResult>("aws:eks/getCluster:getCluster", args ?? new GetClusterInvokeArgs(), options.WithVersion());
     }
 
 
@@ -72,6 +111,31 @@ namespace Pulumi.Aws.Eks
         }
 
         public GetClusterArgs()
+        {
+        }
+    }
+
+    public sealed class GetClusterInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value map of resource tags.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        public GetClusterInvokeArgs()
         {
         }
     }

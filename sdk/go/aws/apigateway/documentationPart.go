@@ -333,6 +333,10 @@ func (o DocumentationPartMapOutput) MapIndex(k pulumi.StringInput) Documentation
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DocumentationPartInput)(nil)).Elem(), &DocumentationPart{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DocumentationPartPtrInput)(nil)).Elem(), &DocumentationPart{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DocumentationPartArrayInput)(nil)).Elem(), DocumentationPartArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DocumentationPartMapInput)(nil)).Elem(), DocumentationPartMap{})
 	pulumi.RegisterOutputType(DocumentationPartOutput{})
 	pulumi.RegisterOutputType(DocumentationPartPtrOutput{})
 	pulumi.RegisterOutputType(DocumentationPartArrayOutput{})

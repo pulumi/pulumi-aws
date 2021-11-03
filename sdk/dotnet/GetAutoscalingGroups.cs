@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws
 {
@@ -71,6 +72,66 @@ namespace Pulumi.Aws
         /// </summary>
         public static Task<GetAutoscalingGroupsResult> InvokeAsync(GetAutoscalingGroupsArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAutoscalingGroupsResult>("aws:index/getAutoscalingGroups:getAutoscalingGroups", args ?? new GetAutoscalingGroupsArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The Autoscaling Groups data source allows access to the list of AWS
+        /// ASGs within a specific region. This will allow you to pass a list of AutoScaling Groups to other resources.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var groups = Output.Create(Aws.AutoScaling.GetAmiIds.InvokeAsync(new Aws.AutoScaling.GetAmiIdsArgs
+        ///         {
+        ///             Filters = 
+        ///             {
+        ///                 new Aws.AutoScaling.Inputs.GetAmiIdsFilterArgs
+        ///                 {
+        ///                     Name = "key",
+        ///                     Values = 
+        ///                     {
+        ///                         "Team",
+        ///                     },
+        ///                 },
+        ///                 new Aws.AutoScaling.Inputs.GetAmiIdsFilterArgs
+        ///                 {
+        ///                     Name = "value",
+        ///                     Values = 
+        ///                     {
+        ///                         "Pets",
+        ///                     },
+        ///                 },
+        ///             },
+        ///         }));
+        ///         var slackNotifications = new Aws.AutoScaling.Notification("slackNotifications", new Aws.AutoScaling.NotificationArgs
+        ///         {
+        ///             GroupNames = groups.Apply(groups =&gt; groups.Names),
+        ///             Notifications = 
+        ///             {
+        ///                 "autoscaling:EC2_INSTANCE_LAUNCH",
+        ///                 "autoscaling:EC2_INSTANCE_TERMINATE",
+        ///                 "autoscaling:EC2_INSTANCE_LAUNCH_ERROR",
+        ///                 "autoscaling:EC2_INSTANCE_TERMINATE_ERROR",
+        ///             },
+        ///             TopicArn = "TOPIC ARN",
+        ///         });
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetAutoscalingGroupsResult> Invoke(GetAutoscalingGroupsInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetAutoscalingGroupsResult>("aws:index/getAutoscalingGroups:getAutoscalingGroups", args ?? new GetAutoscalingGroupsInvokeArgs(), options.WithVersion());
     }
 
 
@@ -89,6 +150,25 @@ namespace Pulumi.Aws
         }
 
         public GetAutoscalingGroupsArgs()
+        {
+        }
+    }
+
+    public sealed class GetAutoscalingGroupsInvokeArgs : Pulumi.InvokeArgs
+    {
+        [Input("filters")]
+        private InputList<Inputs.GetAutoscalingGroupsFilterInputArgs>? _filters;
+
+        /// <summary>
+        /// A filter used to scope the list e.g. by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
+        /// </summary>
+        public InputList<Inputs.GetAutoscalingGroupsFilterInputArgs> Filters
+        {
+            get => _filters ?? (_filters = new InputList<Inputs.GetAutoscalingGroupsFilterInputArgs>());
+            set => _filters = value;
+        }
+
+        public GetAutoscalingGroupsInvokeArgs()
         {
         }
     }

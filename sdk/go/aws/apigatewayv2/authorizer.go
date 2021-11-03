@@ -491,6 +491,10 @@ func (o AuthorizerMapOutput) MapIndex(k pulumi.StringInput) AuthorizerOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AuthorizerInput)(nil)).Elem(), &Authorizer{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AuthorizerPtrInput)(nil)).Elem(), &Authorizer{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AuthorizerArrayInput)(nil)).Elem(), AuthorizerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AuthorizerMapInput)(nil)).Elem(), AuthorizerMap{})
 	pulumi.RegisterOutputType(AuthorizerOutput{})
 	pulumi.RegisterOutputType(AuthorizerPtrOutput{})
 	pulumi.RegisterOutputType(AuthorizerArrayOutput{})

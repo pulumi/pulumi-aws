@@ -357,6 +357,10 @@ func (o LogSubscriptionFilterMapOutput) MapIndex(k pulumi.StringInput) LogSubscr
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LogSubscriptionFilterInput)(nil)).Elem(), &LogSubscriptionFilter{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogSubscriptionFilterPtrInput)(nil)).Elem(), &LogSubscriptionFilter{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogSubscriptionFilterArrayInput)(nil)).Elem(), LogSubscriptionFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogSubscriptionFilterMapInput)(nil)).Elem(), LogSubscriptionFilterMap{})
 	pulumi.RegisterOutputType(LogSubscriptionFilterOutput{})
 	pulumi.RegisterOutputType(LogSubscriptionFilterPtrOutput{})
 	pulumi.RegisterOutputType(LogSubscriptionFilterArrayOutput{})

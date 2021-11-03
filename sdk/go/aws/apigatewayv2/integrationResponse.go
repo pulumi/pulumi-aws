@@ -357,6 +357,10 @@ func (o IntegrationResponseMapOutput) MapIndex(k pulumi.StringInput) Integration
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationResponseInput)(nil)).Elem(), &IntegrationResponse{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationResponsePtrInput)(nil)).Elem(), &IntegrationResponse{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationResponseArrayInput)(nil)).Elem(), IntegrationResponseArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationResponseMapInput)(nil)).Elem(), IntegrationResponseMap{})
 	pulumi.RegisterOutputType(IntegrationResponseOutput{})
 	pulumi.RegisterOutputType(IntegrationResponsePtrOutput{})
 	pulumi.RegisterOutputType(IntegrationResponseArrayOutput{})

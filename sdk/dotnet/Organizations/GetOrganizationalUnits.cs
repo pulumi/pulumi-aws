@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Organizations
 {
@@ -40,6 +41,36 @@ namespace Pulumi.Aws.Organizations
         /// </summary>
         public static Task<GetOrganizationalUnitsResult> InvokeAsync(GetOrganizationalUnitsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetOrganizationalUnitsResult>("aws:organizations/getOrganizationalUnits:getOrganizationalUnits", args ?? new GetOrganizationalUnitsArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Get all direct child organizational units under a parent organizational unit. This only provides immediate children, not all children.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var org = Output.Create(Aws.Organizations.GetOrganization.InvokeAsync());
+        ///         var ou = org.Apply(org =&gt; Output.Create(Aws.Organizations.GetOrganizationalUnits.InvokeAsync(new Aws.Organizations.GetOrganizationalUnitsArgs
+        ///         {
+        ///             ParentId = org.Roots?[0]?.Id,
+        ///         })));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetOrganizationalUnitsResult> Invoke(GetOrganizationalUnitsInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetOrganizationalUnitsResult>("aws:organizations/getOrganizationalUnits:getOrganizationalUnits", args ?? new GetOrganizationalUnitsInvokeArgs(), options.WithVersion());
     }
 
 
@@ -52,6 +83,19 @@ namespace Pulumi.Aws.Organizations
         public string ParentId { get; set; } = null!;
 
         public GetOrganizationalUnitsArgs()
+        {
+        }
+    }
+
+    public sealed class GetOrganizationalUnitsInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The parent ID of the organizational unit.
+        /// </summary>
+        [Input("parentId", required: true)]
+        public Input<string> ParentId { get; set; } = null!;
+
+        public GetOrganizationalUnitsInvokeArgs()
         {
         }
     }

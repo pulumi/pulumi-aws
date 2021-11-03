@@ -392,6 +392,10 @@ func (o ResolverEndpointMapOutput) MapIndex(k pulumi.StringInput) ResolverEndpoi
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ResolverEndpointInput)(nil)).Elem(), &ResolverEndpoint{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResolverEndpointPtrInput)(nil)).Elem(), &ResolverEndpoint{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResolverEndpointArrayInput)(nil)).Elem(), ResolverEndpointArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResolverEndpointMapInput)(nil)).Elem(), ResolverEndpointMap{})
 	pulumi.RegisterOutputType(ResolverEndpointOutput{})
 	pulumi.RegisterOutputType(ResolverEndpointPtrOutput{})
 	pulumi.RegisterOutputType(ResolverEndpointArrayOutput{})

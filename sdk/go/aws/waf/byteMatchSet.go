@@ -323,6 +323,10 @@ func (o ByteMatchSetMapOutput) MapIndex(k pulumi.StringInput) ByteMatchSetOutput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ByteMatchSetInput)(nil)).Elem(), &ByteMatchSet{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ByteMatchSetPtrInput)(nil)).Elem(), &ByteMatchSet{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ByteMatchSetArrayInput)(nil)).Elem(), ByteMatchSetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ByteMatchSetMapInput)(nil)).Elem(), ByteMatchSetMap{})
 	pulumi.RegisterOutputType(ByteMatchSetOutput{})
 	pulumi.RegisterOutputType(ByteMatchSetPtrOutput{})
 	pulumi.RegisterOutputType(ByteMatchSetArrayOutput{})

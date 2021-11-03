@@ -351,6 +351,10 @@ func (o VpcLinkMapOutput) MapIndex(k pulumi.StringInput) VpcLinkOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcLinkInput)(nil)).Elem(), &VpcLink{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcLinkPtrInput)(nil)).Elem(), &VpcLink{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcLinkArrayInput)(nil)).Elem(), VpcLinkArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcLinkMapInput)(nil)).Elem(), VpcLinkMap{})
 	pulumi.RegisterOutputType(VpcLinkOutput{})
 	pulumi.RegisterOutputType(VpcLinkPtrOutput{})
 	pulumi.RegisterOutputType(VpcLinkArrayOutput{})

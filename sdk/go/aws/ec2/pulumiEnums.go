@@ -1221,6 +1221,16 @@ func (in *tenancyPtr) ToTenancyPtrOutputWithContext(ctx context.Context) Tenancy
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*InstancePlatformInput)(nil)).Elem(), InstancePlatform("Linux/UNIX"))
+	pulumi.RegisterInputType(reflect.TypeOf((*InstancePlatformPtrInput)(nil)).Elem(), InstancePlatform("Linux/UNIX"))
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceTypeInput)(nil)).Elem(), InstanceType("a1.2xlarge"))
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceTypePtrInput)(nil)).Elem(), InstanceType("a1.2xlarge"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PlacementStrategyInput)(nil)).Elem(), PlacementStrategy("spread"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PlacementStrategyPtrInput)(nil)).Elem(), PlacementStrategy("spread"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ProtocolTypeInput)(nil)).Elem(), ProtocolType("all"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ProtocolTypePtrInput)(nil)).Elem(), ProtocolType("all"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TenancyInput)(nil)).Elem(), Tenancy("default"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TenancyPtrInput)(nil)).Elem(), Tenancy("default"))
 	pulumi.RegisterOutputType(InstancePlatformOutput{})
 	pulumi.RegisterOutputType(InstancePlatformPtrOutput{})
 	pulumi.RegisterOutputType(InstanceTypeOutput{})

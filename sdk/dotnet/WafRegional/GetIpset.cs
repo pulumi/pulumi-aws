@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.WafRegional
 {
@@ -39,6 +40,35 @@ namespace Pulumi.Aws.WafRegional
         /// </summary>
         public static Task<GetIpsetResult> InvokeAsync(GetIpsetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIpsetResult>("aws:wafregional/getIpset:getIpset", args ?? new GetIpsetArgs(), options.WithVersion());
+
+        /// <summary>
+        /// `aws.wafregional.IpSet` Retrieves a WAF Regional IP Set Resource Id.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.WafRegional.GetIpset.InvokeAsync(new Aws.WafRegional.GetIpsetArgs
+        ///         {
+        ///             Name = "tfWAFRegionalIPSet",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetIpsetResult> Invoke(GetIpsetInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetIpsetResult>("aws:wafregional/getIpset:getIpset", args ?? new GetIpsetInvokeArgs(), options.WithVersion());
     }
 
 
@@ -51,6 +81,19 @@ namespace Pulumi.Aws.WafRegional
         public string Name { get; set; } = null!;
 
         public GetIpsetArgs()
+        {
+        }
+    }
+
+    public sealed class GetIpsetInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the WAF Regional IP set.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        public GetIpsetInvokeArgs()
         {
         }
     }

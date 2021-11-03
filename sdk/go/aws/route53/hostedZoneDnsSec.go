@@ -377,6 +377,10 @@ func (o HostedZoneDnsSecMapOutput) MapIndex(k pulumi.StringInput) HostedZoneDnsS
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*HostedZoneDnsSecInput)(nil)).Elem(), &HostedZoneDnsSec{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HostedZoneDnsSecPtrInput)(nil)).Elem(), &HostedZoneDnsSec{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HostedZoneDnsSecArrayInput)(nil)).Elem(), HostedZoneDnsSecArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HostedZoneDnsSecMapInput)(nil)).Elem(), HostedZoneDnsSecMap{})
 	pulumi.RegisterOutputType(HostedZoneDnsSecOutput{})
 	pulumi.RegisterOutputType(HostedZoneDnsSecPtrOutput{})
 	pulumi.RegisterOutputType(HostedZoneDnsSecArrayOutput{})

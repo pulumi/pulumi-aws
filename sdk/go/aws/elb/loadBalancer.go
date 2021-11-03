@@ -558,6 +558,10 @@ func (o LoadBalancerMapOutput) MapIndex(k pulumi.StringInput) LoadBalancerOutput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerInput)(nil)).Elem(), &LoadBalancer{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerPtrInput)(nil)).Elem(), &LoadBalancer{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerArrayInput)(nil)).Elem(), LoadBalancerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerMapInput)(nil)).Elem(), LoadBalancerMap{})
 	pulumi.RegisterOutputType(LoadBalancerOutput{})
 	pulumi.RegisterOutputType(LoadBalancerPtrOutput{})
 	pulumi.RegisterOutputType(LoadBalancerArrayOutput{})

@@ -285,6 +285,10 @@ func (o TagMapOutput) MapIndex(k pulumi.StringInput) TagOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TagInput)(nil)).Elem(), &Tag{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TagPtrInput)(nil)).Elem(), &Tag{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TagArrayInput)(nil)).Elem(), TagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TagMapInput)(nil)).Elem(), TagMap{})
 	pulumi.RegisterOutputType(TagOutput{})
 	pulumi.RegisterOutputType(TagPtrOutput{})
 	pulumi.RegisterOutputType(TagArrayOutput{})

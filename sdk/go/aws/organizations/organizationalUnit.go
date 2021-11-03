@@ -335,6 +335,10 @@ func (o OrganizationalUnitMapOutput) MapIndex(k pulumi.StringInput) Organization
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationalUnitInput)(nil)).Elem(), &OrganizationalUnit{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationalUnitPtrInput)(nil)).Elem(), &OrganizationalUnit{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationalUnitArrayInput)(nil)).Elem(), OrganizationalUnitArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationalUnitMapInput)(nil)).Elem(), OrganizationalUnitMap{})
 	pulumi.RegisterOutputType(OrganizationalUnitOutput{})
 	pulumi.RegisterOutputType(OrganizationalUnitPtrOutput{})
 	pulumi.RegisterOutputType(OrganizationalUnitArrayOutput{})

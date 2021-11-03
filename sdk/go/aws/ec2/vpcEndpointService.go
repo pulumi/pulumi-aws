@@ -437,6 +437,10 @@ func (o VpcEndpointServiceMapOutput) MapIndex(k pulumi.StringInput) VpcEndpointS
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointServiceInput)(nil)).Elem(), &VpcEndpointService{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointServicePtrInput)(nil)).Elem(), &VpcEndpointService{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointServiceArrayInput)(nil)).Elem(), VpcEndpointServiceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointServiceMapInput)(nil)).Elem(), VpcEndpointServiceMap{})
 	pulumi.RegisterOutputType(VpcEndpointServiceOutput{})
 	pulumi.RegisterOutputType(VpcEndpointServicePtrOutput{})
 	pulumi.RegisterOutputType(VpcEndpointServiceArrayOutput{})

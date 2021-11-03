@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Ec2
 {
@@ -59,6 +60,55 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public static Task<GetInstanceResult> InvokeAsync(GetInstanceArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetInstanceResult>("aws:ec2/getInstance:getInstance", args ?? new GetInstanceArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to get the ID of an Amazon EC2 Instance for use in other
+        /// resources.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var foo = Output.Create(Aws.Ec2.GetInstance.InvokeAsync(new Aws.Ec2.GetInstanceArgs
+        ///         {
+        ///             Filters = 
+        ///             {
+        ///                 new Aws.Ec2.Inputs.GetInstanceFilterArgs
+        ///                 {
+        ///                     Name = "image-id",
+        ///                     Values = 
+        ///                     {
+        ///                         "ami-xxxxxxxx",
+        ///                     },
+        ///                 },
+        ///                 new Aws.Ec2.Inputs.GetInstanceFilterArgs
+        ///                 {
+        ///                     Name = "tag:Name",
+        ///                     Values = 
+        ///                     {
+        ///                         "instance-name-tag",
+        ///                     },
+        ///                 },
+        ///             },
+        ///             InstanceId = "i-instanceid",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetInstanceResult> Invoke(GetInstanceInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetInstanceResult>("aws:ec2/getInstance:getInstance", args ?? new GetInstanceInvokeArgs(), options.WithVersion());
     }
 
 
@@ -122,6 +172,70 @@ namespace Pulumi.Aws.Ec2
         }
 
         public GetInstanceArgs()
+        {
+        }
+    }
+
+    public sealed class GetInstanceInvokeArgs : Pulumi.InvokeArgs
+    {
+        [Input("filters")]
+        private InputList<Inputs.GetInstanceFilterInputArgs>? _filters;
+
+        /// <summary>
+        /// One or more name/value pairs to use as filters. There are
+        /// several valid keys, for a full reference, check out
+        /// [describe-instances in the AWS CLI reference][1].
+        /// </summary>
+        public InputList<Inputs.GetInstanceFilterInputArgs> Filters
+        {
+            get => _filters ?? (_filters = new InputList<Inputs.GetInstanceFilterInputArgs>());
+            set => _filters = value;
+        }
+
+        /// <summary>
+        /// If true, wait for password data to become available and retrieve it. Useful for getting the administrator password for instances running Microsoft Windows. The password data is exported to the `password_data` attribute. See [GetPasswordData](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetPasswordData.html) for more information.
+        /// </summary>
+        [Input("getPasswordData")]
+        public Input<bool>? GetPasswordData { get; set; }
+
+        /// <summary>
+        /// Retrieve Base64 encoded User Data contents into the `user_data_base64` attribute. A SHA-1 hash of the User Data contents will always be present in the `user_data` attribute. Defaults to `false`.
+        /// </summary>
+        [Input("getUserData")]
+        public Input<bool>? GetUserData { get; set; }
+
+        /// <summary>
+        /// Specify the exact Instance ID with which to populate the data source.
+        /// </summary>
+        [Input("instanceId")]
+        public Input<string>? InstanceId { get; set; }
+
+        [Input("instanceTags")]
+        private InputMap<string>? _instanceTags;
+
+        /// <summary>
+        /// A map of tags, each pair of which must
+        /// exactly match a pair on the desired Instance.
+        /// </summary>
+        public InputMap<string> InstanceTags
+        {
+            get => _instanceTags ?? (_instanceTags = new InputMap<string>());
+            set => _instanceTags = value;
+        }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags assigned to the Instance.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        public GetInstanceInvokeArgs()
         {
         }
     }

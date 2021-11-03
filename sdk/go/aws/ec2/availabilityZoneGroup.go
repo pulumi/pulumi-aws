@@ -313,6 +313,10 @@ func (o AvailabilityZoneGroupMapOutput) MapIndex(k pulumi.StringInput) Availabil
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AvailabilityZoneGroupInput)(nil)).Elem(), &AvailabilityZoneGroup{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AvailabilityZoneGroupPtrInput)(nil)).Elem(), &AvailabilityZoneGroup{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AvailabilityZoneGroupArrayInput)(nil)).Elem(), AvailabilityZoneGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AvailabilityZoneGroupMapInput)(nil)).Elem(), AvailabilityZoneGroupMap{})
 	pulumi.RegisterOutputType(AvailabilityZoneGroupOutput{})
 	pulumi.RegisterOutputType(AvailabilityZoneGroupPtrOutput{})
 	pulumi.RegisterOutputType(AvailabilityZoneGroupArrayOutput{})

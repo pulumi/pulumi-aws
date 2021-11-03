@@ -343,6 +343,10 @@ func (o BackendEnvironmentMapOutput) MapIndex(k pulumi.StringInput) BackendEnvir
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BackendEnvironmentInput)(nil)).Elem(), &BackendEnvironment{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BackendEnvironmentPtrInput)(nil)).Elem(), &BackendEnvironment{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BackendEnvironmentArrayInput)(nil)).Elem(), BackendEnvironmentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BackendEnvironmentMapInput)(nil)).Elem(), BackendEnvironmentMap{})
 	pulumi.RegisterOutputType(BackendEnvironmentOutput{})
 	pulumi.RegisterOutputType(BackendEnvironmentPtrOutput{})
 	pulumi.RegisterOutputType(BackendEnvironmentArrayOutput{})

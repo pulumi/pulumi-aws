@@ -368,6 +368,10 @@ func (o VoiceConnectorTerminationMapOutput) MapIndex(k pulumi.StringInput) Voice
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*VoiceConnectorTerminationInput)(nil)).Elem(), &VoiceConnectorTermination{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VoiceConnectorTerminationPtrInput)(nil)).Elem(), &VoiceConnectorTermination{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VoiceConnectorTerminationArrayInput)(nil)).Elem(), VoiceConnectorTerminationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VoiceConnectorTerminationMapInput)(nil)).Elem(), VoiceConnectorTerminationMap{})
 	pulumi.RegisterOutputType(VoiceConnectorTerminationOutput{})
 	pulumi.RegisterOutputType(VoiceConnectorTerminationPtrOutput{})
 	pulumi.RegisterOutputType(VoiceConnectorTerminationArrayOutput{})

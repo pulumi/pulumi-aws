@@ -321,6 +321,10 @@ func (o LogDestinationPolicyMapOutput) MapIndex(k pulumi.StringInput) LogDestina
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LogDestinationPolicyInput)(nil)).Elem(), &LogDestinationPolicy{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogDestinationPolicyPtrInput)(nil)).Elem(), &LogDestinationPolicy{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogDestinationPolicyArrayInput)(nil)).Elem(), LogDestinationPolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogDestinationPolicyMapInput)(nil)).Elem(), LogDestinationPolicyMap{})
 	pulumi.RegisterOutputType(LogDestinationPolicyOutput{})
 	pulumi.RegisterOutputType(LogDestinationPolicyPtrOutput{})
 	pulumi.RegisterOutputType(LogDestinationPolicyArrayOutput{})

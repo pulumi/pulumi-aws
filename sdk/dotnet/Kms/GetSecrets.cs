@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Kms
 {
@@ -16,6 +17,12 @@ namespace Pulumi.Aws.Kms
         /// </summary>
         public static Task<GetSecretsResult> InvokeAsync(GetSecretsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSecretsResult>("aws:kms/getSecrets:getSecrets", args ?? new GetSecretsArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Decrypt multiple secrets from data encrypted with the AWS KMS service.
+        /// </summary>
+        public static Output<GetSecretsResult> Invoke(GetSecretsInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSecretsResult>("aws:kms/getSecrets:getSecrets", args ?? new GetSecretsInvokeArgs(), options.WithVersion());
     }
 
 
@@ -34,6 +41,25 @@ namespace Pulumi.Aws.Kms
         }
 
         public GetSecretsArgs()
+        {
+        }
+    }
+
+    public sealed class GetSecretsInvokeArgs : Pulumi.InvokeArgs
+    {
+        [Input("secrets", required: true)]
+        private InputList<Inputs.GetSecretsSecretInputArgs>? _secrets;
+
+        /// <summary>
+        /// One or more encrypted payload definitions from the KMS service. See the Secret Definitions below.
+        /// </summary>
+        public InputList<Inputs.GetSecretsSecretInputArgs> Secrets
+        {
+            get => _secrets ?? (_secrets = new InputList<Inputs.GetSecretsSecretInputArgs>());
+            set => _secrets = value;
+        }
+
+        public GetSecretsInvokeArgs()
         {
         }
     }

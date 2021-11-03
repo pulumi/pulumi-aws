@@ -331,6 +331,10 @@ func (o ControlPanelMapOutput) MapIndex(k pulumi.StringInput) ControlPanelOutput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ControlPanelInput)(nil)).Elem(), &ControlPanel{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ControlPanelPtrInput)(nil)).Elem(), &ControlPanel{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ControlPanelArrayInput)(nil)).Elem(), ControlPanelArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ControlPanelMapInput)(nil)).Elem(), ControlPanelMap{})
 	pulumi.RegisterOutputType(ControlPanelOutput{})
 	pulumi.RegisterOutputType(ControlPanelPtrOutput{})
 	pulumi.RegisterOutputType(ControlPanelArrayOutput{})

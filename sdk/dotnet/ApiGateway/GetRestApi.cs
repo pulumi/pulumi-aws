@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.ApiGateway
 {
@@ -42,6 +43,38 @@ namespace Pulumi.Aws.ApiGateway
         /// </summary>
         public static Task<GetRestApiResult> InvokeAsync(GetRestApiArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRestApiResult>("aws:apigateway/getRestApi:getRestApi", args ?? new GetRestApiArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to get the id and root_resource_id of a REST API in
+        /// API Gateway. To fetch the REST API you must provide a name to match against.
+        /// As there is no unique name constraint on REST APIs this data source will
+        /// error if there is more than one match.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var myRestApi = Output.Create(Aws.ApiGateway.GetRestApi.InvokeAsync(new Aws.ApiGateway.GetRestApiArgs
+        ///         {
+        ///             Name = "my-rest-api",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetRestApiResult> Invoke(GetRestApiInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetRestApiResult>("aws:apigateway/getRestApi:getRestApi", args ?? new GetRestApiInvokeArgs(), options.WithVersion());
     }
 
 
@@ -66,6 +99,31 @@ namespace Pulumi.Aws.ApiGateway
         }
 
         public GetRestApiArgs()
+        {
+        }
+    }
+
+    public sealed class GetRestApiInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the REST API to look up. If no REST API is found with this name, an error will be returned. If multiple REST APIs are found with this name, an error will be returned.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value map of resource tags.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        public GetRestApiInvokeArgs()
         {
         }
     }

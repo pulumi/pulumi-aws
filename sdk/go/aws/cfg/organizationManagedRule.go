@@ -409,6 +409,10 @@ func (o OrganizationManagedRuleMapOutput) MapIndex(k pulumi.StringInput) Organiz
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationManagedRuleInput)(nil)).Elem(), &OrganizationManagedRule{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationManagedRulePtrInput)(nil)).Elem(), &OrganizationManagedRule{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationManagedRuleArrayInput)(nil)).Elem(), OrganizationManagedRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationManagedRuleMapInput)(nil)).Elem(), OrganizationManagedRuleMap{})
 	pulumi.RegisterOutputType(OrganizationManagedRuleOutput{})
 	pulumi.RegisterOutputType(OrganizationManagedRulePtrOutput{})
 	pulumi.RegisterOutputType(OrganizationManagedRuleArrayOutput{})

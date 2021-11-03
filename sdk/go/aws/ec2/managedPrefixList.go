@@ -331,6 +331,10 @@ func (o ManagedPrefixListMapOutput) MapIndex(k pulumi.StringInput) ManagedPrefix
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedPrefixListInput)(nil)).Elem(), &ManagedPrefixList{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedPrefixListPtrInput)(nil)).Elem(), &ManagedPrefixList{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedPrefixListArrayInput)(nil)).Elem(), ManagedPrefixListArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedPrefixListMapInput)(nil)).Elem(), ManagedPrefixListMap{})
 	pulumi.RegisterOutputType(ManagedPrefixListOutput{})
 	pulumi.RegisterOutputType(ManagedPrefixListPtrOutput{})
 	pulumi.RegisterOutputType(ManagedPrefixListArrayOutput{})

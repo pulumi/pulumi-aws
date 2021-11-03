@@ -332,6 +332,10 @@ func (o PrincipalPortfolioAssociationMapOutput) MapIndex(k pulumi.StringInput) P
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PrincipalPortfolioAssociationInput)(nil)).Elem(), &PrincipalPortfolioAssociation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrincipalPortfolioAssociationPtrInput)(nil)).Elem(), &PrincipalPortfolioAssociation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrincipalPortfolioAssociationArrayInput)(nil)).Elem(), PrincipalPortfolioAssociationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrincipalPortfolioAssociationMapInput)(nil)).Elem(), PrincipalPortfolioAssociationMap{})
 	pulumi.RegisterOutputType(PrincipalPortfolioAssociationOutput{})
 	pulumi.RegisterOutputType(PrincipalPortfolioAssociationPtrOutput{})
 	pulumi.RegisterOutputType(PrincipalPortfolioAssociationArrayOutput{})

@@ -355,6 +355,10 @@ func (o TableItemMapOutput) MapIndex(k pulumi.StringInput) TableItemOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TableItemInput)(nil)).Elem(), &TableItem{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableItemPtrInput)(nil)).Elem(), &TableItem{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableItemArrayInput)(nil)).Elem(), TableItemArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableItemMapInput)(nil)).Elem(), TableItemMap{})
 	pulumi.RegisterOutputType(TableItemOutput{})
 	pulumi.RegisterOutputType(TableItemPtrOutput{})
 	pulumi.RegisterOutputType(TableItemArrayOutput{})

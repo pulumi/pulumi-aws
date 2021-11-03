@@ -316,6 +316,10 @@ func (o SpotDatafeedSubscriptionMapOutput) MapIndex(k pulumi.StringInput) SpotDa
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SpotDatafeedSubscriptionInput)(nil)).Elem(), &SpotDatafeedSubscription{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpotDatafeedSubscriptionPtrInput)(nil)).Elem(), &SpotDatafeedSubscription{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpotDatafeedSubscriptionArrayInput)(nil)).Elem(), SpotDatafeedSubscriptionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpotDatafeedSubscriptionMapInput)(nil)).Elem(), SpotDatafeedSubscriptionMap{})
 	pulumi.RegisterOutputType(SpotDatafeedSubscriptionOutput{})
 	pulumi.RegisterOutputType(SpotDatafeedSubscriptionPtrOutput{})
 	pulumi.RegisterOutputType(SpotDatafeedSubscriptionArrayOutput{})

@@ -426,6 +426,10 @@ func (o ReplicationTaskMapOutput) MapIndex(k pulumi.StringInput) ReplicationTask
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationTaskInput)(nil)).Elem(), &ReplicationTask{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationTaskPtrInput)(nil)).Elem(), &ReplicationTask{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationTaskArrayInput)(nil)).Elem(), ReplicationTaskArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationTaskMapInput)(nil)).Elem(), ReplicationTaskMap{})
 	pulumi.RegisterOutputType(ReplicationTaskOutput{})
 	pulumi.RegisterOutputType(ReplicationTaskPtrOutput{})
 	pulumi.RegisterOutputType(ReplicationTaskArrayOutput{})

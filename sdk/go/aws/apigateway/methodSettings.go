@@ -421,6 +421,10 @@ func (o MethodSettingsMapOutput) MapIndex(k pulumi.StringInput) MethodSettingsOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*MethodSettingsInput)(nil)).Elem(), &MethodSettings{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MethodSettingsPtrInput)(nil)).Elem(), &MethodSettings{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MethodSettingsArrayInput)(nil)).Elem(), MethodSettingsArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MethodSettingsMapInput)(nil)).Elem(), MethodSettingsMap{})
 	pulumi.RegisterOutputType(MethodSettingsOutput{})
 	pulumi.RegisterOutputType(MethodSettingsPtrOutput{})
 	pulumi.RegisterOutputType(MethodSettingsArrayOutput{})

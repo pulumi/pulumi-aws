@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.AppMesh
 {
@@ -60,6 +61,56 @@ namespace Pulumi.Aws.AppMesh
         /// </summary>
         public static Task<GetVirtualServiceResult> InvokeAsync(GetVirtualServiceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVirtualServiceResult>("aws:appmesh/getVirtualService:getVirtualService", args ?? new GetVirtualServiceArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The App Mesh Virtual Service data source allows details of an App Mesh Virtual Service to be retrieved by its name, mesh_name, and optionally the mesh_owner.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var test = Output.Create(Aws.AppMesh.GetVirtualService.InvokeAsync(new Aws.AppMesh.GetVirtualServiceArgs
+        ///         {
+        ///             MeshName = "example-mesh",
+        ///             Name = "example.mesh.local",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var current = Output.Create(Aws.GetCallerIdentity.InvokeAsync());
+        ///         var test = current.Apply(current =&gt; Output.Create(Aws.AppMesh.GetVirtualService.InvokeAsync(new Aws.AppMesh.GetVirtualServiceArgs
+        ///         {
+        ///             Name = "example.mesh.local",
+        ///             MeshName = "example-mesh",
+        ///             MeshOwner = current.AccountId,
+        ///         })));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetVirtualServiceResult> Invoke(GetVirtualServiceInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetVirtualServiceResult>("aws:appmesh/getVirtualService:getVirtualService", args ?? new GetVirtualServiceInvokeArgs(), options.WithVersion());
     }
 
 
@@ -96,6 +147,43 @@ namespace Pulumi.Aws.AppMesh
         }
 
         public GetVirtualServiceArgs()
+        {
+        }
+    }
+
+    public sealed class GetVirtualServiceInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the service mesh in which the virtual service exists.
+        /// </summary>
+        [Input("meshName", required: true)]
+        public Input<string> MeshName { get; set; } = null!;
+
+        /// <summary>
+        /// The AWS account ID of the service mesh's owner.
+        /// </summary>
+        [Input("meshOwner")]
+        public Input<string>? MeshOwner { get; set; }
+
+        /// <summary>
+        /// The name of the virtual service.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        public GetVirtualServiceInvokeArgs()
         {
         }
     }

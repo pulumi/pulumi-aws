@@ -328,6 +328,10 @@ func (o StudioLifecycleConfigMapOutput) MapIndex(k pulumi.StringInput) StudioLif
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*StudioLifecycleConfigInput)(nil)).Elem(), &StudioLifecycleConfig{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StudioLifecycleConfigPtrInput)(nil)).Elem(), &StudioLifecycleConfig{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StudioLifecycleConfigArrayInput)(nil)).Elem(), StudioLifecycleConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StudioLifecycleConfigMapInput)(nil)).Elem(), StudioLifecycleConfigMap{})
 	pulumi.RegisterOutputType(StudioLifecycleConfigOutput{})
 	pulumi.RegisterOutputType(StudioLifecycleConfigPtrOutput{})
 	pulumi.RegisterOutputType(StudioLifecycleConfigArrayOutput{})

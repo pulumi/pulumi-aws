@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Ecs
 {
@@ -17,6 +18,13 @@ namespace Pulumi.Aws.Ecs
         /// </summary>
         public static Task<GetTaskDefinitionResult> InvokeAsync(GetTaskDefinitionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTaskDefinitionResult>("aws:ecs/getTaskDefinition:getTaskDefinition", args ?? new GetTaskDefinitionArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The ECS task definition data source allows access to details of
+        /// a specific AWS ECS task definition.
+        /// </summary>
+        public static Output<GetTaskDefinitionResult> Invoke(GetTaskDefinitionInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetTaskDefinitionResult>("aws:ecs/getTaskDefinition:getTaskDefinition", args ?? new GetTaskDefinitionInvokeArgs(), options.WithVersion());
     }
 
 
@@ -29,6 +37,19 @@ namespace Pulumi.Aws.Ecs
         public string TaskDefinition { get; set; } = null!;
 
         public GetTaskDefinitionArgs()
+        {
+        }
+    }
+
+    public sealed class GetTaskDefinitionInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The family for the latest ACTIVE revision, family and revision (family:revision) for a specific revision in the family, the ARN of the task definition to access to.
+        /// </summary>
+        [Input("taskDefinition", required: true)]
+        public Input<string> TaskDefinition { get; set; } = null!;
+
+        public GetTaskDefinitionInvokeArgs()
         {
         }
     }

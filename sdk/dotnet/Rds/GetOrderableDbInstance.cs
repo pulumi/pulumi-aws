@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Rds
 {
@@ -80,6 +81,76 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         public static Task<GetOrderableDbInstanceResult> InvokeAsync(GetOrderableDbInstanceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetOrderableDbInstanceResult>("aws:rds/getOrderableDbInstance:getOrderableDbInstance", args ?? new GetOrderableDbInstanceArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Information about RDS orderable DB instances and valid parameter combinations.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var test = Output.Create(Aws.Rds.GetOrderableDbInstance.InvokeAsync(new Aws.Rds.GetOrderableDbInstanceArgs
+        ///         {
+        ///             Engine = "mysql",
+        ///             EngineVersion = "5.7.22",
+        ///             LicenseModel = "general-public-license",
+        ///             PreferredInstanceClasses = 
+        ///             {
+        ///                 "db.r6.xlarge",
+        ///                 "db.m4.large",
+        ///                 "db.t3.small",
+        ///             },
+        ///             StorageType = "standard",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// Valid parameter combinations can also be found with `preferred_engine_versions` and/or `preferred_instance_classes`.
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var test = Output.Create(Aws.Rds.GetOrderableDbInstance.InvokeAsync(new Aws.Rds.GetOrderableDbInstanceArgs
+        ///         {
+        ///             Engine = "mysql",
+        ///             LicenseModel = "general-public-license",
+        ///             PreferredEngineVersions = 
+        ///             {
+        ///                 "5.6.35",
+        ///                 "5.6.41",
+        ///                 "5.6.44",
+        ///             },
+        ///             PreferredInstanceClasses = 
+        ///             {
+        ///                 "db.t2.small",
+        ///                 "db.t3.medium",
+        ///                 "db.t3.large",
+        ///             },
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetOrderableDbInstanceResult> Invoke(GetOrderableDbInstanceInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetOrderableDbInstanceResult>("aws:rds/getOrderableDbInstance:getOrderableDbInstance", args ?? new GetOrderableDbInstanceInvokeArgs(), options.WithVersion());
     }
 
 
@@ -200,6 +271,127 @@ namespace Pulumi.Aws.Rds
         public bool? Vpc { get; set; }
 
         public GetOrderableDbInstanceArgs()
+        {
+        }
+    }
+
+    public sealed class GetOrderableDbInstanceInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Availability zone group.
+        /// </summary>
+        [Input("availabilityZoneGroup")]
+        public Input<string>? AvailabilityZoneGroup { get; set; }
+
+        /// <summary>
+        /// DB engine. Engine values include `aurora`, `aurora-mysql`, `aurora-postgresql`, `docdb`, `mariadb`, `mysql`, `neptune`, `oracle-ee`, `oracle-se`, `oracle-se1`, `oracle-se2`, `postgres`, `sqlserver-ee`, `sqlserver-ex`, `sqlserver-se`, and `sqlserver-web`.
+        /// </summary>
+        [Input("engine", required: true)]
+        public Input<string> Engine { get; set; } = null!;
+
+        /// <summary>
+        /// Version of the DB engine. If none is provided, the AWS-defined default version will be used.
+        /// </summary>
+        [Input("engineVersion")]
+        public Input<string>? EngineVersion { get; set; }
+
+        /// <summary>
+        /// DB instance class. Examples of classes are `db.m3.2xlarge`, `db.t2.small`, and `db.m3.medium`.
+        /// </summary>
+        [Input("instanceClass")]
+        public Input<string>? InstanceClass { get; set; }
+
+        /// <summary>
+        /// License model. Examples of license models are `general-public-license`, `bring-your-own-license`, and `amazon-license`.
+        /// </summary>
+        [Input("licenseModel")]
+        public Input<string>? LicenseModel { get; set; }
+
+        [Input("preferredEngineVersions")]
+        private InputList<string>? _preferredEngineVersions;
+
+        /// <summary>
+        /// Ordered list of preferred RDS DB instance engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
+        /// </summary>
+        public InputList<string> PreferredEngineVersions
+        {
+            get => _preferredEngineVersions ?? (_preferredEngineVersions = new InputList<string>());
+            set => _preferredEngineVersions = value;
+        }
+
+        [Input("preferredInstanceClasses")]
+        private InputList<string>? _preferredInstanceClasses;
+
+        /// <summary>
+        /// Ordered list of preferred RDS DB instance classes. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
+        /// </summary>
+        public InputList<string> PreferredInstanceClasses
+        {
+            get => _preferredInstanceClasses ?? (_preferredInstanceClasses = new InputList<string>());
+            set => _preferredInstanceClasses = value;
+        }
+
+        /// <summary>
+        /// Storage types. Examples of storage types are `standard`, `io1`, `gp2`, and `aurora`.
+        /// </summary>
+        [Input("storageType")]
+        public Input<string>? StorageType { get; set; }
+
+        /// <summary>
+        /// Enable this to ensure a DB instance supports Enhanced Monitoring at intervals from 1 to 60 seconds.
+        /// </summary>
+        [Input("supportsEnhancedMonitoring")]
+        public Input<bool>? SupportsEnhancedMonitoring { get; set; }
+
+        /// <summary>
+        /// Enable this to ensure a DB instance supports Aurora global databases with a specific combination of other DB engine attributes.
+        /// </summary>
+        [Input("supportsGlobalDatabases")]
+        public Input<bool>? SupportsGlobalDatabases { get; set; }
+
+        /// <summary>
+        /// Enable this to ensure a DB instance supports IAM database authentication.
+        /// </summary>
+        [Input("supportsIamDatabaseAuthentication")]
+        public Input<bool>? SupportsIamDatabaseAuthentication { get; set; }
+
+        /// <summary>
+        /// Enable this to ensure a DB instance supports provisioned IOPS.
+        /// </summary>
+        [Input("supportsIops")]
+        public Input<bool>? SupportsIops { get; set; }
+
+        /// <summary>
+        /// Enable this to ensure a DB instance supports Kerberos Authentication.
+        /// </summary>
+        [Input("supportsKerberosAuthentication")]
+        public Input<bool>? SupportsKerberosAuthentication { get; set; }
+
+        /// <summary>
+        /// Enable this to ensure a DB instance supports Performance Insights.
+        /// </summary>
+        [Input("supportsPerformanceInsights")]
+        public Input<bool>? SupportsPerformanceInsights { get; set; }
+
+        /// <summary>
+        /// Enable this to ensure Amazon RDS can automatically scale storage for DB instances that use the specified DB instance class.
+        /// </summary>
+        [Input("supportsStorageAutoscaling")]
+        public Input<bool>? SupportsStorageAutoscaling { get; set; }
+
+        /// <summary>
+        /// Enable this to ensure a DB instance supports encrypted storage.
+        /// </summary>
+        [Input("supportsStorageEncryption")]
+        public Input<bool>? SupportsStorageEncryption { get; set; }
+
+        /// <summary>
+        /// Boolean that indicates whether to show only VPC or non-VPC offerings.
+        /// </summary>
+        [Input("vpc")]
+        public Input<bool>? Vpc { get; set; }
+
+        public GetOrderableDbInstanceInvokeArgs()
         {
         }
     }

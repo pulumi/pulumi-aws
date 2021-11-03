@@ -360,6 +360,10 @@ func (o VpcAssociationAuthorizationMapOutput) MapIndex(k pulumi.StringInput) Vpc
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcAssociationAuthorizationInput)(nil)).Elem(), &VpcAssociationAuthorization{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcAssociationAuthorizationPtrInput)(nil)).Elem(), &VpcAssociationAuthorization{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcAssociationAuthorizationArrayInput)(nil)).Elem(), VpcAssociationAuthorizationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcAssociationAuthorizationMapInput)(nil)).Elem(), VpcAssociationAuthorizationMap{})
 	pulumi.RegisterOutputType(VpcAssociationAuthorizationOutput{})
 	pulumi.RegisterOutputType(VpcAssociationAuthorizationPtrOutput{})
 	pulumi.RegisterOutputType(VpcAssociationAuthorizationArrayOutput{})

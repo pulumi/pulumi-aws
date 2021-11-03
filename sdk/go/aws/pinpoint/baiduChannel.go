@@ -339,6 +339,10 @@ func (o BaiduChannelMapOutput) MapIndex(k pulumi.StringInput) BaiduChannelOutput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BaiduChannelInput)(nil)).Elem(), &BaiduChannel{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BaiduChannelPtrInput)(nil)).Elem(), &BaiduChannel{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BaiduChannelArrayInput)(nil)).Elem(), BaiduChannelArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BaiduChannelMapInput)(nil)).Elem(), BaiduChannelMap{})
 	pulumi.RegisterOutputType(BaiduChannelOutput{})
 	pulumi.RegisterOutputType(BaiduChannelPtrOutput{})
 	pulumi.RegisterOutputType(BaiduChannelArrayOutput{})

@@ -369,6 +369,10 @@ func (o SourceCredentialMapOutput) MapIndex(k pulumi.StringInput) SourceCredenti
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SourceCredentialInput)(nil)).Elem(), &SourceCredential{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SourceCredentialPtrInput)(nil)).Elem(), &SourceCredential{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SourceCredentialArrayInput)(nil)).Elem(), SourceCredentialArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SourceCredentialMapInput)(nil)).Elem(), SourceCredentialMap{})
 	pulumi.RegisterOutputType(SourceCredentialOutput{})
 	pulumi.RegisterOutputType(SourceCredentialPtrOutput{})
 	pulumi.RegisterOutputType(SourceCredentialArrayOutput{})

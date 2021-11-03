@@ -353,6 +353,10 @@ func (o DelegatedAdministratorMapOutput) MapIndex(k pulumi.StringInput) Delegate
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DelegatedAdministratorInput)(nil)).Elem(), &DelegatedAdministrator{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DelegatedAdministratorPtrInput)(nil)).Elem(), &DelegatedAdministrator{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DelegatedAdministratorArrayInput)(nil)).Elem(), DelegatedAdministratorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DelegatedAdministratorMapInput)(nil)).Elem(), DelegatedAdministratorMap{})
 	pulumi.RegisterOutputType(DelegatedAdministratorOutput{})
 	pulumi.RegisterOutputType(DelegatedAdministratorPtrOutput{})
 	pulumi.RegisterOutputType(DelegatedAdministratorArrayOutput{})

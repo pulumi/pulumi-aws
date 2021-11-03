@@ -388,6 +388,10 @@ func (o CustomDataIdentifierMapOutput) MapIndex(k pulumi.StringInput) CustomData
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomDataIdentifierInput)(nil)).Elem(), &CustomDataIdentifier{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomDataIdentifierPtrInput)(nil)).Elem(), &CustomDataIdentifier{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomDataIdentifierArrayInput)(nil)).Elem(), CustomDataIdentifierArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomDataIdentifierMapInput)(nil)).Elem(), CustomDataIdentifierMap{})
 	pulumi.RegisterOutputType(CustomDataIdentifierOutput{})
 	pulumi.RegisterOutputType(CustomDataIdentifierPtrOutput{})
 	pulumi.RegisterOutputType(CustomDataIdentifierArrayOutput{})

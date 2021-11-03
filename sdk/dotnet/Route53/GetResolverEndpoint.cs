@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Route53
 {
@@ -68,6 +69,64 @@ namespace Pulumi.Aws.Route53
         /// </summary>
         public static Task<GetResolverEndpointResult> InvokeAsync(GetResolverEndpointArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetResolverEndpointResult>("aws:route53/getResolverEndpoint:getResolverEndpoint", args ?? new GetResolverEndpointArgs(), options.WithVersion());
+
+        /// <summary>
+        /// `aws.route53.ResolverEndpoint` provides details about a specific Route53 Resolver Endpoint.
+        /// 
+        /// This data source allows to find a list of IPaddresses associated with a specific Route53 Resolver Endpoint.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.Route53.GetResolverEndpoint.InvokeAsync(new Aws.Route53.GetResolverEndpointArgs
+        ///         {
+        ///             ResolverEndpointId = "rslvr-in-1abc2345ef678g91h",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.Route53.GetResolverEndpoint.InvokeAsync(new Aws.Route53.GetResolverEndpointArgs
+        ///         {
+        ///             Filters = 
+        ///             {
+        ///                 new Aws.Route53.Inputs.GetResolverEndpointFilterArgs
+        ///                 {
+        ///                     Name = "NAME",
+        ///                     Values = 
+        ///                     {
+        ///                         "MyResolverExampleName",
+        ///                     },
+        ///                 },
+        ///             },
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetResolverEndpointResult> Invoke(GetResolverEndpointInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetResolverEndpointResult>("aws:route53/getResolverEndpoint:getResolverEndpoint", args ?? new GetResolverEndpointInvokeArgs(), options.WithVersion());
     }
 
 
@@ -94,6 +153,33 @@ namespace Pulumi.Aws.Route53
         public string? ResolverEndpointId { get; set; }
 
         public GetResolverEndpointArgs()
+        {
+        }
+    }
+
+    public sealed class GetResolverEndpointInvokeArgs : Pulumi.InvokeArgs
+    {
+        [Input("filters")]
+        private InputList<Inputs.GetResolverEndpointFilterInputArgs>? _filters;
+
+        /// <summary>
+        /// One or more name/value pairs to use as filters. There are
+        /// several valid keys, for a full reference, check out
+        /// [Route53resolver Filter value in the AWS API reference][1].
+        /// </summary>
+        public InputList<Inputs.GetResolverEndpointFilterInputArgs> Filters
+        {
+            get => _filters ?? (_filters = new InputList<Inputs.GetResolverEndpointFilterInputArgs>());
+            set => _filters = value;
+        }
+
+        /// <summary>
+        /// The ID of the Route53 Resolver Endpoint.
+        /// </summary>
+        [Input("resolverEndpointId")]
+        public Input<string>? ResolverEndpointId { get; set; }
+
+        public GetResolverEndpointInvokeArgs()
         {
         }
     }

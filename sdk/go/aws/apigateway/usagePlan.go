@@ -458,6 +458,10 @@ func (o UsagePlanMapOutput) MapIndex(k pulumi.StringInput) UsagePlanOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*UsagePlanInput)(nil)).Elem(), &UsagePlan{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UsagePlanPtrInput)(nil)).Elem(), &UsagePlan{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UsagePlanArrayInput)(nil)).Elem(), UsagePlanArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UsagePlanMapInput)(nil)).Elem(), UsagePlanMap{})
 	pulumi.RegisterOutputType(UsagePlanOutput{})
 	pulumi.RegisterOutputType(UsagePlanPtrOutput{})
 	pulumi.RegisterOutputType(UsagePlanArrayOutput{})

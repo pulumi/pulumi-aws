@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Ec2
 {
@@ -50,6 +51,46 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public static Task<GetDedicatedHostResult> InvokeAsync(GetDedicatedHostArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDedicatedHostResult>("aws:ec2/getDedicatedHost:getDedicatedHost", args ?? new GetDedicatedHostArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to get information about an EC2 Dedicated Host.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// ### Filter Example
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var test = Output.Create(Aws.Ec2.GetDedicatedHost.InvokeAsync(new Aws.Ec2.GetDedicatedHostArgs
+        ///         {
+        ///             Filters = 
+        ///             {
+        ///                 new Aws.Ec2.Inputs.GetDedicatedHostFilterArgs
+        ///                 {
+        ///                     Name = "instance-type",
+        ///                     Values = 
+        ///                     {
+        ///                         "c5.18xlarge",
+        ///                     },
+        ///                 },
+        ///             },
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetDedicatedHostResult> Invoke(GetDedicatedHostInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetDedicatedHostResult>("aws:ec2/getDedicatedHost:getDedicatedHost", args ?? new GetDedicatedHostInvokeArgs(), options.WithVersion());
     }
 
 
@@ -82,6 +123,39 @@ namespace Pulumi.Aws.Ec2
         }
 
         public GetDedicatedHostArgs()
+        {
+        }
+    }
+
+    public sealed class GetDedicatedHostInvokeArgs : Pulumi.InvokeArgs
+    {
+        [Input("filters")]
+        private InputList<Inputs.GetDedicatedHostFilterInputArgs>? _filters;
+
+        /// <summary>
+        /// Configuration block. Detailed below.
+        /// </summary>
+        public InputList<Inputs.GetDedicatedHostFilterInputArgs> Filters
+        {
+            get => _filters ?? (_filters = new InputList<Inputs.GetDedicatedHostFilterInputArgs>());
+            set => _filters = value;
+        }
+
+        /// <summary>
+        /// The ID of the Dedicated Host.
+        /// </summary>
+        [Input("hostId")]
+        public Input<string>? HostId { get; set; }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        public GetDedicatedHostInvokeArgs()
         {
         }
     }

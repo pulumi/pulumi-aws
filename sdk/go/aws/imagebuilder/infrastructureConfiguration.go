@@ -452,6 +452,10 @@ func (o InfrastructureConfigurationMapOutput) MapIndex(k pulumi.StringInput) Inf
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*InfrastructureConfigurationInput)(nil)).Elem(), &InfrastructureConfiguration{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InfrastructureConfigurationPtrInput)(nil)).Elem(), &InfrastructureConfiguration{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InfrastructureConfigurationArrayInput)(nil)).Elem(), InfrastructureConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InfrastructureConfigurationMapInput)(nil)).Elem(), InfrastructureConfigurationMap{})
 	pulumi.RegisterOutputType(InfrastructureConfigurationOutput{})
 	pulumi.RegisterOutputType(InfrastructureConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(InfrastructureConfigurationArrayOutput{})

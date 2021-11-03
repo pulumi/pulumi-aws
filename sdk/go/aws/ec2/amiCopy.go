@@ -537,6 +537,10 @@ func (o AmiCopyMapOutput) MapIndex(k pulumi.StringInput) AmiCopyOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AmiCopyInput)(nil)).Elem(), &AmiCopy{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AmiCopyPtrInput)(nil)).Elem(), &AmiCopy{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AmiCopyArrayInput)(nil)).Elem(), AmiCopyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AmiCopyMapInput)(nil)).Elem(), AmiCopyMap{})
 	pulumi.RegisterOutputType(AmiCopyOutput{})
 	pulumi.RegisterOutputType(AmiCopyPtrOutput{})
 	pulumi.RegisterOutputType(AmiCopyArrayOutput{})

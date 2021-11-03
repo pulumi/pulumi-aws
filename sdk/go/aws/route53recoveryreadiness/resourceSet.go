@@ -355,6 +355,10 @@ func (o ResourceSetMapOutput) MapIndex(k pulumi.StringInput) ResourceSetOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceSetInput)(nil)).Elem(), &ResourceSet{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceSetPtrInput)(nil)).Elem(), &ResourceSet{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceSetArrayInput)(nil)).Elem(), ResourceSetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceSetMapInput)(nil)).Elem(), ResourceSetMap{})
 	pulumi.RegisterOutputType(ResourceSetOutput{})
 	pulumi.RegisterOutputType(ResourceSetPtrOutput{})
 	pulumi.RegisterOutputType(ResourceSetArrayOutput{})

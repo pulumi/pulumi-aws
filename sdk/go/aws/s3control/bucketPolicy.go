@@ -334,6 +334,10 @@ func (o BucketPolicyMapOutput) MapIndex(k pulumi.StringInput) BucketPolicyOutput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketPolicyInput)(nil)).Elem(), &BucketPolicy{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketPolicyPtrInput)(nil)).Elem(), &BucketPolicy{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketPolicyArrayInput)(nil)).Elem(), BucketPolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketPolicyMapInput)(nil)).Elem(), BucketPolicyMap{})
 	pulumi.RegisterOutputType(BucketPolicyOutput{})
 	pulumi.RegisterOutputType(BucketPolicyPtrOutput{})
 	pulumi.RegisterOutputType(BucketPolicyArrayOutput{})

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Ec2
 {
@@ -18,6 +19,14 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public static Task<GetSubnetIdsResult> InvokeAsync(GetSubnetIdsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSubnetIdsResult>("aws:ec2/getSubnetIds:getSubnetIds", args ?? new GetSubnetIdsArgs(), options.WithVersion());
+
+        /// <summary>
+        /// `aws.ec2.getSubnetIds` provides a set of ids for a vpc_id
+        /// 
+        /// This resource can be useful for getting back a set of subnet ids for a vpc.
+        /// </summary>
+        public static Output<GetSubnetIdsResult> Invoke(GetSubnetIdsInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSubnetIdsResult>("aws:ec2/getSubnetIds:getSubnetIds", args ?? new GetSubnetIdsInvokeArgs(), options.WithVersion());
     }
 
 
@@ -55,6 +64,44 @@ namespace Pulumi.Aws.Ec2
         public string VpcId { get; set; } = null!;
 
         public GetSubnetIdsArgs()
+        {
+        }
+    }
+
+    public sealed class GetSubnetIdsInvokeArgs : Pulumi.InvokeArgs
+    {
+        [Input("filters")]
+        private InputList<Inputs.GetSubnetIdsFilterInputArgs>? _filters;
+
+        /// <summary>
+        /// Custom filter block as described below.
+        /// </summary>
+        public InputList<Inputs.GetSubnetIdsFilterInputArgs> Filters
+        {
+            get => _filters ?? (_filters = new InputList<Inputs.GetSubnetIdsFilterInputArgs>());
+            set => _filters = value;
+        }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags, each pair of which must exactly match
+        /// a pair on the desired subnets.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        /// <summary>
+        /// The VPC ID that you want to filter from.
+        /// </summary>
+        [Input("vpcId", required: true)]
+        public Input<string> VpcId { get; set; } = null!;
+
+        public GetSubnetIdsInvokeArgs()
         {
         }
     }

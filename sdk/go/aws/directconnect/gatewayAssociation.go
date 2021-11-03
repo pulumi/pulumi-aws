@@ -489,6 +489,10 @@ func (o GatewayAssociationMapOutput) MapIndex(k pulumi.StringInput) GatewayAssoc
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayAssociationInput)(nil)).Elem(), &GatewayAssociation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayAssociationPtrInput)(nil)).Elem(), &GatewayAssociation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayAssociationArrayInput)(nil)).Elem(), GatewayAssociationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayAssociationMapInput)(nil)).Elem(), GatewayAssociationMap{})
 	pulumi.RegisterOutputType(GatewayAssociationOutput{})
 	pulumi.RegisterOutputType(GatewayAssociationPtrOutput{})
 	pulumi.RegisterOutputType(GatewayAssociationArrayOutput{})

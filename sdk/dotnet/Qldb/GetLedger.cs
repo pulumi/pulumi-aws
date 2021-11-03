@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Qldb
 {
@@ -39,6 +40,35 @@ namespace Pulumi.Aws.Qldb
         /// </summary>
         public static Task<GetLedgerResult> InvokeAsync(GetLedgerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLedgerResult>("aws:qldb/getLedger:getLedger", args ?? new GetLedgerArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to fetch information about a Quantum Ledger Database.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.Qldb.GetLedger.InvokeAsync(new Aws.Qldb.GetLedgerArgs
+        ///         {
+        ///             Name = "an_example_ledger",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetLedgerResult> Invoke(GetLedgerInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetLedgerResult>("aws:qldb/getLedger:getLedger", args ?? new GetLedgerInvokeArgs(), options.WithVersion());
     }
 
 
@@ -51,6 +81,19 @@ namespace Pulumi.Aws.Qldb
         public string Name { get; set; } = null!;
 
         public GetLedgerArgs()
+        {
+        }
+    }
+
+    public sealed class GetLedgerInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The friendly name of the ledger to match.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        public GetLedgerInvokeArgs()
         {
         }
     }

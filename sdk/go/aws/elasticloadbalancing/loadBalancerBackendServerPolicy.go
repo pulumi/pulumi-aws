@@ -376,6 +376,10 @@ func (o LoadBalancerBackendServerPolicyMapOutput) MapIndex(k pulumi.StringInput)
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerBackendServerPolicyInput)(nil)).Elem(), &LoadBalancerBackendServerPolicy{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerBackendServerPolicyPtrInput)(nil)).Elem(), &LoadBalancerBackendServerPolicy{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerBackendServerPolicyArrayInput)(nil)).Elem(), LoadBalancerBackendServerPolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerBackendServerPolicyMapInput)(nil)).Elem(), LoadBalancerBackendServerPolicyMap{})
 	pulumi.RegisterOutputType(LoadBalancerBackendServerPolicyOutput{})
 	pulumi.RegisterOutputType(LoadBalancerBackendServerPolicyPtrOutput{})
 	pulumi.RegisterOutputType(LoadBalancerBackendServerPolicyArrayOutput{})

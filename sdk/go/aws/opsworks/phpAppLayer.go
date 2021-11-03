@@ -484,6 +484,10 @@ func (o PhpAppLayerMapOutput) MapIndex(k pulumi.StringInput) PhpAppLayerOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PhpAppLayerInput)(nil)).Elem(), &PhpAppLayer{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PhpAppLayerPtrInput)(nil)).Elem(), &PhpAppLayer{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PhpAppLayerArrayInput)(nil)).Elem(), PhpAppLayerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PhpAppLayerMapInput)(nil)).Elem(), PhpAppLayerMap{})
 	pulumi.RegisterOutputType(PhpAppLayerOutput{})
 	pulumi.RegisterOutputType(PhpAppLayerPtrOutput{})
 	pulumi.RegisterOutputType(PhpAppLayerArrayOutput{})

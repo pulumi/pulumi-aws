@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Eks
 {
@@ -40,6 +41,36 @@ namespace Pulumi.Aws.Eks
         /// </summary>
         public static Task<GetNodeGroupResult> InvokeAsync(GetNodeGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNodeGroupResult>("aws:eks/getNodeGroup:getNodeGroup", args ?? new GetNodeGroupArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Retrieve information about an EKS Node Group.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.Eks.GetNodeGroup.InvokeAsync(new Aws.Eks.GetNodeGroupArgs
+        ///         {
+        ///             ClusterName = "example",
+        ///             NodeGroupName = "example",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetNodeGroupResult> Invoke(GetNodeGroupInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetNodeGroupResult>("aws:eks/getNodeGroup:getNodeGroup", args ?? new GetNodeGroupInvokeArgs(), options.WithVersion());
     }
 
 
@@ -70,6 +101,37 @@ namespace Pulumi.Aws.Eks
         }
 
         public GetNodeGroupArgs()
+        {
+        }
+    }
+
+    public sealed class GetNodeGroupInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the cluster.
+        /// </summary>
+        [Input("clusterName", required: true)]
+        public Input<string> ClusterName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the node group.
+        /// </summary>
+        [Input("nodeGroupName", required: true)]
+        public Input<string> NodeGroupName { get; set; } = null!;
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value map of resource tags.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        public GetNodeGroupInvokeArgs()
         {
         }
     }

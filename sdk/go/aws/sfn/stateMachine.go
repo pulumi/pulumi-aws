@@ -446,6 +446,10 @@ func (o StateMachineMapOutput) MapIndex(k pulumi.StringInput) StateMachineOutput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*StateMachineInput)(nil)).Elem(), &StateMachine{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StateMachinePtrInput)(nil)).Elem(), &StateMachine{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StateMachineArrayInput)(nil)).Elem(), StateMachineArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StateMachineMapInput)(nil)).Elem(), StateMachineMap{})
 	pulumi.RegisterOutputType(StateMachineOutput{})
 	pulumi.RegisterOutputType(StateMachinePtrOutput{})
 	pulumi.RegisterOutputType(StateMachineArrayOutput{})

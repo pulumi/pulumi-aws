@@ -366,6 +366,10 @@ func (o NfsLocationMapOutput) MapIndex(k pulumi.StringInput) NfsLocationOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*NfsLocationInput)(nil)).Elem(), &NfsLocation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NfsLocationPtrInput)(nil)).Elem(), &NfsLocation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NfsLocationArrayInput)(nil)).Elem(), NfsLocationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NfsLocationMapInput)(nil)).Elem(), NfsLocationMap{})
 	pulumi.RegisterOutputType(NfsLocationOutput{})
 	pulumi.RegisterOutputType(NfsLocationPtrOutput{})
 	pulumi.RegisterOutputType(NfsLocationArrayOutput{})

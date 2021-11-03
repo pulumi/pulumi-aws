@@ -371,6 +371,10 @@ func (o ResourceShareAccepterMapOutput) MapIndex(k pulumi.StringInput) ResourceS
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceShareAccepterInput)(nil)).Elem(), &ResourceShareAccepter{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceShareAccepterPtrInput)(nil)).Elem(), &ResourceShareAccepter{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceShareAccepterArrayInput)(nil)).Elem(), ResourceShareAccepterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceShareAccepterMapInput)(nil)).Elem(), ResourceShareAccepterMap{})
 	pulumi.RegisterOutputType(ResourceShareAccepterOutput{})
 	pulumi.RegisterOutputType(ResourceShareAccepterPtrOutput{})
 	pulumi.RegisterOutputType(ResourceShareAccepterArrayOutput{})

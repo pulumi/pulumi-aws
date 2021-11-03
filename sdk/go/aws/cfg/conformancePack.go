@@ -409,6 +409,10 @@ func (o ConformancePackMapOutput) MapIndex(k pulumi.StringInput) ConformancePack
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ConformancePackInput)(nil)).Elem(), &ConformancePack{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConformancePackPtrInput)(nil)).Elem(), &ConformancePack{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConformancePackArrayInput)(nil)).Elem(), ConformancePackArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConformancePackMapInput)(nil)).Elem(), ConformancePackMap{})
 	pulumi.RegisterOutputType(ConformancePackOutput{})
 	pulumi.RegisterOutputType(ConformancePackPtrOutput{})
 	pulumi.RegisterOutputType(ConformancePackArrayOutput{})

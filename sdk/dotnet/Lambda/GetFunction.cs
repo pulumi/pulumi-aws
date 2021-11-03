@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Lambda
 {
@@ -41,6 +42,37 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         public static Task<GetFunctionResult> InvokeAsync(GetFunctionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetFunctionResult>("aws:lambda/getFunction:getFunction", args ?? new GetFunctionArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Provides information about a Lambda Function.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var config = new Config();
+        ///         var functionName = config.Require("functionName");
+        ///         var existing = Output.Create(Aws.Lambda.GetFunction.InvokeAsync(new Aws.Lambda.GetFunctionArgs
+        ///         {
+        ///             FunctionName = functionName,
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetFunctionResult> Invoke(GetFunctionInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetFunctionResult>("aws:lambda/getFunction:getFunction", args ?? new GetFunctionInvokeArgs(), options.WithVersion());
     }
 
 
@@ -67,6 +99,33 @@ namespace Pulumi.Aws.Lambda
         }
 
         public GetFunctionArgs()
+        {
+        }
+    }
+
+    public sealed class GetFunctionInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the lambda function.
+        /// </summary>
+        [Input("functionName", required: true)]
+        public Input<string> FunctionName { get; set; } = null!;
+
+        /// <summary>
+        /// Alias name or version number of the lambda function. e.g. `$LATEST`, `my-alias`, or `1`
+        /// </summary>
+        [Input("qualifier")]
+        public Input<string>? Qualifier { get; set; }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        public GetFunctionInvokeArgs()
         {
         }
     }

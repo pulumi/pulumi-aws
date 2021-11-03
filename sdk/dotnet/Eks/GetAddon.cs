@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Eks
 {
@@ -43,6 +44,39 @@ namespace Pulumi.Aws.Eks
         /// </summary>
         public static Task<GetAddonResult> InvokeAsync(GetAddonArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAddonResult>("aws:eks/getAddon:getAddon", args ?? new GetAddonArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Retrieve information about an EKS add-on.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.Eks.GetAddon.InvokeAsync(new Aws.Eks.GetAddonArgs
+        ///         {
+        ///             AddonName = "vpc-cni",
+        ///             ClusterName = aws_eks_cluster.Example.Name,
+        ///         }));
+        ///         this.EksAddonOutputs = aws_eks_addon.Example;
+        ///     }
+        /// 
+        ///     [Output("eksAddonOutputs")]
+        ///     public Output&lt;string&gt; EksAddonOutputs { get; set; }
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetAddonResult> Invoke(GetAddonInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetAddonResult>("aws:eks/getAddon:getAddon", args ?? new GetAddonInvokeArgs(), options.WithVersion());
     }
 
 
@@ -70,6 +104,34 @@ namespace Pulumi.Aws.Eks
         }
 
         public GetAddonArgs()
+        {
+        }
+    }
+
+    public sealed class GetAddonInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the EKS add-on. The name must match one of
+        /// the names returned by [list-addon](https://docs.aws.amazon.com/cli/latest/reference/eks/list-addons.html).
+        /// </summary>
+        [Input("addonName", required: true)]
+        public Input<string> AddonName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the EKS Cluster. Must be between 1-100 characters in length. Must begin with an alphanumeric character, and must only contain alphanumeric characters, dashes and underscores (`^[0-9A-Za-z][A-Za-z0-9\-_]+$`).
+        /// </summary>
+        [Input("clusterName", required: true)]
+        public Input<string> ClusterName { get; set; } = null!;
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        public GetAddonInvokeArgs()
         {
         }
     }

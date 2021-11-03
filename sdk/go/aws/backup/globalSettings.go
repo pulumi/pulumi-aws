@@ -299,6 +299,10 @@ func (o GlobalSettingsMapOutput) MapIndex(k pulumi.StringInput) GlobalSettingsOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GlobalSettingsInput)(nil)).Elem(), &GlobalSettings{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GlobalSettingsPtrInput)(nil)).Elem(), &GlobalSettings{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GlobalSettingsArrayInput)(nil)).Elem(), GlobalSettingsArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GlobalSettingsMapInput)(nil)).Elem(), GlobalSettingsMap{})
 	pulumi.RegisterOutputType(GlobalSettingsOutput{})
 	pulumi.RegisterOutputType(GlobalSettingsPtrOutput{})
 	pulumi.RegisterOutputType(GlobalSettingsArrayOutput{})

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Workspaces
 {
@@ -39,6 +40,35 @@ namespace Pulumi.Aws.Workspaces
         /// </summary>
         public static Task<GetImageResult> InvokeAsync(GetImageArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetImageResult>("aws:workspaces/getImage:getImage", args ?? new GetImageArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to get information about a Workspaces image.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.Workspaces.GetImage.InvokeAsync(new Aws.Workspaces.GetImageArgs
+        ///         {
+        ///             ImageId = "wsi-ten5h0y19",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetImageResult> Invoke(GetImageInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetImageResult>("aws:workspaces/getImage:getImage", args ?? new GetImageInvokeArgs(), options.WithVersion());
     }
 
 
@@ -51,6 +81,19 @@ namespace Pulumi.Aws.Workspaces
         public string ImageId { get; set; } = null!;
 
         public GetImageArgs()
+        {
+        }
+    }
+
+    public sealed class GetImageInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The ID of the image.
+        /// </summary>
+        [Input("imageId", required: true)]
+        public Input<string> ImageId { get; set; } = null!;
+
+        public GetImageInvokeArgs()
         {
         }
     }

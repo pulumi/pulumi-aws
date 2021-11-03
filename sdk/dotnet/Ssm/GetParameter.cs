@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Ssm
 {
@@ -41,6 +42,37 @@ namespace Pulumi.Aws.Ssm
         /// </summary>
         public static Task<GetParameterResult> InvokeAsync(GetParameterArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetParameterResult>("aws:ssm/getParameter:getParameter", args ?? new GetParameterArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Provides an SSM Parameter data source.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var foo = Output.Create(Aws.Ssm.GetParameter.InvokeAsync(new Aws.Ssm.GetParameterArgs
+        ///         {
+        ///             Name = "foo",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// &gt; **Note:** The data source is currently following the behavior of the [SSM API](https://docs.aws.amazon.com/sdk-for-go/api/service/ssm/#Parameter) to return a string value, regardless of parameter type.
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetParameterResult> Invoke(GetParameterInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetParameterResult>("aws:ssm/getParameter:getParameter", args ?? new GetParameterInvokeArgs(), options.WithVersion());
     }
 
 
@@ -59,6 +91,25 @@ namespace Pulumi.Aws.Ssm
         public bool? WithDecryption { get; set; }
 
         public GetParameterArgs()
+        {
+        }
+    }
+
+    public sealed class GetParameterInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the parameter.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Whether to return decrypted `SecureString` value. Defaults to `true`.
+        /// </summary>
+        [Input("withDecryption")]
+        public Input<bool>? WithDecryption { get; set; }
+
+        public GetParameterInvokeArgs()
         {
         }
     }

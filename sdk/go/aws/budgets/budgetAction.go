@@ -469,6 +469,10 @@ func (o BudgetActionMapOutput) MapIndex(k pulumi.StringInput) BudgetActionOutput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetActionInput)(nil)).Elem(), &BudgetAction{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetActionPtrInput)(nil)).Elem(), &BudgetAction{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetActionArrayInput)(nil)).Elem(), BudgetActionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetActionMapInput)(nil)).Elem(), BudgetActionMap{})
 	pulumi.RegisterOutputType(BudgetActionOutput{})
 	pulumi.RegisterOutputType(BudgetActionPtrOutput{})
 	pulumi.RegisterOutputType(BudgetActionArrayOutput{})

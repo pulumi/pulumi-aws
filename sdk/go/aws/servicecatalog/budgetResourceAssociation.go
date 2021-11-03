@@ -314,6 +314,10 @@ func (o BudgetResourceAssociationMapOutput) MapIndex(k pulumi.StringInput) Budge
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetResourceAssociationInput)(nil)).Elem(), &BudgetResourceAssociation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetResourceAssociationPtrInput)(nil)).Elem(), &BudgetResourceAssociation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetResourceAssociationArrayInput)(nil)).Elem(), BudgetResourceAssociationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetResourceAssociationMapInput)(nil)).Elem(), BudgetResourceAssociationMap{})
 	pulumi.RegisterOutputType(BudgetResourceAssociationOutput{})
 	pulumi.RegisterOutputType(BudgetResourceAssociationPtrOutput{})
 	pulumi.RegisterOutputType(BudgetResourceAssociationArrayOutput{})

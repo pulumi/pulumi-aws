@@ -312,6 +312,10 @@ func (o GeoMatchSetMapOutput) MapIndex(k pulumi.StringInput) GeoMatchSetOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GeoMatchSetInput)(nil)).Elem(), &GeoMatchSet{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GeoMatchSetPtrInput)(nil)).Elem(), &GeoMatchSet{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GeoMatchSetArrayInput)(nil)).Elem(), GeoMatchSetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GeoMatchSetMapInput)(nil)).Elem(), GeoMatchSetMap{})
 	pulumi.RegisterOutputType(GeoMatchSetOutput{})
 	pulumi.RegisterOutputType(GeoMatchSetPtrOutput{})
 	pulumi.RegisterOutputType(GeoMatchSetArrayOutput{})

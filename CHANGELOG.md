@@ -3,6 +3,7 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 * Add support for autonaming `aws.mq.Broker` resources
+* Upgrade to v3.10.0 of the pulumi-terraform-bridge.
 
 ---
 

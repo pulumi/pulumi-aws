@@ -466,6 +466,10 @@ func (o FileSystemAssociationMapOutput) MapIndex(k pulumi.StringInput) FileSyste
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemAssociationInput)(nil)).Elem(), &FileSystemAssociation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemAssociationPtrInput)(nil)).Elem(), &FileSystemAssociation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemAssociationArrayInput)(nil)).Elem(), FileSystemAssociationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemAssociationMapInput)(nil)).Elem(), FileSystemAssociationMap{})
 	pulumi.RegisterOutputType(FileSystemAssociationOutput{})
 	pulumi.RegisterOutputType(FileSystemAssociationPtrOutput{})
 	pulumi.RegisterOutputType(FileSystemAssociationArrayOutput{})

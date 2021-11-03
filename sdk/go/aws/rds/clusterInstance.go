@@ -666,6 +666,10 @@ func (o ClusterInstanceMapOutput) MapIndex(k pulumi.StringInput) ClusterInstance
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterInstanceInput)(nil)).Elem(), &ClusterInstance{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterInstancePtrInput)(nil)).Elem(), &ClusterInstance{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterInstanceArrayInput)(nil)).Elem(), ClusterInstanceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterInstanceMapInput)(nil)).Elem(), ClusterInstanceMap{})
 	pulumi.RegisterOutputType(ClusterInstanceOutput{})
 	pulumi.RegisterOutputType(ClusterInstancePtrOutput{})
 	pulumi.RegisterOutputType(ClusterInstanceArrayOutput{})

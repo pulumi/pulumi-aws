@@ -343,6 +343,10 @@ func (o CustomDomainAssociationMapOutput) MapIndex(k pulumi.StringInput) CustomD
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomDomainAssociationInput)(nil)).Elem(), &CustomDomainAssociation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomDomainAssociationPtrInput)(nil)).Elem(), &CustomDomainAssociation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomDomainAssociationArrayInput)(nil)).Elem(), CustomDomainAssociationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomDomainAssociationMapInput)(nil)).Elem(), CustomDomainAssociationMap{})
 	pulumi.RegisterOutputType(CustomDomainAssociationOutput{})
 	pulumi.RegisterOutputType(CustomDomainAssociationPtrOutput{})
 	pulumi.RegisterOutputType(CustomDomainAssociationArrayOutput{})

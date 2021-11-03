@@ -354,6 +354,10 @@ func (o ResponseMapOutput) MapIndex(k pulumi.StringInput) ResponseOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ResponseInput)(nil)).Elem(), &Response{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResponsePtrInput)(nil)).Elem(), &Response{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResponseArrayInput)(nil)).Elem(), ResponseArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResponseMapInput)(nil)).Elem(), ResponseMap{})
 	pulumi.RegisterOutputType(ResponseOutput{})
 	pulumi.RegisterOutputType(ResponsePtrOutput{})
 	pulumi.RegisterOutputType(ResponseArrayOutput{})

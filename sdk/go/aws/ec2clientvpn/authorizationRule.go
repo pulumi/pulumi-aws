@@ -347,6 +347,10 @@ func (o AuthorizationRuleMapOutput) MapIndex(k pulumi.StringInput) Authorization
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AuthorizationRuleInput)(nil)).Elem(), &AuthorizationRule{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AuthorizationRulePtrInput)(nil)).Elem(), &AuthorizationRule{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AuthorizationRuleArrayInput)(nil)).Elem(), AuthorizationRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AuthorizationRuleMapInput)(nil)).Elem(), AuthorizationRuleMap{})
 	pulumi.RegisterOutputType(AuthorizationRuleOutput{})
 	pulumi.RegisterOutputType(AuthorizationRulePtrOutput{})
 	pulumi.RegisterOutputType(AuthorizationRuleArrayOutput{})

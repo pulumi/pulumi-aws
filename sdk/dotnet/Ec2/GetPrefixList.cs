@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Ec2
 {
@@ -95,6 +96,91 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public static Task<GetPrefixListResult> InvokeAsync(GetPrefixListArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPrefixListResult>("aws:ec2/getPrefixList:getPrefixList", args ?? new GetPrefixListArgs(), options.WithVersion());
+
+        /// <summary>
+        /// `aws.ec2.getPrefixList` provides details about a specific prefix list (PL)
+        /// in the current region.
+        /// 
+        /// This can be used both to validate a prefix list given in a variable
+        /// and to obtain the CIDR blocks (IP address ranges) for the associated
+        /// AWS service. The latter may be useful e.g. for adding network ACL
+        /// rules.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var privateS3VpcEndpoint = new Aws.Ec2.VpcEndpoint("privateS3VpcEndpoint", new Aws.Ec2.VpcEndpointArgs
+        ///         {
+        ///             VpcId = aws_vpc.Foo.Id,
+        ///             ServiceName = "com.amazonaws.us-west-2.s3",
+        ///         });
+        ///         var privateS3PrefixList = privateS3VpcEndpoint.PrefixListId.Apply(prefixListId =&gt; Aws.Ec2.GetPrefixList.InvokeAsync(new Aws.Ec2.GetPrefixListArgs
+        ///         {
+        ///             PrefixListId = prefixListId,
+        ///         }));
+        ///         var bar = new Aws.Ec2.NetworkAcl("bar", new Aws.Ec2.NetworkAclArgs
+        ///         {
+        ///             VpcId = aws_vpc.Foo.Id,
+        ///         });
+        ///         var privateS3NetworkAclRule = new Aws.Ec2.NetworkAclRule("privateS3NetworkAclRule", new Aws.Ec2.NetworkAclRuleArgs
+        ///         {
+        ///             NetworkAclId = bar.Id,
+        ///             RuleNumber = 200,
+        ///             Egress = false,
+        ///             Protocol = "tcp",
+        ///             RuleAction = "allow",
+        ///             CidrBlock = privateS3PrefixList.Apply(privateS3PrefixList =&gt; privateS3PrefixList.CidrBlocks?[0]),
+        ///             FromPort = 443,
+        ///             ToPort = 443,
+        ///         });
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% example %}}
+        /// ### Filter
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var test = Output.Create(Aws.Ec2.GetPrefixList.InvokeAsync(new Aws.Ec2.GetPrefixListArgs
+        ///         {
+        ///             Filters = 
+        ///             {
+        ///                 new Aws.Ec2.Inputs.GetPrefixListFilterArgs
+        ///                 {
+        ///                     Name = "prefix-list-id",
+        ///                     Values = 
+        ///                     {
+        ///                         "pl-68a54001",
+        ///                     },
+        ///                 },
+        ///             },
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetPrefixListResult> Invoke(GetPrefixListInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetPrefixListResult>("aws:ec2/getPrefixList:getPrefixList", args ?? new GetPrefixListInvokeArgs(), options.WithVersion());
     }
 
 
@@ -125,6 +211,37 @@ namespace Pulumi.Aws.Ec2
         public string? PrefixListId { get; set; }
 
         public GetPrefixListArgs()
+        {
+        }
+    }
+
+    public sealed class GetPrefixListInvokeArgs : Pulumi.InvokeArgs
+    {
+        [Input("filters")]
+        private InputList<Inputs.GetPrefixListFilterInputArgs>? _filters;
+
+        /// <summary>
+        /// Configuration block(s) for filtering. Detailed below.
+        /// </summary>
+        public InputList<Inputs.GetPrefixListFilterInputArgs> Filters
+        {
+            get => _filters ?? (_filters = new InputList<Inputs.GetPrefixListFilterInputArgs>());
+            set => _filters = value;
+        }
+
+        /// <summary>
+        /// The name of the filter field. Valid values can be found in the [EC2 DescribePrefixLists API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribePrefixLists.html).
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The ID of the prefix list to select.
+        /// </summary>
+        [Input("prefixListId")]
+        public Input<string>? PrefixListId { get; set; }
+
+        public GetPrefixListInvokeArgs()
         {
         }
     }

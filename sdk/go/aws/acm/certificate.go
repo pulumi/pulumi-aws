@@ -480,6 +480,10 @@ func (o CertificateMapOutput) MapIndex(k pulumi.StringInput) CertificateOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CertificateInput)(nil)).Elem(), &Certificate{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CertificatePtrInput)(nil)).Elem(), &Certificate{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CertificateArrayInput)(nil)).Elem(), CertificateArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CertificateMapInput)(nil)).Elem(), CertificateMap{})
 	pulumi.RegisterOutputType(CertificateOutput{})
 	pulumi.RegisterOutputType(CertificatePtrOutput{})
 	pulumi.RegisterOutputType(CertificateArrayOutput{})

@@ -311,6 +311,10 @@ func (o AmiLaunchPermissionMapOutput) MapIndex(k pulumi.StringInput) AmiLaunchPe
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AmiLaunchPermissionInput)(nil)).Elem(), &AmiLaunchPermission{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AmiLaunchPermissionPtrInput)(nil)).Elem(), &AmiLaunchPermission{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AmiLaunchPermissionArrayInput)(nil)).Elem(), AmiLaunchPermissionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AmiLaunchPermissionMapInput)(nil)).Elem(), AmiLaunchPermissionMap{})
 	pulumi.RegisterOutputType(AmiLaunchPermissionOutput{})
 	pulumi.RegisterOutputType(AmiLaunchPermissionPtrOutput{})
 	pulumi.RegisterOutputType(AmiLaunchPermissionArrayOutput{})

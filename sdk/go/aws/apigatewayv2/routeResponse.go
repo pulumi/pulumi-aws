@@ -349,6 +349,10 @@ func (o RouteResponseMapOutput) MapIndex(k pulumi.StringInput) RouteResponseOutp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RouteResponseInput)(nil)).Elem(), &RouteResponse{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RouteResponsePtrInput)(nil)).Elem(), &RouteResponse{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RouteResponseArrayInput)(nil)).Elem(), RouteResponseArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RouteResponseMapInput)(nil)).Elem(), RouteResponseMap{})
 	pulumi.RegisterOutputType(RouteResponseOutput{})
 	pulumi.RegisterOutputType(RouteResponsePtrOutput{})
 	pulumi.RegisterOutputType(RouteResponseArrayOutput{})

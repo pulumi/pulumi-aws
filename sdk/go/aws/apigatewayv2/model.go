@@ -348,6 +348,10 @@ func (o ModelMapOutput) MapIndex(k pulumi.StringInput) ModelOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelInput)(nil)).Elem(), &Model{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPtrInput)(nil)).Elem(), &Model{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelArrayInput)(nil)).Elem(), ModelArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelMapInput)(nil)).Elem(), ModelMap{})
 	pulumi.RegisterOutputType(ModelOutput{})
 	pulumi.RegisterOutputType(ModelPtrOutput{})
 	pulumi.RegisterOutputType(ModelArrayOutput{})

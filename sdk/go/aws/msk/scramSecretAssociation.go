@@ -285,6 +285,10 @@ func (o ScramSecretAssociationMapOutput) MapIndex(k pulumi.StringInput) ScramSec
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ScramSecretAssociationInput)(nil)).Elem(), &ScramSecretAssociation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScramSecretAssociationPtrInput)(nil)).Elem(), &ScramSecretAssociation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScramSecretAssociationArrayInput)(nil)).Elem(), ScramSecretAssociationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScramSecretAssociationMapInput)(nil)).Elem(), ScramSecretAssociationMap{})
 	pulumi.RegisterOutputType(ScramSecretAssociationOutput{})
 	pulumi.RegisterOutputType(ScramSecretAssociationPtrOutput{})
 	pulumi.RegisterOutputType(ScramSecretAssociationArrayOutput{})

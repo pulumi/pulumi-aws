@@ -393,6 +393,10 @@ func (o StackSetInstanceMapOutput) MapIndex(k pulumi.StringInput) StackSetInstan
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*StackSetInstanceInput)(nil)).Elem(), &StackSetInstance{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StackSetInstancePtrInput)(nil)).Elem(), &StackSetInstance{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StackSetInstanceArrayInput)(nil)).Elem(), StackSetInstanceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StackSetInstanceMapInput)(nil)).Elem(), StackSetInstanceMap{})
 	pulumi.RegisterOutputType(StackSetInstanceOutput{})
 	pulumi.RegisterOutputType(StackSetInstancePtrOutput{})
 	pulumi.RegisterOutputType(StackSetInstanceArrayOutput{})

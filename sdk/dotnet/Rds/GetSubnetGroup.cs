@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Rds
 {
@@ -39,6 +40,35 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         public static Task<GetSubnetGroupResult> InvokeAsync(GetSubnetGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSubnetGroupResult>("aws:rds/getSubnetGroup:getSubnetGroup", args ?? new GetSubnetGroupArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to get information about an RDS subnet group.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var database = Output.Create(Aws.Rds.GetSubnetGroup.InvokeAsync(new Aws.Rds.GetSubnetGroupArgs
+        ///         {
+        ///             Name = "my-test-database-subnet-group",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetSubnetGroupResult> Invoke(GetSubnetGroupInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSubnetGroupResult>("aws:rds/getSubnetGroup:getSubnetGroup", args ?? new GetSubnetGroupInvokeArgs(), options.WithVersion());
     }
 
 
@@ -51,6 +81,19 @@ namespace Pulumi.Aws.Rds
         public string Name { get; set; } = null!;
 
         public GetSubnetGroupArgs()
+        {
+        }
+    }
+
+    public sealed class GetSubnetGroupInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the RDS database subnet group.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        public GetSubnetGroupInvokeArgs()
         {
         }
     }

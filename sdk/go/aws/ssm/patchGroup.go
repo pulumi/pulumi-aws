@@ -311,6 +311,10 @@ func (o PatchGroupMapOutput) MapIndex(k pulumi.StringInput) PatchGroupOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PatchGroupInput)(nil)).Elem(), &PatchGroup{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PatchGroupPtrInput)(nil)).Elem(), &PatchGroup{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PatchGroupArrayInput)(nil)).Elem(), PatchGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PatchGroupMapInput)(nil)).Elem(), PatchGroupMap{})
 	pulumi.RegisterOutputType(PatchGroupOutput{})
 	pulumi.RegisterOutputType(PatchGroupPtrOutput{})
 	pulumi.RegisterOutputType(PatchGroupArrayOutput{})

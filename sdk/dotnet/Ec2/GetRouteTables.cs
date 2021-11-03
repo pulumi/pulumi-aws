@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Ec2
 {
@@ -16,6 +17,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public static Task<GetRouteTablesResult> InvokeAsync(GetRouteTablesArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRouteTablesResult>("aws:ec2/getRouteTables:getRouteTables", args ?? new GetRouteTablesArgs(), options.WithVersion());
+
+        /// <summary>
+        /// This resource can be useful for getting back a list of route table ids to be referenced elsewhere.
+        /// </summary>
+        public static Output<GetRouteTablesResult> Invoke(GetRouteTablesInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetRouteTablesResult>("aws:ec2/getRouteTables:getRouteTables", args ?? new GetRouteTablesInvokeArgs(), options.WithVersion());
     }
 
 
@@ -53,6 +60,44 @@ namespace Pulumi.Aws.Ec2
         public string? VpcId { get; set; }
 
         public GetRouteTablesArgs()
+        {
+        }
+    }
+
+    public sealed class GetRouteTablesInvokeArgs : Pulumi.InvokeArgs
+    {
+        [Input("filters")]
+        private InputList<Inputs.GetRouteTablesFilterInputArgs>? _filters;
+
+        /// <summary>
+        /// Custom filter block as described below.
+        /// </summary>
+        public InputList<Inputs.GetRouteTablesFilterInputArgs> Filters
+        {
+            get => _filters ?? (_filters = new InputList<Inputs.GetRouteTablesFilterInputArgs>());
+            set => _filters = value;
+        }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags, each pair of which must exactly match
+        /// a pair on the desired route tables.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        /// <summary>
+        /// The VPC ID that you want to filter from.
+        /// </summary>
+        [Input("vpcId")]
+        public Input<string>? VpcId { get; set; }
+
+        public GetRouteTablesInvokeArgs()
         {
         }
     }

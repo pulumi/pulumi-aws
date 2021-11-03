@@ -412,6 +412,10 @@ func (o EipAssociationMapOutput) MapIndex(k pulumi.StringInput) EipAssociationOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*EipAssociationInput)(nil)).Elem(), &EipAssociation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EipAssociationPtrInput)(nil)).Elem(), &EipAssociation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EipAssociationArrayInput)(nil)).Elem(), EipAssociationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EipAssociationMapInput)(nil)).Elem(), EipAssociationMap{})
 	pulumi.RegisterOutputType(EipAssociationOutput{})
 	pulumi.RegisterOutputType(EipAssociationPtrOutput{})
 	pulumi.RegisterOutputType(EipAssociationArrayOutput{})

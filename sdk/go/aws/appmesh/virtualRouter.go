@@ -392,6 +392,10 @@ func (o VirtualRouterMapOutput) MapIndex(k pulumi.StringInput) VirtualRouterOutp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualRouterInput)(nil)).Elem(), &VirtualRouter{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualRouterPtrInput)(nil)).Elem(), &VirtualRouter{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualRouterArrayInput)(nil)).Elem(), VirtualRouterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualRouterMapInput)(nil)).Elem(), VirtualRouterMap{})
 	pulumi.RegisterOutputType(VirtualRouterOutput{})
 	pulumi.RegisterOutputType(VirtualRouterPtrOutput{})
 	pulumi.RegisterOutputType(VirtualRouterArrayOutput{})

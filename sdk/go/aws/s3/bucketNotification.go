@@ -455,6 +455,10 @@ func (o BucketNotificationMapOutput) MapIndex(k pulumi.StringInput) BucketNotifi
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketNotificationInput)(nil)).Elem(), &BucketNotification{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketNotificationPtrInput)(nil)).Elem(), &BucketNotification{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketNotificationArrayInput)(nil)).Elem(), BucketNotificationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketNotificationMapInput)(nil)).Elem(), BucketNotificationMap{})
 	pulumi.RegisterOutputType(BucketNotificationOutput{})
 	pulumi.RegisterOutputType(BucketNotificationPtrOutput{})
 	pulumi.RegisterOutputType(BucketNotificationArrayOutput{})

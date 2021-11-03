@@ -396,6 +396,10 @@ func (o InstanceFleetMapOutput) MapIndex(k pulumi.StringInput) InstanceFleetOutp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceFleetInput)(nil)).Elem(), &InstanceFleet{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceFleetPtrInput)(nil)).Elem(), &InstanceFleet{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceFleetArrayInput)(nil)).Elem(), InstanceFleetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceFleetMapInput)(nil)).Elem(), InstanceFleetMap{})
 	pulumi.RegisterOutputType(InstanceFleetOutput{})
 	pulumi.RegisterOutputType(InstanceFleetPtrOutput{})
 	pulumi.RegisterOutputType(InstanceFleetArrayOutput{})

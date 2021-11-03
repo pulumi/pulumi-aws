@@ -774,6 +774,10 @@ func (o MetricAlarmMapOutput) MapIndex(k pulumi.StringInput) MetricAlarmOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*MetricAlarmInput)(nil)).Elem(), &MetricAlarm{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MetricAlarmPtrInput)(nil)).Elem(), &MetricAlarm{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MetricAlarmArrayInput)(nil)).Elem(), MetricAlarmArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MetricAlarmMapInput)(nil)).Elem(), MetricAlarmMap{})
 	pulumi.RegisterOutputType(MetricAlarmOutput{})
 	pulumi.RegisterOutputType(MetricAlarmPtrOutput{})
 	pulumi.RegisterOutputType(MetricAlarmArrayOutput{})

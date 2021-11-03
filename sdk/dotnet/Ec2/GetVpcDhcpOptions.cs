@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Ec2
 {
@@ -78,6 +79,74 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public static Task<GetVpcDhcpOptionsResult> InvokeAsync(GetVpcDhcpOptionsArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVpcDhcpOptionsResult>("aws:ec2/getVpcDhcpOptions:getVpcDhcpOptions", args ?? new GetVpcDhcpOptionsArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Retrieve information about an EC2 DHCP Options configuration.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// ### Lookup by DHCP Options ID
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.Ec2.GetVpcDhcpOptions.InvokeAsync(new Aws.Ec2.GetVpcDhcpOptionsArgs
+        ///         {
+        ///             DhcpOptionsId = "dopts-12345678",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% example %}}
+        /// ### Lookup by Filter
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.Ec2.GetVpcDhcpOptions.InvokeAsync(new Aws.Ec2.GetVpcDhcpOptionsArgs
+        ///         {
+        ///             Filters = 
+        ///             {
+        ///                 new Aws.Ec2.Inputs.GetVpcDhcpOptionsFilterArgs
+        ///                 {
+        ///                     Name = "key",
+        ///                     Values = 
+        ///                     {
+        ///                         "domain-name",
+        ///                     },
+        ///                 },
+        ///                 new Aws.Ec2.Inputs.GetVpcDhcpOptionsFilterArgs
+        ///                 {
+        ///                     Name = "value",
+        ///                     Values = 
+        ///                     {
+        ///                         "example.com",
+        ///                     },
+        ///                 },
+        ///             },
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetVpcDhcpOptionsResult> Invoke(GetVpcDhcpOptionsInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetVpcDhcpOptionsResult>("aws:ec2/getVpcDhcpOptions:getVpcDhcpOptions", args ?? new GetVpcDhcpOptionsInvokeArgs(), options.WithVersion());
     }
 
 
@@ -114,6 +183,43 @@ namespace Pulumi.Aws.Ec2
         }
 
         public GetVpcDhcpOptionsArgs()
+        {
+        }
+    }
+
+    public sealed class GetVpcDhcpOptionsInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The EC2 DHCP Options ID.
+        /// </summary>
+        [Input("dhcpOptionsId")]
+        public Input<string>? DhcpOptionsId { get; set; }
+
+        [Input("filters")]
+        private InputList<Inputs.GetVpcDhcpOptionsFilterInputArgs>? _filters;
+
+        /// <summary>
+        /// List of custom filters as described below.
+        /// </summary>
+        public InputList<Inputs.GetVpcDhcpOptionsFilterInputArgs> Filters
+        {
+            get => _filters ?? (_filters = new InputList<Inputs.GetVpcDhcpOptionsFilterInputArgs>());
+            set => _filters = value;
+        }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags assigned to the resource.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        public GetVpcDhcpOptionsInvokeArgs()
         {
         }
     }

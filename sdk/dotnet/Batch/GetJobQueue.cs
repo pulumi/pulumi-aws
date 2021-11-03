@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Batch
 {
@@ -40,6 +41,36 @@ namespace Pulumi.Aws.Batch
         /// </summary>
         public static Task<GetJobQueueResult> InvokeAsync(GetJobQueueArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetJobQueueResult>("aws:batch/getJobQueue:getJobQueue", args ?? new GetJobQueueArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The Batch Job Queue data source allows access to details of a specific
+        /// job queue within AWS Batch.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var test_queue = Output.Create(Aws.Batch.GetJobQueue.InvokeAsync(new Aws.Batch.GetJobQueueArgs
+        ///         {
+        ///             Name = "tf-test-batch-job-queue",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetJobQueueResult> Invoke(GetJobQueueInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetJobQueueResult>("aws:batch/getJobQueue:getJobQueue", args ?? new GetJobQueueInvokeArgs(), options.WithVersion());
     }
 
 
@@ -64,6 +95,31 @@ namespace Pulumi.Aws.Batch
         }
 
         public GetJobQueueArgs()
+        {
+        }
+    }
+
+    public sealed class GetJobQueueInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the job queue.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value map of resource tags
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        public GetJobQueueInvokeArgs()
         {
         }
     }

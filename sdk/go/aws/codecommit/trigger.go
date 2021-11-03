@@ -279,6 +279,10 @@ func (o TriggerMapOutput) MapIndex(k pulumi.StringInput) TriggerOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TriggerInput)(nil)).Elem(), &Trigger{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TriggerPtrInput)(nil)).Elem(), &Trigger{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TriggerArrayInput)(nil)).Elem(), TriggerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TriggerMapInput)(nil)).Elem(), TriggerMap{})
 	pulumi.RegisterOutputType(TriggerOutput{})
 	pulumi.RegisterOutputType(TriggerPtrOutput{})
 	pulumi.RegisterOutputType(TriggerArrayOutput{})

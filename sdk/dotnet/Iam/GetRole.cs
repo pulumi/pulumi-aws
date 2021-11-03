@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Iam
 {
@@ -41,6 +42,37 @@ namespace Pulumi.Aws.Iam
         /// </summary>
         public static Task<GetRoleResult> InvokeAsync(GetRoleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRoleResult>("aws:iam/getRole:getRole", args ?? new GetRoleArgs(), options.WithVersion());
+
+        /// <summary>
+        /// This data source can be used to fetch information about a specific
+        /// IAM role. By using this data source, you can reference IAM role
+        /// properties without having to hard code ARNs as input.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.Iam.GetRole.InvokeAsync(new Aws.Iam.GetRoleArgs
+        ///         {
+        ///             Name = "an_example_role_name",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetRoleResult> Invoke(GetRoleInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetRoleResult>("aws:iam/getRole:getRole", args ?? new GetRoleInvokeArgs(), options.WithVersion());
     }
 
 
@@ -65,6 +97,31 @@ namespace Pulumi.Aws.Iam
         }
 
         public GetRoleArgs()
+        {
+        }
+    }
+
+    public sealed class GetRoleInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The friendly IAM role name to match.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// The tags attached to the role.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        public GetRoleInvokeArgs()
         {
         }
     }

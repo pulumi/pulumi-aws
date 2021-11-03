@@ -326,6 +326,10 @@ func (o RepositoryPolicyMapOutput) MapIndex(k pulumi.StringInput) RepositoryPoli
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryPolicyInput)(nil)).Elem(), &RepositoryPolicy{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryPolicyPtrInput)(nil)).Elem(), &RepositoryPolicy{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryPolicyArrayInput)(nil)).Elem(), RepositoryPolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryPolicyMapInput)(nil)).Elem(), RepositoryPolicyMap{})
 	pulumi.RegisterOutputType(RepositoryPolicyOutput{})
 	pulumi.RegisterOutputType(RepositoryPolicyPtrOutput{})
 	pulumi.RegisterOutputType(RepositoryPolicyArrayOutput{})

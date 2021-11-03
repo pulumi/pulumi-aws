@@ -431,6 +431,10 @@ func (o UserPoolUICustomizationMapOutput) MapIndex(k pulumi.StringInput) UserPoo
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolUICustomizationInput)(nil)).Elem(), &UserPoolUICustomization{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolUICustomizationPtrInput)(nil)).Elem(), &UserPoolUICustomization{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolUICustomizationArrayInput)(nil)).Elem(), UserPoolUICustomizationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolUICustomizationMapInput)(nil)).Elem(), UserPoolUICustomizationMap{})
 	pulumi.RegisterOutputType(UserPoolUICustomizationOutput{})
 	pulumi.RegisterOutputType(UserPoolUICustomizationPtrOutput{})
 	pulumi.RegisterOutputType(UserPoolUICustomizationArrayOutput{})

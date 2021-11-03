@@ -486,6 +486,10 @@ func (o MemcachedLayerMapOutput) MapIndex(k pulumi.StringInput) MemcachedLayerOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*MemcachedLayerInput)(nil)).Elem(), &MemcachedLayer{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MemcachedLayerPtrInput)(nil)).Elem(), &MemcachedLayer{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MemcachedLayerArrayInput)(nil)).Elem(), MemcachedLayerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MemcachedLayerMapInput)(nil)).Elem(), MemcachedLayerMap{})
 	pulumi.RegisterOutputType(MemcachedLayerOutput{})
 	pulumi.RegisterOutputType(MemcachedLayerPtrOutput{})
 	pulumi.RegisterOutputType(MemcachedLayerArrayOutput{})

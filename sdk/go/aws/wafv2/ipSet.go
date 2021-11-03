@@ -375,6 +375,10 @@ func (o IpSetMapOutput) MapIndex(k pulumi.StringInput) IpSetOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*IpSetInput)(nil)).Elem(), &IpSet{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IpSetPtrInput)(nil)).Elem(), &IpSet{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IpSetArrayInput)(nil)).Elem(), IpSetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IpSetMapInput)(nil)).Elem(), IpSetMap{})
 	pulumi.RegisterOutputType(IpSetOutput{})
 	pulumi.RegisterOutputType(IpSetPtrOutput{})
 	pulumi.RegisterOutputType(IpSetArrayOutput{})

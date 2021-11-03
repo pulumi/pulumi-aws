@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.LakeFormation
 {
@@ -71,6 +72,67 @@ namespace Pulumi.Aws.LakeFormation
         /// </summary>
         public static Task<GetPermissionsResult> InvokeAsync(GetPermissionsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPermissionsResult>("aws:lakeformation/getPermissions:getPermissions", args ?? new GetPermissionsArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Get permissions for a principal to access metadata in the Data Catalog and data organized in underlying data storage such as Amazon S3. Permissions are granted to a principal, in a Data Catalog, relative to a Lake Formation resource, which includes the Data Catalog, databases, and tables. For more information, see [Security and Access Control to Metadata and Data in Lake Formation](https://docs.aws.amazon.com/lake-formation/latest/dg/security-data-access.html).
+        /// 
+        /// &gt; **NOTE:** This data source deals with explicitly granted permissions. Lake Formation grants implicit permissions to data lake administrators, database creators, and table creators. For more information, see [Implicit Lake Formation Permissions](https://docs.aws.amazon.com/lake-formation/latest/dg/implicit-permissions.html).
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// ### Permissions For A Lake Formation S3 Resource
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var test = Output.Create(Aws.LakeFormation.GetPermissions.InvokeAsync(new Aws.LakeFormation.GetPermissionsArgs
+        ///         {
+        ///             Principal = aws_iam_role.Workflow_role.Arn,
+        ///             DataLocation = new Aws.LakeFormation.Inputs.GetPermissionsDataLocationArgs
+        ///             {
+        ///                 Arn = aws_lakeformation_resource.Test.Arn,
+        ///             },
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% example %}}
+        /// ### Permissions For A Glue Catalog Database
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var test = Output.Create(Aws.LakeFormation.GetPermissions.InvokeAsync(new Aws.LakeFormation.GetPermissionsArgs
+        ///         {
+        ///             Principal = aws_iam_role.Workflow_role.Arn,
+        ///             Database = new Aws.LakeFormation.Inputs.GetPermissionsDatabaseArgs
+        ///             {
+        ///                 Name = aws_glue_catalog_database.Test.Name,
+        ///                 CatalogId = "110376042874",
+        ///             },
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetPermissionsResult> Invoke(GetPermissionsInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetPermissionsResult>("aws:lakeformation/getPermissions:getPermissions", args ?? new GetPermissionsInvokeArgs(), options.WithVersion());
     }
 
 
@@ -119,6 +181,55 @@ namespace Pulumi.Aws.LakeFormation
         public Inputs.GetPermissionsTableWithColumnsArgs? TableWithColumns { get; set; }
 
         public GetPermissionsArgs()
+        {
+        }
+    }
+
+    public sealed class GetPermissionsInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Identifier for the Data Catalog. By default, it is the account ID of the caller.
+        /// </summary>
+        [Input("catalogId")]
+        public Input<string>? CatalogId { get; set; }
+
+        /// <summary>
+        /// Whether the permissions are to be granted for the Data Catalog. Defaults to `false`.
+        /// </summary>
+        [Input("catalogResource")]
+        public Input<bool>? CatalogResource { get; set; }
+
+        /// <summary>
+        /// Configuration block for a data location resource. Detailed below.
+        /// </summary>
+        [Input("dataLocation")]
+        public Input<Inputs.GetPermissionsDataLocationInputArgs>? DataLocation { get; set; }
+
+        /// <summary>
+        /// Configuration block for a database resource. Detailed below.
+        /// </summary>
+        [Input("database")]
+        public Input<Inputs.GetPermissionsDatabaseInputArgs>? Database { get; set; }
+
+        /// <summary>
+        /// Principal to be granted the permissions on the resource. Supported principals are IAM users or IAM roles.
+        /// </summary>
+        [Input("principal", required: true)]
+        public Input<string> Principal { get; set; } = null!;
+
+        /// <summary>
+        /// Configuration block for a table resource. Detailed below.
+        /// </summary>
+        [Input("table")]
+        public Input<Inputs.GetPermissionsTableInputArgs>? Table { get; set; }
+
+        /// <summary>
+        /// Configuration block for a table with columns resource. Detailed below.
+        /// </summary>
+        [Input("tableWithColumns")]
+        public Input<Inputs.GetPermissionsTableWithColumnsInputArgs>? TableWithColumns { get; set; }
+
+        public GetPermissionsInvokeArgs()
         {
         }
     }

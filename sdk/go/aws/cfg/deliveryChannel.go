@@ -384,6 +384,10 @@ func (o DeliveryChannelMapOutput) MapIndex(k pulumi.StringInput) DeliveryChannel
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryChannelInput)(nil)).Elem(), &DeliveryChannel{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryChannelPtrInput)(nil)).Elem(), &DeliveryChannel{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryChannelArrayInput)(nil)).Elem(), DeliveryChannelArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeliveryChannelMapInput)(nil)).Elem(), DeliveryChannelMap{})
 	pulumi.RegisterOutputType(DeliveryChannelOutput{})
 	pulumi.RegisterOutputType(DeliveryChannelPtrOutput{})
 	pulumi.RegisterOutputType(DeliveryChannelArrayOutput{})

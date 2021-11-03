@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Workspaces
 {
@@ -39,6 +40,35 @@ namespace Pulumi.Aws.Workspaces
         /// </summary>
         public static Task<GetDirectoryResult> InvokeAsync(GetDirectoryArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDirectoryResult>("aws:workspaces/getDirectory:getDirectory", args ?? new GetDirectoryArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Retrieve information about an AWS WorkSpaces directory.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.Workspaces.GetDirectory.InvokeAsync(new Aws.Workspaces.GetDirectoryArgs
+        ///         {
+        ///             DirectoryId = "d-9067783251",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetDirectoryResult> Invoke(GetDirectoryInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetDirectoryResult>("aws:workspaces/getDirectory:getDirectory", args ?? new GetDirectoryInvokeArgs(), options.WithVersion());
     }
 
 
@@ -63,6 +93,31 @@ namespace Pulumi.Aws.Workspaces
         }
 
         public GetDirectoryArgs()
+        {
+        }
+    }
+
+    public sealed class GetDirectoryInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The directory identifier for registration in WorkSpaces service.
+        /// </summary>
+        [Input("directoryId", required: true)]
+        public Input<string> DirectoryId { get; set; } = null!;
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags assigned to the WorkSpaces directory.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        public GetDirectoryInvokeArgs()
         {
         }
     }

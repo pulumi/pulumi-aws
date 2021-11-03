@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.CloudWatch
 {
@@ -39,6 +40,35 @@ namespace Pulumi.Aws.CloudWatch
         /// </summary>
         public static Task<GetLogGroupsResult> InvokeAsync(GetLogGroupsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLogGroupsResult>("aws:cloudwatch/getLogGroups:getLogGroups", args ?? new GetLogGroupsArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to get a list of AWS Cloudwatch Log Groups
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.CloudWatch.GetLogGroups.InvokeAsync(new Aws.CloudWatch.GetLogGroupsArgs
+        ///         {
+        ///             LogGroupPrefix = "/MyImportantLogs",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetLogGroupsResult> Invoke(GetLogGroupsInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetLogGroupsResult>("aws:cloudwatch/getLogGroups:getLogGroups", args ?? new GetLogGroupsInvokeArgs(), options.WithVersion());
     }
 
 
@@ -51,6 +81,19 @@ namespace Pulumi.Aws.CloudWatch
         public string LogGroupNamePrefix { get; set; } = null!;
 
         public GetLogGroupsArgs()
+        {
+        }
+    }
+
+    public sealed class GetLogGroupsInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The group prefix of the Cloudwatch log groups to list
+        /// </summary>
+        [Input("logGroupNamePrefix", required: true)]
+        public Input<string> LogGroupNamePrefix { get; set; } = null!;
+
+        public GetLogGroupsInvokeArgs()
         {
         }
     }

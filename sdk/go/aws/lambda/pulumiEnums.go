@@ -191,6 +191,8 @@ func (in *runtimePtr) ToRuntimePtrOutputWithContext(ctx context.Context) Runtime
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeInput)(nil)).Elem(), Runtime("dotnetcore2.1"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RuntimePtrInput)(nil)).Elem(), Runtime("dotnetcore2.1"))
 	pulumi.RegisterOutputType(RuntimeOutput{})
 	pulumi.RegisterOutputType(RuntimePtrOutput{})
 }

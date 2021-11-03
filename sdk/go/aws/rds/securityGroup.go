@@ -349,6 +349,10 @@ func (o SecurityGroupMapOutput) MapIndex(k pulumi.StringInput) SecurityGroupOutp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityGroupInput)(nil)).Elem(), &SecurityGroup{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityGroupPtrInput)(nil)).Elem(), &SecurityGroup{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityGroupArrayInput)(nil)).Elem(), SecurityGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecurityGroupMapInput)(nil)).Elem(), SecurityGroupMap{})
 	pulumi.RegisterOutputType(SecurityGroupOutput{})
 	pulumi.RegisterOutputType(SecurityGroupPtrOutput{})
 	pulumi.RegisterOutputType(SecurityGroupArrayOutput{})

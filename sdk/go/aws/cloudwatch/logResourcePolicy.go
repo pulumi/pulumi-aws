@@ -386,6 +386,10 @@ func (o LogResourcePolicyMapOutput) MapIndex(k pulumi.StringInput) LogResourcePo
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LogResourcePolicyInput)(nil)).Elem(), &LogResourcePolicy{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogResourcePolicyPtrInput)(nil)).Elem(), &LogResourcePolicy{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogResourcePolicyArrayInput)(nil)).Elem(), LogResourcePolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogResourcePolicyMapInput)(nil)).Elem(), LogResourcePolicyMap{})
 	pulumi.RegisterOutputType(LogResourcePolicyOutput{})
 	pulumi.RegisterOutputType(LogResourcePolicyPtrOutput{})
 	pulumi.RegisterOutputType(LogResourcePolicyArrayOutput{})

@@ -365,6 +365,10 @@ func (o EventApiDestinationMapOutput) MapIndex(k pulumi.StringInput) EventApiDes
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*EventApiDestinationInput)(nil)).Elem(), &EventApiDestination{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventApiDestinationPtrInput)(nil)).Elem(), &EventApiDestination{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventApiDestinationArrayInput)(nil)).Elem(), EventApiDestinationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventApiDestinationMapInput)(nil)).Elem(), EventApiDestinationMap{})
 	pulumi.RegisterOutputType(EventApiDestinationOutput{})
 	pulumi.RegisterOutputType(EventApiDestinationPtrOutput{})
 	pulumi.RegisterOutputType(EventApiDestinationArrayOutput{})

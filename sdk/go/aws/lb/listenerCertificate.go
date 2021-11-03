@@ -334,6 +334,10 @@ func (o ListenerCertificateMapOutput) MapIndex(k pulumi.StringInput) ListenerCer
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ListenerCertificateInput)(nil)).Elem(), &ListenerCertificate{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ListenerCertificatePtrInput)(nil)).Elem(), &ListenerCertificate{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ListenerCertificateArrayInput)(nil)).Elem(), ListenerCertificateArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ListenerCertificateMapInput)(nil)).Elem(), ListenerCertificateMap{})
 	pulumi.RegisterOutputType(ListenerCertificateOutput{})
 	pulumi.RegisterOutputType(ListenerCertificatePtrOutput{})
 	pulumi.RegisterOutputType(ListenerCertificateArrayOutput{})

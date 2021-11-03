@@ -562,6 +562,10 @@ func (o EipMapOutput) MapIndex(k pulumi.StringInput) EipOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*EipInput)(nil)).Elem(), &Eip{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EipPtrInput)(nil)).Elem(), &Eip{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EipArrayInput)(nil)).Elem(), EipArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EipMapInput)(nil)).Elem(), EipMap{})
 	pulumi.RegisterOutputType(EipOutput{})
 	pulumi.RegisterOutputType(EipPtrOutput{})
 	pulumi.RegisterOutputType(EipArrayOutput{})

@@ -443,6 +443,10 @@ func (o PresetMapOutput) MapIndex(k pulumi.StringInput) PresetOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PresetInput)(nil)).Elem(), &Preset{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PresetPtrInput)(nil)).Elem(), &Preset{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PresetArrayInput)(nil)).Elem(), PresetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PresetMapInput)(nil)).Elem(), PresetMap{})
 	pulumi.RegisterOutputType(PresetOutput{})
 	pulumi.RegisterOutputType(PresetPtrOutput{})
 	pulumi.RegisterOutputType(PresetArrayOutput{})

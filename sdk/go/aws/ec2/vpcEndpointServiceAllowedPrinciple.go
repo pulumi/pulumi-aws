@@ -316,6 +316,10 @@ func (o VpcEndpointServiceAllowedPrincipleMapOutput) MapIndex(k pulumi.StringInp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointServiceAllowedPrincipleInput)(nil)).Elem(), &VpcEndpointServiceAllowedPrinciple{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointServiceAllowedPrinciplePtrInput)(nil)).Elem(), &VpcEndpointServiceAllowedPrinciple{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointServiceAllowedPrincipleArrayInput)(nil)).Elem(), VpcEndpointServiceAllowedPrincipleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointServiceAllowedPrincipleMapInput)(nil)).Elem(), VpcEndpointServiceAllowedPrincipleMap{})
 	pulumi.RegisterOutputType(VpcEndpointServiceAllowedPrincipleOutput{})
 	pulumi.RegisterOutputType(VpcEndpointServiceAllowedPrinciplePtrOutput{})
 	pulumi.RegisterOutputType(VpcEndpointServiceAllowedPrincipleArrayOutput{})

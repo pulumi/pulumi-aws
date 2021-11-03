@@ -410,6 +410,10 @@ func (o SchemaMapOutput) MapIndex(k pulumi.StringInput) SchemaOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SchemaInput)(nil)).Elem(), &Schema{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SchemaPtrInput)(nil)).Elem(), &Schema{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SchemaArrayInput)(nil)).Elem(), SchemaArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SchemaMapInput)(nil)).Elem(), SchemaMap{})
 	pulumi.RegisterOutputType(SchemaOutput{})
 	pulumi.RegisterOutputType(SchemaPtrOutput{})
 	pulumi.RegisterOutputType(SchemaArrayOutput{})

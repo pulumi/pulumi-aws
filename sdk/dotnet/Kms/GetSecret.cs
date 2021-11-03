@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Kms
 {
@@ -13,6 +14,9 @@ namespace Pulumi.Aws.Kms
     {
         public static Task<GetSecretResult> InvokeAsync(GetSecretArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSecretResult>("aws:kms/getSecret:getSecret", args ?? new GetSecretArgs(), options.WithVersion());
+
+        public static Output<GetSecretResult> Invoke(GetSecretInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSecretResult>("aws:kms/getSecret:getSecret", args ?? new GetSecretInvokeArgs(), options.WithVersion());
     }
 
 
@@ -27,6 +31,21 @@ namespace Pulumi.Aws.Kms
         }
 
         public GetSecretArgs()
+        {
+        }
+    }
+
+    public sealed class GetSecretInvokeArgs : Pulumi.InvokeArgs
+    {
+        [Input("secrets", required: true)]
+        private InputList<Inputs.GetSecretSecretInputArgs>? _secrets;
+        public InputList<Inputs.GetSecretSecretInputArgs> Secrets
+        {
+            get => _secrets ?? (_secrets = new InputList<Inputs.GetSecretSecretInputArgs>());
+            set => _secrets = value;
+        }
+
+        public GetSecretInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Neptune
 {
@@ -45,6 +46,41 @@ namespace Pulumi.Aws.Neptune
         /// </summary>
         public static Task<GetOrderableDbInstanceResult> InvokeAsync(GetOrderableDbInstanceArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetOrderableDbInstanceResult>("aws:neptune/getOrderableDbInstance:getOrderableDbInstance", args ?? new GetOrderableDbInstanceArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Information about Neptune orderable DB instances.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var test = Output.Create(Aws.Neptune.GetOrderableDbInstance.InvokeAsync(new Aws.Neptune.GetOrderableDbInstanceArgs
+        ///         {
+        ///             EngineVersion = "1.0.3.0",
+        ///             PreferredInstanceClasses = 
+        ///             {
+        ///                 "db.r5.large",
+        ///                 "db.r4.large",
+        ///                 "db.t3.medium",
+        ///             },
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetOrderableDbInstanceResult> Invoke(GetOrderableDbInstanceInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetOrderableDbInstanceResult>("aws:neptune/getOrderableDbInstance:getOrderableDbInstance", args ?? new GetOrderableDbInstanceInvokeArgs(), options.WithVersion());
     }
 
 
@@ -93,6 +129,55 @@ namespace Pulumi.Aws.Neptune
         public bool? Vpc { get; set; }
 
         public GetOrderableDbInstanceArgs()
+        {
+        }
+    }
+
+    public sealed class GetOrderableDbInstanceInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// DB engine. (Default: `neptune`)
+        /// </summary>
+        [Input("engine")]
+        public Input<string>? Engine { get; set; }
+
+        /// <summary>
+        /// Version of the DB engine. For example, `1.0.1.0`, `1.0.1.2`, `1.0.2.2`, and `1.0.3.0`.
+        /// </summary>
+        [Input("engineVersion")]
+        public Input<string>? EngineVersion { get; set; }
+
+        /// <summary>
+        /// DB instance class. Examples of classes are `db.r5.large`, `db.r5.xlarge`, `db.r4.large`, `db.r5.4xlarge`, `db.r5.12xlarge`, `db.r4.xlarge`, and `db.t3.medium`.
+        /// </summary>
+        [Input("instanceClass")]
+        public Input<string>? InstanceClass { get; set; }
+
+        /// <summary>
+        /// License model. (Default: `amazon-license`)
+        /// </summary>
+        [Input("licenseModel")]
+        public Input<string>? LicenseModel { get; set; }
+
+        [Input("preferredInstanceClasses")]
+        private InputList<string>? _preferredInstanceClasses;
+
+        /// <summary>
+        /// Ordered list of preferred Neptune DB instance classes. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
+        /// </summary>
+        public InputList<string> PreferredInstanceClasses
+        {
+            get => _preferredInstanceClasses ?? (_preferredInstanceClasses = new InputList<string>());
+            set => _preferredInstanceClasses = value;
+        }
+
+        /// <summary>
+        /// Enable to show only VPC offerings.
+        /// </summary>
+        [Input("vpc")]
+        public Input<bool>? Vpc { get; set; }
+
+        public GetOrderableDbInstanceInvokeArgs()
         {
         }
     }

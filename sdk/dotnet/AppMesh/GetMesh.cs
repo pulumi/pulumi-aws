@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.AppMesh
 {
@@ -58,6 +59,54 @@ namespace Pulumi.Aws.AppMesh
         /// </summary>
         public static Task<GetMeshResult> InvokeAsync(GetMeshArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetMeshResult>("aws:appmesh/getMesh:getMesh", args ?? new GetMeshArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The App Mesh Mesh data source allows details of an App Mesh Mesh to be retrieved by its name and optionally the mesh_owner.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var simple = Output.Create(Aws.AppMesh.GetMesh.InvokeAsync(new Aws.AppMesh.GetMeshArgs
+        ///         {
+        ///             Name = "simpleapp",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var current = Output.Create(Aws.GetCallerIdentity.InvokeAsync());
+        ///         var simple = current.Apply(current =&gt; Output.Create(Aws.AppMesh.GetMesh.InvokeAsync(new Aws.AppMesh.GetMeshArgs
+        ///         {
+        ///             Name = "simpleapp",
+        ///             MeshOwner = current.AccountId,
+        ///         })));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetMeshResult> Invoke(GetMeshInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetMeshResult>("aws:appmesh/getMesh:getMesh", args ?? new GetMeshInvokeArgs(), options.WithVersion());
     }
 
 
@@ -88,6 +137,37 @@ namespace Pulumi.Aws.AppMesh
         }
 
         public GetMeshArgs()
+        {
+        }
+    }
+
+    public sealed class GetMeshInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The AWS account ID of the service mesh's owner.
+        /// </summary>
+        [Input("meshOwner")]
+        public Input<string>? MeshOwner { get; set; }
+
+        /// <summary>
+        /// The name of the service mesh.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        public GetMeshInvokeArgs()
         {
         }
     }

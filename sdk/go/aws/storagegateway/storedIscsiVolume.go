@@ -489,6 +489,10 @@ func (o StoredIscsiVolumeMapOutput) MapIndex(k pulumi.StringInput) StoredIscsiVo
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*StoredIscsiVolumeInput)(nil)).Elem(), &StoredIscsiVolume{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StoredIscsiVolumePtrInput)(nil)).Elem(), &StoredIscsiVolume{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StoredIscsiVolumeArrayInput)(nil)).Elem(), StoredIscsiVolumeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StoredIscsiVolumeMapInput)(nil)).Elem(), StoredIscsiVolumeMap{})
 	pulumi.RegisterOutputType(StoredIscsiVolumeOutput{})
 	pulumi.RegisterOutputType(StoredIscsiVolumePtrOutput{})
 	pulumi.RegisterOutputType(StoredIscsiVolumeArrayOutput{})

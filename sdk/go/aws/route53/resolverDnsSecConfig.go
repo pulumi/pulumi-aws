@@ -324,6 +324,10 @@ func (o ResolverDnsSecConfigMapOutput) MapIndex(k pulumi.StringInput) ResolverDn
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ResolverDnsSecConfigInput)(nil)).Elem(), &ResolverDnsSecConfig{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResolverDnsSecConfigPtrInput)(nil)).Elem(), &ResolverDnsSecConfig{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResolverDnsSecConfigArrayInput)(nil)).Elem(), ResolverDnsSecConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResolverDnsSecConfigMapInput)(nil)).Elem(), ResolverDnsSecConfigMap{})
 	pulumi.RegisterOutputType(ResolverDnsSecConfigOutput{})
 	pulumi.RegisterOutputType(ResolverDnsSecConfigPtrOutput{})
 	pulumi.RegisterOutputType(ResolverDnsSecConfigArrayOutput{})

@@ -495,6 +495,10 @@ func (o NfsFileShareMapOutput) MapIndex(k pulumi.StringInput) NfsFileShareOutput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*NfsFileShareInput)(nil)).Elem(), &NfsFileShare{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NfsFileSharePtrInput)(nil)).Elem(), &NfsFileShare{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NfsFileShareArrayInput)(nil)).Elem(), NfsFileShareArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NfsFileShareMapInput)(nil)).Elem(), NfsFileShareMap{})
 	pulumi.RegisterOutputType(NfsFileShareOutput{})
 	pulumi.RegisterOutputType(NfsFileSharePtrOutput{})
 	pulumi.RegisterOutputType(NfsFileShareArrayOutput{})

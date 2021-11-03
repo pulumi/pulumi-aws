@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Ec2TransitGateway
 {
@@ -78,6 +79,74 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// </summary>
         public static Task<GetRouteTableResult> InvokeAsync(GetRouteTableArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRouteTableResult>("aws:ec2transitgateway/getRouteTable:getRouteTable", args ?? new GetRouteTableArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Get information on an EC2 Transit Gateway Route Table.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// ### By Filter
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.Ec2TransitGateway.GetRouteTable.InvokeAsync(new Aws.Ec2TransitGateway.GetRouteTableArgs
+        ///         {
+        ///             Filters = 
+        ///             {
+        ///                 new Aws.Ec2TransitGateway.Inputs.GetRouteTableFilterArgs
+        ///                 {
+        ///                     Name = "default-association-route-table",
+        ///                     Values = 
+        ///                     {
+        ///                         "true",
+        ///                     },
+        ///                 },
+        ///                 new Aws.Ec2TransitGateway.Inputs.GetRouteTableFilterArgs
+        ///                 {
+        ///                     Name = "transit-gateway-id",
+        ///                     Values = 
+        ///                     {
+        ///                         "tgw-12345678",
+        ///                     },
+        ///                 },
+        ///             },
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% example %}}
+        /// ### By Identifier
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.Ec2TransitGateway.GetRouteTable.InvokeAsync(new Aws.Ec2TransitGateway.GetRouteTableArgs
+        ///         {
+        ///             Id = "tgw-rtb-12345678",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetRouteTableResult> Invoke(GetRouteTableInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetRouteTableResult>("aws:ec2transitgateway/getRouteTable:getRouteTable", args ?? new GetRouteTableInvokeArgs(), options.WithVersion());
     }
 
 
@@ -114,6 +183,43 @@ namespace Pulumi.Aws.Ec2TransitGateway
         }
 
         public GetRouteTableArgs()
+        {
+        }
+    }
+
+    public sealed class GetRouteTableInvokeArgs : Pulumi.InvokeArgs
+    {
+        [Input("filters")]
+        private InputList<Inputs.GetRouteTableFilterInputArgs>? _filters;
+
+        /// <summary>
+        /// One or more configuration blocks containing name-values filters. Detailed below.
+        /// </summary>
+        public InputList<Inputs.GetRouteTableFilterInputArgs> Filters
+        {
+            get => _filters ?? (_filters = new InputList<Inputs.GetRouteTableFilterInputArgs>());
+            set => _filters = value;
+        }
+
+        /// <summary>
+        /// Identifier of the EC2 Transit Gateway Route Table.
+        /// </summary>
+        [Input("id")]
+        public Input<string>? Id { get; set; }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value tags for the EC2 Transit Gateway Route Table
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        public GetRouteTableInvokeArgs()
         {
         }
     }

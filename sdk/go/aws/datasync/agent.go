@@ -377,6 +377,10 @@ func (o AgentMapOutput) MapIndex(k pulumi.StringInput) AgentOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentInput)(nil)).Elem(), &Agent{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentPtrInput)(nil)).Elem(), &Agent{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentArrayInput)(nil)).Elem(), AgentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentMapInput)(nil)).Elem(), AgentMap{})
 	pulumi.RegisterOutputType(AgentOutput{})
 	pulumi.RegisterOutputType(AgentPtrOutput{})
 	pulumi.RegisterOutputType(AgentArrayOutput{})

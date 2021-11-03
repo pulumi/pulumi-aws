@@ -310,6 +310,10 @@ func (o ScalingPlanMapOutput) MapIndex(k pulumi.StringInput) ScalingPlanOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ScalingPlanInput)(nil)).Elem(), &ScalingPlan{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScalingPlanPtrInput)(nil)).Elem(), &ScalingPlan{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScalingPlanArrayInput)(nil)).Elem(), ScalingPlanArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScalingPlanMapInput)(nil)).Elem(), ScalingPlanMap{})
 	pulumi.RegisterOutputType(ScalingPlanOutput{})
 	pulumi.RegisterOutputType(ScalingPlanPtrOutput{})
 	pulumi.RegisterOutputType(ScalingPlanArrayOutput{})

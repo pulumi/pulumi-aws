@@ -469,6 +469,10 @@ func (o SamplingRuleMapOutput) MapIndex(k pulumi.StringInput) SamplingRuleOutput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SamplingRuleInput)(nil)).Elem(), &SamplingRule{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SamplingRulePtrInput)(nil)).Elem(), &SamplingRule{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SamplingRuleArrayInput)(nil)).Elem(), SamplingRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SamplingRuleMapInput)(nil)).Elem(), SamplingRuleMap{})
 	pulumi.RegisterOutputType(SamplingRuleOutput{})
 	pulumi.RegisterOutputType(SamplingRulePtrOutput{})
 	pulumi.RegisterOutputType(SamplingRuleArrayOutput{})

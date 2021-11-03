@@ -425,6 +425,10 @@ func (o AddonMapOutput) MapIndex(k pulumi.StringInput) AddonOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AddonInput)(nil)).Elem(), &Addon{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AddonPtrInput)(nil)).Elem(), &Addon{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AddonArrayInput)(nil)).Elem(), AddonArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AddonMapInput)(nil)).Elem(), AddonMap{})
 	pulumi.RegisterOutputType(AddonOutput{})
 	pulumi.RegisterOutputType(AddonPtrOutput{})
 	pulumi.RegisterOutputType(AddonArrayOutput{})

@@ -335,6 +335,10 @@ func (o KinesisStreamingDestinationMapOutput) MapIndex(k pulumi.StringInput) Kin
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*KinesisStreamingDestinationInput)(nil)).Elem(), &KinesisStreamingDestination{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KinesisStreamingDestinationPtrInput)(nil)).Elem(), &KinesisStreamingDestination{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KinesisStreamingDestinationArrayInput)(nil)).Elem(), KinesisStreamingDestinationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KinesisStreamingDestinationMapInput)(nil)).Elem(), KinesisStreamingDestinationMap{})
 	pulumi.RegisterOutputType(KinesisStreamingDestinationOutput{})
 	pulumi.RegisterOutputType(KinesisStreamingDestinationPtrOutput{})
 	pulumi.RegisterOutputType(KinesisStreamingDestinationArrayOutput{})

@@ -330,6 +330,10 @@ func (o StandardsControlMapOutput) MapIndex(k pulumi.StringInput) StandardsContr
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*StandardsControlInput)(nil)).Elem(), &StandardsControl{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StandardsControlPtrInput)(nil)).Elem(), &StandardsControl{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StandardsControlArrayInput)(nil)).Elem(), StandardsControlArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StandardsControlMapInput)(nil)).Elem(), StandardsControlMap{})
 	pulumi.RegisterOutputType(StandardsControlOutput{})
 	pulumi.RegisterOutputType(StandardsControlPtrOutput{})
 	pulumi.RegisterOutputType(StandardsControlArrayOutput{})

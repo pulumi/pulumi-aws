@@ -353,6 +353,10 @@ func (o PrivateDnsNamespaceMapOutput) MapIndex(k pulumi.StringInput) PrivateDnsN
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateDnsNamespaceInput)(nil)).Elem(), &PrivateDnsNamespace{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateDnsNamespacePtrInput)(nil)).Elem(), &PrivateDnsNamespace{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateDnsNamespaceArrayInput)(nil)).Elem(), PrivateDnsNamespaceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrivateDnsNamespaceMapInput)(nil)).Elem(), PrivateDnsNamespaceMap{})
 	pulumi.RegisterOutputType(PrivateDnsNamespaceOutput{})
 	pulumi.RegisterOutputType(PrivateDnsNamespacePtrOutput{})
 	pulumi.RegisterOutputType(PrivateDnsNamespaceArrayOutput{})

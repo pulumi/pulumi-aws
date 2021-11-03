@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Lex
 {
@@ -40,6 +41,36 @@ namespace Pulumi.Aws.Lex
         /// </summary>
         public static Task<GetIntentResult> InvokeAsync(GetIntentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIntentResult>("aws:lex/getIntent:getIntent", args ?? new GetIntentArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Provides details about a specific Amazon Lex Intent.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var orderFlowers = Output.Create(Aws.Lex.GetIntent.InvokeAsync(new Aws.Lex.GetIntentArgs
+        ///         {
+        ///             Name = "OrderFlowers",
+        ///             Version = "$LATEST",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetIntentResult> Invoke(GetIntentInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetIntentResult>("aws:lex/getIntent:getIntent", args ?? new GetIntentInvokeArgs(), options.WithVersion());
     }
 
 
@@ -58,6 +89,25 @@ namespace Pulumi.Aws.Lex
         public string? Version { get; set; }
 
         public GetIntentArgs()
+        {
+        }
+    }
+
+    public sealed class GetIntentInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the intent. The name is case sensitive.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The version of the intent.
+        /// </summary>
+        [Input("version")]
+        public Input<string>? Version { get; set; }
+
+        public GetIntentInvokeArgs()
         {
         }
     }

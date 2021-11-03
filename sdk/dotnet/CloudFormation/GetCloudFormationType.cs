@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.CloudFormation
 {
@@ -40,6 +41,36 @@ namespace Pulumi.Aws.CloudFormation
         /// </summary>
         public static Task<GetCloudFormationTypeResult> InvokeAsync(GetCloudFormationTypeArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCloudFormationTypeResult>("aws:cloudformation/getCloudFormationType:getCloudFormationType", args ?? new GetCloudFormationTypeArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Provides details about a CloudFormation Type.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.CloudFormation.GetCloudFormationType.InvokeAsync(new Aws.CloudFormation.GetCloudFormationTypeArgs
+        ///         {
+        ///             Type = "RESOURCE",
+        ///             TypeName = "AWS::Athena::WorkGroup",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetCloudFormationTypeResult> Invoke(GetCloudFormationTypeInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetCloudFormationTypeResult>("aws:cloudformation/getCloudFormationType:getCloudFormationType", args ?? new GetCloudFormationTypeInvokeArgs(), options.WithVersion());
     }
 
 
@@ -70,6 +101,37 @@ namespace Pulumi.Aws.CloudFormation
         public string? VersionId { get; set; }
 
         public GetCloudFormationTypeArgs()
+        {
+        }
+    }
+
+    public sealed class GetCloudFormationTypeInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the CloudFormation Type. For example, `arn:aws:cloudformation:us-west-2::type/resource/AWS-EC2-VPC`.
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
+        /// <summary>
+        /// CloudFormation Registry Type. For example, `RESOURCE`.
+        /// </summary>
+        [Input("type")]
+        public Input<string>? Type { get; set; }
+
+        /// <summary>
+        /// CloudFormation Type name. For example, `AWS::EC2::VPC`.
+        /// </summary>
+        [Input("typeName")]
+        public Input<string>? TypeName { get; set; }
+
+        /// <summary>
+        /// Identifier of the CloudFormation Type version.
+        /// </summary>
+        [Input("versionId")]
+        public Input<string>? VersionId { get; set; }
+
+        public GetCloudFormationTypeInvokeArgs()
         {
         }
     }

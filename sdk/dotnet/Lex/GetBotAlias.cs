@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Lex
 {
@@ -40,6 +41,36 @@ namespace Pulumi.Aws.Lex
         /// </summary>
         public static Task<GetBotAliasResult> InvokeAsync(GetBotAliasArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBotAliasResult>("aws:lex/getBotAlias:getBotAlias", args ?? new GetBotAliasArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Provides details about a specific Amazon Lex Bot Alias.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var orderFlowersProd = Output.Create(Aws.Lex.GetBotAlias.InvokeAsync(new Aws.Lex.GetBotAliasArgs
+        ///         {
+        ///             BotName = "OrderFlowers",
+        ///             Name = "OrderFlowersProd",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetBotAliasResult> Invoke(GetBotAliasInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetBotAliasResult>("aws:lex/getBotAlias:getBotAlias", args ?? new GetBotAliasInvokeArgs(), options.WithVersion());
     }
 
 
@@ -58,6 +89,25 @@ namespace Pulumi.Aws.Lex
         public string Name { get; set; } = null!;
 
         public GetBotAliasArgs()
+        {
+        }
+    }
+
+    public sealed class GetBotAliasInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the bot.
+        /// </summary>
+        [Input("botName", required: true)]
+        public Input<string> BotName { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the bot alias. The name is case sensitive.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        public GetBotAliasInvokeArgs()
         {
         }
     }

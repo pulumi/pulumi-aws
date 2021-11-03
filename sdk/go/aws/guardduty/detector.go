@@ -348,6 +348,10 @@ func (o DetectorMapOutput) MapIndex(k pulumi.StringInput) DetectorOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DetectorInput)(nil)).Elem(), &Detector{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DetectorPtrInput)(nil)).Elem(), &Detector{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DetectorArrayInput)(nil)).Elem(), DetectorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DetectorMapInput)(nil)).Elem(), DetectorMap{})
 	pulumi.RegisterOutputType(DetectorOutput{})
 	pulumi.RegisterOutputType(DetectorPtrOutput{})
 	pulumi.RegisterOutputType(DetectorArrayOutput{})

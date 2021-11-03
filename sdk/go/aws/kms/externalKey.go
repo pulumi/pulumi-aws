@@ -393,6 +393,10 @@ func (o ExternalKeyMapOutput) MapIndex(k pulumi.StringInput) ExternalKeyOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ExternalKeyInput)(nil)).Elem(), &ExternalKey{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExternalKeyPtrInput)(nil)).Elem(), &ExternalKey{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExternalKeyArrayInput)(nil)).Elem(), ExternalKeyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExternalKeyMapInput)(nil)).Elem(), ExternalKeyMap{})
 	pulumi.RegisterOutputType(ExternalKeyOutput{})
 	pulumi.RegisterOutputType(ExternalKeyPtrOutput{})
 	pulumi.RegisterOutputType(ExternalKeyArrayOutput{})

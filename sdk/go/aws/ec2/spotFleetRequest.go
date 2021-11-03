@@ -804,6 +804,10 @@ func (o SpotFleetRequestMapOutput) MapIndex(k pulumi.StringInput) SpotFleetReque
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetRequestInput)(nil)).Elem(), &SpotFleetRequest{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetRequestPtrInput)(nil)).Elem(), &SpotFleetRequest{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetRequestArrayInput)(nil)).Elem(), SpotFleetRequestArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetRequestMapInput)(nil)).Elem(), SpotFleetRequestMap{})
 	pulumi.RegisterOutputType(SpotFleetRequestOutput{})
 	pulumi.RegisterOutputType(SpotFleetRequestPtrOutput{})
 	pulumi.RegisterOutputType(SpotFleetRequestArrayOutput{})

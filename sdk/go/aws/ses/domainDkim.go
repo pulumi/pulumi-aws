@@ -297,6 +297,10 @@ func (o DomainDkimMapOutput) MapIndex(k pulumi.StringInput) DomainDkimOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainDkimInput)(nil)).Elem(), &DomainDkim{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainDkimPtrInput)(nil)).Elem(), &DomainDkim{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainDkimArrayInput)(nil)).Elem(), DomainDkimArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainDkimMapInput)(nil)).Elem(), DomainDkimMap{})
 	pulumi.RegisterOutputType(DomainDkimOutput{})
 	pulumi.RegisterOutputType(DomainDkimPtrOutput{})
 	pulumi.RegisterOutputType(DomainDkimArrayOutput{})

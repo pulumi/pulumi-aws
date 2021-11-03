@@ -415,6 +415,10 @@ func (o FeatureGroupMapOutput) MapIndex(k pulumi.StringInput) FeatureGroupOutput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*FeatureGroupInput)(nil)).Elem(), &FeatureGroup{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FeatureGroupPtrInput)(nil)).Elem(), &FeatureGroup{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FeatureGroupArrayInput)(nil)).Elem(), FeatureGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FeatureGroupMapInput)(nil)).Elem(), FeatureGroupMap{})
 	pulumi.RegisterOutputType(FeatureGroupOutput{})
 	pulumi.RegisterOutputType(FeatureGroupPtrOutput{})
 	pulumi.RegisterOutputType(FeatureGroupArrayOutput{})

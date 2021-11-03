@@ -431,6 +431,10 @@ func (o DataSourceMapOutput) MapIndex(k pulumi.StringInput) DataSourceOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceInput)(nil)).Elem(), &DataSource{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourcePtrInput)(nil)).Elem(), &DataSource{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceArrayInput)(nil)).Elem(), DataSourceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceMapInput)(nil)).Elem(), DataSourceMap{})
 	pulumi.RegisterOutputType(DataSourceOutput{})
 	pulumi.RegisterOutputType(DataSourcePtrOutput{})
 	pulumi.RegisterOutputType(DataSourceArrayOutput{})

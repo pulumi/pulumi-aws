@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Ec2
 {
@@ -53,6 +54,49 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public static Task<GetSecurityGroupResult> InvokeAsync(GetSecurityGroupArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSecurityGroupResult>("aws:ec2/getSecurityGroup:getSecurityGroup", args ?? new GetSecurityGroupArgs(), options.WithVersion());
+
+        /// <summary>
+        /// `aws.ec2.SecurityGroup` provides details about a specific Security Group.
+        /// 
+        /// This resource can prove useful when a module accepts a Security Group id as
+        /// an input variable and needs to, for example, determine the id of the
+        /// VPC that the security group belongs to.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// The following example shows how one might accept a Security Group id as a variable
+        /// and use this data source to obtain the data necessary to create a subnet.
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var config = new Config();
+        ///         var securityGroupId = config.RequireObject&lt;dynamic&gt;("securityGroupId");
+        ///         var selected = Output.Create(Aws.Ec2.GetSecurityGroup.InvokeAsync(new Aws.Ec2.GetSecurityGroupArgs
+        ///         {
+        ///             Id = securityGroupId,
+        ///         }));
+        ///         var subnet = new Aws.Ec2.Subnet("subnet", new Aws.Ec2.SubnetArgs
+        ///         {
+        ///             VpcId = selected.Apply(selected =&gt; selected.VpcId),
+        ///             CidrBlock = "10.0.1.0/24",
+        ///         });
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetSecurityGroupResult> Invoke(GetSecurityGroupInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSecurityGroupResult>("aws:ec2/getSecurityGroup:getSecurityGroup", args ?? new GetSecurityGroupInvokeArgs(), options.WithVersion());
     }
 
 
@@ -103,6 +147,57 @@ namespace Pulumi.Aws.Ec2
         public string? VpcId { get; set; }
 
         public GetSecurityGroupArgs()
+        {
+        }
+    }
+
+    public sealed class GetSecurityGroupInvokeArgs : Pulumi.InvokeArgs
+    {
+        [Input("filters")]
+        private InputList<Inputs.GetSecurityGroupFilterInputArgs>? _filters;
+
+        /// <summary>
+        /// Custom filter block as described below.
+        /// </summary>
+        public InputList<Inputs.GetSecurityGroupFilterInputArgs> Filters
+        {
+            get => _filters ?? (_filters = new InputList<Inputs.GetSecurityGroupFilterInputArgs>());
+            set => _filters = value;
+        }
+
+        /// <summary>
+        /// The id of the specific security group to retrieve.
+        /// </summary>
+        [Input("id")]
+        public Input<string>? Id { get; set; }
+
+        /// <summary>
+        /// The name of the field to filter by, as defined by
+        /// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroups.html).
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags, each pair of which must exactly match
+        /// a pair on the desired security group.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        /// <summary>
+        /// The id of the VPC that the desired security group belongs to.
+        /// </summary>
+        [Input("vpcId")]
+        public Input<string>? VpcId { get; set; }
+
+        public GetSecurityGroupInvokeArgs()
         {
         }
     }

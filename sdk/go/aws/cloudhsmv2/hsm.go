@@ -354,6 +354,10 @@ func (o HsmMapOutput) MapIndex(k pulumi.StringInput) HsmOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*HsmInput)(nil)).Elem(), &Hsm{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HsmPtrInput)(nil)).Elem(), &Hsm{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HsmArrayInput)(nil)).Elem(), HsmArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HsmMapInput)(nil)).Elem(), HsmMap{})
 	pulumi.RegisterOutputType(HsmOutput{})
 	pulumi.RegisterOutputType(HsmPtrOutput{})
 	pulumi.RegisterOutputType(HsmArrayOutput{})

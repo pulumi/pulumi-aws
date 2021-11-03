@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Iam
 {
@@ -121,6 +122,117 @@ namespace Pulumi.Aws.Iam
         /// </summary>
         public static Task<GetRolesResult> InvokeAsync(GetRolesArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRolesResult>("aws:iam/getRoles:getRoles", args ?? new GetRolesArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to get the ARNs and Names of IAM Roles.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// ### All roles in an account
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var roles = Output.Create(Aws.Iam.GetRoles.InvokeAsync());
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% example %}}
+        /// ### Roles filtered by name regex
+        /// 
+        /// Roles whose role-name contains `project`
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var roles = Output.Create(Aws.Iam.GetRoles.InvokeAsync(new Aws.Iam.GetRolesArgs
+        ///         {
+        ///             NameRegex = ".*project.*",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% example %}}
+        /// ### Roles filtered by path prefix
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var roles = Output.Create(Aws.Iam.GetRoles.InvokeAsync(new Aws.Iam.GetRolesArgs
+        ///         {
+        ///             PathPrefix = "/custom-path",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% example %}}
+        /// ### Roles provisioned by AWS SSO
+        /// 
+        /// Roles in the account filtered by path prefix
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var roles = Output.Create(Aws.Iam.GetRoles.InvokeAsync(new Aws.Iam.GetRolesArgs
+        ///         {
+        ///             PathPrefix = "/aws-reserved/sso.amazonaws.com/",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// Specific role in the account filtered by name regex and path prefix
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var roles = Output.Create(Aws.Iam.GetRoles.InvokeAsync(new Aws.Iam.GetRolesArgs
+        ///         {
+        ///             NameRegex = "AWSReservedSSO_permission_set_name_.*",
+        ///             PathPrefix = "/aws-reserved/sso.amazonaws.com/",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetRolesResult> Invoke(GetRolesInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetRolesResult>("aws:iam/getRoles:getRoles", args ?? new GetRolesInvokeArgs(), options.WithVersion());
     }
 
 
@@ -141,6 +253,27 @@ namespace Pulumi.Aws.Iam
         public string? PathPrefix { get; set; }
 
         public GetRolesArgs()
+        {
+        }
+    }
+
+    public sealed class GetRolesInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// A regex string to apply to the IAM roles list returned by AWS. This allows more advanced filtering not supported from the AWS API.
+        /// This filtering is done locally on what AWS returns, and could have a performance impact if the result is large. It is recommended to combine this with other
+        /// options to narrow down the list AWS returns.
+        /// </summary>
+        [Input("nameRegex")]
+        public Input<string>? NameRegex { get; set; }
+
+        /// <summary>
+        /// The path prefix for filtering the results. For example, the prefix `/application_abc/component_xyz/` gets all roles whose path starts with `/application_abc/component_xyz/`. If it is not included, it defaults to a slash (`/`), listing all roles. For more details, check out [list-roles in the AWS CLI reference][1].
+        /// </summary>
+        [Input("pathPrefix")]
+        public Input<string>? PathPrefix { get; set; }
+
+        public GetRolesInvokeArgs()
         {
         }
     }

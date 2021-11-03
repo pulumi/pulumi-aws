@@ -401,6 +401,10 @@ func (o ThreatIntelSetMapOutput) MapIndex(k pulumi.StringInput) ThreatIntelSetOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ThreatIntelSetInput)(nil)).Elem(), &ThreatIntelSet{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ThreatIntelSetPtrInput)(nil)).Elem(), &ThreatIntelSet{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ThreatIntelSetArrayInput)(nil)).Elem(), ThreatIntelSetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ThreatIntelSetMapInput)(nil)).Elem(), ThreatIntelSetMap{})
 	pulumi.RegisterOutputType(ThreatIntelSetOutput{})
 	pulumi.RegisterOutputType(ThreatIntelSetPtrOutput{})
 	pulumi.RegisterOutputType(ThreatIntelSetArrayOutput{})

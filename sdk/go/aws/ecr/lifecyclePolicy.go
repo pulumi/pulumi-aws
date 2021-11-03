@@ -357,6 +357,10 @@ func (o LifecyclePolicyMapOutput) MapIndex(k pulumi.StringInput) LifecyclePolicy
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyInput)(nil)).Elem(), &LifecyclePolicy{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyPtrInput)(nil)).Elem(), &LifecyclePolicy{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyArrayInput)(nil)).Elem(), LifecyclePolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyMapInput)(nil)).Elem(), LifecyclePolicyMap{})
 	pulumi.RegisterOutputType(LifecyclePolicyOutput{})
 	pulumi.RegisterOutputType(LifecyclePolicyPtrOutput{})
 	pulumi.RegisterOutputType(LifecyclePolicyArrayOutput{})

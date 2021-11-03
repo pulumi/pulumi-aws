@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Ec2
 {
@@ -16,6 +17,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public static Task<GetCoipPoolsResult> InvokeAsync(GetCoipPoolsArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCoipPoolsResult>("aws:ec2/getCoipPools:getCoipPools", args ?? new GetCoipPoolsArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Provides information for multiple EC2 Customer-Owned IP Pools, such as their identifiers.
+        /// </summary>
+        public static Output<GetCoipPoolsResult> Invoke(GetCoipPoolsInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetCoipPoolsResult>("aws:ec2/getCoipPools:getCoipPools", args ?? new GetCoipPoolsInvokeArgs(), options.WithVersion());
     }
 
 
@@ -47,6 +54,38 @@ namespace Pulumi.Aws.Ec2
         }
 
         public GetCoipPoolsArgs()
+        {
+        }
+    }
+
+    public sealed class GetCoipPoolsInvokeArgs : Pulumi.InvokeArgs
+    {
+        [Input("filters")]
+        private InputList<Inputs.GetCoipPoolsFilterInputArgs>? _filters;
+
+        /// <summary>
+        /// Custom filter block as described below.
+        /// </summary>
+        public InputList<Inputs.GetCoipPoolsFilterInputArgs> Filters
+        {
+            get => _filters ?? (_filters = new InputList<Inputs.GetCoipPoolsFilterInputArgs>());
+            set => _filters = value;
+        }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A mapping of tags, each pair of which must exactly match
+        /// a pair on the desired aws_ec2_coip_pools.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        public GetCoipPoolsInvokeArgs()
         {
         }
     }

@@ -316,6 +316,10 @@ func (o ProductSubscriptionMapOutput) MapIndex(k pulumi.StringInput) ProductSubs
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ProductSubscriptionInput)(nil)).Elem(), &ProductSubscription{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProductSubscriptionPtrInput)(nil)).Elem(), &ProductSubscription{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProductSubscriptionArrayInput)(nil)).Elem(), ProductSubscriptionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProductSubscriptionMapInput)(nil)).Elem(), ProductSubscriptionMap{})
 	pulumi.RegisterOutputType(ProductSubscriptionOutput{})
 	pulumi.RegisterOutputType(ProductSubscriptionPtrOutput{})
 	pulumi.RegisterOutputType(ProductSubscriptionArrayOutput{})

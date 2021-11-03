@@ -373,6 +373,10 @@ func (o VideoStreamMapOutput) MapIndex(k pulumi.StringInput) VideoStreamOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*VideoStreamInput)(nil)).Elem(), &VideoStream{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VideoStreamPtrInput)(nil)).Elem(), &VideoStream{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VideoStreamArrayInput)(nil)).Elem(), VideoStreamArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VideoStreamMapInput)(nil)).Elem(), VideoStreamMap{})
 	pulumi.RegisterOutputType(VideoStreamOutput{})
 	pulumi.RegisterOutputType(VideoStreamPtrOutput{})
 	pulumi.RegisterOutputType(VideoStreamArrayOutput{})

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Outposts
 {
@@ -39,6 +40,35 @@ namespace Pulumi.Aws.Outposts
         /// </summary>
         public static Task<GetOutpostInstanceTypesResult> InvokeAsync(GetOutpostInstanceTypesArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetOutpostInstanceTypesResult>("aws:outposts/getOutpostInstanceTypes:getOutpostInstanceTypes", args ?? new GetOutpostInstanceTypesArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Information about Outposts Instance Types.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.Outposts.GetOutpostInstanceTypes.InvokeAsync(new Aws.Outposts.GetOutpostInstanceTypesArgs
+        ///         {
+        ///             Arn = data.Aws_outposts_outpost.Example.Arn,
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetOutpostInstanceTypesResult> Invoke(GetOutpostInstanceTypesInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetOutpostInstanceTypesResult>("aws:outposts/getOutpostInstanceTypes:getOutpostInstanceTypes", args ?? new GetOutpostInstanceTypesInvokeArgs(), options.WithVersion());
     }
 
 
@@ -51,6 +81,19 @@ namespace Pulumi.Aws.Outposts
         public string Arn { get; set; } = null!;
 
         public GetOutpostInstanceTypesArgs()
+        {
+        }
+    }
+
+    public sealed class GetOutpostInstanceTypesInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Outpost Amazon Resource Name (ARN).
+        /// </summary>
+        [Input("arn", required: true)]
+        public Input<string> Arn { get; set; } = null!;
+
+        public GetOutpostInstanceTypesInvokeArgs()
         {
         }
     }

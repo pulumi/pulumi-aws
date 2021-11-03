@@ -372,6 +372,10 @@ func (o GlobalTableMapOutput) MapIndex(k pulumi.StringInput) GlobalTableOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableInput)(nil)).Elem(), &GlobalTable{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTablePtrInput)(nil)).Elem(), &GlobalTable{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableArrayInput)(nil)).Elem(), GlobalTableArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GlobalTableMapInput)(nil)).Elem(), GlobalTableMap{})
 	pulumi.RegisterOutputType(GlobalTableOutput{})
 	pulumi.RegisterOutputType(GlobalTablePtrOutput{})
 	pulumi.RegisterOutputType(GlobalTableArrayOutput{})

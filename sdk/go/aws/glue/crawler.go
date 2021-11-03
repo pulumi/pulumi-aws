@@ -662,6 +662,10 @@ func (o CrawlerMapOutput) MapIndex(k pulumi.StringInput) CrawlerOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerInput)(nil)).Elem(), &Crawler{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerPtrInput)(nil)).Elem(), &Crawler{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerArrayInput)(nil)).Elem(), CrawlerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerMapInput)(nil)).Elem(), CrawlerMap{})
 	pulumi.RegisterOutputType(CrawlerOutput{})
 	pulumi.RegisterOutputType(CrawlerPtrOutput{})
 	pulumi.RegisterOutputType(CrawlerArrayOutput{})

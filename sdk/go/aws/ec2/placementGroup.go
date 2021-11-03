@@ -356,6 +356,10 @@ func (o PlacementGroupMapOutput) MapIndex(k pulumi.StringInput) PlacementGroupOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PlacementGroupInput)(nil)).Elem(), &PlacementGroup{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlacementGroupPtrInput)(nil)).Elem(), &PlacementGroup{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlacementGroupArrayInput)(nil)).Elem(), PlacementGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlacementGroupMapInput)(nil)).Elem(), PlacementGroupMap{})
 	pulumi.RegisterOutputType(PlacementGroupOutput{})
 	pulumi.RegisterOutputType(PlacementGroupPtrOutput{})
 	pulumi.RegisterOutputType(PlacementGroupArrayOutput{})

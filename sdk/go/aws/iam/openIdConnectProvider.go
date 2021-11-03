@@ -349,6 +349,10 @@ func (o OpenIdConnectProviderMapOutput) MapIndex(k pulumi.StringInput) OpenIdCon
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*OpenIdConnectProviderInput)(nil)).Elem(), &OpenIdConnectProvider{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OpenIdConnectProviderPtrInput)(nil)).Elem(), &OpenIdConnectProvider{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OpenIdConnectProviderArrayInput)(nil)).Elem(), OpenIdConnectProviderArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OpenIdConnectProviderMapInput)(nil)).Elem(), OpenIdConnectProviderMap{})
 	pulumi.RegisterOutputType(OpenIdConnectProviderOutput{})
 	pulumi.RegisterOutputType(OpenIdConnectProviderPtrOutput{})
 	pulumi.RegisterOutputType(OpenIdConnectProviderArrayOutput{})

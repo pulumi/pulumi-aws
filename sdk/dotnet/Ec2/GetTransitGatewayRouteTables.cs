@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Ec2
 {
@@ -41,6 +42,37 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public static Task<GetTransitGatewayRouteTablesResult> InvokeAsync(GetTransitGatewayRouteTablesArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTransitGatewayRouteTablesResult>("aws:ec2/getTransitGatewayRouteTables:getTransitGatewayRouteTables", args ?? new GetTransitGatewayRouteTablesArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Provides information for multiple EC2 Transit Gateway Route Tables, such as their identifiers.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// The following shows outputing all Transit Gateway Route Table Ids.
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var exampleTransitGatewayRouteTables = Output.Create(Aws.Ec2.GetTransitGatewayRouteTables.InvokeAsync());
+        ///         this.Example = data.Aws_ec2_transit_gateway_route_table.Example.Ids;
+        ///     }
+        /// 
+        ///     [Output("example")]
+        ///     public Output&lt;string&gt; Example { get; set; }
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetTransitGatewayRouteTablesResult> Invoke(GetTransitGatewayRouteTablesInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetTransitGatewayRouteTablesResult>("aws:ec2/getTransitGatewayRouteTables:getTransitGatewayRouteTables", args ?? new GetTransitGatewayRouteTablesInvokeArgs(), options.WithVersion());
     }
 
 
@@ -72,6 +104,38 @@ namespace Pulumi.Aws.Ec2
         }
 
         public GetTransitGatewayRouteTablesArgs()
+        {
+        }
+    }
+
+    public sealed class GetTransitGatewayRouteTablesInvokeArgs : Pulumi.InvokeArgs
+    {
+        [Input("filters")]
+        private InputList<Inputs.GetTransitGatewayRouteTablesFilterInputArgs>? _filters;
+
+        /// <summary>
+        /// Custom filter block as described below.
+        /// </summary>
+        public InputList<Inputs.GetTransitGatewayRouteTablesFilterInputArgs> Filters
+        {
+            get => _filters ?? (_filters = new InputList<Inputs.GetTransitGatewayRouteTablesFilterInputArgs>());
+            set => _filters = value;
+        }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A mapping of tags, each pair of which must exactly match
+        /// a pair on the desired transit gateway route table.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        public GetTransitGatewayRouteTablesInvokeArgs()
         {
         }
     }

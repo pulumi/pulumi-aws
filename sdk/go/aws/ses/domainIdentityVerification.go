@@ -326,6 +326,10 @@ func (o DomainIdentityVerificationMapOutput) MapIndex(k pulumi.StringInput) Doma
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainIdentityVerificationInput)(nil)).Elem(), &DomainIdentityVerification{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainIdentityVerificationPtrInput)(nil)).Elem(), &DomainIdentityVerification{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainIdentityVerificationArrayInput)(nil)).Elem(), DomainIdentityVerificationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainIdentityVerificationMapInput)(nil)).Elem(), DomainIdentityVerificationMap{})
 	pulumi.RegisterOutputType(DomainIdentityVerificationOutput{})
 	pulumi.RegisterOutputType(DomainIdentityVerificationPtrOutput{})
 	pulumi.RegisterOutputType(DomainIdentityVerificationArrayOutput{})

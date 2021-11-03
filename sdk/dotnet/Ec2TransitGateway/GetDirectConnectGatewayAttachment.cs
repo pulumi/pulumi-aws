@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Ec2TransitGateway
 {
@@ -41,6 +42,37 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// </summary>
         public static Task<GetDirectConnectGatewayAttachmentResult> InvokeAsync(GetDirectConnectGatewayAttachmentArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDirectConnectGatewayAttachmentResult>("aws:ec2transitgateway/getDirectConnectGatewayAttachment:getDirectConnectGatewayAttachment", args ?? new GetDirectConnectGatewayAttachmentArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Get information on an EC2 Transit Gateway's attachment to a Direct Connect Gateway.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// ### By Transit Gateway and Direct Connect Gateway Identifiers
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.Ec2TransitGateway.GetDirectConnectGatewayAttachment.InvokeAsync(new Aws.Ec2TransitGateway.GetDirectConnectGatewayAttachmentArgs
+        ///         {
+        ///             TransitGatewayId = aws_ec2_transit_gateway.Example.Id,
+        ///             DxGatewayId = aws_dx_gateway.Example.Id,
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetDirectConnectGatewayAttachmentResult> Invoke(GetDirectConnectGatewayAttachmentInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetDirectConnectGatewayAttachmentResult>("aws:ec2transitgateway/getDirectConnectGatewayAttachment:getDirectConnectGatewayAttachment", args ?? new GetDirectConnectGatewayAttachmentInvokeArgs(), options.WithVersion());
     }
 
 
@@ -83,6 +115,49 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public string? TransitGatewayId { get; set; }
 
         public GetDirectConnectGatewayAttachmentArgs()
+        {
+        }
+    }
+
+    public sealed class GetDirectConnectGatewayAttachmentInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Identifier of the Direct Connect Gateway.
+        /// </summary>
+        [Input("dxGatewayId")]
+        public Input<string>? DxGatewayId { get; set; }
+
+        [Input("filters")]
+        private InputList<Inputs.GetDirectConnectGatewayAttachmentFilterInputArgs>? _filters;
+
+        /// <summary>
+        /// Configuration block(s) for filtering. Detailed below.
+        /// </summary>
+        public InputList<Inputs.GetDirectConnectGatewayAttachmentFilterInputArgs> Filters
+        {
+            get => _filters ?? (_filters = new InputList<Inputs.GetDirectConnectGatewayAttachmentFilterInputArgs>());
+            set => _filters = value;
+        }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags, each pair of which must exactly match a pair on the desired Transit Gateway Direct Connect Gateway Attachment.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        /// <summary>
+        /// Identifier of the EC2 Transit Gateway.
+        /// </summary>
+        [Input("transitGatewayId")]
+        public Input<string>? TransitGatewayId { get; set; }
+
+        public GetDirectConnectGatewayAttachmentInvokeArgs()
         {
         }
     }

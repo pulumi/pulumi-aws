@@ -437,6 +437,10 @@ func (o ReportDefinitionMapOutput) MapIndex(k pulumi.StringInput) ReportDefiniti
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ReportDefinitionInput)(nil)).Elem(), &ReportDefinition{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReportDefinitionPtrInput)(nil)).Elem(), &ReportDefinition{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReportDefinitionArrayInput)(nil)).Elem(), ReportDefinitionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReportDefinitionMapInput)(nil)).Elem(), ReportDefinitionMap{})
 	pulumi.RegisterOutputType(ReportDefinitionOutput{})
 	pulumi.RegisterOutputType(ReportDefinitionPtrOutput{})
 	pulumi.RegisterOutputType(ReportDefinitionArrayOutput{})

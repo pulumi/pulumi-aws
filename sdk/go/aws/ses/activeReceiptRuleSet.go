@@ -295,6 +295,10 @@ func (o ActiveReceiptRuleSetMapOutput) MapIndex(k pulumi.StringInput) ActiveRece
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ActiveReceiptRuleSetInput)(nil)).Elem(), &ActiveReceiptRuleSet{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActiveReceiptRuleSetPtrInput)(nil)).Elem(), &ActiveReceiptRuleSet{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActiveReceiptRuleSetArrayInput)(nil)).Elem(), ActiveReceiptRuleSetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActiveReceiptRuleSetMapInput)(nil)).Elem(), ActiveReceiptRuleSetMap{})
 	pulumi.RegisterOutputType(ActiveReceiptRuleSetOutput{})
 	pulumi.RegisterOutputType(ActiveReceiptRuleSetPtrOutput{})
 	pulumi.RegisterOutputType(ActiveReceiptRuleSetArrayOutput{})

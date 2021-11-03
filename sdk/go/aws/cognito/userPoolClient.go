@@ -588,6 +588,10 @@ func (o UserPoolClientMapOutput) MapIndex(k pulumi.StringInput) UserPoolClientOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolClientInput)(nil)).Elem(), &UserPoolClient{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolClientPtrInput)(nil)).Elem(), &UserPoolClient{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolClientArrayInput)(nil)).Elem(), UserPoolClientArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolClientMapInput)(nil)).Elem(), UserPoolClientMap{})
 	pulumi.RegisterOutputType(UserPoolClientOutput{})
 	pulumi.RegisterOutputType(UserPoolClientPtrOutput{})
 	pulumi.RegisterOutputType(UserPoolClientArrayOutput{})

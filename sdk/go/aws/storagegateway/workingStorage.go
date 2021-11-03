@@ -313,6 +313,10 @@ func (o WorkingStorageMapOutput) MapIndex(k pulumi.StringInput) WorkingStorageOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkingStorageInput)(nil)).Elem(), &WorkingStorage{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkingStoragePtrInput)(nil)).Elem(), &WorkingStorage{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkingStorageArrayInput)(nil)).Elem(), WorkingStorageArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkingStorageMapInput)(nil)).Elem(), WorkingStorageMap{})
 	pulumi.RegisterOutputType(WorkingStorageOutput{})
 	pulumi.RegisterOutputType(WorkingStoragePtrOutput{})
 	pulumi.RegisterOutputType(WorkingStorageArrayOutput{})

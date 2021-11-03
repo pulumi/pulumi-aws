@@ -298,6 +298,10 @@ func (o ResourceGroupMapOutput) MapIndex(k pulumi.StringInput) ResourceGroupOutp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceGroupInput)(nil)).Elem(), &ResourceGroup{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceGroupPtrInput)(nil)).Elem(), &ResourceGroup{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceGroupArrayInput)(nil)).Elem(), ResourceGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceGroupMapInput)(nil)).Elem(), ResourceGroupMap{})
 	pulumi.RegisterOutputType(ResourceGroupOutput{})
 	pulumi.RegisterOutputType(ResourceGroupPtrOutput{})
 	pulumi.RegisterOutputType(ResourceGroupArrayOutput{})

@@ -313,6 +313,10 @@ func (o ActivityMapOutput) MapIndex(k pulumi.StringInput) ActivityOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ActivityInput)(nil)).Elem(), &Activity{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActivityPtrInput)(nil)).Elem(), &Activity{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActivityArrayInput)(nil)).Elem(), ActivityArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActivityMapInput)(nil)).Elem(), ActivityMap{})
 	pulumi.RegisterOutputType(ActivityOutput{})
 	pulumi.RegisterOutputType(ActivityPtrOutput{})
 	pulumi.RegisterOutputType(ActivityArrayOutput{})

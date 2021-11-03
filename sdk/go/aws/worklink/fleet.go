@@ -352,6 +352,10 @@ func (o FleetMapOutput) MapIndex(k pulumi.StringInput) FleetOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetInput)(nil)).Elem(), &Fleet{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetPtrInput)(nil)).Elem(), &Fleet{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetArrayInput)(nil)).Elem(), FleetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetMapInput)(nil)).Elem(), FleetMap{})
 	pulumi.RegisterOutputType(FleetOutput{})
 	pulumi.RegisterOutputType(FleetPtrOutput{})
 	pulumi.RegisterOutputType(FleetArrayOutput{})

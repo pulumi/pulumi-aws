@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws
 {
@@ -26,6 +27,22 @@ namespace Pulumi.Aws
         /// </summary>
         public static Task<GetAvailabilityZoneResult> InvokeAsync(GetAvailabilityZoneArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAvailabilityZoneResult>("aws:index/getAvailabilityZone:getAvailabilityZone", args ?? new GetAvailabilityZoneArgs(), options.WithVersion());
+
+        /// <summary>
+        /// `aws.getAvailabilityZone` provides details about a specific availability zone (AZ)
+        /// in the current region.
+        /// 
+        /// This can be used both to validate an availability zone given in a variable
+        /// and to split the AZ name into its component parts of an AWS region and an
+        /// AZ identifier letter. The latter may be useful e.g. for implementing a
+        /// consistent subnet numbering scheme across several regions by mapping both
+        /// the region and the subnet letter to network numbers.
+        /// 
+        /// This is different from the `aws.getAvailabilityZones` (plural) data source,
+        /// which provides a list of the available zones.
+        /// </summary>
+        public static Output<GetAvailabilityZoneResult> Invoke(GetAvailabilityZoneInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetAvailabilityZoneResult>("aws:index/getAvailabilityZone:getAvailabilityZone", args ?? new GetAvailabilityZoneInvokeArgs(), options.WithVersion());
     }
 
 
@@ -68,6 +85,49 @@ namespace Pulumi.Aws
         public string? ZoneId { get; set; }
 
         public GetAvailabilityZoneArgs()
+        {
+        }
+    }
+
+    public sealed class GetAvailabilityZoneInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Set to `true` to include all Availability Zones and Local Zones regardless of your opt in status.
+        /// </summary>
+        [Input("allAvailabilityZones")]
+        public Input<bool>? AllAvailabilityZones { get; set; }
+
+        [Input("filters")]
+        private InputList<Inputs.GetAvailabilityZoneFilterInputArgs>? _filters;
+
+        /// <summary>
+        /// Configuration block(s) for filtering. Detailed below.
+        /// </summary>
+        public InputList<Inputs.GetAvailabilityZoneFilterInputArgs> Filters
+        {
+            get => _filters ?? (_filters = new InputList<Inputs.GetAvailabilityZoneFilterInputArgs>());
+            set => _filters = value;
+        }
+
+        /// <summary>
+        /// The name of the filter field. Valid values can be found in the [EC2 DescribeAvailabilityZones API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html).
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// A specific availability zone state to require. May be any of `"available"`, `"information"` or `"impaired"`.
+        /// </summary>
+        [Input("state")]
+        public Input<string>? State { get; set; }
+
+        /// <summary>
+        /// The zone ID of the availability zone to select.
+        /// </summary>
+        [Input("zoneId")]
+        public Input<string>? ZoneId { get; set; }
+
+        public GetAvailabilityZoneInvokeArgs()
         {
         }
     }

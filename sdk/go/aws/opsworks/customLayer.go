@@ -498,6 +498,10 @@ func (o CustomLayerMapOutput) MapIndex(k pulumi.StringInput) CustomLayerOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomLayerInput)(nil)).Elem(), &CustomLayer{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomLayerPtrInput)(nil)).Elem(), &CustomLayer{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomLayerArrayInput)(nil)).Elem(), CustomLayerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomLayerMapInput)(nil)).Elem(), CustomLayerMap{})
 	pulumi.RegisterOutputType(CustomLayerOutput{})
 	pulumi.RegisterOutputType(CustomLayerPtrOutput{})
 	pulumi.RegisterOutputType(CustomLayerArrayOutput{})

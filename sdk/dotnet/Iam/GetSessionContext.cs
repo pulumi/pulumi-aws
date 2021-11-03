@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Iam
 {
@@ -13,6 +14,9 @@ namespace Pulumi.Aws.Iam
     {
         public static Task<GetSessionContextResult> InvokeAsync(GetSessionContextArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSessionContextResult>("aws:iam/getSessionContext:getSessionContext", args ?? new GetSessionContextArgs(), options.WithVersion());
+
+        public static Output<GetSessionContextResult> Invoke(GetSessionContextInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSessionContextResult>("aws:iam/getSessionContext:getSessionContext", args ?? new GetSessionContextInvokeArgs(), options.WithVersion());
     }
 
 
@@ -25,6 +29,19 @@ namespace Pulumi.Aws.Iam
         public string Arn { get; set; } = null!;
 
         public GetSessionContextArgs()
+        {
+        }
+    }
+
+    public sealed class GetSessionContextInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// ARN for an assumed role.
+        /// </summary>
+        [Input("arn", required: true)]
+        public Input<string> Arn { get; set; } = null!;
+
+        public GetSessionContextInvokeArgs()
         {
         }
     }

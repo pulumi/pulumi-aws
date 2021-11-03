@@ -353,6 +353,10 @@ func (o TapePoolMapOutput) MapIndex(k pulumi.StringInput) TapePoolOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TapePoolInput)(nil)).Elem(), &TapePool{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TapePoolPtrInput)(nil)).Elem(), &TapePool{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TapePoolArrayInput)(nil)).Elem(), TapePoolArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TapePoolMapInput)(nil)).Elem(), TapePoolMap{})
 	pulumi.RegisterOutputType(TapePoolOutput{})
 	pulumi.RegisterOutputType(TapePoolPtrOutput{})
 	pulumi.RegisterOutputType(TapePoolArrayOutput{})

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.ElastiCache
 {
@@ -39,6 +40,35 @@ namespace Pulumi.Aws.ElastiCache
         /// </summary>
         public static Task<GetUserResult> InvokeAsync(GetUserArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetUserResult>("aws:elasticache/getUser:getUser", args ?? new GetUserArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to get information about an Elasticache User.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var bar = Output.Create(Aws.ElastiCache.GetUser.InvokeAsync(new Aws.ElastiCache.GetUserArgs
+        ///         {
+        ///             UserId = "example",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetUserResult> Invoke(GetUserInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetUserResult>("aws:elasticache/getUser:getUser", args ?? new GetUserInvokeArgs(), options.WithVersion());
     }
 
 
@@ -77,6 +107,45 @@ namespace Pulumi.Aws.ElastiCache
         public string? UserName { get; set; }
 
         public GetUserArgs()
+        {
+        }
+    }
+
+    public sealed class GetUserInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// A string for what access a user possesses within the associated ElastiCache replication groups or clusters.
+        /// </summary>
+        [Input("accessString")]
+        public Input<string>? AccessString { get; set; }
+
+        [Input("engine")]
+        public Input<string>? Engine { get; set; }
+
+        [Input("noPasswordRequired")]
+        public Input<bool>? NoPasswordRequired { get; set; }
+
+        [Input("passwords")]
+        private InputList<string>? _passwords;
+        public InputList<string> Passwords
+        {
+            get => _passwords ?? (_passwords = new InputList<string>());
+            set => _passwords = value;
+        }
+
+        /// <summary>
+        /// The identifier for the user.
+        /// </summary>
+        [Input("userId", required: true)]
+        public Input<string> UserId { get; set; } = null!;
+
+        /// <summary>
+        /// The user name of the user.
+        /// </summary>
+        [Input("userName")]
+        public Input<string>? UserName { get; set; }
+
+        public GetUserInvokeArgs()
         {
         }
     }

@@ -500,6 +500,10 @@ func (o NotebookInstanceMapOutput) MapIndex(k pulumi.StringInput) NotebookInstan
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*NotebookInstanceInput)(nil)).Elem(), &NotebookInstance{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NotebookInstancePtrInput)(nil)).Elem(), &NotebookInstance{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NotebookInstanceArrayInput)(nil)).Elem(), NotebookInstanceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NotebookInstanceMapInput)(nil)).Elem(), NotebookInstanceMap{})
 	pulumi.RegisterOutputType(NotebookInstanceOutput{})
 	pulumi.RegisterOutputType(NotebookInstancePtrOutput{})
 	pulumi.RegisterOutputType(NotebookInstanceArrayOutput{})

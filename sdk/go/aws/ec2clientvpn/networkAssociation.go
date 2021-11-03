@@ -368,6 +368,10 @@ func (o NetworkAssociationMapOutput) MapIndex(k pulumi.StringInput) NetworkAssoc
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkAssociationInput)(nil)).Elem(), &NetworkAssociation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkAssociationPtrInput)(nil)).Elem(), &NetworkAssociation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkAssociationArrayInput)(nil)).Elem(), NetworkAssociationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkAssociationMapInput)(nil)).Elem(), NetworkAssociationMap{})
 	pulumi.RegisterOutputType(NetworkAssociationOutput{})
 	pulumi.RegisterOutputType(NetworkAssociationPtrOutput{})
 	pulumi.RegisterOutputType(NetworkAssociationArrayOutput{})

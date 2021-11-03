@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.CloudFront
 {
@@ -39,6 +40,35 @@ namespace Pulumi.Aws.CloudFront
         /// </summary>
         public static Task<GetCachePolicyResult> InvokeAsync(GetCachePolicyArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCachePolicyResult>("aws:cloudfront/getCachePolicy:getCachePolicy", args ?? new GetCachePolicyArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to retrieve information about a CloudFront cache policy.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.CloudFront.GetCachePolicy.InvokeAsync(new Aws.CloudFront.GetCachePolicyArgs
+        ///         {
+        ///             Name = "example-policy",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetCachePolicyResult> Invoke(GetCachePolicyInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetCachePolicyResult>("aws:cloudfront/getCachePolicy:getCachePolicy", args ?? new GetCachePolicyInvokeArgs(), options.WithVersion());
     }
 
 
@@ -57,6 +87,25 @@ namespace Pulumi.Aws.CloudFront
         public string? Name { get; set; }
 
         public GetCachePolicyArgs()
+        {
+        }
+    }
+
+    public sealed class GetCachePolicyInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The identifier for the cache policy.
+        /// </summary>
+        [Input("id")]
+        public Input<string>? Id { get; set; }
+
+        /// <summary>
+        /// A unique name to identify the cache policy.
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
+
+        public GetCachePolicyInvokeArgs()
         {
         }
     }

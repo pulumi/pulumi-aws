@@ -395,6 +395,10 @@ func (o LinkAggregationGroupMapOutput) MapIndex(k pulumi.StringInput) LinkAggreg
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkAggregationGroupInput)(nil)).Elem(), &LinkAggregationGroup{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkAggregationGroupPtrInput)(nil)).Elem(), &LinkAggregationGroup{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkAggregationGroupArrayInput)(nil)).Elem(), LinkAggregationGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LinkAggregationGroupMapInput)(nil)).Elem(), LinkAggregationGroupMap{})
 	pulumi.RegisterOutputType(LinkAggregationGroupOutput{})
 	pulumi.RegisterOutputType(LinkAggregationGroupPtrOutput{})
 	pulumi.RegisterOutputType(LinkAggregationGroupArrayOutput{})

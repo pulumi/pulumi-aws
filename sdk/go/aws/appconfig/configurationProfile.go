@@ -389,6 +389,10 @@ func (o ConfigurationProfileMapOutput) MapIndex(k pulumi.StringInput) Configurat
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationProfileInput)(nil)).Elem(), &ConfigurationProfile{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationProfilePtrInput)(nil)).Elem(), &ConfigurationProfile{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationProfileArrayInput)(nil)).Elem(), ConfigurationProfileArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationProfileMapInput)(nil)).Elem(), ConfigurationProfileMap{})
 	pulumi.RegisterOutputType(ConfigurationProfileOutput{})
 	pulumi.RegisterOutputType(ConfigurationProfilePtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationProfileArrayOutput{})

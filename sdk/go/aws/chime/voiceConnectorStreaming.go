@@ -342,6 +342,10 @@ func (o VoiceConnectorStreamingMapOutput) MapIndex(k pulumi.StringInput) VoiceCo
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*VoiceConnectorStreamingInput)(nil)).Elem(), &VoiceConnectorStreaming{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VoiceConnectorStreamingPtrInput)(nil)).Elem(), &VoiceConnectorStreaming{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VoiceConnectorStreamingArrayInput)(nil)).Elem(), VoiceConnectorStreamingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VoiceConnectorStreamingMapInput)(nil)).Elem(), VoiceConnectorStreamingMap{})
 	pulumi.RegisterOutputType(VoiceConnectorStreamingOutput{})
 	pulumi.RegisterOutputType(VoiceConnectorStreamingPtrOutput{})
 	pulumi.RegisterOutputType(VoiceConnectorStreamingArrayOutput{})

@@ -379,6 +379,10 @@ func (o DeviceFleetMapOutput) MapIndex(k pulumi.StringInput) DeviceFleetOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DeviceFleetInput)(nil)).Elem(), &DeviceFleet{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeviceFleetPtrInput)(nil)).Elem(), &DeviceFleet{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeviceFleetArrayInput)(nil)).Elem(), DeviceFleetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeviceFleetMapInput)(nil)).Elem(), DeviceFleetMap{})
 	pulumi.RegisterOutputType(DeviceFleetOutput{})
 	pulumi.RegisterOutputType(DeviceFleetPtrOutput{})
 	pulumi.RegisterOutputType(DeviceFleetArrayOutput{})

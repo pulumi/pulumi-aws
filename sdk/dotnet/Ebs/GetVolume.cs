@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Ebs
 {
@@ -59,6 +60,55 @@ namespace Pulumi.Aws.Ebs
         /// </summary>
         public static Task<GetVolumeResult> InvokeAsync(GetVolumeArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVolumeResult>("aws:ebs/getVolume:getVolume", args ?? new GetVolumeArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to get information about an EBS volume for use in other
+        /// resources.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var ebsVolume = Output.Create(Aws.Ebs.GetVolume.InvokeAsync(new Aws.Ebs.GetVolumeArgs
+        ///         {
+        ///             Filters = 
+        ///             {
+        ///                 new Aws.Ebs.Inputs.GetVolumeFilterArgs
+        ///                 {
+        ///                     Name = "volume-type",
+        ///                     Values = 
+        ///                     {
+        ///                         "gp2",
+        ///                     },
+        ///                 },
+        ///                 new Aws.Ebs.Inputs.GetVolumeFilterArgs
+        ///                 {
+        ///                     Name = "tag:Name",
+        ///                     Values = 
+        ///                     {
+        ///                         "Example",
+        ///                     },
+        ///                 },
+        ///             },
+        ///             MostRecent = true,
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetVolumeResult> Invoke(GetVolumeInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetVolumeResult>("aws:ebs/getVolume:getVolume", args ?? new GetVolumeInvokeArgs(), options.WithVersion());
     }
 
 
@@ -98,6 +148,46 @@ namespace Pulumi.Aws.Ebs
         }
 
         public GetVolumeArgs()
+        {
+        }
+    }
+
+    public sealed class GetVolumeInvokeArgs : Pulumi.InvokeArgs
+    {
+        [Input("filters")]
+        private InputList<Inputs.GetVolumeFilterInputArgs>? _filters;
+
+        /// <summary>
+        /// One or more name/value pairs to filter off of. There are
+        /// several valid keys, for a full reference, check out
+        /// [describe-volumes in the AWS CLI reference][1].
+        /// </summary>
+        public InputList<Inputs.GetVolumeFilterInputArgs> Filters
+        {
+            get => _filters ?? (_filters = new InputList<Inputs.GetVolumeFilterInputArgs>());
+            set => _filters = value;
+        }
+
+        /// <summary>
+        /// If more than one result is returned, use the most
+        /// recent Volume.
+        /// </summary>
+        [Input("mostRecent")]
+        public Input<bool>? MostRecent { get; set; }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags for the resource.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        public GetVolumeInvokeArgs()
         {
         }
     }

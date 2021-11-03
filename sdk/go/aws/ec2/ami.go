@@ -537,6 +537,10 @@ func (o AmiMapOutput) MapIndex(k pulumi.StringInput) AmiOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AmiInput)(nil)).Elem(), &Ami{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AmiPtrInput)(nil)).Elem(), &Ami{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AmiArrayInput)(nil)).Elem(), AmiArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AmiMapInput)(nil)).Elem(), AmiMap{})
 	pulumi.RegisterOutputType(AmiOutput{})
 	pulumi.RegisterOutputType(AmiPtrOutput{})
 	pulumi.RegisterOutputType(AmiArrayOutput{})

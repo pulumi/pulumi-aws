@@ -517,6 +517,10 @@ func (o ComputeEnvironmentMapOutput) MapIndex(k pulumi.StringInput) ComputeEnvir
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ComputeEnvironmentInput)(nil)).Elem(), &ComputeEnvironment{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ComputeEnvironmentPtrInput)(nil)).Elem(), &ComputeEnvironment{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ComputeEnvironmentArrayInput)(nil)).Elem(), ComputeEnvironmentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ComputeEnvironmentMapInput)(nil)).Elem(), ComputeEnvironmentMap{})
 	pulumi.RegisterOutputType(ComputeEnvironmentOutput{})
 	pulumi.RegisterOutputType(ComputeEnvironmentPtrOutput{})
 	pulumi.RegisterOutputType(ComputeEnvironmentArrayOutput{})

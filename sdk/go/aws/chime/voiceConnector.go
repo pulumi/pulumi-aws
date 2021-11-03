@@ -324,6 +324,10 @@ func (o VoiceConnectorMapOutput) MapIndex(k pulumi.StringInput) VoiceConnectorOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*VoiceConnectorInput)(nil)).Elem(), &VoiceConnector{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VoiceConnectorPtrInput)(nil)).Elem(), &VoiceConnector{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VoiceConnectorArrayInput)(nil)).Elem(), VoiceConnectorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VoiceConnectorMapInput)(nil)).Elem(), VoiceConnectorMap{})
 	pulumi.RegisterOutputType(VoiceConnectorOutput{})
 	pulumi.RegisterOutputType(VoiceConnectorPtrOutput{})
 	pulumi.RegisterOutputType(VoiceConnectorArrayOutput{})

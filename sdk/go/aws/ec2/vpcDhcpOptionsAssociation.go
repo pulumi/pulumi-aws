@@ -315,6 +315,10 @@ func (o VpcDhcpOptionsAssociationMapOutput) MapIndex(k pulumi.StringInput) VpcDh
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcDhcpOptionsAssociationInput)(nil)).Elem(), &VpcDhcpOptionsAssociation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcDhcpOptionsAssociationPtrInput)(nil)).Elem(), &VpcDhcpOptionsAssociation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcDhcpOptionsAssociationArrayInput)(nil)).Elem(), VpcDhcpOptionsAssociationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcDhcpOptionsAssociationMapInput)(nil)).Elem(), VpcDhcpOptionsAssociationMap{})
 	pulumi.RegisterOutputType(VpcDhcpOptionsAssociationOutput{})
 	pulumi.RegisterOutputType(VpcDhcpOptionsAssociationPtrOutput{})
 	pulumi.RegisterOutputType(VpcDhcpOptionsAssociationArrayOutput{})

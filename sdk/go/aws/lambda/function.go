@@ -760,6 +760,10 @@ func (o FunctionMapOutput) MapIndex(k pulumi.StringInput) FunctionOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionInput)(nil)).Elem(), &Function{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionPtrInput)(nil)).Elem(), &Function{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionArrayInput)(nil)).Elem(), FunctionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionMapInput)(nil)).Elem(), FunctionMap{})
 	pulumi.RegisterOutputType(FunctionOutput{})
 	pulumi.RegisterOutputType(FunctionPtrOutput{})
 	pulumi.RegisterOutputType(FunctionArrayOutput{})

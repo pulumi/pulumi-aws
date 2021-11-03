@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Ram
 {
@@ -70,6 +71,66 @@ namespace Pulumi.Aws.Ram
         /// </summary>
         public static Task<GetResourceShareResult> InvokeAsync(GetResourceShareArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetResourceShareResult>("aws:ram/getResourceShare:getResourceShare", args ?? new GetResourceShareArgs(), options.WithVersion());
+
+        /// <summary>
+        /// `aws.ram.ResourceShare` Retrieve information about a RAM Resource Share.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.Ram.GetResourceShare.InvokeAsync(new Aws.Ram.GetResourceShareArgs
+        ///         {
+        ///             Name = "example",
+        ///             ResourceOwner = "SELF",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// ## Search by filters
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var tagFilter = Output.Create(Aws.Ram.GetResourceShare.InvokeAsync(new Aws.Ram.GetResourceShareArgs
+        ///         {
+        ///             Filters = 
+        ///             {
+        ///                 new Aws.Ram.Inputs.GetResourceShareFilterArgs
+        ///                 {
+        ///                     Name = "NameOfTag",
+        ///                     Values = 
+        ///                     {
+        ///                         "exampleNameTagValue",
+        ///                     },
+        ///                 },
+        ///             },
+        ///             Name = "MyResourceName",
+        ///             ResourceOwner = "SELF",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// </summary>
+        public static Output<GetResourceShareResult> Invoke(GetResourceShareInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetResourceShareResult>("aws:ram/getResourceShare:getResourceShare", args ?? new GetResourceShareInvokeArgs(), options.WithVersion());
     }
 
 
@@ -112,6 +173,49 @@ namespace Pulumi.Aws.Ram
         }
 
         public GetResourceShareArgs()
+        {
+        }
+    }
+
+    public sealed class GetResourceShareInvokeArgs : Pulumi.InvokeArgs
+    {
+        [Input("filters")]
+        private InputList<Inputs.GetResourceShareFilterInputArgs>? _filters;
+
+        /// <summary>
+        /// A filter used to scope the list e.g. by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
+        /// </summary>
+        public InputList<Inputs.GetResourceShareFilterInputArgs> Filters
+        {
+            get => _filters ?? (_filters = new InputList<Inputs.GetResourceShareFilterInputArgs>());
+            set => _filters = value;
+        }
+
+        /// <summary>
+        /// The name of the tag key to filter on.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The owner of the resource share. Valid values are SELF or OTHER-ACCOUNTS
+        /// </summary>
+        [Input("resourceOwner", required: true)]
+        public Input<string> ResourceOwner { get; set; } = null!;
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// The Tags attached to the RAM share
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        public GetResourceShareInvokeArgs()
         {
         }
     }

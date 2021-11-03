@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Organizations
 {
@@ -39,6 +40,35 @@ namespace Pulumi.Aws.Organizations
         /// </summary>
         public static Task<GetDelegatedServicesResult> InvokeAsync(GetDelegatedServicesArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDelegatedServicesResult>("aws:organizations/getDelegatedServices:getDelegatedServices", args ?? new GetDelegatedServicesArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Get a list the AWS services for which the specified account is a delegated administrator
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.Organizations.GetDelegatedServices.InvokeAsync(new Aws.Organizations.GetDelegatedServicesArgs
+        ///         {
+        ///             AccountId = "AWS ACCOUNT ID",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetDelegatedServicesResult> Invoke(GetDelegatedServicesInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetDelegatedServicesResult>("aws:organizations/getDelegatedServices:getDelegatedServices", args ?? new GetDelegatedServicesInvokeArgs(), options.WithVersion());
     }
 
 
@@ -51,6 +81,19 @@ namespace Pulumi.Aws.Organizations
         public string AccountId { get; set; } = null!;
 
         public GetDelegatedServicesArgs()
+        {
+        }
+    }
+
+    public sealed class GetDelegatedServicesInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The account ID number of a delegated administrator account in the organization.
+        /// </summary>
+        [Input("accountId", required: true)]
+        public Input<string> AccountId { get; set; } = null!;
+
+        public GetDelegatedServicesInvokeArgs()
         {
         }
     }

@@ -451,6 +451,10 @@ func (o ReceiptRuleMapOutput) MapIndex(k pulumi.StringInput) ReceiptRuleOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ReceiptRuleInput)(nil)).Elem(), &ReceiptRule{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReceiptRulePtrInput)(nil)).Elem(), &ReceiptRule{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReceiptRuleArrayInput)(nil)).Elem(), ReceiptRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReceiptRuleMapInput)(nil)).Elem(), ReceiptRuleMap{})
 	pulumi.RegisterOutputType(ReceiptRuleOutput{})
 	pulumi.RegisterOutputType(ReceiptRulePtrOutput{})
 	pulumi.RegisterOutputType(ReceiptRuleArrayOutput{})

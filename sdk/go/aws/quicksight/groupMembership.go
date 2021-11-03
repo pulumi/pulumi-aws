@@ -334,6 +334,10 @@ func (o GroupMembershipMapOutput) MapIndex(k pulumi.StringInput) GroupMembership
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupMembershipInput)(nil)).Elem(), &GroupMembership{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupMembershipPtrInput)(nil)).Elem(), &GroupMembership{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupMembershipArrayInput)(nil)).Elem(), GroupMembershipArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupMembershipMapInput)(nil)).Elem(), GroupMembershipMap{})
 	pulumi.RegisterOutputType(GroupMembershipOutput{})
 	pulumi.RegisterOutputType(GroupMembershipPtrOutput{})
 	pulumi.RegisterOutputType(GroupMembershipArrayOutput{})

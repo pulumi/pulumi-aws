@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Ec2
 {
@@ -64,6 +65,60 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public static Task<GetNatGatewayResult> InvokeAsync(GetNatGatewayArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNatGatewayResult>("aws:ec2/getNatGateway:getNatGateway", args ?? new GetNatGatewayArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Provides details about a specific Nat Gateway.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var config = new Config();
+        ///         var subnetId = config.RequireObject&lt;dynamic&gt;("subnetId");
+        ///         var @default = Output.Create(Aws.Ec2.GetNatGateway.InvokeAsync(new Aws.Ec2.GetNatGatewayArgs
+        ///         {
+        ///             SubnetId = aws_subnet.Public.Id,
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// Usage with tags:
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var @default = Output.Create(Aws.Ec2.GetNatGateway.InvokeAsync(new Aws.Ec2.GetNatGatewayArgs
+        ///         {
+        ///             SubnetId = aws_subnet.Public.Id,
+        ///             Tags = 
+        ///             {
+        ///                 { "Name", "gw NAT" },
+        ///             },
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetNatGatewayResult> Invoke(GetNatGatewayInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetNatGatewayResult>("aws:ec2/getNatGateway:getNatGateway", args ?? new GetNatGatewayInvokeArgs(), options.WithVersion());
     }
 
 
@@ -119,6 +174,62 @@ namespace Pulumi.Aws.Ec2
         public string? VpcId { get; set; }
 
         public GetNatGatewayArgs()
+        {
+        }
+    }
+
+    public sealed class GetNatGatewayInvokeArgs : Pulumi.InvokeArgs
+    {
+        [Input("filters")]
+        private InputList<Inputs.GetNatGatewayFilterInputArgs>? _filters;
+
+        /// <summary>
+        /// Custom filter block as described below.
+        /// </summary>
+        public InputList<Inputs.GetNatGatewayFilterInputArgs> Filters
+        {
+            get => _filters ?? (_filters = new InputList<Inputs.GetNatGatewayFilterInputArgs>());
+            set => _filters = value;
+        }
+
+        /// <summary>
+        /// The id of the specific Nat Gateway to retrieve.
+        /// </summary>
+        [Input("id")]
+        public Input<string>? Id { get; set; }
+
+        /// <summary>
+        /// The state of the NAT gateway (pending | failed | available | deleting | deleted ).
+        /// </summary>
+        [Input("state")]
+        public Input<string>? State { get; set; }
+
+        /// <summary>
+        /// The id of subnet that the Nat Gateway resides in.
+        /// </summary>
+        [Input("subnetId")]
+        public Input<string>? SubnetId { get; set; }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags, each pair of which must exactly match
+        /// a pair on the desired Nat Gateway.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        /// <summary>
+        /// The id of the VPC that the Nat Gateway resides in.
+        /// </summary>
+        [Input("vpcId")]
+        public Input<string>? VpcId { get; set; }
+
+        public GetNatGatewayInvokeArgs()
         {
         }
     }

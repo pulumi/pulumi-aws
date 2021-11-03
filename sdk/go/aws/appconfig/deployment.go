@@ -401,6 +401,10 @@ func (o DeploymentMapOutput) MapIndex(k pulumi.StringInput) DeploymentOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentInput)(nil)).Elem(), &Deployment{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentPtrInput)(nil)).Elem(), &Deployment{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentArrayInput)(nil)).Elem(), DeploymentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentMapInput)(nil)).Elem(), DeploymentMap{})
 	pulumi.RegisterOutputType(DeploymentOutput{})
 	pulumi.RegisterOutputType(DeploymentPtrOutput{})
 	pulumi.RegisterOutputType(DeploymentArrayOutput{})

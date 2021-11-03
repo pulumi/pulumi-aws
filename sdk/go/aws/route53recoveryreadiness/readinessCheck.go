@@ -337,6 +337,10 @@ func (o ReadinessCheckMapOutput) MapIndex(k pulumi.StringInput) ReadinessCheckOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ReadinessCheckInput)(nil)).Elem(), &ReadinessCheck{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReadinessCheckPtrInput)(nil)).Elem(), &ReadinessCheck{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReadinessCheckArrayInput)(nil)).Elem(), ReadinessCheckArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReadinessCheckMapInput)(nil)).Elem(), ReadinessCheckMap{})
 	pulumi.RegisterOutputType(ReadinessCheckOutput{})
 	pulumi.RegisterOutputType(ReadinessCheckPtrOutput{})
 	pulumi.RegisterOutputType(ReadinessCheckArrayOutput{})

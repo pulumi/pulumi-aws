@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Lambda
 {
@@ -40,6 +41,36 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         public static Task<GetAliasResult> InvokeAsync(GetAliasArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAliasResult>("aws:lambda/getAlias:getAlias", args ?? new GetAliasArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Provides information about a Lambda Alias.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var production = Output.Create(Aws.Lambda.GetAlias.InvokeAsync(new Aws.Lambda.GetAliasArgs
+        ///         {
+        ///             FunctionName = "my-lambda-func",
+        ///             Name = "production",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetAliasResult> Invoke(GetAliasInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetAliasResult>("aws:lambda/getAlias:getAlias", args ?? new GetAliasInvokeArgs(), options.WithVersion());
     }
 
 
@@ -58,6 +89,25 @@ namespace Pulumi.Aws.Lambda
         public string Name { get; set; } = null!;
 
         public GetAliasArgs()
+        {
+        }
+    }
+
+    public sealed class GetAliasInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the aliased Lambda function.
+        /// </summary>
+        [Input("functionName", required: true)]
+        public Input<string> FunctionName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the Lambda alias.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        public GetAliasInvokeArgs()
         {
         }
     }

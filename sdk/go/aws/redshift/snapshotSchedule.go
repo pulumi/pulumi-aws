@@ -365,6 +365,10 @@ func (o SnapshotScheduleMapOutput) MapIndex(k pulumi.StringInput) SnapshotSchedu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotScheduleInput)(nil)).Elem(), &SnapshotSchedule{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotSchedulePtrInput)(nil)).Elem(), &SnapshotSchedule{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotScheduleArrayInput)(nil)).Elem(), SnapshotScheduleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotScheduleMapInput)(nil)).Elem(), SnapshotScheduleMap{})
 	pulumi.RegisterOutputType(SnapshotScheduleOutput{})
 	pulumi.RegisterOutputType(SnapshotSchedulePtrOutput{})
 	pulumi.RegisterOutputType(SnapshotScheduleArrayOutput{})

@@ -367,6 +367,10 @@ func (o WorkgroupMapOutput) MapIndex(k pulumi.StringInput) WorkgroupOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupInput)(nil)).Elem(), &Workgroup{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupPtrInput)(nil)).Elem(), &Workgroup{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupArrayInput)(nil)).Elem(), WorkgroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupMapInput)(nil)).Elem(), WorkgroupMap{})
 	pulumi.RegisterOutputType(WorkgroupOutput{})
 	pulumi.RegisterOutputType(WorkgroupPtrOutput{})
 	pulumi.RegisterOutputType(WorkgroupArrayOutput{})

@@ -328,6 +328,10 @@ func (o FileSystemPolicyMapOutput) MapIndex(k pulumi.StringInput) FileSystemPoli
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemPolicyInput)(nil)).Elem(), &FileSystemPolicy{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemPolicyPtrInput)(nil)).Elem(), &FileSystemPolicy{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemPolicyArrayInput)(nil)).Elem(), FileSystemPolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemPolicyMapInput)(nil)).Elem(), FileSystemPolicyMap{})
 	pulumi.RegisterOutputType(FileSystemPolicyOutput{})
 	pulumi.RegisterOutputType(FileSystemPolicyPtrOutput{})
 	pulumi.RegisterOutputType(FileSystemPolicyArrayOutput{})

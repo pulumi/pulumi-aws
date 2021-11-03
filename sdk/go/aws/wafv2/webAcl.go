@@ -635,6 +635,10 @@ func (o WebAclMapOutput) MapIndex(k pulumi.StringInput) WebAclOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclInput)(nil)).Elem(), &WebAcl{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclPtrInput)(nil)).Elem(), &WebAcl{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclArrayInput)(nil)).Elem(), WebAclArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclMapInput)(nil)).Elem(), WebAclMap{})
 	pulumi.RegisterOutputType(WebAclOutput{})
 	pulumi.RegisterOutputType(WebAclPtrOutput{})
 	pulumi.RegisterOutputType(WebAclArrayOutput{})

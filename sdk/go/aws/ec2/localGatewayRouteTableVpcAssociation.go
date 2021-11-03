@@ -335,6 +335,10 @@ func (o LocalGatewayRouteTableVpcAssociationMapOutput) MapIndex(k pulumi.StringI
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LocalGatewayRouteTableVpcAssociationInput)(nil)).Elem(), &LocalGatewayRouteTableVpcAssociation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LocalGatewayRouteTableVpcAssociationPtrInput)(nil)).Elem(), &LocalGatewayRouteTableVpcAssociation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LocalGatewayRouteTableVpcAssociationArrayInput)(nil)).Elem(), LocalGatewayRouteTableVpcAssociationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LocalGatewayRouteTableVpcAssociationMapInput)(nil)).Elem(), LocalGatewayRouteTableVpcAssociationMap{})
 	pulumi.RegisterOutputType(LocalGatewayRouteTableVpcAssociationOutput{})
 	pulumi.RegisterOutputType(LocalGatewayRouteTableVpcAssociationPtrOutput{})
 	pulumi.RegisterOutputType(LocalGatewayRouteTableVpcAssociationArrayOutput{})

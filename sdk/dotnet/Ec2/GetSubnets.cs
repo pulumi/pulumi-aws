@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Ec2
 {
@@ -16,6 +17,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public static Task<GetSubnetsResult> InvokeAsync(GetSubnetsArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSubnetsResult>("aws:ec2/getSubnets:getSubnets", args ?? new GetSubnetsArgs(), options.WithVersion());
+
+        /// <summary>
+        /// This resource can be useful for getting back a set of subnet IDs.
+        /// </summary>
+        public static Output<GetSubnetsResult> Invoke(GetSubnetsInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSubnetsResult>("aws:ec2/getSubnets:getSubnets", args ?? new GetSubnetsInvokeArgs(), options.WithVersion());
     }
 
 
@@ -47,6 +54,38 @@ namespace Pulumi.Aws.Ec2
         }
 
         public GetSubnetsArgs()
+        {
+        }
+    }
+
+    public sealed class GetSubnetsInvokeArgs : Pulumi.InvokeArgs
+    {
+        [Input("filters")]
+        private InputList<Inputs.GetSubnetsFilterInputArgs>? _filters;
+
+        /// <summary>
+        /// Custom filter block as described below.
+        /// </summary>
+        public InputList<Inputs.GetSubnetsFilterInputArgs> Filters
+        {
+            get => _filters ?? (_filters = new InputList<Inputs.GetSubnetsFilterInputArgs>());
+            set => _filters = value;
+        }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags, each pair of which must exactly match
+        /// a pair on the desired subnets.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        public GetSubnetsInvokeArgs()
         {
         }
     }

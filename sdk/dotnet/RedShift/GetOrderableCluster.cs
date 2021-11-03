@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.RedShift
 {
@@ -44,6 +45,40 @@ namespace Pulumi.Aws.RedShift
         /// </summary>
         public static Task<GetOrderableClusterResult> InvokeAsync(GetOrderableClusterArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetOrderableClusterResult>("aws:redshift/getOrderableCluster:getOrderableCluster", args ?? new GetOrderableClusterArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Information about Redshift Orderable Clusters and valid parameter combinations.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var test = Output.Create(Aws.RedShift.GetOrderableCluster.InvokeAsync(new Aws.RedShift.GetOrderableClusterArgs
+        ///         {
+        ///             ClusterType = "multi-node",
+        ///             PreferredNodeTypes = 
+        ///             {
+        ///                 "dc2.large",
+        ///                 "ds2.xlarge",
+        ///             },
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetOrderableClusterResult> Invoke(GetOrderableClusterInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetOrderableClusterResult>("aws:redshift/getOrderableCluster:getOrderableCluster", args ?? new GetOrderableClusterInvokeArgs(), options.WithVersion());
     }
 
 
@@ -80,6 +115,43 @@ namespace Pulumi.Aws.RedShift
         }
 
         public GetOrderableClusterArgs()
+        {
+        }
+    }
+
+    public sealed class GetOrderableClusterInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Reshift Cluster type. e.g. `multi-node` or `single-node`
+        /// </summary>
+        [Input("clusterType")]
+        public Input<string>? ClusterType { get; set; }
+
+        /// <summary>
+        /// Redshift Cluster version. e.g. `1.0`
+        /// </summary>
+        [Input("clusterVersion")]
+        public Input<string>? ClusterVersion { get; set; }
+
+        /// <summary>
+        /// Redshift Cluster node type. e.g. `dc2.8xlarge`
+        /// </summary>
+        [Input("nodeType")]
+        public Input<string>? NodeType { get; set; }
+
+        [Input("preferredNodeTypes")]
+        private InputList<string>? _preferredNodeTypes;
+
+        /// <summary>
+        /// Ordered list of preferred Redshift Cluster node types. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
+        /// </summary>
+        public InputList<string> PreferredNodeTypes
+        {
+            get => _preferredNodeTypes ?? (_preferredNodeTypes = new InputList<string>());
+            set => _preferredNodeTypes = value;
+        }
+
+        public GetOrderableClusterInvokeArgs()
         {
         }
     }

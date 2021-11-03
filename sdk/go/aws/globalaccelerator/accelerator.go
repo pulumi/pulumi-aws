@@ -369,6 +369,10 @@ func (o AcceleratorMapOutput) MapIndex(k pulumi.StringInput) AcceleratorOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AcceleratorInput)(nil)).Elem(), &Accelerator{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AcceleratorPtrInput)(nil)).Elem(), &Accelerator{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AcceleratorArrayInput)(nil)).Elem(), AcceleratorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AcceleratorMapInput)(nil)).Elem(), AcceleratorMap{})
 	pulumi.RegisterOutputType(AcceleratorOutput{})
 	pulumi.RegisterOutputType(AcceleratorPtrOutput{})
 	pulumi.RegisterOutputType(AcceleratorArrayOutput{})

@@ -322,6 +322,10 @@ func (o XssMatchSetMapOutput) MapIndex(k pulumi.StringInput) XssMatchSetOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*XssMatchSetInput)(nil)).Elem(), &XssMatchSet{})
+	pulumi.RegisterInputType(reflect.TypeOf((*XssMatchSetPtrInput)(nil)).Elem(), &XssMatchSet{})
+	pulumi.RegisterInputType(reflect.TypeOf((*XssMatchSetArrayInput)(nil)).Elem(), XssMatchSetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*XssMatchSetMapInput)(nil)).Elem(), XssMatchSetMap{})
 	pulumi.RegisterOutputType(XssMatchSetOutput{})
 	pulumi.RegisterOutputType(XssMatchSetPtrOutput{})
 	pulumi.RegisterOutputType(XssMatchSetArrayOutput{})

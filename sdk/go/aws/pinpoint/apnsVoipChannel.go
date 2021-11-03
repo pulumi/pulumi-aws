@@ -408,6 +408,10 @@ func (o ApnsVoipChannelMapOutput) MapIndex(k pulumi.StringInput) ApnsVoipChannel
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ApnsVoipChannelInput)(nil)).Elem(), &ApnsVoipChannel{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApnsVoipChannelPtrInput)(nil)).Elem(), &ApnsVoipChannel{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApnsVoipChannelArrayInput)(nil)).Elem(), ApnsVoipChannelArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApnsVoipChannelMapInput)(nil)).Elem(), ApnsVoipChannelMap{})
 	pulumi.RegisterOutputType(ApnsVoipChannelOutput{})
 	pulumi.RegisterOutputType(ApnsVoipChannelPtrOutput{})
 	pulumi.RegisterOutputType(ApnsVoipChannelArrayOutput{})

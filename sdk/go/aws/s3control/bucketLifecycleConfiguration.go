@@ -334,6 +334,10 @@ func (o BucketLifecycleConfigurationMapOutput) MapIndex(k pulumi.StringInput) Bu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketLifecycleConfigurationInput)(nil)).Elem(), &BucketLifecycleConfiguration{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketLifecycleConfigurationPtrInput)(nil)).Elem(), &BucketLifecycleConfiguration{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketLifecycleConfigurationArrayInput)(nil)).Elem(), BucketLifecycleConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketLifecycleConfigurationMapInput)(nil)).Elem(), BucketLifecycleConfigurationMap{})
 	pulumi.RegisterOutputType(BucketLifecycleConfigurationOutput{})
 	pulumi.RegisterOutputType(BucketLifecycleConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(BucketLifecycleConfigurationArrayOutput{})

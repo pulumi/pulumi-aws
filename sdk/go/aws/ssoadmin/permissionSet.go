@@ -344,6 +344,10 @@ func (o PermissionSetMapOutput) MapIndex(k pulumi.StringInput) PermissionSetOutp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PermissionSetInput)(nil)).Elem(), &PermissionSet{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PermissionSetPtrInput)(nil)).Elem(), &PermissionSet{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PermissionSetArrayInput)(nil)).Elem(), PermissionSetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PermissionSetMapInput)(nil)).Elem(), PermissionSetMap{})
 	pulumi.RegisterOutputType(PermissionSetOutput{})
 	pulumi.RegisterOutputType(PermissionSetPtrOutput{})
 	pulumi.RegisterOutputType(PermissionSetArrayOutput{})

@@ -319,6 +319,10 @@ func (o DashboardMapOutput) MapIndex(k pulumi.StringInput) DashboardOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardInput)(nil)).Elem(), &Dashboard{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardPtrInput)(nil)).Elem(), &Dashboard{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardArrayInput)(nil)).Elem(), DashboardArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardMapInput)(nil)).Elem(), DashboardMap{})
 	pulumi.RegisterOutputType(DashboardOutput{})
 	pulumi.RegisterOutputType(DashboardPtrOutput{})
 	pulumi.RegisterOutputType(DashboardArrayOutput{})

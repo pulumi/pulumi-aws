@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Connect
 {
@@ -62,6 +63,58 @@ namespace Pulumi.Aws.Connect
         /// </summary>
         public static Task<GetContactFlowResult> InvokeAsync(GetContactFlowArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetContactFlowResult>("aws:connect/getContactFlow:getContactFlow", args ?? new GetContactFlowArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Provides details about a specific Amazon Connect Contact Flow.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// By name
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var test = Output.Create(Aws.Connect.GetContactFlow.InvokeAsync(new Aws.Connect.GetContactFlowArgs
+        ///         {
+        ///             InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+        ///             Name = "Test",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// By contact_flow_id
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var test = Output.Create(Aws.Connect.GetContactFlow.InvokeAsync(new Aws.Connect.GetContactFlowArgs
+        ///         {
+        ///             ContactFlowId = "cccccccc-bbbb-cccc-dddd-111111111111",
+        ///             InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetContactFlowResult> Invoke(GetContactFlowInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetContactFlowResult>("aws:connect/getContactFlow:getContactFlow", args ?? new GetContactFlowInvokeArgs(), options.WithVersion());
     }
 
 
@@ -104,6 +157,49 @@ namespace Pulumi.Aws.Connect
         public string? Type { get; set; }
 
         public GetContactFlowArgs()
+        {
+        }
+    }
+
+    public sealed class GetContactFlowInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Returns information on a specific Contact Flow by contact flow id
+        /// </summary>
+        [Input("contactFlowId")]
+        public Input<string>? ContactFlowId { get; set; }
+
+        /// <summary>
+        /// Reference to the hosting Amazon Connect Instance
+        /// </summary>
+        [Input("instanceId", required: true)]
+        public Input<string> InstanceId { get; set; } = null!;
+
+        /// <summary>
+        /// Returns information on a specific Contact Flow by name
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A the map of tags to assign to the Contact Flow.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        /// <summary>
+        /// Specifies the type of Contact Flow.
+        /// </summary>
+        [Input("type")]
+        public Input<string>? Type { get; set; }
+
+        public GetContactFlowInvokeArgs()
         {
         }
     }

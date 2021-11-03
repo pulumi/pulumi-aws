@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.ServiceDiscovery
 {
@@ -40,6 +41,36 @@ namespace Pulumi.Aws.ServiceDiscovery
         /// </summary>
         public static Task<GetDnsNamespaceResult> InvokeAsync(GetDnsNamespaceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDnsNamespaceResult>("aws:servicediscovery/getDnsNamespace:getDnsNamespace", args ?? new GetDnsNamespaceArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Retrieves information about a Service Discovery private or public DNS namespace.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var test = Output.Create(Aws.ServiceDiscovery.GetDnsNamespace.InvokeAsync(new Aws.ServiceDiscovery.GetDnsNamespaceArgs
+        ///         {
+        ///             Name = "example.service.local",
+        ///             Type = "DNS_PRIVATE",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetDnsNamespaceResult> Invoke(GetDnsNamespaceInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetDnsNamespaceResult>("aws:servicediscovery/getDnsNamespace:getDnsNamespace", args ?? new GetDnsNamespaceInvokeArgs(), options.WithVersion());
     }
 
 
@@ -58,6 +89,25 @@ namespace Pulumi.Aws.ServiceDiscovery
         public string Type { get; set; } = null!;
 
         public GetDnsNamespaceArgs()
+        {
+        }
+    }
+
+    public sealed class GetDnsNamespaceInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the namespace.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The type of the namespace. Allowed values are `DNS_PUBLIC` or `DNS_PRIVATE`.
+        /// </summary>
+        [Input("type", required: true)]
+        public Input<string> Type { get; set; } = null!;
+
+        public GetDnsNamespaceInvokeArgs()
         {
         }
     }

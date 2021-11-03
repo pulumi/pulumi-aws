@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Backup
 {
@@ -39,6 +40,35 @@ namespace Pulumi.Aws.Backup
         /// </summary>
         public static Task<GetPlanResult> InvokeAsync(GetPlanArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPlanResult>("aws:backup/getPlan:getPlan", args ?? new GetPlanArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to get information on an existing backup plan.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.Backup.GetPlan.InvokeAsync(new Aws.Backup.GetPlanArgs
+        ///         {
+        ///             PlanId = "tf_example_backup_plan_id",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetPlanResult> Invoke(GetPlanInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetPlanResult>("aws:backup/getPlan:getPlan", args ?? new GetPlanInvokeArgs(), options.WithVersion());
     }
 
 
@@ -63,6 +93,31 @@ namespace Pulumi.Aws.Backup
         }
 
         public GetPlanArgs()
+        {
+        }
+    }
+
+    public sealed class GetPlanInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The backup plan ID.
+        /// </summary>
+        [Input("planId", required: true)]
+        public Input<string> PlanId { get; set; } = null!;
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Metadata that you can assign to help organize the plans you create.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        public GetPlanInvokeArgs()
         {
         }
     }

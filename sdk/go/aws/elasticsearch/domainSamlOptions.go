@@ -340,6 +340,10 @@ func (o DomainSamlOptionsMapOutput) MapIndex(k pulumi.StringInput) DomainSamlOpt
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainSamlOptionsInput)(nil)).Elem(), &DomainSamlOptions{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainSamlOptionsPtrInput)(nil)).Elem(), &DomainSamlOptions{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainSamlOptionsArrayInput)(nil)).Elem(), DomainSamlOptionsArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainSamlOptionsMapInput)(nil)).Elem(), DomainSamlOptionsMap{})
 	pulumi.RegisterOutputType(DomainSamlOptionsOutput{})
 	pulumi.RegisterOutputType(DomainSamlOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DomainSamlOptionsArrayOutput{})

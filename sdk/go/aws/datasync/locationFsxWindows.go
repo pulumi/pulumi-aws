@@ -395,6 +395,10 @@ func (o LocationFsxWindowsMapOutput) MapIndex(k pulumi.StringInput) LocationFsxW
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationFsxWindowsInput)(nil)).Elem(), &LocationFsxWindows{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationFsxWindowsPtrInput)(nil)).Elem(), &LocationFsxWindows{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationFsxWindowsArrayInput)(nil)).Elem(), LocationFsxWindowsArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationFsxWindowsMapInput)(nil)).Elem(), LocationFsxWindowsMap{})
 	pulumi.RegisterOutputType(LocationFsxWindowsOutput{})
 	pulumi.RegisterOutputType(LocationFsxWindowsPtrOutput{})
 	pulumi.RegisterOutputType(LocationFsxWindowsArrayOutput{})

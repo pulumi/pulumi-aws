@@ -325,6 +325,10 @@ func (o ResourceDataSyncMapOutput) MapIndex(k pulumi.StringInput) ResourceDataSy
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceDataSyncInput)(nil)).Elem(), &ResourceDataSync{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceDataSyncPtrInput)(nil)).Elem(), &ResourceDataSync{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceDataSyncArrayInput)(nil)).Elem(), ResourceDataSyncArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceDataSyncMapInput)(nil)).Elem(), ResourceDataSyncMap{})
 	pulumi.RegisterOutputType(ResourceDataSyncOutput{})
 	pulumi.RegisterOutputType(ResourceDataSyncPtrOutput{})
 	pulumi.RegisterOutputType(ResourceDataSyncArrayOutput{})

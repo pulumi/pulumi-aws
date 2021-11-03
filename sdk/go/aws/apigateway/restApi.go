@@ -585,6 +585,10 @@ func (o RestApiMapOutput) MapIndex(k pulumi.StringInput) RestApiOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RestApiInput)(nil)).Elem(), &RestApi{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RestApiPtrInput)(nil)).Elem(), &RestApi{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RestApiArrayInput)(nil)).Elem(), RestApiArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RestApiMapInput)(nil)).Elem(), RestApiMap{})
 	pulumi.RegisterOutputType(RestApiOutput{})
 	pulumi.RegisterOutputType(RestApiPtrOutput{})
 	pulumi.RegisterOutputType(RestApiArrayOutput{})

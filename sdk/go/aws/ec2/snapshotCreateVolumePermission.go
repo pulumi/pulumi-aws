@@ -317,6 +317,10 @@ func (o SnapshotCreateVolumePermissionMapOutput) MapIndex(k pulumi.StringInput) 
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotCreateVolumePermissionInput)(nil)).Elem(), &SnapshotCreateVolumePermission{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotCreateVolumePermissionPtrInput)(nil)).Elem(), &SnapshotCreateVolumePermission{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotCreateVolumePermissionArrayInput)(nil)).Elem(), SnapshotCreateVolumePermissionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotCreateVolumePermissionMapInput)(nil)).Elem(), SnapshotCreateVolumePermissionMap{})
 	pulumi.RegisterOutputType(SnapshotCreateVolumePermissionOutput{})
 	pulumi.RegisterOutputType(SnapshotCreateVolumePermissionPtrOutput{})
 	pulumi.RegisterOutputType(SnapshotCreateVolumePermissionArrayOutput{})

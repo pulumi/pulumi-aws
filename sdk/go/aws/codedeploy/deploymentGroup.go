@@ -668,6 +668,10 @@ func (o DeploymentGroupMapOutput) MapIndex(k pulumi.StringInput) DeploymentGroup
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupInput)(nil)).Elem(), &DeploymentGroup{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupPtrInput)(nil)).Elem(), &DeploymentGroup{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupArrayInput)(nil)).Elem(), DeploymentGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupMapInput)(nil)).Elem(), DeploymentGroupMap{})
 	pulumi.RegisterOutputType(DeploymentGroupOutput{})
 	pulumi.RegisterOutputType(DeploymentGroupPtrOutput{})
 	pulumi.RegisterOutputType(DeploymentGroupArrayOutput{})

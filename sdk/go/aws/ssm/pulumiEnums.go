@@ -176,6 +176,8 @@ func (in *parameterTypePtr) ToParameterTypePtrOutputWithContext(ctx context.Cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ParameterTypeInput)(nil)).Elem(), ParameterType("String"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ParameterTypePtrInput)(nil)).Elem(), ParameterType("String"))
 	pulumi.RegisterOutputType(ParameterTypeOutput{})
 	pulumi.RegisterOutputType(ParameterTypePtrOutput{})
 }

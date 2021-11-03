@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.LakeFormation
 {
@@ -39,6 +40,35 @@ namespace Pulumi.Aws.LakeFormation
         /// </summary>
         public static Task<GetDataLakeSettingsResult> InvokeAsync(GetDataLakeSettingsArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDataLakeSettingsResult>("aws:lakeformation/getDataLakeSettings:getDataLakeSettings", args ?? new GetDataLakeSettingsArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Get Lake Formation principals designated as data lake administrators and lists of principal permission entries for default create database and default create table permissions.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.LakeFormation.GetDataLakeSettings.InvokeAsync(new Aws.LakeFormation.GetDataLakeSettingsArgs
+        ///         {
+        ///             CatalogId = "14916253649",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetDataLakeSettingsResult> Invoke(GetDataLakeSettingsInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetDataLakeSettingsResult>("aws:lakeformation/getDataLakeSettings:getDataLakeSettings", args ?? new GetDataLakeSettingsInvokeArgs(), options.WithVersion());
     }
 
 
@@ -51,6 +81,19 @@ namespace Pulumi.Aws.LakeFormation
         public string? CatalogId { get; set; }
 
         public GetDataLakeSettingsArgs()
+        {
+        }
+    }
+
+    public sealed class GetDataLakeSettingsInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Identifier for the Data Catalog. By default, the account ID.
+        /// </summary>
+        [Input("catalogId")]
+        public Input<string>? CatalogId { get; set; }
+
+        public GetDataLakeSettingsInvokeArgs()
         {
         }
     }

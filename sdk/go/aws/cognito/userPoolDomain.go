@@ -401,6 +401,10 @@ func (o UserPoolDomainMapOutput) MapIndex(k pulumi.StringInput) UserPoolDomainOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolDomainInput)(nil)).Elem(), &UserPoolDomain{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolDomainPtrInput)(nil)).Elem(), &UserPoolDomain{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolDomainArrayInput)(nil)).Elem(), UserPoolDomainArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolDomainMapInput)(nil)).Elem(), UserPoolDomainMap{})
 	pulumi.RegisterOutputType(UserPoolDomainOutput{})
 	pulumi.RegisterOutputType(UserPoolDomainPtrOutput{})
 	pulumi.RegisterOutputType(UserPoolDomainArrayOutput{})

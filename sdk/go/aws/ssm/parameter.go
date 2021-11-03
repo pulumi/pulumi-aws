@@ -464,6 +464,10 @@ func (o ParameterMapOutput) MapIndex(k pulumi.StringInput) ParameterOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ParameterInput)(nil)).Elem(), &Parameter{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ParameterPtrInput)(nil)).Elem(), &Parameter{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ParameterArrayInput)(nil)).Elem(), ParameterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ParameterMapInput)(nil)).Elem(), ParameterMap{})
 	pulumi.RegisterOutputType(ParameterOutput{})
 	pulumi.RegisterOutputType(ParameterPtrOutput{})
 	pulumi.RegisterOutputType(ParameterArrayOutput{})

@@ -526,6 +526,10 @@ func (o JavaAppLayerMapOutput) MapIndex(k pulumi.StringInput) JavaAppLayerOutput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*JavaAppLayerInput)(nil)).Elem(), &JavaAppLayer{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JavaAppLayerPtrInput)(nil)).Elem(), &JavaAppLayer{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JavaAppLayerArrayInput)(nil)).Elem(), JavaAppLayerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JavaAppLayerMapInput)(nil)).Elem(), JavaAppLayerMap{})
 	pulumi.RegisterOutputType(JavaAppLayerOutput{})
 	pulumi.RegisterOutputType(JavaAppLayerPtrOutput{})
 	pulumi.RegisterOutputType(JavaAppLayerArrayOutput{})

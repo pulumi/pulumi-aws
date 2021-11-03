@@ -907,6 +907,10 @@ func (o SpotInstanceRequestMapOutput) MapIndex(k pulumi.StringInput) SpotInstanc
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SpotInstanceRequestInput)(nil)).Elem(), &SpotInstanceRequest{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpotInstanceRequestPtrInput)(nil)).Elem(), &SpotInstanceRequest{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpotInstanceRequestArrayInput)(nil)).Elem(), SpotInstanceRequestArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpotInstanceRequestMapInput)(nil)).Elem(), SpotInstanceRequestMap{})
 	pulumi.RegisterOutputType(SpotInstanceRequestOutput{})
 	pulumi.RegisterOutputType(SpotInstanceRequestPtrOutput{})
 	pulumi.RegisterOutputType(SpotInstanceRequestArrayOutput{})

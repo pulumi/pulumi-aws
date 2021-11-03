@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.ServiceCatalog
 {
@@ -42,6 +43,38 @@ namespace Pulumi.Aws.ServiceCatalog
         /// </summary>
         public static Task<GetProductResult> InvokeAsync(GetProductArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetProductResult>("aws:servicecatalog/getProduct:getProduct", args ?? new GetProductArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Provides information on a Service Catalog Product.
+        /// 
+        /// &gt; **Tip:** A "provisioning artifact" is also referred to as a "version." A "distributor" is also referred to as a "vendor."
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.ServiceCatalog.GetProduct.InvokeAsync(new Aws.ServiceCatalog.GetProductArgs
+        ///         {
+        ///             Id = "prod-dnigbtea24ste",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetProductResult> Invoke(GetProductInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetProductResult>("aws:servicecatalog/getProduct:getProduct", args ?? new GetProductInvokeArgs(), options.WithVersion());
     }
 
 
@@ -72,6 +105,37 @@ namespace Pulumi.Aws.ServiceCatalog
         }
 
         public GetProductArgs()
+        {
+        }
+    }
+
+    public sealed class GetProductInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
+        /// </summary>
+        [Input("acceptLanguage")]
+        public Input<string>? AcceptLanguage { get; set; }
+
+        /// <summary>
+        /// Product ID.
+        /// </summary>
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Tags to apply to the product.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        public GetProductInvokeArgs()
         {
         }
     }

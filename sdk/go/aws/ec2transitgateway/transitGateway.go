@@ -385,6 +385,10 @@ func (o TransitGatewayMapOutput) MapIndex(k pulumi.StringInput) TransitGatewayOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayInput)(nil)).Elem(), &TransitGateway{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayPtrInput)(nil)).Elem(), &TransitGateway{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayArrayInput)(nil)).Elem(), TransitGatewayArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayMapInput)(nil)).Elem(), TransitGatewayMap{})
 	pulumi.RegisterOutputType(TransitGatewayOutput{})
 	pulumi.RegisterOutputType(TransitGatewayPtrOutput{})
 	pulumi.RegisterOutputType(TransitGatewayArrayOutput{})

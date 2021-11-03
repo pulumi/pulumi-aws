@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.ApiGatewayV2
 {
@@ -39,6 +40,35 @@ namespace Pulumi.Aws.ApiGatewayV2
         /// </summary>
         public static Task<GetApisResult> InvokeAsync(GetApisArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetApisResult>("aws:apigatewayv2/getApis:getApis", args ?? new GetApisArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Provides details about multiple Amazon API Gateway Version 2 APIs.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.ApiGatewayV2.GetApis.InvokeAsync(new Aws.ApiGatewayV2.GetApisArgs
+        ///         {
+        ///             ProtocolType = "HTTP",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetApisResult> Invoke(GetApisInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetApisResult>("aws:apigatewayv2/getApis:getApis", args ?? new GetApisInvokeArgs(), options.WithVersion());
     }
 
 
@@ -70,6 +100,38 @@ namespace Pulumi.Aws.ApiGatewayV2
         }
 
         public GetApisArgs()
+        {
+        }
+    }
+
+    public sealed class GetApisInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The API name.
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The API protocol.
+        /// </summary>
+        [Input("protocolType")]
+        public Input<string>? ProtocolType { get; set; }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags, each pair of which must exactly match
+        /// a pair on the desired APIs.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        public GetApisInvokeArgs()
         {
         }
     }

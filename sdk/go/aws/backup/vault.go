@@ -331,6 +331,10 @@ func (o VaultMapOutput) MapIndex(k pulumi.StringInput) VaultOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*VaultInput)(nil)).Elem(), &Vault{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VaultPtrInput)(nil)).Elem(), &Vault{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VaultArrayInput)(nil)).Elem(), VaultArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VaultMapInput)(nil)).Elem(), VaultMap{})
 	pulumi.RegisterOutputType(VaultOutput{})
 	pulumi.RegisterOutputType(VaultPtrOutput{})
 	pulumi.RegisterOutputType(VaultArrayOutput{})

@@ -615,6 +615,10 @@ func (o PatchBaselineMapOutput) MapIndex(k pulumi.StringInput) PatchBaselineOutp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PatchBaselineInput)(nil)).Elem(), &PatchBaseline{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PatchBaselinePtrInput)(nil)).Elem(), &PatchBaseline{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PatchBaselineArrayInput)(nil)).Elem(), PatchBaselineArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PatchBaselineMapInput)(nil)).Elem(), PatchBaselineMap{})
 	pulumi.RegisterOutputType(PatchBaselineOutput{})
 	pulumi.RegisterOutputType(PatchBaselinePtrOutput{})
 	pulumi.RegisterOutputType(PatchBaselineArrayOutput{})

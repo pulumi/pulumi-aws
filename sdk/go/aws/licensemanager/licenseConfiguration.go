@@ -397,6 +397,10 @@ func (o LicenseConfigurationMapOutput) MapIndex(k pulumi.StringInput) LicenseCon
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LicenseConfigurationInput)(nil)).Elem(), &LicenseConfiguration{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LicenseConfigurationPtrInput)(nil)).Elem(), &LicenseConfiguration{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LicenseConfigurationArrayInput)(nil)).Elem(), LicenseConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LicenseConfigurationMapInput)(nil)).Elem(), LicenseConfigurationMap{})
 	pulumi.RegisterOutputType(LicenseConfigurationOutput{})
 	pulumi.RegisterOutputType(LicenseConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(LicenseConfigurationArrayOutput{})

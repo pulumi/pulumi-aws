@@ -338,6 +338,10 @@ func (o DocumentationVersionMapOutput) MapIndex(k pulumi.StringInput) Documentat
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DocumentationVersionInput)(nil)).Elem(), &DocumentationVersion{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DocumentationVersionPtrInput)(nil)).Elem(), &DocumentationVersion{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DocumentationVersionArrayInput)(nil)).Elem(), DocumentationVersionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DocumentationVersionMapInput)(nil)).Elem(), DocumentationVersionMap{})
 	pulumi.RegisterOutputType(DocumentationVersionOutput{})
 	pulumi.RegisterOutputType(DocumentationVersionPtrOutput{})
 	pulumi.RegisterOutputType(DocumentationVersionArrayOutput{})

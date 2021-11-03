@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Route53
 {
@@ -42,6 +43,38 @@ namespace Pulumi.Aws.Route53
         /// </summary>
         public static Task<GetResolverRuleResult> InvokeAsync(GetResolverRuleArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetResolverRuleResult>("aws:route53/getResolverRule:getResolverRule", args ?? new GetResolverRuleArgs(), options.WithVersion());
+
+        /// <summary>
+        /// `aws.route53.ResolverRule` provides details about a specific Route53 Resolver rule.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// The following example shows how to get a Route53 Resolver rule based on its associated domain name and rule type.
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.Route53.GetResolverRule.InvokeAsync(new Aws.Route53.GetResolverRuleArgs
+        ///         {
+        ///             DomainName = "subdomain.example.com",
+        ///             RuleType = "SYSTEM",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetResolverRuleResult> Invoke(GetResolverRuleInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetResolverRuleResult>("aws:route53/getResolverRule:getResolverRule", args ?? new GetResolverRuleInvokeArgs(), options.WithVersion());
     }
 
 
@@ -90,6 +123,55 @@ namespace Pulumi.Aws.Route53
         }
 
         public GetResolverRuleArgs()
+        {
+        }
+    }
+
+    public sealed class GetResolverRuleInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The domain name the desired resolver rule forwards DNS queries for. Conflicts with `resolver_rule_id`.
+        /// </summary>
+        [Input("domainName")]
+        public Input<string>? DomainName { get; set; }
+
+        /// <summary>
+        /// The friendly name of the desired resolver rule. Conflicts with `resolver_rule_id`.
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The ID of the outbound resolver endpoint of the desired resolver rule. Conflicts with `resolver_rule_id`.
+        /// </summary>
+        [Input("resolverEndpointId")]
+        public Input<string>? ResolverEndpointId { get; set; }
+
+        /// <summary>
+        /// The ID of the desired resolver rule. Conflicts with `domain_name`, `name`, `resolver_endpoint_id` and `rule_type`.
+        /// </summary>
+        [Input("resolverRuleId")]
+        public Input<string>? ResolverRuleId { get; set; }
+
+        /// <summary>
+        /// The rule type of the desired resolver rule. Valid values are `FORWARD`, `SYSTEM` and `RECURSIVE`. Conflicts with `resolver_rule_id`.
+        /// </summary>
+        [Input("ruleType")]
+        public Input<string>? RuleType { get; set; }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags assigned to the resolver rule.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        public GetResolverRuleInvokeArgs()
         {
         }
     }

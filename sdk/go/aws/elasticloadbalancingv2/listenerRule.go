@@ -560,6 +560,10 @@ func (o ListenerRuleMapOutput) MapIndex(k pulumi.StringInput) ListenerRuleOutput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ListenerRuleInput)(nil)).Elem(), &ListenerRule{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ListenerRulePtrInput)(nil)).Elem(), &ListenerRule{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ListenerRuleArrayInput)(nil)).Elem(), ListenerRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ListenerRuleMapInput)(nil)).Elem(), ListenerRuleMap{})
 	pulumi.RegisterOutputType(ListenerRuleOutput{})
 	pulumi.RegisterOutputType(ListenerRulePtrOutput{})
 	pulumi.RegisterOutputType(ListenerRuleArrayOutput{})

@@ -835,6 +835,10 @@ func (o InstanceMapOutput) MapIndex(k pulumi.StringInput) InstanceOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceInput)(nil)).Elem(), &Instance{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstancePtrInput)(nil)).Elem(), &Instance{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceArrayInput)(nil)).Elem(), InstanceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceMapInput)(nil)).Elem(), InstanceMap{})
 	pulumi.RegisterOutputType(InstanceOutput{})
 	pulumi.RegisterOutputType(InstancePtrOutput{})
 	pulumi.RegisterOutputType(InstanceArrayOutput{})

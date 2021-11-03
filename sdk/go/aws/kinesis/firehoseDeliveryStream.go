@@ -759,6 +759,10 @@ func (o FirehoseDeliveryStreamMapOutput) MapIndex(k pulumi.StringInput) Firehose
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamInput)(nil)).Elem(), &FirehoseDeliveryStream{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamPtrInput)(nil)).Elem(), &FirehoseDeliveryStream{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamArrayInput)(nil)).Elem(), FirehoseDeliveryStreamArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamMapInput)(nil)).Elem(), FirehoseDeliveryStreamMap{})
 	pulumi.RegisterOutputType(FirehoseDeliveryStreamOutput{})
 	pulumi.RegisterOutputType(FirehoseDeliveryStreamPtrOutput{})
 	pulumi.RegisterOutputType(FirehoseDeliveryStreamArrayOutput{})

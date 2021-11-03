@@ -347,6 +347,10 @@ func (o ServiceLinkedRoleMapOutput) MapIndex(k pulumi.StringInput) ServiceLinked
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLinkedRoleInput)(nil)).Elem(), &ServiceLinkedRole{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLinkedRolePtrInput)(nil)).Elem(), &ServiceLinkedRole{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLinkedRoleArrayInput)(nil)).Elem(), ServiceLinkedRoleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceLinkedRoleMapInput)(nil)).Elem(), ServiceLinkedRoleMap{})
 	pulumi.RegisterOutputType(ServiceLinkedRoleOutput{})
 	pulumi.RegisterOutputType(ServiceLinkedRolePtrOutput{})
 	pulumi.RegisterOutputType(ServiceLinkedRoleArrayOutput{})

@@ -333,6 +333,10 @@ func (o ApiKeyMapOutput) MapIndex(k pulumi.StringInput) ApiKeyOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiKeyInput)(nil)).Elem(), &ApiKey{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiKeyPtrInput)(nil)).Elem(), &ApiKey{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiKeyArrayInput)(nil)).Elem(), ApiKeyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApiKeyMapInput)(nil)).Elem(), ApiKeyMap{})
 	pulumi.RegisterOutputType(ApiKeyOutput{})
 	pulumi.RegisterOutputType(ApiKeyPtrOutput{})
 	pulumi.RegisterOutputType(ApiKeyArrayOutput{})

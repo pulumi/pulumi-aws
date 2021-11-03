@@ -334,6 +334,10 @@ func (o EndpointMapOutput) MapIndex(k pulumi.StringInput) EndpointOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointInput)(nil)).Elem(), &Endpoint{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointPtrInput)(nil)).Elem(), &Endpoint{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointArrayInput)(nil)).Elem(), EndpointArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointMapInput)(nil)).Elem(), EndpointMap{})
 	pulumi.RegisterOutputType(EndpointOutput{})
 	pulumi.RegisterOutputType(EndpointPtrOutput{})
 	pulumi.RegisterOutputType(EndpointArrayOutput{})

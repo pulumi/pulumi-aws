@@ -314,6 +314,10 @@ func (o DomainPolicyMapOutput) MapIndex(k pulumi.StringInput) DomainPolicyOutput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainPolicyInput)(nil)).Elem(), &DomainPolicy{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainPolicyPtrInput)(nil)).Elem(), &DomainPolicy{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainPolicyArrayInput)(nil)).Elem(), DomainPolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainPolicyMapInput)(nil)).Elem(), DomainPolicyMap{})
 	pulumi.RegisterOutputType(DomainPolicyOutput{})
 	pulumi.RegisterOutputType(DomainPolicyPtrOutput{})
 	pulumi.RegisterOutputType(DomainPolicyArrayOutput{})

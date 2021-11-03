@@ -399,6 +399,10 @@ func (o DefaultRouteTableMapOutput) MapIndex(k pulumi.StringInput) DefaultRouteT
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DefaultRouteTableInput)(nil)).Elem(), &DefaultRouteTable{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DefaultRouteTablePtrInput)(nil)).Elem(), &DefaultRouteTable{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DefaultRouteTableArrayInput)(nil)).Elem(), DefaultRouteTableArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DefaultRouteTableMapInput)(nil)).Elem(), DefaultRouteTableMap{})
 	pulumi.RegisterOutputType(DefaultRouteTableOutput{})
 	pulumi.RegisterOutputType(DefaultRouteTablePtrOutput{})
 	pulumi.RegisterOutputType(DefaultRouteTableArrayOutput{})

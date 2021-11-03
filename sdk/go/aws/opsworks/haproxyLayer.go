@@ -540,6 +540,10 @@ func (o HaproxyLayerMapOutput) MapIndex(k pulumi.StringInput) HaproxyLayerOutput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*HaproxyLayerInput)(nil)).Elem(), &HaproxyLayer{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HaproxyLayerPtrInput)(nil)).Elem(), &HaproxyLayer{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HaproxyLayerArrayInput)(nil)).Elem(), HaproxyLayerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HaproxyLayerMapInput)(nil)).Elem(), HaproxyLayerMap{})
 	pulumi.RegisterOutputType(HaproxyLayerOutput{})
 	pulumi.RegisterOutputType(HaproxyLayerPtrOutput{})
 	pulumi.RegisterOutputType(HaproxyLayerArrayOutput{})

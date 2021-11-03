@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.ServiceCatalog
 {
@@ -39,6 +40,35 @@ namespace Pulumi.Aws.ServiceCatalog
         /// </summary>
         public static Task<GetPortfolioResult> InvokeAsync(GetPortfolioArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPortfolioResult>("aws:servicecatalog/getPortfolio:getPortfolio", args ?? new GetPortfolioArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Provides information for a Service Catalog Portfolio.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var portfolio = Output.Create(Aws.ServiceCatalog.GetPortfolio.InvokeAsync(new Aws.ServiceCatalog.GetPortfolioArgs
+        ///         {
+        ///             Id = "port-07052002",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetPortfolioResult> Invoke(GetPortfolioInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetPortfolioResult>("aws:servicecatalog/getPortfolio:getPortfolio", args ?? new GetPortfolioInvokeArgs(), options.WithVersion());
     }
 
 
@@ -69,6 +99,37 @@ namespace Pulumi.Aws.ServiceCatalog
         }
 
         public GetPortfolioArgs()
+        {
+        }
+    }
+
+    public sealed class GetPortfolioInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
+        /// </summary>
+        [Input("acceptLanguage")]
+        public Input<string>? AcceptLanguage { get; set; }
+
+        /// <summary>
+        /// Portfolio identifier.
+        /// </summary>
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Tags applied to the portfolio.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        public GetPortfolioInvokeArgs()
         {
         }
     }

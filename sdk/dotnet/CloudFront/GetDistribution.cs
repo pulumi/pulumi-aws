@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.CloudFront
 {
@@ -39,6 +40,35 @@ namespace Pulumi.Aws.CloudFront
         /// </summary>
         public static Task<GetDistributionResult> InvokeAsync(GetDistributionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDistributionResult>("aws:cloudfront/getDistribution:getDistribution", args ?? new GetDistributionArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to retrieve information about a CloudFront distribution.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var test = Output.Create(Aws.CloudFront.GetDistribution.InvokeAsync(new Aws.CloudFront.GetDistributionArgs
+        ///         {
+        ///             Id = "EDFDVBD632BHDS5",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetDistributionResult> Invoke(GetDistributionInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetDistributionResult>("aws:cloudfront/getDistribution:getDistribution", args ?? new GetDistributionInvokeArgs(), options.WithVersion());
     }
 
 
@@ -59,6 +89,27 @@ namespace Pulumi.Aws.CloudFront
         }
 
         public GetDistributionArgs()
+        {
+        }
+    }
+
+    public sealed class GetDistributionInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The identifier for the distribution. For example: `EDFDVBD632BHDS5`.
+        /// </summary>
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        public GetDistributionInvokeArgs()
         {
         }
     }

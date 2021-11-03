@@ -441,6 +441,10 @@ func (o ClusterEndpointMapOutput) MapIndex(k pulumi.StringInput) ClusterEndpoint
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterEndpointInput)(nil)).Elem(), &ClusterEndpoint{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterEndpointPtrInput)(nil)).Elem(), &ClusterEndpoint{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterEndpointArrayInput)(nil)).Elem(), ClusterEndpointArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterEndpointMapInput)(nil)).Elem(), ClusterEndpointMap{})
 	pulumi.RegisterOutputType(ClusterEndpointOutput{})
 	pulumi.RegisterOutputType(ClusterEndpointPtrOutput{})
 	pulumi.RegisterOutputType(ClusterEndpointArrayOutput{})

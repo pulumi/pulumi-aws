@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.CloudTrail
 {
@@ -71,6 +72,67 @@ namespace Pulumi.Aws.CloudTrail
         /// </summary>
         public static Task<GetServiceAccountResult> InvokeAsync(GetServiceAccountArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServiceAccountResult>("aws:cloudtrail/getServiceAccount:getServiceAccount", args ?? new GetServiceAccountArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to get the Account ID of the [AWS CloudTrail Service Account](http://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-supported-regions.html)
+        /// in a given region for the purpose of allowing CloudTrail to store trail data in S3.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var main = Output.Create(Aws.CloudTrail.GetServiceAccount.InvokeAsync());
+        ///         var bucket = new Aws.S3.Bucket("bucket", new Aws.S3.BucketArgs
+        ///         {
+        ///             ForceDestroy = true,
+        ///             Policy = Output.Tuple(main, main).Apply(values =&gt;
+        ///             {
+        ///                 var main = values.Item1;
+        ///                 var main1 = values.Item2;
+        ///                 return @$"{{
+        ///   ""Version"": ""2008-10-17"",
+        ///   ""Statement"": [
+        ///     {{
+        ///       ""Sid"": ""Put bucket policy needed for trails"",
+        ///       ""Effect"": ""Allow"",
+        ///       ""Principal"": {{
+        ///         ""AWS"": ""{main.Arn}""
+        ///       }},
+        ///       ""Action"": ""s3:PutObject"",
+        ///       ""Resource"": ""arn:aws:s3:::tf-cloudtrail-logging-test-bucket/*""
+        ///     }},
+        ///     {{
+        ///       ""Sid"": ""Get bucket policy needed for trails"",
+        ///       ""Effect"": ""Allow"",
+        ///       ""Principal"": {{
+        ///         ""AWS"": ""{main1.Arn}""
+        ///       }},
+        ///       ""Action"": ""s3:GetBucketAcl"",
+        ///       ""Resource"": ""arn:aws:s3:::tf-cloudtrail-logging-test-bucket""
+        ///     }}
+        ///   ]
+        /// }}
+        /// 
+        /// ";
+        ///             }),
+        ///         });
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetServiceAccountResult> Invoke(GetServiceAccountInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetServiceAccountResult>("aws:cloudtrail/getServiceAccount:getServiceAccount", args ?? new GetServiceAccountInvokeArgs(), options.WithVersion());
     }
 
 
@@ -84,6 +146,20 @@ namespace Pulumi.Aws.CloudTrail
         public string? Region { get; set; }
 
         public GetServiceAccountArgs()
+        {
+        }
+    }
+
+    public sealed class GetServiceAccountInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the region whose AWS CloudTrail account ID is desired.
+        /// Defaults to the region from the AWS provider configuration.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        public GetServiceAccountInvokeArgs()
         {
         }
     }

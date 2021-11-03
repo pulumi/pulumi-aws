@@ -500,6 +500,10 @@ func (o CatalogTableMapOutput) MapIndex(k pulumi.StringInput) CatalogTableOutput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogTableInput)(nil)).Elem(), &CatalogTable{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogTablePtrInput)(nil)).Elem(), &CatalogTable{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogTableArrayInput)(nil)).Elem(), CatalogTableArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogTableMapInput)(nil)).Elem(), CatalogTableMap{})
 	pulumi.RegisterOutputType(CatalogTableOutput{})
 	pulumi.RegisterOutputType(CatalogTablePtrOutput{})
 	pulumi.RegisterOutputType(CatalogTableArrayOutput{})

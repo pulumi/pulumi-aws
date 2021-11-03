@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Ec2TransitGateway
 {
@@ -73,6 +74,69 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// </summary>
         public static Task<GetVpnAttachmentResult> InvokeAsync(GetVpnAttachmentArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVpnAttachmentResult>("aws:ec2transitgateway/getVpnAttachment:getVpnAttachment", args ?? new GetVpnAttachmentArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Get information on an EC2 Transit Gateway VPN Attachment.
+        /// 
+        /// &gt; EC2 Transit Gateway VPN Attachments are implicitly created by VPN Connections referencing an EC2 Transit Gateway so there is no managed resource. For ease, the `aws.ec2.VpnConnection` resource includes a `transit_gateway_attachment_id` attribute which can replace some usage of this data source. For tagging the attachment, see the `aws.ec2.Tag` resource.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// ### By Transit Gateway and VPN Connection Identifiers
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.Ec2TransitGateway.GetVpnAttachment.InvokeAsync(new Aws.Ec2TransitGateway.GetVpnAttachmentArgs
+        ///         {
+        ///             TransitGatewayId = aws_ec2_transit_gateway.Example.Id,
+        ///             VpnConnectionId = aws_vpn_connection.Example.Id,
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% example %}}
+        /// ### Filter
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var test = Output.Create(Aws.Ec2TransitGateway.GetVpnAttachment.InvokeAsync(new Aws.Ec2TransitGateway.GetVpnAttachmentArgs
+        ///         {
+        ///             Filters = 
+        ///             {
+        ///                 new Aws.Ec2TransitGateway.Inputs.GetVpnAttachmentFilterArgs
+        ///                 {
+        ///                     Name = "resource-id",
+        ///                     Values = 
+        ///                     {
+        ///                         "some-resource",
+        ///                     },
+        ///                 },
+        ///             },
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetVpnAttachmentResult> Invoke(GetVpnAttachmentInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetVpnAttachmentResult>("aws:ec2transitgateway/getVpnAttachment:getVpnAttachment", args ?? new GetVpnAttachmentInvokeArgs(), options.WithVersion());
     }
 
 
@@ -115,6 +179,49 @@ namespace Pulumi.Aws.Ec2TransitGateway
         public string? VpnConnectionId { get; set; }
 
         public GetVpnAttachmentArgs()
+        {
+        }
+    }
+
+    public sealed class GetVpnAttachmentInvokeArgs : Pulumi.InvokeArgs
+    {
+        [Input("filters")]
+        private InputList<Inputs.GetVpnAttachmentFilterInputArgs>? _filters;
+
+        /// <summary>
+        /// Configuration block(s) for filtering. Detailed below.
+        /// </summary>
+        public InputList<Inputs.GetVpnAttachmentFilterInputArgs> Filters
+        {
+            get => _filters ?? (_filters = new InputList<Inputs.GetVpnAttachmentFilterInputArgs>());
+            set => _filters = value;
+        }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags, each pair of which must exactly match a pair on the desired Transit Gateway VPN Attachment.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        /// <summary>
+        /// Identifier of the EC2 Transit Gateway.
+        /// </summary>
+        [Input("transitGatewayId")]
+        public Input<string>? TransitGatewayId { get; set; }
+
+        /// <summary>
+        /// Identifier of the EC2 VPN Connection.
+        /// </summary>
+        [Input("vpnConnectionId")]
+        public Input<string>? VpnConnectionId { get; set; }
+
+        public GetVpnAttachmentInvokeArgs()
         {
         }
     }

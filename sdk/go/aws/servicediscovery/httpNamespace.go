@@ -323,6 +323,10 @@ func (o HttpNamespaceMapOutput) MapIndex(k pulumi.StringInput) HttpNamespaceOutp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*HttpNamespaceInput)(nil)).Elem(), &HttpNamespace{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HttpNamespacePtrInput)(nil)).Elem(), &HttpNamespace{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HttpNamespaceArrayInput)(nil)).Elem(), HttpNamespaceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HttpNamespaceMapInput)(nil)).Elem(), HttpNamespaceMap{})
 	pulumi.RegisterOutputType(HttpNamespaceOutput{})
 	pulumi.RegisterOutputType(HttpNamespacePtrOutput{})
 	pulumi.RegisterOutputType(HttpNamespaceArrayOutput{})

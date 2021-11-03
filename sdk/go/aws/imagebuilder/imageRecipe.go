@@ -421,6 +421,10 @@ func (o ImageRecipeMapOutput) MapIndex(k pulumi.StringInput) ImageRecipeOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ImageRecipeInput)(nil)).Elem(), &ImageRecipe{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ImageRecipePtrInput)(nil)).Elem(), &ImageRecipe{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ImageRecipeArrayInput)(nil)).Elem(), ImageRecipeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ImageRecipeMapInput)(nil)).Elem(), ImageRecipeMap{})
 	pulumi.RegisterOutputType(ImageRecipeOutput{})
 	pulumi.RegisterOutputType(ImageRecipePtrOutput{})
 	pulumi.RegisterOutputType(ImageRecipeArrayOutput{})

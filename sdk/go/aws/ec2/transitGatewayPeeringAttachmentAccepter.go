@@ -329,6 +329,10 @@ func (o TransitGatewayPeeringAttachmentAccepterMapOutput) MapIndex(k pulumi.Stri
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayPeeringAttachmentAccepterInput)(nil)).Elem(), &TransitGatewayPeeringAttachmentAccepter{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayPeeringAttachmentAccepterPtrInput)(nil)).Elem(), &TransitGatewayPeeringAttachmentAccepter{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayPeeringAttachmentAccepterArrayInput)(nil)).Elem(), TransitGatewayPeeringAttachmentAccepterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayPeeringAttachmentAccepterMapInput)(nil)).Elem(), TransitGatewayPeeringAttachmentAccepterMap{})
 	pulumi.RegisterOutputType(TransitGatewayPeeringAttachmentAccepterOutput{})
 	pulumi.RegisterOutputType(TransitGatewayPeeringAttachmentAccepterPtrOutput{})
 	pulumi.RegisterOutputType(TransitGatewayPeeringAttachmentAccepterArrayOutput{})

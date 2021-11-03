@@ -591,6 +591,10 @@ func (o WindowsFileSystemMapOutput) MapIndex(k pulumi.StringInput) WindowsFileSy
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*WindowsFileSystemInput)(nil)).Elem(), &WindowsFileSystem{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WindowsFileSystemPtrInput)(nil)).Elem(), &WindowsFileSystem{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WindowsFileSystemArrayInput)(nil)).Elem(), WindowsFileSystemArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WindowsFileSystemMapInput)(nil)).Elem(), WindowsFileSystemMap{})
 	pulumi.RegisterOutputType(WindowsFileSystemOutput{})
 	pulumi.RegisterOutputType(WindowsFileSystemPtrOutput{})
 	pulumi.RegisterOutputType(WindowsFileSystemArrayOutput{})

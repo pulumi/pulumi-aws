@@ -350,6 +350,10 @@ func (o ProvisionedConcurrencyConfigMapOutput) MapIndex(k pulumi.StringInput) Pr
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ProvisionedConcurrencyConfigInput)(nil)).Elem(), &ProvisionedConcurrencyConfig{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProvisionedConcurrencyConfigPtrInput)(nil)).Elem(), &ProvisionedConcurrencyConfig{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProvisionedConcurrencyConfigArrayInput)(nil)).Elem(), ProvisionedConcurrencyConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProvisionedConcurrencyConfigMapInput)(nil)).Elem(), ProvisionedConcurrencyConfigMap{})
 	pulumi.RegisterOutputType(ProvisionedConcurrencyConfigOutput{})
 	pulumi.RegisterOutputType(ProvisionedConcurrencyConfigPtrOutput{})
 	pulumi.RegisterOutputType(ProvisionedConcurrencyConfigArrayOutput{})

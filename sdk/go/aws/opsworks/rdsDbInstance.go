@@ -331,6 +331,10 @@ func (o RdsDbInstanceMapOutput) MapIndex(k pulumi.StringInput) RdsDbInstanceOutp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RdsDbInstanceInput)(nil)).Elem(), &RdsDbInstance{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RdsDbInstancePtrInput)(nil)).Elem(), &RdsDbInstance{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RdsDbInstanceArrayInput)(nil)).Elem(), RdsDbInstanceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RdsDbInstanceMapInput)(nil)).Elem(), RdsDbInstanceMap{})
 	pulumi.RegisterOutputType(RdsDbInstanceOutput{})
 	pulumi.RegisterOutputType(RdsDbInstancePtrOutput{})
 	pulumi.RegisterOutputType(RdsDbInstanceArrayOutput{})

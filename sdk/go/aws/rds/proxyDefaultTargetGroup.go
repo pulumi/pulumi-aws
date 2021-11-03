@@ -358,6 +358,10 @@ func (o ProxyDefaultTargetGroupMapOutput) MapIndex(k pulumi.StringInput) ProxyDe
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ProxyDefaultTargetGroupInput)(nil)).Elem(), &ProxyDefaultTargetGroup{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProxyDefaultTargetGroupPtrInput)(nil)).Elem(), &ProxyDefaultTargetGroup{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProxyDefaultTargetGroupArrayInput)(nil)).Elem(), ProxyDefaultTargetGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProxyDefaultTargetGroupMapInput)(nil)).Elem(), ProxyDefaultTargetGroupMap{})
 	pulumi.RegisterOutputType(ProxyDefaultTargetGroupOutput{})
 	pulumi.RegisterOutputType(ProxyDefaultTargetGroupPtrOutput{})
 	pulumi.RegisterOutputType(ProxyDefaultTargetGroupArrayOutput{})

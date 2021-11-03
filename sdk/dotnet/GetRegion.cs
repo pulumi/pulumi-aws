@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws
 {
@@ -44,6 +45,40 @@ namespace Pulumi.Aws
         /// </summary>
         public static Task<GetRegionResult> InvokeAsync(GetRegionArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRegionResult>("aws:index/getRegion:getRegion", args ?? new GetRegionArgs(), options.WithVersion());
+
+        /// <summary>
+        /// `aws.getRegion` provides details about a specific AWS region.
+        /// 
+        /// As well as validating a given region name this resource can be used to
+        /// discover the name of the region configured within the provider. The latter
+        /// can be useful in a child module which is inheriting an AWS provider
+        /// configuration from its parent module.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// The following example shows how the resource might be used to obtain
+        /// the name of the AWS region configured on the provider.
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var current = Output.Create(Aws.GetRegion.InvokeAsync());
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetRegionResult> Invoke(GetRegionInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetRegionResult>("aws:index/getRegion:getRegion", args ?? new GetRegionInvokeArgs(), options.WithVersion());
     }
 
 
@@ -62,6 +97,25 @@ namespace Pulumi.Aws
         public string? Name { get; set; }
 
         public GetRegionArgs()
+        {
+        }
+    }
+
+    public sealed class GetRegionInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The EC2 endpoint of the region to select.
+        /// </summary>
+        [Input("endpoint")]
+        public Input<string>? Endpoint { get; set; }
+
+        /// <summary>
+        /// The full name of the region to select.
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
+
+        public GetRegionInvokeArgs()
         {
         }
     }

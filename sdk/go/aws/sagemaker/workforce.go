@@ -395,6 +395,10 @@ func (o WorkforceMapOutput) MapIndex(k pulumi.StringInput) WorkforceOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkforceInput)(nil)).Elem(), &Workforce{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkforcePtrInput)(nil)).Elem(), &Workforce{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkforceArrayInput)(nil)).Elem(), WorkforceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkforceMapInput)(nil)).Elem(), WorkforceMap{})
 	pulumi.RegisterOutputType(WorkforceOutput{})
 	pulumi.RegisterOutputType(WorkforcePtrOutput{})
 	pulumi.RegisterOutputType(WorkforceArrayOutput{})

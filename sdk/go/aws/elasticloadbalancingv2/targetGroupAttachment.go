@@ -386,6 +386,10 @@ func (o TargetGroupAttachmentMapOutput) MapIndex(k pulumi.StringInput) TargetGro
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TargetGroupAttachmentInput)(nil)).Elem(), &TargetGroupAttachment{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TargetGroupAttachmentPtrInput)(nil)).Elem(), &TargetGroupAttachment{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TargetGroupAttachmentArrayInput)(nil)).Elem(), TargetGroupAttachmentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TargetGroupAttachmentMapInput)(nil)).Elem(), TargetGroupAttachmentMap{})
 	pulumi.RegisterOutputType(TargetGroupAttachmentOutput{})
 	pulumi.RegisterOutputType(TargetGroupAttachmentPtrOutput{})
 	pulumi.RegisterOutputType(TargetGroupAttachmentArrayOutput{})

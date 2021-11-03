@@ -531,6 +531,10 @@ func (o MLTransformMapOutput) MapIndex(k pulumi.StringInput) MLTransformOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*MLTransformInput)(nil)).Elem(), &MLTransform{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MLTransformPtrInput)(nil)).Elem(), &MLTransform{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MLTransformArrayInput)(nil)).Elem(), MLTransformArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MLTransformMapInput)(nil)).Elem(), MLTransformMap{})
 	pulumi.RegisterOutputType(MLTransformOutput{})
 	pulumi.RegisterOutputType(MLTransformPtrOutput{})
 	pulumi.RegisterOutputType(MLTransformArrayOutput{})

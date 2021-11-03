@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.WafV2
 {
@@ -40,6 +41,36 @@ namespace Pulumi.Aws.WafV2
         /// </summary>
         public static Task<GetWebAclResult> InvokeAsync(GetWebAclArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWebAclResult>("aws:wafv2/getWebAcl:getWebAcl", args ?? new GetWebAclArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Retrieves the summary of a WAFv2 Web ACL.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.WafV2.GetWebAcl.InvokeAsync(new Aws.WafV2.GetWebAclArgs
+        ///         {
+        ///             Name = "some-web-acl",
+        ///             Scope = "REGIONAL",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetWebAclResult> Invoke(GetWebAclInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetWebAclResult>("aws:wafv2/getWebAcl:getWebAcl", args ?? new GetWebAclInvokeArgs(), options.WithVersion());
     }
 
 
@@ -58,6 +89,25 @@ namespace Pulumi.Aws.WafV2
         public string Scope { get; set; } = null!;
 
         public GetWebAclArgs()
+        {
+        }
+    }
+
+    public sealed class GetWebAclInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the WAFv2 Web ACL.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
+        /// </summary>
+        [Input("scope", required: true)]
+        public Input<string> Scope { get; set; } = null!;
+
+        public GetWebAclInvokeArgs()
         {
         }
     }

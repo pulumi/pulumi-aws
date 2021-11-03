@@ -330,6 +330,10 @@ func (o LogServiceMapOutput) MapIndex(k pulumi.StringInput) LogServiceOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LogServiceInput)(nil)).Elem(), &LogService{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogServicePtrInput)(nil)).Elem(), &LogService{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogServiceArrayInput)(nil)).Elem(), LogServiceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogServiceMapInput)(nil)).Elem(), LogServiceMap{})
 	pulumi.RegisterOutputType(LogServiceOutput{})
 	pulumi.RegisterOutputType(LogServicePtrOutput{})
 	pulumi.RegisterOutputType(LogServiceArrayOutput{})

@@ -338,6 +338,10 @@ func (o TagOptionResourceAssociationMapOutput) MapIndex(k pulumi.StringInput) Ta
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TagOptionResourceAssociationInput)(nil)).Elem(), &TagOptionResourceAssociation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TagOptionResourceAssociationPtrInput)(nil)).Elem(), &TagOptionResourceAssociation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TagOptionResourceAssociationArrayInput)(nil)).Elem(), TagOptionResourceAssociationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TagOptionResourceAssociationMapInput)(nil)).Elem(), TagOptionResourceAssociationMap{})
 	pulumi.RegisterOutputType(TagOptionResourceAssociationOutput{})
 	pulumi.RegisterOutputType(TagOptionResourceAssociationPtrOutput{})
 	pulumi.RegisterOutputType(TagOptionResourceAssociationArrayOutput{})

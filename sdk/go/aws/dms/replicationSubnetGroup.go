@@ -355,6 +355,10 @@ func (o ReplicationSubnetGroupMapOutput) MapIndex(k pulumi.StringInput) Replicat
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationSubnetGroupInput)(nil)).Elem(), &ReplicationSubnetGroup{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationSubnetGroupPtrInput)(nil)).Elem(), &ReplicationSubnetGroup{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationSubnetGroupArrayInput)(nil)).Elem(), ReplicationSubnetGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationSubnetGroupMapInput)(nil)).Elem(), ReplicationSubnetGroupMap{})
 	pulumi.RegisterOutputType(ReplicationSubnetGroupOutput{})
 	pulumi.RegisterOutputType(ReplicationSubnetGroupPtrOutput{})
 	pulumi.RegisterOutputType(ReplicationSubnetGroupArrayOutput{})

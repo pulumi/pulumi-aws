@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.SsoAdmin
 {
@@ -16,6 +17,12 @@ namespace Pulumi.Aws.SsoAdmin
         /// </summary>
         public static Task<GetPermissionSetResult> InvokeAsync(GetPermissionSetArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPermissionSetResult>("aws:ssoadmin/getPermissionSet:getPermissionSet", args ?? new GetPermissionSetArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to get a Single Sign-On (SSO) Permission Set.
+        /// </summary>
+        public static Output<GetPermissionSetResult> Invoke(GetPermissionSetInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetPermissionSetResult>("aws:ssoadmin/getPermissionSet:getPermissionSet", args ?? new GetPermissionSetInvokeArgs(), options.WithVersion());
     }
 
 
@@ -52,6 +59,43 @@ namespace Pulumi.Aws.SsoAdmin
         }
 
         public GetPermissionSetArgs()
+        {
+        }
+    }
+
+    public sealed class GetPermissionSetInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the permission set.
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the SSO Instance associated with the permission set.
+        /// </summary>
+        [Input("instanceArn", required: true)]
+        public Input<string> InstanceArn { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the SSO Permission Set.
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value map of resource tags.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        public GetPermissionSetInvokeArgs()
         {
         }
     }

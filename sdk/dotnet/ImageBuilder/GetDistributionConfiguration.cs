@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.ImageBuilder
 {
@@ -39,6 +40,35 @@ namespace Pulumi.Aws.ImageBuilder
         /// </summary>
         public static Task<GetDistributionConfigurationResult> InvokeAsync(GetDistributionConfigurationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDistributionConfigurationResult>("aws:imagebuilder/getDistributionConfiguration:getDistributionConfiguration", args ?? new GetDistributionConfigurationArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Provides details about an Image Builder Distribution Configuration.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.ImageBuilder.GetDistributionConfiguration.InvokeAsync(new Aws.ImageBuilder.GetDistributionConfigurationArgs
+        ///         {
+        ///             Arn = "arn:aws:imagebuilder:us-west-2:aws:distribution-configuration/example",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetDistributionConfigurationResult> Invoke(GetDistributionConfigurationInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetDistributionConfigurationResult>("aws:imagebuilder/getDistributionConfiguration:getDistributionConfiguration", args ?? new GetDistributionConfigurationInvokeArgs(), options.WithVersion());
     }
 
 
@@ -63,6 +93,31 @@ namespace Pulumi.Aws.ImageBuilder
         }
 
         public GetDistributionConfigurationArgs()
+        {
+        }
+    }
+
+    public sealed class GetDistributionConfigurationInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the distribution configuration.
+        /// </summary>
+        [Input("arn", required: true)]
+        public Input<string> Arn { get; set; } = null!;
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value map of resource tags for the distribution configuration.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        public GetDistributionConfigurationInvokeArgs()
         {
         }
     }

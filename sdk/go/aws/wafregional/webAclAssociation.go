@@ -526,6 +526,10 @@ func (o WebAclAssociationMapOutput) MapIndex(k pulumi.StringInput) WebAclAssocia
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclAssociationInput)(nil)).Elem(), &WebAclAssociation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclAssociationPtrInput)(nil)).Elem(), &WebAclAssociation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclAssociationArrayInput)(nil)).Elem(), WebAclAssociationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclAssociationMapInput)(nil)).Elem(), WebAclAssociationMap{})
 	pulumi.RegisterOutputType(WebAclAssociationOutput{})
 	pulumi.RegisterOutputType(WebAclAssociationPtrOutput{})
 	pulumi.RegisterOutputType(WebAclAssociationArrayOutput{})

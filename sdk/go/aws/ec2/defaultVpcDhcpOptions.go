@@ -354,6 +354,10 @@ func (o DefaultVpcDhcpOptionsMapOutput) MapIndex(k pulumi.StringInput) DefaultVp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DefaultVpcDhcpOptionsInput)(nil)).Elem(), &DefaultVpcDhcpOptions{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DefaultVpcDhcpOptionsPtrInput)(nil)).Elem(), &DefaultVpcDhcpOptions{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DefaultVpcDhcpOptionsArrayInput)(nil)).Elem(), DefaultVpcDhcpOptionsArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DefaultVpcDhcpOptionsMapInput)(nil)).Elem(), DefaultVpcDhcpOptionsMap{})
 	pulumi.RegisterOutputType(DefaultVpcDhcpOptionsOutput{})
 	pulumi.RegisterOutputType(DefaultVpcDhcpOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DefaultVpcDhcpOptionsArrayOutput{})

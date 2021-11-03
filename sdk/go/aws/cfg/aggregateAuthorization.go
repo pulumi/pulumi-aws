@@ -333,6 +333,10 @@ func (o AggregateAuthorizationMapOutput) MapIndex(k pulumi.StringInput) Aggregat
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AggregateAuthorizationInput)(nil)).Elem(), &AggregateAuthorization{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AggregateAuthorizationPtrInput)(nil)).Elem(), &AggregateAuthorization{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AggregateAuthorizationArrayInput)(nil)).Elem(), AggregateAuthorizationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AggregateAuthorizationMapInput)(nil)).Elem(), AggregateAuthorizationMap{})
 	pulumi.RegisterOutputType(AggregateAuthorizationOutput{})
 	pulumi.RegisterOutputType(AggregateAuthorizationPtrOutput{})
 	pulumi.RegisterOutputType(AggregateAuthorizationArrayOutput{})

@@ -432,6 +432,10 @@ func (o EnvironmentEC2MapOutput) MapIndex(k pulumi.StringInput) EnvironmentEC2Ou
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentEC2Input)(nil)).Elem(), &EnvironmentEC2{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentEC2PtrInput)(nil)).Elem(), &EnvironmentEC2{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentEC2ArrayInput)(nil)).Elem(), EnvironmentEC2Array{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentEC2MapInput)(nil)).Elem(), EnvironmentEC2Map{})
 	pulumi.RegisterOutputType(EnvironmentEC2Output{})
 	pulumi.RegisterOutputType(EnvironmentEC2PtrOutput{})
 	pulumi.RegisterOutputType(EnvironmentEC2ArrayOutput{})

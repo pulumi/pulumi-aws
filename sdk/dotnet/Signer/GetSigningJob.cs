@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Signer
 {
@@ -39,6 +40,35 @@ namespace Pulumi.Aws.Signer
         /// </summary>
         public static Task<GetSigningJobResult> InvokeAsync(GetSigningJobArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSigningJobResult>("aws:signer/getSigningJob:getSigningJob", args ?? new GetSigningJobArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Provides information about a Signer Signing Job.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var buildSigningJob = Output.Create(Aws.Signer.GetSigningJob.InvokeAsync(new Aws.Signer.GetSigningJobArgs
+        ///         {
+        ///             JobId = "9ed7e5c3-b8d4-4da0-8459-44e0b068f7ee",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetSigningJobResult> Invoke(GetSigningJobInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSigningJobResult>("aws:signer/getSigningJob:getSigningJob", args ?? new GetSigningJobInvokeArgs(), options.WithVersion());
     }
 
 
@@ -51,6 +81,19 @@ namespace Pulumi.Aws.Signer
         public string JobId { get; set; } = null!;
 
         public GetSigningJobArgs()
+        {
+        }
+    }
+
+    public sealed class GetSigningJobInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The ID of the signing job on output.
+        /// </summary>
+        [Input("jobId", required: true)]
+        public Input<string> JobId { get; set; } = null!;
+
+        public GetSigningJobInvokeArgs()
         {
         }
     }

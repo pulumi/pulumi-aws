@@ -919,6 +919,10 @@ func (o DistributionMapOutput) MapIndex(k pulumi.StringInput) DistributionOutput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionInput)(nil)).Elem(), &Distribution{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionPtrInput)(nil)).Elem(), &Distribution{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionArrayInput)(nil)).Elem(), DistributionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DistributionMapInput)(nil)).Elem(), DistributionMap{})
 	pulumi.RegisterOutputType(DistributionOutput{})
 	pulumi.RegisterOutputType(DistributionPtrOutput{})
 	pulumi.RegisterOutputType(DistributionArrayOutput{})

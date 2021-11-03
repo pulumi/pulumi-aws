@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws
 {
@@ -39,6 +40,35 @@ namespace Pulumi.Aws
         /// </summary>
         public static Task<GetArnResult> InvokeAsync(GetArnArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetArnResult>("aws:index/getArn:getArn", args ?? new GetArnArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Parses an Amazon Resource Name (ARN) into its constituent parts.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var dbInstance = Output.Create(Aws.GetArn.InvokeAsync(new Aws.GetArnArgs
+        ///         {
+        ///             Arn = "arn:aws:rds:eu-west-1:123456789012:db:mysql-db",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetArnResult> Invoke(GetArnInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetArnResult>("aws:index/getArn:getArn", args ?? new GetArnInvokeArgs(), options.WithVersion());
     }
 
 
@@ -51,6 +81,19 @@ namespace Pulumi.Aws
         public string Arn { get; set; } = null!;
 
         public GetArnArgs()
+        {
+        }
+    }
+
+    public sealed class GetArnInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The ARN to parse.
+        /// </summary>
+        [Input("arn", required: true)]
+        public Input<string> Arn { get; set; } = null!;
+
+        public GetArnInvokeArgs()
         {
         }
     }

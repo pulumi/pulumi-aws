@@ -351,6 +351,10 @@ func (o RoutingControlMapOutput) MapIndex(k pulumi.StringInput) RoutingControlOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RoutingControlInput)(nil)).Elem(), &RoutingControl{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RoutingControlPtrInput)(nil)).Elem(), &RoutingControl{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RoutingControlArrayInput)(nil)).Elem(), RoutingControlArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RoutingControlMapInput)(nil)).Elem(), RoutingControlMap{})
 	pulumi.RegisterOutputType(RoutingControlOutput{})
 	pulumi.RegisterOutputType(RoutingControlPtrOutput{})
 	pulumi.RegisterOutputType(RoutingControlArrayOutput{})

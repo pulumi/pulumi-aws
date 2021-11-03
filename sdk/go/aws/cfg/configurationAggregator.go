@@ -387,6 +387,10 @@ func (o ConfigurationAggregatorMapOutput) MapIndex(k pulumi.StringInput) Configu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationAggregatorInput)(nil)).Elem(), &ConfigurationAggregator{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationAggregatorPtrInput)(nil)).Elem(), &ConfigurationAggregator{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationAggregatorArrayInput)(nil)).Elem(), ConfigurationAggregatorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationAggregatorMapInput)(nil)).Elem(), ConfigurationAggregatorMap{})
 	pulumi.RegisterOutputType(ConfigurationAggregatorOutput{})
 	pulumi.RegisterOutputType(ConfigurationAggregatorPtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationAggregatorArrayOutput{})

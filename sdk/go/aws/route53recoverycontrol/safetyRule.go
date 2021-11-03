@@ -417,6 +417,10 @@ func (o SafetyRuleMapOutput) MapIndex(k pulumi.StringInput) SafetyRuleOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SafetyRuleInput)(nil)).Elem(), &SafetyRule{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SafetyRulePtrInput)(nil)).Elem(), &SafetyRule{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SafetyRuleArrayInput)(nil)).Elem(), SafetyRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SafetyRuleMapInput)(nil)).Elem(), SafetyRuleMap{})
 	pulumi.RegisterOutputType(SafetyRuleOutput{})
 	pulumi.RegisterOutputType(SafetyRulePtrOutput{})
 	pulumi.RegisterOutputType(SafetyRuleArrayOutput{})

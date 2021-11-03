@@ -534,6 +534,10 @@ func (o FlowLogMapOutput) MapIndex(k pulumi.StringInput) FlowLogOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowLogInput)(nil)).Elem(), &FlowLog{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowLogPtrInput)(nil)).Elem(), &FlowLog{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowLogArrayInput)(nil)).Elem(), FlowLogArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FlowLogMapInput)(nil)).Elem(), FlowLogMap{})
 	pulumi.RegisterOutputType(FlowLogOutput{})
 	pulumi.RegisterOutputType(FlowLogPtrOutput{})
 	pulumi.RegisterOutputType(FlowLogArrayOutput{})

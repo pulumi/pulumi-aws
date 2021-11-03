@@ -284,6 +284,10 @@ func (o ModelPackageGroupPolicyMapOutput) MapIndex(k pulumi.StringInput) ModelPa
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageGroupPolicyInput)(nil)).Elem(), &ModelPackageGroupPolicy{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageGroupPolicyPtrInput)(nil)).Elem(), &ModelPackageGroupPolicy{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageGroupPolicyArrayInput)(nil)).Elem(), ModelPackageGroupPolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageGroupPolicyMapInput)(nil)).Elem(), ModelPackageGroupPolicyMap{})
 	pulumi.RegisterOutputType(ModelPackageGroupPolicyOutput{})
 	pulumi.RegisterOutputType(ModelPackageGroupPolicyPtrOutput{})
 	pulumi.RegisterOutputType(ModelPackageGroupPolicyArrayOutput{})

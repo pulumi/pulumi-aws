@@ -329,6 +329,10 @@ func (o SnapshotScheduleAssociationMapOutput) MapIndex(k pulumi.StringInput) Sna
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotScheduleAssociationInput)(nil)).Elem(), &SnapshotScheduleAssociation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotScheduleAssociationPtrInput)(nil)).Elem(), &SnapshotScheduleAssociation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotScheduleAssociationArrayInput)(nil)).Elem(), SnapshotScheduleAssociationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotScheduleAssociationMapInput)(nil)).Elem(), SnapshotScheduleAssociationMap{})
 	pulumi.RegisterOutputType(SnapshotScheduleAssociationOutput{})
 	pulumi.RegisterOutputType(SnapshotScheduleAssociationPtrOutput{})
 	pulumi.RegisterOutputType(SnapshotScheduleAssociationArrayOutput{})

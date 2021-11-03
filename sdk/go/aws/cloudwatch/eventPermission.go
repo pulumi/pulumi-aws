@@ -372,6 +372,10 @@ func (o EventPermissionMapOutput) MapIndex(k pulumi.StringInput) EventPermission
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*EventPermissionInput)(nil)).Elem(), &EventPermission{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventPermissionPtrInput)(nil)).Elem(), &EventPermission{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventPermissionArrayInput)(nil)).Elem(), EventPermissionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventPermissionMapInput)(nil)).Elem(), EventPermissionMap{})
 	pulumi.RegisterOutputType(EventPermissionOutput{})
 	pulumi.RegisterOutputType(EventPermissionPtrOutput{})
 	pulumi.RegisterOutputType(EventPermissionArrayOutput{})

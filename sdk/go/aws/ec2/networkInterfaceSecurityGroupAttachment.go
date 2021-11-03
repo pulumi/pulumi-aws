@@ -395,6 +395,10 @@ func (o NetworkInterfaceSecurityGroupAttachmentMapOutput) MapIndex(k pulumi.Stri
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInterfaceSecurityGroupAttachmentInput)(nil)).Elem(), &NetworkInterfaceSecurityGroupAttachment{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInterfaceSecurityGroupAttachmentPtrInput)(nil)).Elem(), &NetworkInterfaceSecurityGroupAttachment{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInterfaceSecurityGroupAttachmentArrayInput)(nil)).Elem(), NetworkInterfaceSecurityGroupAttachmentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInterfaceSecurityGroupAttachmentMapInput)(nil)).Elem(), NetworkInterfaceSecurityGroupAttachmentMap{})
 	pulumi.RegisterOutputType(NetworkInterfaceSecurityGroupAttachmentOutput{})
 	pulumi.RegisterOutputType(NetworkInterfaceSecurityGroupAttachmentPtrOutput{})
 	pulumi.RegisterOutputType(NetworkInterfaceSecurityGroupAttachmentArrayOutput{})
