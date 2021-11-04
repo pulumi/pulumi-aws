@@ -2,10 +2,13 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Add support for autonaming `aws.mq.Broker` resources
-* Upgrade to v3.11.0 of the pulumi-terraform-bridge.
+_(none)_
 
 ---
+
+## 4.26.0 (2021-11-04)
+* Add support for autonaming `aws.mq.Broker` resources
+* Upgrade to v3.11.0 of the pulumi-terraform-bridge.
 
 ## 4.25.0 (2021-10-15)
 * Upgrade to v3.63.0 of the AWS Terraform Provider
