@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.DocDB
 {
@@ -39,6 +40,35 @@ namespace Pulumi.Aws.DocDB
         /// </summary>
         public static Task<GetEngineVersionResult> InvokeAsync(GetEngineVersionArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetEngineVersionResult>("aws:docdb/getEngineVersion:getEngineVersion", args ?? new GetEngineVersionArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Information about a DocumentDB engine version.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var test = Output.Create(Aws.DocDB.GetEngineVersion.InvokeAsync(new Aws.DocDB.GetEngineVersionArgs
+        ///         {
+        ///             Version = "3.6.0",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetEngineVersionResult> Invoke(GetEngineVersionInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetEngineVersionResult>("aws:docdb/getEngineVersion:getEngineVersion", args ?? new GetEngineVersionInvokeArgs(), options.WithVersion());
     }
 
 
@@ -75,6 +105,43 @@ namespace Pulumi.Aws.DocDB
         public string? Version { get; set; }
 
         public GetEngineVersionArgs()
+        {
+        }
+    }
+
+    public sealed class GetEngineVersionInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// DB engine. (Default: `docdb`)
+        /// </summary>
+        [Input("engine")]
+        public Input<string>? Engine { get; set; }
+
+        /// <summary>
+        /// The name of a specific DB parameter group family. An example parameter group family is `docdb3.6`.
+        /// </summary>
+        [Input("parameterGroupFamily")]
+        public Input<string>? ParameterGroupFamily { get; set; }
+
+        [Input("preferredVersions")]
+        private InputList<string>? _preferredVersions;
+
+        /// <summary>
+        /// Ordered list of preferred engine versions. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned. If both the `version` and `preferred_versions` arguments are not configured, the data source will return the default version for the engine.
+        /// </summary>
+        public InputList<string> PreferredVersions
+        {
+            get => _preferredVersions ?? (_preferredVersions = new InputList<string>());
+            set => _preferredVersions = value;
+        }
+
+        /// <summary>
+        /// Version of the DB engine. For example, `3.6.0`. If `version` and `preferred_versions` are not set, the data source will provide information for the AWS-defined default version. If both the `version` and `preferred_versions` arguments are not configured, the data source will return the default version for the engine.
+        /// </summary>
+        [Input("version")]
+        public Input<string>? Version { get; set; }
+
+        public GetEngineVersionInvokeArgs()
         {
         }
     }

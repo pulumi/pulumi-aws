@@ -355,6 +355,10 @@ func (o DomainPermissionsMapOutput) MapIndex(k pulumi.StringInput) DomainPermiss
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainPermissionsInput)(nil)).Elem(), &DomainPermissions{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainPermissionsPtrInput)(nil)).Elem(), &DomainPermissions{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainPermissionsArrayInput)(nil)).Elem(), DomainPermissionsArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainPermissionsMapInput)(nil)).Elem(), DomainPermissionsMap{})
 	pulumi.RegisterOutputType(DomainPermissionsOutput{})
 	pulumi.RegisterOutputType(DomainPermissionsPtrOutput{})
 	pulumi.RegisterOutputType(DomainPermissionsArrayOutput{})

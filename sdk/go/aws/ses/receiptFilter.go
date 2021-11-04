@@ -327,6 +327,10 @@ func (o ReceiptFilterMapOutput) MapIndex(k pulumi.StringInput) ReceiptFilterOutp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ReceiptFilterInput)(nil)).Elem(), &ReceiptFilter{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReceiptFilterPtrInput)(nil)).Elem(), &ReceiptFilter{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReceiptFilterArrayInput)(nil)).Elem(), ReceiptFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReceiptFilterMapInput)(nil)).Elem(), ReceiptFilterMap{})
 	pulumi.RegisterOutputType(ReceiptFilterOutput{})
 	pulumi.RegisterOutputType(ReceiptFilterPtrOutput{})
 	pulumi.RegisterOutputType(ReceiptFilterArrayOutput{})

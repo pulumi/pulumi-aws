@@ -333,6 +333,10 @@ func (o TemplateMapOutput) MapIndex(k pulumi.StringInput) TemplateOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateInput)(nil)).Elem(), &Template{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplatePtrInput)(nil)).Elem(), &Template{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateArrayInput)(nil)).Elem(), TemplateArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateMapInput)(nil)).Elem(), TemplateMap{})
 	pulumi.RegisterOutputType(TemplateOutput{})
 	pulumi.RegisterOutputType(TemplatePtrOutput{})
 	pulumi.RegisterOutputType(TemplateArrayOutput{})

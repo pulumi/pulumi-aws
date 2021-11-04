@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Ecr
 {
@@ -13,6 +14,9 @@ namespace Pulumi.Aws.Ecr
     {
         public static Task<GetCredentialsResult> InvokeAsync(GetCredentialsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCredentialsResult>("aws:ecr/getCredentials:getCredentials", args ?? new GetCredentialsArgs(), options.WithVersion());
+
+        public static Output<GetCredentialsResult> Invoke(GetCredentialsInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetCredentialsResult>("aws:ecr/getCredentials:getCredentials", args ?? new GetCredentialsInvokeArgs(), options.WithVersion());
     }
 
 
@@ -22,6 +26,16 @@ namespace Pulumi.Aws.Ecr
         public string RegistryId { get; set; } = null!;
 
         public GetCredentialsArgs()
+        {
+        }
+    }
+
+    public sealed class GetCredentialsInvokeArgs : Pulumi.InvokeArgs
+    {
+        [Input("registryId", required: true)]
+        public Input<string> RegistryId { get; set; } = null!;
+
+        public GetCredentialsInvokeArgs()
         {
         }
     }

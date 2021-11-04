@@ -320,6 +320,10 @@ func (o VpcIpv4CidrBlockAssociationMapOutput) MapIndex(k pulumi.StringInput) Vpc
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcIpv4CidrBlockAssociationInput)(nil)).Elem(), &VpcIpv4CidrBlockAssociation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcIpv4CidrBlockAssociationPtrInput)(nil)).Elem(), &VpcIpv4CidrBlockAssociation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcIpv4CidrBlockAssociationArrayInput)(nil)).Elem(), VpcIpv4CidrBlockAssociationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcIpv4CidrBlockAssociationMapInput)(nil)).Elem(), VpcIpv4CidrBlockAssociationMap{})
 	pulumi.RegisterOutputType(VpcIpv4CidrBlockAssociationOutput{})
 	pulumi.RegisterOutputType(VpcIpv4CidrBlockAssociationPtrOutput{})
 	pulumi.RegisterOutputType(VpcIpv4CidrBlockAssociationArrayOutput{})

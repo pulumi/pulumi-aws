@@ -402,6 +402,10 @@ func (o VolumeMapOutput) MapIndex(k pulumi.StringInput) VolumeOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeInput)(nil)).Elem(), &Volume{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumePtrInput)(nil)).Elem(), &Volume{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeArrayInput)(nil)).Elem(), VolumeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeMapInput)(nil)).Elem(), VolumeMap{})
 	pulumi.RegisterOutputType(VolumeOutput{})
 	pulumi.RegisterOutputType(VolumePtrOutput{})
 	pulumi.RegisterOutputType(VolumeArrayOutput{})

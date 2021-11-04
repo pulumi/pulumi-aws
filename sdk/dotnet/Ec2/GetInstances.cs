@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Ec2
 {
@@ -22,6 +23,18 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public static Task<GetInstancesResult> InvokeAsync(GetInstancesArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetInstancesResult>("aws:ec2/getInstances:getInstances", args ?? new GetInstancesArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to get IDs or IPs of Amazon EC2 instances to be referenced elsewhere,
+        /// e.g. to allow easier migration from another management solution
+        /// or to make it easier for an operator to connect through bastion host(s).
+        /// 
+        /// &gt; **Note:** It's strongly discouraged to use this data source for querying ephemeral
+        /// instances (e.g. managed via autoscaling group), as the output may change at any time
+        /// and you'd need to re-run `apply` every time an instance comes up or dies.
+        /// </summary>
+        public static Output<GetInstancesResult> Invoke(GetInstancesInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetInstancesResult>("aws:ec2/getInstances:getInstances", args ?? new GetInstancesInvokeArgs(), options.WithVersion());
     }
 
 
@@ -67,6 +80,52 @@ namespace Pulumi.Aws.Ec2
         }
 
         public GetInstancesArgs()
+        {
+        }
+    }
+
+    public sealed class GetInstancesInvokeArgs : Pulumi.InvokeArgs
+    {
+        [Input("filters")]
+        private InputList<Inputs.GetInstancesFilterInputArgs>? _filters;
+
+        /// <summary>
+        /// One or more name/value pairs to use as filters. There are
+        /// several valid keys, for a full reference, check out
+        /// [describe-instances in the AWS CLI reference][1].
+        /// </summary>
+        public InputList<Inputs.GetInstancesFilterInputArgs> Filters
+        {
+            get => _filters ?? (_filters = new InputList<Inputs.GetInstancesFilterInputArgs>());
+            set => _filters = value;
+        }
+
+        [Input("instanceStateNames")]
+        private InputList<string>? _instanceStateNames;
+
+        /// <summary>
+        /// A list of instance states that should be applicable to the desired instances. The permitted values are: `pending, running, shutting-down, stopped, stopping, terminated`. The default value is `running`.
+        /// </summary>
+        public InputList<string> InstanceStateNames
+        {
+            get => _instanceStateNames ?? (_instanceStateNames = new InputList<string>());
+            set => _instanceStateNames = value;
+        }
+
+        [Input("instanceTags")]
+        private InputMap<string>? _instanceTags;
+
+        /// <summary>
+        /// A map of tags, each pair of which must
+        /// exactly match a pair on desired instances.
+        /// </summary>
+        public InputMap<string> InstanceTags
+        {
+            get => _instanceTags ?? (_instanceTags = new InputMap<string>());
+            set => _instanceTags = value;
+        }
+
+        public GetInstancesInvokeArgs()
         {
         }
     }

@@ -353,6 +353,10 @@ func (o QueueMapOutput) MapIndex(k pulumi.StringInput) QueueOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*QueueInput)(nil)).Elem(), &Queue{})
+	pulumi.RegisterInputType(reflect.TypeOf((*QueuePtrInput)(nil)).Elem(), &Queue{})
+	pulumi.RegisterInputType(reflect.TypeOf((*QueueArrayInput)(nil)).Elem(), QueueArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*QueueMapInput)(nil)).Elem(), QueueMap{})
 	pulumi.RegisterOutputType(QueueOutput{})
 	pulumi.RegisterOutputType(QueuePtrOutput{})
 	pulumi.RegisterOutputType(QueueArrayOutput{})

@@ -385,6 +385,10 @@ func (o OriginAccessIdentityMapOutput) MapIndex(k pulumi.StringInput) OriginAcce
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*OriginAccessIdentityInput)(nil)).Elem(), &OriginAccessIdentity{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OriginAccessIdentityPtrInput)(nil)).Elem(), &OriginAccessIdentity{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OriginAccessIdentityArrayInput)(nil)).Elem(), OriginAccessIdentityArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OriginAccessIdentityMapInput)(nil)).Elem(), OriginAccessIdentityMap{})
 	pulumi.RegisterOutputType(OriginAccessIdentityOutput{})
 	pulumi.RegisterOutputType(OriginAccessIdentityPtrOutput{})
 	pulumi.RegisterOutputType(OriginAccessIdentityArrayOutput{})

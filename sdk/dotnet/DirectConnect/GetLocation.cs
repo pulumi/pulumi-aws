@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.DirectConnect
 {
@@ -42,6 +43,38 @@ namespace Pulumi.Aws.DirectConnect
         /// </summary>
         public static Task<GetLocationResult> InvokeAsync(GetLocationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLocationResult>("aws:directconnect/getLocation:getLocation", args ?? new GetLocationArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Retrieve information about a specific AWS Direct Connect location in the current AWS Region.
+        /// These are the locations that can be specified when configuring [`aws.directconnect.Connection`](https://www.terraform.io/docs/providers/aws/r/dx_connection.html) or [`aws.directconnect.LinkAggregationGroup`](https://www.terraform.io/docs/providers/aws/r/dx_lag.html) resources.
+        /// 
+        /// &gt; **Note:** This data source is different from the [`aws.directconnect.getLocations`](https://www.terraform.io/docs/providers/aws/d/dx_locations.html) data source which retrieves information about all the AWS Direct Connect locations in the current AWS Region.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.DirectConnect.GetLocation.InvokeAsync(new Aws.DirectConnect.GetLocationArgs
+        ///         {
+        ///             LocationCode = "CS32A-24FL",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetLocationResult> Invoke(GetLocationInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetLocationResult>("aws:directconnect/getLocation:getLocation", args ?? new GetLocationInvokeArgs(), options.WithVersion());
     }
 
 
@@ -54,6 +87,19 @@ namespace Pulumi.Aws.DirectConnect
         public string LocationCode { get; set; } = null!;
 
         public GetLocationArgs()
+        {
+        }
+    }
+
+    public sealed class GetLocationInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The code for the location to retrieve.
+        /// </summary>
+        [Input("locationCode", required: true)]
+        public Input<string> LocationCode { get; set; } = null!;
+
+        public GetLocationInvokeArgs()
         {
         }
     }

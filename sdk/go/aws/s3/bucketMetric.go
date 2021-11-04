@@ -355,6 +355,10 @@ func (o BucketMetricMapOutput) MapIndex(k pulumi.StringInput) BucketMetricOutput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketMetricInput)(nil)).Elem(), &BucketMetric{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketMetricPtrInput)(nil)).Elem(), &BucketMetric{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketMetricArrayInput)(nil)).Elem(), BucketMetricArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketMetricMapInput)(nil)).Elem(), BucketMetricMap{})
 	pulumi.RegisterOutputType(BucketMetricOutput{})
 	pulumi.RegisterOutputType(BucketMetricPtrOutput{})
 	pulumi.RegisterOutputType(BucketMetricArrayOutput{})

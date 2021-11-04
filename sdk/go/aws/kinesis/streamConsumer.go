@@ -331,6 +331,10 @@ func (o StreamConsumerMapOutput) MapIndex(k pulumi.StringInput) StreamConsumerOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamConsumerInput)(nil)).Elem(), &StreamConsumer{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamConsumerPtrInput)(nil)).Elem(), &StreamConsumer{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamConsumerArrayInput)(nil)).Elem(), StreamConsumerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamConsumerMapInput)(nil)).Elem(), StreamConsumerMap{})
 	pulumi.RegisterOutputType(StreamConsumerOutput{})
 	pulumi.RegisterOutputType(StreamConsumerPtrOutput{})
 	pulumi.RegisterOutputType(StreamConsumerArrayOutput{})

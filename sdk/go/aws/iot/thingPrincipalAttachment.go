@@ -325,6 +325,10 @@ func (o ThingPrincipalAttachmentMapOutput) MapIndex(k pulumi.StringInput) ThingP
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ThingPrincipalAttachmentInput)(nil)).Elem(), &ThingPrincipalAttachment{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ThingPrincipalAttachmentPtrInput)(nil)).Elem(), &ThingPrincipalAttachment{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ThingPrincipalAttachmentArrayInput)(nil)).Elem(), ThingPrincipalAttachmentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ThingPrincipalAttachmentMapInput)(nil)).Elem(), ThingPrincipalAttachmentMap{})
 	pulumi.RegisterOutputType(ThingPrincipalAttachmentOutput{})
 	pulumi.RegisterOutputType(ThingPrincipalAttachmentPtrOutput{})
 	pulumi.RegisterOutputType(ThingPrincipalAttachmentArrayOutput{})

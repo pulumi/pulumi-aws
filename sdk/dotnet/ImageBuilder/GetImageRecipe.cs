@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.ImageBuilder
 {
@@ -39,6 +40,35 @@ namespace Pulumi.Aws.ImageBuilder
         /// </summary>
         public static Task<GetImageRecipeResult> InvokeAsync(GetImageRecipeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetImageRecipeResult>("aws:imagebuilder/getImageRecipe:getImageRecipe", args ?? new GetImageRecipeArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Provides details about an Image Builder Image Recipe.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.ImageBuilder.GetImageRecipe.InvokeAsync(new Aws.ImageBuilder.GetImageRecipeArgs
+        ///         {
+        ///             Arn = "arn:aws:imagebuilder:us-east-1:aws:image-recipe/example/1.0.0",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetImageRecipeResult> Invoke(GetImageRecipeInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetImageRecipeResult>("aws:imagebuilder/getImageRecipe:getImageRecipe", args ?? new GetImageRecipeInvokeArgs(), options.WithVersion());
     }
 
 
@@ -63,6 +93,31 @@ namespace Pulumi.Aws.ImageBuilder
         }
 
         public GetImageRecipeArgs()
+        {
+        }
+    }
+
+    public sealed class GetImageRecipeInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the image recipe.
+        /// </summary>
+        [Input("arn", required: true)]
+        public Input<string> Arn { get; set; } = null!;
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value map of resource tags for the image recipe.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        public GetImageRecipeInvokeArgs()
         {
         }
     }

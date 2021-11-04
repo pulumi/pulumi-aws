@@ -324,6 +324,10 @@ func (o InvitationAccepterMapOutput) MapIndex(k pulumi.StringInput) InvitationAc
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*InvitationAccepterInput)(nil)).Elem(), &InvitationAccepter{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InvitationAccepterPtrInput)(nil)).Elem(), &InvitationAccepter{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InvitationAccepterArrayInput)(nil)).Elem(), InvitationAccepterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InvitationAccepterMapInput)(nil)).Elem(), InvitationAccepterMap{})
 	pulumi.RegisterOutputType(InvitationAccepterOutput{})
 	pulumi.RegisterOutputType(InvitationAccepterPtrOutput{})
 	pulumi.RegisterOutputType(InvitationAccepterArrayOutput{})

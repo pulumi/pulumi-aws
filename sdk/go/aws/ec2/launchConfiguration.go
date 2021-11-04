@@ -752,6 +752,10 @@ func (o LaunchConfigurationMapOutput) MapIndex(k pulumi.StringInput) LaunchConfi
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchConfigurationInput)(nil)).Elem(), &LaunchConfiguration{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchConfigurationPtrInput)(nil)).Elem(), &LaunchConfiguration{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchConfigurationArrayInput)(nil)).Elem(), LaunchConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchConfigurationMapInput)(nil)).Elem(), LaunchConfigurationMap{})
 	pulumi.RegisterOutputType(LaunchConfigurationOutput{})
 	pulumi.RegisterOutputType(LaunchConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(LaunchConfigurationArrayOutput{})

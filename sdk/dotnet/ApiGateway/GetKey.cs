@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.ApiGateway
 {
@@ -40,6 +41,36 @@ namespace Pulumi.Aws.ApiGateway
         /// </summary>
         public static Task<GetKeyResult> InvokeAsync(GetKeyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetKeyResult>("aws:apigateway/getKey:getKey", args ?? new GetKeyArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to get the name and value of a pre-existing API Key, for
+        /// example to supply credentials for a dependency microservice.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var myApiKey = Output.Create(Aws.ApiGateway.GetKey.InvokeAsync(new Aws.ApiGateway.GetKeyArgs
+        ///         {
+        ///             Id = "ru3mpjgse6",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetKeyResult> Invoke(GetKeyInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetKeyResult>("aws:apigateway/getKey:getKey", args ?? new GetKeyInvokeArgs(), options.WithVersion());
     }
 
 
@@ -64,6 +95,31 @@ namespace Pulumi.Aws.ApiGateway
         }
 
         public GetKeyArgs()
+        {
+        }
+    }
+
+    public sealed class GetKeyInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The ID of the API Key to look up.
+        /// </summary>
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags for the resource.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        public GetKeyInvokeArgs()
         {
         }
     }

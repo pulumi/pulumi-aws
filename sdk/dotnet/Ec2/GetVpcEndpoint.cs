@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Ec2
 {
@@ -46,6 +47,42 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public static Task<GetVpcEndpointResult> InvokeAsync(GetVpcEndpointArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVpcEndpointResult>("aws:ec2/getVpcEndpoint:getVpcEndpoint", args ?? new GetVpcEndpointArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The VPC Endpoint data source provides details about
+        /// a specific VPC endpoint.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var s3 = Output.Create(Aws.Ec2.GetVpcEndpoint.InvokeAsync(new Aws.Ec2.GetVpcEndpointArgs
+        ///         {
+        ///             VpcId = aws_vpc.Foo.Id,
+        ///             ServiceName = "com.amazonaws.us-west-2.s3",
+        ///         }));
+        ///         var privateS3 = new Aws.Ec2.VpcEndpointRouteTableAssociation("privateS3", new Aws.Ec2.VpcEndpointRouteTableAssociationArgs
+        ///         {
+        ///             VpcEndpointId = s3.Apply(s3 =&gt; s3.Id),
+        ///             RouteTableId = aws_route_table.Private.Id,
+        ///         });
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetVpcEndpointResult> Invoke(GetVpcEndpointInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetVpcEndpointResult>("aws:ec2/getVpcEndpoint:getVpcEndpoint", args ?? new GetVpcEndpointInvokeArgs(), options.WithVersion());
     }
 
 
@@ -101,6 +138,62 @@ namespace Pulumi.Aws.Ec2
         public string? VpcId { get; set; }
 
         public GetVpcEndpointArgs()
+        {
+        }
+    }
+
+    public sealed class GetVpcEndpointInvokeArgs : Pulumi.InvokeArgs
+    {
+        [Input("filters")]
+        private InputList<Inputs.GetVpcEndpointFilterInputArgs>? _filters;
+
+        /// <summary>
+        /// Custom filter block as described below.
+        /// </summary>
+        public InputList<Inputs.GetVpcEndpointFilterInputArgs> Filters
+        {
+            get => _filters ?? (_filters = new InputList<Inputs.GetVpcEndpointFilterInputArgs>());
+            set => _filters = value;
+        }
+
+        /// <summary>
+        /// The ID of the specific VPC Endpoint to retrieve.
+        /// </summary>
+        [Input("id")]
+        public Input<string>? Id { get; set; }
+
+        /// <summary>
+        /// The service name of the specific VPC Endpoint to retrieve. For AWS services the service name is usually in the form `com.amazonaws.&lt;region&gt;.&lt;service&gt;` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.&lt;region&gt;.notebook`).
+        /// </summary>
+        [Input("serviceName")]
+        public Input<string>? ServiceName { get; set; }
+
+        /// <summary>
+        /// The state of the specific VPC Endpoint to retrieve.
+        /// </summary>
+        [Input("state")]
+        public Input<string>? State { get; set; }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags, each pair of which must exactly match
+        /// a pair on the specific VPC Endpoint to retrieve.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        /// <summary>
+        /// The ID of the VPC in which the specific VPC Endpoint is used.
+        /// </summary>
+        [Input("vpcId")]
+        public Input<string>? VpcId { get; set; }
+
+        public GetVpcEndpointInvokeArgs()
         {
         }
     }

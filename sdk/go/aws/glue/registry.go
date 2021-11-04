@@ -326,6 +326,10 @@ func (o RegistryMapOutput) MapIndex(k pulumi.StringInput) RegistryOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryInput)(nil)).Elem(), &Registry{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryPtrInput)(nil)).Elem(), &Registry{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryArrayInput)(nil)).Elem(), RegistryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryMapInput)(nil)).Elem(), RegistryMap{})
 	pulumi.RegisterOutputType(RegistryOutput{})
 	pulumi.RegisterOutputType(RegistryPtrOutput{})
 	pulumi.RegisterOutputType(RegistryArrayOutput{})

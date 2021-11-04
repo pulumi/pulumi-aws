@@ -631,6 +631,10 @@ func (o GraphQLApiMapOutput) MapIndex(k pulumi.StringInput) GraphQLApiOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GraphQLApiInput)(nil)).Elem(), &GraphQLApi{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GraphQLApiPtrInput)(nil)).Elem(), &GraphQLApi{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GraphQLApiArrayInput)(nil)).Elem(), GraphQLApiArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GraphQLApiMapInput)(nil)).Elem(), GraphQLApiMap{})
 	pulumi.RegisterOutputType(GraphQLApiOutput{})
 	pulumi.RegisterOutputType(GraphQLApiPtrOutput{})
 	pulumi.RegisterOutputType(GraphQLApiArrayOutput{})

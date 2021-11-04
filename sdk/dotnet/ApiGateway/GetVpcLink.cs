@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.ApiGateway
 {
@@ -42,6 +43,38 @@ namespace Pulumi.Aws.ApiGateway
         /// </summary>
         public static Task<GetVpcLinkResult> InvokeAsync(GetVpcLinkArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVpcLinkResult>("aws:apigateway/getVpcLink:getVpcLink", args ?? new GetVpcLinkArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to get the id of a VPC Link in
+        /// API Gateway. To fetch the VPC Link you must provide a name to match against.
+        /// As there is no unique name constraint on API Gateway VPC Links this data source will
+        /// error if there is more than one match.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var myApiGatewayVpcLink = Output.Create(Aws.ApiGateway.GetVpcLink.InvokeAsync(new Aws.ApiGateway.GetVpcLinkArgs
+        ///         {
+        ///             Name = "my-vpc-link",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetVpcLinkResult> Invoke(GetVpcLinkInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetVpcLinkResult>("aws:apigateway/getVpcLink:getVpcLink", args ?? new GetVpcLinkInvokeArgs(), options.WithVersion());
     }
 
 
@@ -67,6 +100,32 @@ namespace Pulumi.Aws.ApiGateway
         }
 
         public GetVpcLinkArgs()
+        {
+        }
+    }
+
+    public sealed class GetVpcLinkInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the API Gateway VPC Link to look up. If no API Gateway VPC Link is found with this name, an error will be returned.
+        /// If multiple API Gateway VPC Links are found with this name, an error will be returned.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value map of resource tags
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        public GetVpcLinkInvokeArgs()
         {
         }
     }

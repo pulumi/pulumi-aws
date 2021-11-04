@@ -340,6 +340,10 @@ func (o DomainIdentityMapOutput) MapIndex(k pulumi.StringInput) DomainIdentityOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainIdentityInput)(nil)).Elem(), &DomainIdentity{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainIdentityPtrInput)(nil)).Elem(), &DomainIdentity{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainIdentityArrayInput)(nil)).Elem(), DomainIdentityArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainIdentityMapInput)(nil)).Elem(), DomainIdentityMap{})
 	pulumi.RegisterOutputType(DomainIdentityOutput{})
 	pulumi.RegisterOutputType(DomainIdentityPtrOutput{})
 	pulumi.RegisterOutputType(DomainIdentityArrayOutput{})

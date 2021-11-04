@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Sqs
 {
@@ -41,6 +42,37 @@ namespace Pulumi.Aws.Sqs
         /// </summary>
         public static Task<GetQueueResult> InvokeAsync(GetQueueArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetQueueResult>("aws:sqs/getQueue:getQueue", args ?? new GetQueueArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to get the ARN and URL of queue in AWS Simple Queue Service (SQS).
+        /// By using this data source, you can reference SQS queues without having to hardcode
+        /// the ARNs as input.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.Sqs.GetQueue.InvokeAsync(new Aws.Sqs.GetQueueArgs
+        ///         {
+        ///             Name = "queue",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetQueueResult> Invoke(GetQueueInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetQueueResult>("aws:sqs/getQueue:getQueue", args ?? new GetQueueInvokeArgs(), options.WithVersion());
     }
 
 
@@ -65,6 +97,31 @@ namespace Pulumi.Aws.Sqs
         }
 
         public GetQueueArgs()
+        {
+        }
+    }
+
+    public sealed class GetQueueInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the queue to match.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags for the resource.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        public GetQueueInvokeArgs()
         {
         }
     }

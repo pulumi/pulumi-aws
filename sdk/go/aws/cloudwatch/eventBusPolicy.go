@@ -472,6 +472,10 @@ func (o EventBusPolicyMapOutput) MapIndex(k pulumi.StringInput) EventBusPolicyOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*EventBusPolicyInput)(nil)).Elem(), &EventBusPolicy{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventBusPolicyPtrInput)(nil)).Elem(), &EventBusPolicy{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventBusPolicyArrayInput)(nil)).Elem(), EventBusPolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventBusPolicyMapInput)(nil)).Elem(), EventBusPolicyMap{})
 	pulumi.RegisterOutputType(EventBusPolicyOutput{})
 	pulumi.RegisterOutputType(EventBusPolicyPtrOutput{})
 	pulumi.RegisterOutputType(EventBusPolicyArrayOutput{})

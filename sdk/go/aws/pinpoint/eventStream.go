@@ -352,6 +352,10 @@ func (o EventStreamMapOutput) MapIndex(k pulumi.StringInput) EventStreamOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*EventStreamInput)(nil)).Elem(), &EventStream{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventStreamPtrInput)(nil)).Elem(), &EventStream{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventStreamArrayInput)(nil)).Elem(), EventStreamArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventStreamMapInput)(nil)).Elem(), EventStreamMap{})
 	pulumi.RegisterOutputType(EventStreamOutput{})
 	pulumi.RegisterOutputType(EventStreamPtrOutput{})
 	pulumi.RegisterOutputType(EventStreamArrayOutput{})

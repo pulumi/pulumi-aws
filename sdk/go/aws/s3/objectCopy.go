@@ -718,6 +718,10 @@ func (o ObjectCopyMapOutput) MapIndex(k pulumi.StringInput) ObjectCopyOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ObjectCopyInput)(nil)).Elem(), &ObjectCopy{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObjectCopyPtrInput)(nil)).Elem(), &ObjectCopy{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObjectCopyArrayInput)(nil)).Elem(), ObjectCopyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObjectCopyMapInput)(nil)).Elem(), ObjectCopyMap{})
 	pulumi.RegisterOutputType(ObjectCopyOutput{})
 	pulumi.RegisterOutputType(ObjectCopyPtrOutput{})
 	pulumi.RegisterOutputType(ObjectCopyArrayOutput{})

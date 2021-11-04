@@ -393,6 +393,10 @@ func (o StreamMapOutput) MapIndex(k pulumi.StringInput) StreamOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamInput)(nil)).Elem(), &Stream{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamPtrInput)(nil)).Elem(), &Stream{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamArrayInput)(nil)).Elem(), StreamArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamMapInput)(nil)).Elem(), StreamMap{})
 	pulumi.RegisterOutputType(StreamOutput{})
 	pulumi.RegisterOutputType(StreamPtrOutput{})
 	pulumi.RegisterOutputType(StreamArrayOutput{})

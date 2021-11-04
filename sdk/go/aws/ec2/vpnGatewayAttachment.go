@@ -330,6 +330,10 @@ func (o VpnGatewayAttachmentMapOutput) MapIndex(k pulumi.StringInput) VpnGateway
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*VpnGatewayAttachmentInput)(nil)).Elem(), &VpnGatewayAttachment{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpnGatewayAttachmentPtrInput)(nil)).Elem(), &VpnGatewayAttachment{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpnGatewayAttachmentArrayInput)(nil)).Elem(), VpnGatewayAttachmentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpnGatewayAttachmentMapInput)(nil)).Elem(), VpnGatewayAttachmentMap{})
 	pulumi.RegisterOutputType(VpnGatewayAttachmentOutput{})
 	pulumi.RegisterOutputType(VpnGatewayAttachmentPtrOutput{})
 	pulumi.RegisterOutputType(VpnGatewayAttachmentArrayOutput{})

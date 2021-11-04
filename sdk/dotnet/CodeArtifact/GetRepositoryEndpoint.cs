@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.CodeArtifact
 {
@@ -41,6 +42,37 @@ namespace Pulumi.Aws.CodeArtifact
         /// </summary>
         public static Task<GetRepositoryEndpointResult> InvokeAsync(GetRepositoryEndpointArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRepositoryEndpointResult>("aws:codeartifact/getRepositoryEndpoint:getRepositoryEndpoint", args ?? new GetRepositoryEndpointArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The CodeArtifact Repository Endpoint data source returns the endpoint of a repository for a specific package format.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var test = Output.Create(Aws.CodeArtifact.GetRepositoryEndpoint.InvokeAsync(new Aws.CodeArtifact.GetRepositoryEndpointArgs
+        ///         {
+        ///             Domain = aws_codeartifact_domain.Test.Domain,
+        ///             Repository = aws_codeartifact_repository.Test.Repository,
+        ///             Format = "npm",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetRepositoryEndpointResult> Invoke(GetRepositoryEndpointInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetRepositoryEndpointResult>("aws:codeartifact/getRepositoryEndpoint:getRepositoryEndpoint", args ?? new GetRepositoryEndpointInvokeArgs(), options.WithVersion());
     }
 
 
@@ -71,6 +103,37 @@ namespace Pulumi.Aws.CodeArtifact
         public string Repository { get; set; } = null!;
 
         public GetRepositoryEndpointArgs()
+        {
+        }
+    }
+
+    public sealed class GetRepositoryEndpointInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the domain that contains the repository.
+        /// </summary>
+        [Input("domain", required: true)]
+        public Input<string> Domain { get; set; } = null!;
+
+        /// <summary>
+        /// The account number of the AWS account that owns the domain.
+        /// </summary>
+        [Input("domainOwner")]
+        public Input<string>? DomainOwner { get; set; }
+
+        /// <summary>
+        /// Which endpoint of a repository to return. A repository has one endpoint for each package format: `npm`, `pypi`, `maven`, and `nuget`.
+        /// </summary>
+        [Input("format", required: true)]
+        public Input<string> Format { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the repository.
+        /// </summary>
+        [Input("repository", required: true)]
+        public Input<string> Repository { get; set; } = null!;
+
+        public GetRepositoryEndpointInvokeArgs()
         {
         }
     }

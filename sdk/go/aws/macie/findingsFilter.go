@@ -383,6 +383,10 @@ func (o FindingsFilterMapOutput) MapIndex(k pulumi.StringInput) FindingsFilterOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*FindingsFilterInput)(nil)).Elem(), &FindingsFilter{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FindingsFilterPtrInput)(nil)).Elem(), &FindingsFilter{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FindingsFilterArrayInput)(nil)).Elem(), FindingsFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FindingsFilterMapInput)(nil)).Elem(), FindingsFilterMap{})
 	pulumi.RegisterOutputType(FindingsFilterOutput{})
 	pulumi.RegisterOutputType(FindingsFilterPtrOutput{})
 	pulumi.RegisterOutputType(FindingsFilterArrayOutput{})

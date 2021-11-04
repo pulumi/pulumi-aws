@@ -365,6 +365,10 @@ func (o CustomerGatewayMapOutput) MapIndex(k pulumi.StringInput) CustomerGateway
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomerGatewayInput)(nil)).Elem(), &CustomerGateway{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomerGatewayPtrInput)(nil)).Elem(), &CustomerGateway{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomerGatewayArrayInput)(nil)).Elem(), CustomerGatewayArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomerGatewayMapInput)(nil)).Elem(), CustomerGatewayMap{})
 	pulumi.RegisterOutputType(CustomerGatewayOutput{})
 	pulumi.RegisterOutputType(CustomerGatewayPtrOutput{})
 	pulumi.RegisterOutputType(CustomerGatewayArrayOutput{})

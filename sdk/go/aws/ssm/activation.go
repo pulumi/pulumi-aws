@@ -392,6 +392,10 @@ func (o ActivationMapOutput) MapIndex(k pulumi.StringInput) ActivationOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ActivationInput)(nil)).Elem(), &Activation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActivationPtrInput)(nil)).Elem(), &Activation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActivationArrayInput)(nil)).Elem(), ActivationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ActivationMapInput)(nil)).Elem(), ActivationMap{})
 	pulumi.RegisterOutputType(ActivationOutput{})
 	pulumi.RegisterOutputType(ActivationPtrOutput{})
 	pulumi.RegisterOutputType(ActivationArrayOutput{})

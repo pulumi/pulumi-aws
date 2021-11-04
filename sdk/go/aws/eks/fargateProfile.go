@@ -390,6 +390,10 @@ func (o FargateProfileMapOutput) MapIndex(k pulumi.StringInput) FargateProfileOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*FargateProfileInput)(nil)).Elem(), &FargateProfile{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FargateProfilePtrInput)(nil)).Elem(), &FargateProfile{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FargateProfileArrayInput)(nil)).Elem(), FargateProfileArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FargateProfileMapInput)(nil)).Elem(), FargateProfileMap{})
 	pulumi.RegisterOutputType(FargateProfileOutput{})
 	pulumi.RegisterOutputType(FargateProfilePtrOutput{})
 	pulumi.RegisterOutputType(FargateProfileArrayOutput{})

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Ec2
 {
@@ -55,6 +56,51 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public static Task<GetInstanceTypeOfferingResult> InvokeAsync(GetInstanceTypeOfferingArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetInstanceTypeOfferingResult>("aws:ec2/getInstanceTypeOffering:getInstanceTypeOffering", args ?? new GetInstanceTypeOfferingArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Information about single EC2 Instance Type Offering.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.Ec2.GetInstanceTypeOffering.InvokeAsync(new Aws.Ec2.GetInstanceTypeOfferingArgs
+        ///         {
+        ///             Filters = 
+        ///             {
+        ///                 new Aws.Ec2.Inputs.GetInstanceTypeOfferingFilterArgs
+        ///                 {
+        ///                     Name = "instance-type",
+        ///                     Values = 
+        ///                     {
+        ///                         "t2.micro",
+        ///                         "t3.micro",
+        ///                     },
+        ///                 },
+        ///             },
+        ///             PreferredInstanceTypes = 
+        ///             {
+        ///                 "t3.micro",
+        ///                 "t2.micro",
+        ///             },
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetInstanceTypeOfferingResult> Invoke(GetInstanceTypeOfferingInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetInstanceTypeOfferingResult>("aws:ec2/getInstanceTypeOffering:getInstanceTypeOffering", args ?? new GetInstanceTypeOfferingInvokeArgs(), options.WithVersion());
     }
 
 
@@ -91,6 +137,43 @@ namespace Pulumi.Aws.Ec2
         }
 
         public GetInstanceTypeOfferingArgs()
+        {
+        }
+    }
+
+    public sealed class GetInstanceTypeOfferingInvokeArgs : Pulumi.InvokeArgs
+    {
+        [Input("filters")]
+        private InputList<Inputs.GetInstanceTypeOfferingFilterInputArgs>? _filters;
+
+        /// <summary>
+        /// One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceTypeOfferings.html) for supported filters. Detailed below.
+        /// </summary>
+        public InputList<Inputs.GetInstanceTypeOfferingFilterInputArgs> Filters
+        {
+            get => _filters ?? (_filters = new InputList<Inputs.GetInstanceTypeOfferingFilterInputArgs>());
+            set => _filters = value;
+        }
+
+        /// <summary>
+        /// Location type. Defaults to `region`. Valid values: `availability-zone`, `availability-zone-id`, and `region`.
+        /// </summary>
+        [Input("locationType")]
+        public Input<string>? LocationType { get; set; }
+
+        [Input("preferredInstanceTypes")]
+        private InputList<string>? _preferredInstanceTypes;
+
+        /// <summary>
+        /// Ordered list of preferred EC2 Instance Types. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
+        /// </summary>
+        public InputList<string> PreferredInstanceTypes
+        {
+            get => _preferredInstanceTypes ?? (_preferredInstanceTypes = new InputList<string>());
+            set => _preferredInstanceTypes = value;
+        }
+
+        public GetInstanceTypeOfferingInvokeArgs()
         {
         }
     }

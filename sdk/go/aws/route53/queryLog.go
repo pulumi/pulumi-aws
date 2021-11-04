@@ -375,6 +375,10 @@ func (o QueryLogMapOutput) MapIndex(k pulumi.StringInput) QueryLogOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*QueryLogInput)(nil)).Elem(), &QueryLog{})
+	pulumi.RegisterInputType(reflect.TypeOf((*QueryLogPtrInput)(nil)).Elem(), &QueryLog{})
+	pulumi.RegisterInputType(reflect.TypeOf((*QueryLogArrayInput)(nil)).Elem(), QueryLogArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*QueryLogMapInput)(nil)).Elem(), QueryLogMap{})
 	pulumi.RegisterOutputType(QueryLogOutput{})
 	pulumi.RegisterOutputType(QueryLogPtrOutput{})
 	pulumi.RegisterOutputType(QueryLogArrayOutput{})

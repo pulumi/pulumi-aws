@@ -343,6 +343,10 @@ func (o IpGroupMapOutput) MapIndex(k pulumi.StringInput) IpGroupOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*IpGroupInput)(nil)).Elem(), &IpGroup{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IpGroupPtrInput)(nil)).Elem(), &IpGroup{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IpGroupArrayInput)(nil)).Elem(), IpGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IpGroupMapInput)(nil)).Elem(), IpGroupMap{})
 	pulumi.RegisterOutputType(IpGroupOutput{})
 	pulumi.RegisterOutputType(IpGroupPtrOutput{})
 	pulumi.RegisterOutputType(IpGroupArrayOutput{})

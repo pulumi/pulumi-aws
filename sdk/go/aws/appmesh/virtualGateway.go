@@ -429,6 +429,10 @@ func (o VirtualGatewayMapOutput) MapIndex(k pulumi.StringInput) VirtualGatewayOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualGatewayInput)(nil)).Elem(), &VirtualGateway{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualGatewayPtrInput)(nil)).Elem(), &VirtualGateway{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualGatewayArrayInput)(nil)).Elem(), VirtualGatewayArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualGatewayMapInput)(nil)).Elem(), VirtualGatewayMap{})
 	pulumi.RegisterOutputType(VirtualGatewayOutput{})
 	pulumi.RegisterOutputType(VirtualGatewayPtrOutput{})
 	pulumi.RegisterOutputType(VirtualGatewayArrayOutput{})

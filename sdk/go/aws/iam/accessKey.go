@@ -394,6 +394,10 @@ func (o AccessKeyMapOutput) MapIndex(k pulumi.StringInput) AccessKeyOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessKeyInput)(nil)).Elem(), &AccessKey{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessKeyPtrInput)(nil)).Elem(), &AccessKey{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessKeyArrayInput)(nil)).Elem(), AccessKeyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessKeyMapInput)(nil)).Elem(), AccessKeyMap{})
 	pulumi.RegisterOutputType(AccessKeyOutput{})
 	pulumi.RegisterOutputType(AccessKeyPtrOutput{})
 	pulumi.RegisterOutputType(AccessKeyArrayOutput{})

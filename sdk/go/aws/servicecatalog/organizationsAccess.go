@@ -292,6 +292,10 @@ func (o OrganizationsAccessMapOutput) MapIndex(k pulumi.StringInput) Organizatio
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationsAccessInput)(nil)).Elem(), &OrganizationsAccess{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationsAccessPtrInput)(nil)).Elem(), &OrganizationsAccess{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationsAccessArrayInput)(nil)).Elem(), OrganizationsAccessArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationsAccessMapInput)(nil)).Elem(), OrganizationsAccessMap{})
 	pulumi.RegisterOutputType(OrganizationsAccessOutput{})
 	pulumi.RegisterOutputType(OrganizationsAccessPtrOutput{})
 	pulumi.RegisterOutputType(OrganizationsAccessArrayOutput{})

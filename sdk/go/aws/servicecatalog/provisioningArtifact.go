@@ -404,6 +404,10 @@ func (o ProvisioningArtifactMapOutput) MapIndex(k pulumi.StringInput) Provisioni
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ProvisioningArtifactInput)(nil)).Elem(), &ProvisioningArtifact{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProvisioningArtifactPtrInput)(nil)).Elem(), &ProvisioningArtifact{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProvisioningArtifactArrayInput)(nil)).Elem(), ProvisioningArtifactArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProvisioningArtifactMapInput)(nil)).Elem(), ProvisioningArtifactMap{})
 	pulumi.RegisterOutputType(ProvisioningArtifactOutput{})
 	pulumi.RegisterOutputType(ProvisioningArtifactPtrOutput{})
 	pulumi.RegisterOutputType(ProvisioningArtifactArrayOutput{})

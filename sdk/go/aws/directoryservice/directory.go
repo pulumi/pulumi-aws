@@ -587,6 +587,10 @@ func (o DirectoryMapOutput) MapIndex(k pulumi.StringInput) DirectoryOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryInput)(nil)).Elem(), &Directory{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryPtrInput)(nil)).Elem(), &Directory{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryArrayInput)(nil)).Elem(), DirectoryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryMapInput)(nil)).Elem(), DirectoryMap{})
 	pulumi.RegisterOutputType(DirectoryOutput{})
 	pulumi.RegisterOutputType(DirectoryPtrOutput{})
 	pulumi.RegisterOutputType(DirectoryArrayOutput{})

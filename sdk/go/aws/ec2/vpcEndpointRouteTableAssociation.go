@@ -311,6 +311,10 @@ func (o VpcEndpointRouteTableAssociationMapOutput) MapIndex(k pulumi.StringInput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointRouteTableAssociationInput)(nil)).Elem(), &VpcEndpointRouteTableAssociation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointRouteTableAssociationPtrInput)(nil)).Elem(), &VpcEndpointRouteTableAssociation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointRouteTableAssociationArrayInput)(nil)).Elem(), VpcEndpointRouteTableAssociationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointRouteTableAssociationMapInput)(nil)).Elem(), VpcEndpointRouteTableAssociationMap{})
 	pulumi.RegisterOutputType(VpcEndpointRouteTableAssociationOutput{})
 	pulumi.RegisterOutputType(VpcEndpointRouteTableAssociationPtrOutput{})
 	pulumi.RegisterOutputType(VpcEndpointRouteTableAssociationArrayOutput{})

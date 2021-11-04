@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Connect
 {
@@ -60,6 +61,56 @@ namespace Pulumi.Aws.Connect
         /// </summary>
         public static Task<GetInstanceResult> InvokeAsync(GetInstanceArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetInstanceResult>("aws:connect/getInstance:getInstance", args ?? new GetInstanceArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Provides details about a specific Amazon Connect Instance.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// By instance_alias
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var foo = Output.Create(Aws.Connect.GetInstance.InvokeAsync(new Aws.Connect.GetInstanceArgs
+        ///         {
+        ///             InstanceAlias = "foo",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// By instance_id
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var foo = Output.Create(Aws.Connect.GetInstance.InvokeAsync(new Aws.Connect.GetInstanceArgs
+        ///         {
+        ///             InstanceId = "97afc98d-101a-ba98-ab97-ae114fc115ec",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetInstanceResult> Invoke(GetInstanceInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetInstanceResult>("aws:connect/getInstance:getInstance", args ?? new GetInstanceInvokeArgs(), options.WithVersion());
     }
 
 
@@ -78,6 +129,25 @@ namespace Pulumi.Aws.Connect
         public string? InstanceId { get; set; }
 
         public GetInstanceArgs()
+        {
+        }
+    }
+
+    public sealed class GetInstanceInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Returns information on a specific connect instance by alias
+        /// </summary>
+        [Input("instanceAlias")]
+        public Input<string>? InstanceAlias { get; set; }
+
+        /// <summary>
+        /// Returns information on a specific connect instance by id
+        /// </summary>
+        [Input("instanceId")]
+        public Input<string>? InstanceId { get; set; }
+
+        public GetInstanceInvokeArgs()
         {
         }
     }

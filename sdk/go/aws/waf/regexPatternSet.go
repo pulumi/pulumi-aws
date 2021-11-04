@@ -312,6 +312,10 @@ func (o RegexPatternSetMapOutput) MapIndex(k pulumi.StringInput) RegexPatternSet
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RegexPatternSetInput)(nil)).Elem(), &RegexPatternSet{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RegexPatternSetPtrInput)(nil)).Elem(), &RegexPatternSet{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RegexPatternSetArrayInput)(nil)).Elem(), RegexPatternSetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RegexPatternSetMapInput)(nil)).Elem(), RegexPatternSetMap{})
 	pulumi.RegisterOutputType(RegexPatternSetOutput{})
 	pulumi.RegisterOutputType(RegexPatternSetPtrOutput{})
 	pulumi.RegisterOutputType(RegexPatternSetArrayOutput{})

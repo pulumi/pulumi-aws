@@ -333,6 +333,10 @@ func (o RecoveryGroupMapOutput) MapIndex(k pulumi.StringInput) RecoveryGroupOutp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RecoveryGroupInput)(nil)).Elem(), &RecoveryGroup{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RecoveryGroupPtrInput)(nil)).Elem(), &RecoveryGroup{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RecoveryGroupArrayInput)(nil)).Elem(), RecoveryGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RecoveryGroupMapInput)(nil)).Elem(), RecoveryGroupMap{})
 	pulumi.RegisterOutputType(RecoveryGroupOutput{})
 	pulumi.RegisterOutputType(RecoveryGroupPtrOutput{})
 	pulumi.RegisterOutputType(RecoveryGroupArrayOutput{})

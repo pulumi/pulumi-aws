@@ -496,6 +496,10 @@ func (o MysqlLayerMapOutput) MapIndex(k pulumi.StringInput) MysqlLayerOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*MysqlLayerInput)(nil)).Elem(), &MysqlLayer{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MysqlLayerPtrInput)(nil)).Elem(), &MysqlLayer{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MysqlLayerArrayInput)(nil)).Elem(), MysqlLayerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MysqlLayerMapInput)(nil)).Elem(), MysqlLayerMap{})
 	pulumi.RegisterOutputType(MysqlLayerOutput{})
 	pulumi.RegisterOutputType(MysqlLayerPtrOutput{})
 	pulumi.RegisterOutputType(MysqlLayerArrayOutput{})

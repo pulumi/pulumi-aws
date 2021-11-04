@@ -381,6 +381,10 @@ func (o NatGatewayMapOutput) MapIndex(k pulumi.StringInput) NatGatewayOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*NatGatewayInput)(nil)).Elem(), &NatGateway{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NatGatewayPtrInput)(nil)).Elem(), &NatGateway{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NatGatewayArrayInput)(nil)).Elem(), NatGatewayArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NatGatewayMapInput)(nil)).Elem(), NatGatewayMap{})
 	pulumi.RegisterOutputType(NatGatewayOutput{})
 	pulumi.RegisterOutputType(NatGatewayPtrOutput{})
 	pulumi.RegisterOutputType(NatGatewayArrayOutput{})

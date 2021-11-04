@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Ec2
 {
@@ -39,6 +40,35 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public static Task<GetNetworkInterfaceResult> InvokeAsync(GetNetworkInterfaceArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNetworkInterfaceResult>("aws:ec2/getNetworkInterface:getNetworkInterface", args ?? new GetNetworkInterfaceArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to get information about a Network Interface.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var bar = Output.Create(Aws.Ec2.GetNetworkInterface.InvokeAsync(new Aws.Ec2.GetNetworkInterfaceArgs
+        ///         {
+        ///             Id = "eni-01234567",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetNetworkInterfaceResult> Invoke(GetNetworkInterfaceInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetNetworkInterfaceResult>("aws:ec2/getNetworkInterface:getNetworkInterface", args ?? new GetNetworkInterfaceInvokeArgs(), options.WithVersion());
     }
 
 
@@ -75,6 +105,43 @@ namespace Pulumi.Aws.Ec2
         }
 
         public GetNetworkInterfaceArgs()
+        {
+        }
+    }
+
+    public sealed class GetNetworkInterfaceInvokeArgs : Pulumi.InvokeArgs
+    {
+        [Input("filters")]
+        private InputList<Inputs.GetNetworkInterfaceFilterInputArgs>? _filters;
+
+        /// <summary>
+        /// One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-network-interfaces](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-network-interfaces.html) in the AWS CLI reference.
+        /// </summary>
+        public InputList<Inputs.GetNetworkInterfaceFilterInputArgs> Filters
+        {
+            get => _filters ?? (_filters = new InputList<Inputs.GetNetworkInterfaceFilterInputArgs>());
+            set => _filters = value;
+        }
+
+        /// <summary>
+        /// The identifier for the network interface.
+        /// </summary>
+        [Input("id")]
+        public Input<string>? Id { get; set; }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Any tags assigned to the network interface.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        public GetNetworkInterfaceInvokeArgs()
         {
         }
     }

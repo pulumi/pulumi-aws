@@ -339,6 +339,10 @@ func (o ChannelMapOutput) MapIndex(k pulumi.StringInput) ChannelOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelInput)(nil)).Elem(), &Channel{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelPtrInput)(nil)).Elem(), &Channel{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelArrayInput)(nil)).Elem(), ChannelArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelMapInput)(nil)).Elem(), ChannelMap{})
 	pulumi.RegisterOutputType(ChannelOutput{})
 	pulumi.RegisterOutputType(ChannelPtrOutput{})
 	pulumi.RegisterOutputType(ChannelArrayOutput{})

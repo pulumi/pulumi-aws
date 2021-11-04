@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.ImageBuilder
 {
@@ -39,6 +40,35 @@ namespace Pulumi.Aws.ImageBuilder
         /// </summary>
         public static Task<GetInfrastructureConfigurationResult> InvokeAsync(GetInfrastructureConfigurationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetInfrastructureConfigurationResult>("aws:imagebuilder/getInfrastructureConfiguration:getInfrastructureConfiguration", args ?? new GetInfrastructureConfigurationArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Provides details about an Image Builder Infrastructure Configuration.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.ImageBuilder.GetInfrastructureConfiguration.InvokeAsync(new Aws.ImageBuilder.GetInfrastructureConfigurationArgs
+        ///         {
+        ///             Arn = "arn:aws:imagebuilder:us-west-2:aws:infrastructure-configuration/example",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetInfrastructureConfigurationResult> Invoke(GetInfrastructureConfigurationInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetInfrastructureConfigurationResult>("aws:imagebuilder/getInfrastructureConfiguration:getInfrastructureConfiguration", args ?? new GetInfrastructureConfigurationInvokeArgs(), options.WithVersion());
     }
 
 
@@ -75,6 +105,43 @@ namespace Pulumi.Aws.ImageBuilder
         }
 
         public GetInfrastructureConfigurationArgs()
+        {
+        }
+    }
+
+    public sealed class GetInfrastructureConfigurationInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the infrastructure configuration.
+        /// </summary>
+        [Input("arn", required: true)]
+        public Input<string> Arn { get; set; } = null!;
+
+        [Input("resourceTags")]
+        private InputMap<string>? _resourceTags;
+
+        /// <summary>
+        /// Key-value map of resource tags for the infrastructure created by the infrastructure configuration.
+        /// </summary>
+        public InputMap<string> ResourceTags
+        {
+            get => _resourceTags ?? (_resourceTags = new InputMap<string>());
+            set => _resourceTags = value;
+        }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value map of resource tags for the infrastructure configuration.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        public GetInfrastructureConfigurationInvokeArgs()
         {
         }
     }

@@ -449,6 +449,8 @@ func (in *managedPolicyPtr) ToManagedPolicyPtrOutputWithContext(ctx context.Cont
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedPolicyInput)(nil)).Elem(), ManagedPolicy("arn:aws:iam::aws:policy/AWSAccountActivityAccess"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedPolicyPtrInput)(nil)).Elem(), ManagedPolicy("arn:aws:iam::aws:policy/AWSAccountActivityAccess"))
 	pulumi.RegisterOutputType(ManagedPolicyOutput{})
 	pulumi.RegisterOutputType(ManagedPolicyPtrOutput{})
 }

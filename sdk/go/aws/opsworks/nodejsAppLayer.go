@@ -486,6 +486,10 @@ func (o NodejsAppLayerMapOutput) MapIndex(k pulumi.StringInput) NodejsAppLayerOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*NodejsAppLayerInput)(nil)).Elem(), &NodejsAppLayer{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NodejsAppLayerPtrInput)(nil)).Elem(), &NodejsAppLayer{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NodejsAppLayerArrayInput)(nil)).Elem(), NodejsAppLayerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NodejsAppLayerMapInput)(nil)).Elem(), NodejsAppLayerMap{})
 	pulumi.RegisterOutputType(NodejsAppLayerOutput{})
 	pulumi.RegisterOutputType(NodejsAppLayerPtrOutput{})
 	pulumi.RegisterOutputType(NodejsAppLayerArrayOutput{})

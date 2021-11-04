@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Lambda
 {
@@ -41,6 +42,37 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         public static Task<GetLayerVersionResult> InvokeAsync(GetLayerVersionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLayerVersionResult>("aws:lambda/getLayerVersion:getLayerVersion", args ?? new GetLayerVersionArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Provides information about a Lambda Layer Version.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var config = new Config();
+        ///         var layerName = config.Require("layerName");
+        ///         var existing = Output.Create(Aws.Lambda.GetLayerVersion.InvokeAsync(new Aws.Lambda.GetLayerVersionArgs
+        ///         {
+        ///             LayerName = layerName,
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetLayerVersionResult> Invoke(GetLayerVersionInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetLayerVersionResult>("aws:lambda/getLayerVersion:getLayerVersion", args ?? new GetLayerVersionInvokeArgs(), options.WithVersion());
     }
 
 
@@ -71,6 +103,37 @@ namespace Pulumi.Aws.Lambda
         public int? Version { get; set; }
 
         public GetLayerVersionArgs()
+        {
+        }
+    }
+
+    public sealed class GetLayerVersionInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Specific architecture the layer version could support. Conflicts with `version`. If specified, the latest available layer version supporting the provided architecture will be used.
+        /// </summary>
+        [Input("compatibleArchitecture")]
+        public Input<string>? CompatibleArchitecture { get; set; }
+
+        /// <summary>
+        /// Specific runtime the layer version must support. Conflicts with `version`. If specified, the latest available layer version supporting the provided runtime will be used.
+        /// </summary>
+        [Input("compatibleRuntime")]
+        public Input<string>? CompatibleRuntime { get; set; }
+
+        /// <summary>
+        /// Name of the lambda layer.
+        /// </summary>
+        [Input("layerName", required: true)]
+        public Input<string> LayerName { get; set; } = null!;
+
+        /// <summary>
+        /// Specific layer version. Conflicts with `compatible_runtime` and `compatible_architecture`. If omitted, the latest available layer version will be used.
+        /// </summary>
+        [Input("version")]
+        public Input<int>? Version { get; set; }
+
+        public GetLayerVersionInvokeArgs()
         {
         }
     }

@@ -439,6 +439,10 @@ func (o ResolverMapOutput) MapIndex(k pulumi.StringInput) ResolverOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ResolverInput)(nil)).Elem(), &Resolver{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResolverPtrInput)(nil)).Elem(), &Resolver{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResolverArrayInput)(nil)).Elem(), ResolverArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResolverMapInput)(nil)).Elem(), ResolverMap{})
 	pulumi.RegisterOutputType(ResolverOutput{})
 	pulumi.RegisterOutputType(ResolverPtrOutput{})
 	pulumi.RegisterOutputType(ResolverArrayOutput{})

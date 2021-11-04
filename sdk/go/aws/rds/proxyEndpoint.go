@@ -357,6 +357,10 @@ func (o ProxyEndpointMapOutput) MapIndex(k pulumi.StringInput) ProxyEndpointOutp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ProxyEndpointInput)(nil)).Elem(), &ProxyEndpoint{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProxyEndpointPtrInput)(nil)).Elem(), &ProxyEndpoint{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProxyEndpointArrayInput)(nil)).Elem(), ProxyEndpointArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProxyEndpointMapInput)(nil)).Elem(), ProxyEndpointMap{})
 	pulumi.RegisterOutputType(ProxyEndpointOutput{})
 	pulumi.RegisterOutputType(ProxyEndpointPtrOutput{})
 	pulumi.RegisterOutputType(ProxyEndpointArrayOutput{})

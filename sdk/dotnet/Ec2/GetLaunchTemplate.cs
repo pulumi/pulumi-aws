@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Ec2
 {
@@ -69,6 +70,65 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public static Task<GetLaunchTemplateResult> InvokeAsync(GetLaunchTemplateArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLaunchTemplateResult>("aws:ec2/getLaunchTemplate:getLaunchTemplate", args ?? new GetLaunchTemplateArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Provides information about a Launch Template.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var @default = Output.Create(Aws.Ec2.GetLaunchTemplate.InvokeAsync(new Aws.Ec2.GetLaunchTemplateArgs
+        ///         {
+        ///             Name = "my-launch-template",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% example %}}
+        /// ### Filter
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var test = Output.Create(Aws.Ec2.GetLaunchTemplate.InvokeAsync(new Aws.Ec2.GetLaunchTemplateArgs
+        ///         {
+        ///             Filters = 
+        ///             {
+        ///                 new Aws.Ec2.Inputs.GetLaunchTemplateFilterArgs
+        ///                 {
+        ///                     Name = "launch-template-name",
+        ///                     Values = 
+        ///                     {
+        ///                         "some-template",
+        ///                     },
+        ///                 },
+        ///             },
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetLaunchTemplateResult> Invoke(GetLaunchTemplateInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetLaunchTemplateResult>("aws:ec2/getLaunchTemplate:getLaunchTemplate", args ?? new GetLaunchTemplateInvokeArgs(), options.WithVersion());
     }
 
 
@@ -111,6 +171,49 @@ namespace Pulumi.Aws.Ec2
         }
 
         public GetLaunchTemplateArgs()
+        {
+        }
+    }
+
+    public sealed class GetLaunchTemplateInvokeArgs : Pulumi.InvokeArgs
+    {
+        [Input("filters")]
+        private InputList<Inputs.GetLaunchTemplateFilterInputArgs>? _filters;
+
+        /// <summary>
+        /// Configuration block(s) for filtering. Detailed below.
+        /// </summary>
+        public InputList<Inputs.GetLaunchTemplateFilterInputArgs> Filters
+        {
+            get => _filters ?? (_filters = new InputList<Inputs.GetLaunchTemplateFilterInputArgs>());
+            set => _filters = value;
+        }
+
+        /// <summary>
+        /// The ID of the specific launch template to retrieve.
+        /// </summary>
+        [Input("id")]
+        public Input<string>? Id { get; set; }
+
+        /// <summary>
+        /// The name of the filter field. Valid values can be found in the [EC2 DescribeLaunchTemplates API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html).
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags, each pair of which must exactly match a pair on the desired Launch Template.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        public GetLaunchTemplateInvokeArgs()
         {
         }
     }

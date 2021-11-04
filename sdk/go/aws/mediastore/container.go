@@ -319,6 +319,10 @@ func (o ContainerMapOutput) MapIndex(k pulumi.StringInput) ContainerOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerInput)(nil)).Elem(), &Container{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerPtrInput)(nil)).Elem(), &Container{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerArrayInput)(nil)).Elem(), ContainerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerMapInput)(nil)).Elem(), ContainerMap{})
 	pulumi.RegisterOutputType(ContainerOutput{})
 	pulumi.RegisterOutputType(ContainerPtrOutput{})
 	pulumi.RegisterOutputType(ContainerArrayOutput{})

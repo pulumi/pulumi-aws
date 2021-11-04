@@ -343,6 +343,10 @@ func (o EncryptionConfigMapOutput) MapIndex(k pulumi.StringInput) EncryptionConf
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*EncryptionConfigInput)(nil)).Elem(), &EncryptionConfig{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EncryptionConfigPtrInput)(nil)).Elem(), &EncryptionConfig{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EncryptionConfigArrayInput)(nil)).Elem(), EncryptionConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EncryptionConfigMapInput)(nil)).Elem(), EncryptionConfigMap{})
 	pulumi.RegisterOutputType(EncryptionConfigOutput{})
 	pulumi.RegisterOutputType(EncryptionConfigPtrOutput{})
 	pulumi.RegisterOutputType(EncryptionConfigArrayOutput{})

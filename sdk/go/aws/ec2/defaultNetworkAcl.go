@@ -499,6 +499,10 @@ func (o DefaultNetworkAclMapOutput) MapIndex(k pulumi.StringInput) DefaultNetwor
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DefaultNetworkAclInput)(nil)).Elem(), &DefaultNetworkAcl{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DefaultNetworkAclPtrInput)(nil)).Elem(), &DefaultNetworkAcl{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DefaultNetworkAclArrayInput)(nil)).Elem(), DefaultNetworkAclArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DefaultNetworkAclMapInput)(nil)).Elem(), DefaultNetworkAclMap{})
 	pulumi.RegisterOutputType(DefaultNetworkAclOutput{})
 	pulumi.RegisterOutputType(DefaultNetworkAclPtrOutput{})
 	pulumi.RegisterOutputType(DefaultNetworkAclArrayOutput{})

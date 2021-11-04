@@ -321,6 +321,10 @@ func (o ResolverRuleAssociationMapOutput) MapIndex(k pulumi.StringInput) Resolve
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ResolverRuleAssociationInput)(nil)).Elem(), &ResolverRuleAssociation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResolverRuleAssociationPtrInput)(nil)).Elem(), &ResolverRuleAssociation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResolverRuleAssociationArrayInput)(nil)).Elem(), ResolverRuleAssociationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResolverRuleAssociationMapInput)(nil)).Elem(), ResolverRuleAssociationMap{})
 	pulumi.RegisterOutputType(ResolverRuleAssociationOutput{})
 	pulumi.RegisterOutputType(ResolverRuleAssociationPtrOutput{})
 	pulumi.RegisterOutputType(ResolverRuleAssociationArrayOutput{})

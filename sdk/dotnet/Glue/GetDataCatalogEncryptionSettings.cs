@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Glue
 {
@@ -39,6 +40,35 @@ namespace Pulumi.Aws.Glue
         /// </summary>
         public static Task<GetDataCatalogEncryptionSettingsResult> InvokeAsync(GetDataCatalogEncryptionSettingsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDataCatalogEncryptionSettingsResult>("aws:glue/getDataCatalogEncryptionSettings:getDataCatalogEncryptionSettings", args ?? new GetDataCatalogEncryptionSettingsArgs(), options.WithVersion());
+
+        /// <summary>
+        /// This data source can be used to fetch information about AWS Glue Data Catalog Encryption Settings.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.Glue.GetDataCatalogEncryptionSettings.InvokeAsync(new Aws.Glue.GetDataCatalogEncryptionSettingsArgs
+        ///         {
+        ///             Id = "123456789123",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetDataCatalogEncryptionSettingsResult> Invoke(GetDataCatalogEncryptionSettingsInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetDataCatalogEncryptionSettingsResult>("aws:glue/getDataCatalogEncryptionSettings:getDataCatalogEncryptionSettings", args ?? new GetDataCatalogEncryptionSettingsInvokeArgs(), options.WithVersion());
     }
 
 
@@ -51,6 +81,19 @@ namespace Pulumi.Aws.Glue
         public string CatalogId { get; set; } = null!;
 
         public GetDataCatalogEncryptionSettingsArgs()
+        {
+        }
+    }
+
+    public sealed class GetDataCatalogEncryptionSettingsInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The ID of the Data Catalog. This is typically the AWS account ID.
+        /// </summary>
+        [Input("catalogId", required: true)]
+        public Input<string> CatalogId { get; set; } = null!;
+
+        public GetDataCatalogEncryptionSettingsInvokeArgs()
         {
         }
     }

@@ -401,6 +401,10 @@ func (o IPSetMapOutput) MapIndex(k pulumi.StringInput) IPSetOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*IPSetInput)(nil)).Elem(), &IPSet{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IPSetPtrInput)(nil)).Elem(), &IPSet{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IPSetArrayInput)(nil)).Elem(), IPSetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IPSetMapInput)(nil)).Elem(), IPSetMap{})
 	pulumi.RegisterOutputType(IPSetOutput{})
 	pulumi.RegisterOutputType(IPSetPtrOutput{})
 	pulumi.RegisterOutputType(IPSetArrayOutput{})

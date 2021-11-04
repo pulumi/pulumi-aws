@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Outposts
 {
@@ -39,6 +40,35 @@ namespace Pulumi.Aws.Outposts
         /// </summary>
         public static Task<GetOutpostResult> InvokeAsync(GetOutpostArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetOutpostResult>("aws:outposts/getOutpost:getOutpost", args ?? new GetOutpostArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Provides details about an Outposts Outpost.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.Outposts.GetOutpost.InvokeAsync(new Aws.Outposts.GetOutpostArgs
+        ///         {
+        ///             Name = "example",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetOutpostResult> Invoke(GetOutpostInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetOutpostResult>("aws:outposts/getOutpost:getOutpost", args ?? new GetOutpostInvokeArgs(), options.WithVersion());
     }
 
 
@@ -69,6 +99,37 @@ namespace Pulumi.Aws.Outposts
         public string? OwnerId { get; set; }
 
         public GetOutpostArgs()
+        {
+        }
+    }
+
+    public sealed class GetOutpostInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Amazon Resource Name (ARN).
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
+        /// <summary>
+        /// Identifier of the Outpost.
+        /// </summary>
+        [Input("id")]
+        public Input<string>? Id { get; set; }
+
+        /// <summary>
+        /// Name of the Outpost.
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// AWS Account identifier of the Outpost owner.
+        /// </summary>
+        [Input("ownerId")]
+        public Input<string>? OwnerId { get; set; }
+
+        public GetOutpostInvokeArgs()
         {
         }
     }

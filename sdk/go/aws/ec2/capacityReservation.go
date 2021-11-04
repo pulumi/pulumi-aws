@@ -429,6 +429,10 @@ func (o CapacityReservationMapOutput) MapIndex(k pulumi.StringInput) CapacityRes
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityReservationInput)(nil)).Elem(), &CapacityReservation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityReservationPtrInput)(nil)).Elem(), &CapacityReservation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityReservationArrayInput)(nil)).Elem(), CapacityReservationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityReservationMapInput)(nil)).Elem(), CapacityReservationMap{})
 	pulumi.RegisterOutputType(CapacityReservationOutput{})
 	pulumi.RegisterOutputType(CapacityReservationPtrOutput{})
 	pulumi.RegisterOutputType(CapacityReservationArrayOutput{})

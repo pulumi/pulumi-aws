@@ -331,6 +331,10 @@ func (o RolePolicyAttachmentMapOutput) MapIndex(k pulumi.StringInput) RolePolicy
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RolePolicyAttachmentInput)(nil)).Elem(), &RolePolicyAttachment{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RolePolicyAttachmentPtrInput)(nil)).Elem(), &RolePolicyAttachment{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RolePolicyAttachmentArrayInput)(nil)).Elem(), RolePolicyAttachmentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RolePolicyAttachmentMapInput)(nil)).Elem(), RolePolicyAttachmentMap{})
 	pulumi.RegisterOutputType(RolePolicyAttachmentOutput{})
 	pulumi.RegisterOutputType(RolePolicyAttachmentPtrOutput{})
 	pulumi.RegisterOutputType(RolePolicyAttachmentArrayOutput{})

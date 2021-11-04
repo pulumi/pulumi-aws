@@ -362,6 +362,10 @@ func (o AliasMapOutput) MapIndex(k pulumi.StringInput) AliasOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AliasInput)(nil)).Elem(), &Alias{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AliasPtrInput)(nil)).Elem(), &Alias{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AliasArrayInput)(nil)).Elem(), AliasArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AliasMapInput)(nil)).Elem(), AliasMap{})
 	pulumi.RegisterOutputType(AliasOutput{})
 	pulumi.RegisterOutputType(AliasPtrOutput{})
 	pulumi.RegisterOutputType(AliasArrayOutput{})

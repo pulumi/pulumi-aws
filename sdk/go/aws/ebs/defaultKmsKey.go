@@ -304,6 +304,10 @@ func (o DefaultKmsKeyMapOutput) MapIndex(k pulumi.StringInput) DefaultKmsKeyOutp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DefaultKmsKeyInput)(nil)).Elem(), &DefaultKmsKey{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DefaultKmsKeyPtrInput)(nil)).Elem(), &DefaultKmsKey{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DefaultKmsKeyArrayInput)(nil)).Elem(), DefaultKmsKeyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DefaultKmsKeyMapInput)(nil)).Elem(), DefaultKmsKeyMap{})
 	pulumi.RegisterOutputType(DefaultKmsKeyOutput{})
 	pulumi.RegisterOutputType(DefaultKmsKeyPtrOutput{})
 	pulumi.RegisterOutputType(DefaultKmsKeyArrayOutput{})

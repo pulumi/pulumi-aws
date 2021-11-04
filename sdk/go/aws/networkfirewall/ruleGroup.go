@@ -716,6 +716,10 @@ func (o RuleGroupMapOutput) MapIndex(k pulumi.StringInput) RuleGroupOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupInput)(nil)).Elem(), &RuleGroup{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupPtrInput)(nil)).Elem(), &RuleGroup{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupArrayInput)(nil)).Elem(), RuleGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupMapInput)(nil)).Elem(), RuleGroupMap{})
 	pulumi.RegisterOutputType(RuleGroupOutput{})
 	pulumi.RegisterOutputType(RuleGroupPtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupArrayOutput{})

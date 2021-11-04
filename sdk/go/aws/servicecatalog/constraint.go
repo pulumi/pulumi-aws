@@ -381,6 +381,10 @@ func (o ConstraintMapOutput) MapIndex(k pulumi.StringInput) ConstraintOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ConstraintInput)(nil)).Elem(), &Constraint{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConstraintPtrInput)(nil)).Elem(), &Constraint{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConstraintArrayInput)(nil)).Elem(), ConstraintArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConstraintMapInput)(nil)).Elem(), ConstraintMap{})
 	pulumi.RegisterOutputType(ConstraintOutput{})
 	pulumi.RegisterOutputType(ConstraintPtrOutput{})
 	pulumi.RegisterOutputType(ConstraintArrayOutput{})

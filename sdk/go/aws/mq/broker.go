@@ -604,6 +604,10 @@ func (o BrokerMapOutput) MapIndex(k pulumi.StringInput) BrokerOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BrokerInput)(nil)).Elem(), &Broker{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BrokerPtrInput)(nil)).Elem(), &Broker{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BrokerArrayInput)(nil)).Elem(), BrokerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BrokerMapInput)(nil)).Elem(), BrokerMap{})
 	pulumi.RegisterOutputType(BrokerOutput{})
 	pulumi.RegisterOutputType(BrokerPtrOutput{})
 	pulumi.RegisterOutputType(BrokerArrayOutput{})

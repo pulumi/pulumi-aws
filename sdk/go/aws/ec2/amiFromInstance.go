@@ -495,6 +495,10 @@ func (o AmiFromInstanceMapOutput) MapIndex(k pulumi.StringInput) AmiFromInstance
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AmiFromInstanceInput)(nil)).Elem(), &AmiFromInstance{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AmiFromInstancePtrInput)(nil)).Elem(), &AmiFromInstance{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AmiFromInstanceArrayInput)(nil)).Elem(), AmiFromInstanceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AmiFromInstanceMapInput)(nil)).Elem(), AmiFromInstanceMap{})
 	pulumi.RegisterOutputType(AmiFromInstanceOutput{})
 	pulumi.RegisterOutputType(AmiFromInstancePtrOutput{})
 	pulumi.RegisterOutputType(AmiFromInstanceArrayOutput{})

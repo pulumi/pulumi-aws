@@ -390,6 +390,10 @@ func (o CompositeAlarmMapOutput) MapIndex(k pulumi.StringInput) CompositeAlarmOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CompositeAlarmInput)(nil)).Elem(), &CompositeAlarm{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CompositeAlarmPtrInput)(nil)).Elem(), &CompositeAlarm{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CompositeAlarmArrayInput)(nil)).Elem(), CompositeAlarmArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CompositeAlarmMapInput)(nil)).Elem(), CompositeAlarmMap{})
 	pulumi.RegisterOutputType(CompositeAlarmOutput{})
 	pulumi.RegisterOutputType(CompositeAlarmPtrOutput{})
 	pulumi.RegisterOutputType(CompositeAlarmArrayOutput{})

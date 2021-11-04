@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Msk
 {
@@ -39,6 +40,35 @@ namespace Pulumi.Aws.Msk
         /// </summary>
         public static Task<GetClusterResult> InvokeAsync(GetClusterArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("aws:msk/getCluster:getCluster", args ?? new GetClusterArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Get information on an Amazon MSK Cluster.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.Msk.GetCluster.InvokeAsync(new Aws.Msk.GetClusterArgs
+        ///         {
+        ///             ClusterName = "example",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetClusterResult>("aws:msk/getCluster:getCluster", args ?? new GetClusterInvokeArgs(), options.WithVersion());
     }
 
 
@@ -63,6 +93,31 @@ namespace Pulumi.Aws.Msk
         }
 
         public GetClusterArgs()
+        {
+        }
+    }
+
+    public sealed class GetClusterInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the cluster.
+        /// </summary>
+        [Input("clusterName", required: true)]
+        public Input<string> ClusterName { get; set; } = null!;
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Map of key-value pairs assigned to the cluster.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        public GetClusterInvokeArgs()
         {
         }
     }

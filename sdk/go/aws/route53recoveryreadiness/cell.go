@@ -339,6 +339,10 @@ func (o CellMapOutput) MapIndex(k pulumi.StringInput) CellOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CellInput)(nil)).Elem(), &Cell{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CellPtrInput)(nil)).Elem(), &Cell{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CellArrayInput)(nil)).Elem(), CellArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CellMapInput)(nil)).Elem(), CellMap{})
 	pulumi.RegisterOutputType(CellOutput{})
 	pulumi.RegisterOutputType(CellPtrOutput{})
 	pulumi.RegisterOutputType(CellArrayOutput{})

@@ -432,6 +432,10 @@ func (o ScheduledActionMapOutput) MapIndex(k pulumi.StringInput) ScheduledAction
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledActionInput)(nil)).Elem(), &ScheduledAction{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledActionPtrInput)(nil)).Elem(), &ScheduledAction{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledActionArrayInput)(nil)).Elem(), ScheduledActionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledActionMapInput)(nil)).Elem(), ScheduledActionMap{})
 	pulumi.RegisterOutputType(ScheduledActionOutput{})
 	pulumi.RegisterOutputType(ScheduledActionPtrOutput{})
 	pulumi.RegisterOutputType(ScheduledActionArrayOutput{})

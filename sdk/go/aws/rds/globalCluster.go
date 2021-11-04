@@ -569,6 +569,10 @@ func (o GlobalClusterMapOutput) MapIndex(k pulumi.StringInput) GlobalClusterOutp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GlobalClusterInput)(nil)).Elem(), &GlobalCluster{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GlobalClusterPtrInput)(nil)).Elem(), &GlobalCluster{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GlobalClusterArrayInput)(nil)).Elem(), GlobalClusterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GlobalClusterMapInput)(nil)).Elem(), GlobalClusterMap{})
 	pulumi.RegisterOutputType(GlobalClusterOutput{})
 	pulumi.RegisterOutputType(GlobalClusterPtrOutput{})
 	pulumi.RegisterOutputType(GlobalClusterArrayOutput{})

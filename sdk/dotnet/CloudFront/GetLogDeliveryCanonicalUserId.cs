@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.CloudFront
 {
@@ -52,6 +53,48 @@ namespace Pulumi.Aws.CloudFront
         /// </summary>
         public static Task<GetLogDeliveryCanonicalUserIdResult> InvokeAsync(GetLogDeliveryCanonicalUserIdArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLogDeliveryCanonicalUserIdResult>("aws:cloudfront/getLogDeliveryCanonicalUserId:getLogDeliveryCanonicalUserId", args ?? new GetLogDeliveryCanonicalUserIdArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The CloudFront Log Delivery Canonical User ID data source allows access to the [canonical user ID](http://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html) of the AWS `awslogsdelivery` account for CloudFront bucket logging.
+        /// See the [Amazon CloudFront Developer Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/AccessLogs.html) for more information.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var exampleLogDeliveryCanonicalUserId = Output.Create(Aws.CloudFront.GetLogDeliveryCanonicalUserId.InvokeAsync());
+        ///         var exampleBucket = new Aws.S3.Bucket("exampleBucket", new Aws.S3.BucketArgs
+        ///         {
+        ///             Grants = 
+        ///             {
+        ///                 new Aws.S3.Inputs.BucketGrantArgs
+        ///                 {
+        ///                     Id = exampleLogDeliveryCanonicalUserId.Apply(exampleLogDeliveryCanonicalUserId =&gt; exampleLogDeliveryCanonicalUserId.Id),
+        ///                     Type = "CanonicalUser",
+        ///                     Permissions = 
+        ///                     {
+        ///                         "FULL_CONTROL",
+        ///                     },
+        ///                 },
+        ///             },
+        ///         });
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetLogDeliveryCanonicalUserIdResult> Invoke(GetLogDeliveryCanonicalUserIdInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetLogDeliveryCanonicalUserIdResult>("aws:cloudfront/getLogDeliveryCanonicalUserId:getLogDeliveryCanonicalUserId", args ?? new GetLogDeliveryCanonicalUserIdInvokeArgs(), options.WithVersion());
     }
 
 
@@ -64,6 +107,19 @@ namespace Pulumi.Aws.CloudFront
         public string? Region { get; set; }
 
         public GetLogDeliveryCanonicalUserIdArgs()
+        {
+        }
+    }
+
+    public sealed class GetLogDeliveryCanonicalUserIdInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The region you'd like the zone for. By default, fetches the current region.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        public GetLogDeliveryCanonicalUserIdInvokeArgs()
         {
         }
     }

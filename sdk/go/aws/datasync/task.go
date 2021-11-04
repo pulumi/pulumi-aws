@@ -416,6 +416,10 @@ func (o TaskMapOutput) MapIndex(k pulumi.StringInput) TaskOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskInput)(nil)).Elem(), &Task{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskPtrInput)(nil)).Elem(), &Task{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskArrayInput)(nil)).Elem(), TaskArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskMapInput)(nil)).Elem(), TaskMap{})
 	pulumi.RegisterOutputType(TaskOutput{})
 	pulumi.RegisterOutputType(TaskPtrOutput{})
 	pulumi.RegisterOutputType(TaskArrayOutput{})

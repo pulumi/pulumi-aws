@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Ecs
 {
@@ -41,6 +42,37 @@ namespace Pulumi.Aws.Ecs
         /// </summary>
         public static Task<GetServiceResult> InvokeAsync(GetServiceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("aws:ecs/getService:getService", args ?? new GetServiceArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The ECS Service data source allows access to details of a specific
+        /// Service within a AWS ECS Cluster.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.Ecs.GetService.InvokeAsync(new Aws.Ecs.GetServiceArgs
+        ///         {
+        ///             ServiceName = "example",
+        ///             ClusterArn = data.Aws_ecs_cluster.Example.Arn,
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetServiceResult> Invoke(GetServiceInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetServiceResult>("aws:ecs/getService:getService", args ?? new GetServiceInvokeArgs(), options.WithVersion());
     }
 
 
@@ -59,6 +91,25 @@ namespace Pulumi.Aws.Ecs
         public string ServiceName { get; set; } = null!;
 
         public GetServiceArgs()
+        {
+        }
+    }
+
+    public sealed class GetServiceInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The arn of the ECS Cluster
+        /// </summary>
+        [Input("clusterArn", required: true)]
+        public Input<string> ClusterArn { get; set; } = null!;
+
+        /// <summary>
+        /// The name of the ECS Service
+        /// </summary>
+        [Input("serviceName", required: true)]
+        public Input<string> ServiceName { get; set; } = null!;
+
+        public GetServiceInvokeArgs()
         {
         }
     }

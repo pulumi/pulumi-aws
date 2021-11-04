@@ -329,6 +329,10 @@ func (o RequestValidatorMapOutput) MapIndex(k pulumi.StringInput) RequestValidat
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RequestValidatorInput)(nil)).Elem(), &RequestValidator{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RequestValidatorPtrInput)(nil)).Elem(), &RequestValidator{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RequestValidatorArrayInput)(nil)).Elem(), RequestValidatorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RequestValidatorMapInput)(nil)).Elem(), RequestValidatorMap{})
 	pulumi.RegisterOutputType(RequestValidatorOutput{})
 	pulumi.RegisterOutputType(RequestValidatorPtrOutput{})
 	pulumi.RegisterOutputType(RequestValidatorArrayOutput{})

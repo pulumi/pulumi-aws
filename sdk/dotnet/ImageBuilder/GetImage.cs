@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.ImageBuilder
 {
@@ -40,6 +41,36 @@ namespace Pulumi.Aws.ImageBuilder
         /// </summary>
         public static Task<GetImageResult> InvokeAsync(GetImageArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetImageResult>("aws:imagebuilder/getImage:getImage", args ?? new GetImageArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Provides details about an Image Builder Image.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// ### Latest
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.ImageBuilder.GetImage.InvokeAsync(new Aws.ImageBuilder.GetImageArgs
+        ///         {
+        ///             Arn = "arn:aws:imagebuilder:us-west-2:aws:image/amazon-linux-2-x86/x.x.x",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetImageResult> Invoke(GetImageInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetImageResult>("aws:imagebuilder/getImage:getImage", args ?? new GetImageInvokeArgs(), options.WithVersion());
     }
 
 
@@ -64,6 +95,31 @@ namespace Pulumi.Aws.ImageBuilder
         }
 
         public GetImageArgs()
+        {
+        }
+    }
+
+    public sealed class GetImageInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the image. The suffix can either be specified with wildcards (`x.x.x`) to fetch the latest build version or a full build version (e.g. `2020.11.26/1`) to fetch an exact version.
+        /// </summary>
+        [Input("arn", required: true)]
+        public Input<string> Arn { get; set; } = null!;
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value map of resource tags for the image.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        public GetImageInvokeArgs()
         {
         }
     }

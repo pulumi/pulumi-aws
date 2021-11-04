@@ -349,6 +349,10 @@ func (o CatalogDatabaseMapOutput) MapIndex(k pulumi.StringInput) CatalogDatabase
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogDatabaseInput)(nil)).Elem(), &CatalogDatabase{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogDatabasePtrInput)(nil)).Elem(), &CatalogDatabase{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogDatabaseArrayInput)(nil)).Elem(), CatalogDatabaseArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CatalogDatabaseMapInput)(nil)).Elem(), CatalogDatabaseMap{})
 	pulumi.RegisterOutputType(CatalogDatabaseOutput{})
 	pulumi.RegisterOutputType(CatalogDatabasePtrOutput{})
 	pulumi.RegisterOutputType(CatalogDatabaseArrayOutput{})

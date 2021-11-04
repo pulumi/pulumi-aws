@@ -333,6 +333,10 @@ func (o SmsPreferencesMapOutput) MapIndex(k pulumi.StringInput) SmsPreferencesOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SmsPreferencesInput)(nil)).Elem(), &SmsPreferences{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SmsPreferencesPtrInput)(nil)).Elem(), &SmsPreferences{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SmsPreferencesArrayInput)(nil)).Elem(), SmsPreferencesArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SmsPreferencesMapInput)(nil)).Elem(), SmsPreferencesMap{})
 	pulumi.RegisterOutputType(SmsPreferencesOutput{})
 	pulumi.RegisterOutputType(SmsPreferencesPtrOutput{})
 	pulumi.RegisterOutputType(SmsPreferencesArrayOutput{})

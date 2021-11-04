@@ -331,6 +331,10 @@ func (o ManagedScalingPolicyMapOutput) MapIndex(k pulumi.StringInput) ManagedSca
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedScalingPolicyInput)(nil)).Elem(), &ManagedScalingPolicy{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedScalingPolicyPtrInput)(nil)).Elem(), &ManagedScalingPolicy{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedScalingPolicyArrayInput)(nil)).Elem(), ManagedScalingPolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ManagedScalingPolicyMapInput)(nil)).Elem(), ManagedScalingPolicyMap{})
 	pulumi.RegisterOutputType(ManagedScalingPolicyOutput{})
 	pulumi.RegisterOutputType(ManagedScalingPolicyPtrOutput{})
 	pulumi.RegisterOutputType(ManagedScalingPolicyArrayOutput{})

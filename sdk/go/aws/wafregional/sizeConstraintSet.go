@@ -315,6 +315,10 @@ func (o SizeConstraintSetMapOutput) MapIndex(k pulumi.StringInput) SizeConstrain
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SizeConstraintSetInput)(nil)).Elem(), &SizeConstraintSet{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SizeConstraintSetPtrInput)(nil)).Elem(), &SizeConstraintSet{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SizeConstraintSetArrayInput)(nil)).Elem(), SizeConstraintSetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SizeConstraintSetMapInput)(nil)).Elem(), SizeConstraintSetMap{})
 	pulumi.RegisterOutputType(SizeConstraintSetOutput{})
 	pulumi.RegisterOutputType(SizeConstraintSetPtrOutput{})
 	pulumi.RegisterOutputType(SizeConstraintSetArrayOutput{})

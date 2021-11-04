@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Rds
 {
@@ -39,6 +40,35 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         public static Task<GetClusterResult> InvokeAsync(GetClusterArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetClusterResult>("aws:rds/getCluster:getCluster", args ?? new GetClusterArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Provides information about an RDS cluster.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var clusterName = Output.Create(Aws.Rds.GetCluster.InvokeAsync(new Aws.Rds.GetClusterArgs
+        ///         {
+        ///             ClusterIdentifier = "clusterName",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetClusterResult> Invoke(GetClusterInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetClusterResult>("aws:rds/getCluster:getCluster", args ?? new GetClusterInvokeArgs(), options.WithVersion());
     }
 
 
@@ -59,6 +89,27 @@ namespace Pulumi.Aws.Rds
         }
 
         public GetClusterArgs()
+        {
+        }
+    }
+
+    public sealed class GetClusterInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The cluster identifier of the RDS cluster.
+        /// </summary>
+        [Input("clusterIdentifier", required: true)]
+        public Input<string> ClusterIdentifier { get; set; } = null!;
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        public GetClusterInvokeArgs()
         {
         }
     }

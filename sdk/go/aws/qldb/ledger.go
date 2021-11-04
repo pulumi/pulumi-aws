@@ -341,6 +341,10 @@ func (o LedgerMapOutput) MapIndex(k pulumi.StringInput) LedgerOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LedgerInput)(nil)).Elem(), &Ledger{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LedgerPtrInput)(nil)).Elem(), &Ledger{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LedgerArrayInput)(nil)).Elem(), LedgerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LedgerMapInput)(nil)).Elem(), LedgerMap{})
 	pulumi.RegisterOutputType(LedgerOutput{})
 	pulumi.RegisterOutputType(LedgerPtrOutput{})
 	pulumi.RegisterOutputType(LedgerArrayOutput{})

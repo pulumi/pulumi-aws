@@ -401,6 +401,10 @@ func (o HostedConnectionMapOutput) MapIndex(k pulumi.StringInput) HostedConnecti
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*HostedConnectionInput)(nil)).Elem(), &HostedConnection{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HostedConnectionPtrInput)(nil)).Elem(), &HostedConnection{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HostedConnectionArrayInput)(nil)).Elem(), HostedConnectionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HostedConnectionMapInput)(nil)).Elem(), HostedConnectionMap{})
 	pulumi.RegisterOutputType(HostedConnectionOutput{})
 	pulumi.RegisterOutputType(HostedConnectionPtrOutput{})
 	pulumi.RegisterOutputType(HostedConnectionArrayOutput{})

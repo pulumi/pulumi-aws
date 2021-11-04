@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Kms
 {
@@ -54,6 +55,50 @@ namespace Pulumi.Aws.Kms
         /// </summary>
         public static Task<GetKeyResult> InvokeAsync(GetKeyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetKeyResult>("aws:kms/getKey:getKey", args ?? new GetKeyArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to get detailed information about
+        /// the specified KMS Key with flexible key id input.
+        /// This can be useful to reference key alias
+        /// without having to hard code the ARN as input.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var byAlias = Output.Create(Aws.Kms.GetKey.InvokeAsync(new Aws.Kms.GetKeyArgs
+        ///         {
+        ///             KeyId = "alias/my-key",
+        ///         }));
+        ///         var byId = Output.Create(Aws.Kms.GetKey.InvokeAsync(new Aws.Kms.GetKeyArgs
+        ///         {
+        ///             KeyId = "1234abcd-12ab-34cd-56ef-1234567890ab",
+        ///         }));
+        ///         var byAliasArn = Output.Create(Aws.Kms.GetKey.InvokeAsync(new Aws.Kms.GetKeyArgs
+        ///         {
+        ///             KeyId = "arn:aws:kms:us-east-1:111122223333:alias/my-key",
+        ///         }));
+        ///         var byKeyArn = Output.Create(Aws.Kms.GetKey.InvokeAsync(new Aws.Kms.GetKeyArgs
+        ///         {
+        ///             KeyId = "arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetKeyResult> Invoke(GetKeyInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetKeyResult>("aws:kms/getKey:getKey", args ?? new GetKeyInvokeArgs(), options.WithVersion());
     }
 
 
@@ -82,6 +127,35 @@ namespace Pulumi.Aws.Kms
         public string KeyId { get; set; } = null!;
 
         public GetKeyArgs()
+        {
+        }
+    }
+
+    public sealed class GetKeyInvokeArgs : Pulumi.InvokeArgs
+    {
+        [Input("grantTokens")]
+        private InputList<string>? _grantTokens;
+
+        /// <summary>
+        /// List of grant tokens
+        /// </summary>
+        public InputList<string> GrantTokens
+        {
+            get => _grantTokens ?? (_grantTokens = new InputList<string>());
+            set => _grantTokens = value;
+        }
+
+        /// <summary>
+        /// Key identifier which can be one of the following format:
+        /// * Key ID. E.g: `1234abcd-12ab-34cd-56ef-1234567890ab`
+        /// * Key ARN. E.g.: `arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab`
+        /// * Alias name. E.g.: `alias/my-key`
+        /// * Alias ARN: E.g.: `arn:aws:kms:us-east-1:111122223333:alias/my-key`
+        /// </summary>
+        [Input("keyId", required: true)]
+        public Input<string> KeyId { get; set; } = null!;
+
+        public GetKeyInvokeArgs()
         {
         }
     }

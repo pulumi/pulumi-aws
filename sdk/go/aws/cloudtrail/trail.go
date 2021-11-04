@@ -882,6 +882,10 @@ func (o TrailMapOutput) MapIndex(k pulumi.StringInput) TrailOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TrailInput)(nil)).Elem(), &Trail{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrailPtrInput)(nil)).Elem(), &Trail{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrailArrayInput)(nil)).Elem(), TrailArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrailMapInput)(nil)).Elem(), TrailMap{})
 	pulumi.RegisterOutputType(TrailOutput{})
 	pulumi.RegisterOutputType(TrailPtrOutput{})
 	pulumi.RegisterOutputType(TrailArrayOutput{})

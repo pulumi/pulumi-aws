@@ -366,6 +366,10 @@ func (o VpcEndpointConnectionNotificationMapOutput) MapIndex(k pulumi.StringInpu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointConnectionNotificationInput)(nil)).Elem(), &VpcEndpointConnectionNotification{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointConnectionNotificationPtrInput)(nil)).Elem(), &VpcEndpointConnectionNotification{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointConnectionNotificationArrayInput)(nil)).Elem(), VpcEndpointConnectionNotificationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointConnectionNotificationMapInput)(nil)).Elem(), VpcEndpointConnectionNotificationMap{})
 	pulumi.RegisterOutputType(VpcEndpointConnectionNotificationOutput{})
 	pulumi.RegisterOutputType(VpcEndpointConnectionNotificationPtrOutput{})
 	pulumi.RegisterOutputType(VpcEndpointConnectionNotificationArrayOutput{})

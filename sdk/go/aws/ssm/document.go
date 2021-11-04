@@ -530,6 +530,10 @@ func (o DocumentMapOutput) MapIndex(k pulumi.StringInput) DocumentOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DocumentInput)(nil)).Elem(), &Document{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DocumentPtrInput)(nil)).Elem(), &Document{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DocumentArrayInput)(nil)).Elem(), DocumentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DocumentMapInput)(nil)).Elem(), DocumentMap{})
 	pulumi.RegisterOutputType(DocumentOutput{})
 	pulumi.RegisterOutputType(DocumentPtrOutput{})
 	pulumi.RegisterOutputType(DocumentArrayOutput{})

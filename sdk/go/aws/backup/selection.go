@@ -420,6 +420,10 @@ func (o SelectionMapOutput) MapIndex(k pulumi.StringInput) SelectionOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SelectionInput)(nil)).Elem(), &Selection{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SelectionPtrInput)(nil)).Elem(), &Selection{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SelectionArrayInput)(nil)).Elem(), SelectionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SelectionMapInput)(nil)).Elem(), SelectionMap{})
 	pulumi.RegisterOutputType(SelectionOutput{})
 	pulumi.RegisterOutputType(SelectionPtrOutput{})
 	pulumi.RegisterOutputType(SelectionArrayOutput{})

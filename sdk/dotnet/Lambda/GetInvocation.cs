@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Lambda
 {
@@ -18,6 +19,14 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         public static Task<GetInvocationResult> InvokeAsync(GetInvocationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetInvocationResult>("aws:lambda/getInvocation:getInvocation", args ?? new GetInvocationArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to invoke custom lambda functions as data source.
+        /// The lambda function is invoked with [RequestResponse](https://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html#API_Invoke_RequestSyntax)
+        /// invocation type.
+        /// </summary>
+        public static Output<GetInvocationResult> Invoke(GetInvocationInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetInvocationResult>("aws:lambda/getInvocation:getInvocation", args ?? new GetInvocationInvokeArgs(), options.WithVersion());
     }
 
 
@@ -43,6 +52,32 @@ namespace Pulumi.Aws.Lambda
         public string? Qualifier { get; set; }
 
         public GetInvocationArgs()
+        {
+        }
+    }
+
+    public sealed class GetInvocationInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the lambda function.
+        /// </summary>
+        [Input("functionName", required: true)]
+        public Input<string> FunctionName { get; set; } = null!;
+
+        /// <summary>
+        /// A string in JSON format that is passed as payload to the lambda function.
+        /// </summary>
+        [Input("input", required: true)]
+        public Input<string> Input { get; set; } = null!;
+
+        /// <summary>
+        /// The qualifier (a.k.a version) of the lambda function. Defaults
+        /// to `$LATEST`.
+        /// </summary>
+        [Input("qualifier")]
+        public Input<string>? Qualifier { get; set; }
+
+        public GetInvocationInvokeArgs()
         {
         }
     }

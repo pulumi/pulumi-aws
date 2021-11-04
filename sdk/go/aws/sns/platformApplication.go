@@ -432,6 +432,10 @@ func (o PlatformApplicationMapOutput) MapIndex(k pulumi.StringInput) PlatformApp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PlatformApplicationInput)(nil)).Elem(), &PlatformApplication{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlatformApplicationPtrInput)(nil)).Elem(), &PlatformApplication{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlatformApplicationArrayInput)(nil)).Elem(), PlatformApplicationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlatformApplicationMapInput)(nil)).Elem(), PlatformApplicationMap{})
 	pulumi.RegisterOutputType(PlatformApplicationOutput{})
 	pulumi.RegisterOutputType(PlatformApplicationPtrOutput{})
 	pulumi.RegisterOutputType(PlatformApplicationArrayOutput{})

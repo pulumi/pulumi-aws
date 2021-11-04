@@ -354,6 +354,10 @@ func (o EfsLocationMapOutput) MapIndex(k pulumi.StringInput) EfsLocationOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*EfsLocationInput)(nil)).Elem(), &EfsLocation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EfsLocationPtrInput)(nil)).Elem(), &EfsLocation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EfsLocationArrayInput)(nil)).Elem(), EfsLocationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EfsLocationMapInput)(nil)).Elem(), EfsLocationMap{})
 	pulumi.RegisterOutputType(EfsLocationOutput{})
 	pulumi.RegisterOutputType(EfsLocationPtrOutput{})
 	pulumi.RegisterOutputType(EfsLocationArrayOutput{})

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Acmpca
 {
@@ -40,6 +41,36 @@ namespace Pulumi.Aws.Acmpca
         /// </summary>
         public static Task<GetCertificateResult> InvokeAsync(GetCertificateArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCertificateResult>("aws:acmpca/getCertificate:getCertificate", args ?? new GetCertificateArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Get information on a Certificate issued by a AWS Certificate Manager Private Certificate Authority.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.Acmpca.GetCertificate.InvokeAsync(new Aws.Acmpca.GetCertificateArgs
+        ///         {
+        ///             Arn = "arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012/certificate/1234b4a0d73e2056789bdbe77d5b1a23",
+        ///             CertificateAuthorityArn = "arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetCertificateResult> Invoke(GetCertificateInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetCertificateResult>("aws:acmpca/getCertificate:getCertificate", args ?? new GetCertificateInvokeArgs(), options.WithVersion());
     }
 
 
@@ -58,6 +89,25 @@ namespace Pulumi.Aws.Acmpca
         public string CertificateAuthorityArn { get; set; } = null!;
 
         public GetCertificateArgs()
+        {
+        }
+    }
+
+    public sealed class GetCertificateInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the certificate issued by the private certificate authority.
+        /// </summary>
+        [Input("arn", required: true)]
+        public Input<string> Arn { get; set; } = null!;
+
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the certificate authority.
+        /// </summary>
+        [Input("certificateAuthorityArn", required: true)]
+        public Input<string> CertificateAuthorityArn { get; set; } = null!;
+
+        public GetCertificateInvokeArgs()
         {
         }
     }

@@ -409,6 +409,10 @@ func (o VirtualServiceMapOutput) MapIndex(k pulumi.StringInput) VirtualServiceOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualServiceInput)(nil)).Elem(), &VirtualService{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualServicePtrInput)(nil)).Elem(), &VirtualService{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualServiceArrayInput)(nil)).Elem(), VirtualServiceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VirtualServiceMapInput)(nil)).Elem(), VirtualServiceMap{})
 	pulumi.RegisterOutputType(VirtualServiceOutput{})
 	pulumi.RegisterOutputType(VirtualServicePtrOutput{})
 	pulumi.RegisterOutputType(VirtualServiceArrayOutput{})

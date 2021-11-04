@@ -444,6 +444,10 @@ func (o ZoneMapOutput) MapIndex(k pulumi.StringInput) ZoneOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ZoneInput)(nil)).Elem(), &Zone{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ZonePtrInput)(nil)).Elem(), &Zone{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ZoneArrayInput)(nil)).Elem(), ZoneArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ZoneMapInput)(nil)).Elem(), ZoneMap{})
 	pulumi.RegisterOutputType(ZoneOutput{})
 	pulumi.RegisterOutputType(ZonePtrOutput{})
 	pulumi.RegisterOutputType(ZoneArrayOutput{})

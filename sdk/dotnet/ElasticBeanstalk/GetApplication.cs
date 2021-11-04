@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.ElasticBeanstalk
 {
@@ -45,6 +46,41 @@ namespace Pulumi.Aws.ElasticBeanstalk
         /// </summary>
         public static Task<GetApplicationResult> InvokeAsync(GetApplicationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationResult>("aws:elasticbeanstalk/getApplication:getApplication", args ?? new GetApplicationArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Retrieve information about an Elastic Beanstalk Application.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.ElasticBeanstalk.GetApplication.InvokeAsync(new Aws.ElasticBeanstalk.GetApplicationArgs
+        ///         {
+        ///             Name = "example",
+        ///         }));
+        ///         this.Arn = example.Apply(example =&gt; example.Arn);
+        ///         this.Description = example.Apply(example =&gt; example.Description);
+        ///     }
+        /// 
+        ///     [Output("arn")]
+        ///     public Output&lt;string&gt; Arn { get; set; }
+        ///     [Output("description")]
+        ///     public Output&lt;string&gt; Description { get; set; }
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetApplicationResult> Invoke(GetApplicationInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetApplicationResult>("aws:elasticbeanstalk/getApplication:getApplication", args ?? new GetApplicationInvokeArgs(), options.WithVersion());
     }
 
 
@@ -57,6 +93,19 @@ namespace Pulumi.Aws.ElasticBeanstalk
         public string Name { get; set; } = null!;
 
         public GetApplicationArgs()
+        {
+        }
+    }
+
+    public sealed class GetApplicationInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the application
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        public GetApplicationInvokeArgs()
         {
         }
     }

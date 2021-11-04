@@ -324,6 +324,10 @@ func (o InternetGatewayMapOutput) MapIndex(k pulumi.StringInput) InternetGateway
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*InternetGatewayInput)(nil)).Elem(), &InternetGateway{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InternetGatewayPtrInput)(nil)).Elem(), &InternetGateway{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InternetGatewayArrayInput)(nil)).Elem(), InternetGatewayArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InternetGatewayMapInput)(nil)).Elem(), InternetGatewayMap{})
 	pulumi.RegisterOutputType(InternetGatewayOutput{})
 	pulumi.RegisterOutputType(InternetGatewayPtrOutput{})
 	pulumi.RegisterOutputType(InternetGatewayArrayOutput{})

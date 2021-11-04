@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Ssm
 {
@@ -13,6 +14,9 @@ namespace Pulumi.Aws.Ssm
     {
         public static Task<GetParametersByPathResult> InvokeAsync(GetParametersByPathArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetParametersByPathResult>("aws:ssm/getParametersByPath:getParametersByPath", args ?? new GetParametersByPathArgs(), options.WithVersion());
+
+        public static Output<GetParametersByPathResult> Invoke(GetParametersByPathInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetParametersByPathResult>("aws:ssm/getParametersByPath:getParametersByPath", args ?? new GetParametersByPathInvokeArgs(), options.WithVersion());
     }
 
 
@@ -31,6 +35,25 @@ namespace Pulumi.Aws.Ssm
         public bool? WithDecryption { get; set; }
 
         public GetParametersByPathArgs()
+        {
+        }
+    }
+
+    public sealed class GetParametersByPathInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The prefix path of the parameter.
+        /// </summary>
+        [Input("path", required: true)]
+        public Input<string> Path { get; set; } = null!;
+
+        /// <summary>
+        /// Whether to return decrypted `SecureString` value. Defaults to `true`.
+        /// </summary>
+        [Input("withDecryption")]
+        public Input<bool>? WithDecryption { get; set; }
+
+        public GetParametersByPathInvokeArgs()
         {
         }
     }

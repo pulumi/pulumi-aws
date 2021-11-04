@@ -333,6 +333,10 @@ func (o IdentityNotificationTopicMapOutput) MapIndex(k pulumi.StringInput) Ident
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentityNotificationTopicInput)(nil)).Elem(), &IdentityNotificationTopic{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentityNotificationTopicPtrInput)(nil)).Elem(), &IdentityNotificationTopic{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentityNotificationTopicArrayInput)(nil)).Elem(), IdentityNotificationTopicArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentityNotificationTopicMapInput)(nil)).Elem(), IdentityNotificationTopicMap{})
 	pulumi.RegisterOutputType(IdentityNotificationTopicOutput{})
 	pulumi.RegisterOutputType(IdentityNotificationTopicPtrOutput{})
 	pulumi.RegisterOutputType(IdentityNotificationTopicArrayOutput{})

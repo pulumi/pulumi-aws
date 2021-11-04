@@ -402,6 +402,10 @@ func (o LocationSmbMapOutput) MapIndex(k pulumi.StringInput) LocationSmbOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationSmbInput)(nil)).Elem(), &LocationSmb{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationSmbPtrInput)(nil)).Elem(), &LocationSmb{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationSmbArrayInput)(nil)).Elem(), LocationSmbArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationSmbMapInput)(nil)).Elem(), LocationSmbMap{})
 	pulumi.RegisterOutputType(LocationSmbOutput{})
 	pulumi.RegisterOutputType(LocationSmbPtrOutput{})
 	pulumi.RegisterOutputType(LocationSmbArrayOutput{})

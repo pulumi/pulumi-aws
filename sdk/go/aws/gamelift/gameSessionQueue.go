@@ -358,6 +358,10 @@ func (o GameSessionQueueMapOutput) MapIndex(k pulumi.StringInput) GameSessionQue
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GameSessionQueueInput)(nil)).Elem(), &GameSessionQueue{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GameSessionQueuePtrInput)(nil)).Elem(), &GameSessionQueue{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GameSessionQueueArrayInput)(nil)).Elem(), GameSessionQueueArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GameSessionQueueMapInput)(nil)).Elem(), GameSessionQueueMap{})
 	pulumi.RegisterOutputType(GameSessionQueueOutput{})
 	pulumi.RegisterOutputType(GameSessionQueuePtrOutput{})
 	pulumi.RegisterOutputType(GameSessionQueueArrayOutput{})

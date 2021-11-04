@@ -406,6 +406,10 @@ func (o FirewallPolicyMapOutput) MapIndex(k pulumi.StringInput) FirewallPolicyOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyInput)(nil)).Elem(), &FirewallPolicy{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyPtrInput)(nil)).Elem(), &FirewallPolicy{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyArrayInput)(nil)).Elem(), FirewallPolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyMapInput)(nil)).Elem(), FirewallPolicyMap{})
 	pulumi.RegisterOutputType(FirewallPolicyOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyPtrOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyArrayOutput{})

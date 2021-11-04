@@ -460,6 +460,10 @@ func (o PeeringConnectionOptionsMapOutput) MapIndex(k pulumi.StringInput) Peerin
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PeeringConnectionOptionsInput)(nil)).Elem(), &PeeringConnectionOptions{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PeeringConnectionOptionsPtrInput)(nil)).Elem(), &PeeringConnectionOptions{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PeeringConnectionOptionsArrayInput)(nil)).Elem(), PeeringConnectionOptionsArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PeeringConnectionOptionsMapInput)(nil)).Elem(), PeeringConnectionOptionsMap{})
 	pulumi.RegisterOutputType(PeeringConnectionOptionsOutput{})
 	pulumi.RegisterOutputType(PeeringConnectionOptionsPtrOutput{})
 	pulumi.RegisterOutputType(PeeringConnectionOptionsArrayOutput{})

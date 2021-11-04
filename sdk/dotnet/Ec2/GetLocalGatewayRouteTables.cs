@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Ec2
 {
@@ -16,6 +17,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public static Task<GetLocalGatewayRouteTablesResult> InvokeAsync(GetLocalGatewayRouteTablesArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLocalGatewayRouteTablesResult>("aws:ec2/getLocalGatewayRouteTables:getLocalGatewayRouteTables", args ?? new GetLocalGatewayRouteTablesArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Provides information for multiple EC2 Local Gateway Route Tables, such as their identifiers.
+        /// </summary>
+        public static Output<GetLocalGatewayRouteTablesResult> Invoke(GetLocalGatewayRouteTablesInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetLocalGatewayRouteTablesResult>("aws:ec2/getLocalGatewayRouteTables:getLocalGatewayRouteTables", args ?? new GetLocalGatewayRouteTablesInvokeArgs(), options.WithVersion());
     }
 
 
@@ -47,6 +54,38 @@ namespace Pulumi.Aws.Ec2
         }
 
         public GetLocalGatewayRouteTablesArgs()
+        {
+        }
+    }
+
+    public sealed class GetLocalGatewayRouteTablesInvokeArgs : Pulumi.InvokeArgs
+    {
+        [Input("filters")]
+        private InputList<Inputs.GetLocalGatewayRouteTablesFilterInputArgs>? _filters;
+
+        /// <summary>
+        /// Custom filter block as described below.
+        /// </summary>
+        public InputList<Inputs.GetLocalGatewayRouteTablesFilterInputArgs> Filters
+        {
+            get => _filters ?? (_filters = new InputList<Inputs.GetLocalGatewayRouteTablesFilterInputArgs>());
+            set => _filters = value;
+        }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A mapping of tags, each pair of which must exactly match
+        /// a pair on the desired local gateway route table.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        public GetLocalGatewayRouteTablesInvokeArgs()
         {
         }
     }

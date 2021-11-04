@@ -371,6 +371,10 @@ func (o HostedConfigurationVersionMapOutput) MapIndex(k pulumi.StringInput) Host
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*HostedConfigurationVersionInput)(nil)).Elem(), &HostedConfigurationVersion{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HostedConfigurationVersionPtrInput)(nil)).Elem(), &HostedConfigurationVersion{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HostedConfigurationVersionArrayInput)(nil)).Elem(), HostedConfigurationVersionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HostedConfigurationVersionMapInput)(nil)).Elem(), HostedConfigurationVersionMap{})
 	pulumi.RegisterOutputType(HostedConfigurationVersionOutput{})
 	pulumi.RegisterOutputType(HostedConfigurationVersionPtrOutput{})
 	pulumi.RegisterOutputType(HostedConfigurationVersionArrayOutput{})

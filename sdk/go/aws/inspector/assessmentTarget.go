@@ -318,6 +318,10 @@ func (o AssessmentTargetMapOutput) MapIndex(k pulumi.StringInput) AssessmentTarg
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AssessmentTargetInput)(nil)).Elem(), &AssessmentTarget{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssessmentTargetPtrInput)(nil)).Elem(), &AssessmentTarget{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssessmentTargetArrayInput)(nil)).Elem(), AssessmentTargetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AssessmentTargetMapInput)(nil)).Elem(), AssessmentTargetMap{})
 	pulumi.RegisterOutputType(AssessmentTargetOutput{})
 	pulumi.RegisterOutputType(AssessmentTargetPtrOutput{})
 	pulumi.RegisterOutputType(AssessmentTargetArrayOutput{})

@@ -424,6 +424,10 @@ func (o PublishingDestinationMapOutput) MapIndex(k pulumi.StringInput) Publishin
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PublishingDestinationInput)(nil)).Elem(), &PublishingDestination{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PublishingDestinationPtrInput)(nil)).Elem(), &PublishingDestination{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PublishingDestinationArrayInput)(nil)).Elem(), PublishingDestinationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PublishingDestinationMapInput)(nil)).Elem(), PublishingDestinationMap{})
 	pulumi.RegisterOutputType(PublishingDestinationOutput{})
 	pulumi.RegisterOutputType(PublishingDestinationPtrOutput{})
 	pulumi.RegisterOutputType(PublishingDestinationArrayOutput{})

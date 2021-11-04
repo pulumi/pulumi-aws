@@ -600,6 +600,10 @@ func (o SmbFileShareMapOutput) MapIndex(k pulumi.StringInput) SmbFileShareOutput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SmbFileShareInput)(nil)).Elem(), &SmbFileShare{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SmbFileSharePtrInput)(nil)).Elem(), &SmbFileShare{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SmbFileShareArrayInput)(nil)).Elem(), SmbFileShareArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SmbFileShareMapInput)(nil)).Elem(), SmbFileShareMap{})
 	pulumi.RegisterOutputType(SmbFileShareOutput{})
 	pulumi.RegisterOutputType(SmbFileSharePtrOutput{})
 	pulumi.RegisterOutputType(SmbFileShareArrayOutput{})

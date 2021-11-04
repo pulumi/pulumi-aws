@@ -384,6 +384,10 @@ func (o EventSubscriptionMapOutput) MapIndex(k pulumi.StringInput) EventSubscrip
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSubscriptionInput)(nil)).Elem(), &EventSubscription{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSubscriptionPtrInput)(nil)).Elem(), &EventSubscription{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSubscriptionArrayInput)(nil)).Elem(), EventSubscriptionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventSubscriptionMapInput)(nil)).Elem(), EventSubscriptionMap{})
 	pulumi.RegisterOutputType(EventSubscriptionOutput{})
 	pulumi.RegisterOutputType(EventSubscriptionPtrOutput{})
 	pulumi.RegisterOutputType(EventSubscriptionArrayOutput{})

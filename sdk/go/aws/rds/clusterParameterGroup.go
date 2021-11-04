@@ -376,6 +376,10 @@ func (o ClusterParameterGroupMapOutput) MapIndex(k pulumi.StringInput) ClusterPa
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterParameterGroupInput)(nil)).Elem(), &ClusterParameterGroup{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterParameterGroupPtrInput)(nil)).Elem(), &ClusterParameterGroup{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterParameterGroupArrayInput)(nil)).Elem(), ClusterParameterGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterParameterGroupMapInput)(nil)).Elem(), ClusterParameterGroupMap{})
 	pulumi.RegisterOutputType(ClusterParameterGroupOutput{})
 	pulumi.RegisterOutputType(ClusterParameterGroupPtrOutput{})
 	pulumi.RegisterOutputType(ClusterParameterGroupArrayOutput{})

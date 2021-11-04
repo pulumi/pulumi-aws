@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Ecr
 {
@@ -40,6 +41,36 @@ namespace Pulumi.Aws.Ecr
         /// </summary>
         public static Task<GetImageResult> InvokeAsync(GetImageArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetImageResult>("aws:ecr/getImage:getImage", args ?? new GetImageArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The ECR Image data source allows the details of an image with a particular tag or digest to be retrieved.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var serviceImage = Output.Create(Aws.Ecr.GetImage.InvokeAsync(new Aws.Ecr.GetImageArgs
+        ///         {
+        ///             ImageTag = "latest",
+        ///             RepositoryName = "my/service",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetImageResult> Invoke(GetImageInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetImageResult>("aws:ecr/getImage:getImage", args ?? new GetImageInvokeArgs(), options.WithVersion());
     }
 
 
@@ -70,6 +101,37 @@ namespace Pulumi.Aws.Ecr
         public string RepositoryName { get; set; } = null!;
 
         public GetImageArgs()
+        {
+        }
+    }
+
+    public sealed class GetImageInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The sha256 digest of the image manifest. At least one of `image_digest` or `image_tag` must be specified.
+        /// </summary>
+        [Input("imageDigest")]
+        public Input<string>? ImageDigest { get; set; }
+
+        /// <summary>
+        /// The tag associated with this image. At least one of `image_digest` or `image_tag` must be specified.
+        /// </summary>
+        [Input("imageTag")]
+        public Input<string>? ImageTag { get; set; }
+
+        /// <summary>
+        /// The ID of the Registry where the repository resides.
+        /// </summary>
+        [Input("registryId")]
+        public Input<string>? RegistryId { get; set; }
+
+        /// <summary>
+        /// The name of the ECR Repository.
+        /// </summary>
+        [Input("repositoryName", required: true)]
+        public Input<string> RepositoryName { get; set; } = null!;
+
+        public GetImageInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.WafRegional
 {
@@ -39,6 +40,35 @@ namespace Pulumi.Aws.WafRegional
         /// </summary>
         public static Task<GetWebAclResult> InvokeAsync(GetWebAclArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetWebAclResult>("aws:wafregional/getWebAcl:getWebAcl", args ?? new GetWebAclArgs(), options.WithVersion());
+
+        /// <summary>
+        /// `aws.wafregional.WebAcl` Retrieves a WAF Regional Web ACL Resource Id.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.WafRegional.GetWebAcl.InvokeAsync(new Aws.WafRegional.GetWebAclArgs
+        ///         {
+        ///             Name = "tfWAFRegionalWebACL",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetWebAclResult> Invoke(GetWebAclInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetWebAclResult>("aws:wafregional/getWebAcl:getWebAcl", args ?? new GetWebAclInvokeArgs(), options.WithVersion());
     }
 
 
@@ -51,6 +81,19 @@ namespace Pulumi.Aws.WafRegional
         public string Name { get; set; } = null!;
 
         public GetWebAclArgs()
+        {
+        }
+    }
+
+    public sealed class GetWebAclInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the WAF Regional Web ACL.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        public GetWebAclInvokeArgs()
         {
         }
     }

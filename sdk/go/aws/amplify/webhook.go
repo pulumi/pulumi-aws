@@ -345,6 +345,10 @@ func (o WebhookMapOutput) MapIndex(k pulumi.StringInput) WebhookOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*WebhookInput)(nil)).Elem(), &Webhook{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebhookPtrInput)(nil)).Elem(), &Webhook{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebhookArrayInput)(nil)).Elem(), WebhookArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebhookMapInput)(nil)).Elem(), WebhookMap{})
 	pulumi.RegisterOutputType(WebhookOutput{})
 	pulumi.RegisterOutputType(WebhookPtrOutput{})
 	pulumi.RegisterOutputType(WebhookArrayOutput{})

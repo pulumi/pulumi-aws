@@ -296,6 +296,10 @@ func (o NotebookInstanceLifecycleConfigurationMapOutput) MapIndex(k pulumi.Strin
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*NotebookInstanceLifecycleConfigurationInput)(nil)).Elem(), &NotebookInstanceLifecycleConfiguration{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NotebookInstanceLifecycleConfigurationPtrInput)(nil)).Elem(), &NotebookInstanceLifecycleConfiguration{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NotebookInstanceLifecycleConfigurationArrayInput)(nil)).Elem(), NotebookInstanceLifecycleConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NotebookInstanceLifecycleConfigurationMapInput)(nil)).Elem(), NotebookInstanceLifecycleConfigurationMap{})
 	pulumi.RegisterOutputType(NotebookInstanceLifecycleConfigurationOutput{})
 	pulumi.RegisterOutputType(NotebookInstanceLifecycleConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(NotebookInstanceLifecycleConfigurationArrayOutput{})

@@ -363,6 +363,10 @@ func (o ServiceQuotaMapOutput) MapIndex(k pulumi.StringInput) ServiceQuotaOutput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceQuotaInput)(nil)).Elem(), &ServiceQuota{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceQuotaPtrInput)(nil)).Elem(), &ServiceQuota{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceQuotaArrayInput)(nil)).Elem(), ServiceQuotaArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceQuotaMapInput)(nil)).Elem(), ServiceQuotaMap{})
 	pulumi.RegisterOutputType(ServiceQuotaOutput{})
 	pulumi.RegisterOutputType(ServiceQuotaPtrOutput{})
 	pulumi.RegisterOutputType(ServiceQuotaArrayOutput{})

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Elb
 {
@@ -47,6 +48,43 @@ namespace Pulumi.Aws.Elb
         /// </summary>
         public static Task<GetLoadBalancerResult> InvokeAsync(GetLoadBalancerArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLoadBalancerResult>("aws:elb/getLoadBalancer:getLoadBalancer", args ?? new GetLoadBalancerArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Provides information about a "classic" Elastic Load Balancer (ELB).
+        /// See `LB` Data Source if you are looking for "v2"
+        /// Application Load Balancer (ALB) or Network Load Balancer (NLB).
+        /// 
+        /// This data source can prove useful when a module accepts an LB as an input
+        /// variable and needs to, for example, determine the security groups associated
+        /// with it, etc.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var config = new Config();
+        ///         var lbName = config.Get("lbName") ?? "";
+        ///         var test = Output.Create(Aws.Elb.GetLoadBalancer.InvokeAsync(new Aws.Elb.GetLoadBalancerArgs
+        ///         {
+        ///             Name = lbName,
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetLoadBalancerResult> Invoke(GetLoadBalancerInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetLoadBalancerResult>("aws:elb/getLoadBalancer:getLoadBalancer", args ?? new GetLoadBalancerInvokeArgs(), options.WithVersion());
     }
 
 
@@ -67,6 +105,27 @@ namespace Pulumi.Aws.Elb
         }
 
         public GetLoadBalancerArgs()
+        {
+        }
+    }
+
+    public sealed class GetLoadBalancerInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The unique name of the load balancer.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        public GetLoadBalancerInvokeArgs()
         {
         }
     }

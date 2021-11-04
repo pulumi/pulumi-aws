@@ -384,6 +384,10 @@ func (o ReportGroupMapOutput) MapIndex(k pulumi.StringInput) ReportGroupOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ReportGroupInput)(nil)).Elem(), &ReportGroup{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReportGroupPtrInput)(nil)).Elem(), &ReportGroup{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReportGroupArrayInput)(nil)).Elem(), ReportGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReportGroupMapInput)(nil)).Elem(), ReportGroupMap{})
 	pulumi.RegisterOutputType(ReportGroupOutput{})
 	pulumi.RegisterOutputType(ReportGroupPtrOutput{})
 	pulumi.RegisterOutputType(ReportGroupArrayOutput{})

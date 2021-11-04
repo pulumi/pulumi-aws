@@ -182,6 +182,8 @@ func (in *cannedAclPtr) ToCannedAclPtrOutputWithContext(ctx context.Context) Can
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CannedAclInput)(nil)).Elem(), CannedAcl("private"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CannedAclPtrInput)(nil)).Elem(), CannedAcl("private"))
 	pulumi.RegisterOutputType(CannedAclOutput{})
 	pulumi.RegisterOutputType(CannedAclPtrOutput{})
 }

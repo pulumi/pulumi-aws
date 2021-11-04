@@ -420,6 +420,10 @@ func (o ClassifierMapOutput) MapIndex(k pulumi.StringInput) ClassifierOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ClassifierInput)(nil)).Elem(), &Classifier{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClassifierPtrInput)(nil)).Elem(), &Classifier{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClassifierArrayInput)(nil)).Elem(), ClassifierArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClassifierMapInput)(nil)).Elem(), ClassifierMap{})
 	pulumi.RegisterOutputType(ClassifierOutput{})
 	pulumi.RegisterOutputType(ClassifierPtrOutput{})
 	pulumi.RegisterOutputType(ClassifierArrayOutput{})

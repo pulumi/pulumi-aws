@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Ecs
 {
@@ -41,6 +42,37 @@ namespace Pulumi.Aws.Ecs
         /// </summary>
         public static Task<GetContainerDefinitionResult> InvokeAsync(GetContainerDefinitionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetContainerDefinitionResult>("aws:ecs/getContainerDefinition:getContainerDefinition", args ?? new GetContainerDefinitionArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The ECS container definition data source allows access to details of
+        /// a specific container within an AWS ECS service.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var ecs_mongo = Output.Create(Aws.Ecs.GetContainerDefinition.InvokeAsync(new Aws.Ecs.GetContainerDefinitionArgs
+        ///         {
+        ///             TaskDefinition = aws_ecs_task_definition.Mongo.Id,
+        ///             ContainerName = "mongodb",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetContainerDefinitionResult> Invoke(GetContainerDefinitionInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetContainerDefinitionResult>("aws:ecs/getContainerDefinition:getContainerDefinition", args ?? new GetContainerDefinitionInvokeArgs(), options.WithVersion());
     }
 
 
@@ -59,6 +91,25 @@ namespace Pulumi.Aws.Ecs
         public string TaskDefinition { get; set; } = null!;
 
         public GetContainerDefinitionArgs()
+        {
+        }
+    }
+
+    public sealed class GetContainerDefinitionInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the container definition
+        /// </summary>
+        [Input("containerName", required: true)]
+        public Input<string> ContainerName { get; set; } = null!;
+
+        /// <summary>
+        /// The ARN of the task definition which contains the container
+        /// </summary>
+        [Input("taskDefinition", required: true)]
+        public Input<string> TaskDefinition { get; set; } = null!;
+
+        public GetContainerDefinitionInvokeArgs()
         {
         }
     }

@@ -425,6 +425,10 @@ func (o HostedTransitVirtualInterfaceMapOutput) MapIndex(k pulumi.StringInput) H
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*HostedTransitVirtualInterfaceInput)(nil)).Elem(), &HostedTransitVirtualInterface{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HostedTransitVirtualInterfacePtrInput)(nil)).Elem(), &HostedTransitVirtualInterface{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HostedTransitVirtualInterfaceArrayInput)(nil)).Elem(), HostedTransitVirtualInterfaceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HostedTransitVirtualInterfaceMapInput)(nil)).Elem(), HostedTransitVirtualInterfaceMap{})
 	pulumi.RegisterOutputType(HostedTransitVirtualInterfaceOutput{})
 	pulumi.RegisterOutputType(HostedTransitVirtualInterfacePtrOutput{})
 	pulumi.RegisterOutputType(HostedTransitVirtualInterfaceArrayOutput{})

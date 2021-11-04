@@ -394,6 +394,10 @@ func (o SigningProfileMapOutput) MapIndex(k pulumi.StringInput) SigningProfileOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SigningProfileInput)(nil)).Elem(), &SigningProfile{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SigningProfilePtrInput)(nil)).Elem(), &SigningProfile{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SigningProfileArrayInput)(nil)).Elem(), SigningProfileArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SigningProfileMapInput)(nil)).Elem(), SigningProfileMap{})
 	pulumi.RegisterOutputType(SigningProfileOutput{})
 	pulumi.RegisterOutputType(SigningProfilePtrOutput{})
 	pulumi.RegisterOutputType(SigningProfileArrayOutput{})

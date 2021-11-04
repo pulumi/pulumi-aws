@@ -409,6 +409,10 @@ func (o LifecycleHookMapOutput) MapIndex(k pulumi.StringInput) LifecycleHookOutp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LifecycleHookInput)(nil)).Elem(), &LifecycleHook{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LifecycleHookPtrInput)(nil)).Elem(), &LifecycleHook{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LifecycleHookArrayInput)(nil)).Elem(), LifecycleHookArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LifecycleHookMapInput)(nil)).Elem(), LifecycleHookMap{})
 	pulumi.RegisterOutputType(LifecycleHookOutput{})
 	pulumi.RegisterOutputType(LifecycleHookPtrOutput{})
 	pulumi.RegisterOutputType(LifecycleHookArrayOutput{})

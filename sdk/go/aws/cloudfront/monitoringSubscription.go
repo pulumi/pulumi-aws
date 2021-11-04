@@ -315,6 +315,10 @@ func (o MonitoringSubscriptionMapOutput) MapIndex(k pulumi.StringInput) Monitori
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringSubscriptionInput)(nil)).Elem(), &MonitoringSubscription{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringSubscriptionPtrInput)(nil)).Elem(), &MonitoringSubscription{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringSubscriptionArrayInput)(nil)).Elem(), MonitoringSubscriptionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringSubscriptionMapInput)(nil)).Elem(), MonitoringSubscriptionMap{})
 	pulumi.RegisterOutputType(MonitoringSubscriptionOutput{})
 	pulumi.RegisterOutputType(MonitoringSubscriptionPtrOutput{})
 	pulumi.RegisterOutputType(MonitoringSubscriptionArrayOutput{})

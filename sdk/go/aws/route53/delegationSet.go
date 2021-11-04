@@ -325,6 +325,10 @@ func (o DelegationSetMapOutput) MapIndex(k pulumi.StringInput) DelegationSetOutp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DelegationSetInput)(nil)).Elem(), &DelegationSet{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DelegationSetPtrInput)(nil)).Elem(), &DelegationSet{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DelegationSetArrayInput)(nil)).Elem(), DelegationSetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DelegationSetMapInput)(nil)).Elem(), DelegationSetMap{})
 	pulumi.RegisterOutputType(DelegationSetOutput{})
 	pulumi.RegisterOutputType(DelegationSetPtrOutput{})
 	pulumi.RegisterOutputType(DelegationSetArrayOutput{})

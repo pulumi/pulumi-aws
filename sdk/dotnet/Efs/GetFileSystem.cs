@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Efs
 {
@@ -48,6 +49,44 @@ namespace Pulumi.Aws.Efs
         /// </summary>
         public static Task<GetFileSystemResult> InvokeAsync(GetFileSystemArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetFileSystemResult>("aws:efs/getFileSystem:getFileSystem", args ?? new GetFileSystemArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Provides information about an Elastic File System (EFS) File System.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var config = new Config();
+        ///         var fileSystemId = config.Get("fileSystemId") ?? "";
+        ///         var byId = Output.Create(Aws.Efs.GetFileSystem.InvokeAsync(new Aws.Efs.GetFileSystemArgs
+        ///         {
+        ///             FileSystemId = fileSystemId,
+        ///         }));
+        ///         var byTag = Output.Create(Aws.Efs.GetFileSystem.InvokeAsync(new Aws.Efs.GetFileSystemArgs
+        ///         {
+        ///             Tags = 
+        ///             {
+        ///                 { "Environment", "dev" },
+        ///             },
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetFileSystemResult> Invoke(GetFileSystemInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetFileSystemResult>("aws:efs/getFileSystem:getFileSystem", args ?? new GetFileSystemInvokeArgs(), options.WithVersion());
     }
 
 
@@ -78,6 +117,37 @@ namespace Pulumi.Aws.Efs
         }
 
         public GetFileSystemArgs()
+        {
+        }
+    }
+
+    public sealed class GetFileSystemInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Restricts the list to the file system with this creation token.
+        /// </summary>
+        [Input("creationToken")]
+        public Input<string>? CreationToken { get; set; }
+
+        /// <summary>
+        /// The ID that identifies the file system (e.g. fs-ccfc0d65).
+        /// </summary>
+        [Input("fileSystemId")]
+        public Input<string>? FileSystemId { get; set; }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Restricts the list to the file system with these tags.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        public GetFileSystemInvokeArgs()
         {
         }
     }

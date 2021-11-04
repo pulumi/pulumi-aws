@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.ImageBuilder
 {
@@ -39,6 +40,35 @@ namespace Pulumi.Aws.ImageBuilder
         /// </summary>
         public static Task<GetImagePipelineResult> InvokeAsync(GetImagePipelineArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetImagePipelineResult>("aws:imagebuilder/getImagePipeline:getImagePipeline", args ?? new GetImagePipelineArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Provides details about an Image Builder Image Pipeline.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.ImageBuilder.GetImagePipeline.InvokeAsync(new Aws.ImageBuilder.GetImagePipelineArgs
+        ///         {
+        ///             Arn = "arn:aws:imagebuilder:us-west-2:aws:image-pipeline/example",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetImagePipelineResult> Invoke(GetImagePipelineInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetImagePipelineResult>("aws:imagebuilder/getImagePipeline:getImagePipeline", args ?? new GetImagePipelineInvokeArgs(), options.WithVersion());
     }
 
 
@@ -63,6 +93,31 @@ namespace Pulumi.Aws.ImageBuilder
         }
 
         public GetImagePipelineArgs()
+        {
+        }
+    }
+
+    public sealed class GetImagePipelineInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the image pipeline.
+        /// </summary>
+        [Input("arn", required: true)]
+        public Input<string> Arn { get; set; } = null!;
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value map of resource tags for the image pipeline.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        public GetImagePipelineInvokeArgs()
         {
         }
     }

@@ -504,6 +504,10 @@ func (o CanaryMapOutput) MapIndex(k pulumi.StringInput) CanaryOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CanaryInput)(nil)).Elem(), &Canary{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CanaryPtrInput)(nil)).Elem(), &Canary{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CanaryArrayInput)(nil)).Elem(), CanaryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CanaryMapInput)(nil)).Elem(), CanaryMap{})
 	pulumi.RegisterOutputType(CanaryOutput{})
 	pulumi.RegisterOutputType(CanaryPtrOutput{})
 	pulumi.RegisterOutputType(CanaryArrayOutput{})

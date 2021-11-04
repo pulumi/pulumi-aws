@@ -323,6 +323,10 @@ func (o TrafficMirrorFilterMapOutput) MapIndex(k pulumi.StringInput) TrafficMirr
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TrafficMirrorFilterInput)(nil)).Elem(), &TrafficMirrorFilter{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrafficMirrorFilterPtrInput)(nil)).Elem(), &TrafficMirrorFilter{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrafficMirrorFilterArrayInput)(nil)).Elem(), TrafficMirrorFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TrafficMirrorFilterMapInput)(nil)).Elem(), TrafficMirrorFilterMap{})
 	pulumi.RegisterOutputType(TrafficMirrorFilterOutput{})
 	pulumi.RegisterOutputType(TrafficMirrorFilterPtrOutput{})
 	pulumi.RegisterOutputType(TrafficMirrorFilterArrayOutput{})

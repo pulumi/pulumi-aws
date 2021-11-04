@@ -496,6 +496,10 @@ func (o CachesIscsiVolumeMapOutput) MapIndex(k pulumi.StringInput) CachesIscsiVo
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CachesIscsiVolumeInput)(nil)).Elem(), &CachesIscsiVolume{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CachesIscsiVolumePtrInput)(nil)).Elem(), &CachesIscsiVolume{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CachesIscsiVolumeArrayInput)(nil)).Elem(), CachesIscsiVolumeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CachesIscsiVolumeMapInput)(nil)).Elem(), CachesIscsiVolumeMap{})
 	pulumi.RegisterOutputType(CachesIscsiVolumeOutput{})
 	pulumi.RegisterOutputType(CachesIscsiVolumePtrOutput{})
 	pulumi.RegisterOutputType(CachesIscsiVolumeArrayOutput{})

@@ -506,6 +506,10 @@ func (o BranchMapOutput) MapIndex(k pulumi.StringInput) BranchOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BranchInput)(nil)).Elem(), &Branch{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BranchPtrInput)(nil)).Elem(), &Branch{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BranchArrayInput)(nil)).Elem(), BranchArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BranchMapInput)(nil)).Elem(), BranchMap{})
 	pulumi.RegisterOutputType(BranchOutput{})
 	pulumi.RegisterOutputType(BranchPtrOutput{})
 	pulumi.RegisterOutputType(BranchArrayOutput{})

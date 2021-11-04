@@ -382,6 +382,10 @@ func (o PeeringAttachmentMapOutput) MapIndex(k pulumi.StringInput) PeeringAttach
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PeeringAttachmentInput)(nil)).Elem(), &PeeringAttachment{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PeeringAttachmentPtrInput)(nil)).Elem(), &PeeringAttachment{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PeeringAttachmentArrayInput)(nil)).Elem(), PeeringAttachmentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PeeringAttachmentMapInput)(nil)).Elem(), PeeringAttachmentMap{})
 	pulumi.RegisterOutputType(PeeringAttachmentOutput{})
 	pulumi.RegisterOutputType(PeeringAttachmentPtrOutput{})
 	pulumi.RegisterOutputType(PeeringAttachmentArrayOutput{})

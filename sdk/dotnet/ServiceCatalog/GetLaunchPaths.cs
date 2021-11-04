@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.ServiceCatalog
 {
@@ -40,6 +41,36 @@ namespace Pulumi.Aws.ServiceCatalog
         /// </summary>
         public static Task<GetLaunchPathsResult> InvokeAsync(GetLaunchPathsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetLaunchPathsResult>("aws:servicecatalog/getLaunchPaths:getLaunchPaths", args ?? new GetLaunchPathsArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Lists the paths to the specified product. A path is how the user has access to a specified product, and is necessary when provisioning a product. A path also determines the constraints put on the product.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.ServiceCatalog.GetLaunchPaths.InvokeAsync(new Aws.ServiceCatalog.GetLaunchPathsArgs
+        ///         {
+        ///             ProductId = "prod-yakog5pdriver",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetLaunchPathsResult> Invoke(GetLaunchPathsInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetLaunchPathsResult>("aws:servicecatalog/getLaunchPaths:getLaunchPaths", args ?? new GetLaunchPathsInvokeArgs(), options.WithVersion());
     }
 
 
@@ -58,6 +89,25 @@ namespace Pulumi.Aws.ServiceCatalog
         public string ProductId { get; set; } = null!;
 
         public GetLaunchPathsArgs()
+        {
+        }
+    }
+
+    public sealed class GetLaunchPathsInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
+        /// </summary>
+        [Input("acceptLanguage")]
+        public Input<string>? AcceptLanguage { get; set; }
+
+        /// <summary>
+        /// Product identifier.
+        /// </summary>
+        [Input("productId", required: true)]
+        public Input<string> ProductId { get; set; } = null!;
+
+        public GetLaunchPathsInvokeArgs()
         {
         }
     }

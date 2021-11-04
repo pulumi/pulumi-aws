@@ -373,6 +373,10 @@ func (o AutoScalingConfigurationVersionMapOutput) MapIndex(k pulumi.StringInput)
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingConfigurationVersionInput)(nil)).Elem(), &AutoScalingConfigurationVersion{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingConfigurationVersionPtrInput)(nil)).Elem(), &AutoScalingConfigurationVersion{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingConfigurationVersionArrayInput)(nil)).Elem(), AutoScalingConfigurationVersionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingConfigurationVersionMapInput)(nil)).Elem(), AutoScalingConfigurationVersionMap{})
 	pulumi.RegisterOutputType(AutoScalingConfigurationVersionOutput{})
 	pulumi.RegisterOutputType(AutoScalingConfigurationVersionPtrOutput{})
 	pulumi.RegisterOutputType(AutoScalingConfigurationVersionArrayOutput{})

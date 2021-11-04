@@ -291,6 +291,10 @@ func (o AdminAccountMapOutput) MapIndex(k pulumi.StringInput) AdminAccountOutput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AdminAccountInput)(nil)).Elem(), &AdminAccount{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AdminAccountPtrInput)(nil)).Elem(), &AdminAccount{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AdminAccountArrayInput)(nil)).Elem(), AdminAccountArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AdminAccountMapInput)(nil)).Elem(), AdminAccountMap{})
 	pulumi.RegisterOutputType(AdminAccountOutput{})
 	pulumi.RegisterOutputType(AdminAccountPtrOutput{})
 	pulumi.RegisterOutputType(AdminAccountArrayOutput{})

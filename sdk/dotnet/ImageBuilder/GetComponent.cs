@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.ImageBuilder
 {
@@ -39,6 +40,35 @@ namespace Pulumi.Aws.ImageBuilder
         /// </summary>
         public static Task<GetComponentResult> InvokeAsync(GetComponentArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetComponentResult>("aws:imagebuilder/getComponent:getComponent", args ?? new GetComponentArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Provides details about an Image Builder Component.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.ImageBuilder.GetComponent.InvokeAsync(new Aws.ImageBuilder.GetComponentArgs
+        ///         {
+        ///             Arn = "arn:aws:imagebuilder:us-west-2:aws:component/amazon-cloudwatch-agent-linux/1.0.0",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetComponentResult> Invoke(GetComponentInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetComponentResult>("aws:imagebuilder/getComponent:getComponent", args ?? new GetComponentInvokeArgs(), options.WithVersion());
     }
 
 
@@ -63,6 +93,31 @@ namespace Pulumi.Aws.ImageBuilder
         }
 
         public GetComponentArgs()
+        {
+        }
+    }
+
+    public sealed class GetComponentInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the component.
+        /// </summary>
+        [Input("arn", required: true)]
+        public Input<string> Arn { get; set; } = null!;
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value map of resource tags for the component.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        public GetComponentInvokeArgs()
         {
         }
     }

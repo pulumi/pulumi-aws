@@ -317,6 +317,10 @@ func (o BucketOwnershipControlsMapOutput) MapIndex(k pulumi.StringInput) BucketO
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketOwnershipControlsInput)(nil)).Elem(), &BucketOwnershipControls{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketOwnershipControlsPtrInput)(nil)).Elem(), &BucketOwnershipControls{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketOwnershipControlsArrayInput)(nil)).Elem(), BucketOwnershipControlsArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketOwnershipControlsMapInput)(nil)).Elem(), BucketOwnershipControlsMap{})
 	pulumi.RegisterOutputType(BucketOwnershipControlsOutput{})
 	pulumi.RegisterOutputType(BucketOwnershipControlsPtrOutput{})
 	pulumi.RegisterOutputType(BucketOwnershipControlsArrayOutput{})

@@ -376,6 +376,10 @@ func (o VpcAttachmentAccepterMapOutput) MapIndex(k pulumi.StringInput) VpcAttach
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcAttachmentAccepterInput)(nil)).Elem(), &VpcAttachmentAccepter{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcAttachmentAccepterPtrInput)(nil)).Elem(), &VpcAttachmentAccepter{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcAttachmentAccepterArrayInput)(nil)).Elem(), VpcAttachmentAccepterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcAttachmentAccepterMapInput)(nil)).Elem(), VpcAttachmentAccepterMap{})
 	pulumi.RegisterOutputType(VpcAttachmentAccepterOutput{})
 	pulumi.RegisterOutputType(VpcAttachmentAccepterPtrOutput{})
 	pulumi.RegisterOutputType(VpcAttachmentAccepterArrayOutput{})

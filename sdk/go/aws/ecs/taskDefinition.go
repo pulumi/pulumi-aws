@@ -751,6 +751,10 @@ func (o TaskDefinitionMapOutput) MapIndex(k pulumi.StringInput) TaskDefinitionOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionInput)(nil)).Elem(), &TaskDefinition{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionPtrInput)(nil)).Elem(), &TaskDefinition{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionArrayInput)(nil)).Elem(), TaskDefinitionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionMapInput)(nil)).Elem(), TaskDefinitionMap{})
 	pulumi.RegisterOutputType(TaskDefinitionOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionPtrOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionArrayOutput{})

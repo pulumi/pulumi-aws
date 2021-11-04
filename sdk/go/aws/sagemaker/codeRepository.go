@@ -370,6 +370,10 @@ func (o CodeRepositoryMapOutput) MapIndex(k pulumi.StringInput) CodeRepositoryOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CodeRepositoryInput)(nil)).Elem(), &CodeRepository{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CodeRepositoryPtrInput)(nil)).Elem(), &CodeRepository{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CodeRepositoryArrayInput)(nil)).Elem(), CodeRepositoryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CodeRepositoryMapInput)(nil)).Elem(), CodeRepositoryMap{})
 	pulumi.RegisterOutputType(CodeRepositoryOutput{})
 	pulumi.RegisterOutputType(CodeRepositoryPtrOutput{})
 	pulumi.RegisterOutputType(CodeRepositoryArrayOutput{})

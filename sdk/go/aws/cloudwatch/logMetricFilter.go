@@ -348,6 +348,10 @@ func (o LogMetricFilterMapOutput) MapIndex(k pulumi.StringInput) LogMetricFilter
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LogMetricFilterInput)(nil)).Elem(), &LogMetricFilter{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogMetricFilterPtrInput)(nil)).Elem(), &LogMetricFilter{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogMetricFilterArrayInput)(nil)).Elem(), LogMetricFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LogMetricFilterMapInput)(nil)).Elem(), LogMetricFilterMap{})
 	pulumi.RegisterOutputType(LogMetricFilterOutput{})
 	pulumi.RegisterOutputType(LogMetricFilterPtrOutput{})
 	pulumi.RegisterOutputType(LogMetricFilterArrayOutput{})

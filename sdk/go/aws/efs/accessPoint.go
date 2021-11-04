@@ -340,6 +340,10 @@ func (o AccessPointMapOutput) MapIndex(k pulumi.StringInput) AccessPointOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessPointInput)(nil)).Elem(), &AccessPoint{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessPointPtrInput)(nil)).Elem(), &AccessPoint{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessPointArrayInput)(nil)).Elem(), AccessPointArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccessPointMapInput)(nil)).Elem(), AccessPointMap{})
 	pulumi.RegisterOutputType(AccessPointOutput{})
 	pulumi.RegisterOutputType(AccessPointPtrOutput{})
 	pulumi.RegisterOutputType(AccessPointArrayOutput{})

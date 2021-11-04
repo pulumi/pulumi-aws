@@ -377,6 +377,10 @@ func (o ResourcePolicyMapOutput) MapIndex(k pulumi.StringInput) ResourcePolicyOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourcePolicyInput)(nil)).Elem(), &ResourcePolicy{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourcePolicyPtrInput)(nil)).Elem(), &ResourcePolicy{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourcePolicyArrayInput)(nil)).Elem(), ResourcePolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourcePolicyMapInput)(nil)).Elem(), ResourcePolicyMap{})
 	pulumi.RegisterOutputType(ResourcePolicyOutput{})
 	pulumi.RegisterOutputType(ResourcePolicyPtrOutput{})
 	pulumi.RegisterOutputType(ResourcePolicyArrayOutput{})

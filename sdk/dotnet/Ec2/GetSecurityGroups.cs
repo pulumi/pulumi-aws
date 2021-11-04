@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Ec2
 {
@@ -79,6 +80,75 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public static Task<GetSecurityGroupsResult> InvokeAsync(GetSecurityGroupsArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSecurityGroupsResult>("aws:ec2/getSecurityGroups:getSecurityGroups", args ?? new GetSecurityGroupsArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to get IDs and VPC membership of Security Groups that are created
+        /// outside of this provider.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var test = Output.Create(Aws.Ec2.GetSecurityGroups.InvokeAsync(new Aws.Ec2.GetSecurityGroupsArgs
+        ///         {
+        ///             Tags = 
+        ///             {
+        ///                 { "Application", "k8s" },
+        ///                 { "Environment", "dev" },
+        ///             },
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var test = Output.Create(Aws.Ec2.GetSecurityGroups.InvokeAsync(new Aws.Ec2.GetSecurityGroupsArgs
+        ///         {
+        ///             Filters = 
+        ///             {
+        ///                 new Aws.Ec2.Inputs.GetSecurityGroupsFilterArgs
+        ///                 {
+        ///                     Name = "group-name",
+        ///                     Values = 
+        ///                     {
+        ///                         "*nodes*",
+        ///                     },
+        ///                 },
+        ///                 new Aws.Ec2.Inputs.GetSecurityGroupsFilterArgs
+        ///                 {
+        ///                     Name = "vpc-id",
+        ///                     Values = 
+        ///                     {
+        ///                         @var.Vpc_id,
+        ///                     },
+        ///                 },
+        ///             },
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetSecurityGroupsResult> Invoke(GetSecurityGroupsInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSecurityGroupsResult>("aws:ec2/getSecurityGroups:getSecurityGroups", args ?? new GetSecurityGroupsInvokeArgs(), options.WithVersion());
     }
 
 
@@ -109,6 +179,37 @@ namespace Pulumi.Aws.Ec2
         }
 
         public GetSecurityGroupsArgs()
+        {
+        }
+    }
+
+    public sealed class GetSecurityGroupsInvokeArgs : Pulumi.InvokeArgs
+    {
+        [Input("filters")]
+        private InputList<Inputs.GetSecurityGroupsFilterInputArgs>? _filters;
+
+        /// <summary>
+        /// One or more name/value pairs to use as filters. There are several valid keys, for a full reference, check out [describe-security-groups in the AWS CLI reference][1].
+        /// </summary>
+        public InputList<Inputs.GetSecurityGroupsFilterInputArgs> Filters
+        {
+            get => _filters ?? (_filters = new InputList<Inputs.GetSecurityGroupsFilterInputArgs>());
+            set => _filters = value;
+        }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags, each pair of which must exactly match for desired security groups.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        public GetSecurityGroupsInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.IdentityStore
 {
@@ -16,6 +17,12 @@ namespace Pulumi.Aws.IdentityStore
         /// </summary>
         public static Task<GetUserResult> InvokeAsync(GetUserArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetUserResult>("aws:identitystore/getUser:getUser", args ?? new GetUserArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to get an Identity Store User.
+        /// </summary>
+        public static Output<GetUserResult> Invoke(GetUserInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetUserResult>("aws:identitystore/getUser:getUser", args ?? new GetUserInvokeArgs(), options.WithVersion());
     }
 
 
@@ -46,6 +53,37 @@ namespace Pulumi.Aws.IdentityStore
         public string? UserId { get; set; }
 
         public GetUserArgs()
+        {
+        }
+    }
+
+    public sealed class GetUserInvokeArgs : Pulumi.InvokeArgs
+    {
+        [Input("filters", required: true)]
+        private InputList<Inputs.GetUserFilterInputArgs>? _filters;
+
+        /// <summary>
+        /// Configuration block(s) for filtering. Currently, the AWS Identity Store API supports only 1 filter. Detailed below.
+        /// </summary>
+        public InputList<Inputs.GetUserFilterInputArgs> Filters
+        {
+            get => _filters ?? (_filters = new InputList<Inputs.GetUserFilterInputArgs>());
+            set => _filters = value;
+        }
+
+        /// <summary>
+        /// The Identity Store ID associated with the Single Sign-On Instance.
+        /// </summary>
+        [Input("identityStoreId", required: true)]
+        public Input<string> IdentityStoreId { get; set; } = null!;
+
+        /// <summary>
+        /// The identifier for a user in the Identity Store.
+        /// </summary>
+        [Input("userId")]
+        public Input<string>? UserId { get; set; }
+
+        public GetUserInvokeArgs()
         {
         }
     }

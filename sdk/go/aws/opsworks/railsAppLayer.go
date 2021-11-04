@@ -536,6 +536,10 @@ func (o RailsAppLayerMapOutput) MapIndex(k pulumi.StringInput) RailsAppLayerOutp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RailsAppLayerInput)(nil)).Elem(), &RailsAppLayer{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RailsAppLayerPtrInput)(nil)).Elem(), &RailsAppLayer{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RailsAppLayerArrayInput)(nil)).Elem(), RailsAppLayerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RailsAppLayerMapInput)(nil)).Elem(), RailsAppLayerMap{})
 	pulumi.RegisterOutputType(RailsAppLayerOutput{})
 	pulumi.RegisterOutputType(RailsAppLayerPtrOutput{})
 	pulumi.RegisterOutputType(RailsAppLayerArrayOutput{})

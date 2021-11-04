@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Lex
 {
@@ -40,6 +41,36 @@ namespace Pulumi.Aws.Lex
         /// </summary>
         public static Task<GetSlotTypeResult> InvokeAsync(GetSlotTypeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSlotTypeResult>("aws:lex/getSlotType:getSlotType", args ?? new GetSlotTypeArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Provides details about a specific Amazon Lex Slot Type.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var flowerTypes = Output.Create(Aws.Lex.GetSlotType.InvokeAsync(new Aws.Lex.GetSlotTypeArgs
+        ///         {
+        ///             Name = "FlowerTypes",
+        ///             Version = "1",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetSlotTypeResult> Invoke(GetSlotTypeInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSlotTypeResult>("aws:lex/getSlotType:getSlotType", args ?? new GetSlotTypeInvokeArgs(), options.WithVersion());
     }
 
 
@@ -58,6 +89,25 @@ namespace Pulumi.Aws.Lex
         public string? Version { get; set; }
 
         public GetSlotTypeArgs()
+        {
+        }
+    }
+
+    public sealed class GetSlotTypeInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the slot type. The name is case sensitive.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The version of the slot type.
+        /// </summary>
+        [Input("version")]
+        public Input<string>? Version { get; set; }
+
+        public GetSlotTypeInvokeArgs()
         {
         }
     }

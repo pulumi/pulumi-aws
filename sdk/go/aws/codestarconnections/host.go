@@ -345,6 +345,10 @@ func (o HostMapOutput) MapIndex(k pulumi.StringInput) HostOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*HostInput)(nil)).Elem(), &Host{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HostPtrInput)(nil)).Elem(), &Host{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HostArrayInput)(nil)).Elem(), HostArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HostMapInput)(nil)).Elem(), HostMap{})
 	pulumi.RegisterOutputType(HostOutput{})
 	pulumi.RegisterOutputType(HostPtrOutput{})
 	pulumi.RegisterOutputType(HostArrayOutput{})

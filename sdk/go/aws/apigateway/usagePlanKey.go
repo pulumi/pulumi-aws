@@ -356,6 +356,10 @@ func (o UsagePlanKeyMapOutput) MapIndex(k pulumi.StringInput) UsagePlanKeyOutput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*UsagePlanKeyInput)(nil)).Elem(), &UsagePlanKey{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UsagePlanKeyPtrInput)(nil)).Elem(), &UsagePlanKey{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UsagePlanKeyArrayInput)(nil)).Elem(), UsagePlanKeyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UsagePlanKeyMapInput)(nil)).Elem(), UsagePlanKeyMap{})
 	pulumi.RegisterOutputType(UsagePlanKeyOutput{})
 	pulumi.RegisterOutputType(UsagePlanKeyPtrOutput{})
 	pulumi.RegisterOutputType(UsagePlanKeyArrayOutput{})

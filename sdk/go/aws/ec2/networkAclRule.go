@@ -433,6 +433,10 @@ func (o NetworkAclRuleMapOutput) MapIndex(k pulumi.StringInput) NetworkAclRuleOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkAclRuleInput)(nil)).Elem(), &NetworkAclRule{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkAclRulePtrInput)(nil)).Elem(), &NetworkAclRule{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkAclRuleArrayInput)(nil)).Elem(), NetworkAclRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkAclRuleMapInput)(nil)).Elem(), NetworkAclRuleMap{})
 	pulumi.RegisterOutputType(NetworkAclRuleOutput{})
 	pulumi.RegisterOutputType(NetworkAclRulePtrOutput{})
 	pulumi.RegisterOutputType(NetworkAclRuleArrayOutput{})

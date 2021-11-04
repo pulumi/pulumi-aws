@@ -318,6 +318,10 @@ func (o EgressOnlyInternetGatewayMapOutput) MapIndex(k pulumi.StringInput) Egres
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*EgressOnlyInternetGatewayInput)(nil)).Elem(), &EgressOnlyInternetGateway{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EgressOnlyInternetGatewayPtrInput)(nil)).Elem(), &EgressOnlyInternetGateway{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EgressOnlyInternetGatewayArrayInput)(nil)).Elem(), EgressOnlyInternetGatewayArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EgressOnlyInternetGatewayMapInput)(nil)).Elem(), EgressOnlyInternetGatewayMap{})
 	pulumi.RegisterOutputType(EgressOnlyInternetGatewayOutput{})
 	pulumi.RegisterOutputType(EgressOnlyInternetGatewayPtrOutput{})
 	pulumi.RegisterOutputType(EgressOnlyInternetGatewayArrayOutput{})

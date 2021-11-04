@@ -572,6 +572,10 @@ func (o NodeGroupMapOutput) MapIndex(k pulumi.StringInput) NodeGroupOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*NodeGroupInput)(nil)).Elem(), &NodeGroup{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NodeGroupPtrInput)(nil)).Elem(), &NodeGroup{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NodeGroupArrayInput)(nil)).Elem(), NodeGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NodeGroupMapInput)(nil)).Elem(), NodeGroupMap{})
 	pulumi.RegisterOutputType(NodeGroupOutput{})
 	pulumi.RegisterOutputType(NodeGroupPtrOutput{})
 	pulumi.RegisterOutputType(NodeGroupArrayOutput{})

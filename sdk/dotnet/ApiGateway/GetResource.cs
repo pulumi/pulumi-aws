@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.ApiGateway
 {
@@ -45,6 +46,41 @@ namespace Pulumi.Aws.ApiGateway
         /// </summary>
         public static Task<GetResourceResult> InvokeAsync(GetResourceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetResourceResult>("aws:apigateway/getResource:getResource", args ?? new GetResourceArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to get the id of a Resource in API Gateway.
+        /// To fetch the Resource, you must provide the REST API id as well as the full path.  
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var myRestApi = Output.Create(Aws.ApiGateway.GetRestApi.InvokeAsync(new Aws.ApiGateway.GetRestApiArgs
+        ///         {
+        ///             Name = "my-rest-api",
+        ///         }));
+        ///         var myResource = myRestApi.Apply(myRestApi =&gt; Output.Create(Aws.ApiGateway.GetResource.InvokeAsync(new Aws.ApiGateway.GetResourceArgs
+        ///         {
+        ///             RestApiId = myRestApi.Id,
+        ///             Path = "/endpoint/path",
+        ///         })));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetResourceResult> Invoke(GetResourceInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetResourceResult>("aws:apigateway/getResource:getResource", args ?? new GetResourceInvokeArgs(), options.WithVersion());
     }
 
 
@@ -63,6 +99,25 @@ namespace Pulumi.Aws.ApiGateway
         public string RestApiId { get; set; } = null!;
 
         public GetResourceArgs()
+        {
+        }
+    }
+
+    public sealed class GetResourceInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The full path of the resource.  If no path is found, an error will be returned.
+        /// </summary>
+        [Input("path", required: true)]
+        public Input<string> Path { get; set; } = null!;
+
+        /// <summary>
+        /// The REST API id that owns the resource. If no REST API is found, an error will be returned.
+        /// </summary>
+        [Input("restApiId", required: true)]
+        public Input<string> RestApiId { get; set; } = null!;
+
+        public GetResourceInvokeArgs()
         {
         }
     }

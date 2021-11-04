@@ -355,6 +355,10 @@ func (o GatewayAssociationProposalMapOutput) MapIndex(k pulumi.StringInput) Gate
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayAssociationProposalInput)(nil)).Elem(), &GatewayAssociationProposal{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayAssociationProposalPtrInput)(nil)).Elem(), &GatewayAssociationProposal{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayAssociationProposalArrayInput)(nil)).Elem(), GatewayAssociationProposalArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayAssociationProposalMapInput)(nil)).Elem(), GatewayAssociationProposalMap{})
 	pulumi.RegisterOutputType(GatewayAssociationProposalOutput{})
 	pulumi.RegisterOutputType(GatewayAssociationProposalPtrOutput{})
 	pulumi.RegisterOutputType(GatewayAssociationProposalArrayOutput{})

@@ -367,6 +367,10 @@ func (o AppImageConfigMapOutput) MapIndex(k pulumi.StringInput) AppImageConfigOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AppImageConfigInput)(nil)).Elem(), &AppImageConfig{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AppImageConfigPtrInput)(nil)).Elem(), &AppImageConfig{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AppImageConfigArrayInput)(nil)).Elem(), AppImageConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AppImageConfigMapInput)(nil)).Elem(), AppImageConfigMap{})
 	pulumi.RegisterOutputType(AppImageConfigOutput{})
 	pulumi.RegisterOutputType(AppImageConfigPtrOutput{})
 	pulumi.RegisterOutputType(AppImageConfigArrayOutput{})

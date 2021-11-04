@@ -343,6 +343,10 @@ func (o SmsChannelMapOutput) MapIndex(k pulumi.StringInput) SmsChannelOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SmsChannelInput)(nil)).Elem(), &SmsChannel{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SmsChannelPtrInput)(nil)).Elem(), &SmsChannel{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SmsChannelArrayInput)(nil)).Elem(), SmsChannelArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SmsChannelMapInput)(nil)).Elem(), SmsChannelMap{})
 	pulumi.RegisterOutputType(SmsChannelOutput{})
 	pulumi.RegisterOutputType(SmsChannelPtrOutput{})
 	pulumi.RegisterOutputType(SmsChannelArrayOutput{})

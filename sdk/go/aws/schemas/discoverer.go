@@ -329,6 +329,10 @@ func (o DiscovererMapOutput) MapIndex(k pulumi.StringInput) DiscovererOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DiscovererInput)(nil)).Elem(), &Discoverer{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DiscovererPtrInput)(nil)).Elem(), &Discoverer{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DiscovererArrayInput)(nil)).Elem(), DiscovererArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DiscovererMapInput)(nil)).Elem(), DiscovererMap{})
 	pulumi.RegisterOutputType(DiscovererOutput{})
 	pulumi.RegisterOutputType(DiscovererPtrOutput{})
 	pulumi.RegisterOutputType(DiscovererArrayOutput{})

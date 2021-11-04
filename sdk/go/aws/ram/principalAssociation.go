@@ -351,6 +351,10 @@ func (o PrincipalAssociationMapOutput) MapIndex(k pulumi.StringInput) PrincipalA
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PrincipalAssociationInput)(nil)).Elem(), &PrincipalAssociation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrincipalAssociationPtrInput)(nil)).Elem(), &PrincipalAssociation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrincipalAssociationArrayInput)(nil)).Elem(), PrincipalAssociationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrincipalAssociationMapInput)(nil)).Elem(), PrincipalAssociationMap{})
 	pulumi.RegisterOutputType(PrincipalAssociationOutput{})
 	pulumi.RegisterOutputType(PrincipalAssociationPtrOutput{})
 	pulumi.RegisterOutputType(PrincipalAssociationArrayOutput{})

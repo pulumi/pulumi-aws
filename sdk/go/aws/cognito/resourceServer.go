@@ -370,6 +370,10 @@ func (o ResourceServerMapOutput) MapIndex(k pulumi.StringInput) ResourceServerOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceServerInput)(nil)).Elem(), &ResourceServer{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceServerPtrInput)(nil)).Elem(), &ResourceServer{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceServerArrayInput)(nil)).Elem(), ResourceServerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceServerMapInput)(nil)).Elem(), ResourceServerMap{})
 	pulumi.RegisterOutputType(ResourceServerOutput{})
 	pulumi.RegisterOutputType(ResourceServerPtrOutput{})
 	pulumi.RegisterOutputType(ResourceServerArrayOutput{})

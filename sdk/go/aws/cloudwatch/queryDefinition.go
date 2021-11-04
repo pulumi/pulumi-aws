@@ -329,6 +329,10 @@ func (o QueryDefinitionMapOutput) MapIndex(k pulumi.StringInput) QueryDefinition
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*QueryDefinitionInput)(nil)).Elem(), &QueryDefinition{})
+	pulumi.RegisterInputType(reflect.TypeOf((*QueryDefinitionPtrInput)(nil)).Elem(), &QueryDefinition{})
+	pulumi.RegisterInputType(reflect.TypeOf((*QueryDefinitionArrayInput)(nil)).Elem(), QueryDefinitionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*QueryDefinitionMapInput)(nil)).Elem(), QueryDefinitionMap{})
 	pulumi.RegisterOutputType(QueryDefinitionOutput{})
 	pulumi.RegisterOutputType(QueryDefinitionPtrOutput{})
 	pulumi.RegisterOutputType(QueryDefinitionArrayOutput{})

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Ec2
 {
@@ -18,6 +19,14 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public static Task<GetVpcsResult> InvokeAsync(GetVpcsArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVpcsResult>("aws:ec2/getVpcs:getVpcs", args ?? new GetVpcsArgs(), options.WithVersion());
+
+        /// <summary>
+        /// This resource can be useful for getting back a list of VPC Ids for a region.
+        /// 
+        /// The following example retrieves a list of VPC Ids with a custom tag of `service` set to a value of "production".
+        /// </summary>
+        public static Output<GetVpcsResult> Invoke(GetVpcsInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetVpcsResult>("aws:ec2/getVpcs:getVpcs", args ?? new GetVpcsInvokeArgs(), options.WithVersion());
     }
 
 
@@ -49,6 +58,38 @@ namespace Pulumi.Aws.Ec2
         }
 
         public GetVpcsArgs()
+        {
+        }
+    }
+
+    public sealed class GetVpcsInvokeArgs : Pulumi.InvokeArgs
+    {
+        [Input("filters")]
+        private InputList<Inputs.GetVpcsFilterInputArgs>? _filters;
+
+        /// <summary>
+        /// Custom filter block as described below.
+        /// </summary>
+        public InputList<Inputs.GetVpcsFilterInputArgs> Filters
+        {
+            get => _filters ?? (_filters = new InputList<Inputs.GetVpcsFilterInputArgs>());
+            set => _filters = value;
+        }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags, each pair of which must exactly match
+        /// a pair on the desired vpcs.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        public GetVpcsInvokeArgs()
         {
         }
     }

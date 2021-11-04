@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.CloudWatch
 {
@@ -41,6 +42,37 @@ namespace Pulumi.Aws.CloudWatch
         /// </summary>
         public static Task<GetEventSourceResult> InvokeAsync(GetEventSourceArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetEventSourceResult>("aws:cloudwatch/getEventSource:getEventSource", args ?? new GetEventSourceArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to get information about an EventBridge Partner Event Source. This data source will only return one partner event source. An error will be returned if multiple sources match the same name prefix.
+        /// 
+        /// &gt; **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var examplepartner = Output.Create(Aws.CloudWatch.GetEventSource.InvokeAsync(new Aws.CloudWatch.GetEventSourceArgs
+        ///         {
+        ///             NamePrefix = "aws.partner/examplepartner.com",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetEventSourceResult> Invoke(GetEventSourceInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetEventSourceResult>("aws:cloudwatch/getEventSource:getEventSource", args ?? new GetEventSourceInvokeArgs(), options.WithVersion());
     }
 
 
@@ -53,6 +85,19 @@ namespace Pulumi.Aws.CloudWatch
         public string? NamePrefix { get; set; }
 
         public GetEventSourceArgs()
+        {
+        }
+    }
+
+    public sealed class GetEventSourceInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Specifying this limits the results to only those partner event sources with names that start with the specified prefix
+        /// </summary>
+        [Input("namePrefix")]
+        public Input<string>? NamePrefix { get; set; }
+
+        public GetEventSourceInvokeArgs()
         {
         }
     }

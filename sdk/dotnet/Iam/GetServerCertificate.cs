@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Iam
 {
@@ -54,6 +55,50 @@ namespace Pulumi.Aws.Iam
         /// </summary>
         public static Task<GetServerCertificateResult> InvokeAsync(GetServerCertificateArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetServerCertificateResult>("aws:iam/getServerCertificate:getServerCertificate", args ?? new GetServerCertificateArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to lookup information about IAM Server Certificates.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var my_domain = Output.Create(Aws.Iam.GetServerCertificate.InvokeAsync(new Aws.Iam.GetServerCertificateArgs
+        ///         {
+        ///             NamePrefix = "my-domain.org",
+        ///             Latest = true,
+        ///         }));
+        ///         var elb = new Aws.Elb.LoadBalancer("elb", new Aws.Elb.LoadBalancerArgs
+        ///         {
+        ///             Listeners = 
+        ///             {
+        ///                 new Aws.Elb.Inputs.LoadBalancerListenerArgs
+        ///                 {
+        ///                     InstancePort = 8000,
+        ///                     InstanceProtocol = "https",
+        ///                     LbPort = 443,
+        ///                     LbProtocol = "https",
+        ///                     SslCertificateId = my_domain.Apply(my_domain =&gt; my_domain.Arn),
+        ///                 },
+        ///             },
+        ///         });
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetServerCertificateResult> Invoke(GetServerCertificateInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetServerCertificateResult>("aws:iam/getServerCertificate:getServerCertificate", args ?? new GetServerCertificateInvokeArgs(), options.WithVersion());
     }
 
 
@@ -84,6 +129,37 @@ namespace Pulumi.Aws.Iam
         public string? PathPrefix { get; set; }
 
         public GetServerCertificateArgs()
+        {
+        }
+    }
+
+    public sealed class GetServerCertificateInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// sort results by expiration date. returns the certificate with expiration date in furthest in the future.
+        /// </summary>
+        [Input("latest")]
+        public Input<bool>? Latest { get; set; }
+
+        /// <summary>
+        /// exact name of the cert to lookup
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// prefix of cert to filter by
+        /// </summary>
+        [Input("namePrefix")]
+        public Input<string>? NamePrefix { get; set; }
+
+        /// <summary>
+        /// prefix of path to filter by
+        /// </summary>
+        [Input("pathPrefix")]
+        public Input<string>? PathPrefix { get; set; }
+
+        public GetServerCertificateInvokeArgs()
         {
         }
     }

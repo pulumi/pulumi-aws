@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.ElastiCache
 {
@@ -39,6 +40,35 @@ namespace Pulumi.Aws.ElastiCache
         /// </summary>
         public static Task<GetReplicationGroupResult> InvokeAsync(GetReplicationGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetReplicationGroupResult>("aws:elasticache/getReplicationGroup:getReplicationGroup", args ?? new GetReplicationGroupArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to get information about an Elasticache Replication Group.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var bar = Output.Create(Aws.ElastiCache.GetReplicationGroup.InvokeAsync(new Aws.ElastiCache.GetReplicationGroupArgs
+        ///         {
+        ///             ReplicationGroupId = "example",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetReplicationGroupResult> Invoke(GetReplicationGroupInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetReplicationGroupResult>("aws:elasticache/getReplicationGroup:getReplicationGroup", args ?? new GetReplicationGroupInvokeArgs(), options.WithVersion());
     }
 
 
@@ -51,6 +81,19 @@ namespace Pulumi.Aws.ElastiCache
         public string ReplicationGroupId { get; set; } = null!;
 
         public GetReplicationGroupArgs()
+        {
+        }
+    }
+
+    public sealed class GetReplicationGroupInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The identifier for the replication group.
+        /// </summary>
+        [Input("replicationGroupId", required: true)]
+        public Input<string> ReplicationGroupId { get; set; } = null!;
+
+        public GetReplicationGroupInvokeArgs()
         {
         }
     }

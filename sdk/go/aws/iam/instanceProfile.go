@@ -366,6 +366,10 @@ func (o InstanceProfileMapOutput) MapIndex(k pulumi.StringInput) InstanceProfile
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceProfileInput)(nil)).Elem(), &InstanceProfile{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceProfilePtrInput)(nil)).Elem(), &InstanceProfile{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceProfileArrayInput)(nil)).Elem(), InstanceProfileArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceProfileMapInput)(nil)).Elem(), InstanceProfileMap{})
 	pulumi.RegisterOutputType(InstanceProfileOutput{})
 	pulumi.RegisterOutputType(InstanceProfilePtrOutput{})
 	pulumi.RegisterOutputType(InstanceProfileArrayOutput{})

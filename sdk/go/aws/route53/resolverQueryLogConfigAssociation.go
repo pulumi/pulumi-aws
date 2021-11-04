@@ -311,6 +311,10 @@ func (o ResolverQueryLogConfigAssociationMapOutput) MapIndex(k pulumi.StringInpu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ResolverQueryLogConfigAssociationInput)(nil)).Elem(), &ResolverQueryLogConfigAssociation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResolverQueryLogConfigAssociationPtrInput)(nil)).Elem(), &ResolverQueryLogConfigAssociation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResolverQueryLogConfigAssociationArrayInput)(nil)).Elem(), ResolverQueryLogConfigAssociationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResolverQueryLogConfigAssociationMapInput)(nil)).Elem(), ResolverQueryLogConfigAssociationMap{})
 	pulumi.RegisterOutputType(ResolverQueryLogConfigAssociationOutput{})
 	pulumi.RegisterOutputType(ResolverQueryLogConfigAssociationPtrOutput{})
 	pulumi.RegisterOutputType(ResolverQueryLogConfigAssociationArrayOutput{})

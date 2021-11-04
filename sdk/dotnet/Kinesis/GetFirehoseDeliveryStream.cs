@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Kinesis
 {
@@ -41,6 +42,37 @@ namespace Pulumi.Aws.Kinesis
         /// </summary>
         public static Task<GetFirehoseDeliveryStreamResult> InvokeAsync(GetFirehoseDeliveryStreamArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetFirehoseDeliveryStreamResult>("aws:kinesis/getFirehoseDeliveryStream:getFirehoseDeliveryStream", args ?? new GetFirehoseDeliveryStreamArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to get information about a Kinesis Firehose Delivery Stream for use in other resources.
+        /// 
+        /// For more details, see the [Amazon Kinesis Firehose Documentation](https://aws.amazon.com/documentation/firehose/).
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var stream = Output.Create(Aws.Kinesis.GetFirehoseDeliveryStream.InvokeAsync(new Aws.Kinesis.GetFirehoseDeliveryStreamArgs
+        ///         {
+        ///             Name = "stream-name",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetFirehoseDeliveryStreamResult> Invoke(GetFirehoseDeliveryStreamInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetFirehoseDeliveryStreamResult>("aws:kinesis/getFirehoseDeliveryStream:getFirehoseDeliveryStream", args ?? new GetFirehoseDeliveryStreamInvokeArgs(), options.WithVersion());
     }
 
 
@@ -53,6 +85,19 @@ namespace Pulumi.Aws.Kinesis
         public string Name { get; set; } = null!;
 
         public GetFirehoseDeliveryStreamArgs()
+        {
+        }
+    }
+
+    public sealed class GetFirehoseDeliveryStreamInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the Kinesis Stream.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        public GetFirehoseDeliveryStreamInvokeArgs()
         {
         }
     }

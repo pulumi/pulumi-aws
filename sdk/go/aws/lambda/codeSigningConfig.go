@@ -346,6 +346,10 @@ func (o CodeSigningConfigMapOutput) MapIndex(k pulumi.StringInput) CodeSigningCo
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CodeSigningConfigInput)(nil)).Elem(), &CodeSigningConfig{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CodeSigningConfigPtrInput)(nil)).Elem(), &CodeSigningConfig{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CodeSigningConfigArrayInput)(nil)).Elem(), CodeSigningConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CodeSigningConfigMapInput)(nil)).Elem(), CodeSigningConfigMap{})
 	pulumi.RegisterOutputType(CodeSigningConfigOutput{})
 	pulumi.RegisterOutputType(CodeSigningConfigPtrOutput{})
 	pulumi.RegisterOutputType(CodeSigningConfigArrayOutput{})

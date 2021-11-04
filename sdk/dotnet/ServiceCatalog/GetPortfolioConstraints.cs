@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.ServiceCatalog
 {
@@ -40,6 +41,36 @@ namespace Pulumi.Aws.ServiceCatalog
         /// </summary>
         public static Task<GetPortfolioConstraintsResult> InvokeAsync(GetPortfolioConstraintsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPortfolioConstraintsResult>("aws:servicecatalog/getPortfolioConstraints:getPortfolioConstraints", args ?? new GetPortfolioConstraintsArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Provides information on Service Catalog Portfolio Constraints.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.ServiceCatalog.GetPortfolioConstraints.InvokeAsync(new Aws.ServiceCatalog.GetPortfolioConstraintsArgs
+        ///         {
+        ///             PortfolioId = "port-3lli3b3an",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetPortfolioConstraintsResult> Invoke(GetPortfolioConstraintsInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetPortfolioConstraintsResult>("aws:servicecatalog/getPortfolioConstraints:getPortfolioConstraints", args ?? new GetPortfolioConstraintsInvokeArgs(), options.WithVersion());
     }
 
 
@@ -64,6 +95,31 @@ namespace Pulumi.Aws.ServiceCatalog
         public string? ProductId { get; set; }
 
         public GetPortfolioConstraintsArgs()
+        {
+        }
+    }
+
+    public sealed class GetPortfolioConstraintsInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
+        /// </summary>
+        [Input("acceptLanguage")]
+        public Input<string>? AcceptLanguage { get; set; }
+
+        /// <summary>
+        /// Portfolio identifier.
+        /// </summary>
+        [Input("portfolioId", required: true)]
+        public Input<string> PortfolioId { get; set; } = null!;
+
+        /// <summary>
+        /// Product identifier.
+        /// </summary>
+        [Input("productId")]
+        public Input<string>? ProductId { get; set; }
+
+        public GetPortfolioConstraintsInvokeArgs()
         {
         }
     }

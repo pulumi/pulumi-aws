@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Lambda
 {
@@ -41,6 +42,37 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         public static Task<GetCodeSigningConfigResult> InvokeAsync(GetCodeSigningConfigArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCodeSigningConfigResult>("aws:lambda/getCodeSigningConfig:getCodeSigningConfig", args ?? new GetCodeSigningConfigArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Provides information about a Lambda Code Signing Config. A code signing configuration defines a list of allowed signing profiles and defines the code-signing validation policy (action to be taken if deployment validation checks fail).
+        /// 
+        /// For information about Lambda code signing configurations and how to use them, see [configuring code signing for Lambda functions](https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html)
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var existingCsc = Output.Create(Aws.Lambda.GetCodeSigningConfig.InvokeAsync(new Aws.Lambda.GetCodeSigningConfigArgs
+        ///         {
+        ///             Arn = $"arn:aws:lambda:{@var.Aws_region}:{@var.Aws_account}:code-signing-config:csc-0f6c334abcdea4d8b",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetCodeSigningConfigResult> Invoke(GetCodeSigningConfigInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetCodeSigningConfigResult>("aws:lambda/getCodeSigningConfig:getCodeSigningConfig", args ?? new GetCodeSigningConfigInvokeArgs(), options.WithVersion());
     }
 
 
@@ -53,6 +85,19 @@ namespace Pulumi.Aws.Lambda
         public string Arn { get; set; } = null!;
 
         public GetCodeSigningConfigArgs()
+        {
+        }
+    }
+
+    public sealed class GetCodeSigningConfigInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the code signing configuration.
+        /// </summary>
+        [Input("arn", required: true)]
+        public Input<string> Arn { get; set; } = null!;
+
+        public GetCodeSigningConfigInvokeArgs()
         {
         }
     }

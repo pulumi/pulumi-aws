@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.CloudTrail
 {
@@ -41,6 +42,37 @@ namespace Pulumi.Aws.CloudTrail
         /// </summary>
         public static Task<GetFunctionResult> InvokeAsync(GetFunctionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetFunctionResult>("aws:cloudtrail/getFunction:getFunction", args ?? new GetFunctionArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Provides information about a CloudFront Function.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var config = new Config();
+        ///         var functionName = config.Require("functionName");
+        ///         var existing = Output.Create(Aws.CloudTrail.GetFunction.InvokeAsync(new Aws.CloudTrail.GetFunctionArgs
+        ///         {
+        ///             Name = functionName,
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetFunctionResult> Invoke(GetFunctionInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetFunctionResult>("aws:cloudtrail/getFunction:getFunction", args ?? new GetFunctionInvokeArgs(), options.WithVersion());
     }
 
 
@@ -59,6 +91,25 @@ namespace Pulumi.Aws.CloudTrail
         public string Stage { get; set; } = null!;
 
         public GetFunctionArgs()
+        {
+        }
+    }
+
+    public sealed class GetFunctionInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the CloudFront function.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The function’s stage, either `DEVELOPMENT` or `LIVE`.
+        /// </summary>
+        [Input("stage", required: true)]
+        public Input<string> Stage { get; set; } = null!;
+
+        public GetFunctionInvokeArgs()
         {
         }
     }

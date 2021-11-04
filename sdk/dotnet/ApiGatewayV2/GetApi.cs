@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.ApiGatewayV2
 {
@@ -39,6 +40,35 @@ namespace Pulumi.Aws.ApiGatewayV2
         /// </summary>
         public static Task<GetApiResult> InvokeAsync(GetApiArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetApiResult>("aws:apigatewayv2/getApi:getApi", args ?? new GetApiArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Provides details about a specific Amazon API Gateway Version 2 API.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.ApiGatewayV2.GetApi.InvokeAsync(new Aws.ApiGatewayV2.GetApiArgs
+        ///         {
+        ///             ApiId = "aabbccddee",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetApiResult> Invoke(GetApiInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetApiResult>("aws:apigatewayv2/getApi:getApi", args ?? new GetApiInvokeArgs(), options.WithVersion());
     }
 
 
@@ -63,6 +93,31 @@ namespace Pulumi.Aws.ApiGatewayV2
         }
 
         public GetApiArgs()
+        {
+        }
+    }
+
+    public sealed class GetApiInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The API identifier.
+        /// </summary>
+        [Input("apiId", required: true)]
+        public Input<string> ApiId { get; set; } = null!;
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of resource tags.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        public GetApiInvokeArgs()
         {
         }
     }

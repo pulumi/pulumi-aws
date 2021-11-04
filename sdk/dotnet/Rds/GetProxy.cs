@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Rds
 {
@@ -39,6 +40,35 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         public static Task<GetProxyResult> InvokeAsync(GetProxyArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetProxyResult>("aws:rds/getProxy:getProxy", args ?? new GetProxyArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to get information about a DB Proxy.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var proxy = Output.Create(Aws.Rds.GetProxy.InvokeAsync(new Aws.Rds.GetProxyArgs
+        ///         {
+        ///             Name = "my-test-db-proxy",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetProxyResult> Invoke(GetProxyInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetProxyResult>("aws:rds/getProxy:getProxy", args ?? new GetProxyInvokeArgs(), options.WithVersion());
     }
 
 
@@ -51,6 +81,19 @@ namespace Pulumi.Aws.Rds
         public string Name { get; set; } = null!;
 
         public GetProxyArgs()
+        {
+        }
+    }
+
+    public sealed class GetProxyInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the DB proxy.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        public GetProxyInvokeArgs()
         {
         }
     }

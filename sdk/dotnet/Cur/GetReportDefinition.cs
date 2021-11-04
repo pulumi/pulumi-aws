@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Cur
 {
@@ -43,6 +44,39 @@ namespace Pulumi.Aws.Cur
         /// </summary>
         public static Task<GetReportDefinitionResult> InvokeAsync(GetReportDefinitionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetReportDefinitionResult>("aws:cur/getReportDefinition:getReportDefinition", args ?? new GetReportDefinitionArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to get information on an AWS Cost and Usage Report Definition.
+        /// 
+        /// &gt; *NOTE:* The AWS Cost and Usage Report service is only available in `us-east-1` currently.
+        /// 
+        /// &gt; *NOTE:* If AWS Organizations is enabled, only the master account can use this resource.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var reportDefinition = Output.Create(Aws.Cur.GetReportDefinition.InvokeAsync(new Aws.Cur.GetReportDefinitionArgs
+        ///         {
+        ///             ReportName = "example",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetReportDefinitionResult> Invoke(GetReportDefinitionInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetReportDefinitionResult>("aws:cur/getReportDefinition:getReportDefinition", args ?? new GetReportDefinitionInvokeArgs(), options.WithVersion());
     }
 
 
@@ -55,6 +89,19 @@ namespace Pulumi.Aws.Cur
         public string ReportName { get; set; } = null!;
 
         public GetReportDefinitionArgs()
+        {
+        }
+    }
+
+    public sealed class GetReportDefinitionInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the report definition to match.
+        /// </summary>
+        [Input("reportName", required: true)]
+        public Input<string> ReportName { get; set; } = null!;
+
+        public GetReportDefinitionInvokeArgs()
         {
         }
     }

@@ -375,6 +375,10 @@ func (o BgpPeerMapOutput) MapIndex(k pulumi.StringInput) BgpPeerOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BgpPeerInput)(nil)).Elem(), &BgpPeer{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BgpPeerPtrInput)(nil)).Elem(), &BgpPeer{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BgpPeerArrayInput)(nil)).Elem(), BgpPeerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BgpPeerMapInput)(nil)).Elem(), BgpPeerMap{})
 	pulumi.RegisterOutputType(BgpPeerOutput{})
 	pulumi.RegisterOutputType(BgpPeerPtrOutput{})
 	pulumi.RegisterOutputType(BgpPeerArrayOutput{})

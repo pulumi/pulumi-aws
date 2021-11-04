@@ -353,6 +353,10 @@ func (o EventBusMapOutput) MapIndex(k pulumi.StringInput) EventBusOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*EventBusInput)(nil)).Elem(), &EventBus{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventBusPtrInput)(nil)).Elem(), &EventBus{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventBusArrayInput)(nil)).Elem(), EventBusArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventBusMapInput)(nil)).Elem(), EventBusMap{})
 	pulumi.RegisterOutputType(EventBusOutput{})
 	pulumi.RegisterOutputType(EventBusPtrOutput{})
 	pulumi.RegisterOutputType(EventBusArrayOutput{})

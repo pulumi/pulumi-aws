@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Ec2
 {
@@ -72,6 +73,68 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public static Task<GetManagedPrefixListResult> InvokeAsync(GetManagedPrefixListArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetManagedPrefixListResult>("aws:ec2/getManagedPrefixList:getManagedPrefixList", args ?? new GetManagedPrefixListArgs(), options.WithVersion());
+
+        /// <summary>
+        /// `aws.ec2.ManagedPrefixList` provides details about a specific AWS prefix list or
+        /// customer-managed prefix list in the current region.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// ### Find the regional DynamoDB prefix list
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var current = Output.Create(Aws.GetRegion.InvokeAsync());
+        ///         var example = current.Apply(current =&gt; Output.Create(Aws.Ec2.GetManagedPrefixList.InvokeAsync(new Aws.Ec2.GetManagedPrefixListArgs
+        ///         {
+        ///             Name = $"com.amazonaws.{current.Name}.dynamodb",
+        ///         })));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% example %}}
+        /// ### Find a managed prefix list using filters
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.Ec2.GetManagedPrefixList.InvokeAsync(new Aws.Ec2.GetManagedPrefixListArgs
+        ///         {
+        ///             Filters = 
+        ///             {
+        ///                 new Aws.Ec2.Inputs.GetManagedPrefixListFilterArgs
+        ///                 {
+        ///                     Name = "prefix-list-name",
+        ///                     Values = 
+        ///                     {
+        ///                         "my-prefix-list",
+        ///                     },
+        ///                 },
+        ///             },
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetManagedPrefixListResult> Invoke(GetManagedPrefixListInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetManagedPrefixListResult>("aws:ec2/getManagedPrefixList:getManagedPrefixList", args ?? new GetManagedPrefixListInvokeArgs(), options.WithVersion());
     }
 
 
@@ -114,6 +177,49 @@ namespace Pulumi.Aws.Ec2
         }
 
         public GetManagedPrefixListArgs()
+        {
+        }
+    }
+
+    public sealed class GetManagedPrefixListInvokeArgs : Pulumi.InvokeArgs
+    {
+        [Input("filters")]
+        private InputList<Inputs.GetManagedPrefixListFilterInputArgs>? _filters;
+
+        /// <summary>
+        /// Configuration block(s) for filtering. Detailed below.
+        /// </summary>
+        public InputList<Inputs.GetManagedPrefixListFilterInputArgs> Filters
+        {
+            get => _filters ?? (_filters = new InputList<Inputs.GetManagedPrefixListFilterInputArgs>());
+            set => _filters = value;
+        }
+
+        /// <summary>
+        /// The ID of the prefix list to select.
+        /// </summary>
+        [Input("id")]
+        public Input<string>? Id { get; set; }
+
+        /// <summary>
+        /// The name of the filter field. Valid values can be found in the EC2 [DescribeManagedPrefixLists](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeManagedPrefixLists.html) API Reference.
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags assigned to the resource.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        public GetManagedPrefixListInvokeArgs()
         {
         }
     }

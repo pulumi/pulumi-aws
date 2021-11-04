@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Ec2
 {
@@ -59,6 +60,55 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public static Task<GetInstanceTypeOfferingsResult> InvokeAsync(GetInstanceTypeOfferingsArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetInstanceTypeOfferingsResult>("aws:ec2/getInstanceTypeOfferings:getInstanceTypeOfferings", args ?? new GetInstanceTypeOfferingsArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Information about EC2 Instance Type Offerings.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.Ec2.GetInstanceTypeOfferings.InvokeAsync(new Aws.Ec2.GetInstanceTypeOfferingsArgs
+        ///         {
+        ///             Filters = 
+        ///             {
+        ///                 new Aws.Ec2.Inputs.GetInstanceTypeOfferingsFilterArgs
+        ///                 {
+        ///                     Name = "instance-type",
+        ///                     Values = 
+        ///                     {
+        ///                         "t2.micro",
+        ///                         "t3.micro",
+        ///                     },
+        ///                 },
+        ///                 new Aws.Ec2.Inputs.GetInstanceTypeOfferingsFilterArgs
+        ///                 {
+        ///                     Name = "location",
+        ///                     Values = 
+        ///                     {
+        ///                         "usw2-az4",
+        ///                     },
+        ///                 },
+        ///             },
+        ///             LocationType = "availability-zone-id",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetInstanceTypeOfferingsResult> Invoke(GetInstanceTypeOfferingsInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetInstanceTypeOfferingsResult>("aws:ec2/getInstanceTypeOfferings:getInstanceTypeOfferings", args ?? new GetInstanceTypeOfferingsInvokeArgs(), options.WithVersion());
     }
 
 
@@ -83,6 +133,31 @@ namespace Pulumi.Aws.Ec2
         public string? LocationType { get; set; }
 
         public GetInstanceTypeOfferingsArgs()
+        {
+        }
+    }
+
+    public sealed class GetInstanceTypeOfferingsInvokeArgs : Pulumi.InvokeArgs
+    {
+        [Input("filters")]
+        private InputList<Inputs.GetInstanceTypeOfferingsFilterInputArgs>? _filters;
+
+        /// <summary>
+        /// One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceTypeOfferings.html) for supported filters. Detailed below.
+        /// </summary>
+        public InputList<Inputs.GetInstanceTypeOfferingsFilterInputArgs> Filters
+        {
+            get => _filters ?? (_filters = new InputList<Inputs.GetInstanceTypeOfferingsFilterInputArgs>());
+            set => _filters = value;
+        }
+
+        /// <summary>
+        /// Location type. Defaults to `region`. Valid values: `availability-zone`, `availability-zone-id`, and `region`.
+        /// </summary>
+        [Input("locationType")]
+        public Input<string>? LocationType { get; set; }
+
+        public GetInstanceTypeOfferingsInvokeArgs()
         {
         }
     }

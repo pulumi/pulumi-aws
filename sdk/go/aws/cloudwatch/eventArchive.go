@@ -380,6 +380,10 @@ func (o EventArchiveMapOutput) MapIndex(k pulumi.StringInput) EventArchiveOutput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*EventArchiveInput)(nil)).Elem(), &EventArchive{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventArchivePtrInput)(nil)).Elem(), &EventArchive{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventArchiveArrayInput)(nil)).Elem(), EventArchiveArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventArchiveMapInput)(nil)).Elem(), EventArchiveMap{})
 	pulumi.RegisterOutputType(EventArchiveOutput{})
 	pulumi.RegisterOutputType(EventArchivePtrOutput{})
 	pulumi.RegisterOutputType(EventArchiveArrayOutput{})

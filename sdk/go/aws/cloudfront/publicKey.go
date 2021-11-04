@@ -350,6 +350,10 @@ func (o PublicKeyMapOutput) MapIndex(k pulumi.StringInput) PublicKeyOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PublicKeyInput)(nil)).Elem(), &PublicKey{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PublicKeyPtrInput)(nil)).Elem(), &PublicKey{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PublicKeyArrayInput)(nil)).Elem(), PublicKeyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PublicKeyMapInput)(nil)).Elem(), PublicKeyMap{})
 	pulumi.RegisterOutputType(PublicKeyOutput{})
 	pulumi.RegisterOutputType(PublicKeyPtrOutput{})
 	pulumi.RegisterOutputType(PublicKeyArrayOutput{})

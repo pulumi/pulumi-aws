@@ -360,6 +360,10 @@ func (o PrefixListReferenceMapOutput) MapIndex(k pulumi.StringInput) PrefixListR
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PrefixListReferenceInput)(nil)).Elem(), &PrefixListReference{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrefixListReferencePtrInput)(nil)).Elem(), &PrefixListReference{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrefixListReferenceArrayInput)(nil)).Elem(), PrefixListReferenceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PrefixListReferenceMapInput)(nil)).Elem(), PrefixListReferenceMap{})
 	pulumi.RegisterOutputType(PrefixListReferenceOutput{})
 	pulumi.RegisterOutputType(PrefixListReferencePtrOutput{})
 	pulumi.RegisterOutputType(PrefixListReferenceArrayOutput{})

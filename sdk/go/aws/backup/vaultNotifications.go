@@ -349,6 +349,10 @@ func (o VaultNotificationsMapOutput) MapIndex(k pulumi.StringInput) VaultNotific
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*VaultNotificationsInput)(nil)).Elem(), &VaultNotifications{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VaultNotificationsPtrInput)(nil)).Elem(), &VaultNotifications{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VaultNotificationsArrayInput)(nil)).Elem(), VaultNotificationsArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VaultNotificationsMapInput)(nil)).Elem(), VaultNotificationsMap{})
 	pulumi.RegisterOutputType(VaultNotificationsOutput{})
 	pulumi.RegisterOutputType(VaultNotificationsPtrOutput{})
 	pulumi.RegisterOutputType(VaultNotificationsArrayOutput{})

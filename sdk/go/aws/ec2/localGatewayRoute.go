@@ -325,6 +325,10 @@ func (o LocalGatewayRouteMapOutput) MapIndex(k pulumi.StringInput) LocalGatewayR
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LocalGatewayRouteInput)(nil)).Elem(), &LocalGatewayRoute{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LocalGatewayRoutePtrInput)(nil)).Elem(), &LocalGatewayRoute{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LocalGatewayRouteArrayInput)(nil)).Elem(), LocalGatewayRouteArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LocalGatewayRouteMapInput)(nil)).Elem(), LocalGatewayRouteMap{})
 	pulumi.RegisterOutputType(LocalGatewayRouteOutput{})
 	pulumi.RegisterOutputType(LocalGatewayRoutePtrOutput{})
 	pulumi.RegisterOutputType(LocalGatewayRouteArrayOutput{})

@@ -437,6 +437,10 @@ func (o OrganizationConformancePackMapOutput) MapIndex(k pulumi.StringInput) Org
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationConformancePackInput)(nil)).Elem(), &OrganizationConformancePack{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationConformancePackPtrInput)(nil)).Elem(), &OrganizationConformancePack{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationConformancePackArrayInput)(nil)).Elem(), OrganizationConformancePackArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationConformancePackMapInput)(nil)).Elem(), OrganizationConformancePackMap{})
 	pulumi.RegisterOutputType(OrganizationConformancePackOutput{})
 	pulumi.RegisterOutputType(OrganizationConformancePackPtrOutput{})
 	pulumi.RegisterOutputType(OrganizationConformancePackArrayOutput{})

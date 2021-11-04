@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.S3
 {
@@ -18,6 +19,14 @@ namespace Pulumi.Aws.S3
         /// </summary>
         public static Task<GetBucketObjectsResult> InvokeAsync(GetBucketObjectsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBucketObjectsResult>("aws:s3/getBucketObjects:getBucketObjects", args ?? new GetBucketObjectsArgs(), options.WithVersion());
+
+        /// <summary>
+        /// &gt; **NOTE on `max_keys`:** Retrieving very large numbers of keys can adversely affect this provider's performance.
+        /// 
+        /// The bucket-objects data source returns keys (i.e., file names) and other metadata about objects in an S3 bucket.
+        /// </summary>
+        public static Output<GetBucketObjectsResult> Invoke(GetBucketObjectsInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetBucketObjectsResult>("aws:s3/getBucketObjects:getBucketObjects", args ?? new GetBucketObjectsInvokeArgs(), options.WithVersion());
     }
 
 
@@ -66,6 +75,55 @@ namespace Pulumi.Aws.S3
         public string? StartAfter { get; set; }
 
         public GetBucketObjectsArgs()
+        {
+        }
+    }
+
+    public sealed class GetBucketObjectsInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Lists object keys in this S3 bucket. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
+        /// </summary>
+        [Input("bucket", required: true)]
+        public Input<string> Bucket { get; set; } = null!;
+
+        /// <summary>
+        /// A character used to group keys (Default: none)
+        /// </summary>
+        [Input("delimiter")]
+        public Input<string>? Delimiter { get; set; }
+
+        /// <summary>
+        /// Encodes keys using this method (Default: none; besides none, only "url" can be used)
+        /// </summary>
+        [Input("encodingType")]
+        public Input<string>? EncodingType { get; set; }
+
+        /// <summary>
+        /// Boolean specifying whether to populate the owner list (Default: false)
+        /// </summary>
+        [Input("fetchOwner")]
+        public Input<bool>? FetchOwner { get; set; }
+
+        /// <summary>
+        /// Maximum object keys to return (Default: 1000)
+        /// </summary>
+        [Input("maxKeys")]
+        public Input<int>? MaxKeys { get; set; }
+
+        /// <summary>
+        /// Limits results to object keys with this prefix (Default: none)
+        /// </summary>
+        [Input("prefix")]
+        public Input<string>? Prefix { get; set; }
+
+        /// <summary>
+        /// Returns key names lexicographically after a specific object key in your bucket (Default: none; S3 lists object keys in UTF-8 character encoding in lexicographical order)
+        /// </summary>
+        [Input("startAfter")]
+        public Input<string>? StartAfter { get; set; }
+
+        public GetBucketObjectsInvokeArgs()
         {
         }
     }

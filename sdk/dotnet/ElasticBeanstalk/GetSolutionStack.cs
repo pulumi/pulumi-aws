@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.ElasticBeanstalk
 {
@@ -40,6 +41,36 @@ namespace Pulumi.Aws.ElasticBeanstalk
         /// </summary>
         public static Task<GetSolutionStackResult> InvokeAsync(GetSolutionStackArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSolutionStackResult>("aws:elasticbeanstalk/getSolutionStack:getSolutionStack", args ?? new GetSolutionStackArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to get the name of a elastic beanstalk solution stack.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var multiDocker = Output.Create(Aws.ElasticBeanstalk.GetSolutionStack.InvokeAsync(new Aws.ElasticBeanstalk.GetSolutionStackArgs
+        ///         {
+        ///             MostRecent = true,
+        ///             NameRegex = "^64bit Amazon Linux (.*) Multi-container Docker (.*)$",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetSolutionStackResult> Invoke(GetSolutionStackInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetSolutionStackResult>("aws:elasticbeanstalk/getSolutionStack:getSolutionStack", args ?? new GetSolutionStackInvokeArgs(), options.WithVersion());
     }
 
 
@@ -61,6 +92,28 @@ namespace Pulumi.Aws.ElasticBeanstalk
         public string NameRegex { get; set; } = null!;
 
         public GetSolutionStackArgs()
+        {
+        }
+    }
+
+    public sealed class GetSolutionStackInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// If more than one result is returned, use the most
+        /// recent solution stack.
+        /// </summary>
+        [Input("mostRecent")]
+        public Input<bool>? MostRecent { get; set; }
+
+        /// <summary>
+        /// A regex string to apply to the solution stack list returned
+        /// by AWS. See [Elastic Beanstalk Supported Platforms][beanstalk-platforms] from
+        /// AWS documentation for reference solution stack names.
+        /// </summary>
+        [Input("nameRegex", required: true)]
+        public Input<string> NameRegex { get; set; } = null!;
+
+        public GetSolutionStackInvokeArgs()
         {
         }
     }

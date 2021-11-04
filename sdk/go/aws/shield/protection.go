@@ -358,6 +358,10 @@ func (o ProtectionMapOutput) MapIndex(k pulumi.StringInput) ProtectionOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ProtectionInput)(nil)).Elem(), &Protection{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProtectionPtrInput)(nil)).Elem(), &Protection{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProtectionArrayInput)(nil)).Elem(), ProtectionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProtectionMapInput)(nil)).Elem(), ProtectionMap{})
 	pulumi.RegisterOutputType(ProtectionOutput{})
 	pulumi.RegisterOutputType(ProtectionPtrOutput{})
 	pulumi.RegisterOutputType(ProtectionArrayOutput{})

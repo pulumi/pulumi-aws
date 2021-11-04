@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Organizations
 {
@@ -39,6 +40,35 @@ namespace Pulumi.Aws.Organizations
         /// </summary>
         public static Task<GetDelegatedAdministratorsResult> InvokeAsync(GetDelegatedAdministratorsArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDelegatedAdministratorsResult>("aws:organizations/getDelegatedAdministrators:getDelegatedAdministrators", args ?? new GetDelegatedAdministratorsArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Get a list the AWS accounts that are designated as delegated administrators in this organization
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.Organizations.GetDelegatedAdministrators.InvokeAsync(new Aws.Organizations.GetDelegatedAdministratorsArgs
+        ///         {
+        ///             ServicePrincipal = "SERVICE PRINCIPAL",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetDelegatedAdministratorsResult> Invoke(GetDelegatedAdministratorsInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetDelegatedAdministratorsResult>("aws:organizations/getDelegatedAdministrators:getDelegatedAdministrators", args ?? new GetDelegatedAdministratorsInvokeArgs(), options.WithVersion());
     }
 
 
@@ -51,6 +81,19 @@ namespace Pulumi.Aws.Organizations
         public string? ServicePrincipal { get; set; }
 
         public GetDelegatedAdministratorsArgs()
+        {
+        }
+    }
+
+    public sealed class GetDelegatedAdministratorsInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Specifies a service principal name. If specified, then the operation lists the delegated administrators only for the specified service. If you don't specify a service principal, the operation lists all delegated administrators for all services in your organization.
+        /// </summary>
+        [Input("servicePrincipal")]
+        public Input<string>? ServicePrincipal { get; set; }
+
+        public GetDelegatedAdministratorsInvokeArgs()
         {
         }
     }

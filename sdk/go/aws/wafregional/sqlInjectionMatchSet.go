@@ -310,6 +310,10 @@ func (o SqlInjectionMatchSetMapOutput) MapIndex(k pulumi.StringInput) SqlInjecti
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SqlInjectionMatchSetInput)(nil)).Elem(), &SqlInjectionMatchSet{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SqlInjectionMatchSetPtrInput)(nil)).Elem(), &SqlInjectionMatchSet{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SqlInjectionMatchSetArrayInput)(nil)).Elem(), SqlInjectionMatchSetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SqlInjectionMatchSetMapInput)(nil)).Elem(), SqlInjectionMatchSetMap{})
 	pulumi.RegisterOutputType(SqlInjectionMatchSetOutput{})
 	pulumi.RegisterOutputType(SqlInjectionMatchSetPtrOutput{})
 	pulumi.RegisterOutputType(SqlInjectionMatchSetArrayOutput{})

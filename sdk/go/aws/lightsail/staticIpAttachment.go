@@ -324,6 +324,10 @@ func (o StaticIpAttachmentMapOutput) MapIndex(k pulumi.StringInput) StaticIpAtta
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*StaticIpAttachmentInput)(nil)).Elem(), &StaticIpAttachment{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StaticIpAttachmentPtrInput)(nil)).Elem(), &StaticIpAttachment{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StaticIpAttachmentArrayInput)(nil)).Elem(), StaticIpAttachmentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StaticIpAttachmentMapInput)(nil)).Elem(), StaticIpAttachmentMap{})
 	pulumi.RegisterOutputType(StaticIpAttachmentOutput{})
 	pulumi.RegisterOutputType(StaticIpAttachmentPtrOutput{})
 	pulumi.RegisterOutputType(StaticIpAttachmentArrayOutput{})

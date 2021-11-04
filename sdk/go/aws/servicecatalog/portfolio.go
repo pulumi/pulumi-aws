@@ -340,6 +340,10 @@ func (o PortfolioMapOutput) MapIndex(k pulumi.StringInput) PortfolioOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PortfolioInput)(nil)).Elem(), &Portfolio{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PortfolioPtrInput)(nil)).Elem(), &Portfolio{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PortfolioArrayInput)(nil)).Elem(), PortfolioArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PortfolioMapInput)(nil)).Elem(), PortfolioMap{})
 	pulumi.RegisterOutputType(PortfolioOutput{})
 	pulumi.RegisterOutputType(PortfolioPtrOutput{})
 	pulumi.RegisterOutputType(PortfolioArrayOutput{})

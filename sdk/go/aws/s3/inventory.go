@@ -439,6 +439,10 @@ func (o InventoryMapOutput) MapIndex(k pulumi.StringInput) InventoryOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*InventoryInput)(nil)).Elem(), &Inventory{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InventoryPtrInput)(nil)).Elem(), &Inventory{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InventoryArrayInput)(nil)).Elem(), InventoryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InventoryMapInput)(nil)).Elem(), InventoryMap{})
 	pulumi.RegisterOutputType(InventoryOutput{})
 	pulumi.RegisterOutputType(InventoryPtrOutput{})
 	pulumi.RegisterOutputType(InventoryArrayOutput{})

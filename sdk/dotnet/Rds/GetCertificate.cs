@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Rds
 {
@@ -39,6 +40,35 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         public static Task<GetCertificateResult> InvokeAsync(GetCertificateArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetCertificateResult>("aws:rds/getCertificate:getCertificate", args ?? new GetCertificateArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Information about an RDS Certificate.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.Rds.GetCertificate.InvokeAsync(new Aws.Rds.GetCertificateArgs
+        ///         {
+        ///             LatestValidTill = true,
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetCertificateResult> Invoke(GetCertificateInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetCertificateResult>("aws:rds/getCertificate:getCertificate", args ?? new GetCertificateInvokeArgs(), options.WithVersion());
     }
 
 
@@ -57,6 +87,25 @@ namespace Pulumi.Aws.Rds
         public bool? LatestValidTill { get; set; }
 
         public GetCertificateArgs()
+        {
+        }
+    }
+
+    public sealed class GetCertificateInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Certificate identifier. For example, `rds-ca-2019`.
+        /// </summary>
+        [Input("id")]
+        public Input<string>? Id { get; set; }
+
+        /// <summary>
+        /// When enabled, returns the certificate with the latest `ValidTill`.
+        /// </summary>
+        [Input("latestValidTill")]
+        public Input<bool>? LatestValidTill { get; set; }
+
+        public GetCertificateInvokeArgs()
         {
         }
     }

@@ -322,6 +322,10 @@ func (o ParameterGroupMapOutput) MapIndex(k pulumi.StringInput) ParameterGroupOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ParameterGroupInput)(nil)).Elem(), &ParameterGroup{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ParameterGroupPtrInput)(nil)).Elem(), &ParameterGroup{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ParameterGroupArrayInput)(nil)).Elem(), ParameterGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ParameterGroupMapInput)(nil)).Elem(), ParameterGroupMap{})
 	pulumi.RegisterOutputType(ParameterGroupOutput{})
 	pulumi.RegisterOutputType(ParameterGroupPtrOutput{})
 	pulumi.RegisterOutputType(ParameterGroupArrayOutput{})

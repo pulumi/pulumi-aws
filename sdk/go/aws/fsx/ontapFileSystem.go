@@ -519,6 +519,10 @@ func (o OntapFileSystemMapOutput) MapIndex(k pulumi.StringInput) OntapFileSystem
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*OntapFileSystemInput)(nil)).Elem(), &OntapFileSystem{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OntapFileSystemPtrInput)(nil)).Elem(), &OntapFileSystem{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OntapFileSystemArrayInput)(nil)).Elem(), OntapFileSystemArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OntapFileSystemMapInput)(nil)).Elem(), OntapFileSystemMap{})
 	pulumi.RegisterOutputType(OntapFileSystemOutput{})
 	pulumi.RegisterOutputType(OntapFileSystemPtrOutput{})
 	pulumi.RegisterOutputType(OntapFileSystemArrayOutput{})

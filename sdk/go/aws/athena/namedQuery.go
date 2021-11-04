@@ -379,6 +379,10 @@ func (o NamedQueryMapOutput) MapIndex(k pulumi.StringInput) NamedQueryOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*NamedQueryInput)(nil)).Elem(), &NamedQuery{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NamedQueryPtrInput)(nil)).Elem(), &NamedQuery{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NamedQueryArrayInput)(nil)).Elem(), NamedQueryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NamedQueryMapInput)(nil)).Elem(), NamedQueryMap{})
 	pulumi.RegisterOutputType(NamedQueryOutput{})
 	pulumi.RegisterOutputType(NamedQueryPtrOutput{})
 	pulumi.RegisterOutputType(NamedQueryArrayOutput{})

@@ -303,6 +303,10 @@ func (o PermissionSetInlinePolicyMapOutput) MapIndex(k pulumi.StringInput) Permi
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PermissionSetInlinePolicyInput)(nil)).Elem(), &PermissionSetInlinePolicy{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PermissionSetInlinePolicyPtrInput)(nil)).Elem(), &PermissionSetInlinePolicy{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PermissionSetInlinePolicyArrayInput)(nil)).Elem(), PermissionSetInlinePolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PermissionSetInlinePolicyMapInput)(nil)).Elem(), PermissionSetInlinePolicyMap{})
 	pulumi.RegisterOutputType(PermissionSetInlinePolicyOutput{})
 	pulumi.RegisterOutputType(PermissionSetInlinePolicyPtrOutput{})
 	pulumi.RegisterOutputType(PermissionSetInlinePolicyArrayOutput{})

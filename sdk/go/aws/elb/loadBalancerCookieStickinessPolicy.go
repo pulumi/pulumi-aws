@@ -366,6 +366,10 @@ func (o LoadBalancerCookieStickinessPolicyMapOutput) MapIndex(k pulumi.StringInp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerCookieStickinessPolicyInput)(nil)).Elem(), &LoadBalancerCookieStickinessPolicy{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerCookieStickinessPolicyPtrInput)(nil)).Elem(), &LoadBalancerCookieStickinessPolicy{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerCookieStickinessPolicyArrayInput)(nil)).Elem(), LoadBalancerCookieStickinessPolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LoadBalancerCookieStickinessPolicyMapInput)(nil)).Elem(), LoadBalancerCookieStickinessPolicyMap{})
 	pulumi.RegisterOutputType(LoadBalancerCookieStickinessPolicyOutput{})
 	pulumi.RegisterOutputType(LoadBalancerCookieStickinessPolicyPtrOutput{})
 	pulumi.RegisterOutputType(LoadBalancerCookieStickinessPolicyArrayOutput{})

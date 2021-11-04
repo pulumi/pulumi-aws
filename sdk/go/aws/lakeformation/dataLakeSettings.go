@@ -374,6 +374,10 @@ func (o DataLakeSettingsMapOutput) MapIndex(k pulumi.StringInput) DataLakeSettin
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DataLakeSettingsInput)(nil)).Elem(), &DataLakeSettings{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataLakeSettingsPtrInput)(nil)).Elem(), &DataLakeSettings{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataLakeSettingsArrayInput)(nil)).Elem(), DataLakeSettingsArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DataLakeSettingsMapInput)(nil)).Elem(), DataLakeSettingsMap{})
 	pulumi.RegisterOutputType(DataLakeSettingsOutput{})
 	pulumi.RegisterOutputType(DataLakeSettingsPtrOutput{})
 	pulumi.RegisterOutputType(DataLakeSettingsArrayOutput{})

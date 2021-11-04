@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Ec2
 {
@@ -51,6 +52,47 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public static Task<GetRouteTableResult> InvokeAsync(GetRouteTableArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRouteTableResult>("aws:ec2/getRouteTable:getRouteTable", args ?? new GetRouteTableArgs(), options.WithVersion());
+
+        /// <summary>
+        /// `aws.ec2.RouteTable` provides details about a specific Route Table.
+        /// 
+        /// This resource can prove useful when a module accepts a Subnet ID as an input variable and needs to, for example, add a route in the Route Table.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// The following example shows how one might accept a Route Table ID as a variable and use this data source to obtain the data necessary to create a route.
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var config = new Config();
+        ///         var subnetId = config.RequireObject&lt;dynamic&gt;("subnetId");
+        ///         var selected = Output.Create(Aws.Ec2.GetRouteTable.InvokeAsync(new Aws.Ec2.GetRouteTableArgs
+        ///         {
+        ///             SubnetId = subnetId,
+        ///         }));
+        ///         var route = new Aws.Ec2.Route("route", new Aws.Ec2.RouteArgs
+        ///         {
+        ///             RouteTableId = selected.Apply(selected =&gt; selected.Id),
+        ///             DestinationCidrBlock = "10.0.1.0/22",
+        ///             VpcPeeringConnectionId = "pcx-45ff3dc1",
+        ///         });
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetRouteTableResult> Invoke(GetRouteTableInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetRouteTableResult>("aws:ec2/getRouteTable:getRouteTable", args ?? new GetRouteTableInvokeArgs(), options.WithVersion());
     }
 
 
@@ -105,6 +147,61 @@ namespace Pulumi.Aws.Ec2
         public string? VpcId { get; set; }
 
         public GetRouteTableArgs()
+        {
+        }
+    }
+
+    public sealed class GetRouteTableInvokeArgs : Pulumi.InvokeArgs
+    {
+        [Input("filters")]
+        private InputList<Inputs.GetRouteTableFilterInputArgs>? _filters;
+
+        /// <summary>
+        /// Configuration block. Detailed below.
+        /// </summary>
+        public InputList<Inputs.GetRouteTableFilterInputArgs> Filters
+        {
+            get => _filters ?? (_filters = new InputList<Inputs.GetRouteTableFilterInputArgs>());
+            set => _filters = value;
+        }
+
+        /// <summary>
+        /// ID of an Internet Gateway or Virtual Private Gateway which is connected to the Route Table (not exported if not passed as a parameter).
+        /// </summary>
+        [Input("gatewayId")]
+        public Input<string>? GatewayId { get; set; }
+
+        /// <summary>
+        /// ID of the specific Route Table to retrieve.
+        /// </summary>
+        [Input("routeTableId")]
+        public Input<string>? RouteTableId { get; set; }
+
+        /// <summary>
+        /// ID of a Subnet which is connected to the Route Table (not exported if not passed as a parameter).
+        /// </summary>
+        [Input("subnetId")]
+        public Input<string>? SubnetId { get; set; }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Map of tags, each pair of which must exactly match a pair on the desired Route Table.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        /// <summary>
+        /// ID of the VPC that the desired Route Table belongs to.
+        /// </summary>
+        [Input("vpcId")]
+        public Input<string>? VpcId { get; set; }
+
+        public GetRouteTableInvokeArgs()
         {
         }
     }

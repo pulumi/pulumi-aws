@@ -289,6 +289,10 @@ func (o ConnectionConfirmationMapOutput) MapIndex(k pulumi.StringInput) Connecti
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionConfirmationInput)(nil)).Elem(), &ConnectionConfirmation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionConfirmationPtrInput)(nil)).Elem(), &ConnectionConfirmation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionConfirmationArrayInput)(nil)).Elem(), ConnectionConfirmationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionConfirmationMapInput)(nil)).Elem(), ConnectionConfirmationMap{})
 	pulumi.RegisterOutputType(ConnectionConfirmationOutput{})
 	pulumi.RegisterOutputType(ConnectionConfirmationPtrOutput{})
 	pulumi.RegisterOutputType(ConnectionConfirmationArrayOutput{})

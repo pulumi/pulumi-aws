@@ -368,6 +368,10 @@ func (o RealtimeLogConfigMapOutput) MapIndex(k pulumi.StringInput) RealtimeLogCo
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RealtimeLogConfigInput)(nil)).Elem(), &RealtimeLogConfig{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RealtimeLogConfigPtrInput)(nil)).Elem(), &RealtimeLogConfig{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RealtimeLogConfigArrayInput)(nil)).Elem(), RealtimeLogConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RealtimeLogConfigMapInput)(nil)).Elem(), RealtimeLogConfigMap{})
 	pulumi.RegisterOutputType(RealtimeLogConfigOutput{})
 	pulumi.RegisterOutputType(RealtimeLogConfigPtrOutput{})
 	pulumi.RegisterOutputType(RealtimeLogConfigArrayOutput{})

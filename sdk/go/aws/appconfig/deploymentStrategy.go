@@ -393,6 +393,10 @@ func (o DeploymentStrategyMapOutput) MapIndex(k pulumi.StringInput) DeploymentSt
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentStrategyInput)(nil)).Elem(), &DeploymentStrategy{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentStrategyPtrInput)(nil)).Elem(), &DeploymentStrategy{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentStrategyArrayInput)(nil)).Elem(), DeploymentStrategyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentStrategyMapInput)(nil)).Elem(), DeploymentStrategyMap{})
 	pulumi.RegisterOutputType(DeploymentStrategyOutput{})
 	pulumi.RegisterOutputType(DeploymentStrategyPtrOutput{})
 	pulumi.RegisterOutputType(DeploymentStrategyArrayOutput{})

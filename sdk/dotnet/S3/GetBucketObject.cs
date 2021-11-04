@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.S3
 {
@@ -84,6 +85,80 @@ namespace Pulumi.Aws.S3
         /// </summary>
         public static Task<GetBucketObjectResult> InvokeAsync(GetBucketObjectArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBucketObjectResult>("aws:s3/getBucketObject:getBucketObject", args ?? new GetBucketObjectArgs(), options.WithVersion());
+
+        /// <summary>
+        /// The S3 object data source allows access to the metadata and
+        /// _optionally_ (see below) content of an object stored inside S3 bucket.
+        /// 
+        /// &gt; **Note:** The content of an object (`body` field) is available only for objects which have a human-readable `Content-Type` (`text/*` and `application/json`). This is to prevent printing unsafe characters and potentially downloading large amount of data which would be thrown away in favour of metadata.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// The following example retrieves a text object (which must have a `Content-Type`
+        /// value starting with `text/`) and uses it as the `user_data` for an EC2 instance:
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var bootstrapScript = Output.Create(Aws.S3.GetBucketObject.InvokeAsync(new Aws.S3.GetBucketObjectArgs
+        ///         {
+        ///             Bucket = "ourcorp-deploy-config",
+        ///             Key = "ec2-bootstrap-script.sh",
+        ///         }));
+        ///         var example = new Aws.Ec2.Instance("example", new Aws.Ec2.InstanceArgs
+        ///         {
+        ///             InstanceType = "t2.micro",
+        ///             Ami = "ami-2757f631",
+        ///             UserData = bootstrapScript.Apply(bootstrapScript =&gt; bootstrapScript.Body),
+        ///         });
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// 
+        /// The following, more-complex example retrieves only the metadata for a zip
+        /// file stored in S3, which is then used to pass the most recent `version_id`
+        /// to AWS Lambda for use as a function implementation. More information about
+        /// Lambda functions is available in the documentation for
+        /// `aws.lambda.Function`.
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var lambda = Output.Create(Aws.S3.GetBucketObject.InvokeAsync(new Aws.S3.GetBucketObjectArgs
+        ///         {
+        ///             Bucket = "ourcorp-lambda-functions",
+        ///             Key = "hello-world.zip",
+        ///         }));
+        ///         var testLambda = new Aws.Lambda.Function("testLambda", new Aws.Lambda.FunctionArgs
+        ///         {
+        ///             S3Bucket = lambda.Apply(lambda =&gt; lambda.Bucket),
+        ///             S3Key = lambda.Apply(lambda =&gt; lambda.Key),
+        ///             S3ObjectVersion = lambda.Apply(lambda =&gt; lambda.VersionId),
+        ///             Role = aws_iam_role.Iam_for_lambda.Arn,
+        ///             Handler = "exports.test",
+        ///         });
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetBucketObjectResult> Invoke(GetBucketObjectInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetBucketObjectResult>("aws:s3/getBucketObject:getBucketObject", args ?? new GetBucketObjectInvokeArgs(), options.WithVersion());
     }
 
 
@@ -123,6 +198,46 @@ namespace Pulumi.Aws.S3
         public string? VersionId { get; set; }
 
         public GetBucketObjectArgs()
+        {
+        }
+    }
+
+    public sealed class GetBucketObjectInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
+        /// </summary>
+        [Input("bucket", required: true)]
+        public Input<string> Bucket { get; set; } = null!;
+
+        /// <summary>
+        /// The full path to the object inside the bucket
+        /// </summary>
+        [Input("key", required: true)]
+        public Input<string> Key { get; set; } = null!;
+
+        [Input("range")]
+        public Input<string>? Range { get; set; }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags assigned to the object.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        /// <summary>
+        /// Specific version ID of the object returned (defaults to latest version)
+        /// </summary>
+        [Input("versionId")]
+        public Input<string>? VersionId { get; set; }
+
+        public GetBucketObjectInvokeArgs()
         {
         }
     }

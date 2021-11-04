@@ -289,6 +289,10 @@ func (o MainRouteTableAssociationMapOutput) MapIndex(k pulumi.StringInput) MainR
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*MainRouteTableAssociationInput)(nil)).Elem(), &MainRouteTableAssociation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MainRouteTableAssociationPtrInput)(nil)).Elem(), &MainRouteTableAssociation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MainRouteTableAssociationArrayInput)(nil)).Elem(), MainRouteTableAssociationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MainRouteTableAssociationMapInput)(nil)).Elem(), MainRouteTableAssociationMap{})
 	pulumi.RegisterOutputType(MainRouteTableAssociationOutput{})
 	pulumi.RegisterOutputType(MainRouteTableAssociationPtrOutput{})
 	pulumi.RegisterOutputType(MainRouteTableAssociationArrayOutput{})

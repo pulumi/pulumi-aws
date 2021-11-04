@@ -345,6 +345,10 @@ func (o CapacityProviderMapOutput) MapIndex(k pulumi.StringInput) CapacityProvid
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderInput)(nil)).Elem(), &CapacityProvider{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderPtrInput)(nil)).Elem(), &CapacityProvider{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderArrayInput)(nil)).Elem(), CapacityProviderArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderMapInput)(nil)).Elem(), CapacityProviderMap{})
 	pulumi.RegisterOutputType(CapacityProviderOutput{})
 	pulumi.RegisterOutputType(CapacityProviderPtrOutput{})
 	pulumi.RegisterOutputType(CapacityProviderArrayOutput{})

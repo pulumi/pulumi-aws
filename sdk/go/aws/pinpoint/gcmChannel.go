@@ -325,6 +325,10 @@ func (o GcmChannelMapOutput) MapIndex(k pulumi.StringInput) GcmChannelOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GcmChannelInput)(nil)).Elem(), &GcmChannel{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GcmChannelPtrInput)(nil)).Elem(), &GcmChannel{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GcmChannelArrayInput)(nil)).Elem(), GcmChannelArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GcmChannelMapInput)(nil)).Elem(), GcmChannelMap{})
 	pulumi.RegisterOutputType(GcmChannelOutput{})
 	pulumi.RegisterOutputType(GcmChannelPtrOutput{})
 	pulumi.RegisterOutputType(GcmChannelArrayOutput{})

@@ -360,6 +360,10 @@ func (o UploadBufferMapOutput) MapIndex(k pulumi.StringInput) UploadBufferOutput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*UploadBufferInput)(nil)).Elem(), &UploadBuffer{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UploadBufferPtrInput)(nil)).Elem(), &UploadBuffer{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UploadBufferArrayInput)(nil)).Elem(), UploadBufferArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UploadBufferMapInput)(nil)).Elem(), UploadBufferMap{})
 	pulumi.RegisterOutputType(UploadBufferOutput{})
 	pulumi.RegisterOutputType(UploadBufferPtrOutput{})
 	pulumi.RegisterOutputType(UploadBufferArrayOutput{})

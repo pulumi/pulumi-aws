@@ -353,6 +353,10 @@ func (o ListenerMapOutput) MapIndex(k pulumi.StringInput) ListenerOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ListenerInput)(nil)).Elem(), &Listener{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ListenerPtrInput)(nil)).Elem(), &Listener{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ListenerArrayInput)(nil)).Elem(), ListenerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ListenerMapInput)(nil)).Elem(), ListenerMap{})
 	pulumi.RegisterOutputType(ListenerOutput{})
 	pulumi.RegisterOutputType(ListenerPtrOutput{})
 	pulumi.RegisterOutputType(ListenerArrayOutput{})

@@ -371,6 +371,10 @@ func (o ResolverFirewallRuleGroupAssociationMapOutput) MapIndex(k pulumi.StringI
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ResolverFirewallRuleGroupAssociationInput)(nil)).Elem(), &ResolverFirewallRuleGroupAssociation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResolverFirewallRuleGroupAssociationPtrInput)(nil)).Elem(), &ResolverFirewallRuleGroupAssociation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResolverFirewallRuleGroupAssociationArrayInput)(nil)).Elem(), ResolverFirewallRuleGroupAssociationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResolverFirewallRuleGroupAssociationMapInput)(nil)).Elem(), ResolverFirewallRuleGroupAssociationMap{})
 	pulumi.RegisterOutputType(ResolverFirewallRuleGroupAssociationOutput{})
 	pulumi.RegisterOutputType(ResolverFirewallRuleGroupAssociationPtrOutput{})
 	pulumi.RegisterOutputType(ResolverFirewallRuleGroupAssociationArrayOutput{})

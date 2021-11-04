@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.CloudFront
 {
@@ -39,6 +40,35 @@ namespace Pulumi.Aws.CloudFront
         /// </summary>
         public static Task<GetOriginRequestPolicyResult> InvokeAsync(GetOriginRequestPolicyArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetOriginRequestPolicyResult>("aws:cloudfront/getOriginRequestPolicy:getOriginRequestPolicy", args ?? new GetOriginRequestPolicyArgs(), options.WithVersion());
+
+        /// <summary>
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// The following example below creates a CloudFront origin request policy.
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.CloudFront.GetOriginRequestPolicy.InvokeAsync(new Aws.CloudFront.GetOriginRequestPolicyArgs
+        ///         {
+        ///             Name = "example-policy",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetOriginRequestPolicyResult> Invoke(GetOriginRequestPolicyInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetOriginRequestPolicyResult>("aws:cloudfront/getOriginRequestPolicy:getOriginRequestPolicy", args ?? new GetOriginRequestPolicyInvokeArgs(), options.WithVersion());
     }
 
 
@@ -57,6 +87,25 @@ namespace Pulumi.Aws.CloudFront
         public string? Name { get; set; }
 
         public GetOriginRequestPolicyArgs()
+        {
+        }
+    }
+
+    public sealed class GetOriginRequestPolicyInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The identifier for the origin request policy.
+        /// </summary>
+        [Input("id")]
+        public Input<string>? Id { get; set; }
+
+        /// <summary>
+        /// Unique name to identify the origin request policy.
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
+
+        public GetOriginRequestPolicyInvokeArgs()
         {
         }
     }

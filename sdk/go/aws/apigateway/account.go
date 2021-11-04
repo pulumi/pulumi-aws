@@ -317,6 +317,10 @@ func (o AccountMapOutput) MapIndex(k pulumi.StringInput) AccountOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountInput)(nil)).Elem(), &Account{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountPtrInput)(nil)).Elem(), &Account{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountArrayInput)(nil)).Elem(), AccountArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountMapInput)(nil)).Elem(), AccountMap{})
 	pulumi.RegisterOutputType(AccountOutput{})
 	pulumi.RegisterOutputType(AccountPtrOutput{})
 	pulumi.RegisterOutputType(AccountArrayOutput{})

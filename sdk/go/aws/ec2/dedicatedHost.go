@@ -362,6 +362,10 @@ func (o DedicatedHostMapOutput) MapIndex(k pulumi.StringInput) DedicatedHostOutp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DedicatedHostInput)(nil)).Elem(), &DedicatedHost{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DedicatedHostPtrInput)(nil)).Elem(), &DedicatedHost{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DedicatedHostArrayInput)(nil)).Elem(), DedicatedHostArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DedicatedHostMapInput)(nil)).Elem(), DedicatedHostMap{})
 	pulumi.RegisterOutputType(DedicatedHostOutput{})
 	pulumi.RegisterOutputType(DedicatedHostPtrOutput{})
 	pulumi.RegisterOutputType(DedicatedHostArrayOutput{})

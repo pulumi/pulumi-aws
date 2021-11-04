@@ -461,6 +461,10 @@ func (o FunctionEventInvokeConfigMapOutput) MapIndex(k pulumi.StringInput) Funct
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionEventInvokeConfigInput)(nil)).Elem(), &FunctionEventInvokeConfig{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionEventInvokeConfigPtrInput)(nil)).Elem(), &FunctionEventInvokeConfig{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionEventInvokeConfigArrayInput)(nil)).Elem(), FunctionEventInvokeConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionEventInvokeConfigMapInput)(nil)).Elem(), FunctionEventInvokeConfigMap{})
 	pulumi.RegisterOutputType(FunctionEventInvokeConfigOutput{})
 	pulumi.RegisterOutputType(FunctionEventInvokeConfigPtrOutput{})
 	pulumi.RegisterOutputType(FunctionEventInvokeConfigArrayOutput{})

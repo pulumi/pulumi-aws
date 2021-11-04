@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.CloudControl
 {
@@ -40,6 +41,36 @@ namespace Pulumi.Aws.CloudControl
         /// </summary>
         public static Task<GetResourceResult> InvokeAsync(GetResourceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetResourceResult>("aws:cloudcontrol/getResource:getResource", args ?? new GetResourceArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Provides details for a Cloud Control API Resource. The reading of these resources is proxied through Cloud Control API handlers to the backend service.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.CloudControl.GetResource.InvokeAsync(new Aws.CloudControl.GetResourceArgs
+        ///         {
+        ///             Identifier = "example",
+        ///             TypeName = "AWS::ECS::Cluster",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetResourceResult> Invoke(GetResourceInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetResourceResult>("aws:cloudcontrol/getResource:getResource", args ?? new GetResourceInvokeArgs(), options.WithVersion());
     }
 
 
@@ -70,6 +101,37 @@ namespace Pulumi.Aws.CloudControl
         public string? TypeVersionId { get; set; }
 
         public GetResourceArgs()
+        {
+        }
+    }
+
+    public sealed class GetResourceInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Identifier of the CloudFormation resource type. For example, `vpc-12345678`.
+        /// </summary>
+        [Input("identifier", required: true)]
+        public Input<string> Identifier { get; set; } = null!;
+
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the IAM Role to assume for operations.
+        /// </summary>
+        [Input("roleArn")]
+        public Input<string>? RoleArn { get; set; }
+
+        /// <summary>
+        /// CloudFormation resource type name. For example, `AWS::EC2::VPC`.
+        /// </summary>
+        [Input("typeName", required: true)]
+        public Input<string> TypeName { get; set; } = null!;
+
+        /// <summary>
+        /// Identifier of the CloudFormation resource type version.
+        /// </summary>
+        [Input("typeVersionId")]
+        public Input<string>? TypeVersionId { get; set; }
+
+        public GetResourceInvokeArgs()
         {
         }
     }

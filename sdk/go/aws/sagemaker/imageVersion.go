@@ -333,6 +333,10 @@ func (o ImageVersionMapOutput) MapIndex(k pulumi.StringInput) ImageVersionOutput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ImageVersionInput)(nil)).Elem(), &ImageVersion{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ImageVersionPtrInput)(nil)).Elem(), &ImageVersion{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ImageVersionArrayInput)(nil)).Elem(), ImageVersionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ImageVersionMapInput)(nil)).Elem(), ImageVersionMap{})
 	pulumi.RegisterOutputType(ImageVersionOutput{})
 	pulumi.RegisterOutputType(ImageVersionPtrOutput{})
 	pulumi.RegisterOutputType(ImageVersionArrayOutput{})

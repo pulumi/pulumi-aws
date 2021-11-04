@@ -320,6 +320,10 @@ func (o CarrierGatewayMapOutput) MapIndex(k pulumi.StringInput) CarrierGatewayOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CarrierGatewayInput)(nil)).Elem(), &CarrierGateway{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CarrierGatewayPtrInput)(nil)).Elem(), &CarrierGateway{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CarrierGatewayArrayInput)(nil)).Elem(), CarrierGatewayArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CarrierGatewayMapInput)(nil)).Elem(), CarrierGatewayMap{})
 	pulumi.RegisterOutputType(CarrierGatewayOutput{})
 	pulumi.RegisterOutputType(CarrierGatewayPtrOutput{})
 	pulumi.RegisterOutputType(CarrierGatewayArrayOutput{})

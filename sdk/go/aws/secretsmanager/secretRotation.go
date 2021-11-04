@@ -346,6 +346,10 @@ func (o SecretRotationMapOutput) MapIndex(k pulumi.StringInput) SecretRotationOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SecretRotationInput)(nil)).Elem(), &SecretRotation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecretRotationPtrInput)(nil)).Elem(), &SecretRotation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecretRotationArrayInput)(nil)).Elem(), SecretRotationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecretRotationMapInput)(nil)).Elem(), SecretRotationMap{})
 	pulumi.RegisterOutputType(SecretRotationOutput{})
 	pulumi.RegisterOutputType(SecretRotationPtrOutput{})
 	pulumi.RegisterOutputType(SecretRotationArrayOutput{})

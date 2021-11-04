@@ -328,6 +328,10 @@ func (o PolicyAttachmentMapOutput) MapIndex(k pulumi.StringInput) PolicyAttachme
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyAttachmentInput)(nil)).Elem(), &PolicyAttachment{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyAttachmentPtrInput)(nil)).Elem(), &PolicyAttachment{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyAttachmentArrayInput)(nil)).Elem(), PolicyAttachmentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyAttachmentMapInput)(nil)).Elem(), PolicyAttachmentMap{})
 	pulumi.RegisterOutputType(PolicyAttachmentOutput{})
 	pulumi.RegisterOutputType(PolicyAttachmentPtrOutput{})
 	pulumi.RegisterOutputType(PolicyAttachmentArrayOutput{})

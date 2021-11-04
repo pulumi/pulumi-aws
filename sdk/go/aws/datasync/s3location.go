@@ -373,6 +373,10 @@ func (o S3LocationMapOutput) MapIndex(k pulumi.StringInput) S3LocationOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*S3LocationInput)(nil)).Elem(), &S3Location{})
+	pulumi.RegisterInputType(reflect.TypeOf((*S3LocationPtrInput)(nil)).Elem(), &S3Location{})
+	pulumi.RegisterInputType(reflect.TypeOf((*S3LocationArrayInput)(nil)).Elem(), S3LocationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*S3LocationMapInput)(nil)).Elem(), S3LocationMap{})
 	pulumi.RegisterOutputType(S3LocationOutput{})
 	pulumi.RegisterOutputType(S3LocationPtrOutput{})
 	pulumi.RegisterOutputType(S3LocationArrayOutput{})

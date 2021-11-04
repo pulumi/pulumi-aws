@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Kinesis
 {
@@ -42,6 +43,38 @@ namespace Pulumi.Aws.Kinesis
         /// </summary>
         public static Task<GetStreamResult> InvokeAsync(GetStreamArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetStreamResult>("aws:kinesis/getStream:getStream", args ?? new GetStreamArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to get information about a Kinesis Stream for use in other
+        /// resources.
+        /// 
+        /// For more details, see the [Amazon Kinesis Documentation](https://aws.amazon.com/documentation/kinesis/).
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var stream = Output.Create(Aws.Kinesis.GetStream.InvokeAsync(new Aws.Kinesis.GetStreamArgs
+        ///         {
+        ///             Name = "stream-name",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetStreamResult> Invoke(GetStreamInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetStreamResult>("aws:kinesis/getStream:getStream", args ?? new GetStreamInvokeArgs(), options.WithVersion());
     }
 
 
@@ -66,6 +99,31 @@ namespace Pulumi.Aws.Kinesis
         }
 
         public GetStreamArgs()
+        {
+        }
+    }
+
+    public sealed class GetStreamInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the Kinesis Stream.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags to assigned to the stream.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        public GetStreamInvokeArgs()
         {
         }
     }

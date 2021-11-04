@@ -490,6 +490,10 @@ func (o TopicRuleMapOutput) MapIndex(k pulumi.StringInput) TopicRuleOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleInput)(nil)).Elem(), &TopicRule{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicRulePtrInput)(nil)).Elem(), &TopicRule{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleArrayInput)(nil)).Elem(), TopicRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleMapInput)(nil)).Elem(), TopicRuleMap{})
 	pulumi.RegisterOutputType(TopicRuleOutput{})
 	pulumi.RegisterOutputType(TopicRulePtrOutput{})
 	pulumi.RegisterOutputType(TopicRuleArrayOutput{})

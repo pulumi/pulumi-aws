@@ -385,6 +385,10 @@ func (o NetworkAclMapOutput) MapIndex(k pulumi.StringInput) NetworkAclOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkAclInput)(nil)).Elem(), &NetworkAcl{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkAclPtrInput)(nil)).Elem(), &NetworkAcl{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkAclArrayInput)(nil)).Elem(), NetworkAclArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkAclMapInput)(nil)).Elem(), NetworkAclMap{})
 	pulumi.RegisterOutputType(NetworkAclOutput{})
 	pulumi.RegisterOutputType(NetworkAclPtrOutput{})
 	pulumi.RegisterOutputType(NetworkAclArrayOutput{})

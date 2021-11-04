@@ -339,6 +339,10 @@ func (o ProxyProtocolPolicyMapOutput) MapIndex(k pulumi.StringInput) ProxyProtoc
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ProxyProtocolPolicyInput)(nil)).Elem(), &ProxyProtocolPolicy{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProxyProtocolPolicyPtrInput)(nil)).Elem(), &ProxyProtocolPolicy{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProxyProtocolPolicyArrayInput)(nil)).Elem(), ProxyProtocolPolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProxyProtocolPolicyMapInput)(nil)).Elem(), ProxyProtocolPolicyMap{})
 	pulumi.RegisterOutputType(ProxyProtocolPolicyOutput{})
 	pulumi.RegisterOutputType(ProxyProtocolPolicyPtrOutput{})
 	pulumi.RegisterOutputType(ProxyProtocolPolicyArrayOutput{})

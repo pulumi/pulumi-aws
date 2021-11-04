@@ -460,6 +460,10 @@ func (o KeySigningKeyMapOutput) MapIndex(k pulumi.StringInput) KeySigningKeyOutp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*KeySigningKeyInput)(nil)).Elem(), &KeySigningKey{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KeySigningKeyPtrInput)(nil)).Elem(), &KeySigningKey{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KeySigningKeyArrayInput)(nil)).Elem(), KeySigningKeyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KeySigningKeyMapInput)(nil)).Elem(), KeySigningKeyMap{})
 	pulumi.RegisterOutputType(KeySigningKeyOutput{})
 	pulumi.RegisterOutputType(KeySigningKeyPtrOutput{})
 	pulumi.RegisterOutputType(KeySigningKeyArrayOutput{})

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Rds
 {
@@ -57,6 +58,53 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         public static Task<GetClusterSnapshotResult> InvokeAsync(GetClusterSnapshotArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetClusterSnapshotResult>("aws:rds/getClusterSnapshot:getClusterSnapshot", args ?? new GetClusterSnapshotArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to get information about a DB Cluster Snapshot for use when provisioning DB clusters.
+        /// 
+        /// &gt; **NOTE:** This data source does not apply to snapshots created on DB Instances.
+        /// See the `aws.rds.Snapshot` data source for DB Instance snapshots.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var developmentFinalSnapshot = Output.Create(Aws.Rds.GetClusterSnapshot.InvokeAsync(new Aws.Rds.GetClusterSnapshotArgs
+        ///         {
+        ///             DbClusterIdentifier = "development_cluster",
+        ///             MostRecent = true,
+        ///         }));
+        ///         // Use the last snapshot of the dev database before it was destroyed to create
+        ///         // a new dev database.
+        ///         var auroraCluster = new Aws.Rds.Cluster("auroraCluster", new Aws.Rds.ClusterArgs
+        ///         {
+        ///             ClusterIdentifier = "development_cluster",
+        ///             SnapshotIdentifier = developmentFinalSnapshot.Apply(developmentFinalSnapshot =&gt; developmentFinalSnapshot.Id),
+        ///             DbSubnetGroupName = "my_db_subnet_group",
+        ///         });
+        ///         var auroraClusterInstance = new Aws.Rds.ClusterInstance("auroraClusterInstance", new Aws.Rds.ClusterInstanceArgs
+        ///         {
+        ///             ClusterIdentifier = auroraCluster.Id,
+        ///             InstanceClass = "db.t2.small",
+        ///             DbSubnetGroupName = "my_db_subnet_group",
+        ///         });
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetClusterSnapshotResult> Invoke(GetClusterSnapshotInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetClusterSnapshotResult>("aws:rds/getClusterSnapshot:getClusterSnapshot", args ?? new GetClusterSnapshotInvokeArgs(), options.WithVersion());
     }
 
 
@@ -116,6 +164,66 @@ namespace Pulumi.Aws.Rds
         }
 
         public GetClusterSnapshotArgs()
+        {
+        }
+    }
+
+    public sealed class GetClusterSnapshotInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Returns the list of snapshots created by the specific db_cluster
+        /// </summary>
+        [Input("dbClusterIdentifier")]
+        public Input<string>? DbClusterIdentifier { get; set; }
+
+        /// <summary>
+        /// Returns information on a specific snapshot_id.
+        /// </summary>
+        [Input("dbClusterSnapshotIdentifier")]
+        public Input<string>? DbClusterSnapshotIdentifier { get; set; }
+
+        /// <summary>
+        /// Set this value to true to include manual DB Cluster Snapshots that are public and can be
+        /// copied or restored by any AWS account, otherwise set this value to false. The default is `false`.
+        /// </summary>
+        [Input("includePublic")]
+        public Input<bool>? IncludePublic { get; set; }
+
+        /// <summary>
+        /// Set this value to true to include shared manual DB Cluster Snapshots from other
+        /// AWS accounts that this AWS account has been given permission to copy or restore, otherwise set this value to false.
+        /// The default is `false`.
+        /// </summary>
+        [Input("includeShared")]
+        public Input<bool>? IncludeShared { get; set; }
+
+        /// <summary>
+        /// If more than one result is returned, use the most recent Snapshot.
+        /// </summary>
+        [Input("mostRecent")]
+        public Input<bool>? MostRecent { get; set; }
+
+        /// <summary>
+        /// The type of snapshots to be returned. If you don't specify a SnapshotType
+        /// value, then both automated and manual DB cluster snapshots are returned. Shared and public DB Cluster Snapshots are not
+        /// included in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.
+        /// </summary>
+        [Input("snapshotType")]
+        public Input<string>? SnapshotType { get; set; }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags for the resource.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        public GetClusterSnapshotInvokeArgs()
         {
         }
     }

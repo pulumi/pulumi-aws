@@ -548,6 +548,10 @@ func (o ReplicationInstanceMapOutput) MapIndex(k pulumi.StringInput) Replication
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationInstanceInput)(nil)).Elem(), &ReplicationInstance{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationInstancePtrInput)(nil)).Elem(), &ReplicationInstance{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationInstanceArrayInput)(nil)).Elem(), ReplicationInstanceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationInstanceMapInput)(nil)).Elem(), ReplicationInstanceMap{})
 	pulumi.RegisterOutputType(ReplicationInstanceOutput{})
 	pulumi.RegisterOutputType(ReplicationInstancePtrOutput{})
 	pulumi.RegisterOutputType(ReplicationInstanceArrayOutput{})

@@ -363,6 +363,10 @@ func (o AccountPublicAccessBlockMapOutput) MapIndex(k pulumi.StringInput) Accoun
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountPublicAccessBlockInput)(nil)).Elem(), &AccountPublicAccessBlock{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountPublicAccessBlockPtrInput)(nil)).Elem(), &AccountPublicAccessBlock{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountPublicAccessBlockArrayInput)(nil)).Elem(), AccountPublicAccessBlockArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountPublicAccessBlockMapInput)(nil)).Elem(), AccountPublicAccessBlockMap{})
 	pulumi.RegisterOutputType(AccountPublicAccessBlockOutput{})
 	pulumi.RegisterOutputType(AccountPublicAccessBlockPtrOutput{})
 	pulumi.RegisterOutputType(AccountPublicAccessBlockArrayOutput{})

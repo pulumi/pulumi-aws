@@ -422,6 +422,10 @@ func (o PartitionIndexMapOutput) MapIndex(k pulumi.StringInput) PartitionIndexOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PartitionIndexInput)(nil)).Elem(), &PartitionIndex{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PartitionIndexPtrInput)(nil)).Elem(), &PartitionIndex{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PartitionIndexArrayInput)(nil)).Elem(), PartitionIndexArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PartitionIndexMapInput)(nil)).Elem(), PartitionIndexMap{})
 	pulumi.RegisterOutputType(PartitionIndexOutput{})
 	pulumi.RegisterOutputType(PartitionIndexPtrOutput{})
 	pulumi.RegisterOutputType(PartitionIndexArrayOutput{})

@@ -327,6 +327,10 @@ func (o S3BucketAssociationMapOutput) MapIndex(k pulumi.StringInput) S3BucketAss
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*S3BucketAssociationInput)(nil)).Elem(), &S3BucketAssociation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*S3BucketAssociationPtrInput)(nil)).Elem(), &S3BucketAssociation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*S3BucketAssociationArrayInput)(nil)).Elem(), S3BucketAssociationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*S3BucketAssociationMapInput)(nil)).Elem(), S3BucketAssociationMap{})
 	pulumi.RegisterOutputType(S3BucketAssociationOutput{})
 	pulumi.RegisterOutputType(S3BucketAssociationPtrOutput{})
 	pulumi.RegisterOutputType(S3BucketAssociationArrayOutput{})

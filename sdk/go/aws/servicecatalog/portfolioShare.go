@@ -370,6 +370,10 @@ func (o PortfolioShareMapOutput) MapIndex(k pulumi.StringInput) PortfolioShareOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PortfolioShareInput)(nil)).Elem(), &PortfolioShare{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PortfolioSharePtrInput)(nil)).Elem(), &PortfolioShare{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PortfolioShareArrayInput)(nil)).Elem(), PortfolioShareArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PortfolioShareMapInput)(nil)).Elem(), PortfolioShareMap{})
 	pulumi.RegisterOutputType(PortfolioShareOutput{})
 	pulumi.RegisterOutputType(PortfolioSharePtrOutput{})
 	pulumi.RegisterOutputType(PortfolioShareArrayOutput{})

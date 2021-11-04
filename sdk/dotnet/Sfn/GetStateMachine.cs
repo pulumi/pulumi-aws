@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Sfn
 {
@@ -41,6 +42,37 @@ namespace Pulumi.Aws.Sfn
         /// </summary>
         public static Task<GetStateMachineResult> InvokeAsync(GetStateMachineArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetStateMachineResult>("aws:sfn/getStateMachine:getStateMachine", args ?? new GetStateMachineArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to get the ARN of a State Machine in AWS Step
+        /// Function (SFN). By using this data source, you can reference a
+        /// state machine without having to hard code the ARNs as input.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.Sfn.GetStateMachine.InvokeAsync(new Aws.Sfn.GetStateMachineArgs
+        ///         {
+        ///             Name = "an_example_sfn_name",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetStateMachineResult> Invoke(GetStateMachineInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetStateMachineResult>("aws:sfn/getStateMachine:getStateMachine", args ?? new GetStateMachineInvokeArgs(), options.WithVersion());
     }
 
 
@@ -53,6 +85,19 @@ namespace Pulumi.Aws.Sfn
         public string Name { get; set; } = null!;
 
         public GetStateMachineArgs()
+        {
+        }
+    }
+
+    public sealed class GetStateMachineInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The friendly name of the state machine to match.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        public GetStateMachineInvokeArgs()
         {
         }
     }

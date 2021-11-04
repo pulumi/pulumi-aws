@@ -336,6 +336,10 @@ func (o AccountAssignmentMapOutput) MapIndex(k pulumi.StringInput) AccountAssign
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountAssignmentInput)(nil)).Elem(), &AccountAssignment{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountAssignmentPtrInput)(nil)).Elem(), &AccountAssignment{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountAssignmentArrayInput)(nil)).Elem(), AccountAssignmentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AccountAssignmentMapInput)(nil)).Elem(), AccountAssignmentMap{})
 	pulumi.RegisterOutputType(AccountAssignmentOutput{})
 	pulumi.RegisterOutputType(AccountAssignmentPtrOutput{})
 	pulumi.RegisterOutputType(AccountAssignmentArrayOutput{})

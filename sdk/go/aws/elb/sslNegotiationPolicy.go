@@ -391,6 +391,10 @@ func (o SslNegotiationPolicyMapOutput) MapIndex(k pulumi.StringInput) SslNegotia
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SslNegotiationPolicyInput)(nil)).Elem(), &SslNegotiationPolicy{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SslNegotiationPolicyPtrInput)(nil)).Elem(), &SslNegotiationPolicy{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SslNegotiationPolicyArrayInput)(nil)).Elem(), SslNegotiationPolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SslNegotiationPolicyMapInput)(nil)).Elem(), SslNegotiationPolicyMap{})
 	pulumi.RegisterOutputType(SslNegotiationPolicyOutput{})
 	pulumi.RegisterOutputType(SslNegotiationPolicyPtrOutput{})
 	pulumi.RegisterOutputType(SslNegotiationPolicyArrayOutput{})

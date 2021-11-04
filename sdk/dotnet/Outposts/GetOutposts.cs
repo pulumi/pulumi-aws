@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Outposts
 {
@@ -39,6 +40,35 @@ namespace Pulumi.Aws.Outposts
         /// </summary>
         public static Task<GetOutpostsResult> InvokeAsync(GetOutpostsArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetOutpostsResult>("aws:outposts/getOutposts:getOutposts", args ?? new GetOutpostsArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Provides details about multiple Outposts.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.Outposts.GetOutposts.InvokeAsync(new Aws.Outposts.GetOutpostsArgs
+        ///         {
+        ///             SiteId = data.Aws_outposts_site.Id,
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetOutpostsResult> Invoke(GetOutpostsInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetOutpostsResult>("aws:outposts/getOutposts:getOutposts", args ?? new GetOutpostsInvokeArgs(), options.WithVersion());
     }
 
 
@@ -69,6 +99,37 @@ namespace Pulumi.Aws.Outposts
         public string? SiteId { get; set; }
 
         public GetOutpostsArgs()
+        {
+        }
+    }
+
+    public sealed class GetOutpostsInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Availability Zone name.
+        /// </summary>
+        [Input("availabilityZone")]
+        public Input<string>? AvailabilityZone { get; set; }
+
+        /// <summary>
+        /// Availability Zone identifier.
+        /// </summary>
+        [Input("availabilityZoneId")]
+        public Input<string>? AvailabilityZoneId { get; set; }
+
+        /// <summary>
+        /// AWS Account identifier of the Outpost owner.
+        /// </summary>
+        [Input("ownerId")]
+        public Input<string>? OwnerId { get; set; }
+
+        /// <summary>
+        /// Site identifier.
+        /// </summary>
+        [Input("siteId")]
+        public Input<string>? SiteId { get; set; }
+
+        public GetOutpostsInvokeArgs()
         {
         }
     }

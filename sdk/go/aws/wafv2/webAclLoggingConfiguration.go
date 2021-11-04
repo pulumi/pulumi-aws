@@ -402,6 +402,10 @@ func (o WebAclLoggingConfigurationMapOutput) MapIndex(k pulumi.StringInput) WebA
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclLoggingConfigurationInput)(nil)).Elem(), &WebAclLoggingConfiguration{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclLoggingConfigurationPtrInput)(nil)).Elem(), &WebAclLoggingConfiguration{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclLoggingConfigurationArrayInput)(nil)).Elem(), WebAclLoggingConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WebAclLoggingConfigurationMapInput)(nil)).Elem(), WebAclLoggingConfigurationMap{})
 	pulumi.RegisterOutputType(WebAclLoggingConfigurationOutput{})
 	pulumi.RegisterOutputType(WebAclLoggingConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(WebAclLoggingConfigurationArrayOutput{})

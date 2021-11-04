@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Lex
 {
@@ -40,6 +41,36 @@ namespace Pulumi.Aws.Lex
         /// </summary>
         public static Task<GetBotResult> InvokeAsync(GetBotArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBotResult>("aws:lex/getBot:getBot", args ?? new GetBotArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Provides details about a specific Amazon Lex Bot.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var orderFlowersBot = Output.Create(Aws.Lex.GetBot.InvokeAsync(new Aws.Lex.GetBotArgs
+        ///         {
+        ///             Name = "OrderFlowers",
+        ///             Version = "$LATEST",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetBotResult> Invoke(GetBotInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetBotResult>("aws:lex/getBot:getBot", args ?? new GetBotInvokeArgs(), options.WithVersion());
     }
 
 
@@ -58,6 +89,25 @@ namespace Pulumi.Aws.Lex
         public string? Version { get; set; }
 
         public GetBotArgs()
+        {
+        }
+    }
+
+    public sealed class GetBotInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the bot. The name is case sensitive.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The version or alias of the bot.
+        /// </summary>
+        [Input("version")]
+        public Input<string>? Version { get; set; }
+
+        public GetBotInvokeArgs()
         {
         }
     }

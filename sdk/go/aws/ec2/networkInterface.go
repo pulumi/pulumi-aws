@@ -435,6 +435,10 @@ func (o NetworkInterfaceMapOutput) MapIndex(k pulumi.StringInput) NetworkInterfa
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInterfaceInput)(nil)).Elem(), &NetworkInterface{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInterfacePtrInput)(nil)).Elem(), &NetworkInterface{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInterfaceArrayInput)(nil)).Elem(), NetworkInterfaceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkInterfaceMapInput)(nil)).Elem(), NetworkInterfaceMap{})
 	pulumi.RegisterOutputType(NetworkInterfaceOutput{})
 	pulumi.RegisterOutputType(NetworkInterfacePtrOutput{})
 	pulumi.RegisterOutputType(NetworkInterfaceArrayOutput{})

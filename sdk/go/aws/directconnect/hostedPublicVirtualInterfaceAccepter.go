@@ -349,6 +349,10 @@ func (o HostedPublicVirtualInterfaceAccepterMapOutput) MapIndex(k pulumi.StringI
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*HostedPublicVirtualInterfaceAccepterInput)(nil)).Elem(), &HostedPublicVirtualInterfaceAccepter{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HostedPublicVirtualInterfaceAccepterPtrInput)(nil)).Elem(), &HostedPublicVirtualInterfaceAccepter{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HostedPublicVirtualInterfaceAccepterArrayInput)(nil)).Elem(), HostedPublicVirtualInterfaceAccepterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HostedPublicVirtualInterfaceAccepterMapInput)(nil)).Elem(), HostedPublicVirtualInterfaceAccepterMap{})
 	pulumi.RegisterOutputType(HostedPublicVirtualInterfaceAccepterOutput{})
 	pulumi.RegisterOutputType(HostedPublicVirtualInterfaceAccepterPtrOutput{})
 	pulumi.RegisterOutputType(HostedPublicVirtualInterfaceAccepterArrayOutput{})

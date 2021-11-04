@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Eks
 {
@@ -16,6 +17,12 @@ namespace Pulumi.Aws.Eks
         /// </summary>
         public static Task<GetNodeGroupsResult> InvokeAsync(GetNodeGroupsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetNodeGroupsResult>("aws:eks/getNodeGroups:getNodeGroups", args ?? new GetNodeGroupsArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Retrieve the EKS Node Groups associated with a named EKS cluster. This will allow you to pass a list of Node Group names to other resources.
+        /// </summary>
+        public static Output<GetNodeGroupsResult> Invoke(GetNodeGroupsInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetNodeGroupsResult>("aws:eks/getNodeGroups:getNodeGroups", args ?? new GetNodeGroupsInvokeArgs(), options.WithVersion());
     }
 
 
@@ -28,6 +35,19 @@ namespace Pulumi.Aws.Eks
         public string ClusterName { get; set; } = null!;
 
         public GetNodeGroupsArgs()
+        {
+        }
+    }
+
+    public sealed class GetNodeGroupsInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the cluster.
+        /// </summary>
+        [Input("clusterName", required: true)]
+        public Input<string> ClusterName { get; set; } = null!;
+
+        public GetNodeGroupsInvokeArgs()
         {
         }
     }

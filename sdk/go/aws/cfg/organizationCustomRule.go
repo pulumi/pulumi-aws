@@ -435,6 +435,10 @@ func (o OrganizationCustomRuleMapOutput) MapIndex(k pulumi.StringInput) Organiza
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationCustomRuleInput)(nil)).Elem(), &OrganizationCustomRule{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationCustomRulePtrInput)(nil)).Elem(), &OrganizationCustomRule{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationCustomRuleArrayInput)(nil)).Elem(), OrganizationCustomRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationCustomRuleMapInput)(nil)).Elem(), OrganizationCustomRuleMap{})
 	pulumi.RegisterOutputType(OrganizationCustomRuleOutput{})
 	pulumi.RegisterOutputType(OrganizationCustomRulePtrOutput{})
 	pulumi.RegisterOutputType(OrganizationCustomRuleArrayOutput{})

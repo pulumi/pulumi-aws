@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.ServerlessRepository
 {
@@ -45,6 +46,41 @@ namespace Pulumi.Aws.ServerlessRepository
         /// </summary>
         public static Task<GetApplicationResult> InvokeAsync(GetApplicationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetApplicationResult>("aws:serverlessrepository/getApplication:getApplication", args ?? new GetApplicationArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to get information about an AWS Serverless Application Repository application. For example, this can be used to determine the required `capabilities` for an application.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var exampleApplication = Output.Create(Aws.ServerlessRepository.GetApplication.InvokeAsync(new Aws.ServerlessRepository.GetApplicationArgs
+        ///         {
+        ///             ApplicationId = "arn:aws:serverlessrepo:us-east-1:123456789012:applications/ExampleApplication",
+        ///         }));
+        ///         var exampleCloudFormationStack = new Aws.ServerlessRepository.CloudFormationStack("exampleCloudFormationStack", new Aws.ServerlessRepository.CloudFormationStackArgs
+        ///         {
+        ///             ApplicationId = exampleApplication.Apply(exampleApplication =&gt; exampleApplication.ApplicationId),
+        ///             SemanticVersion = exampleApplication.Apply(exampleApplication =&gt; exampleApplication.SemanticVersion),
+        ///             Capabilities = exampleApplication.Apply(exampleApplication =&gt; exampleApplication.RequiredCapabilities),
+        ///         });
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetApplicationResult> Invoke(GetApplicationInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetApplicationResult>("aws:serverlessrepository/getApplication:getApplication", args ?? new GetApplicationInvokeArgs(), options.WithVersion());
     }
 
 
@@ -63,6 +99,25 @@ namespace Pulumi.Aws.ServerlessRepository
         public string? SemanticVersion { get; set; }
 
         public GetApplicationArgs()
+        {
+        }
+    }
+
+    public sealed class GetApplicationInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The ARN of the application.
+        /// </summary>
+        [Input("applicationId", required: true)]
+        public Input<string> ApplicationId { get; set; } = null!;
+
+        /// <summary>
+        /// The requested version of the application. By default, retrieves the latest version.
+        /// </summary>
+        [Input("semanticVersion")]
+        public Input<string>? SemanticVersion { get; set; }
+
+        public GetApplicationInvokeArgs()
         {
         }
     }

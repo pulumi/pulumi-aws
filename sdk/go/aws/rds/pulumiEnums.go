@@ -728,6 +728,14 @@ func (in *storageTypePtr) ToStorageTypePtrOutputWithContext(ctx context.Context)
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*EngineModeInput)(nil)).Elem(), EngineMode("provisioned"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EngineModePtrInput)(nil)).Elem(), EngineMode("provisioned"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EngineTypeInput)(nil)).Elem(), EngineType("aurora"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EngineTypePtrInput)(nil)).Elem(), EngineType("aurora"))
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceTypeInput)(nil)).Elem(), InstanceType("db.t3.micro"))
+	pulumi.RegisterInputType(reflect.TypeOf((*InstanceTypePtrInput)(nil)).Elem(), InstanceType("db.t3.micro"))
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageTypeInput)(nil)).Elem(), StorageType("standard"))
+	pulumi.RegisterInputType(reflect.TypeOf((*StorageTypePtrInput)(nil)).Elem(), StorageType("standard"))
 	pulumi.RegisterOutputType(EngineModeOutput{})
 	pulumi.RegisterOutputType(EngineModePtrOutput{})
 	pulumi.RegisterOutputType(EngineTypeOutput{})

@@ -462,6 +462,10 @@ func (o SecretMapOutput) MapIndex(k pulumi.StringInput) SecretOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SecretInput)(nil)).Elem(), &Secret{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecretPtrInput)(nil)).Elem(), &Secret{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecretArrayInput)(nil)).Elem(), SecretArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecretMapInput)(nil)).Elem(), SecretMap{})
 	pulumi.RegisterOutputType(SecretOutput{})
 	pulumi.RegisterOutputType(SecretPtrOutput{})
 	pulumi.RegisterOutputType(SecretArrayOutput{})

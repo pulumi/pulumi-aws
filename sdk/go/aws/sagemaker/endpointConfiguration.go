@@ -371,6 +371,10 @@ func (o EndpointConfigurationMapOutput) MapIndex(k pulumi.StringInput) EndpointC
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigurationInput)(nil)).Elem(), &EndpointConfiguration{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigurationPtrInput)(nil)).Elem(), &EndpointConfiguration{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigurationArrayInput)(nil)).Elem(), EndpointConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigurationMapInput)(nil)).Elem(), EndpointConfigurationMap{})
 	pulumi.RegisterOutputType(EndpointConfigurationOutput{})
 	pulumi.RegisterOutputType(EndpointConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(EndpointConfigurationArrayOutput{})

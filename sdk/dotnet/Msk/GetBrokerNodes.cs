@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Msk
 {
@@ -39,6 +40,35 @@ namespace Pulumi.Aws.Msk
         /// </summary>
         public static Task<GetBrokerNodesResult> InvokeAsync(GetBrokerNodesArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBrokerNodesResult>("aws:msk/getBrokerNodes:getBrokerNodes", args ?? new GetBrokerNodesArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Get information on an Amazon MSK Broker Nodes.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.Msk.GetBrokerNodes.InvokeAsync(new Aws.Msk.GetBrokerNodesArgs
+        ///         {
+        ///             ClusterArn = aws_msk_cluster.Example.Arn,
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetBrokerNodesResult> Invoke(GetBrokerNodesInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetBrokerNodesResult>("aws:msk/getBrokerNodes:getBrokerNodes", args ?? new GetBrokerNodesInvokeArgs(), options.WithVersion());
     }
 
 
@@ -51,6 +81,19 @@ namespace Pulumi.Aws.Msk
         public string ClusterArn { get; set; } = null!;
 
         public GetBrokerNodesArgs()
+        {
+        }
+    }
+
+    public sealed class GetBrokerNodesInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The ARN of the cluster the nodes belong to.
+        /// </summary>
+        [Input("clusterArn", required: true)]
+        public Input<string> ClusterArn { get; set; } = null!;
+
+        public GetBrokerNodesInvokeArgs()
         {
         }
     }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.ServiceCatalog
 {
@@ -41,6 +42,37 @@ namespace Pulumi.Aws.ServiceCatalog
         /// </summary>
         public static Task<GetConstraintResult> InvokeAsync(GetConstraintArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetConstraintResult>("aws:servicecatalog/getConstraint:getConstraint", args ?? new GetConstraintArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Provides information on a Service Catalog Constraint.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// ### Basic Usage
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.ServiceCatalog.GetConstraint.InvokeAsync(new Aws.ServiceCatalog.GetConstraintArgs
+        ///         {
+        ///             AcceptLanguage = "en",
+        ///             Id = "cons-hrvy0335",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetConstraintResult> Invoke(GetConstraintInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetConstraintResult>("aws:servicecatalog/getConstraint:getConstraint", args ?? new GetConstraintInvokeArgs(), options.WithVersion());
     }
 
 
@@ -65,6 +97,31 @@ namespace Pulumi.Aws.ServiceCatalog
         public string Id { get; set; } = null!;
 
         public GetConstraintArgs()
+        {
+        }
+    }
+
+    public sealed class GetConstraintInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Language code. Valid values: `en` (English), `jp` (Japanese), `zh` (Chinese). Default value is `en`.
+        /// </summary>
+        [Input("acceptLanguage")]
+        public Input<string>? AcceptLanguage { get; set; }
+
+        /// <summary>
+        /// Description of the constraint.
+        /// </summary>
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// Constraint identifier.
+        /// </summary>
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
+
+        public GetConstraintInvokeArgs()
         {
         }
     }

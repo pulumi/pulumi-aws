@@ -423,6 +423,10 @@ func (o MaintenanceWindowMapOutput) MapIndex(k pulumi.StringInput) MaintenanceWi
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*MaintenanceWindowInput)(nil)).Elem(), &MaintenanceWindow{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MaintenanceWindowPtrInput)(nil)).Elem(), &MaintenanceWindow{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MaintenanceWindowArrayInput)(nil)).Elem(), MaintenanceWindowArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MaintenanceWindowMapInput)(nil)).Elem(), MaintenanceWindowMap{})
 	pulumi.RegisterOutputType(MaintenanceWindowOutput{})
 	pulumi.RegisterOutputType(MaintenanceWindowPtrOutput{})
 	pulumi.RegisterOutputType(MaintenanceWindowArrayOutput{})

@@ -489,6 +489,10 @@ func (o SubnetMapOutput) MapIndex(k pulumi.StringInput) SubnetOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SubnetInput)(nil)).Elem(), &Subnet{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubnetPtrInput)(nil)).Elem(), &Subnet{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubnetArrayInput)(nil)).Elem(), SubnetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SubnetMapInput)(nil)).Elem(), SubnetMap{})
 	pulumi.RegisterOutputType(SubnetOutput{})
 	pulumi.RegisterOutputType(SubnetPtrOutput{})
 	pulumi.RegisterOutputType(SubnetArrayOutput{})

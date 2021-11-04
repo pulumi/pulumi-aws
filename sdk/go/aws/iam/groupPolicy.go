@@ -365,6 +365,10 @@ func (o GroupPolicyMapOutput) MapIndex(k pulumi.StringInput) GroupPolicyOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupPolicyInput)(nil)).Elem(), &GroupPolicy{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupPolicyPtrInput)(nil)).Elem(), &GroupPolicy{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupPolicyArrayInput)(nil)).Elem(), GroupPolicyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GroupPolicyMapInput)(nil)).Elem(), GroupPolicyMap{})
 	pulumi.RegisterOutputType(GroupPolicyOutput{})
 	pulumi.RegisterOutputType(GroupPolicyPtrOutput{})
 	pulumi.RegisterOutputType(GroupPolicyArrayOutput{})

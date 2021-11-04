@@ -185,6 +185,8 @@ func (in *recordTypePtr) ToRecordTypePtrOutputWithContext(ctx context.Context) R
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RecordTypeInput)(nil)).Elem(), RecordType("A"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RecordTypePtrInput)(nil)).Elem(), RecordType("A"))
 	pulumi.RegisterOutputType(RecordTypeOutput{})
 	pulumi.RegisterOutputType(RecordTypePtrOutput{})
 }

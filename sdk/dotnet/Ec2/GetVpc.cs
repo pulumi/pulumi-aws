@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Ec2
 {
@@ -20,6 +21,16 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public static Task<GetVpcResult> InvokeAsync(GetVpcArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetVpcResult>("aws:ec2/getVpc:getVpc", args ?? new GetVpcArgs(), options.WithVersion());
+
+        /// <summary>
+        /// `aws.ec2.Vpc` provides details about a specific VPC.
+        /// 
+        /// This resource can prove useful when a module accepts a vpc id as
+        /// an input variable and needs to, for example, determine the CIDR block of that
+        /// VPC.
+        /// </summary>
+        public static Output<GetVpcResult> Invoke(GetVpcInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetVpcResult>("aws:ec2/getVpc:getVpc", args ?? new GetVpcInvokeArgs(), options.WithVersion());
     }
 
 
@@ -83,6 +94,70 @@ namespace Pulumi.Aws.Ec2
         }
 
         public GetVpcArgs()
+        {
+        }
+    }
+
+    public sealed class GetVpcInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The cidr block of the desired VPC.
+        /// </summary>
+        [Input("cidrBlock")]
+        public Input<string>? CidrBlock { get; set; }
+
+        /// <summary>
+        /// Boolean constraint on whether the desired VPC is
+        /// the default VPC for the region.
+        /// </summary>
+        [Input("default")]
+        public Input<bool>? Default { get; set; }
+
+        /// <summary>
+        /// The DHCP options id of the desired VPC.
+        /// </summary>
+        [Input("dhcpOptionsId")]
+        public Input<string>? DhcpOptionsId { get; set; }
+
+        [Input("filters")]
+        private InputList<Inputs.GetVpcFilterInputArgs>? _filters;
+
+        /// <summary>
+        /// Custom filter block as described below.
+        /// </summary>
+        public InputList<Inputs.GetVpcFilterInputArgs> Filters
+        {
+            get => _filters ?? (_filters = new InputList<Inputs.GetVpcFilterInputArgs>());
+            set => _filters = value;
+        }
+
+        /// <summary>
+        /// The id of the specific VPC to retrieve.
+        /// </summary>
+        [Input("id")]
+        public Input<string>? Id { get; set; }
+
+        /// <summary>
+        /// The current state of the desired VPC.
+        /// Can be either `"pending"` or `"available"`.
+        /// </summary>
+        [Input("state")]
+        public Input<string>? State { get; set; }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// A map of tags, each pair of which must exactly match
+        /// a pair on the desired VPC.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        public GetVpcInvokeArgs()
         {
         }
     }

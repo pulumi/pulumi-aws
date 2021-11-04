@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Workspaces
 {
@@ -61,6 +62,57 @@ namespace Pulumi.Aws.Workspaces
         /// </summary>
         public static Task<GetBundleResult> InvokeAsync(GetBundleArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetBundleResult>("aws:workspaces/getBundle:getBundle", args ?? new GetBundleArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Retrieve information about an AWS WorkSpaces bundle.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// ### By ID
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.Workspaces.GetBundle.InvokeAsync(new Aws.Workspaces.GetBundleArgs
+        ///         {
+        ///             BundleId = "wsb-b0s22j3d7",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% example %}}
+        /// ### By Owner &amp; Name
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.Workspaces.GetBundle.InvokeAsync(new Aws.Workspaces.GetBundleArgs
+        ///         {
+        ///             Name = "Value with Windows 10 and Office 2016",
+        ///             Owner = "AMAZON",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetBundleResult> Invoke(GetBundleInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetBundleResult>("aws:workspaces/getBundle:getBundle", args ?? new GetBundleInvokeArgs(), options.WithVersion());
     }
 
 
@@ -85,6 +137,31 @@ namespace Pulumi.Aws.Workspaces
         public string? Owner { get; set; }
 
         public GetBundleArgs()
+        {
+        }
+    }
+
+    public sealed class GetBundleInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The ID of the bundle.
+        /// </summary>
+        [Input("bundleId")]
+        public Input<string>? BundleId { get; set; }
+
+        /// <summary>
+        /// The name of the bundle. You cannot combine this parameter with `bundle_id`.
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The owner of the bundles. You have to leave it blank for own bundles. You cannot combine this parameter with `bundle_id`.
+        /// </summary>
+        [Input("owner")]
+        public Input<string>? Owner { get; set; }
+
+        public GetBundleInvokeArgs()
         {
         }
     }

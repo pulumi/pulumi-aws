@@ -447,6 +447,10 @@ func (o VpcPeeringConnectionAccepterMapOutput) MapIndex(k pulumi.StringInput) Vp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcPeeringConnectionAccepterInput)(nil)).Elem(), &VpcPeeringConnectionAccepter{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcPeeringConnectionAccepterPtrInput)(nil)).Elem(), &VpcPeeringConnectionAccepter{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcPeeringConnectionAccepterArrayInput)(nil)).Elem(), VpcPeeringConnectionAccepterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcPeeringConnectionAccepterMapInput)(nil)).Elem(), VpcPeeringConnectionAccepterMap{})
 	pulumi.RegisterOutputType(VpcPeeringConnectionAccepterOutput{})
 	pulumi.RegisterOutputType(VpcPeeringConnectionAccepterPtrOutput{})
 	pulumi.RegisterOutputType(VpcPeeringConnectionAccepterArrayOutput{})

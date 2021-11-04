@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Route53
 {
@@ -56,6 +57,52 @@ namespace Pulumi.Aws.Route53
         /// </summary>
         public static Task<GetZoneResult> InvokeAsync(GetZoneArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetZoneResult>("aws:route53/getZone:getZone", args ?? new GetZoneArgs(), options.WithVersion());
+
+        /// <summary>
+        /// `aws.route53.Zone` provides details about a specific Route 53 Hosted Zone.
+        /// 
+        /// This data source allows to find a Hosted Zone ID given Hosted Zone name and certain search criteria.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// The following example shows how to get a Hosted Zone from its name and from this data how to create a Record Set.
+        /// 
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var selected = Output.Create(Aws.Route53.GetZone.InvokeAsync(new Aws.Route53.GetZoneArgs
+        ///         {
+        ///             Name = "test.com.",
+        ///             PrivateZone = true,
+        ///         }));
+        ///         var www = new Aws.Route53.Record("www", new Aws.Route53.RecordArgs
+        ///         {
+        ///             ZoneId = selected.Apply(selected =&gt; selected.ZoneId),
+        ///             Name = selected.Apply(selected =&gt; $"www.{selected.Name}"),
+        ///             Type = "A",
+        ///             Ttl = 300,
+        ///             Records = 
+        ///             {
+        ///                 "10.0.0.1",
+        ///             },
+        ///         });
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetZoneResult> Invoke(GetZoneInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetZoneResult>("aws:route53/getZone:getZone", args ?? new GetZoneInvokeArgs(), options.WithVersion());
     }
 
 
@@ -104,6 +151,55 @@ namespace Pulumi.Aws.Route53
         public string? ZoneId { get; set; }
 
         public GetZoneArgs()
+        {
+        }
+    }
+
+    public sealed class GetZoneInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The Hosted Zone name of the desired Hosted Zone.
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// Used with `name` field to get a private Hosted Zone.
+        /// </summary>
+        [Input("privateZone")]
+        public Input<bool>? PrivateZone { get; set; }
+
+        /// <summary>
+        /// The number of Record Set in the Hosted Zone.
+        /// </summary>
+        [Input("resourceRecordSetCount")]
+        public Input<int>? ResourceRecordSetCount { get; set; }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Used with `name` field. A map of tags, each pair of which must exactly match a pair on the desired Hosted Zone.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        /// <summary>
+        /// Used with `name` field to get a private Hosted Zone associated with the vpc_id (in this case, private_zone is not mandatory).
+        /// </summary>
+        [Input("vpcId")]
+        public Input<string>? VpcId { get; set; }
+
+        /// <summary>
+        /// The Hosted Zone id of the desired Hosted Zone.
+        /// </summary>
+        [Input("zoneId")]
+        public Input<string>? ZoneId { get; set; }
+
+        public GetZoneInvokeArgs()
         {
         }
     }

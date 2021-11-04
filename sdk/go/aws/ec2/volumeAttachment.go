@@ -424,6 +424,10 @@ func (o VolumeAttachmentMapOutput) MapIndex(k pulumi.StringInput) VolumeAttachme
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeAttachmentInput)(nil)).Elem(), &VolumeAttachment{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeAttachmentPtrInput)(nil)).Elem(), &VolumeAttachment{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeAttachmentArrayInput)(nil)).Elem(), VolumeAttachmentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeAttachmentMapInput)(nil)).Elem(), VolumeAttachmentMap{})
 	pulumi.RegisterOutputType(VolumeAttachmentOutput{})
 	pulumi.RegisterOutputType(VolumeAttachmentPtrOutput{})
 	pulumi.RegisterOutputType(VolumeAttachmentArrayOutput{})

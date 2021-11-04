@@ -384,6 +384,10 @@ func (o SecretVersionMapOutput) MapIndex(k pulumi.StringInput) SecretVersionOutp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SecretVersionInput)(nil)).Elem(), &SecretVersion{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecretVersionPtrInput)(nil)).Elem(), &SecretVersion{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecretVersionArrayInput)(nil)).Elem(), SecretVersionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SecretVersionMapInput)(nil)).Elem(), SecretVersionMap{})
 	pulumi.RegisterOutputType(SecretVersionOutput{})
 	pulumi.RegisterOutputType(SecretVersionPtrOutput{})
 	pulumi.RegisterOutputType(SecretVersionArrayOutput{})

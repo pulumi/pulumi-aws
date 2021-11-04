@@ -366,6 +366,10 @@ func (o IdentityPoolRoleAttachmentMapOutput) MapIndex(k pulumi.StringInput) Iden
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentityPoolRoleAttachmentInput)(nil)).Elem(), &IdentityPoolRoleAttachment{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentityPoolRoleAttachmentPtrInput)(nil)).Elem(), &IdentityPoolRoleAttachment{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentityPoolRoleAttachmentArrayInput)(nil)).Elem(), IdentityPoolRoleAttachmentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IdentityPoolRoleAttachmentMapInput)(nil)).Elem(), IdentityPoolRoleAttachmentMap{})
 	pulumi.RegisterOutputType(IdentityPoolRoleAttachmentOutput{})
 	pulumi.RegisterOutputType(IdentityPoolRoleAttachmentPtrOutput{})
 	pulumi.RegisterOutputType(IdentityPoolRoleAttachmentArrayOutput{})

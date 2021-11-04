@@ -389,6 +389,10 @@ func (o LoggingConfigurationMapOutput) MapIndex(k pulumi.StringInput) LoggingCon
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LoggingConfigurationInput)(nil)).Elem(), &LoggingConfiguration{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LoggingConfigurationPtrInput)(nil)).Elem(), &LoggingConfiguration{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LoggingConfigurationArrayInput)(nil)).Elem(), LoggingConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LoggingConfigurationMapInput)(nil)).Elem(), LoggingConfigurationMap{})
 	pulumi.RegisterOutputType(LoggingConfigurationOutput{})
 	pulumi.RegisterOutputType(LoggingConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(LoggingConfigurationArrayOutput{})

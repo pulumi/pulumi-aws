@@ -437,6 +437,10 @@ func (o SigningJobMapOutput) MapIndex(k pulumi.StringInput) SigningJobOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SigningJobInput)(nil)).Elem(), &SigningJob{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SigningJobPtrInput)(nil)).Elem(), &SigningJob{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SigningJobArrayInput)(nil)).Elem(), SigningJobArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SigningJobMapInput)(nil)).Elem(), SigningJobMap{})
 	pulumi.RegisterOutputType(SigningJobOutput{})
 	pulumi.RegisterOutputType(SigningJobPtrOutput{})
 	pulumi.RegisterOutputType(SigningJobArrayOutput{})

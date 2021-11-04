@@ -489,6 +489,10 @@ func (o VpcMapOutput) MapIndex(k pulumi.StringInput) VpcOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcInput)(nil)).Elem(), &Vpc{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcPtrInput)(nil)).Elem(), &Vpc{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcArrayInput)(nil)).Elem(), VpcArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcMapInput)(nil)).Elem(), VpcMap{})
 	pulumi.RegisterOutputType(VpcOutput{})
 	pulumi.RegisterOutputType(VpcPtrOutput{})
 	pulumi.RegisterOutputType(VpcArrayOutput{})

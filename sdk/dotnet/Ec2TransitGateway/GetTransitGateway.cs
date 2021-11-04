@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.Ec2TransitGateway
 {
@@ -70,6 +71,66 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// </summary>
         public static Task<GetTransitGatewayResult> InvokeAsync(GetTransitGatewayArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTransitGatewayResult>("aws:ec2transitgateway/getTransitGateway:getTransitGateway", args ?? new GetTransitGatewayArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Get information on an EC2 Transit Gateway.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// ### By Filter
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.Ec2TransitGateway.GetTransitGateway.InvokeAsync(new Aws.Ec2TransitGateway.GetTransitGatewayArgs
+        ///         {
+        ///             Filters = 
+        ///             {
+        ///                 new Aws.Ec2TransitGateway.Inputs.GetTransitGatewayFilterArgs
+        ///                 {
+        ///                     Name = "options.amazon-side-asn",
+        ///                     Values = 
+        ///                     {
+        ///                         "64512",
+        ///                     },
+        ///                 },
+        ///             },
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% example %}}
+        /// ### By Identifier
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(Aws.Ec2TransitGateway.GetTransitGateway.InvokeAsync(new Aws.Ec2TransitGateway.GetTransitGatewayArgs
+        ///         {
+        ///             Id = "tgw-12345678",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetTransitGatewayResult> Invoke(GetTransitGatewayInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetTransitGatewayResult>("aws:ec2transitgateway/getTransitGateway:getTransitGateway", args ?? new GetTransitGatewayInvokeArgs(), options.WithVersion());
     }
 
 
@@ -106,6 +167,43 @@ namespace Pulumi.Aws.Ec2TransitGateway
         }
 
         public GetTransitGatewayArgs()
+        {
+        }
+    }
+
+    public sealed class GetTransitGatewayInvokeArgs : Pulumi.InvokeArgs
+    {
+        [Input("filters")]
+        private InputList<Inputs.GetTransitGatewayFilterInputArgs>? _filters;
+
+        /// <summary>
+        /// One or more configuration blocks containing name-values filters. Detailed below.
+        /// </summary>
+        public InputList<Inputs.GetTransitGatewayFilterInputArgs> Filters
+        {
+            get => _filters ?? (_filters = new InputList<Inputs.GetTransitGatewayFilterInputArgs>());
+            set => _filters = value;
+        }
+
+        /// <summary>
+        /// Identifier of the EC2 Transit Gateway.
+        /// </summary>
+        [Input("id")]
+        public Input<string>? Id { get; set; }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Key-value tags for the EC2 Transit Gateway
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
+        public GetTransitGatewayInvokeArgs()
         {
         }
     }

@@ -198,6 +198,8 @@ func (in *regionPtr) ToRegionPtrOutputWithContext(ctx context.Context) RegionPtr
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RegionInput)(nil)).Elem(), Region("af-south-1"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RegionPtrInput)(nil)).Elem(), Region("af-south-1"))
 	pulumi.RegisterOutputType(RegionOutput{})
 	pulumi.RegisterOutputType(RegionPtrOutput{})
 }

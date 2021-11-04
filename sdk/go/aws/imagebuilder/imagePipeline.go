@@ -436,6 +436,10 @@ func (o ImagePipelineMapOutput) MapIndex(k pulumi.StringInput) ImagePipelineOutp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ImagePipelineInput)(nil)).Elem(), &ImagePipeline{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ImagePipelinePtrInput)(nil)).Elem(), &ImagePipeline{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ImagePipelineArrayInput)(nil)).Elem(), ImagePipelineArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ImagePipelineMapInput)(nil)).Elem(), ImagePipelineMap{})
 	pulumi.RegisterOutputType(ImagePipelineOutput{})
 	pulumi.RegisterOutputType(ImagePipelinePtrOutput{})
 	pulumi.RegisterOutputType(ImagePipelineArrayOutput{})

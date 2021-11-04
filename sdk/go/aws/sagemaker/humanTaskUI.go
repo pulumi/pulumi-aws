@@ -349,6 +349,10 @@ func (o HumanTaskUIMapOutput) MapIndex(k pulumi.StringInput) HumanTaskUIOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*HumanTaskUIInput)(nil)).Elem(), &HumanTaskUI{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HumanTaskUIPtrInput)(nil)).Elem(), &HumanTaskUI{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HumanTaskUIArrayInput)(nil)).Elem(), HumanTaskUIArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HumanTaskUIMapInput)(nil)).Elem(), HumanTaskUIMap{})
 	pulumi.RegisterOutputType(HumanTaskUIOutput{})
 	pulumi.RegisterOutputType(HumanTaskUIPtrOutput{})
 	pulumi.RegisterOutputType(HumanTaskUIArrayOutput{})

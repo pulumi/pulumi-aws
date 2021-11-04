@@ -539,6 +539,10 @@ func (o LustreFileSystemMapOutput) MapIndex(k pulumi.StringInput) LustreFileSyst
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LustreFileSystemInput)(nil)).Elem(), &LustreFileSystem{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LustreFileSystemPtrInput)(nil)).Elem(), &LustreFileSystem{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LustreFileSystemArrayInput)(nil)).Elem(), LustreFileSystemArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LustreFileSystemMapInput)(nil)).Elem(), LustreFileSystemMap{})
 	pulumi.RegisterOutputType(LustreFileSystemOutput{})
 	pulumi.RegisterOutputType(LustreFileSystemPtrOutput{})
 	pulumi.RegisterOutputType(LustreFileSystemArrayOutput{})

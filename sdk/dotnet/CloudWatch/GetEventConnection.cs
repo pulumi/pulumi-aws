@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.CloudWatch
 {
@@ -42,6 +43,38 @@ namespace Pulumi.Aws.CloudWatch
         /// </summary>
         public static Task<GetEventConnectionResult> InvokeAsync(GetEventConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetEventConnectionResult>("aws:cloudwatch/getEventConnection:getEventConnection", args ?? new GetEventConnectionArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to retrieve information about a EventBridge connection.
+        /// 
+        /// &gt; **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
+        /// 
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var test = Output.Create(Aws.CloudWatch.GetEventConnection.InvokeAsync(new Aws.CloudWatch.GetEventConnectionArgs
+        ///         {
+        ///             Name = "test",
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetEventConnectionResult> Invoke(GetEventConnectionInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetEventConnectionResult>("aws:cloudwatch/getEventConnection:getEventConnection", args ?? new GetEventConnectionInvokeArgs(), options.WithVersion());
     }
 
 
@@ -54,6 +87,19 @@ namespace Pulumi.Aws.CloudWatch
         public string Name { get; set; } = null!;
 
         public GetEventConnectionArgs()
+        {
+        }
+    }
+
+    public sealed class GetEventConnectionInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The name of the connection.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        public GetEventConnectionInvokeArgs()
         {
         }
     }

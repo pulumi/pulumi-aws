@@ -364,6 +364,10 @@ func (o ZoneAssociationMapOutput) MapIndex(k pulumi.StringInput) ZoneAssociation
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ZoneAssociationInput)(nil)).Elem(), &ZoneAssociation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ZoneAssociationPtrInput)(nil)).Elem(), &ZoneAssociation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ZoneAssociationArrayInput)(nil)).Elem(), ZoneAssociationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ZoneAssociationMapInput)(nil)).Elem(), ZoneAssociationMap{})
 	pulumi.RegisterOutputType(ZoneAssociationOutput{})
 	pulumi.RegisterOutputType(ZoneAssociationPtrOutput{})
 	pulumi.RegisterOutputType(ZoneAssociationArrayOutput{})

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.Aws.ElasticBeanstalk
 {
@@ -36,6 +37,32 @@ namespace Pulumi.Aws.ElasticBeanstalk
         /// </summary>
         public static Task<GetHostedZoneResult> InvokeAsync(GetHostedZoneArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetHostedZoneResult>("aws:elasticbeanstalk/getHostedZone:getHostedZone", args ?? new GetHostedZoneArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to get the ID of an [elastic beanstalk hosted zone](http://docs.aws.amazon.com/general/latest/gr/rande.html#elasticbeanstalk_region).
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var current = Output.Create(Aws.ElasticBeanstalk.GetHostedZone.InvokeAsync());
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
+        public static Output<GetHostedZoneResult> Invoke(GetHostedZoneInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetHostedZoneResult>("aws:elasticbeanstalk/getHostedZone:getHostedZone", args ?? new GetHostedZoneInvokeArgs(), options.WithVersion());
     }
 
 
@@ -48,6 +75,19 @@ namespace Pulumi.Aws.ElasticBeanstalk
         public string? Region { get; set; }
 
         public GetHostedZoneArgs()
+        {
+        }
+    }
+
+    public sealed class GetHostedZoneInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The region you'd like the zone for. By default, fetches the current region.
+        /// </summary>
+        [Input("region")]
+        public Input<string>? Region { get; set; }
+
+        public GetHostedZoneInvokeArgs()
         {
         }
     }

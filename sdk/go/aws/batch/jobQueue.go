@@ -380,6 +380,10 @@ func (o JobQueueMapOutput) MapIndex(k pulumi.StringInput) JobQueueOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*JobQueueInput)(nil)).Elem(), &JobQueue{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobQueuePtrInput)(nil)).Elem(), &JobQueue{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobQueueArrayInput)(nil)).Elem(), JobQueueArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobQueueMapInput)(nil)).Elem(), JobQueueMap{})
 	pulumi.RegisterOutputType(JobQueueOutput{})
 	pulumi.RegisterOutputType(JobQueuePtrOutput{})
 	pulumi.RegisterOutputType(JobQueueArrayOutput{})

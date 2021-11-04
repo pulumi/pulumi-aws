@@ -340,6 +340,10 @@ func (o SnapshotCopyGrantMapOutput) MapIndex(k pulumi.StringInput) SnapshotCopyG
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotCopyGrantInput)(nil)).Elem(), &SnapshotCopyGrant{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotCopyGrantPtrInput)(nil)).Elem(), &SnapshotCopyGrant{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotCopyGrantArrayInput)(nil)).Elem(), SnapshotCopyGrantArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotCopyGrantMapInput)(nil)).Elem(), SnapshotCopyGrantMap{})
 	pulumi.RegisterOutputType(SnapshotCopyGrantOutput{})
 	pulumi.RegisterOutputType(SnapshotCopyGrantPtrOutput{})
 	pulumi.RegisterOutputType(SnapshotCopyGrantArrayOutput{})

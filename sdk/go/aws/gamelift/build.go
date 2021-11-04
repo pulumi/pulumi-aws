@@ -355,6 +355,10 @@ func (o BuildMapOutput) MapIndex(k pulumi.StringInput) BuildOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BuildInput)(nil)).Elem(), &Build{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BuildPtrInput)(nil)).Elem(), &Build{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BuildArrayInput)(nil)).Elem(), BuildArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BuildMapInput)(nil)).Elem(), BuildMap{})
 	pulumi.RegisterOutputType(BuildOutput{})
 	pulumi.RegisterOutputType(BuildPtrOutput{})
 	pulumi.RegisterOutputType(BuildArrayOutput{})

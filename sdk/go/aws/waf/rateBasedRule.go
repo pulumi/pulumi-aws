@@ -387,6 +387,10 @@ func (o RateBasedRuleMapOutput) MapIndex(k pulumi.StringInput) RateBasedRuleOutp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RateBasedRuleInput)(nil)).Elem(), &RateBasedRule{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RateBasedRulePtrInput)(nil)).Elem(), &RateBasedRule{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RateBasedRuleArrayInput)(nil)).Elem(), RateBasedRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RateBasedRuleMapInput)(nil)).Elem(), RateBasedRuleMap{})
 	pulumi.RegisterOutputType(RateBasedRuleOutput{})
 	pulumi.RegisterOutputType(RateBasedRulePtrOutput{})
 	pulumi.RegisterOutputType(RateBasedRuleArrayOutput{})

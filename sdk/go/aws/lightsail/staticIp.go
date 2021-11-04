@@ -303,6 +303,10 @@ func (o StaticIpMapOutput) MapIndex(k pulumi.StringInput) StaticIpOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*StaticIpInput)(nil)).Elem(), &StaticIp{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StaticIpPtrInput)(nil)).Elem(), &StaticIp{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StaticIpArrayInput)(nil)).Elem(), StaticIpArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StaticIpMapInput)(nil)).Elem(), StaticIpMap{})
 	pulumi.RegisterOutputType(StaticIpOutput{})
 	pulumi.RegisterOutputType(StaticIpPtrOutput{})
 	pulumi.RegisterOutputType(StaticIpArrayOutput{})
