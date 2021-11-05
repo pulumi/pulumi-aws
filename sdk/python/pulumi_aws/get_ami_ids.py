@@ -134,7 +134,7 @@ def get_ami_ids(executable_users: Optional[Sequence[str]] = None,
            This filtering is done locally on what AWS returns, and could have a performance
            impact if the result is large. It is recommended to combine this with other
            options to narrow down the list AWS returns.
-    :param Sequence[str] owners: List of AMI owners to limit search. At least 1 value must be specified. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g. `amazon`, `aws-marketplace`, `microsoft`).
+    :param Sequence[str] owners: List of AMI owners to limit search. At least 1 value must be specified. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g., `amazon`, `aws-marketplace`, `microsoft`).
     :param bool sort_ascending: Used to sort AMIs by creation time.
     """
     pulumi.log.warn("""get_ami_ids is deprecated: aws.getAmiIds has been deprecated in favor of aws.ec2.getAmiIds""")
@@ -194,7 +194,7 @@ def get_ami_ids_output(executable_users: Optional[pulumi.Input[Optional[Sequence
            This filtering is done locally on what AWS returns, and could have a performance
            impact if the result is large. It is recommended to combine this with other
            options to narrow down the list AWS returns.
-    :param Sequence[str] owners: List of AMI owners to limit search. At least 1 value must be specified. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g. `amazon`, `aws-marketplace`, `microsoft`).
+    :param Sequence[str] owners: List of AMI owners to limit search. At least 1 value must be specified. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g., `amazon`, `aws-marketplace`, `microsoft`).
     :param bool sort_ascending: Used to sort AMIs by creation time.
     """
     pulumi.log.warn("""get_ami_ids is deprecated: aws.getAmiIds has been deprecated in favor of aws.ec2.getAmiIds""")

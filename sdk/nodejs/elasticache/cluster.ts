@@ -69,7 +69,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * ElastiCache Clusters can be imported using the `cluster_id`, e.g.
+ * ElastiCache Clusters can be imported using the `cluster_id`, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:elasticache/cluster:Cluster my_cluster my_cluster
@@ -142,7 +142,7 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * Version number of the cache engine to be used.
      * See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html)
-     * in the AWS Documentation for supported versions. When `engine` is `redis` and the version is 6 or higher, only the major version can be set, e.g. `6.x`, otherwise, specify the full version desired, e.g. `5.0.6`. The actual engine version used is returned in the attribute `engineVersionActual`, defined below.
+     * in the AWS Documentation for supported versions. When `engine` is `redis` and the version is 6 or higher, only the major version can be set, e.g., `6.x`, otherwise, specify the full version desired, e.g., `5.0.6`. The actual engine version used is returned in the attribute `engineVersionActual`, defined below.
      */
     public readonly engineVersion!: pulumi.Output<string>;
     /**
@@ -342,7 +342,7 @@ export interface ClusterState {
     /**
      * Version number of the cache engine to be used.
      * See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html)
-     * in the AWS Documentation for supported versions. When `engine` is `redis` and the version is 6 or higher, only the major version can be set, e.g. `6.x`, otherwise, specify the full version desired, e.g. `5.0.6`. The actual engine version used is returned in the attribute `engineVersionActual`, defined below.
+     * in the AWS Documentation for supported versions. When `engine` is `redis` and the version is 6 or higher, only the major version can be set, e.g., `6.x`, otherwise, specify the full version desired, e.g., `5.0.6`. The actual engine version used is returned in the attribute `engineVersionActual`, defined below.
      */
     engineVersion?: pulumi.Input<string>;
     /**
@@ -446,7 +446,7 @@ export interface ClusterArgs {
     /**
      * Version number of the cache engine to be used.
      * See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html)
-     * in the AWS Documentation for supported versions. When `engine` is `redis` and the version is 6 or higher, only the major version can be set, e.g. `6.x`, otherwise, specify the full version desired, e.g. `5.0.6`. The actual engine version used is returned in the attribute `engineVersionActual`, defined below.
+     * in the AWS Documentation for supported versions. When `engine` is `redis` and the version is 6 or higher, only the major version can be set, e.g., `6.x`, otherwise, specify the full version desired, e.g., `5.0.6`. The actual engine version used is returned in the attribute `engineVersionActual`, defined below.
      */
     engineVersion?: pulumi.Input<string>;
     /**

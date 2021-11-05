@@ -402,7 +402,7 @@ class Pipeline(pulumi.CustomResource):
 
         ## Import
 
-        Elastic Transcoder pipelines can be imported using the `id`, e.g.
+        Elastic Transcoder pipelines can be imported using the `id`, e.g.,
 
         ```sh
          $ pulumi import aws:elastictranscoder/pipeline:Pipeline basic_pipeline 1407981661351-cttk8b
@@ -451,7 +451,7 @@ class Pipeline(pulumi.CustomResource):
 
         ## Import
 
-        Elastic Transcoder pipelines can be imported using the `id`, e.g.
+        Elastic Transcoder pipelines can be imported using the `id`, e.g.,
 
         ```sh
          $ pulumi import aws:elastictranscoder/pipeline:Pipeline basic_pipeline 1407981661351-cttk8b

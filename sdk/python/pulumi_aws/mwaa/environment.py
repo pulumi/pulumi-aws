@@ -868,7 +868,7 @@ class Environment(pulumi.CustomResource):
 
         ## Import
 
-        MWAA Environment can be imported using `Name` e.g.
+        MWAA Environment can be imported using `Name` e.g.,
 
         ```sh
          $ pulumi import aws:mwaa/environment:Environment example MyAirflowEnvironment
@@ -1003,7 +1003,7 @@ class Environment(pulumi.CustomResource):
 
         ## Import
 
-        MWAA Environment can be imported using `Name` e.g.
+        MWAA Environment can be imported using `Name` e.g.,
 
         ```sh
          $ pulumi import aws:mwaa/environment:Environment example MyAirflowEnvironment

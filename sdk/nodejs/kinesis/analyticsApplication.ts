@@ -110,7 +110,7 @@ import {ARN} from "..";
  *
  * ## Import
  *
- * Kinesis Analytics Application can be imported by using ARN, e.g.
+ * Kinesis Analytics Application can be imported by using ARN, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:kinesis/analyticsApplication:AnalyticsApplication example arn:aws:kinesisanalytics:us-west-2:1234567890:application/example
@@ -196,6 +196,9 @@ export class AnalyticsApplication extends pulumi.CustomResource {
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The Version of the application.
@@ -311,6 +314,9 @@ export interface AnalyticsApplicationState {
      */
     status?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The Version of the application.

@@ -39,7 +39,7 @@ namespace Pulumi.Aws.Pinpoint
     /// 
     /// ## Import
     /// 
-    /// Pinpoint APNs Sandbox Channel can be imported using the `application-id`, e.g.
+    /// Pinpoint APNs Sandbox Channel can be imported using the `application-id`, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:pinpoint/apnsSandboxChannel:ApnsSandboxChannel apns_sandbox application-id

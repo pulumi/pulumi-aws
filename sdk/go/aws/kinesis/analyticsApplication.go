@@ -170,7 +170,7 @@ import (
 //
 // ## Import
 //
-// Kinesis Analytics Application can be imported by using ARN, e.g.
+// Kinesis Analytics Application can be imported by using ARN, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:kinesis/analyticsApplication:AnalyticsApplication example arn:aws:kinesisanalytics:us-west-2:1234567890:application/example
@@ -204,8 +204,9 @@ type AnalyticsApplication struct {
 	// To modify an application's starting position, first stop the application by setting `startApplication = false`, then update `startingPosition` and set `startApplication = true`.
 	StartApplication pulumi.BoolPtrOutput `pulumi:"startApplication"`
 	// The Status of the application.
-	Status  pulumi.StringOutput    `pulumi:"status"`
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	Status pulumi.StringOutput    `pulumi:"status"`
+	Tags   pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The Version of the application.
 	Version pulumi.IntOutput `pulumi:"version"`
@@ -266,8 +267,9 @@ type analyticsApplicationState struct {
 	// To modify an application's starting position, first stop the application by setting `startApplication = false`, then update `startingPosition` and set `startApplication = true`.
 	StartApplication *bool `pulumi:"startApplication"`
 	// The Status of the application.
-	Status  *string           `pulumi:"status"`
-	Tags    map[string]string `pulumi:"tags"`
+	Status *string           `pulumi:"status"`
+	Tags   map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The Version of the application.
 	Version *int `pulumi:"version"`
@@ -300,8 +302,9 @@ type AnalyticsApplicationState struct {
 	// To modify an application's starting position, first stop the application by setting `startApplication = false`, then update `startingPosition` and set `startApplication = true`.
 	StartApplication pulumi.BoolPtrInput
 	// The Status of the application.
-	Status  pulumi.StringPtrInput
-	Tags    pulumi.StringMapInput
+	Status pulumi.StringPtrInput
+	Tags   pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// The Version of the application.
 	Version pulumi.IntPtrInput

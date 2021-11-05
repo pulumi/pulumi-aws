@@ -36,7 +36,7 @@ namespace Pulumi.Aws.Dax
     /// 
     /// ## Import
     /// 
-    /// DAX Clusters can be imported using the `cluster_name`, e.g.
+    /// DAX Clusters can be imported using the `cluster_name`, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:dax/cluster:Cluster my_cluster my_cluster
@@ -112,7 +112,7 @@ namespace Pulumi.Aws.Dax
 
         /// <summary>
         /// List of node objects including `id`, `address`, `port` and
-        /// `availability_zone`. Referenceable e.g. as
+        /// `availability_zone`. Referenceable e.g., as
         /// `${aws_dax_cluster.test.nodes.0.address}`
         /// </summary>
         [Output("nodes")]
@@ -417,7 +417,7 @@ namespace Pulumi.Aws.Dax
 
         /// <summary>
         /// List of node objects including `id`, `address`, `port` and
-        /// `availability_zone`. Referenceable e.g. as
+        /// `availability_zone`. Referenceable e.g., as
         /// `${aws_dax_cluster.test.nodes.0.address}`
         /// </summary>
         public InputList<Inputs.ClusterNodeGetArgs> Nodes

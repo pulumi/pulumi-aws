@@ -35,7 +35,7 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// 
     /// ## Import
     /// 
-    /// `aws_apigatewayv2_stage` can be imported by using the API identifier and stage name, e.g.
+    /// `aws_apigatewayv2_stage` can be imported by using the API identifier and stage name, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:apigatewayv2/stage:Stage example aabbccddee/example-stage
@@ -104,7 +104,7 @@ namespace Pulumi.Aws.ApiGatewayV2
 
         /// <summary>
         /// The URL to invoke the API pointing to the stage,
-        /// e.g. `wss://z4675bid1j.execute-api.eu-west-2.amazonaws.com/example-stage`, or `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/`
+        /// e.g., `wss://z4675bid1j.execute-api.eu-west-2.amazonaws.com/example-stage`, or `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/`
         /// </summary>
         [Output("invokeUrl")]
         public Output<string> InvokeUrl { get; private set; } = null!;
@@ -134,7 +134,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -338,7 +338,7 @@ namespace Pulumi.Aws.ApiGatewayV2
 
         /// <summary>
         /// The URL to invoke the API pointing to the stage,
-        /// e.g. `wss://z4675bid1j.execute-api.eu-west-2.amazonaws.com/example-stage`, or `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/`
+        /// e.g., `wss://z4675bid1j.execute-api.eu-west-2.amazonaws.com/example-stage`, or `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/`
         /// </summary>
         [Input("invokeUrl")]
         public Input<string>? InvokeUrl { get; set; }
@@ -389,7 +389,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

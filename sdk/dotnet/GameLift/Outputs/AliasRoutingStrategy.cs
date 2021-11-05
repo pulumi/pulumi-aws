@@ -22,7 +22,7 @@ namespace Pulumi.Aws.GameLift.Outputs
         /// </summary>
         public readonly string? Message;
         /// <summary>
-        /// Type of routing strategy. e.g. `SIMPLE` or `TERMINAL`
+        /// Type of routing strategyE.g., `SIMPLE` or `TERMINAL`
         /// </summary>
         public readonly string Type;
 

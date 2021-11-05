@@ -42,7 +42,7 @@ namespace Pulumi.Aws.Macie2
     /// 
     /// ## Import
     /// 
-    /// `aws_macie2_organization_admin_account` can be imported using the id, e.g.
+    /// `aws_macie2_organization_admin_account` can be imported using the id, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:macie2/organizationAdminAccount:OrganizationAdminAccount example abcd1

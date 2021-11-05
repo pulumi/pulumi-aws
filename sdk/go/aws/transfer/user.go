@@ -94,7 +94,7 @@ type User struct {
 	PosixProfile UserPosixProfilePtrOutput `pulumi:"posixProfile"`
 	// Amazon Resource Name (ARN) of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
 	Role pulumi.StringOutput `pulumi:"role"`
-	// The Server ID of the Transfer Server (e.g. `s-12345678`)
+	// The Server ID of the Transfer Server (e.g., `s-12345678`)
 	ServerId pulumi.StringOutput `pulumi:"serverId"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -156,7 +156,7 @@ type userState struct {
 	PosixProfile *UserPosixProfile `pulumi:"posixProfile"`
 	// Amazon Resource Name (ARN) of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
 	Role *string `pulumi:"role"`
-	// The Server ID of the Transfer Server (e.g. `s-12345678`)
+	// The Server ID of the Transfer Server (e.g., `s-12345678`)
 	ServerId *string `pulumi:"serverId"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -181,7 +181,7 @@ type UserState struct {
 	PosixProfile UserPosixProfilePtrInput
 	// Amazon Resource Name (ARN) of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
 	Role pulumi.StringPtrInput
-	// The Server ID of the Transfer Server (e.g. `s-12345678`)
+	// The Server ID of the Transfer Server (e.g., `s-12345678`)
 	ServerId pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -208,7 +208,7 @@ type userArgs struct {
 	PosixProfile *UserPosixProfile `pulumi:"posixProfile"`
 	// Amazon Resource Name (ARN) of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
 	Role string `pulumi:"role"`
-	// The Server ID of the Transfer Server (e.g. `s-12345678`)
+	// The Server ID of the Transfer Server (e.g., `s-12345678`)
 	ServerId string `pulumi:"serverId"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -230,7 +230,7 @@ type UserArgs struct {
 	PosixProfile UserPosixProfilePtrInput
 	// Amazon Resource Name (ARN) of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
 	Role pulumi.StringInput
-	// The Server ID of the Transfer Server (e.g. `s-12345678`)
+	// The Server ID of the Transfer Server (e.g., `s-12345678`)
 	ServerId pulumi.StringInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput

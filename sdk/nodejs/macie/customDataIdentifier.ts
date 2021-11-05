@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * `aws_macie2_custom_data_identifier` can be imported using the id, e.g.
+ * `aws_macie2_custom_data_identifier` can be imported using the id, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:macie/customDataIdentifier:CustomDataIdentifier example abcd1

@@ -40,7 +40,7 @@ import (
 //
 // ## Import
 //
-// ECR Repositories can be imported using the `name`, e.g.
+// ECR Repositories can be imported using the `name`, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:ecr/repository:Repository service test-service
@@ -63,7 +63,8 @@ type Repository struct {
 	// The URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`).
 	RepositoryUrl pulumi.StringOutput    `pulumi:"repositoryUrl"`
 	Tags          pulumi.StringMapOutput `pulumi:"tags"`
-	TagsAll       pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewRepository registers a new resource with the given unique name, arguments, and options.
@@ -110,7 +111,8 @@ type repositoryState struct {
 	// The URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`).
 	RepositoryUrl *string           `pulumi:"repositoryUrl"`
 	Tags          map[string]string `pulumi:"tags"`
-	TagsAll       map[string]string `pulumi:"tagsAll"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type RepositoryState struct {
@@ -129,7 +131,8 @@ type RepositoryState struct {
 	// The URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`).
 	RepositoryUrl pulumi.StringPtrInput
 	Tags          pulumi.StringMapInput
-	TagsAll       pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 }
 
 func (RepositoryState) ElementType() reflect.Type {

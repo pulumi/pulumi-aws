@@ -141,7 +141,7 @@ namespace Pulumi.Aws
         private List<Inputs.GetAutoscalingGroupsFilterArgs>? _filters;
 
         /// <summary>
-        /// A filter used to scope the list e.g. by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
+        /// A filter used to scope the list e.g., by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
         /// </summary>
         public List<Inputs.GetAutoscalingGroupsFilterArgs> Filters
         {
@@ -160,7 +160,7 @@ namespace Pulumi.Aws
         private InputList<Inputs.GetAutoscalingGroupsFilterInputArgs>? _filters;
 
         /// <summary>
-        /// A filter used to scope the list e.g. by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
+        /// A filter used to scope the list e.g., by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
         /// </summary>
         public InputList<Inputs.GetAutoscalingGroupsFilterInputArgs> Filters
         {

@@ -33,7 +33,7 @@ namespace Pulumi.Aws.Kms
     /// 
     /// ## Import
     /// 
-    /// KMS External Keys can be imported using the `id`, e.g.
+    /// KMS External Keys can be imported using the `id`, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:kms/externalKey:ExternalKey a arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab
@@ -95,6 +95,12 @@ namespace Pulumi.Aws.Kms
         /// </summary>
         [Output("keyUsage")]
         public Output<string> KeyUsage { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
+        /// </summary>
+        [Output("multiRegion")]
+        public Output<bool> MultiRegion { get; private set; } = null!;
 
         /// <summary>
         /// A key policy JSON document. If you do not provide a key policy, AWS KMS attaches a default key policy to the CMK.
@@ -197,6 +203,12 @@ namespace Pulumi.Aws.Kms
         public Input<string>? KeyMaterialBase64 { get; set; }
 
         /// <summary>
+        /// Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
+        /// </summary>
+        [Input("multiRegion")]
+        public Input<bool>? MultiRegion { get; set; }
+
+        /// <summary>
         /// A key policy JSON document. If you do not provide a key policy, AWS KMS attaches a default key policy to the CMK.
         /// </summary>
         [Input("policy")]
@@ -280,6 +292,12 @@ namespace Pulumi.Aws.Kms
         /// </summary>
         [Input("keyUsage")]
         public Input<string>? KeyUsage { get; set; }
+
+        /// <summary>
+        /// Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
+        /// </summary>
+        [Input("multiRegion")]
+        public Input<bool>? MultiRegion { get; set; }
 
         /// <summary>
         /// A key policy JSON document. If you do not provide a key policy, AWS KMS attaches a default key policy to the CMK.

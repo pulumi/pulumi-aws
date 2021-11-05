@@ -21,7 +21,7 @@ class MethodSettingsArgs:
                  stage_name: pulumi.Input[str]):
         """
         The set of arguments for constructing a MethodSettings resource.
-        :param pulumi.Input[str] method_path: Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g. `trimprefix(aws_api_gateway_resource.example.path, "/")`).
+        :param pulumi.Input[str] method_path: Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g., `trimprefix(aws_api_gateway_resource.example.path, "/")`).
         :param pulumi.Input[str] rest_api: The ID of the REST API
         :param pulumi.Input['MethodSettingsSettingsArgs'] settings: The settings block, see below.
         :param pulumi.Input[str] stage_name: The name of the stage
@@ -35,7 +35,7 @@ class MethodSettingsArgs:
     @pulumi.getter(name="methodPath")
     def method_path(self) -> pulumi.Input[str]:
         """
-        Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g. `trimprefix(aws_api_gateway_resource.example.path, "/")`).
+        Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g., `trimprefix(aws_api_gateway_resource.example.path, "/")`).
         """
         return pulumi.get(self, "method_path")
 
@@ -89,7 +89,7 @@ class _MethodSettingsState:
                  stage_name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering MethodSettings resources.
-        :param pulumi.Input[str] method_path: Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g. `trimprefix(aws_api_gateway_resource.example.path, "/")`).
+        :param pulumi.Input[str] method_path: Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g., `trimprefix(aws_api_gateway_resource.example.path, "/")`).
         :param pulumi.Input[str] rest_api: The ID of the REST API
         :param pulumi.Input['MethodSettingsSettingsArgs'] settings: The settings block, see below.
         :param pulumi.Input[str] stage_name: The name of the stage
@@ -107,7 +107,7 @@ class _MethodSettingsState:
     @pulumi.getter(name="methodPath")
     def method_path(self) -> Optional[pulumi.Input[str]]:
         """
-        Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g. `trimprefix(aws_api_gateway_resource.example.path, "/")`).
+        Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g., `trimprefix(aws_api_gateway_resource.example.path, "/")`).
         """
         return pulumi.get(self, "method_path")
 
@@ -223,7 +223,7 @@ class MethodSettings(pulumi.CustomResource):
 
         ## Import
 
-        `aws_api_gateway_method_settings` can be imported using `REST-API-ID/STAGE-NAME/METHOD-PATH`, e.g.
+        `aws_api_gateway_method_settings` can be imported using `REST-API-ID/STAGE-NAME/METHOD-PATH`, e.g.,
 
         ```sh
          $ pulumi import aws:apigateway/methodSettings:MethodSettings example 12345abcde/example/test/GET
@@ -231,7 +231,7 @@ class MethodSettings(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] method_path: Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g. `trimprefix(aws_api_gateway_resource.example.path, "/")`).
+        :param pulumi.Input[str] method_path: Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g., `trimprefix(aws_api_gateway_resource.example.path, "/")`).
         :param pulumi.Input[str] rest_api: The ID of the REST API
         :param pulumi.Input[pulumi.InputType['MethodSettingsSettingsArgs']] settings: The settings block, see below.
         :param pulumi.Input[str] stage_name: The name of the stage
@@ -303,7 +303,7 @@ class MethodSettings(pulumi.CustomResource):
 
         ## Import
 
-        `aws_api_gateway_method_settings` can be imported using `REST-API-ID/STAGE-NAME/METHOD-PATH`, e.g.
+        `aws_api_gateway_method_settings` can be imported using `REST-API-ID/STAGE-NAME/METHOD-PATH`, e.g.,
 
         ```sh
          $ pulumi import aws:apigateway/methodSettings:MethodSettings example 12345abcde/example/test/GET
@@ -373,7 +373,7 @@ class MethodSettings(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] method_path: Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g. `trimprefix(aws_api_gateway_resource.example.path, "/")`).
+        :param pulumi.Input[str] method_path: Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g., `trimprefix(aws_api_gateway_resource.example.path, "/")`).
         :param pulumi.Input[str] rest_api: The ID of the REST API
         :param pulumi.Input[pulumi.InputType['MethodSettingsSettingsArgs']] settings: The settings block, see below.
         :param pulumi.Input[str] stage_name: The name of the stage
@@ -392,7 +392,7 @@ class MethodSettings(pulumi.CustomResource):
     @pulumi.getter(name="methodPath")
     def method_path(self) -> pulumi.Output[str]:
         """
-        Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g. `trimprefix(aws_api_gateway_resource.example.path, "/")`).
+        Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g., `trimprefix(aws_api_gateway_resource.example.path, "/")`).
         """
         return pulumi.get(self, "method_path")
 

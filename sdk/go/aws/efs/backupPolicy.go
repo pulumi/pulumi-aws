@@ -46,7 +46,7 @@ import (
 //
 // ## Import
 //
-// The EFS backup policies can be imported using the `id`, e.g.
+// The EFS backup policies can be imported using the `id`, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:efs/backupPolicy:BackupPolicy example fs-6fa144c6

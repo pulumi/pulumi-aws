@@ -26,10 +26,18 @@ namespace Pulumi.Aws.S3.Outputs
         /// </summary>
         public readonly string Bucket;
         /// <summary>
+        /// Enables replication metrics (required for S3 RTC) (documented below).
+        /// </summary>
+        public readonly Outputs.BucketReplicationConfigurationRuleDestinationMetrics? Metrics;
+        /// <summary>
         /// Destination KMS encryption key ARN for SSE-KMS replication. Must be used in conjunction with
         /// `sse_kms_encrypted_objects` source selection criteria.
         /// </summary>
         public readonly string? ReplicaKmsKeyId;
+        /// <summary>
+        /// Enables S3 Replication Time Control (S3 RTC) (documented below).
+        /// </summary>
+        public readonly Outputs.BucketReplicationConfigurationRuleDestinationReplicationTime? ReplicationTime;
         /// <summary>
         /// The class of storage used to store the object. Can be `STANDARD`, `REDUCED_REDUNDANCY`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `GLACIER`, or `DEEP_ARCHIVE`.
         /// </summary>
@@ -43,14 +51,20 @@ namespace Pulumi.Aws.S3.Outputs
 
             string bucket,
 
+            Outputs.BucketReplicationConfigurationRuleDestinationMetrics? metrics,
+
             string? replicaKmsKeyId,
+
+            Outputs.BucketReplicationConfigurationRuleDestinationReplicationTime? replicationTime,
 
             string? storageClass)
         {
             AccessControlTranslation = accessControlTranslation;
             AccountId = accountId;
             Bucket = bucket;
+            Metrics = metrics;
             ReplicaKmsKeyId = replicaKmsKeyId;
+            ReplicationTime = replicationTime;
             StorageClass = storageClass;
         }
     }

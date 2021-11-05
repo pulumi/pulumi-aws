@@ -48,7 +48,7 @@ namespace Pulumi.Aws.DocDB
     /// 
     /// ## Import
     /// 
-    /// DocDB Clusters can be imported using the `cluster_identifier`, e.g.
+    /// DocDB Clusters can be imported using the `cluster_identifier`, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:docdb/cluster:Cluster docdb_cluster docdb-prod-cluster
@@ -192,13 +192,13 @@ namespace Pulumi.Aws.DocDB
 
         /// <summary>
         /// The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC
-        /// Default: A 30-minute window selected at random from an 8-hour block of time per region. e.g. 04:00-09:00
+        /// Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
         /// </summary>
         [Output("preferredBackupWindow")]
         public Output<string> PreferredBackupWindow { get; private set; } = null!;
 
         /// <summary>
-        /// The weekly time range during which system maintenance can occur, in (UTC) e.g. wed:04:00-wed:04:30
+        /// The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
         /// </summary>
         [Output("preferredMaintenanceWindow")]
         public Output<string> PreferredMaintenanceWindow { get; private set; } = null!;
@@ -421,13 +421,13 @@ namespace Pulumi.Aws.DocDB
 
         /// <summary>
         /// The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC
-        /// Default: A 30-minute window selected at random from an 8-hour block of time per region. e.g. 04:00-09:00
+        /// Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
         /// </summary>
         [Input("preferredBackupWindow")]
         public Input<string>? PreferredBackupWindow { get; set; }
 
         /// <summary>
-        /// The weekly time range during which system maintenance can occur, in (UTC) e.g. wed:04:00-wed:04:30
+        /// The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
         /// </summary>
         [Input("preferredMaintenanceWindow")]
         public Input<string>? PreferredMaintenanceWindow { get; set; }
@@ -635,13 +635,13 @@ namespace Pulumi.Aws.DocDB
 
         /// <summary>
         /// The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC
-        /// Default: A 30-minute window selected at random from an 8-hour block of time per region. e.g. 04:00-09:00
+        /// Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
         /// </summary>
         [Input("preferredBackupWindow")]
         public Input<string>? PreferredBackupWindow { get; set; }
 
         /// <summary>
-        /// The weekly time range during which system maintenance can occur, in (UTC) e.g. wed:04:00-wed:04:30
+        /// The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
         /// </summary>
         [Input("preferredMaintenanceWindow")]
         public Input<string>? PreferredMaintenanceWindow { get; set; }

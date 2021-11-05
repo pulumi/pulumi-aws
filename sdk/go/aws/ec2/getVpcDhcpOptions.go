@@ -96,7 +96,7 @@ type LookupVpcDhcpOptionsResult struct {
 	Arn string `pulumi:"arn"`
 	// EC2 DHCP Options ID
 	DhcpOptionsId string `pulumi:"dhcpOptionsId"`
-	// The suffix domain name to used when resolving non Fully Qualified Domain Names. e.g. the `search` value in the `/etc/resolv.conf` file.
+	// The suffix domain name to used when resolving non Fully Qualified Domain NamesE.g., the `search` value in the `/etc/resolv.conf` file.
 	DomainName string `pulumi:"domainName"`
 	// List of name servers.
 	DomainNameServers []string                  `pulumi:"domainNameServers"`
@@ -163,7 +163,7 @@ func (o LookupVpcDhcpOptionsResultOutput) DhcpOptionsId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcDhcpOptionsResult) string { return v.DhcpOptionsId }).(pulumi.StringOutput)
 }
 
-// The suffix domain name to used when resolving non Fully Qualified Domain Names. e.g. the `search` value in the `/etc/resolv.conf` file.
+// The suffix domain name to used when resolving non Fully Qualified Domain NamesE.g., the `search` value in the `/etc/resolv.conf` file.
 func (o LookupVpcDhcpOptionsResultOutput) DomainName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcDhcpOptionsResult) string { return v.DomainName }).(pulumi.StringOutput)
 }

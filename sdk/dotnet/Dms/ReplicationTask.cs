@@ -45,7 +45,7 @@ namespace Pulumi.Aws.Dms
     /// 
     /// ## Import
     /// 
-    /// Replication tasks can be imported using the `replication_task_id`, e.g.
+    /// Replication tasks can be imported using the `replication_task_id`, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:dms/replicationTask:ReplicationTask test test-dms-replication-task-tf

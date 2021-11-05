@@ -148,7 +148,7 @@ import (
 //
 // ## Import
 //
-// WAF Regional Web ACL can be imported using the id, e.g.
+// WAF Regional Web ACL can be imported using the id, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:wafregional/webAcl:WebAcl wafacl a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc

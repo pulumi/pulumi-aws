@@ -51,7 +51,7 @@ import (
 //
 // ## Import
 //
-// EBS Snapshot can be imported using the `id`, e.g.
+// EBS Snapshot can be imported using the `id`, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:ebs/snapshot:Snapshot id snap-049df61146c4d7901
@@ -74,7 +74,8 @@ type Snapshot struct {
 	// The AWS account ID of the EBS snapshot owner.
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
 	// A map of tags for the snapshot.
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The Volume ID of which to make a snapshot.
 	VolumeId pulumi.StringOutput `pulumi:"volumeId"`
@@ -129,7 +130,8 @@ type snapshotState struct {
 	// The AWS account ID of the EBS snapshot owner.
 	OwnerId *string `pulumi:"ownerId"`
 	// A map of tags for the snapshot.
-	Tags    map[string]string `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The Volume ID of which to make a snapshot.
 	VolumeId *string `pulumi:"volumeId"`
@@ -153,7 +155,8 @@ type SnapshotState struct {
 	// The AWS account ID of the EBS snapshot owner.
 	OwnerId pulumi.StringPtrInput
 	// A map of tags for the snapshot.
-	Tags    pulumi.StringMapInput
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// The Volume ID of which to make a snapshot.
 	VolumeId pulumi.StringPtrInput

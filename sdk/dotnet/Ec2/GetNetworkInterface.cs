@@ -151,6 +151,10 @@ namespace Pulumi.Aws.Ec2
     public sealed class GetNetworkInterfaceResult
     {
         /// <summary>
+        /// The ARN of the network interface.
+        /// </summary>
+        public readonly string Arn;
+        /// <summary>
         /// The association information for an Elastic IP address (IPv4) associated with the network interface. See supported fields below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetNetworkInterfaceAssociationResult> Associations;
@@ -220,6 +224,8 @@ namespace Pulumi.Aws.Ec2
 
         [OutputConstructor]
         private GetNetworkInterfaceResult(
+            string arn,
+
             ImmutableArray<Outputs.GetNetworkInterfaceAssociationResult> associations,
 
             ImmutableArray<Outputs.GetNetworkInterfaceAttachmentResult> attachments,
@@ -258,6 +264,7 @@ namespace Pulumi.Aws.Ec2
 
             string vpcId)
         {
+            Arn = arn;
             Associations = associations;
             Attachments = attachments;
             AvailabilityZone = availabilityZone;

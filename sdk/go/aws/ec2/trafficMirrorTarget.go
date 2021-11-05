@@ -48,7 +48,7 @@ import (
 //
 // ## Import
 //
-// Traffic mirror targets can be imported using the `id`, e.g.
+// Traffic mirror targets can be imported using the `id`, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:ec2/trafficMirrorTarget:TrafficMirrorTarget target tmt-0c13a005422b86606
@@ -67,6 +67,7 @@ type TrafficMirrorTarget struct {
 	// The ID of the AWS account that owns the traffic mirror target.
 	OwnerId pulumi.StringOutput    `pulumi:"ownerId"`
 	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -110,6 +111,7 @@ type trafficMirrorTargetState struct {
 	// The ID of the AWS account that owns the traffic mirror target.
 	OwnerId *string           `pulumi:"ownerId"`
 	Tags    map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -125,6 +127,7 @@ type TrafficMirrorTargetState struct {
 	// The ID of the AWS account that owns the traffic mirror target.
 	OwnerId pulumi.StringPtrInput
 	Tags    pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 

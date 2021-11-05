@@ -165,7 +165,7 @@ class KeyGroup(pulumi.CustomResource):
 
         ## Import
 
-        CloudFront Key Group can be imported using the `id`, e.g.
+        CloudFront Key Group can be imported using the `id`, e.g.,
 
         ```sh
          $ pulumi import aws:cloudfront/keyGroup:KeyGroup example 4b4f2r1c-315d-5c2e-f093-216t50jed10f
@@ -202,7 +202,7 @@ class KeyGroup(pulumi.CustomResource):
 
         ## Import
 
-        CloudFront Key Group can be imported using the `id`, e.g.
+        CloudFront Key Group can be imported using the `id`, e.g.,
 
         ```sh
          $ pulumi import aws:cloudfront/keyGroup:KeyGroup example 4b4f2r1c-315d-5c2e-f093-216t50jed10f

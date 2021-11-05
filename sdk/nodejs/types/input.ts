@@ -171,29 +171,46 @@ export interface ProviderEndpoint {
     accessanalyzer?: pulumi.Input<string>;
     acm?: pulumi.Input<string>;
     acmpca?: pulumi.Input<string>;
+    alexaforbusiness?: pulumi.Input<string>;
     amplify?: pulumi.Input<string>;
+    amplifybackend?: pulumi.Input<string>;
     apigateway?: pulumi.Input<string>;
+    apigatewayv2?: pulumi.Input<string>;
+    appautoscaling?: pulumi.Input<string>;
     appconfig?: pulumi.Input<string>;
+    appflow?: pulumi.Input<string>;
+    appintegrations?: pulumi.Input<string>;
+    appintegrationsservice?: pulumi.Input<string>;
     applicationautoscaling?: pulumi.Input<string>;
+    applicationcostprofiler?: pulumi.Input<string>;
+    applicationdiscovery?: pulumi.Input<string>;
+    applicationdiscoveryservice?: pulumi.Input<string>;
     applicationinsights?: pulumi.Input<string>;
     appmesh?: pulumi.Input<string>;
+    appregistry?: pulumi.Input<string>;
     apprunner?: pulumi.Input<string>;
     appstream?: pulumi.Input<string>;
     appsync?: pulumi.Input<string>;
     athena?: pulumi.Input<string>;
     auditmanager?: pulumi.Input<string>;
+    augmentedairuntime?: pulumi.Input<string>;
     autoscaling?: pulumi.Input<string>;
     autoscalingplans?: pulumi.Input<string>;
     backup?: pulumi.Input<string>;
     batch?: pulumi.Input<string>;
+    braket?: pulumi.Input<string>;
     budgets?: pulumi.Input<string>;
     chime?: pulumi.Input<string>;
     cloud9?: pulumi.Input<string>;
+    cloudcontrol?: pulumi.Input<string>;
     cloudcontrolapi?: pulumi.Input<string>;
+    clouddirectory?: pulumi.Input<string>;
     cloudformation?: pulumi.Input<string>;
     cloudfront?: pulumi.Input<string>;
     cloudhsm?: pulumi.Input<string>;
+    cloudhsmv2?: pulumi.Input<string>;
     cloudsearch?: pulumi.Input<string>;
+    cloudsearchdomain?: pulumi.Input<string>;
     cloudtrail?: pulumi.Input<string>;
     cloudwatch?: pulumi.Input<string>;
     cloudwatchevents?: pulumi.Input<string>;
@@ -202,26 +219,44 @@ export interface ProviderEndpoint {
     codebuild?: pulumi.Input<string>;
     codecommit?: pulumi.Input<string>;
     codedeploy?: pulumi.Input<string>;
+    codeguruprofiler?: pulumi.Input<string>;
+    codegurureviewer?: pulumi.Input<string>;
     codepipeline?: pulumi.Input<string>;
+    codestar?: pulumi.Input<string>;
     codestarconnections?: pulumi.Input<string>;
+    codestarnotifications?: pulumi.Input<string>;
     cognitoidentity?: pulumi.Input<string>;
+    cognitoidentityprovider?: pulumi.Input<string>;
     cognitoidp?: pulumi.Input<string>;
+    cognitosync?: pulumi.Input<string>;
+    comprehend?: pulumi.Input<string>;
+    comprehendmedical?: pulumi.Input<string>;
+    config?: pulumi.Input<string>;
     configservice?: pulumi.Input<string>;
     connect?: pulumi.Input<string>;
+    connectcontactlens?: pulumi.Input<string>;
+    connectparticipant?: pulumi.Input<string>;
+    costandusagereportservice?: pulumi.Input<string>;
+    costexplorer?: pulumi.Input<string>;
     cur?: pulumi.Input<string>;
+    databasemigration?: pulumi.Input<string>;
+    databasemigrationservice?: pulumi.Input<string>;
     dataexchange?: pulumi.Input<string>;
     datapipeline?: pulumi.Input<string>;
     datasync?: pulumi.Input<string>;
     dax?: pulumi.Input<string>;
     detective?: pulumi.Input<string>;
     devicefarm?: pulumi.Input<string>;
+    devopsguru?: pulumi.Input<string>;
     directconnect?: pulumi.Input<string>;
     dlm?: pulumi.Input<string>;
     dms?: pulumi.Input<string>;
     docdb?: pulumi.Input<string>;
     ds?: pulumi.Input<string>;
     dynamodb?: pulumi.Input<string>;
+    dynamodbstreams?: pulumi.Input<string>;
     ec2?: pulumi.Input<string>;
+    ec2instanceconnect?: pulumi.Input<string>;
     ecr?: pulumi.Input<string>;
     ecrpublic?: pulumi.Input<string>;
     ecs?: pulumi.Input<string>;
@@ -229,69 +264,142 @@ export interface ProviderEndpoint {
     eks?: pulumi.Input<string>;
     elasticache?: pulumi.Input<string>;
     elasticbeanstalk?: pulumi.Input<string>;
+    elasticinference?: pulumi.Input<string>;
+    elasticsearch?: pulumi.Input<string>;
+    elasticsearchservice?: pulumi.Input<string>;
     elastictranscoder?: pulumi.Input<string>;
     elb?: pulumi.Input<string>;
+    elbv2?: pulumi.Input<string>;
     emr?: pulumi.Input<string>;
     emrcontainers?: pulumi.Input<string>;
     es?: pulumi.Input<string>;
+    finspace?: pulumi.Input<string>;
+    finspacedata?: pulumi.Input<string>;
     firehose?: pulumi.Input<string>;
+    fis?: pulumi.Input<string>;
     fms?: pulumi.Input<string>;
     forecast?: pulumi.Input<string>;
+    forecastquery?: pulumi.Input<string>;
+    forecastqueryservice?: pulumi.Input<string>;
+    forecastservice?: pulumi.Input<string>;
+    frauddetector?: pulumi.Input<string>;
     fsx?: pulumi.Input<string>;
     gamelift?: pulumi.Input<string>;
     glacier?: pulumi.Input<string>;
     globalaccelerator?: pulumi.Input<string>;
     glue?: pulumi.Input<string>;
+    gluedatabrew?: pulumi.Input<string>;
     greengrass?: pulumi.Input<string>;
+    greengrassv2?: pulumi.Input<string>;
+    groundstation?: pulumi.Input<string>;
     guardduty?: pulumi.Input<string>;
+    health?: pulumi.Input<string>;
+    healthlake?: pulumi.Input<string>;
+    honeycode?: pulumi.Input<string>;
     iam?: pulumi.Input<string>;
     identitystore?: pulumi.Input<string>;
     imagebuilder?: pulumi.Input<string>;
     inspector?: pulumi.Input<string>;
     iot?: pulumi.Input<string>;
+    iot1clickdevices?: pulumi.Input<string>;
+    iot1clickdevicesservice?: pulumi.Input<string>;
+    iot1clickprojects?: pulumi.Input<string>;
     iotanalytics?: pulumi.Input<string>;
+    iotdataplane?: pulumi.Input<string>;
+    iotdeviceadvisor?: pulumi.Input<string>;
     iotevents?: pulumi.Input<string>;
+    ioteventsdata?: pulumi.Input<string>;
+    iotfleethub?: pulumi.Input<string>;
+    iotjobsdataplane?: pulumi.Input<string>;
+    iotsecuretunneling?: pulumi.Input<string>;
+    iotsitewise?: pulumi.Input<string>;
+    iotthingsgraph?: pulumi.Input<string>;
+    iotwireless?: pulumi.Input<string>;
     kafka?: pulumi.Input<string>;
+    kendra?: pulumi.Input<string>;
     kinesis?: pulumi.Input<string>;
     kinesisanalytics?: pulumi.Input<string>;
     kinesisanalyticsv2?: pulumi.Input<string>;
     kinesisvideo?: pulumi.Input<string>;
+    kinesisvideoarchivedmedia?: pulumi.Input<string>;
+    kinesisvideomedia?: pulumi.Input<string>;
+    kinesisvideosignalingchannels?: pulumi.Input<string>;
     kms?: pulumi.Input<string>;
     lakeformation?: pulumi.Input<string>;
     lambda?: pulumi.Input<string>;
+    lexmodelbuilding?: pulumi.Input<string>;
+    lexmodelbuildingservice?: pulumi.Input<string>;
     lexmodels?: pulumi.Input<string>;
+    lexmodelsv2?: pulumi.Input<string>;
+    lexruntime?: pulumi.Input<string>;
+    lexruntimeservice?: pulumi.Input<string>;
+    lexruntimev2?: pulumi.Input<string>;
     licensemanager?: pulumi.Input<string>;
     lightsail?: pulumi.Input<string>;
     location?: pulumi.Input<string>;
+    lookoutequipment?: pulumi.Input<string>;
+    lookoutforvision?: pulumi.Input<string>;
+    lookoutmetrics?: pulumi.Input<string>;
+    machinelearning?: pulumi.Input<string>;
     macie?: pulumi.Input<string>;
     macie2?: pulumi.Input<string>;
     managedblockchain?: pulumi.Input<string>;
     marketplacecatalog?: pulumi.Input<string>;
+    marketplacecommerceanalytics?: pulumi.Input<string>;
+    marketplaceentitlement?: pulumi.Input<string>;
+    marketplaceentitlementservice?: pulumi.Input<string>;
+    marketplacemetering?: pulumi.Input<string>;
     mediaconnect?: pulumi.Input<string>;
     mediaconvert?: pulumi.Input<string>;
     medialive?: pulumi.Input<string>;
     mediapackage?: pulumi.Input<string>;
+    mediapackagevod?: pulumi.Input<string>;
     mediastore?: pulumi.Input<string>;
     mediastoredata?: pulumi.Input<string>;
+    mediatailor?: pulumi.Input<string>;
     memorydb?: pulumi.Input<string>;
+    mgn?: pulumi.Input<string>;
+    migrationhub?: pulumi.Input<string>;
+    migrationhubconfig?: pulumi.Input<string>;
+    mobile?: pulumi.Input<string>;
+    mobileanalytics?: pulumi.Input<string>;
     mq?: pulumi.Input<string>;
+    mturk?: pulumi.Input<string>;
     mwaa?: pulumi.Input<string>;
     neptune?: pulumi.Input<string>;
     networkfirewall?: pulumi.Input<string>;
     networkmanager?: pulumi.Input<string>;
+    nimblestudio?: pulumi.Input<string>;
     opsworks?: pulumi.Input<string>;
+    opsworkscm?: pulumi.Input<string>;
     organizations?: pulumi.Input<string>;
     outposts?: pulumi.Input<string>;
     personalize?: pulumi.Input<string>;
+    personalizeevents?: pulumi.Input<string>;
+    personalizeruntime?: pulumi.Input<string>;
+    pi?: pulumi.Input<string>;
     pinpoint?: pulumi.Input<string>;
+    pinpointemail?: pulumi.Input<string>;
+    pinpointsmsvoice?: pulumi.Input<string>;
+    polly?: pulumi.Input<string>;
     pricing?: pulumi.Input<string>;
+    prometheus?: pulumi.Input<string>;
+    prometheusservice?: pulumi.Input<string>;
+    proton?: pulumi.Input<string>;
     qldb?: pulumi.Input<string>;
+    qldbsession?: pulumi.Input<string>;
     quicksight?: pulumi.Input<string>;
     ram?: pulumi.Input<string>;
     rds?: pulumi.Input<string>;
+    rdsdata?: pulumi.Input<string>;
+    rdsdataservice?: pulumi.Input<string>;
     redshift?: pulumi.Input<string>;
+    redshiftdata?: pulumi.Input<string>;
+    rekognition?: pulumi.Input<string>;
     resourcegroups?: pulumi.Input<string>;
+    resourcegroupstagging?: pulumi.Input<string>;
     resourcegroupstaggingapi?: pulumi.Input<string>;
+    robomaker?: pulumi.Input<string>;
     route53?: pulumi.Input<string>;
     route53domains?: pulumi.Input<string>;
     route53recoverycontrolconfig?: pulumi.Input<string>;
@@ -301,33 +409,59 @@ export interface ProviderEndpoint {
     s3control?: pulumi.Input<string>;
     s3outposts?: pulumi.Input<string>;
     sagemaker?: pulumi.Input<string>;
+    sagemakeredgemanager?: pulumi.Input<string>;
+    sagemakerfeaturestoreruntime?: pulumi.Input<string>;
+    sagemakerruntime?: pulumi.Input<string>;
+    savingsplans?: pulumi.Input<string>;
     schemas?: pulumi.Input<string>;
     sdb?: pulumi.Input<string>;
     secretsmanager?: pulumi.Input<string>;
     securityhub?: pulumi.Input<string>;
+    serverlessapplicationrepository?: pulumi.Input<string>;
+    serverlessapprepo?: pulumi.Input<string>;
     serverlessrepo?: pulumi.Input<string>;
     servicecatalog?: pulumi.Input<string>;
     servicediscovery?: pulumi.Input<string>;
     servicequotas?: pulumi.Input<string>;
     ses?: pulumi.Input<string>;
+    sesv2?: pulumi.Input<string>;
+    sfn?: pulumi.Input<string>;
     shield?: pulumi.Input<string>;
     signer?: pulumi.Input<string>;
+    simpledb?: pulumi.Input<string>;
+    sms?: pulumi.Input<string>;
+    snowball?: pulumi.Input<string>;
     sns?: pulumi.Input<string>;
     sqs?: pulumi.Input<string>;
     ssm?: pulumi.Input<string>;
+    ssmcontacts?: pulumi.Input<string>;
+    ssmincidents?: pulumi.Input<string>;
+    sso?: pulumi.Input<string>;
     ssoadmin?: pulumi.Input<string>;
+    ssooidc?: pulumi.Input<string>;
     stepfunctions?: pulumi.Input<string>;
     storagegateway?: pulumi.Input<string>;
     sts?: pulumi.Input<string>;
+    support?: pulumi.Input<string>;
     swf?: pulumi.Input<string>;
     synthetics?: pulumi.Input<string>;
+    textract?: pulumi.Input<string>;
+    timestreamquery?: pulumi.Input<string>;
     timestreamwrite?: pulumi.Input<string>;
+    transcribe?: pulumi.Input<string>;
+    transcribeservice?: pulumi.Input<string>;
+    transcribestreaming?: pulumi.Input<string>;
+    transcribestreamingservice?: pulumi.Input<string>;
     transfer?: pulumi.Input<string>;
+    translate?: pulumi.Input<string>;
     waf?: pulumi.Input<string>;
     wafregional?: pulumi.Input<string>;
     wafv2?: pulumi.Input<string>;
+    wellarchitected?: pulumi.Input<string>;
+    workdocs?: pulumi.Input<string>;
     worklink?: pulumi.Input<string>;
     workmail?: pulumi.Input<string>;
+    workmailmessageflow?: pulumi.Input<string>;
     workspaces?: pulumi.Input<string>;
     xray?: pulumi.Input<string>;
 }
@@ -1187,7 +1321,7 @@ export namespace apigateway {
          */
         statusCode?: pulumi.Input<string>;
         /**
-         * The type of API entity to which the documentation content applies. e.g. `API`, `METHOD` or `REQUEST_BODY`
+         * The type of API entity to which the documentation content appliesE.g., `API`, `METHOD` or `REQUEST_BODY`
          */
         type: pulumi.Input<string>;
     }
@@ -1293,6 +1427,25 @@ export namespace apigateway {
          * API stage name of the associated API stage in a usage plan.
          */
         stage: pulumi.Input<string>;
+        /**
+         * The throttling limits of the usage plan.
+         */
+        throttles?: pulumi.Input<pulumi.Input<inputs.apigateway.UsagePlanApiStageThrottle>[]>;
+    }
+
+    export interface UsagePlanApiStageThrottle {
+        /**
+         * The API request burst limit, the maximum rate limit over a time ranging from one to a few seconds, depending upon whether the underlying token bucket is at its full capacity.
+         */
+        burstLimit?: pulumi.Input<number>;
+        /**
+         * The method to apply the throttle settings for. Specfiy the path and method, for example `/test/GET`.
+         */
+        path: pulumi.Input<string>;
+        /**
+         * The API request steady-state rate limit.
+         */
+        rateLimit?: pulumi.Input<number>;
     }
 
     export interface UsagePlanQuotaSettings {
@@ -4676,6 +4829,14 @@ export namespace autoscaling {
 
     export interface GroupInstanceRefreshPreferences {
         /**
+         * The number of seconds to wait after a checkpoint. Defaults to `3600`.
+         */
+        checkpointDelay?: pulumi.Input<string>;
+        /**
+         * List of percentages for each checkpoint. Values must be unique and in ascending order. To replace all instances, the final number must be `100`.
+         */
+        checkpointPercentages?: pulumi.Input<pulumi.Input<number>[]>;
+        /**
          * The number of seconds until a newly launched instance is configured and ready to use. Default behavior is to use the Auto Scaling Group's health check grace period.
          */
         instanceWarmup?: pulumi.Input<string>;
@@ -4729,7 +4890,7 @@ export namespace autoscaling {
          */
         spotAllocationStrategy?: pulumi.Input<string>;
         /**
-         * Number of Spot pools per availability zone to allocate capacity. EC2 Auto Scaling selects the cheapest Spot pools and evenly allocates Spot capacity across the number of Spot pools that you specify. Default: `2`.
+         * Number of Spot pools per availability zone to allocate capacity. EC2 Auto Scaling selects the cheapest Spot pools and evenly allocates Spot capacity across the number of Spot pools that you specify. Only available with `spotAllocationStrategy` set to `lowest-price`. Otherwise it must be set to `0`, if it has been defined before. Default: `2`.
          */
         spotInstancePools?: pulumi.Input<number>;
         /**
@@ -5308,11 +5469,15 @@ export namespace batch {
          */
         desiredVcpus?: pulumi.Input<number>;
         /**
+         * Provides information used to select Amazon Machine Images (AMIs) for EC2 instances in the compute environment. If Ec2Configuration isn't specified, the default is ECS_AL2. This parameter isn't applicable to jobs that are running on Fargate resources, and shouldn't be specified.
+         */
+        ec2Configuration?: pulumi.Input<inputs.batch.ComputeEnvironmentComputeResourcesEc2Configuration>;
+        /**
          * The EC2 key pair that is used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
          */
         ec2KeyPair?: pulumi.Input<string>;
         /**
-         * The Amazon Machine Image (AMI) ID used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+         * The Amazon Machine Image (AMI) ID used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified. (Deprecated, use `imageIdOverride` instead)
          */
         imageId?: pulumi.Input<string>;
         /**
@@ -5355,6 +5520,17 @@ export namespace batch {
          * The type of compute environment. Valid items are `EC2`, `SPOT`, `FARGATE` or `FARGATE_SPOT`.
          */
         type: pulumi.Input<string>;
+    }
+
+    export interface ComputeEnvironmentComputeResourcesEc2Configuration {
+        /**
+         * The AMI ID used for instances launched in the compute environment that match the image type. This setting overrides the `imageId` argument in the `computeResourcess block.
+         */
+        imageIdOverride?: pulumi.Input<string>;
+        /**
+         * The image type to match with the instance type to select an AMI. If the `imageIdOverride` parameter isn't specified, then a recent [Amazon ECS-optimized Amazon Linux 2 AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#al2ami) (`ECS_AL2`) is used.
+         */
+        imageType?: pulumi.Input<string>;
     }
 
     export interface ComputeEnvironmentComputeResourcesLaunchTemplate {
@@ -5612,7 +5788,7 @@ export namespace cfg {
 
     export interface DeliveryChannelSnapshotDeliveryProperties {
         /**
-         * - The frequency with which AWS Config recurringly delivers configuration snapshots. e.g. `One_Hour` or `Three_Hours`. Valid values are listed [here](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html#API_ConfigSnapshotDeliveryProperties_Contents).
+         * - The frequency with which AWS Config recurringly delivers configuration snapshotsE.g., `One_Hour` or `Three_Hours`. Valid values are listed [here](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html#API_ConfigSnapshotDeliveryProperties_Contents).
          */
         deliveryFrequency?: pulumi.Input<string>;
     }
@@ -5664,7 +5840,7 @@ export namespace cfg {
          */
         complianceResourceId?: pulumi.Input<string>;
         /**
-         * A list of resource types of only those AWS resources that you want to trigger an evaluation for the rule. e.g. `AWS::EC2::Instance`. You can only specify one type if you also specify a resource ID for `complianceResourceId`. See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types.
+         * A list of resource types of only those AWS resources that you want to trigger an evaluation for the ruleE.g., `AWS::EC2::Instance`. You can only specify one type if you also specify a resource ID for `complianceResourceId`. See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types.
          */
         complianceResourceTypes?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -5957,6 +6133,10 @@ export namespace cloudfront {
          */
         realtimeLogConfigArn?: pulumi.Input<string>;
         /**
+         * The identifier for a response headers policy.
+         */
+        responseHeadersPolicyId?: pulumi.Input<string>;
+        /**
          * Indicates whether you want to distribute
          * media files in Microsoft Smooth Streaming format using the origin that is
          * associated with this cache behavior.
@@ -6151,6 +6331,10 @@ export namespace cloudfront {
          * that is attached to this cache behavior.
          */
         realtimeLogConfigArn?: pulumi.Input<string>;
+        /**
+         * The identifier for a response headers policy.
+         */
+        responseHeadersPolicyId?: pulumi.Input<string>;
         /**
          * Indicates whether you want to distribute
          * media files in Microsoft Smooth Streaming format using the origin that is
@@ -6548,6 +6732,172 @@ export namespace cloudfront {
          */
         streamArn: pulumi.Input<string>;
     }
+
+    export interface ResponseHeadersPolicyCorsConfig {
+        /**
+         * A Boolean value that CloudFront uses as the value for the Access-Control-Allow-Credentials HTTP response header.
+         */
+        accessControlAllowCredentials: pulumi.Input<boolean>;
+        /**
+         * Object that contains an attribute `items` that contains a list of HTTP header names that CloudFront includes as values for the Access-Control-Allow-Headers HTTP response header.
+         */
+        accessControlAllowHeaders: pulumi.Input<inputs.cloudfront.ResponseHeadersPolicyCorsConfigAccessControlAllowHeaders>;
+        /**
+         * Object that contains an attribute `items` that contains a list of HTTP methods that CloudFront includes as values for the Access-Control-Allow-Methods HTTP response header. Valid values: `GET` | `POST` | `OPTIONS` | `PUT` | `DELETE` | `HEAD` | `ALL`
+         */
+        accessControlAllowMethods: pulumi.Input<inputs.cloudfront.ResponseHeadersPolicyCorsConfigAccessControlAllowMethods>;
+        /**
+         * Object that contains an attribute `items` that contains a list of origins that CloudFront can use as the value for the Access-Control-Allow-Origin HTTP response header.
+         */
+        accessControlAllowOrigins: pulumi.Input<inputs.cloudfront.ResponseHeadersPolicyCorsConfigAccessControlAllowOrigins>;
+        /**
+         * Object that contains an attribute `items` that contains a list of HTTP headers that CloudFront includes as values for the Access-Control-Expose-Headers HTTP response header.
+         */
+        accessControlExposeHeaders?: pulumi.Input<inputs.cloudfront.ResponseHeadersPolicyCorsConfigAccessControlExposeHeaders>;
+        /**
+         * A number that CloudFront uses as the value for the max-age directive in the Strict-Transport-Security HTTP response header.
+         */
+        accessControlMaxAgeSec?: pulumi.Input<number>;
+        originOverride: pulumi.Input<boolean>;
+    }
+
+    export interface ResponseHeadersPolicyCorsConfigAccessControlAllowHeaders {
+        items?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface ResponseHeadersPolicyCorsConfigAccessControlAllowMethods {
+        items?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface ResponseHeadersPolicyCorsConfigAccessControlAllowOrigins {
+        items?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface ResponseHeadersPolicyCorsConfigAccessControlExposeHeaders {
+        items?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface ResponseHeadersPolicyCustomHeadersConfig {
+        items?: pulumi.Input<pulumi.Input<inputs.cloudfront.ResponseHeadersPolicyCustomHeadersConfigItem>[]>;
+    }
+
+    export interface ResponseHeadersPolicyCustomHeadersConfigItem {
+        /**
+         * The HTTP response header name.
+         */
+        header: pulumi.Input<string>;
+        /**
+         * A Boolean value that determines whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
+         */
+        override: pulumi.Input<boolean>;
+        /**
+         * The value for the HTTP response header.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface ResponseHeadersPolicySecurityHeadersConfig {
+        /**
+         * TThe policy directives and their values that CloudFront includes as values for the Content-Security-Policy HTTP response header.
+         */
+        contentSecurityPolicy?: pulumi.Input<inputs.cloudfront.ResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicy>;
+        /**
+         * TA setting that determines whether CloudFront includes the X-Content-Type-Options HTTP response header with its value set to nosniff. See Content Type Options for more information.
+         */
+        contentTypeOptions?: pulumi.Input<inputs.cloudfront.ResponseHeadersPolicySecurityHeadersConfigContentTypeOptions>;
+        /**
+         * TA setting that determines whether CloudFront includes the X-Frame-Options HTTP response header and the header’s value. See Frame Options for more information.
+         */
+        frameOptions?: pulumi.Input<inputs.cloudfront.ResponseHeadersPolicySecurityHeadersConfigFrameOptions>;
+        /**
+         * The value of the Referrer-Policy HTTP response header. Valid Values: `no-referrer` | `no-referrer-when-downgrade` | `origin` | `origin-when-cross-origin` | `same-origin` | `strict-origin` | `strict-origin-when-cross-origin` | `unsafe-url`
+         */
+        referrerPolicy?: pulumi.Input<inputs.cloudfront.ResponseHeadersPolicySecurityHeadersConfigReferrerPolicy>;
+        strictTransportSecurity?: pulumi.Input<inputs.cloudfront.ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity>;
+        /**
+         * TSettings that determine whether CloudFront includes the X-XSS-Protection HTTP response header and the header’s value. See XSS Protection for more information.
+         */
+        xssProtection?: pulumi.Input<inputs.cloudfront.ResponseHeadersPolicySecurityHeadersConfigXssProtection>;
+    }
+
+    export interface ResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicy {
+        /**
+         * TThe policy directives and their values that CloudFront includes as values for the Content-Security-Policy HTTP response header.
+         */
+        contentSecurityPolicy: pulumi.Input<string>;
+        /**
+         * A Boolean value that determines whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
+         */
+        override: pulumi.Input<boolean>;
+    }
+
+    export interface ResponseHeadersPolicySecurityHeadersConfigContentTypeOptions {
+        /**
+         * A Boolean value that determines whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
+         */
+        override: pulumi.Input<boolean>;
+    }
+
+    export interface ResponseHeadersPolicySecurityHeadersConfigFrameOptions {
+        /**
+         * The value of the X-Frame-Options HTTP response header. Valid values: `DENY` | `SAMEORIGIN`
+         */
+        frameOption: pulumi.Input<string>;
+        /**
+         * A Boolean value that determines whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
+         */
+        override: pulumi.Input<boolean>;
+    }
+
+    export interface ResponseHeadersPolicySecurityHeadersConfigReferrerPolicy {
+        /**
+         * A Boolean value that determines whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
+         */
+        override: pulumi.Input<boolean>;
+        /**
+         * The value of the Referrer-Policy HTTP response header. Valid Values: `no-referrer` | `no-referrer-when-downgrade` | `origin` | `origin-when-cross-origin` | `same-origin` | `strict-origin` | `strict-origin-when-cross-origin` | `unsafe-url`
+         */
+        referrerPolicy: pulumi.Input<string>;
+    }
+
+    export interface ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity {
+        /**
+         * A number that CloudFront uses as the value for the max-age directive in the Strict-Transport-Security HTTP response header.
+         */
+        accessControlMaxAgeSec: pulumi.Input<number>;
+        /**
+         * A Boolean value that determines whether CloudFront includes the includeSubDomains directive in the Strict-Transport-Security HTTP response header.
+         */
+        includeSubdomains?: pulumi.Input<boolean>;
+        /**
+         * A Boolean value that determines whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
+         */
+        override: pulumi.Input<boolean>;
+        /**
+         * A Boolean value that determines whether CloudFront includes the preload directive in the Strict-Transport-Security HTTP response header.
+         */
+        preload?: pulumi.Input<boolean>;
+    }
+
+    export interface ResponseHeadersPolicySecurityHeadersConfigXssProtection {
+        /**
+         * A Boolean value that determines whether CloudFront includes the mode=block directive in the X-XSS-Protection header.
+         */
+        modeBlock?: pulumi.Input<boolean>;
+        /**
+         * A Boolean value that determines whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
+         */
+        override: pulumi.Input<boolean>;
+        /**
+         * A Boolean value that determines the value of the X-XSS-Protection HTTP response header. When this setting is true, the value of the X-XSS-Protection header is 1. When this setting is false, the value of the X-XSS-Protection header is 0.
+         */
+        protection: pulumi.Input<boolean>;
+        /**
+         * A Boolean value that determines whether CloudFront sets a reporting URI in the X-XSS-Protection header.
+         */
+        reportUri?: pulumi.Input<string>;
+    }
+
 }
 
 export namespace cloudhsmv2 {
@@ -6968,7 +7318,7 @@ export namespace cloudwatch {
          */
         inputPaths?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
-         * Template to customize data sent to the target. Must be valid JSON. To send a string value, the string value must include double quotes. Values must be escaped for both JSON and the provider, e.g. `"\"Your string goes here.\\nA new line.\""`
+         * Template to customize data sent to the target. Must be valid JSON. To send a string value, the string value must include double quotes. Values must be escaped for both JSON and the provider, e.g., `"\"Your string goes here.\\nA new line.\""`
          */
         inputTemplate: pulumi.Input<string>;
     }
@@ -7046,7 +7396,7 @@ export namespace cloudwatch {
          */
         dimensions?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
         /**
-         * The name of the CloudWatch metric to which the monitored log information should be published (e.g. `ErrorCount`)
+         * The name of the CloudWatch metric to which the monitored log information should be published (e.g., `ErrorCount`)
          */
         name: pulumi.Input<string>;
         /**
@@ -7252,7 +7602,7 @@ export namespace codebuild {
          */
         environmentVariables?: pulumi.Input<pulumi.Input<inputs.codebuild.ProjectEnvironmentEnvironmentVariable>[]>;
         /**
-         * Docker image to use for this build project. Valid values include [Docker images provided by CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-available.html) (e.g `aws/codebuild/standard:2.0`), [Docker Hub images](https://hub.docker.com/) (e.g. `nginx:latest`), and full Docker repository URIs such as those for ECR (e.g. `137112412989.dkr.ecr.us-west-2.amazonaws.com/amazonlinux:latest`).
+         * Docker image to use for this build project. Valid values include [Docker images provided by CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-available.html) (e.g `aws/codebuild/standard:2.0`), [Docker Hub images](https://hub.docker.com/) (e.g., `nginx/nginx:latest`), and full Docker repository URIs such as those for ECR (e.g., `137112412989.dkr.ecr.us-west-2.amazonaws.com/amazonlinux:latest`).
          */
         image: pulumi.Input<string>;
         /**
@@ -8047,7 +8397,7 @@ export namespace codepipeline {
          */
         jsonPath: pulumi.Input<string>;
         /**
-         * The value to match on (e.g. `refs/heads/{Branch}`). See [AWS docs](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_WebhookFilterRule.html) for details.
+         * The value to match on (e.g., `refs/heads/{Branch}`). See [AWS docs](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_WebhookFilterRule.html) for details.
          */
         matchEquals: pulumi.Input<string>;
     }
@@ -8259,7 +8609,7 @@ export namespace cognito {
          */
         emailSendingAccount?: pulumi.Input<string>;
         /**
-         * Sender’s email address or sender’s display name with their email address (e.g. `john@example.com`, `John Smith <john@example.com>` or `\"John Smith Ph.D.\" <john@example.com>`). Escaped double quotes are required around display names that contain certain characters as specified in [RFC 5322](https://tools.ietf.org/html/rfc5322).
+         * Sender’s email address or sender’s display name with their email address (e.g., `john@example.com`, `John Smith <john@example.com>` or `\"John Smith Ph.D.\" <john@example.com>`). Escaped double quotes are required around display names that contain certain characters as specified in [RFC 5322](https://tools.ietf.org/html/rfc5322).
          */
         fromEmailAddress?: pulumi.Input<string>;
         /**
@@ -8834,9 +9184,33 @@ export namespace dms {
 
     export interface EndpointKinesisSettings {
         /**
+         * Shows detailed control information for table definition, column definition, and table and column changes in the Kinesis message output. The default is `false`.
+         */
+        includeControlDetails?: pulumi.Input<boolean>;
+        /**
+         * Include NULL and empty columns in the target. The default is `false`.
+         */
+        includeNullAndEmpty?: pulumi.Input<boolean>;
+        /**
+         * Shows the partition value within the Kinesis message output, unless the partition type is schema-table-type. The default is `false`.
+         */
+        includePartitionValue?: pulumi.Input<boolean>;
+        /**
+         * Includes any data definition language (DDL) operations that change the table in the control data. The default is `false`.
+         */
+        includeTableAlterOperations?: pulumi.Input<boolean>;
+        /**
+         * Provides detailed transaction information from the source database. The default is `false`.
+         */
+        includeTransactionDetails?: pulumi.Input<boolean>;
+        /**
          * Output format for the records created. Defaults to `json`. Valid values are `json` and `jsonUnformatted` (a single line with no tab).
          */
         messageFormat?: pulumi.Input<string>;
+        /**
+         * Prefixes schema and table names to partition values, when the partition type is primary-key-type. The default is `false`.
+         */
+        partitionIncludeSchemaTable?: pulumi.Input<boolean>;
         /**
          * Amazon Resource Name (ARN) of the IAM Role with permissions to write to the Kinesis data stream.
          */
@@ -8960,7 +9334,7 @@ export namespace dynamodb {
 
     export interface GlobalTableReplica {
         /**
-         * AWS region name of replica DynamoDB Table. e.g. `us-east-1`
+         * AWS region name of replica DynamoDB TableE.g., `us-east-1`
          */
         regionName: pulumi.Input<string>;
     }
@@ -10782,7 +11156,7 @@ export namespace ec2 {
          */
         noDevice?: pulumi.Input<boolean>;
         /**
-         * [Instance Store Device Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames) (e.g. `ephemeral0`).
+         * [Instance Store Device Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames) (e.g., `ephemeral0`).
          */
         virtualName?: pulumi.Input<string>;
     }
@@ -10932,7 +11306,7 @@ export namespace ec2 {
         /**
          * The [Instance Store Device
          * Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames)
-         * (e.g. `"ephemeral0"`).
+         * (e.g., `"ephemeral0"`).
          */
         virtualName?: pulumi.Input<string>;
     }
@@ -10963,7 +11337,7 @@ export namespace ec2 {
          */
         snapshotId?: pulumi.Input<string>;
         /**
-         * The throughput to provision for a `gp3` volume in MiB/s (specified as an integer, e.g. 500), with a maximum of 1,000 MiB/s.
+         * The throughput to provision for a `gp3` volume in MiB/s (specified as an integer, e.g., 500), with a maximum of 1,000 MiB/s.
          */
         throughput?: pulumi.Input<number>;
         /**
@@ -11161,6 +11535,10 @@ export namespace ec2 {
          * One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. Conflicts with `ipv6AddressCount`
          */
         ipv6Addresses?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The index of the network card. Some instance types support multiple network cards. The primary network interface must be assigned to network card index 0. The default is network card index 0.
+         */
+        networkCardIndex?: pulumi.Input<number>;
         /**
          * The ID of the network interface to attach.
          */
@@ -11592,7 +11970,7 @@ export namespace ec2 {
          */
         name?: pulumi.Input<string>;
         /**
-         * Template version. Unlike the autoscaling equivalent, does not support `$Latest` or `$Default`, so use the launchTemplate resource's attribute, e.g. `"${aws_launch_template.foo.latest_version}"`. It will use the default version if omitted.
+         * Template version. Unlike the autoscaling equivalent, does not support `$Latest` or `$Default`, so use the launchTemplate resource's attribute, e.g., `"${aws_launch_template.foo.latest_version}"`. It will use the default version if omitted.
          */
         version?: pulumi.Input<string>;
     }
@@ -11724,7 +12102,7 @@ export namespace ec2 {
          */
         noDevice?: pulumi.Input<boolean>;
         /**
-         * [Instance Store Device Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames) (e.g. `ephemeral0`).
+         * [Instance Store Device Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames) (e.g., `ephemeral0`).
          */
         virtualName?: pulumi.Input<string>;
     }
@@ -12758,7 +13136,7 @@ export namespace eks {
          */
         groupsClaim?: pulumi.Input<string>;
         /**
-         * A prefix that is prepended to group claims e.g. `oidc:`.
+         * A prefix that is prepended to group claims e.g., `oidc:`.
          */
         groupsPrefix?: pulumi.Input<string>;
         /**
@@ -14903,7 +15281,7 @@ export namespace gamelift {
          */
         message?: pulumi.Input<string>;
         /**
-         * Type of routing strategy. e.g. `SIMPLE` or `TERMINAL`
+         * Type of routing strategyE.g., `SIMPLE` or `TERMINAL`
          */
         type: pulumi.Input<string>;
     }
@@ -14929,11 +15307,11 @@ export namespace gamelift {
          */
         fromPort: pulumi.Input<number>;
         /**
-         * Range of allowed IP addresses expressed in CIDR notation. e.g. `000.000.000.000/[subnet mask]` or `0.0.0.0/[subnet mask]`.
+         * Range of allowed IP addresses expressed in CIDR notationE.g., `000.000.000.000/[subnet mask]` or `0.0.0.0/[subnet mask]`.
          */
         ipRange: pulumi.Input<string>;
         /**
-         * Network communication protocol used by the fleet. e.g. `TCP` or `UDP`
+         * Network communication protocol used by the fleetE.g., `TCP` or `UDP`
          */
         protocol: pulumi.Input<string>;
         /**
@@ -15423,6 +15801,14 @@ export namespace glue {
          * The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
          */
         connectionName?: pulumi.Input<string>;
+        /**
+         * The ARN of the dead-letter SQS queue.
+         */
+        dlqEventQueueArn?: pulumi.Input<string>;
+        /**
+         * The ARN of the SQS queue to receive S3 notifications from.
+         */
+        eventQueueArn?: pulumi.Input<string>;
         /**
          * A list of glob patterns used to exclude from the crawl.
          */
@@ -16086,7 +16472,7 @@ export namespace iam {
 
     export interface GetPolicyDocumentStatementNotPrincipal {
         /**
-         * List of identifiers for principals. When `type` is `AWS`, these are IAM principal ARNs, e.g. `arn:aws:iam::12345678901:role/yak-role`.  When `type` is `Service`, these are AWS Service roles, e.g. `lambda.amazonaws.com`. When `type` is `Federated`, these are web identity users or SAML provider ARNs, e.g. `accounts.google.com` or `arn:aws:iam::12345678901:saml-provider/yak-saml-provider`. When `type` is `CanonicalUser`, these are [canonical user IDs](https://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html#FindingCanonicalId), e.g. `79a59df900b949e55d96a1e698fbacedfd6e09d98eacf8f8d5218e7cd47ef2be`.
+         * List of identifiers for principals. When `type` is `AWS`, these are IAM principal ARNs, e.g., `arn:aws:iam::12345678901:role/yak-role`.  When `type` is `Service`, these are AWS Service roles, e.g., `lambda.amazonaws.com`. When `type` is `Federated`, these are web identity users or SAML provider ARNs, e.g., `accounts.google.com` or `arn:aws:iam::12345678901:saml-provider/yak-saml-provider`. When `type` is `CanonicalUser`, these are [canonical user IDs](https://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html#FindingCanonicalId), e.g., `79a59df900b949e55d96a1e698fbacedfd6e09d98eacf8f8d5218e7cd47ef2be`.
          */
         identifiers: string[];
         /**
@@ -16097,7 +16483,7 @@ export namespace iam {
 
     export interface GetPolicyDocumentStatementNotPrincipalArgs {
         /**
-         * List of identifiers for principals. When `type` is `AWS`, these are IAM principal ARNs, e.g. `arn:aws:iam::12345678901:role/yak-role`.  When `type` is `Service`, these are AWS Service roles, e.g. `lambda.amazonaws.com`. When `type` is `Federated`, these are web identity users or SAML provider ARNs, e.g. `accounts.google.com` or `arn:aws:iam::12345678901:saml-provider/yak-saml-provider`. When `type` is `CanonicalUser`, these are [canonical user IDs](https://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html#FindingCanonicalId), e.g. `79a59df900b949e55d96a1e698fbacedfd6e09d98eacf8f8d5218e7cd47ef2be`.
+         * List of identifiers for principals. When `type` is `AWS`, these are IAM principal ARNs, e.g., `arn:aws:iam::12345678901:role/yak-role`.  When `type` is `Service`, these are AWS Service roles, e.g., `lambda.amazonaws.com`. When `type` is `Federated`, these are web identity users or SAML provider ARNs, e.g., `accounts.google.com` or `arn:aws:iam::12345678901:saml-provider/yak-saml-provider`. When `type` is `CanonicalUser`, these are [canonical user IDs](https://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html#FindingCanonicalId), e.g., `79a59df900b949e55d96a1e698fbacedfd6e09d98eacf8f8d5218e7cd47ef2be`.
          */
         identifiers: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -16108,7 +16494,7 @@ export namespace iam {
 
     export interface GetPolicyDocumentStatementPrincipal {
         /**
-         * List of identifiers for principals. When `type` is `AWS`, these are IAM principal ARNs, e.g. `arn:aws:iam::12345678901:role/yak-role`.  When `type` is `Service`, these are AWS Service roles, e.g. `lambda.amazonaws.com`. When `type` is `Federated`, these are web identity users or SAML provider ARNs, e.g. `accounts.google.com` or `arn:aws:iam::12345678901:saml-provider/yak-saml-provider`. When `type` is `CanonicalUser`, these are [canonical user IDs](https://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html#FindingCanonicalId), e.g. `79a59df900b949e55d96a1e698fbacedfd6e09d98eacf8f8d5218e7cd47ef2be`.
+         * List of identifiers for principals. When `type` is `AWS`, these are IAM principal ARNs, e.g., `arn:aws:iam::12345678901:role/yak-role`.  When `type` is `Service`, these are AWS Service roles, e.g., `lambda.amazonaws.com`. When `type` is `Federated`, these are web identity users or SAML provider ARNs, e.g., `accounts.google.com` or `arn:aws:iam::12345678901:saml-provider/yak-saml-provider`. When `type` is `CanonicalUser`, these are [canonical user IDs](https://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html#FindingCanonicalId), e.g., `79a59df900b949e55d96a1e698fbacedfd6e09d98eacf8f8d5218e7cd47ef2be`.
          */
         identifiers: string[];
         /**
@@ -16119,7 +16505,7 @@ export namespace iam {
 
     export interface GetPolicyDocumentStatementPrincipalArgs {
         /**
-         * List of identifiers for principals. When `type` is `AWS`, these are IAM principal ARNs, e.g. `arn:aws:iam::12345678901:role/yak-role`.  When `type` is `Service`, these are AWS Service roles, e.g. `lambda.amazonaws.com`. When `type` is `Federated`, these are web identity users or SAML provider ARNs, e.g. `accounts.google.com` or `arn:aws:iam::12345678901:saml-provider/yak-saml-provider`. When `type` is `CanonicalUser`, these are [canonical user IDs](https://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html#FindingCanonicalId), e.g. `79a59df900b949e55d96a1e698fbacedfd6e09d98eacf8f8d5218e7cd47ef2be`.
+         * List of identifiers for principals. When `type` is `AWS`, these are IAM principal ARNs, e.g., `arn:aws:iam::12345678901:role/yak-role`.  When `type` is `Service`, these are AWS Service roles, e.g., `lambda.amazonaws.com`. When `type` is `Federated`, these are web identity users or SAML provider ARNs, e.g., `accounts.google.com` or `arn:aws:iam::12345678901:saml-provider/yak-saml-provider`. When `type` is `CanonicalUser`, these are [canonical user IDs](https://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html#FindingCanonicalId), e.g., `79a59df900b949e55d96a1e698fbacedfd6e09d98eacf8f8d5218e7cd47ef2be`.
          */
         identifiers: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -20502,15 +20888,15 @@ export namespace mq {
 
     export interface BrokerMaintenanceWindowStartTime {
         /**
-         * Day of the week, e.g. `MONDAY`, `TUESDAY`, or `WEDNESDAY`.
+         * Day of the week, e.g., `MONDAY`, `TUESDAY`, or `WEDNESDAY`.
          */
         dayOfWeek: pulumi.Input<string>;
         /**
-         * Time, in 24-hour format, e.g. `02:00`.
+         * Time, in 24-hour format, e.g., `02:00`.
          */
         timeOfDay: pulumi.Input<string>;
         /**
-         * Time zone in either the Country/City format or the UTC offset format, e.g. `CET`.
+         * Time zone in either the Country/City format or the UTC offset format, e.g., `CET`.
          */
         timeZone: pulumi.Input<string>;
     }
@@ -20551,7 +20937,7 @@ export namespace msk {
          */
         ebsVolumeSize: pulumi.Input<number>;
         /**
-         * Specify the instance type to use for the kafka brokers. e.g. kafka.m5.large. ([Pricing info](https://aws.amazon.com/msk/pricing/))
+         * Specify the instance type to use for the kafka brokersE.g., kafka.m5.large. ([Pricing info](https://aws.amazon.com/msk/pricing/))
          */
         instanceType: pulumi.Input<string>;
         /**
@@ -22389,7 +22775,7 @@ export namespace rds {
          */
         dbSecurityGroupMemberships?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * The Name of the Option (e.g. MEMCACHED).
+         * The Name of the Option (e.g., MEMCACHED).
          */
         optionName: pulumi.Input<string>;
         /**
@@ -22397,11 +22783,11 @@ export namespace rds {
          */
         optionSettings?: pulumi.Input<pulumi.Input<inputs.rds.OptionGroupOptionOptionSetting>[]>;
         /**
-         * The Port number when connecting to the Option (e.g. 11211).
+         * The Port number when connecting to the Option (e.g., 11211).
          */
         port?: pulumi.Input<number>;
         /**
-         * The version of the option (e.g. 13.1.0.0).
+         * The version of the option (e.g., 13.1.0.0).
          */
         version?: pulumi.Input<string>;
         /**
@@ -23268,10 +23654,18 @@ export namespace s3 {
          */
         bucket: pulumi.Input<string>;
         /**
+         * Enables replication metrics (required for S3 RTC) (documented below).
+         */
+        metrics?: pulumi.Input<inputs.s3.BucketReplicationConfigurationRuleDestinationMetrics>;
+        /**
          * Destination KMS encryption key ARN for SSE-KMS replication. Must be used in conjunction with
          * `sseKmsEncryptedObjects` source selection criteria.
          */
         replicaKmsKeyId?: pulumi.Input<string>;
+        /**
+         * Enables S3 Replication Time Control (S3 RTC) (documented below).
+         */
+        replicationTime?: pulumi.Input<inputs.s3.BucketReplicationConfigurationRuleDestinationReplicationTime>;
         /**
          * The class of storage used to store the object. Can be `STANDARD`, `REDUCED_REDUNDANCY`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `GLACIER`, or `DEEP_ARCHIVE`.
          */
@@ -23283,6 +23677,28 @@ export namespace s3 {
          * The override value for the owner on replicated objects. Currently only `Destination` is supported.
          */
         owner: pulumi.Input<string>;
+    }
+
+    export interface BucketReplicationConfigurationRuleDestinationMetrics {
+        /**
+         * Threshold within which objects are to be replicated. The only valid value is `15`.
+         */
+        minutes?: pulumi.Input<number>;
+        /**
+         * The status of replication metrics. Either `Enabled` or `Disabled`.
+         */
+        status?: pulumi.Input<string>;
+    }
+
+    export interface BucketReplicationConfigurationRuleDestinationReplicationTime {
+        /**
+         * Threshold within which objects are to be replicated. The only valid value is `15`.
+         */
+        minutes?: pulumi.Input<number>;
+        /**
+         * The status of RTC. Either `Enabled` or `Disabled`.
+         */
+        status?: pulumi.Input<string>;
     }
 
     export interface BucketReplicationConfigurationRuleFilter {
@@ -23495,7 +23911,7 @@ export namespace s3control {
 
     export interface BucketLifecycleConfigurationRuleExpiration {
         /**
-         * Date the object is to be deleted. Should be in `YYYY-MM-DD` date format, e.g. `2020-09-30`.
+         * Date the object is to be deleted. Should be in `YYYY-MM-DD` date format, e.g., `2020-09-30`.
          */
         date?: pulumi.Input<string>;
         /**
@@ -26833,13 +27249,13 @@ export namespace waf {
         /**
          * Within the portion of a web request that you want to search
          * (for example, in the query string, if any), specify where you want to search.
-         * e.g. `CONTAINS`, `CONTAINS_WORD` or `EXACTLY`.
+         * e.g., `CONTAINS`, `CONTAINS_WORD` or `EXACTLY`.
          * See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-PositionalConstraint)
          * for all supported values.
          */
         positionalConstraint: pulumi.Input<string>;
         /**
-         * The value that you want to search for. e.g. `HEADER`, `METHOD` or `BODY`.
+         * The value that you want to search forE.g., `HEADER`, `METHOD` or `BODY`.
          * See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-TargetString)
          * for all supported values.
          */
@@ -26847,7 +27263,7 @@ export namespace waf {
         /**
          * Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
          * If you specify a transformation, AWS WAF performs the transformation on `targetString` before inspecting a request for a match.
-         * e.g. `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
+         * e.g., `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
          * See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-TextTransformation)
          * for all supported values.
          */
@@ -26856,13 +27272,13 @@ export namespace waf {
 
     export interface ByteMatchSetByteMatchTupleFieldToMatch {
         /**
-         * When `type` is `HEADER`, enter the name of the header that you want to search, e.g. `User-Agent` or `Referer`.
+         * When `type` is `HEADER`, enter the name of the header that you want to search, e.g., `User-Agent` or `Referer`.
          * If `type` is any other value, omit this field.
          */
         data?: pulumi.Input<string>;
         /**
          * The part of the web request that you want AWS WAF to search for a specified string.
-         * e.g. `HEADER`, `METHOD` or `BODY`.
+         * e.g., `HEADER`, `METHOD` or `BODY`.
          * See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_FieldToMatch.html)
          * for all supported values.
          */
@@ -26876,7 +27292,7 @@ export namespace waf {
         type: pulumi.Input<string>;
         /**
          * The country that you want AWS WAF to search for.
-         * This is the two-letter country code, e.g. `US`, `CA`, `RU`, `CN`, etc.
+         * This is the two-letter country code, e.g., `US`, `CA`, `RU`, `CN`, etc.
          * See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchConstraint.html) for all supported values.
          */
         value: pulumi.Input<string>;
@@ -26888,7 +27304,7 @@ export namespace waf {
          */
         type: pulumi.Input<string>;
         /**
-         * An IPv4 or IPv6 address specified via CIDR notation. e.g. `192.0.2.44/32` or `1111:0000:0000:0000:0000:0000:0000:0000/64`
+         * An IPv4 or IPv6 address specified via CIDR notationE.g., `192.0.2.44/32` or `1111:0000:0000:0000:0000:0000:0000:0000/64`
          */
         value: pulumi.Input<string>;
     }
@@ -26931,13 +27347,13 @@ export namespace waf {
 
     export interface RegexMatchSetRegexMatchTupleFieldToMatch {
         /**
-         * When `type` is `HEADER`, enter the name of the header that you want to search, e.g. `User-Agent` or `Referer`.
+         * When `type` is `HEADER`, enter the name of the header that you want to search, e.g., `User-Agent` or `Referer`.
          * If `type` is any other value, omit this field.
          */
         data?: pulumi.Input<string>;
         /**
          * The part of the web request that you want AWS WAF to search for a specified string.
-         * e.g. `HEADER`, `METHOD` or `BODY`.
+         * e.g., `HEADER`, `METHOD` or `BODY`.
          * See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_FieldToMatch.html)
          * for all supported values.
          */
@@ -26991,7 +27407,7 @@ export namespace waf {
     export interface SizeConstraintSetSizeConstraint {
         /**
          * The type of comparison you want to perform.
-         * e.g. `EQ`, `NE`, `LT`, `GT`.
+         * e.g., `EQ`, `NE`, `LT`, `GT`.
          * See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_wafRegional_SizeConstraint.html) for all supported values.
          */
         comparisonOperator: pulumi.Input<string>;
@@ -27007,7 +27423,7 @@ export namespace waf {
         /**
          * Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
          * If you specify a transformation, AWS WAF performs the transformation on `fieldToMatch` before inspecting a request for a match.
-         * e.g. `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
+         * e.g., `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
          * See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_SizeConstraint.html#WAF-Type-SizeConstraint-TextTransformation)
          * for all supported values.
          * **Note:** if you choose `BODY` as `type`, you must choose `NONE` because CloudFront forwards only the first 8192 bytes for inspection.
@@ -27017,13 +27433,13 @@ export namespace waf {
 
     export interface SizeConstraintSetSizeConstraintFieldToMatch {
         /**
-         * When `type` is `HEADER`, enter the name of the header that you want to search, e.g. `User-Agent` or `Referer`.
+         * When `type` is `HEADER`, enter the name of the header that you want to search, e.g., `User-Agent` or `Referer`.
          * If `type` is any other value, omit this field.
          */
         data?: pulumi.Input<string>;
         /**
          * The part of the web request that you want AWS WAF to search for a specified string.
-         * e.g. `HEADER`, `METHOD` or `BODY`.
+         * e.g., `HEADER`, `METHOD` or `BODY`.
          * See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_FieldToMatch.html)
          * for all supported values.
          */
@@ -27038,7 +27454,7 @@ export namespace waf {
         /**
          * Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
          * If you specify a transformation, AWS WAF performs the transformation on `fieldToMatch` before inspecting a request for a match.
-         * e.g. `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
+         * e.g., `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
          * See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_SqlInjectionMatchTuple.html#WAF-Type-SqlInjectionMatchTuple-TextTransformation)
          * for all supported values.
          */
@@ -27047,13 +27463,13 @@ export namespace waf {
 
     export interface SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatch {
         /**
-         * When `type` is `HEADER`, enter the name of the header that you want to search, e.g. `User-Agent` or `Referer`.
+         * When `type` is `HEADER`, enter the name of the header that you want to search, e.g., `User-Agent` or `Referer`.
          * If `type` is any other value, omit this field.
          */
         data?: pulumi.Input<string>;
         /**
          * The part of the web request that you want AWS WAF to search for a specified string.
-         * e.g. `HEADER`, `METHOD` or `BODY`.
+         * e.g., `HEADER`, `METHOD` or `BODY`.
          * See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_FieldToMatch.html)
          * for all supported values.
          */
@@ -27142,7 +27558,7 @@ export namespace waf {
         /**
          * Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
          * If you specify a transformation, AWS WAF performs the transformation on `targetString` before inspecting a request for a match.
-         * e.g. `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
+         * e.g., `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
          * See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_XssMatchTuple.html#WAF-Type-XssMatchTuple-TextTransformation)
          * for all supported values.
          */
@@ -27151,13 +27567,13 @@ export namespace waf {
 
     export interface XssMatchSetXssMatchTupleFieldToMatch {
         /**
-         * When `type` is `HEADER`, enter the name of the header that you want to search, e.g. `User-Agent` or `Referer`.
+         * When `type` is `HEADER`, enter the name of the header that you want to search, e.g., `User-Agent` or `Referer`.
          * If `type` is any other value, omit this field.
          */
         data?: pulumi.Input<string>;
         /**
          * The part of the web request that you want AWS WAF to search for a specified string.
-         * e.g. `HEADER`, `METHOD` or `BODY`.
+         * e.g., `HEADER`, `METHOD` or `BODY`.
          * See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_FieldToMatch.html)
          * for all supported values.
          */
@@ -27203,7 +27619,7 @@ export namespace wafregional {
         type: pulumi.Input<string>;
         /**
          * The country that you want AWS WAF to search for.
-         * This is the two-letter country code, e.g. `US`, `CA`, `RU`, `CN`, etc.
+         * This is the two-letter country code, e.g., `US`, `CA`, `RU`, `CN`, etc.
          * See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchConstraint.html) for all supported values.
          */
         value: pulumi.Input<string>;
@@ -27258,13 +27674,13 @@ export namespace wafregional {
 
     export interface RegexMatchSetRegexMatchTupleFieldToMatch {
         /**
-         * When `type` is `HEADER`, enter the name of the header that you want to search, e.g. `User-Agent` or `Referer`.
+         * When `type` is `HEADER`, enter the name of the header that you want to search, e.g., `User-Agent` or `Referer`.
          * If `type` is any other value, omit this field.
          */
         data?: pulumi.Input<string>;
         /**
          * The part of the web request that you want AWS WAF to search for a specified string.
-         * e.g. `HEADER`, `METHOD` or `BODY`.
+         * e.g., `HEADER`, `METHOD` or `BODY`.
          * See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_FieldToMatch.html)
          * for all supported values.
          */
@@ -27306,7 +27722,7 @@ export namespace wafregional {
     export interface SizeConstraintSetSizeConstraint {
         /**
          * The type of comparison you want to perform.
-         * e.g. `EQ`, `NE`, `LT`, `GT`.
+         * e.g., `EQ`, `NE`, `LT`, `GT`.
          * See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_wafRegional_SizeConstraint.html) for all supported values.
          */
         comparisonOperator: pulumi.Input<string>;
@@ -27322,7 +27738,7 @@ export namespace wafregional {
         /**
          * Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
          * If you specify a transformation, AWS WAF performs the transformation on `fieldToMatch` before inspecting a request for a match.
-         * e.g. `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
+         * e.g., `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
          * See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_SizeConstraint.html#WAF-Type-SizeConstraint-TextTransformation)
          * for all supported values.
          * **Note:** if you choose `BODY` as `type`, you must choose `NONE` because CloudFront forwards only the first 8192 bytes for inspection.
@@ -27332,13 +27748,13 @@ export namespace wafregional {
 
     export interface SizeConstraintSetSizeConstraintFieldToMatch {
         /**
-         * When `type` is `HEADER`, enter the name of the header that you want to search, e.g. `User-Agent` or `Referer`.
+         * When `type` is `HEADER`, enter the name of the header that you want to search, e.g., `User-Agent` or `Referer`.
          * If `type` is any other value, omit this field.
          */
         data?: pulumi.Input<string>;
         /**
          * The part of the web request that you want AWS WAF to search for a specified string.
-         * e.g. `HEADER`, `METHOD` or `BODY`.
+         * e.g., `HEADER`, `METHOD` or `BODY`.
          * See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_FieldToMatch.html)
          * for all supported values.
          */
@@ -27353,7 +27769,7 @@ export namespace wafregional {
         /**
          * Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
          * If you specify a transformation, AWS WAF performs the transformation on `fieldToMatch` before inspecting a request for a match.
-         * e.g. `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
+         * e.g., `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
          * See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_regional_SqlInjectionMatchTuple.html#WAF-Type-regional_SqlInjectionMatchTuple-TextTransformation)
          * for all supported values.
          */
@@ -27362,13 +27778,13 @@ export namespace wafregional {
 
     export interface SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatch {
         /**
-         * When `type` is `HEADER`, enter the name of the header that you want to search, e.g. `User-Agent` or `Referer`.
+         * When `type` is `HEADER`, enter the name of the header that you want to search, e.g., `User-Agent` or `Referer`.
          * If `type` is any other value, omit this field.
          */
         data?: pulumi.Input<string>;
         /**
          * The part of the web request that you want AWS WAF to search for a specified string.
-         * e.g. `HEADER`, `METHOD` or `BODY`.
+         * e.g., `HEADER`, `METHOD` or `BODY`.
          * See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_regional_FieldToMatch.html)
          * for all supported values.
          */
@@ -27377,7 +27793,7 @@ export namespace wafregional {
 
     export interface WebAclDefaultAction {
         /**
-         * Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. e.g. `ALLOW`, `BLOCK` or `COUNT`
+         * Specifies how you want AWS WAF Regional to respond to requests that match the settings in a ruleE.g., `ALLOW`, `BLOCK` or `COUNT`
          */
         type: pulumi.Input<string>;
     }
@@ -27406,7 +27822,7 @@ export namespace wafregional {
          */
         data?: pulumi.Input<string>;
         /**
-         * Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. e.g. `ALLOW`, `BLOCK` or `COUNT`
+         * Specifies how you want AWS WAF Regional to respond to requests that match the settings in a ruleE.g., `ALLOW`, `BLOCK` or `COUNT`
          */
         type: pulumi.Input<string>;
     }
@@ -27430,21 +27846,21 @@ export namespace wafregional {
          */
         ruleId: pulumi.Input<string>;
         /**
-         * Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. e.g. `ALLOW`, `BLOCK` or `COUNT`
+         * Specifies how you want AWS WAF Regional to respond to requests that match the settings in a ruleE.g., `ALLOW`, `BLOCK` or `COUNT`
          */
         type?: pulumi.Input<string>;
     }
 
     export interface WebAclRuleAction {
         /**
-         * Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. e.g. `ALLOW`, `BLOCK` or `COUNT`
+         * Specifies how you want AWS WAF Regional to respond to requests that match the settings in a ruleE.g., `ALLOW`, `BLOCK` or `COUNT`
          */
         type: pulumi.Input<string>;
     }
 
     export interface WebAclRuleOverrideAction {
         /**
-         * Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. e.g. `ALLOW`, `BLOCK` or `COUNT`
+         * Specifies how you want AWS WAF Regional to respond to requests that match the settings in a ruleE.g., `ALLOW`, `BLOCK` or `COUNT`
          */
         type: pulumi.Input<string>;
     }
@@ -27466,7 +27882,7 @@ export namespace wafregional {
          */
         data?: pulumi.Input<string>;
         /**
-         * The part of the web request that you want AWS WAF to search for a specified string. e.g. `HEADER` or `METHOD`
+         * The part of the web request that you want AWS WAF to search for a specified stringE.g., `HEADER` or `METHOD`
          */
         type: pulumi.Input<string>;
     }
@@ -34683,7 +35099,7 @@ export namespace wafv2 {
 
     export interface WebAclRuleOverrideAction {
         /**
-         * Override the rule action setting to count (i.e. only count matches). Configured as an empty block `{}`.
+         * Override the rule action setting to count (i.e., only count matches). Configured as an empty block `{}`.
          */
         count?: pulumi.Input<inputs.wafv2.WebAclRuleOverrideActionCount>;
         /**
@@ -69218,7 +69634,7 @@ export namespace workspaces {
          */
         description?: pulumi.Input<string>;
         /**
-         * The IP address range, in CIDR notation, e.g. `10.0.0.0/16`
+         * The IP address range, in CIDR notation, e.g., `10.0.0.0/16`
          */
         source: pulumi.Input<string>;
     }

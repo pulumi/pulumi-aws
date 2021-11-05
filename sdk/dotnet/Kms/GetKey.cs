@@ -181,6 +181,8 @@ namespace Pulumi.Aws.Kms
         public readonly string KeyManager;
         public readonly string KeyState;
         public readonly string KeyUsage;
+        public readonly bool MultiRegion;
+        public readonly ImmutableArray<Outputs.GetKeyMultiRegionConfigurationResult> MultiRegionConfigurations;
         public readonly string Origin;
         public readonly string ValidTo;
 
@@ -214,6 +216,10 @@ namespace Pulumi.Aws.Kms
 
             string keyUsage,
 
+            bool multiRegion,
+
+            ImmutableArray<Outputs.GetKeyMultiRegionConfigurationResult> multiRegionConfigurations,
+
             string origin,
 
             string validTo)
@@ -232,6 +238,8 @@ namespace Pulumi.Aws.Kms
             KeyManager = keyManager;
             KeyState = keyState;
             KeyUsage = keyUsage;
+            MultiRegion = multiRegion;
+            MultiRegionConfigurations = multiRegionConfigurations;
             Origin = origin;
             ValidTo = validTo;
         }

@@ -49,7 +49,7 @@ import (
 //
 // ## Import
 //
-// Direct Connect transit virtual interfaces can be imported using the `vif id`, e.g.
+// Direct Connect transit virtual interfaces can be imported using the `vif id`, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:directconnect/transitVirtualInterface:TransitVirtualInterface test dxvif-33cc44dd

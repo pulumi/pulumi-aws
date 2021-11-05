@@ -70,7 +70,7 @@ import (
 //
 // ## Import
 //
-// `aws_appstream_stack` can be imported using the id, e.g.
+// `aws_appstream_stack` can be imported using the id, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:appstream/stack:Stack example stackID
@@ -212,7 +212,6 @@ type stackArgs struct {
 	// Configuration block for the storage connectors to enable. See below.
 	StorageConnectors []StackStorageConnector `pulumi:"storageConnectors"`
 	Tags              map[string]string       `pulumi:"tags"`
-	TagsAll           map[string]string       `pulumi:"tagsAll"`
 	// Configuration block for the actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled. See below.
 	UserSettings []StackUserSetting `pulumi:"userSettings"`
 }
@@ -237,7 +236,6 @@ type StackArgs struct {
 	// Configuration block for the storage connectors to enable. See below.
 	StorageConnectors StackStorageConnectorArrayInput
 	Tags              pulumi.StringMapInput
-	TagsAll           pulumi.StringMapInput
 	// Configuration block for the actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled. See below.
 	UserSettings StackUserSettingArrayInput
 }

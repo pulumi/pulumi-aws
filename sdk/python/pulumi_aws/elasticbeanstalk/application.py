@@ -90,6 +90,7 @@ class _ApplicationState:
         :param pulumi.Input[str] arn: The ARN assigned by AWS for this Elastic Beanstalk Application.
         :param pulumi.Input[str] description: Short description of the application
         :param pulumi.Input[str] name: The name of the application, must be unique within your account
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if appversion_lifecycle is not None:
             pulumi.set(__self__, "appversion_lifecycle", appversion_lifecycle)
@@ -161,6 +162,9 @@ class _ApplicationState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -203,7 +207,7 @@ class Application(pulumi.CustomResource):
 
         ## Import
 
-        Elastic Beanstalk Applications can be imported using the `name`, e.g.
+        Elastic Beanstalk Applications can be imported using the `name`, e.g.,
 
         ```sh
          $ pulumi import aws:elasticbeanstalk/application:Application tf_test tf-test-name
@@ -245,7 +249,7 @@ class Application(pulumi.CustomResource):
 
         ## Import
 
-        Elastic Beanstalk Applications can be imported using the `name`, e.g.
+        Elastic Beanstalk Applications can be imported using the `name`, e.g.,
 
         ```sh
          $ pulumi import aws:elasticbeanstalk/application:Application tf_test tf-test-name
@@ -314,6 +318,7 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[str] arn: The ARN assigned by AWS for this Elastic Beanstalk Application.
         :param pulumi.Input[str] description: Short description of the application
         :param pulumi.Input[str] name: The name of the application, must be unique within your account
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -364,5 +369,8 @@ class Application(pulumi.CustomResource):
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 

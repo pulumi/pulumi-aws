@@ -38,7 +38,7 @@ namespace Pulumi.Aws.Fsx
     /// 
     /// ## Import
     /// 
-    /// FSx File Systems can be imported using the `id`, e.g.
+    /// FSx File Systems can be imported using the `id`, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:fsx/lustreFileSystem:LustreFileSystem example fs-543ab12b1ca672f33
@@ -110,7 +110,7 @@ namespace Pulumi.Aws.Fsx
         public Output<string?> DeploymentType { get; private set; } = null!;
 
         /// <summary>
-        /// DNS name for the file system, e.g. `fs-12345678.fsx.us-west-2.amazonaws.com`
+        /// DNS name for the file system, e.g., `fs-12345678.fsx.us-west-2.amazonaws.com`
         /// </summary>
         [Output("dnsName")]
         public Output<string> DnsName { get; private set; } = null!;
@@ -445,7 +445,7 @@ namespace Pulumi.Aws.Fsx
         public Input<string>? DeploymentType { get; set; }
 
         /// <summary>
-        /// DNS name for the file system, e.g. `fs-12345678.fsx.us-west-2.amazonaws.com`
+        /// DNS name for the file system, e.g., `fs-12345678.fsx.us-west-2.amazonaws.com`
         /// </summary>
         [Input("dnsName")]
         public Input<string>? DnsName { get; set; }

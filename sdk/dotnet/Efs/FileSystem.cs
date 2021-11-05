@@ -58,7 +58,7 @@ namespace Pulumi.Aws.Efs
     /// 
     /// ## Import
     /// 
-    /// The EFS file systems can be imported using the `id`, e.g.
+    /// The EFS file systems can be imported using the `id`, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:efs/fileSystem:FileSystem foo fs-6fa144c6
@@ -151,6 +151,9 @@ namespace Pulumi.Aws.Efs
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -369,6 +372,10 @@ namespace Pulumi.Aws.Efs
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// <summary>
         /// The [Instance Store Device
         /// Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames)
-        /// (e.g. `"ephemeral0"`).
+        /// (e.g., `"ephemeral0"`).
         /// </summary>
         public readonly string? VirtualName;
 

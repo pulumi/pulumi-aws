@@ -134,7 +134,7 @@ namespace Pulumi.Aws.Ecs
     /// 
     /// ## Import
     /// 
-    /// ECS services can be imported using the `name` together with ecs cluster `name`, e.g.
+    /// ECS services can be imported using the `name` together with ecs cluster `name`, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:ecs/service:Service imported cluster-name/service-name
@@ -198,7 +198,7 @@ namespace Pulumi.Aws.Ecs
         public Output<bool?> EnableExecuteCommand { get; private set; } = null!;
 
         /// <summary>
-        /// Enable to force a new task deployment of the service. This can be used to update tasks to use a newer Docker image with same image/tag combination (e.g. `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy `ordered_placement_strategy` and `placement_constraints` updates.
+        /// Enable to force a new task deployment of the service. This can be used to update tasks to use a newer Docker image with same image/tag combination (e.g., `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy `ordered_placement_strategy` and `placement_constraints` updates.
         /// </summary>
         [Output("forceNewDeployment")]
         public Output<bool?> ForceNewDeployment { get; private set; } = null!;
@@ -281,6 +281,9 @@ namespace Pulumi.Aws.Ecs
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -403,7 +406,7 @@ namespace Pulumi.Aws.Ecs
         public Input<bool>? EnableExecuteCommand { get; set; }
 
         /// <summary>
-        /// Enable to force a new task deployment of the service. This can be used to update tasks to use a newer Docker image with same image/tag combination (e.g. `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy `ordered_placement_strategy` and `placement_constraints` updates.
+        /// Enable to force a new task deployment of the service. This can be used to update tasks to use a newer Docker image with same image/tag combination (e.g., `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy `ordered_placement_strategy` and `placement_constraints` updates.
         /// </summary>
         [Input("forceNewDeployment")]
         public Input<bool>? ForceNewDeployment { get; set; }
@@ -590,7 +593,7 @@ namespace Pulumi.Aws.Ecs
         public Input<bool>? EnableExecuteCommand { get; set; }
 
         /// <summary>
-        /// Enable to force a new task deployment of the service. This can be used to update tasks to use a newer Docker image with same image/tag combination (e.g. `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy `ordered_placement_strategy` and `placement_constraints` updates.
+        /// Enable to force a new task deployment of the service. This can be used to update tasks to use a newer Docker image with same image/tag combination (e.g., `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy `ordered_placement_strategy` and `placement_constraints` updates.
         /// </summary>
         [Input("forceNewDeployment")]
         public Input<bool>? ForceNewDeployment { get; set; }
@@ -699,6 +702,10 @@ namespace Pulumi.Aws.Ecs
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

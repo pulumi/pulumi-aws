@@ -67,7 +67,7 @@ namespace Pulumi.Aws.Cfg
     /// 
     /// ## Import
     /// 
-    /// Remediation Configurations can be imported using the name config_rule_name, e.g.
+    /// Remediation Configurations can be imported using the name config_rule_name, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:cfg/remediationConfiguration:RemediationConfiguration this example

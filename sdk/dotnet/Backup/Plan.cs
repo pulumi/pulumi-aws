@@ -52,7 +52,7 @@ namespace Pulumi.Aws.Backup
     /// 
     /// ## Import
     /// 
-    /// Backup Plan can be imported using the `id`, e.g.
+    /// Backup Plan can be imported using the `id`, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:backup/plan:Plan test &lt;id&gt;

@@ -58,7 +58,7 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// ## Import
     /// 
-    /// AWS SSM Activation can be imported using the `id`, e.g.
+    /// AWS SSM Activation can be imported using the `id`, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:ssm/activation:Activation example e488f2f6-e686-4afb-8a04-ef6dfEXAMPLE
@@ -113,7 +113,7 @@ namespace Pulumi.Aws.Ssm
         /// The maximum number of managed instances you want to register. The default value is 1 instance.
         /// </summary>
         [Output("registrationLimit")]
-        public Output<int> RegistrationLimit { get; private set; } = null!;
+        public Output<int?> RegistrationLimit { get; private set; } = null!;
 
         /// <summary>
         /// A map of tags to assign to the object. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

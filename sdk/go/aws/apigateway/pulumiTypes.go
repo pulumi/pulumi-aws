@@ -175,7 +175,7 @@ type DocumentationPartLocation struct {
 	Path *string `pulumi:"path"`
 	// The HTTP status code of a response. The default value is `*` for any status code.
 	StatusCode *string `pulumi:"statusCode"`
-	// The type of API entity to which the documentation content applies. e.g. `API`, `METHOD` or `REQUEST_BODY`
+	// The type of API entity to which the documentation content appliesE.g., `API`, `METHOD` or `REQUEST_BODY`
 	Type string `pulumi:"type"`
 }
 
@@ -199,7 +199,7 @@ type DocumentationPartLocationArgs struct {
 	Path pulumi.StringPtrInput `pulumi:"path"`
 	// The HTTP status code of a response. The default value is `*` for any status code.
 	StatusCode pulumi.StringPtrInput `pulumi:"statusCode"`
-	// The type of API entity to which the documentation content applies. e.g. `API`, `METHOD` or `REQUEST_BODY`
+	// The type of API entity to which the documentation content appliesE.g., `API`, `METHOD` or `REQUEST_BODY`
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -300,7 +300,7 @@ func (o DocumentationPartLocationOutput) StatusCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DocumentationPartLocation) *string { return v.StatusCode }).(pulumi.StringPtrOutput)
 }
 
-// The type of API entity to which the documentation content applies. e.g. `API`, `METHOD` or `REQUEST_BODY`
+// The type of API entity to which the documentation content appliesE.g., `API`, `METHOD` or `REQUEST_BODY`
 func (o DocumentationPartLocationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v DocumentationPartLocation) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -369,7 +369,7 @@ func (o DocumentationPartLocationPtrOutput) StatusCode() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of API entity to which the documentation content applies. e.g. `API`, `METHOD` or `REQUEST_BODY`
+// The type of API entity to which the documentation content appliesE.g., `API`, `METHOD` or `REQUEST_BODY`
 func (o DocumentationPartLocationPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DocumentationPartLocation) *string {
 		if v == nil {
@@ -1442,6 +1442,8 @@ type UsagePlanApiStage struct {
 	ApiId string `pulumi:"apiId"`
 	// API stage name of the associated API stage in a usage plan.
 	Stage string `pulumi:"stage"`
+	// The throttling limits of the usage plan.
+	Throttles []UsagePlanApiStageThrottle `pulumi:"throttles"`
 }
 
 // UsagePlanApiStageInput is an input type that accepts UsagePlanApiStageArgs and UsagePlanApiStageOutput values.
@@ -1460,6 +1462,8 @@ type UsagePlanApiStageArgs struct {
 	ApiId pulumi.StringInput `pulumi:"apiId"`
 	// API stage name of the associated API stage in a usage plan.
 	Stage pulumi.StringInput `pulumi:"stage"`
+	// The throttling limits of the usage plan.
+	Throttles UsagePlanApiStageThrottleArrayInput `pulumi:"throttles"`
 }
 
 func (UsagePlanApiStageArgs) ElementType() reflect.Type {
@@ -1523,6 +1527,11 @@ func (o UsagePlanApiStageOutput) Stage() pulumi.StringOutput {
 	return o.ApplyT(func(v UsagePlanApiStage) string { return v.Stage }).(pulumi.StringOutput)
 }
 
+// The throttling limits of the usage plan.
+func (o UsagePlanApiStageOutput) Throttles() UsagePlanApiStageThrottleArrayOutput {
+	return o.ApplyT(func(v UsagePlanApiStage) []UsagePlanApiStageThrottle { return v.Throttles }).(UsagePlanApiStageThrottleArrayOutput)
+}
+
 type UsagePlanApiStageArrayOutput struct{ *pulumi.OutputState }
 
 func (UsagePlanApiStageArrayOutput) ElementType() reflect.Type {
@@ -1541,6 +1550,121 @@ func (o UsagePlanApiStageArrayOutput) Index(i pulumi.IntInput) UsagePlanApiStage
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UsagePlanApiStage {
 		return vs[0].([]UsagePlanApiStage)[vs[1].(int)]
 	}).(UsagePlanApiStageOutput)
+}
+
+type UsagePlanApiStageThrottle struct {
+	// The API request burst limit, the maximum rate limit over a time ranging from one to a few seconds, depending upon whether the underlying token bucket is at its full capacity.
+	BurstLimit *int `pulumi:"burstLimit"`
+	// The method to apply the throttle settings for. Specfiy the path and method, for example `/test/GET`.
+	Path string `pulumi:"path"`
+	// The API request steady-state rate limit.
+	RateLimit *float64 `pulumi:"rateLimit"`
+}
+
+// UsagePlanApiStageThrottleInput is an input type that accepts UsagePlanApiStageThrottleArgs and UsagePlanApiStageThrottleOutput values.
+// You can construct a concrete instance of `UsagePlanApiStageThrottleInput` via:
+//
+//          UsagePlanApiStageThrottleArgs{...}
+type UsagePlanApiStageThrottleInput interface {
+	pulumi.Input
+
+	ToUsagePlanApiStageThrottleOutput() UsagePlanApiStageThrottleOutput
+	ToUsagePlanApiStageThrottleOutputWithContext(context.Context) UsagePlanApiStageThrottleOutput
+}
+
+type UsagePlanApiStageThrottleArgs struct {
+	// The API request burst limit, the maximum rate limit over a time ranging from one to a few seconds, depending upon whether the underlying token bucket is at its full capacity.
+	BurstLimit pulumi.IntPtrInput `pulumi:"burstLimit"`
+	// The method to apply the throttle settings for. Specfiy the path and method, for example `/test/GET`.
+	Path pulumi.StringInput `pulumi:"path"`
+	// The API request steady-state rate limit.
+	RateLimit pulumi.Float64PtrInput `pulumi:"rateLimit"`
+}
+
+func (UsagePlanApiStageThrottleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UsagePlanApiStageThrottle)(nil)).Elem()
+}
+
+func (i UsagePlanApiStageThrottleArgs) ToUsagePlanApiStageThrottleOutput() UsagePlanApiStageThrottleOutput {
+	return i.ToUsagePlanApiStageThrottleOutputWithContext(context.Background())
+}
+
+func (i UsagePlanApiStageThrottleArgs) ToUsagePlanApiStageThrottleOutputWithContext(ctx context.Context) UsagePlanApiStageThrottleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UsagePlanApiStageThrottleOutput)
+}
+
+// UsagePlanApiStageThrottleArrayInput is an input type that accepts UsagePlanApiStageThrottleArray and UsagePlanApiStageThrottleArrayOutput values.
+// You can construct a concrete instance of `UsagePlanApiStageThrottleArrayInput` via:
+//
+//          UsagePlanApiStageThrottleArray{ UsagePlanApiStageThrottleArgs{...} }
+type UsagePlanApiStageThrottleArrayInput interface {
+	pulumi.Input
+
+	ToUsagePlanApiStageThrottleArrayOutput() UsagePlanApiStageThrottleArrayOutput
+	ToUsagePlanApiStageThrottleArrayOutputWithContext(context.Context) UsagePlanApiStageThrottleArrayOutput
+}
+
+type UsagePlanApiStageThrottleArray []UsagePlanApiStageThrottleInput
+
+func (UsagePlanApiStageThrottleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UsagePlanApiStageThrottle)(nil)).Elem()
+}
+
+func (i UsagePlanApiStageThrottleArray) ToUsagePlanApiStageThrottleArrayOutput() UsagePlanApiStageThrottleArrayOutput {
+	return i.ToUsagePlanApiStageThrottleArrayOutputWithContext(context.Background())
+}
+
+func (i UsagePlanApiStageThrottleArray) ToUsagePlanApiStageThrottleArrayOutputWithContext(ctx context.Context) UsagePlanApiStageThrottleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UsagePlanApiStageThrottleArrayOutput)
+}
+
+type UsagePlanApiStageThrottleOutput struct{ *pulumi.OutputState }
+
+func (UsagePlanApiStageThrottleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UsagePlanApiStageThrottle)(nil)).Elem()
+}
+
+func (o UsagePlanApiStageThrottleOutput) ToUsagePlanApiStageThrottleOutput() UsagePlanApiStageThrottleOutput {
+	return o
+}
+
+func (o UsagePlanApiStageThrottleOutput) ToUsagePlanApiStageThrottleOutputWithContext(ctx context.Context) UsagePlanApiStageThrottleOutput {
+	return o
+}
+
+// The API request burst limit, the maximum rate limit over a time ranging from one to a few seconds, depending upon whether the underlying token bucket is at its full capacity.
+func (o UsagePlanApiStageThrottleOutput) BurstLimit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v UsagePlanApiStageThrottle) *int { return v.BurstLimit }).(pulumi.IntPtrOutput)
+}
+
+// The method to apply the throttle settings for. Specfiy the path and method, for example `/test/GET`.
+func (o UsagePlanApiStageThrottleOutput) Path() pulumi.StringOutput {
+	return o.ApplyT(func(v UsagePlanApiStageThrottle) string { return v.Path }).(pulumi.StringOutput)
+}
+
+// The API request steady-state rate limit.
+func (o UsagePlanApiStageThrottleOutput) RateLimit() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v UsagePlanApiStageThrottle) *float64 { return v.RateLimit }).(pulumi.Float64PtrOutput)
+}
+
+type UsagePlanApiStageThrottleArrayOutput struct{ *pulumi.OutputState }
+
+func (UsagePlanApiStageThrottleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UsagePlanApiStageThrottle)(nil)).Elem()
+}
+
+func (o UsagePlanApiStageThrottleArrayOutput) ToUsagePlanApiStageThrottleArrayOutput() UsagePlanApiStageThrottleArrayOutput {
+	return o
+}
+
+func (o UsagePlanApiStageThrottleArrayOutput) ToUsagePlanApiStageThrottleArrayOutputWithContext(ctx context.Context) UsagePlanApiStageThrottleArrayOutput {
+	return o
+}
+
+func (o UsagePlanApiStageThrottleArrayOutput) Index(i pulumi.IntInput) UsagePlanApiStageThrottleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UsagePlanApiStageThrottle {
+		return vs[0].([]UsagePlanApiStageThrottle)[vs[1].(int)]
+	}).(UsagePlanApiStageThrottleOutput)
 }
 
 type UsagePlanQuotaSettings struct {
@@ -2090,6 +2214,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StageAccessLogSettingsPtrInput)(nil)).Elem(), StageAccessLogSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UsagePlanApiStageInput)(nil)).Elem(), UsagePlanApiStageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UsagePlanApiStageArrayInput)(nil)).Elem(), UsagePlanApiStageArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UsagePlanApiStageThrottleInput)(nil)).Elem(), UsagePlanApiStageThrottleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UsagePlanApiStageThrottleArrayInput)(nil)).Elem(), UsagePlanApiStageThrottleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UsagePlanQuotaSettingsInput)(nil)).Elem(), UsagePlanQuotaSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UsagePlanQuotaSettingsPtrInput)(nil)).Elem(), UsagePlanQuotaSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UsagePlanThrottleSettingsInput)(nil)).Elem(), UsagePlanThrottleSettingsArgs{})
@@ -2116,6 +2242,8 @@ func init() {
 	pulumi.RegisterOutputType(StageAccessLogSettingsPtrOutput{})
 	pulumi.RegisterOutputType(UsagePlanApiStageOutput{})
 	pulumi.RegisterOutputType(UsagePlanApiStageArrayOutput{})
+	pulumi.RegisterOutputType(UsagePlanApiStageThrottleOutput{})
+	pulumi.RegisterOutputType(UsagePlanApiStageThrottleArrayOutput{})
 	pulumi.RegisterOutputType(UsagePlanQuotaSettingsOutput{})
 	pulumi.RegisterOutputType(UsagePlanQuotaSettingsPtrOutput{})
 	pulumi.RegisterOutputType(UsagePlanThrottleSettingsOutput{})

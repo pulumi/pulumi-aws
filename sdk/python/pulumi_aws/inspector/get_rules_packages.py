@@ -67,7 +67,7 @@ def get_rules_packages(opts: Optional[pulumi.InvokeOptions] = None) -> Awaitable
     import pulumi_aws as aws
 
     rules = aws.inspector.get_rules_packages()
-    # e.g. Use in aws_inspector_assessment_template
+    # e.g., Use in aws_inspector_assessment_template
     group = aws.inspector.ResourceGroup("group", tags={
         "test": "test",
     })

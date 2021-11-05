@@ -181,7 +181,7 @@ class _AmiFromInstanceState:
         :param pulumi.Input[bool] ena_support: Specifies whether enhanced networking with ENA is enabled. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input['AmiFromInstanceEphemeralBlockDeviceArgs']]] ephemeral_block_devices: Nested block describing an ephemeral block device that
                should be attached to created instances. The structure of this block is described below.
-        :param pulumi.Input[str] image_location: Path to an S3 object containing an image manifest, e.g. created
+        :param pulumi.Input[str] image_location: Path to an S3 object containing an image manifest, e.g., created
                by the `ec2-upload-bundle` command in the EC2 command line tools.
         :param pulumi.Input[str] kernel_id: The id of the kernel image (AKI) that will be used as the paravirtual
                kernel in created instances.
@@ -343,7 +343,7 @@ class _AmiFromInstanceState:
     @pulumi.getter(name="imageLocation")
     def image_location(self) -> Optional[pulumi.Input[str]]:
         """
-        Path to an S3 object containing an image manifest, e.g. created
+        Path to an S3 object containing an image manifest, e.g., created
         by the `ec2-upload-bundle` command in the EC2 command line tools.
         """
         return pulumi.get(self, "image_location")
@@ -764,7 +764,7 @@ class AmiFromInstance(pulumi.CustomResource):
         :param pulumi.Input[bool] ena_support: Specifies whether enhanced networking with ENA is enabled. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['AmiFromInstanceEphemeralBlockDeviceArgs']]]] ephemeral_block_devices: Nested block describing an ephemeral block device that
                should be attached to created instances. The structure of this block is described below.
-        :param pulumi.Input[str] image_location: Path to an S3 object containing an image manifest, e.g. created
+        :param pulumi.Input[str] image_location: Path to an S3 object containing an image manifest, e.g., created
                by the `ec2-upload-bundle` command in the EC2 command line tools.
         :param pulumi.Input[str] kernel_id: The id of the kernel image (AKI) that will be used as the paravirtual
                kernel in created instances.
@@ -876,7 +876,7 @@ class AmiFromInstance(pulumi.CustomResource):
     @pulumi.getter(name="imageLocation")
     def image_location(self) -> pulumi.Output[str]:
         """
-        Path to an S3 object containing an image manifest, e.g. created
+        Path to an S3 object containing an image manifest, e.g., created
         by the `ec2-upload-bundle` command in the EC2 command line tools.
         """
         return pulumi.get(self, "image_location")

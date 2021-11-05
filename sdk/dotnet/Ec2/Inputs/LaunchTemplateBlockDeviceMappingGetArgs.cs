@@ -33,7 +33,7 @@ namespace Pulumi.Aws.Ec2.Inputs
         /// <summary>
         /// The [Instance Store Device
         /// Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames)
-        /// (e.g. `"ephemeral0"`).
+        /// (e.g., `"ephemeral0"`).
         /// </summary>
         [Input("virtualName")]
         public Input<string>? VirtualName { get; set; }

@@ -37,18 +37,22 @@ class ResolverDnsSecConfigArgs:
 class _ResolverDnsSecConfigState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
+                 id: Optional[pulumi.Input[str]] = None,
                  owner_id: Optional[pulumi.Input[str]] = None,
                  resource_id: Optional[pulumi.Input[str]] = None,
                  validation_status: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ResolverDnsSecConfig resources.
         :param pulumi.Input[str] arn: The ARN for a configuration for DNSSEC validation.
+        :param pulumi.Input[str] id: The ID for a configuration for DNSSEC validation.
         :param pulumi.Input[str] owner_id: The owner account ID of the virtual private cloud (VPC) for a configuration for DNSSEC validation.
         :param pulumi.Input[str] resource_id: The ID of the virtual private cloud (VPC) that you're updating the DNSSEC validation status for.
         :param pulumi.Input[str] validation_status: The validation status for a DNSSEC configuration. The status can be one of the following: `ENABLING`, `ENABLED`, `DISABLING` and `DISABLED`.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
         if owner_id is not None:
             pulumi.set(__self__, "owner_id", owner_id)
         if resource_id is not None:
@@ -67,6 +71,18 @@ class _ResolverDnsSecConfigState:
     @arn.setter
     def arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID for a configuration for DNSSEC validation.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
 
     @property
     @pulumi.getter(name="ownerId")
@@ -130,7 +146,7 @@ class ResolverDnsSecConfig(pulumi.CustomResource):
 
         ## Import
 
-         Route 53 Resolver DNSSEC configs can be imported using the Route 53 Resolver DNSSEC config ID, e.g.
+         Route 53 Resolver DNSSEC configs can be imported using the Route 53 Resolver DNSSEC config ID, e.g.,
 
         ```sh
          $ pulumi import aws:route53/resolverDnsSecConfig:ResolverDnsSecConfig example rdsc-be1866ecc1683e95
@@ -164,7 +180,7 @@ class ResolverDnsSecConfig(pulumi.CustomResource):
 
         ## Import
 
-         Route 53 Resolver DNSSEC configs can be imported using the Route 53 Resolver DNSSEC config ID, e.g.
+         Route 53 Resolver DNSSEC configs can be imported using the Route 53 Resolver DNSSEC config ID, e.g.,
 
         ```sh
          $ pulumi import aws:route53/resolverDnsSecConfig:ResolverDnsSecConfig example rdsc-be1866ecc1683e95
@@ -202,6 +218,7 @@ class ResolverDnsSecConfig(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_id'")
             __props__.__dict__["resource_id"] = resource_id
             __props__.__dict__["arn"] = None
+            __props__.__dict__["id"] = None
             __props__.__dict__["owner_id"] = None
             __props__.__dict__["validation_status"] = None
         super(ResolverDnsSecConfig, __self__).__init__(
@@ -215,6 +232,7 @@ class ResolverDnsSecConfig(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
+            id: Optional[pulumi.Input[str]] = None,
             owner_id: Optional[pulumi.Input[str]] = None,
             resource_id: Optional[pulumi.Input[str]] = None,
             validation_status: Optional[pulumi.Input[str]] = None) -> 'ResolverDnsSecConfig':
@@ -226,6 +244,7 @@ class ResolverDnsSecConfig(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The ARN for a configuration for DNSSEC validation.
+        :param pulumi.Input[str] id: The ID for a configuration for DNSSEC validation.
         :param pulumi.Input[str] owner_id: The owner account ID of the virtual private cloud (VPC) for a configuration for DNSSEC validation.
         :param pulumi.Input[str] resource_id: The ID of the virtual private cloud (VPC) that you're updating the DNSSEC validation status for.
         :param pulumi.Input[str] validation_status: The validation status for a DNSSEC configuration. The status can be one of the following: `ENABLING`, `ENABLED`, `DISABLING` and `DISABLED`.
@@ -235,6 +254,7 @@ class ResolverDnsSecConfig(pulumi.CustomResource):
         __props__ = _ResolverDnsSecConfigState.__new__(_ResolverDnsSecConfigState)
 
         __props__.__dict__["arn"] = arn
+        __props__.__dict__["id"] = id
         __props__.__dict__["owner_id"] = owner_id
         __props__.__dict__["resource_id"] = resource_id
         __props__.__dict__["validation_status"] = validation_status
@@ -247,6 +267,14 @@ class ResolverDnsSecConfig(pulumi.CustomResource):
         The ARN for a configuration for DNSSEC validation.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter
+    def id(self) -> pulumi.Output[str]:
+        """
+        The ID for a configuration for DNSSEC validation.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="ownerId")

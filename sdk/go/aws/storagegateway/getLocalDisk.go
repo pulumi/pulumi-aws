@@ -57,7 +57,7 @@ type GetLocalDiskArgs struct {
 
 // A collection of values returned by getLocalDisk.
 type GetLocalDiskResult struct {
-	// The disk identifier. e.g. `pci-0000:03:00.0-scsi-0:0:0:0`
+	// The disk identifierE.g., `pci-0000:03:00.0-scsi-0:0:0:0`
 	DiskId     string `pulumi:"diskId"`
 	DiskNode   string `pulumi:"diskNode"`
 	DiskPath   string `pulumi:"diskPath"`
@@ -104,7 +104,7 @@ func (o GetLocalDiskResultOutput) ToGetLocalDiskResultOutputWithContext(ctx cont
 	return o
 }
 
-// The disk identifier. e.g. `pci-0000:03:00.0-scsi-0:0:0:0`
+// The disk identifierE.g., `pci-0000:03:00.0-scsi-0:0:0:0`
 func (o GetLocalDiskResultOutput) DiskId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLocalDiskResult) string { return v.DiskId }).(pulumi.StringOutput)
 }

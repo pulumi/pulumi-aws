@@ -88,13 +88,15 @@ type LookupKeyResult struct {
 	ExpirationModel       string   `pulumi:"expirationModel"`
 	GrantTokens           []string `pulumi:"grantTokens"`
 	// The provider-assigned unique ID for this managed resource.
-	Id         string `pulumi:"id"`
-	KeyId      string `pulumi:"keyId"`
-	KeyManager string `pulumi:"keyManager"`
-	KeyState   string `pulumi:"keyState"`
-	KeyUsage   string `pulumi:"keyUsage"`
-	Origin     string `pulumi:"origin"`
-	ValidTo    string `pulumi:"validTo"`
+	Id                        string                           `pulumi:"id"`
+	KeyId                     string                           `pulumi:"keyId"`
+	KeyManager                string                           `pulumi:"keyManager"`
+	KeyState                  string                           `pulumi:"keyState"`
+	KeyUsage                  string                           `pulumi:"keyUsage"`
+	MultiRegion               bool                             `pulumi:"multiRegion"`
+	MultiRegionConfigurations []GetKeyMultiRegionConfiguration `pulumi:"multiRegionConfigurations"`
+	Origin                    string                           `pulumi:"origin"`
+	ValidTo                   string                           `pulumi:"validTo"`
 }
 
 func LookupKeyOutput(ctx *pulumi.Context, args LookupKeyOutputArgs, opts ...pulumi.InvokeOption) LookupKeyResultOutput {
@@ -192,6 +194,14 @@ func (o LookupKeyResultOutput) KeyState() pulumi.StringOutput {
 
 func (o LookupKeyResultOutput) KeyUsage() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupKeyResult) string { return v.KeyUsage }).(pulumi.StringOutput)
+}
+
+func (o LookupKeyResultOutput) MultiRegion() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupKeyResult) bool { return v.MultiRegion }).(pulumi.BoolOutput)
+}
+
+func (o LookupKeyResultOutput) MultiRegionConfigurations() GetKeyMultiRegionConfigurationArrayOutput {
+	return o.ApplyT(func(v LookupKeyResult) []GetKeyMultiRegionConfiguration { return v.MultiRegionConfigurations }).(GetKeyMultiRegionConfigurationArrayOutput)
 }
 
 func (o LookupKeyResultOutput) Origin() pulumi.StringOutput {

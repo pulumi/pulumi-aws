@@ -43,7 +43,7 @@ namespace Pulumi.Aws.Dms
     /// 
     /// ## Import
     /// 
-    /// Replication subnet groups can be imported using the `replication_subnet_group_id`, e.g.
+    /// Replication subnet groups can be imported using the `replication_subnet_group_id`, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:dms/replicationSubnetGroup:ReplicationSubnetGroup test test-dms-replication-subnet-group-tf

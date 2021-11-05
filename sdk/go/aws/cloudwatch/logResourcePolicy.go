@@ -114,7 +114,7 @@ import (
 //
 // ## Import
 //
-// CloudWatch log resource policies can be imported using the policy name, e.g.
+// CloudWatch log resource policies can be imported using the policy name, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:cloudwatch/logResourcePolicy:LogResourcePolicy MyPolicy MyPolicy

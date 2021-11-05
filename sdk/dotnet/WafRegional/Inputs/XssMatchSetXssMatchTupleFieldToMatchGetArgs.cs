@@ -19,7 +19,7 @@ namespace Pulumi.Aws.WafRegional.Inputs
         public Input<string>? Data { get; set; }
 
         /// <summary>
-        /// The part of the web request that you want AWS WAF to search for a specified string. e.g. `HEADER` or `METHOD`
+        /// The part of the web request that you want AWS WAF to search for a specified stringE.g., `HEADER` or `METHOD`
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

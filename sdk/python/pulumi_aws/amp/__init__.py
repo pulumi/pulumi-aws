@@ -5,4 +5,6 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .alert_manager_definition import *
+from .rule_group_namespace import *
 from .workspace import *

@@ -39,7 +39,7 @@ import (
 //
 // ## Import
 //
-// OpsWorks Custom Layers can be imported using the `id`, e.g.
+// OpsWorks Custom Layers can be imported using the `id`, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:opsworks/customLayer:CustomLayer bar 00000000-0000-0000-0000-000000000000

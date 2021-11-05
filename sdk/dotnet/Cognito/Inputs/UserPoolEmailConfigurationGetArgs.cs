@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Cognito.Inputs
         public Input<string>? EmailSendingAccount { get; set; }
 
         /// <summary>
-        /// Sender’s email address or sender’s display name with their email address (e.g. `john@example.com`, `John Smith &lt;john@example.com&gt;` or `\"John Smith Ph.D.\" &lt;john@example.com&gt;`). Escaped double quotes are required around display names that contain certain characters as specified in [RFC 5322](https://tools.ietf.org/html/rfc5322).
+        /// Sender’s email address or sender’s display name with their email address (e.g., `john@example.com`, `John Smith &lt;john@example.com&gt;` or `\"John Smith Ph.D.\" &lt;john@example.com&gt;`). Escaped double quotes are required around display names that contain certain characters as specified in [RFC 5322](https://tools.ietf.org/html/rfc5322).
         /// </summary>
         [Input("fromEmailAddress")]
         public Input<string>? FromEmailAddress { get; set; }

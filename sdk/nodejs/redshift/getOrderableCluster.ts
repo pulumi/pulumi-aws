@@ -44,15 +44,15 @@ export function getOrderableCluster(args?: GetOrderableClusterArgs, opts?: pulum
  */
 export interface GetOrderableClusterArgs {
     /**
-     * Reshift Cluster type. e.g. `multi-node` or `single-node`
+     * Reshift Cluster typeE.g., `multi-node` or `single-node`
      */
     clusterType?: string;
     /**
-     * Redshift Cluster version. e.g. `1.0`
+     * Redshift Cluster versionE.g., `1.0`
      */
     clusterVersion?: string;
     /**
-     * Redshift Cluster node type. e.g. `dc2.8xlarge`
+     * Redshift Cluster node typeE.g., `dc2.8xlarge`
      */
     nodeType?: string;
     /**
@@ -88,15 +88,15 @@ export function getOrderableClusterOutput(args?: GetOrderableClusterOutputArgs, 
  */
 export interface GetOrderableClusterOutputArgs {
     /**
-     * Reshift Cluster type. e.g. `multi-node` or `single-node`
+     * Reshift Cluster typeE.g., `multi-node` or `single-node`
      */
     clusterType?: pulumi.Input<string>;
     /**
-     * Redshift Cluster version. e.g. `1.0`
+     * Redshift Cluster versionE.g., `1.0`
      */
     clusterVersion?: pulumi.Input<string>;
     /**
-     * Redshift Cluster node type. e.g. `dc2.8xlarge`
+     * Redshift Cluster node typeE.g., `dc2.8xlarge`
      */
     nodeType?: pulumi.Input<string>;
     /**

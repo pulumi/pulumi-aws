@@ -2240,7 +2240,7 @@ class InstanceEphemeralBlockDeviceArgs:
         """
         :param pulumi.Input[str] device_name: The name of the block device to mount on the instance.
         :param pulumi.Input[bool] no_device: Suppresses the specified device included in the AMI's block device mapping.
-        :param pulumi.Input[str] virtual_name: [Instance Store Device Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames) (e.g. `ephemeral0`).
+        :param pulumi.Input[str] virtual_name: [Instance Store Device Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames) (e.g., `ephemeral0`).
         """
         pulumi.set(__self__, "device_name", device_name)
         if no_device is not None:
@@ -2276,7 +2276,7 @@ class InstanceEphemeralBlockDeviceArgs:
     @pulumi.getter(name="virtualName")
     def virtual_name(self) -> Optional[pulumi.Input[str]]:
         """
-        [Instance Store Device Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames) (e.g. `ephemeral0`).
+        [Instance Store Device Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames) (e.g., `ephemeral0`).
         """
         return pulumi.get(self, "virtual_name")
 
@@ -2899,7 +2899,7 @@ class LaunchTemplateBlockDeviceMappingArgs:
         :param pulumi.Input[str] no_device: Suppresses the specified device included in the AMI's block device mapping.
         :param pulumi.Input[str] virtual_name: The [Instance Store Device
                Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames)
-               (e.g. `"ephemeral0"`).
+               (e.g., `"ephemeral0"`).
         """
         if device_name is not None:
             pulumi.set(__self__, "device_name", device_name)
@@ -2952,7 +2952,7 @@ class LaunchTemplateBlockDeviceMappingArgs:
         """
         The [Instance Store Device
         Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames)
-        (e.g. `"ephemeral0"`).
+        (e.g., `"ephemeral0"`).
         """
         return pulumi.get(self, "virtual_name")
 
@@ -2982,7 +2982,7 @@ class LaunchTemplateBlockDeviceMappingEbsArgs:
         :param pulumi.Input[str] kms_key_id: The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use when creating the encrypted volume.
                `encrypted` must be set to `true` when this is set.
         :param pulumi.Input[str] snapshot_id: The Snapshot ID to mount.
-        :param pulumi.Input[int] throughput: The throughput to provision for a `gp3` volume in MiB/s (specified as an integer, e.g. 500), with a maximum of 1,000 MiB/s.
+        :param pulumi.Input[int] throughput: The throughput to provision for a `gp3` volume in MiB/s (specified as an integer, e.g., 500), with a maximum of 1,000 MiB/s.
         :param pulumi.Input[int] volume_size: The size of the volume in gigabytes.
         :param pulumi.Input[str] volume_type: The volume type. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
         """
@@ -3071,7 +3071,7 @@ class LaunchTemplateBlockDeviceMappingEbsArgs:
     @pulumi.getter
     def throughput(self) -> Optional[pulumi.Input[int]]:
         """
-        The throughput to provision for a `gp3` volume in MiB/s (specified as an integer, e.g. 500), with a maximum of 1,000 MiB/s.
+        The throughput to provision for a `gp3` volume in MiB/s (specified as an integer, e.g., 500), with a maximum of 1,000 MiB/s.
         """
         return pulumi.get(self, "throughput")
 
@@ -3615,6 +3615,7 @@ class LaunchTemplateNetworkInterfaceArgs:
                  ipv4_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  ipv6_address_count: Optional[pulumi.Input[int]] = None,
                  ipv6_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 network_card_index: Optional[pulumi.Input[int]] = None,
                  network_interface_id: Optional[pulumi.Input[str]] = None,
                  private_ip_address: Optional[pulumi.Input[str]] = None,
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -3630,6 +3631,7 @@ class LaunchTemplateNetworkInterfaceArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ipv4_addresses: One or more private IPv4 addresses to associate. Conflicts with `ipv4_address_count`
         :param pulumi.Input[int] ipv6_address_count: The number of IPv6 addresses to assign to a network interface. Conflicts with `ipv6_addresses`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ipv6_addresses: One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. Conflicts with `ipv6_address_count`
+        :param pulumi.Input[int] network_card_index: The index of the network card. Some instance types support multiple network cards. The primary network interface must be assigned to network card index 0. The default is network card index 0.
         :param pulumi.Input[str] network_interface_id: The ID of the network interface to attach.
         :param pulumi.Input[str] private_ip_address: The primary private IPv4 address.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: A list of security group IDs to associate.
@@ -3655,6 +3657,8 @@ class LaunchTemplateNetworkInterfaceArgs:
             pulumi.set(__self__, "ipv6_address_count", ipv6_address_count)
         if ipv6_addresses is not None:
             pulumi.set(__self__, "ipv6_addresses", ipv6_addresses)
+        if network_card_index is not None:
+            pulumi.set(__self__, "network_card_index", network_card_index)
         if network_interface_id is not None:
             pulumi.set(__self__, "network_interface_id", network_interface_id)
         if private_ip_address is not None:
@@ -3783,6 +3787,18 @@ class LaunchTemplateNetworkInterfaceArgs:
     @ipv6_addresses.setter
     def ipv6_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "ipv6_addresses", value)
+
+    @property
+    @pulumi.getter(name="networkCardIndex")
+    def network_card_index(self) -> Optional[pulumi.Input[int]]:
+        """
+        The index of the network card. Some instance types support multiple network cards. The primary network interface must be assigned to network card index 0. The default is network card index 0.
+        """
+        return pulumi.get(self, "network_card_index")
+
+    @network_card_index.setter
+    def network_card_index(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "network_card_index", value)
 
     @property
     @pulumi.getter(name="networkInterfaceId")
@@ -5579,7 +5595,7 @@ class SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationArgs:
         """
         :param pulumi.Input[str] id: The ID of the launch template. Conflicts with `name`.
         :param pulumi.Input[str] name: The name of the launch template. Conflicts with `id`.
-        :param pulumi.Input[str] version: Template version. Unlike the autoscaling equivalent, does not support `$Latest` or `$Default`, so use the launch_template resource's attribute, e.g. `"${aws_launch_template.foo.latest_version}"`. It will use the default version if omitted.
+        :param pulumi.Input[str] version: Template version. Unlike the autoscaling equivalent, does not support `$Latest` or `$Default`, so use the launch_template resource's attribute, e.g., `"${aws_launch_template.foo.latest_version}"`. It will use the default version if omitted.
         """
         if id is not None:
             pulumi.set(__self__, "id", id)
@@ -5616,7 +5632,7 @@ class SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationArgs:
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[str]]:
         """
-        Template version. Unlike the autoscaling equivalent, does not support `$Latest` or `$Default`, so use the launch_template resource's attribute, e.g. `"${aws_launch_template.foo.latest_version}"`. It will use the default version if omitted.
+        Template version. Unlike the autoscaling equivalent, does not support `$Latest` or `$Default`, so use the launch_template resource's attribute, e.g., `"${aws_launch_template.foo.latest_version}"`. It will use the default version if omitted.
         """
         return pulumi.get(self, "version")
 
@@ -6069,7 +6085,7 @@ class SpotInstanceRequestEphemeralBlockDeviceArgs:
         """
         :param pulumi.Input[str] device_name: The name of the block device to mount on the instance.
         :param pulumi.Input[bool] no_device: Suppresses the specified device included in the AMI's block device mapping.
-        :param pulumi.Input[str] virtual_name: [Instance Store Device Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames) (e.g. `ephemeral0`).
+        :param pulumi.Input[str] virtual_name: [Instance Store Device Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames) (e.g., `ephemeral0`).
         """
         pulumi.set(__self__, "device_name", device_name)
         if no_device is not None:
@@ -6105,7 +6121,7 @@ class SpotInstanceRequestEphemeralBlockDeviceArgs:
     @pulumi.getter(name="virtualName")
     def virtual_name(self) -> Optional[pulumi.Input[str]]:
         """
-        [Instance Store Device Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames) (e.g. `ephemeral0`).
+        [Instance Store Device Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames) (e.g., `ephemeral0`).
         """
         return pulumi.get(self, "virtual_name")
 

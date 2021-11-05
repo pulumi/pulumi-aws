@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * API Gateway documentation versions can be imported using `REST-API-ID/VERSION`, e.g.
+ * API Gateway documentation versions can be imported using `REST-API-ID/VERSION`, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:apigateway/documentationVersion:DocumentationVersion example 5i4e1ko720/example-version

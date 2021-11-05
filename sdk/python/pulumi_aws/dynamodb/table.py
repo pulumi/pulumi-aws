@@ -731,7 +731,7 @@ class Table(pulumi.CustomResource):
 
         ## Import
 
-        DynamoDB tables can be imported using the `name`, e.g.
+        DynamoDB tables can be imported using the `name`, e.g.,
 
         ```sh
          $ pulumi import aws:dynamodb/table:Table basic-dynamodb-table GameScores
@@ -848,7 +848,7 @@ class Table(pulumi.CustomResource):
 
         ## Import
 
-        DynamoDB tables can be imported using the `name`, e.g.
+        DynamoDB tables can be imported using the `name`, e.g.,
 
         ```sh
          $ pulumi import aws:dynamodb/table:Table basic-dynamodb-table GameScores

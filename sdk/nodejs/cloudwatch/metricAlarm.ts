@@ -170,7 +170,7 @@ import {Topic} from "../sns";
  *
  * ## Import
  *
- * CloudWatch Metric Alarm can be imported using the `alarm_name`, e.g.
+ * CloudWatch Metric Alarm can be imported using the `alarm_name`, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:cloudwatch/metricAlarm:MetricAlarm test alarm-12345

@@ -49,7 +49,7 @@ import (
 //
 // ## Import
 //
-// Glue Security Configurations can be imported using `name`, e.g.
+// Glue Security Configurations can be imported using `name`, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:glue/securityConfiguration:SecurityConfiguration example example

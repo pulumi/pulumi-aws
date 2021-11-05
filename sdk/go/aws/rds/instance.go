@@ -93,7 +93,7 @@ import (
 //
 // ## Import
 //
-// DB Instances can be imported using the `identifier`, e.g.
+// DB Instances can be imported using the `identifier`, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:rds/instance:Instance default mydb-rds-instance
@@ -202,7 +202,7 @@ type Instance struct {
 	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
 	// The latest time, in UTC [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), to which a database can be restored with point-in-time restore.
 	LatestRestorableTime pulumi.StringOutput `pulumi:"latestRestorableTime"`
-	// (Optional, but required for some DB engines, i.e. Oracle
+	// (Optional, but required for some DB engines, i.e., Oracle
 	// SE1) License model information for this DB instance.
 	LicenseModel pulumi.StringOutput `pulumi:"licenseModel"`
 	// The window to perform maintenance in.
@@ -447,7 +447,7 @@ type instanceState struct {
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// The latest time, in UTC [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), to which a database can be restored with point-in-time restore.
 	LatestRestorableTime *string `pulumi:"latestRestorableTime"`
-	// (Optional, but required for some DB engines, i.e. Oracle
+	// (Optional, but required for some DB engines, i.e., Oracle
 	// SE1) License model information for this DB instance.
 	LicenseModel *string `pulumi:"licenseModel"`
 	// The window to perform maintenance in.
@@ -661,7 +661,7 @@ type InstanceState struct {
 	KmsKeyId pulumi.StringPtrInput
 	// The latest time, in UTC [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), to which a database can be restored with point-in-time restore.
 	LatestRestorableTime pulumi.StringPtrInput
-	// (Optional, but required for some DB engines, i.e. Oracle
+	// (Optional, but required for some DB engines, i.e., Oracle
 	// SE1) License model information for this DB instance.
 	LicenseModel pulumi.StringPtrInput
 	// The window to perform maintenance in.
@@ -866,7 +866,7 @@ type instanceArgs struct {
 	// The ARN for the KMS encryption key. If creating an
 	// encrypted replica, set this to the destination KMS ARN.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// (Optional, but required for some DB engines, i.e. Oracle
+	// (Optional, but required for some DB engines, i.e., Oracle
 	// SE1) License model information for this DB instance.
 	LicenseModel *string `pulumi:"licenseModel"`
 	// The window to perform maintenance in.
@@ -1061,7 +1061,7 @@ type InstanceArgs struct {
 	// The ARN for the KMS encryption key. If creating an
 	// encrypted replica, set this to the destination KMS ARN.
 	KmsKeyId pulumi.StringPtrInput
-	// (Optional, but required for some DB engines, i.e. Oracle
+	// (Optional, but required for some DB engines, i.e., Oracle
 	// SE1) License model information for this DB instance.
 	LicenseModel pulumi.StringPtrInput
 	// The window to perform maintenance in.

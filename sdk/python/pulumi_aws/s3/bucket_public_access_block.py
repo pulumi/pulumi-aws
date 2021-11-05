@@ -234,7 +234,7 @@ class BucketPublicAccessBlock(pulumi.CustomResource):
 
         ## Import
 
-        `aws_s3_bucket_public_access_block` can be imported by using the bucket name, e.g.
+        `aws_s3_bucket_public_access_block` can be imported by using the bucket name, e.g.,
 
         ```sh
          $ pulumi import aws:s3/bucketPublicAccessBlock:BucketPublicAccessBlock example my-bucket
@@ -277,7 +277,7 @@ class BucketPublicAccessBlock(pulumi.CustomResource):
 
         ## Import
 
-        `aws_s3_bucket_public_access_block` can be imported by using the bucket name, e.g.
+        `aws_s3_bucket_public_access_block` can be imported by using the bucket name, e.g.,
 
         ```sh
          $ pulumi import aws:s3/bucketPublicAccessBlock:BucketPublicAccessBlock example my-bucket

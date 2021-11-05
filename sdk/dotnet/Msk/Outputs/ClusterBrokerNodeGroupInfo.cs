@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Msk.Outputs
         /// </summary>
         public readonly int EbsVolumeSize;
         /// <summary>
-        /// Specify the instance type to use for the kafka brokers. e.g. kafka.m5.large. ([Pricing info](https://aws.amazon.com/msk/pricing/))
+        /// Specify the instance type to use for the kafka brokersE.g., kafka.m5.large. ([Pricing info](https://aws.amazon.com/msk/pricing/))
         /// </summary>
         public readonly string InstanceType;
         /// <summary>

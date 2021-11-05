@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetKeyResult',
@@ -20,7 +21,7 @@ class GetKeyResult:
     """
     A collection of values returned by getKey.
     """
-    def __init__(__self__, arn=None, aws_account_id=None, creation_date=None, customer_master_key_spec=None, deletion_date=None, description=None, enabled=None, expiration_model=None, grant_tokens=None, id=None, key_id=None, key_manager=None, key_state=None, key_usage=None, origin=None, valid_to=None):
+    def __init__(__self__, arn=None, aws_account_id=None, creation_date=None, customer_master_key_spec=None, deletion_date=None, description=None, enabled=None, expiration_model=None, grant_tokens=None, id=None, key_id=None, key_manager=None, key_state=None, key_usage=None, multi_region=None, multi_region_configurations=None, origin=None, valid_to=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -63,6 +64,12 @@ class GetKeyResult:
         if key_usage and not isinstance(key_usage, str):
             raise TypeError("Expected argument 'key_usage' to be a str")
         pulumi.set(__self__, "key_usage", key_usage)
+        if multi_region and not isinstance(multi_region, bool):
+            raise TypeError("Expected argument 'multi_region' to be a bool")
+        pulumi.set(__self__, "multi_region", multi_region)
+        if multi_region_configurations and not isinstance(multi_region_configurations, list):
+            raise TypeError("Expected argument 'multi_region_configurations' to be a list")
+        pulumi.set(__self__, "multi_region_configurations", multi_region_configurations)
         if origin and not isinstance(origin, str):
             raise TypeError("Expected argument 'origin' to be a str")
         pulumi.set(__self__, "origin", origin)
@@ -144,6 +151,16 @@ class GetKeyResult:
         return pulumi.get(self, "key_usage")
 
     @property
+    @pulumi.getter(name="multiRegion")
+    def multi_region(self) -> bool:
+        return pulumi.get(self, "multi_region")
+
+    @property
+    @pulumi.getter(name="multiRegionConfigurations")
+    def multi_region_configurations(self) -> Sequence['outputs.GetKeyMultiRegionConfigurationResult']:
+        return pulumi.get(self, "multi_region_configurations")
+
+    @property
     @pulumi.getter
     def origin(self) -> str:
         return pulumi.get(self, "origin")
@@ -174,6 +191,8 @@ class AwaitableGetKeyResult(GetKeyResult):
             key_manager=self.key_manager,
             key_state=self.key_state,
             key_usage=self.key_usage,
+            multi_region=self.multi_region,
+            multi_region_configurations=self.multi_region_configurations,
             origin=self.origin,
             valid_to=self.valid_to)
 
@@ -231,6 +250,8 @@ def get_key(grant_tokens: Optional[Sequence[str]] = None,
         key_manager=__ret__.key_manager,
         key_state=__ret__.key_state,
         key_usage=__ret__.key_usage,
+        multi_region=__ret__.multi_region,
+        multi_region_configurations=__ret__.multi_region_configurations,
         origin=__ret__.origin,
         valid_to=__ret__.valid_to)
 

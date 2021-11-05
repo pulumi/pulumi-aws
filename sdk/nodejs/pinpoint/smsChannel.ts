@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Pinpoint SMS Channel can be imported using the `application-id`, e.g.
+ * Pinpoint SMS Channel can be imported using the `application-id`, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:pinpoint/smsChannel:SmsChannel sms application-id

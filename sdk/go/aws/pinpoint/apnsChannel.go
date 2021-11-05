@@ -54,7 +54,7 @@ import (
 //
 // ## Import
 //
-// Pinpoint APNs Channel can be imported using the `application-id`, e.g.
+// Pinpoint APNs Channel can be imported using the `application-id`, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:pinpoint/apnsChannel:ApnsChannel apns application-id

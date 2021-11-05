@@ -15,7 +15,7 @@ type AliasRoutingStrategy struct {
 	FleetId *string `pulumi:"fleetId"`
 	// Message text to be used with the `TERMINAL` routing strategy.
 	Message *string `pulumi:"message"`
-	// Type of routing strategy. e.g. `SIMPLE` or `TERMINAL`
+	// Type of routing strategyE.g., `SIMPLE` or `TERMINAL`
 	Type string `pulumi:"type"`
 }
 
@@ -35,7 +35,7 @@ type AliasRoutingStrategyArgs struct {
 	FleetId pulumi.StringPtrInput `pulumi:"fleetId"`
 	// Message text to be used with the `TERMINAL` routing strategy.
 	Message pulumi.StringPtrInput `pulumi:"message"`
-	// Type of routing strategy. e.g. `SIMPLE` or `TERMINAL`
+	// Type of routing strategyE.g., `SIMPLE` or `TERMINAL`
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -126,7 +126,7 @@ func (o AliasRoutingStrategyOutput) Message() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AliasRoutingStrategy) *string { return v.Message }).(pulumi.StringPtrOutput)
 }
 
-// Type of routing strategy. e.g. `SIMPLE` or `TERMINAL`
+// Type of routing strategyE.g., `SIMPLE` or `TERMINAL`
 func (o AliasRoutingStrategyOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AliasRoutingStrategy) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -175,7 +175,7 @@ func (o AliasRoutingStrategyPtrOutput) Message() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Type of routing strategy. e.g. `SIMPLE` or `TERMINAL`
+// Type of routing strategyE.g., `SIMPLE` or `TERMINAL`
 func (o AliasRoutingStrategyPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AliasRoutingStrategy) *string {
 		if v == nil {
@@ -363,9 +363,9 @@ func (o BuildStorageLocationPtrOutput) RoleArn() pulumi.StringPtrOutput {
 type FleetEc2InboundPermission struct {
 	// Starting value for a range of allowed port numbers.
 	FromPort int `pulumi:"fromPort"`
-	// Range of allowed IP addresses expressed in CIDR notation. e.g. `000.000.000.000/[subnet mask]` or `0.0.0.0/[subnet mask]`.
+	// Range of allowed IP addresses expressed in CIDR notationE.g., `000.000.000.000/[subnet mask]` or `0.0.0.0/[subnet mask]`.
 	IpRange string `pulumi:"ipRange"`
-	// Network communication protocol used by the fleet. e.g. `TCP` or `UDP`
+	// Network communication protocol used by the fleetE.g., `TCP` or `UDP`
 	Protocol string `pulumi:"protocol"`
 	// Ending value for a range of allowed port numbers. Port numbers are end-inclusive. This value must be higher than `fromPort`.
 	ToPort int `pulumi:"toPort"`
@@ -385,9 +385,9 @@ type FleetEc2InboundPermissionInput interface {
 type FleetEc2InboundPermissionArgs struct {
 	// Starting value for a range of allowed port numbers.
 	FromPort pulumi.IntInput `pulumi:"fromPort"`
-	// Range of allowed IP addresses expressed in CIDR notation. e.g. `000.000.000.000/[subnet mask]` or `0.0.0.0/[subnet mask]`.
+	// Range of allowed IP addresses expressed in CIDR notationE.g., `000.000.000.000/[subnet mask]` or `0.0.0.0/[subnet mask]`.
 	IpRange pulumi.StringInput `pulumi:"ipRange"`
-	// Network communication protocol used by the fleet. e.g. `TCP` or `UDP`
+	// Network communication protocol used by the fleetE.g., `TCP` or `UDP`
 	Protocol pulumi.StringInput `pulumi:"protocol"`
 	// Ending value for a range of allowed port numbers. Port numbers are end-inclusive. This value must be higher than `fromPort`.
 	ToPort pulumi.IntInput `pulumi:"toPort"`
@@ -449,12 +449,12 @@ func (o FleetEc2InboundPermissionOutput) FromPort() pulumi.IntOutput {
 	return o.ApplyT(func(v FleetEc2InboundPermission) int { return v.FromPort }).(pulumi.IntOutput)
 }
 
-// Range of allowed IP addresses expressed in CIDR notation. e.g. `000.000.000.000/[subnet mask]` or `0.0.0.0/[subnet mask]`.
+// Range of allowed IP addresses expressed in CIDR notationE.g., `000.000.000.000/[subnet mask]` or `0.0.0.0/[subnet mask]`.
 func (o FleetEc2InboundPermissionOutput) IpRange() pulumi.StringOutput {
 	return o.ApplyT(func(v FleetEc2InboundPermission) string { return v.IpRange }).(pulumi.StringOutput)
 }
 
-// Network communication protocol used by the fleet. e.g. `TCP` or `UDP`
+// Network communication protocol used by the fleetE.g., `TCP` or `UDP`
 func (o FleetEc2InboundPermissionOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v FleetEc2InboundPermission) string { return v.Protocol }).(pulumi.StringOutput)
 }

@@ -13,8 +13,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * // Create a new host with instance type of c5.18xlarge with Auto Placement 
- * // and Host Recovery enabled. 
+ * // Create a new host with instance type of c5.18xlarge with Auto Placement
+ * // and Host Recovery enabled.
  * const test = new aws.ec2.DedicatedHost("test", {
  *     autoPlacement: "on",
  *     availabilityZone: "us-west-2a",
@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Hosts can be imported using the host `id`, e.g.
+ * Hosts can be imported using the host `id`, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:ec2/dedicatedHost:DedicatedHost example h-0385a99d0e4b20cbb
@@ -88,7 +88,10 @@ export class DedicatedHost extends pulumi.CustomResource {
      */
     public /*out*/ readonly ownerId!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a DedicatedHost resource with the given unique name, arguments, and options.
@@ -123,9 +126,9 @@ export class DedicatedHost extends pulumi.CustomResource {
             inputs["instanceFamily"] = args ? args.instanceFamily : undefined;
             inputs["instanceType"] = args ? args.instanceType : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["ownerId"] = undefined /*out*/;
+            inputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -167,6 +170,9 @@ export interface DedicatedHostState {
      */
     ownerId?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
@@ -195,5 +201,4 @@ export interface DedicatedHostArgs {
      */
     instanceType?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

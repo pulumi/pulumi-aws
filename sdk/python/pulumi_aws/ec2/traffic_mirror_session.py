@@ -160,6 +160,7 @@ class _TrafficMirrorSessionState:
         :param pulumi.Input[str] owner_id: The AWS account ID of the session owner.
         :param pulumi.Input[int] packet_length: The number of bytes in each packet to mirror. These are bytes after the VXLAN header. Do not specify this parameter when you want to mirror the entire packet. To mirror a subset of the packet, set this to the length (in bytes) that you want to mirror.
         :param pulumi.Input[int] session_number: - The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] traffic_mirror_filter_id: ID of the traffic mirror filter to be used
         :param pulumi.Input[str] traffic_mirror_target_id: ID of the traffic mirror target to be used
         :param pulumi.Input[int] virtual_network_id: - The VXLAN ID for the Traffic Mirror session. For more information about the VXLAN protocol, see RFC 7348. If you do not specify a VirtualNetworkId, an account-wide unique id is chosen at random.
@@ -271,6 +272,9 @@ class _TrafficMirrorSessionState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -354,7 +358,7 @@ class TrafficMirrorSession(pulumi.CustomResource):
 
         ## Import
 
-        Traffic mirror sessions can be imported using the `id`, e.g.
+        Traffic mirror sessions can be imported using the `id`, e.g.,
 
         ```sh
          $ pulumi import aws:ec2/trafficMirrorSession:TrafficMirrorSession session tms-0d8aa3ca35897b82e
@@ -402,7 +406,7 @@ class TrafficMirrorSession(pulumi.CustomResource):
 
         ## Import
 
-        Traffic mirror sessions can be imported using the `id`, e.g.
+        Traffic mirror sessions can be imported using the `id`, e.g.,
 
         ```sh
          $ pulumi import aws:ec2/trafficMirrorSession:TrafficMirrorSession session tms-0d8aa3ca35897b82e
@@ -496,6 +500,7 @@ class TrafficMirrorSession(pulumi.CustomResource):
         :param pulumi.Input[str] owner_id: The AWS account ID of the session owner.
         :param pulumi.Input[int] packet_length: The number of bytes in each packet to mirror. These are bytes after the VXLAN header. Do not specify this parameter when you want to mirror the entire packet. To mirror a subset of the packet, set this to the length (in bytes) that you want to mirror.
         :param pulumi.Input[int] session_number: - The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] traffic_mirror_filter_id: ID of the traffic mirror filter to be used
         :param pulumi.Input[str] traffic_mirror_target_id: ID of the traffic mirror target to be used
         :param pulumi.Input[int] virtual_network_id: - The VXLAN ID for the Traffic Mirror session. For more information about the VXLAN protocol, see RFC 7348. If you do not specify a VirtualNetworkId, an account-wide unique id is chosen at random.
@@ -573,6 +578,9 @@ class TrafficMirrorSession(pulumi.CustomResource):
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @property

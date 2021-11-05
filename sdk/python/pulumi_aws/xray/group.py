@@ -73,6 +73,7 @@ class _GroupState:
         :param pulumi.Input[str] arn: The ARN of the Group.
         :param pulumi.Input[str] filter_expression: The filter expression defining criteria by which to group traces. more info can be found in official [docs](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html).
         :param pulumi.Input[str] group_name: The name of the group.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -133,6 +134,9 @@ class _GroupState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -165,7 +169,7 @@ class Group(pulumi.CustomResource):
 
         ## Import
 
-        XRay Groups can be imported using the ARN, e.g.
+        XRay Groups can be imported using the ARN, e.g.,
 
         ```sh
          $ pulumi import aws:xray/group:Group example arn:aws:xray:us-west-2:1234567890:group/example-group/TNGX7SW5U6QY36T4ZMOUA3HVLBYCZTWDIOOXY3CJAXTHSS3YCWUA
@@ -198,7 +202,7 @@ class Group(pulumi.CustomResource):
 
         ## Import
 
-        XRay Groups can be imported using the ARN, e.g.
+        XRay Groups can be imported using the ARN, e.g.,
 
         ```sh
          $ pulumi import aws:xray/group:Group example arn:aws:xray:us-west-2:1234567890:group/example-group/TNGX7SW5U6QY36T4ZMOUA3HVLBYCZTWDIOOXY3CJAXTHSS3YCWUA
@@ -268,6 +272,7 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[str] arn: The ARN of the Group.
         :param pulumi.Input[str] filter_expression: The filter expression defining criteria by which to group traces. more info can be found in official [docs](https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html).
         :param pulumi.Input[str] group_name: The name of the group.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -312,5 +317,8 @@ class Group(pulumi.CustomResource):
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 

@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- *  Route 53 Resolver DNSSEC configs can be imported using the Route 53 Resolver DNSSEC config ID, e.g.
+ *  Route 53 Resolver DNSSEC configs can be imported using the Route 53 Resolver DNSSEC config ID, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:route53/resolverDnsSecConfig:ResolverDnsSecConfig example rdsc-be1866ecc1683e95
@@ -62,6 +62,10 @@ export class ResolverDnsSecConfig extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * The ID for a configuration for DNSSEC validation.
+     */
+    public /*out*/ readonly id!: pulumi.Output<string>;
+    /**
      * The owner account ID of the virtual private cloud (VPC) for a configuration for DNSSEC validation.
      */
     public /*out*/ readonly ownerId!: pulumi.Output<string>;
@@ -88,6 +92,7 @@ export class ResolverDnsSecConfig extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as ResolverDnsSecConfigState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
+            inputs["id"] = state ? state.id : undefined;
             inputs["ownerId"] = state ? state.ownerId : undefined;
             inputs["resourceId"] = state ? state.resourceId : undefined;
             inputs["validationStatus"] = state ? state.validationStatus : undefined;
@@ -98,6 +103,7 @@ export class ResolverDnsSecConfig extends pulumi.CustomResource {
             }
             inputs["resourceId"] = args ? args.resourceId : undefined;
             inputs["arn"] = undefined /*out*/;
+            inputs["id"] = undefined /*out*/;
             inputs["ownerId"] = undefined /*out*/;
             inputs["validationStatus"] = undefined /*out*/;
         }
@@ -116,6 +122,10 @@ export interface ResolverDnsSecConfigState {
      * The ARN for a configuration for DNSSEC validation.
      */
     arn?: pulumi.Input<string>;
+    /**
+     * The ID for a configuration for DNSSEC validation.
+     */
+    id?: pulumi.Input<string>;
     /**
      * The owner account ID of the virtual private cloud (VPC) for a configuration for DNSSEC validation.
      */

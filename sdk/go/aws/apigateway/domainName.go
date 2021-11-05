@@ -236,7 +236,7 @@ import (
 //
 // ## Import
 //
-// API Gateway domain names can be imported using their `name`, e.g.
+// API Gateway domain names can be imported using their `name`, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:apigateway/domainName:DomainName example dev.example.com

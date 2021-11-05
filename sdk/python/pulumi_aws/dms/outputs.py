@@ -366,8 +366,20 @@ class EndpointKinesisSettings(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "messageFormat":
+        if key == "includeControlDetails":
+            suggest = "include_control_details"
+        elif key == "includeNullAndEmpty":
+            suggest = "include_null_and_empty"
+        elif key == "includePartitionValue":
+            suggest = "include_partition_value"
+        elif key == "includeTableAlterOperations":
+            suggest = "include_table_alter_operations"
+        elif key == "includeTransactionDetails":
+            suggest = "include_transaction_details"
+        elif key == "messageFormat":
             suggest = "message_format"
+        elif key == "partitionIncludeSchemaTable":
+            suggest = "partition_include_schema_table"
         elif key == "serviceAccessRoleArn":
             suggest = "service_access_role_arn"
         elif key == "streamArn":
@@ -385,20 +397,84 @@ class EndpointKinesisSettings(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 include_control_details: Optional[bool] = None,
+                 include_null_and_empty: Optional[bool] = None,
+                 include_partition_value: Optional[bool] = None,
+                 include_table_alter_operations: Optional[bool] = None,
+                 include_transaction_details: Optional[bool] = None,
                  message_format: Optional[str] = None,
+                 partition_include_schema_table: Optional[bool] = None,
                  service_access_role_arn: Optional[str] = None,
                  stream_arn: Optional[str] = None):
         """
+        :param bool include_control_details: Shows detailed control information for table definition, column definition, and table and column changes in the Kinesis message output. The default is `false`.
+        :param bool include_null_and_empty: Include NULL and empty columns in the target. The default is `false`.
+        :param bool include_partition_value: Shows the partition value within the Kinesis message output, unless the partition type is schema-table-type. The default is `false`.
+        :param bool include_table_alter_operations: Includes any data definition language (DDL) operations that change the table in the control data. The default is `false`.
+        :param bool include_transaction_details: Provides detailed transaction information from the source database. The default is `false`.
         :param str message_format: Output format for the records created. Defaults to `json`. Valid values are `json` and `json_unformatted` (a single line with no tab).
+        :param bool partition_include_schema_table: Prefixes schema and table names to partition values, when the partition type is primary-key-type. The default is `false`.
         :param str service_access_role_arn: Amazon Resource Name (ARN) of the IAM Role with permissions to write to the Kinesis data stream.
         :param str stream_arn: Amazon Resource Name (ARN) of the Kinesis data stream.
         """
+        if include_control_details is not None:
+            pulumi.set(__self__, "include_control_details", include_control_details)
+        if include_null_and_empty is not None:
+            pulumi.set(__self__, "include_null_and_empty", include_null_and_empty)
+        if include_partition_value is not None:
+            pulumi.set(__self__, "include_partition_value", include_partition_value)
+        if include_table_alter_operations is not None:
+            pulumi.set(__self__, "include_table_alter_operations", include_table_alter_operations)
+        if include_transaction_details is not None:
+            pulumi.set(__self__, "include_transaction_details", include_transaction_details)
         if message_format is not None:
             pulumi.set(__self__, "message_format", message_format)
+        if partition_include_schema_table is not None:
+            pulumi.set(__self__, "partition_include_schema_table", partition_include_schema_table)
         if service_access_role_arn is not None:
             pulumi.set(__self__, "service_access_role_arn", service_access_role_arn)
         if stream_arn is not None:
             pulumi.set(__self__, "stream_arn", stream_arn)
+
+    @property
+    @pulumi.getter(name="includeControlDetails")
+    def include_control_details(self) -> Optional[bool]:
+        """
+        Shows detailed control information for table definition, column definition, and table and column changes in the Kinesis message output. The default is `false`.
+        """
+        return pulumi.get(self, "include_control_details")
+
+    @property
+    @pulumi.getter(name="includeNullAndEmpty")
+    def include_null_and_empty(self) -> Optional[bool]:
+        """
+        Include NULL and empty columns in the target. The default is `false`.
+        """
+        return pulumi.get(self, "include_null_and_empty")
+
+    @property
+    @pulumi.getter(name="includePartitionValue")
+    def include_partition_value(self) -> Optional[bool]:
+        """
+        Shows the partition value within the Kinesis message output, unless the partition type is schema-table-type. The default is `false`.
+        """
+        return pulumi.get(self, "include_partition_value")
+
+    @property
+    @pulumi.getter(name="includeTableAlterOperations")
+    def include_table_alter_operations(self) -> Optional[bool]:
+        """
+        Includes any data definition language (DDL) operations that change the table in the control data. The default is `false`.
+        """
+        return pulumi.get(self, "include_table_alter_operations")
+
+    @property
+    @pulumi.getter(name="includeTransactionDetails")
+    def include_transaction_details(self) -> Optional[bool]:
+        """
+        Provides detailed transaction information from the source database. The default is `false`.
+        """
+        return pulumi.get(self, "include_transaction_details")
 
     @property
     @pulumi.getter(name="messageFormat")
@@ -407,6 +483,14 @@ class EndpointKinesisSettings(dict):
         Output format for the records created. Defaults to `json`. Valid values are `json` and `json_unformatted` (a single line with no tab).
         """
         return pulumi.get(self, "message_format")
+
+    @property
+    @pulumi.getter(name="partitionIncludeSchemaTable")
+    def partition_include_schema_table(self) -> Optional[bool]:
+        """
+        Prefixes schema and table names to partition values, when the partition type is primary-key-type. The default is `false`.
+        """
+        return pulumi.get(self, "partition_include_schema_table")
 
     @property
     @pulumi.getter(name="serviceAccessRoleArn")

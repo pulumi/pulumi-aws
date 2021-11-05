@@ -16,5 +16,7 @@ from .get_secret import *
 from .get_secrets import *
 from .grant import *
 from .key import *
+from .replica_external_key import *
+from .replica_key import *
 from ._inputs import *
 from . import outputs

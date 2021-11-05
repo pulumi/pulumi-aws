@@ -37,7 +37,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * `aws_ami` can be imported using the ID of the AMI, e.g.
+ * `aws_ami` can be imported using the ID of the AMI, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:ec2/ami:Ami example ami-12345678
@@ -102,7 +102,7 @@ export class Ami extends pulumi.CustomResource {
      */
     public /*out*/ readonly hypervisor!: pulumi.Output<string>;
     /**
-     * Path to an S3 object containing an image manifest, e.g. created
+     * Path to an S3 object containing an image manifest, e.g., created
      * by the `ec2-upload-bundle` command in the EC2 command line tools.
      */
     public readonly imageLocation!: pulumi.Output<string>;
@@ -285,7 +285,7 @@ export interface AmiState {
      */
     hypervisor?: pulumi.Input<string>;
     /**
-     * Path to an S3 object containing an image manifest, e.g. created
+     * Path to an S3 object containing an image manifest, e.g., created
      * by the `ec2-upload-bundle` command in the EC2 command line tools.
      */
     imageLocation?: pulumi.Input<string>;
@@ -388,7 +388,7 @@ export interface AmiArgs {
      */
     ephemeralBlockDevices?: pulumi.Input<pulumi.Input<inputs.ec2.AmiEphemeralBlockDevice>[]>;
     /**
-     * Path to an S3 object containing an image manifest, e.g. created
+     * Path to an S3 object containing an image manifest, e.g., created
      * by the `ec2-upload-bundle` command in the EC2 command line tools.
      */
     imageLocation?: pulumi.Input<string>;

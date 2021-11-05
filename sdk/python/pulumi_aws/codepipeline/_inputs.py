@@ -400,7 +400,7 @@ class WebhookFilterArgs:
                  match_equals: pulumi.Input[str]):
         """
         :param pulumi.Input[str] json_path: The [JSON path](https://github.com/json-path/JsonPath) to filter on.
-        :param pulumi.Input[str] match_equals: The value to match on (e.g. `refs/heads/{Branch}`). See [AWS docs](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_WebhookFilterRule.html) for details.
+        :param pulumi.Input[str] match_equals: The value to match on (e.g., `refs/heads/{Branch}`). See [AWS docs](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_WebhookFilterRule.html) for details.
         """
         pulumi.set(__self__, "json_path", json_path)
         pulumi.set(__self__, "match_equals", match_equals)
@@ -421,7 +421,7 @@ class WebhookFilterArgs:
     @pulumi.getter(name="matchEquals")
     def match_equals(self) -> pulumi.Input[str]:
         """
-        The value to match on (e.g. `refs/heads/{Branch}`). See [AWS docs](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_WebhookFilterRule.html) for details.
+        The value to match on (e.g., `refs/heads/{Branch}`). See [AWS docs](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_WebhookFilterRule.html) for details.
         """
         return pulumi.get(self, "match_equals")
 

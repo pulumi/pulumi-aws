@@ -72,7 +72,7 @@ export interface GetVolumeArgs {
  */
 export interface GetVolumeResult {
     /**
-     * The volume ARN (e.g. arn:aws:ec2:us-east-1:0123456789012:volume/vol-59fcb34e).
+     * The volume ARN (e.g., arn:aws:ec2:us-east-1:0123456789012:volume/vol-59fcb34e).
      */
     readonly arn: string;
     /**
@@ -122,7 +122,7 @@ export interface GetVolumeResult {
      */
     readonly throughput: number;
     /**
-     * The volume ID (e.g. vol-59fcb34e).
+     * The volume ID (e.g., vol-59fcb34e).
      */
     readonly volumeId: string;
     /**

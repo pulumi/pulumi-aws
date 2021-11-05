@@ -37,7 +37,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * `aws_appstream_fleet` can be imported using the id, e.g.
+ * `aws_appstream_fleet` can be imported using the id, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:appstream/fleet:Fleet example fleetNameExample
@@ -147,7 +147,7 @@ export class Fleet extends pulumi.CustomResource {
      * Map of tags to attach to AppStream instances.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Configuration block for the VPC configuration for the image builder. See below.
      */
@@ -211,11 +211,11 @@ export class Fleet extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["streamView"] = args ? args.streamView : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["vpcConfig"] = args ? args.vpcConfig : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["createdTime"] = undefined /*out*/;
             inputs["state"] = undefined /*out*/;
+            inputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -379,7 +379,6 @@ export interface FleetArgs {
      * Map of tags to attach to AppStream instances.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Configuration block for the VPC configuration for the image builder. See below.
      */

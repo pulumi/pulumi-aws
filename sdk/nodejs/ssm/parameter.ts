@@ -52,7 +52,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * SSM Parameters can be imported using the `parameter store name`, e.g.
+ * SSM Parameters can be imported using the `parameter store name`, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:ssm/parameter:Parameter my_param /my_path/my_paramname
@@ -108,7 +108,7 @@ export class Parameter extends pulumi.CustomResource {
      */
     public readonly keyId!: pulumi.Output<string>;
     /**
-     * The name of the parameter. If the name contains a path (e.g. any forward slashes (`/`)), it must be fully qualified with a leading forward slash (`/`). For additional requirements and constraints, see the [AWS SSM User Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html).
+     * The name of the parameter. If the name contains a path (e.g., any forward slashes (`/`)), it must be fully qualified with a leading forward slash (`/`). For additional requirements and constraints, see the [AWS SSM User Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html).
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -221,7 +221,7 @@ export interface ParameterState {
      */
     keyId?: pulumi.Input<string>;
     /**
-     * The name of the parameter. If the name contains a path (e.g. any forward slashes (`/`)), it must be fully qualified with a leading forward slash (`/`). For additional requirements and constraints, see the [AWS SSM User Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html).
+     * The name of the parameter. If the name contains a path (e.g., any forward slashes (`/`)), it must be fully qualified with a leading forward slash (`/`). For additional requirements and constraints, see the [AWS SSM User Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html).
      */
     name?: pulumi.Input<string>;
     /**
@@ -280,7 +280,7 @@ export interface ParameterArgs {
      */
     keyId?: pulumi.Input<string>;
     /**
-     * The name of the parameter. If the name contains a path (e.g. any forward slashes (`/`)), it must be fully qualified with a leading forward slash (`/`). For additional requirements and constraints, see the [AWS SSM User Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html).
+     * The name of the parameter. If the name contains a path (e.g., any forward slashes (`/`)), it must be fully qualified with a leading forward slash (`/`). For additional requirements and constraints, see the [AWS SSM User Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html).
      */
     name?: pulumi.Input<string>;
     /**

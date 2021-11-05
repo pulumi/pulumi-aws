@@ -40,7 +40,7 @@ import (
 //
 // ## Import
 //
-// EMR Security Configurations can be imported using the `name`, e.g.
+// EMR Security Configurations can be imported using the `name`, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:emr/securityConfiguration:SecurityConfiguration sc example-sc-name

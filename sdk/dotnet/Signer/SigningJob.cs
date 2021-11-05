@@ -55,7 +55,7 @@ namespace Pulumi.Aws.Signer
     /// 
     /// ## Import
     /// 
-    /// Signer signing jobs can be imported using the `job_id`, e.g.
+    /// Signer signing jobs can be imported using the `job_id`, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:signer/signingJob:SigningJob test_signer_signing_job 9ed7e5c3-b8d4-4da0-8459-44e0b068f7ee

@@ -577,7 +577,7 @@ class VpcEndpoint(pulumi.CustomResource):
 
         ## Import
 
-        VPC Endpoints can be imported using the `vpc endpoint id`, e.g.
+        VPC Endpoints can be imported using the `vpc endpoint id`, e.g.,
 
         ```sh
          $ pulumi import aws:ec2/vpcEndpoint:VpcEndpoint endpoint1 vpce-3ecf2a57
@@ -670,7 +670,7 @@ class VpcEndpoint(pulumi.CustomResource):
 
         ## Import
 
-        VPC Endpoints can be imported using the `vpc endpoint id`, e.g.
+        VPC Endpoints can be imported using the `vpc endpoint id`, e.g.,
 
         ```sh
          $ pulumi import aws:ec2/vpcEndpoint:VpcEndpoint endpoint1 vpce-3ecf2a57

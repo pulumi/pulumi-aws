@@ -112,7 +112,7 @@ def get_ami_ids(filters: Optional[Sequence[pulumi.InputType['GetAmiIdsFilterArgs
     ```
 
 
-    :param Sequence[pulumi.InputType['GetAmiIdsFilterArgs']] filters: A filter used to scope the list e.g. by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
+    :param Sequence[pulumi.InputType['GetAmiIdsFilterArgs']] filters: A filter used to scope the list e.g., by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
     """
     __args__ = dict()
     __args__['filters'] = filters
@@ -164,6 +164,6 @@ def get_ami_ids_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.I
     ```
 
 
-    :param Sequence[pulumi.InputType['GetAmiIdsFilterArgs']] filters: A filter used to scope the list e.g. by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
+    :param Sequence[pulumi.InputType['GetAmiIdsFilterArgs']] filters: A filter used to scope the list e.g., by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
     """
     ...

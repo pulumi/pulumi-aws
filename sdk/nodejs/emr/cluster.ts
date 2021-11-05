@@ -514,7 +514,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * EMR clusters can be imported using the `id`, e.g.
+ * EMR clusters can be imported using the `id`, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:emr/cluster:Cluster cluster j-123456ABCDEF

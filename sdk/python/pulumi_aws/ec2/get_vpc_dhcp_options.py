@@ -77,7 +77,7 @@ class GetVpcDhcpOptionsResult:
     @pulumi.getter(name="domainName")
     def domain_name(self) -> str:
         """
-        The suffix domain name to used when resolving non Fully Qualified Domain Names. e.g. the `search` value in the `/etc/resolv.conf` file.
+        The suffix domain name to used when resolving non Fully Qualified Domain NamesE.g., the `search` value in the `/etc/resolv.conf` file.
         """
         return pulumi.get(self, "domain_name")
 

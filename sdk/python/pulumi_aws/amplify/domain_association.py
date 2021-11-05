@@ -229,7 +229,7 @@ class DomainAssociation(pulumi.CustomResource):
 
         ## Import
 
-        Amplify domain association can be imported using `app_id` and `domain_name`, e.g.
+        Amplify domain association can be imported using `app_id` and `domain_name`, e.g.,
 
         ```sh
          $ pulumi import aws:amplify/domainAssociation:DomainAssociation app d2ypk4k47z8u6/example.com
@@ -282,7 +282,7 @@ class DomainAssociation(pulumi.CustomResource):
 
         ## Import
 
-        Amplify domain association can be imported using `app_id` and `domain_name`, e.g.
+        Amplify domain association can be imported using `app_id` and `domain_name`, e.g.,
 
         ```sh
          $ pulumi import aws:amplify/domainAssociation:DomainAssociation app d2ypk4k47z8u6/example.com

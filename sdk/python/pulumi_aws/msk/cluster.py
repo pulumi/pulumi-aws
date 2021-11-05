@@ -227,7 +227,7 @@ class _ClusterState:
         :param pulumi.Input['ClusterClientAuthenticationArgs'] client_authentication: Configuration block for specifying a client authentication. See below.
         :param pulumi.Input[str] cluster_name: Name of the MSK cluster.
         :param pulumi.Input['ClusterConfigurationInfoArgs'] configuration_info: Configuration block for specifying a MSK Configuration to attach to Kafka brokers. See below.
-        :param pulumi.Input[str] current_version: Current version of the MSK Cluster used for updates, e.g. `K13V1IB3VIYZZH`
+        :param pulumi.Input[str] current_version: Current version of the MSK Cluster used for updates, e.g., `K13V1IB3VIYZZH`
                * `encryption_info.0.encryption_at_rest_kms_key_arn` - The ARN of the KMS key used for encryption at rest of the broker data volumes.
         :param pulumi.Input['ClusterEncryptionInfoArgs'] encryption_info: Configuration block for specifying encryption. See below.
         :param pulumi.Input[str] enhanced_monitoring: Specify the desired enhanced MSK CloudWatch monitoring level.  See [Monitoring Amazon MSK with Amazon CloudWatch](https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html)
@@ -393,7 +393,7 @@ class _ClusterState:
     @pulumi.getter(name="currentVersion")
     def current_version(self) -> Optional[pulumi.Input[str]]:
         """
-        Current version of the MSK Cluster used for updates, e.g. `K13V1IB3VIYZZH`
+        Current version of the MSK Cluster used for updates, e.g., `K13V1IB3VIYZZH`
         * `encryption_info.0.encryption_at_rest_kms_key_arn` - The ARN of the KMS key used for encryption at rest of the broker data volumes.
         """
         return pulumi.get(self, "current_version")
@@ -642,7 +642,7 @@ class Cluster(pulumi.CustomResource):
 
         ## Import
 
-        MSK clusters can be imported using the cluster `arn`, e.g.
+        MSK clusters can be imported using the cluster `arn`, e.g.,
 
         ```sh
          $ pulumi import aws:msk/cluster:Cluster example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
@@ -770,7 +770,7 @@ class Cluster(pulumi.CustomResource):
 
         ## Import
 
-        MSK clusters can be imported using the cluster `arn`, e.g.
+        MSK clusters can be imported using the cluster `arn`, e.g.,
 
         ```sh
          $ pulumi import aws:msk/cluster:Cluster example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
@@ -886,7 +886,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ClusterClientAuthenticationArgs']] client_authentication: Configuration block for specifying a client authentication. See below.
         :param pulumi.Input[str] cluster_name: Name of the MSK cluster.
         :param pulumi.Input[pulumi.InputType['ClusterConfigurationInfoArgs']] configuration_info: Configuration block for specifying a MSK Configuration to attach to Kafka brokers. See below.
-        :param pulumi.Input[str] current_version: Current version of the MSK Cluster used for updates, e.g. `K13V1IB3VIYZZH`
+        :param pulumi.Input[str] current_version: Current version of the MSK Cluster used for updates, e.g., `K13V1IB3VIYZZH`
                * `encryption_info.0.encryption_at_rest_kms_key_arn` - The ARN of the KMS key used for encryption at rest of the broker data volumes.
         :param pulumi.Input[pulumi.InputType['ClusterEncryptionInfoArgs']] encryption_info: Configuration block for specifying encryption. See below.
         :param pulumi.Input[str] enhanced_monitoring: Specify the desired enhanced MSK CloudWatch monitoring level.  See [Monitoring Amazon MSK with Amazon CloudWatch](https://docs.aws.amazon.com/msk/latest/developerguide/monitoring.html)
@@ -1001,7 +1001,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="currentVersion")
     def current_version(self) -> pulumi.Output[str]:
         """
-        Current version of the MSK Cluster used for updates, e.g. `K13V1IB3VIYZZH`
+        Current version of the MSK Cluster used for updates, e.g., `K13V1IB3VIYZZH`
         * `encryption_info.0.encryption_at_rest_kms_key_arn` - The ARN of the KMS key used for encryption at rest of the broker data volumes.
         """
         return pulumi.get(self, "current_version")

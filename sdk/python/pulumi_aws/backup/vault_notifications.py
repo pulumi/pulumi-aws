@@ -179,7 +179,7 @@ class VaultNotifications(pulumi.CustomResource):
 
         ## Import
 
-        Backup vault notifications can be imported using the `name`, e.g.
+        Backup vault notifications can be imported using the `name`, e.g.,
 
         ```sh
          $ pulumi import aws:backup/vaultNotifications:VaultNotifications test TestVault
@@ -232,7 +232,7 @@ class VaultNotifications(pulumi.CustomResource):
 
         ## Import
 
-        Backup vault notifications can be imported using the `name`, e.g.
+        Backup vault notifications can be imported using the `name`, e.g.,
 
         ```sh
          $ pulumi import aws:backup/vaultNotifications:VaultNotifications test TestVault

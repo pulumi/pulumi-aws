@@ -33,7 +33,7 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// ## Import
     /// 
-    /// API Gateway Client Certificates can be imported using the id, e.g.
+    /// API Gateway Client Certificates can be imported using the id, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:apigateway/clientCertificate:ClientCertificate demo ab1cqe

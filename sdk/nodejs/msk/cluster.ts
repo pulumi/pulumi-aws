@@ -114,7 +114,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * MSK clusters can be imported using the cluster `arn`, e.g.
+ * MSK clusters can be imported using the cluster `arn`, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:msk/cluster:Cluster example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
@@ -185,7 +185,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly configurationInfo!: pulumi.Output<outputs.msk.ClusterConfigurationInfo | undefined>;
     /**
-     * Current version of the MSK Cluster used for updates, e.g. `K13V1IB3VIYZZH`
+     * Current version of the MSK Cluster used for updates, e.g., `K13V1IB3VIYZZH`
      * * `encryption_info.0.encryption_at_rest_kms_key_arn` - The ARN of the KMS key used for encryption at rest of the broker data volumes.
      */
     public /*out*/ readonly currentVersion!: pulumi.Output<string>;
@@ -343,7 +343,7 @@ export interface ClusterState {
      */
     configurationInfo?: pulumi.Input<inputs.msk.ClusterConfigurationInfo>;
     /**
-     * Current version of the MSK Cluster used for updates, e.g. `K13V1IB3VIYZZH`
+     * Current version of the MSK Cluster used for updates, e.g., `K13V1IB3VIYZZH`
      * * `encryption_info.0.encryption_at_rest_kms_key_arn` - The ARN of the KMS key used for encryption at rest of the broker data volumes.
      */
     currentVersion?: pulumi.Input<string>;

@@ -56,6 +56,8 @@ type LookupNetworkInterfaceArgs struct {
 
 // A collection of values returned by getNetworkInterface.
 type LookupNetworkInterfaceResult struct {
+	// The ARN of the network interface.
+	Arn string `pulumi:"arn"`
 	// The association information for an Elastic IP address (IPv4) associated with the network interface. See supported fields below.
 	Associations []GetNetworkInterfaceAssociation    `pulumi:"associations"`
 	Attachments  []GetNetworkInterfaceAttachmentType `pulumi:"attachments"`
@@ -129,6 +131,11 @@ func (o LookupNetworkInterfaceResultOutput) ToLookupNetworkInterfaceResultOutput
 
 func (o LookupNetworkInterfaceResultOutput) ToLookupNetworkInterfaceResultOutputWithContext(ctx context.Context) LookupNetworkInterfaceResultOutput {
 	return o
+}
+
+// The ARN of the network interface.
+func (o LookupNetworkInterfaceResultOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupNetworkInterfaceResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
 // The association information for an Elastic IP address (IPv4) associated with the network interface. See supported fields below.

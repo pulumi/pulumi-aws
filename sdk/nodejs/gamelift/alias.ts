@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Gamelift Aliases can be imported using the ID, e.g.
+ * Gamelift Aliases can be imported using the ID, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:gamelift/alias:Alias example <alias-id>

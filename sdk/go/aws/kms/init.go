@@ -31,6 +31,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Grant{}
 	case "aws:kms/key:Key":
 		r = &Key{}
+	case "aws:kms/replicaExternalKey:ReplicaExternalKey":
+		r = &ReplicaExternalKey{}
+	case "aws:kms/replicaKey:ReplicaKey":
+		r = &ReplicaKey{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -67,6 +71,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"kms/key",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"kms/replicaExternalKey",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"kms/replicaKey",
 		&module{version},
 	)
 }

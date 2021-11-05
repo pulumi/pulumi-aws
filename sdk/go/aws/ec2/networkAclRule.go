@@ -79,9 +79,9 @@ type NetworkAclRule struct {
 	Egress pulumi.BoolPtrOutput `pulumi:"egress"`
 	// The from port to match.
 	FromPort pulumi.IntPtrOutput `pulumi:"fromPort"`
-	// ICMP protocol: The ICMP code. Required if specifying ICMP for the protocol. e.g. -1
+	// ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1
 	IcmpCode pulumi.StringPtrOutput `pulumi:"icmpCode"`
-	// ICMP protocol: The ICMP type. Required if specifying ICMP for the protocol. e.g. -1
+	// ICMP protocol: The ICMP type. Required if specifying ICMP for the protocolE.g., -1
 	IcmpType pulumi.StringPtrOutput `pulumi:"icmpType"`
 	// The IPv6 CIDR block to allow or deny.
 	Ipv6CidrBlock pulumi.StringPtrOutput `pulumi:"ipv6CidrBlock"`
@@ -144,9 +144,9 @@ type networkAclRuleState struct {
 	Egress *bool `pulumi:"egress"`
 	// The from port to match.
 	FromPort *int `pulumi:"fromPort"`
-	// ICMP protocol: The ICMP code. Required if specifying ICMP for the protocol. e.g. -1
+	// ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1
 	IcmpCode *string `pulumi:"icmpCode"`
-	// ICMP protocol: The ICMP type. Required if specifying ICMP for the protocol. e.g. -1
+	// ICMP protocol: The ICMP type. Required if specifying ICMP for the protocolE.g., -1
 	IcmpType *string `pulumi:"icmpType"`
 	// The IPv6 CIDR block to allow or deny.
 	Ipv6CidrBlock *string `pulumi:"ipv6CidrBlock"`
@@ -169,9 +169,9 @@ type NetworkAclRuleState struct {
 	Egress pulumi.BoolPtrInput
 	// The from port to match.
 	FromPort pulumi.IntPtrInput
-	// ICMP protocol: The ICMP code. Required if specifying ICMP for the protocol. e.g. -1
+	// ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1
 	IcmpCode pulumi.StringPtrInput
-	// ICMP protocol: The ICMP type. Required if specifying ICMP for the protocol. e.g. -1
+	// ICMP protocol: The ICMP type. Required if specifying ICMP for the protocolE.g., -1
 	IcmpType pulumi.StringPtrInput
 	// The IPv6 CIDR block to allow or deny.
 	Ipv6CidrBlock pulumi.StringPtrInput
@@ -198,9 +198,9 @@ type networkAclRuleArgs struct {
 	Egress *bool `pulumi:"egress"`
 	// The from port to match.
 	FromPort *int `pulumi:"fromPort"`
-	// ICMP protocol: The ICMP code. Required if specifying ICMP for the protocol. e.g. -1
+	// ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1
 	IcmpCode *string `pulumi:"icmpCode"`
-	// ICMP protocol: The ICMP type. Required if specifying ICMP for the protocol. e.g. -1
+	// ICMP protocol: The ICMP type. Required if specifying ICMP for the protocolE.g., -1
 	IcmpType *string `pulumi:"icmpType"`
 	// The IPv6 CIDR block to allow or deny.
 	Ipv6CidrBlock *string `pulumi:"ipv6CidrBlock"`
@@ -224,9 +224,9 @@ type NetworkAclRuleArgs struct {
 	Egress pulumi.BoolPtrInput
 	// The from port to match.
 	FromPort pulumi.IntPtrInput
-	// ICMP protocol: The ICMP code. Required if specifying ICMP for the protocol. e.g. -1
+	// ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1
 	IcmpCode pulumi.StringPtrInput
-	// ICMP protocol: The ICMP type. Required if specifying ICMP for the protocol. e.g. -1
+	// ICMP protocol: The ICMP type. Required if specifying ICMP for the protocolE.g., -1
 	IcmpType pulumi.StringPtrInput
 	// The IPv6 CIDR block to allow or deny.
 	Ipv6CidrBlock pulumi.StringPtrInput

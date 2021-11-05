@@ -234,7 +234,7 @@ class SecretVersion(pulumi.CustomResource):
 
         ## Import
 
-        `aws_secretsmanager_secret_version` can be imported by using the secret ID and version ID, e.g.
+        `aws_secretsmanager_secret_version` can be imported by using the secret ID and version ID, e.g.,
 
         ```sh
          $ pulumi import aws:secretsmanager/secretVersion:SecretVersion example 'arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456|xxxxx-xxxxxxx-xxxxxxx-xxxxx'
@@ -292,7 +292,7 @@ class SecretVersion(pulumi.CustomResource):
 
         ## Import
 
-        `aws_secretsmanager_secret_version` can be imported by using the secret ID and version ID, e.g.
+        `aws_secretsmanager_secret_version` can be imported by using the secret ID and version ID, e.g.,
 
         ```sh
          $ pulumi import aws:secretsmanager/secretVersion:SecretVersion example 'arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456|xxxxx-xxxxxxx-xxxxxxx-xxxxx'

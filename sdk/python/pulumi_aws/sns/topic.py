@@ -936,7 +936,7 @@ class Topic(pulumi.CustomResource):
 
         ## Import
 
-        SNS Topics can be imported using the `topic arn`, e.g.
+        SNS Topics can be imported using the `topic arn`, e.g.,
 
         ```sh
          $ pulumi import aws:sns/topic:Topic user_updates arn:aws:sns:us-west-2:0123456789012:my-topic
@@ -1039,7 +1039,7 @@ class Topic(pulumi.CustomResource):
 
         ## Import
 
-        SNS Topics can be imported using the `topic arn`, e.g.
+        SNS Topics can be imported using the `topic arn`, e.g.,
 
         ```sh
          $ pulumi import aws:sns/topic:Topic user_updates arn:aws:sns:us-west-2:0123456789012:my-topic

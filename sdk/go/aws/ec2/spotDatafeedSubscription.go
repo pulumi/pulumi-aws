@@ -47,7 +47,7 @@ import (
 //
 // ## Import
 //
-// A Spot Datafeed Subscription can be imported using the word `spot-datafeed-subscription`, e.g.
+// A Spot Datafeed Subscription can be imported using the word `spot-datafeed-subscription`, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:ec2/spotDatafeedSubscription:SpotDatafeedSubscription mysubscription spot-datafeed-subscription

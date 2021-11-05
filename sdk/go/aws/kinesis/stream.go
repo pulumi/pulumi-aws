@@ -49,7 +49,7 @@ import (
 //
 // ## Import
 //
-// Kinesis Streams can be imported using the `name`, e.g.
+// Kinesis Streams can be imported using the `name`, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:kinesis/stream:Stream test_stream kinesis-test
@@ -77,7 +77,8 @@ type Stream struct {
 	// A list of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
 	ShardLevelMetrics pulumi.StringArrayOutput `pulumi:"shardLevelMetrics"`
 	Tags              pulumi.StringMapOutput   `pulumi:"tags"`
-	TagsAll           pulumi.StringMapOutput   `pulumi:"tagsAll"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewStream registers a new resource with the given unique name, arguments, and options.
@@ -130,7 +131,8 @@ type streamState struct {
 	// A list of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
 	ShardLevelMetrics []string          `pulumi:"shardLevelMetrics"`
 	Tags              map[string]string `pulumi:"tags"`
-	TagsAll           map[string]string `pulumi:"tagsAll"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type StreamState struct {
@@ -152,7 +154,8 @@ type StreamState struct {
 	// A list of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
 	ShardLevelMetrics pulumi.StringArrayInput
 	Tags              pulumi.StringMapInput
-	TagsAll           pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 }
 
 func (StreamState) ElementType() reflect.Type {

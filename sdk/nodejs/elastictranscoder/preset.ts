@@ -72,7 +72,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Elastic Transcoder presets can be imported using the `id`, e.g.
+ * Elastic Transcoder presets can be imported using the `id`, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:elastictranscoder/preset:Preset basic_preset 1407981661351-cttk8b

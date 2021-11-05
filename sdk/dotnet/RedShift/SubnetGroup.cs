@@ -65,7 +65,7 @@ namespace Pulumi.Aws.RedShift
     /// 
     /// ## Import
     /// 
-    /// Redshift subnet groups can be imported using the `name`, e.g.
+    /// Redshift subnet groups can be imported using the `name`, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:redshift/subnetGroup:SubnetGroup testgroup1 test-cluster-subnet-group

@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * `aws_apigatewayv2_stage` can be imported by using the API identifier and stage name, e.g.
+ * `aws_apigatewayv2_stage` can be imported by using the API identifier and stage name, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:apigatewayv2/stage:Stage example aabbccddee/example-stage
@@ -97,7 +97,7 @@ export class Stage extends pulumi.CustomResource {
     public /*out*/ readonly executionArn!: pulumi.Output<string>;
     /**
      * The URL to invoke the API pointing to the stage,
-     * e.g. `wss://z4675bid1j.execute-api.eu-west-2.amazonaws.com/example-stage`, or `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/`
+     * e.g., `wss://z4675bid1j.execute-api.eu-west-2.amazonaws.com/example-stage`, or `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/`
      */
     public /*out*/ readonly invokeUrl!: pulumi.Output<string>;
     /**
@@ -117,7 +117,7 @@ export class Stage extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider .
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
@@ -223,7 +223,7 @@ export interface StageState {
     executionArn?: pulumi.Input<string>;
     /**
      * The URL to invoke the API pointing to the stage,
-     * e.g. `wss://z4675bid1j.execute-api.eu-west-2.amazonaws.com/example-stage`, or `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/`
+     * e.g., `wss://z4675bid1j.execute-api.eu-west-2.amazonaws.com/example-stage`, or `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/`
      */
     invokeUrl?: pulumi.Input<string>;
     /**
@@ -243,7 +243,7 @@ export interface StageState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider .
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

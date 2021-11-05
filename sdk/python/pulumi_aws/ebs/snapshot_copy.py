@@ -142,6 +142,7 @@ class _SnapshotCopyState:
         :param pulumi.Input[str] source_region: The region of the source snapshot.
         :param pulumi.Input[str] source_snapshot_id: The ARN for the snapshot to be copied.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags for the snapshot.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[int] volume_size: The size of the drive in GiBs.
         """
         if arn is not None:
@@ -296,6 +297,9 @@ class _SnapshotCopyState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -499,6 +503,7 @@ class SnapshotCopy(pulumi.CustomResource):
         :param pulumi.Input[str] source_region: The region of the source snapshot.
         :param pulumi.Input[str] source_snapshot_id: The ARN for the snapshot to be copied.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags for the snapshot.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[int] volume_size: The size of the drive in GiBs.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -605,6 +610,9 @@ class SnapshotCopy(pulumi.CustomResource):
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @property

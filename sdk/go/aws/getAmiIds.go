@@ -70,7 +70,7 @@ type GetAmiIdsArgs struct {
 	// impact if the result is large. It is recommended to combine this with other
 	// options to narrow down the list AWS returns.
 	NameRegex *string `pulumi:"nameRegex"`
-	// List of AMI owners to limit search. At least 1 value must be specified. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g. `amazon`, `aws-marketplace`, `microsoft`).
+	// List of AMI owners to limit search. At least 1 value must be specified. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g., `amazon`, `aws-marketplace`, `microsoft`).
 	Owners []string `pulumi:"owners"`
 	// Used to sort AMIs by creation time.
 	SortAscending *bool `pulumi:"sortAscending"`
@@ -112,7 +112,7 @@ type GetAmiIdsOutputArgs struct {
 	// impact if the result is large. It is recommended to combine this with other
 	// options to narrow down the list AWS returns.
 	NameRegex pulumi.StringPtrInput `pulumi:"nameRegex"`
-	// List of AMI owners to limit search. At least 1 value must be specified. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g. `amazon`, `aws-marketplace`, `microsoft`).
+	// List of AMI owners to limit search. At least 1 value must be specified. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g., `amazon`, `aws-marketplace`, `microsoft`).
 	Owners pulumi.StringArrayInput `pulumi:"owners"`
 	// Used to sort AMIs by creation time.
 	SortAscending pulumi.BoolPtrInput `pulumi:"sortAscending"`

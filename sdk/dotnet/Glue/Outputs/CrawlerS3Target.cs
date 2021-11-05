@@ -18,6 +18,14 @@ namespace Pulumi.Aws.Glue.Outputs
         /// </summary>
         public readonly string? ConnectionName;
         /// <summary>
+        /// The ARN of the dead-letter SQS queue.
+        /// </summary>
+        public readonly string? DlqEventQueueArn;
+        /// <summary>
+        /// The ARN of the SQS queue to receive S3 notifications from.
+        /// </summary>
+        public readonly string? EventQueueArn;
+        /// <summary>
         /// A list of glob patterns used to exclude from the crawl.
         /// </summary>
         public readonly ImmutableArray<string> Exclusions;
@@ -34,6 +42,10 @@ namespace Pulumi.Aws.Glue.Outputs
         private CrawlerS3Target(
             string? connectionName,
 
+            string? dlqEventQueueArn,
+
+            string? eventQueueArn,
+
             ImmutableArray<string> exclusions,
 
             string path,
@@ -41,6 +53,8 @@ namespace Pulumi.Aws.Glue.Outputs
             int? sampleSize)
         {
             ConnectionName = connectionName;
+            DlqEventQueueArn = dlqEventQueueArn;
+            EventQueueArn = eventQueueArn;
             Exclusions = exclusions;
             Path = path;
             SampleSize = sampleSize;

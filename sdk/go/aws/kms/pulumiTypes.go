@@ -116,6 +116,316 @@ func (o GrantConstraintArrayOutput) Index(i pulumi.IntInput) GrantConstraintOutp
 	}).(GrantConstraintOutput)
 }
 
+type GetKeyMultiRegionConfiguration struct {
+	MultiRegionKeyType string                                     `pulumi:"multiRegionKeyType"`
+	PrimaryKeys        []GetKeyMultiRegionConfigurationPrimaryKey `pulumi:"primaryKeys"`
+	ReplicaKeys        []GetKeyMultiRegionConfigurationReplicaKey `pulumi:"replicaKeys"`
+}
+
+// GetKeyMultiRegionConfigurationInput is an input type that accepts GetKeyMultiRegionConfigurationArgs and GetKeyMultiRegionConfigurationOutput values.
+// You can construct a concrete instance of `GetKeyMultiRegionConfigurationInput` via:
+//
+//          GetKeyMultiRegionConfigurationArgs{...}
+type GetKeyMultiRegionConfigurationInput interface {
+	pulumi.Input
+
+	ToGetKeyMultiRegionConfigurationOutput() GetKeyMultiRegionConfigurationOutput
+	ToGetKeyMultiRegionConfigurationOutputWithContext(context.Context) GetKeyMultiRegionConfigurationOutput
+}
+
+type GetKeyMultiRegionConfigurationArgs struct {
+	MultiRegionKeyType pulumi.StringInput                                 `pulumi:"multiRegionKeyType"`
+	PrimaryKeys        GetKeyMultiRegionConfigurationPrimaryKeyArrayInput `pulumi:"primaryKeys"`
+	ReplicaKeys        GetKeyMultiRegionConfigurationReplicaKeyArrayInput `pulumi:"replicaKeys"`
+}
+
+func (GetKeyMultiRegionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetKeyMultiRegionConfiguration)(nil)).Elem()
+}
+
+func (i GetKeyMultiRegionConfigurationArgs) ToGetKeyMultiRegionConfigurationOutput() GetKeyMultiRegionConfigurationOutput {
+	return i.ToGetKeyMultiRegionConfigurationOutputWithContext(context.Background())
+}
+
+func (i GetKeyMultiRegionConfigurationArgs) ToGetKeyMultiRegionConfigurationOutputWithContext(ctx context.Context) GetKeyMultiRegionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetKeyMultiRegionConfigurationOutput)
+}
+
+// GetKeyMultiRegionConfigurationArrayInput is an input type that accepts GetKeyMultiRegionConfigurationArray and GetKeyMultiRegionConfigurationArrayOutput values.
+// You can construct a concrete instance of `GetKeyMultiRegionConfigurationArrayInput` via:
+//
+//          GetKeyMultiRegionConfigurationArray{ GetKeyMultiRegionConfigurationArgs{...} }
+type GetKeyMultiRegionConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToGetKeyMultiRegionConfigurationArrayOutput() GetKeyMultiRegionConfigurationArrayOutput
+	ToGetKeyMultiRegionConfigurationArrayOutputWithContext(context.Context) GetKeyMultiRegionConfigurationArrayOutput
+}
+
+type GetKeyMultiRegionConfigurationArray []GetKeyMultiRegionConfigurationInput
+
+func (GetKeyMultiRegionConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetKeyMultiRegionConfiguration)(nil)).Elem()
+}
+
+func (i GetKeyMultiRegionConfigurationArray) ToGetKeyMultiRegionConfigurationArrayOutput() GetKeyMultiRegionConfigurationArrayOutput {
+	return i.ToGetKeyMultiRegionConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i GetKeyMultiRegionConfigurationArray) ToGetKeyMultiRegionConfigurationArrayOutputWithContext(ctx context.Context) GetKeyMultiRegionConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetKeyMultiRegionConfigurationArrayOutput)
+}
+
+type GetKeyMultiRegionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GetKeyMultiRegionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetKeyMultiRegionConfiguration)(nil)).Elem()
+}
+
+func (o GetKeyMultiRegionConfigurationOutput) ToGetKeyMultiRegionConfigurationOutput() GetKeyMultiRegionConfigurationOutput {
+	return o
+}
+
+func (o GetKeyMultiRegionConfigurationOutput) ToGetKeyMultiRegionConfigurationOutputWithContext(ctx context.Context) GetKeyMultiRegionConfigurationOutput {
+	return o
+}
+
+func (o GetKeyMultiRegionConfigurationOutput) MultiRegionKeyType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetKeyMultiRegionConfiguration) string { return v.MultiRegionKeyType }).(pulumi.StringOutput)
+}
+
+func (o GetKeyMultiRegionConfigurationOutput) PrimaryKeys() GetKeyMultiRegionConfigurationPrimaryKeyArrayOutput {
+	return o.ApplyT(func(v GetKeyMultiRegionConfiguration) []GetKeyMultiRegionConfigurationPrimaryKey {
+		return v.PrimaryKeys
+	}).(GetKeyMultiRegionConfigurationPrimaryKeyArrayOutput)
+}
+
+func (o GetKeyMultiRegionConfigurationOutput) ReplicaKeys() GetKeyMultiRegionConfigurationReplicaKeyArrayOutput {
+	return o.ApplyT(func(v GetKeyMultiRegionConfiguration) []GetKeyMultiRegionConfigurationReplicaKey {
+		return v.ReplicaKeys
+	}).(GetKeyMultiRegionConfigurationReplicaKeyArrayOutput)
+}
+
+type GetKeyMultiRegionConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetKeyMultiRegionConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetKeyMultiRegionConfiguration)(nil)).Elem()
+}
+
+func (o GetKeyMultiRegionConfigurationArrayOutput) ToGetKeyMultiRegionConfigurationArrayOutput() GetKeyMultiRegionConfigurationArrayOutput {
+	return o
+}
+
+func (o GetKeyMultiRegionConfigurationArrayOutput) ToGetKeyMultiRegionConfigurationArrayOutputWithContext(ctx context.Context) GetKeyMultiRegionConfigurationArrayOutput {
+	return o
+}
+
+func (o GetKeyMultiRegionConfigurationArrayOutput) Index(i pulumi.IntInput) GetKeyMultiRegionConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetKeyMultiRegionConfiguration {
+		return vs[0].([]GetKeyMultiRegionConfiguration)[vs[1].(int)]
+	}).(GetKeyMultiRegionConfigurationOutput)
+}
+
+type GetKeyMultiRegionConfigurationPrimaryKey struct {
+	Arn    string `pulumi:"arn"`
+	Region string `pulumi:"region"`
+}
+
+// GetKeyMultiRegionConfigurationPrimaryKeyInput is an input type that accepts GetKeyMultiRegionConfigurationPrimaryKeyArgs and GetKeyMultiRegionConfigurationPrimaryKeyOutput values.
+// You can construct a concrete instance of `GetKeyMultiRegionConfigurationPrimaryKeyInput` via:
+//
+//          GetKeyMultiRegionConfigurationPrimaryKeyArgs{...}
+type GetKeyMultiRegionConfigurationPrimaryKeyInput interface {
+	pulumi.Input
+
+	ToGetKeyMultiRegionConfigurationPrimaryKeyOutput() GetKeyMultiRegionConfigurationPrimaryKeyOutput
+	ToGetKeyMultiRegionConfigurationPrimaryKeyOutputWithContext(context.Context) GetKeyMultiRegionConfigurationPrimaryKeyOutput
+}
+
+type GetKeyMultiRegionConfigurationPrimaryKeyArgs struct {
+	Arn    pulumi.StringInput `pulumi:"arn"`
+	Region pulumi.StringInput `pulumi:"region"`
+}
+
+func (GetKeyMultiRegionConfigurationPrimaryKeyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetKeyMultiRegionConfigurationPrimaryKey)(nil)).Elem()
+}
+
+func (i GetKeyMultiRegionConfigurationPrimaryKeyArgs) ToGetKeyMultiRegionConfigurationPrimaryKeyOutput() GetKeyMultiRegionConfigurationPrimaryKeyOutput {
+	return i.ToGetKeyMultiRegionConfigurationPrimaryKeyOutputWithContext(context.Background())
+}
+
+func (i GetKeyMultiRegionConfigurationPrimaryKeyArgs) ToGetKeyMultiRegionConfigurationPrimaryKeyOutputWithContext(ctx context.Context) GetKeyMultiRegionConfigurationPrimaryKeyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetKeyMultiRegionConfigurationPrimaryKeyOutput)
+}
+
+// GetKeyMultiRegionConfigurationPrimaryKeyArrayInput is an input type that accepts GetKeyMultiRegionConfigurationPrimaryKeyArray and GetKeyMultiRegionConfigurationPrimaryKeyArrayOutput values.
+// You can construct a concrete instance of `GetKeyMultiRegionConfigurationPrimaryKeyArrayInput` via:
+//
+//          GetKeyMultiRegionConfigurationPrimaryKeyArray{ GetKeyMultiRegionConfigurationPrimaryKeyArgs{...} }
+type GetKeyMultiRegionConfigurationPrimaryKeyArrayInput interface {
+	pulumi.Input
+
+	ToGetKeyMultiRegionConfigurationPrimaryKeyArrayOutput() GetKeyMultiRegionConfigurationPrimaryKeyArrayOutput
+	ToGetKeyMultiRegionConfigurationPrimaryKeyArrayOutputWithContext(context.Context) GetKeyMultiRegionConfigurationPrimaryKeyArrayOutput
+}
+
+type GetKeyMultiRegionConfigurationPrimaryKeyArray []GetKeyMultiRegionConfigurationPrimaryKeyInput
+
+func (GetKeyMultiRegionConfigurationPrimaryKeyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetKeyMultiRegionConfigurationPrimaryKey)(nil)).Elem()
+}
+
+func (i GetKeyMultiRegionConfigurationPrimaryKeyArray) ToGetKeyMultiRegionConfigurationPrimaryKeyArrayOutput() GetKeyMultiRegionConfigurationPrimaryKeyArrayOutput {
+	return i.ToGetKeyMultiRegionConfigurationPrimaryKeyArrayOutputWithContext(context.Background())
+}
+
+func (i GetKeyMultiRegionConfigurationPrimaryKeyArray) ToGetKeyMultiRegionConfigurationPrimaryKeyArrayOutputWithContext(ctx context.Context) GetKeyMultiRegionConfigurationPrimaryKeyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetKeyMultiRegionConfigurationPrimaryKeyArrayOutput)
+}
+
+type GetKeyMultiRegionConfigurationPrimaryKeyOutput struct{ *pulumi.OutputState }
+
+func (GetKeyMultiRegionConfigurationPrimaryKeyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetKeyMultiRegionConfigurationPrimaryKey)(nil)).Elem()
+}
+
+func (o GetKeyMultiRegionConfigurationPrimaryKeyOutput) ToGetKeyMultiRegionConfigurationPrimaryKeyOutput() GetKeyMultiRegionConfigurationPrimaryKeyOutput {
+	return o
+}
+
+func (o GetKeyMultiRegionConfigurationPrimaryKeyOutput) ToGetKeyMultiRegionConfigurationPrimaryKeyOutputWithContext(ctx context.Context) GetKeyMultiRegionConfigurationPrimaryKeyOutput {
+	return o
+}
+
+func (o GetKeyMultiRegionConfigurationPrimaryKeyOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetKeyMultiRegionConfigurationPrimaryKey) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o GetKeyMultiRegionConfigurationPrimaryKeyOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetKeyMultiRegionConfigurationPrimaryKey) string { return v.Region }).(pulumi.StringOutput)
+}
+
+type GetKeyMultiRegionConfigurationPrimaryKeyArrayOutput struct{ *pulumi.OutputState }
+
+func (GetKeyMultiRegionConfigurationPrimaryKeyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetKeyMultiRegionConfigurationPrimaryKey)(nil)).Elem()
+}
+
+func (o GetKeyMultiRegionConfigurationPrimaryKeyArrayOutput) ToGetKeyMultiRegionConfigurationPrimaryKeyArrayOutput() GetKeyMultiRegionConfigurationPrimaryKeyArrayOutput {
+	return o
+}
+
+func (o GetKeyMultiRegionConfigurationPrimaryKeyArrayOutput) ToGetKeyMultiRegionConfigurationPrimaryKeyArrayOutputWithContext(ctx context.Context) GetKeyMultiRegionConfigurationPrimaryKeyArrayOutput {
+	return o
+}
+
+func (o GetKeyMultiRegionConfigurationPrimaryKeyArrayOutput) Index(i pulumi.IntInput) GetKeyMultiRegionConfigurationPrimaryKeyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetKeyMultiRegionConfigurationPrimaryKey {
+		return vs[0].([]GetKeyMultiRegionConfigurationPrimaryKey)[vs[1].(int)]
+	}).(GetKeyMultiRegionConfigurationPrimaryKeyOutput)
+}
+
+type GetKeyMultiRegionConfigurationReplicaKey struct {
+	Arn    string `pulumi:"arn"`
+	Region string `pulumi:"region"`
+}
+
+// GetKeyMultiRegionConfigurationReplicaKeyInput is an input type that accepts GetKeyMultiRegionConfigurationReplicaKeyArgs and GetKeyMultiRegionConfigurationReplicaKeyOutput values.
+// You can construct a concrete instance of `GetKeyMultiRegionConfigurationReplicaKeyInput` via:
+//
+//          GetKeyMultiRegionConfigurationReplicaKeyArgs{...}
+type GetKeyMultiRegionConfigurationReplicaKeyInput interface {
+	pulumi.Input
+
+	ToGetKeyMultiRegionConfigurationReplicaKeyOutput() GetKeyMultiRegionConfigurationReplicaKeyOutput
+	ToGetKeyMultiRegionConfigurationReplicaKeyOutputWithContext(context.Context) GetKeyMultiRegionConfigurationReplicaKeyOutput
+}
+
+type GetKeyMultiRegionConfigurationReplicaKeyArgs struct {
+	Arn    pulumi.StringInput `pulumi:"arn"`
+	Region pulumi.StringInput `pulumi:"region"`
+}
+
+func (GetKeyMultiRegionConfigurationReplicaKeyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetKeyMultiRegionConfigurationReplicaKey)(nil)).Elem()
+}
+
+func (i GetKeyMultiRegionConfigurationReplicaKeyArgs) ToGetKeyMultiRegionConfigurationReplicaKeyOutput() GetKeyMultiRegionConfigurationReplicaKeyOutput {
+	return i.ToGetKeyMultiRegionConfigurationReplicaKeyOutputWithContext(context.Background())
+}
+
+func (i GetKeyMultiRegionConfigurationReplicaKeyArgs) ToGetKeyMultiRegionConfigurationReplicaKeyOutputWithContext(ctx context.Context) GetKeyMultiRegionConfigurationReplicaKeyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetKeyMultiRegionConfigurationReplicaKeyOutput)
+}
+
+// GetKeyMultiRegionConfigurationReplicaKeyArrayInput is an input type that accepts GetKeyMultiRegionConfigurationReplicaKeyArray and GetKeyMultiRegionConfigurationReplicaKeyArrayOutput values.
+// You can construct a concrete instance of `GetKeyMultiRegionConfigurationReplicaKeyArrayInput` via:
+//
+//          GetKeyMultiRegionConfigurationReplicaKeyArray{ GetKeyMultiRegionConfigurationReplicaKeyArgs{...} }
+type GetKeyMultiRegionConfigurationReplicaKeyArrayInput interface {
+	pulumi.Input
+
+	ToGetKeyMultiRegionConfigurationReplicaKeyArrayOutput() GetKeyMultiRegionConfigurationReplicaKeyArrayOutput
+	ToGetKeyMultiRegionConfigurationReplicaKeyArrayOutputWithContext(context.Context) GetKeyMultiRegionConfigurationReplicaKeyArrayOutput
+}
+
+type GetKeyMultiRegionConfigurationReplicaKeyArray []GetKeyMultiRegionConfigurationReplicaKeyInput
+
+func (GetKeyMultiRegionConfigurationReplicaKeyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetKeyMultiRegionConfigurationReplicaKey)(nil)).Elem()
+}
+
+func (i GetKeyMultiRegionConfigurationReplicaKeyArray) ToGetKeyMultiRegionConfigurationReplicaKeyArrayOutput() GetKeyMultiRegionConfigurationReplicaKeyArrayOutput {
+	return i.ToGetKeyMultiRegionConfigurationReplicaKeyArrayOutputWithContext(context.Background())
+}
+
+func (i GetKeyMultiRegionConfigurationReplicaKeyArray) ToGetKeyMultiRegionConfigurationReplicaKeyArrayOutputWithContext(ctx context.Context) GetKeyMultiRegionConfigurationReplicaKeyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetKeyMultiRegionConfigurationReplicaKeyArrayOutput)
+}
+
+type GetKeyMultiRegionConfigurationReplicaKeyOutput struct{ *pulumi.OutputState }
+
+func (GetKeyMultiRegionConfigurationReplicaKeyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetKeyMultiRegionConfigurationReplicaKey)(nil)).Elem()
+}
+
+func (o GetKeyMultiRegionConfigurationReplicaKeyOutput) ToGetKeyMultiRegionConfigurationReplicaKeyOutput() GetKeyMultiRegionConfigurationReplicaKeyOutput {
+	return o
+}
+
+func (o GetKeyMultiRegionConfigurationReplicaKeyOutput) ToGetKeyMultiRegionConfigurationReplicaKeyOutputWithContext(ctx context.Context) GetKeyMultiRegionConfigurationReplicaKeyOutput {
+	return o
+}
+
+func (o GetKeyMultiRegionConfigurationReplicaKeyOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetKeyMultiRegionConfigurationReplicaKey) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+func (o GetKeyMultiRegionConfigurationReplicaKeyOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetKeyMultiRegionConfigurationReplicaKey) string { return v.Region }).(pulumi.StringOutput)
+}
+
+type GetKeyMultiRegionConfigurationReplicaKeyArrayOutput struct{ *pulumi.OutputState }
+
+func (GetKeyMultiRegionConfigurationReplicaKeyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetKeyMultiRegionConfigurationReplicaKey)(nil)).Elem()
+}
+
+func (o GetKeyMultiRegionConfigurationReplicaKeyArrayOutput) ToGetKeyMultiRegionConfigurationReplicaKeyArrayOutput() GetKeyMultiRegionConfigurationReplicaKeyArrayOutput {
+	return o
+}
+
+func (o GetKeyMultiRegionConfigurationReplicaKeyArrayOutput) ToGetKeyMultiRegionConfigurationReplicaKeyArrayOutputWithContext(ctx context.Context) GetKeyMultiRegionConfigurationReplicaKeyArrayOutput {
+	return o
+}
+
+func (o GetKeyMultiRegionConfigurationReplicaKeyArrayOutput) Index(i pulumi.IntInput) GetKeyMultiRegionConfigurationReplicaKeyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetKeyMultiRegionConfigurationReplicaKey {
+		return vs[0].([]GetKeyMultiRegionConfigurationReplicaKey)[vs[1].(int)]
+	}).(GetKeyMultiRegionConfigurationReplicaKeyOutput)
+}
+
 type GetSecretSecret struct {
 	Context     map[string]string `pulumi:"context"`
 	GrantTokens []string          `pulumi:"grantTokens"`
@@ -355,12 +665,24 @@ func (o GetSecretsSecretArrayOutput) Index(i pulumi.IntInput) GetSecretsSecretOu
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GrantConstraintInput)(nil)).Elem(), GrantConstraintArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GrantConstraintArrayInput)(nil)).Elem(), GrantConstraintArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetKeyMultiRegionConfigurationInput)(nil)).Elem(), GetKeyMultiRegionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetKeyMultiRegionConfigurationArrayInput)(nil)).Elem(), GetKeyMultiRegionConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetKeyMultiRegionConfigurationPrimaryKeyInput)(nil)).Elem(), GetKeyMultiRegionConfigurationPrimaryKeyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetKeyMultiRegionConfigurationPrimaryKeyArrayInput)(nil)).Elem(), GetKeyMultiRegionConfigurationPrimaryKeyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetKeyMultiRegionConfigurationReplicaKeyInput)(nil)).Elem(), GetKeyMultiRegionConfigurationReplicaKeyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetKeyMultiRegionConfigurationReplicaKeyArrayInput)(nil)).Elem(), GetKeyMultiRegionConfigurationReplicaKeyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSecretSecretInput)(nil)).Elem(), GetSecretSecretArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSecretSecretArrayInput)(nil)).Elem(), GetSecretSecretArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSecretsSecretInput)(nil)).Elem(), GetSecretsSecretArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSecretsSecretArrayInput)(nil)).Elem(), GetSecretsSecretArray{})
 	pulumi.RegisterOutputType(GrantConstraintOutput{})
 	pulumi.RegisterOutputType(GrantConstraintArrayOutput{})
+	pulumi.RegisterOutputType(GetKeyMultiRegionConfigurationOutput{})
+	pulumi.RegisterOutputType(GetKeyMultiRegionConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(GetKeyMultiRegionConfigurationPrimaryKeyOutput{})
+	pulumi.RegisterOutputType(GetKeyMultiRegionConfigurationPrimaryKeyArrayOutput{})
+	pulumi.RegisterOutputType(GetKeyMultiRegionConfigurationReplicaKeyOutput{})
+	pulumi.RegisterOutputType(GetKeyMultiRegionConfigurationReplicaKeyArrayOutput{})
 	pulumi.RegisterOutputType(GetSecretSecretOutput{})
 	pulumi.RegisterOutputType(GetSecretSecretArrayOutput{})
 	pulumi.RegisterOutputType(GetSecretsSecretOutput{})

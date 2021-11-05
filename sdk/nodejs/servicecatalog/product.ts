@@ -33,7 +33,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * `aws_servicecatalog_product` can be imported using the product ID, e.g.
+ * `aws_servicecatalog_product` can be imported using the product ID, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:servicecatalog/product:Product example prod-dnigbtea24ste

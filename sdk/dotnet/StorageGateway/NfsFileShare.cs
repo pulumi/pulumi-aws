@@ -39,7 +39,7 @@ namespace Pulumi.Aws.StorageGateway
     /// 
     /// ## Import
     /// 
-    /// `aws_storagegateway_nfs_file_share` can be imported by using the NFS File Share Amazon Resource Name (ARN), e.g.
+    /// `aws_storagegateway_nfs_file_share` can be imported by using the NFS File Share Amazon Resource Name (ARN), e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:storagegateway/nfsFileShare:NfsFileShare example arn:aws:storagegateway:us-east-1:123456789012:share/share-12345678
@@ -53,6 +53,12 @@ namespace Pulumi.Aws.StorageGateway
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the storage used for audit logs.
+        /// </summary>
+        [Output("auditDestinationArn")]
+        public Output<string?> AuditDestinationArn { get; private set; } = null!;
 
         /// <summary>
         /// Refresh cache information. see Cache Attributes for more details.
@@ -221,6 +227,12 @@ namespace Pulumi.Aws.StorageGateway
     public sealed class NfsFileShareArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The Amazon Resource Name (ARN) of the storage used for audit logs.
+        /// </summary>
+        [Input("auditDestinationArn")]
+        public Input<string>? AuditDestinationArn { get; set; }
+
+        /// <summary>
         /// Refresh cache information. see Cache Attributes for more details.
         /// </summary>
         [Input("cacheAttributes")]
@@ -346,6 +358,12 @@ namespace Pulumi.Aws.StorageGateway
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
+
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the storage used for audit logs.
+        /// </summary>
+        [Input("auditDestinationArn")]
+        public Input<string>? AuditDestinationArn { get; set; }
 
         /// <summary>
         /// Refresh cache information. see Cache Attributes for more details.

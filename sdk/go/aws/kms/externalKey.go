@@ -37,7 +37,7 @@ import (
 //
 // ## Import
 //
-// KMS External Keys can be imported using the `id`, e.g.
+// KMS External Keys can be imported using the `id`, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:kms/externalKey:ExternalKey a arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab
@@ -63,6 +63,8 @@ type ExternalKey struct {
 	KeyState pulumi.StringOutput `pulumi:"keyState"`
 	// The cryptographic operations for which you can use the CMK.
 	KeyUsage pulumi.StringOutput `pulumi:"keyUsage"`
+	// Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
+	MultiRegion pulumi.BoolOutput `pulumi:"multiRegion"`
 	// A key policy JSON document. If you do not provide a key policy, AWS KMS attaches a default key policy to the CMK.
 	Policy pulumi.StringOutput `pulumi:"policy"`
 	// A key-value map of tags to assign to the key. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -120,6 +122,8 @@ type externalKeyState struct {
 	KeyState *string `pulumi:"keyState"`
 	// The cryptographic operations for which you can use the CMK.
 	KeyUsage *string `pulumi:"keyUsage"`
+	// Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
+	MultiRegion *bool `pulumi:"multiRegion"`
 	// A key policy JSON document. If you do not provide a key policy, AWS KMS attaches a default key policy to the CMK.
 	Policy *string `pulumi:"policy"`
 	// A key-value map of tags to assign to the key. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -149,6 +153,8 @@ type ExternalKeyState struct {
 	KeyState pulumi.StringPtrInput
 	// The cryptographic operations for which you can use the CMK.
 	KeyUsage pulumi.StringPtrInput
+	// Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
+	MultiRegion pulumi.BoolPtrInput
 	// A key policy JSON document. If you do not provide a key policy, AWS KMS attaches a default key policy to the CMK.
 	Policy pulumi.StringPtrInput
 	// A key-value map of tags to assign to the key. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -174,6 +180,8 @@ type externalKeyArgs struct {
 	Enabled *bool `pulumi:"enabled"`
 	// Base64 encoded 256-bit symmetric encryption key material to import. The CMK is permanently associated with this key material. The same key material can be reimported, but you cannot import different key material.
 	KeyMaterialBase64 *string `pulumi:"keyMaterialBase64"`
+	// Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
+	MultiRegion *bool `pulumi:"multiRegion"`
 	// A key policy JSON document. If you do not provide a key policy, AWS KMS attaches a default key policy to the CMK.
 	Policy *string `pulumi:"policy"`
 	// A key-value map of tags to assign to the key. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -194,6 +202,8 @@ type ExternalKeyArgs struct {
 	Enabled pulumi.BoolPtrInput
 	// Base64 encoded 256-bit symmetric encryption key material to import. The CMK is permanently associated with this key material. The same key material can be reimported, but you cannot import different key material.
 	KeyMaterialBase64 pulumi.StringPtrInput
+	// Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
+	MultiRegion pulumi.BoolPtrInput
 	// A key policy JSON document. If you do not provide a key policy, AWS KMS attaches a default key policy to the CMK.
 	Policy pulumi.StringPtrInput
 	// A key-value map of tags to assign to the key. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

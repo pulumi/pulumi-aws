@@ -101,7 +101,7 @@ class RegistryPolicy(pulumi.CustomResource):
 
         ## Import
 
-        ECR Registry Policy can be imported using the registry id, e.g.
+        ECR Registry Policy can be imported using the registry id, e.g.,
 
         ```sh
          $ pulumi import aws:ecr/registryPolicy:RegistryPolicy example 123456789012
@@ -145,7 +145,7 @@ class RegistryPolicy(pulumi.CustomResource):
 
         ## Import
 
-        ECR Registry Policy can be imported using the registry id, e.g.
+        ECR Registry Policy can be imported using the registry id, e.g.,
 
         ```sh
          $ pulumi import aws:ecr/registryPolicy:RegistryPolicy example 123456789012

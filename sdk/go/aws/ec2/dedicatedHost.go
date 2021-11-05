@@ -41,7 +41,7 @@ import (
 //
 // ## Import
 //
-// Hosts can be imported using the host `id`, e.g.
+// Hosts can be imported using the host `id`, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:ec2/dedicatedHost:DedicatedHost example h-0385a99d0e4b20cbb
@@ -64,6 +64,7 @@ type DedicatedHost struct {
 	// The ID of the AWS account that owns the Dedicated Host.
 	OwnerId pulumi.StringOutput    `pulumi:"ownerId"`
 	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -114,6 +115,7 @@ type dedicatedHostState struct {
 	// The ID of the AWS account that owns the Dedicated Host.
 	OwnerId *string           `pulumi:"ownerId"`
 	Tags    map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -133,6 +135,7 @@ type DedicatedHostState struct {
 	// The ID of the AWS account that owns the Dedicated Host.
 	OwnerId pulumi.StringPtrInput
 	Tags    pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -152,7 +155,6 @@ type dedicatedHostArgs struct {
 	// Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only.  Exactly one of `instanceFamily` or `instanceType` must be specified.
 	InstanceType *string           `pulumi:"instanceType"`
 	Tags         map[string]string `pulumi:"tags"`
-	TagsAll      map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a DedicatedHost resource.
@@ -168,7 +170,6 @@ type DedicatedHostArgs struct {
 	// Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only.  Exactly one of `instanceFamily` or `instanceType` must be specified.
 	InstanceType pulumi.StringPtrInput
 	Tags         pulumi.StringMapInput
-	TagsAll      pulumi.StringMapInput
 }
 
 func (DedicatedHostArgs) ElementType() reflect.Type {

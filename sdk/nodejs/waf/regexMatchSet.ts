@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * WAF Regex Match Set can be imported using their ID, e.g.
+ * WAF Regex Match Set can be imported using their ID, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:waf/regexMatchSet:RegexMatchSet example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc

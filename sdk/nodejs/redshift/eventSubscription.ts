@@ -38,7 +38,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Redshift Event Subscriptions can be imported using the `name`, e.g.
+ * Redshift Event Subscriptions can be imported using the `name`, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:redshift/eventSubscription:EventSubscription default redshift-event-sub

@@ -31,6 +31,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Selection{}
 	case "aws:backup/vault:Vault":
 		r = &Vault{}
+	case "aws:backup/vaultLockConfiguration:VaultLockConfiguration":
+		r = &VaultLockConfiguration{}
 	case "aws:backup/vaultNotifications:VaultNotifications":
 		r = &VaultNotifications{}
 	case "aws:backup/vaultPolicy:VaultPolicy":
@@ -71,6 +73,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"backup/vault",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"backup/vaultLockConfiguration",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

@@ -33,7 +33,7 @@ namespace Pulumi.Aws.Backup
     /// 
     /// ## Import
     /// 
-    /// Backup vault can be imported using the `name`, e.g.
+    /// Backup vault can be imported using the `name`, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:backup/vault:Vault test-vault TestVault

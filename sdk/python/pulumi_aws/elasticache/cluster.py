@@ -47,7 +47,7 @@ class ClusterArgs:
         :param pulumi.Input[str] engine: Name of the cache engine to be used for this cache cluster. Valid values are `memcached` or `redis`.
         :param pulumi.Input[str] engine_version: Version number of the cache engine to be used.
                See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html)
-               in the AWS Documentation for supported versions. When `engine` is `redis` and the version is 6 or higher, only the major version can be set, e.g. `6.x`, otherwise, specify the full version desired, e.g. `5.0.6`. The actual engine version used is returned in the attribute `engine_version_actual`, defined below.
+               in the AWS Documentation for supported versions. When `engine` is `redis` and the version is 6 or higher, only the major version can be set, e.g., `6.x`, otherwise, specify the full version desired, e.g., `5.0.6`. The actual engine version used is returned in the attribute `engine_version_actual`, defined below.
         :param pulumi.Input[str] final_snapshot_identifier: Name of your final cluster snapshot. If omitted, no final snapshot will be made.
         :param pulumi.Input[str] maintenance_window: Specifies the weekly time range for when maintenance
                on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC).
@@ -180,7 +180,7 @@ class ClusterArgs:
         """
         Version number of the cache engine to be used.
         See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html)
-        in the AWS Documentation for supported versions. When `engine` is `redis` and the version is 6 or higher, only the major version can be set, e.g. `6.x`, otherwise, specify the full version desired, e.g. `5.0.6`. The actual engine version used is returned in the attribute `engine_version_actual`, defined below.
+        in the AWS Documentation for supported versions. When `engine` is `redis` and the version is 6 or higher, only the major version can be set, e.g., `6.x`, otherwise, specify the full version desired, e.g., `5.0.6`. The actual engine version used is returned in the attribute `engine_version_actual`, defined below.
         """
         return pulumi.get(self, "engine_version")
 
@@ -437,7 +437,7 @@ class _ClusterState:
         :param pulumi.Input[str] engine: Name of the cache engine to be used for this cache cluster. Valid values are `memcached` or `redis`.
         :param pulumi.Input[str] engine_version: Version number of the cache engine to be used.
                See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html)
-               in the AWS Documentation for supported versions. When `engine` is `redis` and the version is 6 or higher, only the major version can be set, e.g. `6.x`, otherwise, specify the full version desired, e.g. `5.0.6`. The actual engine version used is returned in the attribute `engine_version_actual`, defined below.
+               in the AWS Documentation for supported versions. When `engine` is `redis` and the version is 6 or higher, only the major version can be set, e.g., `6.x`, otherwise, specify the full version desired, e.g., `5.0.6`. The actual engine version used is returned in the attribute `engine_version_actual`, defined below.
         :param pulumi.Input[str] engine_version_actual: The running version of the cache engine.
         :param pulumi.Input[str] final_snapshot_identifier: Name of your final cluster snapshot. If omitted, no final snapshot will be made.
         :param pulumi.Input[str] maintenance_window: Specifies the weekly time range for when maintenance
@@ -631,7 +631,7 @@ class _ClusterState:
         """
         Version number of the cache engine to be used.
         See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html)
-        in the AWS Documentation for supported versions. When `engine` is `redis` and the version is 6 or higher, only the major version can be set, e.g. `6.x`, otherwise, specify the full version desired, e.g. `5.0.6`. The actual engine version used is returned in the attribute `engine_version_actual`, defined below.
+        in the AWS Documentation for supported versions. When `engine` is `redis` and the version is 6 or higher, only the major version can be set, e.g., `6.x`, otherwise, specify the full version desired, e.g., `5.0.6`. The actual engine version used is returned in the attribute `engine_version_actual`, defined below.
         """
         return pulumi.get(self, "engine_version")
 
@@ -955,7 +955,7 @@ class Cluster(pulumi.CustomResource):
 
         ## Import
 
-        ElastiCache Clusters can be imported using the `cluster_id`, e.g.
+        ElastiCache Clusters can be imported using the `cluster_id`, e.g.,
 
         ```sh
          $ pulumi import aws:elasticache/cluster:Cluster my_cluster my_cluster
@@ -970,7 +970,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] engine: Name of the cache engine to be used for this cache cluster. Valid values are `memcached` or `redis`.
         :param pulumi.Input[str] engine_version: Version number of the cache engine to be used.
                See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html)
-               in the AWS Documentation for supported versions. When `engine` is `redis` and the version is 6 or higher, only the major version can be set, e.g. `6.x`, otherwise, specify the full version desired, e.g. `5.0.6`. The actual engine version used is returned in the attribute `engine_version_actual`, defined below.
+               in the AWS Documentation for supported versions. When `engine` is `redis` and the version is 6 or higher, only the major version can be set, e.g., `6.x`, otherwise, specify the full version desired, e.g., `5.0.6`. The actual engine version used is returned in the attribute `engine_version_actual`, defined below.
         :param pulumi.Input[str] final_snapshot_identifier: Name of your final cluster snapshot. If omitted, no final snapshot will be made.
         :param pulumi.Input[str] maintenance_window: Specifies the weekly time range for when maintenance
                on the cache cluster is performed. The format is `ddd:hh24:mi-ddd:hh24:mi` (24H Clock UTC).
@@ -1058,7 +1058,7 @@ class Cluster(pulumi.CustomResource):
 
         ## Import
 
-        ElastiCache Clusters can be imported using the `cluster_id`, e.g.
+        ElastiCache Clusters can be imported using the `cluster_id`, e.g.,
 
         ```sh
          $ pulumi import aws:elasticache/cluster:Cluster my_cluster my_cluster
@@ -1200,7 +1200,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] engine: Name of the cache engine to be used for this cache cluster. Valid values are `memcached` or `redis`.
         :param pulumi.Input[str] engine_version: Version number of the cache engine to be used.
                See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html)
-               in the AWS Documentation for supported versions. When `engine` is `redis` and the version is 6 or higher, only the major version can be set, e.g. `6.x`, otherwise, specify the full version desired, e.g. `5.0.6`. The actual engine version used is returned in the attribute `engine_version_actual`, defined below.
+               in the AWS Documentation for supported versions. When `engine` is `redis` and the version is 6 or higher, only the major version can be set, e.g., `6.x`, otherwise, specify the full version desired, e.g., `5.0.6`. The actual engine version used is returned in the attribute `engine_version_actual`, defined below.
         :param pulumi.Input[str] engine_version_actual: The running version of the cache engine.
         :param pulumi.Input[str] final_snapshot_identifier: Name of your final cluster snapshot. If omitted, no final snapshot will be made.
         :param pulumi.Input[str] maintenance_window: Specifies the weekly time range for when maintenance
@@ -1334,7 +1334,7 @@ class Cluster(pulumi.CustomResource):
         """
         Version number of the cache engine to be used.
         See [Describe Cache Engine Versions](https://docs.aws.amazon.com/cli/latest/reference/elasticache/describe-cache-engine-versions.html)
-        in the AWS Documentation for supported versions. When `engine` is `redis` and the version is 6 or higher, only the major version can be set, e.g. `6.x`, otherwise, specify the full version desired, e.g. `5.0.6`. The actual engine version used is returned in the attribute `engine_version_actual`, defined below.
+        in the AWS Documentation for supported versions. When `engine` is `redis` and the version is 6 or higher, only the major version can be set, e.g., `6.x`, otherwise, specify the full version desired, e.g., `5.0.6`. The actual engine version used is returned in the attribute `engine_version_actual`, defined below.
         """
         return pulumi.get(self, "engine_version")
 

@@ -127,7 +127,7 @@ class XssMatchSet(pulumi.CustomResource):
 
         ## Import
 
-        AWS WAF Regional XSS Match can be imported using the `id`, e.g.
+        AWS WAF Regional XSS Match can be imported using the `id`, e.g.,
 
         ```sh
          $ pulumi import aws:wafregional/xssMatchSet:XssMatchSet example 12345abcde
@@ -171,7 +171,7 @@ class XssMatchSet(pulumi.CustomResource):
 
         ## Import
 
-        AWS WAF Regional XSS Match can be imported using the `id`, e.g.
+        AWS WAF Regional XSS Match can be imported using the `id`, e.g.,
 
         ```sh
          $ pulumi import aws:wafregional/xssMatchSet:XssMatchSet example 12345abcde

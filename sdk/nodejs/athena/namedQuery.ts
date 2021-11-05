@@ -39,7 +39,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Athena Named Query can be imported using the query ID, e.g.
+ * Athena Named Query can be imported using the query ID, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:athena/namedQuery:NamedQuery example 0123456789

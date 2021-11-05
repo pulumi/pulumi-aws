@@ -12,7 +12,7 @@ export interface GetAmiBlockDeviceMapping {
      */
     deviceName: string;
     /**
-     * Map containing EBS information, if the device is EBS based. Unlike most object attributes, these are accessed directly (e.g. `ebs.volume_size` or `ebs["volumeSize"]`) rather than accessed through the first element of a list (e.g. `ebs[0].volume_size`).
+     * Map containing EBS information, if the device is EBS based. Unlike most object attributes, these are accessed directly (e.g., `ebs.volume_size` or `ebs["volumeSize"]`) rather than accessed through the first element of a list (e.g., `ebs[0].volume_size`).
      */
     ebs: {[key: string]: string};
     /**
@@ -1050,7 +1050,7 @@ export namespace apigateway {
          */
         statusCode?: string;
         /**
-         * The type of API entity to which the documentation content applies. e.g. `API`, `METHOD` or `REQUEST_BODY`
+         * The type of API entity to which the documentation content appliesE.g., `API`, `METHOD` or `REQUEST_BODY`
          */
         type: string;
     }
@@ -1168,6 +1168,25 @@ export namespace apigateway {
          * API stage name of the associated API stage in a usage plan.
          */
         stage: string;
+        /**
+         * The throttling limits of the usage plan.
+         */
+        throttles?: outputs.apigateway.UsagePlanApiStageThrottle[];
+    }
+
+    export interface UsagePlanApiStageThrottle {
+        /**
+         * The API request burst limit, the maximum rate limit over a time ranging from one to a few seconds, depending upon whether the underlying token bucket is at its full capacity.
+         */
+        burstLimit?: number;
+        /**
+         * The method to apply the throttle settings for. Specfiy the path and method, for example `/test/GET`.
+         */
+        path: string;
+        /**
+         * The API request steady-state rate limit.
+         */
+        rateLimit?: number;
     }
 
     export interface UsagePlanQuotaSettings {
@@ -4738,6 +4757,14 @@ export namespace autoscaling {
 
     export interface GroupInstanceRefreshPreferences {
         /**
+         * The number of seconds to wait after a checkpoint. Defaults to `3600`.
+         */
+        checkpointDelay?: string;
+        /**
+         * List of percentages for each checkpoint. Values must be unique and in ascending order. To replace all instances, the final number must be `100`.
+         */
+        checkpointPercentages?: number[];
+        /**
          * The number of seconds until a newly launched instance is configured and ready to use. Default behavior is to use the Auto Scaling Group's health check grace period.
          */
         instanceWarmup?: string;
@@ -4791,7 +4818,7 @@ export namespace autoscaling {
          */
         spotAllocationStrategy: string;
         /**
-         * Number of Spot pools per availability zone to allocate capacity. EC2 Auto Scaling selects the cheapest Spot pools and evenly allocates Spot capacity across the number of Spot pools that you specify. Default: `2`.
+         * Number of Spot pools per availability zone to allocate capacity. EC2 Auto Scaling selects the cheapest Spot pools and evenly allocates Spot capacity across the number of Spot pools that you specify. Only available with `spotAllocationStrategy` set to `lowest-price`. Otherwise it must be set to `0`, if it has been defined before. Default: `2`.
          */
         spotInstancePools: number;
         /**
@@ -5373,11 +5400,15 @@ export namespace batch {
          */
         desiredVcpus: number;
         /**
+         * Provides information used to select Amazon Machine Images (AMIs) for EC2 instances in the compute environment. If Ec2Configuration isn't specified, the default is ECS_AL2. This parameter isn't applicable to jobs that are running on Fargate resources, and shouldn't be specified.
+         */
+        ec2Configuration: outputs.batch.ComputeEnvironmentComputeResourcesEc2Configuration;
+        /**
          * The EC2 key pair that is used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
          */
         ec2KeyPair?: string;
         /**
-         * The Amazon Machine Image (AMI) ID used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+         * The Amazon Machine Image (AMI) ID used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified. (Deprecated, use `imageIdOverride` instead)
          */
         imageId?: string;
         /**
@@ -5420,6 +5451,17 @@ export namespace batch {
          * The type of compute environment. Valid items are `EC2`, `SPOT`, `FARGATE` or `FARGATE_SPOT`.
          */
         type: string;
+    }
+
+    export interface ComputeEnvironmentComputeResourcesEc2Configuration {
+        /**
+         * The AMI ID used for instances launched in the compute environment that match the image type. This setting overrides the `imageId` argument in the `computeResourcess block.
+         */
+        imageIdOverride: string;
+        /**
+         * The image type to match with the instance type to select an AMI. If the `imageIdOverride` parameter isn't specified, then a recent [Amazon ECS-optimized Amazon Linux 2 AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#al2ami) (`ECS_AL2`) is used.
+         */
+        imageType?: string;
     }
 
     export interface ComputeEnvironmentComputeResourcesLaunchTemplate {
@@ -5684,7 +5726,7 @@ export namespace cfg {
 
     export interface DeliveryChannelSnapshotDeliveryProperties {
         /**
-         * - The frequency with which AWS Config recurringly delivers configuration snapshots. e.g. `One_Hour` or `Three_Hours`. Valid values are listed [here](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html#API_ConfigSnapshotDeliveryProperties_Contents).
+         * - The frequency with which AWS Config recurringly delivers configuration snapshotsE.g., `One_Hour` or `Three_Hours`. Valid values are listed [here](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html#API_ConfigSnapshotDeliveryProperties_Contents).
          */
         deliveryFrequency?: string;
     }
@@ -5736,7 +5778,7 @@ export namespace cfg {
          */
         complianceResourceId?: string;
         /**
-         * A list of resource types of only those AWS resources that you want to trigger an evaluation for the rule. e.g. `AWS::EC2::Instance`. You can only specify one type if you also specify a resource ID for `complianceResourceId`. See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types.
+         * A list of resource types of only those AWS resources that you want to trigger an evaluation for the ruleE.g., `AWS::EC2::Instance`. You can only specify one type if you also specify a resource ID for `complianceResourceId`. See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types.
          */
         complianceResourceTypes?: string[];
         /**
@@ -6043,6 +6085,10 @@ export namespace cloudfront {
          */
         realtimeLogConfigArn?: string;
         /**
+         * The identifier for a response headers policy.
+         */
+        responseHeadersPolicyId?: string;
+        /**
          * Indicates whether you want to distribute
          * media files in Microsoft Smooth Streaming format using the origin that is
          * associated with this cache behavior.
@@ -6237,6 +6283,10 @@ export namespace cloudfront {
          * that is attached to this cache behavior.
          */
         realtimeLogConfigArn?: string;
+        /**
+         * The identifier for a response headers policy.
+         */
+        responseHeadersPolicyId?: string;
         /**
          * Indicates whether you want to distribute
          * media files in Microsoft Smooth Streaming format using the origin that is
@@ -6675,6 +6725,170 @@ export namespace cloudfront {
         items: string[];
     }
 
+    export interface GetResponseHeadersPolicyCorsConfig {
+        /**
+         * A Boolean value that CloudFront uses as the value for the Access-Control-Allow-Credentials HTTP response header.
+         */
+        accessControlAllowCredentials: boolean;
+        /**
+         * Object that contains an attribute `items` that contains a list of HTTP header names that CloudFront includes as values for the Access-Control-Allow-Headers HTTP response header.
+         */
+        accessControlAllowHeaders: outputs.cloudfront.GetResponseHeadersPolicyCorsConfigAccessControlAllowHeader[];
+        /**
+         * Object that contains an attribute `items` that contains a list of HTTP methods that CloudFront includes as values for the Access-Control-Allow-Methods HTTP response header. Valid values: `GET` | `POST` | `OPTIONS` | `PUT` | `DELETE` | `HEAD` | `ALL`
+         */
+        accessControlAllowMethods: outputs.cloudfront.GetResponseHeadersPolicyCorsConfigAccessControlAllowMethod[];
+        /**
+         * Object that contains an attribute `items` that contains a list of origins that CloudFront can use as the value for the Access-Control-Allow-Origin HTTP response header.
+         */
+        accessControlAllowOrigins: outputs.cloudfront.GetResponseHeadersPolicyCorsConfigAccessControlAllowOrigin[];
+        /**
+         * Object that contains an attribute `items` that contains a list of HTTP headers that CloudFront includes as values for the Access-Control-Expose-Headers HTTP response header.
+         */
+        accessControlExposeHeaders: outputs.cloudfront.GetResponseHeadersPolicyCorsConfigAccessControlExposeHeader[];
+        /**
+         * A number that CloudFront uses as the value for the max-age directive in the Strict-Transport-Security HTTP response header.
+         */
+        accessControlMaxAgeSec: number;
+        originOverride: boolean;
+    }
+
+    export interface GetResponseHeadersPolicyCorsConfigAccessControlAllowHeader {
+        items: string[];
+    }
+
+    export interface GetResponseHeadersPolicyCorsConfigAccessControlAllowMethod {
+        items: string[];
+    }
+
+    export interface GetResponseHeadersPolicyCorsConfigAccessControlAllowOrigin {
+        items: string[];
+    }
+
+    export interface GetResponseHeadersPolicyCorsConfigAccessControlExposeHeader {
+        items: string[];
+    }
+
+    export interface GetResponseHeadersPolicyCustomHeadersConfig {
+        /**
+         * The HTTP response header name.
+         */
+        header: string;
+        /**
+         * A Boolean value that determines whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
+         */
+        override: boolean;
+        /**
+         * The value for the HTTP response header.
+         */
+        value: string;
+    }
+
+    export interface GetResponseHeadersPolicySecurityHeadersConfig {
+        /**
+         * The policy directives and their values that CloudFront includes as values for the Content-Security-Policy HTTP response header.
+         */
+        contentSecurityPolicies: outputs.cloudfront.GetResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicy[];
+        /**
+         * A setting that determines whether CloudFront includes the X-Content-Type-Options HTTP response header with its value set to nosniff. See Content Type Options for more information.
+         */
+        contentTypeOptions: outputs.cloudfront.GetResponseHeadersPolicySecurityHeadersConfigContentTypeOption[];
+        /**
+         * A setting that determines whether CloudFront includes the X-Frame-Options HTTP response header and the header’s value. See Frame Options for more information.
+         */
+        frameOptions: outputs.cloudfront.GetResponseHeadersPolicySecurityHeadersConfigFrameOption[];
+        /**
+         * The value of the Referrer-Policy HTTP response header. Valid Values: `no-referrer` | `no-referrer-when-downgrade` | `origin` | `origin-when-cross-origin` | `same-origin` | `strict-origin` | `strict-origin-when-cross-origin` | `unsafe-url`
+         */
+        referrerPolicies: outputs.cloudfront.GetResponseHeadersPolicySecurityHeadersConfigReferrerPolicy[];
+        /**
+         * Settings that determine whether CloudFront includes the Strict-Transport-Security HTTP response header and the header’s value. See Strict Transport Security for more information.
+         */
+        strictTransportSecurities: outputs.cloudfront.GetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity[];
+        /**
+         * Settings that determine whether CloudFront includes the X-XSS-Protection HTTP response header and the header’s value. See XSS Protection for more information.
+         */
+        xssProtections: outputs.cloudfront.GetResponseHeadersPolicySecurityHeadersConfigXssProtection[];
+    }
+
+    export interface GetResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicy {
+        /**
+         * The policy directives and their values that CloudFront includes as values for the Content-Security-Policy HTTP response header.
+         */
+        contentSecurityPolicy: string;
+        /**
+         * A Boolean value that determines whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
+         */
+        override: boolean;
+    }
+
+    export interface GetResponseHeadersPolicySecurityHeadersConfigContentTypeOption {
+        /**
+         * A Boolean value that determines whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
+         */
+        override: boolean;
+    }
+
+    export interface GetResponseHeadersPolicySecurityHeadersConfigFrameOption {
+        /**
+         * The value of the X-Frame-Options HTTP response header. Valid values: `DENY` | `SAMEORIGIN`
+         */
+        frameOption: string;
+        /**
+         * A Boolean value that determines whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
+         */
+        override: boolean;
+    }
+
+    export interface GetResponseHeadersPolicySecurityHeadersConfigReferrerPolicy {
+        /**
+         * A Boolean value that determines whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
+         */
+        override: boolean;
+        /**
+         * The value of the Referrer-Policy HTTP response header. Valid Values: `no-referrer` | `no-referrer-when-downgrade` | `origin` | `origin-when-cross-origin` | `same-origin` | `strict-origin` | `strict-origin-when-cross-origin` | `unsafe-url`
+         */
+        referrerPolicy: string;
+    }
+
+    export interface GetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity {
+        /**
+         * A number that CloudFront uses as the value for the max-age directive in the Strict-Transport-Security HTTP response header.
+         */
+        accessControlMaxAgeSec: number;
+        /**
+         * A Boolean value that determines whether CloudFront includes the includeSubDomains directive in the Strict-Transport-Security HTTP response header.
+         */
+        includeSubdomains: boolean;
+        /**
+         * A Boolean value that determines whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
+         */
+        override: boolean;
+        /**
+         * A Boolean value that determines whether CloudFront includes the preload directive in the Strict-Transport-Security HTTP response header.
+         */
+        preload: boolean;
+    }
+
+    export interface GetResponseHeadersPolicySecurityHeadersConfigXssProtection {
+        /**
+         * A Boolean value that determines whether CloudFront includes the mode=block directive in the X-XSS-Protection header.
+         */
+        modeBlock: boolean;
+        /**
+         * A Boolean value that determines whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
+         */
+        override: boolean;
+        /**
+         * A Boolean value that determines the value of the X-XSS-Protection HTTP response header. When this setting is true, the value of the X-XSS-Protection header is 1. When this setting is false, the value of the X-XSS-Protection header is 0.
+         */
+        protection: boolean;
+        /**
+         * A Boolean value that determines whether CloudFront sets a reporting URI in the X-XSS-Protection header.
+         */
+        reportUri: string;
+    }
+
     export interface MonitoringSubscriptionMonitoringSubscription {
         /**
          * A subscription configuration for additional CloudWatch metrics. See below.
@@ -6738,6 +6952,172 @@ export namespace cloudfront {
          */
         streamArn: string;
     }
+
+    export interface ResponseHeadersPolicyCorsConfig {
+        /**
+         * A Boolean value that CloudFront uses as the value for the Access-Control-Allow-Credentials HTTP response header.
+         */
+        accessControlAllowCredentials: boolean;
+        /**
+         * Object that contains an attribute `items` that contains a list of HTTP header names that CloudFront includes as values for the Access-Control-Allow-Headers HTTP response header.
+         */
+        accessControlAllowHeaders: outputs.cloudfront.ResponseHeadersPolicyCorsConfigAccessControlAllowHeaders;
+        /**
+         * Object that contains an attribute `items` that contains a list of HTTP methods that CloudFront includes as values for the Access-Control-Allow-Methods HTTP response header. Valid values: `GET` | `POST` | `OPTIONS` | `PUT` | `DELETE` | `HEAD` | `ALL`
+         */
+        accessControlAllowMethods: outputs.cloudfront.ResponseHeadersPolicyCorsConfigAccessControlAllowMethods;
+        /**
+         * Object that contains an attribute `items` that contains a list of origins that CloudFront can use as the value for the Access-Control-Allow-Origin HTTP response header.
+         */
+        accessControlAllowOrigins: outputs.cloudfront.ResponseHeadersPolicyCorsConfigAccessControlAllowOrigins;
+        /**
+         * Object that contains an attribute `items` that contains a list of HTTP headers that CloudFront includes as values for the Access-Control-Expose-Headers HTTP response header.
+         */
+        accessControlExposeHeaders?: outputs.cloudfront.ResponseHeadersPolicyCorsConfigAccessControlExposeHeaders;
+        /**
+         * A number that CloudFront uses as the value for the max-age directive in the Strict-Transport-Security HTTP response header.
+         */
+        accessControlMaxAgeSec?: number;
+        originOverride: boolean;
+    }
+
+    export interface ResponseHeadersPolicyCorsConfigAccessControlAllowHeaders {
+        items?: string[];
+    }
+
+    export interface ResponseHeadersPolicyCorsConfigAccessControlAllowMethods {
+        items?: string[];
+    }
+
+    export interface ResponseHeadersPolicyCorsConfigAccessControlAllowOrigins {
+        items?: string[];
+    }
+
+    export interface ResponseHeadersPolicyCorsConfigAccessControlExposeHeaders {
+        items?: string[];
+    }
+
+    export interface ResponseHeadersPolicyCustomHeadersConfig {
+        items?: outputs.cloudfront.ResponseHeadersPolicyCustomHeadersConfigItem[];
+    }
+
+    export interface ResponseHeadersPolicyCustomHeadersConfigItem {
+        /**
+         * The HTTP response header name.
+         */
+        header: string;
+        /**
+         * A Boolean value that determines whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
+         */
+        override: boolean;
+        /**
+         * The value for the HTTP response header.
+         */
+        value: string;
+    }
+
+    export interface ResponseHeadersPolicySecurityHeadersConfig {
+        /**
+         * TThe policy directives and their values that CloudFront includes as values for the Content-Security-Policy HTTP response header.
+         */
+        contentSecurityPolicy?: outputs.cloudfront.ResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicy;
+        /**
+         * TA setting that determines whether CloudFront includes the X-Content-Type-Options HTTP response header with its value set to nosniff. See Content Type Options for more information.
+         */
+        contentTypeOptions?: outputs.cloudfront.ResponseHeadersPolicySecurityHeadersConfigContentTypeOptions;
+        /**
+         * TA setting that determines whether CloudFront includes the X-Frame-Options HTTP response header and the header’s value. See Frame Options for more information.
+         */
+        frameOptions?: outputs.cloudfront.ResponseHeadersPolicySecurityHeadersConfigFrameOptions;
+        /**
+         * The value of the Referrer-Policy HTTP response header. Valid Values: `no-referrer` | `no-referrer-when-downgrade` | `origin` | `origin-when-cross-origin` | `same-origin` | `strict-origin` | `strict-origin-when-cross-origin` | `unsafe-url`
+         */
+        referrerPolicy?: outputs.cloudfront.ResponseHeadersPolicySecurityHeadersConfigReferrerPolicy;
+        strictTransportSecurity?: outputs.cloudfront.ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity;
+        /**
+         * TSettings that determine whether CloudFront includes the X-XSS-Protection HTTP response header and the header’s value. See XSS Protection for more information.
+         */
+        xssProtection?: outputs.cloudfront.ResponseHeadersPolicySecurityHeadersConfigXssProtection;
+    }
+
+    export interface ResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicy {
+        /**
+         * TThe policy directives and their values that CloudFront includes as values for the Content-Security-Policy HTTP response header.
+         */
+        contentSecurityPolicy: string;
+        /**
+         * A Boolean value that determines whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
+         */
+        override: boolean;
+    }
+
+    export interface ResponseHeadersPolicySecurityHeadersConfigContentTypeOptions {
+        /**
+         * A Boolean value that determines whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
+         */
+        override: boolean;
+    }
+
+    export interface ResponseHeadersPolicySecurityHeadersConfigFrameOptions {
+        /**
+         * The value of the X-Frame-Options HTTP response header. Valid values: `DENY` | `SAMEORIGIN`
+         */
+        frameOption: string;
+        /**
+         * A Boolean value that determines whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
+         */
+        override: boolean;
+    }
+
+    export interface ResponseHeadersPolicySecurityHeadersConfigReferrerPolicy {
+        /**
+         * A Boolean value that determines whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
+         */
+        override: boolean;
+        /**
+         * The value of the Referrer-Policy HTTP response header. Valid Values: `no-referrer` | `no-referrer-when-downgrade` | `origin` | `origin-when-cross-origin` | `same-origin` | `strict-origin` | `strict-origin-when-cross-origin` | `unsafe-url`
+         */
+        referrerPolicy: string;
+    }
+
+    export interface ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity {
+        /**
+         * A number that CloudFront uses as the value for the max-age directive in the Strict-Transport-Security HTTP response header.
+         */
+        accessControlMaxAgeSec: number;
+        /**
+         * A Boolean value that determines whether CloudFront includes the includeSubDomains directive in the Strict-Transport-Security HTTP response header.
+         */
+        includeSubdomains?: boolean;
+        /**
+         * A Boolean value that determines whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
+         */
+        override: boolean;
+        /**
+         * A Boolean value that determines whether CloudFront includes the preload directive in the Strict-Transport-Security HTTP response header.
+         */
+        preload?: boolean;
+    }
+
+    export interface ResponseHeadersPolicySecurityHeadersConfigXssProtection {
+        /**
+         * A Boolean value that determines whether CloudFront includes the mode=block directive in the X-XSS-Protection header.
+         */
+        modeBlock?: boolean;
+        /**
+         * A Boolean value that determines whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
+         */
+        override: boolean;
+        /**
+         * A Boolean value that determines the value of the X-XSS-Protection HTTP response header. When this setting is true, the value of the X-XSS-Protection header is 1. When this setting is false, the value of the X-XSS-Protection header is 0.
+         */
+        protection: boolean;
+        /**
+         * A Boolean value that determines whether CloudFront sets a reporting URI in the X-XSS-Protection header.
+         */
+        reportUri?: string;
+    }
+
 }
 
 export namespace cloudhsmv2 {
@@ -7167,7 +7547,7 @@ export namespace cloudwatch {
          */
         inputPaths?: {[key: string]: string};
         /**
-         * Template to customize data sent to the target. Must be valid JSON. To send a string value, the string value must include double quotes. Values must be escaped for both JSON and the provider, e.g. `"\"Your string goes here.\\nA new line.\""`
+         * Template to customize data sent to the target. Must be valid JSON. To send a string value, the string value must include double quotes. Values must be escaped for both JSON and the provider, e.g., `"\"Your string goes here.\\nA new line.\""`
          */
         inputTemplate: string;
     }
@@ -7245,7 +7625,7 @@ export namespace cloudwatch {
          */
         dimensions?: {[key: string]: string};
         /**
-         * The name of the CloudWatch metric to which the monitored log information should be published (e.g. `ErrorCount`)
+         * The name of the CloudWatch metric to which the monitored log information should be published (e.g., `ErrorCount`)
          */
         name: string;
         /**
@@ -7453,7 +7833,7 @@ export namespace codebuild {
          */
         environmentVariables?: outputs.codebuild.ProjectEnvironmentEnvironmentVariable[];
         /**
-         * Docker image to use for this build project. Valid values include [Docker images provided by CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-available.html) (e.g `aws/codebuild/standard:2.0`), [Docker Hub images](https://hub.docker.com/) (e.g. `nginx:latest`), and full Docker repository URIs such as those for ECR (e.g. `137112412989.dkr.ecr.us-west-2.amazonaws.com/amazonlinux:latest`).
+         * Docker image to use for this build project. Valid values include [Docker images provided by CodeBuild](https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-available.html) (e.g `aws/codebuild/standard:2.0`), [Docker Hub images](https://hub.docker.com/) (e.g., `nginx/nginx:latest`), and full Docker repository URIs such as those for ECR (e.g., `137112412989.dkr.ecr.us-west-2.amazonaws.com/amazonlinux:latest`).
          */
         image: string;
         /**
@@ -8251,7 +8631,7 @@ export namespace codepipeline {
          */
         jsonPath: string;
         /**
-         * The value to match on (e.g. `refs/heads/{Branch}`). See [AWS docs](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_WebhookFilterRule.html) for details.
+         * The value to match on (e.g., `refs/heads/{Branch}`). See [AWS docs](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_WebhookFilterRule.html) for details.
          */
         matchEquals: string;
     }
@@ -8466,7 +8846,7 @@ export namespace cognito {
          */
         emailSendingAccount?: string;
         /**
-         * Sender’s email address or sender’s display name with their email address (e.g. `john@example.com`, `John Smith <john@example.com>` or `\"John Smith Ph.D.\" <john@example.com>`). Escaped double quotes are required around display names that contain certain characters as specified in [RFC 5322](https://tools.ietf.org/html/rfc5322).
+         * Sender’s email address or sender’s display name with their email address (e.g., `john@example.com`, `John Smith <john@example.com>` or `\"John Smith Ph.D.\" <john@example.com>`). Escaped double quotes are required around display names that contain certain characters as specified in [RFC 5322](https://tools.ietf.org/html/rfc5322).
          */
         fromEmailAddress?: string;
         /**
@@ -8717,29 +9097,46 @@ export namespace config {
         accessanalyzer?: string;
         acm?: string;
         acmpca?: string;
+        alexaforbusiness?: string;
         amplify?: string;
+        amplifybackend?: string;
         apigateway?: string;
+        apigatewayv2?: string;
+        appautoscaling?: string;
         appconfig?: string;
+        appflow?: string;
+        appintegrations?: string;
+        appintegrationsservice?: string;
         applicationautoscaling?: string;
+        applicationcostprofiler?: string;
+        applicationdiscovery?: string;
+        applicationdiscoveryservice?: string;
         applicationinsights?: string;
         appmesh?: string;
+        appregistry?: string;
         apprunner?: string;
         appstream?: string;
         appsync?: string;
         athena?: string;
         auditmanager?: string;
+        augmentedairuntime?: string;
         autoscaling?: string;
         autoscalingplans?: string;
         backup?: string;
         batch?: string;
+        braket?: string;
         budgets?: string;
         chime?: string;
         cloud9?: string;
+        cloudcontrol?: string;
         cloudcontrolapi?: string;
+        clouddirectory?: string;
         cloudformation?: string;
         cloudfront?: string;
         cloudhsm?: string;
+        cloudhsmv2?: string;
         cloudsearch?: string;
+        cloudsearchdomain?: string;
         cloudtrail?: string;
         cloudwatch?: string;
         cloudwatchevents?: string;
@@ -8748,26 +9145,44 @@ export namespace config {
         codebuild?: string;
         codecommit?: string;
         codedeploy?: string;
+        codeguruprofiler?: string;
+        codegurureviewer?: string;
         codepipeline?: string;
+        codestar?: string;
         codestarconnections?: string;
+        codestarnotifications?: string;
         cognitoidentity?: string;
+        cognitoidentityprovider?: string;
         cognitoidp?: string;
+        cognitosync?: string;
+        comprehend?: string;
+        comprehendmedical?: string;
+        config?: string;
         configservice?: string;
         connect?: string;
+        connectcontactlens?: string;
+        connectparticipant?: string;
+        costandusagereportservice?: string;
+        costexplorer?: string;
         cur?: string;
+        databasemigration?: string;
+        databasemigrationservice?: string;
         dataexchange?: string;
         datapipeline?: string;
         datasync?: string;
         dax?: string;
         detective?: string;
         devicefarm?: string;
+        devopsguru?: string;
         directconnect?: string;
         dlm?: string;
         dms?: string;
         docdb?: string;
         ds?: string;
         dynamodb?: string;
+        dynamodbstreams?: string;
         ec2?: string;
+        ec2instanceconnect?: string;
         ecr?: string;
         ecrpublic?: string;
         ecs?: string;
@@ -8775,69 +9190,142 @@ export namespace config {
         eks?: string;
         elasticache?: string;
         elasticbeanstalk?: string;
+        elasticinference?: string;
+        elasticsearch?: string;
+        elasticsearchservice?: string;
         elastictranscoder?: string;
         elb?: string;
+        elbv2?: string;
         emr?: string;
         emrcontainers?: string;
         es?: string;
+        finspace?: string;
+        finspacedata?: string;
         firehose?: string;
+        fis?: string;
         fms?: string;
         forecast?: string;
+        forecastquery?: string;
+        forecastqueryservice?: string;
+        forecastservice?: string;
+        frauddetector?: string;
         fsx?: string;
         gamelift?: string;
         glacier?: string;
         globalaccelerator?: string;
         glue?: string;
+        gluedatabrew?: string;
         greengrass?: string;
+        greengrassv2?: string;
+        groundstation?: string;
         guardduty?: string;
+        health?: string;
+        healthlake?: string;
+        honeycode?: string;
         iam?: string;
         identitystore?: string;
         imagebuilder?: string;
         inspector?: string;
         iot?: string;
+        iot1clickdevices?: string;
+        iot1clickdevicesservice?: string;
+        iot1clickprojects?: string;
         iotanalytics?: string;
+        iotdataplane?: string;
+        iotdeviceadvisor?: string;
         iotevents?: string;
+        ioteventsdata?: string;
+        iotfleethub?: string;
+        iotjobsdataplane?: string;
+        iotsecuretunneling?: string;
+        iotsitewise?: string;
+        iotthingsgraph?: string;
+        iotwireless?: string;
         kafka?: string;
+        kendra?: string;
         kinesis?: string;
         kinesisanalytics?: string;
         kinesisanalyticsv2?: string;
         kinesisvideo?: string;
+        kinesisvideoarchivedmedia?: string;
+        kinesisvideomedia?: string;
+        kinesisvideosignalingchannels?: string;
         kms?: string;
         lakeformation?: string;
         lambda?: string;
+        lexmodelbuilding?: string;
+        lexmodelbuildingservice?: string;
         lexmodels?: string;
+        lexmodelsv2?: string;
+        lexruntime?: string;
+        lexruntimeservice?: string;
+        lexruntimev2?: string;
         licensemanager?: string;
         lightsail?: string;
         location?: string;
+        lookoutequipment?: string;
+        lookoutforvision?: string;
+        lookoutmetrics?: string;
+        machinelearning?: string;
         macie?: string;
         macie2?: string;
         managedblockchain?: string;
         marketplacecatalog?: string;
+        marketplacecommerceanalytics?: string;
+        marketplaceentitlement?: string;
+        marketplaceentitlementservice?: string;
+        marketplacemetering?: string;
         mediaconnect?: string;
         mediaconvert?: string;
         medialive?: string;
         mediapackage?: string;
+        mediapackagevod?: string;
         mediastore?: string;
         mediastoredata?: string;
+        mediatailor?: string;
         memorydb?: string;
+        mgn?: string;
+        migrationhub?: string;
+        migrationhubconfig?: string;
+        mobile?: string;
+        mobileanalytics?: string;
         mq?: string;
+        mturk?: string;
         mwaa?: string;
         neptune?: string;
         networkfirewall?: string;
         networkmanager?: string;
+        nimblestudio?: string;
         opsworks?: string;
+        opsworkscm?: string;
         organizations?: string;
         outposts?: string;
         personalize?: string;
+        personalizeevents?: string;
+        personalizeruntime?: string;
+        pi?: string;
         pinpoint?: string;
+        pinpointemail?: string;
+        pinpointsmsvoice?: string;
+        polly?: string;
         pricing?: string;
+        prometheus?: string;
+        prometheusservice?: string;
+        proton?: string;
         qldb?: string;
+        qldbsession?: string;
         quicksight?: string;
         ram?: string;
         rds?: string;
+        rdsdata?: string;
+        rdsdataservice?: string;
         redshift?: string;
+        redshiftdata?: string;
+        rekognition?: string;
         resourcegroups?: string;
+        resourcegroupstagging?: string;
         resourcegroupstaggingapi?: string;
+        robomaker?: string;
         route53?: string;
         route53domains?: string;
         route53recoverycontrolconfig?: string;
@@ -8847,33 +9335,59 @@ export namespace config {
         s3control?: string;
         s3outposts?: string;
         sagemaker?: string;
+        sagemakeredgemanager?: string;
+        sagemakerfeaturestoreruntime?: string;
+        sagemakerruntime?: string;
+        savingsplans?: string;
         schemas?: string;
         sdb?: string;
         secretsmanager?: string;
         securityhub?: string;
+        serverlessapplicationrepository?: string;
+        serverlessapprepo?: string;
         serverlessrepo?: string;
         servicecatalog?: string;
         servicediscovery?: string;
         servicequotas?: string;
         ses?: string;
+        sesv2?: string;
+        sfn?: string;
         shield?: string;
         signer?: string;
+        simpledb?: string;
+        sms?: string;
+        snowball?: string;
         sns?: string;
         sqs?: string;
         ssm?: string;
+        ssmcontacts?: string;
+        ssmincidents?: string;
+        sso?: string;
         ssoadmin?: string;
+        ssooidc?: string;
         stepfunctions?: string;
         storagegateway?: string;
         sts?: string;
+        support?: string;
         swf?: string;
         synthetics?: string;
+        textract?: string;
+        timestreamquery?: string;
         timestreamwrite?: string;
+        transcribe?: string;
+        transcribeservice?: string;
+        transcribestreaming?: string;
+        transcribestreamingservice?: string;
         transfer?: string;
+        translate?: string;
         waf?: string;
         wafregional?: string;
         wafv2?: string;
+        wellarchitected?: string;
+        workdocs?: string;
         worklink?: string;
         workmail?: string;
+        workmailmessageflow?: string;
         workspaces?: string;
         xray?: string;
     }
@@ -9266,9 +9780,33 @@ export namespace dms {
 
     export interface EndpointKinesisSettings {
         /**
+         * Shows detailed control information for table definition, column definition, and table and column changes in the Kinesis message output. The default is `false`.
+         */
+        includeControlDetails?: boolean;
+        /**
+         * Include NULL and empty columns in the target. The default is `false`.
+         */
+        includeNullAndEmpty?: boolean;
+        /**
+         * Shows the partition value within the Kinesis message output, unless the partition type is schema-table-type. The default is `false`.
+         */
+        includePartitionValue?: boolean;
+        /**
+         * Includes any data definition language (DDL) operations that change the table in the control data. The default is `false`.
+         */
+        includeTableAlterOperations?: boolean;
+        /**
+         * Provides detailed transaction information from the source database. The default is `false`.
+         */
+        includeTransactionDetails?: boolean;
+        /**
          * Output format for the records created. Defaults to `json`. Valid values are `json` and `jsonUnformatted` (a single line with no tab).
          */
         messageFormat?: string;
+        /**
+         * Prefixes schema and table names to partition values, when the partition type is primary-key-type. The default is `false`.
+         */
+        partitionIncludeSchemaTable?: boolean;
         /**
          * Amazon Resource Name (ARN) of the IAM Role with permissions to write to the Kinesis data stream.
          */
@@ -9434,7 +9972,7 @@ export namespace dynamodb {
 
     export interface GlobalTableReplica {
         /**
-         * AWS region name of replica DynamoDB Table. e.g. `us-east-1`
+         * AWS region name of replica DynamoDB TableE.g., `us-east-1`
          */
         regionName: string;
     }
@@ -10138,7 +10676,7 @@ export namespace ec2 {
          */
         deviceName: string;
         /**
-         * Map containing EBS information, if the device is EBS based. Unlike most object attributes, these are accessed directly (e.g. `ebs.volume_size` or `ebs["volumeSize"]`) rather than accessed through the first element of a list (e.g. `ebs[0].volume_size`).
+         * Map containing EBS information, if the device is EBS based. Unlike most object attributes, these are accessed directly (e.g., `ebs.volume_size` or `ebs["volumeSize"]`) rather than accessed through the first element of a list (e.g., `ebs[0].volume_size`).
          */
         ebs: {[key: string]: string};
         /**
@@ -10627,6 +11165,7 @@ export namespace ec2 {
         ipv4Addresses: string[];
         ipv6AddressCount: number;
         ipv6Addresses: string[];
+        networkCardIndex?: number;
         networkInterfaceId: string;
         privateIpAddress: string;
         securityGroups: string[];
@@ -11258,7 +11797,7 @@ export namespace ec2 {
          */
         noDevice?: boolean;
         /**
-         * [Instance Store Device Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames) (e.g. `ephemeral0`).
+         * [Instance Store Device Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames) (e.g., `ephemeral0`).
          */
         virtualName?: string;
     }
@@ -11408,7 +11947,7 @@ export namespace ec2 {
         /**
          * The [Instance Store Device
          * Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames)
-         * (e.g. `"ephemeral0"`).
+         * (e.g., `"ephemeral0"`).
          */
         virtualName?: string;
     }
@@ -11439,7 +11978,7 @@ export namespace ec2 {
          */
         snapshotId?: string;
         /**
-         * The throughput to provision for a `gp3` volume in MiB/s (specified as an integer, e.g. 500), with a maximum of 1,000 MiB/s.
+         * The throughput to provision for a `gp3` volume in MiB/s (specified as an integer, e.g., 500), with a maximum of 1,000 MiB/s.
          */
         throughput: number;
         /**
@@ -11637,6 +12176,10 @@ export namespace ec2 {
          * One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. Conflicts with `ipv6AddressCount`
          */
         ipv6Addresses?: string[];
+        /**
+         * The index of the network card. Some instance types support multiple network cards. The primary network interface must be assigned to network card index 0. The default is network card index 0.
+         */
+        networkCardIndex?: number;
         /**
          * The ID of the network interface to attach.
          */
@@ -12068,7 +12611,7 @@ export namespace ec2 {
          */
         name?: string;
         /**
-         * Template version. Unlike the autoscaling equivalent, does not support `$Latest` or `$Default`, so use the launchTemplate resource's attribute, e.g. `"${aws_launch_template.foo.latest_version}"`. It will use the default version if omitted.
+         * Template version. Unlike the autoscaling equivalent, does not support `$Latest` or `$Default`, so use the launchTemplate resource's attribute, e.g., `"${aws_launch_template.foo.latest_version}"`. It will use the default version if omitted.
          */
         version?: string;
     }
@@ -12200,7 +12743,7 @@ export namespace ec2 {
          */
         noDevice?: boolean;
         /**
-         * [Instance Store Device Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames) (e.g. `ephemeral0`).
+         * [Instance Store Device Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames) (e.g., `ephemeral0`).
          */
         virtualName?: string;
     }
@@ -13344,7 +13887,7 @@ export namespace eks {
          */
         groupsClaim?: string;
         /**
-         * A prefix that is prepended to group claims e.g. `oidc:`.
+         * A prefix that is prepended to group claims e.g., `oidc:`.
          */
         groupsPrefix?: string;
         /**
@@ -15834,7 +16377,7 @@ export namespace gamelift {
          */
         message?: string;
         /**
-         * Type of routing strategy. e.g. `SIMPLE` or `TERMINAL`
+         * Type of routing strategyE.g., `SIMPLE` or `TERMINAL`
          */
         type: string;
     }
@@ -15860,11 +16403,11 @@ export namespace gamelift {
          */
         fromPort: number;
         /**
-         * Range of allowed IP addresses expressed in CIDR notation. e.g. `000.000.000.000/[subnet mask]` or `0.0.0.0/[subnet mask]`.
+         * Range of allowed IP addresses expressed in CIDR notationE.g., `000.000.000.000/[subnet mask]` or `0.0.0.0/[subnet mask]`.
          */
         ipRange: string;
         /**
-         * Network communication protocol used by the fleet. e.g. `TCP` or `UDP`
+         * Network communication protocol used by the fleetE.g., `TCP` or `UDP`
          */
         protocol: string;
         /**
@@ -16368,6 +16911,14 @@ export namespace glue {
          * The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
          */
         connectionName?: string;
+        /**
+         * The ARN of the dead-letter SQS queue.
+         */
+        dlqEventQueueArn?: string;
+        /**
+         * The ARN of the SQS queue to receive S3 notifications from.
+         */
+        eventQueueArn?: string;
         /**
          * A list of glob patterns used to exclude from the crawl.
          */
@@ -16986,7 +17537,7 @@ export namespace iam {
 
     export interface GetPolicyDocumentStatementNotPrincipal {
         /**
-         * List of identifiers for principals. When `type` is `AWS`, these are IAM principal ARNs, e.g. `arn:aws:iam::12345678901:role/yak-role`.  When `type` is `Service`, these are AWS Service roles, e.g. `lambda.amazonaws.com`. When `type` is `Federated`, these are web identity users or SAML provider ARNs, e.g. `accounts.google.com` or `arn:aws:iam::12345678901:saml-provider/yak-saml-provider`. When `type` is `CanonicalUser`, these are [canonical user IDs](https://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html#FindingCanonicalId), e.g. `79a59df900b949e55d96a1e698fbacedfd6e09d98eacf8f8d5218e7cd47ef2be`.
+         * List of identifiers for principals. When `type` is `AWS`, these are IAM principal ARNs, e.g., `arn:aws:iam::12345678901:role/yak-role`.  When `type` is `Service`, these are AWS Service roles, e.g., `lambda.amazonaws.com`. When `type` is `Federated`, these are web identity users or SAML provider ARNs, e.g., `accounts.google.com` or `arn:aws:iam::12345678901:saml-provider/yak-saml-provider`. When `type` is `CanonicalUser`, these are [canonical user IDs](https://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html#FindingCanonicalId), e.g., `79a59df900b949e55d96a1e698fbacedfd6e09d98eacf8f8d5218e7cd47ef2be`.
          */
         identifiers: string[];
         /**
@@ -16997,7 +17548,7 @@ export namespace iam {
 
     export interface GetPolicyDocumentStatementPrincipal {
         /**
-         * List of identifiers for principals. When `type` is `AWS`, these are IAM principal ARNs, e.g. `arn:aws:iam::12345678901:role/yak-role`.  When `type` is `Service`, these are AWS Service roles, e.g. `lambda.amazonaws.com`. When `type` is `Federated`, these are web identity users or SAML provider ARNs, e.g. `accounts.google.com` or `arn:aws:iam::12345678901:saml-provider/yak-saml-provider`. When `type` is `CanonicalUser`, these are [canonical user IDs](https://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html#FindingCanonicalId), e.g. `79a59df900b949e55d96a1e698fbacedfd6e09d98eacf8f8d5218e7cd47ef2be`.
+         * List of identifiers for principals. When `type` is `AWS`, these are IAM principal ARNs, e.g., `arn:aws:iam::12345678901:role/yak-role`.  When `type` is `Service`, these are AWS Service roles, e.g., `lambda.amazonaws.com`. When `type` is `Federated`, these are web identity users or SAML provider ARNs, e.g., `accounts.google.com` or `arn:aws:iam::12345678901:saml-provider/yak-saml-provider`. When `type` is `CanonicalUser`, these are [canonical user IDs](https://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html#FindingCanonicalId), e.g., `79a59df900b949e55d96a1e698fbacedfd6e09d98eacf8f8d5218e7cd47ef2be`.
          */
         identifiers: string[];
         /**
@@ -19770,6 +20321,22 @@ export namespace kinesisanalyticsv2 {
 }
 
 export namespace kms {
+    export interface GetKeyMultiRegionConfiguration {
+        multiRegionKeyType: string;
+        primaryKeys: outputs.kms.GetKeyMultiRegionConfigurationPrimaryKey[];
+        replicaKeys: outputs.kms.GetKeyMultiRegionConfigurationReplicaKey[];
+    }
+
+    export interface GetKeyMultiRegionConfigurationPrimaryKey {
+        arn: string;
+        region: string;
+    }
+
+    export interface GetKeyMultiRegionConfigurationReplicaKey {
+        arn: string;
+        region: string;
+    }
+
     export interface GetSecretSecret {
         context?: {[key: string]: string};
         grantTokens?: string[];
@@ -21638,15 +22205,15 @@ export namespace mq {
 
     export interface BrokerMaintenanceWindowStartTime {
         /**
-         * Day of the week, e.g. `MONDAY`, `TUESDAY`, or `WEDNESDAY`.
+         * Day of the week, e.g., `MONDAY`, `TUESDAY`, or `WEDNESDAY`.
          */
         dayOfWeek: string;
         /**
-         * Time, in 24-hour format, e.g. `02:00`.
+         * Time, in 24-hour format, e.g., `02:00`.
          */
         timeOfDay: string;
         /**
-         * Time zone in either the Country/City format or the UTC offset format, e.g. `CET`.
+         * Time zone in either the Country/City format or the UTC offset format, e.g., `CET`.
          */
         timeZone: string;
     }
@@ -21734,7 +22301,7 @@ export namespace msk {
          */
         ebsVolumeSize: number;
         /**
-         * Specify the instance type to use for the kafka brokers. e.g. kafka.m5.large. ([Pricing info](https://aws.amazon.com/msk/pricing/))
+         * Specify the instance type to use for the kafka brokersE.g., kafka.m5.large. ([Pricing info](https://aws.amazon.com/msk/pricing/))
          */
         instanceType: string;
         /**
@@ -23724,7 +24291,7 @@ export namespace rds {
          */
         dbSecurityGroupMemberships?: string[];
         /**
-         * The Name of the Option (e.g. MEMCACHED).
+         * The Name of the Option (e.g., MEMCACHED).
          */
         optionName: string;
         /**
@@ -23732,11 +24299,11 @@ export namespace rds {
          */
         optionSettings?: outputs.rds.OptionGroupOptionOptionSetting[];
         /**
-         * The Port number when connecting to the Option (e.g. 11211).
+         * The Port number when connecting to the Option (e.g., 11211).
          */
         port?: number;
         /**
-         * The version of the option (e.g. 13.1.0.0).
+         * The version of the option (e.g., 13.1.0.0).
          */
         version?: string;
         /**
@@ -24620,10 +25187,18 @@ export namespace s3 {
          */
         bucket: string;
         /**
+         * Enables replication metrics (required for S3 RTC) (documented below).
+         */
+        metrics?: outputs.s3.BucketReplicationConfigurationRuleDestinationMetrics;
+        /**
          * Destination KMS encryption key ARN for SSE-KMS replication. Must be used in conjunction with
          * `sseKmsEncryptedObjects` source selection criteria.
          */
         replicaKmsKeyId?: string;
+        /**
+         * Enables S3 Replication Time Control (S3 RTC) (documented below).
+         */
+        replicationTime?: outputs.s3.BucketReplicationConfigurationRuleDestinationReplicationTime;
         /**
          * The class of storage used to store the object. Can be `STANDARD`, `REDUCED_REDUNDANCY`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `GLACIER`, or `DEEP_ARCHIVE`.
          */
@@ -24635,6 +25210,28 @@ export namespace s3 {
          * The override value for the owner on replicated objects. Currently only `Destination` is supported.
          */
         owner: string;
+    }
+
+    export interface BucketReplicationConfigurationRuleDestinationMetrics {
+        /**
+         * Threshold within which objects are to be replicated. The only valid value is `15`.
+         */
+        minutes?: number;
+        /**
+         * The status of replication metrics. Either `Enabled` or `Disabled`.
+         */
+        status?: string;
+    }
+
+    export interface BucketReplicationConfigurationRuleDestinationReplicationTime {
+        /**
+         * Threshold within which objects are to be replicated. The only valid value is `15`.
+         */
+        minutes?: number;
+        /**
+         * The status of RTC. Either `Enabled` or `Disabled`.
+         */
+        status?: string;
     }
 
     export interface BucketReplicationConfigurationRuleFilter {
@@ -24847,7 +25444,7 @@ export namespace s3control {
 
     export interface BucketLifecycleConfigurationRuleExpiration {
         /**
-         * Date the object is to be deleted. Should be in `YYYY-MM-DD` date format, e.g. `2020-09-30`.
+         * Date the object is to be deleted. Should be in `YYYY-MM-DD` date format, e.g., `2020-09-30`.
          */
         date?: string;
         /**
@@ -28296,13 +28893,13 @@ export namespace waf {
         /**
          * Within the portion of a web request that you want to search
          * (for example, in the query string, if any), specify where you want to search.
-         * e.g. `CONTAINS`, `CONTAINS_WORD` or `EXACTLY`.
+         * e.g., `CONTAINS`, `CONTAINS_WORD` or `EXACTLY`.
          * See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-PositionalConstraint)
          * for all supported values.
          */
         positionalConstraint: string;
         /**
-         * The value that you want to search for. e.g. `HEADER`, `METHOD` or `BODY`.
+         * The value that you want to search forE.g., `HEADER`, `METHOD` or `BODY`.
          * See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-TargetString)
          * for all supported values.
          */
@@ -28310,7 +28907,7 @@ export namespace waf {
         /**
          * Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
          * If you specify a transformation, AWS WAF performs the transformation on `targetString` before inspecting a request for a match.
-         * e.g. `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
+         * e.g., `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
          * See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-TextTransformation)
          * for all supported values.
          */
@@ -28319,13 +28916,13 @@ export namespace waf {
 
     export interface ByteMatchSetByteMatchTupleFieldToMatch {
         /**
-         * When `type` is `HEADER`, enter the name of the header that you want to search, e.g. `User-Agent` or `Referer`.
+         * When `type` is `HEADER`, enter the name of the header that you want to search, e.g., `User-Agent` or `Referer`.
          * If `type` is any other value, omit this field.
          */
         data?: string;
         /**
          * The part of the web request that you want AWS WAF to search for a specified string.
-         * e.g. `HEADER`, `METHOD` or `BODY`.
+         * e.g., `HEADER`, `METHOD` or `BODY`.
          * See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_FieldToMatch.html)
          * for all supported values.
          */
@@ -28339,7 +28936,7 @@ export namespace waf {
         type: string;
         /**
          * The country that you want AWS WAF to search for.
-         * This is the two-letter country code, e.g. `US`, `CA`, `RU`, `CN`, etc.
+         * This is the two-letter country code, e.g., `US`, `CA`, `RU`, `CN`, etc.
          * See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchConstraint.html) for all supported values.
          */
         value: string;
@@ -28351,7 +28948,7 @@ export namespace waf {
          */
         type: string;
         /**
-         * An IPv4 or IPv6 address specified via CIDR notation. e.g. `192.0.2.44/32` or `1111:0000:0000:0000:0000:0000:0000:0000/64`
+         * An IPv4 or IPv6 address specified via CIDR notationE.g., `192.0.2.44/32` or `1111:0000:0000:0000:0000:0000:0000:0000/64`
          */
         value: string;
     }
@@ -28394,13 +28991,13 @@ export namespace waf {
 
     export interface RegexMatchSetRegexMatchTupleFieldToMatch {
         /**
-         * When `type` is `HEADER`, enter the name of the header that you want to search, e.g. `User-Agent` or `Referer`.
+         * When `type` is `HEADER`, enter the name of the header that you want to search, e.g., `User-Agent` or `Referer`.
          * If `type` is any other value, omit this field.
          */
         data?: string;
         /**
          * The part of the web request that you want AWS WAF to search for a specified string.
-         * e.g. `HEADER`, `METHOD` or `BODY`.
+         * e.g., `HEADER`, `METHOD` or `BODY`.
          * See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_FieldToMatch.html)
          * for all supported values.
          */
@@ -28454,7 +29051,7 @@ export namespace waf {
     export interface SizeConstraintSetSizeConstraint {
         /**
          * The type of comparison you want to perform.
-         * e.g. `EQ`, `NE`, `LT`, `GT`.
+         * e.g., `EQ`, `NE`, `LT`, `GT`.
          * See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_wafRegional_SizeConstraint.html) for all supported values.
          */
         comparisonOperator: string;
@@ -28470,7 +29067,7 @@ export namespace waf {
         /**
          * Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
          * If you specify a transformation, AWS WAF performs the transformation on `fieldToMatch` before inspecting a request for a match.
-         * e.g. `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
+         * e.g., `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
          * See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_SizeConstraint.html#WAF-Type-SizeConstraint-TextTransformation)
          * for all supported values.
          * **Note:** if you choose `BODY` as `type`, you must choose `NONE` because CloudFront forwards only the first 8192 bytes for inspection.
@@ -28480,13 +29077,13 @@ export namespace waf {
 
     export interface SizeConstraintSetSizeConstraintFieldToMatch {
         /**
-         * When `type` is `HEADER`, enter the name of the header that you want to search, e.g. `User-Agent` or `Referer`.
+         * When `type` is `HEADER`, enter the name of the header that you want to search, e.g., `User-Agent` or `Referer`.
          * If `type` is any other value, omit this field.
          */
         data?: string;
         /**
          * The part of the web request that you want AWS WAF to search for a specified string.
-         * e.g. `HEADER`, `METHOD` or `BODY`.
+         * e.g., `HEADER`, `METHOD` or `BODY`.
          * See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_FieldToMatch.html)
          * for all supported values.
          */
@@ -28501,7 +29098,7 @@ export namespace waf {
         /**
          * Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
          * If you specify a transformation, AWS WAF performs the transformation on `fieldToMatch` before inspecting a request for a match.
-         * e.g. `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
+         * e.g., `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
          * See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_SqlInjectionMatchTuple.html#WAF-Type-SqlInjectionMatchTuple-TextTransformation)
          * for all supported values.
          */
@@ -28510,13 +29107,13 @@ export namespace waf {
 
     export interface SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatch {
         /**
-         * When `type` is `HEADER`, enter the name of the header that you want to search, e.g. `User-Agent` or `Referer`.
+         * When `type` is `HEADER`, enter the name of the header that you want to search, e.g., `User-Agent` or `Referer`.
          * If `type` is any other value, omit this field.
          */
         data?: string;
         /**
          * The part of the web request that you want AWS WAF to search for a specified string.
-         * e.g. `HEADER`, `METHOD` or `BODY`.
+         * e.g., `HEADER`, `METHOD` or `BODY`.
          * See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_FieldToMatch.html)
          * for all supported values.
          */
@@ -28605,7 +29202,7 @@ export namespace waf {
         /**
          * Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
          * If you specify a transformation, AWS WAF performs the transformation on `targetString` before inspecting a request for a match.
-         * e.g. `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
+         * e.g., `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
          * See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_XssMatchTuple.html#WAF-Type-XssMatchTuple-TextTransformation)
          * for all supported values.
          */
@@ -28614,13 +29211,13 @@ export namespace waf {
 
     export interface XssMatchSetXssMatchTupleFieldToMatch {
         /**
-         * When `type` is `HEADER`, enter the name of the header that you want to search, e.g. `User-Agent` or `Referer`.
+         * When `type` is `HEADER`, enter the name of the header that you want to search, e.g., `User-Agent` or `Referer`.
          * If `type` is any other value, omit this field.
          */
         data?: string;
         /**
          * The part of the web request that you want AWS WAF to search for a specified string.
-         * e.g. `HEADER`, `METHOD` or `BODY`.
+         * e.g., `HEADER`, `METHOD` or `BODY`.
          * See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_FieldToMatch.html)
          * for all supported values.
          */
@@ -28667,7 +29264,7 @@ export namespace wafregional {
         type: string;
         /**
          * The country that you want AWS WAF to search for.
-         * This is the two-letter country code, e.g. `US`, `CA`, `RU`, `CN`, etc.
+         * This is the two-letter country code, e.g., `US`, `CA`, `RU`, `CN`, etc.
          * See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchConstraint.html) for all supported values.
          */
         value: string;
@@ -28722,13 +29319,13 @@ export namespace wafregional {
 
     export interface RegexMatchSetRegexMatchTupleFieldToMatch {
         /**
-         * When `type` is `HEADER`, enter the name of the header that you want to search, e.g. `User-Agent` or `Referer`.
+         * When `type` is `HEADER`, enter the name of the header that you want to search, e.g., `User-Agent` or `Referer`.
          * If `type` is any other value, omit this field.
          */
         data?: string;
         /**
          * The part of the web request that you want AWS WAF to search for a specified string.
-         * e.g. `HEADER`, `METHOD` or `BODY`.
+         * e.g., `HEADER`, `METHOD` or `BODY`.
          * See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_FieldToMatch.html)
          * for all supported values.
          */
@@ -28770,7 +29367,7 @@ export namespace wafregional {
     export interface SizeConstraintSetSizeConstraint {
         /**
          * The type of comparison you want to perform.
-         * e.g. `EQ`, `NE`, `LT`, `GT`.
+         * e.g., `EQ`, `NE`, `LT`, `GT`.
          * See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_wafRegional_SizeConstraint.html) for all supported values.
          */
         comparisonOperator: string;
@@ -28786,7 +29383,7 @@ export namespace wafregional {
         /**
          * Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
          * If you specify a transformation, AWS WAF performs the transformation on `fieldToMatch` before inspecting a request for a match.
-         * e.g. `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
+         * e.g., `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
          * See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_SizeConstraint.html#WAF-Type-SizeConstraint-TextTransformation)
          * for all supported values.
          * **Note:** if you choose `BODY` as `type`, you must choose `NONE` because CloudFront forwards only the first 8192 bytes for inspection.
@@ -28796,13 +29393,13 @@ export namespace wafregional {
 
     export interface SizeConstraintSetSizeConstraintFieldToMatch {
         /**
-         * When `type` is `HEADER`, enter the name of the header that you want to search, e.g. `User-Agent` or `Referer`.
+         * When `type` is `HEADER`, enter the name of the header that you want to search, e.g., `User-Agent` or `Referer`.
          * If `type` is any other value, omit this field.
          */
         data?: string;
         /**
          * The part of the web request that you want AWS WAF to search for a specified string.
-         * e.g. `HEADER`, `METHOD` or `BODY`.
+         * e.g., `HEADER`, `METHOD` or `BODY`.
          * See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_FieldToMatch.html)
          * for all supported values.
          */
@@ -28817,7 +29414,7 @@ export namespace wafregional {
         /**
          * Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
          * If you specify a transformation, AWS WAF performs the transformation on `fieldToMatch` before inspecting a request for a match.
-         * e.g. `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
+         * e.g., `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
          * See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_regional_SqlInjectionMatchTuple.html#WAF-Type-regional_SqlInjectionMatchTuple-TextTransformation)
          * for all supported values.
          */
@@ -28826,13 +29423,13 @@ export namespace wafregional {
 
     export interface SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatch {
         /**
-         * When `type` is `HEADER`, enter the name of the header that you want to search, e.g. `User-Agent` or `Referer`.
+         * When `type` is `HEADER`, enter the name of the header that you want to search, e.g., `User-Agent` or `Referer`.
          * If `type` is any other value, omit this field.
          */
         data?: string;
         /**
          * The part of the web request that you want AWS WAF to search for a specified string.
-         * e.g. `HEADER`, `METHOD` or `BODY`.
+         * e.g., `HEADER`, `METHOD` or `BODY`.
          * See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_regional_FieldToMatch.html)
          * for all supported values.
          */
@@ -28841,7 +29438,7 @@ export namespace wafregional {
 
     export interface WebAclDefaultAction {
         /**
-         * Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. e.g. `ALLOW`, `BLOCK` or `COUNT`
+         * Specifies how you want AWS WAF Regional to respond to requests that match the settings in a ruleE.g., `ALLOW`, `BLOCK` or `COUNT`
          */
         type: string;
     }
@@ -28870,7 +29467,7 @@ export namespace wafregional {
          */
         data?: string;
         /**
-         * Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. e.g. `ALLOW`, `BLOCK` or `COUNT`
+         * Specifies how you want AWS WAF Regional to respond to requests that match the settings in a ruleE.g., `ALLOW`, `BLOCK` or `COUNT`
          */
         type: string;
     }
@@ -28894,21 +29491,21 @@ export namespace wafregional {
          */
         ruleId: string;
         /**
-         * Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. e.g. `ALLOW`, `BLOCK` or `COUNT`
+         * Specifies how you want AWS WAF Regional to respond to requests that match the settings in a ruleE.g., `ALLOW`, `BLOCK` or `COUNT`
          */
         type?: string;
     }
 
     export interface WebAclRuleAction {
         /**
-         * Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. e.g. `ALLOW`, `BLOCK` or `COUNT`
+         * Specifies how you want AWS WAF Regional to respond to requests that match the settings in a ruleE.g., `ALLOW`, `BLOCK` or `COUNT`
          */
         type: string;
     }
 
     export interface WebAclRuleOverrideAction {
         /**
-         * Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. e.g. `ALLOW`, `BLOCK` or `COUNT`
+         * Specifies how you want AWS WAF Regional to respond to requests that match the settings in a ruleE.g., `ALLOW`, `BLOCK` or `COUNT`
          */
         type: string;
     }
@@ -28930,7 +29527,7 @@ export namespace wafregional {
          */
         data?: string;
         /**
-         * The part of the web request that you want AWS WAF to search for a specified string. e.g. `HEADER` or `METHOD`
+         * The part of the web request that you want AWS WAF to search for a specified stringE.g., `HEADER` or `METHOD`
          */
         type: string;
     }
@@ -36155,7 +36752,7 @@ export namespace wafv2 {
 
     export interface WebAclRuleOverrideAction {
         /**
-         * Override the rule action setting to count (i.e. only count matches). Configured as an empty block `{}`.
+         * Override the rule action setting to count (i.e., only count matches). Configured as an empty block `{}`.
          */
         count?: outputs.wafv2.WebAclRuleOverrideActionCount;
         /**
@@ -70816,7 +71413,7 @@ export namespace workspaces {
          */
         description?: string;
         /**
-         * The IP address range, in CIDR notation, e.g. `10.0.0.0/16`
+         * The IP address range, in CIDR notation, e.g., `10.0.0.0/16`
          */
         source: string;
     }

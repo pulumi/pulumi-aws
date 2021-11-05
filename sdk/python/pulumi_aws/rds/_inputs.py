@@ -527,11 +527,11 @@ class OptionGroupOptionArgs:
                  version: Optional[pulumi.Input[str]] = None,
                  vpc_security_group_memberships: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[str] option_name: The Name of the Option (e.g. MEMCACHED).
+        :param pulumi.Input[str] option_name: The Name of the Option (e.g., MEMCACHED).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] db_security_group_memberships: A list of DB Security Groups for which the option is enabled.
         :param pulumi.Input[Sequence[pulumi.Input['OptionGroupOptionOptionSettingArgs']]] option_settings: A list of option settings to apply.
-        :param pulumi.Input[int] port: The Port number when connecting to the Option (e.g. 11211).
-        :param pulumi.Input[str] version: The version of the option (e.g. 13.1.0.0).
+        :param pulumi.Input[int] port: The Port number when connecting to the Option (e.g., 11211).
+        :param pulumi.Input[str] version: The version of the option (e.g., 13.1.0.0).
         :param pulumi.Input[Sequence[pulumi.Input[str]]] vpc_security_group_memberships: A list of VPC Security Groups for which the option is enabled.
         """
         pulumi.set(__self__, "option_name", option_name)
@@ -550,7 +550,7 @@ class OptionGroupOptionArgs:
     @pulumi.getter(name="optionName")
     def option_name(self) -> pulumi.Input[str]:
         """
-        The Name of the Option (e.g. MEMCACHED).
+        The Name of the Option (e.g., MEMCACHED).
         """
         return pulumi.get(self, "option_name")
 
@@ -586,7 +586,7 @@ class OptionGroupOptionArgs:
     @pulumi.getter
     def port(self) -> Optional[pulumi.Input[int]]:
         """
-        The Port number when connecting to the Option (e.g. 11211).
+        The Port number when connecting to the Option (e.g., 11211).
         """
         return pulumi.get(self, "port")
 
@@ -598,7 +598,7 @@ class OptionGroupOptionArgs:
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[str]]:
         """
-        The version of the option (e.g. 13.1.0.0).
+        The version of the option (e.g., 13.1.0.0).
         """
         return pulumi.get(self, "version")
 

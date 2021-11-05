@@ -311,12 +311,25 @@ namespace Pulumi.Aws.S3
     ///                     new Aws.S3.Inputs.BucketReplicationConfigurationRuleArgs
     ///                     {
     ///                         Id = "foobar",
-    ///                         Prefix = "foo",
     ///                         Status = "Enabled",
+    ///                         Filter = new Aws.S3.Inputs.BucketReplicationConfigurationRuleFilterArgs
+    ///                         {
+    ///                             Tags = ,
+    ///                         },
     ///                         Destination = new Aws.S3.Inputs.BucketReplicationConfigurationRuleDestinationArgs
     ///                         {
     ///                             Bucket = destination.Arn,
     ///                             StorageClass = "STANDARD",
+    ///                             ReplicationTime = new Aws.S3.Inputs.BucketReplicationConfigurationRuleDestinationReplicationTimeArgs
+    ///                             {
+    ///                                 Status = "Enabled",
+    ///                                 Minutes = 15,
+    ///                             },
+    ///                             Metrics = new Aws.S3.Inputs.BucketReplicationConfigurationRuleDestinationMetricsArgs
+    ///                             {
+    ///                                 Status = "Enabled",
+    ///                                 Minutes = 15,
+    ///                             },
     ///                         },
     ///                     },
     ///                 },
@@ -455,7 +468,7 @@ namespace Pulumi.Aws.S3
     /// 
     /// ## Import
     /// 
-    /// S3 bucket can be imported using the `bucket`, e.g.
+    /// S3 bucket can be imported using the `bucket`, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:s3/bucket:Bucket bucket bucket-name

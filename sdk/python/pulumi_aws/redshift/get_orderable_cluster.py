@@ -113,9 +113,9 @@ def get_orderable_cluster(cluster_type: Optional[str] = None,
     ```
 
 
-    :param str cluster_type: Reshift Cluster type. e.g. `multi-node` or `single-node`
-    :param str cluster_version: Redshift Cluster version. e.g. `1.0`
-    :param str node_type: Redshift Cluster node type. e.g. `dc2.8xlarge`
+    :param str cluster_type: Reshift Cluster typeE.g., `multi-node` or `single-node`
+    :param str cluster_version: Redshift Cluster versionE.g., `1.0`
+    :param str node_type: Redshift Cluster node typeE.g., `dc2.8xlarge`
     :param Sequence[str] preferred_node_types: Ordered list of preferred Redshift Cluster node types. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
     """
     __args__ = dict()
@@ -161,9 +161,9 @@ def get_orderable_cluster_output(cluster_type: Optional[pulumi.Input[Optional[st
     ```
 
 
-    :param str cluster_type: Reshift Cluster type. e.g. `multi-node` or `single-node`
-    :param str cluster_version: Redshift Cluster version. e.g. `1.0`
-    :param str node_type: Redshift Cluster node type. e.g. `dc2.8xlarge`
+    :param str cluster_type: Reshift Cluster typeE.g., `multi-node` or `single-node`
+    :param str cluster_version: Redshift Cluster versionE.g., `1.0`
+    :param str node_type: Redshift Cluster node typeE.g., `dc2.8xlarge`
     :param Sequence[str] preferred_node_types: Ordered list of preferred Redshift Cluster node types. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
     """
     ...

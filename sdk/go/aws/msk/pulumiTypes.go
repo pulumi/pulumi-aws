@@ -17,7 +17,7 @@ type ClusterBrokerNodeGroupInfo struct {
 	ClientSubnets []string `pulumi:"clientSubnets"`
 	// The size in GiB of the EBS volume for the data drive on each broker node.
 	EbsVolumeSize int `pulumi:"ebsVolumeSize"`
-	// Specify the instance type to use for the kafka brokers. e.g. kafka.m5.large. ([Pricing info](https://aws.amazon.com/msk/pricing/))
+	// Specify the instance type to use for the kafka brokersE.g., kafka.m5.large. ([Pricing info](https://aws.amazon.com/msk/pricing/))
 	InstanceType string `pulumi:"instanceType"`
 	// A list of the security groups to associate with the elastic network interfaces to control who can communicate with the cluster.
 	SecurityGroups []string `pulumi:"securityGroups"`
@@ -41,7 +41,7 @@ type ClusterBrokerNodeGroupInfoArgs struct {
 	ClientSubnets pulumi.StringArrayInput `pulumi:"clientSubnets"`
 	// The size in GiB of the EBS volume for the data drive on each broker node.
 	EbsVolumeSize pulumi.IntInput `pulumi:"ebsVolumeSize"`
-	// Specify the instance type to use for the kafka brokers. e.g. kafka.m5.large. ([Pricing info](https://aws.amazon.com/msk/pricing/))
+	// Specify the instance type to use for the kafka brokersE.g., kafka.m5.large. ([Pricing info](https://aws.amazon.com/msk/pricing/))
 	InstanceType pulumi.StringInput `pulumi:"instanceType"`
 	// A list of the security groups to associate with the elastic network interfaces to control who can communicate with the cluster.
 	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
@@ -139,7 +139,7 @@ func (o ClusterBrokerNodeGroupInfoOutput) EbsVolumeSize() pulumi.IntOutput {
 	return o.ApplyT(func(v ClusterBrokerNodeGroupInfo) int { return v.EbsVolumeSize }).(pulumi.IntOutput)
 }
 
-// Specify the instance type to use for the kafka brokers. e.g. kafka.m5.large. ([Pricing info](https://aws.amazon.com/msk/pricing/))
+// Specify the instance type to use for the kafka brokersE.g., kafka.m5.large. ([Pricing info](https://aws.amazon.com/msk/pricing/))
 func (o ClusterBrokerNodeGroupInfoOutput) InstanceType() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterBrokerNodeGroupInfo) string { return v.InstanceType }).(pulumi.StringOutput)
 }
@@ -203,7 +203,7 @@ func (o ClusterBrokerNodeGroupInfoPtrOutput) EbsVolumeSize() pulumi.IntPtrOutput
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specify the instance type to use for the kafka brokers. e.g. kafka.m5.large. ([Pricing info](https://aws.amazon.com/msk/pricing/))
+// Specify the instance type to use for the kafka brokersE.g., kafka.m5.large. ([Pricing info](https://aws.amazon.com/msk/pricing/))
 func (o ClusterBrokerNodeGroupInfoPtrOutput) InstanceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterBrokerNodeGroupInfo) *string {
 		if v == nil {

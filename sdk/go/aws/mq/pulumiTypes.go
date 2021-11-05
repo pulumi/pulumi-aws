@@ -912,11 +912,11 @@ func (o BrokerLogsPtrOutput) General() pulumi.BoolPtrOutput {
 }
 
 type BrokerMaintenanceWindowStartTime struct {
-	// Day of the week, e.g. `MONDAY`, `TUESDAY`, or `WEDNESDAY`.
+	// Day of the week, e.g., `MONDAY`, `TUESDAY`, or `WEDNESDAY`.
 	DayOfWeek string `pulumi:"dayOfWeek"`
-	// Time, in 24-hour format, e.g. `02:00`.
+	// Time, in 24-hour format, e.g., `02:00`.
 	TimeOfDay string `pulumi:"timeOfDay"`
-	// Time zone in either the Country/City format or the UTC offset format, e.g. `CET`.
+	// Time zone in either the Country/City format or the UTC offset format, e.g., `CET`.
 	TimeZone string `pulumi:"timeZone"`
 }
 
@@ -932,11 +932,11 @@ type BrokerMaintenanceWindowStartTimeInput interface {
 }
 
 type BrokerMaintenanceWindowStartTimeArgs struct {
-	// Day of the week, e.g. `MONDAY`, `TUESDAY`, or `WEDNESDAY`.
+	// Day of the week, e.g., `MONDAY`, `TUESDAY`, or `WEDNESDAY`.
 	DayOfWeek pulumi.StringInput `pulumi:"dayOfWeek"`
-	// Time, in 24-hour format, e.g. `02:00`.
+	// Time, in 24-hour format, e.g., `02:00`.
 	TimeOfDay pulumi.StringInput `pulumi:"timeOfDay"`
-	// Time zone in either the Country/City format or the UTC offset format, e.g. `CET`.
+	// Time zone in either the Country/City format or the UTC offset format, e.g., `CET`.
 	TimeZone pulumi.StringInput `pulumi:"timeZone"`
 }
 
@@ -1017,17 +1017,17 @@ func (o BrokerMaintenanceWindowStartTimeOutput) ToBrokerMaintenanceWindowStartTi
 	}).(BrokerMaintenanceWindowStartTimePtrOutput)
 }
 
-// Day of the week, e.g. `MONDAY`, `TUESDAY`, or `WEDNESDAY`.
+// Day of the week, e.g., `MONDAY`, `TUESDAY`, or `WEDNESDAY`.
 func (o BrokerMaintenanceWindowStartTimeOutput) DayOfWeek() pulumi.StringOutput {
 	return o.ApplyT(func(v BrokerMaintenanceWindowStartTime) string { return v.DayOfWeek }).(pulumi.StringOutput)
 }
 
-// Time, in 24-hour format, e.g. `02:00`.
+// Time, in 24-hour format, e.g., `02:00`.
 func (o BrokerMaintenanceWindowStartTimeOutput) TimeOfDay() pulumi.StringOutput {
 	return o.ApplyT(func(v BrokerMaintenanceWindowStartTime) string { return v.TimeOfDay }).(pulumi.StringOutput)
 }
 
-// Time zone in either the Country/City format or the UTC offset format, e.g. `CET`.
+// Time zone in either the Country/City format or the UTC offset format, e.g., `CET`.
 func (o BrokerMaintenanceWindowStartTimeOutput) TimeZone() pulumi.StringOutput {
 	return o.ApplyT(func(v BrokerMaintenanceWindowStartTime) string { return v.TimeZone }).(pulumi.StringOutput)
 }
@@ -1056,7 +1056,7 @@ func (o BrokerMaintenanceWindowStartTimePtrOutput) Elem() BrokerMaintenanceWindo
 	}).(BrokerMaintenanceWindowStartTimeOutput)
 }
 
-// Day of the week, e.g. `MONDAY`, `TUESDAY`, or `WEDNESDAY`.
+// Day of the week, e.g., `MONDAY`, `TUESDAY`, or `WEDNESDAY`.
 func (o BrokerMaintenanceWindowStartTimePtrOutput) DayOfWeek() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BrokerMaintenanceWindowStartTime) *string {
 		if v == nil {
@@ -1066,7 +1066,7 @@ func (o BrokerMaintenanceWindowStartTimePtrOutput) DayOfWeek() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// Time, in 24-hour format, e.g. `02:00`.
+// Time, in 24-hour format, e.g., `02:00`.
 func (o BrokerMaintenanceWindowStartTimePtrOutput) TimeOfDay() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BrokerMaintenanceWindowStartTime) *string {
 		if v == nil {
@@ -1076,7 +1076,7 @@ func (o BrokerMaintenanceWindowStartTimePtrOutput) TimeOfDay() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// Time zone in either the Country/City format or the UTC offset format, e.g. `CET`.
+// Time zone in either the Country/City format or the UTC offset format, e.g., `CET`.
 func (o BrokerMaintenanceWindowStartTimePtrOutput) TimeZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BrokerMaintenanceWindowStartTime) *string {
 		if v == nil {

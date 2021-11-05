@@ -41,7 +41,7 @@ namespace Pulumi.Aws.Route53RecoveryReadiness
     /// 
     /// ## Import
     /// 
-    /// Route53 Recovery Readiness resource set name can be imported via the resource set name, e.g.
+    /// Route53 Recovery Readiness resource set name can be imported via the resource set name, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:route53recoveryreadiness/resourceSet:ResourceSet my-cw-alarm-set
@@ -166,18 +166,6 @@ namespace Pulumi.Aws.Route53RecoveryReadiness
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
-        }
-
-        [Input("tagsAll")]
-        private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
-        public InputMap<string> TagsAll
-        {
-            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set => _tagsAll = value;
         }
 
         public ResourceSetArgs()

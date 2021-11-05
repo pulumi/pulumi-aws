@@ -160,7 +160,7 @@ import {InstanceProfile} from "../iam";
  * * `deviceName` - The name of the block device to mount on the instance.
  * * `virtualName` - The [Instance Store Device
  *   Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames)
- *   (e.g. `"ephemeral0"`)
+ *   (e.g., `"ephemeral0"`)
  *
  * Each AWS Instance type has a different set of Instance Store block devices
  * available for attachment. AWS [publishes a
@@ -175,7 +175,7 @@ import {InstanceProfile} from "../iam";
  *
  * ## Import
  *
- * Launch configurations can be imported using the `name`, e.g.
+ * Launch configurations can be imported using the `name`, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:ec2/launchConfiguration:LaunchConfiguration as_conf lg-123456

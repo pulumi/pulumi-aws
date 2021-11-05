@@ -22,8 +22,8 @@ namespace Pulumi.Aws.Ec2
     /// {
     ///     public MyStack()
     ///     {
-    ///         // Create a new host with instance type of c5.18xlarge with Auto Placement 
-    ///         // and Host Recovery enabled. 
+    ///         // Create a new host with instance type of c5.18xlarge with Auto Placement
+    ///         // and Host Recovery enabled.
     ///         var test = new Aws.Ec2.DedicatedHost("test", new Aws.Ec2.DedicatedHostArgs
     ///         {
     ///             AutoPlacement = "on",
@@ -38,7 +38,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// Hosts can be imported using the host `id`, e.g.
+    /// Hosts can be imported using the host `id`, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:ec2/dedicatedHost:DedicatedHost example h-0385a99d0e4b20cbb
@@ -92,6 +92,9 @@ namespace Pulumi.Aws.Ec2
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -179,14 +182,6 @@ namespace Pulumi.Aws.Ec2
             set => _tags = value;
         }
 
-        [Input("tagsAll")]
-        private InputMap<string>? _tagsAll;
-        public InputMap<string> TagsAll
-        {
-            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set => _tagsAll = value;
-        }
-
         public DedicatedHostArgs()
         {
         }
@@ -246,6 +241,10 @@ namespace Pulumi.Aws.Ec2
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

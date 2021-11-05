@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * `aws_ec2_fleet` can be imported by using the Fleet identifier, e.g.
+ * `aws_ec2_fleet` can be imported by using the Fleet identifier, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:ec2/fleet:Fleet example fleet-b9b55d27-c5fc-41ac-a6f3-48fcc91f080c
@@ -85,6 +85,9 @@ export class Fleet extends pulumi.CustomResource {
      */
     public readonly spotOptions!: pulumi.Output<outputs.ec2.FleetSpotOptions | undefined>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Nested argument containing target capacity configurations. Defined below.
@@ -179,6 +182,9 @@ export interface FleetState {
      */
     spotOptions?: pulumi.Input<inputs.ec2.FleetSpotOptions>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Nested argument containing target capacity configurations. Defined below.

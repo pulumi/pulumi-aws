@@ -82,7 +82,7 @@ namespace Pulumi.Aws.Connect
     /// 
     /// ## Import
     /// 
-    /// Connect instances can be imported using the `id`, e.g.
+    /// Connect instances can be imported using the `id`, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:connect/instance:Instance example f1288a1f-6193-445a-b47e-af739b2

@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * App Runner Custom Domain Associations can be imported by using the `domain_name` and `service_arn` separated by a comma (`,`), e.g.
+ * App Runner Custom Domain Associations can be imported by using the `domain_name` and `service_arn` separated by a comma (`,`), e.g.,
  *
  * ```sh
  *  $ pulumi import aws:apprunner/customDomainAssociation:CustomDomainAssociation example example.com,arn:aws:apprunner:us-east-1:123456789012:service/example-
@@ -69,7 +69,7 @@ export class CustomDomainAssociation extends pulumi.CustomResource {
      */
     public /*out*/ readonly dnsTarget!: pulumi.Output<string>;
     /**
-     * The custom domain endpoint to association. Specify a base domain e.g. `example.com` or a subdomain e.g. `subdomain.example.com`.
+     * The custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
      */
     public readonly domainName!: pulumi.Output<string>;
     /**
@@ -139,7 +139,7 @@ export interface CustomDomainAssociationState {
      */
     dnsTarget?: pulumi.Input<string>;
     /**
-     * The custom domain endpoint to association. Specify a base domain e.g. `example.com` or a subdomain e.g. `subdomain.example.com`.
+     * The custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
      */
     domainName?: pulumi.Input<string>;
     /**
@@ -161,7 +161,7 @@ export interface CustomDomainAssociationState {
  */
 export interface CustomDomainAssociationArgs {
     /**
-     * The custom domain endpoint to association. Specify a base domain e.g. `example.com` or a subdomain e.g. `subdomain.example.com`.
+     * The custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
      */
     domainName: pulumi.Input<string>;
     /**

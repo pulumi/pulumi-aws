@@ -170,6 +170,7 @@ class _TransitGatewayState:
         :param pulumi.Input[str] dns_support: Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
         :param pulumi.Input[str] owner_id: Identifier of the AWS account that owns the EC2 Transit Gateway
         :param pulumi.Input[str] propagation_default_route_table_id: Identifier of the default propagation route table
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] vpn_ecmp_support: Whether VPN Equal Cost Multipath Protocol support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
         """
         if amazon_side_asn is not None:
@@ -331,6 +332,9 @@ class _TransitGatewayState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -378,7 +382,7 @@ class TransitGateway(pulumi.CustomResource):
 
         ## Import
 
-        `aws_ec2_transit_gateway` can be imported by using the EC2 Transit Gateway identifier, e.g.
+        `aws_ec2_transit_gateway` can be imported by using the EC2 Transit Gateway identifier, e.g.,
 
         ```sh
          $ pulumi import aws:ec2transitgateway/transitGateway:TransitGateway example tgw-12345678
@@ -414,7 +418,7 @@ class TransitGateway(pulumi.CustomResource):
 
         ## Import
 
-        `aws_ec2_transit_gateway` can be imported by using the EC2 Transit Gateway identifier, e.g.
+        `aws_ec2_transit_gateway` can be imported by using the EC2 Transit Gateway identifier, e.g.,
 
         ```sh
          $ pulumi import aws:ec2transitgateway/transitGateway:TransitGateway example tgw-12345678
@@ -508,6 +512,7 @@ class TransitGateway(pulumi.CustomResource):
         :param pulumi.Input[str] dns_support: Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
         :param pulumi.Input[str] owner_id: Identifier of the AWS account that owns the EC2 Transit Gateway
         :param pulumi.Input[str] propagation_default_route_table_id: Identifier of the default propagation route table
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] vpn_ecmp_support: Whether VPN Equal Cost Multipath Protocol support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -617,6 +622,9 @@ class TransitGateway(pulumi.CustomResource):
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @property

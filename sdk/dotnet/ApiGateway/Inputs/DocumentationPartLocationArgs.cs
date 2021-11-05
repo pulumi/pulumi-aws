@@ -37,7 +37,7 @@ namespace Pulumi.Aws.ApiGateway.Inputs
         public Input<string>? StatusCode { get; set; }
 
         /// <summary>
-        /// The type of API entity to which the documentation content applies. e.g. `API`, `METHOD` or `REQUEST_BODY`
+        /// The type of API entity to which the documentation content appliesE.g., `API`, `METHOD` or `REQUEST_BODY`
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

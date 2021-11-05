@@ -248,7 +248,7 @@ class AssessmentTemplate(pulumi.CustomResource):
 
         ## Import
 
-        `aws_inspector_assessment_template` can be imported by using the template assessment ARN, e.g.
+        `aws_inspector_assessment_template` can be imported by using the template assessment ARN, e.g.,
 
         ```sh
          $ pulumi import aws:inspector/assessmentTemplate:AssessmentTemplate example arn:aws:inspector:us-west-2:123456789012:target/0-9IaAzhGR/template/0-WEcjR8CH
@@ -290,7 +290,7 @@ class AssessmentTemplate(pulumi.CustomResource):
 
         ## Import
 
-        `aws_inspector_assessment_template` can be imported by using the template assessment ARN, e.g.
+        `aws_inspector_assessment_template` can be imported by using the template assessment ARN, e.g.,
 
         ```sh
          $ pulumi import aws:inspector/assessmentTemplate:AssessmentTemplate example arn:aws:inspector:us-west-2:123456789012:target/0-9IaAzhGR/template/0-WEcjR8CH

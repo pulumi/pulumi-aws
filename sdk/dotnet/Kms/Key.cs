@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Kms
 {
     /// <summary>
-    /// Provides a KMS single-Region customer master key (CMK).
+    /// Manages a single-Region or multi-Region primary KMS key.
     /// 
     /// ## Example Usage
     /// 
@@ -34,7 +34,7 @@ namespace Pulumi.Aws.Kms
     /// 
     /// ## Import
     /// 
-    /// KMS Keys can be imported using the `id`, e.g.
+    /// KMS Keys can be imported using the `id`, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:kms/key:Key a 1234abcd-12ab-34cd-56ef-1234567890ab
@@ -50,7 +50,10 @@ namespace Pulumi.Aws.Kms
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether to disable the policy lockout check performed when creating or updating the key's policy. Setting this value to `true` increases the risk that the CMK becomes unmanageable. For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the AWS Key Management Service Developer Guide. Defaults to `false`.
+        /// A flag to indicate whether to bypass the key policy lockout safety check.
+        /// Setting this value to true increases the risk that the KMS key becomes unmanageable. Do not set this value to true indiscriminately.
+        /// For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS Key Management Service Developer Guide_.
+        /// The default value is `false`.
         /// </summary>
         [Output("bypassPolicyLockoutSafetyCheck")]
         public Output<bool?> BypassPolicyLockoutSafetyCheck { get; private set; } = null!;
@@ -63,7 +66,9 @@ namespace Pulumi.Aws.Kms
         public Output<string?> CustomerMasterKeySpec { get; private set; } = null!;
 
         /// <summary>
-        /// Duration in days after which the key is deleted after destruction of the resource, must be between 7 and 30 days. Defaults to 30 days.
+        /// The waiting period, specified in number of days. After the waiting period ends, AWS KMS deletes the KMS key.
+        /// If you specify a value, it must be between `7` and `30`, inclusive. If you do not specify a value, it defaults to `30`.
+        /// If the KMS key is a multi-Region primary key with replicas, the waiting period begins when the last of its replica keys is deleted. Otherwise, the waiting period begins immediately.
         /// </summary>
         [Output("deletionWindowInDays")]
         public Output<int?> DeletionWindowInDays { get; private set; } = null!;
@@ -81,7 +86,7 @@ namespace Pulumi.Aws.Kms
         public Output<bool?> EnableKeyRotation { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether the key is enabled. Defaults to true.
+        /// Specifies whether the key is enabled. Defaults to `true`.
         /// </summary>
         [Output("isEnabled")]
         public Output<bool?> IsEnabled { get; private set; } = null!;
@@ -100,6 +105,12 @@ namespace Pulumi.Aws.Kms
         public Output<string?> KeyUsage { get; private set; } = null!;
 
         /// <summary>
+        /// Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
+        /// </summary>
+        [Output("multiRegion")]
+        public Output<bool> MultiRegion { get; private set; } = null!;
+
+        /// <summary>
         /// A valid policy JSON document. Although this is a key policy, not an IAM policy, an `aws.iam.getPolicyDocument`, in the form that designates a principal, can be used.
         /// </summary>
         [Output("policy")]
@@ -108,6 +119,9 @@ namespace Pulumi.Aws.Kms
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -158,7 +172,10 @@ namespace Pulumi.Aws.Kms
     public sealed class KeyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies whether to disable the policy lockout check performed when creating or updating the key's policy. Setting this value to `true` increases the risk that the CMK becomes unmanageable. For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the AWS Key Management Service Developer Guide. Defaults to `false`.
+        /// A flag to indicate whether to bypass the key policy lockout safety check.
+        /// Setting this value to true increases the risk that the KMS key becomes unmanageable. Do not set this value to true indiscriminately.
+        /// For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS Key Management Service Developer Guide_.
+        /// The default value is `false`.
         /// </summary>
         [Input("bypassPolicyLockoutSafetyCheck")]
         public Input<bool>? BypassPolicyLockoutSafetyCheck { get; set; }
@@ -171,7 +188,9 @@ namespace Pulumi.Aws.Kms
         public Input<string>? CustomerMasterKeySpec { get; set; }
 
         /// <summary>
-        /// Duration in days after which the key is deleted after destruction of the resource, must be between 7 and 30 days. Defaults to 30 days.
+        /// The waiting period, specified in number of days. After the waiting period ends, AWS KMS deletes the KMS key.
+        /// If you specify a value, it must be between `7` and `30`, inclusive. If you do not specify a value, it defaults to `30`.
+        /// If the KMS key is a multi-Region primary key with replicas, the waiting period begins when the last of its replica keys is deleted. Otherwise, the waiting period begins immediately.
         /// </summary>
         [Input("deletionWindowInDays")]
         public Input<int>? DeletionWindowInDays { get; set; }
@@ -189,7 +208,7 @@ namespace Pulumi.Aws.Kms
         public Input<bool>? EnableKeyRotation { get; set; }
 
         /// <summary>
-        /// Specifies whether the key is enabled. Defaults to true.
+        /// Specifies whether the key is enabled. Defaults to `true`.
         /// </summary>
         [Input("isEnabled")]
         public Input<bool>? IsEnabled { get; set; }
@@ -200,6 +219,12 @@ namespace Pulumi.Aws.Kms
         /// </summary>
         [Input("keyUsage")]
         public Input<string>? KeyUsage { get; set; }
+
+        /// <summary>
+        /// Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
+        /// </summary>
+        [Input("multiRegion")]
+        public Input<bool>? MultiRegion { get; set; }
 
         /// <summary>
         /// A valid policy JSON document. Although this is a key policy, not an IAM policy, an `aws.iam.getPolicyDocument`, in the form that designates a principal, can be used.
@@ -229,7 +254,10 @@ namespace Pulumi.Aws.Kms
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// Specifies whether to disable the policy lockout check performed when creating or updating the key's policy. Setting this value to `true` increases the risk that the CMK becomes unmanageable. For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the AWS Key Management Service Developer Guide. Defaults to `false`.
+        /// A flag to indicate whether to bypass the key policy lockout safety check.
+        /// Setting this value to true increases the risk that the KMS key becomes unmanageable. Do not set this value to true indiscriminately.
+        /// For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS Key Management Service Developer Guide_.
+        /// The default value is `false`.
         /// </summary>
         [Input("bypassPolicyLockoutSafetyCheck")]
         public Input<bool>? BypassPolicyLockoutSafetyCheck { get; set; }
@@ -242,7 +270,9 @@ namespace Pulumi.Aws.Kms
         public Input<string>? CustomerMasterKeySpec { get; set; }
 
         /// <summary>
-        /// Duration in days after which the key is deleted after destruction of the resource, must be between 7 and 30 days. Defaults to 30 days.
+        /// The waiting period, specified in number of days. After the waiting period ends, AWS KMS deletes the KMS key.
+        /// If you specify a value, it must be between `7` and `30`, inclusive. If you do not specify a value, it defaults to `30`.
+        /// If the KMS key is a multi-Region primary key with replicas, the waiting period begins when the last of its replica keys is deleted. Otherwise, the waiting period begins immediately.
         /// </summary>
         [Input("deletionWindowInDays")]
         public Input<int>? DeletionWindowInDays { get; set; }
@@ -260,7 +290,7 @@ namespace Pulumi.Aws.Kms
         public Input<bool>? EnableKeyRotation { get; set; }
 
         /// <summary>
-        /// Specifies whether the key is enabled. Defaults to true.
+        /// Specifies whether the key is enabled. Defaults to `true`.
         /// </summary>
         [Input("isEnabled")]
         public Input<bool>? IsEnabled { get; set; }
@@ -279,6 +309,12 @@ namespace Pulumi.Aws.Kms
         public Input<string>? KeyUsage { get; set; }
 
         /// <summary>
+        /// Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
+        /// </summary>
+        [Input("multiRegion")]
+        public Input<bool>? MultiRegion { get; set; }
+
+        /// <summary>
         /// A valid policy JSON document. Although this is a key policy, not an IAM policy, an `aws.iam.getPolicyDocument`, in the form that designates a principal, can be used.
         /// </summary>
         [Input("policy")]
@@ -294,6 +330,10 @@ namespace Pulumi.Aws.Kms
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

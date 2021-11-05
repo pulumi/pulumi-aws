@@ -142,7 +142,7 @@ import {Function} from "./index";
  *
  * ## Import
  *
- * Lambda permission statements can be imported using function_name/statement_id, with an optional qualifier, e.g.
+ * Lambda permission statements can be imported using function_name/statement_id, with an optional qualifier, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:lambda/permission:Permission test_lambda_permission my_test_lambda_function/AllowExecutionFromCloudWatch
@@ -181,7 +181,7 @@ export class Permission extends pulumi.CustomResource {
     }
 
     /**
-     * The AWS Lambda action you want to allow in this statement. (e.g. `lambda:InvokeFunction`)
+     * The AWS Lambda action you want to allow in this statement. (e.g., `lambda:InvokeFunction`)
      */
     public readonly action!: pulumi.Output<string>;
     /**
@@ -193,11 +193,11 @@ export class Permission extends pulumi.CustomResource {
      */
     public readonly function!: pulumi.Output<string>;
     /**
-     * The principal who is getting this permission. e.g. `s3.amazonaws.com`, an AWS account ID, or any valid AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
+     * The principal who is getting this permissionE.g., `s3.amazonaws.com`, an AWS account ID, or any valid AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
      */
     public readonly principal!: pulumi.Output<string>;
     /**
-     * Query parameter to specify function version or alias name. The permission will then apply to the specific qualified ARN. e.g. `arn:aws:lambda:aws-region:acct-id:function:function-name:2`
+     * Query parameter to specify function version or alias name. The permission will then apply to the specific qualified ARNE.g., `arn:aws:lambda:aws-region:acct-id:function:function-name:2`
      */
     public readonly qualifier!: pulumi.Output<string | undefined>;
     /**
@@ -276,7 +276,7 @@ export class Permission extends pulumi.CustomResource {
  */
 export interface PermissionState {
     /**
-     * The AWS Lambda action you want to allow in this statement. (e.g. `lambda:InvokeFunction`)
+     * The AWS Lambda action you want to allow in this statement. (e.g., `lambda:InvokeFunction`)
      */
     action?: pulumi.Input<string>;
     /**
@@ -288,11 +288,11 @@ export interface PermissionState {
      */
     function?: pulumi.Input<string | Function>;
     /**
-     * The principal who is getting this permission. e.g. `s3.amazonaws.com`, an AWS account ID, or any valid AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
+     * The principal who is getting this permissionE.g., `s3.amazonaws.com`, an AWS account ID, or any valid AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
      */
     principal?: pulumi.Input<string>;
     /**
-     * Query parameter to specify function version or alias name. The permission will then apply to the specific qualified ARN. e.g. `arn:aws:lambda:aws-region:acct-id:function:function-name:2`
+     * Query parameter to specify function version or alias name. The permission will then apply to the specific qualified ARNE.g., `arn:aws:lambda:aws-region:acct-id:function:function-name:2`
      */
     qualifier?: pulumi.Input<string>;
     /**
@@ -322,7 +322,7 @@ export interface PermissionState {
  */
 export interface PermissionArgs {
     /**
-     * The AWS Lambda action you want to allow in this statement. (e.g. `lambda:InvokeFunction`)
+     * The AWS Lambda action you want to allow in this statement. (e.g., `lambda:InvokeFunction`)
      */
     action: pulumi.Input<string>;
     /**
@@ -334,11 +334,11 @@ export interface PermissionArgs {
      */
     function: pulumi.Input<string | Function>;
     /**
-     * The principal who is getting this permission. e.g. `s3.amazonaws.com`, an AWS account ID, or any valid AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
+     * The principal who is getting this permissionE.g., `s3.amazonaws.com`, an AWS account ID, or any valid AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
      */
     principal: pulumi.Input<string>;
     /**
-     * Query parameter to specify function version or alias name. The permission will then apply to the specific qualified ARN. e.g. `arn:aws:lambda:aws-region:acct-id:function:function-name:2`
+     * Query parameter to specify function version or alias name. The permission will then apply to the specific qualified ARNE.g., `arn:aws:lambda:aws-region:acct-id:function:function-name:2`
      */
     qualifier?: pulumi.Input<string>;
     /**

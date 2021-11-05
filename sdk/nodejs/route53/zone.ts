@@ -56,7 +56,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Route53 Zones can be imported using the `zone id`, e.g.
+ * Route53 Zones can be imported using the `zone id`, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:route53/zone:Zone myzone Z1D633PJN98FT9

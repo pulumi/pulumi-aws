@@ -54,6 +54,10 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// </summary>
         public readonly ImmutableArray<string> Ipv6Addresses;
         /// <summary>
+        /// The index of the network card. Some instance types support multiple network cards. The primary network interface must be assigned to network card index 0. The default is network card index 0.
+        /// </summary>
+        public readonly int? NetworkCardIndex;
+        /// <summary>
         /// The ID of the network interface to attach.
         /// </summary>
         public readonly string? NetworkInterfaceId;
@@ -92,6 +96,8 @@ namespace Pulumi.Aws.Ec2.Outputs
 
             ImmutableArray<string> ipv6Addresses,
 
+            int? networkCardIndex,
+
             string? networkInterfaceId,
 
             string? privateIpAddress,
@@ -110,6 +116,7 @@ namespace Pulumi.Aws.Ec2.Outputs
             Ipv4Addresses = ipv4Addresses;
             Ipv6AddressCount = ipv6AddressCount;
             Ipv6Addresses = ipv6Addresses;
+            NetworkCardIndex = networkCardIndex;
             NetworkInterfaceId = networkInterfaceId;
             PrivateIpAddress = privateIpAddress;
             SecurityGroups = securityGroups;

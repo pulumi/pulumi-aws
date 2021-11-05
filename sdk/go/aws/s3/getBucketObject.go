@@ -140,7 +140,7 @@ type LookupBucketObjectResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id  string `pulumi:"id"`
 	Key string `pulumi:"key"`
-	// Last modified date of the object in RFC1123 format (e.g. `Mon, 02 Jan 2006 15:04:05 MST`)
+	// Last modified date of the object in RFC1123 format (e.g., `Mon, 02 Jan 2006 15:04:05 MST`)
 	LastModified string `pulumi:"lastModified"`
 	// A map of metadata stored with the object in S3
 	Metadata map[string]string `pulumi:"metadata"`
@@ -274,7 +274,7 @@ func (o LookupBucketObjectResultOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBucketObjectResult) string { return v.Key }).(pulumi.StringOutput)
 }
 
-// Last modified date of the object in RFC1123 format (e.g. `Mon, 02 Jan 2006 15:04:05 MST`)
+// Last modified date of the object in RFC1123 format (e.g., `Mon, 02 Jan 2006 15:04:05 MST`)
 func (o LookupBucketObjectResultOutput) LastModified() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBucketObjectResult) string { return v.LastModified }).(pulumi.StringOutput)
 }

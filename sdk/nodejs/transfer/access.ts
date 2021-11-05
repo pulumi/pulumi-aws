@@ -42,7 +42,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Transfer Accesses can be imported using the `server_id` and `external_id`, e.g.
+ * Transfer Accesses can be imported using the `server_id` and `external_id`, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:transfer/access:Access example s-12345678/S-1-1-12-1234567890-123456789-1234567890-1234
@@ -77,7 +77,7 @@ export class Access extends pulumi.CustomResource {
     }
 
     /**
-     * The SID of a group in the directory connected to the Transfer Server (e.g. `S-1-1-12-1234567890-123456789-1234567890-1234`)
+     * The SID of a group in the directory connected to the Transfer Server (e.g., `S-1-1-12-1234567890-123456789-1234567890-1234`)
      */
     public readonly externalId!: pulumi.Output<string>;
     /**
@@ -102,7 +102,7 @@ export class Access extends pulumi.CustomResource {
      */
     public readonly role!: pulumi.Output<string | undefined>;
     /**
-     * The Server ID of the Transfer Server (e.g. `s-12345678`)
+     * The Server ID of the Transfer Server (e.g., `s-12345678`)
      */
     public readonly serverId!: pulumi.Output<string>;
 
@@ -156,7 +156,7 @@ export class Access extends pulumi.CustomResource {
  */
 export interface AccessState {
     /**
-     * The SID of a group in the directory connected to the Transfer Server (e.g. `S-1-1-12-1234567890-123456789-1234567890-1234`)
+     * The SID of a group in the directory connected to the Transfer Server (e.g., `S-1-1-12-1234567890-123456789-1234567890-1234`)
      */
     externalId?: pulumi.Input<string>;
     /**
@@ -181,7 +181,7 @@ export interface AccessState {
      */
     role?: pulumi.Input<string>;
     /**
-     * The Server ID of the Transfer Server (e.g. `s-12345678`)
+     * The Server ID of the Transfer Server (e.g., `s-12345678`)
      */
     serverId?: pulumi.Input<string>;
 }
@@ -191,7 +191,7 @@ export interface AccessState {
  */
 export interface AccessArgs {
     /**
-     * The SID of a group in the directory connected to the Transfer Server (e.g. `S-1-1-12-1234567890-123456789-1234567890-1234`)
+     * The SID of a group in the directory connected to the Transfer Server (e.g., `S-1-1-12-1234567890-123456789-1234567890-1234`)
      */
     externalId: pulumi.Input<string>;
     /**
@@ -216,7 +216,7 @@ export interface AccessArgs {
      */
     role?: pulumi.Input<string>;
     /**
-     * The Server ID of the Transfer Server (e.g. `s-12345678`)
+     * The Server ID of the Transfer Server (e.g., `s-12345678`)
      */
     serverId: pulumi.Input<string>;
 }

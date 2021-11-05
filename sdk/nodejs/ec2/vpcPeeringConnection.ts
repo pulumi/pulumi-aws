@@ -98,7 +98,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * VPC Peering resources can be imported using the `vpc peering id`, e.g.
+ * VPC Peering resources can be imported using the `vpc peering id`, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:ec2/vpcPeeringConnection:VpcPeeringConnection test_connection pcx-111aaa111

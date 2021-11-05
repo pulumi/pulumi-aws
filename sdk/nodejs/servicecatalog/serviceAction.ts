@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * `aws_servicecatalog_service_action` can be imported using the service action ID, e.g.
+ * `aws_servicecatalog_service_action` can be imported using the service action ID, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:servicecatalog/serviceAction:ServiceAction example act-f1w12eperfslh

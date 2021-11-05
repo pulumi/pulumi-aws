@@ -33,7 +33,7 @@ namespace Pulumi.Aws.Route53RecoveryReadiness
     /// 
     /// ## Import
     /// 
-    /// Route53 Recovery Readiness recovery groups can be imported via the recovery group name, e.g.
+    /// Route53 Recovery Readiness recovery groups can be imported via the recovery group name, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:route53recoveryreadiness/recoveryGroup:RecoveryGroup my-high-availability-app my-high-availability-app
@@ -146,18 +146,6 @@ namespace Pulumi.Aws.Route53RecoveryReadiness
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
-        }
-
-        [Input("tagsAll")]
-        private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// Map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
-        public InputMap<string> TagsAll
-        {
-            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set => _tagsAll = value;
         }
 
         public RecoveryGroupArgs()

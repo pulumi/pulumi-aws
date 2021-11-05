@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * `aws_servicecatalog_tag_option` can be imported using the tag option ID, e.g.
+ * `aws_servicecatalog_tag_option` can be imported using the tag option ID, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:servicecatalog/tagOption:TagOption example tag-pjtvagohlyo3m

@@ -105,7 +105,7 @@ import (
 //
 // ## Import
 //
-// EKS Node Groups can be imported using the `cluster_name` and `node_group_name` separated by a colon (`:`), e.g.
+// EKS Node Groups can be imported using the `cluster_name` and `node_group_name` separated by a colon (`:`), e.g.,
 //
 // ```sh
 //  $ pulumi import aws:eks/nodeGroup:NodeGroup my_node_group my_cluster:my_node_group
@@ -113,7 +113,7 @@ import (
 type NodeGroup struct {
 	pulumi.CustomResourceState
 
-	// Type of Amazon Machine Image (AMI) associated with the EKS Node Group. Defaults to `AL2_x86_64`. Valid values: `AL2_x86_64`, `AL2_x86_64_GPU`, `AL2_ARM_64`, `CUSTOM`. This provider will only perform drift detection if a configuration value is provided.
+	// Type of Amazon Machine Image (AMI) associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values. This provider will only perform drift detection if a configuration value is provided.
 	AmiType pulumi.StringOutput `pulumi:"amiType"`
 	// Amazon Resource Name (ARN) of the EKS Node Group.
 	Arn pulumi.StringOutput `pulumi:"arn"`
@@ -201,7 +201,7 @@ func GetNodeGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering NodeGroup resources.
 type nodeGroupState struct {
-	// Type of Amazon Machine Image (AMI) associated with the EKS Node Group. Defaults to `AL2_x86_64`. Valid values: `AL2_x86_64`, `AL2_x86_64_GPU`, `AL2_ARM_64`, `CUSTOM`. This provider will only perform drift detection if a configuration value is provided.
+	// Type of Amazon Machine Image (AMI) associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values. This provider will only perform drift detection if a configuration value is provided.
 	AmiType *string `pulumi:"amiType"`
 	// Amazon Resource Name (ARN) of the EKS Node Group.
 	Arn *string `pulumi:"arn"`
@@ -249,7 +249,7 @@ type nodeGroupState struct {
 }
 
 type NodeGroupState struct {
-	// Type of Amazon Machine Image (AMI) associated with the EKS Node Group. Defaults to `AL2_x86_64`. Valid values: `AL2_x86_64`, `AL2_x86_64_GPU`, `AL2_ARM_64`, `CUSTOM`. This provider will only perform drift detection if a configuration value is provided.
+	// Type of Amazon Machine Image (AMI) associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values. This provider will only perform drift detection if a configuration value is provided.
 	AmiType pulumi.StringPtrInput
 	// Amazon Resource Name (ARN) of the EKS Node Group.
 	Arn pulumi.StringPtrInput
@@ -301,7 +301,7 @@ func (NodeGroupState) ElementType() reflect.Type {
 }
 
 type nodeGroupArgs struct {
-	// Type of Amazon Machine Image (AMI) associated with the EKS Node Group. Defaults to `AL2_x86_64`. Valid values: `AL2_x86_64`, `AL2_x86_64_GPU`, `AL2_ARM_64`, `CUSTOM`. This provider will only perform drift detection if a configuration value is provided.
+	// Type of Amazon Machine Image (AMI) associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values. This provider will only perform drift detection if a configuration value is provided.
 	AmiType *string `pulumi:"amiType"`
 	// Type of capacity associated with the EKS Node Group. Valid values: `ON_DEMAND`, `SPOT`. This provider will only perform drift detection if a configuration value is provided.
 	CapacityType *string `pulumi:"capacityType"`
@@ -342,7 +342,7 @@ type nodeGroupArgs struct {
 
 // The set of arguments for constructing a NodeGroup resource.
 type NodeGroupArgs struct {
-	// Type of Amazon Machine Image (AMI) associated with the EKS Node Group. Defaults to `AL2_x86_64`. Valid values: `AL2_x86_64`, `AL2_x86_64_GPU`, `AL2_ARM_64`, `CUSTOM`. This provider will only perform drift detection if a configuration value is provided.
+	// Type of Amazon Machine Image (AMI) associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values. This provider will only perform drift detection if a configuration value is provided.
 	AmiType pulumi.StringPtrInput
 	// Type of capacity associated with the EKS Node Group. Valid values: `ON_DEMAND`, `SPOT`. This provider will only perform drift detection if a configuration value is provided.
 	CapacityType pulumi.StringPtrInput

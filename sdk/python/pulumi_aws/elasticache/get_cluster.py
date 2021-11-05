@@ -107,7 +107,7 @@ class GetClusterResult:
     def cache_nodes(self) -> Sequence['outputs.GetClusterCacheNodeResult']:
         """
         List of node objects including `id`, `address`, `port` and `availability_zone`.
-        Referenceable e.g. as `${data.aws_elasticache_cluster.bar.cache_nodes.0.address}`
+        Referenceable e.g., as `${data.aws_elasticache_cluster.bar.cache_nodes.0.address}`
         """
         return pulumi.get(self, "cache_nodes")
 

@@ -34,7 +34,7 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// ## Import
     /// 
-    /// API Gateway Keys can be imported using the `id`, e.g.
+    /// API Gateway Keys can be imported using the `id`, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:apigateway/apiKey:ApiKey my_demo_key 8bklk8bl1k3sB38D9B3l0enyWT8c09B30lkq0blk

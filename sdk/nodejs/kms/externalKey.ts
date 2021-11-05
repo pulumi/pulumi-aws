@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * KMS External Keys can be imported using the `id`, e.g.
+ * KMS External Keys can be imported using the `id`, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:kms/externalKey:ExternalKey a arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab
@@ -91,6 +91,10 @@ export class ExternalKey extends pulumi.CustomResource {
      */
     public /*out*/ readonly keyUsage!: pulumi.Output<string>;
     /**
+     * Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
+     */
+    public readonly multiRegion!: pulumi.Output<boolean>;
+    /**
      * A key policy JSON document. If you do not provide a key policy, AWS KMS attaches a default key policy to the CMK.
      */
     public readonly policy!: pulumi.Output<string>;
@@ -129,6 +133,7 @@ export class ExternalKey extends pulumi.CustomResource {
             inputs["keyMaterialBase64"] = state ? state.keyMaterialBase64 : undefined;
             inputs["keyState"] = state ? state.keyState : undefined;
             inputs["keyUsage"] = state ? state.keyUsage : undefined;
+            inputs["multiRegion"] = state ? state.multiRegion : undefined;
             inputs["policy"] = state ? state.policy : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["tagsAll"] = state ? state.tagsAll : undefined;
@@ -140,6 +145,7 @@ export class ExternalKey extends pulumi.CustomResource {
             inputs["description"] = args ? args.description : undefined;
             inputs["enabled"] = args ? args.enabled : undefined;
             inputs["keyMaterialBase64"] = args ? args.keyMaterialBase64 : undefined;
+            inputs["multiRegion"] = args ? args.multiRegion : undefined;
             inputs["policy"] = args ? args.policy : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["validTo"] = args ? args.validTo : undefined;
@@ -197,6 +203,10 @@ export interface ExternalKeyState {
      */
     keyUsage?: pulumi.Input<string>;
     /**
+     * Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
+     */
+    multiRegion?: pulumi.Input<boolean>;
+    /**
      * A key policy JSON document. If you do not provide a key policy, AWS KMS attaches a default key policy to the CMK.
      */
     policy?: pulumi.Input<string>;
@@ -238,6 +248,10 @@ export interface ExternalKeyArgs {
      * Base64 encoded 256-bit symmetric encryption key material to import. The CMK is permanently associated with this key material. The same key material can be reimported, but you cannot import different key material.
      */
     keyMaterialBase64?: pulumi.Input<string>;
+    /**
+     * Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
+     */
+    multiRegion?: pulumi.Input<boolean>;
     /**
      * A key policy JSON document. If you do not provide a key policy, AWS KMS attaches a default key policy to the CMK.
      */

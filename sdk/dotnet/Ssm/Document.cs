@@ -96,7 +96,7 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// ## Import
     /// 
-    /// SSM Documents can be imported using the name, e.g.
+    /// SSM Documents can be imported using the name, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:ssm/document:Document example example

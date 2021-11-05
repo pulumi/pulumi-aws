@@ -222,7 +222,7 @@ class ConfigurationSet(pulumi.CustomResource):
 
         ## Import
 
-        SES Configuration Sets can be imported using their `name`, e.g.
+        SES Configuration Sets can be imported using their `name`, e.g.,
 
         ```sh
          $ pulumi import aws:ses/configurationSet:ConfigurationSet test some-configuration-set-test
@@ -265,7 +265,7 @@ class ConfigurationSet(pulumi.CustomResource):
 
         ## Import
 
-        SES Configuration Sets can be imported using their `name`, e.g.
+        SES Configuration Sets can be imported using their `name`, e.g.,
 
         ```sh
          $ pulumi import aws:ses/configurationSet:ConfigurationSet test some-configuration-set-test

@@ -60,7 +60,7 @@ import (
 //
 // ## Import
 //
-// DB proxies can be imported using the `name`, e.g.
+// DB proxies can be imported using the `name`, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:rds/proxy:Proxy example example

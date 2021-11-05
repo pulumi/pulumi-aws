@@ -66,7 +66,7 @@ import {Application, ApplicationVersion} from "./index";
  *
  * ## Import
  *
- * Elastic Beanstalk Environments can be imported using the `id`, e.g.
+ * Elastic Beanstalk Environments can be imported using the `id`, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:elasticbeanstalk/environment:Environment prodenv e-rpqsewtp2j
@@ -178,6 +178,9 @@ export class Environment extends pulumi.CustomResource {
      */
     public readonly solutionStackName!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The name of the Elastic Beanstalk Configuration
@@ -362,6 +365,9 @@ export interface EnvironmentState {
      */
     solutionStackName?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name of the Elastic Beanstalk Configuration

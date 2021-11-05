@@ -213,7 +213,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * `aws_kinesisanalyticsv2_application` can be imported by using the application ARN, e.g.
+ * `aws_kinesisanalyticsv2_application` can be imported by using the application ARN, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:kinesisanalyticsv2/application:Application example arn:aws:kinesisanalytics:us-west-2:123456789012:application/example-sql-application
@@ -296,6 +296,9 @@ export class Application extends pulumi.CustomResource {
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The current application version. Kinesis Data Analytics updates the `versionId` each time the application is updated.
@@ -414,6 +417,9 @@ export interface ApplicationState {
      */
     status?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The current application version. Kinesis Data Analytics updates the `versionId` each time the application is updated.

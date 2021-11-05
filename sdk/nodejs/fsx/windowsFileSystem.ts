@@ -54,7 +54,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * FSx File Systems can be imported using the `id`, e.g.
+ * FSx File Systems can be imported using the `id`, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:fsx/windowsFileSystem:WindowsFileSystem example fs-543ab12b1ca672f33
@@ -139,7 +139,7 @@ export class WindowsFileSystem extends pulumi.CustomResource {
      */
     public readonly deploymentType!: pulumi.Output<string | undefined>;
     /**
-     * DNS name for the file system, e.g. `fs-12345678.corp.example.com` (domain name matching the Active Directory domain name)
+     * DNS name for the file system, e.g., `fs-12345678.corp.example.com` (domain name matching the Active Directory domain name)
      */
     public /*out*/ readonly dnsName!: pulumi.Output<string>;
     /**
@@ -335,7 +335,7 @@ export interface WindowsFileSystemState {
      */
     deploymentType?: pulumi.Input<string>;
     /**
-     * DNS name for the file system, e.g. `fs-12345678.corp.example.com` (domain name matching the Active Directory domain name)
+     * DNS name for the file system, e.g., `fs-12345678.corp.example.com` (domain name matching the Active Directory domain name)
      */
     dnsName?: pulumi.Input<string>;
     /**

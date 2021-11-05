@@ -19,7 +19,7 @@ namespace Pulumi.Aws.CodePipeline.Inputs
         public Input<string> JsonPath { get; set; } = null!;
 
         /// <summary>
-        /// The value to match on (e.g. `refs/heads/{Branch}`). See [AWS docs](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_WebhookFilterRule.html) for details.
+        /// The value to match on (e.g., `refs/heads/{Branch}`). See [AWS docs](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_WebhookFilterRule.html) for details.
         /// </summary>
         [Input("matchEquals", required: true)]
         public Input<string> MatchEquals { get; set; } = null!;

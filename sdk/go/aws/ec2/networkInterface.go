@@ -50,7 +50,7 @@ import (
 //
 // ## Import
 //
-// Network Interfaces can be imported using the `id`, e.g.
+// Network Interfaces can be imported using the `id`, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:ec2/networkInterface:NetworkInterface test eni-e5aa89a3
@@ -58,19 +58,31 @@ import (
 type NetworkInterface struct {
 	pulumi.CustomResourceState
 
+	// The ARN of the network interface.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Block to define the attachment of the ENI. Documented below.
 	Attachments NetworkInterfaceAttachmentTypeArrayOutput `pulumi:"attachments"`
 	// A description for the network interface.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Type of network interface to create. Set to `efa` for Elastic Fabric Adapter.
 	InterfaceType pulumi.StringOutput `pulumi:"interfaceType"`
+	// The number of IPv4 prefixes that AWS automatically assigns to the network interface.
+	Ipv4PrefixCount pulumi.IntOutput `pulumi:"ipv4PrefixCount"`
+	// One or more IPv4 prefixes assigned to the network interface.
+	Ipv4Prefixes pulumi.StringArrayOutput `pulumi:"ipv4Prefixes"`
 	// The number of IPv6 addresses to assign to a network interface. You can't use this option if specifying specific `ipv6Addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.
 	Ipv6AddressCount pulumi.IntOutput `pulumi:"ipv6AddressCount"`
 	// One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. You can't use this option if you're specifying `ipv6AddressCount`.
 	Ipv6Addresses pulumi.StringArrayOutput `pulumi:"ipv6Addresses"`
+	// The number of IPv6 prefixes that AWS automatically assigns to the network interface.
+	Ipv6PrefixCount pulumi.IntOutput `pulumi:"ipv6PrefixCount"`
+	// One or more IPv6 prefixes assigned to the network interface.
+	Ipv6Prefixes pulumi.StringArrayOutput `pulumi:"ipv6Prefixes"`
 	// The MAC address of the network interface.
 	MacAddress pulumi.StringOutput `pulumi:"macAddress"`
 	OutpostArn pulumi.StringOutput `pulumi:"outpostArn"`
+	// The AWS account ID of the owner of the network interface.
+	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
 	// The private DNS name of the network interface (IPv4).
 	PrivateDnsName pulumi.StringOutput `pulumi:"privateDnsName"`
 	PrivateIp      pulumi.StringOutput `pulumi:"privateIp"`
@@ -122,19 +134,31 @@ func GetNetworkInterface(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering NetworkInterface resources.
 type networkInterfaceState struct {
+	// The ARN of the network interface.
+	Arn *string `pulumi:"arn"`
 	// Block to define the attachment of the ENI. Documented below.
 	Attachments []NetworkInterfaceAttachmentType `pulumi:"attachments"`
 	// A description for the network interface.
 	Description *string `pulumi:"description"`
 	// Type of network interface to create. Set to `efa` for Elastic Fabric Adapter.
 	InterfaceType *string `pulumi:"interfaceType"`
+	// The number of IPv4 prefixes that AWS automatically assigns to the network interface.
+	Ipv4PrefixCount *int `pulumi:"ipv4PrefixCount"`
+	// One or more IPv4 prefixes assigned to the network interface.
+	Ipv4Prefixes []string `pulumi:"ipv4Prefixes"`
 	// The number of IPv6 addresses to assign to a network interface. You can't use this option if specifying specific `ipv6Addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.
 	Ipv6AddressCount *int `pulumi:"ipv6AddressCount"`
 	// One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. You can't use this option if you're specifying `ipv6AddressCount`.
 	Ipv6Addresses []string `pulumi:"ipv6Addresses"`
+	// The number of IPv6 prefixes that AWS automatically assigns to the network interface.
+	Ipv6PrefixCount *int `pulumi:"ipv6PrefixCount"`
+	// One or more IPv6 prefixes assigned to the network interface.
+	Ipv6Prefixes []string `pulumi:"ipv6Prefixes"`
 	// The MAC address of the network interface.
 	MacAddress *string `pulumi:"macAddress"`
 	OutpostArn *string `pulumi:"outpostArn"`
+	// The AWS account ID of the owner of the network interface.
+	OwnerId *string `pulumi:"ownerId"`
 	// The private DNS name of the network interface (IPv4).
 	PrivateDnsName *string `pulumi:"privateDnsName"`
 	PrivateIp      *string `pulumi:"privateIp"`
@@ -155,19 +179,31 @@ type networkInterfaceState struct {
 }
 
 type NetworkInterfaceState struct {
+	// The ARN of the network interface.
+	Arn pulumi.StringPtrInput
 	// Block to define the attachment of the ENI. Documented below.
 	Attachments NetworkInterfaceAttachmentTypeArrayInput
 	// A description for the network interface.
 	Description pulumi.StringPtrInput
 	// Type of network interface to create. Set to `efa` for Elastic Fabric Adapter.
 	InterfaceType pulumi.StringPtrInput
+	// The number of IPv4 prefixes that AWS automatically assigns to the network interface.
+	Ipv4PrefixCount pulumi.IntPtrInput
+	// One or more IPv4 prefixes assigned to the network interface.
+	Ipv4Prefixes pulumi.StringArrayInput
 	// The number of IPv6 addresses to assign to a network interface. You can't use this option if specifying specific `ipv6Addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.
 	Ipv6AddressCount pulumi.IntPtrInput
 	// One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. You can't use this option if you're specifying `ipv6AddressCount`.
 	Ipv6Addresses pulumi.StringArrayInput
+	// The number of IPv6 prefixes that AWS automatically assigns to the network interface.
+	Ipv6PrefixCount pulumi.IntPtrInput
+	// One or more IPv6 prefixes assigned to the network interface.
+	Ipv6Prefixes pulumi.StringArrayInput
 	// The MAC address of the network interface.
 	MacAddress pulumi.StringPtrInput
 	OutpostArn pulumi.StringPtrInput
+	// The AWS account ID of the owner of the network interface.
+	OwnerId pulumi.StringPtrInput
 	// The private DNS name of the network interface (IPv4).
 	PrivateDnsName pulumi.StringPtrInput
 	PrivateIp      pulumi.StringPtrInput
@@ -198,11 +234,19 @@ type networkInterfaceArgs struct {
 	Description *string `pulumi:"description"`
 	// Type of network interface to create. Set to `efa` for Elastic Fabric Adapter.
 	InterfaceType *string `pulumi:"interfaceType"`
+	// The number of IPv4 prefixes that AWS automatically assigns to the network interface.
+	Ipv4PrefixCount *int `pulumi:"ipv4PrefixCount"`
+	// One or more IPv4 prefixes assigned to the network interface.
+	Ipv4Prefixes []string `pulumi:"ipv4Prefixes"`
 	// The number of IPv6 addresses to assign to a network interface. You can't use this option if specifying specific `ipv6Addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.
 	Ipv6AddressCount *int `pulumi:"ipv6AddressCount"`
 	// One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. You can't use this option if you're specifying `ipv6AddressCount`.
 	Ipv6Addresses []string `pulumi:"ipv6Addresses"`
-	PrivateIp     *string  `pulumi:"privateIp"`
+	// The number of IPv6 prefixes that AWS automatically assigns to the network interface.
+	Ipv6PrefixCount *int `pulumi:"ipv6PrefixCount"`
+	// One or more IPv6 prefixes assigned to the network interface.
+	Ipv6Prefixes []string `pulumi:"ipv6Prefixes"`
+	PrivateIp    *string  `pulumi:"privateIp"`
 	// List of private IPs to assign to the ENI.
 	PrivateIps []string `pulumi:"privateIps"`
 	// Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + private_ips_count, as a primary private IP will be assiged to an ENI by default.
@@ -225,11 +269,19 @@ type NetworkInterfaceArgs struct {
 	Description pulumi.StringPtrInput
 	// Type of network interface to create. Set to `efa` for Elastic Fabric Adapter.
 	InterfaceType pulumi.StringPtrInput
+	// The number of IPv4 prefixes that AWS automatically assigns to the network interface.
+	Ipv4PrefixCount pulumi.IntPtrInput
+	// One or more IPv4 prefixes assigned to the network interface.
+	Ipv4Prefixes pulumi.StringArrayInput
 	// The number of IPv6 addresses to assign to a network interface. You can't use this option if specifying specific `ipv6Addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.
 	Ipv6AddressCount pulumi.IntPtrInput
 	// One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. You can't use this option if you're specifying `ipv6AddressCount`.
 	Ipv6Addresses pulumi.StringArrayInput
-	PrivateIp     pulumi.StringPtrInput
+	// The number of IPv6 prefixes that AWS automatically assigns to the network interface.
+	Ipv6PrefixCount pulumi.IntPtrInput
+	// One or more IPv6 prefixes assigned to the network interface.
+	Ipv6Prefixes pulumi.StringArrayInput
+	PrivateIp    pulumi.StringPtrInput
 	// List of private IPs to assign to the ENI.
 	PrivateIps pulumi.StringArrayInput
 	// Number of secondary private IPs to assign to the ENI. The total number of private IPs will be 1 + private_ips_count, as a primary private IP will be assiged to an ENI by default.

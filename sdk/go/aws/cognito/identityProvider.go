@@ -57,7 +57,7 @@ import (
 //
 // ## Import
 //
-// `aws_cognito_identity_provider` resources can be imported using their User Pool ID and Provider Name, e.g.
+// `aws_cognito_identity_provider` resources can be imported using their User Pool ID and Provider Name, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:cognito/identityProvider:IdentityProvider example xxx_yyyyy:example

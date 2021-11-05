@@ -58,7 +58,7 @@ export function getAmiIds(args?: GetAmiIdsArgs, opts?: pulumi.InvokeOptions): Pr
  */
 export interface GetAmiIdsArgs {
     /**
-     * A filter used to scope the list e.g. by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
+     * A filter used to scope the list e.g., by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
      */
     filters?: inputs.autoscaling.GetAmiIdsFilter[];
 }
@@ -91,7 +91,7 @@ export function getAmiIdsOutput(args?: GetAmiIdsOutputArgs, opts?: pulumi.Invoke
  */
 export interface GetAmiIdsOutputArgs {
     /**
-     * A filter used to scope the list e.g. by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
+     * A filter used to scope the list e.g., by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
      */
     filters?: pulumi.Input<pulumi.Input<inputs.autoscaling.GetAmiIdsFilterArgs>[]>;
 }

@@ -152,7 +152,7 @@ def get_resource_share(filters: Optional[Sequence[pulumi.InputType['GetResourceS
     ```
 
 
-    :param Sequence[pulumi.InputType['GetResourceShareFilterArgs']] filters: A filter used to scope the list e.g. by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
+    :param Sequence[pulumi.InputType['GetResourceShareFilterArgs']] filters: A filter used to scope the list e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
     :param str name: The name of the tag key to filter on.
     :param str resource_owner: The owner of the resource share. Valid values are SELF or OTHER-ACCOUNTS
     :param Mapping[str, str] tags: The Tags attached to the RAM share
@@ -212,7 +212,7 @@ def get_resource_share_output(filters: Optional[pulumi.Input[Optional[Sequence[p
     ```
 
 
-    :param Sequence[pulumi.InputType['GetResourceShareFilterArgs']] filters: A filter used to scope the list e.g. by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
+    :param Sequence[pulumi.InputType['GetResourceShareFilterArgs']] filters: A filter used to scope the list e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
     :param str name: The name of the tag key to filter on.
     :param str resource_owner: The owner of the resource share. Valid values are SELF or OTHER-ACCOUNTS
     :param Mapping[str, str] tags: The Tags attached to the RAM share

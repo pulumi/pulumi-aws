@@ -22,7 +22,7 @@ class EnvironmentEC2Args:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a EnvironmentEC2 resource.
-        :param pulumi.Input[str] instance_type: The type of instance to connect to the environment, e.g. `t2.micro`.
+        :param pulumi.Input[str] instance_type: The type of instance to connect to the environment, e.g., `t2.micro`.
         :param pulumi.Input[int] automatic_stop_time_minutes: The number of minutes until the running instance is shut down after the environment has last been used.
         :param pulumi.Input[str] description: The description of the environment.
         :param pulumi.Input[str] name: The name of the environment.
@@ -48,7 +48,7 @@ class EnvironmentEC2Args:
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> pulumi.Input[str]:
         """
-        The type of instance to connect to the environment, e.g. `t2.micro`.
+        The type of instance to connect to the environment, e.g., `t2.micro`.
         """
         return pulumi.get(self, "instance_type")
 
@@ -147,13 +147,13 @@ class _EnvironmentEC2State:
         :param pulumi.Input[str] arn: The ARN of the environment.
         :param pulumi.Input[int] automatic_stop_time_minutes: The number of minutes until the running instance is shut down after the environment has last been used.
         :param pulumi.Input[str] description: The description of the environment.
-        :param pulumi.Input[str] instance_type: The type of instance to connect to the environment, e.g. `t2.micro`.
+        :param pulumi.Input[str] instance_type: The type of instance to connect to the environment, e.g., `t2.micro`.
         :param pulumi.Input[str] name: The name of the environment.
         :param pulumi.Input[str] owner_arn: The ARN of the environment owner. This can be ARN of any AWS IAM principal. Defaults to the environment's creator.
         :param pulumi.Input[str] subnet_id: The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
-        :param pulumi.Input[str] type: The type of the environment (e.g. `ssh` or `ec2`)
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[str] type: The type of the environment (e.g., `ssh` or `ec2`)
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -216,7 +216,7 @@ class _EnvironmentEC2State:
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of instance to connect to the environment, e.g. `t2.micro`.
+        The type of instance to connect to the environment, e.g., `t2.micro`.
         """
         return pulumi.get(self, "instance_type")
 
@@ -276,7 +276,7 @@ class _EnvironmentEC2State:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider .
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -288,7 +288,7 @@ class _EnvironmentEC2State:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        The type of the environment (e.g. `ssh` or `ec2`)
+        The type of the environment (e.g., `ssh` or `ec2`)
         """
         return pulumi.get(self, "type")
 
@@ -359,7 +359,7 @@ class EnvironmentEC2(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] automatic_stop_time_minutes: The number of minutes until the running instance is shut down after the environment has last been used.
         :param pulumi.Input[str] description: The description of the environment.
-        :param pulumi.Input[str] instance_type: The type of instance to connect to the environment, e.g. `t2.micro`.
+        :param pulumi.Input[str] instance_type: The type of instance to connect to the environment, e.g., `t2.micro`.
         :param pulumi.Input[str] name: The name of the environment.
         :param pulumi.Input[str] owner_arn: The ARN of the environment owner. This can be ARN of any AWS IAM principal. Defaults to the environment's creator.
         :param pulumi.Input[str] subnet_id: The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.
@@ -492,13 +492,13 @@ class EnvironmentEC2(pulumi.CustomResource):
         :param pulumi.Input[str] arn: The ARN of the environment.
         :param pulumi.Input[int] automatic_stop_time_minutes: The number of minutes until the running instance is shut down after the environment has last been used.
         :param pulumi.Input[str] description: The description of the environment.
-        :param pulumi.Input[str] instance_type: The type of instance to connect to the environment, e.g. `t2.micro`.
+        :param pulumi.Input[str] instance_type: The type of instance to connect to the environment, e.g., `t2.micro`.
         :param pulumi.Input[str] name: The name of the environment.
         :param pulumi.Input[str] owner_arn: The ARN of the environment owner. This can be ARN of any AWS IAM principal. Defaults to the environment's creator.
         :param pulumi.Input[str] subnet_id: The ID of the subnet in Amazon VPC that AWS Cloud9 will use to communicate with the Amazon EC2 instance.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
-        :param pulumi.Input[str] type: The type of the environment (e.g. `ssh` or `ec2`)
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[str] type: The type of the environment (e.g., `ssh` or `ec2`)
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -544,7 +544,7 @@ class EnvironmentEC2(pulumi.CustomResource):
     @pulumi.getter(name="instanceType")
     def instance_type(self) -> pulumi.Output[str]:
         """
-        The type of instance to connect to the environment, e.g. `t2.micro`.
+        The type of instance to connect to the environment, e.g., `t2.micro`.
         """
         return pulumi.get(self, "instance_type")
 
@@ -584,7 +584,7 @@ class EnvironmentEC2(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider .
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -592,7 +592,7 @@ class EnvironmentEC2(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        The type of the environment (e.g. `ssh` or `ec2`)
+        The type of the environment (e.g., `ssh` or `ec2`)
         """
         return pulumi.get(self, "type")
 

@@ -127,7 +127,7 @@ export class User extends pulumi.CustomResource {
      */
     public readonly role!: pulumi.Output<string>;
     /**
-     * The Server ID of the Transfer Server (e.g. `s-12345678`)
+     * The Server ID of the Transfer Server (e.g., `s-12345678`)
      */
     public readonly serverId!: pulumi.Output<string>;
     /**
@@ -230,7 +230,7 @@ export interface UserState {
      */
     role?: pulumi.Input<string>;
     /**
-     * The Server ID of the Transfer Server (e.g. `s-12345678`)
+     * The Server ID of the Transfer Server (e.g., `s-12345678`)
      */
     serverId?: pulumi.Input<string>;
     /**
@@ -276,7 +276,7 @@ export interface UserArgs {
      */
     role: pulumi.Input<string>;
     /**
-     * The Server ID of the Transfer Server (e.g. `s-12345678`)
+     * The Server ID of the Transfer Server (e.g., `s-12345678`)
      */
     serverId: pulumi.Input<string>;
     /**

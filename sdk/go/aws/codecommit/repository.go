@@ -39,7 +39,7 @@ import (
 //
 // ## Import
 //
-// Codecommit repository can be imported using repository name, e.g.
+// Codecommit repository can be imported using repository name, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:codecommit/repository:Repository imported ExistingRepo

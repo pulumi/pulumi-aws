@@ -147,13 +147,13 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// EIPs in a VPC can be imported using their Allocation ID, e.g.
+    /// EIPs in a VPC can be imported using their Allocation ID, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:ec2/eip:Eip bar eipalloc-00a10e96
     /// ```
     /// 
-    ///  EIPs in EC2 Classic can be imported using their Public IP, e.g.
+    ///  EIPs in EC2 Classic can be imported using their Public IP, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:ec2/eip:Eip bar 52.0.0.0
@@ -263,6 +263,9 @@ namespace Pulumi.Aws.Ec2
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -487,6 +490,10 @@ namespace Pulumi.Aws.Ec2
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

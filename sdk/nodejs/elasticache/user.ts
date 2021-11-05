@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 /**
  * ## Import
  *
- * ElastiCache users can be imported using the `user_id`, e.g.
+ * ElastiCache users can be imported using the `user_id`, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:elasticache/user:User my_user userId1

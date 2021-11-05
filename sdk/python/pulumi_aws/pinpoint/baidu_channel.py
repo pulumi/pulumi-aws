@@ -179,7 +179,7 @@ class BaiduChannel(pulumi.CustomResource):
 
         ## Import
 
-        Pinpoint Baidu Channel can be imported using the `application-id`, e.g.
+        Pinpoint Baidu Channel can be imported using the `application-id`, e.g.,
 
         ```sh
          $ pulumi import aws:pinpoint/baiduChannel:BaiduChannel channel application-id
@@ -216,7 +216,7 @@ class BaiduChannel(pulumi.CustomResource):
 
         ## Import
 
-        Pinpoint Baidu Channel can be imported using the `application-id`, e.g.
+        Pinpoint Baidu Channel can be imported using the `application-id`, e.g.,
 
         ```sh
          $ pulumi import aws:pinpoint/baiduChannel:BaiduChannel channel application-id

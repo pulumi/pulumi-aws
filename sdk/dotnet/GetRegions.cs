@@ -13,7 +13,7 @@ namespace Pulumi.Aws
     public static class GetRegions
     {
         /// <summary>
-        /// Provides information about AWS Regions. Can be used to filter regions i.e. by Opt-In status or only regions enabled for current account. To get details like endpoint and description of each region the data source can be combined with the `aws.getRegion` data source.
+        /// Provides information about AWS Regions. Can be used to filter regions i.e., by Opt-In status or only regions enabled for current account. To get details like endpoint and description of each region the data source can be combined with the `aws.getRegion` data source.
         /// 
         /// {{% examples %}}
         /// ## Example Usage
@@ -90,7 +90,7 @@ namespace Pulumi.Aws
             => Pulumi.Deployment.Instance.InvokeAsync<GetRegionsResult>("aws:index/getRegions:getRegions", args ?? new GetRegionsArgs(), options.WithVersion());
 
         /// <summary>
-        /// Provides information about AWS Regions. Can be used to filter regions i.e. by Opt-In status or only regions enabled for current account. To get details like endpoint and description of each region the data source can be combined with the `aws.getRegion` data source.
+        /// Provides information about AWS Regions. Can be used to filter regions i.e., by Opt-In status or only regions enabled for current account. To get details like endpoint and description of each region the data source can be combined with the `aws.getRegion` data source.
         /// 
         /// {{% examples %}}
         /// ## Example Usage

@@ -38,7 +38,7 @@ import (
 //
 // ## Import
 //
-// Route53 Recovery Readiness recovery groups can be imported via the recovery group name, e.g.
+// Route53 Recovery Readiness recovery groups can be imported via the recovery group name, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:route53recoveryreadiness/recoveryGroup:RecoveryGroup my-high-availability-app my-high-availability-app
@@ -126,8 +126,6 @@ type recoveryGroupArgs struct {
 	RecoveryGroupName string `pulumi:"recoveryGroupName"`
 	// Key-value mapping of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// Map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a RecoveryGroup resource.
@@ -138,8 +136,6 @@ type RecoveryGroupArgs struct {
 	RecoveryGroupName pulumi.StringInput
 	// Key-value mapping of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// Map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-	TagsAll pulumi.StringMapInput
 }
 
 func (RecoveryGroupArgs) ElementType() reflect.Type {

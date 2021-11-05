@@ -47,7 +47,7 @@ import (
 //
 // ## Import
 //
-// `aws_ec2_transit_gateway_vpc_attachment_accepter` can be imported by using the EC2 Transit Gateway Attachment identifier, e.g.
+// `aws_ec2_transit_gateway_vpc_attachment_accepter` can be imported by using the EC2 Transit Gateway Attachment identifier, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:ec2transitgateway/vpcAttachmentAccepter:VpcAttachmentAccepter example tgw-attach-12345678
@@ -64,7 +64,8 @@ type VpcAttachmentAccepter struct {
 	// Identifiers of EC2 Subnets.
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
 	Tags      pulumi.StringMapOutput   `pulumi:"tags"`
-	TagsAll   pulumi.StringMapOutput   `pulumi:"tagsAll"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The ID of the EC2 Transit Gateway Attachment to manage.
 	TransitGatewayAttachmentId pulumi.StringOutput `pulumi:"transitGatewayAttachmentId"`
 	// Boolean whether the VPC Attachment should be associated with the EC2 Transit Gateway association default route table. Default value: `true`.
@@ -120,7 +121,8 @@ type vpcAttachmentAccepterState struct {
 	// Identifiers of EC2 Subnets.
 	SubnetIds []string          `pulumi:"subnetIds"`
 	Tags      map[string]string `pulumi:"tags"`
-	TagsAll   map[string]string `pulumi:"tagsAll"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The ID of the EC2 Transit Gateway Attachment to manage.
 	TransitGatewayAttachmentId *string `pulumi:"transitGatewayAttachmentId"`
 	// Boolean whether the VPC Attachment should be associated with the EC2 Transit Gateway association default route table. Default value: `true`.
@@ -145,7 +147,8 @@ type VpcAttachmentAccepterState struct {
 	// Identifiers of EC2 Subnets.
 	SubnetIds pulumi.StringArrayInput
 	Tags      pulumi.StringMapInput
-	TagsAll   pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 	// The ID of the EC2 Transit Gateway Attachment to manage.
 	TransitGatewayAttachmentId pulumi.StringPtrInput
 	// Boolean whether the VPC Attachment should be associated with the EC2 Transit Gateway association default route table. Default value: `true`.

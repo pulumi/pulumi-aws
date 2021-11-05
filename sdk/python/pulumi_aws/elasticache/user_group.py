@@ -214,7 +214,7 @@ class UserGroup(pulumi.CustomResource):
 
         ## Import
 
-        ElastiCache user groups can be imported using the `user_group_id`, e.g.
+        ElastiCache user groups can be imported using the `user_group_id`, e.g.,
 
         ```sh
          $ pulumi import aws:elasticache/userGroup:UserGroup my_user_group userGoupId1
@@ -255,7 +255,7 @@ class UserGroup(pulumi.CustomResource):
 
         ## Import
 
-        ElastiCache user groups can be imported using the `user_group_id`, e.g.
+        ElastiCache user groups can be imported using the `user_group_id`, e.g.,
 
         ```sh
          $ pulumi import aws:elasticache/userGroup:UserGroup my_user_group userGoupId1

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 import {PolicyDocument} from "../iam";
 
 /**
- * Allows setting policy to an Elasticsearch domain while referencing domain attributes (e.g. ARN)
+ * Allows setting policy to an Elasticsearch domain while referencing domain attributes (e.g., ARN)
  *
  * ## Example Usage
  *

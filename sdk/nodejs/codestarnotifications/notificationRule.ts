@@ -42,7 +42,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * CodeStar notification rule can be imported using the ARN, e.g.
+ * CodeStar notification rule can be imported using the ARN, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:codestarnotifications/notificationRule:NotificationRule foo arn:aws:codestar-notifications:us-west-1:0123456789:notificationrule/2cdc68a3-8f7c-4893-b6a5-45b362bd4f2b

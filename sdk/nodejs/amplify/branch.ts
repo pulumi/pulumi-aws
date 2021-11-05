@@ -108,7 +108,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Amplify branch can be imported using `app_id` and `branch_name`, e.g.
+ * Amplify branch can be imported using `app_id` and `branch_name`, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:amplify/branch:Branch master d2ypk4k47z8u6/master

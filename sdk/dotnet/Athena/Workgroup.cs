@@ -46,7 +46,7 @@ namespace Pulumi.Aws.Athena
     /// 
     /// ## Import
     /// 
-    /// Athena Workgroups can be imported using their name, e.g.
+    /// Athena Workgroups can be imported using their name, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:athena/workgroup:Workgroup example example

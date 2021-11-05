@@ -24,7 +24,6 @@ class DataSourceArgs:
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input['DataSourcePermissionArgs']]]] = None,
                  ssl_properties: Optional[pulumi.Input['DataSourceSslPropertiesArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vpc_connection_properties: Optional[pulumi.Input['DataSourceVpcConnectionPropertiesArgs']] = None):
         """
         The set of arguments for constructing a DataSource resource.
@@ -37,7 +36,6 @@ class DataSourceArgs:
         :param pulumi.Input[Sequence[pulumi.Input['DataSourcePermissionArgs']]] permissions: A set of resource permissions on the data source. Maximum of 64 items. See Permission below for more details.
         :param pulumi.Input['DataSourceSslPropertiesArgs'] ssl_properties: Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source. See SSL Properties below for more details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
         :param pulumi.Input['DataSourceVpcConnectionPropertiesArgs'] vpc_connection_properties: Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to your underlying source. See VPC Connection Properties below for more details.
         """
         pulumi.set(__self__, "data_source_id", data_source_id)
@@ -55,8 +53,6 @@ class DataSourceArgs:
             pulumi.set(__self__, "ssl_properties", ssl_properties)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
         if vpc_connection_properties is not None:
             pulumi.set(__self__, "vpc_connection_properties", vpc_connection_properties)
 
@@ -167,18 +163,6 @@ class DataSourceArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "tags_all", value)
 
     @property
     @pulumi.getter(name="vpcConnectionProperties")
@@ -406,7 +390,6 @@ class DataSource(pulumi.CustomResource):
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSourcePermissionArgs']]]]] = None,
                  ssl_properties: Optional[pulumi.Input[pulumi.InputType['DataSourceSslPropertiesArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  vpc_connection_properties: Optional[pulumi.Input[pulumi.InputType['DataSourceVpcConnectionPropertiesArgs']]] = None,
                  __props__=None):
@@ -434,7 +417,7 @@ class DataSource(pulumi.CustomResource):
 
         ## Import
 
-        A QuickSight data source can be imported using the AWS account ID, and data source ID name separated by a slash (`/`) e.g.
+        A QuickSight data source can be imported using the AWS account ID, and data source ID name separated by a slash (`/`) e.g.,
 
         ```sh
          $ pulumi import aws:quicksight/dataSource:DataSource example 123456789123/my-data-source-id
@@ -450,7 +433,6 @@ class DataSource(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSourcePermissionArgs']]]] permissions: A set of resource permissions on the data source. Maximum of 64 items. See Permission below for more details.
         :param pulumi.Input[pulumi.InputType['DataSourceSslPropertiesArgs']] ssl_properties: Secure Socket Layer (SSL) properties that apply when Amazon QuickSight connects to your underlying source. See SSL Properties below for more details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
         :param pulumi.Input[str] type: The type of the data source. See the [AWS Documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSource.html#QS-CreateDataSource-request-Type) for the complete list of valid values.
         :param pulumi.Input[pulumi.InputType['DataSourceVpcConnectionPropertiesArgs']] vpc_connection_properties: Use this parameter only when you want Amazon QuickSight to use a VPC connection when connecting to your underlying source. See VPC Connection Properties below for more details.
         """
@@ -484,7 +466,7 @@ class DataSource(pulumi.CustomResource):
 
         ## Import
 
-        A QuickSight data source can be imported using the AWS account ID, and data source ID name separated by a slash (`/`) e.g.
+        A QuickSight data source can be imported using the AWS account ID, and data source ID name separated by a slash (`/`) e.g.,
 
         ```sh
          $ pulumi import aws:quicksight/dataSource:DataSource example 123456789123/my-data-source-id
@@ -513,7 +495,6 @@ class DataSource(pulumi.CustomResource):
                  permissions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataSourcePermissionArgs']]]]] = None,
                  ssl_properties: Optional[pulumi.Input[pulumi.InputType['DataSourceSslPropertiesArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  vpc_connection_properties: Optional[pulumi.Input[pulumi.InputType['DataSourceVpcConnectionPropertiesArgs']]] = None,
                  __props__=None):
@@ -540,12 +521,12 @@ class DataSource(pulumi.CustomResource):
             __props__.__dict__["permissions"] = permissions
             __props__.__dict__["ssl_properties"] = ssl_properties
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
             __props__.__dict__["vpc_connection_properties"] = vpc_connection_properties
             __props__.__dict__["arn"] = None
+            __props__.__dict__["tags_all"] = None
         super(DataSource, __self__).__init__(
             'aws:quicksight/dataSource:DataSource',
             resource_name,

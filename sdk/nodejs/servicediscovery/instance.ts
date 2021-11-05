@@ -62,7 +62,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Service Discovery Instance can be imported using the service ID and instance ID, e.g.
+ * Service Discovery Instance can be imported using the service ID and instance ID, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:servicediscovery/instance:Instance example 0123456789/i-0123

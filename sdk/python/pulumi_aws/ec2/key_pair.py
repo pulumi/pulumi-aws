@@ -96,6 +96,7 @@ class _KeyPairState:
         :param pulumi.Input[str] key_name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `key_name`.
         :param pulumi.Input[str] key_pair_id: The key pair ID.
         :param pulumi.Input[str] public_key: The public key material.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -198,6 +199,9 @@ class _KeyPairState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -237,7 +241,7 @@ class KeyPair(pulumi.CustomResource):
 
         ## Import
 
-        Key Pairs can be imported using the `key_name`, e.g.
+        Key Pairs can be imported using the `key_name`, e.g.,
 
         ```sh
          $ pulumi import aws:ec2/keyPair:KeyPair deployer deployer-key
@@ -277,7 +281,7 @@ class KeyPair(pulumi.CustomResource):
 
         ## Import
 
-        Key Pairs can be imported using the `key_name`, e.g.
+        Key Pairs can be imported using the `key_name`, e.g.,
 
         ```sh
          $ pulumi import aws:ec2/keyPair:KeyPair deployer deployer-key
@@ -355,6 +359,7 @@ class KeyPair(pulumi.CustomResource):
         :param pulumi.Input[str] key_name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `key_name`.
         :param pulumi.Input[str] key_pair_id: The key pair ID.
         :param pulumi.Input[str] public_key: The public key material.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -426,5 +431,8 @@ class KeyPair(pulumi.CustomResource):
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 

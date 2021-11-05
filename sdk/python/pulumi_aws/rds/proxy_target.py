@@ -104,7 +104,7 @@ class _ProxyTargetState:
         :param pulumi.Input[str] target_arn: Amazon Resource Name (ARN) for the DB instance or DB cluster. Currently not returned by the RDS API.
         :param pulumi.Input[str] target_group_name: The name of the target group.
         :param pulumi.Input[str] tracked_cluster_id: DB Cluster identifier for the DB Instance target. Not returned unless manually importing an `RDS_INSTANCE` target that is part of a DB Cluster.
-        :param pulumi.Input[str] type: Type of target. e.g. `RDS_INSTANCE` or `TRACKED_CLUSTER`
+        :param pulumi.Input[str] type: Type of targetE.g., `RDS_INSTANCE` or `TRACKED_CLUSTER`
         """
         if db_cluster_identifier is not None:
             pulumi.set(__self__, "db_cluster_identifier", db_cluster_identifier)
@@ -239,7 +239,7 @@ class _ProxyTargetState:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[str]]:
         """
-        Type of target. e.g. `RDS_INSTANCE` or `TRACKED_CLUSTER`
+        Type of targetE.g., `RDS_INSTANCE` or `TRACKED_CLUSTER`
         """
         return pulumi.get(self, "type")
 
@@ -302,7 +302,7 @@ class ProxyTarget(pulumi.CustomResource):
 
         ## Import
 
-        RDS DB Proxy Targets can be imported using the `db_proxy_name`, `target_group_name`, target type (e.g. `RDS_INSTANCE` or `TRACKED_CLUSTER`), and resource identifier separated by forward slashes (`/`), e.g. Instances
+        RDS DB Proxy Targets can be imported using the `db_proxy_name`, `target_group_name`, target type (e.g., `RDS_INSTANCE` or `TRACKED_CLUSTER`), and resource identifier separated by forward slashes (`/`), e.g., Instances
 
         ```sh
          $ pulumi import aws:rds/proxyTarget:ProxyTarget example example-proxy/default/RDS_INSTANCE/example-instance
@@ -371,7 +371,7 @@ class ProxyTarget(pulumi.CustomResource):
 
         ## Import
 
-        RDS DB Proxy Targets can be imported using the `db_proxy_name`, `target_group_name`, target type (e.g. `RDS_INSTANCE` or `TRACKED_CLUSTER`), and resource identifier separated by forward slashes (`/`), e.g. Instances
+        RDS DB Proxy Targets can be imported using the `db_proxy_name`, `target_group_name`, target type (e.g., `RDS_INSTANCE` or `TRACKED_CLUSTER`), and resource identifier separated by forward slashes (`/`), e.g., Instances
 
         ```sh
          $ pulumi import aws:rds/proxyTarget:ProxyTarget example example-proxy/default/RDS_INSTANCE/example-instance
@@ -464,7 +464,7 @@ class ProxyTarget(pulumi.CustomResource):
         :param pulumi.Input[str] target_arn: Amazon Resource Name (ARN) for the DB instance or DB cluster. Currently not returned by the RDS API.
         :param pulumi.Input[str] target_group_name: The name of the target group.
         :param pulumi.Input[str] tracked_cluster_id: DB Cluster identifier for the DB Instance target. Not returned unless manually importing an `RDS_INSTANCE` target that is part of a DB Cluster.
-        :param pulumi.Input[str] type: Type of target. e.g. `RDS_INSTANCE` or `TRACKED_CLUSTER`
+        :param pulumi.Input[str] type: Type of targetE.g., `RDS_INSTANCE` or `TRACKED_CLUSTER`
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -558,7 +558,7 @@ class ProxyTarget(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Type of target. e.g. `RDS_INSTANCE` or `TRACKED_CLUSTER`
+        Type of targetE.g., `RDS_INSTANCE` or `TRACKED_CLUSTER`
         """
         return pulumi.get(self, "type")
 

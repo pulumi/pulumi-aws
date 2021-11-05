@@ -266,7 +266,7 @@ class Authorizer(pulumi.CustomResource):
 
         ## Import
 
-        IOT Authorizers can be imported using the name, e.g.
+        IOT Authorizers can be imported using the name, e.g.,
 
         ```sh
          $ pulumi import aws:iot/authorizer:Authorizer example example
@@ -308,7 +308,7 @@ class Authorizer(pulumi.CustomResource):
 
         ## Import
 
-        IOT Authorizers can be imported using the name, e.g.
+        IOT Authorizers can be imported using the name, e.g.,
 
         ```sh
          $ pulumi import aws:iot/authorizer:Authorizer example example

@@ -16,6 +16,8 @@ export * from "./getSecret";
 export * from "./getSecrets";
 export * from "./grant";
 export * from "./key";
+export * from "./replicaExternalKey";
+export * from "./replicaKey";
 
 // Import resources to register:
 import { Alias } from "./alias";
@@ -23,6 +25,8 @@ import { Ciphertext } from "./ciphertext";
 import { ExternalKey } from "./externalKey";
 import { Grant } from "./grant";
 import { Key } from "./key";
+import { ReplicaExternalKey } from "./replicaExternalKey";
+import { ReplicaKey } from "./replicaKey";
 
 const _module = {
     version: utilities.getVersion(),
@@ -38,6 +42,10 @@ const _module = {
                 return new Grant(name, <any>undefined, { urn })
             case "aws:kms/key:Key":
                 return new Key(name, <any>undefined, { urn })
+            case "aws:kms/replicaExternalKey:ReplicaExternalKey":
+                return new ReplicaExternalKey(name, <any>undefined, { urn })
+            case "aws:kms/replicaKey:ReplicaKey":
+                return new ReplicaKey(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -48,3 +56,5 @@ pulumi.runtime.registerResourceModule("aws", "kms/ciphertext", _module)
 pulumi.runtime.registerResourceModule("aws", "kms/externalKey", _module)
 pulumi.runtime.registerResourceModule("aws", "kms/grant", _module)
 pulumi.runtime.registerResourceModule("aws", "kms/key", _module)
+pulumi.runtime.registerResourceModule("aws", "kms/replicaExternalKey", _module)
+pulumi.runtime.registerResourceModule("aws", "kms/replicaKey", _module)

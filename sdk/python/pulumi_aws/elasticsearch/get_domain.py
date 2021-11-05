@@ -178,7 +178,7 @@ class GetDomainResult:
     @pulumi.getter(name="elasticsearchVersion")
     def elasticsearch_version(self) -> str:
         """
-        ElasticSearch version for the domain.
+        Elasticsearch version for the domain.
         """
         return pulumi.get(self, "elasticsearch_version")
 

@@ -134,7 +134,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * ElastiCache Replication Groups can be imported using the `replication_group_id`, e.g.
+ * ElastiCache Replication Groups can be imported using the `replication_group_id`, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:elasticache/replicationGroup:ReplicationGroup my_replication_group replication-group-1
@@ -201,7 +201,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
      */
     public /*out*/ readonly clusterEnabled!: pulumi.Output<boolean>;
     /**
-     * Create a native Redis cluster. `automaticFailoverEnabled` must be set to true. Cluster Mode documented below. Only 1 `clusterMode` block is allowed. Note that configuring this block does not enable cluster mode, i.e. data sharding, this requires using a parameter group that has the parameter `cluster-enabled` set to true.
+     * Create a native Redis cluster. `automaticFailoverEnabled` must be set to true. Cluster Mode documented below. Only 1 `clusterMode` block is allowed. Note that configuring this block does not enable cluster mode, i.e., data sharding, this requires using a parameter group that has the parameter `cluster-enabled` set to true.
      */
     public readonly clusterMode!: pulumi.Output<outputs.elasticache.ReplicationGroupClusterMode>;
     /**
@@ -213,7 +213,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
      */
     public readonly engine!: pulumi.Output<string | undefined>;
     /**
-     * The version number of the cache engine to be used for the cache clusters in this replication group. If the version is 6 or higher, only the major version can be set, e.g. `6.x`, otherwise, specify the full version desired, e.g. `5.0.6`. The actual engine version used is returned in the attribute `engineVersionActual`, defined below.
+     * The version number of the cache engine to be used for the cache clusters in this replication group. If the version is 6 or higher, only the major version can be set, e.g., `6.x`, otherwise, specify the full version desired, e.g., `5.0.6`. The actual engine version used is returned in the attribute `engineVersionActual`, defined below.
      */
     public readonly engineVersion!: pulumi.Output<string>;
     /**
@@ -257,7 +257,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
      */
     public readonly numberCacheClusters!: pulumi.Output<number>;
     /**
-     * The name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used. To enable "cluster mode", i.e. data sharding, use a parameter group that has the parameter `cluster-enabled` set to true.
+     * The name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used. To enable "cluster mode", i.e., data sharding, use a parameter group that has the parameter `cluster-enabled` set to true.
      */
     public readonly parameterGroupName!: pulumi.Output<string>;
     /**
@@ -309,6 +309,9 @@ export class ReplicationGroup extends pulumi.CustomResource {
      */
     public readonly subnetGroupName!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Whether to enable encryption in transit.
@@ -454,7 +457,7 @@ export interface ReplicationGroupState {
      */
     clusterEnabled?: pulumi.Input<boolean>;
     /**
-     * Create a native Redis cluster. `automaticFailoverEnabled` must be set to true. Cluster Mode documented below. Only 1 `clusterMode` block is allowed. Note that configuring this block does not enable cluster mode, i.e. data sharding, this requires using a parameter group that has the parameter `cluster-enabled` set to true.
+     * Create a native Redis cluster. `automaticFailoverEnabled` must be set to true. Cluster Mode documented below. Only 1 `clusterMode` block is allowed. Note that configuring this block does not enable cluster mode, i.e., data sharding, this requires using a parameter group that has the parameter `cluster-enabled` set to true.
      */
     clusterMode?: pulumi.Input<inputs.elasticache.ReplicationGroupClusterMode>;
     /**
@@ -466,7 +469,7 @@ export interface ReplicationGroupState {
      */
     engine?: pulumi.Input<string>;
     /**
-     * The version number of the cache engine to be used for the cache clusters in this replication group. If the version is 6 or higher, only the major version can be set, e.g. `6.x`, otherwise, specify the full version desired, e.g. `5.0.6`. The actual engine version used is returned in the attribute `engineVersionActual`, defined below.
+     * The version number of the cache engine to be used for the cache clusters in this replication group. If the version is 6 or higher, only the major version can be set, e.g., `6.x`, otherwise, specify the full version desired, e.g., `5.0.6`. The actual engine version used is returned in the attribute `engineVersionActual`, defined below.
      */
     engineVersion?: pulumi.Input<string>;
     /**
@@ -510,7 +513,7 @@ export interface ReplicationGroupState {
      */
     numberCacheClusters?: pulumi.Input<number>;
     /**
-     * The name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used. To enable "cluster mode", i.e. data sharding, use a parameter group that has the parameter `cluster-enabled` set to true.
+     * The name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used. To enable "cluster mode", i.e., data sharding, use a parameter group that has the parameter `cluster-enabled` set to true.
      */
     parameterGroupName?: pulumi.Input<string>;
     /**
@@ -562,6 +565,9 @@ export interface ReplicationGroupState {
      */
     subnetGroupName?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Whether to enable encryption in transit.
@@ -598,7 +604,7 @@ export interface ReplicationGroupArgs {
      */
     availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Create a native Redis cluster. `automaticFailoverEnabled` must be set to true. Cluster Mode documented below. Only 1 `clusterMode` block is allowed. Note that configuring this block does not enable cluster mode, i.e. data sharding, this requires using a parameter group that has the parameter `cluster-enabled` set to true.
+     * Create a native Redis cluster. `automaticFailoverEnabled` must be set to true. Cluster Mode documented below. Only 1 `clusterMode` block is allowed. Note that configuring this block does not enable cluster mode, i.e., data sharding, this requires using a parameter group that has the parameter `cluster-enabled` set to true.
      */
     clusterMode?: pulumi.Input<inputs.elasticache.ReplicationGroupClusterMode>;
     /**
@@ -606,7 +612,7 @@ export interface ReplicationGroupArgs {
      */
     engine?: pulumi.Input<string>;
     /**
-     * The version number of the cache engine to be used for the cache clusters in this replication group. If the version is 6 or higher, only the major version can be set, e.g. `6.x`, otherwise, specify the full version desired, e.g. `5.0.6`. The actual engine version used is returned in the attribute `engineVersionActual`, defined below.
+     * The version number of the cache engine to be used for the cache clusters in this replication group. If the version is 6 or higher, only the major version can be set, e.g., `6.x`, otherwise, specify the full version desired, e.g., `5.0.6`. The actual engine version used is returned in the attribute `engineVersionActual`, defined below.
      */
     engineVersion?: pulumi.Input<string>;
     /**
@@ -642,7 +648,7 @@ export interface ReplicationGroupArgs {
      */
     numberCacheClusters?: pulumi.Input<number>;
     /**
-     * The name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used. To enable "cluster mode", i.e. data sharding, use a parameter group that has the parameter `cluster-enabled` set to true.
+     * The name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used. To enable "cluster mode", i.e., data sharding, use a parameter group that has the parameter `cluster-enabled` set to true.
      */
     parameterGroupName?: pulumi.Input<string>;
     /**

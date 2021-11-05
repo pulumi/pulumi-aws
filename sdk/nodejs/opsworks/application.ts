@@ -47,7 +47,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Opsworks Application can be imported using the `id`, e.g.
+ * Opsworks Application can be imported using the `id`, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:opsworks/application:Application test <id>

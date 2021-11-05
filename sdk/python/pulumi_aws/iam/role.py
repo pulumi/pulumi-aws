@@ -604,7 +604,7 @@ class Role(pulumi.CustomResource):
 
         ## Import
 
-        IAM Roles can be imported using the `name`, e.g.
+        IAM Roles can be imported using the `name`, e.g.,
 
         ```sh
          $ pulumi import aws:iam/role:Role developer developer_name
@@ -774,7 +774,7 @@ class Role(pulumi.CustomResource):
 
         ## Import
 
-        IAM Roles can be imported using the `name`, e.g.
+        IAM Roles can be imported using the `name`, e.g.,
 
         ```sh
          $ pulumi import aws:iam/role:Role developer developer_name

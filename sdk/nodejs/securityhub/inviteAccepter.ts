@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Security Hub invite acceptance can be imported using the account ID, e.g.
+ * Security Hub invite acceptance can be imported using the account ID, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:securityhub/inviteAccepter:InviteAccepter example 123456789012

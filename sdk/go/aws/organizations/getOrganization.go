@@ -60,7 +60,7 @@ type LookupOrganizationResult struct {
 	Arn string `pulumi:"arn"`
 	// A list of AWS service principal names that have integration enabled with your organization. Organization must have `featureSet` set to `ALL`. For additional information, see the [AWS Organizations User Guide](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html).
 	AwsServiceAccessPrincipals []string `pulumi:"awsServiceAccessPrincipals"`
-	// A list of Organizations policy types that are enabled in the Organization Root. Organization must have `featureSet` set to `ALL`. For additional information about valid policy types (e.g. `SERVICE_CONTROL_POLICY`), see the [AWS Organizations API Reference](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnablePolicyType.html).
+	// A list of Organizations policy types that are enabled in the Organization Root. Organization must have `featureSet` set to `ALL`. For additional information about valid policy types (e.g., `SERVICE_CONTROL_POLICY`), see the [AWS Organizations API Reference](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnablePolicyType.html).
 	EnabledPolicyTypes []string `pulumi:"enabledPolicyTypes"`
 	// The FeatureSet of the organization.
 	FeatureSet string `pulumi:"featureSet"`

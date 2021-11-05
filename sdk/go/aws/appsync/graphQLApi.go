@@ -274,7 +274,7 @@ import (
 //
 // ## Import
 //
-// AppSync GraphQL API can be imported using the GraphQL API ID, e.g.
+// AppSync GraphQL API can be imported using the GraphQL API ID, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:appsync/graphQLApi:GraphQLApi example 0123456789
@@ -298,9 +298,9 @@ type GraphQLApi struct {
 	Schema pulumi.StringPtrOutput `pulumi:"schema"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// Map of URIs associated with the API. e.g. `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
+	// Map of URIs associated with the APIE.g., `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
 	Uris pulumi.StringMapOutput `pulumi:"uris"`
 	// The Amazon Cognito User Pool configuration. Defined below.
 	UserPoolConfig GraphQLApiUserPoolConfigPtrOutput `pulumi:"userPoolConfig"`
@@ -356,9 +356,9 @@ type graphQLApiState struct {
 	Schema *string `pulumi:"schema"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
-	// Map of URIs associated with the API. e.g. `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
+	// Map of URIs associated with the APIE.g., `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
 	Uris map[string]string `pulumi:"uris"`
 	// The Amazon Cognito User Pool configuration. Defined below.
 	UserPoolConfig *GraphQLApiUserPoolConfig `pulumi:"userPoolConfig"`
@@ -383,9 +383,9 @@ type GraphQLApiState struct {
 	Schema pulumi.StringPtrInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
-	// Map of URIs associated with the API. e.g. `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
+	// Map of URIs associated with the APIE.g., `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
 	Uris pulumi.StringMapInput
 	// The Amazon Cognito User Pool configuration. Defined below.
 	UserPoolConfig GraphQLApiUserPoolConfigPtrInput

@@ -203,6 +203,7 @@ class _FileSystemState:
         :param pulumi.Input[str] performance_mode: The file system performance mode. Can be either `"generalPurpose"` or `"maxIO"` (Default: `"generalPurpose"`).
         :param pulumi.Input[float] provisioned_throughput_in_mibps: The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughput_mode` set to `provisioned`.
         :param pulumi.Input[Sequence[pulumi.Input['FileSystemSizeInByteArgs']]] size_in_bytes: The latest known metered size (in bytes) of data stored in the file system, the value is not the exact size that the file system was at any point in time. See Size In Bytes.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] throughput_mode: Throughput mode for the file system. Defaults to `bursting`. Valid values: `bursting`, `provisioned`. When using `provisioned`, also set `provisioned_throughput_in_mibps`.
         """
         if arn is not None:
@@ -409,6 +410,9 @@ class _FileSystemState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -470,7 +474,7 @@ class FileSystem(pulumi.CustomResource):
 
         ## Import
 
-        The EFS file systems can be imported using the `id`, e.g.
+        The EFS file systems can be imported using the `id`, e.g.,
 
         ```sh
          $ pulumi import aws:efs/fileSystem:FileSystem foo fs-6fa144c6
@@ -523,7 +527,7 @@ class FileSystem(pulumi.CustomResource):
 
         ## Import
 
-        The EFS file systems can be imported using the `id`, e.g.
+        The EFS file systems can be imported using the `id`, e.g.,
 
         ```sh
          $ pulumi import aws:efs/fileSystem:FileSystem foo fs-6fa144c6
@@ -630,6 +634,7 @@ class FileSystem(pulumi.CustomResource):
         :param pulumi.Input[str] performance_mode: The file system performance mode. Can be either `"generalPurpose"` or `"maxIO"` (Default: `"generalPurpose"`).
         :param pulumi.Input[float] provisioned_throughput_in_mibps: The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughput_mode` set to `provisioned`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['FileSystemSizeInByteArgs']]]] size_in_bytes: The latest known metered size (in bytes) of data stored in the file system, the value is not the exact size that the file system was at any point in time. See Size In Bytes.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] throughput_mode: Throughput mode for the file system. Defaults to `bursting`. Valid values: `bursting`, `provisioned`. When using `provisioned`, also set `provisioned_throughput_in_mibps`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -769,6 +774,9 @@ class FileSystem(pulumi.CustomResource):
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @property

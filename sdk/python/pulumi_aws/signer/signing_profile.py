@@ -335,7 +335,7 @@ class SigningProfile(pulumi.CustomResource):
 
         ## Import
 
-        Signer signing profiles can be imported using the `name`, e.g.
+        Signer signing profiles can be imported using the `name`, e.g.,
 
         ```sh
          $ pulumi import aws:signer/signingProfile:SigningProfile test_signer_signing_profile test_sp_DdW3Mk1foYL88fajut4mTVFGpuwfd4ACO6ANL0D1uIj7lrn8adK
@@ -380,7 +380,7 @@ class SigningProfile(pulumi.CustomResource):
 
         ## Import
 
-        Signer signing profiles can be imported using the `name`, e.g.
+        Signer signing profiles can be imported using the `name`, e.g.,
 
         ```sh
          $ pulumi import aws:signer/signingProfile:SigningProfile test_signer_signing_profile test_sp_DdW3Mk1foYL88fajut4mTVFGpuwfd4ACO6ANL0D1uIj7lrn8adK

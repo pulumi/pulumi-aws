@@ -82,7 +82,8 @@ type SnapshotCopy struct {
 	// The ARN for the snapshot to be copied.
 	SourceSnapshotId pulumi.StringOutput `pulumi:"sourceSnapshotId"`
 	// A map of tags for the snapshot.
-	Tags     pulumi.StringMapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll  pulumi.StringMapOutput `pulumi:"tagsAll"`
 	VolumeId pulumi.StringOutput    `pulumi:"volumeId"`
 	// The size of the drive in GiBs.
@@ -145,7 +146,8 @@ type snapshotCopyState struct {
 	// The ARN for the snapshot to be copied.
 	SourceSnapshotId *string `pulumi:"sourceSnapshotId"`
 	// A map of tags for the snapshot.
-	Tags     map[string]string `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll  map[string]string `pulumi:"tagsAll"`
 	VolumeId *string           `pulumi:"volumeId"`
 	// The size of the drive in GiBs.
@@ -174,7 +176,8 @@ type SnapshotCopyState struct {
 	// The ARN for the snapshot to be copied.
 	SourceSnapshotId pulumi.StringPtrInput
 	// A map of tags for the snapshot.
-	Tags     pulumi.StringMapInput
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll  pulumi.StringMapInput
 	VolumeId pulumi.StringPtrInput
 	// The size of the drive in GiBs.

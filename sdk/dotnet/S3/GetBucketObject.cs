@@ -297,7 +297,7 @@ namespace Pulumi.Aws.S3
         public readonly string Id;
         public readonly string Key;
         /// <summary>
-        /// Last modified date of the object in RFC1123 format (e.g. `Mon, 02 Jan 2006 15:04:05 MST`)
+        /// Last modified date of the object in RFC1123 format (e.g., `Mon, 02 Jan 2006 15:04:05 MST`)
         /// </summary>
         public readonly string LastModified;
         /// <summary>

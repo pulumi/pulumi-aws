@@ -363,7 +363,7 @@ class _WindowsFileSystemState:
         :param pulumi.Input[bool] copy_tags_to_backups: A boolean flag indicating whether tags on the file system should be copied to backups. Defaults to `false`.
         :param pulumi.Input[str] daily_automatic_backup_start_time: The preferred time (in `HH:MM` format) to take daily automatic backups, in the UTC time zone.
         :param pulumi.Input[str] deployment_type: Specifies the file system deployment type, valid values are `MULTI_AZ_1`, `SINGLE_AZ_1` and `SINGLE_AZ_2`. Default value is `SINGLE_AZ_1`.
-        :param pulumi.Input[str] dns_name: DNS name for the file system, e.g. `fs-12345678.corp.example.com` (domain name matching the Active Directory domain name)
+        :param pulumi.Input[str] dns_name: DNS name for the file system, e.g., `fs-12345678.corp.example.com` (domain name matching the Active Directory domain name)
         :param pulumi.Input[str] kms_key_id: ARN for the KMS Key to encrypt the file system at rest. Defaults to an AWS managed KMS Key.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_interface_ids: Set of Elastic Network Interface identifiers from which the file system is accessible.
         :param pulumi.Input[str] owner_id: AWS account identifier that created the file system.
@@ -549,7 +549,7 @@ class _WindowsFileSystemState:
     @pulumi.getter(name="dnsName")
     def dns_name(self) -> Optional[pulumi.Input[str]]:
         """
-        DNS name for the file system, e.g. `fs-12345678.corp.example.com` (domain name matching the Active Directory domain name)
+        DNS name for the file system, e.g., `fs-12345678.corp.example.com` (domain name matching the Active Directory domain name)
         """
         return pulumi.get(self, "dns_name")
 
@@ -834,7 +834,7 @@ class WindowsFileSystem(pulumi.CustomResource):
 
         ## Import
 
-        FSx File Systems can be imported using the `id`, e.g.
+        FSx File Systems can be imported using the `id`, e.g.,
 
         ```sh
          $ pulumi import aws:fsx/windowsFileSystem:WindowsFileSystem example fs-543ab12b1ca672f33
@@ -929,7 +929,7 @@ class WindowsFileSystem(pulumi.CustomResource):
 
         ## Import
 
-        FSx File Systems can be imported using the `id`, e.g.
+        FSx File Systems can be imported using the `id`, e.g.,
 
         ```sh
          $ pulumi import aws:fsx/windowsFileSystem:WindowsFileSystem example fs-543ab12b1ca672f33
@@ -1079,7 +1079,7 @@ class WindowsFileSystem(pulumi.CustomResource):
         :param pulumi.Input[bool] copy_tags_to_backups: A boolean flag indicating whether tags on the file system should be copied to backups. Defaults to `false`.
         :param pulumi.Input[str] daily_automatic_backup_start_time: The preferred time (in `HH:MM` format) to take daily automatic backups, in the UTC time zone.
         :param pulumi.Input[str] deployment_type: Specifies the file system deployment type, valid values are `MULTI_AZ_1`, `SINGLE_AZ_1` and `SINGLE_AZ_2`. Default value is `SINGLE_AZ_1`.
-        :param pulumi.Input[str] dns_name: DNS name for the file system, e.g. `fs-12345678.corp.example.com` (domain name matching the Active Directory domain name)
+        :param pulumi.Input[str] dns_name: DNS name for the file system, e.g., `fs-12345678.corp.example.com` (domain name matching the Active Directory domain name)
         :param pulumi.Input[str] kms_key_id: ARN for the KMS Key to encrypt the file system at rest. Defaults to an AWS managed KMS Key.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] network_interface_ids: Set of Elastic Network Interface identifiers from which the file system is accessible.
         :param pulumi.Input[str] owner_id: AWS account identifier that created the file system.
@@ -1207,7 +1207,7 @@ class WindowsFileSystem(pulumi.CustomResource):
     @pulumi.getter(name="dnsName")
     def dns_name(self) -> pulumi.Output[str]:
         """
-        DNS name for the file system, e.g. `fs-12345678.corp.example.com` (domain name matching the Active Directory domain name)
+        DNS name for the file system, e.g., `fs-12345678.corp.example.com` (domain name matching the Active Directory domain name)
         """
         return pulumi.get(self, "dns_name")
 

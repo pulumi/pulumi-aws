@@ -59,7 +59,7 @@ export interface GetServerResult {
      */
     readonly domain: string;
     /**
-     * The endpoint of the Transfer Server (e.g. `s-12345678.server.transfer.REGION.amazonaws.com`).
+     * The endpoint of the Transfer Server (e.g., `s-12345678.server.transfer.REGION.amazonaws.com`).
      */
     readonly endpoint: string;
     /**

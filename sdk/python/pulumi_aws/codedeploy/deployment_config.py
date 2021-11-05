@@ -254,7 +254,7 @@ class DeploymentConfig(pulumi.CustomResource):
 
         ## Import
 
-        CodeDeploy Deployment Configurations can be imported using the `deployment_config_name`, e.g.
+        CodeDeploy Deployment Configurations can be imported using the `deployment_config_name`, e.g.,
 
         ```sh
          $ pulumi import aws:codedeploy/deploymentConfig:DeploymentConfig example my-deployment-config
@@ -346,7 +346,7 @@ class DeploymentConfig(pulumi.CustomResource):
 
         ## Import
 
-        CodeDeploy Deployment Configurations can be imported using the `deployment_config_name`, e.g.
+        CodeDeploy Deployment Configurations can be imported using the `deployment_config_name`, e.g.,
 
         ```sh
          $ pulumi import aws:codedeploy/deploymentConfig:DeploymentConfig example my-deployment-config

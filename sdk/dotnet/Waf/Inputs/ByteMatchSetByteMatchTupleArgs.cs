@@ -21,7 +21,7 @@ namespace Pulumi.Aws.Waf.Inputs
         /// <summary>
         /// Within the portion of a web request that you want to search
         /// (for example, in the query string, if any), specify where you want to search.
-        /// e.g. `CONTAINS`, `CONTAINS_WORD` or `EXACTLY`.
+        /// e.g., `CONTAINS`, `CONTAINS_WORD` or `EXACTLY`.
         /// See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-PositionalConstraint)
         /// for all supported values.
         /// </summary>
@@ -29,7 +29,7 @@ namespace Pulumi.Aws.Waf.Inputs
         public Input<string> PositionalConstraint { get; set; } = null!;
 
         /// <summary>
-        /// The value that you want to search for. e.g. `HEADER`, `METHOD` or `BODY`.
+        /// The value that you want to search forE.g., `HEADER`, `METHOD` or `BODY`.
         /// See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-TargetString)
         /// for all supported values.
         /// </summary>
@@ -39,7 +39,7 @@ namespace Pulumi.Aws.Waf.Inputs
         /// <summary>
         /// Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
         /// If you specify a transformation, AWS WAF performs the transformation on `target_string` before inspecting a request for a match.
-        /// e.g. `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
+        /// e.g., `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
         /// See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-TextTransformation)
         /// for all supported values.
         /// </summary>

@@ -78,7 +78,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * `aws_storagegateway_file_system_association` can be imported by using the FSx file system association Amazon Resource Name (ARN), e.g.
+ * `aws_storagegateway_file_system_association` can be imported by using the FSx file system association Amazon Resource Name (ARN), e.g.,
  *
  * ```sh
  *  $ pulumi import aws:storagegateway/fileSystemAssociation:FileSystemAssociation example arn:aws:storagegateway:us-east-1:123456789012:fs-association/fsa-0DA347732FDB40125

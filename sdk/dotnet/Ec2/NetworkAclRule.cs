@@ -86,13 +86,13 @@ namespace Pulumi.Aws.Ec2
         public Output<int?> FromPort { get; private set; } = null!;
 
         /// <summary>
-        /// ICMP protocol: The ICMP code. Required if specifying ICMP for the protocol. e.g. -1
+        /// ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1
         /// </summary>
         [Output("icmpCode")]
         public Output<string?> IcmpCode { get; private set; } = null!;
 
         /// <summary>
-        /// ICMP protocol: The ICMP type. Required if specifying ICMP for the protocol. e.g. -1
+        /// ICMP protocol: The ICMP type. Required if specifying ICMP for the protocolE.g., -1
         /// </summary>
         [Output("icmpType")]
         public Output<string?> IcmpType { get; private set; } = null!;
@@ -198,13 +198,13 @@ namespace Pulumi.Aws.Ec2
         public Input<int>? FromPort { get; set; }
 
         /// <summary>
-        /// ICMP protocol: The ICMP code. Required if specifying ICMP for the protocol. e.g. -1
+        /// ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1
         /// </summary>
         [Input("icmpCode")]
         public Input<string>? IcmpCode { get; set; }
 
         /// <summary>
-        /// ICMP protocol: The ICMP type. Required if specifying ICMP for the protocol. e.g. -1
+        /// ICMP protocol: The ICMP type. Required if specifying ICMP for the protocolE.g., -1
         /// </summary>
         [Input("icmpType")]
         public Input<string>? IcmpType { get; set; }
@@ -271,13 +271,13 @@ namespace Pulumi.Aws.Ec2
         public Input<int>? FromPort { get; set; }
 
         /// <summary>
-        /// ICMP protocol: The ICMP code. Required if specifying ICMP for the protocol. e.g. -1
+        /// ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1
         /// </summary>
         [Input("icmpCode")]
         public Input<string>? IcmpCode { get; set; }
 
         /// <summary>
-        /// ICMP protocol: The ICMP type. Required if specifying ICMP for the protocol. e.g. -1
+        /// ICMP protocol: The ICMP type. Required if specifying ICMP for the protocolE.g., -1
         /// </summary>
         [Input("icmpType")]
         public Input<string>? IcmpType { get; set; }

@@ -67,7 +67,7 @@ namespace Pulumi.Aws.S3
     /// 
     /// ## Import
     /// 
-    /// S3 bucket metric configurations can be imported using `bucket:metric`, e.g.
+    /// S3 bucket metric configurations can be imported using `bucket:metric`, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:s3/bucketMetric:BucketMetric my-bucket-entire-bucket my-bucket:EntireBucket

@@ -33,7 +33,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Default VPCs can be imported using the `vpc id`, e.g.
+ * Default VPCs can be imported using the `vpc id`, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:ec2/defaultVpc:DefaultVpc default vpc-a01106c2

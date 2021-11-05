@@ -260,7 +260,7 @@ namespace Pulumi.Aws.AppSync
     /// 
     /// ## Import
     /// 
-    /// AppSync GraphQL API can be imported using the GraphQL API ID, e.g.
+    /// AppSync GraphQL API can be imported using the GraphQL API ID, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:appsync/graphQLApi:GraphQLApi example 0123456789
@@ -318,13 +318,13 @@ namespace Pulumi.Aws.AppSync
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// Map of URIs associated with the API. e.g. `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
+        /// Map of URIs associated with the APIE.g., `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
         /// </summary>
         [Output("uris")]
         public Output<ImmutableDictionary<string, string>> Uris { get; private set; } = null!;
@@ -524,7 +524,7 @@ namespace Pulumi.Aws.AppSync
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -536,7 +536,7 @@ namespace Pulumi.Aws.AppSync
         private InputMap<string>? _uris;
 
         /// <summary>
-        /// Map of URIs associated with the API. e.g. `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
+        /// Map of URIs associated with the APIE.g., `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
         /// </summary>
         public InputMap<string> Uris
         {

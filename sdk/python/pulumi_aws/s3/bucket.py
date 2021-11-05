@@ -988,11 +988,21 @@ class Bucket(pulumi.CustomResource):
                 role=replication_role.arn,
                 rules=[aws.s3.BucketReplicationConfigurationRuleArgs(
                     id="foobar",
-                    prefix="foo",
                     status="Enabled",
+                    filter=aws.s3.BucketReplicationConfigurationRuleFilterArgs(
+                        tags={},
+                    ),
                     destination=aws.s3.BucketReplicationConfigurationRuleDestinationArgs(
                         bucket=destination.arn,
                         storage_class="STANDARD",
+                        replication_time=aws.s3.BucketReplicationConfigurationRuleDestinationReplicationTimeArgs(
+                            status="Enabled",
+                            minutes=15,
+                        ),
+                        metrics=aws.s3.BucketReplicationConfigurationRuleDestinationMetricsArgs(
+                            status="Enabled",
+                            minutes=15,
+                        ),
                     ),
                 )],
             ),
@@ -1081,7 +1091,7 @@ class Bucket(pulumi.CustomResource):
 
         ## Import
 
-        S3 bucket can be imported using the `bucket`, e.g.
+        S3 bucket can be imported using the `bucket`, e.g.,
 
         ```sh
          $ pulumi import aws:s3/bucket:Bucket bucket bucket-name
@@ -1306,11 +1316,21 @@ class Bucket(pulumi.CustomResource):
                 role=replication_role.arn,
                 rules=[aws.s3.BucketReplicationConfigurationRuleArgs(
                     id="foobar",
-                    prefix="foo",
                     status="Enabled",
+                    filter=aws.s3.BucketReplicationConfigurationRuleFilterArgs(
+                        tags={},
+                    ),
                     destination=aws.s3.BucketReplicationConfigurationRuleDestinationArgs(
                         bucket=destination.arn,
                         storage_class="STANDARD",
+                        replication_time=aws.s3.BucketReplicationConfigurationRuleDestinationReplicationTimeArgs(
+                            status="Enabled",
+                            minutes=15,
+                        ),
+                        metrics=aws.s3.BucketReplicationConfigurationRuleDestinationMetricsArgs(
+                            status="Enabled",
+                            minutes=15,
+                        ),
                     ),
                 )],
             ),
@@ -1399,7 +1419,7 @@ class Bucket(pulumi.CustomResource):
 
         ## Import
 
-        S3 bucket can be imported using the `bucket`, e.g.
+        S3 bucket can be imported using the `bucket`, e.g.,
 
         ```sh
          $ pulumi import aws:s3/bucket:Bucket bucket bucket-name

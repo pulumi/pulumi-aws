@@ -91,7 +91,7 @@ export class AmiFromInstance extends pulumi.CustomResource {
     public readonly ephemeralBlockDevices!: pulumi.Output<outputs.ec2.AmiFromInstanceEphemeralBlockDevice[]>;
     public /*out*/ readonly hypervisor!: pulumi.Output<string>;
     /**
-     * Path to an S3 object containing an image manifest, e.g. created
+     * Path to an S3 object containing an image manifest, e.g., created
      * by the `ec2-upload-bundle` command in the EC2 command line tools.
      */
     public /*out*/ readonly imageLocation!: pulumi.Output<string>;
@@ -262,7 +262,7 @@ export interface AmiFromInstanceState {
     ephemeralBlockDevices?: pulumi.Input<pulumi.Input<inputs.ec2.AmiFromInstanceEphemeralBlockDevice>[]>;
     hypervisor?: pulumi.Input<string>;
     /**
-     * Path to an S3 object containing an image manifest, e.g. created
+     * Path to an S3 object containing an image manifest, e.g., created
      * by the `ec2-upload-bundle` command in the EC2 command line tools.
      */
     imageLocation?: pulumi.Input<string>;

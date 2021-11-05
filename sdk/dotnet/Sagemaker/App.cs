@@ -37,7 +37,7 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// ## Import
     /// 
-    /// Sagemaker Code Apps can be imported using the `id`, e.g.
+    /// Sagemaker Code Apps can be imported using the `id`, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:sagemaker/app:App example arn:aws:sagemaker:us-west-2:012345678912:app/domain-id/user-profile-name/app-type/app-name

@@ -217,7 +217,7 @@ class WebAclAssociation(pulumi.CustomResource):
 
         ## Import
 
-        WAF Regional Web ACL Association can be imported using their `web_acl_id:resource_arn`, e.g.
+        WAF Regional Web ACL Association can be imported using their `web_acl_id:resource_arn`, e.g.,
 
         ```sh
          $ pulumi import aws:wafregional/webAclAssociation:WebAclAssociation foo web_acl_id:resource_arn
@@ -355,7 +355,7 @@ class WebAclAssociation(pulumi.CustomResource):
 
         ## Import
 
-        WAF Regional Web ACL Association can be imported using their `web_acl_id:resource_arn`, e.g.
+        WAF Regional Web ACL Association can be imported using their `web_acl_id:resource_arn`, e.g.,
 
         ```sh
          $ pulumi import aws:wafregional/webAclAssociation:WebAclAssociation foo web_acl_id:resource_arn

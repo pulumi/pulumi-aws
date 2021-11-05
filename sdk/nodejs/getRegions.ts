@@ -6,7 +6,7 @@ import { input as inputs, output as outputs, enums } from "./types";
 import * as utilities from "./utilities";
 
 /**
- * Provides information about AWS Regions. Can be used to filter regions i.e. by Opt-In status or only regions enabled for current account. To get details like endpoint and description of each region the data source can be combined with the `aws.getRegion` data source.
+ * Provides information about AWS Regions. Can be used to filter regions i.e., by Opt-In status or only regions enabled for current account. To get details like endpoint and description of each region the data source can be combined with the `aws.getRegion` data source.
  *
  * ## Example Usage
  *

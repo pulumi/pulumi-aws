@@ -42,7 +42,7 @@ namespace Pulumi.Aws.Neptune
     /// 
     /// ## Import
     /// 
-    /// Neptune Cluster Parameter Groups can be imported using the `name`, e.g.
+    /// Neptune Cluster Parameter Groups can be imported using the `name`, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:neptune/clusterParameterGroup:ClusterParameterGroup cluster_pg production-pg-1

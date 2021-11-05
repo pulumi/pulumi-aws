@@ -47,8 +47,8 @@ class BucketObjectArgs:
         :param pulumi.Input[str] content_base64: Base64-encoded data that will be decoded and uploaded as raw bytes for the object content. This allows safely uploading non-UTF8 binary data, but is recommended only for small content such as the result of the `gzipbase64` function with small text strings. For larger objects, use `source` to stream the content from a disk file.
         :param pulumi.Input[str] content_disposition: Presentational information for the object. Read [w3c content_disposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
         :param pulumi.Input[str] content_encoding: Content encodings that have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.
-        :param pulumi.Input[str] content_language: Language the content is in e.g. en-US or en-GB.
-        :param pulumi.Input[str] content_type: Standard MIME type describing the format of the object data, e.g. application/octet-stream. All Valid MIME Types are valid for this input.
+        :param pulumi.Input[str] content_language: Language the content is in e.g., en-US or en-GB.
+        :param pulumi.Input[str] content_type: Standard MIME type describing the format of the object data, e.g., application/octet-stream. All Valid MIME Types are valid for this input.
         :param pulumi.Input[str] etag: Triggers updates when the value changes. The only meaningful value is `filemd5("path/to/file")`. This attribute is not compatible with KMS encryption, `kms_key_id` or `server_side_encryption = "aws:kms"` (see `source_hash` instead).
         :param pulumi.Input[bool] force_destroy: Whether to allow the object to be deleted by removing any legal hold on any object version. Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
         :param pulumi.Input[str] key: Name of the object once it is in the bucket.
@@ -212,7 +212,7 @@ class BucketObjectArgs:
     @pulumi.getter(name="contentLanguage")
     def content_language(self) -> Optional[pulumi.Input[str]]:
         """
-        Language the content is in e.g. en-US or en-GB.
+        Language the content is in e.g., en-US or en-GB.
         """
         return pulumi.get(self, "content_language")
 
@@ -224,7 +224,7 @@ class BucketObjectArgs:
     @pulumi.getter(name="contentType")
     def content_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Standard MIME type describing the format of the object data, e.g. application/octet-stream. All Valid MIME Types are valid for this input.
+        Standard MIME type describing the format of the object data, e.g., application/octet-stream. All Valid MIME Types are valid for this input.
         """
         return pulumi.get(self, "content_type")
 
@@ -440,8 +440,8 @@ class _BucketObjectState:
         :param pulumi.Input[str] content_base64: Base64-encoded data that will be decoded and uploaded as raw bytes for the object content. This allows safely uploading non-UTF8 binary data, but is recommended only for small content such as the result of the `gzipbase64` function with small text strings. For larger objects, use `source` to stream the content from a disk file.
         :param pulumi.Input[str] content_disposition: Presentational information for the object. Read [w3c content_disposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
         :param pulumi.Input[str] content_encoding: Content encodings that have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.
-        :param pulumi.Input[str] content_language: Language the content is in e.g. en-US or en-GB.
-        :param pulumi.Input[str] content_type: Standard MIME type describing the format of the object data, e.g. application/octet-stream. All Valid MIME Types are valid for this input.
+        :param pulumi.Input[str] content_language: Language the content is in e.g., en-US or en-GB.
+        :param pulumi.Input[str] content_type: Standard MIME type describing the format of the object data, e.g., application/octet-stream. All Valid MIME Types are valid for this input.
         :param pulumi.Input[str] etag: Triggers updates when the value changes. The only meaningful value is `filemd5("path/to/file")`. This attribute is not compatible with KMS encryption, `kms_key_id` or `server_side_encryption = "aws:kms"` (see `source_hash` instead).
         :param pulumi.Input[bool] force_destroy: Whether to allow the object to be deleted by removing any legal hold on any object version. Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
         :param pulumi.Input[str] key: Name of the object once it is in the bucket.
@@ -612,7 +612,7 @@ class _BucketObjectState:
     @pulumi.getter(name="contentLanguage")
     def content_language(self) -> Optional[pulumi.Input[str]]:
         """
-        Language the content is in e.g. en-US or en-GB.
+        Language the content is in e.g., en-US or en-GB.
         """
         return pulumi.get(self, "content_language")
 
@@ -624,7 +624,7 @@ class _BucketObjectState:
     @pulumi.getter(name="contentType")
     def content_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Standard MIME type describing the format of the object data, e.g. application/octet-stream. All Valid MIME Types are valid for this input.
+        Standard MIME type describing the format of the object data, e.g., application/octet-stream. All Valid MIME Types are valid for this input.
         """
         return pulumi.get(self, "content_type")
 
@@ -927,13 +927,13 @@ class BucketObject(pulumi.CustomResource):
 
         ## Import
 
-        Objects can be imported using the `id`. The `id` is the bucket name and the key together e.g.
+        Objects can be imported using the `id`. The `id` is the bucket name and the key together e.g.,
 
         ```sh
          $ pulumi import aws:s3/bucketObject:BucketObject object some-bucket-name/some/key.txt
         ```
 
-         Additionally, s3 url syntax can be used, e.g.
+         Additionally, s3 url syntax can be used, e.g.,
 
         ```sh
          $ pulumi import aws:s3/bucketObject:BucketObject object s3://some-bucket-name/some/key.txt
@@ -949,8 +949,8 @@ class BucketObject(pulumi.CustomResource):
         :param pulumi.Input[str] content_base64: Base64-encoded data that will be decoded and uploaded as raw bytes for the object content. This allows safely uploading non-UTF8 binary data, but is recommended only for small content such as the result of the `gzipbase64` function with small text strings. For larger objects, use `source` to stream the content from a disk file.
         :param pulumi.Input[str] content_disposition: Presentational information for the object. Read [w3c content_disposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
         :param pulumi.Input[str] content_encoding: Content encodings that have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.
-        :param pulumi.Input[str] content_language: Language the content is in e.g. en-US or en-GB.
-        :param pulumi.Input[str] content_type: Standard MIME type describing the format of the object data, e.g. application/octet-stream. All Valid MIME Types are valid for this input.
+        :param pulumi.Input[str] content_language: Language the content is in e.g., en-US or en-GB.
+        :param pulumi.Input[str] content_type: Standard MIME type describing the format of the object data, e.g., application/octet-stream. All Valid MIME Types are valid for this input.
         :param pulumi.Input[str] etag: Triggers updates when the value changes. The only meaningful value is `filemd5("path/to/file")`. This attribute is not compatible with KMS encryption, `kms_key_id` or `server_side_encryption = "aws:kms"` (see `source_hash` instead).
         :param pulumi.Input[bool] force_destroy: Whether to allow the object to be deleted by removing any legal hold on any object version. Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
         :param pulumi.Input[str] key: Name of the object once it is in the bucket.
@@ -1044,13 +1044,13 @@ class BucketObject(pulumi.CustomResource):
 
         ## Import
 
-        Objects can be imported using the `id`. The `id` is the bucket name and the key together e.g.
+        Objects can be imported using the `id`. The `id` is the bucket name and the key together e.g.,
 
         ```sh
          $ pulumi import aws:s3/bucketObject:BucketObject object some-bucket-name/some/key.txt
         ```
 
-         Additionally, s3 url syntax can be used, e.g.
+         Additionally, s3 url syntax can be used, e.g.,
 
         ```sh
          $ pulumi import aws:s3/bucketObject:BucketObject object s3://some-bucket-name/some/key.txt
@@ -1186,8 +1186,8 @@ class BucketObject(pulumi.CustomResource):
         :param pulumi.Input[str] content_base64: Base64-encoded data that will be decoded and uploaded as raw bytes for the object content. This allows safely uploading non-UTF8 binary data, but is recommended only for small content such as the result of the `gzipbase64` function with small text strings. For larger objects, use `source` to stream the content from a disk file.
         :param pulumi.Input[str] content_disposition: Presentational information for the object. Read [w3c content_disposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
         :param pulumi.Input[str] content_encoding: Content encodings that have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.
-        :param pulumi.Input[str] content_language: Language the content is in e.g. en-US or en-GB.
-        :param pulumi.Input[str] content_type: Standard MIME type describing the format of the object data, e.g. application/octet-stream. All Valid MIME Types are valid for this input.
+        :param pulumi.Input[str] content_language: Language the content is in e.g., en-US or en-GB.
+        :param pulumi.Input[str] content_type: Standard MIME type describing the format of the object data, e.g., application/octet-stream. All Valid MIME Types are valid for this input.
         :param pulumi.Input[str] etag: Triggers updates when the value changes. The only meaningful value is `filemd5("path/to/file")`. This attribute is not compatible with KMS encryption, `kms_key_id` or `server_side_encryption = "aws:kms"` (see `source_hash` instead).
         :param pulumi.Input[bool] force_destroy: Whether to allow the object to be deleted by removing any legal hold on any object version. Default is `false`. This value should be set to `true` only if the bucket has S3 object lock enabled.
         :param pulumi.Input[str] key: Name of the object once it is in the bucket.
@@ -1305,7 +1305,7 @@ class BucketObject(pulumi.CustomResource):
     @pulumi.getter(name="contentLanguage")
     def content_language(self) -> pulumi.Output[Optional[str]]:
         """
-        Language the content is in e.g. en-US or en-GB.
+        Language the content is in e.g., en-US or en-GB.
         """
         return pulumi.get(self, "content_language")
 
@@ -1313,7 +1313,7 @@ class BucketObject(pulumi.CustomResource):
     @pulumi.getter(name="contentType")
     def content_type(self) -> pulumi.Output[str]:
         """
-        Standard MIME type describing the format of the object data, e.g. application/octet-stream. All Valid MIME Types are valid for this input.
+        Standard MIME type describing the format of the object data, e.g., application/octet-stream. All Valid MIME Types are valid for this input.
         """
         return pulumi.get(self, "content_type")
 

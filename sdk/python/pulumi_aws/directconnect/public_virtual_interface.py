@@ -441,7 +441,7 @@ class PublicVirtualInterface(pulumi.CustomResource):
 
         ## Import
 
-        Direct Connect public virtual interfaces can be imported using the `vif id`, e.g.
+        Direct Connect public virtual interfaces can be imported using the `vif id`, e.g.,
 
         ```sh
          $ pulumi import aws:directconnect/publicVirtualInterface:PublicVirtualInterface test dxvif-33cc44dd
@@ -490,7 +490,7 @@ class PublicVirtualInterface(pulumi.CustomResource):
 
         ## Import
 
-        Direct Connect public virtual interfaces can be imported using the `vif id`, e.g.
+        Direct Connect public virtual interfaces can be imported using the `vif id`, e.g.,
 
         ```sh
          $ pulumi import aws:directconnect/publicVirtualInterface:PublicVirtualInterface test dxvif-33cc44dd

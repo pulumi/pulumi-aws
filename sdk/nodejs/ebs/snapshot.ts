@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * EBS Snapshot can be imported using the `id`, e.g.
+ * EBS Snapshot can be imported using the `id`, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:ebs/snapshot:Snapshot id snap-049df61146c4d7901
@@ -96,6 +96,9 @@ export class Snapshot extends pulumi.CustomResource {
      * A map of tags for the snapshot.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The Volume ID of which to make a snapshot.
@@ -190,6 +193,9 @@ export interface SnapshotState {
      * A map of tags for the snapshot.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The Volume ID of which to make a snapshot.

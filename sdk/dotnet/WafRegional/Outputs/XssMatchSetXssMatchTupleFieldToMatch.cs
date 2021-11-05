@@ -18,7 +18,7 @@ namespace Pulumi.Aws.WafRegional.Outputs
         /// </summary>
         public readonly string? Data;
         /// <summary>
-        /// The part of the web request that you want AWS WAF to search for a specified string. e.g. `HEADER` or `METHOD`
+        /// The part of the web request that you want AWS WAF to search for a specified stringE.g., `HEADER` or `METHOD`
         /// </summary>
         public readonly string Type;
 

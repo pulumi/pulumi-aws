@@ -250,7 +250,7 @@ class CustomerGateway(pulumi.CustomResource):
 
         ## Import
 
-        Customer Gateways can be imported using the `id`, e.g.
+        Customer Gateways can be imported using the `id`, e.g.,
 
         ```sh
          $ pulumi import aws:ec2/customerGateway:CustomerGateway main cgw-b4dc3961
@@ -291,7 +291,7 @@ class CustomerGateway(pulumi.CustomResource):
 
         ## Import
 
-        Customer Gateways can be imported using the `id`, e.g.
+        Customer Gateways can be imported using the `id`, e.g.,
 
         ```sh
          $ pulumi import aws:ec2/customerGateway:CustomerGateway main cgw-b4dc3961

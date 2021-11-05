@@ -13,7 +13,7 @@ namespace Pulumi.Aws.WafRegional.Inputs
     public sealed class SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatchArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// When `type` is `HEADER`, enter the name of the header that you want to search, e.g. `User-Agent` or `Referer`.
+        /// When `type` is `HEADER`, enter the name of the header that you want to search, e.g., `User-Agent` or `Referer`.
         /// If `type` is any other value, omit this field.
         /// </summary>
         [Input("data")]
@@ -21,7 +21,7 @@ namespace Pulumi.Aws.WafRegional.Inputs
 
         /// <summary>
         /// The part of the web request that you want AWS WAF to search for a specified string.
-        /// e.g. `HEADER`, `METHOD` or `BODY`.
+        /// e.g., `HEADER`, `METHOD` or `BODY`.
         /// See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_regional_FieldToMatch.html)
         /// for all supported values.
         /// </summary>

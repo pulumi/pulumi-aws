@@ -82,13 +82,13 @@ namespace Pulumi.Aws.S3
         public Output<string> ContentEncoding { get; private set; } = null!;
 
         /// <summary>
-        /// Language the content is in e.g. en-US or en-GB.
+        /// Language the content is in e.g., en-US or en-GB.
         /// </summary>
         [Output("contentLanguage")]
         public Output<string> ContentLanguage { get; private set; } = null!;
 
         /// <summary>
-        /// Standard MIME type describing the format of the object data, e.g. `application/octet-stream`. All Valid MIME Types are valid for this input.
+        /// Standard MIME type describing the format of the object data, e.g., `application/octet-stream`. All Valid MIME Types are valid for this input.
         /// </summary>
         [Output("contentType")]
         public Output<string> ContentType { get; private set; } = null!;
@@ -396,13 +396,13 @@ namespace Pulumi.Aws.S3
         public Input<string>? ContentEncoding { get; set; }
 
         /// <summary>
-        /// Language the content is in e.g. en-US or en-GB.
+        /// Language the content is in e.g., en-US or en-GB.
         /// </summary>
         [Input("contentLanguage")]
         public Input<string>? ContentLanguage { get; set; }
 
         /// <summary>
-        /// Standard MIME type describing the format of the object data, e.g. `application/octet-stream`. All Valid MIME Types are valid for this input.
+        /// Standard MIME type describing the format of the object data, e.g., `application/octet-stream`. All Valid MIME Types are valid for this input.
         /// </summary>
         [Input("contentType")]
         public Input<string>? ContentType { get; set; }
@@ -647,13 +647,13 @@ namespace Pulumi.Aws.S3
         public Input<string>? ContentEncoding { get; set; }
 
         /// <summary>
-        /// Language the content is in e.g. en-US or en-GB.
+        /// Language the content is in e.g., en-US or en-GB.
         /// </summary>
         [Input("contentLanguage")]
         public Input<string>? ContentLanguage { get; set; }
 
         /// <summary>
-        /// Standard MIME type describing the format of the object data, e.g. `application/octet-stream`. All Valid MIME Types are valid for this input.
+        /// Standard MIME type describing the format of the object data, e.g., `application/octet-stream`. All Valid MIME Types are valid for this input.
         /// </summary>
         [Input("contentType")]
         public Input<string>? ContentType { get; set; }

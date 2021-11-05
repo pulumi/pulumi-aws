@@ -37,7 +37,7 @@ namespace Pulumi.Aws.Pinpoint
     /// 
     /// ## Import
     /// 
-    /// Pinpoint GCM Channel can be imported using the `application-id`, e.g.
+    /// Pinpoint GCM Channel can be imported using the `application-id`, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:pinpoint/gcmChannel:GcmChannel gcm application-id

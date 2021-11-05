@@ -161,7 +161,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * AppSync GraphQL API can be imported using the GraphQL API ID, e.g.
+ * AppSync GraphQL API can be imported using the GraphQL API ID, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:appsync/graphQLApi:GraphQLApi example 0123456789
@@ -228,11 +228,11 @@ export class GraphQLApi extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider .
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
-     * Map of URIs associated with the API. e.g. `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
+     * Map of URIs associated with the APIE.g., `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
      */
     public /*out*/ readonly uris!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -331,11 +331,11 @@ export interface GraphQLApiState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider .
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Map of URIs associated with the API. e.g. `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
+     * Map of URIs associated with the APIE.g., `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
      */
     uris?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

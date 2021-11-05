@@ -160,7 +160,7 @@ import {PolicyDocument} from "../iam";
  *
  * ## Import
  *
- * Elasticsearch domains can be imported using the `domain_name`, e.g.
+ * Elasticsearch domains can be imported using the `domain_name`, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:elasticsearch/domain:Domain example domain_name

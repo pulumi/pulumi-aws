@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * SES Receipt Filter can be imported using their `name`, e.g.
+ * SES Receipt Filter can be imported using their `name`, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:ses/receiptFilter:ReceiptFilter test some-filter

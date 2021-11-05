@@ -54,7 +54,7 @@ import (
 //
 // ## Import
 //
-// Cognito User Groups can be imported using the `user_pool_id`/`name` attributes concatenated, e.g.
+// Cognito User Groups can be imported using the `user_pool_id`/`name` attributes concatenated, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:cognito/userGroup:UserGroup group us-east-1_vG78M4goG/user-group

@@ -114,7 +114,7 @@ import (
 //
 // ## Import
 //
-// `aws_api_gateway_method` can be imported using `REST-API-ID/RESOURCE-ID/HTTP-METHOD`, e.g.
+// `aws_api_gateway_method` can be imported using `REST-API-ID/RESOURCE-ID/HTTP-METHOD`, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:apigateway/method:Method example 12345abcde/67890fghij/GET
@@ -135,7 +135,7 @@ type Method struct {
 	// The function name that will be given to the method when generating an SDK through API Gateway. If omitted, API Gateway will generate a function name based on the resource path and HTTP verb.
 	OperationName pulumi.StringPtrOutput `pulumi:"operationName"`
 	// A map of the API models used for the request's content type
-	// where key is the content type (e.g. `application/json`)
+	// where key is the content type (e.g., `application/json`)
 	// and value is either `Error`, `Empty` (built-in models) or `apigateway.Model`'s `name`.
 	RequestModels pulumi.StringMapOutput `pulumi:"requestModels"`
 	// A map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`).
@@ -203,7 +203,7 @@ type methodState struct {
 	// The function name that will be given to the method when generating an SDK through API Gateway. If omitted, API Gateway will generate a function name based on the resource path and HTTP verb.
 	OperationName *string `pulumi:"operationName"`
 	// A map of the API models used for the request's content type
-	// where key is the content type (e.g. `application/json`)
+	// where key is the content type (e.g., `application/json`)
 	// and value is either `Error`, `Empty` (built-in models) or `apigateway.Model`'s `name`.
 	RequestModels map[string]string `pulumi:"requestModels"`
 	// A map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`).
@@ -231,7 +231,7 @@ type MethodState struct {
 	// The function name that will be given to the method when generating an SDK through API Gateway. If omitted, API Gateway will generate a function name based on the resource path and HTTP verb.
 	OperationName pulumi.StringPtrInput
 	// A map of the API models used for the request's content type
-	// where key is the content type (e.g. `application/json`)
+	// where key is the content type (e.g., `application/json`)
 	// and value is either `Error`, `Empty` (built-in models) or `apigateway.Model`'s `name`.
 	RequestModels pulumi.StringMapInput
 	// A map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`).
@@ -263,7 +263,7 @@ type methodArgs struct {
 	// The function name that will be given to the method when generating an SDK through API Gateway. If omitted, API Gateway will generate a function name based on the resource path and HTTP verb.
 	OperationName *string `pulumi:"operationName"`
 	// A map of the API models used for the request's content type
-	// where key is the content type (e.g. `application/json`)
+	// where key is the content type (e.g., `application/json`)
 	// and value is either `Error`, `Empty` (built-in models) or `apigateway.Model`'s `name`.
 	RequestModels map[string]string `pulumi:"requestModels"`
 	// A map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`).
@@ -292,7 +292,7 @@ type MethodArgs struct {
 	// The function name that will be given to the method when generating an SDK through API Gateway. If omitted, API Gateway will generate a function name based on the resource path and HTTP verb.
 	OperationName pulumi.StringPtrInput
 	// A map of the API models used for the request's content type
-	// where key is the content type (e.g. `application/json`)
+	// where key is the content type (e.g., `application/json`)
 	// and value is either `Error`, `Empty` (built-in models) or `apigateway.Model`'s `name`.
 	RequestModels pulumi.StringMapInput
 	// A map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`).

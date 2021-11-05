@@ -84,7 +84,7 @@ export interface GetAmiArgs {
      */
     nameRegex?: string;
     /**
-     * List of AMI owners to limit search. At least 1 value must be specified. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g. `amazon`, `aws-marketplace`, `microsoft`).
+     * List of AMI owners to limit search. At least 1 value must be specified. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g., `amazon`, `aws-marketplace`, `microsoft`).
      */
     owners: string[];
     /**
@@ -268,7 +268,7 @@ export interface GetAmiOutputArgs {
      */
     nameRegex?: pulumi.Input<string>;
     /**
-     * List of AMI owners to limit search. At least 1 value must be specified. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g. `amazon`, `aws-marketplace`, `microsoft`).
+     * List of AMI owners to limit search. At least 1 value must be specified. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g., `amazon`, `aws-marketplace`, `microsoft`).
      */
     owners: pulumi.Input<pulumi.Input<string>[]>;
     /**

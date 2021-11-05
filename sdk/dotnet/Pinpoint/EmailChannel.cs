@@ -77,7 +77,7 @@ namespace Pulumi.Aws.Pinpoint
     /// 
     /// ## Import
     /// 
-    /// Pinpoint Email Channel can be imported using the `application-id`, e.g.
+    /// Pinpoint Email Channel can be imported using the `application-id`, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:pinpoint/emailChannel:EmailChannel email application-id

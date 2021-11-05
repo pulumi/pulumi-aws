@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Synthetics Canaries can be imported using the `name`, e.g.
+ * Synthetics Canaries can be imported using the `name`, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:synthetics/canary:Canary some some-canary

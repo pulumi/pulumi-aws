@@ -12,11 +12,13 @@ from .get_cache_policy import *
 from .get_distribution import *
 from .get_log_delivery_canonical_user_id import *
 from .get_origin_request_policy import *
+from .get_response_headers_policy import *
 from .key_group import *
 from .monitoring_subscription import *
 from .origin_access_identity import *
 from .origin_request_policy import *
 from .public_key import *
 from .realtime_log_config import *
+from .response_headers_policy import *
 from ._inputs import *
 from . import outputs

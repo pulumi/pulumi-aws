@@ -53,7 +53,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * VPN Connections can be imported using the `vpn connection id`, e.g.
+ * VPN Connections can be imported using the `vpn connection id`, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:ec2/vpnConnection:VpnConnection testvpnconnection vpn-40f41529

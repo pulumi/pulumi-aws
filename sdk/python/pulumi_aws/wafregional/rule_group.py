@@ -220,7 +220,7 @@ class RuleGroup(pulumi.CustomResource):
 
         ## Import
 
-        WAF Regional Rule Group can be imported using the id, e.g.
+        WAF Regional Rule Group can be imported using the id, e.g.,
 
         ```sh
          $ pulumi import aws:wafregional/ruleGroup:RuleGroup example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
@@ -262,7 +262,7 @@ class RuleGroup(pulumi.CustomResource):
 
         ## Import
 
-        WAF Regional Rule Group can be imported using the id, e.g.
+        WAF Regional Rule Group can be imported using the id, e.g.,
 
         ```sh
          $ pulumi import aws:wafregional/ruleGroup:RuleGroup example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc

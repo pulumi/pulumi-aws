@@ -233,12 +233,12 @@ class _StageState:
                For WebSocket APIs this attribute can additionally be used in an `iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
                See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
         :param pulumi.Input[str] invoke_url: The URL to invoke the API pointing to the stage,
-               e.g. `wss://z4675bid1j.execute-api.eu-west-2.amazonaws.com/example-stage`, or `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/`
+               e.g., `wss://z4675bid1j.execute-api.eu-west-2.amazonaws.com/example-stage`, or `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/`
         :param pulumi.Input[str] name: The name of the stage. Must be between 1 and 128 characters in length.
         :param pulumi.Input[Sequence[pulumi.Input['StageRouteSettingArgs']]] route_settings: Route settings for the stage.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] stage_variables: A map that defines the stage variables for the stage.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the stage. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if access_log_settings is not None:
             pulumi.set(__self__, "access_log_settings", access_log_settings)
@@ -388,7 +388,7 @@ class _StageState:
     def invoke_url(self) -> Optional[pulumi.Input[str]]:
         """
         The URL to invoke the API pointing to the stage,
-        e.g. `wss://z4675bid1j.execute-api.eu-west-2.amazonaws.com/example-stage`, or `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/`
+        e.g., `wss://z4675bid1j.execute-api.eu-west-2.amazonaws.com/example-stage`, or `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/`
         """
         return pulumi.get(self, "invoke_url")
 
@@ -448,7 +448,7 @@ class _StageState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider .
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -490,7 +490,7 @@ class Stage(pulumi.CustomResource):
 
         ## Import
 
-        `aws_apigatewayv2_stage` can be imported by using the API identifier and stage name, e.g.
+        `aws_apigatewayv2_stage` can be imported by using the API identifier and stage name, e.g.,
 
         ```sh
          $ pulumi import aws:apigatewayv2/stage:Stage example aabbccddee/example-stage
@@ -534,7 +534,7 @@ class Stage(pulumi.CustomResource):
 
         ## Import
 
-        `aws_apigatewayv2_stage` can be imported by using the API identifier and stage name, e.g.
+        `aws_apigatewayv2_stage` can be imported by using the API identifier and stage name, e.g.,
 
         ```sh
          $ pulumi import aws:apigatewayv2/stage:Stage example aabbccddee/example-stage
@@ -641,12 +641,12 @@ class Stage(pulumi.CustomResource):
                For WebSocket APIs this attribute can additionally be used in an `iam.Policy` to authorize access to the [`@connections` API](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-how-to-call-websocket-api-connections.html).
                See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
         :param pulumi.Input[str] invoke_url: The URL to invoke the API pointing to the stage,
-               e.g. `wss://z4675bid1j.execute-api.eu-west-2.amazonaws.com/example-stage`, or `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/`
+               e.g., `wss://z4675bid1j.execute-api.eu-west-2.amazonaws.com/example-stage`, or `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/`
         :param pulumi.Input[str] name: The name of the stage. Must be between 1 and 128 characters in length.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['StageRouteSettingArgs']]]] route_settings: Route settings for the stage.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] stage_variables: A map that defines the stage variables for the stage.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the stage. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -750,7 +750,7 @@ class Stage(pulumi.CustomResource):
     def invoke_url(self) -> pulumi.Output[str]:
         """
         The URL to invoke the API pointing to the stage,
-        e.g. `wss://z4675bid1j.execute-api.eu-west-2.amazonaws.com/example-stage`, or `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/`
+        e.g., `wss://z4675bid1j.execute-api.eu-west-2.amazonaws.com/example-stage`, or `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/`
         """
         return pulumi.get(self, "invoke_url")
 
@@ -790,7 +790,7 @@ class Stage(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider .
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 

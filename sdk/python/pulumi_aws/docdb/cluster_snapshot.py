@@ -280,7 +280,7 @@ class ClusterSnapshot(pulumi.CustomResource):
 
         ## Import
 
-        `aws_docdb_cluster_snapshot` can be imported by using the cluster snapshot identifier, e.g.
+        `aws_docdb_cluster_snapshot` can be imported by using the cluster snapshot identifier, e.g.,
 
         ```sh
          $ pulumi import aws:docdb/clusterSnapshot:ClusterSnapshot example my-cluster-snapshot
@@ -313,7 +313,7 @@ class ClusterSnapshot(pulumi.CustomResource):
 
         ## Import
 
-        `aws_docdb_cluster_snapshot` can be imported by using the cluster snapshot identifier, e.g.
+        `aws_docdb_cluster_snapshot` can be imported by using the cluster snapshot identifier, e.g.,
 
         ```sh
          $ pulumi import aws:docdb/clusterSnapshot:ClusterSnapshot example my-cluster-snapshot

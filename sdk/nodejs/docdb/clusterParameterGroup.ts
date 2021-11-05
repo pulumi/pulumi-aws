@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * DocumentDB Cluster Parameter Groups can be imported using the `name`, e.g.
+ * DocumentDB Cluster Parameter Groups can be imported using the `name`, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:docdb/clusterParameterGroup:ClusterParameterGroup cluster_pg production-pg-1

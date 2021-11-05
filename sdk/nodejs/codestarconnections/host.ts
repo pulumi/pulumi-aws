@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * CodeStar Host can be imported using the ARN, e.g.
+ * CodeStar Host can be imported using the ARN, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:codestarconnections/host:Host example-host arn:aws:codestar-connections:us-west-1:0123456789:host/79d4d357-a2ee-41e4-b350-2fe39ae59448

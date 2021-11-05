@@ -69,7 +69,7 @@ namespace Pulumi.Aws.Rds
     /// 
     /// ## Import
     /// 
-    /// RDS Cluster Instances can be imported using the `identifier`, e.g.
+    /// RDS Cluster Instances can be imported using the `identifier`, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:rds/clusterInstance:ClusterInstance prod_instance_1 aurora-cluster-instance-1

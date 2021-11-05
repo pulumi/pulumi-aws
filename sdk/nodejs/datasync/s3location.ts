@@ -27,7 +27,7 @@ import {ARN} from "..";
  *
  * ## Import
  *
- * `aws_datasync_location_s3` can be imported by using the DataSync Task Amazon Resource Name (ARN), e.g.
+ * `aws_datasync_location_s3` can be imported by using the DataSync Task Amazon Resource Name (ARN), e.g.,
  *
  * ```sh
  *  $ pulumi import aws:datasync/s3Location:S3Location example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567

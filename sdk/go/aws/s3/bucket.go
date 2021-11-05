@@ -309,11 +309,21 @@ import (
 // 				Rules: s3.BucketReplicationConfigurationRuleArray{
 // 					&s3.BucketReplicationConfigurationRuleArgs{
 // 						Id:     pulumi.String("foobar"),
-// 						Prefix: pulumi.String("foo"),
 // 						Status: pulumi.String("Enabled"),
+// 						Filter: &s3.BucketReplicationConfigurationRuleFilterArgs{
+// 							Tags: nil,
+// 						},
 // 						Destination: &s3.BucketReplicationConfigurationRuleDestinationArgs{
 // 							Bucket:       destination.Arn,
 // 							StorageClass: pulumi.String("STANDARD"),
+// 							ReplicationTime: &s3.BucketReplicationConfigurationRuleDestinationReplicationTimeArgs{
+// 								Status:  pulumi.String("Enabled"),
+// 								Minutes: pulumi.Int(15),
+// 							},
+// 							Metrics: &s3.BucketReplicationConfigurationRuleDestinationMetricsArgs{
+// 								Status:  pulumi.String("Enabled"),
+// 								Minutes: pulumi.Int(15),
+// 							},
 // 						},
 // 					},
 // 				},
@@ -426,7 +436,7 @@ import (
 //
 // ## Import
 //
-// S3 bucket can be imported using the `bucket`, e.g.
+// S3 bucket can be imported using the `bucket`, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:s3/bucket:Bucket bucket bucket-name

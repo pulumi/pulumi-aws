@@ -44,7 +44,7 @@ import (
 //
 // ## Import
 //
-// GuardDuty detectors can be imported using the detector ID, e.g.
+// GuardDuty detectors can be imported using the detector ID, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:guardduty/detector:Detector MyDetector 00b00fd5aecc0ab60a708659477e9617

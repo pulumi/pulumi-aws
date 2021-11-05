@@ -73,7 +73,7 @@ import (
 //
 // ## Import
 //
-// DB Event Subscriptions can be imported using the `name`, e.g.
+// DB Event Subscriptions can be imported using the `name`, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:rds/eventSubscription:EventSubscription default rds-event-sub

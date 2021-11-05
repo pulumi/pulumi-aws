@@ -22,7 +22,7 @@ import {ARN} from "..";
  *
  * ## Import
  *
- * `aws_ec2_transit_gateway` can be imported by using the EC2 Transit Gateway identifier, e.g.
+ * `aws_ec2_transit_gateway` can be imported by using the EC2 Transit Gateway identifier, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:ec2transitgateway/transitGateway:TransitGateway example tgw-12345678
@@ -97,6 +97,9 @@ export class TransitGateway extends pulumi.CustomResource {
      */
     public /*out*/ readonly propagationDefaultRouteTableId!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Whether VPN Equal Cost Multipath Protocol support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
@@ -197,6 +200,9 @@ export interface TransitGatewayState {
      */
     propagationDefaultRouteTableId?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Whether VPN Equal Cost Multipath Protocol support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.

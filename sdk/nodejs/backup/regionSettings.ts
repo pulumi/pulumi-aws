@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Backup Region Settings can be imported using the `region`, e.g.
+ * Backup Region Settings can be imported using the `region`, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:backup/regionSettings:RegionSettings test us-west-2

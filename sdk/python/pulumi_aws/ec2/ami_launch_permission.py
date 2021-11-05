@@ -112,7 +112,7 @@ class AmiLaunchPermission(pulumi.CustomResource):
 
         ## Import
 
-        AWS AMI Launch Permission can be imported using the `ACCOUNT-ID/IMAGE-ID`, e.g.
+        AWS AMI Launch Permission can be imported using the `ACCOUNT-ID/IMAGE-ID`, e.g.,
 
         ```sh
          $ pulumi import aws:ec2/amiLaunchPermission:AmiLaunchPermission example 123456789012/ami-12345678
@@ -145,7 +145,7 @@ class AmiLaunchPermission(pulumi.CustomResource):
 
         ## Import
 
-        AWS AMI Launch Permission can be imported using the `ACCOUNT-ID/IMAGE-ID`, e.g.
+        AWS AMI Launch Permission can be imported using the `ACCOUNT-ID/IMAGE-ID`, e.g.,
 
         ```sh
          $ pulumi import aws:ec2/amiLaunchPermission:AmiLaunchPermission example 123456789012/ami-12345678

@@ -37,7 +37,7 @@ import {Role} from "./index";
  *
  * ## Import
  *
- * Instance Profiles can be imported using the `name`, e.g.
+ * Instance Profiles can be imported using the `name`, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:iam/instanceProfile:InstanceProfile test_profile app-instance-profile-1

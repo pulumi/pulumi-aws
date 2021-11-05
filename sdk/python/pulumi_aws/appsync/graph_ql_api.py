@@ -188,8 +188,8 @@ class _GraphQLApiState:
         :param pulumi.Input['GraphQLApiOpenidConnectConfigArgs'] openid_connect_config: Nested argument containing OpenID Connect configuration. Defined below.
         :param pulumi.Input[str] schema: The schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] uris: Map of URIs associated with the API. e.g. `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] uris: Map of URIs associated with the APIE.g., `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
         :param pulumi.Input['GraphQLApiUserPoolConfigArgs'] user_pool_config: The Amazon Cognito User Pool configuration. Defined below.
         :param pulumi.Input[bool] xray_enabled: Whether tracing with X-ray is enabled. Defaults to false.
         """
@@ -318,7 +318,7 @@ class _GraphQLApiState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider .
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -330,7 +330,7 @@ class _GraphQLApiState:
     @pulumi.getter
     def uris(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Map of URIs associated with the API. e.g. `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
+        Map of URIs associated with the APIE.g., `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
         """
         return pulumi.get(self, "uris")
 
@@ -524,7 +524,7 @@ class GraphQLApi(pulumi.CustomResource):
 
         ## Import
 
-        AppSync GraphQL API can be imported using the GraphQL API ID, e.g.
+        AppSync GraphQL API can be imported using the GraphQL API ID, e.g.,
 
         ```sh
          $ pulumi import aws:appsync/graphQLApi:GraphQLApi example 0123456789
@@ -694,7 +694,7 @@ class GraphQLApi(pulumi.CustomResource):
 
         ## Import
 
-        AppSync GraphQL API can be imported using the GraphQL API ID, e.g.
+        AppSync GraphQL API can be imported using the GraphQL API ID, e.g.,
 
         ```sh
          $ pulumi import aws:appsync/graphQLApi:GraphQLApi example 0123456789
@@ -787,8 +787,8 @@ class GraphQLApi(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['GraphQLApiOpenidConnectConfigArgs']] openid_connect_config: Nested argument containing OpenID Connect configuration. Defined below.
         :param pulumi.Input[str] schema: The schema definition, in GraphQL schema language format. This provider cannot perform drift detection of this configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] uris: Map of URIs associated with the API. e.g. `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] uris: Map of URIs associated with the APIE.g., `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
         :param pulumi.Input[pulumi.InputType['GraphQLApiUserPoolConfigArgs']] user_pool_config: The Amazon Cognito User Pool configuration. Defined below.
         :param pulumi.Input[bool] xray_enabled: Whether tracing with X-ray is enabled. Defaults to false.
         """
@@ -878,7 +878,7 @@ class GraphQLApi(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider .
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -886,7 +886,7 @@ class GraphQLApi(pulumi.CustomResource):
     @pulumi.getter
     def uris(self) -> pulumi.Output[Mapping[str, str]]:
         """
-        Map of URIs associated with the API. e.g. `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
+        Map of URIs associated with the APIE.g., `uris["GRAPHQL"] = https://ID.appsync-api.REGION.amazonaws.com/graphql`
         """
         return pulumi.get(self, "uris")
 

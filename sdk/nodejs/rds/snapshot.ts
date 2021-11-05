@@ -33,7 +33,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * `aws_db_snapshot` can be imported by using the snapshot identifier, e.g.
+ * `aws_db_snapshot` can be imported by using the snapshot identifier, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:rds/snapshot:Snapshot example my-snapshot

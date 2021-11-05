@@ -101,14 +101,14 @@ type LookupSnapshotResult struct {
 	OwnerId             string   `pulumi:"ownerId"`
 	Owners              []string `pulumi:"owners"`
 	RestorableByUserIds []string `pulumi:"restorableByUserIds"`
-	// The snapshot ID (e.g. snap-59fcb34e).
+	// The snapshot ID (e.g., snap-59fcb34e).
 	SnapshotId  string   `pulumi:"snapshotId"`
 	SnapshotIds []string `pulumi:"snapshotIds"`
 	// The snapshot state.
 	State string `pulumi:"state"`
 	// A map of tags for the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// The volume ID (e.g. vol-59fcb34e).
+	// The volume ID (e.g., vol-59fcb34e).
 	VolumeId string `pulumi:"volumeId"`
 	// The size of the drive in GiBs.
 	VolumeSize int `pulumi:"volumeSize"`
@@ -216,7 +216,7 @@ func (o LookupSnapshotResultOutput) RestorableByUserIds() pulumi.StringArrayOutp
 	return o.ApplyT(func(v LookupSnapshotResult) []string { return v.RestorableByUserIds }).(pulumi.StringArrayOutput)
 }
 
-// The snapshot ID (e.g. snap-59fcb34e).
+// The snapshot ID (e.g., snap-59fcb34e).
 func (o LookupSnapshotResultOutput) SnapshotId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSnapshotResult) string { return v.SnapshotId }).(pulumi.StringOutput)
 }
@@ -235,7 +235,7 @@ func (o LookupSnapshotResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupSnapshotResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// The volume ID (e.g. vol-59fcb34e).
+// The volume ID (e.g., vol-59fcb34e).
 func (o LookupSnapshotResultOutput) VolumeId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSnapshotResult) string { return v.VolumeId }).(pulumi.StringOutput)
 }

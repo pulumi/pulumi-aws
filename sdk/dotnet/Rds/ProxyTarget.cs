@@ -81,7 +81,7 @@ namespace Pulumi.Aws.Rds
     /// 
     /// ## Import
     /// 
-    /// RDS DB Proxy Targets can be imported using the `db_proxy_name`, `target_group_name`, target type (e.g. `RDS_INSTANCE` or `TRACKED_CLUSTER`), and resource identifier separated by forward slashes (`/`), e.g. Instances
+    /// RDS DB Proxy Targets can be imported using the `db_proxy_name`, `target_group_name`, target type (e.g., `RDS_INSTANCE` or `TRACKED_CLUSTER`), and resource identifier separated by forward slashes (`/`), e.g., Instances
     /// 
     /// ```sh
     ///  $ pulumi import aws:rds/proxyTarget:ProxyTarget example example-proxy/default/RDS_INSTANCE/example-instance
@@ -151,7 +151,7 @@ namespace Pulumi.Aws.Rds
         public Output<string> TrackedClusterId { get; private set; } = null!;
 
         /// <summary>
-        /// Type of target. e.g. `RDS_INSTANCE` or `TRACKED_CLUSTER`
+        /// Type of targetE.g., `RDS_INSTANCE` or `TRACKED_CLUSTER`
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -288,7 +288,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? TrackedClusterId { get; set; }
 
         /// <summary>
-        /// Type of target. e.g. `RDS_INSTANCE` or `TRACKED_CLUSTER`
+        /// Type of targetE.g., `RDS_INSTANCE` or `TRACKED_CLUSTER`
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * `aws_ec2_transit_gateway_route_table` can be imported by using the EC2 Transit Gateway Route Table identifier, e.g.
+ * `aws_ec2_transit_gateway_route_table` can be imported by using the EC2 Transit Gateway Route Table identifier, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:ec2transitgateway/routeTable:RouteTable example tgw-rtb-12345678
@@ -65,6 +65,9 @@ export class RouteTable extends pulumi.CustomResource {
      */
     public /*out*/ readonly defaultPropagationRouteTable!: pulumi.Output<boolean>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Identifier of EC2 Transit Gateway.
@@ -126,6 +129,9 @@ export interface RouteTableState {
      */
     defaultPropagationRouteTable?: pulumi.Input<boolean>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Identifier of EC2 Transit Gateway.

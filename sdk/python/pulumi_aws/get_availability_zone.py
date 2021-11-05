@@ -200,7 +200,7 @@ def get_availability_zone(all_availability_zones: Optional[bool] = None,
 
     This can be used both to validate an availability zone given in a variable
     and to split the AZ name into its component parts of an AWS region and an
-    AZ identifier letter. The latter may be useful e.g. for implementing a
+    AZ identifier letter. The latter may be useful e.g., for implementing a
     consistent subnet numbering scheme across several regions by mapping both
     the region and the subnet letter to network numbers.
 
@@ -256,7 +256,7 @@ def get_availability_zone_output(all_availability_zones: Optional[pulumi.Input[O
 
     This can be used both to validate an availability zone given in a variable
     and to split the AZ name into its component parts of an AWS region and an
-    AZ identifier letter. The latter may be useful e.g. for implementing a
+    AZ identifier letter. The latter may be useful e.g., for implementing a
     consistent subnet numbering scheme across several regions by mapping both
     the region and the subnet letter to network numbers.
 

@@ -87,7 +87,7 @@ import (
 //
 // ## Import
 //
-// FSx File Systems can be imported using the `id`, e.g.
+// FSx File Systems can be imported using the `id`, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:fsx/windowsFileSystem:WindowsFileSystem example fs-543ab12b1ca672f33
@@ -127,7 +127,7 @@ type WindowsFileSystem struct {
 	DailyAutomaticBackupStartTime pulumi.StringOutput `pulumi:"dailyAutomaticBackupStartTime"`
 	// Specifies the file system deployment type, valid values are `MULTI_AZ_1`, `SINGLE_AZ_1` and `SINGLE_AZ_2`. Default value is `SINGLE_AZ_1`.
 	DeploymentType pulumi.StringPtrOutput `pulumi:"deploymentType"`
-	// DNS name for the file system, e.g. `fs-12345678.corp.example.com` (domain name matching the Active Directory domain name)
+	// DNS name for the file system, e.g., `fs-12345678.corp.example.com` (domain name matching the Active Directory domain name)
 	DnsName pulumi.StringOutput `pulumi:"dnsName"`
 	// ARN for the KMS Key to encrypt the file system at rest. Defaults to an AWS managed KMS Key.
 	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
@@ -218,7 +218,7 @@ type windowsFileSystemState struct {
 	DailyAutomaticBackupStartTime *string `pulumi:"dailyAutomaticBackupStartTime"`
 	// Specifies the file system deployment type, valid values are `MULTI_AZ_1`, `SINGLE_AZ_1` and `SINGLE_AZ_2`. Default value is `SINGLE_AZ_1`.
 	DeploymentType *string `pulumi:"deploymentType"`
-	// DNS name for the file system, e.g. `fs-12345678.corp.example.com` (domain name matching the Active Directory domain name)
+	// DNS name for the file system, e.g., `fs-12345678.corp.example.com` (domain name matching the Active Directory domain name)
 	DnsName *string `pulumi:"dnsName"`
 	// ARN for the KMS Key to encrypt the file system at rest. Defaults to an AWS managed KMS Key.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
@@ -275,7 +275,7 @@ type WindowsFileSystemState struct {
 	DailyAutomaticBackupStartTime pulumi.StringPtrInput
 	// Specifies the file system deployment type, valid values are `MULTI_AZ_1`, `SINGLE_AZ_1` and `SINGLE_AZ_2`. Default value is `SINGLE_AZ_1`.
 	DeploymentType pulumi.StringPtrInput
-	// DNS name for the file system, e.g. `fs-12345678.corp.example.com` (domain name matching the Active Directory domain name)
+	// DNS name for the file system, e.g., `fs-12345678.corp.example.com` (domain name matching the Active Directory domain name)
 	DnsName pulumi.StringPtrInput
 	// ARN for the KMS Key to encrypt the file system at rest. Defaults to an AWS managed KMS Key.
 	KmsKeyId pulumi.StringPtrInput

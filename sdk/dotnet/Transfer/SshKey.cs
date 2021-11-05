@@ -103,7 +103,7 @@ namespace Pulumi.Aws.Transfer
         public Output<string> Body { get; private set; } = null!;
 
         /// <summary>
-        /// The Server ID of the Transfer Server (e.g. `s-12345678`)
+        /// The Server ID of the Transfer Server (e.g., `s-12345678`)
         /// </summary>
         [Output("serverId")]
         public Output<string> ServerId { get; private set; } = null!;
@@ -167,7 +167,7 @@ namespace Pulumi.Aws.Transfer
         public Input<string> Body { get; set; } = null!;
 
         /// <summary>
-        /// The Server ID of the Transfer Server (e.g. `s-12345678`)
+        /// The Server ID of the Transfer Server (e.g., `s-12345678`)
         /// </summary>
         [Input("serverId", required: true)]
         public Input<string> ServerId { get; set; } = null!;
@@ -192,7 +192,7 @@ namespace Pulumi.Aws.Transfer
         public Input<string>? Body { get; set; }
 
         /// <summary>
-        /// The Server ID of the Transfer Server (e.g. `s-12345678`)
+        /// The Server ID of the Transfer Server (e.g., `s-12345678`)
         /// </summary>
         [Input("serverId")]
         public Input<string>? ServerId { get; set; }

@@ -54,7 +54,7 @@ namespace Pulumi.Aws.ElastiCache
     /// 
     /// ## Import
     /// 
-    /// ElastiCache Global Replication Groups can be imported using the `global_replication_group_id`, e.g.
+    /// ElastiCache Global Replication Groups can be imported using the `global_replication_group_id`, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:elasticache/globalReplicationGroup:GlobalReplicationGroup my_global_replication_group okuqm-global-replication-group-1

@@ -66,7 +66,7 @@ import (
 //
 // ## Import
 //
-// `aws_apigatewayv2_api` can be imported by using the API identifier, e.g.
+// `aws_apigatewayv2_api` can be imported by using the API identifier, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:apigatewayv2/api:Api example aabbccddee

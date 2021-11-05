@@ -202,7 +202,7 @@ import (
 //
 // ## Import
 //
-// Security Hub insights can be imported using the ARN, e.g.
+// Security Hub insights can be imported using the ARN, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:securityhub/insight:Insight example arn:aws:securityhub:us-west-2:1234567890:insight/1234567890/custom/91299ed7-abd0-4e44-a858-d0b15e37141a
@@ -214,7 +214,7 @@ type Insight struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// A configuration block including one or more (up to 10 distinct) attributes used to filter the findings included in the insight. The insight only includes findings that match criteria defined in the filters. See filters below for more details.
 	Filters InsightFiltersOutput `pulumi:"filters"`
-	// The attribute used to group the findings for the insight e.g. if an insight is grouped by `ResourceId`, then the insight produces a list of resource identifiers.
+	// The attribute used to group the findings for the insight e.g., if an insight is grouped by `ResourceId`, then the insight produces a list of resource identifiers.
 	GroupByAttribute pulumi.StringOutput `pulumi:"groupByAttribute"`
 	// The name of the custom insight.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -259,7 +259,7 @@ type insightState struct {
 	Arn *string `pulumi:"arn"`
 	// A configuration block including one or more (up to 10 distinct) attributes used to filter the findings included in the insight. The insight only includes findings that match criteria defined in the filters. See filters below for more details.
 	Filters *InsightFilters `pulumi:"filters"`
-	// The attribute used to group the findings for the insight e.g. if an insight is grouped by `ResourceId`, then the insight produces a list of resource identifiers.
+	// The attribute used to group the findings for the insight e.g., if an insight is grouped by `ResourceId`, then the insight produces a list of resource identifiers.
 	GroupByAttribute *string `pulumi:"groupByAttribute"`
 	// The name of the custom insight.
 	Name *string `pulumi:"name"`
@@ -270,7 +270,7 @@ type InsightState struct {
 	Arn pulumi.StringPtrInput
 	// A configuration block including one or more (up to 10 distinct) attributes used to filter the findings included in the insight. The insight only includes findings that match criteria defined in the filters. See filters below for more details.
 	Filters InsightFiltersPtrInput
-	// The attribute used to group the findings for the insight e.g. if an insight is grouped by `ResourceId`, then the insight produces a list of resource identifiers.
+	// The attribute used to group the findings for the insight e.g., if an insight is grouped by `ResourceId`, then the insight produces a list of resource identifiers.
 	GroupByAttribute pulumi.StringPtrInput
 	// The name of the custom insight.
 	Name pulumi.StringPtrInput
@@ -283,7 +283,7 @@ func (InsightState) ElementType() reflect.Type {
 type insightArgs struct {
 	// A configuration block including one or more (up to 10 distinct) attributes used to filter the findings included in the insight. The insight only includes findings that match criteria defined in the filters. See filters below for more details.
 	Filters InsightFilters `pulumi:"filters"`
-	// The attribute used to group the findings for the insight e.g. if an insight is grouped by `ResourceId`, then the insight produces a list of resource identifiers.
+	// The attribute used to group the findings for the insight e.g., if an insight is grouped by `ResourceId`, then the insight produces a list of resource identifiers.
 	GroupByAttribute string `pulumi:"groupByAttribute"`
 	// The name of the custom insight.
 	Name *string `pulumi:"name"`
@@ -293,7 +293,7 @@ type insightArgs struct {
 type InsightArgs struct {
 	// A configuration block including one or more (up to 10 distinct) attributes used to filter the findings included in the insight. The insight only includes findings that match criteria defined in the filters. See filters below for more details.
 	Filters InsightFiltersInput
-	// The attribute used to group the findings for the insight e.g. if an insight is grouped by `ResourceId`, then the insight produces a list of resource identifiers.
+	// The attribute used to group the findings for the insight e.g., if an insight is grouped by `ResourceId`, then the insight produces a list of resource identifiers.
 	GroupByAttribute pulumi.StringInput
 	// The name of the custom insight.
 	Name pulumi.StringPtrInput

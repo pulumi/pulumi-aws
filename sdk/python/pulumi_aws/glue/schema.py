@@ -156,6 +156,7 @@ class _SchemaState:
         :param pulumi.Input[str] schema_definition: The schema definition using the `data_format` setting for `schema_name`.
         :param pulumi.Input[str] schema_name: The Name of the schema.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -331,6 +332,9 @@ class _SchemaState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -370,7 +374,7 @@ class Schema(pulumi.CustomResource):
 
         ## Import
 
-        Glue Registries can be imported using `arn`, e.g.
+        Glue Registries can be imported using `arn`, e.g.,
 
         ```sh
          $ pulumi import aws:glue/schema:Schema example arn:aws:glue:us-west-2:123456789012:schema/example/example
@@ -411,7 +415,7 @@ class Schema(pulumi.CustomResource):
 
         ## Import
 
-        Glue Registries can be imported using `arn`, e.g.
+        Glue Registries can be imported using `arn`, e.g.,
 
         ```sh
          $ pulumi import aws:glue/schema:Schema example arn:aws:glue:us-west-2:123456789012:schema/example/example
@@ -514,6 +518,7 @@ class Schema(pulumi.CustomResource):
         :param pulumi.Input[str] schema_definition: The schema definition using the `data_format` setting for `schema_name`.
         :param pulumi.Input[str] schema_name: The Name of the schema.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -633,5 +638,8 @@ class Schema(pulumi.CustomResource):
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 

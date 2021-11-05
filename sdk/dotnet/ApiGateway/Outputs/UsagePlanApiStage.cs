@@ -21,15 +21,22 @@ namespace Pulumi.Aws.ApiGateway.Outputs
         /// API stage name of the associated API stage in a usage plan.
         /// </summary>
         public readonly string Stage;
+        /// <summary>
+        /// The throttling limits of the usage plan.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.UsagePlanApiStageThrottle> Throttles;
 
         [OutputConstructor]
         private UsagePlanApiStage(
             string apiId,
 
-            string stage)
+            string stage,
+
+            ImmutableArray<Outputs.UsagePlanApiStageThrottle> throttles)
         {
             ApiId = apiId;
             Stage = stage;
+            Throttles = throttles;
         }
     }
 }

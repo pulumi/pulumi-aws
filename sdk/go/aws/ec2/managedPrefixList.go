@@ -13,7 +13,7 @@ import (
 
 // ## Import
 //
-// Prefix Lists can be imported using the `id`, e.g.
+// Prefix Lists can be imported using the `id`, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:ec2/managedPrefixList:ManagedPrefixList default pl-0570a1d2d725c16be

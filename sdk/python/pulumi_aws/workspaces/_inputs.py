@@ -331,7 +331,7 @@ class IpGroupRuleArgs:
                  source: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] source: The IP address range, in CIDR notation, e.g. `10.0.0.0/16`
+        :param pulumi.Input[str] source: The IP address range, in CIDR notation, e.g., `10.0.0.0/16`
         :param pulumi.Input[str] description: The description.
         """
         pulumi.set(__self__, "source", source)
@@ -342,7 +342,7 @@ class IpGroupRuleArgs:
     @pulumi.getter
     def source(self) -> pulumi.Input[str]:
         """
-        The IP address range, in CIDR notation, e.g. `10.0.0.0/16`
+        The IP address range, in CIDR notation, e.g., `10.0.0.0/16`
         """
         return pulumi.get(self, "source")
 

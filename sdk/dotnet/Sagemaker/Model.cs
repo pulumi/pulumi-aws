@@ -74,7 +74,7 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// ## Import
     /// 
-    /// Models can be imported using the `name`, e.g.
+    /// Models can be imported using the `name`, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:sagemaker/model:Model test_model model-foo

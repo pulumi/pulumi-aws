@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * CloudFront Functions can be imported using the `name`, e.g.
+ * CloudFront Functions can be imported using the `name`, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:cloudfront/function:Function test my_test_function

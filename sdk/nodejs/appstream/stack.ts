@@ -52,7 +52,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * `aws_appstream_stack` can be imported using the id, e.g.
+ * `aws_appstream_stack` can be imported using the id, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:appstream/stack:Stack example stackID
@@ -128,7 +128,7 @@ export class Stack extends pulumi.CustomResource {
      */
     public readonly storageConnectors!: pulumi.Output<outputs.appstream.StackStorageConnector[]>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Configuration block for the actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled. See below.
      */
@@ -173,10 +173,10 @@ export class Stack extends pulumi.CustomResource {
             inputs["redirectUrl"] = args ? args.redirectUrl : undefined;
             inputs["storageConnectors"] = args ? args.storageConnectors : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["userSettings"] = args ? args.userSettings : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["createdTime"] = undefined /*out*/;
+            inputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -276,7 +276,6 @@ export interface StackArgs {
      */
     storageConnectors?: pulumi.Input<pulumi.Input<inputs.appstream.StackStorageConnector>[]>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Configuration block for the actions that are enabled or disabled for users during their streaming sessions. By default, these actions are enabled. See below.
      */

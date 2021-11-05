@@ -12,7 +12,7 @@ namespace Pulumi.Aws.DynamoDB
     /// <summary>
     /// ## Import
     /// 
-    /// `aws_dynamodb_tag` can be imported by using the DynamoDB resource identifier and key, separated by a comma (`,`), e.g.
+    /// `aws_dynamodb_tag` can be imported by using the DynamoDB resource identifier and key, separated by a comma (`,`), e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:dynamodb/tag:Tag example arn:aws:dynamodb:us-east-1:123456789012:table/example,Name

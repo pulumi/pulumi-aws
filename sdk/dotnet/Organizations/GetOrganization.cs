@@ -135,7 +135,7 @@ namespace Pulumi.Aws.Organizations
         /// </summary>
         public readonly ImmutableArray<string> AwsServiceAccessPrincipals;
         /// <summary>
-        /// A list of Organizations policy types that are enabled in the Organization Root. Organization must have `feature_set` set to `ALL`. For additional information about valid policy types (e.g. `SERVICE_CONTROL_POLICY`), see the [AWS Organizations API Reference](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnablePolicyType.html).
+        /// A list of Organizations policy types that are enabled in the Organization Root. Organization must have `feature_set` set to `ALL`. For additional information about valid policy types (e.g., `SERVICE_CONTROL_POLICY`), see the [AWS Organizations API Reference](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnablePolicyType.html).
         /// </summary>
         public readonly ImmutableArray<string> EnabledPolicyTypes;
         /// <summary>

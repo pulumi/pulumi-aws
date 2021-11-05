@@ -3717,9 +3717,13 @@ type BucketReplicationConfigurationRuleDestination struct {
 	AccountId *string `pulumi:"accountId"`
 	// The ARN of the S3 bucket where you want Amazon S3 to store replicas of the object identified by the rule.
 	Bucket string `pulumi:"bucket"`
+	// Enables replication metrics (required for S3 RTC) (documented below).
+	Metrics *BucketReplicationConfigurationRuleDestinationMetrics `pulumi:"metrics"`
 	// Destination KMS encryption key ARN for SSE-KMS replication. Must be used in conjunction with
 	// `sseKmsEncryptedObjects` source selection criteria.
 	ReplicaKmsKeyId *string `pulumi:"replicaKmsKeyId"`
+	// Enables S3 Replication Time Control (S3 RTC) (documented below).
+	ReplicationTime *BucketReplicationConfigurationRuleDestinationReplicationTime `pulumi:"replicationTime"`
 	// The class of storage used to store the object. Can be `STANDARD`, `REDUCED_REDUNDANCY`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `GLACIER`, or `DEEP_ARCHIVE`.
 	StorageClass *string `pulumi:"storageClass"`
 }
@@ -3742,9 +3746,13 @@ type BucketReplicationConfigurationRuleDestinationArgs struct {
 	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
 	// The ARN of the S3 bucket where you want Amazon S3 to store replicas of the object identified by the rule.
 	Bucket pulumi.StringInput `pulumi:"bucket"`
+	// Enables replication metrics (required for S3 RTC) (documented below).
+	Metrics BucketReplicationConfigurationRuleDestinationMetricsPtrInput `pulumi:"metrics"`
 	// Destination KMS encryption key ARN for SSE-KMS replication. Must be used in conjunction with
 	// `sseKmsEncryptedObjects` source selection criteria.
 	ReplicaKmsKeyId pulumi.StringPtrInput `pulumi:"replicaKmsKeyId"`
+	// Enables S3 Replication Time Control (S3 RTC) (documented below).
+	ReplicationTime BucketReplicationConfigurationRuleDestinationReplicationTimePtrInput `pulumi:"replicationTime"`
 	// The class of storage used to store the object. Can be `STANDARD`, `REDUCED_REDUNDANCY`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `GLACIER`, or `DEEP_ARCHIVE`.
 	StorageClass pulumi.StringPtrInput `pulumi:"storageClass"`
 }
@@ -3792,10 +3800,24 @@ func (o BucketReplicationConfigurationRuleDestinationOutput) Bucket() pulumi.Str
 	return o.ApplyT(func(v BucketReplicationConfigurationRuleDestination) string { return v.Bucket }).(pulumi.StringOutput)
 }
 
+// Enables replication metrics (required for S3 RTC) (documented below).
+func (o BucketReplicationConfigurationRuleDestinationOutput) Metrics() BucketReplicationConfigurationRuleDestinationMetricsPtrOutput {
+	return o.ApplyT(func(v BucketReplicationConfigurationRuleDestination) *BucketReplicationConfigurationRuleDestinationMetrics {
+		return v.Metrics
+	}).(BucketReplicationConfigurationRuleDestinationMetricsPtrOutput)
+}
+
 // Destination KMS encryption key ARN for SSE-KMS replication. Must be used in conjunction with
 // `sseKmsEncryptedObjects` source selection criteria.
 func (o BucketReplicationConfigurationRuleDestinationOutput) ReplicaKmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketReplicationConfigurationRuleDestination) *string { return v.ReplicaKmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+// Enables S3 Replication Time Control (S3 RTC) (documented below).
+func (o BucketReplicationConfigurationRuleDestinationOutput) ReplicationTime() BucketReplicationConfigurationRuleDestinationReplicationTimePtrOutput {
+	return o.ApplyT(func(v BucketReplicationConfigurationRuleDestination) *BucketReplicationConfigurationRuleDestinationReplicationTime {
+		return v.ReplicationTime
+	}).(BucketReplicationConfigurationRuleDestinationReplicationTimePtrOutput)
 }
 
 // The class of storage used to store the object. Can be `STANDARD`, `REDUCED_REDUNDANCY`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `GLACIER`, or `DEEP_ARCHIVE`.
@@ -3937,6 +3959,318 @@ func (o BucketReplicationConfigurationRuleDestinationAccessControlTranslationPtr
 			return nil
 		}
 		return &v.Owner
+	}).(pulumi.StringPtrOutput)
+}
+
+type BucketReplicationConfigurationRuleDestinationMetrics struct {
+	// Threshold within which objects are to be replicated. The only valid value is `15`.
+	Minutes *int `pulumi:"minutes"`
+	// The status of replication metrics. Either `Enabled` or `Disabled`.
+	Status *string `pulumi:"status"`
+}
+
+// BucketReplicationConfigurationRuleDestinationMetricsInput is an input type that accepts BucketReplicationConfigurationRuleDestinationMetricsArgs and BucketReplicationConfigurationRuleDestinationMetricsOutput values.
+// You can construct a concrete instance of `BucketReplicationConfigurationRuleDestinationMetricsInput` via:
+//
+//          BucketReplicationConfigurationRuleDestinationMetricsArgs{...}
+type BucketReplicationConfigurationRuleDestinationMetricsInput interface {
+	pulumi.Input
+
+	ToBucketReplicationConfigurationRuleDestinationMetricsOutput() BucketReplicationConfigurationRuleDestinationMetricsOutput
+	ToBucketReplicationConfigurationRuleDestinationMetricsOutputWithContext(context.Context) BucketReplicationConfigurationRuleDestinationMetricsOutput
+}
+
+type BucketReplicationConfigurationRuleDestinationMetricsArgs struct {
+	// Threshold within which objects are to be replicated. The only valid value is `15`.
+	Minutes pulumi.IntPtrInput `pulumi:"minutes"`
+	// The status of replication metrics. Either `Enabled` or `Disabled`.
+	Status pulumi.StringPtrInput `pulumi:"status"`
+}
+
+func (BucketReplicationConfigurationRuleDestinationMetricsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketReplicationConfigurationRuleDestinationMetrics)(nil)).Elem()
+}
+
+func (i BucketReplicationConfigurationRuleDestinationMetricsArgs) ToBucketReplicationConfigurationRuleDestinationMetricsOutput() BucketReplicationConfigurationRuleDestinationMetricsOutput {
+	return i.ToBucketReplicationConfigurationRuleDestinationMetricsOutputWithContext(context.Background())
+}
+
+func (i BucketReplicationConfigurationRuleDestinationMetricsArgs) ToBucketReplicationConfigurationRuleDestinationMetricsOutputWithContext(ctx context.Context) BucketReplicationConfigurationRuleDestinationMetricsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicationConfigurationRuleDestinationMetricsOutput)
+}
+
+func (i BucketReplicationConfigurationRuleDestinationMetricsArgs) ToBucketReplicationConfigurationRuleDestinationMetricsPtrOutput() BucketReplicationConfigurationRuleDestinationMetricsPtrOutput {
+	return i.ToBucketReplicationConfigurationRuleDestinationMetricsPtrOutputWithContext(context.Background())
+}
+
+func (i BucketReplicationConfigurationRuleDestinationMetricsArgs) ToBucketReplicationConfigurationRuleDestinationMetricsPtrOutputWithContext(ctx context.Context) BucketReplicationConfigurationRuleDestinationMetricsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicationConfigurationRuleDestinationMetricsOutput).ToBucketReplicationConfigurationRuleDestinationMetricsPtrOutputWithContext(ctx)
+}
+
+// BucketReplicationConfigurationRuleDestinationMetricsPtrInput is an input type that accepts BucketReplicationConfigurationRuleDestinationMetricsArgs, BucketReplicationConfigurationRuleDestinationMetricsPtr and BucketReplicationConfigurationRuleDestinationMetricsPtrOutput values.
+// You can construct a concrete instance of `BucketReplicationConfigurationRuleDestinationMetricsPtrInput` via:
+//
+//          BucketReplicationConfigurationRuleDestinationMetricsArgs{...}
+//
+//  or:
+//
+//          nil
+type BucketReplicationConfigurationRuleDestinationMetricsPtrInput interface {
+	pulumi.Input
+
+	ToBucketReplicationConfigurationRuleDestinationMetricsPtrOutput() BucketReplicationConfigurationRuleDestinationMetricsPtrOutput
+	ToBucketReplicationConfigurationRuleDestinationMetricsPtrOutputWithContext(context.Context) BucketReplicationConfigurationRuleDestinationMetricsPtrOutput
+}
+
+type bucketReplicationConfigurationRuleDestinationMetricsPtrType BucketReplicationConfigurationRuleDestinationMetricsArgs
+
+func BucketReplicationConfigurationRuleDestinationMetricsPtr(v *BucketReplicationConfigurationRuleDestinationMetricsArgs) BucketReplicationConfigurationRuleDestinationMetricsPtrInput {
+	return (*bucketReplicationConfigurationRuleDestinationMetricsPtrType)(v)
+}
+
+func (*bucketReplicationConfigurationRuleDestinationMetricsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketReplicationConfigurationRuleDestinationMetrics)(nil)).Elem()
+}
+
+func (i *bucketReplicationConfigurationRuleDestinationMetricsPtrType) ToBucketReplicationConfigurationRuleDestinationMetricsPtrOutput() BucketReplicationConfigurationRuleDestinationMetricsPtrOutput {
+	return i.ToBucketReplicationConfigurationRuleDestinationMetricsPtrOutputWithContext(context.Background())
+}
+
+func (i *bucketReplicationConfigurationRuleDestinationMetricsPtrType) ToBucketReplicationConfigurationRuleDestinationMetricsPtrOutputWithContext(ctx context.Context) BucketReplicationConfigurationRuleDestinationMetricsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicationConfigurationRuleDestinationMetricsPtrOutput)
+}
+
+type BucketReplicationConfigurationRuleDestinationMetricsOutput struct{ *pulumi.OutputState }
+
+func (BucketReplicationConfigurationRuleDestinationMetricsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketReplicationConfigurationRuleDestinationMetrics)(nil)).Elem()
+}
+
+func (o BucketReplicationConfigurationRuleDestinationMetricsOutput) ToBucketReplicationConfigurationRuleDestinationMetricsOutput() BucketReplicationConfigurationRuleDestinationMetricsOutput {
+	return o
+}
+
+func (o BucketReplicationConfigurationRuleDestinationMetricsOutput) ToBucketReplicationConfigurationRuleDestinationMetricsOutputWithContext(ctx context.Context) BucketReplicationConfigurationRuleDestinationMetricsOutput {
+	return o
+}
+
+func (o BucketReplicationConfigurationRuleDestinationMetricsOutput) ToBucketReplicationConfigurationRuleDestinationMetricsPtrOutput() BucketReplicationConfigurationRuleDestinationMetricsPtrOutput {
+	return o.ToBucketReplicationConfigurationRuleDestinationMetricsPtrOutputWithContext(context.Background())
+}
+
+func (o BucketReplicationConfigurationRuleDestinationMetricsOutput) ToBucketReplicationConfigurationRuleDestinationMetricsPtrOutputWithContext(ctx context.Context) BucketReplicationConfigurationRuleDestinationMetricsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketReplicationConfigurationRuleDestinationMetrics) *BucketReplicationConfigurationRuleDestinationMetrics {
+		return &v
+	}).(BucketReplicationConfigurationRuleDestinationMetricsPtrOutput)
+}
+
+// Threshold within which objects are to be replicated. The only valid value is `15`.
+func (o BucketReplicationConfigurationRuleDestinationMetricsOutput) Minutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v BucketReplicationConfigurationRuleDestinationMetrics) *int { return v.Minutes }).(pulumi.IntPtrOutput)
+}
+
+// The status of replication metrics. Either `Enabled` or `Disabled`.
+func (o BucketReplicationConfigurationRuleDestinationMetricsOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketReplicationConfigurationRuleDestinationMetrics) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+type BucketReplicationConfigurationRuleDestinationMetricsPtrOutput struct{ *pulumi.OutputState }
+
+func (BucketReplicationConfigurationRuleDestinationMetricsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketReplicationConfigurationRuleDestinationMetrics)(nil)).Elem()
+}
+
+func (o BucketReplicationConfigurationRuleDestinationMetricsPtrOutput) ToBucketReplicationConfigurationRuleDestinationMetricsPtrOutput() BucketReplicationConfigurationRuleDestinationMetricsPtrOutput {
+	return o
+}
+
+func (o BucketReplicationConfigurationRuleDestinationMetricsPtrOutput) ToBucketReplicationConfigurationRuleDestinationMetricsPtrOutputWithContext(ctx context.Context) BucketReplicationConfigurationRuleDestinationMetricsPtrOutput {
+	return o
+}
+
+func (o BucketReplicationConfigurationRuleDestinationMetricsPtrOutput) Elem() BucketReplicationConfigurationRuleDestinationMetricsOutput {
+	return o.ApplyT(func(v *BucketReplicationConfigurationRuleDestinationMetrics) BucketReplicationConfigurationRuleDestinationMetrics {
+		if v != nil {
+			return *v
+		}
+		var ret BucketReplicationConfigurationRuleDestinationMetrics
+		return ret
+	}).(BucketReplicationConfigurationRuleDestinationMetricsOutput)
+}
+
+// Threshold within which objects are to be replicated. The only valid value is `15`.
+func (o BucketReplicationConfigurationRuleDestinationMetricsPtrOutput) Minutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *BucketReplicationConfigurationRuleDestinationMetrics) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Minutes
+	}).(pulumi.IntPtrOutput)
+}
+
+// The status of replication metrics. Either `Enabled` or `Disabled`.
+func (o BucketReplicationConfigurationRuleDestinationMetricsPtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketReplicationConfigurationRuleDestinationMetrics) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+type BucketReplicationConfigurationRuleDestinationReplicationTime struct {
+	// Threshold within which objects are to be replicated. The only valid value is `15`.
+	Minutes *int `pulumi:"minutes"`
+	// The status of RTC. Either `Enabled` or `Disabled`.
+	Status *string `pulumi:"status"`
+}
+
+// BucketReplicationConfigurationRuleDestinationReplicationTimeInput is an input type that accepts BucketReplicationConfigurationRuleDestinationReplicationTimeArgs and BucketReplicationConfigurationRuleDestinationReplicationTimeOutput values.
+// You can construct a concrete instance of `BucketReplicationConfigurationRuleDestinationReplicationTimeInput` via:
+//
+//          BucketReplicationConfigurationRuleDestinationReplicationTimeArgs{...}
+type BucketReplicationConfigurationRuleDestinationReplicationTimeInput interface {
+	pulumi.Input
+
+	ToBucketReplicationConfigurationRuleDestinationReplicationTimeOutput() BucketReplicationConfigurationRuleDestinationReplicationTimeOutput
+	ToBucketReplicationConfigurationRuleDestinationReplicationTimeOutputWithContext(context.Context) BucketReplicationConfigurationRuleDestinationReplicationTimeOutput
+}
+
+type BucketReplicationConfigurationRuleDestinationReplicationTimeArgs struct {
+	// Threshold within which objects are to be replicated. The only valid value is `15`.
+	Minutes pulumi.IntPtrInput `pulumi:"minutes"`
+	// The status of RTC. Either `Enabled` or `Disabled`.
+	Status pulumi.StringPtrInput `pulumi:"status"`
+}
+
+func (BucketReplicationConfigurationRuleDestinationReplicationTimeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketReplicationConfigurationRuleDestinationReplicationTime)(nil)).Elem()
+}
+
+func (i BucketReplicationConfigurationRuleDestinationReplicationTimeArgs) ToBucketReplicationConfigurationRuleDestinationReplicationTimeOutput() BucketReplicationConfigurationRuleDestinationReplicationTimeOutput {
+	return i.ToBucketReplicationConfigurationRuleDestinationReplicationTimeOutputWithContext(context.Background())
+}
+
+func (i BucketReplicationConfigurationRuleDestinationReplicationTimeArgs) ToBucketReplicationConfigurationRuleDestinationReplicationTimeOutputWithContext(ctx context.Context) BucketReplicationConfigurationRuleDestinationReplicationTimeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicationConfigurationRuleDestinationReplicationTimeOutput)
+}
+
+func (i BucketReplicationConfigurationRuleDestinationReplicationTimeArgs) ToBucketReplicationConfigurationRuleDestinationReplicationTimePtrOutput() BucketReplicationConfigurationRuleDestinationReplicationTimePtrOutput {
+	return i.ToBucketReplicationConfigurationRuleDestinationReplicationTimePtrOutputWithContext(context.Background())
+}
+
+func (i BucketReplicationConfigurationRuleDestinationReplicationTimeArgs) ToBucketReplicationConfigurationRuleDestinationReplicationTimePtrOutputWithContext(ctx context.Context) BucketReplicationConfigurationRuleDestinationReplicationTimePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicationConfigurationRuleDestinationReplicationTimeOutput).ToBucketReplicationConfigurationRuleDestinationReplicationTimePtrOutputWithContext(ctx)
+}
+
+// BucketReplicationConfigurationRuleDestinationReplicationTimePtrInput is an input type that accepts BucketReplicationConfigurationRuleDestinationReplicationTimeArgs, BucketReplicationConfigurationRuleDestinationReplicationTimePtr and BucketReplicationConfigurationRuleDestinationReplicationTimePtrOutput values.
+// You can construct a concrete instance of `BucketReplicationConfigurationRuleDestinationReplicationTimePtrInput` via:
+//
+//          BucketReplicationConfigurationRuleDestinationReplicationTimeArgs{...}
+//
+//  or:
+//
+//          nil
+type BucketReplicationConfigurationRuleDestinationReplicationTimePtrInput interface {
+	pulumi.Input
+
+	ToBucketReplicationConfigurationRuleDestinationReplicationTimePtrOutput() BucketReplicationConfigurationRuleDestinationReplicationTimePtrOutput
+	ToBucketReplicationConfigurationRuleDestinationReplicationTimePtrOutputWithContext(context.Context) BucketReplicationConfigurationRuleDestinationReplicationTimePtrOutput
+}
+
+type bucketReplicationConfigurationRuleDestinationReplicationTimePtrType BucketReplicationConfigurationRuleDestinationReplicationTimeArgs
+
+func BucketReplicationConfigurationRuleDestinationReplicationTimePtr(v *BucketReplicationConfigurationRuleDestinationReplicationTimeArgs) BucketReplicationConfigurationRuleDestinationReplicationTimePtrInput {
+	return (*bucketReplicationConfigurationRuleDestinationReplicationTimePtrType)(v)
+}
+
+func (*bucketReplicationConfigurationRuleDestinationReplicationTimePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketReplicationConfigurationRuleDestinationReplicationTime)(nil)).Elem()
+}
+
+func (i *bucketReplicationConfigurationRuleDestinationReplicationTimePtrType) ToBucketReplicationConfigurationRuleDestinationReplicationTimePtrOutput() BucketReplicationConfigurationRuleDestinationReplicationTimePtrOutput {
+	return i.ToBucketReplicationConfigurationRuleDestinationReplicationTimePtrOutputWithContext(context.Background())
+}
+
+func (i *bucketReplicationConfigurationRuleDestinationReplicationTimePtrType) ToBucketReplicationConfigurationRuleDestinationReplicationTimePtrOutputWithContext(ctx context.Context) BucketReplicationConfigurationRuleDestinationReplicationTimePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketReplicationConfigurationRuleDestinationReplicationTimePtrOutput)
+}
+
+type BucketReplicationConfigurationRuleDestinationReplicationTimeOutput struct{ *pulumi.OutputState }
+
+func (BucketReplicationConfigurationRuleDestinationReplicationTimeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketReplicationConfigurationRuleDestinationReplicationTime)(nil)).Elem()
+}
+
+func (o BucketReplicationConfigurationRuleDestinationReplicationTimeOutput) ToBucketReplicationConfigurationRuleDestinationReplicationTimeOutput() BucketReplicationConfigurationRuleDestinationReplicationTimeOutput {
+	return o
+}
+
+func (o BucketReplicationConfigurationRuleDestinationReplicationTimeOutput) ToBucketReplicationConfigurationRuleDestinationReplicationTimeOutputWithContext(ctx context.Context) BucketReplicationConfigurationRuleDestinationReplicationTimeOutput {
+	return o
+}
+
+func (o BucketReplicationConfigurationRuleDestinationReplicationTimeOutput) ToBucketReplicationConfigurationRuleDestinationReplicationTimePtrOutput() BucketReplicationConfigurationRuleDestinationReplicationTimePtrOutput {
+	return o.ToBucketReplicationConfigurationRuleDestinationReplicationTimePtrOutputWithContext(context.Background())
+}
+
+func (o BucketReplicationConfigurationRuleDestinationReplicationTimeOutput) ToBucketReplicationConfigurationRuleDestinationReplicationTimePtrOutputWithContext(ctx context.Context) BucketReplicationConfigurationRuleDestinationReplicationTimePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketReplicationConfigurationRuleDestinationReplicationTime) *BucketReplicationConfigurationRuleDestinationReplicationTime {
+		return &v
+	}).(BucketReplicationConfigurationRuleDestinationReplicationTimePtrOutput)
+}
+
+// Threshold within which objects are to be replicated. The only valid value is `15`.
+func (o BucketReplicationConfigurationRuleDestinationReplicationTimeOutput) Minutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v BucketReplicationConfigurationRuleDestinationReplicationTime) *int { return v.Minutes }).(pulumi.IntPtrOutput)
+}
+
+// The status of RTC. Either `Enabled` or `Disabled`.
+func (o BucketReplicationConfigurationRuleDestinationReplicationTimeOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketReplicationConfigurationRuleDestinationReplicationTime) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+type BucketReplicationConfigurationRuleDestinationReplicationTimePtrOutput struct{ *pulumi.OutputState }
+
+func (BucketReplicationConfigurationRuleDestinationReplicationTimePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketReplicationConfigurationRuleDestinationReplicationTime)(nil)).Elem()
+}
+
+func (o BucketReplicationConfigurationRuleDestinationReplicationTimePtrOutput) ToBucketReplicationConfigurationRuleDestinationReplicationTimePtrOutput() BucketReplicationConfigurationRuleDestinationReplicationTimePtrOutput {
+	return o
+}
+
+func (o BucketReplicationConfigurationRuleDestinationReplicationTimePtrOutput) ToBucketReplicationConfigurationRuleDestinationReplicationTimePtrOutputWithContext(ctx context.Context) BucketReplicationConfigurationRuleDestinationReplicationTimePtrOutput {
+	return o
+}
+
+func (o BucketReplicationConfigurationRuleDestinationReplicationTimePtrOutput) Elem() BucketReplicationConfigurationRuleDestinationReplicationTimeOutput {
+	return o.ApplyT(func(v *BucketReplicationConfigurationRuleDestinationReplicationTime) BucketReplicationConfigurationRuleDestinationReplicationTime {
+		if v != nil {
+			return *v
+		}
+		var ret BucketReplicationConfigurationRuleDestinationReplicationTime
+		return ret
+	}).(BucketReplicationConfigurationRuleDestinationReplicationTimeOutput)
+}
+
+// Threshold within which objects are to be replicated. The only valid value is `15`.
+func (o BucketReplicationConfigurationRuleDestinationReplicationTimePtrOutput) Minutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *BucketReplicationConfigurationRuleDestinationReplicationTime) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Minutes
+	}).(pulumi.IntPtrOutput)
+}
+
+// The status of RTC. Either `Enabled` or `Disabled`.
+func (o BucketReplicationConfigurationRuleDestinationReplicationTimePtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketReplicationConfigurationRuleDestinationReplicationTime) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Status
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -6419,6 +6753,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketReplicationConfigurationRuleDestinationInput)(nil)).Elem(), BucketReplicationConfigurationRuleDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketReplicationConfigurationRuleDestinationAccessControlTranslationInput)(nil)).Elem(), BucketReplicationConfigurationRuleDestinationAccessControlTranslationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketReplicationConfigurationRuleDestinationAccessControlTranslationPtrInput)(nil)).Elem(), BucketReplicationConfigurationRuleDestinationAccessControlTranslationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketReplicationConfigurationRuleDestinationMetricsInput)(nil)).Elem(), BucketReplicationConfigurationRuleDestinationMetricsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketReplicationConfigurationRuleDestinationMetricsPtrInput)(nil)).Elem(), BucketReplicationConfigurationRuleDestinationMetricsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketReplicationConfigurationRuleDestinationReplicationTimeInput)(nil)).Elem(), BucketReplicationConfigurationRuleDestinationReplicationTimeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketReplicationConfigurationRuleDestinationReplicationTimePtrInput)(nil)).Elem(), BucketReplicationConfigurationRuleDestinationReplicationTimeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketReplicationConfigurationRuleFilterInput)(nil)).Elem(), BucketReplicationConfigurationRuleFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketReplicationConfigurationRuleFilterPtrInput)(nil)).Elem(), BucketReplicationConfigurationRuleFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketReplicationConfigurationRuleSourceSelectionCriteriaInput)(nil)).Elem(), BucketReplicationConfigurationRuleSourceSelectionCriteriaArgs{})
@@ -6504,6 +6842,10 @@ func init() {
 	pulumi.RegisterOutputType(BucketReplicationConfigurationRuleDestinationOutput{})
 	pulumi.RegisterOutputType(BucketReplicationConfigurationRuleDestinationAccessControlTranslationOutput{})
 	pulumi.RegisterOutputType(BucketReplicationConfigurationRuleDestinationAccessControlTranslationPtrOutput{})
+	pulumi.RegisterOutputType(BucketReplicationConfigurationRuleDestinationMetricsOutput{})
+	pulumi.RegisterOutputType(BucketReplicationConfigurationRuleDestinationMetricsPtrOutput{})
+	pulumi.RegisterOutputType(BucketReplicationConfigurationRuleDestinationReplicationTimeOutput{})
+	pulumi.RegisterOutputType(BucketReplicationConfigurationRuleDestinationReplicationTimePtrOutput{})
 	pulumi.RegisterOutputType(BucketReplicationConfigurationRuleFilterOutput{})
 	pulumi.RegisterOutputType(BucketReplicationConfigurationRuleFilterPtrOutput{})
 	pulumi.RegisterOutputType(BucketReplicationConfigurationRuleSourceSelectionCriteriaOutput{})

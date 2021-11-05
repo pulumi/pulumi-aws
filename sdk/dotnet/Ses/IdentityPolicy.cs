@@ -67,7 +67,7 @@ namespace Pulumi.Aws.Ses
     /// 
     /// ## Import
     /// 
-    /// SES Identity Policies can be imported using the identity and policy name, separated by a pipe character (`|`), e.g.
+    /// SES Identity Policies can be imported using the identity and policy name, separated by a pipe character (`|`), e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:ses/identityPolicy:IdentityPolicy example 'example.com|example'

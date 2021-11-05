@@ -371,7 +371,7 @@ class Webhook(pulumi.CustomResource):
 
         ## Import
 
-        CodePipeline Webhooks can be imported by their ARN, e.g.
+        CodePipeline Webhooks can be imported by their ARN, e.g.,
 
         ```sh
          $ pulumi import aws:codepipeline/webhook:Webhook example arn:aws:codepipeline:us-west-2:123456789012:webhook:example
@@ -471,7 +471,7 @@ class Webhook(pulumi.CustomResource):
 
         ## Import
 
-        CodePipeline Webhooks can be imported by their ARN, e.g.
+        CodePipeline Webhooks can be imported by their ARN, e.g.,
 
         ```sh
          $ pulumi import aws:codepipeline/webhook:Webhook example arn:aws:codepipeline:us-west-2:123456789012:webhook:example

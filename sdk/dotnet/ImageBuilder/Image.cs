@@ -35,7 +35,7 @@ namespace Pulumi.Aws.ImageBuilder
     /// 
     /// ## Import
     /// 
-    /// `aws_imagebuilder_image` resources can be imported using the Amazon Resource Name (ARN), e.g.
+    /// `aws_imagebuilder_image` resources can be imported using the Amazon Resource Name (ARN), e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:imagebuilder/image:Image example arn:aws:imagebuilder:us-east-1:123456789012:image/example/1.0.0/1

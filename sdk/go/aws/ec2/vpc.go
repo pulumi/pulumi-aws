@@ -67,7 +67,7 @@ import (
 //
 // ## Import
 //
-// VPCs can be imported using the `vpc id`, e.g.
+// VPCs can be imported using the `vpc id`, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:ec2/vpc:Vpc test_vpc vpc-a01106c2

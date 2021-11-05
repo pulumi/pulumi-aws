@@ -74,7 +74,7 @@ func GetAutoscalingGroups(ctx *pulumi.Context, args *GetAutoscalingGroupsArgs, o
 
 // A collection of arguments for invoking getAutoscalingGroups.
 type GetAutoscalingGroupsArgs struct {
-	// A filter used to scope the list e.g. by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
+	// A filter used to scope the list e.g., by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
 	Filters []GetAutoscalingGroupsFilter `pulumi:"filters"`
 }
 
@@ -100,7 +100,7 @@ func GetAutoscalingGroupsOutput(ctx *pulumi.Context, args GetAutoscalingGroupsOu
 
 // A collection of arguments for invoking getAutoscalingGroups.
 type GetAutoscalingGroupsOutputArgs struct {
-	// A filter used to scope the list e.g. by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
+	// A filter used to scope the list e.g., by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
 	Filters GetAutoscalingGroupsFilterArrayInput `pulumi:"filters"`
 }
 

@@ -85,19 +85,19 @@ namespace Pulumi.Aws.RedShift
     public sealed class GetOrderableClusterArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Reshift Cluster type. e.g. `multi-node` or `single-node`
+        /// Reshift Cluster typeE.g., `multi-node` or `single-node`
         /// </summary>
         [Input("clusterType")]
         public string? ClusterType { get; set; }
 
         /// <summary>
-        /// Redshift Cluster version. e.g. `1.0`
+        /// Redshift Cluster versionE.g., `1.0`
         /// </summary>
         [Input("clusterVersion")]
         public string? ClusterVersion { get; set; }
 
         /// <summary>
-        /// Redshift Cluster node type. e.g. `dc2.8xlarge`
+        /// Redshift Cluster node typeE.g., `dc2.8xlarge`
         /// </summary>
         [Input("nodeType")]
         public string? NodeType { get; set; }
@@ -122,19 +122,19 @@ namespace Pulumi.Aws.RedShift
     public sealed class GetOrderableClusterInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Reshift Cluster type. e.g. `multi-node` or `single-node`
+        /// Reshift Cluster typeE.g., `multi-node` or `single-node`
         /// </summary>
         [Input("clusterType")]
         public Input<string>? ClusterType { get; set; }
 
         /// <summary>
-        /// Redshift Cluster version. e.g. `1.0`
+        /// Redshift Cluster versionE.g., `1.0`
         /// </summary>
         [Input("clusterVersion")]
         public Input<string>? ClusterVersion { get; set; }
 
         /// <summary>
-        /// Redshift Cluster node type. e.g. `dc2.8xlarge`
+        /// Redshift Cluster node typeE.g., `dc2.8xlarge`
         /// </summary>
         [Input("nodeType")]
         public Input<string>? NodeType { get; set; }

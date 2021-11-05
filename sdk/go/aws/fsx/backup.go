@@ -49,7 +49,7 @@ import (
 //
 // ## Import
 //
-// FSx Backups can be imported using the `id`, e.g.
+// FSx Backups can be imported using the `id`, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:fsx/backup:Backup example fs-543ab12b1ca672f33
@@ -147,8 +147,6 @@ type backupArgs struct {
 	FileSystemId string `pulumi:"fileSystemId"`
 	// A map of tags to assign to the file system. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a Backup resource.
@@ -157,8 +155,6 @@ type BackupArgs struct {
 	FileSystemId pulumi.StringInput
 	// A map of tags to assign to the file system. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-	TagsAll pulumi.StringMapInput
 }
 
 func (BackupArgs) ElementType() reflect.Type {

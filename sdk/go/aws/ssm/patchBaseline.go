@@ -237,7 +237,7 @@ import (
 //
 // ## Import
 //
-// SSM Patch Baselines can be imported by their baseline ID, e.g.
+// SSM Patch Baselines can be imported by their baseline ID, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:ssm/patchBaseline:PatchBaseline example pb-12345678

@@ -78,7 +78,7 @@ import (
 //
 // ## Import
 //
-// DB Option groups can be imported using the `name`, e.g.
+// DB Option groups can be imported using the `name`, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:rds/optionGroup:OptionGroup example mysql-option-group

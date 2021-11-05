@@ -61,7 +61,7 @@ import (
 //
 // ## Import
 //
-// Chime Voice Connector Origination can be imported using the `voice_connector_id`, e.g.
+// Chime Voice Connector Origination can be imported using the `voice_connector_id`, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:chime/voiceConnectorOrganization:VoiceConnectorOrganization default abcdef1ghij2klmno3pqr4

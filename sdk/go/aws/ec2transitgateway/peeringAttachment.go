@@ -79,7 +79,7 @@ import (
 //
 // ## Import
 //
-// `aws_ec2_transit_gateway_peering_attachment` can be imported by using the EC2 Transit Gateway Attachment identifier, e.g.
+// `aws_ec2_transit_gateway_peering_attachment` can be imported by using the EC2 Transit Gateway Attachment identifier, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:ec2transitgateway/peeringAttachment:PeeringAttachment example tgw-attach-12345678
@@ -94,7 +94,8 @@ type PeeringAttachment struct {
 	// Identifier of EC2 Transit Gateway to peer with.
 	PeerTransitGatewayId pulumi.StringOutput    `pulumi:"peerTransitGatewayId"`
 	Tags                 pulumi.StringMapOutput `pulumi:"tags"`
-	TagsAll              pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Identifier of EC2 Transit Gateway.
 	TransitGatewayId pulumi.StringOutput `pulumi:"transitGatewayId"`
 }
@@ -144,7 +145,8 @@ type peeringAttachmentState struct {
 	// Identifier of EC2 Transit Gateway to peer with.
 	PeerTransitGatewayId *string           `pulumi:"peerTransitGatewayId"`
 	Tags                 map[string]string `pulumi:"tags"`
-	TagsAll              map[string]string `pulumi:"tagsAll"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Identifier of EC2 Transit Gateway.
 	TransitGatewayId *string `pulumi:"transitGatewayId"`
 }
@@ -157,7 +159,8 @@ type PeeringAttachmentState struct {
 	// Identifier of EC2 Transit Gateway to peer with.
 	PeerTransitGatewayId pulumi.StringPtrInput
 	Tags                 pulumi.StringMapInput
-	TagsAll              pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 	// Identifier of EC2 Transit Gateway.
 	TransitGatewayId pulumi.StringPtrInput
 }

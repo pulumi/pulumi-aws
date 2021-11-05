@@ -122,7 +122,7 @@ export interface GetSnapshotResult {
     readonly owners?: string[];
     readonly restorableByUserIds?: string[];
     /**
-     * The snapshot ID (e.g. snap-59fcb34e).
+     * The snapshot ID (e.g., snap-59fcb34e).
      */
     readonly snapshotId: string;
     readonly snapshotIds?: string[];
@@ -135,7 +135,7 @@ export interface GetSnapshotResult {
      */
     readonly tags: {[key: string]: string};
     /**
-     * The volume ID (e.g. vol-59fcb34e).
+     * The volume ID (e.g., vol-59fcb34e).
      */
     readonly volumeId: string;
     /**

@@ -85,6 +85,12 @@ namespace Pulumi.Aws.Ec2.Inputs
         }
 
         /// <summary>
+        /// The index of the network card. Some instance types support multiple network cards. The primary network interface must be assigned to network card index 0. The default is network card index 0.
+        /// </summary>
+        [Input("networkCardIndex")]
+        public Input<int>? NetworkCardIndex { get; set; }
+
+        /// <summary>
         /// The ID of the network interface to attach.
         /// </summary>
         [Input("networkInterfaceId")]

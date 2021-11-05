@@ -59,7 +59,7 @@ import (
 // ```
 // ### GitHub Enterprise
 //
-// When working with [GitHub Enterprise](https://enterprise.github.com/) source CodeBuild webhooks, the GHE repository webhook must be separately managed (e.g. manually or with the `githubRepositoryWebhook` resource).
+// When working with [GitHub Enterprise](https://enterprise.github.com/) source CodeBuild webhooks, the GHE repository webhook must be separately managed (e.g., manually or with the `githubRepositoryWebhook` resource).
 //
 // More information creating webhooks with GitHub Enterprise can be found in the [CodeBuild User Guide](https://docs.aws.amazon.com/codebuild/latest/userguide/sample-github-enterprise.html).
 //
@@ -103,7 +103,7 @@ import (
 //
 // ## Import
 //
-// CodeBuild Webhooks can be imported using the CodeBuild Project name, e.g.
+// CodeBuild Webhooks can be imported using the CodeBuild Project name, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:codebuild/webhook:Webhook example MyProjectName

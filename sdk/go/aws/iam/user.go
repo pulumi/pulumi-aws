@@ -57,7 +57,7 @@ import (
 //
 // ## Import
 //
-// IAM Users can be imported using the `name`, e.g.
+// IAM Users can be imported using the `name`, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:iam/user:User lb loadbalancer

@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Kinesis Stream Consumers can be imported using the Amazon Resource Name (ARN) e.g.
+ * Kinesis Stream Consumers can be imported using the Amazon Resource Name (ARN) e.g.,
  *
  * ```sh
  *  $ pulumi import aws:kinesis/streamConsumer:StreamConsumer example arn:aws:kinesis:us-west-2:123456789012:stream/example/consumer/example:1616044553

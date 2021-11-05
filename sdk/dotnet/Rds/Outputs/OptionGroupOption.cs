@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Rds.Outputs
         /// </summary>
         public readonly ImmutableArray<string> DbSecurityGroupMemberships;
         /// <summary>
-        /// The Name of the Option (e.g. MEMCACHED).
+        /// The Name of the Option (e.g., MEMCACHED).
         /// </summary>
         public readonly string OptionName;
         /// <summary>
@@ -26,11 +26,11 @@ namespace Pulumi.Aws.Rds.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.OptionGroupOptionOptionSetting> OptionSettings;
         /// <summary>
-        /// The Port number when connecting to the Option (e.g. 11211).
+        /// The Port number when connecting to the Option (e.g., 11211).
         /// </summary>
         public readonly int? Port;
         /// <summary>
-        /// The version of the option (e.g. 13.1.0.0).
+        /// The version of the option (e.g., 13.1.0.0).
         /// </summary>
         public readonly string? Version;
         /// <summary>

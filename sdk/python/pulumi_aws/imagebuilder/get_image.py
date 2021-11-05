@@ -226,7 +226,7 @@ def get_image(arn: Optional[str] = None,
     ```
 
 
-    :param str arn: Amazon Resource Name (ARN) of the image. The suffix can either be specified with wildcards (`x.x.x`) to fetch the latest build version or a full build version (e.g. `2020.11.26/1`) to fetch an exact version.
+    :param str arn: Amazon Resource Name (ARN) of the image. The suffix can either be specified with wildcards (`x.x.x`) to fetch the latest build version or a full build version (e.g., `2020.11.26/1`) to fetch an exact version.
     :param Mapping[str, str] tags: Key-value map of resource tags for the image.
     """
     __args__ = dict()
@@ -274,7 +274,7 @@ def get_image_output(arn: Optional[pulumi.Input[str]] = None,
     ```
 
 
-    :param str arn: Amazon Resource Name (ARN) of the image. The suffix can either be specified with wildcards (`x.x.x`) to fetch the latest build version or a full build version (e.g. `2020.11.26/1`) to fetch an exact version.
+    :param str arn: Amazon Resource Name (ARN) of the image. The suffix can either be specified with wildcards (`x.x.x`) to fetch the latest build version or a full build version (e.g., `2020.11.26/1`) to fetch an exact version.
     :param Mapping[str, str] tags: Key-value map of resource tags for the image.
     """
     ...

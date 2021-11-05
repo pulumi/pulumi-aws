@@ -31,7 +31,7 @@ namespace Pulumi.Aws.WafRegional.Outputs
         /// </summary>
         public readonly string RuleId;
         /// <summary>
-        /// Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. e.g. `ALLOW`, `BLOCK` or `COUNT`
+        /// Specifies how you want AWS WAF Regional to respond to requests that match the settings in a ruleE.g., `ALLOW`, `BLOCK` or `COUNT`
         /// </summary>
         public readonly string? Type;
 

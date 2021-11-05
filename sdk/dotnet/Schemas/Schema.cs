@@ -71,7 +71,7 @@ namespace Pulumi.Aws.Schemas
     /// 
     /// ## Import
     /// 
-    /// EventBridge schema can be imported using the `name` and `registry_name`, e.g. console
+    /// EventBridge schema can be imported using the `name` and `registry_name`, e.g., console
     /// 
     /// ```sh
     ///  $ pulumi import aws:schemas/schema:Schema test name/registry
@@ -119,6 +119,9 @@ namespace Pulumi.Aws.Schemas
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -277,6 +280,10 @@ namespace Pulumi.Aws.Schemas
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

@@ -83,7 +83,7 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// 
     /// ## Import
     /// 
-    /// `aws_apigatewayv2_domain_name` can be imported by using the domain name, e.g.
+    /// `aws_apigatewayv2_domain_name` can be imported by using the domain name, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:apigatewayv2/domainName:DomainName example ws-api.example.com

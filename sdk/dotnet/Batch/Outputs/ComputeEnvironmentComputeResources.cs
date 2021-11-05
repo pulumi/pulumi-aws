@@ -26,11 +26,15 @@ namespace Pulumi.Aws.Batch.Outputs
         /// </summary>
         public readonly int? DesiredVcpus;
         /// <summary>
+        /// Provides information used to select Amazon Machine Images (AMIs) for EC2 instances in the compute environment. If Ec2Configuration isn't specified, the default is ECS_AL2. This parameter isn't applicable to jobs that are running on Fargate resources, and shouldn't be specified.
+        /// </summary>
+        public readonly Outputs.ComputeEnvironmentComputeResourcesEc2Configuration? Ec2Configuration;
+        /// <summary>
         /// The EC2 key pair that is used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         /// </summary>
         public readonly string? Ec2KeyPair;
         /// <summary>
-        /// The Amazon Machine Image (AMI) ID used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+        /// The Amazon Machine Image (AMI) ID used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified. (Deprecated, use `image_id_override` instead)
         /// </summary>
         public readonly string? ImageId;
         /// <summary>
@@ -82,6 +86,8 @@ namespace Pulumi.Aws.Batch.Outputs
 
             int? desiredVcpus,
 
+            Outputs.ComputeEnvironmentComputeResourcesEc2Configuration? ec2Configuration,
+
             string? ec2KeyPair,
 
             string? imageId,
@@ -109,6 +115,7 @@ namespace Pulumi.Aws.Batch.Outputs
             AllocationStrategy = allocationStrategy;
             BidPercentage = bidPercentage;
             DesiredVcpus = desiredVcpus;
+            Ec2Configuration = ec2Configuration;
             Ec2KeyPair = ec2KeyPair;
             ImageId = imageId;
             InstanceRole = instanceRole;

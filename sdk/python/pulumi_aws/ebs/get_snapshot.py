@@ -166,7 +166,7 @@ class GetSnapshotResult:
     @pulumi.getter(name="snapshotId")
     def snapshot_id(self) -> str:
         """
-        The snapshot ID (e.g. snap-59fcb34e).
+        The snapshot ID (e.g., snap-59fcb34e).
         """
         return pulumi.get(self, "snapshot_id")
 
@@ -195,7 +195,7 @@ class GetSnapshotResult:
     @pulumi.getter(name="volumeId")
     def volume_id(self) -> str:
         """
-        The volume ID (e.g. vol-59fcb34e).
+        The volume ID (e.g., vol-59fcb34e).
         """
         return pulumi.get(self, "volume_id")
 

@@ -73,7 +73,7 @@ type AmiCopy struct {
 	// should be attached to created instances. The structure of this block is described below.
 	EphemeralBlockDevices AmiCopyEphemeralBlockDeviceArrayOutput `pulumi:"ephemeralBlockDevices"`
 	Hypervisor            pulumi.StringOutput                    `pulumi:"hypervisor"`
-	// Path to an S3 object containing an image manifest, e.g. created
+	// Path to an S3 object containing an image manifest, e.g., created
 	// by the `ec2-upload-bundle` command in the EC2 command line tools.
 	ImageLocation   pulumi.StringOutput `pulumi:"imageLocation"`
 	ImageOwnerAlias pulumi.StringOutput `pulumi:"imageOwnerAlias"`
@@ -172,7 +172,7 @@ type amiCopyState struct {
 	// should be attached to created instances. The structure of this block is described below.
 	EphemeralBlockDevices []AmiCopyEphemeralBlockDevice `pulumi:"ephemeralBlockDevices"`
 	Hypervisor            *string                       `pulumi:"hypervisor"`
-	// Path to an S3 object containing an image manifest, e.g. created
+	// Path to an S3 object containing an image manifest, e.g., created
 	// by the `ec2-upload-bundle` command in the EC2 command line tools.
 	ImageLocation   *string `pulumi:"imageLocation"`
 	ImageOwnerAlias *string `pulumi:"imageOwnerAlias"`
@@ -237,7 +237,7 @@ type AmiCopyState struct {
 	// should be attached to created instances. The structure of this block is described below.
 	EphemeralBlockDevices AmiCopyEphemeralBlockDeviceArrayInput
 	Hypervisor            pulumi.StringPtrInput
-	// Path to an S3 object containing an image manifest, e.g. created
+	// Path to an S3 object containing an image manifest, e.g., created
 	// by the `ec2-upload-bundle` command in the EC2 command line tools.
 	ImageLocation   pulumi.StringPtrInput
 	ImageOwnerAlias pulumi.StringPtrInput

@@ -31,7 +31,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Kinesis Streams can be imported using the `name`, e.g.
+ * Kinesis Streams can be imported using the `name`, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:kinesis/stream:Stream test_stream kinesis-test
@@ -101,6 +101,9 @@ export class Stream extends pulumi.CustomResource {
      */
     public readonly shardLevelMetrics!: pulumi.Output<string[] | undefined>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -187,6 +190,9 @@ export interface StreamState {
      */
     shardLevelMetrics?: pulumi.Input<pulumi.Input<string>[]>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 

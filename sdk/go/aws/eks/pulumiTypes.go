@@ -1133,7 +1133,7 @@ type IdentityProviderConfigOidc struct {
 	ClientId string `pulumi:"clientId"`
 	// The JWT claim that the provider will use to return groups.
 	GroupsClaim *string `pulumi:"groupsClaim"`
-	// A prefix that is prepended to group claims e.g. `oidc:`.
+	// A prefix that is prepended to group claims e.g., `oidc:`.
 	GroupsPrefix *string `pulumi:"groupsPrefix"`
 	// The name of the identity provider config.
 	IdentityProviderConfigName string `pulumi:"identityProviderConfigName"`
@@ -1163,7 +1163,7 @@ type IdentityProviderConfigOidcArgs struct {
 	ClientId pulumi.StringInput `pulumi:"clientId"`
 	// The JWT claim that the provider will use to return groups.
 	GroupsClaim pulumi.StringPtrInput `pulumi:"groupsClaim"`
-	// A prefix that is prepended to group claims e.g. `oidc:`.
+	// A prefix that is prepended to group claims e.g., `oidc:`.
 	GroupsPrefix pulumi.StringPtrInput `pulumi:"groupsPrefix"`
 	// The name of the identity provider config.
 	IdentityProviderConfigName pulumi.StringInput `pulumi:"identityProviderConfigName"`
@@ -1264,7 +1264,7 @@ func (o IdentityProviderConfigOidcOutput) GroupsClaim() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IdentityProviderConfigOidc) *string { return v.GroupsClaim }).(pulumi.StringPtrOutput)
 }
 
-// A prefix that is prepended to group claims e.g. `oidc:`.
+// A prefix that is prepended to group claims e.g., `oidc:`.
 func (o IdentityProviderConfigOidcOutput) GroupsPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IdentityProviderConfigOidc) *string { return v.GroupsPrefix }).(pulumi.StringPtrOutput)
 }
@@ -1338,7 +1338,7 @@ func (o IdentityProviderConfigOidcPtrOutput) GroupsClaim() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// A prefix that is prepended to group claims e.g. `oidc:`.
+// A prefix that is prepended to group claims e.g., `oidc:`.
 func (o IdentityProviderConfigOidcPtrOutput) GroupsPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IdentityProviderConfigOidc) *string {
 		if v == nil {

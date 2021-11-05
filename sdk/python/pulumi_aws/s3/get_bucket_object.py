@@ -210,7 +210,7 @@ class GetBucketObjectResult:
     @pulumi.getter(name="lastModified")
     def last_modified(self) -> str:
         """
-        Last modified date of the object in RFC1123 format (e.g. `Mon, 02 Jan 2006 15:04:05 MST`)
+        Last modified date of the object in RFC1123 format (e.g., `Mon, 02 Jan 2006 15:04:05 MST`)
         """
         return pulumi.get(self, "last_modified")
 

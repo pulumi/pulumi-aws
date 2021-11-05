@@ -76,7 +76,7 @@ export class Fleet extends pulumi.CustomResource {
      */
     public readonly ec2InboundPermissions!: pulumi.Output<outputs.gamelift.FleetEc2InboundPermission[] | undefined>;
     /**
-     * Name of an EC2 instance type. e.g. `t2.micro`
+     * Name of an EC2 instance typeE.g., `t2.micro`
      */
     public readonly ec2InstanceType!: pulumi.Output<string>;
     /**
@@ -97,7 +97,7 @@ export class Fleet extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Game session protection policy to apply to all instances in this fleet. e.g. `FullProtection`. Defaults to `NoProtection`.
+     * Game session protection policy to apply to all instances in this fleetE.g., `FullProtection`. Defaults to `NoProtection`.
      */
     public readonly newGameSessionProtectionPolicy!: pulumi.Output<string | undefined>;
     /**
@@ -203,7 +203,7 @@ export interface FleetState {
      */
     ec2InboundPermissions?: pulumi.Input<pulumi.Input<inputs.gamelift.FleetEc2InboundPermission>[]>;
     /**
-     * Name of an EC2 instance type. e.g. `t2.micro`
+     * Name of an EC2 instance typeE.g., `t2.micro`
      */
     ec2InstanceType?: pulumi.Input<string>;
     /**
@@ -224,7 +224,7 @@ export interface FleetState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Game session protection policy to apply to all instances in this fleet. e.g. `FullProtection`. Defaults to `NoProtection`.
+     * Game session protection policy to apply to all instances in this fleetE.g., `FullProtection`. Defaults to `NoProtection`.
      */
     newGameSessionProtectionPolicy?: pulumi.Input<string>;
     /**
@@ -266,7 +266,7 @@ export interface FleetArgs {
      */
     ec2InboundPermissions?: pulumi.Input<pulumi.Input<inputs.gamelift.FleetEc2InboundPermission>[]>;
     /**
-     * Name of an EC2 instance type. e.g. `t2.micro`
+     * Name of an EC2 instance typeE.g., `t2.micro`
      */
     ec2InstanceType: pulumi.Input<string>;
     /**
@@ -286,7 +286,7 @@ export interface FleetArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Game session protection policy to apply to all instances in this fleet. e.g. `FullProtection`. Defaults to `NoProtection`.
+     * Game session protection policy to apply to all instances in this fleetE.g., `FullProtection`. Defaults to `NoProtection`.
      */
     newGameSessionProtectionPolicy?: pulumi.Input<string>;
     /**

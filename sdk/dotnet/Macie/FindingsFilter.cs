@@ -58,7 +58,7 @@ namespace Pulumi.Aws.Macie
     /// 
     /// ## Import
     /// 
-    /// `aws_macie2_findings_filter` can be imported using the id, e.g.
+    /// `aws_macie2_findings_filter` can be imported using the id, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:macie/findingsFilter:FindingsFilter example abcd1

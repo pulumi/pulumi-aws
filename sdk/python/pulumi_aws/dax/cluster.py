@@ -297,7 +297,7 @@ class _ClusterState:
         :param pulumi.Input[str] node_type: The compute and memory capacity of the nodes. See
                [Nodes](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.concepts.cluster.html#DAX.concepts.nodes) for supported node types
         :param pulumi.Input[Sequence[pulumi.Input['ClusterNodeArgs']]] nodes: List of node objects including `id`, `address`, `port` and
-               `availability_zone`. Referenceable e.g. as
+               `availability_zone`. Referenceable e.g., as
                `${aws_dax_cluster.test.nodes.0.address}`
         :param pulumi.Input[str] notification_topic_arn: An Amazon Resource Name (ARN) of an
                SNS topic to send DAX notifications to. Example:
@@ -477,7 +477,7 @@ class _ClusterState:
     def nodes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ClusterNodeArgs']]]]:
         """
         List of node objects including `id`, `address`, `port` and
-        `availability_zone`. Referenceable e.g. as
+        `availability_zone`. Referenceable e.g., as
         `${aws_dax_cluster.test.nodes.0.address}`
         """
         return pulumi.get(self, "nodes")
@@ -639,7 +639,7 @@ class Cluster(pulumi.CustomResource):
 
         ## Import
 
-        DAX Clusters can be imported using the `cluster_name`, e.g.
+        DAX Clusters can be imported using the `cluster_name`, e.g.,
 
         ```sh
          $ pulumi import aws:dax/cluster:Cluster my_cluster my_cluster
@@ -702,7 +702,7 @@ class Cluster(pulumi.CustomResource):
 
         ## Import
 
-        DAX Clusters can be imported using the `cluster_name`, e.g.
+        DAX Clusters can be imported using the `cluster_name`, e.g.,
 
         ```sh
          $ pulumi import aws:dax/cluster:Cluster my_cluster my_cluster
@@ -832,7 +832,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] node_type: The compute and memory capacity of the nodes. See
                [Nodes](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.concepts.cluster.html#DAX.concepts.nodes) for supported node types
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterNodeArgs']]]] nodes: List of node objects including `id`, `address`, `port` and
-               `availability_zone`. Referenceable e.g. as
+               `availability_zone`. Referenceable e.g., as
                `${aws_dax_cluster.test.nodes.0.address}`
         :param pulumi.Input[str] notification_topic_arn: An Amazon Resource Name (ARN) of an
                SNS topic to send DAX notifications to. Example:
@@ -962,7 +962,7 @@ class Cluster(pulumi.CustomResource):
     def nodes(self) -> pulumi.Output[Sequence['outputs.ClusterNode']]:
         """
         List of node objects including `id`, `address`, `port` and
-        `availability_zone`. Referenceable e.g. as
+        `availability_zone`. Referenceable e.g., as
         `${aws_dax_cluster.test.nodes.0.address}`
         """
         return pulumi.get(self, "nodes")

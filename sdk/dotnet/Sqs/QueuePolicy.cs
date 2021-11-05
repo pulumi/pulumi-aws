@@ -56,7 +56,7 @@ namespace Pulumi.Aws.Sqs
     /// 
     /// ## Import
     /// 
-    /// SQS Queue Policies can be imported using the queue URL, e.g.
+    /// SQS Queue Policies can be imported using the queue URL, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:sqs/queuePolicy:QueuePolicy test https://queue.amazonaws.com/0123456789012/myqueue

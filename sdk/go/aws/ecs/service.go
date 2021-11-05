@@ -138,7 +138,7 @@ import (
 //
 // ## Import
 //
-// ECS services can be imported using the `name` together with ecs cluster `name`, e.g.
+// ECS services can be imported using the `name` together with ecs cluster `name`, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:ecs/service:Service imported cluster-name/service-name
@@ -164,7 +164,7 @@ type Service struct {
 	EnableEcsManagedTags pulumi.BoolPtrOutput `pulumi:"enableEcsManagedTags"`
 	// Specifies whether to enable Amazon ECS Exec for the tasks within the service.
 	EnableExecuteCommand pulumi.BoolPtrOutput `pulumi:"enableExecuteCommand"`
-	// Enable to force a new task deployment of the service. This can be used to update tasks to use a newer Docker image with same image/tag combination (e.g. `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy `orderedPlacementStrategy` and `placementConstraints` updates.
+	// Enable to force a new task deployment of the service. This can be used to update tasks to use a newer Docker image with same image/tag combination (e.g., `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy `orderedPlacementStrategy` and `placementConstraints` updates.
 	ForceNewDeployment pulumi.BoolPtrOutput `pulumi:"forceNewDeployment"`
 	// Seconds to ignore failing load balancer health checks on newly instantiated tasks to prevent premature shutdown, up to 2147483647. Only valid for services configured to use load balancers.
 	HealthCheckGracePeriodSeconds pulumi.IntPtrOutput `pulumi:"healthCheckGracePeriodSeconds"`
@@ -191,7 +191,8 @@ type Service struct {
 	// Service discovery registries for the service. The maximum number of `serviceRegistries` blocks is `1`. Detailed below.
 	ServiceRegistries ServiceServiceRegistriesPtrOutput `pulumi:"serviceRegistries"`
 	// Key-value map of resource tags.
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service. Required unless using the `EXTERNAL` deployment controller. If a revision is not specified, the latest `ACTIVE` revision is used.
 	TaskDefinition pulumi.StringPtrOutput `pulumi:"taskDefinition"`
@@ -246,7 +247,7 @@ type serviceState struct {
 	EnableEcsManagedTags *bool `pulumi:"enableEcsManagedTags"`
 	// Specifies whether to enable Amazon ECS Exec for the tasks within the service.
 	EnableExecuteCommand *bool `pulumi:"enableExecuteCommand"`
-	// Enable to force a new task deployment of the service. This can be used to update tasks to use a newer Docker image with same image/tag combination (e.g. `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy `orderedPlacementStrategy` and `placementConstraints` updates.
+	// Enable to force a new task deployment of the service. This can be used to update tasks to use a newer Docker image with same image/tag combination (e.g., `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy `orderedPlacementStrategy` and `placementConstraints` updates.
 	ForceNewDeployment *bool `pulumi:"forceNewDeployment"`
 	// Seconds to ignore failing load balancer health checks on newly instantiated tasks to prevent premature shutdown, up to 2147483647. Only valid for services configured to use load balancers.
 	HealthCheckGracePeriodSeconds *int `pulumi:"healthCheckGracePeriodSeconds"`
@@ -273,7 +274,8 @@ type serviceState struct {
 	// Service discovery registries for the service. The maximum number of `serviceRegistries` blocks is `1`. Detailed below.
 	ServiceRegistries *ServiceServiceRegistries `pulumi:"serviceRegistries"`
 	// Key-value map of resource tags.
-	Tags    map[string]string `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service. Required unless using the `EXTERNAL` deployment controller. If a revision is not specified, the latest `ACTIVE` revision is used.
 	TaskDefinition *string `pulumi:"taskDefinition"`
@@ -300,7 +302,7 @@ type ServiceState struct {
 	EnableEcsManagedTags pulumi.BoolPtrInput
 	// Specifies whether to enable Amazon ECS Exec for the tasks within the service.
 	EnableExecuteCommand pulumi.BoolPtrInput
-	// Enable to force a new task deployment of the service. This can be used to update tasks to use a newer Docker image with same image/tag combination (e.g. `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy `orderedPlacementStrategy` and `placementConstraints` updates.
+	// Enable to force a new task deployment of the service. This can be used to update tasks to use a newer Docker image with same image/tag combination (e.g., `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy `orderedPlacementStrategy` and `placementConstraints` updates.
 	ForceNewDeployment pulumi.BoolPtrInput
 	// Seconds to ignore failing load balancer health checks on newly instantiated tasks to prevent premature shutdown, up to 2147483647. Only valid for services configured to use load balancers.
 	HealthCheckGracePeriodSeconds pulumi.IntPtrInput
@@ -327,7 +329,8 @@ type ServiceState struct {
 	// Service discovery registries for the service. The maximum number of `serviceRegistries` blocks is `1`. Detailed below.
 	ServiceRegistries ServiceServiceRegistriesPtrInput
 	// Key-value map of resource tags.
-	Tags    pulumi.StringMapInput
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// Family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service. Required unless using the `EXTERNAL` deployment controller. If a revision is not specified, the latest `ACTIVE` revision is used.
 	TaskDefinition pulumi.StringPtrInput
@@ -358,7 +361,7 @@ type serviceArgs struct {
 	EnableEcsManagedTags *bool `pulumi:"enableEcsManagedTags"`
 	// Specifies whether to enable Amazon ECS Exec for the tasks within the service.
 	EnableExecuteCommand *bool `pulumi:"enableExecuteCommand"`
-	// Enable to force a new task deployment of the service. This can be used to update tasks to use a newer Docker image with same image/tag combination (e.g. `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy `orderedPlacementStrategy` and `placementConstraints` updates.
+	// Enable to force a new task deployment of the service. This can be used to update tasks to use a newer Docker image with same image/tag combination (e.g., `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy `orderedPlacementStrategy` and `placementConstraints` updates.
 	ForceNewDeployment *bool `pulumi:"forceNewDeployment"`
 	// Seconds to ignore failing load balancer health checks on newly instantiated tasks to prevent premature shutdown, up to 2147483647. Only valid for services configured to use load balancers.
 	HealthCheckGracePeriodSeconds *int `pulumi:"healthCheckGracePeriodSeconds"`
@@ -412,7 +415,7 @@ type ServiceArgs struct {
 	EnableEcsManagedTags pulumi.BoolPtrInput
 	// Specifies whether to enable Amazon ECS Exec for the tasks within the service.
 	EnableExecuteCommand pulumi.BoolPtrInput
-	// Enable to force a new task deployment of the service. This can be used to update tasks to use a newer Docker image with same image/tag combination (e.g. `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy `orderedPlacementStrategy` and `placementConstraints` updates.
+	// Enable to force a new task deployment of the service. This can be used to update tasks to use a newer Docker image with same image/tag combination (e.g., `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy `orderedPlacementStrategy` and `placementConstraints` updates.
 	ForceNewDeployment pulumi.BoolPtrInput
 	// Seconds to ignore failing load balancer health checks on newly instantiated tasks to prevent premature shutdown, up to 2147483647. Only valid for services configured to use load balancers.
 	HealthCheckGracePeriodSeconds pulumi.IntPtrInput

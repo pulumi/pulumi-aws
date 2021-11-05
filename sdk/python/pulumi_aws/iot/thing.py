@@ -195,7 +195,7 @@ class Thing(pulumi.CustomResource):
 
         ## Import
 
-        IOT Things can be imported using the name, e.g.
+        IOT Things can be imported using the name, e.g.,
 
         ```sh
          $ pulumi import aws:iot/thing:Thing example example
@@ -229,7 +229,7 @@ class Thing(pulumi.CustomResource):
 
         ## Import
 
-        IOT Things can be imported using the name, e.g.
+        IOT Things can be imported using the name, e.g.,
 
         ```sh
          $ pulumi import aws:iot/thing:Thing example example

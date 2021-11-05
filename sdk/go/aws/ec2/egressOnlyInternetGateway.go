@@ -51,7 +51,7 @@ import (
 //
 // ## Import
 //
-// Egress-only Internet gateways can be imported using the `id`, e.g.
+// Egress-only Internet gateways can be imported using the `id`, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:ec2/egressOnlyInternetGateway:EgressOnlyInternetGateway example eigw-015e0e244e24dfe8a
@@ -59,7 +59,8 @@ import (
 type EgressOnlyInternetGateway struct {
 	pulumi.CustomResourceState
 
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The VPC ID to create in.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
@@ -97,14 +98,16 @@ func GetEgressOnlyInternetGateway(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EgressOnlyInternetGateway resources.
 type egressOnlyInternetGatewayState struct {
-	Tags    map[string]string `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The VPC ID to create in.
 	VpcId *string `pulumi:"vpcId"`
 }
 
 type EgressOnlyInternetGatewayState struct {
-	Tags    pulumi.StringMapInput
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// The VPC ID to create in.
 	VpcId pulumi.StringPtrInput

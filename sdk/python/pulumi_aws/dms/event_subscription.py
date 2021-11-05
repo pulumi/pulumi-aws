@@ -318,7 +318,7 @@ class EventSubscription(pulumi.CustomResource):
 
         ## Import
 
-        Event subscriptions can be imported using the `name`, e.g.
+        Event subscriptions can be imported using the `name`, e.g.,
 
         ```sh
          $ pulumi import aws:dms/eventSubscription:EventSubscription test my-awesome-event-subscription
@@ -365,7 +365,7 @@ class EventSubscription(pulumi.CustomResource):
 
         ## Import
 
-        Event subscriptions can be imported using the `name`, e.g.
+        Event subscriptions can be imported using the `name`, e.g.,
 
         ```sh
          $ pulumi import aws:dms/eventSubscription:EventSubscription test my-awesome-event-subscription

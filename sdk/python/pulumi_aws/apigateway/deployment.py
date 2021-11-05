@@ -131,7 +131,7 @@ class _DeploymentState:
         :param pulumi.Input[str] description: Description of the deployment
         :param pulumi.Input[str] execution_arn: The execution ARN to be used in `lambda_permission` resource's `source_arn`
                when allowing API Gateway to invoke a Lambda function,
-               e.g. `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
+               e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
         :param pulumi.Input[str] invoke_url: The URL to invoke the API pointing to the stage,
                e.g. `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
         :param pulumi.Input[str] rest_api: REST API identifier.
@@ -189,7 +189,7 @@ class _DeploymentState:
         """
         The execution ARN to be used in `lambda_permission` resource's `source_arn`
         when allowing API Gateway to invoke a Lambda function,
-        e.g. `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
+        e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
         """
         return pulumi.get(self, "execution_arn")
 
@@ -544,7 +544,7 @@ class Deployment(pulumi.CustomResource):
         :param pulumi.Input[str] description: Description of the deployment
         :param pulumi.Input[str] execution_arn: The execution ARN to be used in `lambda_permission` resource's `source_arn`
                when allowing API Gateway to invoke a Lambda function,
-               e.g. `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
+               e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
         :param pulumi.Input[str] invoke_url: The URL to invoke the API pointing to the stage,
                e.g. `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
         :param pulumi.Input[str] rest_api: REST API identifier.
@@ -590,7 +590,7 @@ class Deployment(pulumi.CustomResource):
         """
         The execution ARN to be used in `lambda_permission` resource's `source_arn`
         when allowing API Gateway to invoke a Lambda function,
-        e.g. `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
+        e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
         """
         return pulumi.get(self, "execution_arn")
 

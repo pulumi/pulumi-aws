@@ -366,9 +366,9 @@ class BrokerMaintenanceWindowStartTimeArgs:
                  time_of_day: pulumi.Input[str],
                  time_zone: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] day_of_week: Day of the week, e.g. `MONDAY`, `TUESDAY`, or `WEDNESDAY`.
-        :param pulumi.Input[str] time_of_day: Time, in 24-hour format, e.g. `02:00`.
-        :param pulumi.Input[str] time_zone: Time zone in either the Country/City format or the UTC offset format, e.g. `CET`.
+        :param pulumi.Input[str] day_of_week: Day of the week, e.g., `MONDAY`, `TUESDAY`, or `WEDNESDAY`.
+        :param pulumi.Input[str] time_of_day: Time, in 24-hour format, e.g., `02:00`.
+        :param pulumi.Input[str] time_zone: Time zone in either the Country/City format or the UTC offset format, e.g., `CET`.
         """
         pulumi.set(__self__, "day_of_week", day_of_week)
         pulumi.set(__self__, "time_of_day", time_of_day)
@@ -378,7 +378,7 @@ class BrokerMaintenanceWindowStartTimeArgs:
     @pulumi.getter(name="dayOfWeek")
     def day_of_week(self) -> pulumi.Input[str]:
         """
-        Day of the week, e.g. `MONDAY`, `TUESDAY`, or `WEDNESDAY`.
+        Day of the week, e.g., `MONDAY`, `TUESDAY`, or `WEDNESDAY`.
         """
         return pulumi.get(self, "day_of_week")
 
@@ -390,7 +390,7 @@ class BrokerMaintenanceWindowStartTimeArgs:
     @pulumi.getter(name="timeOfDay")
     def time_of_day(self) -> pulumi.Input[str]:
         """
-        Time, in 24-hour format, e.g. `02:00`.
+        Time, in 24-hour format, e.g., `02:00`.
         """
         return pulumi.get(self, "time_of_day")
 
@@ -402,7 +402,7 @@ class BrokerMaintenanceWindowStartTimeArgs:
     @pulumi.getter(name="timeZone")
     def time_zone(self) -> pulumi.Input[str]:
         """
-        Time zone in either the Country/City format or the UTC offset format, e.g. `CET`.
+        Time zone in either the Country/City format or the UTC offset format, e.g., `CET`.
         """
         return pulumi.get(self, "time_zone")
 

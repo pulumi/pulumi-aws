@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * SimpleDB Domains can be imported using the `name`, e.g.
+ * SimpleDB Domains can be imported using the `name`, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:simpledb/domain:Domain users users

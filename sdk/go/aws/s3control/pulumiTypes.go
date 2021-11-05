@@ -287,7 +287,7 @@ func (o BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadPtrOutput)
 }
 
 type BucketLifecycleConfigurationRuleExpiration struct {
-	// Date the object is to be deleted. Should be in `YYYY-MM-DD` date format, e.g. `2020-09-30`.
+	// Date the object is to be deleted. Should be in `YYYY-MM-DD` date format, e.g., `2020-09-30`.
 	Date *string `pulumi:"date"`
 	// Number of days before the object is to be deleted.
 	Days *int `pulumi:"days"`
@@ -307,7 +307,7 @@ type BucketLifecycleConfigurationRuleExpirationInput interface {
 }
 
 type BucketLifecycleConfigurationRuleExpirationArgs struct {
-	// Date the object is to be deleted. Should be in `YYYY-MM-DD` date format, e.g. `2020-09-30`.
+	// Date the object is to be deleted. Should be in `YYYY-MM-DD` date format, e.g., `2020-09-30`.
 	Date pulumi.StringPtrInput `pulumi:"date"`
 	// Number of days before the object is to be deleted.
 	Days pulumi.IntPtrInput `pulumi:"days"`
@@ -392,7 +392,7 @@ func (o BucketLifecycleConfigurationRuleExpirationOutput) ToBucketLifecycleConfi
 	}).(BucketLifecycleConfigurationRuleExpirationPtrOutput)
 }
 
-// Date the object is to be deleted. Should be in `YYYY-MM-DD` date format, e.g. `2020-09-30`.
+// Date the object is to be deleted. Should be in `YYYY-MM-DD` date format, e.g., `2020-09-30`.
 func (o BucketLifecycleConfigurationRuleExpirationOutput) Date() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketLifecycleConfigurationRuleExpiration) *string { return v.Date }).(pulumi.StringPtrOutput)
 }
@@ -431,7 +431,7 @@ func (o BucketLifecycleConfigurationRuleExpirationPtrOutput) Elem() BucketLifecy
 	}).(BucketLifecycleConfigurationRuleExpirationOutput)
 }
 
-// Date the object is to be deleted. Should be in `YYYY-MM-DD` date format, e.g. `2020-09-30`.
+// Date the object is to be deleted. Should be in `YYYY-MM-DD` date format, e.g., `2020-09-30`.
 func (o BucketLifecycleConfigurationRuleExpirationPtrOutput) Date() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketLifecycleConfigurationRuleExpiration) *string {
 		if v == nil {

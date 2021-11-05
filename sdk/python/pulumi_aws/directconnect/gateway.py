@@ -127,7 +127,7 @@ class Gateway(pulumi.CustomResource):
 
         ## Import
 
-        Direct Connect Gateways can be imported using the `gateway id`, e.g.
+        Direct Connect Gateways can be imported using the `gateway id`, e.g.,
 
         ```sh
          $ pulumi import aws:directconnect/gateway:Gateway test abcd1234-dcba-5678-be23-cdef9876ab45
@@ -158,7 +158,7 @@ class Gateway(pulumi.CustomResource):
 
         ## Import
 
-        Direct Connect Gateways can be imported using the `gateway id`, e.g.
+        Direct Connect Gateways can be imported using the `gateway id`, e.g.,
 
         ```sh
          $ pulumi import aws:directconnect/gateway:Gateway test abcd1234-dcba-5678-be23-cdef9876ab45

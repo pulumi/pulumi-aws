@@ -37,7 +37,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * `aws_neptune_cluster` can be imported by using the cluster identifier, e.g.
+ * `aws_neptune_cluster` can be imported by using the cluster identifier, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:neptune/cluster:Cluster example my-cluster
@@ -136,7 +136,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public /*out*/ readonly hostedZoneId!: pulumi.Output<string>;
     /**
-     * Specifies whether or mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
+     * Specifies whether or not mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
      */
     public readonly iamDatabaseAuthenticationEnabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -160,11 +160,11 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly port!: pulumi.Output<number | undefined>;
     /**
-     * The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter. Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per region. e.g. 04:00-09:00
+     * The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter. Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
      */
     public readonly preferredBackupWindow!: pulumi.Output<string>;
     /**
-     * The weekly time range during which system maintenance can occur, in (UTC) e.g. wed:04:00-wed:04:30
+     * The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
      */
     public readonly preferredMaintenanceWindow!: pulumi.Output<string>;
     /**
@@ -356,7 +356,7 @@ export interface ClusterState {
      */
     hostedZoneId?: pulumi.Input<string>;
     /**
-     * Specifies whether or mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
+     * Specifies whether or not mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
      */
     iamDatabaseAuthenticationEnabled?: pulumi.Input<boolean>;
     /**
@@ -380,11 +380,11 @@ export interface ClusterState {
      */
     port?: pulumi.Input<number>;
     /**
-     * The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter. Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per region. e.g. 04:00-09:00
+     * The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter. Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
      */
     preferredBackupWindow?: pulumi.Input<string>;
     /**
-     * The weekly time range during which system maintenance can occur, in (UTC) e.g. wed:04:00-wed:04:30
+     * The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
      */
     preferredMaintenanceWindow?: pulumi.Input<string>;
     /**
@@ -470,7 +470,7 @@ export interface ClusterArgs {
      */
     finalSnapshotIdentifier?: pulumi.Input<string>;
     /**
-     * Specifies whether or mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
+     * Specifies whether or not mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
      */
     iamDatabaseAuthenticationEnabled?: pulumi.Input<boolean>;
     /**
@@ -494,11 +494,11 @@ export interface ClusterArgs {
      */
     port?: pulumi.Input<number>;
     /**
-     * The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter. Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per region. e.g. 04:00-09:00
+     * The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter. Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
      */
     preferredBackupWindow?: pulumi.Input<string>;
     /**
-     * The weekly time range during which system maintenance can occur, in (UTC) e.g. wed:04:00-wed:04:30
+     * The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
      */
     preferredMaintenanceWindow?: pulumi.Input<string>;
     /**

@@ -96,7 +96,7 @@ namespace Pulumi.Aws.Acm
     /// 
     /// ## Import
     /// 
-    /// Certificates can be imported using their ARN, e.g.
+    /// Certificates can be imported using their ARN, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:acm/certificate:Certificate cert arn:aws:acm:eu-central-1:123456789012:certificate/7e7a28d2-163f-4b8f-b9cd-822f96c08d6a
@@ -137,7 +137,7 @@ namespace Pulumi.Aws.Acm
         public Output<string> DomainName { get; private set; } = null!;
 
         /// <summary>
-        /// Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g. if SANs are defined. Only set if `DNS`-validation was used.
+        /// Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined. Only set if `DNS`-validation was used.
         /// </summary>
         [Output("domainValidationOptions")]
         public Output<ImmutableArray<Outputs.CertificateDomainValidationOption>> DomainValidationOptions { get; private set; } = null!;
@@ -347,7 +347,7 @@ namespace Pulumi.Aws.Acm
         private InputList<Inputs.CertificateDomainValidationOptionGetArgs>? _domainValidationOptions;
 
         /// <summary>
-        /// Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g. if SANs are defined. Only set if `DNS`-validation was used.
+        /// Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined. Only set if `DNS`-validation was used.
         /// </summary>
         public InputList<Inputs.CertificateDomainValidationOptionGetArgs> DomainValidationOptions
         {

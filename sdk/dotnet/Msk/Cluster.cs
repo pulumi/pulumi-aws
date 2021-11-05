@@ -170,7 +170,7 @@ namespace Pulumi.Aws.Msk
     /// 
     /// ## Import
     /// 
-    /// MSK clusters can be imported using the cluster `arn`, e.g.
+    /// MSK clusters can be imported using the cluster `arn`, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:msk/cluster:Cluster example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
@@ -234,7 +234,7 @@ namespace Pulumi.Aws.Msk
         public Output<Outputs.ClusterConfigurationInfo?> ConfigurationInfo { get; private set; } = null!;
 
         /// <summary>
-        /// Current version of the MSK Cluster used for updates, e.g. `K13V1IB3VIYZZH`
+        /// Current version of the MSK Cluster used for updates, e.g., `K13V1IB3VIYZZH`
         /// * `encryption_info.0.encryption_at_rest_kms_key_arn` - The ARN of the KMS key used for encryption at rest of the broker data volumes.
         /// </summary>
         [Output("currentVersion")]
@@ -480,7 +480,7 @@ namespace Pulumi.Aws.Msk
         public Input<Inputs.ClusterConfigurationInfoGetArgs>? ConfigurationInfo { get; set; }
 
         /// <summary>
-        /// Current version of the MSK Cluster used for updates, e.g. `K13V1IB3VIYZZH`
+        /// Current version of the MSK Cluster used for updates, e.g., `K13V1IB3VIYZZH`
         /// * `encryption_info.0.encryption_at_rest_kms_key_arn` - The ARN of the KMS key used for encryption at rest of the broker data volumes.
         /// </summary>
         [Input("currentVersion")]

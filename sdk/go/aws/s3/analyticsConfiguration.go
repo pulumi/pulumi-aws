@@ -89,7 +89,7 @@ import (
 //
 // ## Import
 //
-// S3 bucket analytics configurations can be imported using `bucket:analytics`, e.g.
+// S3 bucket analytics configurations can be imported using `bucket:analytics`, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:s3/analyticsConfiguration:AnalyticsConfiguration my-bucket-entire-bucket my-bucket:EntireBucket

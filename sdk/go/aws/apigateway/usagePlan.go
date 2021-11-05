@@ -130,7 +130,7 @@ import (
 //
 // ## Import
 //
-// AWS API Gateway Usage Plan can be imported using the `id`, e.g.
+// AWS API Gateway Usage Plan can be imported using the `id`, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:apigateway/usagePlan:UsagePlan myusageplan <usage_plan_id>

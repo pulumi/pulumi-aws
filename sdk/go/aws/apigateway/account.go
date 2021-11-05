@@ -55,7 +55,7 @@ import (
 //
 // ## Import
 //
-// API Gateway Accounts can be imported using the word `api-gateway-account`, e.g.
+// API Gateway Accounts can be imported using the word `api-gateway-account`, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:apigateway/account:Account demo api-gateway-account

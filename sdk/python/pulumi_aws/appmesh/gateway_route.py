@@ -342,7 +342,7 @@ class GatewayRoute(pulumi.CustomResource):
 
         ## Import
 
-        App Mesh gateway routes can be imported using `mesh_name` and `virtual_gateway_name` together with the gateway route's `name`, e.g.
+        App Mesh gateway routes can be imported using `mesh_name` and `virtual_gateway_name` together with the gateway route's `name`, e.g.,
 
         ```sh
          $ pulumi import aws:appmesh/gatewayRoute:GatewayRoute example mesh/gw1/example-gateway-route
@@ -398,7 +398,7 @@ class GatewayRoute(pulumi.CustomResource):
 
         ## Import
 
-        App Mesh gateway routes can be imported using `mesh_name` and `virtual_gateway_name` together with the gateway route's `name`, e.g.
+        App Mesh gateway routes can be imported using `mesh_name` and `virtual_gateway_name` together with the gateway route's `name`, e.g.,
 
         ```sh
          $ pulumi import aws:appmesh/gatewayRoute:GatewayRoute example mesh/gw1/example-gateway-route

@@ -44,7 +44,7 @@ import (
 //
 // ## Import
 //
-// EBS Volumes can be imported using the `id`, e.g.
+// EBS Volumes can be imported using the `id`, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:ebs/volume:Volume id vol-049df61146c4d7901
@@ -52,7 +52,7 @@ import (
 type Volume struct {
 	pulumi.CustomResourceState
 
-	// The volume ARN (e.g. arn:aws:ec2:us-east-1:0123456789012:volume/vol-59fcb34e).
+	// The volume ARN (e.g., arn:aws:ec2:us-east-1:0123456789012:volume/vol-59fcb34e).
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The AZ where the EBS volume will exist.
 	AvailabilityZone pulumi.StringOutput `pulumi:"availabilityZone"`
@@ -70,7 +70,8 @@ type Volume struct {
 	// A snapshot to base the EBS volume off of.
 	SnapshotId pulumi.StringOutput    `pulumi:"snapshotId"`
 	Tags       pulumi.StringMapOutput `pulumi:"tags"`
-	TagsAll    pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
 	Throughput pulumi.IntOutput `pulumi:"throughput"`
 	// The type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
@@ -109,7 +110,7 @@ func GetVolume(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Volume resources.
 type volumeState struct {
-	// The volume ARN (e.g. arn:aws:ec2:us-east-1:0123456789012:volume/vol-59fcb34e).
+	// The volume ARN (e.g., arn:aws:ec2:us-east-1:0123456789012:volume/vol-59fcb34e).
 	Arn *string `pulumi:"arn"`
 	// The AZ where the EBS volume will exist.
 	AvailabilityZone *string `pulumi:"availabilityZone"`
@@ -127,7 +128,8 @@ type volumeState struct {
 	// A snapshot to base the EBS volume off of.
 	SnapshotId *string           `pulumi:"snapshotId"`
 	Tags       map[string]string `pulumi:"tags"`
-	TagsAll    map[string]string `pulumi:"tagsAll"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
 	Throughput *int `pulumi:"throughput"`
 	// The type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
@@ -135,7 +137,7 @@ type volumeState struct {
 }
 
 type VolumeState struct {
-	// The volume ARN (e.g. arn:aws:ec2:us-east-1:0123456789012:volume/vol-59fcb34e).
+	// The volume ARN (e.g., arn:aws:ec2:us-east-1:0123456789012:volume/vol-59fcb34e).
 	Arn pulumi.StringPtrInput
 	// The AZ where the EBS volume will exist.
 	AvailabilityZone pulumi.StringPtrInput
@@ -153,7 +155,8 @@ type VolumeState struct {
 	// A snapshot to base the EBS volume off of.
 	SnapshotId pulumi.StringPtrInput
 	Tags       pulumi.StringMapInput
-	TagsAll    pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 	// The throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
 	Throughput pulumi.IntPtrInput
 	// The type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).

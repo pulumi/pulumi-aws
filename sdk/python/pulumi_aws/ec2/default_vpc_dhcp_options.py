@@ -255,7 +255,7 @@ class DefaultVpcDhcpOptions(pulumi.CustomResource):
 
         ## Import
 
-        VPC DHCP Options can be imported using the `dhcp options id`, e.g.
+        VPC DHCP Options can be imported using the `dhcp options id`, e.g.,
 
         ```sh
          $ pulumi import aws:ec2/defaultVpcDhcpOptions:DefaultVpcDhcpOptions default_options dopt-d9070ebb
@@ -301,7 +301,7 @@ class DefaultVpcDhcpOptions(pulumi.CustomResource):
 
         ## Import
 
-        VPC DHCP Options can be imported using the `dhcp options id`, e.g.
+        VPC DHCP Options can be imported using the `dhcp options id`, e.g.,
 
         ```sh
          $ pulumi import aws:ec2/defaultVpcDhcpOptions:DefaultVpcDhcpOptions default_options dopt-d9070ebb

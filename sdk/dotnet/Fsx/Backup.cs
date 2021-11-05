@@ -43,7 +43,7 @@ namespace Pulumi.Aws.Fsx
     /// 
     /// ## Import
     /// 
-    /// FSx Backups can be imported using the `id`, e.g.
+    /// FSx Backups can be imported using the `id`, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:fsx/backup:Backup example fs-543ab12b1ca672f33
@@ -156,18 +156,6 @@ namespace Pulumi.Aws.Fsx
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
-        }
-
-        [Input("tagsAll")]
-        private InputMap<string>? _tagsAll;
-
-        /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        /// </summary>
-        public InputMap<string> TagsAll
-        {
-            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set => _tagsAll = value;
         }
 
         public BackupArgs()

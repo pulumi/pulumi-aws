@@ -75,6 +75,7 @@ class _RegistryState:
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the discoverer.
         :param pulumi.Input[str] description: The description of the discoverer. Maximum of 256 characters.
         :param pulumi.Input[str] name: The name of the custom event schema registry. Maximum of 64 characters consisting of lower case letters, upper case letters, 0-9, ., -, _.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -135,6 +136,9 @@ class _RegistryState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -167,7 +171,7 @@ class Registry(pulumi.CustomResource):
 
         ## Import
 
-        EventBridge schema registries can be imported using the `name`, e.g. console
+        EventBridge schema registries can be imported using the `name`, e.g., console
 
         ```sh
          $ pulumi import aws:schemas/registry:Registry test my_own_registry
@@ -200,7 +204,7 @@ class Registry(pulumi.CustomResource):
 
         ## Import
 
-        EventBridge schema registries can be imported using the `name`, e.g. console
+        EventBridge schema registries can be imported using the `name`, e.g., console
 
         ```sh
          $ pulumi import aws:schemas/registry:Registry test my_own_registry
@@ -266,6 +270,7 @@ class Registry(pulumi.CustomResource):
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the discoverer.
         :param pulumi.Input[str] description: The description of the discoverer. Maximum of 256 characters.
         :param pulumi.Input[str] name: The name of the custom event schema registry. Maximum of 64 characters consisting of lower case letters, upper case letters, 0-9, ., -, _.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -310,5 +315,8 @@ class Registry(pulumi.CustomResource):
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 

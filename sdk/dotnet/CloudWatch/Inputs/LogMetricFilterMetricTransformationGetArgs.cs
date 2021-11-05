@@ -31,7 +31,7 @@ namespace Pulumi.Aws.CloudWatch.Inputs
         }
 
         /// <summary>
-        /// The name of the CloudWatch metric to which the monitored log information should be published (e.g. `ErrorCount`)
+        /// The name of the CloudWatch metric to which the monitored log information should be published (e.g., `ErrorCount`)
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

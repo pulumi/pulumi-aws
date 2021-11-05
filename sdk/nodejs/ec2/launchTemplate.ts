@@ -82,7 +82,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Launch Templates can be imported using the `id`, e.g.
+ * Launch Templates can be imported using the `id`, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:ec2/launchTemplate:LaunchTemplate web lt-12345678

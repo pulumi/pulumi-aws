@@ -73,7 +73,7 @@ import (
 //
 // ## Import
 //
-// EventBridge schema can be imported using the `name` and `registry_name`, e.g. console
+// EventBridge schema can be imported using the `name` and `registry_name`, e.g., console
 //
 // ```sh
 //  $ pulumi import aws:schemas/schema:Schema test name/registry
@@ -94,7 +94,8 @@ type Schema struct {
 	// The name of the registry in which this schema belongs.
 	RegistryName pulumi.StringOutput    `pulumi:"registryName"`
 	Tags         pulumi.StringMapOutput `pulumi:"tags"`
-	TagsAll      pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The type of the schema. Valid values: `OpenApi3`.
 	Type pulumi.StringOutput `pulumi:"type"`
 	// The version of the schema.
@@ -154,7 +155,8 @@ type schemaState struct {
 	// The name of the registry in which this schema belongs.
 	RegistryName *string           `pulumi:"registryName"`
 	Tags         map[string]string `pulumi:"tags"`
-	TagsAll      map[string]string `pulumi:"tagsAll"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The type of the schema. Valid values: `OpenApi3`.
 	Type *string `pulumi:"type"`
 	// The version of the schema.
@@ -177,7 +179,8 @@ type SchemaState struct {
 	// The name of the registry in which this schema belongs.
 	RegistryName pulumi.StringPtrInput
 	Tags         pulumi.StringMapInput
-	TagsAll      pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 	// The type of the schema. Valid values: `OpenApi3`.
 	Type pulumi.StringPtrInput
 	// The version of the schema.

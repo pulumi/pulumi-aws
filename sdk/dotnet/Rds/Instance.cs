@@ -84,7 +84,7 @@ namespace Pulumi.Aws.Rds
     /// 
     /// ## Import
     /// 
-    /// DB Instances can be imported using the `identifier`, e.g.
+    /// DB Instances can be imported using the `identifier`, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:rds/instance:Instance default mydb-rds-instance
@@ -323,7 +323,7 @@ namespace Pulumi.Aws.Rds
         public Output<string> LatestRestorableTime { get; private set; } = null!;
 
         /// <summary>
-        /// (Optional, but required for some DB engines, i.e. Oracle
+        /// (Optional, but required for some DB engines, i.e., Oracle
         /// SE1) License model information for this DB instance.
         /// </summary>
         [Output("licenseModel")]
@@ -807,7 +807,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? KmsKeyId { get; set; }
 
         /// <summary>
-        /// (Optional, but required for some DB engines, i.e. Oracle
+        /// (Optional, but required for some DB engines, i.e., Oracle
         /// SE1) License model information for this DB instance.
         /// </summary>
         [Input("licenseModel")]
@@ -1286,7 +1286,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? LatestRestorableTime { get; set; }
 
         /// <summary>
-        /// (Optional, but required for some DB engines, i.e. Oracle
+        /// (Optional, but required for some DB engines, i.e., Oracle
         /// SE1) License model information for this DB instance.
         /// </summary>
         [Input("licenseModel")]

@@ -72,7 +72,7 @@ func GetIpRanges(ctx *pulumi.Context, args *GetIpRangesArgs, opts ...pulumi.Invo
 type GetIpRangesArgs struct {
 	// Filter IP ranges by regions (or include all regions, if
 	// omitted). Valid items are `global` (for `cloudfront`) as well as all AWS regions
-	// (e.g. `eu-central-1`)
+	// (e.g., `eu-central-1`)
 	Regions []string `pulumi:"regions"`
 	// Filter IP ranges by services. Valid items are `amazon`
 	// (for amazon.com), `amazonConnect`, `apiGateway`, `cloud9`, `cloudfront`,
@@ -88,7 +88,7 @@ type GetIpRangesArgs struct {
 type GetIpRangesResult struct {
 	// The lexically ordered list of CIDR blocks.
 	CidrBlocks []string `pulumi:"cidrBlocks"`
-	// The publication time of the IP ranges (e.g. `2016-08-03-23-46-05`).
+	// The publication time of the IP ranges (e.g., `2016-08-03-23-46-05`).
 	CreateDate string `pulumi:"createDate"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
@@ -97,7 +97,7 @@ type GetIpRangesResult struct {
 	Regions        []string `pulumi:"regions"`
 	Services       []string `pulumi:"services"`
 	// The publication time of the IP ranges, in Unix epoch time format
-	// (e.g. `1470267965`).
+	// (e.g., `1470267965`).
 	SyncToken int     `pulumi:"syncToken"`
 	Url       *string `pulumi:"url"`
 }
@@ -115,7 +115,7 @@ func GetIpRangesOutput(ctx *pulumi.Context, args GetIpRangesOutputArgs, opts ...
 type GetIpRangesOutputArgs struct {
 	// Filter IP ranges by regions (or include all regions, if
 	// omitted). Valid items are `global` (for `cloudfront`) as well as all AWS regions
-	// (e.g. `eu-central-1`)
+	// (e.g., `eu-central-1`)
 	Regions pulumi.StringArrayInput `pulumi:"regions"`
 	// Filter IP ranges by services. Valid items are `amazon`
 	// (for amazon.com), `amazonConnect`, `apiGateway`, `cloud9`, `cloudfront`,
@@ -151,7 +151,7 @@ func (o GetIpRangesResultOutput) CidrBlocks() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetIpRangesResult) []string { return v.CidrBlocks }).(pulumi.StringArrayOutput)
 }
 
-// The publication time of the IP ranges (e.g. `2016-08-03-23-46-05`).
+// The publication time of the IP ranges (e.g., `2016-08-03-23-46-05`).
 func (o GetIpRangesResultOutput) CreateDate() pulumi.StringOutput {
 	return o.ApplyT(func(v GetIpRangesResult) string { return v.CreateDate }).(pulumi.StringOutput)
 }
@@ -175,7 +175,7 @@ func (o GetIpRangesResultOutput) Services() pulumi.StringArrayOutput {
 }
 
 // The publication time of the IP ranges, in Unix epoch time format
-// (e.g. `1470267965`).
+// (e.g., `1470267965`).
 func (o GetIpRangesResultOutput) SyncToken() pulumi.IntOutput {
 	return o.ApplyT(func(v GetIpRangesResult) int { return v.SyncToken }).(pulumi.IntOutput)
 }

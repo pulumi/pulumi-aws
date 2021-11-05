@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * S3 Bucket Ownership Controls can be imported using S3 Bucket name, e.g.
+ * S3 Bucket Ownership Controls can be imported using S3 Bucket name, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:s3/bucketOwnershipControls:BucketOwnershipControls example my-bucket

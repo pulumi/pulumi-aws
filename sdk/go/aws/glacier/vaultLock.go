@@ -76,7 +76,7 @@ import (
 //
 // ## Import
 //
-// Glacier Vault Locks can be imported using the Glacier Vault name, e.g.
+// Glacier Vault Locks can be imported using the Glacier Vault name, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:glacier/vaultLock:VaultLock example example-vault

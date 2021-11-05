@@ -116,6 +116,7 @@ class _WorkflowState:
         :param pulumi.Input[int] max_concurrent_runs: Prevents exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.
         :param pulumi.Input[str] name: The name you assign to this workflow.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -207,6 +208,9 @@ class _WorkflowState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -259,7 +263,7 @@ class Workflow(pulumi.CustomResource):
 
         ## Import
 
-        Glue Workflows can be imported using `name`, e.g.
+        Glue Workflows can be imported using `name`, e.g.,
 
         ```sh
          $ pulumi import aws:glue/workflow:Workflow MyWorkflow MyWorkflow
@@ -313,7 +317,7 @@ class Workflow(pulumi.CustomResource):
 
         ## Import
 
-        Glue Workflows can be imported using `name`, e.g.
+        Glue Workflows can be imported using `name`, e.g.,
 
         ```sh
          $ pulumi import aws:glue/workflow:Workflow MyWorkflow MyWorkflow
@@ -388,6 +392,7 @@ class Workflow(pulumi.CustomResource):
         :param pulumi.Input[int] max_concurrent_runs: Prevents exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.
         :param pulumi.Input[str] name: The name you assign to this workflow.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -453,5 +458,8 @@ class Workflow(pulumi.CustomResource):
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 

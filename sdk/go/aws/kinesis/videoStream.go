@@ -44,7 +44,7 @@ import (
 //
 // ## Import
 //
-// Kinesis Streams can be imported using the `arn`, e.g.
+// Kinesis Streams can be imported using the `arn`, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:kinesis/videoStream:VideoStream test_stream arn:aws:kinesisvideo:us-west-2:123456789012:stream/terraform-kinesis-test/1554978910975
@@ -68,8 +68,9 @@ type VideoStream struct {
 	MediaType pulumi.StringPtrOutput `pulumi:"mediaType"`
 	// A name to identify the stream. This is unique to the
 	// AWS account and region the Stream is created in.
-	Name    pulumi.StringOutput    `pulumi:"name"`
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	Name pulumi.StringOutput    `pulumi:"name"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The version of the stream.
 	Version pulumi.StringOutput `pulumi:"version"`
@@ -118,8 +119,9 @@ type videoStreamState struct {
 	MediaType *string `pulumi:"mediaType"`
 	// A name to identify the stream. This is unique to the
 	// AWS account and region the Stream is created in.
-	Name    *string           `pulumi:"name"`
-	Tags    map[string]string `pulumi:"tags"`
+	Name *string           `pulumi:"name"`
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The version of the stream.
 	Version *string `pulumi:"version"`
@@ -140,8 +142,9 @@ type VideoStreamState struct {
 	MediaType pulumi.StringPtrInput
 	// A name to identify the stream. This is unique to the
 	// AWS account and region the Stream is created in.
-	Name    pulumi.StringPtrInput
-	Tags    pulumi.StringMapInput
+	Name pulumi.StringPtrInput
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// The version of the stream.
 	Version pulumi.StringPtrInput

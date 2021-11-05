@@ -63,7 +63,7 @@ import (
 //
 // ## Import
 //
-// `aws_ec2_tag` can be imported by using the EC2 resource identifier and key, separated by a comma (`,`), e.g.
+// `aws_ec2_tag` can be imported by using the EC2 resource identifier and key, separated by a comma (`,`), e.g.,
 //
 // ```sh
 //  $ pulumi import aws:ec2/tag:Tag example tgw-attach-1234567890abcdef,Name

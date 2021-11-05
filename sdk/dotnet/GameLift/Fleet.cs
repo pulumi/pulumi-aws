@@ -76,7 +76,7 @@ namespace Pulumi.Aws.GameLift
         public Output<ImmutableArray<Outputs.FleetEc2InboundPermission>> Ec2InboundPermissions { get; private set; } = null!;
 
         /// <summary>
-        /// Name of an EC2 instance type. e.g. `t2.micro`
+        /// Name of an EC2 instance typeE.g., `t2.micro`
         /// </summary>
         [Output("ec2InstanceType")]
         public Output<string> Ec2InstanceType { get; private set; } = null!;
@@ -109,7 +109,7 @@ namespace Pulumi.Aws.GameLift
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Game session protection policy to apply to all instances in this fleet. e.g. `FullProtection`. Defaults to `NoProtection`.
+        /// Game session protection policy to apply to all instances in this fleetE.g., `FullProtection`. Defaults to `NoProtection`.
         /// </summary>
         [Output("newGameSessionProtectionPolicy")]
         public Output<string?> NewGameSessionProtectionPolicy { get; private set; } = null!;
@@ -215,7 +215,7 @@ namespace Pulumi.Aws.GameLift
         }
 
         /// <summary>
-        /// Name of an EC2 instance type. e.g. `t2.micro`
+        /// Name of an EC2 instance typeE.g., `t2.micro`
         /// </summary>
         [Input("ec2InstanceType", required: true)]
         public Input<string> Ec2InstanceType { get; set; } = null!;
@@ -251,7 +251,7 @@ namespace Pulumi.Aws.GameLift
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Game session protection policy to apply to all instances in this fleet. e.g. `FullProtection`. Defaults to `NoProtection`.
+        /// Game session protection policy to apply to all instances in this fleetE.g., `FullProtection`. Defaults to `NoProtection`.
         /// </summary>
         [Input("newGameSessionProtectionPolicy")]
         public Input<string>? NewGameSessionProtectionPolicy { get; set; }
@@ -318,7 +318,7 @@ namespace Pulumi.Aws.GameLift
         }
 
         /// <summary>
-        /// Name of an EC2 instance type. e.g. `t2.micro`
+        /// Name of an EC2 instance typeE.g., `t2.micro`
         /// </summary>
         [Input("ec2InstanceType")]
         public Input<string>? Ec2InstanceType { get; set; }
@@ -362,7 +362,7 @@ namespace Pulumi.Aws.GameLift
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Game session protection policy to apply to all instances in this fleet. e.g. `FullProtection`. Defaults to `NoProtection`.
+        /// Game session protection policy to apply to all instances in this fleetE.g., `FullProtection`. Defaults to `NoProtection`.
         /// </summary>
         [Input("newGameSessionProtectionPolicy")]
         public Input<string>? NewGameSessionProtectionPolicy { get; set; }

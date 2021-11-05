@@ -76,7 +76,7 @@ namespace Pulumi.Aws.Iam
     /// 
     /// ## Import
     /// 
-    /// IAM Role Policies can be imported using the `role_name:role_policy_name`, e.g.
+    /// IAM Role Policies can be imported using the `role_name:role_policy_name`, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:iam/rolePolicy:RolePolicy mypolicy role_of_mypolicy_name:mypolicy_name

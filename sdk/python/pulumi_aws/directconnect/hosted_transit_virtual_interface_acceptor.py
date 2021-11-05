@@ -199,7 +199,7 @@ class HostedTransitVirtualInterfaceAcceptor(pulumi.CustomResource):
 
         ## Import
 
-        Direct Connect hosted transit virtual interfaces can be imported using the `vif id`, e.g.
+        Direct Connect hosted transit virtual interfaces can be imported using the `vif id`, e.g.,
 
         ```sh
          $ pulumi import aws:directconnect/hostedTransitVirtualInterfaceAcceptor:HostedTransitVirtualInterfaceAcceptor test dxvif-33cc44dd
@@ -255,7 +255,7 @@ class HostedTransitVirtualInterfaceAcceptor(pulumi.CustomResource):
 
         ## Import
 
-        Direct Connect hosted transit virtual interfaces can be imported using the `vif id`, e.g.
+        Direct Connect hosted transit virtual interfaces can be imported using the `vif id`, e.g.,
 
         ```sh
          $ pulumi import aws:directconnect/hostedTransitVirtualInterfaceAcceptor:HostedTransitVirtualInterfaceAcceptor test dxvif-33cc44dd

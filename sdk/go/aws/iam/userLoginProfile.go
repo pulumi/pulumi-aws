@@ -49,7 +49,7 @@ import (
 //
 // ## Import
 //
-// IAM User Login Profiles can be imported without password information support via the IAM User name, e.g.
+// IAM User Login Profiles can be imported without password information support via the IAM User name, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:iam/userLoginProfile:UserLoginProfile example myusername

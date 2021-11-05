@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = pulumi.output(aws.cloudwatch.getLogGroups({
- *     logGroupPrefix: "/MyImportantLogs",
+ *     logGroupNamePrefix: "/MyImportantLogs",
  * }));
  * ```
  */

@@ -52,7 +52,7 @@ import (
 //
 // ## Import
 //
-// `aws_ec2_local_gateway_route_table_vpc_association` can be imported by using the Local Gateway Route Table VPC Association identifier, e.g.
+// `aws_ec2_local_gateway_route_table_vpc_association` can be imported by using the Local Gateway Route Table VPC Association identifier, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:ec2/localGatewayRouteTableVpcAssociation:LocalGatewayRouteTableVpcAssociation example lgw-vpc-assoc-1234567890abcdef
@@ -64,7 +64,8 @@ type LocalGatewayRouteTableVpcAssociation struct {
 	// Identifier of EC2 Local Gateway Route Table.
 	LocalGatewayRouteTableId pulumi.StringOutput    `pulumi:"localGatewayRouteTableId"`
 	Tags                     pulumi.StringMapOutput `pulumi:"tags"`
-	TagsAll                  pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Identifier of EC2 VPC.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
@@ -108,7 +109,8 @@ type localGatewayRouteTableVpcAssociationState struct {
 	// Identifier of EC2 Local Gateway Route Table.
 	LocalGatewayRouteTableId *string           `pulumi:"localGatewayRouteTableId"`
 	Tags                     map[string]string `pulumi:"tags"`
-	TagsAll                  map[string]string `pulumi:"tagsAll"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Identifier of EC2 VPC.
 	VpcId *string `pulumi:"vpcId"`
 }
@@ -118,7 +120,8 @@ type LocalGatewayRouteTableVpcAssociationState struct {
 	// Identifier of EC2 Local Gateway Route Table.
 	LocalGatewayRouteTableId pulumi.StringPtrInput
 	Tags                     pulumi.StringMapInput
-	TagsAll                  pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 	// Identifier of EC2 VPC.
 	VpcId pulumi.StringPtrInput
 }

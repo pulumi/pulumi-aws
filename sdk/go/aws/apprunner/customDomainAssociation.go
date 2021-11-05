@@ -41,7 +41,7 @@ import (
 //
 // ## Import
 //
-// App Runner Custom Domain Associations can be imported by using the `domain_name` and `service_arn` separated by a comma (`,`), e.g.
+// App Runner Custom Domain Associations can be imported by using the `domain_name` and `service_arn` separated by a comma (`,`), e.g.,
 //
 // ```sh
 //  $ pulumi import aws:apprunner/customDomainAssociation:CustomDomainAssociation example example.com,arn:aws:apprunner:us-east-1:123456789012:service/example-
@@ -55,7 +55,7 @@ type CustomDomainAssociation struct {
 	CertificateValidationRecords CustomDomainAssociationCertificateValidationRecordArrayOutput `pulumi:"certificateValidationRecords"`
 	// The App Runner subdomain of the App Runner service. The custom domain name is mapped to this target name. Attribute only available if resource created (not imported) with this provider.
 	DnsTarget pulumi.StringOutput `pulumi:"dnsTarget"`
-	// The custom domain endpoint to association. Specify a base domain e.g. `example.com` or a subdomain e.g. `subdomain.example.com`.
+	// The custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
 	DomainName pulumi.StringOutput `pulumi:"domainName"`
 	// Whether to associate the subdomain with the App Runner service in addition to the base domain. Defaults to `true`.
 	EnableWwwSubdomain pulumi.BoolPtrOutput `pulumi:"enableWwwSubdomain"`
@@ -104,7 +104,7 @@ type customDomainAssociationState struct {
 	CertificateValidationRecords []CustomDomainAssociationCertificateValidationRecord `pulumi:"certificateValidationRecords"`
 	// The App Runner subdomain of the App Runner service. The custom domain name is mapped to this target name. Attribute only available if resource created (not imported) with this provider.
 	DnsTarget *string `pulumi:"dnsTarget"`
-	// The custom domain endpoint to association. Specify a base domain e.g. `example.com` or a subdomain e.g. `subdomain.example.com`.
+	// The custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
 	DomainName *string `pulumi:"domainName"`
 	// Whether to associate the subdomain with the App Runner service in addition to the base domain. Defaults to `true`.
 	EnableWwwSubdomain *bool `pulumi:"enableWwwSubdomain"`
@@ -119,7 +119,7 @@ type CustomDomainAssociationState struct {
 	CertificateValidationRecords CustomDomainAssociationCertificateValidationRecordArrayInput
 	// The App Runner subdomain of the App Runner service. The custom domain name is mapped to this target name. Attribute only available if resource created (not imported) with this provider.
 	DnsTarget pulumi.StringPtrInput
-	// The custom domain endpoint to association. Specify a base domain e.g. `example.com` or a subdomain e.g. `subdomain.example.com`.
+	// The custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
 	DomainName pulumi.StringPtrInput
 	// Whether to associate the subdomain with the App Runner service in addition to the base domain. Defaults to `true`.
 	EnableWwwSubdomain pulumi.BoolPtrInput
@@ -134,7 +134,7 @@ func (CustomDomainAssociationState) ElementType() reflect.Type {
 }
 
 type customDomainAssociationArgs struct {
-	// The custom domain endpoint to association. Specify a base domain e.g. `example.com` or a subdomain e.g. `subdomain.example.com`.
+	// The custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
 	DomainName string `pulumi:"domainName"`
 	// Whether to associate the subdomain with the App Runner service in addition to the base domain. Defaults to `true`.
 	EnableWwwSubdomain *bool `pulumi:"enableWwwSubdomain"`
@@ -144,7 +144,7 @@ type customDomainAssociationArgs struct {
 
 // The set of arguments for constructing a CustomDomainAssociation resource.
 type CustomDomainAssociationArgs struct {
-	// The custom domain endpoint to association. Specify a base domain e.g. `example.com` or a subdomain e.g. `subdomain.example.com`.
+	// The custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
 	DomainName pulumi.StringInput
 	// Whether to associate the subdomain with the App Runner service in addition to the base domain. Defaults to `true`.
 	EnableWwwSubdomain pulumi.BoolPtrInput

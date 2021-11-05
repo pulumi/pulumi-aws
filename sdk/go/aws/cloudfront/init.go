@@ -39,6 +39,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &PublicKey{}
 	case "aws:cloudfront/realtimeLogConfig:RealtimeLogConfig":
 		r = &RealtimeLogConfig{}
+	case "aws:cloudfront/responseHeadersPolicy:ResponseHeadersPolicy":
+		r = &ResponseHeadersPolicy{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -95,6 +97,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"cloudfront/realtimeLogConfig",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"cloudfront/responseHeadersPolicy",
 		&module{version},
 	)
 }

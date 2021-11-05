@@ -148,7 +148,7 @@ class ResourceDataSync(pulumi.CustomResource):
 
         ## Import
 
-        SSM resource data sync can be imported using the `name`, e.g.
+        SSM resource data sync can be imported using the `name`, e.g.,
 
         ```sh
          $ pulumi import aws:ssm/resourceDataSync:ResourceDataSync example example-name
@@ -214,7 +214,7 @@ class ResourceDataSync(pulumi.CustomResource):
 
         ## Import
 
-        SSM resource data sync can be imported using the `name`, e.g.
+        SSM resource data sync can be imported using the `name`, e.g.,
 
         ```sh
          $ pulumi import aws:ssm/resourceDataSync:ResourceDataSync example example-name

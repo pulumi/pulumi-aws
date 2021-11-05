@@ -83,7 +83,7 @@ import (
 //
 // ## Import
 //
-// RDS DB Proxy Targets can be imported using the `db_proxy_name`, `target_group_name`, target type (e.g. `RDS_INSTANCE` or `TRACKED_CLUSTER`), and resource identifier separated by forward slashes (`/`), e.g. Instances
+// RDS DB Proxy Targets can be imported using the `db_proxy_name`, `target_group_name`, target type (e.g., `RDS_INSTANCE` or `TRACKED_CLUSTER`), and resource identifier separated by forward slashes (`/`), e.g., Instances
 //
 // ```sh
 //  $ pulumi import aws:rds/proxyTarget:ProxyTarget example example-proxy/default/RDS_INSTANCE/example-instance
@@ -115,7 +115,7 @@ type ProxyTarget struct {
 	TargetGroupName pulumi.StringOutput `pulumi:"targetGroupName"`
 	// DB Cluster identifier for the DB Instance target. Not returned unless manually importing an `RDS_INSTANCE` target that is part of a DB Cluster.
 	TrackedClusterId pulumi.StringOutput `pulumi:"trackedClusterId"`
-	// Type of target. e.g. `RDS_INSTANCE` or `TRACKED_CLUSTER`
+	// Type of targetE.g., `RDS_INSTANCE` or `TRACKED_CLUSTER`
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -172,7 +172,7 @@ type proxyTargetState struct {
 	TargetGroupName *string `pulumi:"targetGroupName"`
 	// DB Cluster identifier for the DB Instance target. Not returned unless manually importing an `RDS_INSTANCE` target that is part of a DB Cluster.
 	TrackedClusterId *string `pulumi:"trackedClusterId"`
-	// Type of target. e.g. `RDS_INSTANCE` or `TRACKED_CLUSTER`
+	// Type of targetE.g., `RDS_INSTANCE` or `TRACKED_CLUSTER`
 	Type *string `pulumi:"type"`
 }
 
@@ -195,7 +195,7 @@ type ProxyTargetState struct {
 	TargetGroupName pulumi.StringPtrInput
 	// DB Cluster identifier for the DB Instance target. Not returned unless manually importing an `RDS_INSTANCE` target that is part of a DB Cluster.
 	TrackedClusterId pulumi.StringPtrInput
-	// Type of target. e.g. `RDS_INSTANCE` or `TRACKED_CLUSTER`
+	// Type of targetE.g., `RDS_INSTANCE` or `TRACKED_CLUSTER`
 	Type pulumi.StringPtrInput
 }
 

@@ -135,7 +135,7 @@ import (
 //
 // ## Import
 //
-// Glue ML Transforms can be imported using `id`, e.g.
+// Glue ML Transforms can be imported using `id`, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:glue/mLTransform:MLTransform example tfm-c2cafbe83b1c575f49eaca9939220e2fcd58e2d5
@@ -168,7 +168,8 @@ type MLTransform struct {
 	// The object that represents the schema that this transform accepts. see Schema.
 	Schemas MLTransformSchemaArrayOutput `pulumi:"schemas"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The ML Transform timeout in minutes. The default is 2880 minutes (48 hours).
 	Timeout pulumi.IntPtrOutput `pulumi:"timeout"`
@@ -239,7 +240,8 @@ type mltransformState struct {
 	// The object that represents the schema that this transform accepts. see Schema.
 	Schemas []MLTransformSchema `pulumi:"schemas"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    map[string]string `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The ML Transform timeout in minutes. The default is 2880 minutes (48 hours).
 	Timeout *int `pulumi:"timeout"`
@@ -273,7 +275,8 @@ type MLTransformState struct {
 	// The object that represents the schema that this transform accepts. see Schema.
 	Schemas MLTransformSchemaArrayInput
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapInput
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// The ML Transform timeout in minutes. The default is 2880 minutes (48 hours).
 	Timeout pulumi.IntPtrInput

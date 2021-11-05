@@ -32,7 +32,7 @@ namespace Pulumi.Aws.Route53
     /// 
     /// ## Import
     /// 
-    ///  Route 53 Resolver DNS Firewall rule groups can be imported using the Route 53 Resolver DNS Firewall rule group ID, e.g.
+    ///  Route 53 Resolver DNS Firewall rule groups can be imported using the Route 53 Resolver DNS Firewall rule group ID, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:route53/resolverFirewallRuleGroup:ResolverFirewallRuleGroup example rslvr-frg-0123456789abcdef
@@ -46,6 +46,9 @@ namespace Pulumi.Aws.Route53
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
+
+        [Output("id")]
+        public Output<string> Id { get; private set; } = null!;
 
         /// <summary>
         /// A name that lets you identify the rule group, to manage and use it.
@@ -153,6 +156,9 @@ namespace Pulumi.Aws.Route53
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
+
+        [Input("id")]
+        public Input<string>? Id { get; set; }
 
         /// <summary>
         /// A name that lets you identify the rule group, to manage and use it.

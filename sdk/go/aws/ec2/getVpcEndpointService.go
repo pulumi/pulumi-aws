@@ -117,7 +117,7 @@ func LookupVpcEndpointService(ctx *pulumi.Context, args *LookupVpcEndpointServic
 type LookupVpcEndpointServiceArgs struct {
 	// Configuration block(s) for filtering. Detailed below.
 	Filters []GetVpcEndpointServiceFilter `pulumi:"filters"`
-	// The common name of an AWS service (e.g. `s3`).
+	// The common name of an AWS service (e.g., `s3`).
 	Service *string `pulumi:"service"`
 	// The service name that is specified when creating a VPC endpoint. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
 	ServiceName *string `pulumi:"serviceName"`
@@ -170,7 +170,7 @@ func LookupVpcEndpointServiceOutput(ctx *pulumi.Context, args LookupVpcEndpointS
 type LookupVpcEndpointServiceOutputArgs struct {
 	// Configuration block(s) for filtering. Detailed below.
 	Filters GetVpcEndpointServiceFilterArrayInput `pulumi:"filters"`
-	// The common name of an AWS service (e.g. `s3`).
+	// The common name of an AWS service (e.g., `s3`).
 	Service pulumi.StringPtrInput `pulumi:"service"`
 	// The service name that is specified when creating a VPC endpoint. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
 	ServiceName pulumi.StringPtrInput `pulumi:"serviceName"`

@@ -168,7 +168,7 @@ namespace Pulumi.Aws.ElasticSearch
         /// </summary>
         public readonly ImmutableArray<Outputs.GetDomainEbsOptionResult> EbsOptions;
         /// <summary>
-        /// ElasticSearch version for the domain.
+        /// Elasticsearch version for the domain.
         /// </summary>
         public readonly string ElasticsearchVersion;
         /// <summary>

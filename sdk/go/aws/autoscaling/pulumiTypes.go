@@ -319,6 +319,10 @@ func (o GroupInstanceRefreshPtrOutput) Triggers() pulumi.StringArrayOutput {
 }
 
 type GroupInstanceRefreshPreferences struct {
+	// The number of seconds to wait after a checkpoint. Defaults to `3600`.
+	CheckpointDelay *string `pulumi:"checkpointDelay"`
+	// List of percentages for each checkpoint. Values must be unique and in ascending order. To replace all instances, the final number must be `100`.
+	CheckpointPercentages []int `pulumi:"checkpointPercentages"`
 	// The number of seconds until a newly launched instance is configured and ready to use. Default behavior is to use the Auto Scaling Group's health check grace period.
 	InstanceWarmup *string `pulumi:"instanceWarmup"`
 	// The amount of capacity in the Auto Scaling group that must remain healthy during an instance refresh to allow the operation to continue, as a percentage of the desired capacity of the Auto Scaling group. Defaults to `90`.
@@ -337,6 +341,10 @@ type GroupInstanceRefreshPreferencesInput interface {
 }
 
 type GroupInstanceRefreshPreferencesArgs struct {
+	// The number of seconds to wait after a checkpoint. Defaults to `3600`.
+	CheckpointDelay pulumi.StringPtrInput `pulumi:"checkpointDelay"`
+	// List of percentages for each checkpoint. Values must be unique and in ascending order. To replace all instances, the final number must be `100`.
+	CheckpointPercentages pulumi.IntArrayInput `pulumi:"checkpointPercentages"`
 	// The number of seconds until a newly launched instance is configured and ready to use. Default behavior is to use the Auto Scaling Group's health check grace period.
 	InstanceWarmup pulumi.StringPtrInput `pulumi:"instanceWarmup"`
 	// The amount of capacity in the Auto Scaling group that must remain healthy during an instance refresh to allow the operation to continue, as a percentage of the desired capacity of the Auto Scaling group. Defaults to `90`.
@@ -420,6 +428,16 @@ func (o GroupInstanceRefreshPreferencesOutput) ToGroupInstanceRefreshPreferences
 	}).(GroupInstanceRefreshPreferencesPtrOutput)
 }
 
+// The number of seconds to wait after a checkpoint. Defaults to `3600`.
+func (o GroupInstanceRefreshPreferencesOutput) CheckpointDelay() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GroupInstanceRefreshPreferences) *string { return v.CheckpointDelay }).(pulumi.StringPtrOutput)
+}
+
+// List of percentages for each checkpoint. Values must be unique and in ascending order. To replace all instances, the final number must be `100`.
+func (o GroupInstanceRefreshPreferencesOutput) CheckpointPercentages() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v GroupInstanceRefreshPreferences) []int { return v.CheckpointPercentages }).(pulumi.IntArrayOutput)
+}
+
 // The number of seconds until a newly launched instance is configured and ready to use. Default behavior is to use the Auto Scaling Group's health check grace period.
 func (o GroupInstanceRefreshPreferencesOutput) InstanceWarmup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GroupInstanceRefreshPreferences) *string { return v.InstanceWarmup }).(pulumi.StringPtrOutput)
@@ -452,6 +470,26 @@ func (o GroupInstanceRefreshPreferencesPtrOutput) Elem() GroupInstanceRefreshPre
 		var ret GroupInstanceRefreshPreferences
 		return ret
 	}).(GroupInstanceRefreshPreferencesOutput)
+}
+
+// The number of seconds to wait after a checkpoint. Defaults to `3600`.
+func (o GroupInstanceRefreshPreferencesPtrOutput) CheckpointDelay() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GroupInstanceRefreshPreferences) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CheckpointDelay
+	}).(pulumi.StringPtrOutput)
+}
+
+// List of percentages for each checkpoint. Values must be unique and in ascending order. To replace all instances, the final number must be `100`.
+func (o GroupInstanceRefreshPreferencesPtrOutput) CheckpointPercentages() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *GroupInstanceRefreshPreferences) []int {
+		if v == nil {
+			return nil
+		}
+		return v.CheckpointPercentages
+	}).(pulumi.IntArrayOutput)
 }
 
 // The number of seconds until a newly launched instance is configured and ready to use. Default behavior is to use the Auto Scaling Group's health check grace period.
@@ -816,7 +854,7 @@ type GroupMixedInstancesPolicyInstancesDistribution struct {
 	OnDemandPercentageAboveBaseCapacity *int `pulumi:"onDemandPercentageAboveBaseCapacity"`
 	// How to allocate capacity across the Spot pools. Valid values: `lowest-price`, `capacity-optimized`, `capacity-optimized-prioritized`. Default: `lowest-price`.
 	SpotAllocationStrategy *string `pulumi:"spotAllocationStrategy"`
-	// Number of Spot pools per availability zone to allocate capacity. EC2 Auto Scaling selects the cheapest Spot pools and evenly allocates Spot capacity across the number of Spot pools that you specify. Default: `2`.
+	// Number of Spot pools per availability zone to allocate capacity. EC2 Auto Scaling selects the cheapest Spot pools and evenly allocates Spot capacity across the number of Spot pools that you specify. Only available with `spotAllocationStrategy` set to `lowest-price`. Otherwise it must be set to `0`, if it has been defined before. Default: `2`.
 	SpotInstancePools *int `pulumi:"spotInstancePools"`
 	// Maximum price per unit hour that the user is willing to pay for the Spot instances. Default: an empty string which means the on-demand price.
 	SpotMaxPrice *string `pulumi:"spotMaxPrice"`
@@ -842,7 +880,7 @@ type GroupMixedInstancesPolicyInstancesDistributionArgs struct {
 	OnDemandPercentageAboveBaseCapacity pulumi.IntPtrInput `pulumi:"onDemandPercentageAboveBaseCapacity"`
 	// How to allocate capacity across the Spot pools. Valid values: `lowest-price`, `capacity-optimized`, `capacity-optimized-prioritized`. Default: `lowest-price`.
 	SpotAllocationStrategy pulumi.StringPtrInput `pulumi:"spotAllocationStrategy"`
-	// Number of Spot pools per availability zone to allocate capacity. EC2 Auto Scaling selects the cheapest Spot pools and evenly allocates Spot capacity across the number of Spot pools that you specify. Default: `2`.
+	// Number of Spot pools per availability zone to allocate capacity. EC2 Auto Scaling selects the cheapest Spot pools and evenly allocates Spot capacity across the number of Spot pools that you specify. Only available with `spotAllocationStrategy` set to `lowest-price`. Otherwise it must be set to `0`, if it has been defined before. Default: `2`.
 	SpotInstancePools pulumi.IntPtrInput `pulumi:"spotInstancePools"`
 	// Maximum price per unit hour that the user is willing to pay for the Spot instances. Default: an empty string which means the on-demand price.
 	SpotMaxPrice pulumi.StringPtrInput `pulumi:"spotMaxPrice"`
@@ -947,7 +985,7 @@ func (o GroupMixedInstancesPolicyInstancesDistributionOutput) SpotAllocationStra
 	return o.ApplyT(func(v GroupMixedInstancesPolicyInstancesDistribution) *string { return v.SpotAllocationStrategy }).(pulumi.StringPtrOutput)
 }
 
-// Number of Spot pools per availability zone to allocate capacity. EC2 Auto Scaling selects the cheapest Spot pools and evenly allocates Spot capacity across the number of Spot pools that you specify. Default: `2`.
+// Number of Spot pools per availability zone to allocate capacity. EC2 Auto Scaling selects the cheapest Spot pools and evenly allocates Spot capacity across the number of Spot pools that you specify. Only available with `spotAllocationStrategy` set to `lowest-price`. Otherwise it must be set to `0`, if it has been defined before. Default: `2`.
 func (o GroupMixedInstancesPolicyInstancesDistributionOutput) SpotInstancePools() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GroupMixedInstancesPolicyInstancesDistribution) *int { return v.SpotInstancePools }).(pulumi.IntPtrOutput)
 }
@@ -1021,7 +1059,7 @@ func (o GroupMixedInstancesPolicyInstancesDistributionPtrOutput) SpotAllocationS
 	}).(pulumi.StringPtrOutput)
 }
 
-// Number of Spot pools per availability zone to allocate capacity. EC2 Auto Scaling selects the cheapest Spot pools and evenly allocates Spot capacity across the number of Spot pools that you specify. Default: `2`.
+// Number of Spot pools per availability zone to allocate capacity. EC2 Auto Scaling selects the cheapest Spot pools and evenly allocates Spot capacity across the number of Spot pools that you specify. Only available with `spotAllocationStrategy` set to `lowest-price`. Otherwise it must be set to `0`, if it has been defined before. Default: `2`.
 func (o GroupMixedInstancesPolicyInstancesDistributionPtrOutput) SpotInstancePools() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *GroupMixedInstancesPolicyInstancesDistribution) *int {
 		if v == nil {

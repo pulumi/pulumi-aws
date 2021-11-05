@@ -76,11 +76,11 @@ export class ObjectCopy extends pulumi.CustomResource {
      */
     public readonly contentEncoding!: pulumi.Output<string>;
     /**
-     * Language the content is in e.g. en-US or en-GB.
+     * Language the content is in e.g., en-US or en-GB.
      */
     public readonly contentLanguage!: pulumi.Output<string>;
     /**
-     * Standard MIME type describing the format of the object data, e.g. `application/octet-stream`. All Valid MIME Types are valid for this input.
+     * Standard MIME type describing the format of the object data, e.g., `application/octet-stream`. All Valid MIME Types are valid for this input.
      */
     public readonly contentType!: pulumi.Output<string>;
     /**
@@ -381,11 +381,11 @@ export interface ObjectCopyState {
      */
     contentEncoding?: pulumi.Input<string>;
     /**
-     * Language the content is in e.g. en-US or en-GB.
+     * Language the content is in e.g., en-US or en-GB.
      */
     contentLanguage?: pulumi.Input<string>;
     /**
-     * Standard MIME type describing the format of the object data, e.g. `application/octet-stream`. All Valid MIME Types are valid for this input.
+     * Standard MIME type describing the format of the object data, e.g., `application/octet-stream`. All Valid MIME Types are valid for this input.
      */
     contentType?: pulumi.Input<string>;
     /**
@@ -565,11 +565,11 @@ export interface ObjectCopyArgs {
      */
     contentEncoding?: pulumi.Input<string>;
     /**
-     * Language the content is in e.g. en-US or en-GB.
+     * Language the content is in e.g., en-US or en-GB.
      */
     contentLanguage?: pulumi.Input<string>;
     /**
-     * Standard MIME type describing the format of the object data, e.g. `application/octet-stream`. All Valid MIME Types are valid for this input.
+     * Standard MIME type describing the format of the object data, e.g., `application/octet-stream`. All Valid MIME Types are valid for this input.
      */
     contentType?: pulumi.Input<string>;
     /**

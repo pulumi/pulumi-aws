@@ -50,7 +50,7 @@ import (
 //
 // ## Import
 //
-// ElastiCache Parameter Groups can be imported using the `name`, e.g.
+// ElastiCache Parameter Groups can be imported using the `name`, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:elasticache/parameterGroup:ParameterGroup default redis-params

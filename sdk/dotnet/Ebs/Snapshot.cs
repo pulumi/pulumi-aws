@@ -46,7 +46,7 @@ namespace Pulumi.Aws.Ebs
     /// 
     /// ## Import
     /// 
-    /// EBS Snapshot can be imported using the `id`, e.g.
+    /// EBS Snapshot can be imported using the `id`, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:ebs/snapshot:Snapshot id snap-049df61146c4d7901
@@ -103,6 +103,9 @@ namespace Pulumi.Aws.Ebs
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -251,6 +254,10 @@ namespace Pulumi.Aws.Ebs
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

@@ -190,6 +190,7 @@ class _ApplicationState:
         :param pulumi.Input[str] service_execution_role: The ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
         :param pulumi.Input[bool] start_application: Whether to start or stop the application.
         :param pulumi.Input[str] status: The status of the application.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[int] version_id: The current application version. Kinesis Data Analytics updates the `version_id` each time the application is updated.
         """
         if application_configuration is not None:
@@ -379,6 +380,9 @@ class _ApplicationState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -616,7 +620,7 @@ class Application(pulumi.CustomResource):
 
         ## Import
 
-        `aws_kinesisanalyticsv2_application` can be imported by using the application ARN, e.g.
+        `aws_kinesisanalyticsv2_application` can be imported by using the application ARN, e.g.,
 
         ```sh
          $ pulumi import aws:kinesisanalyticsv2/application:Application example arn:aws:kinesisanalytics:us-west-2:123456789012:application/example-sql-application
@@ -842,7 +846,7 @@ class Application(pulumi.CustomResource):
 
         ## Import
 
-        `aws_kinesisanalyticsv2_application` can be imported by using the application ARN, e.g.
+        `aws_kinesisanalyticsv2_application` can be imported by using the application ARN, e.g.,
 
         ```sh
          $ pulumi import aws:kinesisanalyticsv2/application:Application example arn:aws:kinesisanalytics:us-west-2:123456789012:application/example-sql-application
@@ -947,6 +951,7 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[str] service_execution_role: The ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
         :param pulumi.Input[bool] start_application: Whether to start or stop the application.
         :param pulumi.Input[str] status: The status of the application.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[int] version_id: The current application version. Kinesis Data Analytics updates the `version_id` each time the application is updated.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -1074,6 +1079,9 @@ class Application(pulumi.CustomResource):
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @property

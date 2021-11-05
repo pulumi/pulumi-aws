@@ -8,7 +8,7 @@ import * as utilities from "../utilities";
 /**
  * ## Import
  *
- * DB Parameter groups can be imported using the `name`, e.g.
+ * DB Parameter groups can be imported using the `name`, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:rds/parameterGroup:ParameterGroup rds_pg rds-pg

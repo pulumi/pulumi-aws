@@ -162,7 +162,7 @@ class HostedZoneDnsSec(pulumi.CustomResource):
 
         ## Import
 
-        `aws_route53_hosted_zone_dnssec` resources can be imported by using the Route 53 Hosted Zone identifier, e.g.
+        `aws_route53_hosted_zone_dnssec` resources can be imported by using the Route 53 Hosted Zone identifier, e.g.,
 
         ```sh
          $ pulumi import aws:route53/hostedZoneDnsSec:HostedZoneDnsSec example Z1D633PJN98FT9
@@ -244,7 +244,7 @@ class HostedZoneDnsSec(pulumi.CustomResource):
 
         ## Import
 
-        `aws_route53_hosted_zone_dnssec` resources can be imported by using the Route 53 Hosted Zone identifier, e.g.
+        `aws_route53_hosted_zone_dnssec` resources can be imported by using the Route 53 Hosted Zone identifier, e.g.,
 
         ```sh
          $ pulumi import aws:route53/hostedZoneDnsSec:HostedZoneDnsSec example Z1D633PJN98FT9

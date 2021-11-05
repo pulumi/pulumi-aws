@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Traffic mirror filter can be imported using the `id`, e.g.
+ * Traffic mirror filter can be imported using the `id`, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:ec2/trafficMirrorFilter:TrafficMirrorFilter foo tmf-0fbb93ddf38198f64
@@ -71,6 +71,9 @@ export class TrafficMirrorFilter extends pulumi.CustomResource {
      */
     public readonly networkServices!: pulumi.Output<string[] | undefined>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -123,6 +126,9 @@ export interface TrafficMirrorFilterState {
      */
     networkServices?: pulumi.Input<pulumi.Input<string>[]>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 

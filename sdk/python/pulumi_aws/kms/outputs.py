@@ -7,9 +7,13 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GrantConstraint',
+    'GetKeyMultiRegionConfigurationResult',
+    'GetKeyMultiRegionConfigurationPrimaryKeyResult',
+    'GetKeyMultiRegionConfigurationReplicaKeyResult',
     'GetSecretSecretResult',
     'GetSecretsSecretResult',
 ]
@@ -62,6 +66,70 @@ class GrantConstraint(dict):
         A list of key-value pairs that must be included in the encryption context of subsequent cryptographic operation requests. The grant allows the cryptographic operation only when the encryption context in the request includes the key-value pairs specified in this constraint, although it can include additional key-value pairs. Conflicts with `encryption_context_equals`.
         """
         return pulumi.get(self, "encryption_context_subset")
+
+
+@pulumi.output_type
+class GetKeyMultiRegionConfigurationResult(dict):
+    def __init__(__self__, *,
+                 multi_region_key_type: str,
+                 primary_keys: Sequence['outputs.GetKeyMultiRegionConfigurationPrimaryKeyResult'],
+                 replica_keys: Sequence['outputs.GetKeyMultiRegionConfigurationReplicaKeyResult']):
+        pulumi.set(__self__, "multi_region_key_type", multi_region_key_type)
+        pulumi.set(__self__, "primary_keys", primary_keys)
+        pulumi.set(__self__, "replica_keys", replica_keys)
+
+    @property
+    @pulumi.getter(name="multiRegionKeyType")
+    def multi_region_key_type(self) -> str:
+        return pulumi.get(self, "multi_region_key_type")
+
+    @property
+    @pulumi.getter(name="primaryKeys")
+    def primary_keys(self) -> Sequence['outputs.GetKeyMultiRegionConfigurationPrimaryKeyResult']:
+        return pulumi.get(self, "primary_keys")
+
+    @property
+    @pulumi.getter(name="replicaKeys")
+    def replica_keys(self) -> Sequence['outputs.GetKeyMultiRegionConfigurationReplicaKeyResult']:
+        return pulumi.get(self, "replica_keys")
+
+
+@pulumi.output_type
+class GetKeyMultiRegionConfigurationPrimaryKeyResult(dict):
+    def __init__(__self__, *,
+                 arn: str,
+                 region: str):
+        pulumi.set(__self__, "arn", arn)
+        pulumi.set(__self__, "region", region)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> str:
+        return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter
+    def region(self) -> str:
+        return pulumi.get(self, "region")
+
+
+@pulumi.output_type
+class GetKeyMultiRegionConfigurationReplicaKeyResult(dict):
+    def __init__(__self__, *,
+                 arn: str,
+                 region: str):
+        pulumi.set(__self__, "arn", arn)
+        pulumi.set(__self__, "region", region)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> str:
+        return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter
+    def region(self) -> str:
+        return pulumi.get(self, "region")
 
 
 @pulumi.output_type

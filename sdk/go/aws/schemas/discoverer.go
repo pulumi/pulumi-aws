@@ -46,7 +46,7 @@ import (
 //
 // ## Import
 //
-// EventBridge discoverers can be imported using the `id`, e.g. console
+// EventBridge discoverers can be imported using the `id`, e.g., console
 //
 // ```sh
 //  $ pulumi import aws:schemas/discoverer:Discoverer test 123
@@ -61,7 +61,8 @@ type Discoverer struct {
 	// The ARN of the event bus to discover event schemas on.
 	SourceArn pulumi.StringOutput    `pulumi:"sourceArn"`
 	Tags      pulumi.StringMapOutput `pulumi:"tags"`
-	TagsAll   pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewDiscoverer registers a new resource with the given unique name, arguments, and options.
@@ -103,7 +104,8 @@ type discovererState struct {
 	// The ARN of the event bus to discover event schemas on.
 	SourceArn *string           `pulumi:"sourceArn"`
 	Tags      map[string]string `pulumi:"tags"`
-	TagsAll   map[string]string `pulumi:"tagsAll"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type DiscovererState struct {
@@ -114,7 +116,8 @@ type DiscovererState struct {
 	// The ARN of the event bus to discover event schemas on.
 	SourceArn pulumi.StringPtrInput
 	Tags      pulumi.StringMapInput
-	TagsAll   pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 }
 
 func (DiscovererState) ElementType() reflect.Type {

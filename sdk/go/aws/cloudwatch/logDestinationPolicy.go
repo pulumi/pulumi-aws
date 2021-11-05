@@ -49,7 +49,7 @@ import (
 //
 // ## Import
 //
-// CloudWatch Logs destination policies can be imported using the `destination_name`, e.g.
+// CloudWatch Logs destination policies can be imported using the `destination_name`, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:cloudwatch/logDestinationPolicy:LogDestinationPolicy test_destination_policy test_destination

@@ -103,7 +103,7 @@ import (
 //
 // ## Import
 //
-// Elastic Beanstalk Environments can be imported using the `id`, e.g.
+// Elastic Beanstalk Environments can be imported using the `id`, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:elasticbeanstalk/environment:Environment prodenv e-rpqsewtp2j
@@ -157,7 +157,8 @@ type Environment struct {
 	// off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
 	SolutionStackName pulumi.StringOutput    `pulumi:"solutionStackName"`
 	Tags              pulumi.StringMapOutput `pulumi:"tags"`
-	TagsAll           pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The name of the Elastic Beanstalk Configuration
 	// template to use in deployment
 	TemplateName pulumi.StringPtrOutput `pulumi:"templateName"`
@@ -254,7 +255,8 @@ type environmentState struct {
 	// off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
 	SolutionStackName *string           `pulumi:"solutionStackName"`
 	Tags              map[string]string `pulumi:"tags"`
-	TagsAll           map[string]string `pulumi:"tagsAll"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The name of the Elastic Beanstalk Configuration
 	// template to use in deployment
 	TemplateName *string `pulumi:"templateName"`
@@ -320,7 +322,8 @@ type EnvironmentState struct {
 	// off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
 	SolutionStackName pulumi.StringPtrInput
 	Tags              pulumi.StringMapInput
-	TagsAll           pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 	// The name of the Elastic Beanstalk Configuration
 	// template to use in deployment
 	TemplateName pulumi.StringPtrInput

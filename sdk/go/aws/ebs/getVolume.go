@@ -74,7 +74,7 @@ type LookupVolumeArgs struct {
 
 // A collection of values returned by getVolume.
 type LookupVolumeResult struct {
-	// The volume ARN (e.g. arn:aws:ec2:us-east-1:0123456789012:volume/vol-59fcb34e).
+	// The volume ARN (e.g., arn:aws:ec2:us-east-1:0123456789012:volume/vol-59fcb34e).
 	Arn string `pulumi:"arn"`
 	// The AZ where the EBS volume exists.
 	AvailabilityZone string `pulumi:"availabilityZone"`
@@ -100,7 +100,7 @@ type LookupVolumeResult struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The throughput that the volume supports, in MiB/s.
 	Throughput int `pulumi:"throughput"`
-	// The volume ID (e.g. vol-59fcb34e).
+	// The volume ID (e.g., vol-59fcb34e).
 	VolumeId string `pulumi:"volumeId"`
 	// The type of EBS volume.
 	VolumeType string `pulumi:"volumeType"`
@@ -147,7 +147,7 @@ func (o LookupVolumeResultOutput) ToLookupVolumeResultOutputWithContext(ctx cont
 	return o
 }
 
-// The volume ARN (e.g. arn:aws:ec2:us-east-1:0123456789012:volume/vol-59fcb34e).
+// The volume ARN (e.g., arn:aws:ec2:us-east-1:0123456789012:volume/vol-59fcb34e).
 func (o LookupVolumeResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVolumeResult) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -215,7 +215,7 @@ func (o LookupVolumeResultOutput) Throughput() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupVolumeResult) int { return v.Throughput }).(pulumi.IntOutput)
 }
 
-// The volume ID (e.g. vol-59fcb34e).
+// The volume ID (e.g., vol-59fcb34e).
 func (o LookupVolumeResultOutput) VolumeId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVolumeResult) string { return v.VolumeId }).(pulumi.StringOutput)
 }

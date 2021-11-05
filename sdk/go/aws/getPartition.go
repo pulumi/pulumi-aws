@@ -59,12 +59,12 @@ func GetPartition(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetPartiti
 
 // A collection of values returned by getPartition.
 type GetPartitionResult struct {
-	// Base DNS domain name for the current partition (e.g. `amazonaws.com` in AWS Commercial, `amazonaws.com.cn` in AWS China).
+	// Base DNS domain name for the current partition (e.g., `amazonaws.com` in AWS Commercial, `amazonaws.com.cn` in AWS China).
 	DnsSuffix string `pulumi:"dnsSuffix"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// Identifier of the current partition (e.g. `aws` in AWS Commercial, `aws-cn` in AWS China).
+	// Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
 	Partition string `pulumi:"partition"`
-	// Prefix of service names (e.g. `com.amazonaws` in AWS Commercial, `cn.com.amazonaws` in AWS China).
+	// Prefix of service names (e.g., `com.amazonaws` in AWS Commercial, `cn.com.amazonaws` in AWS China).
 	ReverseDnsPrefix string `pulumi:"reverseDnsPrefix"`
 }

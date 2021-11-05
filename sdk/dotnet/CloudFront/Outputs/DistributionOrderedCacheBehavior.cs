@@ -89,6 +89,10 @@ namespace Pulumi.Aws.CloudFront.Outputs
         /// </summary>
         public readonly string? RealtimeLogConfigArn;
         /// <summary>
+        /// The identifier for a response headers policy.
+        /// </summary>
+        public readonly string? ResponseHeadersPolicyId;
+        /// <summary>
         /// Indicates whether you want to distribute
         /// media files in Microsoft Smooth Streaming format using the origin that is
         /// associated with this cache behavior.
@@ -148,6 +152,8 @@ namespace Pulumi.Aws.CloudFront.Outputs
 
             string? realtimeLogConfigArn,
 
+            string? responseHeadersPolicyId,
+
             bool? smoothStreaming,
 
             string targetOriginId,
@@ -172,6 +178,7 @@ namespace Pulumi.Aws.CloudFront.Outputs
             OriginRequestPolicyId = originRequestPolicyId;
             PathPattern = pathPattern;
             RealtimeLogConfigArn = realtimeLogConfigArn;
+            ResponseHeadersPolicyId = responseHeadersPolicyId;
             SmoothStreaming = smoothStreaming;
             TargetOriginId = targetOriginId;
             TrustedKeyGroups = trustedKeyGroups;

@@ -13,6 +13,7 @@ export * from "./plan";
 export * from "./regionSettings";
 export * from "./selection";
 export * from "./vault";
+export * from "./vaultLockConfiguration";
 export * from "./vaultNotifications";
 export * from "./vaultPolicy";
 
@@ -22,6 +23,7 @@ import { Plan } from "./plan";
 import { RegionSettings } from "./regionSettings";
 import { Selection } from "./selection";
 import { Vault } from "./vault";
+import { VaultLockConfiguration } from "./vaultLockConfiguration";
 import { VaultNotifications } from "./vaultNotifications";
 import { VaultPolicy } from "./vaultPolicy";
 
@@ -39,6 +41,8 @@ const _module = {
                 return new Selection(name, <any>undefined, { urn })
             case "aws:backup/vault:Vault":
                 return new Vault(name, <any>undefined, { urn })
+            case "aws:backup/vaultLockConfiguration:VaultLockConfiguration":
+                return new VaultLockConfiguration(name, <any>undefined, { urn })
             case "aws:backup/vaultNotifications:VaultNotifications":
                 return new VaultNotifications(name, <any>undefined, { urn })
             case "aws:backup/vaultPolicy:VaultPolicy":
@@ -53,5 +57,6 @@ pulumi.runtime.registerResourceModule("aws", "backup/plan", _module)
 pulumi.runtime.registerResourceModule("aws", "backup/regionSettings", _module)
 pulumi.runtime.registerResourceModule("aws", "backup/selection", _module)
 pulumi.runtime.registerResourceModule("aws", "backup/vault", _module)
+pulumi.runtime.registerResourceModule("aws", "backup/vaultLockConfiguration", _module)
 pulumi.runtime.registerResourceModule("aws", "backup/vaultNotifications", _module)
 pulumi.runtime.registerResourceModule("aws", "backup/vaultPolicy", _module)

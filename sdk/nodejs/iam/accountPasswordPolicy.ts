@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * IAM Account Password Policy can be imported using the word `iam-account-password-policy`, e.g.
+ * IAM Account Password Policy can be imported using the word `iam-account-password-policy`, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:iam/accountPasswordPolicy:AccountPasswordPolicy strict iam-account-password-policy
@@ -72,7 +72,7 @@ export class AccountPasswordPolicy extends pulumi.CustomResource {
      */
     public /*out*/ readonly expirePasswords!: pulumi.Output<boolean>;
     /**
-     * Whether users are prevented from setting a new password after their password has expired (i.e. require administrator reset)
+     * Whether users are prevented from setting a new password after their password has expired (i.e., require administrator reset)
      */
     public readonly hardExpiry!: pulumi.Output<boolean>;
     /**
@@ -160,7 +160,7 @@ export interface AccountPasswordPolicyState {
      */
     expirePasswords?: pulumi.Input<boolean>;
     /**
-     * Whether users are prevented from setting a new password after their password has expired (i.e. require administrator reset)
+     * Whether users are prevented from setting a new password after their password has expired (i.e., require administrator reset)
      */
     hardExpiry?: pulumi.Input<boolean>;
     /**
@@ -202,7 +202,7 @@ export interface AccountPasswordPolicyArgs {
      */
     allowUsersToChangePassword?: pulumi.Input<boolean>;
     /**
-     * Whether users are prevented from setting a new password after their password has expired (i.e. require administrator reset)
+     * Whether users are prevented from setting a new password after their password has expired (i.e., require administrator reset)
      */
     hardExpiry?: pulumi.Input<boolean>;
     /**

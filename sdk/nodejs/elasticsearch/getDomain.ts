@@ -93,7 +93,7 @@ export interface GetDomainResult {
      */
     readonly ebsOptions: outputs.elasticsearch.GetDomainEbsOption[];
     /**
-     * ElasticSearch version for the domain.
+     * Elasticsearch version for the domain.
      */
     readonly elasticsearchVersion: string;
     /**

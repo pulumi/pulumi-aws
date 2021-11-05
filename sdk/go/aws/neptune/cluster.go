@@ -54,7 +54,7 @@ import (
 //
 // ## Import
 //
-// `aws_neptune_cluster` can be imported by using the cluster identifier, e.g.
+// `aws_neptune_cluster` can be imported by using the cluster identifier, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:neptune/cluster:Cluster example my-cluster
@@ -94,7 +94,7 @@ type Cluster struct {
 	FinalSnapshotIdentifier pulumi.StringPtrOutput `pulumi:"finalSnapshotIdentifier"`
 	// The Route53 Hosted Zone ID of the endpoint
 	HostedZoneId pulumi.StringOutput `pulumi:"hostedZoneId"`
-	// Specifies whether or mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
+	// Specifies whether or not mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
 	IamDatabaseAuthenticationEnabled pulumi.BoolPtrOutput `pulumi:"iamDatabaseAuthenticationEnabled"`
 	// A List of ARNs for the IAM roles to associate to the Neptune Cluster.
 	IamRoles pulumi.StringArrayOutput `pulumi:"iamRoles"`
@@ -106,9 +106,9 @@ type Cluster struct {
 	NeptuneSubnetGroupName pulumi.StringOutput `pulumi:"neptuneSubnetGroupName"`
 	// The port on which the Neptune accepts connections. Default is `8182`.
 	Port pulumi.IntPtrOutput `pulumi:"port"`
-	// The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter. Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per region. e.g. 04:00-09:00
+	// The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter. Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
 	PreferredBackupWindow pulumi.StringOutput `pulumi:"preferredBackupWindow"`
-	// The weekly time range during which system maintenance can occur, in (UTC) e.g. wed:04:00-wed:04:30
+	// The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
 	PreferredMaintenanceWindow pulumi.StringOutput `pulumi:"preferredMaintenanceWindow"`
 	// A read-only endpoint for the Neptune cluster, automatically load-balanced across replicas
 	ReaderEndpoint pulumi.StringOutput `pulumi:"readerEndpoint"`
@@ -189,7 +189,7 @@ type clusterState struct {
 	FinalSnapshotIdentifier *string `pulumi:"finalSnapshotIdentifier"`
 	// The Route53 Hosted Zone ID of the endpoint
 	HostedZoneId *string `pulumi:"hostedZoneId"`
-	// Specifies whether or mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
+	// Specifies whether or not mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
 	IamDatabaseAuthenticationEnabled *bool `pulumi:"iamDatabaseAuthenticationEnabled"`
 	// A List of ARNs for the IAM roles to associate to the Neptune Cluster.
 	IamRoles []string `pulumi:"iamRoles"`
@@ -201,9 +201,9 @@ type clusterState struct {
 	NeptuneSubnetGroupName *string `pulumi:"neptuneSubnetGroupName"`
 	// The port on which the Neptune accepts connections. Default is `8182`.
 	Port *int `pulumi:"port"`
-	// The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter. Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per region. e.g. 04:00-09:00
+	// The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter. Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
 	PreferredBackupWindow *string `pulumi:"preferredBackupWindow"`
-	// The weekly time range during which system maintenance can occur, in (UTC) e.g. wed:04:00-wed:04:30
+	// The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
 	PreferredMaintenanceWindow *string `pulumi:"preferredMaintenanceWindow"`
 	// A read-only endpoint for the Neptune cluster, automatically load-balanced across replicas
 	ReaderEndpoint *string `pulumi:"readerEndpoint"`
@@ -256,7 +256,7 @@ type ClusterState struct {
 	FinalSnapshotIdentifier pulumi.StringPtrInput
 	// The Route53 Hosted Zone ID of the endpoint
 	HostedZoneId pulumi.StringPtrInput
-	// Specifies whether or mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
+	// Specifies whether or not mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
 	IamDatabaseAuthenticationEnabled pulumi.BoolPtrInput
 	// A List of ARNs for the IAM roles to associate to the Neptune Cluster.
 	IamRoles pulumi.StringArrayInput
@@ -268,9 +268,9 @@ type ClusterState struct {
 	NeptuneSubnetGroupName pulumi.StringPtrInput
 	// The port on which the Neptune accepts connections. Default is `8182`.
 	Port pulumi.IntPtrInput
-	// The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter. Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per region. e.g. 04:00-09:00
+	// The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter. Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
 	PreferredBackupWindow pulumi.StringPtrInput
-	// The weekly time range during which system maintenance can occur, in (UTC) e.g. wed:04:00-wed:04:30
+	// The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
 	PreferredMaintenanceWindow pulumi.StringPtrInput
 	// A read-only endpoint for the Neptune cluster, automatically load-balanced across replicas
 	ReaderEndpoint pulumi.StringPtrInput
@@ -317,7 +317,7 @@ type clusterArgs struct {
 	EngineVersion *string `pulumi:"engineVersion"`
 	// The name of your final Neptune snapshot when this Neptune cluster is deleted. If omitted, no final snapshot will be made.
 	FinalSnapshotIdentifier *string `pulumi:"finalSnapshotIdentifier"`
-	// Specifies whether or mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
+	// Specifies whether or not mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
 	IamDatabaseAuthenticationEnabled *bool `pulumi:"iamDatabaseAuthenticationEnabled"`
 	// A List of ARNs for the IAM roles to associate to the Neptune Cluster.
 	IamRoles []string `pulumi:"iamRoles"`
@@ -329,9 +329,9 @@ type clusterArgs struct {
 	NeptuneSubnetGroupName *string `pulumi:"neptuneSubnetGroupName"`
 	// The port on which the Neptune accepts connections. Default is `8182`.
 	Port *int `pulumi:"port"`
-	// The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter. Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per region. e.g. 04:00-09:00
+	// The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter. Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
 	PreferredBackupWindow *string `pulumi:"preferredBackupWindow"`
-	// The weekly time range during which system maintenance can occur, in (UTC) e.g. wed:04:00-wed:04:30
+	// The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
 	PreferredMaintenanceWindow *string `pulumi:"preferredMaintenanceWindow"`
 	// ARN of a source Neptune cluster or Neptune instance if this Neptune cluster is to be created as a Read Replica.
 	ReplicationSourceIdentifier *string `pulumi:"replicationSourceIdentifier"`
@@ -371,7 +371,7 @@ type ClusterArgs struct {
 	EngineVersion pulumi.StringPtrInput
 	// The name of your final Neptune snapshot when this Neptune cluster is deleted. If omitted, no final snapshot will be made.
 	FinalSnapshotIdentifier pulumi.StringPtrInput
-	// Specifies whether or mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
+	// Specifies whether or not mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
 	IamDatabaseAuthenticationEnabled pulumi.BoolPtrInput
 	// A List of ARNs for the IAM roles to associate to the Neptune Cluster.
 	IamRoles pulumi.StringArrayInput
@@ -383,9 +383,9 @@ type ClusterArgs struct {
 	NeptuneSubnetGroupName pulumi.StringPtrInput
 	// The port on which the Neptune accepts connections. Default is `8182`.
 	Port pulumi.IntPtrInput
-	// The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter. Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per region. e.g. 04:00-09:00
+	// The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter. Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
 	PreferredBackupWindow pulumi.StringPtrInput
-	// The weekly time range during which system maintenance can occur, in (UTC) e.g. wed:04:00-wed:04:30
+	// The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
 	PreferredMaintenanceWindow pulumi.StringPtrInput
 	// ARN of a source Neptune cluster or Neptune instance if this Neptune cluster is to be created as a Read Replica.
 	ReplicationSourceIdentifier pulumi.StringPtrInput

@@ -93,7 +93,7 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// ## Import
     /// 
-    /// `aws_api_gateway_method` can be imported using `REST-API-ID/RESOURCE-ID/HTTP-METHOD`, e.g.
+    /// `aws_api_gateway_method` can be imported using `REST-API-ID/RESOURCE-ID/HTTP-METHOD`, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:apigateway/method:Method example 12345abcde/67890fghij/GET
@@ -140,7 +140,7 @@ namespace Pulumi.Aws.ApiGateway
 
         /// <summary>
         /// A map of the API models used for the request's content type
-        /// where key is the content type (e.g. `application/json`)
+        /// where key is the content type (e.g., `application/json`)
         /// and value is either `Error`, `Empty` (built-in models) or `aws.apigateway.Model`'s `name`.
         /// </summary>
         [Output("requestModels")]
@@ -264,7 +264,7 @@ namespace Pulumi.Aws.ApiGateway
 
         /// <summary>
         /// A map of the API models used for the request's content type
-        /// where key is the content type (e.g. `application/json`)
+        /// where key is the content type (e.g., `application/json`)
         /// and value is either `Error`, `Empty` (built-in models) or `aws.apigateway.Model`'s `name`.
         /// </summary>
         public InputMap<string> RequestModels
@@ -358,7 +358,7 @@ namespace Pulumi.Aws.ApiGateway
 
         /// <summary>
         /// A map of the API models used for the request's content type
-        /// where key is the content type (e.g. `application/json`)
+        /// where key is the content type (e.g., `application/json`)
         /// and value is either `Error`, `Empty` (built-in models) or `aws.apigateway.Model`'s `name`.
         /// </summary>
         public InputMap<string> RequestModels

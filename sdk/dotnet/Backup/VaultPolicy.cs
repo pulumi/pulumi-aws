@@ -61,7 +61,7 @@ namespace Pulumi.Aws.Backup
     /// 
     /// ## Import
     /// 
-    /// Backup vault policy can be imported using the `name`, e.g.
+    /// Backup vault policy can be imported using the `name`, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:backup/vaultPolicy:VaultPolicy test TestVault

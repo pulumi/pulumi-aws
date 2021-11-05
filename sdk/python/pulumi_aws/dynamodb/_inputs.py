@@ -25,7 +25,7 @@ class GlobalTableReplicaArgs:
     def __init__(__self__, *,
                  region_name: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] region_name: AWS region name of replica DynamoDB Table. e.g. `us-east-1`
+        :param pulumi.Input[str] region_name: AWS region name of replica DynamoDB TableE.g., `us-east-1`
         """
         pulumi.set(__self__, "region_name", region_name)
 
@@ -33,7 +33,7 @@ class GlobalTableReplicaArgs:
     @pulumi.getter(name="regionName")
     def region_name(self) -> pulumi.Input[str]:
         """
-        AWS region name of replica DynamoDB Table. e.g. `us-east-1`
+        AWS region name of replica DynamoDB TableE.g., `us-east-1`
         """
         return pulumi.get(self, "region_name")
 

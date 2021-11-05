@@ -665,8 +665,20 @@ func (o EndpointKafkaSettingsPtrOutput) Topic() pulumi.StringPtrOutput {
 }
 
 type EndpointKinesisSettings struct {
+	// Shows detailed control information for table definition, column definition, and table and column changes in the Kinesis message output. The default is `false`.
+	IncludeControlDetails *bool `pulumi:"includeControlDetails"`
+	// Include NULL and empty columns in the target. The default is `false`.
+	IncludeNullAndEmpty *bool `pulumi:"includeNullAndEmpty"`
+	// Shows the partition value within the Kinesis message output, unless the partition type is schema-table-type. The default is `false`.
+	IncludePartitionValue *bool `pulumi:"includePartitionValue"`
+	// Includes any data definition language (DDL) operations that change the table in the control data. The default is `false`.
+	IncludeTableAlterOperations *bool `pulumi:"includeTableAlterOperations"`
+	// Provides detailed transaction information from the source database. The default is `false`.
+	IncludeTransactionDetails *bool `pulumi:"includeTransactionDetails"`
 	// Output format for the records created. Defaults to `json`. Valid values are `json` and `jsonUnformatted` (a single line with no tab).
 	MessageFormat *string `pulumi:"messageFormat"`
+	// Prefixes schema and table names to partition values, when the partition type is primary-key-type. The default is `false`.
+	PartitionIncludeSchemaTable *bool `pulumi:"partitionIncludeSchemaTable"`
 	// Amazon Resource Name (ARN) of the IAM Role with permissions to write to the Kinesis data stream.
 	ServiceAccessRoleArn *string `pulumi:"serviceAccessRoleArn"`
 	// Amazon Resource Name (ARN) of the Kinesis data stream.
@@ -685,8 +697,20 @@ type EndpointKinesisSettingsInput interface {
 }
 
 type EndpointKinesisSettingsArgs struct {
+	// Shows detailed control information for table definition, column definition, and table and column changes in the Kinesis message output. The default is `false`.
+	IncludeControlDetails pulumi.BoolPtrInput `pulumi:"includeControlDetails"`
+	// Include NULL and empty columns in the target. The default is `false`.
+	IncludeNullAndEmpty pulumi.BoolPtrInput `pulumi:"includeNullAndEmpty"`
+	// Shows the partition value within the Kinesis message output, unless the partition type is schema-table-type. The default is `false`.
+	IncludePartitionValue pulumi.BoolPtrInput `pulumi:"includePartitionValue"`
+	// Includes any data definition language (DDL) operations that change the table in the control data. The default is `false`.
+	IncludeTableAlterOperations pulumi.BoolPtrInput `pulumi:"includeTableAlterOperations"`
+	// Provides detailed transaction information from the source database. The default is `false`.
+	IncludeTransactionDetails pulumi.BoolPtrInput `pulumi:"includeTransactionDetails"`
 	// Output format for the records created. Defaults to `json`. Valid values are `json` and `jsonUnformatted` (a single line with no tab).
 	MessageFormat pulumi.StringPtrInput `pulumi:"messageFormat"`
+	// Prefixes schema and table names to partition values, when the partition type is primary-key-type. The default is `false`.
+	PartitionIncludeSchemaTable pulumi.BoolPtrInput `pulumi:"partitionIncludeSchemaTable"`
 	// Amazon Resource Name (ARN) of the IAM Role with permissions to write to the Kinesis data stream.
 	ServiceAccessRoleArn pulumi.StringPtrInput `pulumi:"serviceAccessRoleArn"`
 	// Amazon Resource Name (ARN) of the Kinesis data stream.
@@ -770,9 +794,39 @@ func (o EndpointKinesisSettingsOutput) ToEndpointKinesisSettingsPtrOutputWithCon
 	}).(EndpointKinesisSettingsPtrOutput)
 }
 
+// Shows detailed control information for table definition, column definition, and table and column changes in the Kinesis message output. The default is `false`.
+func (o EndpointKinesisSettingsOutput) IncludeControlDetails() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointKinesisSettings) *bool { return v.IncludeControlDetails }).(pulumi.BoolPtrOutput)
+}
+
+// Include NULL and empty columns in the target. The default is `false`.
+func (o EndpointKinesisSettingsOutput) IncludeNullAndEmpty() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointKinesisSettings) *bool { return v.IncludeNullAndEmpty }).(pulumi.BoolPtrOutput)
+}
+
+// Shows the partition value within the Kinesis message output, unless the partition type is schema-table-type. The default is `false`.
+func (o EndpointKinesisSettingsOutput) IncludePartitionValue() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointKinesisSettings) *bool { return v.IncludePartitionValue }).(pulumi.BoolPtrOutput)
+}
+
+// Includes any data definition language (DDL) operations that change the table in the control data. The default is `false`.
+func (o EndpointKinesisSettingsOutput) IncludeTableAlterOperations() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointKinesisSettings) *bool { return v.IncludeTableAlterOperations }).(pulumi.BoolPtrOutput)
+}
+
+// Provides detailed transaction information from the source database. The default is `false`.
+func (o EndpointKinesisSettingsOutput) IncludeTransactionDetails() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointKinesisSettings) *bool { return v.IncludeTransactionDetails }).(pulumi.BoolPtrOutput)
+}
+
 // Output format for the records created. Defaults to `json`. Valid values are `json` and `jsonUnformatted` (a single line with no tab).
 func (o EndpointKinesisSettingsOutput) MessageFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointKinesisSettings) *string { return v.MessageFormat }).(pulumi.StringPtrOutput)
+}
+
+// Prefixes schema and table names to partition values, when the partition type is primary-key-type. The default is `false`.
+func (o EndpointKinesisSettingsOutput) PartitionIncludeSchemaTable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointKinesisSettings) *bool { return v.PartitionIncludeSchemaTable }).(pulumi.BoolPtrOutput)
 }
 
 // Amazon Resource Name (ARN) of the IAM Role with permissions to write to the Kinesis data stream.
@@ -809,6 +863,56 @@ func (o EndpointKinesisSettingsPtrOutput) Elem() EndpointKinesisSettingsOutput {
 	}).(EndpointKinesisSettingsOutput)
 }
 
+// Shows detailed control information for table definition, column definition, and table and column changes in the Kinesis message output. The default is `false`.
+func (o EndpointKinesisSettingsPtrOutput) IncludeControlDetails() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointKinesisSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeControlDetails
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Include NULL and empty columns in the target. The default is `false`.
+func (o EndpointKinesisSettingsPtrOutput) IncludeNullAndEmpty() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointKinesisSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeNullAndEmpty
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Shows the partition value within the Kinesis message output, unless the partition type is schema-table-type. The default is `false`.
+func (o EndpointKinesisSettingsPtrOutput) IncludePartitionValue() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointKinesisSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludePartitionValue
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Includes any data definition language (DDL) operations that change the table in the control data. The default is `false`.
+func (o EndpointKinesisSettingsPtrOutput) IncludeTableAlterOperations() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointKinesisSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeTableAlterOperations
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Provides detailed transaction information from the source database. The default is `false`.
+func (o EndpointKinesisSettingsPtrOutput) IncludeTransactionDetails() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointKinesisSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeTransactionDetails
+	}).(pulumi.BoolPtrOutput)
+}
+
 // Output format for the records created. Defaults to `json`. Valid values are `json` and `jsonUnformatted` (a single line with no tab).
 func (o EndpointKinesisSettingsPtrOutput) MessageFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointKinesisSettings) *string {
@@ -817,6 +921,16 @@ func (o EndpointKinesisSettingsPtrOutput) MessageFormat() pulumi.StringPtrOutput
 		}
 		return v.MessageFormat
 	}).(pulumi.StringPtrOutput)
+}
+
+// Prefixes schema and table names to partition values, when the partition type is primary-key-type. The default is `false`.
+func (o EndpointKinesisSettingsPtrOutput) PartitionIncludeSchemaTable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointKinesisSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PartitionIncludeSchemaTable
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Amazon Resource Name (ARN) of the IAM Role with permissions to write to the Kinesis data stream.

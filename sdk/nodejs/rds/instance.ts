@@ -64,7 +64,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * DB Instances can be imported using the `identifier`, e.g.
+ * DB Instances can be imported using the `identifier`, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:rds/instance:Instance default mydb-rds-instance
@@ -264,7 +264,7 @@ export class Instance extends pulumi.CustomResource {
      */
     public /*out*/ readonly latestRestorableTime!: pulumi.Output<string>;
     /**
-     * (Optional, but required for some DB engines, i.e. Oracle
+     * (Optional, but required for some DB engines, i.e., Oracle
      * SE1) License model information for this DB instance.
      */
     public readonly licenseModel!: pulumi.Output<string>;
@@ -764,7 +764,7 @@ export interface InstanceState {
      */
     latestRestorableTime?: pulumi.Input<string>;
     /**
-     * (Optional, but required for some DB engines, i.e. Oracle
+     * (Optional, but required for some DB engines, i.e., Oracle
      * SE1) License model information for this DB instance.
      */
     licenseModel?: pulumi.Input<string>;
@@ -1084,7 +1084,7 @@ export interface InstanceArgs {
      */
     kmsKeyId?: pulumi.Input<string>;
     /**
-     * (Optional, but required for some DB engines, i.e. Oracle
+     * (Optional, but required for some DB engines, i.e., Oracle
      * SE1) License model information for this DB instance.
      */
     licenseModel?: pulumi.Input<string>;

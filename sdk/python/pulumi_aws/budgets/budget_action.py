@@ -443,7 +443,7 @@ class BudgetAction(pulumi.CustomResource):
 
         ## Import
 
-        Budgets can be imported using `AccountID:ActionID:BudgetName`, e.g.
+        Budgets can be imported using `AccountID:ActionID:BudgetName`, e.g.,
 
         ```sh
          $ pulumi import aws:budgets/budgetAction:BudgetAction myBudget 123456789012:some-id:myBudget`
@@ -539,7 +539,7 @@ class BudgetAction(pulumi.CustomResource):
 
         ## Import
 
-        Budgets can be imported using `AccountID:ActionID:BudgetName`, e.g.
+        Budgets can be imported using `AccountID:ActionID:BudgetName`, e.g.,
 
         ```sh
          $ pulumi import aws:budgets/budgetAction:BudgetAction myBudget 123456789012:some-id:myBudget`

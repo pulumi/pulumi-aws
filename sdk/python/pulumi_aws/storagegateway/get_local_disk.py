@@ -41,7 +41,7 @@ class GetLocalDiskResult:
     @pulumi.getter(name="diskId")
     def disk_id(self) -> str:
         """
-        The disk identifier. e.g. `pci-0000:03:00.0-scsi-0:0:0:0`
+        The disk identifierE.g., `pci-0000:03:00.0-scsi-0:0:0:0`
         """
         return pulumi.get(self, "disk_id")
 

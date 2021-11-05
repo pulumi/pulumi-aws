@@ -28,7 +28,7 @@ class ConformancePackArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ConformancePackInputParameterArgs']]] input_parameters: Set of configuration blocks describing input parameters passed to the conformance pack template. Documented below. When configured, the parameters must also be included in the `template_body` or in the template stored in Amazon S3 if using `template_s3_uri`.
         :param pulumi.Input[str] name: The name of the conformance pack. Must begin with a letter and contain from 1 to 256 alphanumeric characters and hyphens.
         :param pulumi.Input[str] template_body: A string containing full conformance pack template body. Maximum length of 51200. Drift detection is not possible with this argument.
-        :param pulumi.Input[str] template_s3_uri: Location of file, e.g. `s3://bucketname/prefix`, containing the template body. The uri must point to the conformance pack template that is located in an Amazon S3 bucket in the same region as the conformance pack. Maximum length of 1024. Drift detection is not possible with this argument.
+        :param pulumi.Input[str] template_s3_uri: Location of file, e.g., `s3://bucketname/prefix`, containing the template body. The uri must point to the conformance pack template that is located in an Amazon S3 bucket in the same region as the conformance pack. Maximum length of 1024. Drift detection is not possible with this argument.
         """
         if delivery_s3_bucket is not None:
             pulumi.set(__self__, "delivery_s3_bucket", delivery_s3_bucket)
@@ -107,7 +107,7 @@ class ConformancePackArgs:
     @pulumi.getter(name="templateS3Uri")
     def template_s3_uri(self) -> Optional[pulumi.Input[str]]:
         """
-        Location of file, e.g. `s3://bucketname/prefix`, containing the template body. The uri must point to the conformance pack template that is located in an Amazon S3 bucket in the same region as the conformance pack. Maximum length of 1024. Drift detection is not possible with this argument.
+        Location of file, e.g., `s3://bucketname/prefix`, containing the template body. The uri must point to the conformance pack template that is located in an Amazon S3 bucket in the same region as the conformance pack. Maximum length of 1024. Drift detection is not possible with this argument.
         """
         return pulumi.get(self, "template_s3_uri")
 
@@ -134,7 +134,7 @@ class _ConformancePackState:
         :param pulumi.Input[Sequence[pulumi.Input['ConformancePackInputParameterArgs']]] input_parameters: Set of configuration blocks describing input parameters passed to the conformance pack template. Documented below. When configured, the parameters must also be included in the `template_body` or in the template stored in Amazon S3 if using `template_s3_uri`.
         :param pulumi.Input[str] name: The name of the conformance pack. Must begin with a letter and contain from 1 to 256 alphanumeric characters and hyphens.
         :param pulumi.Input[str] template_body: A string containing full conformance pack template body. Maximum length of 51200. Drift detection is not possible with this argument.
-        :param pulumi.Input[str] template_s3_uri: Location of file, e.g. `s3://bucketname/prefix`, containing the template body. The uri must point to the conformance pack template that is located in an Amazon S3 bucket in the same region as the conformance pack. Maximum length of 1024. Drift detection is not possible with this argument.
+        :param pulumi.Input[str] template_s3_uri: Location of file, e.g., `s3://bucketname/prefix`, containing the template body. The uri must point to the conformance pack template that is located in an Amazon S3 bucket in the same region as the conformance pack. Maximum length of 1024. Drift detection is not possible with this argument.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -227,7 +227,7 @@ class _ConformancePackState:
     @pulumi.getter(name="templateS3Uri")
     def template_s3_uri(self) -> Optional[pulumi.Input[str]]:
         """
-        Location of file, e.g. `s3://bucketname/prefix`, containing the template body. The uri must point to the conformance pack template that is located in an Amazon S3 bucket in the same region as the conformance pack. Maximum length of 1024. Drift detection is not possible with this argument.
+        Location of file, e.g., `s3://bucketname/prefix`, containing the template body. The uri must point to the conformance pack template that is located in an Amazon S3 bucket in the same region as the conformance pack. Maximum length of 1024. Drift detection is not possible with this argument.
         """
         return pulumi.get(self, "template_s3_uri")
 
@@ -308,7 +308,7 @@ class ConformancePack(pulumi.CustomResource):
 
         ## Import
 
-        Config Conformance Packs can be imported using the `name`, e.g.
+        Config Conformance Packs can be imported using the `name`, e.g.,
 
         ```sh
          $ pulumi import aws:cfg/conformancePack:ConformancePack example example
@@ -321,7 +321,7 @@ class ConformancePack(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConformancePackInputParameterArgs']]]] input_parameters: Set of configuration blocks describing input parameters passed to the conformance pack template. Documented below. When configured, the parameters must also be included in the `template_body` or in the template stored in Amazon S3 if using `template_s3_uri`.
         :param pulumi.Input[str] name: The name of the conformance pack. Must begin with a letter and contain from 1 to 256 alphanumeric characters and hyphens.
         :param pulumi.Input[str] template_body: A string containing full conformance pack template body. Maximum length of 51200. Drift detection is not possible with this argument.
-        :param pulumi.Input[str] template_s3_uri: Location of file, e.g. `s3://bucketname/prefix`, containing the template body. The uri must point to the conformance pack template that is located in an Amazon S3 bucket in the same region as the conformance pack. Maximum length of 1024. Drift detection is not possible with this argument.
+        :param pulumi.Input[str] template_s3_uri: Location of file, e.g., `s3://bucketname/prefix`, containing the template body. The uri must point to the conformance pack template that is located in an Amazon S3 bucket in the same region as the conformance pack. Maximum length of 1024. Drift detection is not possible with this argument.
         """
         ...
     @overload
@@ -389,7 +389,7 @@ class ConformancePack(pulumi.CustomResource):
 
         ## Import
 
-        Config Conformance Packs can be imported using the `name`, e.g.
+        Config Conformance Packs can be imported using the `name`, e.g.,
 
         ```sh
          $ pulumi import aws:cfg/conformancePack:ConformancePack example example
@@ -465,7 +465,7 @@ class ConformancePack(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ConformancePackInputParameterArgs']]]] input_parameters: Set of configuration blocks describing input parameters passed to the conformance pack template. Documented below. When configured, the parameters must also be included in the `template_body` or in the template stored in Amazon S3 if using `template_s3_uri`.
         :param pulumi.Input[str] name: The name of the conformance pack. Must begin with a letter and contain from 1 to 256 alphanumeric characters and hyphens.
         :param pulumi.Input[str] template_body: A string containing full conformance pack template body. Maximum length of 51200. Drift detection is not possible with this argument.
-        :param pulumi.Input[str] template_s3_uri: Location of file, e.g. `s3://bucketname/prefix`, containing the template body. The uri must point to the conformance pack template that is located in an Amazon S3 bucket in the same region as the conformance pack. Maximum length of 1024. Drift detection is not possible with this argument.
+        :param pulumi.Input[str] template_s3_uri: Location of file, e.g., `s3://bucketname/prefix`, containing the template body. The uri must point to the conformance pack template that is located in an Amazon S3 bucket in the same region as the conformance pack. Maximum length of 1024. Drift detection is not possible with this argument.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -532,7 +532,7 @@ class ConformancePack(pulumi.CustomResource):
     @pulumi.getter(name="templateS3Uri")
     def template_s3_uri(self) -> pulumi.Output[Optional[str]]:
         """
-        Location of file, e.g. `s3://bucketname/prefix`, containing the template body. The uri must point to the conformance pack template that is located in an Amazon S3 bucket in the same region as the conformance pack. Maximum length of 1024. Drift detection is not possible with this argument.
+        Location of file, e.g., `s3://bucketname/prefix`, containing the template body. The uri must point to the conformance pack template that is located in an Amazon S3 bucket in the same region as the conformance pack. Maximum length of 1024. Drift detection is not possible with this argument.
         """
         return pulumi.get(self, "template_s3_uri")
 

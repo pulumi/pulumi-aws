@@ -83,7 +83,7 @@ import (
 //
 // ## Import
 //
-// `aws_appsync_datasource` can be imported with their `api_id`, a hyphen, and `name`, e.g.
+// `aws_appsync_datasource` can be imported with their `api_id`, a hyphen, and `name`, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:appsync/dataSource:DataSource example abcdef123456-example

@@ -132,7 +132,7 @@ class ManagedPrefixListEntry(pulumi.CustomResource):
         """
         ## Import
 
-        Prefix List Entries can be imported using the `prefix_list_id` and `cidr` separated by a `,`, e.g.
+        Prefix List Entries can be imported using the `prefix_list_id` and `cidr` separated by a `,`, e.g.,
 
         ```sh
          $ pulumi import aws:ec2/managedPrefixListEntry:ManagedPrefixListEntry default pl-0570a1d2d725c16be,10.0.3.0/24
@@ -153,7 +153,7 @@ class ManagedPrefixListEntry(pulumi.CustomResource):
         """
         ## Import
 
-        Prefix List Entries can be imported using the `prefix_list_id` and `cidr` separated by a `,`, e.g.
+        Prefix List Entries can be imported using the `prefix_list_id` and `cidr` separated by a `,`, e.g.,
 
         ```sh
          $ pulumi import aws:ec2/managedPrefixListEntry:ManagedPrefixListEntry default pl-0570a1d2d725c16be,10.0.3.0/24

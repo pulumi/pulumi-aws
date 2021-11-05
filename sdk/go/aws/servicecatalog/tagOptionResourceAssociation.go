@@ -42,7 +42,7 @@ import (
 //
 // ## Import
 //
-// `aws_servicecatalog_tag_option_resource_association` can be imported using the tag option ID and resource ID, e.g.
+// `aws_servicecatalog_tag_option_resource_association` can be imported using the tag option ID and resource ID, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:servicecatalog/tagOptionResourceAssociation:TagOptionResourceAssociation example tag-pjtvyakdlyo3m:prod-dnigbtea24ste

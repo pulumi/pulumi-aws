@@ -58,6 +58,10 @@ export interface GetNetworkInterfaceArgs {
  */
 export interface GetNetworkInterfaceResult {
     /**
+     * The ARN of the network interface.
+     */
+    readonly arn: string;
+    /**
      * The association information for an Elastic IP address (IPv4) associated with the network interface. See supported fields below.
      */
     readonly associations: outputs.ec2.GetNetworkInterfaceAssociation[];

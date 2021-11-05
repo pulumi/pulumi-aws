@@ -31,7 +31,7 @@ class GetAmiBlockDeviceMappingResult(dict):
                  virtual_name: str):
         """
         :param str device_name: The physical name of the device.
-        :param Mapping[str, str] ebs: Map containing EBS information, if the device is EBS based. Unlike most object attributes, these are accessed directly (e.g. `ebs.volume_size` or `ebs["volume_size"]`) rather than accessed through the first element of a list (e.g. `ebs[0].volume_size`).
+        :param Mapping[str, str] ebs: Map containing EBS information, if the device is EBS based. Unlike most object attributes, these are accessed directly (e.g., `ebs.volume_size` or `ebs["volume_size"]`) rather than accessed through the first element of a list (e.g., `ebs[0].volume_size`).
         :param str no_device: Suppresses the specified device included in the block device mapping of the AMI.
         :param str virtual_name: The virtual device name (for instance stores).
         """
@@ -52,7 +52,7 @@ class GetAmiBlockDeviceMappingResult(dict):
     @pulumi.getter
     def ebs(self) -> Mapping[str, str]:
         """
-        Map containing EBS information, if the device is EBS based. Unlike most object attributes, these are accessed directly (e.g. `ebs.volume_size` or `ebs["volume_size"]`) rather than accessed through the first element of a list (e.g. `ebs[0].volume_size`).
+        Map containing EBS information, if the device is EBS based. Unlike most object attributes, these are accessed directly (e.g., `ebs.volume_size` or `ebs["volume_size"]`) rather than accessed through the first element of a list (e.g., `ebs[0].volume_size`).
         """
         return pulumi.get(self, "ebs")
 

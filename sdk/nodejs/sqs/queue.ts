@@ -64,7 +64,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * SQS Queues can be imported using the `queue url`, e.g.
+ * SQS Queues can be imported using the `queue url`, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:sqs/queue:Queue public_queue https://queue.amazonaws.com/80398EXAMPLE/MyQueue

@@ -178,7 +178,7 @@ namespace Pulumi.Aws.Batch
     /// 
     /// ## Import
     /// 
-    /// AWS Batch compute can be imported using the `compute_environment_name`, e.g.
+    /// AWS Batch compute can be imported using the `compute_environment_name`, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:batch/computeEnvironment:ComputeEnvironment sample sample

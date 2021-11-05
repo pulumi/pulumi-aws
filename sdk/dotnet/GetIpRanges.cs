@@ -134,7 +134,7 @@ namespace Pulumi.Aws
         /// <summary>
         /// Filter IP ranges by regions (or include all regions, if
         /// omitted). Valid items are `global` (for `cloudfront`) as well as all AWS regions
-        /// (e.g. `eu-central-1`)
+        /// (e.g., `eu-central-1`)
         /// </summary>
         public List<string> Regions
         {
@@ -177,7 +177,7 @@ namespace Pulumi.Aws
         /// <summary>
         /// Filter IP ranges by regions (or include all regions, if
         /// omitted). Valid items are `global` (for `cloudfront`) as well as all AWS regions
-        /// (e.g. `eu-central-1`)
+        /// (e.g., `eu-central-1`)
         /// </summary>
         public InputList<string> Regions
         {
@@ -221,7 +221,7 @@ namespace Pulumi.Aws
         /// </summary>
         public readonly ImmutableArray<string> CidrBlocks;
         /// <summary>
-        /// The publication time of the IP ranges (e.g. `2016-08-03-23-46-05`).
+        /// The publication time of the IP ranges (e.g., `2016-08-03-23-46-05`).
         /// </summary>
         public readonly string CreateDate;
         /// <summary>
@@ -236,7 +236,7 @@ namespace Pulumi.Aws
         public readonly ImmutableArray<string> Services;
         /// <summary>
         /// The publication time of the IP ranges, in Unix epoch time format
-        /// (e.g. `1470267965`).
+        /// (e.g., `1470267965`).
         /// </summary>
         public readonly int SyncToken;
         public readonly string? Url;

@@ -18,23 +18,19 @@ class ResourceSetArgs:
                  resource_set_name: pulumi.Input[str],
                  resource_set_type: pulumi.Input[str],
                  resources: pulumi.Input[Sequence[pulumi.Input['ResourceSetResourceArgs']]],
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ResourceSet resource.
         :param pulumi.Input[str] resource_set_name: Unique name describing the resource set.
         :param pulumi.Input[str] resource_set_type: Type of the resources in the resource set.
         :param pulumi.Input[Sequence[pulumi.Input['ResourceSetResourceArgs']]] resources: List of resources to add to this resource set. See below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
         """
         pulumi.set(__self__, "resource_set_name", resource_set_name)
         pulumi.set(__self__, "resource_set_type", resource_set_type)
         pulumi.set(__self__, "resources", resources)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="resourceSetName")
@@ -83,18 +79,6 @@ class ResourceSetArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        Map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "tags_all", value)
 
 
 @pulumi.input_type
@@ -210,7 +194,6 @@ class ResourceSet(pulumi.CustomResource):
                  resource_set_type: Optional[pulumi.Input[str]] = None,
                  resources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceSetResourceArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Provides an AWS Route 53 Recovery Readiness Resource Set.
@@ -231,7 +214,7 @@ class ResourceSet(pulumi.CustomResource):
 
         ## Import
 
-        Route53 Recovery Readiness resource set name can be imported via the resource set name, e.g.
+        Route53 Recovery Readiness resource set name can be imported via the resource set name, e.g.,
 
         ```sh
          $ pulumi import aws:route53recoveryreadiness/resourceSet:ResourceSet my-cw-alarm-set
@@ -243,7 +226,6 @@ class ResourceSet(pulumi.CustomResource):
         :param pulumi.Input[str] resource_set_type: Type of the resources in the resource set.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceSetResourceArgs']]]] resources: List of resources to add to this resource set. See below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
         """
         ...
     @overload
@@ -270,7 +252,7 @@ class ResourceSet(pulumi.CustomResource):
 
         ## Import
 
-        Route53 Recovery Readiness resource set name can be imported via the resource set name, e.g.
+        Route53 Recovery Readiness resource set name can be imported via the resource set name, e.g.,
 
         ```sh
          $ pulumi import aws:route53recoveryreadiness/resourceSet:ResourceSet my-cw-alarm-set
@@ -295,7 +277,6 @@ class ResourceSet(pulumi.CustomResource):
                  resource_set_type: Optional[pulumi.Input[str]] = None,
                  resources: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ResourceSetResourceArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -318,8 +299,8 @@ class ResourceSet(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resources'")
             __props__.__dict__["resources"] = resources
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
+            __props__.__dict__["tags_all"] = None
         super(ResourceSet, __self__).__init__(
             'aws:route53recoveryreadiness/resourceSet:ResourceSet',
             resource_name,

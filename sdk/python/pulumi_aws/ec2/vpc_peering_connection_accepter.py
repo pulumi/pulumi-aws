@@ -364,7 +364,7 @@ class VpcPeeringConnectionAccepter(pulumi.CustomResource):
 
         ## Import
 
-        VPC Peering Connection Accepters can be imported by using the Peering Connection ID, e.g.
+        VPC Peering Connection Accepters can be imported by using the Peering Connection ID, e.g.,
 
         ```sh
          $ pulumi import aws:ec2/vpcPeeringConnectionAccepter:VpcPeeringConnectionAccepter example pcx-12345678
@@ -444,7 +444,7 @@ class VpcPeeringConnectionAccepter(pulumi.CustomResource):
 
         ## Import
 
-        VPC Peering Connection Accepters can be imported by using the Peering Connection ID, e.g.
+        VPC Peering Connection Accepters can be imported by using the Peering Connection ID, e.g.,
 
         ```sh
          $ pulumi import aws:ec2/vpcPeeringConnectionAccepter:VpcPeeringConnectionAccepter example pcx-12345678

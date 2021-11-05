@@ -53,7 +53,7 @@ import (
 //
 // ## Import
 //
-// Lambda permission statements can be imported using function_name/statement_id, with an optional qualifier, e.g.
+// Lambda permission statements can be imported using function_name/statement_id, with an optional qualifier, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:lambda/permission:Permission test_lambda_permission my_test_lambda_function/AllowExecutionFromCloudWatch
@@ -65,15 +65,15 @@ import (
 type Permission struct {
 	pulumi.CustomResourceState
 
-	// The AWS Lambda action you want to allow in this statement. (e.g. `lambda:InvokeFunction`)
+	// The AWS Lambda action you want to allow in this statement. (e.g., `lambda:InvokeFunction`)
 	Action pulumi.StringOutput `pulumi:"action"`
 	// The Event Source Token to validate.  Used with [Alexa Skills](https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-as-an-aws-lambda-function.html#use-aws-cli).
 	EventSourceToken pulumi.StringPtrOutput `pulumi:"eventSourceToken"`
 	// Name of the Lambda function whose resource policy you are updating
 	Function pulumi.StringOutput `pulumi:"function"`
-	// The principal who is getting this permission. e.g. `s3.amazonaws.com`, an AWS account ID, or any valid AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
+	// The principal who is getting this permissionE.g., `s3.amazonaws.com`, an AWS account ID, or any valid AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
 	Principal pulumi.StringOutput `pulumi:"principal"`
-	// Query parameter to specify function version or alias name. The permission will then apply to the specific qualified ARN. e.g. `arn:aws:lambda:aws-region:acct-id:function:function-name:2`
+	// Query parameter to specify function version or alias name. The permission will then apply to the specific qualified ARNE.g., `arn:aws:lambda:aws-region:acct-id:function:function-name:2`
 	Qualifier pulumi.StringPtrOutput `pulumi:"qualifier"`
 	// This parameter is used for S3 and SES. The AWS account ID (without a hyphen) of the source owner.
 	SourceAccount pulumi.StringPtrOutput `pulumi:"sourceAccount"`
@@ -127,15 +127,15 @@ func GetPermission(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Permission resources.
 type permissionState struct {
-	// The AWS Lambda action you want to allow in this statement. (e.g. `lambda:InvokeFunction`)
+	// The AWS Lambda action you want to allow in this statement. (e.g., `lambda:InvokeFunction`)
 	Action *string `pulumi:"action"`
 	// The Event Source Token to validate.  Used with [Alexa Skills](https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-as-an-aws-lambda-function.html#use-aws-cli).
 	EventSourceToken *string `pulumi:"eventSourceToken"`
 	// Name of the Lambda function whose resource policy you are updating
 	Function interface{} `pulumi:"function"`
-	// The principal who is getting this permission. e.g. `s3.amazonaws.com`, an AWS account ID, or any valid AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
+	// The principal who is getting this permissionE.g., `s3.amazonaws.com`, an AWS account ID, or any valid AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
 	Principal *string `pulumi:"principal"`
-	// Query parameter to specify function version or alias name. The permission will then apply to the specific qualified ARN. e.g. `arn:aws:lambda:aws-region:acct-id:function:function-name:2`
+	// Query parameter to specify function version or alias name. The permission will then apply to the specific qualified ARNE.g., `arn:aws:lambda:aws-region:acct-id:function:function-name:2`
 	Qualifier *string `pulumi:"qualifier"`
 	// This parameter is used for S3 and SES. The AWS account ID (without a hyphen) of the source owner.
 	SourceAccount *string `pulumi:"sourceAccount"`
@@ -152,15 +152,15 @@ type permissionState struct {
 }
 
 type PermissionState struct {
-	// The AWS Lambda action you want to allow in this statement. (e.g. `lambda:InvokeFunction`)
+	// The AWS Lambda action you want to allow in this statement. (e.g., `lambda:InvokeFunction`)
 	Action pulumi.StringPtrInput
 	// The Event Source Token to validate.  Used with [Alexa Skills](https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-as-an-aws-lambda-function.html#use-aws-cli).
 	EventSourceToken pulumi.StringPtrInput
 	// Name of the Lambda function whose resource policy you are updating
 	Function pulumi.Input
-	// The principal who is getting this permission. e.g. `s3.amazonaws.com`, an AWS account ID, or any valid AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
+	// The principal who is getting this permissionE.g., `s3.amazonaws.com`, an AWS account ID, or any valid AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
 	Principal pulumi.StringPtrInput
-	// Query parameter to specify function version or alias name. The permission will then apply to the specific qualified ARN. e.g. `arn:aws:lambda:aws-region:acct-id:function:function-name:2`
+	// Query parameter to specify function version or alias name. The permission will then apply to the specific qualified ARNE.g., `arn:aws:lambda:aws-region:acct-id:function:function-name:2`
 	Qualifier pulumi.StringPtrInput
 	// This parameter is used for S3 and SES. The AWS account ID (without a hyphen) of the source owner.
 	SourceAccount pulumi.StringPtrInput
@@ -181,15 +181,15 @@ func (PermissionState) ElementType() reflect.Type {
 }
 
 type permissionArgs struct {
-	// The AWS Lambda action you want to allow in this statement. (e.g. `lambda:InvokeFunction`)
+	// The AWS Lambda action you want to allow in this statement. (e.g., `lambda:InvokeFunction`)
 	Action string `pulumi:"action"`
 	// The Event Source Token to validate.  Used with [Alexa Skills](https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-as-an-aws-lambda-function.html#use-aws-cli).
 	EventSourceToken *string `pulumi:"eventSourceToken"`
 	// Name of the Lambda function whose resource policy you are updating
 	Function interface{} `pulumi:"function"`
-	// The principal who is getting this permission. e.g. `s3.amazonaws.com`, an AWS account ID, or any valid AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
+	// The principal who is getting this permissionE.g., `s3.amazonaws.com`, an AWS account ID, or any valid AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
 	Principal string `pulumi:"principal"`
-	// Query parameter to specify function version or alias name. The permission will then apply to the specific qualified ARN. e.g. `arn:aws:lambda:aws-region:acct-id:function:function-name:2`
+	// Query parameter to specify function version or alias name. The permission will then apply to the specific qualified ARNE.g., `arn:aws:lambda:aws-region:acct-id:function:function-name:2`
 	Qualifier *string `pulumi:"qualifier"`
 	// This parameter is used for S3 and SES. The AWS account ID (without a hyphen) of the source owner.
 	SourceAccount *string `pulumi:"sourceAccount"`
@@ -207,15 +207,15 @@ type permissionArgs struct {
 
 // The set of arguments for constructing a Permission resource.
 type PermissionArgs struct {
-	// The AWS Lambda action you want to allow in this statement. (e.g. `lambda:InvokeFunction`)
+	// The AWS Lambda action you want to allow in this statement. (e.g., `lambda:InvokeFunction`)
 	Action pulumi.StringInput
 	// The Event Source Token to validate.  Used with [Alexa Skills](https://developer.amazon.com/docs/custom-skills/host-a-custom-skill-as-an-aws-lambda-function.html#use-aws-cli).
 	EventSourceToken pulumi.StringPtrInput
 	// Name of the Lambda function whose resource policy you are updating
 	Function pulumi.Input
-	// The principal who is getting this permission. e.g. `s3.amazonaws.com`, an AWS account ID, or any valid AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
+	// The principal who is getting this permissionE.g., `s3.amazonaws.com`, an AWS account ID, or any valid AWS service principal such as `events.amazonaws.com` or `sns.amazonaws.com`.
 	Principal pulumi.StringInput
-	// Query parameter to specify function version or alias name. The permission will then apply to the specific qualified ARN. e.g. `arn:aws:lambda:aws-region:acct-id:function:function-name:2`
+	// Query parameter to specify function version or alias name. The permission will then apply to the specific qualified ARNE.g., `arn:aws:lambda:aws-region:acct-id:function:function-name:2`
 	Qualifier pulumi.StringPtrInput
 	// This parameter is used for S3 and SES. The AWS account ID (without a hyphen) of the source owner.
 	SourceAccount pulumi.StringPtrInput

@@ -62,7 +62,7 @@ func LookupFileSystem(ctx *pulumi.Context, args *LookupFileSystemArgs, opts ...p
 type LookupFileSystemArgs struct {
 	// Restricts the list to the file system with this creation token.
 	CreationToken *string `pulumi:"creationToken"`
-	// The ID that identifies the file system (e.g. fs-ccfc0d65).
+	// The ID that identifies the file system (e.g., fs-ccfc0d65).
 	FileSystemId *string `pulumi:"fileSystemId"`
 	// Restricts the list to the file system with these tags.
 	Tags map[string]string `pulumi:"tags"`
@@ -113,7 +113,7 @@ func LookupFileSystemOutput(ctx *pulumi.Context, args LookupFileSystemOutputArgs
 type LookupFileSystemOutputArgs struct {
 	// Restricts the list to the file system with this creation token.
 	CreationToken pulumi.StringPtrInput `pulumi:"creationToken"`
-	// The ID that identifies the file system (e.g. fs-ccfc0d65).
+	// The ID that identifies the file system (e.g., fs-ccfc0d65).
 	FileSystemId pulumi.StringPtrInput `pulumi:"fileSystemId"`
 	// Restricts the list to the file system with these tags.
 	Tags pulumi.StringMapInput `pulumi:"tags"`

@@ -20,8 +20,7 @@ class DeviceFleetArgs:
                  role_arn: pulumi.Input[str],
                  description: Optional[pulumi.Input[str]] = None,
                  enable_iot_role_alias: Optional[pulumi.Input[bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a DeviceFleet resource.
         :param pulumi.Input[str] device_fleet_name: The name of the Device Fleet (must be unique).
@@ -30,7 +29,6 @@ class DeviceFleetArgs:
         :param pulumi.Input[str] description: A description of the fleet.
         :param pulumi.Input[bool] enable_iot_role_alias: Whether to create an AWS IoT Role Alias during device fleet creation. The name of the role alias generated will match this pattern: "SageMakerEdge-{DeviceFleetName}".
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
         """
         pulumi.set(__self__, "device_fleet_name", device_fleet_name)
         pulumi.set(__self__, "output_config", output_config)
@@ -41,8 +39,6 @@ class DeviceFleetArgs:
             pulumi.set(__self__, "enable_iot_role_alias", enable_iot_role_alias)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="deviceFleetName")
@@ -115,18 +111,6 @@ class DeviceFleetArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-        """
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "tags_all", value)
 
 
 @pulumi.input_type
@@ -288,7 +272,6 @@ class DeviceFleet(pulumi.CustomResource):
                  output_config: Optional[pulumi.Input[pulumi.InputType['DeviceFleetOutputConfigArgs']]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Provides a Sagemaker Device Fleet resource.
@@ -310,7 +293,7 @@ class DeviceFleet(pulumi.CustomResource):
 
         ## Import
 
-        Sagemaker Device Fleets can be imported using the `name`, e.g.
+        Sagemaker Device Fleets can be imported using the `name`, e.g.,
 
         ```sh
          $ pulumi import aws:sagemaker/deviceFleet:DeviceFleet example my-fleet
@@ -324,7 +307,6 @@ class DeviceFleet(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['DeviceFleetOutputConfigArgs']] output_config: Specifies details about the repository. see Output Config details below.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) that has access to AWS Internet of Things (IoT).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
         """
         ...
     @overload
@@ -352,7 +334,7 @@ class DeviceFleet(pulumi.CustomResource):
 
         ## Import
 
-        Sagemaker Device Fleets can be imported using the `name`, e.g.
+        Sagemaker Device Fleets can be imported using the `name`, e.g.,
 
         ```sh
          $ pulumi import aws:sagemaker/deviceFleet:DeviceFleet example my-fleet
@@ -379,7 +361,6 @@ class DeviceFleet(pulumi.CustomResource):
                  output_config: Optional[pulumi.Input[pulumi.InputType['DeviceFleetOutputConfigArgs']]] = None,
                  role_arn: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -404,9 +385,9 @@ class DeviceFleet(pulumi.CustomResource):
                 raise TypeError("Missing required property 'role_arn'")
             __props__.__dict__["role_arn"] = role_arn
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
             __props__.__dict__["iot_role_alias"] = None
+            __props__.__dict__["tags_all"] = None
         super(DeviceFleet, __self__).__init__(
             'aws:sagemaker/deviceFleet:DeviceFleet',
             resource_name,

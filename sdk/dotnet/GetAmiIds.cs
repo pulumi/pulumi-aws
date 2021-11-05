@@ -144,7 +144,7 @@ namespace Pulumi.Aws
         private List<string>? _owners;
 
         /// <summary>
-        /// List of AMI owners to limit search. At least 1 value must be specified. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g. `amazon`, `aws-marketplace`, `microsoft`).
+        /// List of AMI owners to limit search. At least 1 value must be specified. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g., `amazon`, `aws-marketplace`, `microsoft`).
         /// </summary>
         public List<string> Owners
         {
@@ -206,7 +206,7 @@ namespace Pulumi.Aws
         private InputList<string>? _owners;
 
         /// <summary>
-        /// List of AMI owners to limit search. At least 1 value must be specified. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g. `amazon`, `aws-marketplace`, `microsoft`).
+        /// List of AMI owners to limit search. At least 1 value must be specified. Valid values: an AWS account ID, `self` (the current account), or an AWS owner alias (e.g., `amazon`, `aws-marketplace`, `microsoft`).
         /// </summary>
         public InputList<string> Owners
         {

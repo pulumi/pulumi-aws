@@ -102,7 +102,7 @@ import (
 //
 // ## Import
 //
-// MQ Brokers can be imported using their broker id, e.g.
+// MQ Brokers can be imported using their broker id, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:mq/broker:Broker example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
@@ -135,7 +135,7 @@ type Broker struct {
 	// List of information about allocated brokers (both active & standby).
 	// * `instances.0.console_url` - The URL of the broker's [ActiveMQ Web Console](http://activemq.apache.org/web-console.html).
 	// * `instances.0.ip_address` - IP Address of the broker.
-	// * `instances.0.endpoints` - Broker's wire-level protocol endpoints in the following order & format referenceable e.g. as `instances.0.endpoints.0` (SSL):
+	// * `instances.0.endpoints` - Broker's wire-level protocol endpoints in the following order & format referenceable e.g., as `instances.0.endpoints.0` (SSL):
 	// * For `ActiveMQ`:
 	// * `ssl://broker-id.mq.us-west-2.amazonaws.com:61617`
 	// * `amqp+ssl://broker-id.mq.us-west-2.amazonaws.com:5671`
@@ -236,7 +236,7 @@ type brokerState struct {
 	// List of information about allocated brokers (both active & standby).
 	// * `instances.0.console_url` - The URL of the broker's [ActiveMQ Web Console](http://activemq.apache.org/web-console.html).
 	// * `instances.0.ip_address` - IP Address of the broker.
-	// * `instances.0.endpoints` - Broker's wire-level protocol endpoints in the following order & format referenceable e.g. as `instances.0.endpoints.0` (SSL):
+	// * `instances.0.endpoints` - Broker's wire-level protocol endpoints in the following order & format referenceable e.g., as `instances.0.endpoints.0` (SSL):
 	// * For `ActiveMQ`:
 	// * `ssl://broker-id.mq.us-west-2.amazonaws.com:61617`
 	// * `amqp+ssl://broker-id.mq.us-west-2.amazonaws.com:5671`
@@ -294,7 +294,7 @@ type BrokerState struct {
 	// List of information about allocated brokers (both active & standby).
 	// * `instances.0.console_url` - The URL of the broker's [ActiveMQ Web Console](http://activemq.apache.org/web-console.html).
 	// * `instances.0.ip_address` - IP Address of the broker.
-	// * `instances.0.endpoints` - Broker's wire-level protocol endpoints in the following order & format referenceable e.g. as `instances.0.endpoints.0` (SSL):
+	// * `instances.0.endpoints` - Broker's wire-level protocol endpoints in the following order & format referenceable e.g., as `instances.0.endpoints.0` (SSL):
 	// * For `ActiveMQ`:
 	// * `ssl://broker-id.mq.us-west-2.amazonaws.com:61617`
 	// * `amqp+ssl://broker-id.mq.us-west-2.amazonaws.com:5671`

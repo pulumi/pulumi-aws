@@ -74,7 +74,7 @@ import (
 //
 // ## Import
 //
-// VPC Endpoint Services can be imported using the `VPC endpoint service id`, e.g.
+// VPC Endpoint Services can be imported using the `VPC endpoint service id`, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:ec2/vpcEndpointService:VpcEndpointService foo vpce-svc-0f97a19d3fa8220bc

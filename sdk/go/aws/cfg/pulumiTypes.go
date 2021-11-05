@@ -467,7 +467,7 @@ func (o ConformancePackInputParameterArrayOutput) Index(i pulumi.IntInput) Confo
 }
 
 type DeliveryChannelSnapshotDeliveryProperties struct {
-	// - The frequency with which AWS Config recurringly delivers configuration snapshots. e.g. `One_Hour` or `Three_Hours`. Valid values are listed [here](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html#API_ConfigSnapshotDeliveryProperties_Contents).
+	// - The frequency with which AWS Config recurringly delivers configuration snapshotsE.g., `One_Hour` or `Three_Hours`. Valid values are listed [here](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html#API_ConfigSnapshotDeliveryProperties_Contents).
 	DeliveryFrequency *string `pulumi:"deliveryFrequency"`
 }
 
@@ -483,7 +483,7 @@ type DeliveryChannelSnapshotDeliveryPropertiesInput interface {
 }
 
 type DeliveryChannelSnapshotDeliveryPropertiesArgs struct {
-	// - The frequency with which AWS Config recurringly delivers configuration snapshots. e.g. `One_Hour` or `Three_Hours`. Valid values are listed [here](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html#API_ConfigSnapshotDeliveryProperties_Contents).
+	// - The frequency with which AWS Config recurringly delivers configuration snapshotsE.g., `One_Hour` or `Three_Hours`. Valid values are listed [here](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html#API_ConfigSnapshotDeliveryProperties_Contents).
 	DeliveryFrequency pulumi.StringPtrInput `pulumi:"deliveryFrequency"`
 }
 
@@ -564,7 +564,7 @@ func (o DeliveryChannelSnapshotDeliveryPropertiesOutput) ToDeliveryChannelSnapsh
 	}).(DeliveryChannelSnapshotDeliveryPropertiesPtrOutput)
 }
 
-// - The frequency with which AWS Config recurringly delivers configuration snapshots. e.g. `One_Hour` or `Three_Hours`. Valid values are listed [here](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html#API_ConfigSnapshotDeliveryProperties_Contents).
+// - The frequency with which AWS Config recurringly delivers configuration snapshotsE.g., `One_Hour` or `Three_Hours`. Valid values are listed [here](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html#API_ConfigSnapshotDeliveryProperties_Contents).
 func (o DeliveryChannelSnapshotDeliveryPropertiesOutput) DeliveryFrequency() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeliveryChannelSnapshotDeliveryProperties) *string { return v.DeliveryFrequency }).(pulumi.StringPtrOutput)
 }
@@ -593,7 +593,7 @@ func (o DeliveryChannelSnapshotDeliveryPropertiesPtrOutput) Elem() DeliveryChann
 	}).(DeliveryChannelSnapshotDeliveryPropertiesOutput)
 }
 
-// - The frequency with which AWS Config recurringly delivers configuration snapshots. e.g. `One_Hour` or `Three_Hours`. Valid values are listed [here](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html#API_ConfigSnapshotDeliveryProperties_Contents).
+// - The frequency with which AWS Config recurringly delivers configuration snapshotsE.g., `One_Hour` or `Three_Hours`. Valid values are listed [here](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html#API_ConfigSnapshotDeliveryProperties_Contents).
 func (o DeliveryChannelSnapshotDeliveryPropertiesPtrOutput) DeliveryFrequency() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeliveryChannelSnapshotDeliveryProperties) *string {
 		if v == nil {
@@ -1002,7 +1002,7 @@ func (o RemediationConfigurationParameterArrayOutput) Index(i pulumi.IntInput) R
 type RuleScope struct {
 	// The IDs of the only AWS resource that you want to trigger an evaluation for the rule. If you specify a resource ID, you must specify one resource type for `complianceResourceTypes`.
 	ComplianceResourceId *string `pulumi:"complianceResourceId"`
-	// A list of resource types of only those AWS resources that you want to trigger an evaluation for the rule. e.g. `AWS::EC2::Instance`. You can only specify one type if you also specify a resource ID for `complianceResourceId`. See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types.
+	// A list of resource types of only those AWS resources that you want to trigger an evaluation for the ruleE.g., `AWS::EC2::Instance`. You can only specify one type if you also specify a resource ID for `complianceResourceId`. See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types.
 	ComplianceResourceTypes []string `pulumi:"complianceResourceTypes"`
 	// The tag key that is applied to only those AWS resources that you want you want to trigger an evaluation for the rule.
 	TagKey *string `pulumi:"tagKey"`
@@ -1024,7 +1024,7 @@ type RuleScopeInput interface {
 type RuleScopeArgs struct {
 	// The IDs of the only AWS resource that you want to trigger an evaluation for the rule. If you specify a resource ID, you must specify one resource type for `complianceResourceTypes`.
 	ComplianceResourceId pulumi.StringPtrInput `pulumi:"complianceResourceId"`
-	// A list of resource types of only those AWS resources that you want to trigger an evaluation for the rule. e.g. `AWS::EC2::Instance`. You can only specify one type if you also specify a resource ID for `complianceResourceId`. See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types.
+	// A list of resource types of only those AWS resources that you want to trigger an evaluation for the ruleE.g., `AWS::EC2::Instance`. You can only specify one type if you also specify a resource ID for `complianceResourceId`. See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types.
 	ComplianceResourceTypes pulumi.StringArrayInput `pulumi:"complianceResourceTypes"`
 	// The tag key that is applied to only those AWS resources that you want you want to trigger an evaluation for the rule.
 	TagKey pulumi.StringPtrInput `pulumi:"tagKey"`
@@ -1114,7 +1114,7 @@ func (o RuleScopeOutput) ComplianceResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RuleScope) *string { return v.ComplianceResourceId }).(pulumi.StringPtrOutput)
 }
 
-// A list of resource types of only those AWS resources that you want to trigger an evaluation for the rule. e.g. `AWS::EC2::Instance`. You can only specify one type if you also specify a resource ID for `complianceResourceId`. See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types.
+// A list of resource types of only those AWS resources that you want to trigger an evaluation for the ruleE.g., `AWS::EC2::Instance`. You can only specify one type if you also specify a resource ID for `complianceResourceId`. See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types.
 func (o RuleScopeOutput) ComplianceResourceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v RuleScope) []string { return v.ComplianceResourceTypes }).(pulumi.StringArrayOutput)
 }
@@ -1163,7 +1163,7 @@ func (o RuleScopePtrOutput) ComplianceResourceId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// A list of resource types of only those AWS resources that you want to trigger an evaluation for the rule. e.g. `AWS::EC2::Instance`. You can only specify one type if you also specify a resource ID for `complianceResourceId`. See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types.
+// A list of resource types of only those AWS resources that you want to trigger an evaluation for the ruleE.g., `AWS::EC2::Instance`. You can only specify one type if you also specify a resource ID for `complianceResourceId`. See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types.
 func (o RuleScopePtrOutput) ComplianceResourceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *RuleScope) []string {
 		if v == nil {

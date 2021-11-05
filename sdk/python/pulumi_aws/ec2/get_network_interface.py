@@ -22,7 +22,10 @@ class GetNetworkInterfaceResult:
     """
     A collection of values returned by getNetworkInterface.
     """
-    def __init__(__self__, associations=None, attachments=None, availability_zone=None, description=None, filters=None, id=None, interface_type=None, ipv6_addresses=None, mac_address=None, outpost_arn=None, owner_id=None, private_dns_name=None, private_ip=None, private_ips=None, requester_id=None, security_groups=None, subnet_id=None, tags=None, vpc_id=None):
+    def __init__(__self__, arn=None, associations=None, attachments=None, availability_zone=None, description=None, filters=None, id=None, interface_type=None, ipv6_addresses=None, mac_address=None, outpost_arn=None, owner_id=None, private_dns_name=None, private_ip=None, private_ips=None, requester_id=None, security_groups=None, subnet_id=None, tags=None, vpc_id=None):
+        if arn and not isinstance(arn, str):
+            raise TypeError("Expected argument 'arn' to be a str")
+        pulumi.set(__self__, "arn", arn)
         if associations and not isinstance(associations, list):
             raise TypeError("Expected argument 'associations' to be a list")
         pulumi.set(__self__, "associations", associations)
@@ -80,6 +83,14 @@ class GetNetworkInterfaceResult:
         if vpc_id and not isinstance(vpc_id, str):
             raise TypeError("Expected argument 'vpc_id' to be a str")
         pulumi.set(__self__, "vpc_id", vpc_id)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> str:
+        """
+        The ARN of the network interface.
+        """
+        return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
@@ -231,6 +242,7 @@ class AwaitableGetNetworkInterfaceResult(GetNetworkInterfaceResult):
         if False:
             yield self
         return GetNetworkInterfaceResult(
+            arn=self.arn,
             associations=self.associations,
             attachments=self.attachments,
             availability_zone=self.availability_zone,
@@ -284,6 +296,7 @@ def get_network_interface(filters: Optional[Sequence[pulumi.InputType['GetNetwor
     __ret__ = pulumi.runtime.invoke('aws:ec2/getNetworkInterface:getNetworkInterface', __args__, opts=opts, typ=GetNetworkInterfaceResult).value
 
     return AwaitableGetNetworkInterfaceResult(
+        arn=__ret__.arn,
         associations=__ret__.associations,
         attachments=__ret__.attachments,
         availability_zone=__ret__.availability_zone,

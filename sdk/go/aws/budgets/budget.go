@@ -189,7 +189,7 @@ import (
 //
 // ## Import
 //
-// Budgets can be imported using `AccountID:BudgetName`, e.g.
+// Budgets can be imported using `AccountID:BudgetName`, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:budgets/budget:Budget myBudget 123456789012:myBudget`

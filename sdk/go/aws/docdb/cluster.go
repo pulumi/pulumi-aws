@@ -52,7 +52,7 @@ import (
 //
 // ## Import
 //
-// DocDB Clusters can be imported using the `cluster_identifier`, e.g.
+// DocDB Clusters can be imported using the `cluster_identifier`, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:docdb/cluster:Cluster docdb_cluster docdb-prod-cluster
@@ -110,9 +110,9 @@ type Cluster struct {
 	// The port on which the DB accepts connections
 	Port pulumi.IntPtrOutput `pulumi:"port"`
 	// The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC
-	// Default: A 30-minute window selected at random from an 8-hour block of time per region. e.g. 04:00-09:00
+	// Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
 	PreferredBackupWindow pulumi.StringOutput `pulumi:"preferredBackupWindow"`
-	// The weekly time range during which system maintenance can occur, in (UTC) e.g. wed:04:00-wed:04:30
+	// The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
 	PreferredMaintenanceWindow pulumi.StringOutput `pulumi:"preferredMaintenanceWindow"`
 	// A read-only endpoint for the DocDB cluster, automatically load-balanced across replicas
 	ReaderEndpoint pulumi.StringOutput `pulumi:"readerEndpoint"`
@@ -210,9 +210,9 @@ type clusterState struct {
 	// The port on which the DB accepts connections
 	Port *int `pulumi:"port"`
 	// The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC
-	// Default: A 30-minute window selected at random from an 8-hour block of time per region. e.g. 04:00-09:00
+	// Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
 	PreferredBackupWindow *string `pulumi:"preferredBackupWindow"`
-	// The weekly time range during which system maintenance can occur, in (UTC) e.g. wed:04:00-wed:04:30
+	// The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
 	PreferredMaintenanceWindow *string `pulumi:"preferredMaintenanceWindow"`
 	// A read-only endpoint for the DocDB cluster, automatically load-balanced across replicas
 	ReaderEndpoint *string `pulumi:"readerEndpoint"`
@@ -282,9 +282,9 @@ type ClusterState struct {
 	// The port on which the DB accepts connections
 	Port pulumi.IntPtrInput
 	// The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC
-	// Default: A 30-minute window selected at random from an 8-hour block of time per region. e.g. 04:00-09:00
+	// Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
 	PreferredBackupWindow pulumi.StringPtrInput
-	// The weekly time range during which system maintenance can occur, in (UTC) e.g. wed:04:00-wed:04:30
+	// The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
 	PreferredMaintenanceWindow pulumi.StringPtrInput
 	// A read-only endpoint for the DocDB cluster, automatically load-balanced across replicas
 	ReaderEndpoint pulumi.StringPtrInput
@@ -350,9 +350,9 @@ type clusterArgs struct {
 	// The port on which the DB accepts connections
 	Port *int `pulumi:"port"`
 	// The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC
-	// Default: A 30-minute window selected at random from an 8-hour block of time per region. e.g. 04:00-09:00
+	// Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
 	PreferredBackupWindow *string `pulumi:"preferredBackupWindow"`
-	// The weekly time range during which system maintenance can occur, in (UTC) e.g. wed:04:00-wed:04:30
+	// The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
 	PreferredMaintenanceWindow *string `pulumi:"preferredMaintenanceWindow"`
 	// Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `finalSnapshotIdentifier`. Default is `false`.
 	SkipFinalSnapshot *bool `pulumi:"skipFinalSnapshot"`
@@ -411,9 +411,9 @@ type ClusterArgs struct {
 	// The port on which the DB accepts connections
 	Port pulumi.IntPtrInput
 	// The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC
-	// Default: A 30-minute window selected at random from an 8-hour block of time per region. e.g. 04:00-09:00
+	// Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
 	PreferredBackupWindow pulumi.StringPtrInput
-	// The weekly time range during which system maintenance can occur, in (UTC) e.g. wed:04:00-wed:04:30
+	// The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
 	PreferredMaintenanceWindow pulumi.StringPtrInput
 	// Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `finalSnapshotIdentifier`. Default is `false`.
 	SkipFinalSnapshot pulumi.BoolPtrInput

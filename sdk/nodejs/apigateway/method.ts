@@ -64,7 +64,7 @@ import {RestApi} from "./index";
  *
  * ## Import
  *
- * `aws_api_gateway_method` can be imported using `REST-API-ID/RESOURCE-ID/HTTP-METHOD`, e.g.
+ * `aws_api_gateway_method` can be imported using `REST-API-ID/RESOURCE-ID/HTTP-METHOD`, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:apigateway/method:Method example 12345abcde/67890fghij/GET
@@ -124,7 +124,7 @@ export class Method extends pulumi.CustomResource {
     public readonly operationName!: pulumi.Output<string | undefined>;
     /**
      * A map of the API models used for the request's content type
-     * where key is the content type (e.g. `application/json`)
+     * where key is the content type (e.g., `application/json`)
      * and value is either `Error`, `Empty` (built-in models) or `aws.apigateway.Model`'s `name`.
      */
     public readonly requestModels!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -233,7 +233,7 @@ export interface MethodState {
     operationName?: pulumi.Input<string>;
     /**
      * A map of the API models used for the request's content type
-     * where key is the content type (e.g. `application/json`)
+     * where key is the content type (e.g., `application/json`)
      * and value is either `Error`, `Empty` (built-in models) or `aws.apigateway.Model`'s `name`.
      */
     requestModels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -286,7 +286,7 @@ export interface MethodArgs {
     operationName?: pulumi.Input<string>;
     /**
      * A map of the API models used for the request's content type
-     * where key is the content type (e.g. `application/json`)
+     * where key is the content type (e.g., `application/json`)
      * and value is either `Error`, `Empty` (built-in models) or `aws.apigateway.Model`'s `name`.
      */
     requestModels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;

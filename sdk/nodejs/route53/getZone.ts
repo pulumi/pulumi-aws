@@ -100,11 +100,11 @@ export interface GetZoneResult {
      */
     readonly id: string;
     /**
-     * The description provided by the service that created the Hosted Zone (e.g. `arn:aws:servicediscovery:us-east-1:1234567890:namespace/ns-xxxxxxxxxxxxxxxx`).
+     * The description provided by the service that created the Hosted Zone (e.g., `arn:aws:servicediscovery:us-east-1:1234567890:namespace/ns-xxxxxxxxxxxxxxxx`).
      */
     readonly linkedServiceDescription: string;
     /**
-     * The service that created the Hosted Zone (e.g. `servicediscovery.amazonaws.com`).
+     * The service that created the Hosted Zone (e.g., `servicediscovery.amazonaws.com`).
      */
     readonly linkedServicePrincipal: string;
     readonly name: string;

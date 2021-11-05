@@ -243,6 +243,7 @@ class _MLTransformState:
         :param pulumi.Input[str] role_arn: The ARN of the IAM role associated with this ML Transform.
         :param pulumi.Input[Sequence[pulumi.Input['MLTransformSchemaArgs']]] schemas: The object that represents the schema that this transform accepts. see Schema.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[int] timeout: The ML Transform timeout in minutes. The default is 2880 minutes (48 hours).
         :param pulumi.Input[str] worker_type: The type of predefined worker that is allocated when an ML Transform runs. Accepts a value of `Standard`, `G.1X`, or `G.2X`. Required with `number_of_workers`.
         """
@@ -438,6 +439,9 @@ class _MLTransformState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -579,7 +583,7 @@ class MLTransform(pulumi.CustomResource):
 
         ## Import
 
-        Glue ML Transforms can be imported using `id`, e.g.
+        Glue ML Transforms can be imported using `id`, e.g.,
 
         ```sh
          $ pulumi import aws:glue/mLTransform:MLTransform example tfm-c2cafbe83b1c575f49eaca9939220e2fcd58e2d5
@@ -698,7 +702,7 @@ class MLTransform(pulumi.CustomResource):
 
         ## Import
 
-        Glue ML Transforms can be imported using `id`, e.g.
+        Glue ML Transforms can be imported using `id`, e.g.,
 
         ```sh
          $ pulumi import aws:glue/mLTransform:MLTransform example tfm-c2cafbe83b1c575f49eaca9939220e2fcd58e2d5
@@ -811,6 +815,7 @@ class MLTransform(pulumi.CustomResource):
         :param pulumi.Input[str] role_arn: The ARN of the IAM role associated with this ML Transform.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['MLTransformSchemaArgs']]]] schemas: The object that represents the schema that this transform accepts. see Schema.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[int] timeout: The ML Transform timeout in minutes. The default is 2880 minutes (48 hours).
         :param pulumi.Input[str] worker_type: The type of predefined worker that is allocated when an ML Transform runs. Accepts a value of `Standard`, `G.1X`, or `G.2X`. Required with `number_of_workers`.
         """
@@ -943,6 +948,9 @@ class MLTransform(pulumi.CustomResource):
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @property

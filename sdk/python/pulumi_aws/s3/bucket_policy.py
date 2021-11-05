@@ -133,7 +133,7 @@ class BucketPolicy(pulumi.CustomResource):
 
         ## Import
 
-        S3 bucket policies can be imported using the bucket name, e.g.
+        S3 bucket policies can be imported using the bucket name, e.g.,
 
         ```sh
          $ pulumi import aws:s3/bucketPolicy:BucketPolicy example my-bucket-name
@@ -187,7 +187,7 @@ class BucketPolicy(pulumi.CustomResource):
 
         ## Import
 
-        S3 bucket policies can be imported using the bucket name, e.g.
+        S3 bucket policies can be imported using the bucket name, e.g.,
 
         ```sh
          $ pulumi import aws:s3/bucketPolicy:BucketPolicy example my-bucket-name

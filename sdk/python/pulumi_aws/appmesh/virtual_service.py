@@ -316,7 +316,7 @@ class VirtualService(pulumi.CustomResource):
 
         ## Import
 
-        App Mesh virtual services can be imported using `mesh_name` together with the virtual service's `name`, e.g.
+        App Mesh virtual services can be imported using `mesh_name` together with the virtual service's `name`, e.g.,
 
         ```sh
          $ pulumi import aws:appmesh/virtualService:VirtualService servicea simpleapp/servicea.simpleapp.local
@@ -377,7 +377,7 @@ class VirtualService(pulumi.CustomResource):
 
         ## Import
 
-        App Mesh virtual services can be imported using `mesh_name` together with the virtual service's `name`, e.g.
+        App Mesh virtual services can be imported using `mesh_name` together with the virtual service's `name`, e.g.,
 
         ```sh
          $ pulumi import aws:appmesh/virtualService:VirtualService servicea simpleapp/servicea.simpleapp.local

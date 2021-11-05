@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a CodeBuild Project resource. See also the `codebuild.Webhook` resource, which manages the webhook to the source (e.g. the "rebuild every time a code change is pushed" option in the CodeBuild web console).
+// Provides a CodeBuild Project resource. See also the `codebuild.Webhook` resource, which manages the webhook to the source (e.g., the "rebuild every time a code change is pushed" option in the CodeBuild web console).
 //
 // ## Example Usage
 //
@@ -165,7 +165,7 @@ import (
 //
 // ## Import
 //
-// CodeBuild Project can be imported using the `name`, e.g.
+// CodeBuild Project can be imported using the `name`, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:codebuild/project:Project name project-name

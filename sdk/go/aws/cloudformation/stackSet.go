@@ -84,7 +84,7 @@ import (
 //
 // ## Import
 //
-// CloudFormation StackSets can be imported using the `name`, e.g.
+// CloudFormation StackSets can be imported using the `name`, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:cloudformation/stackSet:StackSet example example

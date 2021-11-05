@@ -161,7 +161,7 @@ import (
 //
 // ## Import
 //
-// VPC Peering Connection Options can be imported using the `vpc peering id`, e.g.
+// VPC Peering Connection Options can be imported using the `vpc peering id`, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:ec2/peeringConnectionOptions:PeeringConnectionOptions foo pcx-111aaa111

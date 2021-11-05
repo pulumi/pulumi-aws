@@ -11,7 +11,7 @@ import (
 )
 
 type GlobalTableReplica struct {
-	// AWS region name of replica DynamoDB Table. e.g. `us-east-1`
+	// AWS region name of replica DynamoDB TableE.g., `us-east-1`
 	RegionName string `pulumi:"regionName"`
 }
 
@@ -27,7 +27,7 @@ type GlobalTableReplicaInput interface {
 }
 
 type GlobalTableReplicaArgs struct {
-	// AWS region name of replica DynamoDB Table. e.g. `us-east-1`
+	// AWS region name of replica DynamoDB TableE.g., `us-east-1`
 	RegionName pulumi.StringInput `pulumi:"regionName"`
 }
 
@@ -82,7 +82,7 @@ func (o GlobalTableReplicaOutput) ToGlobalTableReplicaOutputWithContext(ctx cont
 	return o
 }
 
-// AWS region name of replica DynamoDB Table. e.g. `us-east-1`
+// AWS region name of replica DynamoDB TableE.g., `us-east-1`
 func (o GlobalTableReplicaOutput) RegionName() pulumi.StringOutput {
 	return o.ApplyT(func(v GlobalTableReplica) string { return v.RegionName }).(pulumi.StringOutput)
 }

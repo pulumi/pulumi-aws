@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Pinpoint APNs VoIP Channel can be imported using the `application-id`, e.g.
+ * Pinpoint APNs VoIP Channel can be imported using the `application-id`, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:pinpoint/apnsVoipChannel:ApnsVoipChannel apns_voip application-id

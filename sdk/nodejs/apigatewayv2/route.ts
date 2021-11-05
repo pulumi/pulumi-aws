@@ -47,7 +47,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * `aws_apigatewayv2_route` can be imported by using the API identifier and route identifier, e.g.
+ * `aws_apigatewayv2_route` can be imported by using the API identifier and route identifier, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:apigatewayv2/route:Route example aabbccddee/1122334

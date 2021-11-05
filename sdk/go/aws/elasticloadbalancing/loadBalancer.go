@@ -95,7 +95,7 @@ import (
 //
 // ## Import
 //
-// ELBs can be imported using the `name`, e.g.
+// ELBs can be imported using the `name`, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:elasticloadbalancing/loadBalancer:LoadBalancer bar elb-production-12345
@@ -148,7 +148,8 @@ type LoadBalancer struct {
 	// A list of subnet IDs to attach to the ELB.
 	Subnets pulumi.StringArrayOutput `pulumi:"subnets"`
 	Tags    pulumi.StringMapOutput   `pulumi:"tags"`
-	TagsAll pulumi.StringMapOutput   `pulumi:"tagsAll"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The canonical hosted zone ID of the ELB (to be used in a Route 53 Alias record)
 	ZoneId pulumi.StringOutput `pulumi:"zoneId"`
 }
@@ -228,6 +229,7 @@ type loadBalancerState struct {
 	// A list of subnet IDs to attach to the ELB.
 	Subnets []string          `pulumi:"subnets"`
 	Tags    map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The canonical hosted zone ID of the ELB (to be used in a Route 53 Alias record)
 	ZoneId *string `pulumi:"zoneId"`
@@ -277,6 +279,7 @@ type LoadBalancerState struct {
 	// A list of subnet IDs to attach to the ELB.
 	Subnets pulumi.StringArrayInput
 	Tags    pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// The canonical hosted zone ID of the ELB (to be used in a Route 53 Alias record)
 	ZoneId pulumi.StringPtrInput
