@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v3.64.2 of the AWS Terraform Provider
+_(none)_
 
 ---
+
+## 4.27.0 (2021-11-08)
+* Upgrade to v3.64.2 of the AWS Terraform Provider
 
 ## 4.26.0 (2021-11-04)
 * Add support for autonaming `aws.mq.Broker` resources
