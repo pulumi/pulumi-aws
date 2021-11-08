@@ -88,7 +88,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * DynamoDB tables can be imported using the `name`, e.g.
+ * DynamoDB tables can be imported using the `name`, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:dynamodb/table:Table basic-dynamodb-table GameScores

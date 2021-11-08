@@ -46,7 +46,7 @@ import (
 //
 // ## Import
 //
-// OpsWorks stacks can be imported using the `id`, e.g.
+// OpsWorks stacks can be imported using the `id`, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:opsworks/stack:Stack bar 00000000-0000-0000-0000-000000000000

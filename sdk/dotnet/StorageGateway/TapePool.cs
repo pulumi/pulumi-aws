@@ -34,7 +34,7 @@ namespace Pulumi.Aws.StorageGateway
     /// 
     /// ## Import
     /// 
-    /// `aws_storagegateway_tape_pool` can be imported by using the volume Amazon Resource Name (ARN), e.g.
+    /// `aws_storagegateway_tape_pool` can be imported by using the volume Amazon Resource Name (ARN), e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:storagegateway/tapePool:TapePool example arn:aws:storagegateway:us-east-1:123456789012:tapepool/pool-12345678
@@ -80,7 +80,7 @@ namespace Pulumi.Aws.StorageGateway
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -220,7 +220,7 @@ namespace Pulumi.Aws.StorageGateway
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

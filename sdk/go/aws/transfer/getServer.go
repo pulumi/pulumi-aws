@@ -58,7 +58,7 @@ type LookupServerResult struct {
 	Certificate string `pulumi:"certificate"`
 	// The domain of the storage system that is used for file transfers.
 	Domain string `pulumi:"domain"`
-	// The endpoint of the Transfer Server (e.g. `s-12345678.server.transfer.REGION.amazonaws.com`).
+	// The endpoint of the Transfer Server (e.g., `s-12345678.server.transfer.REGION.amazonaws.com`).
 	Endpoint string `pulumi:"endpoint"`
 	// The type of endpoint that the server is connected to.
 	EndpointType string `pulumi:"endpointType"`
@@ -128,7 +128,7 @@ func (o LookupServerResultOutput) Domain() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerResult) string { return v.Domain }).(pulumi.StringOutput)
 }
 
-// The endpoint of the Transfer Server (e.g. `s-12345678.server.transfer.REGION.amazonaws.com`).
+// The endpoint of the Transfer Server (e.g., `s-12345678.server.transfer.REGION.amazonaws.com`).
 func (o LookupServerResultOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerResult) string { return v.Endpoint }).(pulumi.StringOutput)
 }

@@ -97,7 +97,7 @@ export class EnvironmentEC2 extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * The type of instance to connect to the environment, e.g. `t2.micro`.
+     * The type of instance to connect to the environment, e.g., `t2.micro`.
      */
     public readonly instanceType!: pulumi.Output<string>;
     /**
@@ -117,11 +117,11 @@ export class EnvironmentEC2 extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider .
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
-     * The type of the environment (e.g. `ssh` or `ec2`)
+     * The type of the environment (e.g., `ssh` or `ec2`)
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -188,7 +188,7 @@ export interface EnvironmentEC2State {
      */
     description?: pulumi.Input<string>;
     /**
-     * The type of instance to connect to the environment, e.g. `t2.micro`.
+     * The type of instance to connect to the environment, e.g., `t2.micro`.
      */
     instanceType?: pulumi.Input<string>;
     /**
@@ -208,11 +208,11 @@ export interface EnvironmentEC2State {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider .
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The type of the environment (e.g. `ssh` or `ec2`)
+     * The type of the environment (e.g., `ssh` or `ec2`)
      */
     type?: pulumi.Input<string>;
 }
@@ -230,7 +230,7 @@ export interface EnvironmentEC2Args {
      */
     description?: pulumi.Input<string>;
     /**
-     * The type of instance to connect to the environment, e.g. `t2.micro`.
+     * The type of instance to connect to the environment, e.g., `t2.micro`.
      */
     instanceType: pulumi.Input<string>;
     /**

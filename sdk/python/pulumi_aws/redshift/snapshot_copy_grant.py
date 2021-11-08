@@ -182,7 +182,7 @@ class SnapshotCopyGrant(pulumi.CustomResource):
 
         ## Import
 
-        Redshift Snapshot Copy Grants support import by name, e.g. console
+        Redshift Snapshot Copy Grants support import by name, e.g., console
 
         ```sh
          $ pulumi import aws:redshift/snapshotCopyGrant:SnapshotCopyGrant test my-grant
@@ -220,7 +220,7 @@ class SnapshotCopyGrant(pulumi.CustomResource):
 
         ## Import
 
-        Redshift Snapshot Copy Grants support import by name, e.g. console
+        Redshift Snapshot Copy Grants support import by name, e.g., console
 
         ```sh
          $ pulumi import aws:redshift/snapshotCopyGrant:SnapshotCopyGrant test my-grant

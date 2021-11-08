@@ -53,6 +53,7 @@ class _EgressOnlyInternetGatewayState:
                  vpc_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering EgressOnlyInternetGateway resources.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] vpc_id: The VPC ID to create in.
         """
         if tags is not None:
@@ -74,6 +75,9 @@ class _EgressOnlyInternetGatewayState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -125,7 +129,7 @@ class EgressOnlyInternetGateway(pulumi.CustomResource):
 
         ## Import
 
-        Egress-only Internet gateways can be imported using the `id`, e.g.
+        Egress-only Internet gateways can be imported using the `id`, e.g.,
 
         ```sh
          $ pulumi import aws:ec2/egressOnlyInternetGateway:EgressOnlyInternetGateway example eigw-015e0e244e24dfe8a
@@ -165,7 +169,7 @@ class EgressOnlyInternetGateway(pulumi.CustomResource):
 
         ## Import
 
-        Egress-only Internet gateways can be imported using the `id`, e.g.
+        Egress-only Internet gateways can be imported using the `id`, e.g.,
 
         ```sh
          $ pulumi import aws:ec2/egressOnlyInternetGateway:EgressOnlyInternetGateway example eigw-015e0e244e24dfe8a
@@ -225,6 +229,7 @@ class EgressOnlyInternetGateway(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] vpc_id: The VPC ID to create in.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -244,6 +249,9 @@ class EgressOnlyInternetGateway(pulumi.CustomResource):
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @property

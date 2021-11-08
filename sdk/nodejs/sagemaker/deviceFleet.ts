@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Sagemaker Device Fleets can be imported using the `name`, e.g.
+ * Sagemaker Device Fleets can be imported using the `name`, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:sagemaker/deviceFleet:DeviceFleet example my-fleet
@@ -92,7 +92,7 @@ export class DeviceFleet extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a DeviceFleet resource with the given unique name, arguments, and options.
@@ -133,9 +133,9 @@ export class DeviceFleet extends pulumi.CustomResource {
             inputs["outputConfig"] = args ? args.outputConfig : undefined;
             inputs["roleArn"] = args ? args.roleArn : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["iotRoleAlias"] = undefined /*out*/;
+            inputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -211,8 +211,4 @@ export interface DeviceFleetArgs {
      * A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

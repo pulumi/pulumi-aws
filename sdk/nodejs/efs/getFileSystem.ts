@@ -51,7 +51,7 @@ export interface GetFileSystemArgs {
      */
     creationToken?: string;
     /**
-     * The ID that identifies the file system (e.g. fs-ccfc0d65).
+     * The ID that identifies the file system (e.g., fs-ccfc0d65).
      */
     fileSystemId?: string;
     /**
@@ -131,7 +131,7 @@ export interface GetFileSystemOutputArgs {
      */
     creationToken?: pulumi.Input<string>;
     /**
-     * The ID that identifies the file system (e.g. fs-ccfc0d65).
+     * The ID that identifies the file system (e.g., fs-ccfc0d65).
      */
     fileSystemId?: pulumi.Input<string>;
     /**

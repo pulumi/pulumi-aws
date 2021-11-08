@@ -39,7 +39,7 @@ namespace Pulumi.Aws.RedShift
     /// 
     /// ## Import
     /// 
-    /// Redshift security groups can be imported using the `name`, e.g.
+    /// Redshift security groups can be imported using the `name`, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:redshift/securityGroup:SecurityGroup testgroup1 redshift_test_group

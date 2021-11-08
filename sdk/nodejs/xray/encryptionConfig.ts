@@ -53,7 +53,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * XRay Encryption Config can be imported using the region name, e.g.
+ * XRay Encryption Config can be imported using the region name, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:xray/encryptionConfig:EncryptionConfig example us-west-2

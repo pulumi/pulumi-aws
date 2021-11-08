@@ -468,7 +468,7 @@ class JobDefinition(pulumi.CustomResource):
 
         ## Import
 
-        Batch Job Definition can be imported using the `arn`, e.g.
+        Batch Job Definition can be imported using the `arn`, e.g.,
 
         ```sh
          $ pulumi import aws:batch/jobDefinition:JobDefinition test arn:aws:batch:us-east-1:123456789012:job-definition/sample
@@ -576,7 +576,7 @@ class JobDefinition(pulumi.CustomResource):
 
         ## Import
 
-        Batch Job Definition can be imported using the `arn`, e.g.
+        Batch Job Definition can be imported using the `arn`, e.g.,
 
         ```sh
          $ pulumi import aws:batch/jobDefinition:JobDefinition test arn:aws:batch:us-east-1:123456789012:job-definition/sample

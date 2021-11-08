@@ -281,6 +281,7 @@ class _FirehoseDeliveryStreamState:
         :param pulumi.Input['FirehoseDeliveryStreamServerSideEncryptionArgs'] server_side_encryption: Encrypt at rest options.
                Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
         :param pulumi.Input['FirehoseDeliveryStreamSplunkConfigurationArgs'] splunk_configuration: Configuration options if splunk is the destination. More details are given below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] version_id: Specifies the table version for the output data schema. Defaults to `LATEST`.
         """
         if arn is not None:
@@ -472,6 +473,9 @@ class _FirehoseDeliveryStreamState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -777,7 +781,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
                 s3_backup_mode="FailedEventsOnly",
             ))
         ```
-        ### HTTP Endpoint (e.g. New Relic) Destination
+        ### HTTP Endpoint (e.g., New Relic) Destination
 
         ```python
         import pulumi
@@ -818,7 +822,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
 
         ## Import
 
-        Kinesis Firehose Delivery streams can be imported using the stream ARN, e.g.
+        Kinesis Firehose Delivery streams can be imported using the stream ARN, e.g.,
 
         ```sh
          $ pulumi import aws:kinesis/firehoseDeliveryStream:FirehoseDeliveryStream foo arn:aws:firehose:us-east-1:XXX:deliverystream/example
@@ -1118,7 +1122,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
                 s3_backup_mode="FailedEventsOnly",
             ))
         ```
-        ### HTTP Endpoint (e.g. New Relic) Destination
+        ### HTTP Endpoint (e.g., New Relic) Destination
 
         ```python
         import pulumi
@@ -1159,7 +1163,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
 
         ## Import
 
-        Kinesis Firehose Delivery streams can be imported using the stream ARN, e.g.
+        Kinesis Firehose Delivery streams can be imported using the stream ARN, e.g.,
 
         ```sh
          $ pulumi import aws:kinesis/firehoseDeliveryStream:FirehoseDeliveryStream foo arn:aws:firehose:us-east-1:XXX:deliverystream/example
@@ -1273,6 +1277,7 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['FirehoseDeliveryStreamServerSideEncryptionArgs']] server_side_encryption: Encrypt at rest options.
                Server-side encryption should not be enabled when a kinesis stream is configured as the source of the firehose delivery stream.
         :param pulumi.Input[pulumi.InputType['FirehoseDeliveryStreamSplunkConfigurationArgs']] splunk_configuration: Configuration options if splunk is the destination. More details are given below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] version_id: Specifies the table version for the output data schema. Defaults to `LATEST`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -1402,6 +1407,9 @@ class FirehoseDeliveryStream(pulumi.CustomResource):
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @property

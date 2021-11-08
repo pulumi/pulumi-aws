@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Route53 Recovery Readiness cells can be imported via the cell name, e.g.
+ * Route53 Recovery Readiness cells can be imported via the cell name, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:route53recoveryreadiness/cell:Cell us-west-2-failover-cell us-west-2-failover-cell
@@ -77,7 +77,7 @@ export class Cell extends pulumi.CustomResource {
     /**
      * Map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a Cell resource with the given unique name, arguments, and options.
@@ -106,9 +106,9 @@ export class Cell extends pulumi.CustomResource {
             inputs["cellName"] = args ? args.cellName : undefined;
             inputs["cells"] = args ? args.cells : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["parentReadinessScopes"] = undefined /*out*/;
+            inputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -163,8 +163,4 @@ export interface CellArgs {
      * Key-value mapping of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * Map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

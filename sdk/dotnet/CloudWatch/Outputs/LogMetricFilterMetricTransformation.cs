@@ -22,7 +22,7 @@ namespace Pulumi.Aws.CloudWatch.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Dimensions;
         /// <summary>
-        /// The name of the CloudWatch metric to which the monitored log information should be published (e.g. `ErrorCount`)
+        /// The name of the CloudWatch metric to which the monitored log information should be published (e.g., `ErrorCount`)
         /// </summary>
         public readonly string Name;
         /// <summary>

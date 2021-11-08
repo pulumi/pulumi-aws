@@ -321,7 +321,7 @@ class ProxyEndpoint(pulumi.CustomResource):
 
         ## Import
 
-        DB proxy endpoints can be imported using the `DB-PROXY-NAME/DB-PROXY-ENDPOINT-NAME`, e.g.
+        DB proxy endpoints can be imported using the `DB-PROXY-NAME/DB-PROXY-ENDPOINT-NAME`, e.g.,
 
         ```sh
          $ pulumi import aws:rds/proxyEndpoint:ProxyEndpoint example example/example
@@ -360,7 +360,7 @@ class ProxyEndpoint(pulumi.CustomResource):
 
         ## Import
 
-        DB proxy endpoints can be imported using the `DB-PROXY-NAME/DB-PROXY-ENDPOINT-NAME`, e.g.
+        DB proxy endpoints can be imported using the `DB-PROXY-NAME/DB-PROXY-ENDPOINT-NAME`, e.g.,
 
         ```sh
          $ pulumi import aws:rds/proxyEndpoint:ProxyEndpoint example example/example

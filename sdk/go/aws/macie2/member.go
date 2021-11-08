@@ -48,7 +48,7 @@ import (
 //
 // ## Import
 //
-// `aws_macie2_member` can be imported using the account ID of the member account, e.g.
+// `aws_macie2_member` can be imported using the account ID of the member account, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:macie2/member:Member example 123456789012

@@ -57,6 +57,7 @@ class _CarrierGatewayState:
         Input properties used for looking up and filtering CarrierGateway resources.
         :param pulumi.Input[str] arn: The ARN of the carrier gateway.
         :param pulumi.Input[str] owner_id: The AWS account ID of the owner of the carrier gateway.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] vpc_id: The ID of the VPC to associate with the carrier gateway.
         """
         if arn is not None:
@@ -106,6 +107,9 @@ class _CarrierGatewayState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -151,7 +155,7 @@ class CarrierGateway(pulumi.CustomResource):
 
         ## Import
 
-        `aws_ec2_carrier_gateway` can be imported using the carrier gateway's ID, e.g.
+        `aws_ec2_carrier_gateway` can be imported using the carrier gateway's ID, e.g.,
 
         ```sh
          $ pulumi import aws:ec2/carrierGateway:CarrierGateway example cgw-12345
@@ -185,7 +189,7 @@ class CarrierGateway(pulumi.CustomResource):
 
         ## Import
 
-        `aws_ec2_carrier_gateway` can be imported using the carrier gateway's ID, e.g.
+        `aws_ec2_carrier_gateway` can be imported using the carrier gateway's ID, e.g.,
 
         ```sh
          $ pulumi import aws:ec2/carrierGateway:CarrierGateway example cgw-12345
@@ -251,6 +255,7 @@ class CarrierGateway(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The ARN of the carrier gateway.
         :param pulumi.Input[str] owner_id: The AWS account ID of the owner of the carrier gateway.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] vpc_id: The ID of the VPC to associate with the carrier gateway.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -288,6 +293,9 @@ class CarrierGateway(pulumi.CustomResource):
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @property

@@ -104,7 +104,7 @@ import (
 //
 // ## Import
 //
-// Certificates can be imported using their ARN, e.g.
+// Certificates can be imported using their ARN, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:acm/certificate:Certificate cert arn:aws:acm:eu-central-1:123456789012:certificate/7e7a28d2-163f-4b8f-b9cd-822f96c08d6a
@@ -123,7 +123,7 @@ type Certificate struct {
 	CertificateChain pulumi.StringPtrOutput `pulumi:"certificateChain"`
 	// A domain name for which the certificate should be issued
 	DomainName pulumi.StringOutput `pulumi:"domainName"`
-	// Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g. if SANs are defined. Only set if `DNS`-validation was used.
+	// Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined. Only set if `DNS`-validation was used.
 	DomainValidationOptions CertificateDomainValidationOptionArrayOutput `pulumi:"domainValidationOptions"`
 	// Configuration block used to set certificate options. Detailed below.
 	// * Importing an existing certificate
@@ -184,7 +184,7 @@ type certificateState struct {
 	CertificateChain *string `pulumi:"certificateChain"`
 	// A domain name for which the certificate should be issued
 	DomainName *string `pulumi:"domainName"`
-	// Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g. if SANs are defined. Only set if `DNS`-validation was used.
+	// Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined. Only set if `DNS`-validation was used.
 	DomainValidationOptions []CertificateDomainValidationOption `pulumi:"domainValidationOptions"`
 	// Configuration block used to set certificate options. Detailed below.
 	// * Importing an existing certificate
@@ -217,7 +217,7 @@ type CertificateState struct {
 	CertificateChain pulumi.StringPtrInput
 	// A domain name for which the certificate should be issued
 	DomainName pulumi.StringPtrInput
-	// Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g. if SANs are defined. Only set if `DNS`-validation was used.
+	// Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined. Only set if `DNS`-validation was used.
 	DomainValidationOptions CertificateDomainValidationOptionArrayInput
 	// Configuration block used to set certificate options. Detailed below.
 	// * Importing an existing certificate

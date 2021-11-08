@@ -281,7 +281,7 @@ import (
 //
 // ## Import
 //
-// `aws_kinesisanalyticsv2_application` can be imported by using the application ARN, e.g.
+// `aws_kinesisanalyticsv2_application` can be imported by using the application ARN, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:kinesisanalyticsv2/application:Application example arn:aws:kinesisanalytics:us-west-2:123456789012:application/example-sql-application
@@ -312,8 +312,9 @@ type Application struct {
 	// Whether to start or stop the application.
 	StartApplication pulumi.BoolPtrOutput `pulumi:"startApplication"`
 	// The status of the application.
-	Status  pulumi.StringOutput    `pulumi:"status"`
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	Status pulumi.StringOutput    `pulumi:"status"`
+	Tags   pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The current application version. Kinesis Data Analytics updates the `versionId` each time the application is updated.
 	VersionId pulumi.IntOutput `pulumi:"versionId"`
@@ -377,8 +378,9 @@ type applicationState struct {
 	// Whether to start or stop the application.
 	StartApplication *bool `pulumi:"startApplication"`
 	// The status of the application.
-	Status  *string           `pulumi:"status"`
-	Tags    map[string]string `pulumi:"tags"`
+	Status *string           `pulumi:"status"`
+	Tags   map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The current application version. Kinesis Data Analytics updates the `versionId` each time the application is updated.
 	VersionId *int `pulumi:"versionId"`
@@ -408,8 +410,9 @@ type ApplicationState struct {
 	// Whether to start or stop the application.
 	StartApplication pulumi.BoolPtrInput
 	// The status of the application.
-	Status  pulumi.StringPtrInput
-	Tags    pulumi.StringMapInput
+	Status pulumi.StringPtrInput
+	Tags   pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// The current application version. Kinesis Data Analytics updates the `versionId` each time the application is updated.
 	VersionId pulumi.IntPtrInput

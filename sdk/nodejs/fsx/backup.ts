@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * FSx Backups can be imported using the `id`, e.g.
+ * FSx Backups can be imported using the `id`, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:fsx/backup:Backup example fs-543ab12b1ca672f33
@@ -81,7 +81,7 @@ export class Backup extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The type of the file system backup.
      */
@@ -114,10 +114,10 @@ export class Backup extends pulumi.CustomResource {
             }
             inputs["fileSystemId"] = args ? args.fileSystemId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["kmsKeyId"] = undefined /*out*/;
             inputs["ownerId"] = undefined /*out*/;
+            inputs["tagsAll"] = undefined /*out*/;
             inputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -173,8 +173,4 @@ export interface BackupArgs {
      * A map of tags to assign to the file system. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

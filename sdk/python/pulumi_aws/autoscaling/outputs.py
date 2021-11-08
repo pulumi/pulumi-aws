@@ -177,7 +177,11 @@ class GroupInstanceRefreshPreferences(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "instanceWarmup":
+        if key == "checkpointDelay":
+            suggest = "checkpoint_delay"
+        elif key == "checkpointPercentages":
+            suggest = "checkpoint_percentages"
+        elif key == "instanceWarmup":
             suggest = "instance_warmup"
         elif key == "minHealthyPercentage":
             suggest = "min_healthy_percentage"
@@ -194,16 +198,40 @@ class GroupInstanceRefreshPreferences(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 checkpoint_delay: Optional[str] = None,
+                 checkpoint_percentages: Optional[Sequence[int]] = None,
                  instance_warmup: Optional[str] = None,
                  min_healthy_percentage: Optional[int] = None):
         """
+        :param str checkpoint_delay: The number of seconds to wait after a checkpoint. Defaults to `3600`.
+        :param Sequence[int] checkpoint_percentages: List of percentages for each checkpoint. Values must be unique and in ascending order. To replace all instances, the final number must be `100`.
         :param str instance_warmup: The number of seconds until a newly launched instance is configured and ready to use. Default behavior is to use the Auto Scaling Group's health check grace period.
         :param int min_healthy_percentage: The amount of capacity in the Auto Scaling group that must remain healthy during an instance refresh to allow the operation to continue, as a percentage of the desired capacity of the Auto Scaling group. Defaults to `90`.
         """
+        if checkpoint_delay is not None:
+            pulumi.set(__self__, "checkpoint_delay", checkpoint_delay)
+        if checkpoint_percentages is not None:
+            pulumi.set(__self__, "checkpoint_percentages", checkpoint_percentages)
         if instance_warmup is not None:
             pulumi.set(__self__, "instance_warmup", instance_warmup)
         if min_healthy_percentage is not None:
             pulumi.set(__self__, "min_healthy_percentage", min_healthy_percentage)
+
+    @property
+    @pulumi.getter(name="checkpointDelay")
+    def checkpoint_delay(self) -> Optional[str]:
+        """
+        The number of seconds to wait after a checkpoint. Defaults to `3600`.
+        """
+        return pulumi.get(self, "checkpoint_delay")
+
+    @property
+    @pulumi.getter(name="checkpointPercentages")
+    def checkpoint_percentages(self) -> Optional[Sequence[int]]:
+        """
+        List of percentages for each checkpoint. Values must be unique and in ascending order. To replace all instances, the final number must be `100`.
+        """
+        return pulumi.get(self, "checkpoint_percentages")
 
     @property
     @pulumi.getter(name="instanceWarmup")
@@ -355,7 +383,7 @@ class GroupMixedInstancesPolicyInstancesDistribution(dict):
         :param int on_demand_base_capacity: Absolute minimum amount of desired capacity that must be fulfilled by on-demand instances. Default: `0`.
         :param int on_demand_percentage_above_base_capacity: Percentage split between on-demand and Spot instances above the base on-demand capacity. Default: `100`.
         :param str spot_allocation_strategy: How to allocate capacity across the Spot pools. Valid values: `lowest-price`, `capacity-optimized`, `capacity-optimized-prioritized`. Default: `lowest-price`.
-        :param int spot_instance_pools: Number of Spot pools per availability zone to allocate capacity. EC2 Auto Scaling selects the cheapest Spot pools and evenly allocates Spot capacity across the number of Spot pools that you specify. Default: `2`.
+        :param int spot_instance_pools: Number of Spot pools per availability zone to allocate capacity. EC2 Auto Scaling selects the cheapest Spot pools and evenly allocates Spot capacity across the number of Spot pools that you specify. Only available with `spot_allocation_strategy` set to `lowest-price`. Otherwise it must be set to `0`, if it has been defined before. Default: `2`.
         :param str spot_max_price: Maximum price per unit hour that the user is willing to pay for the Spot instances. Default: an empty string which means the on-demand price.
         """
         if on_demand_allocation_strategy is not None:
@@ -407,7 +435,7 @@ class GroupMixedInstancesPolicyInstancesDistribution(dict):
     @pulumi.getter(name="spotInstancePools")
     def spot_instance_pools(self) -> Optional[int]:
         """
-        Number of Spot pools per availability zone to allocate capacity. EC2 Auto Scaling selects the cheapest Spot pools and evenly allocates Spot capacity across the number of Spot pools that you specify. Default: `2`.
+        Number of Spot pools per availability zone to allocate capacity. EC2 Auto Scaling selects the cheapest Spot pools and evenly allocates Spot capacity across the number of Spot pools that you specify. Only available with `spot_allocation_strategy` set to `lowest-price`. Otherwise it must be set to `0`, if it has been defined before. Default: `2`.
         """
         return pulumi.get(self, "spot_instance_pools")
 

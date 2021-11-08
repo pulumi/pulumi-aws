@@ -122,7 +122,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Glue Crawlers can be imported using `name`, e.g.
+ * Glue Crawlers can be imported using `name`, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:glue/crawler:Crawler MyJob MyJob

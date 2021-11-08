@@ -472,7 +472,7 @@ class Domain(pulumi.CustomResource):
 
         ## Import
 
-        Sagemaker Code Domains can be imported using the `id`, e.g.
+        Sagemaker Code Domains can be imported using the `id`, e.g.,
 
         ```sh
          $ pulumi import aws:sagemaker/domain:Domain test_domain d-8jgsjtilstu8
@@ -562,7 +562,7 @@ class Domain(pulumi.CustomResource):
 
         ## Import
 
-        Sagemaker Code Domains can be imported using the `id`, e.g.
+        Sagemaker Code Domains can be imported using the `id`, e.g.,
 
         ```sh
          $ pulumi import aws:sagemaker/domain:Domain test_domain d-8jgsjtilstu8

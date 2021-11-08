@@ -60,7 +60,7 @@ export function getAutoscalingGroups(args?: GetAutoscalingGroupsArgs, opts?: pul
  */
 export interface GetAutoscalingGroupsArgs {
     /**
-     * A filter used to scope the list e.g. by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
+     * A filter used to scope the list e.g., by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
      */
     filters?: inputs.GetAutoscalingGroupsFilter[];
 }
@@ -93,7 +93,7 @@ export function getAutoscalingGroupsOutput(args?: GetAutoscalingGroupsOutputArgs
  */
 export interface GetAutoscalingGroupsOutputArgs {
     /**
-     * A filter used to scope the list e.g. by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
+     * A filter used to scope the list e.g., by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
      */
     filters?: pulumi.Input<pulumi.Input<inputs.GetAutoscalingGroupsFilterArgs>[]>;
 }

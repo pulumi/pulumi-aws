@@ -764,7 +764,7 @@ class Gateway(pulumi.CustomResource):
 
         ## Import
 
-        `aws_storagegateway_gateway` can be imported by using the gateway Amazon Resource Name (ARN), e.g.
+        `aws_storagegateway_gateway` can be imported by using the gateway Amazon Resource Name (ARN), e.g.,
 
         ```sh
          $ pulumi import aws:storagegateway/gateway:Gateway example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678
@@ -889,7 +889,7 @@ class Gateway(pulumi.CustomResource):
 
         ## Import
 
-        `aws_storagegateway_gateway` can be imported by using the gateway Amazon Resource Name (ARN), e.g.
+        `aws_storagegateway_gateway` can be imported by using the gateway Amazon Resource Name (ARN), e.g.,
 
         ```sh
          $ pulumi import aws:storagegateway/gateway:Gateway example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678

@@ -40,7 +40,7 @@ import (
 //
 // ## Import
 //
-// Cloudwatch Log Groups can be imported using the `name`, e.g.
+// Cloudwatch Log Groups can be imported using the `name`, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:cloudwatch/logGroup:LogGroup test_group yada

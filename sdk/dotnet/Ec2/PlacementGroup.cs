@@ -34,7 +34,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// Placement groups can be imported using the `name`, e.g.
+    /// Placement groups can be imported using the `name`, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:ec2/placementGroup:PlacementGroup prod_pg production-placement-group
@@ -61,7 +61,7 @@ namespace Pulumi.Aws.Ec2
         /// `"partition"`.  Valid values are 1 - 7 (default is `2`).
         /// </summary>
         [Output("partitionCount")]
-        public Output<int?> PartitionCount { get; private set; } = null!;
+        public Output<int> PartitionCount { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the placement group.

@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * `aws_organizations_delegated_administrator` can be imported by using the account ID and its service principal, e.g.
+ * `aws_organizations_delegated_administrator` can be imported by using the account ID and its service principal, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:organizations/delegatedAdministrator:DelegatedAdministrator example 123456789012/config.amazonaws.com

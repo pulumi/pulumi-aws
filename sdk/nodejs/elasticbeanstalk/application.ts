@@ -31,7 +31,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Elastic Beanstalk Applications can be imported using the `name`, e.g.
+ * Elastic Beanstalk Applications can be imported using the `name`, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:elasticbeanstalk/application:Application tf_test tf-test-name
@@ -79,6 +79,9 @@ export class Application extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -134,6 +137,9 @@ export interface ApplicationState {
      */
     name?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 

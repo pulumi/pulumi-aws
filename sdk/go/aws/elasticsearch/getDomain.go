@@ -74,7 +74,7 @@ type LookupDomainResult struct {
 	DomainName string `pulumi:"domainName"`
 	// EBS Options for the instances in the domain.
 	EbsOptions []GetDomainEbsOption `pulumi:"ebsOptions"`
-	// ElasticSearch version for the domain.
+	// Elasticsearch version for the domain.
 	ElasticsearchVersion string `pulumi:"elasticsearchVersion"`
 	// Domain encryption at rest related options.
 	EncryptionAtRests []GetDomainEncryptionAtRest `pulumi:"encryptionAtRests"`
@@ -188,7 +188,7 @@ func (o LookupDomainResultOutput) EbsOptions() GetDomainEbsOptionArrayOutput {
 	return o.ApplyT(func(v LookupDomainResult) []GetDomainEbsOption { return v.EbsOptions }).(GetDomainEbsOptionArrayOutput)
 }
 
-// ElasticSearch version for the domain.
+// Elasticsearch version for the domain.
 func (o LookupDomainResultOutput) ElasticsearchVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDomainResult) string { return v.ElasticsearchVersion }).(pulumi.StringOutput)
 }

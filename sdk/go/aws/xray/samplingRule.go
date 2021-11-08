@@ -51,7 +51,7 @@ import (
 //
 // ## Import
 //
-// XRay Sampling Rules can be imported using the name, e.g.
+// XRay Sampling Rules can be imported using the name, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:xray/samplingRule:SamplingRule example example

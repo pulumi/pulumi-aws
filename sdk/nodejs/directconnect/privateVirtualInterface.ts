@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Direct Connect private virtual interfaces can be imported using the `vif id`, e.g.
+ * Direct Connect private virtual interfaces can be imported using the `vif id`, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:directconnect/privateVirtualInterface:PrivateVirtualInterface test dxvif-33cc44dd

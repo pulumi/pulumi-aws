@@ -79,7 +79,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Config Organization Conformance Packs can be imported using the `name`, e.g.
+ * Config Organization Conformance Packs can be imported using the `name`, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:cfg/organizationConformancePack:OrganizationConformancePack example example
@@ -142,7 +142,7 @@ export class OrganizationConformancePack extends pulumi.CustomResource {
      */
     public readonly templateBody!: pulumi.Output<string | undefined>;
     /**
-     * Location of file, e.g. `s3://bucketname/prefix`, containing the template body. The uri must point to the conformance pack template that is located in an Amazon S3 bucket in the same region as the conformance pack. Maximum length of 1024. Drift detection is not possible with this argument.
+     * Location of file, e.g., `s3://bucketname/prefix`, containing the template body. The uri must point to the conformance pack template that is located in an Amazon S3 bucket in the same region as the conformance pack. Maximum length of 1024. Drift detection is not possible with this argument.
      */
     public readonly templateS3Uri!: pulumi.Output<string | undefined>;
 
@@ -218,7 +218,7 @@ export interface OrganizationConformancePackState {
      */
     templateBody?: pulumi.Input<string>;
     /**
-     * Location of file, e.g. `s3://bucketname/prefix`, containing the template body. The uri must point to the conformance pack template that is located in an Amazon S3 bucket in the same region as the conformance pack. Maximum length of 1024. Drift detection is not possible with this argument.
+     * Location of file, e.g., `s3://bucketname/prefix`, containing the template body. The uri must point to the conformance pack template that is located in an Amazon S3 bucket in the same region as the conformance pack. Maximum length of 1024. Drift detection is not possible with this argument.
      */
     templateS3Uri?: pulumi.Input<string>;
 }
@@ -252,7 +252,7 @@ export interface OrganizationConformancePackArgs {
      */
     templateBody?: pulumi.Input<string>;
     /**
-     * Location of file, e.g. `s3://bucketname/prefix`, containing the template body. The uri must point to the conformance pack template that is located in an Amazon S3 bucket in the same region as the conformance pack. Maximum length of 1024. Drift detection is not possible with this argument.
+     * Location of file, e.g., `s3://bucketname/prefix`, containing the template body. The uri must point to the conformance pack template that is located in an Amazon S3 bucket in the same region as the conformance pack. Maximum length of 1024. Drift detection is not possible with this argument.
      */
     templateS3Uri?: pulumi.Input<string>;
 }

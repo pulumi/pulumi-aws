@@ -178,7 +178,7 @@ namespace Pulumi.Aws.ApiGateway
         /// <summary>
         /// The execution ARN to be used in `lambda_permission` resource's `source_arn`
         /// when allowing API Gateway to invoke a Lambda function,
-        /// e.g. `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
+        /// e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
         /// </summary>
         [Output("executionArn")]
         public Output<string> ExecutionArn { get; private set; } = null!;
@@ -336,7 +336,7 @@ namespace Pulumi.Aws.ApiGateway
         /// <summary>
         /// The execution ARN to be used in `lambda_permission` resource's `source_arn`
         /// when allowing API Gateway to invoke a Lambda function,
-        /// e.g. `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
+        /// e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
         /// </summary>
         [Input("executionArn")]
         public Input<string>? ExecutionArn { get; set; }

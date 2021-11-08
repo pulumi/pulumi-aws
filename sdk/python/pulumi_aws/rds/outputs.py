@@ -597,11 +597,11 @@ class OptionGroupOption(dict):
                  version: Optional[str] = None,
                  vpc_security_group_memberships: Optional[Sequence[str]] = None):
         """
-        :param str option_name: The Name of the Option (e.g. MEMCACHED).
+        :param str option_name: The Name of the Option (e.g., MEMCACHED).
         :param Sequence[str] db_security_group_memberships: A list of DB Security Groups for which the option is enabled.
         :param Sequence['OptionGroupOptionOptionSettingArgs'] option_settings: A list of option settings to apply.
-        :param int port: The Port number when connecting to the Option (e.g. 11211).
-        :param str version: The version of the option (e.g. 13.1.0.0).
+        :param int port: The Port number when connecting to the Option (e.g., 11211).
+        :param str version: The version of the option (e.g., 13.1.0.0).
         :param Sequence[str] vpc_security_group_memberships: A list of VPC Security Groups for which the option is enabled.
         """
         pulumi.set(__self__, "option_name", option_name)
@@ -620,7 +620,7 @@ class OptionGroupOption(dict):
     @pulumi.getter(name="optionName")
     def option_name(self) -> str:
         """
-        The Name of the Option (e.g. MEMCACHED).
+        The Name of the Option (e.g., MEMCACHED).
         """
         return pulumi.get(self, "option_name")
 
@@ -644,7 +644,7 @@ class OptionGroupOption(dict):
     @pulumi.getter
     def port(self) -> Optional[int]:
         """
-        The Port number when connecting to the Option (e.g. 11211).
+        The Port number when connecting to the Option (e.g., 11211).
         """
         return pulumi.get(self, "port")
 
@@ -652,7 +652,7 @@ class OptionGroupOption(dict):
     @pulumi.getter
     def version(self) -> Optional[str]:
         """
-        The version of the option (e.g. 13.1.0.0).
+        The version of the option (e.g., 13.1.0.0).
         """
         return pulumi.get(self, "version")
 

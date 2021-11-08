@@ -43,7 +43,7 @@ import (
 //
 // ## Import
 //
-// EKS Identity Provider Configurations can be imported using the `cluster_name` and `identity_provider_config_name` separated by a colon (`:`), e.g.
+// EKS Identity Provider Configurations can be imported using the `cluster_name` and `identity_provider_config_name` separated by a colon (`:`), e.g.,
 //
 // ```sh
 //  $ pulumi import aws:eks/identityProviderConfig:IdentityProviderConfig my_identity_provider_config my_cluster:my_identity_provider_config
@@ -58,8 +58,9 @@ type IdentityProviderConfig struct {
 	// Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster. Detailed below.
 	Oidc IdentityProviderConfigOidcOutput `pulumi:"oidc"`
 	// Status of the EKS Identity Provider Configuration.
-	Status  pulumi.StringOutput    `pulumi:"status"`
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	Status pulumi.StringOutput    `pulumi:"status"`
+	Tags   pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -105,8 +106,9 @@ type identityProviderConfigState struct {
 	// Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster. Detailed below.
 	Oidc *IdentityProviderConfigOidc `pulumi:"oidc"`
 	// Status of the EKS Identity Provider Configuration.
-	Status  *string           `pulumi:"status"`
-	Tags    map[string]string `pulumi:"tags"`
+	Status *string           `pulumi:"status"`
+	Tags   map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -118,8 +120,9 @@ type IdentityProviderConfigState struct {
 	// Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster. Detailed below.
 	Oidc IdentityProviderConfigOidcPtrInput
 	// Status of the EKS Identity Provider Configuration.
-	Status  pulumi.StringPtrInput
-	Tags    pulumi.StringMapInput
+	Status pulumi.StringPtrInput
+	Tags   pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 

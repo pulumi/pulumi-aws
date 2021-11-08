@@ -159,7 +159,7 @@ import (
 //
 // ## Import
 //
-// RDS Clusters can be imported using the `cluster_identifier`, e.g.
+// RDS Clusters can be imported using the `cluster_identifier`, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:rds/cluster:Cluster aurora_cluster aurora-prod-cluster

@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Eks.Outputs
         /// </summary>
         public readonly string? GroupsClaim;
         /// <summary>
-        /// A prefix that is prepended to group claims e.g. `oidc:`.
+        /// A prefix that is prepended to group claims e.g., `oidc:`.
         /// </summary>
         public readonly string? GroupsPrefix;
         /// <summary>

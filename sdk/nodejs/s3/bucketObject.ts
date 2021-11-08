@@ -84,13 +84,13 @@ import {Bucket} from "./index";
  *
  * ## Import
  *
- * Objects can be imported using the `id`. The `id` is the bucket name and the key together e.g.
+ * Objects can be imported using the `id`. The `id` is the bucket name and the key together e.g.,
  *
  * ```sh
  *  $ pulumi import aws:s3/bucketObject:BucketObject object some-bucket-name/some/key.txt
  * ```
  *
- *  Additionally, s3 url syntax can be used, e.g.
+ *  Additionally, s3 url syntax can be used, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:s3/bucketObject:BucketObject object s3://some-bucket-name/some/key.txt
@@ -157,11 +157,11 @@ export class BucketObject extends pulumi.CustomResource {
      */
     public readonly contentEncoding!: pulumi.Output<string | undefined>;
     /**
-     * Language the content is in e.g. en-US or en-GB.
+     * Language the content is in e.g., en-US or en-GB.
      */
     public readonly contentLanguage!: pulumi.Output<string | undefined>;
     /**
-     * Standard MIME type describing the format of the object data, e.g. application/octet-stream. All Valid MIME Types are valid for this input.
+     * Standard MIME type describing the format of the object data, e.g., application/octet-stream. All Valid MIME Types are valid for this input.
      */
     public readonly contentType!: pulumi.Output<string>;
     /**
@@ -344,11 +344,11 @@ export interface BucketObjectState {
      */
     contentEncoding?: pulumi.Input<string>;
     /**
-     * Language the content is in e.g. en-US or en-GB.
+     * Language the content is in e.g., en-US or en-GB.
      */
     contentLanguage?: pulumi.Input<string>;
     /**
-     * Standard MIME type describing the format of the object data, e.g. application/octet-stream. All Valid MIME Types are valid for this input.
+     * Standard MIME type describing the format of the object data, e.g., application/octet-stream. All Valid MIME Types are valid for this input.
      */
     contentType?: pulumi.Input<string>;
     /**
@@ -454,11 +454,11 @@ export interface BucketObjectArgs {
      */
     contentEncoding?: pulumi.Input<string>;
     /**
-     * Language the content is in e.g. en-US or en-GB.
+     * Language the content is in e.g., en-US or en-GB.
      */
     contentLanguage?: pulumi.Input<string>;
     /**
-     * Standard MIME type describing the format of the object data, e.g. application/octet-stream. All Valid MIME Types are valid for this input.
+     * Standard MIME type describing the format of the object data, e.g., application/octet-stream. All Valid MIME Types are valid for this input.
      */
     contentType?: pulumi.Input<string>;
     /**

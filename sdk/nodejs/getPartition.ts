@@ -40,7 +40,7 @@ export function getPartition(opts?: pulumi.InvokeOptions): Promise<GetPartitionR
  */
 export interface GetPartitionResult {
     /**
-     * Base DNS domain name for the current partition (e.g. `amazonaws.com` in AWS Commercial, `amazonaws.com.cn` in AWS China).
+     * Base DNS domain name for the current partition (e.g., `amazonaws.com` in AWS Commercial, `amazonaws.com.cn` in AWS China).
      */
     readonly dnsSuffix: string;
     /**
@@ -48,11 +48,11 @@ export interface GetPartitionResult {
      */
     readonly id: string;
     /**
-     * Identifier of the current partition (e.g. `aws` in AWS Commercial, `aws-cn` in AWS China).
+     * Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
      */
     readonly partition: string;
     /**
-     * Prefix of service names (e.g. `com.amazonaws` in AWS Commercial, `cn.com.amazonaws` in AWS China).
+     * Prefix of service names (e.g., `com.amazonaws` in AWS Commercial, `cn.com.amazonaws` in AWS China).
      */
     readonly reverseDnsPrefix: string;
 }

@@ -31,7 +31,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * DKIM tokens can be imported using the `domain` attribute, e.g.
+ * DKIM tokens can be imported using the `domain` attribute, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:ses/domainDkim:DomainDkim example example.com

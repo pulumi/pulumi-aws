@@ -57,7 +57,7 @@ export interface GetIpRangesArgs {
     /**
      * Filter IP ranges by regions (or include all regions, if
      * omitted). Valid items are `global` (for `cloudfront`) as well as all AWS regions
-     * (e.g. `eu-central-1`)
+     * (e.g., `eu-central-1`)
      */
     regions?: string[];
     /**
@@ -83,7 +83,7 @@ export interface GetIpRangesResult {
      */
     readonly cidrBlocks: string[];
     /**
-     * The publication time of the IP ranges (e.g. `2016-08-03-23-46-05`).
+     * The publication time of the IP ranges (e.g., `2016-08-03-23-46-05`).
      */
     readonly createDate: string;
     /**
@@ -98,7 +98,7 @@ export interface GetIpRangesResult {
     readonly services: string[];
     /**
      * The publication time of the IP ranges, in Unix epoch time format
-     * (e.g. `1470267965`).
+     * (e.g., `1470267965`).
      */
     readonly syncToken: number;
     readonly url?: string;
@@ -115,7 +115,7 @@ export interface GetIpRangesOutputArgs {
     /**
      * Filter IP ranges by regions (or include all regions, if
      * omitted). Valid items are `global` (for `cloudfront`) as well as all AWS regions
-     * (e.g. `eu-central-1`)
+     * (e.g., `eu-central-1`)
      */
     regions?: pulumi.Input<pulumi.Input<string>[]>;
     /**

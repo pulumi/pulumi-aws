@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Allows setting policy to an Elasticsearch domain while referencing domain attributes (e.g. ARN)
+// Allows setting policy to an Elasticsearch domain while referencing domain attributes (e.g., ARN)
 //
 // ## Example Usage
 //

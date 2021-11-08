@@ -40,7 +40,7 @@ import (
 //
 // ## Import
 //
-// `aws_apigatewayv2_stage` can be imported by using the API identifier and stage name, e.g.
+// `aws_apigatewayv2_stage` can be imported by using the API identifier and stage name, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:apigatewayv2/stage:Stage example aabbccddee/example-stage
@@ -71,7 +71,7 @@ type Stage struct {
 	// See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
 	ExecutionArn pulumi.StringOutput `pulumi:"executionArn"`
 	// The URL to invoke the API pointing to the stage,
-	// e.g. `wss://z4675bid1j.execute-api.eu-west-2.amazonaws.com/example-stage`, or `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/`
+	// e.g., `wss://z4675bid1j.execute-api.eu-west-2.amazonaws.com/example-stage`, or `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/`
 	InvokeUrl pulumi.StringOutput `pulumi:"invokeUrl"`
 	// The name of the stage. Must be between 1 and 128 characters in length.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -81,7 +81,7 @@ type Stage struct {
 	StageVariables pulumi.StringMapOutput `pulumi:"stageVariables"`
 	// A map of tags to assign to the stage. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -140,7 +140,7 @@ type stageState struct {
 	// See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
 	ExecutionArn *string `pulumi:"executionArn"`
 	// The URL to invoke the API pointing to the stage,
-	// e.g. `wss://z4675bid1j.execute-api.eu-west-2.amazonaws.com/example-stage`, or `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/`
+	// e.g., `wss://z4675bid1j.execute-api.eu-west-2.amazonaws.com/example-stage`, or `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/`
 	InvokeUrl *string `pulumi:"invokeUrl"`
 	// The name of the stage. Must be between 1 and 128 characters in length.
 	Name *string `pulumi:"name"`
@@ -150,7 +150,7 @@ type stageState struct {
 	StageVariables map[string]string `pulumi:"stageVariables"`
 	// A map of tags to assign to the stage. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -178,7 +178,7 @@ type StageState struct {
 	// See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-control-access-iam.html) for details.
 	ExecutionArn pulumi.StringPtrInput
 	// The URL to invoke the API pointing to the stage,
-	// e.g. `wss://z4675bid1j.execute-api.eu-west-2.amazonaws.com/example-stage`, or `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/`
+	// e.g., `wss://z4675bid1j.execute-api.eu-west-2.amazonaws.com/example-stage`, or `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/`
 	InvokeUrl pulumi.StringPtrInput
 	// The name of the stage. Must be between 1 and 128 characters in length.
 	Name pulumi.StringPtrInput
@@ -188,7 +188,7 @@ type StageState struct {
 	StageVariables pulumi.StringMapInput
 	// A map of tags to assign to the stage. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 

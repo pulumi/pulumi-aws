@@ -88,7 +88,7 @@ namespace Pulumi.Aws.StorageGateway
     /// 
     /// ## Import
     /// 
-    /// `aws_storagegateway_cached_iscsi_volume` can be imported by using the volume Amazon Resource Name (ARN), e.g.
+    /// `aws_storagegateway_cached_iscsi_volume` can be imported by using the volume Amazon Resource Name (ARN), e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:storagegateway/cachesIscsiVolume:CachesIscsiVolume example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678
@@ -98,7 +98,7 @@ namespace Pulumi.Aws.StorageGateway
     public partial class CachesIscsiVolume : Pulumi.CustomResource
     {
         /// <summary>
-        /// Volume Amazon Resource Name (ARN), e.g. `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
+        /// Volume Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -146,7 +146,7 @@ namespace Pulumi.Aws.StorageGateway
         public Output<int> NetworkInterfacePort { get; private set; } = null!;
 
         /// <summary>
-        /// The snapshot ID of the snapshot to restore as the new cached volume. e.g. `snap-1122aabb`.
+        /// The snapshot ID of the snapshot to restore as the new cached volumeE.g., `snap-1122aabb`.
         /// </summary>
         [Output("snapshotId")]
         public Output<string?> SnapshotId { get; private set; } = null!;
@@ -164,7 +164,7 @@ namespace Pulumi.Aws.StorageGateway
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -270,7 +270,7 @@ namespace Pulumi.Aws.StorageGateway
         public Input<string> NetworkInterfaceId { get; set; } = null!;
 
         /// <summary>
-        /// The snapshot ID of the snapshot to restore as the new cached volume. e.g. `snap-1122aabb`.
+        /// The snapshot ID of the snapshot to restore as the new cached volumeE.g., `snap-1122aabb`.
         /// </summary>
         [Input("snapshotId")]
         public Input<string>? SnapshotId { get; set; }
@@ -313,7 +313,7 @@ namespace Pulumi.Aws.StorageGateway
     public sealed class CachesIscsiVolumeState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Volume Amazon Resource Name (ARN), e.g. `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
+        /// Volume Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -361,7 +361,7 @@ namespace Pulumi.Aws.StorageGateway
         public Input<int>? NetworkInterfacePort { get; set; }
 
         /// <summary>
-        /// The snapshot ID of the snapshot to restore as the new cached volume. e.g. `snap-1122aabb`.
+        /// The snapshot ID of the snapshot to restore as the new cached volumeE.g., `snap-1122aabb`.
         /// </summary>
         [Input("snapshotId")]
         public Input<string>? SnapshotId { get; set; }
@@ -388,7 +388,7 @@ namespace Pulumi.Aws.StorageGateway
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

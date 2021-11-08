@@ -25,7 +25,7 @@ namespace Pulumi.Aws.GameLift.Inputs
         public Input<string>? Message { get; set; }
 
         /// <summary>
-        /// Type of routing strategy. e.g. `SIMPLE` or `TERMINAL`
+        /// Type of routing strategyE.g., `SIMPLE` or `TERMINAL`
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

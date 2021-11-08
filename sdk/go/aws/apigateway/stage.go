@@ -154,7 +154,7 @@ import (
 //
 // ## Import
 //
-// `aws_api_gateway_stage` can be imported using `REST-API-ID/STAGE-NAME`, e.g.
+// `aws_api_gateway_stage` can be imported using `REST-API-ID/STAGE-NAME`, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:apigateway/stage:Stage example 12345abcde/example
@@ -180,10 +180,10 @@ type Stage struct {
 	DocumentationVersion pulumi.StringPtrOutput `pulumi:"documentationVersion"`
 	// The execution ARN to be used in `lambdaPermission`'s `sourceArn`
 	// when allowing API Gateway to invoke a Lambda function,
-	// e.g. `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
+	// e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
 	ExecutionArn pulumi.StringOutput `pulumi:"executionArn"`
 	// The URL to invoke the API pointing to the stage,
-	// e.g. `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
+	// e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
 	InvokeUrl pulumi.StringOutput `pulumi:"invokeUrl"`
 	// The ID of the associated REST API
 	RestApi pulumi.StringOutput `pulumi:"restApi"`
@@ -191,7 +191,7 @@ type Stage struct {
 	StageName pulumi.StringOutput `pulumi:"stageName"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// A map that defines the stage variables
 	Variables pulumi.StringMapOutput `pulumi:"variables"`
@@ -255,10 +255,10 @@ type stageState struct {
 	DocumentationVersion *string `pulumi:"documentationVersion"`
 	// The execution ARN to be used in `lambdaPermission`'s `sourceArn`
 	// when allowing API Gateway to invoke a Lambda function,
-	// e.g. `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
+	// e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
 	ExecutionArn *string `pulumi:"executionArn"`
 	// The URL to invoke the API pointing to the stage,
-	// e.g. `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
+	// e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
 	InvokeUrl *string `pulumi:"invokeUrl"`
 	// The ID of the associated REST API
 	RestApi interface{} `pulumi:"restApi"`
@@ -266,7 +266,7 @@ type stageState struct {
 	StageName *string `pulumi:"stageName"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// A map that defines the stage variables
 	Variables map[string]string `pulumi:"variables"`
@@ -293,10 +293,10 @@ type StageState struct {
 	DocumentationVersion pulumi.StringPtrInput
 	// The execution ARN to be used in `lambdaPermission`'s `sourceArn`
 	// when allowing API Gateway to invoke a Lambda function,
-	// e.g. `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
+	// e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
 	ExecutionArn pulumi.StringPtrInput
 	// The URL to invoke the API pointing to the stage,
-	// e.g. `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
+	// e.g., `https://z4675bid1j.execute-api.eu-west-2.amazonaws.com/prod`
 	InvokeUrl pulumi.StringPtrInput
 	// The ID of the associated REST API
 	RestApi pulumi.Input
@@ -304,7 +304,7 @@ type StageState struct {
 	StageName pulumi.StringPtrInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// A map that defines the stage variables
 	Variables pulumi.StringMapInput

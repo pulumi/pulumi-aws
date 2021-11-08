@@ -42,7 +42,7 @@ namespace Pulumi.Aws.Iam
     /// 
     /// ## Import
     /// 
-    /// IAM Account Password Policy can be imported using the word `iam-account-password-policy`, e.g.
+    /// IAM Account Password Policy can be imported using the word `iam-account-password-policy`, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:iam/accountPasswordPolicy:AccountPasswordPolicy strict iam-account-password-policy
@@ -64,7 +64,7 @@ namespace Pulumi.Aws.Iam
         public Output<bool> ExpirePasswords { get; private set; } = null!;
 
         /// <summary>
-        /// Whether users are prevented from setting a new password after their password has expired (i.e. require administrator reset)
+        /// Whether users are prevented from setting a new password after their password has expired (i.e., require administrator reset)
         /// </summary>
         [Output("hardExpiry")]
         public Output<bool> HardExpiry { get; private set; } = null!;
@@ -164,7 +164,7 @@ namespace Pulumi.Aws.Iam
         public Input<bool>? AllowUsersToChangePassword { get; set; }
 
         /// <summary>
-        /// Whether users are prevented from setting a new password after their password has expired (i.e. require administrator reset)
+        /// Whether users are prevented from setting a new password after their password has expired (i.e., require administrator reset)
         /// </summary>
         [Input("hardExpiry")]
         public Input<bool>? HardExpiry { get; set; }
@@ -231,7 +231,7 @@ namespace Pulumi.Aws.Iam
         public Input<bool>? ExpirePasswords { get; set; }
 
         /// <summary>
-        /// Whether users are prevented from setting a new password after their password has expired (i.e. require administrator reset)
+        /// Whether users are prevented from setting a new password after their password has expired (i.e., require administrator reset)
         /// </summary>
         [Input("hardExpiry")]
         public Input<bool>? HardExpiry { get; set; }

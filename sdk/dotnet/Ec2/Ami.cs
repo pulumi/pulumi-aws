@@ -53,7 +53,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// `aws_ami` can be imported using the ID of the AMI, e.g.
+    /// `aws_ami` can be imported using the ID of the AMI, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:ec2/ami:Ami example ami-12345678
@@ -107,7 +107,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string> Hypervisor { get; private set; } = null!;
 
         /// <summary>
-        /// Path to an S3 object containing an image manifest, e.g. created
+        /// Path to an S3 object containing an image manifest, e.g., created
         /// by the `ec2-upload-bundle` command in the EC2 command line tools.
         /// </summary>
         [Output("imageLocation")]
@@ -308,7 +308,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// Path to an S3 object containing an image manifest, e.g. created
+        /// Path to an S3 object containing an image manifest, e.g., created
         /// by the `ec2-upload-bundle` command in the EC2 command line tools.
         /// </summary>
         [Input("imageLocation")]
@@ -431,7 +431,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Hypervisor { get; set; }
 
         /// <summary>
-        /// Path to an S3 object containing an image manifest, e.g. created
+        /// Path to an S3 object containing an image manifest, e.g., created
         /// by the `ec2-upload-bundle` command in the EC2 command line tools.
         /// </summary>
         [Input("imageLocation")]

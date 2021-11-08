@@ -29,7 +29,7 @@ namespace Pulumi.Aws.CloudWatch
         ///     {
         ///         var example = Output.Create(Aws.CloudWatch.GetLogGroups.InvokeAsync(new Aws.CloudWatch.GetLogGroupsArgs
         ///         {
-        ///             LogGroupPrefix = "/MyImportantLogs",
+        ///             LogGroupNamePrefix = "/MyImportantLogs",
         ///         }));
         ///     }
         /// 
@@ -58,7 +58,7 @@ namespace Pulumi.Aws.CloudWatch
         ///     {
         ///         var example = Output.Create(Aws.CloudWatch.GetLogGroups.InvokeAsync(new Aws.CloudWatch.GetLogGroupsArgs
         ///         {
-        ///             LogGroupPrefix = "/MyImportantLogs",
+        ///             LogGroupNamePrefix = "/MyImportantLogs",
         ///         }));
         ///     }
         /// 

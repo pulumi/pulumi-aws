@@ -188,7 +188,7 @@ class UserPolicy(pulumi.CustomResource):
 
         ## Import
 
-        IAM User Policies can be imported using the `user_name:user_policy_name`, e.g.
+        IAM User Policies can be imported using the `user_name:user_policy_name`, e.g.,
 
         ```sh
          $ pulumi import aws:iam/userPolicy:UserPolicy mypolicy user_of_mypolicy_name:mypolicy_name
@@ -233,7 +233,7 @@ class UserPolicy(pulumi.CustomResource):
 
         ## Import
 
-        IAM User Policies can be imported using the `user_name:user_policy_name`, e.g.
+        IAM User Policies can be imported using the `user_name:user_policy_name`, e.g.,
 
         ```sh
          $ pulumi import aws:iam/userPolicy:UserPolicy mypolicy user_of_mypolicy_name:mypolicy_name

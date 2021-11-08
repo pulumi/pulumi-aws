@@ -13,6 +13,7 @@ from .plan import *
 from .region_settings import *
 from .selection import *
 from .vault import *
+from .vault_lock_configuration import *
 from .vault_notifications import *
 from .vault_policy import *
 from ._inputs import *

@@ -211,7 +211,7 @@ class SshKey(pulumi.CustomResource):
 
         ## Import
 
-        SSH public keys can be imported using the `username`, `ssh_public_key_id`, and `encoding` e.g.
+        SSH public keys can be imported using the `username`, `ssh_public_key_id`, and `encoding` e.g.,
 
         ```sh
          $ pulumi import aws:iam/sshKey:SshKey user user:APKAJNCNNJICVN7CFKCA:SSH
@@ -248,7 +248,7 @@ class SshKey(pulumi.CustomResource):
 
         ## Import
 
-        SSH public keys can be imported using the `username`, `ssh_public_key_id`, and `encoding` e.g.
+        SSH public keys can be imported using the `username`, `ssh_public_key_id`, and `encoding` e.g.,
 
         ```sh
          $ pulumi import aws:iam/sshKey:SshKey user user:APKAJNCNNJICVN7CFKCA:SSH

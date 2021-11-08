@@ -21,7 +21,7 @@ class InsightArgs:
         """
         The set of arguments for constructing a Insight resource.
         :param pulumi.Input['InsightFiltersArgs'] filters: A configuration block including one or more (up to 10 distinct) attributes used to filter the findings included in the insight. The insight only includes findings that match criteria defined in the filters. See filters below for more details.
-        :param pulumi.Input[str] group_by_attribute: The attribute used to group the findings for the insight e.g. if an insight is grouped by `ResourceId`, then the insight produces a list of resource identifiers.
+        :param pulumi.Input[str] group_by_attribute: The attribute used to group the findings for the insight e.g., if an insight is grouped by `ResourceId`, then the insight produces a list of resource identifiers.
         :param pulumi.Input[str] name: The name of the custom insight.
         """
         pulumi.set(__self__, "filters", filters)
@@ -45,7 +45,7 @@ class InsightArgs:
     @pulumi.getter(name="groupByAttribute")
     def group_by_attribute(self) -> pulumi.Input[str]:
         """
-        The attribute used to group the findings for the insight e.g. if an insight is grouped by `ResourceId`, then the insight produces a list of resource identifiers.
+        The attribute used to group the findings for the insight e.g., if an insight is grouped by `ResourceId`, then the insight produces a list of resource identifiers.
         """
         return pulumi.get(self, "group_by_attribute")
 
@@ -77,7 +77,7 @@ class _InsightState:
         Input properties used for looking up and filtering Insight resources.
         :param pulumi.Input[str] arn: ARN of the insight.
         :param pulumi.Input['InsightFiltersArgs'] filters: A configuration block including one or more (up to 10 distinct) attributes used to filter the findings included in the insight. The insight only includes findings that match criteria defined in the filters. See filters below for more details.
-        :param pulumi.Input[str] group_by_attribute: The attribute used to group the findings for the insight e.g. if an insight is grouped by `ResourceId`, then the insight produces a list of resource identifiers.
+        :param pulumi.Input[str] group_by_attribute: The attribute used to group the findings for the insight e.g., if an insight is grouped by `ResourceId`, then the insight produces a list of resource identifiers.
         :param pulumi.Input[str] name: The name of the custom insight.
         """
         if arn is not None:
@@ -117,7 +117,7 @@ class _InsightState:
     @pulumi.getter(name="groupByAttribute")
     def group_by_attribute(self) -> Optional[pulumi.Input[str]]:
         """
-        The attribute used to group the findings for the insight e.g. if an insight is grouped by `ResourceId`, then the insight produces a list of resource identifiers.
+        The attribute used to group the findings for the insight e.g., if an insight is grouped by `ResourceId`, then the insight produces a list of resource identifiers.
         """
         return pulumi.get(self, "group_by_attribute")
 
@@ -246,7 +246,7 @@ class Insight(pulumi.CustomResource):
 
         ## Import
 
-        Security Hub insights can be imported using the ARN, e.g.
+        Security Hub insights can be imported using the ARN, e.g.,
 
         ```sh
          $ pulumi import aws:securityhub/insight:Insight example arn:aws:securityhub:us-west-2:1234567890:insight/1234567890/custom/91299ed7-abd0-4e44-a858-d0b15e37141a
@@ -255,7 +255,7 @@ class Insight(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['InsightFiltersArgs']] filters: A configuration block including one or more (up to 10 distinct) attributes used to filter the findings included in the insight. The insight only includes findings that match criteria defined in the filters. See filters below for more details.
-        :param pulumi.Input[str] group_by_attribute: The attribute used to group the findings for the insight e.g. if an insight is grouped by `ResourceId`, then the insight produces a list of resource identifiers.
+        :param pulumi.Input[str] group_by_attribute: The attribute used to group the findings for the insight e.g., if an insight is grouped by `ResourceId`, then the insight produces a list of resource identifiers.
         :param pulumi.Input[str] name: The name of the custom insight.
         """
         ...
@@ -363,7 +363,7 @@ class Insight(pulumi.CustomResource):
 
         ## Import
 
-        Security Hub insights can be imported using the ARN, e.g.
+        Security Hub insights can be imported using the ARN, e.g.,
 
         ```sh
          $ pulumi import aws:securityhub/insight:Insight example arn:aws:securityhub:us-west-2:1234567890:insight/1234567890/custom/91299ed7-abd0-4e44-a858-d0b15e37141a
@@ -430,7 +430,7 @@ class Insight(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: ARN of the insight.
         :param pulumi.Input[pulumi.InputType['InsightFiltersArgs']] filters: A configuration block including one or more (up to 10 distinct) attributes used to filter the findings included in the insight. The insight only includes findings that match criteria defined in the filters. See filters below for more details.
-        :param pulumi.Input[str] group_by_attribute: The attribute used to group the findings for the insight e.g. if an insight is grouped by `ResourceId`, then the insight produces a list of resource identifiers.
+        :param pulumi.Input[str] group_by_attribute: The attribute used to group the findings for the insight e.g., if an insight is grouped by `ResourceId`, then the insight produces a list of resource identifiers.
         :param pulumi.Input[str] name: The name of the custom insight.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -463,7 +463,7 @@ class Insight(pulumi.CustomResource):
     @pulumi.getter(name="groupByAttribute")
     def group_by_attribute(self) -> pulumi.Output[str]:
         """
-        The attribute used to group the findings for the insight e.g. if an insight is grouped by `ResourceId`, then the insight produces a list of resource identifiers.
+        The attribute used to group the findings for the insight e.g., if an insight is grouped by `ResourceId`, then the insight produces a list of resource identifiers.
         """
         return pulumi.get(self, "group_by_attribute")
 

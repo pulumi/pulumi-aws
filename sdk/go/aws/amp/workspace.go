@@ -39,7 +39,7 @@ import (
 //
 // ## Import
 //
-// AMP Workspaces can be imported using the identifier, e.g.
+// AMP Workspaces can be imported using the identifier, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:amp/workspace:Workspace demo ws-C6DCB907-F2D7-4D96-957B-66691F865D8B

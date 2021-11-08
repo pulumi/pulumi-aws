@@ -47,7 +47,7 @@ import (
 //
 // ## Import
 //
-// Elastic Beanstalk Applications can be imported using the `name`, e.g.
+// Elastic Beanstalk Applications can be imported using the `name`, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:elasticbeanstalk/application:Application tf_test tf-test-name
@@ -61,8 +61,9 @@ type Application struct {
 	// Short description of the application
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The name of the application, must be unique within your account
-	Name    pulumi.StringOutput    `pulumi:"name"`
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	Name pulumi.StringOutput    `pulumi:"name"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -101,8 +102,9 @@ type applicationState struct {
 	// Short description of the application
 	Description *string `pulumi:"description"`
 	// The name of the application, must be unique within your account
-	Name    *string           `pulumi:"name"`
-	Tags    map[string]string `pulumi:"tags"`
+	Name *string           `pulumi:"name"`
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -113,8 +115,9 @@ type ApplicationState struct {
 	// Short description of the application
 	Description pulumi.StringPtrInput
 	// The name of the application, must be unique within your account
-	Name    pulumi.StringPtrInput
-	Tags    pulumi.StringMapInput
+	Name pulumi.StringPtrInput
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 

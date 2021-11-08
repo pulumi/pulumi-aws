@@ -49,7 +49,7 @@ import (
 //
 // ## Import
 //
-// Redshift Snapshot Copy Grants support import by name, e.g. console
+// Redshift Snapshot Copy Grants support import by name, e.g., console
 //
 // ```sh
 //  $ pulumi import aws:redshift/snapshotCopyGrant:SnapshotCopyGrant test my-grant

@@ -147,7 +147,7 @@ import (
 //
 // ## Import
 //
-// IAM Server Certificates can be imported using the `name`, e.g.
+// IAM Server Certificates can be imported using the `name`, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:iam/serverCertificate:ServerCertificate certificate example.com-certificate-until-2018

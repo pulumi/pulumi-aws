@@ -12,12 +12,14 @@ export * from "./getCachePolicy";
 export * from "./getDistribution";
 export * from "./getLogDeliveryCanonicalUserId";
 export * from "./getOriginRequestPolicy";
+export * from "./getResponseHeadersPolicy";
 export * from "./keyGroup";
 export * from "./monitoringSubscription";
 export * from "./originAccessIdentity";
 export * from "./originRequestPolicy";
 export * from "./publicKey";
 export * from "./realtimeLogConfig";
+export * from "./responseHeadersPolicy";
 
 // Import resources to register:
 import { CachePolicy } from "./cachePolicy";
@@ -29,6 +31,7 @@ import { OriginAccessIdentity } from "./originAccessIdentity";
 import { OriginRequestPolicy } from "./originRequestPolicy";
 import { PublicKey } from "./publicKey";
 import { RealtimeLogConfig } from "./realtimeLogConfig";
+import { ResponseHeadersPolicy } from "./responseHeadersPolicy";
 
 const _module = {
     version: utilities.getVersion(),
@@ -52,6 +55,8 @@ const _module = {
                 return new PublicKey(name, <any>undefined, { urn })
             case "aws:cloudfront/realtimeLogConfig:RealtimeLogConfig":
                 return new RealtimeLogConfig(name, <any>undefined, { urn })
+            case "aws:cloudfront/responseHeadersPolicy:ResponseHeadersPolicy":
+                return new ResponseHeadersPolicy(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -66,3 +71,4 @@ pulumi.runtime.registerResourceModule("aws", "cloudfront/originAccessIdentity", 
 pulumi.runtime.registerResourceModule("aws", "cloudfront/originRequestPolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudfront/publicKey", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudfront/realtimeLogConfig", _module)
+pulumi.runtime.registerResourceModule("aws", "cloudfront/responseHeadersPolicy", _module)

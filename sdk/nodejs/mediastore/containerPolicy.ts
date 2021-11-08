@@ -37,7 +37,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * MediaStore Container Policy can be imported using the MediaStore Container Name, e.g.
+ * MediaStore Container Policy can be imported using the MediaStore Container Name, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:mediastore/containerPolicy:ContainerPolicy example example

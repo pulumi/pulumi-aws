@@ -214,7 +214,7 @@ class DeliveryChannelSnapshotDeliveryProperties(dict):
     def __init__(__self__, *,
                  delivery_frequency: Optional[str] = None):
         """
-        :param str delivery_frequency: - The frequency with which AWS Config recurringly delivers configuration snapshots. e.g. `One_Hour` or `Three_Hours`. Valid values are listed [here](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html#API_ConfigSnapshotDeliveryProperties_Contents).
+        :param str delivery_frequency: - The frequency with which AWS Config recurringly delivers configuration snapshotsE.g., `One_Hour` or `Three_Hours`. Valid values are listed [here](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html#API_ConfigSnapshotDeliveryProperties_Contents).
         """
         if delivery_frequency is not None:
             pulumi.set(__self__, "delivery_frequency", delivery_frequency)
@@ -223,7 +223,7 @@ class DeliveryChannelSnapshotDeliveryProperties(dict):
     @pulumi.getter(name="deliveryFrequency")
     def delivery_frequency(self) -> Optional[str]:
         """
-        - The frequency with which AWS Config recurringly delivers configuration snapshots. e.g. `One_Hour` or `Three_Hours`. Valid values are listed [here](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html#API_ConfigSnapshotDeliveryProperties_Contents).
+        - The frequency with which AWS Config recurringly delivers configuration snapshotsE.g., `One_Hour` or `Three_Hours`. Valid values are listed [here](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html#API_ConfigSnapshotDeliveryProperties_Contents).
         """
         return pulumi.get(self, "delivery_frequency")
 
@@ -433,7 +433,7 @@ class RuleScope(dict):
                  tag_value: Optional[str] = None):
         """
         :param str compliance_resource_id: The IDs of the only AWS resource that you want to trigger an evaluation for the rule. If you specify a resource ID, you must specify one resource type for `compliance_resource_types`.
-        :param Sequence[str] compliance_resource_types: A list of resource types of only those AWS resources that you want to trigger an evaluation for the rule. e.g. `AWS::EC2::Instance`. You can only specify one type if you also specify a resource ID for `compliance_resource_id`. See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types.
+        :param Sequence[str] compliance_resource_types: A list of resource types of only those AWS resources that you want to trigger an evaluation for the ruleE.g., `AWS::EC2::Instance`. You can only specify one type if you also specify a resource ID for `compliance_resource_id`. See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types.
         :param str tag_key: The tag key that is applied to only those AWS resources that you want you want to trigger an evaluation for the rule.
         :param str tag_value: The tag value applied to only those AWS resources that you want to trigger an evaluation for the rule.
         """
@@ -458,7 +458,7 @@ class RuleScope(dict):
     @pulumi.getter(name="complianceResourceTypes")
     def compliance_resource_types(self) -> Optional[Sequence[str]]:
         """
-        A list of resource types of only those AWS resources that you want to trigger an evaluation for the rule. e.g. `AWS::EC2::Instance`. You can only specify one type if you also specify a resource ID for `compliance_resource_id`. See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types.
+        A list of resource types of only those AWS resources that you want to trigger an evaluation for the ruleE.g., `AWS::EC2::Instance`. You can only specify one type if you also specify a resource ID for `compliance_resource_id`. See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types.
         """
         return pulumi.get(self, "compliance_resource_types")
 

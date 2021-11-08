@@ -19,13 +19,13 @@ namespace Pulumi.Aws.GameLift.Inputs
         public Input<int> FromPort { get; set; } = null!;
 
         /// <summary>
-        /// Range of allowed IP addresses expressed in CIDR notation. e.g. `000.000.000.000/[subnet mask]` or `0.0.0.0/[subnet mask]`.
+        /// Range of allowed IP addresses expressed in CIDR notationE.g., `000.000.000.000/[subnet mask]` or `0.0.0.0/[subnet mask]`.
         /// </summary>
         [Input("ipRange", required: true)]
         public Input<string> IpRange { get; set; } = null!;
 
         /// <summary>
-        /// Network communication protocol used by the fleet. e.g. `TCP` or `UDP`
+        /// Network communication protocol used by the fleetE.g., `TCP` or `UDP`
         /// </summary>
         [Input("protocol", required: true)]
         public Input<string> Protocol { get; set; } = null!;

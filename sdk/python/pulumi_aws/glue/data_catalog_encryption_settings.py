@@ -122,7 +122,7 @@ class DataCatalogEncryptionSettings(pulumi.CustomResource):
 
         ## Import
 
-        Glue Data Catalog Encryption Settings can be imported using `CATALOG-ID` (AWS account ID if not custom), e.g.
+        Glue Data Catalog Encryption Settings can be imported using `CATALOG-ID` (AWS account ID if not custom), e.g.,
 
         ```sh
          $ pulumi import aws:glue/dataCatalogEncryptionSettings:DataCatalogEncryptionSettings example 123456789012
@@ -162,7 +162,7 @@ class DataCatalogEncryptionSettings(pulumi.CustomResource):
 
         ## Import
 
-        Glue Data Catalog Encryption Settings can be imported using `CATALOG-ID` (AWS account ID if not custom), e.g.
+        Glue Data Catalog Encryption Settings can be imported using `CATALOG-ID` (AWS account ID if not custom), e.g.,
 
         ```sh
          $ pulumi import aws:glue/dataCatalogEncryptionSettings:DataCatalogEncryptionSettings example 123456789012

@@ -390,7 +390,7 @@ class Rule(pulumi.CustomResource):
 
         ## Import
 
-        Config Rule can be imported using the name, e.g.
+        Config Rule can be imported using the name, e.g.,
 
         ```sh
          $ pulumi import aws:cfg/rule:Rule foo example
@@ -490,7 +490,7 @@ class Rule(pulumi.CustomResource):
 
         ## Import
 
-        Config Rule can be imported using the name, e.g.
+        Config Rule can be imported using the name, e.g.,
 
         ```sh
          $ pulumi import aws:cfg/rule:Rule foo example

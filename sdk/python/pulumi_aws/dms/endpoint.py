@@ -720,7 +720,7 @@ class Endpoint(pulumi.CustomResource):
 
         ## Import
 
-        Endpoints can be imported using the `endpoint_id`, e.g.
+        Endpoints can be imported using the `endpoint_id`, e.g.,
 
         ```sh
          $ pulumi import aws:dms/endpoint:Endpoint test test-dms-endpoint-tf
@@ -784,7 +784,7 @@ class Endpoint(pulumi.CustomResource):
 
         ## Import
 
-        Endpoints can be imported using the `endpoint_id`, e.g.
+        Endpoints can be imported using the `endpoint_id`, e.g.,
 
         ```sh
          $ pulumi import aws:dms/endpoint:Endpoint test test-dms-endpoint-tf

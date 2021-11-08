@@ -43,7 +43,7 @@ import (
 //
 // ## Import
 //
-// `aws_storagegateway_nfs_file_share` can be imported by using the NFS File Share Amazon Resource Name (ARN), e.g.
+// `aws_storagegateway_nfs_file_share` can be imported by using the NFS File Share Amazon Resource Name (ARN), e.g.,
 //
 // ```sh
 //  $ pulumi import aws:storagegateway/nfsFileShare:NfsFileShare example arn:aws:storagegateway:us-east-1:123456789012:share/share-12345678
@@ -53,6 +53,8 @@ type NfsFileShare struct {
 
 	// Amazon Resource Name (ARN) of the NFS File Share.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The Amazon Resource Name (ARN) of the storage used for audit logs.
+	AuditDestinationArn pulumi.StringPtrOutput `pulumi:"auditDestinationArn"`
 	// Refresh cache information. see Cache Attributes for more details.
 	CacheAttributes NfsFileShareCacheAttributesPtrOutput `pulumi:"cacheAttributes"`
 	// The list of clients that are allowed to access the file gateway. The list must contain either valid IP addresses or valid CIDR blocks. Set to `["0.0.0.0/0"]` to not limit access. Minimum 1 item. Maximum 100 items.
@@ -138,6 +140,8 @@ func GetNfsFileShare(ctx *pulumi.Context,
 type nfsFileShareState struct {
 	// Amazon Resource Name (ARN) of the NFS File Share.
 	Arn *string `pulumi:"arn"`
+	// The Amazon Resource Name (ARN) of the storage used for audit logs.
+	AuditDestinationArn *string `pulumi:"auditDestinationArn"`
 	// Refresh cache information. see Cache Attributes for more details.
 	CacheAttributes *NfsFileShareCacheAttributes `pulumi:"cacheAttributes"`
 	// The list of clients that are allowed to access the file gateway. The list must contain either valid IP addresses or valid CIDR blocks. Set to `["0.0.0.0/0"]` to not limit access. Minimum 1 item. Maximum 100 items.
@@ -183,6 +187,8 @@ type nfsFileShareState struct {
 type NfsFileShareState struct {
 	// Amazon Resource Name (ARN) of the NFS File Share.
 	Arn pulumi.StringPtrInput
+	// The Amazon Resource Name (ARN) of the storage used for audit logs.
+	AuditDestinationArn pulumi.StringPtrInput
 	// Refresh cache information. see Cache Attributes for more details.
 	CacheAttributes NfsFileShareCacheAttributesPtrInput
 	// The list of clients that are allowed to access the file gateway. The list must contain either valid IP addresses or valid CIDR blocks. Set to `["0.0.0.0/0"]` to not limit access. Minimum 1 item. Maximum 100 items.
@@ -230,6 +236,8 @@ func (NfsFileShareState) ElementType() reflect.Type {
 }
 
 type nfsFileShareArgs struct {
+	// The Amazon Resource Name (ARN) of the storage used for audit logs.
+	AuditDestinationArn *string `pulumi:"auditDestinationArn"`
 	// Refresh cache information. see Cache Attributes for more details.
 	CacheAttributes *NfsFileShareCacheAttributes `pulumi:"cacheAttributes"`
 	// The list of clients that are allowed to access the file gateway. The list must contain either valid IP addresses or valid CIDR blocks. Set to `["0.0.0.0/0"]` to not limit access. Minimum 1 item. Maximum 100 items.
@@ -268,6 +276,8 @@ type nfsFileShareArgs struct {
 
 // The set of arguments for constructing a NfsFileShare resource.
 type NfsFileShareArgs struct {
+	// The Amazon Resource Name (ARN) of the storage used for audit logs.
+	AuditDestinationArn pulumi.StringPtrInput
 	// Refresh cache information. see Cache Attributes for more details.
 	CacheAttributes NfsFileShareCacheAttributesPtrInput
 	// The list of clients that are allowed to access the file gateway. The list must contain either valid IP addresses or valid CIDR blocks. Set to `["0.0.0.0/0"]` to not limit access. Minimum 1 item. Maximum 100 items.

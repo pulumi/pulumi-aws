@@ -250,7 +250,7 @@ class PartitionIndex(pulumi.CustomResource):
 
         ## Import
 
-        Glue Partition Indexes can be imported with their catalog ID (usually AWS account ID), database name, table name, and index name, e.g.
+        Glue Partition Indexes can be imported with their catalog ID (usually AWS account ID), database name, table name, and index name, e.g.,
 
         ```sh
          $ pulumi import aws:glue/partitionIndex:PartitionIndex example 123456789012:MyDatabase:MyTable:index-name
@@ -356,7 +356,7 @@ class PartitionIndex(pulumi.CustomResource):
 
         ## Import
 
-        Glue Partition Indexes can be imported with their catalog ID (usually AWS account ID), database name, table name, and index name, e.g.
+        Glue Partition Indexes can be imported with their catalog ID (usually AWS account ID), database name, table name, and index name, e.g.,
 
         ```sh
          $ pulumi import aws:glue/partitionIndex:PartitionIndex example 123456789012:MyDatabase:MyTable:index-name

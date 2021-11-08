@@ -195,6 +195,7 @@ class _FleetState:
         :param pulumi.Input['FleetOnDemandOptionsArgs'] on_demand_options: Nested argument containing On-Demand configurations. Defined below.
         :param pulumi.Input[bool] replace_unhealthy_instances: Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`.
         :param pulumi.Input['FleetSpotOptionsArgs'] spot_options: Nested argument containing Spot configurations. Defined below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input['FleetTargetCapacitySpecificationArgs'] target_capacity_specification: Nested argument containing target capacity configurations. Defined below.
         :param pulumi.Input[bool] terminate_instances: Whether to terminate instances for an EC2 Fleet if it is deleted successfully. Defaults to `false`.
         :param pulumi.Input[bool] terminate_instances_with_expiration: Whether running instances should be terminated when the EC2 Fleet expires. Defaults to `false`.
@@ -295,6 +296,9 @@ class _FleetState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -390,7 +394,7 @@ class Fleet(pulumi.CustomResource):
 
         ## Import
 
-        `aws_ec2_fleet` can be imported by using the Fleet identifier, e.g.
+        `aws_ec2_fleet` can be imported by using the Fleet identifier, e.g.,
 
         ```sh
          $ pulumi import aws:ec2/fleet:Fleet example fleet-b9b55d27-c5fc-41ac-a6f3-48fcc91f080c
@@ -438,7 +442,7 @@ class Fleet(pulumi.CustomResource):
 
         ## Import
 
-        `aws_ec2_fleet` can be imported by using the Fleet identifier, e.g.
+        `aws_ec2_fleet` can be imported by using the Fleet identifier, e.g.,
 
         ```sh
          $ pulumi import aws:ec2/fleet:Fleet example fleet-b9b55d27-c5fc-41ac-a6f3-48fcc91f080c
@@ -529,6 +533,7 @@ class Fleet(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['FleetOnDemandOptionsArgs']] on_demand_options: Nested argument containing On-Demand configurations. Defined below.
         :param pulumi.Input[bool] replace_unhealthy_instances: Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`.
         :param pulumi.Input[pulumi.InputType['FleetSpotOptionsArgs']] spot_options: Nested argument containing Spot configurations. Defined below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[pulumi.InputType['FleetTargetCapacitySpecificationArgs']] target_capacity_specification: Nested argument containing target capacity configurations. Defined below.
         :param pulumi.Input[bool] terminate_instances: Whether to terminate instances for an EC2 Fleet if it is deleted successfully. Defaults to `false`.
         :param pulumi.Input[bool] terminate_instances_with_expiration: Whether running instances should be terminated when the EC2 Fleet expires. Defaults to `false`.
@@ -599,6 +604,9 @@ class Fleet(pulumi.CustomResource):
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @property

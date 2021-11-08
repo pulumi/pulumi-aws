@@ -282,7 +282,7 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * ### HTTP Endpoint (e.g. New Relic) Destination
+ * ### HTTP Endpoint (e.g., New Relic) Destination
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -324,7 +324,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Kinesis Firehose Delivery streams can be imported using the stream ARN, e.g.
+ * Kinesis Firehose Delivery streams can be imported using the stream ARN, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:kinesis/firehoseDeliveryStream:FirehoseDeliveryStream foo arn:aws:firehose:us-east-1:XXX:deliverystream/example
@@ -411,6 +411,9 @@ export class FirehoseDeliveryStream extends pulumi.CustomResource {
      */
     public readonly splunkConfiguration!: pulumi.Output<outputs.kinesis.FirehoseDeliveryStreamSplunkConfiguration | undefined>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Specifies the table version for the output data schema. Defaults to `LATEST`.
@@ -528,6 +531,9 @@ export interface FirehoseDeliveryStreamState {
      */
     splunkConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamSplunkConfiguration>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Specifies the table version for the output data schema. Defaults to `LATEST`.

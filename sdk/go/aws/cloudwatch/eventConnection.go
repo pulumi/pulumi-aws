@@ -189,7 +189,7 @@ import (
 //
 // ## Import
 //
-// EventBridge Connection can be imported using the `name`, e.g. console
+// EventBridge Connection can be imported using the `name`, e.g., console
 //
 // ```sh
 //  $ pulumi import aws:cloudwatch/eventConnection:EventConnection test ngrok-connection

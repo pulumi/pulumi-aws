@@ -89,7 +89,7 @@ class GetServerResult:
     @pulumi.getter
     def endpoint(self) -> str:
         """
-        The endpoint of the Transfer Server (e.g. `s-12345678.server.transfer.REGION.amazonaws.com`).
+        The endpoint of the Transfer Server (e.g., `s-12345678.server.transfer.REGION.amazonaws.com`).
         """
         return pulumi.get(self, "endpoint")
 

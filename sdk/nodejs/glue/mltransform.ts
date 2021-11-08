@@ -100,7 +100,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Glue ML Transforms can be imported using `id`, e.g.
+ * Glue ML Transforms can be imported using `id`, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:glue/mLTransform:MLTransform example tfm-c2cafbe83b1c575f49eaca9939220e2fcd58e2d5
@@ -186,6 +186,9 @@ export class MLTransform extends pulumi.CustomResource {
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The ML Transform timeout in minutes. The default is 2880 minutes (48 hours).
@@ -316,6 +319,9 @@ export interface MLTransformState {
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ML Transform timeout in minutes. The default is 2880 minutes (48 hours).

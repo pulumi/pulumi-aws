@@ -60,7 +60,7 @@ import (
 //
 // ## Import
 //
-// Traffic mirror sessions can be imported using the `id`, e.g.
+// Traffic mirror sessions can be imported using the `id`, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:ec2/trafficMirrorSession:TrafficMirrorSession session tms-0d8aa3ca35897b82e
@@ -81,7 +81,8 @@ type TrafficMirrorSession struct {
 	// - The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.
 	SessionNumber pulumi.IntOutput       `pulumi:"sessionNumber"`
 	Tags          pulumi.StringMapOutput `pulumi:"tags"`
-	TagsAll       pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// ID of the traffic mirror filter to be used
 	TrafficMirrorFilterId pulumi.StringOutput `pulumi:"trafficMirrorFilterId"`
 	// ID of the traffic mirror target to be used
@@ -144,7 +145,8 @@ type trafficMirrorSessionState struct {
 	// - The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.
 	SessionNumber *int              `pulumi:"sessionNumber"`
 	Tags          map[string]string `pulumi:"tags"`
-	TagsAll       map[string]string `pulumi:"tagsAll"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// ID of the traffic mirror filter to be used
 	TrafficMirrorFilterId *string `pulumi:"trafficMirrorFilterId"`
 	// ID of the traffic mirror target to be used
@@ -167,7 +169,8 @@ type TrafficMirrorSessionState struct {
 	// - The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.
 	SessionNumber pulumi.IntPtrInput
 	Tags          pulumi.StringMapInput
-	TagsAll       pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 	// ID of the traffic mirror filter to be used
 	TrafficMirrorFilterId pulumi.StringPtrInput
 	// ID of the traffic mirror target to be used

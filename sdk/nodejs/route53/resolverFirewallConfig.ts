@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Route 53 Resolver DNS Firewall configs can be imported using the Route 53 Resolver DNS Firewall config ID, e.g.
+ * Route 53 Resolver DNS Firewall configs can be imported using the Route 53 Resolver DNS Firewall config ID, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:route53/resolverFirewallConfig:ResolverFirewallConfig example rdsc-be1866ecc1683e95

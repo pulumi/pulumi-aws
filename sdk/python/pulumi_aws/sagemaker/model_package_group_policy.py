@@ -95,7 +95,7 @@ class ModelPackageGroupPolicy(pulumi.CustomResource):
 
         ## Import
 
-        Sagemaker Code Model Package Groups can be imported using the `name`, e.g.
+        Sagemaker Code Model Package Groups can be imported using the `name`, e.g.,
 
         ```sh
          $ pulumi import aws:sagemaker/modelPackageGroupPolicy:ModelPackageGroupPolicy example example
@@ -118,7 +118,7 @@ class ModelPackageGroupPolicy(pulumi.CustomResource):
 
         ## Import
 
-        Sagemaker Code Model Package Groups can be imported using the `name`, e.g.
+        Sagemaker Code Model Package Groups can be imported using the `name`, e.g.,
 
         ```sh
          $ pulumi import aws:sagemaker/modelPackageGroupPolicy:ModelPackageGroupPolicy example example

@@ -523,7 +523,7 @@ class Association(pulumi.CustomResource):
 
         ## Import
 
-        SSM associations can be imported using the `association_id`, e.g.
+        SSM associations can be imported using the `association_id`, e.g.,
 
         ```sh
          $ pulumi import aws:ssm/association:Association test-association 10abcdef-0abc-1234-5678-90abcdef123456
@@ -595,7 +595,7 @@ class Association(pulumi.CustomResource):
 
         ## Import
 
-        SSM associations can be imported using the `association_id`, e.g.
+        SSM associations can be imported using the `association_id`, e.g.,
 
         ```sh
          $ pulumi import aws:ssm/association:Association test-association 10abcdef-0abc-1234-5678-90abcdef123456

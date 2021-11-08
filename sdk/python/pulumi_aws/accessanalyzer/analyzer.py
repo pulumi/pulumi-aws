@@ -185,7 +185,7 @@ class Analyzer(pulumi.CustomResource):
 
         ## Import
 
-        Access Analyzer Analyzers can be imported using the `analyzer_name`, e.g.
+        Access Analyzer Analyzers can be imported using the `analyzer_name`, e.g.,
 
         ```sh
          $ pulumi import aws:accessanalyzer/analyzer:Analyzer example example
@@ -230,7 +230,7 @@ class Analyzer(pulumi.CustomResource):
 
         ## Import
 
-        Access Analyzer Analyzers can be imported using the `analyzer_name`, e.g.
+        Access Analyzer Analyzers can be imported using the `analyzer_name`, e.g.,
 
         ```sh
          $ pulumi import aws:accessanalyzer/analyzer:Analyzer example example

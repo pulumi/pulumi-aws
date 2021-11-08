@@ -633,7 +633,7 @@ class Application(pulumi.CustomResource):
 
         ## Import
 
-        Opsworks Application can be imported using the `id`, e.g.
+        Opsworks Application can be imported using the `id`, e.g.,
 
         ```sh
          $ pulumi import aws:opsworks/application:Application test <id>
@@ -705,7 +705,7 @@ class Application(pulumi.CustomResource):
 
         ## Import
 
-        Opsworks Application can be imported using the `id`, e.g.
+        Opsworks Application can be imported using the `id`, e.g.,
 
         ```sh
          $ pulumi import aws:opsworks/application:Application test <id>

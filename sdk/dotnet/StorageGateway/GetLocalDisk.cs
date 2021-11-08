@@ -129,7 +129,7 @@ namespace Pulumi.Aws.StorageGateway
     public sealed class GetLocalDiskResult
     {
         /// <summary>
-        /// The disk identifier. e.g. `pci-0000:03:00.0-scsi-0:0:0:0`
+        /// The disk identifierE.g., `pci-0000:03:00.0-scsi-0:0:0:0`
         /// </summary>
         public readonly string DiskId;
         public readonly string DiskNode;

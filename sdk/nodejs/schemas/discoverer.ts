@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * EventBridge discoverers can be imported using the `id`, e.g. console
+ * EventBridge discoverers can be imported using the `id`, e.g., console
  *
  * ```sh
  *  $ pulumi import aws:schemas/discoverer:Discoverer test 123
@@ -71,6 +71,9 @@ export class Discoverer extends pulumi.CustomResource {
      */
     public readonly sourceArn!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -126,6 +129,9 @@ export interface DiscovererState {
      */
     sourceArn?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 

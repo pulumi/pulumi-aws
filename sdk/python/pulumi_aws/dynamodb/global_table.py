@@ -170,7 +170,7 @@ class GlobalTable(pulumi.CustomResource):
 
         ## Import
 
-        DynamoDB Global Tables can be imported using the global table name, e.g.
+        DynamoDB Global Tables can be imported using the global table name, e.g.,
 
         ```sh
          $ pulumi import aws:dynamodb/globalTable:GlobalTable MyTable MyTable
@@ -242,7 +242,7 @@ class GlobalTable(pulumi.CustomResource):
 
         ## Import
 
-        DynamoDB Global Tables can be imported using the global table name, e.g.
+        DynamoDB Global Tables can be imported using the global table name, e.g.,
 
         ```sh
          $ pulumi import aws:dynamodb/globalTable:GlobalTable MyTable MyTable

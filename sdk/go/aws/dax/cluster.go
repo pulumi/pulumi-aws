@@ -41,7 +41,7 @@ import (
 //
 // ## Import
 //
-// DAX Clusters can be imported using the `cluster_name`, e.g.
+// DAX Clusters can be imported using the `cluster_name`, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:dax/cluster:Cluster my_cluster my_cluster
@@ -79,7 +79,7 @@ type Cluster struct {
 	// [Nodes](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.concepts.cluster.html#DAX.concepts.nodes) for supported node types
 	NodeType pulumi.StringOutput `pulumi:"nodeType"`
 	// List of node objects including `id`, `address`, `port` and
-	// `availabilityZone`. Referenceable e.g. as
+	// `availabilityZone`. Referenceable e.g., as
 	// `${aws_dax_cluster.test.nodes.0.address}`
 	Nodes ClusterNodeArrayOutput `pulumi:"nodes"`
 	// An Amazon Resource Name (ARN) of an
@@ -178,7 +178,7 @@ type clusterState struct {
 	// [Nodes](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.concepts.cluster.html#DAX.concepts.nodes) for supported node types
 	NodeType *string `pulumi:"nodeType"`
 	// List of node objects including `id`, `address`, `port` and
-	// `availabilityZone`. Referenceable e.g. as
+	// `availabilityZone`. Referenceable e.g., as
 	// `${aws_dax_cluster.test.nodes.0.address}`
 	Nodes []ClusterNode `pulumi:"nodes"`
 	// An Amazon Resource Name (ARN) of an
@@ -237,7 +237,7 @@ type ClusterState struct {
 	// [Nodes](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.concepts.cluster.html#DAX.concepts.nodes) for supported node types
 	NodeType pulumi.StringPtrInput
 	// List of node objects including `id`, `address`, `port` and
-	// `availabilityZone`. Referenceable e.g. as
+	// `availabilityZone`. Referenceable e.g., as
 	// `${aws_dax_cluster.test.nodes.0.address}`
 	Nodes ClusterNodeArrayInput
 	// An Amazon Resource Name (ARN) of an

@@ -106,7 +106,7 @@ namespace Pulumi.Aws.Glue
     /// 
     /// ## Import
     /// 
-    /// Glue Tables can be imported with their catalog ID (usually AWS account ID), database name, and table name, e.g.
+    /// Glue Tables can be imported with their catalog ID (usually AWS account ID), database name, and table name, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:glue/catalogTable:CatalogTable MyTable 123456789012:MyDatabase:MyTable

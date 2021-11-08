@@ -92,7 +92,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string> Hypervisor { get; private set; } = null!;
 
         /// <summary>
-        /// Path to an S3 object containing an image manifest, e.g. created
+        /// Path to an S3 object containing an image manifest, e.g., created
         /// by the `ec2-upload-bundle` command in the EC2 command line tools.
         /// </summary>
         [Output("imageLocation")]
@@ -362,7 +362,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Hypervisor { get; set; }
 
         /// <summary>
-        /// Path to an S3 object containing an image manifest, e.g. created
+        /// Path to an S3 object containing an image manifest, e.g., created
         /// by the `ec2-upload-bundle` command in the EC2 command line tools.
         /// </summary>
         [Input("imageLocation")]

@@ -164,7 +164,7 @@ class InternetGateway(pulumi.CustomResource):
 
         ## Import
 
-        Internet Gateways can be imported using the `id`, e.g.
+        Internet Gateways can be imported using the `id`, e.g.,
 
         ```sh
          $ pulumi import aws:ec2/internetGateway:InternetGateway gw igw-c0a643a9
@@ -199,7 +199,7 @@ class InternetGateway(pulumi.CustomResource):
 
         ## Import
 
-        Internet Gateways can be imported using the `id`, e.g.
+        Internet Gateways can be imported using the `id`, e.g.,
 
         ```sh
          $ pulumi import aws:ec2/internetGateway:InternetGateway gw igw-c0a643a9

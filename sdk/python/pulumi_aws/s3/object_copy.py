@@ -62,8 +62,8 @@ class ObjectCopyArgs:
         :param pulumi.Input[str] cache_control: Specifies caching behavior along the request/reply chain Read [w3c cache_control](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
         :param pulumi.Input[str] content_disposition: Specifies presentational information for the object. Read [w3c content_disposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
         :param pulumi.Input[str] content_encoding: Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.
-        :param pulumi.Input[str] content_language: Language the content is in e.g. en-US or en-GB.
-        :param pulumi.Input[str] content_type: Standard MIME type describing the format of the object data, e.g. `application/octet-stream`. All Valid MIME Types are valid for this input.
+        :param pulumi.Input[str] content_language: Language the content is in e.g., en-US or en-GB.
+        :param pulumi.Input[str] content_type: Standard MIME type describing the format of the object data, e.g., `application/octet-stream`. All Valid MIME Types are valid for this input.
         :param pulumi.Input[str] copy_if_match: Copies the object if its entity tag (ETag) matches the specified tag.
         :param pulumi.Input[str] copy_if_modified_since: Copies the object if it has been modified since the specified time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         :param pulumi.Input[str] copy_if_none_match: Copies the object if its entity tag (ETag) is different than the specified ETag.
@@ -265,7 +265,7 @@ class ObjectCopyArgs:
     @pulumi.getter(name="contentLanguage")
     def content_language(self) -> Optional[pulumi.Input[str]]:
         """
-        Language the content is in e.g. en-US or en-GB.
+        Language the content is in e.g., en-US or en-GB.
         """
         return pulumi.get(self, "content_language")
 
@@ -277,7 +277,7 @@ class ObjectCopyArgs:
     @pulumi.getter(name="contentType")
     def content_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Standard MIME type describing the format of the object data, e.g. `application/octet-stream`. All Valid MIME Types are valid for this input.
+        Standard MIME type describing the format of the object data, e.g., `application/octet-stream`. All Valid MIME Types are valid for this input.
         """
         return pulumi.get(self, "content_type")
 
@@ -678,8 +678,8 @@ class _ObjectCopyState:
         :param pulumi.Input[str] cache_control: Specifies caching behavior along the request/reply chain Read [w3c cache_control](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
         :param pulumi.Input[str] content_disposition: Specifies presentational information for the object. Read [w3c content_disposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
         :param pulumi.Input[str] content_encoding: Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.
-        :param pulumi.Input[str] content_language: Language the content is in e.g. en-US or en-GB.
-        :param pulumi.Input[str] content_type: Standard MIME type describing the format of the object data, e.g. `application/octet-stream`. All Valid MIME Types are valid for this input.
+        :param pulumi.Input[str] content_language: Language the content is in e.g., en-US or en-GB.
+        :param pulumi.Input[str] content_type: Standard MIME type describing the format of the object data, e.g., `application/octet-stream`. All Valid MIME Types are valid for this input.
         :param pulumi.Input[str] copy_if_match: Copies the object if its entity tag (ETag) matches the specified tag.
         :param pulumi.Input[str] copy_if_modified_since: Copies the object if it has been modified since the specified time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         :param pulumi.Input[str] copy_if_none_match: Copies the object if its entity tag (ETag) is different than the specified ETag.
@@ -883,7 +883,7 @@ class _ObjectCopyState:
     @pulumi.getter(name="contentLanguage")
     def content_language(self) -> Optional[pulumi.Input[str]]:
         """
-        Language the content is in e.g. en-US or en-GB.
+        Language the content is in e.g., en-US or en-GB.
         """
         return pulumi.get(self, "content_language")
 
@@ -895,7 +895,7 @@ class _ObjectCopyState:
     @pulumi.getter(name="contentType")
     def content_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Standard MIME type describing the format of the object data, e.g. `application/octet-stream`. All Valid MIME Types are valid for this input.
+        Standard MIME type describing the format of the object data, e.g., `application/octet-stream`. All Valid MIME Types are valid for this input.
         """
         return pulumi.get(self, "content_type")
 
@@ -1420,8 +1420,8 @@ class ObjectCopy(pulumi.CustomResource):
         :param pulumi.Input[str] cache_control: Specifies caching behavior along the request/reply chain Read [w3c cache_control](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
         :param pulumi.Input[str] content_disposition: Specifies presentational information for the object. Read [w3c content_disposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
         :param pulumi.Input[str] content_encoding: Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.
-        :param pulumi.Input[str] content_language: Language the content is in e.g. en-US or en-GB.
-        :param pulumi.Input[str] content_type: Standard MIME type describing the format of the object data, e.g. `application/octet-stream`. All Valid MIME Types are valid for this input.
+        :param pulumi.Input[str] content_language: Language the content is in e.g., en-US or en-GB.
+        :param pulumi.Input[str] content_type: Standard MIME type describing the format of the object data, e.g., `application/octet-stream`. All Valid MIME Types are valid for this input.
         :param pulumi.Input[str] copy_if_match: Copies the object if its entity tag (ETag) matches the specified tag.
         :param pulumi.Input[str] copy_if_modified_since: Copies the object if it has been modified since the specified time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         :param pulumi.Input[str] copy_if_none_match: Copies the object if its entity tag (ETag) is different than the specified ETag.
@@ -1663,8 +1663,8 @@ class ObjectCopy(pulumi.CustomResource):
         :param pulumi.Input[str] cache_control: Specifies caching behavior along the request/reply chain Read [w3c cache_control](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.9) for further details.
         :param pulumi.Input[str] content_disposition: Specifies presentational information for the object. Read [w3c content_disposition](http://www.w3.org/Protocols/rfc2616/rfc2616-sec19.html#sec19.5.1) for further information.
         :param pulumi.Input[str] content_encoding: Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.
-        :param pulumi.Input[str] content_language: Language the content is in e.g. en-US or en-GB.
-        :param pulumi.Input[str] content_type: Standard MIME type describing the format of the object data, e.g. `application/octet-stream`. All Valid MIME Types are valid for this input.
+        :param pulumi.Input[str] content_language: Language the content is in e.g., en-US or en-GB.
+        :param pulumi.Input[str] content_type: Standard MIME type describing the format of the object data, e.g., `application/octet-stream`. All Valid MIME Types are valid for this input.
         :param pulumi.Input[str] copy_if_match: Copies the object if its entity tag (ETag) matches the specified tag.
         :param pulumi.Input[str] copy_if_modified_since: Copies the object if it has been modified since the specified time, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         :param pulumi.Input[str] copy_if_none_match: Copies the object if its entity tag (ETag) is different than the specified ETag.
@@ -1804,7 +1804,7 @@ class ObjectCopy(pulumi.CustomResource):
     @pulumi.getter(name="contentLanguage")
     def content_language(self) -> pulumi.Output[str]:
         """
-        Language the content is in e.g. en-US or en-GB.
+        Language the content is in e.g., en-US or en-GB.
         """
         return pulumi.get(self, "content_language")
 
@@ -1812,7 +1812,7 @@ class ObjectCopy(pulumi.CustomResource):
     @pulumi.getter(name="contentType")
     def content_type(self) -> pulumi.Output[str]:
         """
-        Standard MIME type describing the format of the object data, e.g. `application/octet-stream`. All Valid MIME Types are valid for this input.
+        Standard MIME type describing the format of the object data, e.g., `application/octet-stream`. All Valid MIME Types are valid for this input.
         """
         return pulumi.get(self, "content_type")
 

@@ -24,6 +24,18 @@ namespace Pulumi.Aws.ApiGateway.Inputs
         [Input("stage", required: true)]
         public Input<string> Stage { get; set; } = null!;
 
+        [Input("throttles")]
+        private InputList<Inputs.UsagePlanApiStageThrottleGetArgs>? _throttles;
+
+        /// <summary>
+        /// The throttling limits of the usage plan.
+        /// </summary>
+        public InputList<Inputs.UsagePlanApiStageThrottleGetArgs> Throttles
+        {
+            get => _throttles ?? (_throttles = new InputList<Inputs.UsagePlanApiStageThrottleGetArgs>());
+            set => _throttles = value;
+        }
+
         public UsagePlanApiStageGetArgs()
         {
         }

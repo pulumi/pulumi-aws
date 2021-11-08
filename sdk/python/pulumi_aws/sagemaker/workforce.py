@@ -243,7 +243,7 @@ class Workforce(pulumi.CustomResource):
 
         ## Import
 
-        Sagemaker Workforces can be imported using the `workforce_name`, e.g.
+        Sagemaker Workforces can be imported using the `workforce_name`, e.g.,
 
         ```sh
          $ pulumi import aws:sagemaker/workforce:Workforce example example
@@ -308,7 +308,7 @@ class Workforce(pulumi.CustomResource):
 
         ## Import
 
-        Sagemaker Workforces can be imported using the `workforce_name`, e.g.
+        Sagemaker Workforces can be imported using the `workforce_name`, e.g.,
 
         ```sh
          $ pulumi import aws:sagemaker/workforce:Workforce example example

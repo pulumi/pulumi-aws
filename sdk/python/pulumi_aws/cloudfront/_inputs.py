@@ -53,6 +53,20 @@ __all__ = [
     'OriginRequestPolicyQueryStringsConfigQueryStringsArgs',
     'RealtimeLogConfigEndpointArgs',
     'RealtimeLogConfigEndpointKinesisStreamConfigArgs',
+    'ResponseHeadersPolicyCorsConfigArgs',
+    'ResponseHeadersPolicyCorsConfigAccessControlAllowHeadersArgs',
+    'ResponseHeadersPolicyCorsConfigAccessControlAllowMethodsArgs',
+    'ResponseHeadersPolicyCorsConfigAccessControlAllowOriginsArgs',
+    'ResponseHeadersPolicyCorsConfigAccessControlExposeHeadersArgs',
+    'ResponseHeadersPolicyCustomHeadersConfigArgs',
+    'ResponseHeadersPolicyCustomHeadersConfigItemArgs',
+    'ResponseHeadersPolicySecurityHeadersConfigArgs',
+    'ResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyArgs',
+    'ResponseHeadersPolicySecurityHeadersConfigContentTypeOptionsArgs',
+    'ResponseHeadersPolicySecurityHeadersConfigFrameOptionsArgs',
+    'ResponseHeadersPolicySecurityHeadersConfigReferrerPolicyArgs',
+    'ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityArgs',
+    'ResponseHeadersPolicySecurityHeadersConfigXssProtectionArgs',
 ]
 
 @pulumi.input_type
@@ -421,6 +435,7 @@ class DistributionDefaultCacheBehaviorArgs:
                  min_ttl: Optional[pulumi.Input[int]] = None,
                  origin_request_policy_id: Optional[pulumi.Input[str]] = None,
                  realtime_log_config_arn: Optional[pulumi.Input[str]] = None,
+                 response_headers_policy_id: Optional[pulumi.Input[str]] = None,
                  smooth_streaming: Optional[pulumi.Input[bool]] = None,
                  trusted_key_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  trusted_signers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -463,6 +478,7 @@ class DistributionDefaultCacheBehaviorArgs:
                that is attached to the behavior.
         :param pulumi.Input[str] realtime_log_config_arn: The ARN of the real-time log configuration
                that is attached to this cache behavior.
+        :param pulumi.Input[str] response_headers_policy_id: The identifier for a response headers policy.
         :param pulumi.Input[bool] smooth_streaming: Indicates whether you want to distribute
                media files in Microsoft Smooth Streaming format using the origin that is
                associated with this cache behavior.
@@ -497,6 +513,8 @@ class DistributionDefaultCacheBehaviorArgs:
             pulumi.set(__self__, "origin_request_policy_id", origin_request_policy_id)
         if realtime_log_config_arn is not None:
             pulumi.set(__self__, "realtime_log_config_arn", realtime_log_config_arn)
+        if response_headers_policy_id is not None:
+            pulumi.set(__self__, "response_headers_policy_id", response_headers_policy_id)
         if smooth_streaming is not None:
             pulumi.set(__self__, "smooth_streaming", smooth_streaming)
         if trusted_key_groups is not None:
@@ -706,6 +724,18 @@ class DistributionDefaultCacheBehaviorArgs:
     @realtime_log_config_arn.setter
     def realtime_log_config_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "realtime_log_config_arn", value)
+
+    @property
+    @pulumi.getter(name="responseHeadersPolicyId")
+    def response_headers_policy_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The identifier for a response headers policy.
+        """
+        return pulumi.get(self, "response_headers_policy_id")
+
+    @response_headers_policy_id.setter
+    def response_headers_policy_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "response_headers_policy_id", value)
 
     @property
     @pulumi.getter(name="smoothStreaming")
@@ -1052,6 +1082,7 @@ class DistributionOrderedCacheBehaviorArgs:
                  min_ttl: Optional[pulumi.Input[int]] = None,
                  origin_request_policy_id: Optional[pulumi.Input[str]] = None,
                  realtime_log_config_arn: Optional[pulumi.Input[str]] = None,
+                 response_headers_policy_id: Optional[pulumi.Input[str]] = None,
                  smooth_streaming: Optional[pulumi.Input[bool]] = None,
                  trusted_key_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  trusted_signers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
@@ -1096,6 +1127,7 @@ class DistributionOrderedCacheBehaviorArgs:
                that is attached to the behavior.
         :param pulumi.Input[str] realtime_log_config_arn: The ARN of the real-time log configuration
                that is attached to this cache behavior.
+        :param pulumi.Input[str] response_headers_policy_id: The identifier for a response headers policy.
         :param pulumi.Input[bool] smooth_streaming: Indicates whether you want to distribute
                media files in Microsoft Smooth Streaming format using the origin that is
                associated with this cache behavior.
@@ -1131,6 +1163,8 @@ class DistributionOrderedCacheBehaviorArgs:
             pulumi.set(__self__, "origin_request_policy_id", origin_request_policy_id)
         if realtime_log_config_arn is not None:
             pulumi.set(__self__, "realtime_log_config_arn", realtime_log_config_arn)
+        if response_headers_policy_id is not None:
+            pulumi.set(__self__, "response_headers_policy_id", response_headers_policy_id)
         if smooth_streaming is not None:
             pulumi.set(__self__, "smooth_streaming", smooth_streaming)
         if trusted_key_groups is not None:
@@ -1353,6 +1387,18 @@ class DistributionOrderedCacheBehaviorArgs:
     @realtime_log_config_arn.setter
     def realtime_log_config_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "realtime_log_config_arn", value)
+
+    @property
+    @pulumi.getter(name="responseHeadersPolicyId")
+    def response_headers_policy_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The identifier for a response headers policy.
+        """
+        return pulumi.get(self, "response_headers_policy_id")
+
+    @response_headers_policy_id.setter
+    def response_headers_policy_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "response_headers_policy_id", value)
 
     @property
     @pulumi.getter(name="smoothStreaming")
@@ -2669,5 +2715,622 @@ class RealtimeLogConfigEndpointKinesisStreamConfigArgs:
     @stream_arn.setter
     def stream_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "stream_arn", value)
+
+
+@pulumi.input_type
+class ResponseHeadersPolicyCorsConfigArgs:
+    def __init__(__self__, *,
+                 access_control_allow_credentials: pulumi.Input[bool],
+                 access_control_allow_headers: pulumi.Input['ResponseHeadersPolicyCorsConfigAccessControlAllowHeadersArgs'],
+                 access_control_allow_methods: pulumi.Input['ResponseHeadersPolicyCorsConfigAccessControlAllowMethodsArgs'],
+                 access_control_allow_origins: pulumi.Input['ResponseHeadersPolicyCorsConfigAccessControlAllowOriginsArgs'],
+                 origin_override: pulumi.Input[bool],
+                 access_control_expose_headers: Optional[pulumi.Input['ResponseHeadersPolicyCorsConfigAccessControlExposeHeadersArgs']] = None,
+                 access_control_max_age_sec: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[bool] access_control_allow_credentials: A Boolean value that CloudFront uses as the value for the Access-Control-Allow-Credentials HTTP response header.
+        :param pulumi.Input['ResponseHeadersPolicyCorsConfigAccessControlAllowHeadersArgs'] access_control_allow_headers: Object that contains an attribute `items` that contains a list of HTTP header names that CloudFront includes as values for the Access-Control-Allow-Headers HTTP response header.
+        :param pulumi.Input['ResponseHeadersPolicyCorsConfigAccessControlAllowMethodsArgs'] access_control_allow_methods: Object that contains an attribute `items` that contains a list of HTTP methods that CloudFront includes as values for the Access-Control-Allow-Methods HTTP response header. Valid values: `GET` | `POST` | `OPTIONS` | `PUT` | `DELETE` | `HEAD` | `ALL`
+        :param pulumi.Input['ResponseHeadersPolicyCorsConfigAccessControlAllowOriginsArgs'] access_control_allow_origins: Object that contains an attribute `items` that contains a list of origins that CloudFront can use as the value for the Access-Control-Allow-Origin HTTP response header.
+        :param pulumi.Input['ResponseHeadersPolicyCorsConfigAccessControlExposeHeadersArgs'] access_control_expose_headers: Object that contains an attribute `items` that contains a list of HTTP headers that CloudFront includes as values for the Access-Control-Expose-Headers HTTP response header.
+        :param pulumi.Input[int] access_control_max_age_sec: A number that CloudFront uses as the value for the max-age directive in the Strict-Transport-Security HTTP response header.
+        """
+        pulumi.set(__self__, "access_control_allow_credentials", access_control_allow_credentials)
+        pulumi.set(__self__, "access_control_allow_headers", access_control_allow_headers)
+        pulumi.set(__self__, "access_control_allow_methods", access_control_allow_methods)
+        pulumi.set(__self__, "access_control_allow_origins", access_control_allow_origins)
+        pulumi.set(__self__, "origin_override", origin_override)
+        if access_control_expose_headers is not None:
+            pulumi.set(__self__, "access_control_expose_headers", access_control_expose_headers)
+        if access_control_max_age_sec is not None:
+            pulumi.set(__self__, "access_control_max_age_sec", access_control_max_age_sec)
+
+    @property
+    @pulumi.getter(name="accessControlAllowCredentials")
+    def access_control_allow_credentials(self) -> pulumi.Input[bool]:
+        """
+        A Boolean value that CloudFront uses as the value for the Access-Control-Allow-Credentials HTTP response header.
+        """
+        return pulumi.get(self, "access_control_allow_credentials")
+
+    @access_control_allow_credentials.setter
+    def access_control_allow_credentials(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "access_control_allow_credentials", value)
+
+    @property
+    @pulumi.getter(name="accessControlAllowHeaders")
+    def access_control_allow_headers(self) -> pulumi.Input['ResponseHeadersPolicyCorsConfigAccessControlAllowHeadersArgs']:
+        """
+        Object that contains an attribute `items` that contains a list of HTTP header names that CloudFront includes as values for the Access-Control-Allow-Headers HTTP response header.
+        """
+        return pulumi.get(self, "access_control_allow_headers")
+
+    @access_control_allow_headers.setter
+    def access_control_allow_headers(self, value: pulumi.Input['ResponseHeadersPolicyCorsConfigAccessControlAllowHeadersArgs']):
+        pulumi.set(self, "access_control_allow_headers", value)
+
+    @property
+    @pulumi.getter(name="accessControlAllowMethods")
+    def access_control_allow_methods(self) -> pulumi.Input['ResponseHeadersPolicyCorsConfigAccessControlAllowMethodsArgs']:
+        """
+        Object that contains an attribute `items` that contains a list of HTTP methods that CloudFront includes as values for the Access-Control-Allow-Methods HTTP response header. Valid values: `GET` | `POST` | `OPTIONS` | `PUT` | `DELETE` | `HEAD` | `ALL`
+        """
+        return pulumi.get(self, "access_control_allow_methods")
+
+    @access_control_allow_methods.setter
+    def access_control_allow_methods(self, value: pulumi.Input['ResponseHeadersPolicyCorsConfigAccessControlAllowMethodsArgs']):
+        pulumi.set(self, "access_control_allow_methods", value)
+
+    @property
+    @pulumi.getter(name="accessControlAllowOrigins")
+    def access_control_allow_origins(self) -> pulumi.Input['ResponseHeadersPolicyCorsConfigAccessControlAllowOriginsArgs']:
+        """
+        Object that contains an attribute `items` that contains a list of origins that CloudFront can use as the value for the Access-Control-Allow-Origin HTTP response header.
+        """
+        return pulumi.get(self, "access_control_allow_origins")
+
+    @access_control_allow_origins.setter
+    def access_control_allow_origins(self, value: pulumi.Input['ResponseHeadersPolicyCorsConfigAccessControlAllowOriginsArgs']):
+        pulumi.set(self, "access_control_allow_origins", value)
+
+    @property
+    @pulumi.getter(name="originOverride")
+    def origin_override(self) -> pulumi.Input[bool]:
+        return pulumi.get(self, "origin_override")
+
+    @origin_override.setter
+    def origin_override(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "origin_override", value)
+
+    @property
+    @pulumi.getter(name="accessControlExposeHeaders")
+    def access_control_expose_headers(self) -> Optional[pulumi.Input['ResponseHeadersPolicyCorsConfigAccessControlExposeHeadersArgs']]:
+        """
+        Object that contains an attribute `items` that contains a list of HTTP headers that CloudFront includes as values for the Access-Control-Expose-Headers HTTP response header.
+        """
+        return pulumi.get(self, "access_control_expose_headers")
+
+    @access_control_expose_headers.setter
+    def access_control_expose_headers(self, value: Optional[pulumi.Input['ResponseHeadersPolicyCorsConfigAccessControlExposeHeadersArgs']]):
+        pulumi.set(self, "access_control_expose_headers", value)
+
+    @property
+    @pulumi.getter(name="accessControlMaxAgeSec")
+    def access_control_max_age_sec(self) -> Optional[pulumi.Input[int]]:
+        """
+        A number that CloudFront uses as the value for the max-age directive in the Strict-Transport-Security HTTP response header.
+        """
+        return pulumi.get(self, "access_control_max_age_sec")
+
+    @access_control_max_age_sec.setter
+    def access_control_max_age_sec(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "access_control_max_age_sec", value)
+
+
+@pulumi.input_type
+class ResponseHeadersPolicyCorsConfigAccessControlAllowHeadersArgs:
+    def __init__(__self__, *,
+                 items: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        if items is not None:
+            pulumi.set(__self__, "items", items)
+
+    @property
+    @pulumi.getter
+    def items(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "items")
+
+    @items.setter
+    def items(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "items", value)
+
+
+@pulumi.input_type
+class ResponseHeadersPolicyCorsConfigAccessControlAllowMethodsArgs:
+    def __init__(__self__, *,
+                 items: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        if items is not None:
+            pulumi.set(__self__, "items", items)
+
+    @property
+    @pulumi.getter
+    def items(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "items")
+
+    @items.setter
+    def items(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "items", value)
+
+
+@pulumi.input_type
+class ResponseHeadersPolicyCorsConfigAccessControlAllowOriginsArgs:
+    def __init__(__self__, *,
+                 items: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        if items is not None:
+            pulumi.set(__self__, "items", items)
+
+    @property
+    @pulumi.getter
+    def items(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "items")
+
+    @items.setter
+    def items(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "items", value)
+
+
+@pulumi.input_type
+class ResponseHeadersPolicyCorsConfigAccessControlExposeHeadersArgs:
+    def __init__(__self__, *,
+                 items: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        if items is not None:
+            pulumi.set(__self__, "items", items)
+
+    @property
+    @pulumi.getter
+    def items(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "items")
+
+    @items.setter
+    def items(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "items", value)
+
+
+@pulumi.input_type
+class ResponseHeadersPolicyCustomHeadersConfigArgs:
+    def __init__(__self__, *,
+                 items: Optional[pulumi.Input[Sequence[pulumi.Input['ResponseHeadersPolicyCustomHeadersConfigItemArgs']]]] = None):
+        if items is not None:
+            pulumi.set(__self__, "items", items)
+
+    @property
+    @pulumi.getter
+    def items(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResponseHeadersPolicyCustomHeadersConfigItemArgs']]]]:
+        return pulumi.get(self, "items")
+
+    @items.setter
+    def items(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResponseHeadersPolicyCustomHeadersConfigItemArgs']]]]):
+        pulumi.set(self, "items", value)
+
+
+@pulumi.input_type
+class ResponseHeadersPolicyCustomHeadersConfigItemArgs:
+    def __init__(__self__, *,
+                 header: pulumi.Input[str],
+                 override: pulumi.Input[bool],
+                 value: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] header: The HTTP response header name.
+        :param pulumi.Input[bool] override: A Boolean value that determines whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
+        :param pulumi.Input[str] value: The value for the HTTP response header.
+        """
+        pulumi.set(__self__, "header", header)
+        pulumi.set(__self__, "override", override)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def header(self) -> pulumi.Input[str]:
+        """
+        The HTTP response header name.
+        """
+        return pulumi.get(self, "header")
+
+    @header.setter
+    def header(self, value: pulumi.Input[str]):
+        pulumi.set(self, "header", value)
+
+    @property
+    @pulumi.getter
+    def override(self) -> pulumi.Input[bool]:
+        """
+        A Boolean value that determines whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
+        """
+        return pulumi.get(self, "override")
+
+    @override.setter
+    def override(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "override", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        """
+        The value for the HTTP response header.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class ResponseHeadersPolicySecurityHeadersConfigArgs:
+    def __init__(__self__, *,
+                 content_security_policy: Optional[pulumi.Input['ResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyArgs']] = None,
+                 content_type_options: Optional[pulumi.Input['ResponseHeadersPolicySecurityHeadersConfigContentTypeOptionsArgs']] = None,
+                 frame_options: Optional[pulumi.Input['ResponseHeadersPolicySecurityHeadersConfigFrameOptionsArgs']] = None,
+                 referrer_policy: Optional[pulumi.Input['ResponseHeadersPolicySecurityHeadersConfigReferrerPolicyArgs']] = None,
+                 strict_transport_security: Optional[pulumi.Input['ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityArgs']] = None,
+                 xss_protection: Optional[pulumi.Input['ResponseHeadersPolicySecurityHeadersConfigXssProtectionArgs']] = None):
+        """
+        :param pulumi.Input['ResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyArgs'] content_security_policy: TThe policy directives and their values that CloudFront includes as values for the Content-Security-Policy HTTP response header.
+        :param pulumi.Input['ResponseHeadersPolicySecurityHeadersConfigContentTypeOptionsArgs'] content_type_options: TA setting that determines whether CloudFront includes the X-Content-Type-Options HTTP response header with its value set to nosniff. See Content Type Options for more information.
+        :param pulumi.Input['ResponseHeadersPolicySecurityHeadersConfigFrameOptionsArgs'] frame_options: TA setting that determines whether CloudFront includes the X-Frame-Options HTTP response header and the header’s value. See Frame Options for more information.
+        :param pulumi.Input['ResponseHeadersPolicySecurityHeadersConfigReferrerPolicyArgs'] referrer_policy: The value of the Referrer-Policy HTTP response header. Valid Values: `no-referrer` | `no-referrer-when-downgrade` | `origin` | `origin-when-cross-origin` | `same-origin` | `strict-origin` | `strict-origin-when-cross-origin` | `unsafe-url`
+        :param pulumi.Input['ResponseHeadersPolicySecurityHeadersConfigXssProtectionArgs'] xss_protection: TSettings that determine whether CloudFront includes the X-XSS-Protection HTTP response header and the header’s value. See XSS Protection for more information.
+        """
+        if content_security_policy is not None:
+            pulumi.set(__self__, "content_security_policy", content_security_policy)
+        if content_type_options is not None:
+            pulumi.set(__self__, "content_type_options", content_type_options)
+        if frame_options is not None:
+            pulumi.set(__self__, "frame_options", frame_options)
+        if referrer_policy is not None:
+            pulumi.set(__self__, "referrer_policy", referrer_policy)
+        if strict_transport_security is not None:
+            pulumi.set(__self__, "strict_transport_security", strict_transport_security)
+        if xss_protection is not None:
+            pulumi.set(__self__, "xss_protection", xss_protection)
+
+    @property
+    @pulumi.getter(name="contentSecurityPolicy")
+    def content_security_policy(self) -> Optional[pulumi.Input['ResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyArgs']]:
+        """
+        TThe policy directives and their values that CloudFront includes as values for the Content-Security-Policy HTTP response header.
+        """
+        return pulumi.get(self, "content_security_policy")
+
+    @content_security_policy.setter
+    def content_security_policy(self, value: Optional[pulumi.Input['ResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyArgs']]):
+        pulumi.set(self, "content_security_policy", value)
+
+    @property
+    @pulumi.getter(name="contentTypeOptions")
+    def content_type_options(self) -> Optional[pulumi.Input['ResponseHeadersPolicySecurityHeadersConfigContentTypeOptionsArgs']]:
+        """
+        TA setting that determines whether CloudFront includes the X-Content-Type-Options HTTP response header with its value set to nosniff. See Content Type Options for more information.
+        """
+        return pulumi.get(self, "content_type_options")
+
+    @content_type_options.setter
+    def content_type_options(self, value: Optional[pulumi.Input['ResponseHeadersPolicySecurityHeadersConfigContentTypeOptionsArgs']]):
+        pulumi.set(self, "content_type_options", value)
+
+    @property
+    @pulumi.getter(name="frameOptions")
+    def frame_options(self) -> Optional[pulumi.Input['ResponseHeadersPolicySecurityHeadersConfigFrameOptionsArgs']]:
+        """
+        TA setting that determines whether CloudFront includes the X-Frame-Options HTTP response header and the header’s value. See Frame Options for more information.
+        """
+        return pulumi.get(self, "frame_options")
+
+    @frame_options.setter
+    def frame_options(self, value: Optional[pulumi.Input['ResponseHeadersPolicySecurityHeadersConfigFrameOptionsArgs']]):
+        pulumi.set(self, "frame_options", value)
+
+    @property
+    @pulumi.getter(name="referrerPolicy")
+    def referrer_policy(self) -> Optional[pulumi.Input['ResponseHeadersPolicySecurityHeadersConfigReferrerPolicyArgs']]:
+        """
+        The value of the Referrer-Policy HTTP response header. Valid Values: `no-referrer` | `no-referrer-when-downgrade` | `origin` | `origin-when-cross-origin` | `same-origin` | `strict-origin` | `strict-origin-when-cross-origin` | `unsafe-url`
+        """
+        return pulumi.get(self, "referrer_policy")
+
+    @referrer_policy.setter
+    def referrer_policy(self, value: Optional[pulumi.Input['ResponseHeadersPolicySecurityHeadersConfigReferrerPolicyArgs']]):
+        pulumi.set(self, "referrer_policy", value)
+
+    @property
+    @pulumi.getter(name="strictTransportSecurity")
+    def strict_transport_security(self) -> Optional[pulumi.Input['ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityArgs']]:
+        return pulumi.get(self, "strict_transport_security")
+
+    @strict_transport_security.setter
+    def strict_transport_security(self, value: Optional[pulumi.Input['ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityArgs']]):
+        pulumi.set(self, "strict_transport_security", value)
+
+    @property
+    @pulumi.getter(name="xssProtection")
+    def xss_protection(self) -> Optional[pulumi.Input['ResponseHeadersPolicySecurityHeadersConfigXssProtectionArgs']]:
+        """
+        TSettings that determine whether CloudFront includes the X-XSS-Protection HTTP response header and the header’s value. See XSS Protection for more information.
+        """
+        return pulumi.get(self, "xss_protection")
+
+    @xss_protection.setter
+    def xss_protection(self, value: Optional[pulumi.Input['ResponseHeadersPolicySecurityHeadersConfigXssProtectionArgs']]):
+        pulumi.set(self, "xss_protection", value)
+
+
+@pulumi.input_type
+class ResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyArgs:
+    def __init__(__self__, *,
+                 content_security_policy: pulumi.Input[str],
+                 override: pulumi.Input[bool]):
+        """
+        :param pulumi.Input[str] content_security_policy: TThe policy directives and their values that CloudFront includes as values for the Content-Security-Policy HTTP response header.
+        :param pulumi.Input[bool] override: A Boolean value that determines whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
+        """
+        pulumi.set(__self__, "content_security_policy", content_security_policy)
+        pulumi.set(__self__, "override", override)
+
+    @property
+    @pulumi.getter(name="contentSecurityPolicy")
+    def content_security_policy(self) -> pulumi.Input[str]:
+        """
+        TThe policy directives and their values that CloudFront includes as values for the Content-Security-Policy HTTP response header.
+        """
+        return pulumi.get(self, "content_security_policy")
+
+    @content_security_policy.setter
+    def content_security_policy(self, value: pulumi.Input[str]):
+        pulumi.set(self, "content_security_policy", value)
+
+    @property
+    @pulumi.getter
+    def override(self) -> pulumi.Input[bool]:
+        """
+        A Boolean value that determines whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
+        """
+        return pulumi.get(self, "override")
+
+    @override.setter
+    def override(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "override", value)
+
+
+@pulumi.input_type
+class ResponseHeadersPolicySecurityHeadersConfigContentTypeOptionsArgs:
+    def __init__(__self__, *,
+                 override: pulumi.Input[bool]):
+        """
+        :param pulumi.Input[bool] override: A Boolean value that determines whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
+        """
+        pulumi.set(__self__, "override", override)
+
+    @property
+    @pulumi.getter
+    def override(self) -> pulumi.Input[bool]:
+        """
+        A Boolean value that determines whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
+        """
+        return pulumi.get(self, "override")
+
+    @override.setter
+    def override(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "override", value)
+
+
+@pulumi.input_type
+class ResponseHeadersPolicySecurityHeadersConfigFrameOptionsArgs:
+    def __init__(__self__, *,
+                 frame_option: pulumi.Input[str],
+                 override: pulumi.Input[bool]):
+        """
+        :param pulumi.Input[str] frame_option: The value of the X-Frame-Options HTTP response header. Valid values: `DENY` | `SAMEORIGIN`
+        :param pulumi.Input[bool] override: A Boolean value that determines whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
+        """
+        pulumi.set(__self__, "frame_option", frame_option)
+        pulumi.set(__self__, "override", override)
+
+    @property
+    @pulumi.getter(name="frameOption")
+    def frame_option(self) -> pulumi.Input[str]:
+        """
+        The value of the X-Frame-Options HTTP response header. Valid values: `DENY` | `SAMEORIGIN`
+        """
+        return pulumi.get(self, "frame_option")
+
+    @frame_option.setter
+    def frame_option(self, value: pulumi.Input[str]):
+        pulumi.set(self, "frame_option", value)
+
+    @property
+    @pulumi.getter
+    def override(self) -> pulumi.Input[bool]:
+        """
+        A Boolean value that determines whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
+        """
+        return pulumi.get(self, "override")
+
+    @override.setter
+    def override(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "override", value)
+
+
+@pulumi.input_type
+class ResponseHeadersPolicySecurityHeadersConfigReferrerPolicyArgs:
+    def __init__(__self__, *,
+                 override: pulumi.Input[bool],
+                 referrer_policy: pulumi.Input[str]):
+        """
+        :param pulumi.Input[bool] override: A Boolean value that determines whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
+        :param pulumi.Input[str] referrer_policy: The value of the Referrer-Policy HTTP response header. Valid Values: `no-referrer` | `no-referrer-when-downgrade` | `origin` | `origin-when-cross-origin` | `same-origin` | `strict-origin` | `strict-origin-when-cross-origin` | `unsafe-url`
+        """
+        pulumi.set(__self__, "override", override)
+        pulumi.set(__self__, "referrer_policy", referrer_policy)
+
+    @property
+    @pulumi.getter
+    def override(self) -> pulumi.Input[bool]:
+        """
+        A Boolean value that determines whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
+        """
+        return pulumi.get(self, "override")
+
+    @override.setter
+    def override(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "override", value)
+
+    @property
+    @pulumi.getter(name="referrerPolicy")
+    def referrer_policy(self) -> pulumi.Input[str]:
+        """
+        The value of the Referrer-Policy HTTP response header. Valid Values: `no-referrer` | `no-referrer-when-downgrade` | `origin` | `origin-when-cross-origin` | `same-origin` | `strict-origin` | `strict-origin-when-cross-origin` | `unsafe-url`
+        """
+        return pulumi.get(self, "referrer_policy")
+
+    @referrer_policy.setter
+    def referrer_policy(self, value: pulumi.Input[str]):
+        pulumi.set(self, "referrer_policy", value)
+
+
+@pulumi.input_type
+class ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityArgs:
+    def __init__(__self__, *,
+                 access_control_max_age_sec: pulumi.Input[int],
+                 override: pulumi.Input[bool],
+                 include_subdomains: Optional[pulumi.Input[bool]] = None,
+                 preload: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[int] access_control_max_age_sec: A number that CloudFront uses as the value for the max-age directive in the Strict-Transport-Security HTTP response header.
+        :param pulumi.Input[bool] override: A Boolean value that determines whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
+        :param pulumi.Input[bool] include_subdomains: A Boolean value that determines whether CloudFront includes the includeSubDomains directive in the Strict-Transport-Security HTTP response header.
+        :param pulumi.Input[bool] preload: A Boolean value that determines whether CloudFront includes the preload directive in the Strict-Transport-Security HTTP response header.
+        """
+        pulumi.set(__self__, "access_control_max_age_sec", access_control_max_age_sec)
+        pulumi.set(__self__, "override", override)
+        if include_subdomains is not None:
+            pulumi.set(__self__, "include_subdomains", include_subdomains)
+        if preload is not None:
+            pulumi.set(__self__, "preload", preload)
+
+    @property
+    @pulumi.getter(name="accessControlMaxAgeSec")
+    def access_control_max_age_sec(self) -> pulumi.Input[int]:
+        """
+        A number that CloudFront uses as the value for the max-age directive in the Strict-Transport-Security HTTP response header.
+        """
+        return pulumi.get(self, "access_control_max_age_sec")
+
+    @access_control_max_age_sec.setter
+    def access_control_max_age_sec(self, value: pulumi.Input[int]):
+        pulumi.set(self, "access_control_max_age_sec", value)
+
+    @property
+    @pulumi.getter
+    def override(self) -> pulumi.Input[bool]:
+        """
+        A Boolean value that determines whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
+        """
+        return pulumi.get(self, "override")
+
+    @override.setter
+    def override(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "override", value)
+
+    @property
+    @pulumi.getter(name="includeSubdomains")
+    def include_subdomains(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A Boolean value that determines whether CloudFront includes the includeSubDomains directive in the Strict-Transport-Security HTTP response header.
+        """
+        return pulumi.get(self, "include_subdomains")
+
+    @include_subdomains.setter
+    def include_subdomains(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "include_subdomains", value)
+
+    @property
+    @pulumi.getter
+    def preload(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A Boolean value that determines whether CloudFront includes the preload directive in the Strict-Transport-Security HTTP response header.
+        """
+        return pulumi.get(self, "preload")
+
+    @preload.setter
+    def preload(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "preload", value)
+
+
+@pulumi.input_type
+class ResponseHeadersPolicySecurityHeadersConfigXssProtectionArgs:
+    def __init__(__self__, *,
+                 override: pulumi.Input[bool],
+                 protection: pulumi.Input[bool],
+                 mode_block: Optional[pulumi.Input[bool]] = None,
+                 report_uri: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[bool] override: A Boolean value that determines whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
+        :param pulumi.Input[bool] protection: A Boolean value that determines the value of the X-XSS-Protection HTTP response header. When this setting is true, the value of the X-XSS-Protection header is 1. When this setting is false, the value of the X-XSS-Protection header is 0.
+        :param pulumi.Input[bool] mode_block: A Boolean value that determines whether CloudFront includes the mode=block directive in the X-XSS-Protection header.
+        :param pulumi.Input[str] report_uri: A Boolean value that determines whether CloudFront sets a reporting URI in the X-XSS-Protection header.
+        """
+        pulumi.set(__self__, "override", override)
+        pulumi.set(__self__, "protection", protection)
+        if mode_block is not None:
+            pulumi.set(__self__, "mode_block", mode_block)
+        if report_uri is not None:
+            pulumi.set(__self__, "report_uri", report_uri)
+
+    @property
+    @pulumi.getter
+    def override(self) -> pulumi.Input[bool]:
+        """
+        A Boolean value that determines whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
+        """
+        return pulumi.get(self, "override")
+
+    @override.setter
+    def override(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "override", value)
+
+    @property
+    @pulumi.getter
+    def protection(self) -> pulumi.Input[bool]:
+        """
+        A Boolean value that determines the value of the X-XSS-Protection HTTP response header. When this setting is true, the value of the X-XSS-Protection header is 1. When this setting is false, the value of the X-XSS-Protection header is 0.
+        """
+        return pulumi.get(self, "protection")
+
+    @protection.setter
+    def protection(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "protection", value)
+
+    @property
+    @pulumi.getter(name="modeBlock")
+    def mode_block(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A Boolean value that determines whether CloudFront includes the mode=block directive in the X-XSS-Protection header.
+        """
+        return pulumi.get(self, "mode_block")
+
+    @mode_block.setter
+    def mode_block(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "mode_block", value)
+
+    @property
+    @pulumi.getter(name="reportUri")
+    def report_uri(self) -> Optional[pulumi.Input[str]]:
+        """
+        A Boolean value that determines whether CloudFront sets a reporting URI in the X-XSS-Protection header.
+        """
+        return pulumi.get(self, "report_uri")
+
+    @report_uri.setter
+    def report_uri(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "report_uri", value)
 
 

@@ -468,7 +468,7 @@ class MetricStream(pulumi.CustomResource):
 
         ## Import
 
-        CloudWatch metric streams can be imported using the `name`, e.g.
+        CloudWatch metric streams can be imported using the `name`, e.g.,
 
         ```sh
          $ pulumi import aws:cloudwatch/metricStream:MetricStream sample <name>
@@ -591,7 +591,7 @@ class MetricStream(pulumi.CustomResource):
 
         ## Import
 
-        CloudWatch metric streams can be imported using the `name`, e.g.
+        CloudWatch metric streams can be imported using the `name`, e.g.,
 
         ```sh
          $ pulumi import aws:cloudwatch/metricStream:MetricStream sample <name>

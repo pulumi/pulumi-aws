@@ -44,7 +44,7 @@ import (
 //
 // ## Import
 //
-// KMS aliases can be imported using the `name`, e.g.
+// KMS aliases can be imported using the `name`, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:kms/alias:Alias a alias/my-key-alias

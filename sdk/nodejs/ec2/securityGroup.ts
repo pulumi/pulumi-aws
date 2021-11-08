@@ -92,7 +92,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Security Groups can be imported using the `security group id`, e.g.
+ * Security Groups can be imported using the `security group id`, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:ec2/securityGroup:SecurityGroup elb_sg sg-903004f8

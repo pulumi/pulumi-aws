@@ -36,7 +36,7 @@ namespace Pulumi.Aws.AppRunner
     /// 
     /// ## Import
     /// 
-    /// App Runner Custom Domain Associations can be imported by using the `domain_name` and `service_arn` separated by a comma (`,`), e.g.
+    /// App Runner Custom Domain Associations can be imported by using the `domain_name` and `service_arn` separated by a comma (`,`), e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:apprunner/customDomainAssociation:CustomDomainAssociation example example.com,arn:aws:apprunner:us-east-1:123456789012:service/example-
@@ -60,7 +60,7 @@ namespace Pulumi.Aws.AppRunner
         public Output<string> DnsTarget { get; private set; } = null!;
 
         /// <summary>
-        /// The custom domain endpoint to association. Specify a base domain e.g. `example.com` or a subdomain e.g. `subdomain.example.com`.
+        /// The custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
         /// </summary>
         [Output("domainName")]
         public Output<string> DomainName { get; private set; } = null!;
@@ -130,7 +130,7 @@ namespace Pulumi.Aws.AppRunner
     public sealed class CustomDomainAssociationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The custom domain endpoint to association. Specify a base domain e.g. `example.com` or a subdomain e.g. `subdomain.example.com`.
+        /// The custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
         /// </summary>
         [Input("domainName", required: true)]
         public Input<string> DomainName { get; set; } = null!;
@@ -173,7 +173,7 @@ namespace Pulumi.Aws.AppRunner
         public Input<string>? DnsTarget { get; set; }
 
         /// <summary>
-        /// The custom domain endpoint to association. Specify a base domain e.g. `example.com` or a subdomain e.g. `subdomain.example.com`.
+        /// The custom domain endpoint to association. Specify a base domain e.g., `example.com` or a subdomain e.g., `subdomain.example.com`.
         /// </summary>
         [Input("domainName")]
         public Input<string>? DomainName { get; set; }

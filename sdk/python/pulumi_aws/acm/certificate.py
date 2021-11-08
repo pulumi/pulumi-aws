@@ -193,7 +193,7 @@ class _CertificateState:
         :param pulumi.Input[str] certificate_chain: The certificate's PEM-formatted chain
                * Creating a private CA issued certificate
         :param pulumi.Input[str] domain_name: A domain name for which the certificate should be issued
-        :param pulumi.Input[Sequence[pulumi.Input['CertificateDomainValidationOptionArgs']]] domain_validation_options: Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g. if SANs are defined. Only set if `DNS`-validation was used.
+        :param pulumi.Input[Sequence[pulumi.Input['CertificateDomainValidationOptionArgs']]] domain_validation_options: Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined. Only set if `DNS`-validation was used.
         :param pulumi.Input['CertificateOptionsArgs'] options: Configuration block used to set certificate options. Detailed below.
                * Importing an existing certificate
         :param pulumi.Input[str] private_key: The certificate's PEM-formatted private key
@@ -298,7 +298,7 @@ class _CertificateState:
     @pulumi.getter(name="domainValidationOptions")
     def domain_validation_options(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CertificateDomainValidationOptionArgs']]]]:
         """
-        Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g. if SANs are defined. Only set if `DNS`-validation was used.
+        Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined. Only set if `DNS`-validation was used.
         """
         return pulumi.get(self, "domain_validation_options")
 
@@ -499,7 +499,7 @@ class Certificate(pulumi.CustomResource):
 
         ## Import
 
-        Certificates can be imported using their ARN, e.g.
+        Certificates can be imported using their ARN, e.g.,
 
         ```sh
          $ pulumi import aws:acm/certificate:Certificate cert arn:aws:acm:eu-central-1:123456789012:certificate/7e7a28d2-163f-4b8f-b9cd-822f96c08d6a
@@ -605,7 +605,7 @@ class Certificate(pulumi.CustomResource):
 
         ## Import
 
-        Certificates can be imported using their ARN, e.g.
+        Certificates can be imported using their ARN, e.g.,
 
         ```sh
          $ pulumi import aws:acm/certificate:Certificate cert arn:aws:acm:eu-central-1:123456789012:certificate/7e7a28d2-163f-4b8f-b9cd-822f96c08d6a
@@ -698,7 +698,7 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[str] certificate_chain: The certificate's PEM-formatted chain
                * Creating a private CA issued certificate
         :param pulumi.Input[str] domain_name: A domain name for which the certificate should be issued
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertificateDomainValidationOptionArgs']]]] domain_validation_options: Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g. if SANs are defined. Only set if `DNS`-validation was used.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['CertificateDomainValidationOptionArgs']]]] domain_validation_options: Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined. Only set if `DNS`-validation was used.
         :param pulumi.Input[pulumi.InputType['CertificateOptionsArgs']] options: Configuration block used to set certificate options. Detailed below.
                * Importing an existing certificate
         :param pulumi.Input[str] private_key: The certificate's PEM-formatted private key
@@ -774,7 +774,7 @@ class Certificate(pulumi.CustomResource):
     @pulumi.getter(name="domainValidationOptions")
     def domain_validation_options(self) -> pulumi.Output[Sequence['outputs.CertificateDomainValidationOption']]:
         """
-        Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g. if SANs are defined. Only set if `DNS`-validation was used.
+        Set of domain validation objects which can be used to complete certificate validation. Can have more than one element, e.g., if SANs are defined. Only set if `DNS`-validation was used.
         """
         return pulumi.get(self, "domain_validation_options")
 

@@ -148,7 +148,7 @@ class GeoMatchSetGeoMatchConstraint(dict):
         """
         :param str type: The type of geographical area you want AWS WAF to search for. Currently Country is the only valid value.
         :param str value: The country that you want AWS WAF to search for.
-               This is the two-letter country code, e.g. `US`, `CA`, `RU`, `CN`, etc.
+               This is the two-letter country code, e.g., `US`, `CA`, `RU`, `CN`, etc.
                See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchConstraint.html) for all supported values.
         """
         pulumi.set(__self__, "type", type)
@@ -167,7 +167,7 @@ class GeoMatchSetGeoMatchConstraint(dict):
     def value(self) -> str:
         """
         The country that you want AWS WAF to search for.
-        This is the two-letter country code, e.g. `US`, `CA`, `RU`, `CN`, etc.
+        This is the two-letter country code, e.g., `US`, `CA`, `RU`, `CN`, etc.
         See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchConstraint.html) for all supported values.
         """
         return pulumi.get(self, "value")
@@ -339,10 +339,10 @@ class RegexMatchSetRegexMatchTupleFieldToMatch(dict):
                  data: Optional[str] = None):
         """
         :param str type: The part of the web request that you want AWS WAF to search for a specified string.
-               e.g. `HEADER`, `METHOD` or `BODY`.
+               e.g., `HEADER`, `METHOD` or `BODY`.
                See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_FieldToMatch.html)
                for all supported values.
-        :param str data: When `type` is `HEADER`, enter the name of the header that you want to search, e.g. `User-Agent` or `Referer`.
+        :param str data: When `type` is `HEADER`, enter the name of the header that you want to search, e.g., `User-Agent` or `Referer`.
                If `type` is any other value, omit this field.
         """
         pulumi.set(__self__, "type", type)
@@ -354,7 +354,7 @@ class RegexMatchSetRegexMatchTupleFieldToMatch(dict):
     def type(self) -> str:
         """
         The part of the web request that you want AWS WAF to search for a specified string.
-        e.g. `HEADER`, `METHOD` or `BODY`.
+        e.g., `HEADER`, `METHOD` or `BODY`.
         See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_FieldToMatch.html)
         for all supported values.
         """
@@ -364,7 +364,7 @@ class RegexMatchSetRegexMatchTupleFieldToMatch(dict):
     @pulumi.getter
     def data(self) -> Optional[str]:
         """
-        When `type` is `HEADER`, enter the name of the header that you want to search, e.g. `User-Agent` or `Referer`.
+        When `type` is `HEADER`, enter the name of the header that you want to search, e.g., `User-Agent` or `Referer`.
         If `type` is any other value, omit this field.
         """
         return pulumi.get(self, "data")
@@ -530,14 +530,14 @@ class SizeConstraintSetSizeConstraint(dict):
                  text_transformation: str):
         """
         :param str comparison_operator: The type of comparison you want to perform.
-               e.g. `EQ`, `NE`, `LT`, `GT`.
+               e.g., `EQ`, `NE`, `LT`, `GT`.
                See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_wafRegional_SizeConstraint.html) for all supported values.
         :param 'SizeConstraintSetSizeConstraintFieldToMatchArgs' field_to_match: Specifies where in a web request to look for the size constraint.
         :param int size: The size in bytes that you want to compare against the size of the specified `field_to_match`.
                Valid values are between 0 - 21474836480 bytes (0 - 20 GB).
         :param str text_transformation: Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
                If you specify a transformation, AWS WAF performs the transformation on `field_to_match` before inspecting a request for a match.
-               e.g. `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
+               e.g., `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
                See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_SizeConstraint.html#WAF-Type-SizeConstraint-TextTransformation)
                for all supported values.
                **Note:** if you choose `BODY` as `type`, you must choose `NONE` because CloudFront forwards only the first 8192 bytes for inspection.
@@ -552,7 +552,7 @@ class SizeConstraintSetSizeConstraint(dict):
     def comparison_operator(self) -> str:
         """
         The type of comparison you want to perform.
-        e.g. `EQ`, `NE`, `LT`, `GT`.
+        e.g., `EQ`, `NE`, `LT`, `GT`.
         See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_wafRegional_SizeConstraint.html) for all supported values.
         """
         return pulumi.get(self, "comparison_operator")
@@ -580,7 +580,7 @@ class SizeConstraintSetSizeConstraint(dict):
         """
         Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
         If you specify a transformation, AWS WAF performs the transformation on `field_to_match` before inspecting a request for a match.
-        e.g. `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
+        e.g., `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
         See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_SizeConstraint.html#WAF-Type-SizeConstraint-TextTransformation)
         for all supported values.
         **Note:** if you choose `BODY` as `type`, you must choose `NONE` because CloudFront forwards only the first 8192 bytes for inspection.
@@ -595,10 +595,10 @@ class SizeConstraintSetSizeConstraintFieldToMatch(dict):
                  data: Optional[str] = None):
         """
         :param str type: The part of the web request that you want AWS WAF to search for a specified string.
-               e.g. `HEADER`, `METHOD` or `BODY`.
+               e.g., `HEADER`, `METHOD` or `BODY`.
                See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_FieldToMatch.html)
                for all supported values.
-        :param str data: When `type` is `HEADER`, enter the name of the header that you want to search, e.g. `User-Agent` or `Referer`.
+        :param str data: When `type` is `HEADER`, enter the name of the header that you want to search, e.g., `User-Agent` or `Referer`.
                If `type` is any other value, omit this field.
         """
         pulumi.set(__self__, "type", type)
@@ -610,7 +610,7 @@ class SizeConstraintSetSizeConstraintFieldToMatch(dict):
     def type(self) -> str:
         """
         The part of the web request that you want AWS WAF to search for a specified string.
-        e.g. `HEADER`, `METHOD` or `BODY`.
+        e.g., `HEADER`, `METHOD` or `BODY`.
         See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_FieldToMatch.html)
         for all supported values.
         """
@@ -620,7 +620,7 @@ class SizeConstraintSetSizeConstraintFieldToMatch(dict):
     @pulumi.getter
     def data(self) -> Optional[str]:
         """
-        When `type` is `HEADER`, enter the name of the header that you want to search, e.g. `User-Agent` or `Referer`.
+        When `type` is `HEADER`, enter the name of the header that you want to search, e.g., `User-Agent` or `Referer`.
         If `type` is any other value, omit this field.
         """
         return pulumi.get(self, "data")
@@ -654,7 +654,7 @@ class SqlInjectionMatchSetSqlInjectionMatchTuple(dict):
         :param 'SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatchArgs' field_to_match: Specifies where in a web request to look for snippets of malicious SQL code.
         :param str text_transformation: Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
                If you specify a transformation, AWS WAF performs the transformation on `field_to_match` before inspecting a request for a match.
-               e.g. `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
+               e.g., `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
                See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_regional_SqlInjectionMatchTuple.html#WAF-Type-regional_SqlInjectionMatchTuple-TextTransformation)
                for all supported values.
         """
@@ -675,7 +675,7 @@ class SqlInjectionMatchSetSqlInjectionMatchTuple(dict):
         """
         Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
         If you specify a transformation, AWS WAF performs the transformation on `field_to_match` before inspecting a request for a match.
-        e.g. `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
+        e.g., `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
         See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_regional_SqlInjectionMatchTuple.html#WAF-Type-regional_SqlInjectionMatchTuple-TextTransformation)
         for all supported values.
         """
@@ -689,10 +689,10 @@ class SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatch(dict):
                  data: Optional[str] = None):
         """
         :param str type: The part of the web request that you want AWS WAF to search for a specified string.
-               e.g. `HEADER`, `METHOD` or `BODY`.
+               e.g., `HEADER`, `METHOD` or `BODY`.
                See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_regional_FieldToMatch.html)
                for all supported values.
-        :param str data: When `type` is `HEADER`, enter the name of the header that you want to search, e.g. `User-Agent` or `Referer`.
+        :param str data: When `type` is `HEADER`, enter the name of the header that you want to search, e.g., `User-Agent` or `Referer`.
                If `type` is any other value, omit this field.
         """
         pulumi.set(__self__, "type", type)
@@ -704,7 +704,7 @@ class SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatch(dict):
     def type(self) -> str:
         """
         The part of the web request that you want AWS WAF to search for a specified string.
-        e.g. `HEADER`, `METHOD` or `BODY`.
+        e.g., `HEADER`, `METHOD` or `BODY`.
         See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_regional_FieldToMatch.html)
         for all supported values.
         """
@@ -714,7 +714,7 @@ class SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatch(dict):
     @pulumi.getter
     def data(self) -> Optional[str]:
         """
-        When `type` is `HEADER`, enter the name of the header that you want to search, e.g. `User-Agent` or `Referer`.
+        When `type` is `HEADER`, enter the name of the header that you want to search, e.g., `User-Agent` or `Referer`.
         If `type` is any other value, omit this field.
         """
         return pulumi.get(self, "data")
@@ -725,7 +725,7 @@ class WebAclDefaultAction(dict):
     def __init__(__self__, *,
                  type: str):
         """
-        :param str type: Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. e.g. `ALLOW`, `BLOCK` or `COUNT`
+        :param str type: Specifies how you want AWS WAF Regional to respond to requests that match the settings in a ruleE.g., `ALLOW`, `BLOCK` or `COUNT`
         """
         pulumi.set(__self__, "type", type)
 
@@ -733,7 +733,7 @@ class WebAclDefaultAction(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. e.g. `ALLOW`, `BLOCK` or `COUNT`
+        Specifies how you want AWS WAF Regional to respond to requests that match the settings in a ruleE.g., `ALLOW`, `BLOCK` or `COUNT`
         """
         return pulumi.get(self, "type")
 
@@ -828,7 +828,7 @@ class WebAclLoggingConfigurationRedactedFieldsFieldToMatch(dict):
                  type: str,
                  data: Optional[str] = None):
         """
-        :param str type: Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. e.g. `ALLOW`, `BLOCK` or `COUNT`
+        :param str type: Specifies how you want AWS WAF Regional to respond to requests that match the settings in a ruleE.g., `ALLOW`, `BLOCK` or `COUNT`
         :param str data: When the value of `type` is `HEADER`, enter the name of the header that you want the WAF to search, for example, `User-Agent` or `Referer`. If the value of `type` is any other value, omit `data`.
         """
         pulumi.set(__self__, "type", type)
@@ -839,7 +839,7 @@ class WebAclLoggingConfigurationRedactedFieldsFieldToMatch(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. e.g. `ALLOW`, `BLOCK` or `COUNT`
+        Specifies how you want AWS WAF Regional to respond to requests that match the settings in a ruleE.g., `ALLOW`, `BLOCK` or `COUNT`
         """
         return pulumi.get(self, "type")
 
@@ -885,7 +885,7 @@ class WebAclRule(dict):
         :param str rule_id: ID of the associated WAF (Regional) rule (e.g. `wafregional.Rule`). WAF (Global) rules cannot be used.
         :param 'WebAclRuleActionArgs' action: Configuration block of the action that CloudFront or AWS WAF takes when a web request matches the conditions in the rule.  Not used if `type` is `GROUP`. Detailed below.
         :param 'WebAclRuleOverrideActionArgs' override_action: Configuration block of the override the action that a group requests CloudFront or AWS WAF takes when a web request matches the conditions in the rule.  Only used if `type` is `GROUP`. Detailed below.
-        :param str type: Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. e.g. `ALLOW`, `BLOCK` or `COUNT`
+        :param str type: Specifies how you want AWS WAF Regional to respond to requests that match the settings in a ruleE.g., `ALLOW`, `BLOCK` or `COUNT`
         """
         pulumi.set(__self__, "priority", priority)
         pulumi.set(__self__, "rule_id", rule_id)
@@ -933,7 +933,7 @@ class WebAclRule(dict):
     @pulumi.getter
     def type(self) -> Optional[str]:
         """
-        Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. e.g. `ALLOW`, `BLOCK` or `COUNT`
+        Specifies how you want AWS WAF Regional to respond to requests that match the settings in a ruleE.g., `ALLOW`, `BLOCK` or `COUNT`
         """
         return pulumi.get(self, "type")
 
@@ -943,7 +943,7 @@ class WebAclRuleAction(dict):
     def __init__(__self__, *,
                  type: str):
         """
-        :param str type: Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. e.g. `ALLOW`, `BLOCK` or `COUNT`
+        :param str type: Specifies how you want AWS WAF Regional to respond to requests that match the settings in a ruleE.g., `ALLOW`, `BLOCK` or `COUNT`
         """
         pulumi.set(__self__, "type", type)
 
@@ -951,7 +951,7 @@ class WebAclRuleAction(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. e.g. `ALLOW`, `BLOCK` or `COUNT`
+        Specifies how you want AWS WAF Regional to respond to requests that match the settings in a ruleE.g., `ALLOW`, `BLOCK` or `COUNT`
         """
         return pulumi.get(self, "type")
 
@@ -961,7 +961,7 @@ class WebAclRuleOverrideAction(dict):
     def __init__(__self__, *,
                  type: str):
         """
-        :param str type: Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. e.g. `ALLOW`, `BLOCK` or `COUNT`
+        :param str type: Specifies how you want AWS WAF Regional to respond to requests that match the settings in a ruleE.g., `ALLOW`, `BLOCK` or `COUNT`
         """
         pulumi.set(__self__, "type", type)
 
@@ -969,7 +969,7 @@ class WebAclRuleOverrideAction(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. e.g. `ALLOW`, `BLOCK` or `COUNT`
+        Specifies how you want AWS WAF Regional to respond to requests that match the settings in a ruleE.g., `ALLOW`, `BLOCK` or `COUNT`
         """
         return pulumi.get(self, "type")
 
@@ -1028,7 +1028,7 @@ class XssMatchSetXssMatchTupleFieldToMatch(dict):
                  type: str,
                  data: Optional[str] = None):
         """
-        :param str type: The part of the web request that you want AWS WAF to search for a specified string. e.g. `HEADER` or `METHOD`
+        :param str type: The part of the web request that you want AWS WAF to search for a specified stringE.g., `HEADER` or `METHOD`
         :param str data: When the value of `type` is `HEADER`, enter the name of the header that you want the WAF to search, for example, `User-Agent` or `Referer`. If the value of `type` is any other value, omit `data`.
         """
         pulumi.set(__self__, "type", type)
@@ -1039,7 +1039,7 @@ class XssMatchSetXssMatchTupleFieldToMatch(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        The part of the web request that you want AWS WAF to search for a specified string. e.g. `HEADER` or `METHOD`
+        The part of the web request that you want AWS WAF to search for a specified stringE.g., `HEADER` or `METHOD`
         """
         return pulumi.get(self, "type")
 

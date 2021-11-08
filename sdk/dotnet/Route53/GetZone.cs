@@ -225,11 +225,11 @@ namespace Pulumi.Aws.Route53
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The description provided by the service that created the Hosted Zone (e.g. `arn:aws:servicediscovery:us-east-1:1234567890:namespace/ns-xxxxxxxxxxxxxxxx`).
+        /// The description provided by the service that created the Hosted Zone (e.g., `arn:aws:servicediscovery:us-east-1:1234567890:namespace/ns-xxxxxxxxxxxxxxxx`).
         /// </summary>
         public readonly string LinkedServiceDescription;
         /// <summary>
-        /// The service that created the Hosted Zone (e.g. `servicediscovery.amazonaws.com`).
+        /// The service that created the Hosted Zone (e.g., `servicediscovery.amazonaws.com`).
         /// </summary>
         public readonly string LinkedServicePrincipal;
         public readonly string Name;

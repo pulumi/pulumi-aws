@@ -410,7 +410,7 @@ namespace Pulumi.Aws.Kinesis
     /// 
     /// }
     /// ```
-    /// ### HTTP Endpoint (e.g. New Relic) Destination
+    /// ### HTTP Endpoint (e.g., New Relic) Destination
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -466,7 +466,7 @@ namespace Pulumi.Aws.Kinesis
     /// 
     /// ## Import
     /// 
-    /// Kinesis Firehose Delivery streams can be imported using the stream ARN, e.g.
+    /// Kinesis Firehose Delivery streams can be imported using the stream ARN, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:kinesis/firehoseDeliveryStream:FirehoseDeliveryStream foo arn:aws:firehose:us-east-1:XXX:deliverystream/example
@@ -554,6 +554,9 @@ namespace Pulumi.Aws.Kinesis
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -788,6 +791,10 @@ namespace Pulumi.Aws.Kinesis
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

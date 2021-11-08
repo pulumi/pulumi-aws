@@ -105,7 +105,7 @@ namespace Pulumi.Aws.WafV2
     /// 
     /// ## Import
     /// 
-    /// WAFv2 Web ACL Association can be imported using `WEB_ACL_ARN,RESOURCE_ARN` e.g.
+    /// WAFv2 Web ACL Association can be imported using `WEB_ACL_ARN,RESOURCE_ARN` e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:wafv2/webAclAssociation:WebAclAssociation example arn:aws:wafv2:...7ce849ea,arn:aws:apigateway:...ages/name

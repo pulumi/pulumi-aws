@@ -193,7 +193,7 @@ import (
 //
 // ## Import
 //
-// `aws_api_gateway_rest_api` can be imported by using the REST API ID, e.g.
+// `aws_api_gateway_rest_api` can be imported by using the REST API ID, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:apigateway/restApi:RestApi example 12345abcde
@@ -219,7 +219,7 @@ type RestApi struct {
 	EndpointConfiguration RestApiEndpointConfigurationOutput `pulumi:"endpointConfiguration"`
 	// The execution ARN part to be used in `lambdaPermission`'s `sourceArn`
 	// when allowing API Gateway to invoke a Lambda function,
-	// e.g. `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j`, which can be concatenated with allowed stage, method and resource path.
+	// e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j`, which can be concatenated with allowed stage, method and resource path.
 	ExecutionArn pulumi.StringOutput `pulumi:"executionArn"`
 	// Minimum response size to compress for the REST API. Integer between `-1` and `10485760` (10MB). Setting a value greater than `-1` will enable compression, `-1` disables compression (default). If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-minimum-compression-size` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-openapi-minimum-compression-size.html). If the argument value (_except_ `-1`) is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
 	MinimumCompressionSize pulumi.IntPtrOutput `pulumi:"minimumCompressionSize"`
@@ -284,7 +284,7 @@ type restApiState struct {
 	EndpointConfiguration *RestApiEndpointConfiguration `pulumi:"endpointConfiguration"`
 	// The execution ARN part to be used in `lambdaPermission`'s `sourceArn`
 	// when allowing API Gateway to invoke a Lambda function,
-	// e.g. `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j`, which can be concatenated with allowed stage, method and resource path.
+	// e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j`, which can be concatenated with allowed stage, method and resource path.
 	ExecutionArn *string `pulumi:"executionArn"`
 	// Minimum response size to compress for the REST API. Integer between `-1` and `10485760` (10MB). Setting a value greater than `-1` will enable compression, `-1` disables compression (default). If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-minimum-compression-size` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-openapi-minimum-compression-size.html). If the argument value (_except_ `-1`) is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
 	MinimumCompressionSize *int `pulumi:"minimumCompressionSize"`
@@ -321,7 +321,7 @@ type RestApiState struct {
 	EndpointConfiguration RestApiEndpointConfigurationPtrInput
 	// The execution ARN part to be used in `lambdaPermission`'s `sourceArn`
 	// when allowing API Gateway to invoke a Lambda function,
-	// e.g. `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j`, which can be concatenated with allowed stage, method and resource path.
+	// e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j`, which can be concatenated with allowed stage, method and resource path.
 	ExecutionArn pulumi.StringPtrInput
 	// Minimum response size to compress for the REST API. Integer between `-1` and `10485760` (10MB). Setting a value greater than `-1` will enable compression, `-1` disables compression (default). If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-minimum-compression-size` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-openapi-minimum-compression-size.html). If the argument value (_except_ `-1`) is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
 	MinimumCompressionSize pulumi.IntPtrInput

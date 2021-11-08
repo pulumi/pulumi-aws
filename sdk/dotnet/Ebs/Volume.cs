@@ -40,7 +40,7 @@ namespace Pulumi.Aws.Ebs
     /// 
     /// ## Import
     /// 
-    /// EBS Volumes can be imported using the `id`, e.g.
+    /// EBS Volumes can be imported using the `id`, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:ebs/volume:Volume id vol-049df61146c4d7901
@@ -50,7 +50,7 @@ namespace Pulumi.Aws.Ebs
     public partial class Volume : Pulumi.CustomResource
     {
         /// <summary>
-        /// The volume ARN (e.g. arn:aws:ec2:us-east-1:0123456789012:volume/vol-59fcb34e).
+        /// The volume ARN (e.g., arn:aws:ec2:us-east-1:0123456789012:volume/vol-59fcb34e).
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -103,6 +103,9 @@ namespace Pulumi.Aws.Ebs
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -237,7 +240,7 @@ namespace Pulumi.Aws.Ebs
     public sealed class VolumeState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The volume ARN (e.g. arn:aws:ec2:us-east-1:0123456789012:volume/vol-59fcb34e).
+        /// The volume ARN (e.g., arn:aws:ec2:us-east-1:0123456789012:volume/vol-59fcb34e).
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -297,6 +300,10 @@ namespace Pulumi.Aws.Ebs
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

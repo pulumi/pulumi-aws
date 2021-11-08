@@ -99,7 +99,7 @@ namespace Pulumi.Aws.Cfg
     /// 
     /// ## Import
     /// 
-    /// Configuration Recorder Status can be imported using the name of the Configuration Recorder, e.g.
+    /// Configuration Recorder Status can be imported using the name of the Configuration Recorder, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:cfg/recorderStatus:RecorderStatus foo example

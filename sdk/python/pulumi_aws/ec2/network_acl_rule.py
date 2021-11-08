@@ -33,8 +33,8 @@ class NetworkAclRuleArgs:
         :param pulumi.Input[str] cidr_block: The network range to allow or deny, in CIDR notation (for example 172.16.0.0/24 ).
         :param pulumi.Input[bool] egress: Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet). Default `false`.
         :param pulumi.Input[int] from_port: The from port to match.
-        :param pulumi.Input[str] icmp_code: ICMP protocol: The ICMP code. Required if specifying ICMP for the protocol. e.g. -1
-        :param pulumi.Input[str] icmp_type: ICMP protocol: The ICMP type. Required if specifying ICMP for the protocol. e.g. -1
+        :param pulumi.Input[str] icmp_code: ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1
+        :param pulumi.Input[str] icmp_type: ICMP protocol: The ICMP type. Required if specifying ICMP for the protocolE.g., -1
         :param pulumi.Input[str] ipv6_cidr_block: The IPv6 CIDR block to allow or deny.
         :param pulumi.Input[int] to_port: The to port to match.
         """
@@ -145,7 +145,7 @@ class NetworkAclRuleArgs:
     @pulumi.getter(name="icmpCode")
     def icmp_code(self) -> Optional[pulumi.Input[str]]:
         """
-        ICMP protocol: The ICMP code. Required if specifying ICMP for the protocol. e.g. -1
+        ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1
         """
         return pulumi.get(self, "icmp_code")
 
@@ -157,7 +157,7 @@ class NetworkAclRuleArgs:
     @pulumi.getter(name="icmpType")
     def icmp_type(self) -> Optional[pulumi.Input[str]]:
         """
-        ICMP protocol: The ICMP type. Required if specifying ICMP for the protocol. e.g. -1
+        ICMP protocol: The ICMP type. Required if specifying ICMP for the protocolE.g., -1
         """
         return pulumi.get(self, "icmp_type")
 
@@ -209,8 +209,8 @@ class _NetworkAclRuleState:
         :param pulumi.Input[str] cidr_block: The network range to allow or deny, in CIDR notation (for example 172.16.0.0/24 ).
         :param pulumi.Input[bool] egress: Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet). Default `false`.
         :param pulumi.Input[int] from_port: The from port to match.
-        :param pulumi.Input[str] icmp_code: ICMP protocol: The ICMP code. Required if specifying ICMP for the protocol. e.g. -1
-        :param pulumi.Input[str] icmp_type: ICMP protocol: The ICMP type. Required if specifying ICMP for the protocol. e.g. -1
+        :param pulumi.Input[str] icmp_code: ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1
+        :param pulumi.Input[str] icmp_type: ICMP protocol: The ICMP type. Required if specifying ICMP for the protocolE.g., -1
         :param pulumi.Input[str] ipv6_cidr_block: The IPv6 CIDR block to allow or deny.
         :param pulumi.Input[str] network_acl_id: The ID of the network ACL.
         :param pulumi.Input[str] protocol: The protocol. A value of -1 means all protocols.
@@ -281,7 +281,7 @@ class _NetworkAclRuleState:
     @pulumi.getter(name="icmpCode")
     def icmp_code(self) -> Optional[pulumi.Input[str]]:
         """
-        ICMP protocol: The ICMP code. Required if specifying ICMP for the protocol. e.g. -1
+        ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1
         """
         return pulumi.get(self, "icmp_code")
 
@@ -293,7 +293,7 @@ class _NetworkAclRuleState:
     @pulumi.getter(name="icmpType")
     def icmp_type(self) -> Optional[pulumi.Input[str]]:
         """
-        ICMP protocol: The ICMP type. Required if specifying ICMP for the protocol. e.g. -1
+        ICMP protocol: The ICMP type. Required if specifying ICMP for the protocolE.g., -1
         """
         return pulumi.get(self, "icmp_type")
 
@@ -439,8 +439,8 @@ class NetworkAclRule(pulumi.CustomResource):
         :param pulumi.Input[str] cidr_block: The network range to allow or deny, in CIDR notation (for example 172.16.0.0/24 ).
         :param pulumi.Input[bool] egress: Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet). Default `false`.
         :param pulumi.Input[int] from_port: The from port to match.
-        :param pulumi.Input[str] icmp_code: ICMP protocol: The ICMP code. Required if specifying ICMP for the protocol. e.g. -1
-        :param pulumi.Input[str] icmp_type: ICMP protocol: The ICMP type. Required if specifying ICMP for the protocol. e.g. -1
+        :param pulumi.Input[str] icmp_code: ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1
+        :param pulumi.Input[str] icmp_type: ICMP protocol: The ICMP type. Required if specifying ICMP for the protocolE.g., -1
         :param pulumi.Input[str] ipv6_cidr_block: The IPv6 CIDR block to allow or deny.
         :param pulumi.Input[str] network_acl_id: The ID of the network ACL.
         :param pulumi.Input[str] protocol: The protocol. A value of -1 means all protocols.
@@ -585,8 +585,8 @@ class NetworkAclRule(pulumi.CustomResource):
         :param pulumi.Input[str] cidr_block: The network range to allow or deny, in CIDR notation (for example 172.16.0.0/24 ).
         :param pulumi.Input[bool] egress: Indicates whether this is an egress rule (rule is applied to traffic leaving the subnet). Default `false`.
         :param pulumi.Input[int] from_port: The from port to match.
-        :param pulumi.Input[str] icmp_code: ICMP protocol: The ICMP code. Required if specifying ICMP for the protocol. e.g. -1
-        :param pulumi.Input[str] icmp_type: ICMP protocol: The ICMP type. Required if specifying ICMP for the protocol. e.g. -1
+        :param pulumi.Input[str] icmp_code: ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1
+        :param pulumi.Input[str] icmp_type: ICMP protocol: The ICMP type. Required if specifying ICMP for the protocolE.g., -1
         :param pulumi.Input[str] ipv6_cidr_block: The IPv6 CIDR block to allow or deny.
         :param pulumi.Input[str] network_acl_id: The ID of the network ACL.
         :param pulumi.Input[str] protocol: The protocol. A value of -1 means all protocols.
@@ -639,7 +639,7 @@ class NetworkAclRule(pulumi.CustomResource):
     @pulumi.getter(name="icmpCode")
     def icmp_code(self) -> pulumi.Output[Optional[str]]:
         """
-        ICMP protocol: The ICMP code. Required if specifying ICMP for the protocol. e.g. -1
+        ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1
         """
         return pulumi.get(self, "icmp_code")
 
@@ -647,7 +647,7 @@ class NetworkAclRule(pulumi.CustomResource):
     @pulumi.getter(name="icmpType")
     def icmp_type(self) -> pulumi.Output[Optional[str]]:
         """
-        ICMP protocol: The ICMP type. Required if specifying ICMP for the protocol. e.g. -1
+        ICMP protocol: The ICMP type. Required if specifying ICMP for the protocolE.g., -1
         """
         return pulumi.get(self, "icmp_type")
 

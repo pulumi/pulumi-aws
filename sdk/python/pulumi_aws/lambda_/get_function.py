@@ -391,7 +391,7 @@ def get_function(function_name: Optional[str] = None,
 
 
     :param str function_name: Name of the lambda function.
-    :param str qualifier: Alias name or version number of the lambda function. e.g. `$LATEST`, `my-alias`, or `1`
+    :param str qualifier: Alias name or version number of the lambda functionE.g., `$LATEST`, `my-alias`, or `1`
     """
     __args__ = dict()
     __args__['functionName'] = function_name
@@ -456,6 +456,6 @@ def get_function_output(function_name: Optional[pulumi.Input[str]] = None,
 
 
     :param str function_name: Name of the lambda function.
-    :param str qualifier: Alias name or version number of the lambda function. e.g. `$LATEST`, `my-alias`, or `1`
+    :param str qualifier: Alias name or version number of the lambda functionE.g., `$LATEST`, `my-alias`, or `1`
     """
     ...

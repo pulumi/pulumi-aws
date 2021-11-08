@@ -1266,7 +1266,7 @@ class Cluster(pulumi.CustomResource):
 
         ## Import
 
-        Redshift Clusters can be imported using the `cluster_identifier`, e.g.
+        Redshift Clusters can be imported using the `cluster_identifier`, e.g.,
 
         ```sh
          $ pulumi import aws:redshift/cluster:Cluster myprodcluster tf-redshift-cluster-12345
@@ -1342,7 +1342,7 @@ class Cluster(pulumi.CustomResource):
 
         ## Import
 
-        Redshift Clusters can be imported using the `cluster_identifier`, e.g.
+        Redshift Clusters can be imported using the `cluster_identifier`, e.g.,
 
         ```sh
          $ pulumi import aws:redshift/cluster:Cluster myprodcluster tf-redshift-cluster-12345

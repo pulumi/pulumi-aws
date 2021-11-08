@@ -390,7 +390,7 @@ class IdentityProviderConfigOidc(dict):
         :param str identity_provider_config_name: The name of the identity provider config.
         :param str issuer_url: Issuer URL for the OpenID Connect identity provider.
         :param str groups_claim: The JWT claim that the provider will use to return groups.
-        :param str groups_prefix: A prefix that is prepended to group claims e.g. `oidc:`.
+        :param str groups_prefix: A prefix that is prepended to group claims e.g., `oidc:`.
         :param Mapping[str, str] required_claims: The key value pairs that describe required claims in the identity token.
         :param str username_claim: The JWT claim that the provider will use as the username.
         :param str username_prefix: A prefix that is prepended to username claims.
@@ -445,7 +445,7 @@ class IdentityProviderConfigOidc(dict):
     @pulumi.getter(name="groupsPrefix")
     def groups_prefix(self) -> Optional[str]:
         """
-        A prefix that is prepended to group claims e.g. `oidc:`.
+        A prefix that is prepended to group claims e.g., `oidc:`.
         """
         return pulumi.get(self, "groups_prefix")
 

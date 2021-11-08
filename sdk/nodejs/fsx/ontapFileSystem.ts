@@ -29,13 +29,13 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * FSx File Systems can be imported using the `id`, e.g.
+ * FSx File Systems can be imported using the `id`, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:fsx/ontapFileSystem:OntapFileSystem example fs-543ab12b1ca672f33
  * ```
  *
- *  Certain resource arguments, like `security_group_ids`, do not have a FSx API method for reading the information after creation. If the argument is set in the Terraform configuration on an imported resource, Terraform will always show a difference. To workaround this behavior, either omit the argument from the Terraform configuration or use [`ignore_changes`](https://www.terraform.io/docs/configuration/meta-arguments/lifecycle.html#ignore_changes) to hide the difference, e.g. terraform resource "aws_fsx_ontap_file_system" "example" {
+ *  Certain resource arguments, like `security_group_ids`, do not have a FSx API method for reading the information after creation. If the argument is set in the Terraform configuration on an imported resource, Terraform will always show a difference. To workaround this behavior, either omit the argument from the Terraform configuration or use [`ignore_changes`](https://www.terraform.io/docs/configuration/meta-arguments/lifecycle.html#ignore_changes) to hide the difference, e.g., terraform resource "aws_fsx_ontap_file_system" "example" {
  *
  * # ... other configuration ...
  *
@@ -156,7 +156,7 @@ export class OntapFileSystem extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     public readonly throughputCapacity!: pulumi.Output<number>;
     /**
      * Identifier of the Virtual Private Cloud for the file system.
@@ -231,7 +231,6 @@ export class OntapFileSystem extends pulumi.CustomResource {
             inputs["storageType"] = args ? args.storageType : undefined;
             inputs["subnetIds"] = args ? args.subnetIds : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["throughputCapacity"] = args ? args.throughputCapacity : undefined;
             inputs["weeklyMaintenanceStartTime"] = args ? args.weeklyMaintenanceStartTime : undefined;
             inputs["arn"] = undefined /*out*/;
@@ -239,6 +238,7 @@ export class OntapFileSystem extends pulumi.CustomResource {
             inputs["endpoints"] = undefined /*out*/;
             inputs["networkInterfaceIds"] = undefined /*out*/;
             inputs["ownerId"] = undefined /*out*/;
+            inputs["tagsAll"] = undefined /*out*/;
             inputs["vpcId"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -403,10 +403,6 @@ export interface OntapFileSystemArgs {
      * A map of tags to assign to the file system. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     throughputCapacity: pulumi.Input<number>;
     /**
      * The preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.

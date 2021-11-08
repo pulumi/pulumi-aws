@@ -47,7 +47,7 @@ import (
 //
 // ## Import
 //
-// WAF Regional Byte Match Set can be imported using the id, e.g.
+// WAF Regional Byte Match Set can be imported using the id, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:wafregional/byteMatchSet:ByteMatchSet byte_set a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc

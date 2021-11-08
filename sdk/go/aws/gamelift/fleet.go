@@ -60,7 +60,7 @@ type Fleet struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Range of IP addresses and port settings that permit inbound traffic to access server processes running on the fleet. See below.
 	Ec2InboundPermissions FleetEc2InboundPermissionArrayOutput `pulumi:"ec2InboundPermissions"`
-	// Name of an EC2 instance type. e.g. `t2.micro`
+	// Name of an EC2 instance typeE.g., `t2.micro`
 	Ec2InstanceType pulumi.StringOutput `pulumi:"ec2InstanceType"`
 	// Type of fleet. This value must be `ON_DEMAND` or `SPOT`. Defaults to `ON_DEMAND`.
 	FleetType pulumi.StringPtrOutput `pulumi:"fleetType"`
@@ -71,7 +71,7 @@ type Fleet struct {
 	MetricGroups pulumi.StringArrayOutput `pulumi:"metricGroups"`
 	// The name of the fleet.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Game session protection policy to apply to all instances in this fleet. e.g. `FullProtection`. Defaults to `NoProtection`.
+	// Game session protection policy to apply to all instances in this fleetE.g., `FullProtection`. Defaults to `NoProtection`.
 	NewGameSessionProtectionPolicy pulumi.StringPtrOutput `pulumi:"newGameSessionProtectionPolicy"`
 	// Operating system of the fleet's computing resources.
 	OperatingSystem pulumi.StringOutput `pulumi:"operatingSystem"`
@@ -128,7 +128,7 @@ type fleetState struct {
 	Description *string `pulumi:"description"`
 	// Range of IP addresses and port settings that permit inbound traffic to access server processes running on the fleet. See below.
 	Ec2InboundPermissions []FleetEc2InboundPermission `pulumi:"ec2InboundPermissions"`
-	// Name of an EC2 instance type. e.g. `t2.micro`
+	// Name of an EC2 instance typeE.g., `t2.micro`
 	Ec2InstanceType *string `pulumi:"ec2InstanceType"`
 	// Type of fleet. This value must be `ON_DEMAND` or `SPOT`. Defaults to `ON_DEMAND`.
 	FleetType *string `pulumi:"fleetType"`
@@ -139,7 +139,7 @@ type fleetState struct {
 	MetricGroups []string `pulumi:"metricGroups"`
 	// The name of the fleet.
 	Name *string `pulumi:"name"`
-	// Game session protection policy to apply to all instances in this fleet. e.g. `FullProtection`. Defaults to `NoProtection`.
+	// Game session protection policy to apply to all instances in this fleetE.g., `FullProtection`. Defaults to `NoProtection`.
 	NewGameSessionProtectionPolicy *string `pulumi:"newGameSessionProtectionPolicy"`
 	// Operating system of the fleet's computing resources.
 	OperatingSystem *string `pulumi:"operatingSystem"`
@@ -162,7 +162,7 @@ type FleetState struct {
 	Description pulumi.StringPtrInput
 	// Range of IP addresses and port settings that permit inbound traffic to access server processes running on the fleet. See below.
 	Ec2InboundPermissions FleetEc2InboundPermissionArrayInput
-	// Name of an EC2 instance type. e.g. `t2.micro`
+	// Name of an EC2 instance typeE.g., `t2.micro`
 	Ec2InstanceType pulumi.StringPtrInput
 	// Type of fleet. This value must be `ON_DEMAND` or `SPOT`. Defaults to `ON_DEMAND`.
 	FleetType pulumi.StringPtrInput
@@ -173,7 +173,7 @@ type FleetState struct {
 	MetricGroups pulumi.StringArrayInput
 	// The name of the fleet.
 	Name pulumi.StringPtrInput
-	// Game session protection policy to apply to all instances in this fleet. e.g. `FullProtection`. Defaults to `NoProtection`.
+	// Game session protection policy to apply to all instances in this fleetE.g., `FullProtection`. Defaults to `NoProtection`.
 	NewGameSessionProtectionPolicy pulumi.StringPtrInput
 	// Operating system of the fleet's computing resources.
 	OperatingSystem pulumi.StringPtrInput
@@ -198,7 +198,7 @@ type fleetArgs struct {
 	Description *string `pulumi:"description"`
 	// Range of IP addresses and port settings that permit inbound traffic to access server processes running on the fleet. See below.
 	Ec2InboundPermissions []FleetEc2InboundPermission `pulumi:"ec2InboundPermissions"`
-	// Name of an EC2 instance type. e.g. `t2.micro`
+	// Name of an EC2 instance typeE.g., `t2.micro`
 	Ec2InstanceType string `pulumi:"ec2InstanceType"`
 	// Type of fleet. This value must be `ON_DEMAND` or `SPOT`. Defaults to `ON_DEMAND`.
 	FleetType *string `pulumi:"fleetType"`
@@ -208,7 +208,7 @@ type fleetArgs struct {
 	MetricGroups []string `pulumi:"metricGroups"`
 	// The name of the fleet.
 	Name *string `pulumi:"name"`
-	// Game session protection policy to apply to all instances in this fleet. e.g. `FullProtection`. Defaults to `NoProtection`.
+	// Game session protection policy to apply to all instances in this fleetE.g., `FullProtection`. Defaults to `NoProtection`.
 	NewGameSessionProtectionPolicy *string `pulumi:"newGameSessionProtectionPolicy"`
 	// Policy that limits the number of game sessions an individual player can create over a span of time for this fleet. See below.
 	ResourceCreationLimitPolicy *FleetResourceCreationLimitPolicy `pulumi:"resourceCreationLimitPolicy"`
@@ -226,7 +226,7 @@ type FleetArgs struct {
 	Description pulumi.StringPtrInput
 	// Range of IP addresses and port settings that permit inbound traffic to access server processes running on the fleet. See below.
 	Ec2InboundPermissions FleetEc2InboundPermissionArrayInput
-	// Name of an EC2 instance type. e.g. `t2.micro`
+	// Name of an EC2 instance typeE.g., `t2.micro`
 	Ec2InstanceType pulumi.StringInput
 	// Type of fleet. This value must be `ON_DEMAND` or `SPOT`. Defaults to `ON_DEMAND`.
 	FleetType pulumi.StringPtrInput
@@ -236,7 +236,7 @@ type FleetArgs struct {
 	MetricGroups pulumi.StringArrayInput
 	// The name of the fleet.
 	Name pulumi.StringPtrInput
-	// Game session protection policy to apply to all instances in this fleet. e.g. `FullProtection`. Defaults to `NoProtection`.
+	// Game session protection policy to apply to all instances in this fleetE.g., `FullProtection`. Defaults to `NoProtection`.
 	NewGameSessionProtectionPolicy pulumi.StringPtrInput
 	// Policy that limits the number of game sessions an individual player can create over a span of time for this fleet. See below.
 	ResourceCreationLimitPolicy FleetResourceCreationLimitPolicyPtrInput

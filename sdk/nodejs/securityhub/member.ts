@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Security Hub members can be imported using their account ID, e.g.
+ * Security Hub members can be imported using their account ID, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:securityhub/member:Member example 123456789012

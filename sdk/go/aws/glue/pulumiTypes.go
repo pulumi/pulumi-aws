@@ -3472,6 +3472,10 @@ func (o CrawlerRecrawlPolicyPtrOutput) RecrawlBehavior() pulumi.StringPtrOutput 
 type CrawlerS3Target struct {
 	// The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
 	ConnectionName *string `pulumi:"connectionName"`
+	// The ARN of the dead-letter SQS queue.
+	DlqEventQueueArn *string `pulumi:"dlqEventQueueArn"`
+	// The ARN of the SQS queue to receive S3 notifications from.
+	EventQueueArn *string `pulumi:"eventQueueArn"`
 	// A list of glob patterns used to exclude from the crawl.
 	Exclusions []string `pulumi:"exclusions"`
 	// The path of the Amazon DocumentDB or MongoDB target (database/collection).
@@ -3494,6 +3498,10 @@ type CrawlerS3TargetInput interface {
 type CrawlerS3TargetArgs struct {
 	// The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
 	ConnectionName pulumi.StringPtrInput `pulumi:"connectionName"`
+	// The ARN of the dead-letter SQS queue.
+	DlqEventQueueArn pulumi.StringPtrInput `pulumi:"dlqEventQueueArn"`
+	// The ARN of the SQS queue to receive S3 notifications from.
+	EventQueueArn pulumi.StringPtrInput `pulumi:"eventQueueArn"`
 	// A list of glob patterns used to exclude from the crawl.
 	Exclusions pulumi.StringArrayInput `pulumi:"exclusions"`
 	// The path of the Amazon DocumentDB or MongoDB target (database/collection).
@@ -3556,6 +3564,16 @@ func (o CrawlerS3TargetOutput) ToCrawlerS3TargetOutputWithContext(ctx context.Co
 // The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
 func (o CrawlerS3TargetOutput) ConnectionName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CrawlerS3Target) *string { return v.ConnectionName }).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the dead-letter SQS queue.
+func (o CrawlerS3TargetOutput) DlqEventQueueArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CrawlerS3Target) *string { return v.DlqEventQueueArn }).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the SQS queue to receive S3 notifications from.
+func (o CrawlerS3TargetOutput) EventQueueArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CrawlerS3Target) *string { return v.EventQueueArn }).(pulumi.StringPtrOutput)
 }
 
 // A list of glob patterns used to exclude from the crawl.

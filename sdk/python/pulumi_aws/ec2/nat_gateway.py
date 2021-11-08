@@ -258,7 +258,7 @@ class NatGateway(pulumi.CustomResource):
 
         ## Import
 
-        NAT Gateways can be imported using the `id`, e.g.
+        NAT Gateways can be imported using the `id`, e.g.,
 
         ```sh
          $ pulumi import aws:ec2/natGateway:NatGateway private_gw nat-05dba92075d71c408
@@ -308,7 +308,7 @@ class NatGateway(pulumi.CustomResource):
 
         ## Import
 
-        NAT Gateways can be imported using the `id`, e.g.
+        NAT Gateways can be imported using the `id`, e.g.,
 
         ```sh
          $ pulumi import aws:ec2/natGateway:NatGateway private_gw nat-05dba92075d71c408

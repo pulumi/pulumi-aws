@@ -19,7 +19,7 @@ namespace Pulumi.Aws
         /// 
         /// This can be used both to validate a prefix list given in a variable
         /// and to obtain the CIDR blocks (IP address ranges) for the associated
-        /// AWS service. The latter may be useful e.g. for adding network ACL
+        /// AWS service. The latter may be useful e.g., for adding network ACL
         /// rules.
         /// 
         /// {{% examples %}}
@@ -104,7 +104,7 @@ namespace Pulumi.Aws
         /// 
         /// This can be used both to validate a prefix list given in a variable
         /// and to obtain the CIDR blocks (IP address ranges) for the associated
-        /// AWS service. The latter may be useful e.g. for adding network ACL
+        /// AWS service. The latter may be useful e.g., for adding network ACL
         /// rules.
         /// 
         /// {{% examples %}}

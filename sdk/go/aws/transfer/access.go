@@ -75,7 +75,7 @@ import (
 //
 // ## Import
 //
-// Transfer Accesses can be imported using the `server_id` and `external_id`, e.g.
+// Transfer Accesses can be imported using the `server_id` and `external_id`, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:transfer/access:Access example s-12345678/S-1-1-12-1234567890-123456789-1234567890-1234
@@ -83,7 +83,7 @@ import (
 type Access struct {
 	pulumi.CustomResourceState
 
-	// The SID of a group in the directory connected to the Transfer Server (e.g. `S-1-1-12-1234567890-123456789-1234567890-1234`)
+	// The SID of a group in the directory connected to the Transfer Server (e.g., `S-1-1-12-1234567890-123456789-1234567890-1234`)
 	ExternalId pulumi.StringOutput `pulumi:"externalId"`
 	// The landing directory (folder) for a user when they log in to the server using their SFTP client.  It should begin with a `/`.  The first item in the path is the name of the home bucket (accessible as `${Transfer:HomeBucket}` in the policy) and the rest is the home directory (accessible as `${Transfer:HomeDirectory}` in the policy). For example, `/example-bucket-1234/username` would set the home bucket to `example-bucket-1234` and the home directory to `username`.
 	HomeDirectory pulumi.StringPtrOutput `pulumi:"homeDirectory"`
@@ -96,7 +96,7 @@ type Access struct {
 	PosixProfile AccessPosixProfilePtrOutput `pulumi:"posixProfile"`
 	// Amazon Resource Name (ARN) of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
 	Role pulumi.StringPtrOutput `pulumi:"role"`
-	// The Server ID of the Transfer Server (e.g. `s-12345678`)
+	// The Server ID of the Transfer Server (e.g., `s-12345678`)
 	ServerId pulumi.StringOutput `pulumi:"serverId"`
 }
 
@@ -135,7 +135,7 @@ func GetAccess(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Access resources.
 type accessState struct {
-	// The SID of a group in the directory connected to the Transfer Server (e.g. `S-1-1-12-1234567890-123456789-1234567890-1234`)
+	// The SID of a group in the directory connected to the Transfer Server (e.g., `S-1-1-12-1234567890-123456789-1234567890-1234`)
 	ExternalId *string `pulumi:"externalId"`
 	// The landing directory (folder) for a user when they log in to the server using their SFTP client.  It should begin with a `/`.  The first item in the path is the name of the home bucket (accessible as `${Transfer:HomeBucket}` in the policy) and the rest is the home directory (accessible as `${Transfer:HomeDirectory}` in the policy). For example, `/example-bucket-1234/username` would set the home bucket to `example-bucket-1234` and the home directory to `username`.
 	HomeDirectory *string `pulumi:"homeDirectory"`
@@ -148,12 +148,12 @@ type accessState struct {
 	PosixProfile *AccessPosixProfile `pulumi:"posixProfile"`
 	// Amazon Resource Name (ARN) of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
 	Role *string `pulumi:"role"`
-	// The Server ID of the Transfer Server (e.g. `s-12345678`)
+	// The Server ID of the Transfer Server (e.g., `s-12345678`)
 	ServerId *string `pulumi:"serverId"`
 }
 
 type AccessState struct {
-	// The SID of a group in the directory connected to the Transfer Server (e.g. `S-1-1-12-1234567890-123456789-1234567890-1234`)
+	// The SID of a group in the directory connected to the Transfer Server (e.g., `S-1-1-12-1234567890-123456789-1234567890-1234`)
 	ExternalId pulumi.StringPtrInput
 	// The landing directory (folder) for a user when they log in to the server using their SFTP client.  It should begin with a `/`.  The first item in the path is the name of the home bucket (accessible as `${Transfer:HomeBucket}` in the policy) and the rest is the home directory (accessible as `${Transfer:HomeDirectory}` in the policy). For example, `/example-bucket-1234/username` would set the home bucket to `example-bucket-1234` and the home directory to `username`.
 	HomeDirectory pulumi.StringPtrInput
@@ -166,7 +166,7 @@ type AccessState struct {
 	PosixProfile AccessPosixProfilePtrInput
 	// Amazon Resource Name (ARN) of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
 	Role pulumi.StringPtrInput
-	// The Server ID of the Transfer Server (e.g. `s-12345678`)
+	// The Server ID of the Transfer Server (e.g., `s-12345678`)
 	ServerId pulumi.StringPtrInput
 }
 
@@ -175,7 +175,7 @@ func (AccessState) ElementType() reflect.Type {
 }
 
 type accessArgs struct {
-	// The SID of a group in the directory connected to the Transfer Server (e.g. `S-1-1-12-1234567890-123456789-1234567890-1234`)
+	// The SID of a group in the directory connected to the Transfer Server (e.g., `S-1-1-12-1234567890-123456789-1234567890-1234`)
 	ExternalId string `pulumi:"externalId"`
 	// The landing directory (folder) for a user when they log in to the server using their SFTP client.  It should begin with a `/`.  The first item in the path is the name of the home bucket (accessible as `${Transfer:HomeBucket}` in the policy) and the rest is the home directory (accessible as `${Transfer:HomeDirectory}` in the policy). For example, `/example-bucket-1234/username` would set the home bucket to `example-bucket-1234` and the home directory to `username`.
 	HomeDirectory *string `pulumi:"homeDirectory"`
@@ -188,13 +188,13 @@ type accessArgs struct {
 	PosixProfile *AccessPosixProfile `pulumi:"posixProfile"`
 	// Amazon Resource Name (ARN) of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
 	Role *string `pulumi:"role"`
-	// The Server ID of the Transfer Server (e.g. `s-12345678`)
+	// The Server ID of the Transfer Server (e.g., `s-12345678`)
 	ServerId string `pulumi:"serverId"`
 }
 
 // The set of arguments for constructing a Access resource.
 type AccessArgs struct {
-	// The SID of a group in the directory connected to the Transfer Server (e.g. `S-1-1-12-1234567890-123456789-1234567890-1234`)
+	// The SID of a group in the directory connected to the Transfer Server (e.g., `S-1-1-12-1234567890-123456789-1234567890-1234`)
 	ExternalId pulumi.StringInput
 	// The landing directory (folder) for a user when they log in to the server using their SFTP client.  It should begin with a `/`.  The first item in the path is the name of the home bucket (accessible as `${Transfer:HomeBucket}` in the policy) and the rest is the home directory (accessible as `${Transfer:HomeDirectory}` in the policy). For example, `/example-bucket-1234/username` would set the home bucket to `example-bucket-1234` and the home directory to `username`.
 	HomeDirectory pulumi.StringPtrInput
@@ -207,7 +207,7 @@ type AccessArgs struct {
 	PosixProfile AccessPosixProfilePtrInput
 	// Amazon Resource Name (ARN) of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
 	Role pulumi.StringPtrInput
-	// The Server ID of the Transfer Server (e.g. `s-12345678`)
+	// The Server ID of the Transfer Server (e.g., `s-12345678`)
 	ServerId pulumi.StringInput
 }
 

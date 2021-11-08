@@ -114,7 +114,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Security Hub insights can be imported using the ARN, e.g.
+ * Security Hub insights can be imported using the ARN, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:securityhub/insight:Insight example arn:aws:securityhub:us-west-2:1234567890:insight/1234567890/custom/91299ed7-abd0-4e44-a858-d0b15e37141a
@@ -157,7 +157,7 @@ export class Insight extends pulumi.CustomResource {
      */
     public readonly filters!: pulumi.Output<outputs.securityhub.InsightFilters>;
     /**
-     * The attribute used to group the findings for the insight e.g. if an insight is grouped by `ResourceId`, then the insight produces a list of resource identifiers.
+     * The attribute used to group the findings for the insight e.g., if an insight is grouped by `ResourceId`, then the insight produces a list of resource identifiers.
      */
     public readonly groupByAttribute!: pulumi.Output<string>;
     /**
@@ -215,7 +215,7 @@ export interface InsightState {
      */
     filters?: pulumi.Input<inputs.securityhub.InsightFilters>;
     /**
-     * The attribute used to group the findings for the insight e.g. if an insight is grouped by `ResourceId`, then the insight produces a list of resource identifiers.
+     * The attribute used to group the findings for the insight e.g., if an insight is grouped by `ResourceId`, then the insight produces a list of resource identifiers.
      */
     groupByAttribute?: pulumi.Input<string>;
     /**
@@ -233,7 +233,7 @@ export interface InsightArgs {
      */
     filters: pulumi.Input<inputs.securityhub.InsightFilters>;
     /**
-     * The attribute used to group the findings for the insight e.g. if an insight is grouped by `ResourceId`, then the insight produces a list of resource identifiers.
+     * The attribute used to group the findings for the insight e.g., if an insight is grouped by `ResourceId`, then the insight produces a list of resource identifiers.
      */
     groupByAttribute: pulumi.Input<string>;
     /**

@@ -98,7 +98,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * `aws_api_gateway_rest_api` can be imported by using the REST API ID, e.g.
+ * `aws_api_gateway_rest_api` can be imported by using the REST API ID, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:apigateway/restApi:RestApi example 12345abcde
@@ -167,7 +167,7 @@ export class RestApi extends pulumi.CustomResource {
     /**
      * The execution ARN part to be used in `lambdaPermission`'s `sourceArn`
      * when allowing API Gateway to invoke a Lambda function,
-     * e.g. `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j`, which can be concatenated with allowed stage, method and resource path.
+     * e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j`, which can be concatenated with allowed stage, method and resource path.
      */
     public /*out*/ readonly executionArn!: pulumi.Output<string>;
     /**
@@ -293,7 +293,7 @@ export interface RestApiState {
     /**
      * The execution ARN part to be used in `lambdaPermission`'s `sourceArn`
      * when allowing API Gateway to invoke a Lambda function,
-     * e.g. `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j`, which can be concatenated with allowed stage, method and resource path.
+     * e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j`, which can be concatenated with allowed stage, method and resource path.
      */
     executionArn?: pulumi.Input<string>;
     /**

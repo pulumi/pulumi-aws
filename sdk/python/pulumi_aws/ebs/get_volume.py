@@ -76,7 +76,7 @@ class GetVolumeResult:
     @pulumi.getter
     def arn(self) -> str:
         """
-        The volume ARN (e.g. arn:aws:ec2:us-east-1:0123456789012:volume/vol-59fcb34e).
+        The volume ARN (e.g., arn:aws:ec2:us-east-1:0123456789012:volume/vol-59fcb34e).
         """
         return pulumi.get(self, "arn")
 
@@ -182,7 +182,7 @@ class GetVolumeResult:
     @pulumi.getter(name="volumeId")
     def volume_id(self) -> str:
         """
-        The volume ID (e.g. vol-59fcb34e).
+        The volume ID (e.g., vol-59fcb34e).
         """
         return pulumi.get(self, "volume_id")
 

@@ -57,7 +57,7 @@ namespace Pulumi.Aws.AppMesh
     /// 
     /// ## Import
     /// 
-    /// App Mesh service meshes can be imported using the `name`, e.g.
+    /// App Mesh service meshes can be imported using the `name`, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:appmesh/mesh:Mesh simple simpleapp

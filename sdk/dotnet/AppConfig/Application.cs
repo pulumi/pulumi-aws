@@ -37,7 +37,7 @@ namespace Pulumi.Aws.AppConfig
     /// 
     /// ## Import
     /// 
-    /// AppConfig Applications can be imported using their application ID, e.g.
+    /// AppConfig Applications can be imported using their application ID, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:appconfig/application:Application example 71rxuzt

@@ -48,7 +48,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * IAM Access Keys can be imported using the identifier, e.g.
+ * IAM Access Keys can be imported using the identifier, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:iam/accessKey:AccessKey example AKIA1234567890

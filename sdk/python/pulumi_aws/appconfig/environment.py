@@ -286,7 +286,7 @@ class Environment(pulumi.CustomResource):
 
         ## Import
 
-        AppConfig Environments can be imported by using the environment ID and application ID separated by a colon (`:`), e.g.
+        AppConfig Environments can be imported by using the environment ID and application ID separated by a colon (`:`), e.g.,
 
         ```sh
          $ pulumi import aws:appconfig/environment:Environment example 71abcde:11xxxxx
@@ -334,7 +334,7 @@ class Environment(pulumi.CustomResource):
 
         ## Import
 
-        AppConfig Environments can be imported by using the environment ID and application ID separated by a colon (`:`), e.g.
+        AppConfig Environments can be imported by using the environment ID and application ID separated by a colon (`:`), e.g.,
 
         ```sh
          $ pulumi import aws:appconfig/environment:Environment example 71abcde:11xxxxx

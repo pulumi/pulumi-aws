@@ -1246,7 +1246,7 @@ class Function(pulumi.CustomResource):
 
         ## Import
 
-        Lambda Functions can be imported using the `function_name`, e.g.
+        Lambda Functions can be imported using the `function_name`, e.g.,
 
         ```sh
          $ pulumi import aws:lambda/function:Function test_lambda my_test_lambda_function
@@ -1463,7 +1463,7 @@ class Function(pulumi.CustomResource):
 
         ## Import
 
-        Lambda Functions can be imported using the `function_name`, e.g.
+        Lambda Functions can be imported using the `function_name`, e.g.,
 
         ```sh
          $ pulumi import aws:lambda/function:Function test_lambda my_test_lambda_function

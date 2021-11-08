@@ -35,7 +35,7 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
     /// 
     /// ## Import
     /// 
-    /// `aws_kinesisanalyticsv2_application` can be imported by using `application_name` together with `snapshot_name`, e.g.
+    /// `aws_kinesisanalyticsv2_application` can be imported by using `application_name` together with `snapshot_name`, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:kinesisanalyticsv2/applicationSnapshot:ApplicationSnapshot example example-application/example-snapshot

@@ -133,7 +133,7 @@ import (
 //
 // ## Import
 //
-// Cognito User Pool Clients can be imported using the `id` of the Cognito User Pool, and the `id` of the Cognito User Pool Client, e.g.
+// Cognito User Pool Clients can be imported using the `id` of the Cognito User Pool, and the `id` of the Cognito User Pool Client, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:cognito/userPoolClient:UserPoolClient client <user_pool_id>/<user_pool_client_id>
@@ -175,7 +175,7 @@ type UserPoolClient struct {
 	ReadAttributes pulumi.StringArrayOutput `pulumi:"readAttributes"`
 	// Time limit in days refresh tokens are valid for.
 	RefreshTokenValidity pulumi.IntPtrOutput `pulumi:"refreshTokenValidity"`
-	// List of provider names for the identity providers that are supported on this client.
+	// List of provider names for the identity providers that are supported on this client. Uses the `providerName` attribute of `cognito.IdentityProvider` resource(s), or the equivalent string(s).
 	SupportedIdentityProviders pulumi.StringArrayOutput `pulumi:"supportedIdentityProviders"`
 	// Configuration block for units in which the validity times are represented in. Detailed below.
 	TokenValidityUnits UserPoolClientTokenValidityUnitsPtrOutput `pulumi:"tokenValidityUnits"`
@@ -251,7 +251,7 @@ type userPoolClientState struct {
 	ReadAttributes []string `pulumi:"readAttributes"`
 	// Time limit in days refresh tokens are valid for.
 	RefreshTokenValidity *int `pulumi:"refreshTokenValidity"`
-	// List of provider names for the identity providers that are supported on this client.
+	// List of provider names for the identity providers that are supported on this client. Uses the `providerName` attribute of `cognito.IdentityProvider` resource(s), or the equivalent string(s).
 	SupportedIdentityProviders []string `pulumi:"supportedIdentityProviders"`
 	// Configuration block for units in which the validity times are represented in. Detailed below.
 	TokenValidityUnits *UserPoolClientTokenValidityUnits `pulumi:"tokenValidityUnits"`
@@ -296,7 +296,7 @@ type UserPoolClientState struct {
 	ReadAttributes pulumi.StringArrayInput
 	// Time limit in days refresh tokens are valid for.
 	RefreshTokenValidity pulumi.IntPtrInput
-	// List of provider names for the identity providers that are supported on this client.
+	// List of provider names for the identity providers that are supported on this client. Uses the `providerName` attribute of `cognito.IdentityProvider` resource(s), or the equivalent string(s).
 	SupportedIdentityProviders pulumi.StringArrayInput
 	// Configuration block for units in which the validity times are represented in. Detailed below.
 	TokenValidityUnits UserPoolClientTokenValidityUnitsPtrInput
@@ -343,7 +343,7 @@ type userPoolClientArgs struct {
 	ReadAttributes []string `pulumi:"readAttributes"`
 	// Time limit in days refresh tokens are valid for.
 	RefreshTokenValidity *int `pulumi:"refreshTokenValidity"`
-	// List of provider names for the identity providers that are supported on this client.
+	// List of provider names for the identity providers that are supported on this client. Uses the `providerName` attribute of `cognito.IdentityProvider` resource(s), or the equivalent string(s).
 	SupportedIdentityProviders []string `pulumi:"supportedIdentityProviders"`
 	// Configuration block for units in which the validity times are represented in. Detailed below.
 	TokenValidityUnits *UserPoolClientTokenValidityUnits `pulumi:"tokenValidityUnits"`
@@ -387,7 +387,7 @@ type UserPoolClientArgs struct {
 	ReadAttributes pulumi.StringArrayInput
 	// Time limit in days refresh tokens are valid for.
 	RefreshTokenValidity pulumi.IntPtrInput
-	// List of provider names for the identity providers that are supported on this client.
+	// List of provider names for the identity providers that are supported on this client. Uses the `providerName` attribute of `cognito.IdentityProvider` resource(s), or the equivalent string(s).
 	SupportedIdentityProviders pulumi.StringArrayInput
 	// Configuration block for units in which the validity times are represented in. Detailed below.
 	TokenValidityUnits UserPoolClientTokenValidityUnitsPtrInput

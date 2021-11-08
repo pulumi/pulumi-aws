@@ -50,11 +50,11 @@ func GetOrderableCluster(ctx *pulumi.Context, args *GetOrderableClusterArgs, opt
 
 // A collection of arguments for invoking getOrderableCluster.
 type GetOrderableClusterArgs struct {
-	// Reshift Cluster type. e.g. `multi-node` or `single-node`
+	// Reshift Cluster typeE.g., `multi-node` or `single-node`
 	ClusterType *string `pulumi:"clusterType"`
-	// Redshift Cluster version. e.g. `1.0`
+	// Redshift Cluster versionE.g., `1.0`
 	ClusterVersion *string `pulumi:"clusterVersion"`
-	// Redshift Cluster node type. e.g. `dc2.8xlarge`
+	// Redshift Cluster node typeE.g., `dc2.8xlarge`
 	NodeType *string `pulumi:"nodeType"`
 	// Ordered list of preferred Redshift Cluster node types. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
 	PreferredNodeTypes []string `pulumi:"preferredNodeTypes"`
@@ -83,11 +83,11 @@ func GetOrderableClusterOutput(ctx *pulumi.Context, args GetOrderableClusterOutp
 
 // A collection of arguments for invoking getOrderableCluster.
 type GetOrderableClusterOutputArgs struct {
-	// Reshift Cluster type. e.g. `multi-node` or `single-node`
+	// Reshift Cluster typeE.g., `multi-node` or `single-node`
 	ClusterType pulumi.StringPtrInput `pulumi:"clusterType"`
-	// Redshift Cluster version. e.g. `1.0`
+	// Redshift Cluster versionE.g., `1.0`
 	ClusterVersion pulumi.StringPtrInput `pulumi:"clusterVersion"`
-	// Redshift Cluster node type. e.g. `dc2.8xlarge`
+	// Redshift Cluster node typeE.g., `dc2.8xlarge`
 	NodeType pulumi.StringPtrInput `pulumi:"nodeType"`
 	// Ordered list of preferred Redshift Cluster node types. The first match in this list will be returned. If no preferred matches are found and the original search returned more than one result, an error is returned.
 	PreferredNodeTypes pulumi.StringArrayInput `pulumi:"preferredNodeTypes"`

@@ -173,7 +173,7 @@ import (
 //
 // ## Import
 //
-// MSK clusters can be imported using the cluster `arn`, e.g.
+// MSK clusters can be imported using the cluster `arn`, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:msk/cluster:Cluster example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
@@ -199,7 +199,7 @@ type Cluster struct {
 	ClusterName pulumi.StringOutput `pulumi:"clusterName"`
 	// Configuration block for specifying a MSK Configuration to attach to Kafka brokers. See below.
 	ConfigurationInfo ClusterConfigurationInfoPtrOutput `pulumi:"configurationInfo"`
-	// Current version of the MSK Cluster used for updates, e.g. `K13V1IB3VIYZZH`
+	// Current version of the MSK Cluster used for updates, e.g., `K13V1IB3VIYZZH`
 	// * `encryption_info.0.encryption_at_rest_kms_key_arn` - The ARN of the KMS key used for encryption at rest of the broker data volumes.
 	CurrentVersion pulumi.StringOutput `pulumi:"currentVersion"`
 	// Configuration block for specifying encryption. See below.
@@ -280,7 +280,7 @@ type clusterState struct {
 	ClusterName *string `pulumi:"clusterName"`
 	// Configuration block for specifying a MSK Configuration to attach to Kafka brokers. See below.
 	ConfigurationInfo *ClusterConfigurationInfo `pulumi:"configurationInfo"`
-	// Current version of the MSK Cluster used for updates, e.g. `K13V1IB3VIYZZH`
+	// Current version of the MSK Cluster used for updates, e.g., `K13V1IB3VIYZZH`
 	// * `encryption_info.0.encryption_at_rest_kms_key_arn` - The ARN of the KMS key used for encryption at rest of the broker data volumes.
 	CurrentVersion *string `pulumi:"currentVersion"`
 	// Configuration block for specifying encryption. See below.
@@ -324,7 +324,7 @@ type ClusterState struct {
 	ClusterName pulumi.StringPtrInput
 	// Configuration block for specifying a MSK Configuration to attach to Kafka brokers. See below.
 	ConfigurationInfo ClusterConfigurationInfoPtrInput
-	// Current version of the MSK Cluster used for updates, e.g. `K13V1IB3VIYZZH`
+	// Current version of the MSK Cluster used for updates, e.g., `K13V1IB3VIYZZH`
 	// * `encryption_info.0.encryption_at_rest_kms_key_arn` - The ARN of the KMS key used for encryption at rest of the broker data volumes.
 	CurrentVersion pulumi.StringPtrInput
 	// Configuration block for specifying encryption. See below.

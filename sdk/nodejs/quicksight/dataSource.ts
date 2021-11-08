@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * A QuickSight data source can be imported using the AWS account ID, and data source ID name separated by a slash (`/`) e.g.
+ * A QuickSight data source can be imported using the AWS account ID, and data source ID name separated by a slash (`/`) e.g.,
  *
  * ```sh
  *  $ pulumi import aws:quicksight/dataSource:DataSource example 123456789123/my-data-source-id
@@ -103,7 +103,7 @@ export class DataSource extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The type of the data source. See the [AWS Documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSource.html#QS-CreateDataSource-request-Type) for the complete list of valid values.
      */
@@ -157,10 +157,10 @@ export class DataSource extends pulumi.CustomResource {
             inputs["permissions"] = args ? args.permissions : undefined;
             inputs["sslProperties"] = args ? args.sslProperties : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["type"] = args ? args.type : undefined;
             inputs["vpcConnectionProperties"] = args ? args.vpcConnectionProperties : undefined;
             inputs["arn"] = undefined /*out*/;
+            inputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -259,10 +259,6 @@ export interface DataSourceArgs {
      * Key-value map of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The type of the data source. See the [AWS Documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSource.html#QS-CreateDataSource-request-Type) for the complete list of valid values.
      */

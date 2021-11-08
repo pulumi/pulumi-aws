@@ -72,7 +72,7 @@ import (
 //
 // ## Import
 //
-// `aws_storagegateway_stored_iscsi_volume` can be imported by using the volume Amazon Resource Name (ARN), e.g.
+// `aws_storagegateway_stored_iscsi_volume` can be imported by using the volume Amazon Resource Name (ARN), e.g.,
 //
 // ```sh
 //  $ pulumi import aws:storagegateway/storedIscsiVolume:StoredIscsiVolume example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678
@@ -80,7 +80,7 @@ import (
 type StoredIscsiVolume struct {
 	pulumi.CustomResourceState
 
-	// Volume Amazon Resource Name (ARN), e.g. `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
+	// Volume Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Whether mutual CHAP is enabled for the iSCSI target.
 	ChapEnabled pulumi.BoolOutput `pulumi:"chapEnabled"`
@@ -100,11 +100,11 @@ type StoredIscsiVolume struct {
 	NetworkInterfacePort pulumi.IntOutput `pulumi:"networkInterfacePort"`
 	// Specify this field as `true` if you want to preserve the data on the local disk. Otherwise, specifying this field as false creates an empty volume.
 	PreserveExistingData pulumi.BoolOutput `pulumi:"preserveExistingData"`
-	// The snapshot ID of the snapshot to restore as the new stored volume. e.g. `snap-1122aabb`.
+	// The snapshot ID of the snapshot to restore as the new stored volumeE.g., `snap-1122aabb`.
 	SnapshotId pulumi.StringPtrOutput `pulumi:"snapshotId"`
 	// Key-value mapping of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Target Amazon Resource Name (ARN), e.g. `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
 	TargetArn pulumi.StringOutput `pulumi:"targetArn"`
@@ -166,7 +166,7 @@ func GetStoredIscsiVolume(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering StoredIscsiVolume resources.
 type storedIscsiVolumeState struct {
-	// Volume Amazon Resource Name (ARN), e.g. `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
+	// Volume Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
 	Arn *string `pulumi:"arn"`
 	// Whether mutual CHAP is enabled for the iSCSI target.
 	ChapEnabled *bool `pulumi:"chapEnabled"`
@@ -186,11 +186,11 @@ type storedIscsiVolumeState struct {
 	NetworkInterfacePort *int `pulumi:"networkInterfacePort"`
 	// Specify this field as `true` if you want to preserve the data on the local disk. Otherwise, specifying this field as false creates an empty volume.
 	PreserveExistingData *bool `pulumi:"preserveExistingData"`
-	// The snapshot ID of the snapshot to restore as the new stored volume. e.g. `snap-1122aabb`.
+	// The snapshot ID of the snapshot to restore as the new stored volumeE.g., `snap-1122aabb`.
 	SnapshotId *string `pulumi:"snapshotId"`
 	// Key-value mapping of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Target Amazon Resource Name (ARN), e.g. `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
 	TargetArn *string `pulumi:"targetArn"`
@@ -209,7 +209,7 @@ type storedIscsiVolumeState struct {
 }
 
 type StoredIscsiVolumeState struct {
-	// Volume Amazon Resource Name (ARN), e.g. `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
+	// Volume Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
 	Arn pulumi.StringPtrInput
 	// Whether mutual CHAP is enabled for the iSCSI target.
 	ChapEnabled pulumi.BoolPtrInput
@@ -229,11 +229,11 @@ type StoredIscsiVolumeState struct {
 	NetworkInterfacePort pulumi.IntPtrInput
 	// Specify this field as `true` if you want to preserve the data on the local disk. Otherwise, specifying this field as false creates an empty volume.
 	PreserveExistingData pulumi.BoolPtrInput
-	// The snapshot ID of the snapshot to restore as the new stored volume. e.g. `snap-1122aabb`.
+	// The snapshot ID of the snapshot to restore as the new stored volumeE.g., `snap-1122aabb`.
 	SnapshotId pulumi.StringPtrInput
 	// Key-value mapping of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// Target Amazon Resource Name (ARN), e.g. `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
 	TargetArn pulumi.StringPtrInput
@@ -268,7 +268,7 @@ type storedIscsiVolumeArgs struct {
 	NetworkInterfaceId string `pulumi:"networkInterfaceId"`
 	// Specify this field as `true` if you want to preserve the data on the local disk. Otherwise, specifying this field as false creates an empty volume.
 	PreserveExistingData bool `pulumi:"preserveExistingData"`
-	// The snapshot ID of the snapshot to restore as the new stored volume. e.g. `snap-1122aabb`.
+	// The snapshot ID of the snapshot to restore as the new stored volumeE.g., `snap-1122aabb`.
 	SnapshotId *string `pulumi:"snapshotId"`
 	// Key-value mapping of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -290,7 +290,7 @@ type StoredIscsiVolumeArgs struct {
 	NetworkInterfaceId pulumi.StringInput
 	// Specify this field as `true` if you want to preserve the data on the local disk. Otherwise, specifying this field as false creates an empty volume.
 	PreserveExistingData pulumi.BoolInput
-	// The snapshot ID of the snapshot to restore as the new stored volume. e.g. `snap-1122aabb`.
+	// The snapshot ID of the snapshot to restore as the new stored volumeE.g., `snap-1122aabb`.
 	SnapshotId pulumi.StringPtrInput
 	// Key-value mapping of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput

@@ -109,7 +109,7 @@ type EnvironmentEC2 struct {
 	AutomaticStopTimeMinutes pulumi.IntPtrOutput `pulumi:"automaticStopTimeMinutes"`
 	// The description of the environment.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The type of instance to connect to the environment, e.g. `t2.micro`.
+	// The type of instance to connect to the environment, e.g., `t2.micro`.
 	InstanceType pulumi.StringOutput `pulumi:"instanceType"`
 	// The name of the environment.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -119,9 +119,9 @@ type EnvironmentEC2 struct {
 	SubnetId pulumi.StringPtrOutput `pulumi:"subnetId"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The type of the environment (e.g. `ssh` or `ec2`)
+	// The type of the environment (e.g., `ssh` or `ec2`)
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -163,7 +163,7 @@ type environmentEC2State struct {
 	AutomaticStopTimeMinutes *int `pulumi:"automaticStopTimeMinutes"`
 	// The description of the environment.
 	Description *string `pulumi:"description"`
-	// The type of instance to connect to the environment, e.g. `t2.micro`.
+	// The type of instance to connect to the environment, e.g., `t2.micro`.
 	InstanceType *string `pulumi:"instanceType"`
 	// The name of the environment.
 	Name *string `pulumi:"name"`
@@ -173,9 +173,9 @@ type environmentEC2State struct {
 	SubnetId *string `pulumi:"subnetId"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The type of the environment (e.g. `ssh` or `ec2`)
+	// The type of the environment (e.g., `ssh` or `ec2`)
 	Type *string `pulumi:"type"`
 }
 
@@ -186,7 +186,7 @@ type EnvironmentEC2State struct {
 	AutomaticStopTimeMinutes pulumi.IntPtrInput
 	// The description of the environment.
 	Description pulumi.StringPtrInput
-	// The type of instance to connect to the environment, e.g. `t2.micro`.
+	// The type of instance to connect to the environment, e.g., `t2.micro`.
 	InstanceType pulumi.StringPtrInput
 	// The name of the environment.
 	Name pulumi.StringPtrInput
@@ -196,9 +196,9 @@ type EnvironmentEC2State struct {
 	SubnetId pulumi.StringPtrInput
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
-	// The type of the environment (e.g. `ssh` or `ec2`)
+	// The type of the environment (e.g., `ssh` or `ec2`)
 	Type pulumi.StringPtrInput
 }
 
@@ -211,7 +211,7 @@ type environmentEC2Args struct {
 	AutomaticStopTimeMinutes *int `pulumi:"automaticStopTimeMinutes"`
 	// The description of the environment.
 	Description *string `pulumi:"description"`
-	// The type of instance to connect to the environment, e.g. `t2.micro`.
+	// The type of instance to connect to the environment, e.g., `t2.micro`.
 	InstanceType string `pulumi:"instanceType"`
 	// The name of the environment.
 	Name *string `pulumi:"name"`
@@ -229,7 +229,7 @@ type EnvironmentEC2Args struct {
 	AutomaticStopTimeMinutes pulumi.IntPtrInput
 	// The description of the environment.
 	Description pulumi.StringPtrInput
-	// The type of instance to connect to the environment, e.g. `t2.micro`.
+	// The type of instance to connect to the environment, e.g., `t2.micro`.
 	InstanceType pulumi.StringInput
 	// The name of the environment.
 	Name pulumi.StringPtrInput

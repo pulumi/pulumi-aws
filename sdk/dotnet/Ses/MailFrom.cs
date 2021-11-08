@@ -66,7 +66,7 @@ namespace Pulumi.Aws.Ses
     /// 
     /// ## Import
     /// 
-    /// MAIL FROM domain can be imported using the `domain` attribute, e.g.
+    /// MAIL FROM domain can be imported using the `domain` attribute, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:ses/mailFrom:MailFrom example example.com

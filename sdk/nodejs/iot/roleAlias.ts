@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * IOT Role Alias can be imported via the alias, e.g.
+ * IOT Role Alias can be imported via the alias, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:iot/roleAlias:RoleAlias example myalias

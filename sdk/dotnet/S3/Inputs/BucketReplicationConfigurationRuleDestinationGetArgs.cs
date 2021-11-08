@@ -31,11 +31,23 @@ namespace Pulumi.Aws.S3.Inputs
         public Input<string> Bucket { get; set; } = null!;
 
         /// <summary>
+        /// Enables replication metrics (required for S3 RTC) (documented below).
+        /// </summary>
+        [Input("metrics")]
+        public Input<Inputs.BucketReplicationConfigurationRuleDestinationMetricsGetArgs>? Metrics { get; set; }
+
+        /// <summary>
         /// Destination KMS encryption key ARN for SSE-KMS replication. Must be used in conjunction with
         /// `sse_kms_encrypted_objects` source selection criteria.
         /// </summary>
         [Input("replicaKmsKeyId")]
         public Input<string>? ReplicaKmsKeyId { get; set; }
+
+        /// <summary>
+        /// Enables S3 Replication Time Control (S3 RTC) (documented below).
+        /// </summary>
+        [Input("replicationTime")]
+        public Input<Inputs.BucketReplicationConfigurationRuleDestinationReplicationTimeGetArgs>? ReplicationTime { get; set; }
 
         /// <summary>
         /// The class of storage used to store the object. Can be `STANDARD`, `REDUCED_REDUNDANCY`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `GLACIER`, or `DEEP_ARCHIVE`.

@@ -38,7 +38,7 @@ import (
 //
 // ## Import
 //
-// `aws_ec2_transit_gateway_route_table` can be imported by using the EC2 Transit Gateway Route Table identifier, e.g.
+// `aws_ec2_transit_gateway_route_table` can be imported by using the EC2 Transit Gateway Route Table identifier, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:ec2transitgateway/routeTable:RouteTable example tgw-rtb-12345678
@@ -53,7 +53,8 @@ type RouteTable struct {
 	// Boolean whether this is the default propagation route table for the EC2 Transit Gateway.
 	DefaultPropagationRouteTable pulumi.BoolOutput      `pulumi:"defaultPropagationRouteTable"`
 	Tags                         pulumi.StringMapOutput `pulumi:"tags"`
-	TagsAll                      pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Identifier of EC2 Transit Gateway.
 	TransitGatewayId pulumi.StringOutput `pulumi:"transitGatewayId"`
 }
@@ -97,7 +98,8 @@ type routeTableState struct {
 	// Boolean whether this is the default propagation route table for the EC2 Transit Gateway.
 	DefaultPropagationRouteTable *bool             `pulumi:"defaultPropagationRouteTable"`
 	Tags                         map[string]string `pulumi:"tags"`
-	TagsAll                      map[string]string `pulumi:"tagsAll"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Identifier of EC2 Transit Gateway.
 	TransitGatewayId *string `pulumi:"transitGatewayId"`
 }
@@ -110,7 +112,8 @@ type RouteTableState struct {
 	// Boolean whether this is the default propagation route table for the EC2 Transit Gateway.
 	DefaultPropagationRouteTable pulumi.BoolPtrInput
 	Tags                         pulumi.StringMapInput
-	TagsAll                      pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 	// Identifier of EC2 Transit Gateway.
 	TransitGatewayId pulumi.StringPtrInput
 }

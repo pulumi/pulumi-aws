@@ -84,7 +84,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Cognito User Pool Clients can be imported using the `id` of the Cognito User Pool, and the `id` of the Cognito User Pool Client, e.g.
+ * Cognito User Pool Clients can be imported using the `id` of the Cognito User Pool, and the `id` of the Cognito User Pool Client, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:cognito/userPoolClient:UserPoolClient client <user_pool_id>/<user_pool_client_id>
@@ -187,7 +187,7 @@ export class UserPoolClient extends pulumi.CustomResource {
      */
     public readonly refreshTokenValidity!: pulumi.Output<number | undefined>;
     /**
-     * List of provider names for the identity providers that are supported on this client.
+     * List of provider names for the identity providers that are supported on this client. Uses the `providerName` attribute of `aws.cognito.IdentityProvider` resource(s), or the equivalent string(s).
      */
     public readonly supportedIdentityProviders!: pulumi.Output<string[] | undefined>;
     /**
@@ -344,7 +344,7 @@ export interface UserPoolClientState {
      */
     refreshTokenValidity?: pulumi.Input<number>;
     /**
-     * List of provider names for the identity providers that are supported on this client.
+     * List of provider names for the identity providers that are supported on this client. Uses the `providerName` attribute of `aws.cognito.IdentityProvider` resource(s), or the equivalent string(s).
      */
     supportedIdentityProviders?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -430,7 +430,7 @@ export interface UserPoolClientArgs {
      */
     refreshTokenValidity?: pulumi.Input<number>;
     /**
-     * List of provider names for the identity providers that are supported on this client.
+     * List of provider names for the identity providers that are supported on this client. Uses the `providerName` attribute of `aws.cognito.IdentityProvider` resource(s), or the equivalent string(s).
      */
     supportedIdentityProviders?: pulumi.Input<pulumi.Input<string>[]>;
     /**

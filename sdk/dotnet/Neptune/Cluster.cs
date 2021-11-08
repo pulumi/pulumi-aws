@@ -50,7 +50,7 @@ namespace Pulumi.Aws.Neptune
     /// 
     /// ## Import
     /// 
-    /// `aws_neptune_cluster` can be imported by using the cluster identifier, e.g.
+    /// `aws_neptune_cluster` can be imported by using the cluster identifier, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:neptune/cluster:Cluster example my-cluster
@@ -156,7 +156,7 @@ namespace Pulumi.Aws.Neptune
         public Output<string> HostedZoneId { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether or mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
+        /// Specifies whether or not mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
         /// </summary>
         [Output("iamDatabaseAuthenticationEnabled")]
         public Output<bool?> IamDatabaseAuthenticationEnabled { get; private set; } = null!;
@@ -192,13 +192,13 @@ namespace Pulumi.Aws.Neptune
         public Output<int?> Port { get; private set; } = null!;
 
         /// <summary>
-        /// The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter. Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per region. e.g. 04:00-09:00
+        /// The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter. Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
         /// </summary>
         [Output("preferredBackupWindow")]
         public Output<string> PreferredBackupWindow { get; private set; } = null!;
 
         /// <summary>
-        /// The weekly time range during which system maintenance can occur, in (UTC) e.g. wed:04:00-wed:04:30
+        /// The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
         /// </summary>
         [Output("preferredMaintenanceWindow")]
         public Output<string> PreferredMaintenanceWindow { get; private set; } = null!;
@@ -376,7 +376,7 @@ namespace Pulumi.Aws.Neptune
         public Input<string>? FinalSnapshotIdentifier { get; set; }
 
         /// <summary>
-        /// Specifies whether or mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
+        /// Specifies whether or not mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
         /// </summary>
         [Input("iamDatabaseAuthenticationEnabled")]
         public Input<bool>? IamDatabaseAuthenticationEnabled { get; set; }
@@ -418,13 +418,13 @@ namespace Pulumi.Aws.Neptune
         public Input<int>? Port { get; set; }
 
         /// <summary>
-        /// The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter. Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per region. e.g. 04:00-09:00
+        /// The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter. Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
         /// </summary>
         [Input("preferredBackupWindow")]
         public Input<string>? PreferredBackupWindow { get; set; }
 
         /// <summary>
-        /// The weekly time range during which system maintenance can occur, in (UTC) e.g. wed:04:00-wed:04:30
+        /// The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
         /// </summary>
         [Input("preferredMaintenanceWindow")]
         public Input<string>? PreferredMaintenanceWindow { get; set; }
@@ -599,7 +599,7 @@ namespace Pulumi.Aws.Neptune
         public Input<string>? HostedZoneId { get; set; }
 
         /// <summary>
-        /// Specifies whether or mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
+        /// Specifies whether or not mappings of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
         /// </summary>
         [Input("iamDatabaseAuthenticationEnabled")]
         public Input<bool>? IamDatabaseAuthenticationEnabled { get; set; }
@@ -641,13 +641,13 @@ namespace Pulumi.Aws.Neptune
         public Input<int>? Port { get; set; }
 
         /// <summary>
-        /// The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter. Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per region. e.g. 04:00-09:00
+        /// The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter. Time in UTC. Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
         /// </summary>
         [Input("preferredBackupWindow")]
         public Input<string>? PreferredBackupWindow { get; set; }
 
         /// <summary>
-        /// The weekly time range during which system maintenance can occur, in (UTC) e.g. wed:04:00-wed:04:30
+        /// The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
         /// </summary>
         [Input("preferredMaintenanceWindow")]
         public Input<string>? PreferredMaintenanceWindow { get; set; }

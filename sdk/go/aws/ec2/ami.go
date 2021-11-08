@@ -52,7 +52,7 @@ import (
 //
 // ## Import
 //
-// `aws_ami` can be imported using the ID of the AMI, e.g.
+// `aws_ami` can be imported using the ID of the AMI, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:ec2/ami:Ami example ami-12345678
@@ -76,7 +76,7 @@ type Ami struct {
 	EphemeralBlockDevices AmiEphemeralBlockDeviceArrayOutput `pulumi:"ephemeralBlockDevices"`
 	// The hypervisor type of the image.
 	Hypervisor pulumi.StringOutput `pulumi:"hypervisor"`
-	// Path to an S3 object containing an image manifest, e.g. created
+	// Path to an S3 object containing an image manifest, e.g., created
 	// by the `ec2-upload-bundle` command in the EC2 command line tools.
 	ImageLocation pulumi.StringOutput `pulumi:"imageLocation"`
 	// The AWS account alias (for example, amazon, self) or the AWS account ID of the AMI owner.
@@ -164,7 +164,7 @@ type amiState struct {
 	EphemeralBlockDevices []AmiEphemeralBlockDevice `pulumi:"ephemeralBlockDevices"`
 	// The hypervisor type of the image.
 	Hypervisor *string `pulumi:"hypervisor"`
-	// Path to an S3 object containing an image manifest, e.g. created
+	// Path to an S3 object containing an image manifest, e.g., created
 	// by the `ec2-upload-bundle` command in the EC2 command line tools.
 	ImageLocation *string `pulumi:"imageLocation"`
 	// The AWS account alias (for example, amazon, self) or the AWS account ID of the AMI owner.
@@ -224,7 +224,7 @@ type AmiState struct {
 	EphemeralBlockDevices AmiEphemeralBlockDeviceArrayInput
 	// The hypervisor type of the image.
 	Hypervisor pulumi.StringPtrInput
-	// Path to an S3 object containing an image manifest, e.g. created
+	// Path to an S3 object containing an image manifest, e.g., created
 	// by the `ec2-upload-bundle` command in the EC2 command line tools.
 	ImageLocation pulumi.StringPtrInput
 	// The AWS account alias (for example, amazon, self) or the AWS account ID of the AMI owner.
@@ -284,7 +284,7 @@ type amiArgs struct {
 	// Nested block describing an ephemeral block device that
 	// should be attached to created instances. The structure of this block is described below.
 	EphemeralBlockDevices []AmiEphemeralBlockDevice `pulumi:"ephemeralBlockDevices"`
-	// Path to an S3 object containing an image manifest, e.g. created
+	// Path to an S3 object containing an image manifest, e.g., created
 	// by the `ec2-upload-bundle` command in the EC2 command line tools.
 	ImageLocation *string `pulumi:"imageLocation"`
 	// The id of the kernel image (AKI) that will be used as the paravirtual
@@ -322,7 +322,7 @@ type AmiArgs struct {
 	// Nested block describing an ephemeral block device that
 	// should be attached to created instances. The structure of this block is described below.
 	EphemeralBlockDevices AmiEphemeralBlockDeviceArrayInput
-	// Path to an S3 object containing an image manifest, e.g. created
+	// Path to an S3 object containing an image manifest, e.g., created
 	// by the `ec2-upload-bundle` command in the EC2 command line tools.
 	ImageLocation pulumi.StringPtrInput
 	// The id of the kernel image (AKI) that will be used as the paravirtual

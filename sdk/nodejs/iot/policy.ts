@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * IoT policies can be imported using the `name`, e.g.
+ * IoT policies can be imported using the `name`, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:iot/policy:Policy pubsub PubSubToAnyTopic

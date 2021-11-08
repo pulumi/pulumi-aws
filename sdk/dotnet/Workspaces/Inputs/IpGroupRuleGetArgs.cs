@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Workspaces.Inputs
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The IP address range, in CIDR notation, e.g. `10.0.0.0/16`
+        /// The IP address range, in CIDR notation, e.g., `10.0.0.0/16`
         /// </summary>
         [Input("source", required: true)]
         public Input<string> Source { get; set; } = null!;

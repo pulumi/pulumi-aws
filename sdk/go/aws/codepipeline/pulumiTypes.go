@@ -821,7 +821,7 @@ func (o WebhookAuthenticationConfigurationPtrOutput) SecretToken() pulumi.String
 type WebhookFilter struct {
 	// The [JSON path](https://github.com/json-path/JsonPath) to filter on.
 	JsonPath string `pulumi:"jsonPath"`
-	// The value to match on (e.g. `refs/heads/{Branch}`). See [AWS docs](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_WebhookFilterRule.html) for details.
+	// The value to match on (e.g., `refs/heads/{Branch}`). See [AWS docs](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_WebhookFilterRule.html) for details.
 	MatchEquals string `pulumi:"matchEquals"`
 }
 
@@ -839,7 +839,7 @@ type WebhookFilterInput interface {
 type WebhookFilterArgs struct {
 	// The [JSON path](https://github.com/json-path/JsonPath) to filter on.
 	JsonPath pulumi.StringInput `pulumi:"jsonPath"`
-	// The value to match on (e.g. `refs/heads/{Branch}`). See [AWS docs](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_WebhookFilterRule.html) for details.
+	// The value to match on (e.g., `refs/heads/{Branch}`). See [AWS docs](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_WebhookFilterRule.html) for details.
 	MatchEquals pulumi.StringInput `pulumi:"matchEquals"`
 }
 
@@ -899,7 +899,7 @@ func (o WebhookFilterOutput) JsonPath() pulumi.StringOutput {
 	return o.ApplyT(func(v WebhookFilter) string { return v.JsonPath }).(pulumi.StringOutput)
 }
 
-// The value to match on (e.g. `refs/heads/{Branch}`). See [AWS docs](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_WebhookFilterRule.html) for details.
+// The value to match on (e.g., `refs/heads/{Branch}`). See [AWS docs](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_WebhookFilterRule.html) for details.
 func (o WebhookFilterOutput) MatchEquals() pulumi.StringOutput {
 	return o.ApplyT(func(v WebhookFilter) string { return v.MatchEquals }).(pulumi.StringOutput)
 }

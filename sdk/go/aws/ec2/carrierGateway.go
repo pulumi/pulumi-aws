@@ -41,7 +41,7 @@ import (
 //
 // ## Import
 //
-// `aws_ec2_carrier_gateway` can be imported using the carrier gateway's ID, e.g.
+// `aws_ec2_carrier_gateway` can be imported using the carrier gateway's ID, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:ec2/carrierGateway:CarrierGateway example cgw-12345
@@ -54,6 +54,7 @@ type CarrierGateway struct {
 	// The AWS account ID of the owner of the carrier gateway.
 	OwnerId pulumi.StringOutput    `pulumi:"ownerId"`
 	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The ID of the VPC to associate with the carrier gateway.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
@@ -96,6 +97,7 @@ type carrierGatewayState struct {
 	// The AWS account ID of the owner of the carrier gateway.
 	OwnerId *string           `pulumi:"ownerId"`
 	Tags    map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The ID of the VPC to associate with the carrier gateway.
 	VpcId *string `pulumi:"vpcId"`
@@ -107,6 +109,7 @@ type CarrierGatewayState struct {
 	// The AWS account ID of the owner of the carrier gateway.
 	OwnerId pulumi.StringPtrInput
 	Tags    pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// The ID of the VPC to associate with the carrier gateway.
 	VpcId pulumi.StringPtrInput

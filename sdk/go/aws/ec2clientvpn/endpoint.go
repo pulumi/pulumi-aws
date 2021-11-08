@@ -52,7 +52,7 @@ import (
 //
 // ## Import
 //
-// AWS Client VPN endpoints can be imported using the `id` value found via `aws ec2 describe-client-vpn-endpoints`, e.g.
+// AWS Client VPN endpoints can be imported using the `id` value found via `aws ec2 describe-client-vpn-endpoints`, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:ec2clientvpn/endpoint:Endpoint example cvpn-endpoint-0ac3a1abbccddd666
@@ -81,8 +81,9 @@ type Endpoint struct {
 	// Indicates whether split-tunnel is enabled on VPN endpoint. Default value is `false`.
 	SplitTunnel pulumi.BoolPtrOutput `pulumi:"splitTunnel"`
 	// The current state of the Client VPN endpoint.
-	Status  pulumi.StringOutput    `pulumi:"status"`
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	Status pulumi.StringOutput    `pulumi:"status"`
+	Tags   pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The transport protocol to be used by the VPN session. Default value is `udp`.
 	TransportProtocol pulumi.StringPtrOutput `pulumi:"transportProtocol"`
@@ -150,8 +151,9 @@ type endpointState struct {
 	// Indicates whether split-tunnel is enabled on VPN endpoint. Default value is `false`.
 	SplitTunnel *bool `pulumi:"splitTunnel"`
 	// The current state of the Client VPN endpoint.
-	Status  *string           `pulumi:"status"`
-	Tags    map[string]string `pulumi:"tags"`
+	Status *string           `pulumi:"status"`
+	Tags   map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The transport protocol to be used by the VPN session. Default value is `udp`.
 	TransportProtocol *string `pulumi:"transportProtocol"`
@@ -179,8 +181,9 @@ type EndpointState struct {
 	// Indicates whether split-tunnel is enabled on VPN endpoint. Default value is `false`.
 	SplitTunnel pulumi.BoolPtrInput
 	// The current state of the Client VPN endpoint.
-	Status  pulumi.StringPtrInput
-	Tags    pulumi.StringMapInput
+	Status pulumi.StringPtrInput
+	Tags   pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// The transport protocol to be used by the VPN session. Default value is `udp`.
 	TransportProtocol pulumi.StringPtrInput

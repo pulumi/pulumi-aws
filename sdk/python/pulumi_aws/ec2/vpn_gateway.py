@@ -214,7 +214,7 @@ class VpnGateway(pulumi.CustomResource):
 
         ## Import
 
-        VPN Gateways can be imported using the `vpn gateway id`, e.g.
+        VPN Gateways can be imported using the `vpn gateway id`, e.g.,
 
         ```sh
          $ pulumi import aws:ec2/vpnGateway:VpnGateway testvpngateway vgw-9a4cacf3
@@ -251,7 +251,7 @@ class VpnGateway(pulumi.CustomResource):
 
         ## Import
 
-        VPN Gateways can be imported using the `vpn gateway id`, e.g.
+        VPN Gateways can be imported using the `vpn gateway id`, e.g.,
 
         ```sh
          $ pulumi import aws:ec2/vpnGateway:VpnGateway testvpngateway vgw-9a4cacf3

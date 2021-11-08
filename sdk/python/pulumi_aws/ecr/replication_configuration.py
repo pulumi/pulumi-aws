@@ -129,7 +129,7 @@ class ReplicationConfiguration(pulumi.CustomResource):
 
         ## Import
 
-        ECR Replication Configuration can be imported using the `registry_id`, e.g.
+        ECR Replication Configuration can be imported using the `registry_id`, e.g.,
 
         ```sh
          $ pulumi import aws:ecr/replicationConfiguration:ReplicationConfiguration service 012345678912
@@ -191,7 +191,7 @@ class ReplicationConfiguration(pulumi.CustomResource):
 
         ## Import
 
-        ECR Replication Configuration can be imported using the `registry_id`, e.g.
+        ECR Replication Configuration can be imported using the `registry_id`, e.g.,
 
         ```sh
          $ pulumi import aws:ecr/replicationConfiguration:ReplicationConfiguration service 012345678912

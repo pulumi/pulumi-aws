@@ -49,7 +49,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// Network Interfaces can be imported using the `id`, e.g.
+    /// Network Interfaces can be imported using the `id`, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:ec2/networkInterface:NetworkInterface test eni-e5aa89a3
@@ -58,6 +58,12 @@ namespace Pulumi.Aws.Ec2
     [AwsResourceType("aws:ec2/networkInterface:NetworkInterface")]
     public partial class NetworkInterface : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The ARN of the network interface.
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
         /// <summary>
         /// Block to define the attachment of the ENI. Documented below.
         /// </summary>
@@ -77,6 +83,18 @@ namespace Pulumi.Aws.Ec2
         public Output<string> InterfaceType { get; private set; } = null!;
 
         /// <summary>
+        /// The number of IPv4 prefixes that AWS automatically assigns to the network interface.
+        /// </summary>
+        [Output("ipv4PrefixCount")]
+        public Output<int> Ipv4PrefixCount { get; private set; } = null!;
+
+        /// <summary>
+        /// One or more IPv4 prefixes assigned to the network interface.
+        /// </summary>
+        [Output("ipv4Prefixes")]
+        public Output<ImmutableArray<string>> Ipv4Prefixes { get; private set; } = null!;
+
+        /// <summary>
         /// The number of IPv6 addresses to assign to a network interface. You can't use this option if specifying specific `ipv6_addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.
         /// </summary>
         [Output("ipv6AddressCount")]
@@ -89,6 +107,18 @@ namespace Pulumi.Aws.Ec2
         public Output<ImmutableArray<string>> Ipv6Addresses { get; private set; } = null!;
 
         /// <summary>
+        /// The number of IPv6 prefixes that AWS automatically assigns to the network interface.
+        /// </summary>
+        [Output("ipv6PrefixCount")]
+        public Output<int> Ipv6PrefixCount { get; private set; } = null!;
+
+        /// <summary>
+        /// One or more IPv6 prefixes assigned to the network interface.
+        /// </summary>
+        [Output("ipv6Prefixes")]
+        public Output<ImmutableArray<string>> Ipv6Prefixes { get; private set; } = null!;
+
+        /// <summary>
         /// The MAC address of the network interface.
         /// </summary>
         [Output("macAddress")]
@@ -96,6 +126,12 @@ namespace Pulumi.Aws.Ec2
 
         [Output("outpostArn")]
         public Output<string> OutpostArn { get; private set; } = null!;
+
+        /// <summary>
+        /// The AWS account ID of the owner of the network interface.
+        /// </summary>
+        [Output("ownerId")]
+        public Output<string> OwnerId { get; private set; } = null!;
 
         /// <summary>
         /// The private DNS name of the network interface (IPv4).
@@ -219,6 +255,24 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? InterfaceType { get; set; }
 
         /// <summary>
+        /// The number of IPv4 prefixes that AWS automatically assigns to the network interface.
+        /// </summary>
+        [Input("ipv4PrefixCount")]
+        public Input<int>? Ipv4PrefixCount { get; set; }
+
+        [Input("ipv4Prefixes")]
+        private InputList<string>? _ipv4Prefixes;
+
+        /// <summary>
+        /// One or more IPv4 prefixes assigned to the network interface.
+        /// </summary>
+        public InputList<string> Ipv4Prefixes
+        {
+            get => _ipv4Prefixes ?? (_ipv4Prefixes = new InputList<string>());
+            set => _ipv4Prefixes = value;
+        }
+
+        /// <summary>
         /// The number of IPv6 addresses to assign to a network interface. You can't use this option if specifying specific `ipv6_addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.
         /// </summary>
         [Input("ipv6AddressCount")]
@@ -234,6 +288,24 @@ namespace Pulumi.Aws.Ec2
         {
             get => _ipv6Addresses ?? (_ipv6Addresses = new InputList<string>());
             set => _ipv6Addresses = value;
+        }
+
+        /// <summary>
+        /// The number of IPv6 prefixes that AWS automatically assigns to the network interface.
+        /// </summary>
+        [Input("ipv6PrefixCount")]
+        public Input<int>? Ipv6PrefixCount { get; set; }
+
+        [Input("ipv6Prefixes")]
+        private InputList<string>? _ipv6Prefixes;
+
+        /// <summary>
+        /// One or more IPv6 prefixes assigned to the network interface.
+        /// </summary>
+        public InputList<string> Ipv6Prefixes
+        {
+            get => _ipv6Prefixes ?? (_ipv6Prefixes = new InputList<string>());
+            set => _ipv6Prefixes = value;
         }
 
         [Input("privateIp")]
@@ -300,6 +372,12 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class NetworkInterfaceState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ARN of the network interface.
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
+
         [Input("attachments")]
         private InputList<Inputs.NetworkInterfaceAttachmentGetArgs>? _attachments;
 
@@ -325,6 +403,24 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? InterfaceType { get; set; }
 
         /// <summary>
+        /// The number of IPv4 prefixes that AWS automatically assigns to the network interface.
+        /// </summary>
+        [Input("ipv4PrefixCount")]
+        public Input<int>? Ipv4PrefixCount { get; set; }
+
+        [Input("ipv4Prefixes")]
+        private InputList<string>? _ipv4Prefixes;
+
+        /// <summary>
+        /// One or more IPv4 prefixes assigned to the network interface.
+        /// </summary>
+        public InputList<string> Ipv4Prefixes
+        {
+            get => _ipv4Prefixes ?? (_ipv4Prefixes = new InputList<string>());
+            set => _ipv4Prefixes = value;
+        }
+
+        /// <summary>
         /// The number of IPv6 addresses to assign to a network interface. You can't use this option if specifying specific `ipv6_addresses`. If your subnet has the AssignIpv6AddressOnCreation attribute set to `true`, you can specify `0` to override this setting.
         /// </summary>
         [Input("ipv6AddressCount")]
@@ -343,6 +439,24 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
+        /// The number of IPv6 prefixes that AWS automatically assigns to the network interface.
+        /// </summary>
+        [Input("ipv6PrefixCount")]
+        public Input<int>? Ipv6PrefixCount { get; set; }
+
+        [Input("ipv6Prefixes")]
+        private InputList<string>? _ipv6Prefixes;
+
+        /// <summary>
+        /// One or more IPv6 prefixes assigned to the network interface.
+        /// </summary>
+        public InputList<string> Ipv6Prefixes
+        {
+            get => _ipv6Prefixes ?? (_ipv6Prefixes = new InputList<string>());
+            set => _ipv6Prefixes = value;
+        }
+
+        /// <summary>
         /// The MAC address of the network interface.
         /// </summary>
         [Input("macAddress")]
@@ -350,6 +464,12 @@ namespace Pulumi.Aws.Ec2
 
         [Input("outpostArn")]
         public Input<string>? OutpostArn { get; set; }
+
+        /// <summary>
+        /// The AWS account ID of the owner of the network interface.
+        /// </summary>
+        [Input("ownerId")]
+        public Input<string>? OwnerId { get; set; }
 
         /// <summary>
         /// The private DNS name of the network interface (IPv4).

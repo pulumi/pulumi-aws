@@ -158,13 +158,13 @@ import (
 //
 // ## Import
 //
-// Objects can be imported using the `id`. The `id` is the bucket name and the key together e.g.
+// Objects can be imported using the `id`. The `id` is the bucket name and the key together e.g.,
 //
 // ```sh
 //  $ pulumi import aws:s3/bucketObject:BucketObject object some-bucket-name/some/key.txt
 // ```
 //
-//  Additionally, s3 url syntax can be used, e.g.
+//  Additionally, s3 url syntax can be used, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:s3/bucketObject:BucketObject object s3://some-bucket-name/some/key.txt
@@ -188,9 +188,9 @@ type BucketObject struct {
 	ContentDisposition pulumi.StringPtrOutput `pulumi:"contentDisposition"`
 	// Content encodings that have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.
 	ContentEncoding pulumi.StringPtrOutput `pulumi:"contentEncoding"`
-	// Language the content is in e.g. en-US or en-GB.
+	// Language the content is in e.g., en-US or en-GB.
 	ContentLanguage pulumi.StringPtrOutput `pulumi:"contentLanguage"`
-	// Standard MIME type describing the format of the object data, e.g. application/octet-stream. All Valid MIME Types are valid for this input.
+	// Standard MIME type describing the format of the object data, e.g., application/octet-stream. All Valid MIME Types are valid for this input.
 	ContentType pulumi.StringOutput `pulumi:"contentType"`
 	// Triggers updates when the value changes. The only meaningful value is `filemd5("path/to/file")`. This attribute is not compatible with KMS encryption, `kmsKeyId` or `serverSideEncryption = "aws:kms"` (see `sourceHash` instead).
 	Etag pulumi.StringOutput `pulumi:"etag"`
@@ -274,9 +274,9 @@ type bucketObjectState struct {
 	ContentDisposition *string `pulumi:"contentDisposition"`
 	// Content encodings that have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.
 	ContentEncoding *string `pulumi:"contentEncoding"`
-	// Language the content is in e.g. en-US or en-GB.
+	// Language the content is in e.g., en-US or en-GB.
 	ContentLanguage *string `pulumi:"contentLanguage"`
-	// Standard MIME type describing the format of the object data, e.g. application/octet-stream. All Valid MIME Types are valid for this input.
+	// Standard MIME type describing the format of the object data, e.g., application/octet-stream. All Valid MIME Types are valid for this input.
 	ContentType *string `pulumi:"contentType"`
 	// Triggers updates when the value changes. The only meaningful value is `filemd5("path/to/file")`. This attribute is not compatible with KMS encryption, `kmsKeyId` or `serverSideEncryption = "aws:kms"` (see `sourceHash` instead).
 	Etag *string `pulumi:"etag"`
@@ -329,9 +329,9 @@ type BucketObjectState struct {
 	ContentDisposition pulumi.StringPtrInput
 	// Content encodings that have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.
 	ContentEncoding pulumi.StringPtrInput
-	// Language the content is in e.g. en-US or en-GB.
+	// Language the content is in e.g., en-US or en-GB.
 	ContentLanguage pulumi.StringPtrInput
-	// Standard MIME type describing the format of the object data, e.g. application/octet-stream. All Valid MIME Types are valid for this input.
+	// Standard MIME type describing the format of the object data, e.g., application/octet-stream. All Valid MIME Types are valid for this input.
 	ContentType pulumi.StringPtrInput
 	// Triggers updates when the value changes. The only meaningful value is `filemd5("path/to/file")`. This attribute is not compatible with KMS encryption, `kmsKeyId` or `serverSideEncryption = "aws:kms"` (see `sourceHash` instead).
 	Etag pulumi.StringPtrInput
@@ -388,9 +388,9 @@ type bucketObjectArgs struct {
 	ContentDisposition *string `pulumi:"contentDisposition"`
 	// Content encodings that have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.
 	ContentEncoding *string `pulumi:"contentEncoding"`
-	// Language the content is in e.g. en-US or en-GB.
+	// Language the content is in e.g., en-US or en-GB.
 	ContentLanguage *string `pulumi:"contentLanguage"`
-	// Standard MIME type describing the format of the object data, e.g. application/octet-stream. All Valid MIME Types are valid for this input.
+	// Standard MIME type describing the format of the object data, e.g., application/octet-stream. All Valid MIME Types are valid for this input.
 	ContentType *string `pulumi:"contentType"`
 	// Triggers updates when the value changes. The only meaningful value is `filemd5("path/to/file")`. This attribute is not compatible with KMS encryption, `kmsKeyId` or `serverSideEncryption = "aws:kms"` (see `sourceHash` instead).
 	Etag *string `pulumi:"etag"`
@@ -440,9 +440,9 @@ type BucketObjectArgs struct {
 	ContentDisposition pulumi.StringPtrInput
 	// Content encodings that have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.
 	ContentEncoding pulumi.StringPtrInput
-	// Language the content is in e.g. en-US or en-GB.
+	// Language the content is in e.g., en-US or en-GB.
 	ContentLanguage pulumi.StringPtrInput
-	// Standard MIME type describing the format of the object data, e.g. application/octet-stream. All Valid MIME Types are valid for this input.
+	// Standard MIME type describing the format of the object data, e.g., application/octet-stream. All Valid MIME Types are valid for this input.
 	ContentType pulumi.StringPtrInput
 	// Triggers updates when the value changes. The only meaningful value is `filemd5("path/to/file")`. This attribute is not compatible with KMS encryption, `kmsKeyId` or `serverSideEncryption = "aws:kms"` (see `sourceHash` instead).
 	Etag pulumi.StringPtrInput

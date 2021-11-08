@@ -12,7 +12,7 @@ import (
 
 // ## Import
 //
-// WorkLink can be imported using the ARN, e.g.
+// WorkLink can be imported using the ARN, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:worklink/fleet:Fleet test arn:aws:worklink::123456789012:fleet/example

@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * AppConfig Deployment Strategies can be imported by using their deployment strategy ID, e.g.
+ * AppConfig Deployment Strategies can be imported by using their deployment strategy ID, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:appconfig/deploymentStrategy:DeploymentStrategy example 11xxxxx

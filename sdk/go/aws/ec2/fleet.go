@@ -47,7 +47,7 @@ import (
 //
 // ## Import
 //
-// `aws_ec2_fleet` can be imported by using the Fleet identifier, e.g.
+// `aws_ec2_fleet` can be imported by using the Fleet identifier, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:ec2/fleet:Fleet example fleet-b9b55d27-c5fc-41ac-a6f3-48fcc91f080c
@@ -66,7 +66,8 @@ type Fleet struct {
 	// Nested argument containing Spot configurations. Defined below.
 	SpotOptions FleetSpotOptionsPtrOutput `pulumi:"spotOptions"`
 	Tags        pulumi.StringMapOutput    `pulumi:"tags"`
-	TagsAll     pulumi.StringMapOutput    `pulumi:"tagsAll"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Nested argument containing target capacity configurations. Defined below.
 	TargetCapacitySpecification FleetTargetCapacitySpecificationOutput `pulumi:"targetCapacitySpecification"`
 	// Whether to terminate instances for an EC2 Fleet if it is deleted successfully. Defaults to `false`.
@@ -123,7 +124,8 @@ type fleetState struct {
 	// Nested argument containing Spot configurations. Defined below.
 	SpotOptions *FleetSpotOptions `pulumi:"spotOptions"`
 	Tags        map[string]string `pulumi:"tags"`
-	TagsAll     map[string]string `pulumi:"tagsAll"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Nested argument containing target capacity configurations. Defined below.
 	TargetCapacitySpecification *FleetTargetCapacitySpecification `pulumi:"targetCapacitySpecification"`
 	// Whether to terminate instances for an EC2 Fleet if it is deleted successfully. Defaults to `false`.
@@ -146,7 +148,8 @@ type FleetState struct {
 	// Nested argument containing Spot configurations. Defined below.
 	SpotOptions FleetSpotOptionsPtrInput
 	Tags        pulumi.StringMapInput
-	TagsAll     pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 	// Nested argument containing target capacity configurations. Defined below.
 	TargetCapacitySpecification FleetTargetCapacitySpecificationPtrInput
 	// Whether to terminate instances for an EC2 Fleet if it is deleted successfully. Defaults to `false`.

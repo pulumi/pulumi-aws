@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * The current Account Alias can be imported using the `account_alias`, e.g.
+ * The current Account Alias can be imported using the `account_alias`, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:iam/accountAlias:AccountAlias alias my-account-alias

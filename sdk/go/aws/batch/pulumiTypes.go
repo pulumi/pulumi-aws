@@ -17,9 +17,11 @@ type ComputeEnvironmentComputeResources struct {
 	BidPercentage *int `pulumi:"bidPercentage"`
 	// The desired number of EC2 vCPUS in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 	DesiredVcpus *int `pulumi:"desiredVcpus"`
+	// Provides information used to select Amazon Machine Images (AMIs) for EC2 instances in the compute environment. If Ec2Configuration isn't specified, the default is ECS_AL2. This parameter isn't applicable to jobs that are running on Fargate resources, and shouldn't be specified.
+	Ec2Configuration *ComputeEnvironmentComputeResourcesEc2Configuration `pulumi:"ec2Configuration"`
 	// The EC2 key pair that is used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 	Ec2KeyPair *string `pulumi:"ec2KeyPair"`
-	// The Amazon Machine Image (AMI) ID used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+	// The Amazon Machine Image (AMI) ID used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified. (Deprecated, use `imageIdOverride` instead)
 	ImageId *string `pulumi:"imageId"`
 	// The Amazon ECS instance role applied to Amazon EC2 instances in a compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 	InstanceRole *string `pulumi:"instanceRole"`
@@ -61,9 +63,11 @@ type ComputeEnvironmentComputeResourcesArgs struct {
 	BidPercentage pulumi.IntPtrInput `pulumi:"bidPercentage"`
 	// The desired number of EC2 vCPUS in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 	DesiredVcpus pulumi.IntPtrInput `pulumi:"desiredVcpus"`
+	// Provides information used to select Amazon Machine Images (AMIs) for EC2 instances in the compute environment. If Ec2Configuration isn't specified, the default is ECS_AL2. This parameter isn't applicable to jobs that are running on Fargate resources, and shouldn't be specified.
+	Ec2Configuration ComputeEnvironmentComputeResourcesEc2ConfigurationPtrInput `pulumi:"ec2Configuration"`
 	// The EC2 key pair that is used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 	Ec2KeyPair pulumi.StringPtrInput `pulumi:"ec2KeyPair"`
-	// The Amazon Machine Image (AMI) ID used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+	// The Amazon Machine Image (AMI) ID used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified. (Deprecated, use `imageIdOverride` instead)
 	ImageId pulumi.StringPtrInput `pulumi:"imageId"`
 	// The Amazon ECS instance role applied to Amazon EC2 instances in a compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 	InstanceRole pulumi.StringPtrInput `pulumi:"instanceRole"`
@@ -179,12 +183,19 @@ func (o ComputeEnvironmentComputeResourcesOutput) DesiredVcpus() pulumi.IntPtrOu
 	return o.ApplyT(func(v ComputeEnvironmentComputeResources) *int { return v.DesiredVcpus }).(pulumi.IntPtrOutput)
 }
 
+// Provides information used to select Amazon Machine Images (AMIs) for EC2 instances in the compute environment. If Ec2Configuration isn't specified, the default is ECS_AL2. This parameter isn't applicable to jobs that are running on Fargate resources, and shouldn't be specified.
+func (o ComputeEnvironmentComputeResourcesOutput) Ec2Configuration() ComputeEnvironmentComputeResourcesEc2ConfigurationPtrOutput {
+	return o.ApplyT(func(v ComputeEnvironmentComputeResources) *ComputeEnvironmentComputeResourcesEc2Configuration {
+		return v.Ec2Configuration
+	}).(ComputeEnvironmentComputeResourcesEc2ConfigurationPtrOutput)
+}
+
 // The EC2 key pair that is used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 func (o ComputeEnvironmentComputeResourcesOutput) Ec2KeyPair() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComputeEnvironmentComputeResources) *string { return v.Ec2KeyPair }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Machine Image (AMI) ID used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+// The Amazon Machine Image (AMI) ID used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified. (Deprecated, use `imageIdOverride` instead)
 func (o ComputeEnvironmentComputeResourcesOutput) ImageId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComputeEnvironmentComputeResources) *string { return v.ImageId }).(pulumi.StringPtrOutput)
 }
@@ -295,6 +306,16 @@ func (o ComputeEnvironmentComputeResourcesPtrOutput) DesiredVcpus() pulumi.IntPt
 	}).(pulumi.IntPtrOutput)
 }
 
+// Provides information used to select Amazon Machine Images (AMIs) for EC2 instances in the compute environment. If Ec2Configuration isn't specified, the default is ECS_AL2. This parameter isn't applicable to jobs that are running on Fargate resources, and shouldn't be specified.
+func (o ComputeEnvironmentComputeResourcesPtrOutput) Ec2Configuration() ComputeEnvironmentComputeResourcesEc2ConfigurationPtrOutput {
+	return o.ApplyT(func(v *ComputeEnvironmentComputeResources) *ComputeEnvironmentComputeResourcesEc2Configuration {
+		if v == nil {
+			return nil
+		}
+		return v.Ec2Configuration
+	}).(ComputeEnvironmentComputeResourcesEc2ConfigurationPtrOutput)
+}
+
 // The EC2 key pair that is used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 func (o ComputeEnvironmentComputeResourcesPtrOutput) Ec2KeyPair() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ComputeEnvironmentComputeResources) *string {
@@ -305,7 +326,7 @@ func (o ComputeEnvironmentComputeResourcesPtrOutput) Ec2KeyPair() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Machine Image (AMI) ID used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+// The Amazon Machine Image (AMI) ID used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified. (Deprecated, use `imageIdOverride` instead)
 func (o ComputeEnvironmentComputeResourcesPtrOutput) ImageId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ComputeEnvironmentComputeResources) *string {
 		if v == nil {
@@ -412,6 +433,162 @@ func (o ComputeEnvironmentComputeResourcesPtrOutput) Type() pulumi.StringPtrOutp
 			return nil
 		}
 		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type ComputeEnvironmentComputeResourcesEc2Configuration struct {
+	// The AMI ID used for instances launched in the compute environment that match the image type. This setting overrides the `imageId` argument in the `computeResourcess block.
+	ImageIdOverride *string `pulumi:"imageIdOverride"`
+	// The image type to match with the instance type to select an AMI. If the `imageIdOverride` parameter isn't specified, then a recent [Amazon ECS-optimized Amazon Linux 2 AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#al2ami) (`ECS_AL2`) is used.
+	ImageType *string `pulumi:"imageType"`
+}
+
+// ComputeEnvironmentComputeResourcesEc2ConfigurationInput is an input type that accepts ComputeEnvironmentComputeResourcesEc2ConfigurationArgs and ComputeEnvironmentComputeResourcesEc2ConfigurationOutput values.
+// You can construct a concrete instance of `ComputeEnvironmentComputeResourcesEc2ConfigurationInput` via:
+//
+//          ComputeEnvironmentComputeResourcesEc2ConfigurationArgs{...}
+type ComputeEnvironmentComputeResourcesEc2ConfigurationInput interface {
+	pulumi.Input
+
+	ToComputeEnvironmentComputeResourcesEc2ConfigurationOutput() ComputeEnvironmentComputeResourcesEc2ConfigurationOutput
+	ToComputeEnvironmentComputeResourcesEc2ConfigurationOutputWithContext(context.Context) ComputeEnvironmentComputeResourcesEc2ConfigurationOutput
+}
+
+type ComputeEnvironmentComputeResourcesEc2ConfigurationArgs struct {
+	// The AMI ID used for instances launched in the compute environment that match the image type. This setting overrides the `imageId` argument in the `computeResourcess block.
+	ImageIdOverride pulumi.StringPtrInput `pulumi:"imageIdOverride"`
+	// The image type to match with the instance type to select an AMI. If the `imageIdOverride` parameter isn't specified, then a recent [Amazon ECS-optimized Amazon Linux 2 AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#al2ami) (`ECS_AL2`) is used.
+	ImageType pulumi.StringPtrInput `pulumi:"imageType"`
+}
+
+func (ComputeEnvironmentComputeResourcesEc2ConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeEnvironmentComputeResourcesEc2Configuration)(nil)).Elem()
+}
+
+func (i ComputeEnvironmentComputeResourcesEc2ConfigurationArgs) ToComputeEnvironmentComputeResourcesEc2ConfigurationOutput() ComputeEnvironmentComputeResourcesEc2ConfigurationOutput {
+	return i.ToComputeEnvironmentComputeResourcesEc2ConfigurationOutputWithContext(context.Background())
+}
+
+func (i ComputeEnvironmentComputeResourcesEc2ConfigurationArgs) ToComputeEnvironmentComputeResourcesEc2ConfigurationOutputWithContext(ctx context.Context) ComputeEnvironmentComputeResourcesEc2ConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeEnvironmentComputeResourcesEc2ConfigurationOutput)
+}
+
+func (i ComputeEnvironmentComputeResourcesEc2ConfigurationArgs) ToComputeEnvironmentComputeResourcesEc2ConfigurationPtrOutput() ComputeEnvironmentComputeResourcesEc2ConfigurationPtrOutput {
+	return i.ToComputeEnvironmentComputeResourcesEc2ConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ComputeEnvironmentComputeResourcesEc2ConfigurationArgs) ToComputeEnvironmentComputeResourcesEc2ConfigurationPtrOutputWithContext(ctx context.Context) ComputeEnvironmentComputeResourcesEc2ConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeEnvironmentComputeResourcesEc2ConfigurationOutput).ToComputeEnvironmentComputeResourcesEc2ConfigurationPtrOutputWithContext(ctx)
+}
+
+// ComputeEnvironmentComputeResourcesEc2ConfigurationPtrInput is an input type that accepts ComputeEnvironmentComputeResourcesEc2ConfigurationArgs, ComputeEnvironmentComputeResourcesEc2ConfigurationPtr and ComputeEnvironmentComputeResourcesEc2ConfigurationPtrOutput values.
+// You can construct a concrete instance of `ComputeEnvironmentComputeResourcesEc2ConfigurationPtrInput` via:
+//
+//          ComputeEnvironmentComputeResourcesEc2ConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type ComputeEnvironmentComputeResourcesEc2ConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToComputeEnvironmentComputeResourcesEc2ConfigurationPtrOutput() ComputeEnvironmentComputeResourcesEc2ConfigurationPtrOutput
+	ToComputeEnvironmentComputeResourcesEc2ConfigurationPtrOutputWithContext(context.Context) ComputeEnvironmentComputeResourcesEc2ConfigurationPtrOutput
+}
+
+type computeEnvironmentComputeResourcesEc2ConfigurationPtrType ComputeEnvironmentComputeResourcesEc2ConfigurationArgs
+
+func ComputeEnvironmentComputeResourcesEc2ConfigurationPtr(v *ComputeEnvironmentComputeResourcesEc2ConfigurationArgs) ComputeEnvironmentComputeResourcesEc2ConfigurationPtrInput {
+	return (*computeEnvironmentComputeResourcesEc2ConfigurationPtrType)(v)
+}
+
+func (*computeEnvironmentComputeResourcesEc2ConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComputeEnvironmentComputeResourcesEc2Configuration)(nil)).Elem()
+}
+
+func (i *computeEnvironmentComputeResourcesEc2ConfigurationPtrType) ToComputeEnvironmentComputeResourcesEc2ConfigurationPtrOutput() ComputeEnvironmentComputeResourcesEc2ConfigurationPtrOutput {
+	return i.ToComputeEnvironmentComputeResourcesEc2ConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *computeEnvironmentComputeResourcesEc2ConfigurationPtrType) ToComputeEnvironmentComputeResourcesEc2ConfigurationPtrOutputWithContext(ctx context.Context) ComputeEnvironmentComputeResourcesEc2ConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputeEnvironmentComputeResourcesEc2ConfigurationPtrOutput)
+}
+
+type ComputeEnvironmentComputeResourcesEc2ConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ComputeEnvironmentComputeResourcesEc2ConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeEnvironmentComputeResourcesEc2Configuration)(nil)).Elem()
+}
+
+func (o ComputeEnvironmentComputeResourcesEc2ConfigurationOutput) ToComputeEnvironmentComputeResourcesEc2ConfigurationOutput() ComputeEnvironmentComputeResourcesEc2ConfigurationOutput {
+	return o
+}
+
+func (o ComputeEnvironmentComputeResourcesEc2ConfigurationOutput) ToComputeEnvironmentComputeResourcesEc2ConfigurationOutputWithContext(ctx context.Context) ComputeEnvironmentComputeResourcesEc2ConfigurationOutput {
+	return o
+}
+
+func (o ComputeEnvironmentComputeResourcesEc2ConfigurationOutput) ToComputeEnvironmentComputeResourcesEc2ConfigurationPtrOutput() ComputeEnvironmentComputeResourcesEc2ConfigurationPtrOutput {
+	return o.ToComputeEnvironmentComputeResourcesEc2ConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ComputeEnvironmentComputeResourcesEc2ConfigurationOutput) ToComputeEnvironmentComputeResourcesEc2ConfigurationPtrOutputWithContext(ctx context.Context) ComputeEnvironmentComputeResourcesEc2ConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ComputeEnvironmentComputeResourcesEc2Configuration) *ComputeEnvironmentComputeResourcesEc2Configuration {
+		return &v
+	}).(ComputeEnvironmentComputeResourcesEc2ConfigurationPtrOutput)
+}
+
+// The AMI ID used for instances launched in the compute environment that match the image type. This setting overrides the `imageId` argument in the `computeResourcess block.
+func (o ComputeEnvironmentComputeResourcesEc2ConfigurationOutput) ImageIdOverride() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComputeEnvironmentComputeResourcesEc2Configuration) *string { return v.ImageIdOverride }).(pulumi.StringPtrOutput)
+}
+
+// The image type to match with the instance type to select an AMI. If the `imageIdOverride` parameter isn't specified, then a recent [Amazon ECS-optimized Amazon Linux 2 AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#al2ami) (`ECS_AL2`) is used.
+func (o ComputeEnvironmentComputeResourcesEc2ConfigurationOutput) ImageType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComputeEnvironmentComputeResourcesEc2Configuration) *string { return v.ImageType }).(pulumi.StringPtrOutput)
+}
+
+type ComputeEnvironmentComputeResourcesEc2ConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ComputeEnvironmentComputeResourcesEc2ConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComputeEnvironmentComputeResourcesEc2Configuration)(nil)).Elem()
+}
+
+func (o ComputeEnvironmentComputeResourcesEc2ConfigurationPtrOutput) ToComputeEnvironmentComputeResourcesEc2ConfigurationPtrOutput() ComputeEnvironmentComputeResourcesEc2ConfigurationPtrOutput {
+	return o
+}
+
+func (o ComputeEnvironmentComputeResourcesEc2ConfigurationPtrOutput) ToComputeEnvironmentComputeResourcesEc2ConfigurationPtrOutputWithContext(ctx context.Context) ComputeEnvironmentComputeResourcesEc2ConfigurationPtrOutput {
+	return o
+}
+
+func (o ComputeEnvironmentComputeResourcesEc2ConfigurationPtrOutput) Elem() ComputeEnvironmentComputeResourcesEc2ConfigurationOutput {
+	return o.ApplyT(func(v *ComputeEnvironmentComputeResourcesEc2Configuration) ComputeEnvironmentComputeResourcesEc2Configuration {
+		if v != nil {
+			return *v
+		}
+		var ret ComputeEnvironmentComputeResourcesEc2Configuration
+		return ret
+	}).(ComputeEnvironmentComputeResourcesEc2ConfigurationOutput)
+}
+
+// The AMI ID used for instances launched in the compute environment that match the image type. This setting overrides the `imageId` argument in the `computeResourcess block.
+func (o ComputeEnvironmentComputeResourcesEc2ConfigurationPtrOutput) ImageIdOverride() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ComputeEnvironmentComputeResourcesEc2Configuration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ImageIdOverride
+	}).(pulumi.StringPtrOutput)
+}
+
+// The image type to match with the instance type to select an AMI. If the `imageIdOverride` parameter isn't specified, then a recent [Amazon ECS-optimized Amazon Linux 2 AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#al2ami) (`ECS_AL2`) is used.
+func (o ComputeEnvironmentComputeResourcesEc2ConfigurationPtrOutput) ImageType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ComputeEnvironmentComputeResourcesEc2Configuration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ImageType
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1112,6 +1289,8 @@ func (o GetJobQueueComputeEnvironmentOrderArrayOutput) Index(i pulumi.IntInput) 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ComputeEnvironmentComputeResourcesInput)(nil)).Elem(), ComputeEnvironmentComputeResourcesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ComputeEnvironmentComputeResourcesPtrInput)(nil)).Elem(), ComputeEnvironmentComputeResourcesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ComputeEnvironmentComputeResourcesEc2ConfigurationInput)(nil)).Elem(), ComputeEnvironmentComputeResourcesEc2ConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ComputeEnvironmentComputeResourcesEc2ConfigurationPtrInput)(nil)).Elem(), ComputeEnvironmentComputeResourcesEc2ConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ComputeEnvironmentComputeResourcesLaunchTemplateInput)(nil)).Elem(), ComputeEnvironmentComputeResourcesLaunchTemplateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ComputeEnvironmentComputeResourcesLaunchTemplatePtrInput)(nil)).Elem(), ComputeEnvironmentComputeResourcesLaunchTemplateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionRetryStrategyInput)(nil)).Elem(), JobDefinitionRetryStrategyArgs{})
@@ -1124,6 +1303,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetJobQueueComputeEnvironmentOrderArrayInput)(nil)).Elem(), GetJobQueueComputeEnvironmentOrderArray{})
 	pulumi.RegisterOutputType(ComputeEnvironmentComputeResourcesOutput{})
 	pulumi.RegisterOutputType(ComputeEnvironmentComputeResourcesPtrOutput{})
+	pulumi.RegisterOutputType(ComputeEnvironmentComputeResourcesEc2ConfigurationOutput{})
+	pulumi.RegisterOutputType(ComputeEnvironmentComputeResourcesEc2ConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ComputeEnvironmentComputeResourcesLaunchTemplateOutput{})
 	pulumi.RegisterOutputType(ComputeEnvironmentComputeResourcesLaunchTemplatePtrOutput{})
 	pulumi.RegisterOutputType(JobDefinitionRetryStrategyOutput{})

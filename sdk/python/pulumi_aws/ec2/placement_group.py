@@ -235,7 +235,7 @@ class PlacementGroup(pulumi.CustomResource):
 
         ## Import
 
-        Placement groups can be imported using the `name`, e.g.
+        Placement groups can be imported using the `name`, e.g.,
 
         ```sh
          $ pulumi import aws:ec2/placementGroup:PlacementGroup prod_pg production-placement-group
@@ -271,7 +271,7 @@ class PlacementGroup(pulumi.CustomResource):
 
         ## Import
 
-        Placement groups can be imported using the `name`, e.g.
+        Placement groups can be imported using the `name`, e.g.,
 
         ```sh
          $ pulumi import aws:ec2/placementGroup:PlacementGroup prod_pg production-placement-group
@@ -382,7 +382,7 @@ class PlacementGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="partitionCount")
-    def partition_count(self) -> pulumi.Output[Optional[int]]:
+    def partition_count(self) -> pulumi.Output[int]:
         """
         The number of partitions to create in the
         placement group.  Can only be specified when the `strategy` is set to

@@ -215,7 +215,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// The common name of an AWS service (e.g. `s3`).
+        /// The common name of an AWS service (e.g., `s3`).
         /// </summary>
         [Input("service")]
         public string? Service { get; set; }
@@ -264,7 +264,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// The common name of an AWS service (e.g. `s3`).
+        /// The common name of an AWS service (e.g., `s3`).
         /// </summary>
         [Input("service")]
         public Input<string>? Service { get; set; }

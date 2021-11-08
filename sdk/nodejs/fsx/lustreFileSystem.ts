@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * FSx File Systems can be imported using the `id`, e.g.
+ * FSx File Systems can be imported using the `id`, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:fsx/lustreFileSystem:LustreFileSystem example fs-543ab12b1ca672f33
@@ -103,7 +103,7 @@ export class LustreFileSystem extends pulumi.CustomResource {
      */
     public readonly deploymentType!: pulumi.Output<string | undefined>;
     /**
-     * DNS name for the file system, e.g. `fs-12345678.fsx.us-west-2.amazonaws.com`
+     * DNS name for the file system, e.g., `fs-12345678.fsx.us-west-2.amazonaws.com`
      */
     public /*out*/ readonly dnsName!: pulumi.Output<string>;
     /**
@@ -290,7 +290,7 @@ export interface LustreFileSystemState {
      */
     deploymentType?: pulumi.Input<string>;
     /**
-     * DNS name for the file system, e.g. `fs-12345678.fsx.us-west-2.amazonaws.com`
+     * DNS name for the file system, e.g., `fs-12345678.fsx.us-west-2.amazonaws.com`
      */
     dnsName?: pulumi.Input<string>;
     /**

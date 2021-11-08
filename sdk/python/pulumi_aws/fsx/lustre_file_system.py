@@ -360,7 +360,7 @@ class _LustreFileSystemState:
         :param pulumi.Input[str] daily_automatic_backup_start_time: A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. only valid for `PERSISTENT_1` deployment_type. Requires `automatic_backup_retention_days` to be set.
         :param pulumi.Input[str] data_compression_type: Sets the data compression configuration for the file system. Valid values are `LZ4` and `NONE`. Default value is `NONE`. Unsetting this value reverts the compression type back to `NONE`.
         :param pulumi.Input[str] deployment_type: - The filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`. `SCRATCH_1` deployment types cannot have `storage_capacity` increased.
-        :param pulumi.Input[str] dns_name: DNS name for the file system, e.g. `fs-12345678.fsx.us-west-2.amazonaws.com`
+        :param pulumi.Input[str] dns_name: DNS name for the file system, e.g., `fs-12345678.fsx.us-west-2.amazonaws.com`
         :param pulumi.Input[str] drive_cache_type: - The type of drive cache used by `PERSISTENT_1` filesystems that are provisioned with `HDD` storage_type. Required for `HDD` storage_type, set to either `READ` or `NONE`.
         :param pulumi.Input[str] export_path: S3 URI (with optional prefix) where the root of your Amazon FSx file system is exported. Can only be specified with `import_path` argument and the path must use the same Amazon S3 bucket as specified in `import_path`. Set equal to `import_path` to overwrite files on export. Defaults to `s3://{IMPORT BUCKET}/FSxLustre{CREATION TIMESTAMP}`.
         :param pulumi.Input[str] import_path: S3 URI (with optional prefix) that you're using as the data repository for your FSx for Lustre file system. For example, `s3://example-bucket/optional-prefix/`.
@@ -532,7 +532,7 @@ class _LustreFileSystemState:
     @pulumi.getter(name="dnsName")
     def dns_name(self) -> Optional[pulumi.Input[str]]:
         """
-        DNS name for the file system, e.g. `fs-12345678.fsx.us-west-2.amazonaws.com`
+        DNS name for the file system, e.g., `fs-12345678.fsx.us-west-2.amazonaws.com`
         """
         return pulumi.get(self, "dns_name")
 
@@ -787,7 +787,7 @@ class LustreFileSystem(pulumi.CustomResource):
 
         ## Import
 
-        FSx File Systems can be imported using the `id`, e.g.
+        FSx File Systems can be imported using the `id`, e.g.,
 
         ```sh
          $ pulumi import aws:fsx/lustreFileSystem:LustreFileSystem example fs-543ab12b1ca672f33
@@ -852,7 +852,7 @@ class LustreFileSystem(pulumi.CustomResource):
 
         ## Import
 
-        FSx File Systems can be imported using the `id`, e.g.
+        FSx File Systems can be imported using the `id`, e.g.,
 
         ```sh
          $ pulumi import aws:fsx/lustreFileSystem:LustreFileSystem example fs-543ab12b1ca672f33
@@ -997,7 +997,7 @@ class LustreFileSystem(pulumi.CustomResource):
         :param pulumi.Input[str] daily_automatic_backup_start_time: A recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. only valid for `PERSISTENT_1` deployment_type. Requires `automatic_backup_retention_days` to be set.
         :param pulumi.Input[str] data_compression_type: Sets the data compression configuration for the file system. Valid values are `LZ4` and `NONE`. Default value is `NONE`. Unsetting this value reverts the compression type back to `NONE`.
         :param pulumi.Input[str] deployment_type: - The filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`. `SCRATCH_1` deployment types cannot have `storage_capacity` increased.
-        :param pulumi.Input[str] dns_name: DNS name for the file system, e.g. `fs-12345678.fsx.us-west-2.amazonaws.com`
+        :param pulumi.Input[str] dns_name: DNS name for the file system, e.g., `fs-12345678.fsx.us-west-2.amazonaws.com`
         :param pulumi.Input[str] drive_cache_type: - The type of drive cache used by `PERSISTENT_1` filesystems that are provisioned with `HDD` storage_type. Required for `HDD` storage_type, set to either `READ` or `NONE`.
         :param pulumi.Input[str] export_path: S3 URI (with optional prefix) where the root of your Amazon FSx file system is exported. Can only be specified with `import_path` argument and the path must use the same Amazon S3 bucket as specified in `import_path`. Set equal to `import_path` to overwrite files on export. Defaults to `s3://{IMPORT BUCKET}/FSxLustre{CREATION TIMESTAMP}`.
         :param pulumi.Input[str] import_path: S3 URI (with optional prefix) that you're using as the data repository for your FSx for Lustre file system. For example, `s3://example-bucket/optional-prefix/`.
@@ -1116,7 +1116,7 @@ class LustreFileSystem(pulumi.CustomResource):
     @pulumi.getter(name="dnsName")
     def dns_name(self) -> pulumi.Output[str]:
         """
-        DNS name for the file system, e.g. `fs-12345678.fsx.us-west-2.amazonaws.com`
+        DNS name for the file system, e.g., `fs-12345678.fsx.us-west-2.amazonaws.com`
         """
         return pulumi.get(self, "dns_name")
 

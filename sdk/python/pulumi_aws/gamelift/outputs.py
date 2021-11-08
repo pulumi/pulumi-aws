@@ -43,7 +43,7 @@ class AliasRoutingStrategy(dict):
                  fleet_id: Optional[str] = None,
                  message: Optional[str] = None):
         """
-        :param str type: Type of routing strategy. e.g. `SIMPLE` or `TERMINAL`
+        :param str type: Type of routing strategyE.g., `SIMPLE` or `TERMINAL`
         :param str fleet_id: ID of the Gamelift Fleet to point the alias to.
         :param str message: Message text to be used with the `TERMINAL` routing strategy.
         """
@@ -57,7 +57,7 @@ class AliasRoutingStrategy(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        Type of routing strategy. e.g. `SIMPLE` or `TERMINAL`
+        Type of routing strategyE.g., `SIMPLE` or `TERMINAL`
         """
         return pulumi.get(self, "type")
 
@@ -165,8 +165,8 @@ class FleetEc2InboundPermission(dict):
                  to_port: int):
         """
         :param int from_port: Starting value for a range of allowed port numbers.
-        :param str ip_range: Range of allowed IP addresses expressed in CIDR notation. e.g. `000.000.000.000/[subnet mask]` or `0.0.0.0/[subnet mask]`.
-        :param str protocol: Network communication protocol used by the fleet. e.g. `TCP` or `UDP`
+        :param str ip_range: Range of allowed IP addresses expressed in CIDR notationE.g., `000.000.000.000/[subnet mask]` or `0.0.0.0/[subnet mask]`.
+        :param str protocol: Network communication protocol used by the fleetE.g., `TCP` or `UDP`
         :param int to_port: Ending value for a range of allowed port numbers. Port numbers are end-inclusive. This value must be higher than `from_port`.
         """
         pulumi.set(__self__, "from_port", from_port)
@@ -186,7 +186,7 @@ class FleetEc2InboundPermission(dict):
     @pulumi.getter(name="ipRange")
     def ip_range(self) -> str:
         """
-        Range of allowed IP addresses expressed in CIDR notation. e.g. `000.000.000.000/[subnet mask]` or `0.0.0.0/[subnet mask]`.
+        Range of allowed IP addresses expressed in CIDR notationE.g., `000.000.000.000/[subnet mask]` or `0.0.0.0/[subnet mask]`.
         """
         return pulumi.get(self, "ip_range")
 
@@ -194,7 +194,7 @@ class FleetEc2InboundPermission(dict):
     @pulumi.getter
     def protocol(self) -> str:
         """
-        Network communication protocol used by the fleet. e.g. `TCP` or `UDP`
+        Network communication protocol used by the fleetE.g., `TCP` or `UDP`
         """
         return pulumi.get(self, "protocol")
 

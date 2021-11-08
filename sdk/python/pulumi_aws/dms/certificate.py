@@ -215,7 +215,7 @@ class Certificate(pulumi.CustomResource):
 
         ## Import
 
-        Certificates can be imported using the `certificate_id`, e.g.
+        Certificates can be imported using the `certificate_id`, e.g.,
 
         ```sh
          $ pulumi import aws:dms/certificate:Certificate test test-dms-certificate-tf
@@ -254,7 +254,7 @@ class Certificate(pulumi.CustomResource):
 
         ## Import
 
-        Certificates can be imported using the `certificate_id`, e.g.
+        Certificates can be imported using the `certificate_id`, e.g.,
 
         ```sh
          $ pulumi import aws:dms/certificate:Certificate test test-dms-certificate-tf

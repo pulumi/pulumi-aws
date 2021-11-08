@@ -85,7 +85,7 @@ namespace Pulumi.Aws.Lambda
         public string FunctionName { get; set; } = null!;
 
         /// <summary>
-        /// Alias name or version number of the lambda function. e.g. `$LATEST`, `my-alias`, or `1`
+        /// Alias name or version number of the lambda functionE.g., `$LATEST`, `my-alias`, or `1`
         /// </summary>
         [Input("qualifier")]
         public string? Qualifier { get; set; }
@@ -112,7 +112,7 @@ namespace Pulumi.Aws.Lambda
         public Input<string> FunctionName { get; set; } = null!;
 
         /// <summary>
-        /// Alias name or version number of the lambda function. e.g. `$LATEST`, `my-alias`, or `1`
+        /// Alias name or version number of the lambda functionE.g., `$LATEST`, `my-alias`, or `1`
         /// </summary>
         [Input("qualifier")]
         public Input<string>? Qualifier { get; set; }

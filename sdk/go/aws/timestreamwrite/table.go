@@ -70,7 +70,7 @@ import (
 //
 // ## Import
 //
-// Timestream tables can be imported using the `table_name` and `database_name` separate by a colon (`:`), e.g.
+// Timestream tables can be imported using the `table_name` and `database_name` separate by a colon (`:`), e.g.,
 //
 // ```sh
 //  $ pulumi import aws:timestreamwrite/table:Table example ExampleTable:ExampleDatabase

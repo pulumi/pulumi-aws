@@ -34,7 +34,7 @@ namespace Pulumi.Aws.Rds
     /// 
     /// ## Import
     /// 
-    /// `aws_db_cluster_snapshot` can be imported by using the cluster snapshot identifier, e.g.
+    /// `aws_db_cluster_snapshot` can be imported by using the cluster snapshot identifier, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:rds/clusterSnapshot:ClusterSnapshot example my-cluster-snapshot

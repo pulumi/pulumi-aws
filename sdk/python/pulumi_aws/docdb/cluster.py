@@ -64,8 +64,8 @@ class ClusterArgs:
         :param pulumi.Input[str] master_username: Username for the master DB user.
         :param pulumi.Input[int] port: The port on which the DB accepts connections
         :param pulumi.Input[str] preferred_backup_window: The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC
-               Default: A 30-minute window selected at random from an 8-hour block of time per region. e.g. 04:00-09:00
-        :param pulumi.Input[str] preferred_maintenance_window: The weekly time range during which system maintenance can occur, in (UTC) e.g. wed:04:00-wed:04:30
+               Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
+        :param pulumi.Input[str] preferred_maintenance_window: The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
         :param pulumi.Input[bool] skip_final_snapshot: Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
         :param pulumi.Input[str] snapshot_identifier: Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot.
         :param pulumi.Input[bool] storage_encrypted: Specifies whether the DB cluster is encrypted. The default is `false`.
@@ -338,7 +338,7 @@ class ClusterArgs:
     def preferred_backup_window(self) -> Optional[pulumi.Input[str]]:
         """
         The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC
-        Default: A 30-minute window selected at random from an 8-hour block of time per region. e.g. 04:00-09:00
+        Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
         """
         return pulumi.get(self, "preferred_backup_window")
 
@@ -350,7 +350,7 @@ class ClusterArgs:
     @pulumi.getter(name="preferredMaintenanceWindow")
     def preferred_maintenance_window(self) -> Optional[pulumi.Input[str]]:
         """
-        The weekly time range during which system maintenance can occur, in (UTC) e.g. wed:04:00-wed:04:30
+        The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
         """
         return pulumi.get(self, "preferred_maintenance_window")
 
@@ -484,8 +484,8 @@ class _ClusterState:
         :param pulumi.Input[str] master_username: Username for the master DB user.
         :param pulumi.Input[int] port: The port on which the DB accepts connections
         :param pulumi.Input[str] preferred_backup_window: The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC
-               Default: A 30-minute window selected at random from an 8-hour block of time per region. e.g. 04:00-09:00
-        :param pulumi.Input[str] preferred_maintenance_window: The weekly time range during which system maintenance can occur, in (UTC) e.g. wed:04:00-wed:04:30
+               Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
+        :param pulumi.Input[str] preferred_maintenance_window: The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
         :param pulumi.Input[str] reader_endpoint: A read-only endpoint for the DocDB cluster, automatically load-balanced across replicas
         :param pulumi.Input[bool] skip_final_snapshot: Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
         :param pulumi.Input[str] snapshot_identifier: Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot.
@@ -820,7 +820,7 @@ class _ClusterState:
     def preferred_backup_window(self) -> Optional[pulumi.Input[str]]:
         """
         The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC
-        Default: A 30-minute window selected at random from an 8-hour block of time per region. e.g. 04:00-09:00
+        Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
         """
         return pulumi.get(self, "preferred_backup_window")
 
@@ -832,7 +832,7 @@ class _ClusterState:
     @pulumi.getter(name="preferredMaintenanceWindow")
     def preferred_maintenance_window(self) -> Optional[pulumi.Input[str]]:
         """
-        The weekly time range during which system maintenance can occur, in (UTC) e.g. wed:04:00-wed:04:30
+        The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
         """
         return pulumi.get(self, "preferred_maintenance_window")
 
@@ -986,7 +986,7 @@ class Cluster(pulumi.CustomResource):
 
         ## Import
 
-        DocDB Clusters can be imported using the `cluster_identifier`, e.g.
+        DocDB Clusters can be imported using the `cluster_identifier`, e.g.,
 
         ```sh
          $ pulumi import aws:docdb/cluster:Cluster docdb_cluster docdb-prod-cluster
@@ -1019,8 +1019,8 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] master_username: Username for the master DB user.
         :param pulumi.Input[int] port: The port on which the DB accepts connections
         :param pulumi.Input[str] preferred_backup_window: The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC
-               Default: A 30-minute window selected at random from an 8-hour block of time per region. e.g. 04:00-09:00
-        :param pulumi.Input[str] preferred_maintenance_window: The weekly time range during which system maintenance can occur, in (UTC) e.g. wed:04:00-wed:04:30
+               Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
+        :param pulumi.Input[str] preferred_maintenance_window: The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
         :param pulumi.Input[bool] skip_final_snapshot: Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
         :param pulumi.Input[str] snapshot_identifier: Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot.
         :param pulumi.Input[bool] storage_encrypted: Specifies whether the DB cluster is encrypted. The default is `false`.
@@ -1064,7 +1064,7 @@ class Cluster(pulumi.CustomResource):
 
         ## Import
 
-        DocDB Clusters can be imported using the `cluster_identifier`, e.g.
+        DocDB Clusters can be imported using the `cluster_identifier`, e.g.,
 
         ```sh
          $ pulumi import aws:docdb/cluster:Cluster docdb_cluster docdb-prod-cluster
@@ -1227,8 +1227,8 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] master_username: Username for the master DB user.
         :param pulumi.Input[int] port: The port on which the DB accepts connections
         :param pulumi.Input[str] preferred_backup_window: The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC
-               Default: A 30-minute window selected at random from an 8-hour block of time per region. e.g. 04:00-09:00
-        :param pulumi.Input[str] preferred_maintenance_window: The weekly time range during which system maintenance can occur, in (UTC) e.g. wed:04:00-wed:04:30
+               Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
+        :param pulumi.Input[str] preferred_maintenance_window: The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
         :param pulumi.Input[str] reader_endpoint: A read-only endpoint for the DocDB cluster, automatically load-balanced across replicas
         :param pulumi.Input[bool] skip_final_snapshot: Determines whether a final DB snapshot is created before the DB cluster is deleted. If true is specified, no DB snapshot is created. If false is specified, a DB snapshot is created before the DB cluster is deleted, using the value from `final_snapshot_identifier`. Default is `false`.
         :param pulumi.Input[str] snapshot_identifier: Specifies whether or not to create this cluster from a snapshot. You can use either the name or ARN when specifying a DB cluster snapshot, or the ARN when specifying a DB snapshot.
@@ -1454,7 +1454,7 @@ class Cluster(pulumi.CustomResource):
     def preferred_backup_window(self) -> pulumi.Output[str]:
         """
         The daily time range during which automated backups are created if automated backups are enabled using the BackupRetentionPeriod parameter.Time in UTC
-        Default: A 30-minute window selected at random from an 8-hour block of time per region. e.g. 04:00-09:00
+        Default: A 30-minute window selected at random from an 8-hour block of time per regionE.g., 04:00-09:00
         """
         return pulumi.get(self, "preferred_backup_window")
 
@@ -1462,7 +1462,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="preferredMaintenanceWindow")
     def preferred_maintenance_window(self) -> pulumi.Output[str]:
         """
-        The weekly time range during which system maintenance can occur, in (UTC) e.g. wed:04:00-wed:04:30
+        The weekly time range during which system maintenance can occur, in (UTC) e.g., wed:04:00-wed:04:30
         """
         return pulumi.get(self, "preferred_maintenance_window")
 

@@ -269,7 +269,7 @@ class PortfolioShare(pulumi.CustomResource):
 
         ## Import
 
-        `aws_servicecatalog_portfolio_share` can be imported using the portfolio share ID, e.g.
+        `aws_servicecatalog_portfolio_share` can be imported using the portfolio share ID, e.g.,
 
         ```sh
          $ pulumi import aws:servicecatalog/portfolioShare:PortfolioShare example port-12344321:ACCOUNT:123456789012
@@ -316,7 +316,7 @@ class PortfolioShare(pulumi.CustomResource):
 
         ## Import
 
-        `aws_servicecatalog_portfolio_share` can be imported using the portfolio share ID, e.g.
+        `aws_servicecatalog_portfolio_share` can be imported using the portfolio share ID, e.g.,
 
         ```sh
          $ pulumi import aws:servicecatalog/portfolioShare:PortfolioShare example port-12344321:ACCOUNT:123456789012

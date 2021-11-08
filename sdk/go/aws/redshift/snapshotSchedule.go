@@ -39,7 +39,7 @@ import (
 //
 // ## Import
 //
-// Redshift Snapshot Schedule can be imported using the `identifier`, e.g.
+// Redshift Snapshot Schedule can be imported using the `identifier`, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:redshift/snapshotSchedule:SnapshotSchedule default tf-redshift-snapshot-schedule

@@ -100,7 +100,7 @@ import (
 //
 // ## Import
 //
-// `aws_storagegateway_cached_iscsi_volume` can be imported by using the volume Amazon Resource Name (ARN), e.g.
+// `aws_storagegateway_cached_iscsi_volume` can be imported by using the volume Amazon Resource Name (ARN), e.g.,
 //
 // ```sh
 //  $ pulumi import aws:storagegateway/cachesIscsiVolume:CachesIscsiVolume example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678
@@ -108,7 +108,7 @@ import (
 type CachesIscsiVolume struct {
 	pulumi.CustomResourceState
 
-	// Volume Amazon Resource Name (ARN), e.g. `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
+	// Volume Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Whether mutual CHAP is enabled for the iSCSI target.
 	ChapEnabled pulumi.BoolOutput `pulumi:"chapEnabled"`
@@ -124,13 +124,13 @@ type CachesIscsiVolume struct {
 	NetworkInterfaceId pulumi.StringOutput `pulumi:"networkInterfaceId"`
 	// The port used to communicate with iSCSI targets.
 	NetworkInterfacePort pulumi.IntOutput `pulumi:"networkInterfacePort"`
-	// The snapshot ID of the snapshot to restore as the new cached volume. e.g. `snap-1122aabb`.
+	// The snapshot ID of the snapshot to restore as the new cached volumeE.g., `snap-1122aabb`.
 	SnapshotId pulumi.StringPtrOutput `pulumi:"snapshotId"`
 	// The ARN for an existing volume. Specifying this ARN makes the new volume into an exact copy of the specified existing volume's latest recovery point. The `volumeSizeInBytes` value for this new volume must be equal to or larger than the size of the existing volume, in bytes.
 	SourceVolumeArn pulumi.StringPtrOutput `pulumi:"sourceVolumeArn"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Target Amazon Resource Name (ARN), e.g. `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
 	TargetArn pulumi.StringOutput `pulumi:"targetArn"`
@@ -185,7 +185,7 @@ func GetCachesIscsiVolume(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CachesIscsiVolume resources.
 type cachesIscsiVolumeState struct {
-	// Volume Amazon Resource Name (ARN), e.g. `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
+	// Volume Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
 	Arn *string `pulumi:"arn"`
 	// Whether mutual CHAP is enabled for the iSCSI target.
 	ChapEnabled *bool `pulumi:"chapEnabled"`
@@ -201,13 +201,13 @@ type cachesIscsiVolumeState struct {
 	NetworkInterfaceId *string `pulumi:"networkInterfaceId"`
 	// The port used to communicate with iSCSI targets.
 	NetworkInterfacePort *int `pulumi:"networkInterfacePort"`
-	// The snapshot ID of the snapshot to restore as the new cached volume. e.g. `snap-1122aabb`.
+	// The snapshot ID of the snapshot to restore as the new cached volumeE.g., `snap-1122aabb`.
 	SnapshotId *string `pulumi:"snapshotId"`
 	// The ARN for an existing volume. Specifying this ARN makes the new volume into an exact copy of the specified existing volume's latest recovery point. The `volumeSizeInBytes` value for this new volume must be equal to or larger than the size of the existing volume, in bytes.
 	SourceVolumeArn *string `pulumi:"sourceVolumeArn"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Target Amazon Resource Name (ARN), e.g. `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
 	TargetArn *string `pulumi:"targetArn"`
@@ -222,7 +222,7 @@ type cachesIscsiVolumeState struct {
 }
 
 type CachesIscsiVolumeState struct {
-	// Volume Amazon Resource Name (ARN), e.g. `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
+	// Volume Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
 	Arn pulumi.StringPtrInput
 	// Whether mutual CHAP is enabled for the iSCSI target.
 	ChapEnabled pulumi.BoolPtrInput
@@ -238,13 +238,13 @@ type CachesIscsiVolumeState struct {
 	NetworkInterfaceId pulumi.StringPtrInput
 	// The port used to communicate with iSCSI targets.
 	NetworkInterfacePort pulumi.IntPtrInput
-	// The snapshot ID of the snapshot to restore as the new cached volume. e.g. `snap-1122aabb`.
+	// The snapshot ID of the snapshot to restore as the new cached volumeE.g., `snap-1122aabb`.
 	SnapshotId pulumi.StringPtrInput
 	// The ARN for an existing volume. Specifying this ARN makes the new volume into an exact copy of the specified existing volume's latest recovery point. The `volumeSizeInBytes` value for this new volume must be equal to or larger than the size of the existing volume, in bytes.
 	SourceVolumeArn pulumi.StringPtrInput
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// Target Amazon Resource Name (ARN), e.g. `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
 	TargetArn pulumi.StringPtrInput
@@ -271,7 +271,7 @@ type cachesIscsiVolumeArgs struct {
 	KmsKey *string `pulumi:"kmsKey"`
 	// The network interface of the gateway on which to expose the iSCSI target. Only IPv4 addresses are accepted.
 	NetworkInterfaceId string `pulumi:"networkInterfaceId"`
-	// The snapshot ID of the snapshot to restore as the new cached volume. e.g. `snap-1122aabb`.
+	// The snapshot ID of the snapshot to restore as the new cached volumeE.g., `snap-1122aabb`.
 	SnapshotId *string `pulumi:"snapshotId"`
 	// The ARN for an existing volume. Specifying this ARN makes the new volume into an exact copy of the specified existing volume's latest recovery point. The `volumeSizeInBytes` value for this new volume must be equal to or larger than the size of the existing volume, in bytes.
 	SourceVolumeArn *string `pulumi:"sourceVolumeArn"`
@@ -293,7 +293,7 @@ type CachesIscsiVolumeArgs struct {
 	KmsKey pulumi.StringPtrInput
 	// The network interface of the gateway on which to expose the iSCSI target. Only IPv4 addresses are accepted.
 	NetworkInterfaceId pulumi.StringInput
-	// The snapshot ID of the snapshot to restore as the new cached volume. e.g. `snap-1122aabb`.
+	// The snapshot ID of the snapshot to restore as the new cached volumeE.g., `snap-1122aabb`.
 	SnapshotId pulumi.StringPtrInput
 	// The ARN for an existing volume. Specifying this ARN makes the new volume into an exact copy of the specified existing volume's latest recovery point. The `volumeSizeInBytes` value for this new volume must be equal to or larger than the size of the existing volume, in bytes.
 	SourceVolumeArn pulumi.StringPtrInput

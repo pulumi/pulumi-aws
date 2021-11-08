@@ -37,7 +37,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * AWS SSM Activation can be imported using the `id`, e.g.
+ * AWS SSM Activation can be imported using the `id`, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:ssm/activation:Activation example e488f2f6-e686-4afb-8a04-ef6dfEXAMPLE
@@ -102,7 +102,7 @@ export class Activation extends pulumi.CustomResource {
     /**
      * The maximum number of managed instances you want to register. The default value is 1 instance.
      */
-    public readonly registrationLimit!: pulumi.Output<number>;
+    public readonly registrationLimit!: pulumi.Output<number | undefined>;
     /**
      * A map of tags to assign to the object. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

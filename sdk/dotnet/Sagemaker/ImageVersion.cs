@@ -35,7 +35,7 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// ## Import
     /// 
-    /// Sagemaker Image Versions can be imported using the `name`, e.g.
+    /// Sagemaker Image Versions can be imported using the `name`, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:sagemaker/imageVersion:ImageVersion test_image my-code-repo

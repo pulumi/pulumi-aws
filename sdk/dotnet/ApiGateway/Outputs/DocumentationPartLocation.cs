@@ -30,7 +30,7 @@ namespace Pulumi.Aws.ApiGateway.Outputs
         /// </summary>
         public readonly string? StatusCode;
         /// <summary>
-        /// The type of API entity to which the documentation content applies. e.g. `API`, `METHOD` or `REQUEST_BODY`
+        /// The type of API entity to which the documentation content appliesE.g., `API`, `METHOD` or `REQUEST_BODY`
         /// </summary>
         public readonly string Type;
 

@@ -44,7 +44,7 @@ import (
 //
 // ## Import
 //
-// EventBridge API Destinations can be imported using the `name`, e.g. console
+// EventBridge API Destinations can be imported using the `name`, e.g., console
 //
 // ```sh
 //  $ pulumi import aws:cloudwatch/eventApiDestination:EventApiDestination test api-destination

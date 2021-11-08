@@ -182,7 +182,7 @@ class Webhook(pulumi.CustomResource):
 
         ## Import
 
-        Amplify webhook can be imported using a webhook ID, e.g.
+        Amplify webhook can be imported using a webhook ID, e.g.,
 
         ```sh
          $ pulumi import aws:amplify/webhook:Webhook master a26b22a0-748b-4b57-b9a0-ae7e601fe4b1
@@ -221,7 +221,7 @@ class Webhook(pulumi.CustomResource):
 
         ## Import
 
-        Amplify webhook can be imported using a webhook ID, e.g.
+        Amplify webhook can be imported using a webhook ID, e.g.,
 
         ```sh
          $ pulumi import aws:amplify/webhook:Webhook master a26b22a0-748b-4b57-b9a0-ae7e601fe4b1

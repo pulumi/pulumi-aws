@@ -127,7 +127,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * App Mesh virtual routes can be imported using `mesh_name` and `virtual_router_name` together with the route's `name`, e.g.
+ * App Mesh virtual routes can be imported using `mesh_name` and `virtual_router_name` together with the route's `name`, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:appmesh/route:Route serviceb simpleapp/serviceB/serviceB-route

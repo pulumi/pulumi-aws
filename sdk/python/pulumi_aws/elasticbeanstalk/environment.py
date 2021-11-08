@@ -312,6 +312,7 @@ class _EnvironmentState:
                below in Option Settings
         :param pulumi.Input[str] solution_stack_name: A solution stack to base your environment
                off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] template_name: The name of the Elastic Beanstalk Configuration
                template to use in deployment
         :param pulumi.Input[str] tier: Elastic Beanstalk Environment tier. Valid values are `Worker`
@@ -598,6 +599,9 @@ class _EnvironmentState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -747,7 +751,7 @@ class Environment(pulumi.CustomResource):
 
         ## Import
 
-        Elastic Beanstalk Environments can be imported using the `id`, e.g.
+        Elastic Beanstalk Environments can be imported using the `id`, e.g.,
 
         ```sh
          $ pulumi import aws:elasticbeanstalk/environment:Environment prodenv e-rpqsewtp2j
@@ -847,7 +851,7 @@ class Environment(pulumi.CustomResource):
 
         ## Import
 
-        Elastic Beanstalk Environments can be imported using the `id`, e.g.
+        Elastic Beanstalk Environments can be imported using the `id`, e.g.,
 
         ```sh
          $ pulumi import aws:elasticbeanstalk/environment:Environment prodenv e-rpqsewtp2j
@@ -988,6 +992,7 @@ class Environment(pulumi.CustomResource):
                below in Option Settings
         :param pulumi.Input[str] solution_stack_name: A solution stack to base your environment
                off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] template_name: The name of the Elastic Beanstalk Configuration
                template to use in deployment
         :param pulumi.Input[str] tier: Elastic Beanstalk Environment tier. Valid values are `Worker`
@@ -1183,6 +1188,9 @@ class Environment(pulumi.CustomResource):
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @property

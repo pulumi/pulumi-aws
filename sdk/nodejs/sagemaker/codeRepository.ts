@@ -49,7 +49,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Sagemaker Code Repositories can be imported using the `name`, e.g.
+ * Sagemaker Code Repositories can be imported using the `name`, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:sagemaker/codeRepository:CodeRepository test_code_repository my-code-repo
@@ -95,6 +95,14 @@ export class CodeRepository extends pulumi.CustomResource {
      * Specifies details about the repository. see Git Config details below.
      */
     public readonly gitConfig!: pulumi.Output<outputs.sagemaker.CodeRepositoryGitConfig>;
+    /**
+     * A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+     */
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a CodeRepository resource with the given unique name, arguments, and options.
@@ -112,6 +120,8 @@ export class CodeRepository extends pulumi.CustomResource {
             inputs["arn"] = state ? state.arn : undefined;
             inputs["codeRepositoryName"] = state ? state.codeRepositoryName : undefined;
             inputs["gitConfig"] = state ? state.gitConfig : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as CodeRepositoryArgs | undefined;
             if ((!args || args.codeRepositoryName === undefined) && !opts.urn) {
@@ -122,7 +132,9 @@ export class CodeRepository extends pulumi.CustomResource {
             }
             inputs["codeRepositoryName"] = args ? args.codeRepositoryName : undefined;
             inputs["gitConfig"] = args ? args.gitConfig : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
+            inputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -147,6 +159,14 @@ export interface CodeRepositoryState {
      * Specifies details about the repository. see Git Config details below.
      */
     gitConfig?: pulumi.Input<inputs.sagemaker.CodeRepositoryGitConfig>;
+    /**
+     * A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+     */
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -161,4 +181,8 @@ export interface CodeRepositoryArgs {
      * Specifies details about the repository. see Git Config details below.
      */
     gitConfig: pulumi.Input<inputs.sagemaker.CodeRepositoryGitConfig>;
+    /**
+     * A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

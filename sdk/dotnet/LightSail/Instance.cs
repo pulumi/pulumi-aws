@@ -44,7 +44,7 @@ namespace Pulumi.Aws.LightSail
     /// ```
     /// ## Availability Zones
     /// 
-    /// Lightsail currently supports the following Availability Zones (e.g. `us-east-1a`):
+    /// Lightsail currently supports the following Availability Zones (e.g., `us-east-1a`):
     /// 
     /// - `ap-northeast-1{a,c,d}`
     /// - `ap-northeast-2{a,c}`
@@ -62,7 +62,7 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// ## Bundles
     /// 
-    /// Lightsail currently supports the following Bundle IDs (e.g. an instance in `ap-northeast-1` would use `small_2_0`):
+    /// Lightsail currently supports the following Bundle IDs (e.g., an instance in `ap-northeast-1` would use `small_2_0`):
     /// 
     /// ### Prefix
     /// 
@@ -96,7 +96,7 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// ## Import
     /// 
-    /// Lightsail Instances can be imported using their name, e.g.
+    /// Lightsail Instances can be imported using their name, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:lightsail/instance:Instance gitlab_test 'custom gitlab'

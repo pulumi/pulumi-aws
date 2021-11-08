@@ -35,7 +35,7 @@ class MethodArgs:
         :param pulumi.Input[str] authorizer_id: The authorizer id to be used when the authorization is `CUSTOM` or `COGNITO_USER_POOLS`
         :param pulumi.Input[str] operation_name: The function name that will be given to the method when generating an SDK through API Gateway. If omitted, API Gateway will generate a function name based on the resource path and HTTP verb.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] request_models: A map of the API models used for the request's content type
-               where key is the content type (e.g. `application/json`)
+               where key is the content type (e.g., `application/json`)
                and value is either `Error`, `Empty` (built-in models) or `apigateway.Model`'s `name`.
         :param pulumi.Input[Mapping[str, pulumi.Input[bool]]] request_parameters: A map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`).
                For example: `request_parameters = {"method.request.header.X-Some-Header" = true "method.request.querystring.some-query-param" = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request.
@@ -161,7 +161,7 @@ class MethodArgs:
     def request_models(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of the API models used for the request's content type
-        where key is the content type (e.g. `application/json`)
+        where key is the content type (e.g., `application/json`)
         and value is either `Error`, `Empty` (built-in models) or `apigateway.Model`'s `name`.
         """
         return pulumi.get(self, "request_models")
@@ -219,7 +219,7 @@ class _MethodState:
         :param pulumi.Input[str] http_method: The HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
         :param pulumi.Input[str] operation_name: The function name that will be given to the method when generating an SDK through API Gateway. If omitted, API Gateway will generate a function name based on the resource path and HTTP verb.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] request_models: A map of the API models used for the request's content type
-               where key is the content type (e.g. `application/json`)
+               where key is the content type (e.g., `application/json`)
                and value is either `Error`, `Empty` (built-in models) or `apigateway.Model`'s `name`.
         :param pulumi.Input[Mapping[str, pulumi.Input[bool]]] request_parameters: A map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`).
                For example: `request_parameters = {"method.request.header.X-Some-Header" = true "method.request.querystring.some-query-param" = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request.
@@ -327,7 +327,7 @@ class _MethodState:
     def request_models(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         A map of the API models used for the request's content type
-        where key is the content type (e.g. `application/json`)
+        where key is the content type (e.g., `application/json`)
         and value is either `Error`, `Empty` (built-in models) or `apigateway.Model`'s `name`.
         """
         return pulumi.get(self, "request_models")
@@ -454,7 +454,7 @@ class Method(pulumi.CustomResource):
 
         ## Import
 
-        `aws_api_gateway_method` can be imported using `REST-API-ID/RESOURCE-ID/HTTP-METHOD`, e.g.
+        `aws_api_gateway_method` can be imported using `REST-API-ID/RESOURCE-ID/HTTP-METHOD`, e.g.,
 
         ```sh
          $ pulumi import aws:apigateway/method:Method example 12345abcde/67890fghij/GET
@@ -469,7 +469,7 @@ class Method(pulumi.CustomResource):
         :param pulumi.Input[str] http_method: The HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
         :param pulumi.Input[str] operation_name: The function name that will be given to the method when generating an SDK through API Gateway. If omitted, API Gateway will generate a function name based on the resource path and HTTP verb.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] request_models: A map of the API models used for the request's content type
-               where key is the content type (e.g. `application/json`)
+               where key is the content type (e.g., `application/json`)
                and value is either `Error`, `Empty` (built-in models) or `apigateway.Model`'s `name`.
         :param pulumi.Input[Mapping[str, pulumi.Input[bool]]] request_parameters: A map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`).
                For example: `request_parameters = {"method.request.header.X-Some-Header" = true "method.request.querystring.some-query-param" = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request.
@@ -534,7 +534,7 @@ class Method(pulumi.CustomResource):
 
         ## Import
 
-        `aws_api_gateway_method` can be imported using `REST-API-ID/RESOURCE-ID/HTTP-METHOD`, e.g.
+        `aws_api_gateway_method` can be imported using `REST-API-ID/RESOURCE-ID/HTTP-METHOD`, e.g.,
 
         ```sh
          $ pulumi import aws:apigateway/method:Method example 12345abcde/67890fghij/GET
@@ -632,7 +632,7 @@ class Method(pulumi.CustomResource):
         :param pulumi.Input[str] http_method: The HTTP Method (`GET`, `POST`, `PUT`, `DELETE`, `HEAD`, `OPTIONS`, `ANY`)
         :param pulumi.Input[str] operation_name: The function name that will be given to the method when generating an SDK through API Gateway. If omitted, API Gateway will generate a function name based on the resource path and HTTP verb.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] request_models: A map of the API models used for the request's content type
-               where key is the content type (e.g. `application/json`)
+               where key is the content type (e.g., `application/json`)
                and value is either `Error`, `Empty` (built-in models) or `apigateway.Model`'s `name`.
         :param pulumi.Input[Mapping[str, pulumi.Input[bool]]] request_parameters: A map of request parameters (from the path, query string and headers) that should be passed to the integration. The boolean value indicates whether the parameter is required (`true`) or optional (`false`).
                For example: `request_parameters = {"method.request.header.X-Some-Header" = true "method.request.querystring.some-query-param" = true}` would define that the header `X-Some-Header` and the query string `some-query-param` must be provided in the request.
@@ -710,7 +710,7 @@ class Method(pulumi.CustomResource):
     def request_models(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         A map of the API models used for the request's content type
-        where key is the content type (e.g. `application/json`)
+        where key is the content type (e.g., `application/json`)
         and value is either `Error`, `Empty` (built-in models) or `apigateway.Model`'s `name`.
         """
         return pulumi.get(self, "request_models")

@@ -49,7 +49,7 @@ import (
 //
 // ## Import
 //
-// CloudFront Public Key can be imported using the `id`, e.g.
+// CloudFront Public Key can be imported using the `id`, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:cloudfront/publicKey:PublicKey example K3D5EWEUDCCXON

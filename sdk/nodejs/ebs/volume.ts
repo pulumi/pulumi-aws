@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * EBS Volumes can be imported using the `id`, e.g.
+ * EBS Volumes can be imported using the `id`, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:ebs/volume:Volume id vol-049df61146c4d7901
@@ -61,7 +61,7 @@ export class Volume extends pulumi.CustomResource {
     }
 
     /**
-     * The volume ARN (e.g. arn:aws:ec2:us-east-1:0123456789012:volume/vol-59fcb34e).
+     * The volume ARN (e.g., arn:aws:ec2:us-east-1:0123456789012:volume/vol-59fcb34e).
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
@@ -94,6 +94,9 @@ export class Volume extends pulumi.CustomResource {
      */
     public readonly snapshotId!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
@@ -161,7 +164,7 @@ export class Volume extends pulumi.CustomResource {
  */
 export interface VolumeState {
     /**
-     * The volume ARN (e.g. arn:aws:ec2:us-east-1:0123456789012:volume/vol-59fcb34e).
+     * The volume ARN (e.g., arn:aws:ec2:us-east-1:0123456789012:volume/vol-59fcb34e).
      */
     arn?: pulumi.Input<string>;
     /**
@@ -194,6 +197,9 @@ export interface VolumeState {
      */
     snapshotId?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.

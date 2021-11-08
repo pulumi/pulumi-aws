@@ -134,7 +134,7 @@ class RestApiPolicy(pulumi.CustomResource):
 
         ## Import
 
-        `aws_api_gateway_rest_api_policy` can be imported by using the REST API ID, e.g.
+        `aws_api_gateway_rest_api_policy` can be imported by using the REST API ID, e.g.,
 
         ```sh
          $ pulumi import aws:apigateway/restApiPolicy:RestApiPolicy example 12345abcde
@@ -189,7 +189,7 @@ class RestApiPolicy(pulumi.CustomResource):
 
         ## Import
 
-        `aws_api_gateway_rest_api_policy` can be imported by using the REST API ID, e.g.
+        `aws_api_gateway_rest_api_policy` can be imported by using the REST API ID, e.g.,
 
         ```sh
          $ pulumi import aws:apigateway/restApiPolicy:RestApiPolicy example 12345abcde

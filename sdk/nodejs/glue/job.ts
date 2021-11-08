@@ -58,7 +58,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Glue Jobs can be imported using `name`, e.g.
+ * Glue Jobs can be imported using `name`, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:glue/job:Job MyJob MyJob
@@ -156,6 +156,9 @@ export class Job extends pulumi.CustomResource {
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The job timeout in minutes. The default is 2880 minutes (48 hours).
@@ -301,6 +304,9 @@ export interface JobState {
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The job timeout in minutes. The default is 2880 minutes (48 hours).

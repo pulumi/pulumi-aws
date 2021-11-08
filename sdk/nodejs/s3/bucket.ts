@@ -199,11 +199,21 @@ import {RoutingRule} from "./index";
  *         role: replicationRole.arn,
  *         rules: [{
  *             id: "foobar",
- *             prefix: "foo",
  *             status: "Enabled",
+ *             filter: {
+ *                 tags: {},
+ *             },
  *             destination: {
  *                 bucket: destination.arn,
  *                 storageClass: "STANDARD",
+ *                 replicationTime: {
+ *                     status: "Enabled",
+ *                     minutes: 15,
+ *                 },
+ *                 metrics: {
+ *                     status: "Enabled",
+ *                     minutes: 15,
+ *                 },
  *             },
  *         }],
  *     },
@@ -296,7 +306,7 @@ import {RoutingRule} from "./index";
  *
  * ## Import
  *
- * S3 bucket can be imported using the `bucket`, e.g.
+ * S3 bucket can be imported using the `bucket`, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:s3/bucket:Bucket bucket bucket-name

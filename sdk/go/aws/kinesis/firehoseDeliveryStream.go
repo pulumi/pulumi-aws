@@ -296,7 +296,7 @@ import (
 // 	})
 // }
 // ```
-// ### HTTP Endpoint (e.g. New Relic) Destination
+// ### HTTP Endpoint (e.g., New Relic) Destination
 //
 // ```go
 // package main
@@ -350,7 +350,7 @@ import (
 //
 // ## Import
 //
-// Kinesis Firehose Delivery streams can be imported using the stream ARN, e.g.
+// Kinesis Firehose Delivery streams can be imported using the stream ARN, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:kinesis/firehoseDeliveryStream:FirehoseDeliveryStream foo arn:aws:firehose:us-east-1:XXX:deliverystream/example
@@ -389,7 +389,8 @@ type FirehoseDeliveryStream struct {
 	// Configuration options if splunk is the destination. More details are given below.
 	SplunkConfiguration FirehoseDeliveryStreamSplunkConfigurationPtrOutput `pulumi:"splunkConfiguration"`
 	Tags                pulumi.StringMapOutput                             `pulumi:"tags"`
-	TagsAll             pulumi.StringMapOutput                             `pulumi:"tagsAll"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Specifies the table version for the output data schema. Defaults to `LATEST`.
 	VersionId pulumi.StringOutput `pulumi:"versionId"`
 }
@@ -455,7 +456,8 @@ type firehoseDeliveryStreamState struct {
 	// Configuration options if splunk is the destination. More details are given below.
 	SplunkConfiguration *FirehoseDeliveryStreamSplunkConfiguration `pulumi:"splunkConfiguration"`
 	Tags                map[string]string                          `pulumi:"tags"`
-	TagsAll             map[string]string                          `pulumi:"tagsAll"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Specifies the table version for the output data schema. Defaults to `LATEST`.
 	VersionId *string `pulumi:"versionId"`
 }
@@ -490,7 +492,8 @@ type FirehoseDeliveryStreamState struct {
 	// Configuration options if splunk is the destination. More details are given below.
 	SplunkConfiguration FirehoseDeliveryStreamSplunkConfigurationPtrInput
 	Tags                pulumi.StringMapInput
-	TagsAll             pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 	// Specifies the table version for the output data schema. Defaults to `LATEST`.
 	VersionId pulumi.StringPtrInput
 }

@@ -55,7 +55,7 @@ namespace Pulumi.Aws.AppStream
     /// 
     /// ## Import
     /// 
-    /// `aws_appstream_fleet` can be imported using the id, e.g.
+    /// `aws_appstream_fleet` can be imported using the id, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:appstream/fleet:Fleet example fleetNameExample
@@ -333,14 +333,6 @@ namespace Pulumi.Aws.AppStream
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
-        }
-
-        [Input("tagsAll")]
-        private InputMap<string>? _tagsAll;
-        public InputMap<string> TagsAll
-        {
-            get => _tagsAll ?? (_tagsAll = new InputMap<string>());
-            set => _tagsAll = value;
         }
 
         /// <summary>

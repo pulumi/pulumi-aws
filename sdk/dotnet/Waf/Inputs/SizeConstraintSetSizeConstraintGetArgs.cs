@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Waf.Inputs
     {
         /// <summary>
         /// The type of comparison you want to perform.
-        /// e.g. `EQ`, `NE`, `LT`, `GT`.
+        /// e.g., `EQ`, `NE`, `LT`, `GT`.
         /// See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_wafRegional_SizeConstraint.html) for all supported values.
         /// </summary>
         [Input("comparisonOperator", required: true)]
@@ -36,7 +36,7 @@ namespace Pulumi.Aws.Waf.Inputs
         /// <summary>
         /// Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
         /// If you specify a transformation, AWS WAF performs the transformation on `field_to_match` before inspecting a request for a match.
-        /// e.g. `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
+        /// e.g., `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
         /// See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_SizeConstraint.html#WAF-Type-SizeConstraint-TextTransformation)
         /// for all supported values.
         /// **Note:** if you choose `BODY` as `type`, you must choose `NONE` because CloudFront forwards only the first 8192 bytes for inspection.

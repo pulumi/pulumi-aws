@@ -291,7 +291,7 @@ class Cluster(pulumi.CustomResource):
 
         ## Import
 
-        ECS clusters can be imported using the `name`, e.g.
+        ECS clusters can be imported using the `name`, e.g.,
 
         ```sh
          $ pulumi import aws:ecs/cluster:Cluster stateless stateless-app
@@ -350,7 +350,7 @@ class Cluster(pulumi.CustomResource):
 
         ## Import
 
-        ECS clusters can be imported using the `name`, e.g.
+        ECS clusters can be imported using the `name`, e.g.,
 
         ```sh
          $ pulumi import aws:ecs/cluster:Cluster stateless stateless-app

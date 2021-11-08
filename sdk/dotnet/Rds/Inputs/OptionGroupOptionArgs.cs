@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Rds.Inputs
         }
 
         /// <summary>
-        /// The Name of the Option (e.g. MEMCACHED).
+        /// The Name of the Option (e.g., MEMCACHED).
         /// </summary>
         [Input("optionName", required: true)]
         public Input<string> OptionName { get; set; } = null!;
@@ -43,13 +43,13 @@ namespace Pulumi.Aws.Rds.Inputs
         }
 
         /// <summary>
-        /// The Port number when connecting to the Option (e.g. 11211).
+        /// The Port number when connecting to the Option (e.g., 11211).
         /// </summary>
         [Input("port")]
         public Input<int>? Port { get; set; }
 
         /// <summary>
-        /// The version of the option (e.g. 13.1.0.0).
+        /// The version of the option (e.g., 13.1.0.0).
         /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }

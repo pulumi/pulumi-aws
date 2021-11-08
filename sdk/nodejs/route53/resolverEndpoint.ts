@@ -37,7 +37,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- *  Route 53 Resolver endpoints can be imported using the Route 53 Resolver endpoint ID, e.g.
+ *  Route 53 Resolver endpoints can be imported using the Route 53 Resolver endpoint ID, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:route53/resolverEndpoint:ResolverEndpoint foo rslvr-in-abcdef01234567890

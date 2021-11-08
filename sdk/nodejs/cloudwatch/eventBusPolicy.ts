@@ -122,7 +122,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * EventBridge permissions can be imported using the `event_bus_name`, e.g.
+ * EventBridge permissions can be imported using the `event_bus_name`, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:cloudwatch/eventBusPolicy:EventBusPolicy DevAccountAccess example-event-bus

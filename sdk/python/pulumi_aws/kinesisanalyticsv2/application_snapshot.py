@@ -145,7 +145,7 @@ class ApplicationSnapshot(pulumi.CustomResource):
 
         ## Import
 
-        `aws_kinesisanalyticsv2_application` can be imported by using `application_name` together with `snapshot_name`, e.g.
+        `aws_kinesisanalyticsv2_application` can be imported by using `application_name` together with `snapshot_name`, e.g.,
 
         ```sh
          $ pulumi import aws:kinesisanalyticsv2/applicationSnapshot:ApplicationSnapshot example example-application/example-snapshot
@@ -179,7 +179,7 @@ class ApplicationSnapshot(pulumi.CustomResource):
 
         ## Import
 
-        `aws_kinesisanalyticsv2_application` can be imported by using `application_name` together with `snapshot_name`, e.g.
+        `aws_kinesisanalyticsv2_application` can be imported by using `application_name` together with `snapshot_name`, e.g.,
 
         ```sh
          $ pulumi import aws:kinesisanalyticsv2/applicationSnapshot:ApplicationSnapshot example example-application/example-snapshot

@@ -18,11 +18,11 @@ namespace Pulumi.Aws.GameLift.Outputs
         /// </summary>
         public readonly int FromPort;
         /// <summary>
-        /// Range of allowed IP addresses expressed in CIDR notation. e.g. `000.000.000.000/[subnet mask]` or `0.0.0.0/[subnet mask]`.
+        /// Range of allowed IP addresses expressed in CIDR notationE.g., `000.000.000.000/[subnet mask]` or `0.0.0.0/[subnet mask]`.
         /// </summary>
         public readonly string IpRange;
         /// <summary>
-        /// Network communication protocol used by the fleet. e.g. `TCP` or `UDP`
+        /// Network communication protocol used by the fleetE.g., `TCP` or `UDP`
         /// </summary>
         public readonly string Protocol;
         /// <summary>

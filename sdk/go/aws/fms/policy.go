@@ -77,7 +77,7 @@ import (
 //
 // ## Import
 //
-// Firewall Manager policies can be imported using the policy ID, e.g.
+// Firewall Manager policies can be imported using the policy ID, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:fms/policy:Policy example 5be49585-a7e3-4c49-dde1-a179fe4a619a

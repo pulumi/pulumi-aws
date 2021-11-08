@@ -46,7 +46,7 @@ func LookupImage(ctx *pulumi.Context, args *LookupImageArgs, opts ...pulumi.Invo
 
 // A collection of arguments for invoking getImage.
 type LookupImageArgs struct {
-	// Amazon Resource Name (ARN) of the image. The suffix can either be specified with wildcards (`x.x.x`) to fetch the latest build version or a full build version (e.g. `2020.11.26/1`) to fetch an exact version.
+	// Amazon Resource Name (ARN) of the image. The suffix can either be specified with wildcards (`x.x.x`) to fetch the latest build version or a full build version (e.g., `2020.11.26/1`) to fetch an exact version.
 	Arn string `pulumi:"arn"`
 	// Key-value map of resource tags for the image.
 	Tags map[string]string `pulumi:"tags"`
@@ -96,7 +96,7 @@ func LookupImageOutput(ctx *pulumi.Context, args LookupImageOutputArgs, opts ...
 
 // A collection of arguments for invoking getImage.
 type LookupImageOutputArgs struct {
-	// Amazon Resource Name (ARN) of the image. The suffix can either be specified with wildcards (`x.x.x`) to fetch the latest build version or a full build version (e.g. `2020.11.26/1`) to fetch an exact version.
+	// Amazon Resource Name (ARN) of the image. The suffix can either be specified with wildcards (`x.x.x`) to fetch the latest build version or a full build version (e.g., `2020.11.26/1`) to fetch an exact version.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	// Key-value map of resource tags for the image.
 	Tags pulumi.StringMapInput `pulumi:"tags"`

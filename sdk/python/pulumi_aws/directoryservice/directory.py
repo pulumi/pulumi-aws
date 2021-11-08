@@ -590,7 +590,7 @@ class Directory(pulumi.CustomResource):
 
         ## Import
 
-        DirectoryService directories can be imported using the directory `id`, e.g.
+        DirectoryService directories can be imported using the directory `id`, e.g.,
 
         ```sh
          $ pulumi import aws:directoryservice/directory:Directory sample d-926724cf57
@@ -715,7 +715,7 @@ class Directory(pulumi.CustomResource):
 
         ## Import
 
-        DirectoryService directories can be imported using the directory `id`, e.g.
+        DirectoryService directories can be imported using the directory `id`, e.g.,
 
         ```sh
          $ pulumi import aws:directoryservice/directory:Directory sample d-926724cf57

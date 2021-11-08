@@ -74,7 +74,7 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// ## Import
     /// 
-    /// SSM Parameters can be imported using the `parameter store name`, e.g.
+    /// SSM Parameters can be imported using the `parameter store name`, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:ssm/parameter:Parameter my_param /my_path/my_paramname
@@ -115,7 +115,7 @@ namespace Pulumi.Aws.Ssm
         public Output<string> KeyId { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the parameter. If the name contains a path (e.g. any forward slashes (`/`)), it must be fully qualified with a leading forward slash (`/`). For additional requirements and constraints, see the [AWS SSM User Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html).
+        /// The name of the parameter. If the name contains a path (e.g., any forward slashes (`/`)), it must be fully qualified with a leading forward slash (`/`). For additional requirements and constraints, see the [AWS SSM User Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html).
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -240,7 +240,7 @@ namespace Pulumi.Aws.Ssm
         public Input<string>? KeyId { get; set; }
 
         /// <summary>
-        /// The name of the parameter. If the name contains a path (e.g. any forward slashes (`/`)), it must be fully qualified with a leading forward slash (`/`). For additional requirements and constraints, see the [AWS SSM User Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html).
+        /// The name of the parameter. If the name contains a path (e.g., any forward slashes (`/`)), it must be fully qualified with a leading forward slash (`/`). For additional requirements and constraints, see the [AWS SSM User Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html).
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -320,7 +320,7 @@ namespace Pulumi.Aws.Ssm
         public Input<string>? KeyId { get; set; }
 
         /// <summary>
-        /// The name of the parameter. If the name contains a path (e.g. any forward slashes (`/`)), it must be fully qualified with a leading forward slash (`/`). For additional requirements and constraints, see the [AWS SSM User Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html).
+        /// The name of the parameter. If the name contains a path (e.g., any forward slashes (`/`)), it must be fully qualified with a leading forward slash (`/`). For additional requirements and constraints, see the [AWS SSM User Guide](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-parameter-name-constraints.html).
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

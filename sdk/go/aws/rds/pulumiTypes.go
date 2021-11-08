@@ -1271,13 +1271,13 @@ func (o InstanceS3ImportPtrOutput) SourceEngineVersion() pulumi.StringPtrOutput 
 type OptionGroupOption struct {
 	// A list of DB Security Groups for which the option is enabled.
 	DbSecurityGroupMemberships []string `pulumi:"dbSecurityGroupMemberships"`
-	// The Name of the Option (e.g. MEMCACHED).
+	// The Name of the Option (e.g., MEMCACHED).
 	OptionName string `pulumi:"optionName"`
 	// A list of option settings to apply.
 	OptionSettings []OptionGroupOptionOptionSetting `pulumi:"optionSettings"`
-	// The Port number when connecting to the Option (e.g. 11211).
+	// The Port number when connecting to the Option (e.g., 11211).
 	Port *int `pulumi:"port"`
-	// The version of the option (e.g. 13.1.0.0).
+	// The version of the option (e.g., 13.1.0.0).
 	Version *string `pulumi:"version"`
 	// A list of VPC Security Groups for which the option is enabled.
 	VpcSecurityGroupMemberships []string `pulumi:"vpcSecurityGroupMemberships"`
@@ -1297,13 +1297,13 @@ type OptionGroupOptionInput interface {
 type OptionGroupOptionArgs struct {
 	// A list of DB Security Groups for which the option is enabled.
 	DbSecurityGroupMemberships pulumi.StringArrayInput `pulumi:"dbSecurityGroupMemberships"`
-	// The Name of the Option (e.g. MEMCACHED).
+	// The Name of the Option (e.g., MEMCACHED).
 	OptionName pulumi.StringInput `pulumi:"optionName"`
 	// A list of option settings to apply.
 	OptionSettings OptionGroupOptionOptionSettingArrayInput `pulumi:"optionSettings"`
-	// The Port number when connecting to the Option (e.g. 11211).
+	// The Port number when connecting to the Option (e.g., 11211).
 	Port pulumi.IntPtrInput `pulumi:"port"`
-	// The version of the option (e.g. 13.1.0.0).
+	// The version of the option (e.g., 13.1.0.0).
 	Version pulumi.StringPtrInput `pulumi:"version"`
 	// A list of VPC Security Groups for which the option is enabled.
 	VpcSecurityGroupMemberships pulumi.StringArrayInput `pulumi:"vpcSecurityGroupMemberships"`
@@ -1365,7 +1365,7 @@ func (o OptionGroupOptionOutput) DbSecurityGroupMemberships() pulumi.StringArray
 	return o.ApplyT(func(v OptionGroupOption) []string { return v.DbSecurityGroupMemberships }).(pulumi.StringArrayOutput)
 }
 
-// The Name of the Option (e.g. MEMCACHED).
+// The Name of the Option (e.g., MEMCACHED).
 func (o OptionGroupOptionOutput) OptionName() pulumi.StringOutput {
 	return o.ApplyT(func(v OptionGroupOption) string { return v.OptionName }).(pulumi.StringOutput)
 }
@@ -1375,12 +1375,12 @@ func (o OptionGroupOptionOutput) OptionSettings() OptionGroupOptionOptionSetting
 	return o.ApplyT(func(v OptionGroupOption) []OptionGroupOptionOptionSetting { return v.OptionSettings }).(OptionGroupOptionOptionSettingArrayOutput)
 }
 
-// The Port number when connecting to the Option (e.g. 11211).
+// The Port number when connecting to the Option (e.g., 11211).
 func (o OptionGroupOptionOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v OptionGroupOption) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
-// The version of the option (e.g. 13.1.0.0).
+// The version of the option (e.g., 13.1.0.0).
 func (o OptionGroupOptionOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OptionGroupOption) *string { return v.Version }).(pulumi.StringPtrOutput)
 }

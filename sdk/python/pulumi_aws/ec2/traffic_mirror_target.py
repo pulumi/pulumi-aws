@@ -95,6 +95,7 @@ class _TrafficMirrorTargetState:
         :param pulumi.Input[str] network_interface_id: The network interface ID that is associated with the target.
         :param pulumi.Input[str] network_load_balancer_arn: The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the target.
         :param pulumi.Input[str] owner_id: The ID of the AWS account that owns the traffic mirror target.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -183,6 +184,9 @@ class _TrafficMirrorTargetState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -222,7 +226,7 @@ class TrafficMirrorTarget(pulumi.CustomResource):
 
         ## Import
 
-        Traffic mirror targets can be imported using the `id`, e.g.
+        Traffic mirror targets can be imported using the `id`, e.g.,
 
         ```sh
          $ pulumi import aws:ec2/trafficMirrorTarget:TrafficMirrorTarget target tmt-0c13a005422b86606
@@ -262,7 +266,7 @@ class TrafficMirrorTarget(pulumi.CustomResource):
 
         ## Import
 
-        Traffic mirror targets can be imported using the `id`, e.g.
+        Traffic mirror targets can be imported using the `id`, e.g.,
 
         ```sh
          $ pulumi import aws:ec2/trafficMirrorTarget:TrafficMirrorTarget target tmt-0c13a005422b86606
@@ -335,6 +339,7 @@ class TrafficMirrorTarget(pulumi.CustomResource):
         :param pulumi.Input[str] network_interface_id: The network interface ID that is associated with the target.
         :param pulumi.Input[str] network_load_balancer_arn: The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the target.
         :param pulumi.Input[str] owner_id: The ID of the AWS account that owns the traffic mirror target.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -397,5 +402,8 @@ class TrafficMirrorTarget(pulumi.CustomResource):
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 

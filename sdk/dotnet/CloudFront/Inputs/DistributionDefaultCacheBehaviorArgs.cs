@@ -133,6 +133,12 @@ namespace Pulumi.Aws.CloudFront.Inputs
         public Input<string>? RealtimeLogConfigArn { get; set; }
 
         /// <summary>
+        /// The identifier for a response headers policy.
+        /// </summary>
+        [Input("responseHeadersPolicyId")]
+        public Input<string>? ResponseHeadersPolicyId { get; set; }
+
+        /// <summary>
         /// Indicates whether you want to distribute
         /// media files in Microsoft Smooth Streaming format using the origin that is
         /// associated with this cache behavior.

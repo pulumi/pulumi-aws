@@ -229,7 +229,7 @@ namespace Pulumi.Aws.Ec2
     /// * `device_name` - The name of the block device to mount on the instance.
     /// * `virtual_name` - The [Instance Store Device
     ///   Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames)
-    ///   (e.g. `"ephemeral0"`)
+    ///   (e.g., `"ephemeral0"`)
     /// 
     /// Each AWS Instance type has a different set of Instance Store block devices
     /// available for attachment. AWS [publishes a
@@ -244,7 +244,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// Launch configurations can be imported using the `name`, e.g.
+    /// Launch configurations can be imported using the `name`, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:ec2/launchConfiguration:LaunchConfiguration as_conf lg-123456

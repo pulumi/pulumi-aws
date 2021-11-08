@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Eks.Inputs
         public Input<string>? GroupsClaim { get; set; }
 
         /// <summary>
-        /// A prefix that is prepended to group claims e.g. `oidc:`.
+        /// A prefix that is prepended to group claims e.g., `oidc:`.
         /// </summary>
         [Input("groupsPrefix")]
         public Input<string>? GroupsPrefix { get; set; }

@@ -50,7 +50,7 @@ func LookupFunction(ctx *pulumi.Context, args *LookupFunctionArgs, opts ...pulum
 type LookupFunctionArgs struct {
 	// Name of the lambda function.
 	FunctionName string `pulumi:"functionName"`
-	// Alias name or version number of the lambda function. e.g. `$LATEST`, `my-alias`, or `1`
+	// Alias name or version number of the lambda functionE.g., `$LATEST`, `my-alias`, or `1`
 	Qualifier *string           `pulumi:"qualifier"`
 	Tags      map[string]string `pulumi:"tags"`
 }
@@ -127,7 +127,7 @@ func LookupFunctionOutput(ctx *pulumi.Context, args LookupFunctionOutputArgs, op
 type LookupFunctionOutputArgs struct {
 	// Name of the lambda function.
 	FunctionName pulumi.StringInput `pulumi:"functionName"`
-	// Alias name or version number of the lambda function. e.g. `$LATEST`, `my-alias`, or `1`
+	// Alias name or version number of the lambda functionE.g., `$LATEST`, `my-alias`, or `1`
 	Qualifier pulumi.StringPtrInput `pulumi:"qualifier"`
 	Tags      pulumi.StringMapInput `pulumi:"tags"`
 }

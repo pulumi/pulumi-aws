@@ -35,7 +35,7 @@ import (
 //
 // ## Import
 //
-// `aws_datapipeline_pipeline` can be imported by using the id (Pipeline ID), e.g.
+// `aws_datapipeline_pipeline` can be imported by using the id (Pipeline ID), e.g.,
 //
 // ```sh
 //  $ pulumi import aws:datapipeline/pipeline:Pipeline default df-1234567890

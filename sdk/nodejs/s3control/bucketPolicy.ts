@@ -35,7 +35,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * S3 Control Bucket Policies can be imported using the Amazon Resource Name (ARN), e.g.
+ * S3 Control Bucket Policies can be imported using the Amazon Resource Name (ARN), e.g.,
  *
  * ```sh
  *  $ pulumi import aws:s3control/bucketPolicy:BucketPolicy example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/bucket/example

@@ -38,7 +38,7 @@ import (
 //
 // ## Import
 //
-// OpsWorks static web server Layers can be imported using the `id`, e.g.
+// OpsWorks static web server Layers can be imported using the `id`, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:opsworks/staticWebLayer:StaticWebLayer bar 00000000-0000-0000-0000-000000000000

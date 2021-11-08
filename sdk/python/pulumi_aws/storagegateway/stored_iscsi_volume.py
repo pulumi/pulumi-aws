@@ -31,7 +31,7 @@ class StoredIscsiVolumeArgs:
         :param pulumi.Input[str] target_name: The name of the iSCSI target used by initiators to connect to the target and as a suffix for the target ARN. The target name must be unique across all volumes of a gateway.
         :param pulumi.Input[bool] kms_encrypted: `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3. Optional.
         :param pulumi.Input[str] kms_key: The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. This value can only be set when `kms_encrypted` is `true`.
-        :param pulumi.Input[str] snapshot_id: The snapshot ID of the snapshot to restore as the new stored volume. e.g. `snap-1122aabb`.
+        :param pulumi.Input[str] snapshot_id: The snapshot ID of the snapshot to restore as the new stored volumeE.g., `snap-1122aabb`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "disk_id", disk_id)
@@ -136,7 +136,7 @@ class StoredIscsiVolumeArgs:
     @pulumi.getter(name="snapshotId")
     def snapshot_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The snapshot ID of the snapshot to restore as the new stored volume. e.g. `snap-1122aabb`.
+        The snapshot ID of the snapshot to restore as the new stored volumeE.g., `snap-1122aabb`.
         """
         return pulumi.get(self, "snapshot_id")
 
@@ -182,7 +182,7 @@ class _StoredIscsiVolumeState:
                  volume_type: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering StoredIscsiVolume resources.
-        :param pulumi.Input[str] arn: Volume Amazon Resource Name (ARN), e.g. `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
+        :param pulumi.Input[str] arn: Volume Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
         :param pulumi.Input[bool] chap_enabled: Whether mutual CHAP is enabled for the iSCSI target.
         :param pulumi.Input[str] disk_id: The unique identifier for the gateway local disk that is configured as a stored volume.
         :param pulumi.Input[str] gateway_arn: The Amazon Resource Name (ARN) of the gateway.
@@ -192,9 +192,9 @@ class _StoredIscsiVolumeState:
         :param pulumi.Input[str] network_interface_id: The network interface of the gateway on which to expose the iSCSI target. Only IPv4 addresses are accepted.
         :param pulumi.Input[int] network_interface_port: The port used to communicate with iSCSI targets.
         :param pulumi.Input[bool] preserve_existing_data: Specify this field as `true` if you want to preserve the data on the local disk. Otherwise, specifying this field as false creates an empty volume.
-        :param pulumi.Input[str] snapshot_id: The snapshot ID of the snapshot to restore as the new stored volume. e.g. `snap-1122aabb`.
+        :param pulumi.Input[str] snapshot_id: The snapshot ID of the snapshot to restore as the new stored volumeE.g., `snap-1122aabb`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] target_arn: Target Amazon Resource Name (ARN), e.g. `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
         :param pulumi.Input[str] target_name: The name of the iSCSI target used by initiators to connect to the target and as a suffix for the target ARN. The target name must be unique across all volumes of a gateway.
         :param pulumi.Input[str] volume_attachment_status: A value that indicates whether a storage volume is attached to, detached from, or is in the process of detaching from a gateway.
@@ -248,7 +248,7 @@ class _StoredIscsiVolumeState:
     @pulumi.getter
     def arn(self) -> Optional[pulumi.Input[str]]:
         """
-        Volume Amazon Resource Name (ARN), e.g. `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
+        Volume Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
         """
         return pulumi.get(self, "arn")
 
@@ -368,7 +368,7 @@ class _StoredIscsiVolumeState:
     @pulumi.getter(name="snapshotId")
     def snapshot_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The snapshot ID of the snapshot to restore as the new stored volume. e.g. `snap-1122aabb`.
+        The snapshot ID of the snapshot to restore as the new stored volumeE.g., `snap-1122aabb`.
         """
         return pulumi.get(self, "snapshot_id")
 
@@ -392,7 +392,7 @@ class _StoredIscsiVolumeState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider .
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -536,7 +536,7 @@ class StoredIscsiVolume(pulumi.CustomResource):
 
         ## Import
 
-        `aws_storagegateway_stored_iscsi_volume` can be imported by using the volume Amazon Resource Name (ARN), e.g.
+        `aws_storagegateway_stored_iscsi_volume` can be imported by using the volume Amazon Resource Name (ARN), e.g.,
 
         ```sh
          $ pulumi import aws:storagegateway/storedIscsiVolume:StoredIscsiVolume example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678
@@ -550,7 +550,7 @@ class StoredIscsiVolume(pulumi.CustomResource):
         :param pulumi.Input[str] kms_key: The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. This value can only be set when `kms_encrypted` is `true`.
         :param pulumi.Input[str] network_interface_id: The network interface of the gateway on which to expose the iSCSI target. Only IPv4 addresses are accepted.
         :param pulumi.Input[bool] preserve_existing_data: Specify this field as `true` if you want to preserve the data on the local disk. Otherwise, specifying this field as false creates an empty volume.
-        :param pulumi.Input[str] snapshot_id: The snapshot ID of the snapshot to restore as the new stored volume. e.g. `snap-1122aabb`.
+        :param pulumi.Input[str] snapshot_id: The snapshot ID of the snapshot to restore as the new stored volumeE.g., `snap-1122aabb`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] target_name: The name of the iSCSI target used by initiators to connect to the target and as a suffix for the target ARN. The target name must be unique across all volumes of a gateway.
         """
@@ -596,7 +596,7 @@ class StoredIscsiVolume(pulumi.CustomResource):
 
         ## Import
 
-        `aws_storagegateway_stored_iscsi_volume` can be imported by using the volume Amazon Resource Name (ARN), e.g.
+        `aws_storagegateway_stored_iscsi_volume` can be imported by using the volume Amazon Resource Name (ARN), e.g.,
 
         ```sh
          $ pulumi import aws:storagegateway/storedIscsiVolume:StoredIscsiVolume example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678
@@ -705,7 +705,7 @@ class StoredIscsiVolume(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] arn: Volume Amazon Resource Name (ARN), e.g. `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
+        :param pulumi.Input[str] arn: Volume Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
         :param pulumi.Input[bool] chap_enabled: Whether mutual CHAP is enabled for the iSCSI target.
         :param pulumi.Input[str] disk_id: The unique identifier for the gateway local disk that is configured as a stored volume.
         :param pulumi.Input[str] gateway_arn: The Amazon Resource Name (ARN) of the gateway.
@@ -715,9 +715,9 @@ class StoredIscsiVolume(pulumi.CustomResource):
         :param pulumi.Input[str] network_interface_id: The network interface of the gateway on which to expose the iSCSI target. Only IPv4 addresses are accepted.
         :param pulumi.Input[int] network_interface_port: The port used to communicate with iSCSI targets.
         :param pulumi.Input[bool] preserve_existing_data: Specify this field as `true` if you want to preserve the data on the local disk. Otherwise, specifying this field as false creates an empty volume.
-        :param pulumi.Input[str] snapshot_id: The snapshot ID of the snapshot to restore as the new stored volume. e.g. `snap-1122aabb`.
+        :param pulumi.Input[str] snapshot_id: The snapshot ID of the snapshot to restore as the new stored volumeE.g., `snap-1122aabb`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] target_arn: Target Amazon Resource Name (ARN), e.g. `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
         :param pulumi.Input[str] target_name: The name of the iSCSI target used by initiators to connect to the target and as a suffix for the target ARN. The target name must be unique across all volumes of a gateway.
         :param pulumi.Input[str] volume_attachment_status: A value that indicates whether a storage volume is attached to, detached from, or is in the process of detaching from a gateway.
@@ -756,7 +756,7 @@ class StoredIscsiVolume(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         """
-        Volume Amazon Resource Name (ARN), e.g. `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
+        Volume Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
         """
         return pulumi.get(self, "arn")
 
@@ -836,7 +836,7 @@ class StoredIscsiVolume(pulumi.CustomResource):
     @pulumi.getter(name="snapshotId")
     def snapshot_id(self) -> pulumi.Output[Optional[str]]:
         """
-        The snapshot ID of the snapshot to restore as the new stored volume. e.g. `snap-1122aabb`.
+        The snapshot ID of the snapshot to restore as the new stored volumeE.g., `snap-1122aabb`.
         """
         return pulumi.get(self, "snapshot_id")
 
@@ -852,7 +852,7 @@ class StoredIscsiVolume(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider .
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 

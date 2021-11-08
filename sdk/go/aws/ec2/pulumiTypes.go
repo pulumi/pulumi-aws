@@ -3948,7 +3948,7 @@ type InstanceEphemeralBlockDevice struct {
 	DeviceName string `pulumi:"deviceName"`
 	// Suppresses the specified device included in the AMI's block device mapping.
 	NoDevice *bool `pulumi:"noDevice"`
-	// [Instance Store Device Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames) (e.g. `ephemeral0`).
+	// [Instance Store Device Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames) (e.g., `ephemeral0`).
 	VirtualName *string `pulumi:"virtualName"`
 }
 
@@ -3968,7 +3968,7 @@ type InstanceEphemeralBlockDeviceArgs struct {
 	DeviceName pulumi.StringInput `pulumi:"deviceName"`
 	// Suppresses the specified device included in the AMI's block device mapping.
 	NoDevice pulumi.BoolPtrInput `pulumi:"noDevice"`
-	// [Instance Store Device Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames) (e.g. `ephemeral0`).
+	// [Instance Store Device Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames) (e.g., `ephemeral0`).
 	VirtualName pulumi.StringPtrInput `pulumi:"virtualName"`
 }
 
@@ -4033,7 +4033,7 @@ func (o InstanceEphemeralBlockDeviceOutput) NoDevice() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v InstanceEphemeralBlockDevice) *bool { return v.NoDevice }).(pulumi.BoolPtrOutput)
 }
 
-// [Instance Store Device Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames) (e.g. `ephemeral0`).
+// [Instance Store Device Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames) (e.g., `ephemeral0`).
 func (o InstanceEphemeralBlockDeviceOutput) VirtualName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceEphemeralBlockDevice) *string { return v.VirtualName }).(pulumi.StringPtrOutput)
 }
@@ -5465,7 +5465,7 @@ type LaunchTemplateBlockDeviceMapping struct {
 	NoDevice *string `pulumi:"noDevice"`
 	// The [Instance Store Device
 	// Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames)
-	// (e.g. `"ephemeral0"`).
+	// (e.g., `"ephemeral0"`).
 	VirtualName *string `pulumi:"virtualName"`
 }
 
@@ -5489,7 +5489,7 @@ type LaunchTemplateBlockDeviceMappingArgs struct {
 	NoDevice pulumi.StringPtrInput `pulumi:"noDevice"`
 	// The [Instance Store Device
 	// Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames)
-	// (e.g. `"ephemeral0"`).
+	// (e.g., `"ephemeral0"`).
 	VirtualName pulumi.StringPtrInput `pulumi:"virtualName"`
 }
 
@@ -5561,7 +5561,7 @@ func (o LaunchTemplateBlockDeviceMappingOutput) NoDevice() pulumi.StringPtrOutpu
 
 // The [Instance Store Device
 // Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames)
-// (e.g. `"ephemeral0"`).
+// (e.g., `"ephemeral0"`).
 func (o LaunchTemplateBlockDeviceMappingOutput) VirtualName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateBlockDeviceMapping) *string { return v.VirtualName }).(pulumi.StringPtrOutput)
 }
@@ -5601,7 +5601,7 @@ type LaunchTemplateBlockDeviceMappingEbs struct {
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// The Snapshot ID to mount.
 	SnapshotId *string `pulumi:"snapshotId"`
-	// The throughput to provision for a `gp3` volume in MiB/s (specified as an integer, e.g. 500), with a maximum of 1,000 MiB/s.
+	// The throughput to provision for a `gp3` volume in MiB/s (specified as an integer, e.g., 500), with a maximum of 1,000 MiB/s.
 	Throughput *int `pulumi:"throughput"`
 	// The size of the volume in gigabytes.
 	VolumeSize *int `pulumi:"volumeSize"`
@@ -5635,7 +5635,7 @@ type LaunchTemplateBlockDeviceMappingEbsArgs struct {
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
 	// The Snapshot ID to mount.
 	SnapshotId pulumi.StringPtrInput `pulumi:"snapshotId"`
-	// The throughput to provision for a `gp3` volume in MiB/s (specified as an integer, e.g. 500), with a maximum of 1,000 MiB/s.
+	// The throughput to provision for a `gp3` volume in MiB/s (specified as an integer, e.g., 500), with a maximum of 1,000 MiB/s.
 	Throughput pulumi.IntPtrInput `pulumi:"throughput"`
 	// The size of the volume in gigabytes.
 	VolumeSize pulumi.IntPtrInput `pulumi:"volumeSize"`
@@ -5749,7 +5749,7 @@ func (o LaunchTemplateBlockDeviceMappingEbsOutput) SnapshotId() pulumi.StringPtr
 	return o.ApplyT(func(v LaunchTemplateBlockDeviceMappingEbs) *string { return v.SnapshotId }).(pulumi.StringPtrOutput)
 }
 
-// The throughput to provision for a `gp3` volume in MiB/s (specified as an integer, e.g. 500), with a maximum of 1,000 MiB/s.
+// The throughput to provision for a `gp3` volume in MiB/s (specified as an integer, e.g., 500), with a maximum of 1,000 MiB/s.
 func (o LaunchTemplateBlockDeviceMappingEbsOutput) Throughput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateBlockDeviceMappingEbs) *int { return v.Throughput }).(pulumi.IntPtrOutput)
 }
@@ -5842,7 +5842,7 @@ func (o LaunchTemplateBlockDeviceMappingEbsPtrOutput) SnapshotId() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-// The throughput to provision for a `gp3` volume in MiB/s (specified as an integer, e.g. 500), with a maximum of 1,000 MiB/s.
+// The throughput to provision for a `gp3` volume in MiB/s (specified as an integer, e.g., 500), with a maximum of 1,000 MiB/s.
 func (o LaunchTemplateBlockDeviceMappingEbsPtrOutput) Throughput() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateBlockDeviceMappingEbs) *int {
 		if v == nil {
@@ -7954,6 +7954,8 @@ type LaunchTemplateNetworkInterface struct {
 	Ipv6AddressCount *int `pulumi:"ipv6AddressCount"`
 	// One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. Conflicts with `ipv6AddressCount`
 	Ipv6Addresses []string `pulumi:"ipv6Addresses"`
+	// The index of the network card. Some instance types support multiple network cards. The primary network interface must be assigned to network card index 0. The default is network card index 0.
+	NetworkCardIndex *int `pulumi:"networkCardIndex"`
 	// The ID of the network interface to attach.
 	NetworkInterfaceId *string `pulumi:"networkInterfaceId"`
 	// The primary private IPv4 address.
@@ -7996,6 +7998,8 @@ type LaunchTemplateNetworkInterfaceArgs struct {
 	Ipv6AddressCount pulumi.IntPtrInput `pulumi:"ipv6AddressCount"`
 	// One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. Conflicts with `ipv6AddressCount`
 	Ipv6Addresses pulumi.StringArrayInput `pulumi:"ipv6Addresses"`
+	// The index of the network card. Some instance types support multiple network cards. The primary network interface must be assigned to network card index 0. The default is network card index 0.
+	NetworkCardIndex pulumi.IntPtrInput `pulumi:"networkCardIndex"`
 	// The ID of the network interface to attach.
 	NetworkInterfaceId pulumi.StringPtrInput `pulumi:"networkInterfaceId"`
 	// The primary private IPv4 address.
@@ -8105,6 +8109,11 @@ func (o LaunchTemplateNetworkInterfaceOutput) Ipv6AddressCount() pulumi.IntPtrOu
 // One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. Conflicts with `ipv6AddressCount`
 func (o LaunchTemplateNetworkInterfaceOutput) Ipv6Addresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LaunchTemplateNetworkInterface) []string { return v.Ipv6Addresses }).(pulumi.StringArrayOutput)
+}
+
+// The index of the network card. Some instance types support multiple network cards. The primary network interface must be assigned to network card index 0. The default is network card index 0.
+func (o LaunchTemplateNetworkInterfaceOutput) NetworkCardIndex() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateNetworkInterface) *int { return v.NetworkCardIndex }).(pulumi.IntPtrOutput)
 }
 
 // The ID of the network interface to attach.
@@ -10743,7 +10752,7 @@ type SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecification struct {
 	Id *string `pulumi:"id"`
 	// The name of the launch template. Conflicts with `id`.
 	Name *string `pulumi:"name"`
-	// Template version. Unlike the autoscaling equivalent, does not support `$Latest` or `$Default`, so use the launchTemplate resource's attribute, e.g. `"${aws_launch_template.foo.latest_version}"`. It will use the default version if omitted.
+	// Template version. Unlike the autoscaling equivalent, does not support `$Latest` or `$Default`, so use the launchTemplate resource's attribute, e.g., `"${aws_launch_template.foo.latest_version}"`. It will use the default version if omitted.
 	Version *string `pulumi:"version"`
 }
 
@@ -10763,7 +10772,7 @@ type SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationArgs struct 
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// The name of the launch template. Conflicts with `id`.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Template version. Unlike the autoscaling equivalent, does not support `$Latest` or `$Default`, so use the launchTemplate resource's attribute, e.g. `"${aws_launch_template.foo.latest_version}"`. It will use the default version if omitted.
+	// Template version. Unlike the autoscaling equivalent, does not support `$Latest` or `$Default`, so use the launchTemplate resource's attribute, e.g., `"${aws_launch_template.foo.latest_version}"`. It will use the default version if omitted.
 	Version pulumi.StringPtrInput `pulumi:"version"`
 }
 
@@ -10803,7 +10812,7 @@ func (o SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationOutput) N
 	return o.ApplyT(func(v SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecification) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Template version. Unlike the autoscaling equivalent, does not support `$Latest` or `$Default`, so use the launchTemplate resource's attribute, e.g. `"${aws_launch_template.foo.latest_version}"`. It will use the default version if omitted.
+// Template version. Unlike the autoscaling equivalent, does not support `$Latest` or `$Default`, so use the launchTemplate resource's attribute, e.g., `"${aws_launch_template.foo.latest_version}"`. It will use the default version if omitted.
 func (o SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecificationOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotFleetRequestLaunchTemplateConfigLaunchTemplateSpecification) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
@@ -11990,7 +11999,7 @@ type SpotInstanceRequestEphemeralBlockDevice struct {
 	DeviceName string `pulumi:"deviceName"`
 	// Suppresses the specified device included in the AMI's block device mapping.
 	NoDevice *bool `pulumi:"noDevice"`
-	// [Instance Store Device Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames) (e.g. `ephemeral0`).
+	// [Instance Store Device Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames) (e.g., `ephemeral0`).
 	VirtualName *string `pulumi:"virtualName"`
 }
 
@@ -12010,7 +12019,7 @@ type SpotInstanceRequestEphemeralBlockDeviceArgs struct {
 	DeviceName pulumi.StringInput `pulumi:"deviceName"`
 	// Suppresses the specified device included in the AMI's block device mapping.
 	NoDevice pulumi.BoolPtrInput `pulumi:"noDevice"`
-	// [Instance Store Device Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames) (e.g. `ephemeral0`).
+	// [Instance Store Device Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames) (e.g., `ephemeral0`).
 	VirtualName pulumi.StringPtrInput `pulumi:"virtualName"`
 }
 
@@ -12075,7 +12084,7 @@ func (o SpotInstanceRequestEphemeralBlockDeviceOutput) NoDevice() pulumi.BoolPtr
 	return o.ApplyT(func(v SpotInstanceRequestEphemeralBlockDevice) *bool { return v.NoDevice }).(pulumi.BoolPtrOutput)
 }
 
-// [Instance Store Device Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames) (e.g. `ephemeral0`).
+// [Instance Store Device Name](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames) (e.g., `ephemeral0`).
 func (o SpotInstanceRequestEphemeralBlockDeviceOutput) VirtualName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SpotInstanceRequestEphemeralBlockDevice) *string { return v.VirtualName }).(pulumi.StringPtrOutput)
 }
@@ -14402,7 +14411,7 @@ func (o VpnConnectionVgwTelemetryArrayOutput) Index(i pulumi.IntInput) VpnConnec
 type GetAmiBlockDeviceMapping struct {
 	// The physical name of the device.
 	DeviceName string `pulumi:"deviceName"`
-	// Map containing EBS information, if the device is EBS based. Unlike most object attributes, these are accessed directly (e.g. `ebs.volume_size` or `ebs["volumeSize"]`) rather than accessed through the first element of a list (e.g. `ebs[0].volume_size`).
+	// Map containing EBS information, if the device is EBS based. Unlike most object attributes, these are accessed directly (e.g., `ebs.volume_size` or `ebs["volumeSize"]`) rather than accessed through the first element of a list (e.g., `ebs[0].volume_size`).
 	Ebs map[string]string `pulumi:"ebs"`
 	// Suppresses the specified device included in the block device mapping of the AMI.
 	NoDevice string `pulumi:"noDevice"`
@@ -14424,7 +14433,7 @@ type GetAmiBlockDeviceMappingInput interface {
 type GetAmiBlockDeviceMappingArgs struct {
 	// The physical name of the device.
 	DeviceName pulumi.StringInput `pulumi:"deviceName"`
-	// Map containing EBS information, if the device is EBS based. Unlike most object attributes, these are accessed directly (e.g. `ebs.volume_size` or `ebs["volumeSize"]`) rather than accessed through the first element of a list (e.g. `ebs[0].volume_size`).
+	// Map containing EBS information, if the device is EBS based. Unlike most object attributes, these are accessed directly (e.g., `ebs.volume_size` or `ebs["volumeSize"]`) rather than accessed through the first element of a list (e.g., `ebs[0].volume_size`).
 	Ebs pulumi.StringMapInput `pulumi:"ebs"`
 	// Suppresses the specified device included in the block device mapping of the AMI.
 	NoDevice pulumi.StringInput `pulumi:"noDevice"`
@@ -14488,7 +14497,7 @@ func (o GetAmiBlockDeviceMappingOutput) DeviceName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAmiBlockDeviceMapping) string { return v.DeviceName }).(pulumi.StringOutput)
 }
 
-// Map containing EBS information, if the device is EBS based. Unlike most object attributes, these are accessed directly (e.g. `ebs.volume_size` or `ebs["volumeSize"]`) rather than accessed through the first element of a list (e.g. `ebs[0].volume_size`).
+// Map containing EBS information, if the device is EBS based. Unlike most object attributes, these are accessed directly (e.g., `ebs.volume_size` or `ebs["volumeSize"]`) rather than accessed through the first element of a list (e.g., `ebs[0].volume_size`).
 func (o GetAmiBlockDeviceMappingOutput) Ebs() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetAmiBlockDeviceMapping) map[string]string { return v.Ebs }).(pulumi.StringMapOutput)
 }
@@ -19026,6 +19035,7 @@ type GetLaunchTemplateNetworkInterface struct {
 	Ipv4Addresses      []string `pulumi:"ipv4Addresses"`
 	Ipv6AddressCount   int      `pulumi:"ipv6AddressCount"`
 	Ipv6Addresses      []string `pulumi:"ipv6Addresses"`
+	NetworkCardIndex   *int     `pulumi:"networkCardIndex"`
 	NetworkInterfaceId string   `pulumi:"networkInterfaceId"`
 	PrivateIpAddress   string   `pulumi:"privateIpAddress"`
 	SecurityGroups     []string `pulumi:"securityGroups"`
@@ -19055,6 +19065,7 @@ type GetLaunchTemplateNetworkInterfaceArgs struct {
 	Ipv4Addresses      pulumi.StringArrayInput `pulumi:"ipv4Addresses"`
 	Ipv6AddressCount   pulumi.IntInput         `pulumi:"ipv6AddressCount"`
 	Ipv6Addresses      pulumi.StringArrayInput `pulumi:"ipv6Addresses"`
+	NetworkCardIndex   pulumi.IntPtrInput      `pulumi:"networkCardIndex"`
 	NetworkInterfaceId pulumi.StringInput      `pulumi:"networkInterfaceId"`
 	PrivateIpAddress   pulumi.StringInput      `pulumi:"privateIpAddress"`
 	SecurityGroups     pulumi.StringArrayInput `pulumi:"securityGroups"`
@@ -19151,6 +19162,10 @@ func (o GetLaunchTemplateNetworkInterfaceOutput) Ipv6AddressCount() pulumi.IntOu
 
 func (o GetLaunchTemplateNetworkInterfaceOutput) Ipv6Addresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetLaunchTemplateNetworkInterface) []string { return v.Ipv6Addresses }).(pulumi.StringArrayOutput)
+}
+
+func (o GetLaunchTemplateNetworkInterfaceOutput) NetworkCardIndex() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetLaunchTemplateNetworkInterface) *int { return v.NetworkCardIndex }).(pulumi.IntPtrOutput)
 }
 
 func (o GetLaunchTemplateNetworkInterfaceOutput) NetworkInterfaceId() pulumi.StringOutput {

@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Glue Partitions can be imported with their catalog ID (usually AWS account ID), database name, table name and partition values e.g.
+ * Glue Partitions can be imported with their catalog ID (usually AWS account ID), database name, table name and partition values e.g.,
  *
  * ```sh
  *  $ pulumi import aws:glue/partition:Partition part 123456789012:MyDatabase:MyTable:val1#val2

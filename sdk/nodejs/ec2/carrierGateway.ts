@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * `aws_ec2_carrier_gateway` can be imported using the carrier gateway's ID, e.g.
+ * `aws_ec2_carrier_gateway` can be imported using the carrier gateway's ID, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:ec2/carrierGateway:CarrierGateway example cgw-12345
@@ -66,6 +66,9 @@ export class CarrierGateway extends pulumi.CustomResource {
      */
     public /*out*/ readonly ownerId!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The ID of the VPC to associate with the carrier gateway.
@@ -121,6 +124,9 @@ export interface CarrierGatewayState {
      */
     ownerId?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ID of the VPC to associate with the carrier gateway.

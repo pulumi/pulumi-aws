@@ -227,7 +227,7 @@ class _RestApiState:
         :param pulumi.Input['RestApiEndpointConfigurationArgs'] endpoint_configuration: Configuration block defining API endpoint configuration including endpoint type. Defined below.
         :param pulumi.Input[str] execution_arn: The execution ARN part to be used in `lambda_permission`'s `source_arn`
                when allowing API Gateway to invoke a Lambda function,
-               e.g. `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j`, which can be concatenated with allowed stage, method and resource path.
+               e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j`, which can be concatenated with allowed stage, method and resource path.
         :param pulumi.Input[int] minimum_compression_size: Minimum response size to compress for the REST API. Integer between `-1` and `10485760` (10MB). Setting a value greater than `-1` will enable compression, `-1` disables compression (default). If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-minimum-compression-size` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-openapi-minimum-compression-size.html). If the argument value (_except_ `-1`) is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
         :param pulumi.Input[str] name: Name of the REST API. If importing an OpenAPI specification via the `body` argument, this corresponds to the `info.title` field. If the argument value is different than the OpenAPI value, the argument value will override the OpenAPI value.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: Map of customizations for importing the specification in the `body` argument. For example, to exclude DocumentationParts from an imported API, set `ignore` equal to `documentation`. Additional documentation, including other parameters such as `basepath`, can be found in the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html).
@@ -371,7 +371,7 @@ class _RestApiState:
         """
         The execution ARN part to be used in `lambda_permission`'s `source_arn`
         when allowing API Gateway to invoke a Lambda function,
-        e.g. `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j`, which can be concatenated with allowed stage, method and resource path.
+        e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j`, which can be concatenated with allowed stage, method and resource path.
         """
         return pulumi.get(self, "execution_arn")
 
@@ -568,7 +568,7 @@ class RestApi(pulumi.CustomResource):
 
         ## Import
 
-        `aws_api_gateway_rest_api` can be imported by using the REST API ID, e.g.
+        `aws_api_gateway_rest_api` can be imported by using the REST API ID, e.g.,
 
         ```sh
          $ pulumi import aws:apigateway/restApi:RestApi example 12345abcde
@@ -681,7 +681,7 @@ class RestApi(pulumi.CustomResource):
 
         ## Import
 
-        `aws_api_gateway_rest_api` can be imported by using the REST API ID, e.g.
+        `aws_api_gateway_rest_api` can be imported by using the REST API ID, e.g.,
 
         ```sh
          $ pulumi import aws:apigateway/restApi:RestApi example 12345abcde
@@ -784,7 +784,7 @@ class RestApi(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['RestApiEndpointConfigurationArgs']] endpoint_configuration: Configuration block defining API endpoint configuration including endpoint type. Defined below.
         :param pulumi.Input[str] execution_arn: The execution ARN part to be used in `lambda_permission`'s `source_arn`
                when allowing API Gateway to invoke a Lambda function,
-               e.g. `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j`, which can be concatenated with allowed stage, method and resource path.
+               e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j`, which can be concatenated with allowed stage, method and resource path.
         :param pulumi.Input[int] minimum_compression_size: Minimum response size to compress for the REST API. Integer between `-1` and `10485760` (10MB). Setting a value greater than `-1` will enable compression, `-1` disables compression (default). If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-minimum-compression-size` extension](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-openapi-minimum-compression-size.html). If the argument value (_except_ `-1`) is provided and is different than the OpenAPI value, the argument value will override the OpenAPI value.
         :param pulumi.Input[str] name: Name of the REST API. If importing an OpenAPI specification via the `body` argument, this corresponds to the `info.title` field. If the argument value is different than the OpenAPI value, the argument value will override the OpenAPI value.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: Map of customizations for importing the specification in the `body` argument. For example, to exclude DocumentationParts from an imported API, set `ignore` equal to `documentation`. Additional documentation, including other parameters such as `basepath`, can be found in the [API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-import-api.html).
@@ -885,7 +885,7 @@ class RestApi(pulumi.CustomResource):
         """
         The execution ARN part to be used in `lambda_permission`'s `source_arn`
         when allowing API Gateway to invoke a Lambda function,
-        e.g. `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j`, which can be concatenated with allowed stage, method and resource path.
+        e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j`, which can be concatenated with allowed stage, method and resource path.
         """
         return pulumi.get(self, "execution_arn")
 

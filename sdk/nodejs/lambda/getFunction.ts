@@ -45,7 +45,7 @@ export interface GetFunctionArgs {
      */
     functionName: string;
     /**
-     * Alias name or version number of the lambda function. e.g. `$LATEST`, `my-alias`, or `1`
+     * Alias name or version number of the lambda functionE.g., `$LATEST`, `my-alias`, or `1`
      */
     qualifier?: string;
     tags?: {[key: string]: string};
@@ -177,7 +177,7 @@ export interface GetFunctionOutputArgs {
      */
     functionName: pulumi.Input<string>;
     /**
-     * Alias name or version number of the lambda function. e.g. `$LATEST`, `my-alias`, or `1`
+     * Alias name or version number of the lambda functionE.g., `$LATEST`, `my-alias`, or `1`
      */
     qualifier?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;

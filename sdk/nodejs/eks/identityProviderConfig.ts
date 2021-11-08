@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * EKS Identity Provider Configurations can be imported using the `cluster_name` and `identity_provider_config_name` separated by a colon (`:`), e.g.
+ * EKS Identity Provider Configurations can be imported using the `cluster_name` and `identity_provider_config_name` separated by a colon (`:`), e.g.,
  *
  * ```sh
  *  $ pulumi import aws:eks/identityProviderConfig:IdentityProviderConfig my_identity_provider_config my_cluster:my_identity_provider_config
@@ -77,6 +77,9 @@ export class IdentityProviderConfig extends pulumi.CustomResource {
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -141,6 +144,9 @@ export interface IdentityProviderConfigState {
      */
     status?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 

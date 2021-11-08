@@ -19,7 +19,7 @@ class SshKeyArgs:
         """
         The set of arguments for constructing a SshKey resource.
         :param pulumi.Input[str] body: The public key portion of an SSH key pair.
-        :param pulumi.Input[str] server_id: The Server ID of the Transfer Server (e.g. `s-12345678`)
+        :param pulumi.Input[str] server_id: The Server ID of the Transfer Server (e.g., `s-12345678`)
         :param pulumi.Input[str] user_name: The name of the user account that is assigned to one or more servers.
         """
         pulumi.set(__self__, "body", body)
@@ -42,7 +42,7 @@ class SshKeyArgs:
     @pulumi.getter(name="serverId")
     def server_id(self) -> pulumi.Input[str]:
         """
-        The Server ID of the Transfer Server (e.g. `s-12345678`)
+        The Server ID of the Transfer Server (e.g., `s-12345678`)
         """
         return pulumi.get(self, "server_id")
 
@@ -72,7 +72,7 @@ class _SshKeyState:
         """
         Input properties used for looking up and filtering SshKey resources.
         :param pulumi.Input[str] body: The public key portion of an SSH key pair.
-        :param pulumi.Input[str] server_id: The Server ID of the Transfer Server (e.g. `s-12345678`)
+        :param pulumi.Input[str] server_id: The Server ID of the Transfer Server (e.g., `s-12345678`)
         :param pulumi.Input[str] user_name: The name of the user account that is assigned to one or more servers.
         """
         if body is not None:
@@ -98,7 +98,7 @@ class _SshKeyState:
     @pulumi.getter(name="serverId")
     def server_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The Server ID of the Transfer Server (e.g. `s-12345678`)
+        The Server ID of the Transfer Server (e.g., `s-12345678`)
         """
         return pulumi.get(self, "server_id")
 
@@ -195,7 +195,7 @@ class SshKey(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] body: The public key portion of an SSH key pair.
-        :param pulumi.Input[str] server_id: The Server ID of the Transfer Server (e.g. `s-12345678`)
+        :param pulumi.Input[str] server_id: The Server ID of the Transfer Server (e.g., `s-12345678`)
         :param pulumi.Input[str] user_name: The name of the user account that is assigned to one or more servers.
         """
         ...
@@ -328,7 +328,7 @@ class SshKey(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] body: The public key portion of an SSH key pair.
-        :param pulumi.Input[str] server_id: The Server ID of the Transfer Server (e.g. `s-12345678`)
+        :param pulumi.Input[str] server_id: The Server ID of the Transfer Server (e.g., `s-12345678`)
         :param pulumi.Input[str] user_name: The name of the user account that is assigned to one or more servers.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -352,7 +352,7 @@ class SshKey(pulumi.CustomResource):
     @pulumi.getter(name="serverId")
     def server_id(self) -> pulumi.Output[str]:
         """
-        The Server ID of the Transfer Server (e.g. `s-12345678`)
+        The Server ID of the Transfer Server (e.g., `s-12345678`)
         """
         return pulumi.get(self, "server_id")
 

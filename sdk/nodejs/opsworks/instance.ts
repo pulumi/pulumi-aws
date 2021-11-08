@@ -63,7 +63,7 @@ import * as utilities from "../utilities";
  * * `deviceName` - The name of the block device to mount on the instance.
  * * `virtualName` - The [Instance Store Device
  *   Name](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/InstanceStorage.html#InstanceStoreDeviceNames)
- *   (e.g. `"ephemeral0"`)
+ *   (e.g., `"ephemeral0"`)
  *
  * Each AWS Instance type has a different set of Instance Store block devices
  * available for attachment. AWS [publishes a
@@ -78,7 +78,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Opsworks Instances can be imported using the `instance id`, e.g.
+ * Opsworks Instances can be imported using the `instance id`, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:opsworks/instance:Instance my_instance 4d6d1710-ded9-42a1-b08e-b043ad7af1e2

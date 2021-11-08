@@ -89,6 +89,7 @@ class _SnapshotState:
         :param pulumi.Input[str] owner_alias: Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
         :param pulumi.Input[str] owner_id: The AWS account ID of the EBS snapshot owner.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags for the snapshot.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] volume_id: The Volume ID of which to make a snapshot.
         :param pulumi.Input[int] volume_size: The size of the drive in GiBs.
         """
@@ -214,6 +215,9 @@ class _SnapshotState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -278,7 +282,7 @@ class Snapshot(pulumi.CustomResource):
 
         ## Import
 
-        EBS Snapshot can be imported using the `id`, e.g.
+        EBS Snapshot can be imported using the `id`, e.g.,
 
         ```sh
          $ pulumi import aws:ebs/snapshot:Snapshot id snap-049df61146c4d7901
@@ -320,7 +324,7 @@ class Snapshot(pulumi.CustomResource):
 
         ## Import
 
-        EBS Snapshot can be imported using the `id`, e.g.
+        EBS Snapshot can be imported using the `id`, e.g.,
 
         ```sh
          $ pulumi import aws:ebs/snapshot:Snapshot id snap-049df61146c4d7901
@@ -405,6 +409,7 @@ class Snapshot(pulumi.CustomResource):
         :param pulumi.Input[str] owner_alias: Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
         :param pulumi.Input[str] owner_id: The AWS account ID of the EBS snapshot owner.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags for the snapshot.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] volume_id: The Volume ID of which to make a snapshot.
         :param pulumi.Input[int] volume_size: The size of the drive in GiBs.
         """
@@ -492,6 +497,9 @@ class Snapshot(pulumi.CustomResource):
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @property

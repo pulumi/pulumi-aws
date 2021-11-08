@@ -63,7 +63,7 @@ namespace Pulumi.Aws.Transfer
     /// 
     /// ## Import
     /// 
-    /// Transfer Accesses can be imported using the `server_id` and `external_id`, e.g.
+    /// Transfer Accesses can be imported using the `server_id` and `external_id`, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:transfer/access:Access example s-12345678/S-1-1-12-1234567890-123456789-1234567890-1234
@@ -73,7 +73,7 @@ namespace Pulumi.Aws.Transfer
     public partial class Access : Pulumi.CustomResource
     {
         /// <summary>
-        /// The SID of a group in the directory connected to the Transfer Server (e.g. `S-1-1-12-1234567890-123456789-1234567890-1234`)
+        /// The SID of a group in the directory connected to the Transfer Server (e.g., `S-1-1-12-1234567890-123456789-1234567890-1234`)
         /// </summary>
         [Output("externalId")]
         public Output<string> ExternalId { get; private set; } = null!;
@@ -112,7 +112,7 @@ namespace Pulumi.Aws.Transfer
         public Output<string?> Role { get; private set; } = null!;
 
         /// <summary>
-        /// The Server ID of the Transfer Server (e.g. `s-12345678`)
+        /// The Server ID of the Transfer Server (e.g., `s-12345678`)
         /// </summary>
         [Output("serverId")]
         public Output<string> ServerId { get; private set; } = null!;
@@ -164,7 +164,7 @@ namespace Pulumi.Aws.Transfer
     public sealed class AccessArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The SID of a group in the directory connected to the Transfer Server (e.g. `S-1-1-12-1234567890-123456789-1234567890-1234`)
+        /// The SID of a group in the directory connected to the Transfer Server (e.g., `S-1-1-12-1234567890-123456789-1234567890-1234`)
         /// </summary>
         [Input("externalId", required: true)]
         public Input<string> ExternalId { get; set; } = null!;
@@ -209,7 +209,7 @@ namespace Pulumi.Aws.Transfer
         public Input<string>? Role { get; set; }
 
         /// <summary>
-        /// The Server ID of the Transfer Server (e.g. `s-12345678`)
+        /// The Server ID of the Transfer Server (e.g., `s-12345678`)
         /// </summary>
         [Input("serverId", required: true)]
         public Input<string> ServerId { get; set; } = null!;
@@ -222,7 +222,7 @@ namespace Pulumi.Aws.Transfer
     public sealed class AccessState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The SID of a group in the directory connected to the Transfer Server (e.g. `S-1-1-12-1234567890-123456789-1234567890-1234`)
+        /// The SID of a group in the directory connected to the Transfer Server (e.g., `S-1-1-12-1234567890-123456789-1234567890-1234`)
         /// </summary>
         [Input("externalId")]
         public Input<string>? ExternalId { get; set; }
@@ -267,7 +267,7 @@ namespace Pulumi.Aws.Transfer
         public Input<string>? Role { get; set; }
 
         /// <summary>
-        /// The Server ID of the Transfer Server (e.g. `s-12345678`)
+        /// The Server ID of the Transfer Server (e.g., `s-12345678`)
         /// </summary>
         [Input("serverId")]
         public Input<string>? ServerId { get; set; }

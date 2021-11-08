@@ -41,7 +41,7 @@ import (
 //
 // ## Import
 //
-// SWF Domains can be imported using the `name`, e.g.
+// SWF Domains can be imported using the `name`, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:swf/domain:Domain foo test-domain

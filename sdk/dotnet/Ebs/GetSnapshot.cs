@@ -309,7 +309,7 @@ namespace Pulumi.Aws.Ebs
         public readonly ImmutableArray<string> Owners;
         public readonly ImmutableArray<string> RestorableByUserIds;
         /// <summary>
-        /// The snapshot ID (e.g. snap-59fcb34e).
+        /// The snapshot ID (e.g., snap-59fcb34e).
         /// </summary>
         public readonly string SnapshotId;
         public readonly ImmutableArray<string> SnapshotIds;
@@ -322,7 +322,7 @@ namespace Pulumi.Aws.Ebs
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
-        /// The volume ID (e.g. vol-59fcb34e).
+        /// The volume ID (e.g., vol-59fcb34e).
         /// </summary>
         public readonly string VolumeId;
         /// <summary>

@@ -179,7 +179,7 @@ class LifecyclePolicy(pulumi.CustomResource):
 
         ## Import
 
-        ECR Lifecycle Policy can be imported using the name of the repository, e.g.
+        ECR Lifecycle Policy can be imported using the name of the repository, e.g.,
 
         ```sh
          $ pulumi import aws:ecr/lifecyclePolicy:LifecyclePolicy example tf-example
@@ -263,7 +263,7 @@ class LifecyclePolicy(pulumi.CustomResource):
 
         ## Import
 
-        ECR Lifecycle Policy can be imported using the name of the repository, e.g.
+        ECR Lifecycle Policy can be imported using the name of the repository, e.g.,
 
         ```sh
          $ pulumi import aws:ecr/lifecyclePolicy:LifecyclePolicy example tf-example

@@ -38,7 +38,7 @@ namespace Pulumi.Aws.WafRegional.Inputs
         public Input<string> RuleId { get; set; } = null!;
 
         /// <summary>
-        /// Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. e.g. `ALLOW`, `BLOCK` or `COUNT`
+        /// Specifies how you want AWS WAF Regional to respond to requests that match the settings in a ruleE.g., `ALLOW`, `BLOCK` or `COUNT`
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

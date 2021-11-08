@@ -36,7 +36,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * The EFS file systems can be imported using the `id`, e.g.
+ * The EFS file systems can be imported using the `id`, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:efs/fileSystem:FileSystem foo fs-6fa144c6
@@ -126,6 +126,9 @@ export class FileSystem extends pulumi.CustomResource {
      */
     public /*out*/ readonly sizeInBytes!: pulumi.Output<outputs.efs.FileSystemSizeInByte[]>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Throughput mode for the file system. Defaults to `bursting`. Valid values: `bursting`, `provisioned`. When using `provisioned`, also set `provisionedThroughputInMibps`.
@@ -247,6 +250,9 @@ export interface FileSystemState {
      */
     sizeInBytes?: pulumi.Input<pulumi.Input<inputs.efs.FileSystemSizeInByte>[]>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Throughput mode for the file system. Defaults to `bursting`. Valid values: `bursting`, `provisioned`. When using `provisioned`, also set `provisionedThroughputInMibps`.

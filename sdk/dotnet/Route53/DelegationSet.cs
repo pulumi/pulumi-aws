@@ -41,7 +41,7 @@ namespace Pulumi.Aws.Route53
     /// 
     /// ## Import
     /// 
-    /// Route53 Delegation Sets can be imported using the `delegation set id`, e.g.
+    /// Route53 Delegation Sets can be imported using the `delegation set id`, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:route53/delegationSet:DelegationSet set1 N1PA6795SAMPLE

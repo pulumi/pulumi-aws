@@ -47,7 +47,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * ECS clusters can be imported using the `name`, e.g.
+ * ECS clusters can be imported using the `name`, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:ecs/cluster:Cluster stateless stateless-app

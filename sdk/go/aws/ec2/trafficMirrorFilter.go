@@ -43,7 +43,7 @@ import (
 //
 // ## Import
 //
-// Traffic mirror filter can be imported using the `id`, e.g.
+// Traffic mirror filter can be imported using the `id`, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:ec2/trafficMirrorFilter:TrafficMirrorFilter foo tmf-0fbb93ddf38198f64
@@ -58,7 +58,8 @@ type TrafficMirrorFilter struct {
 	// List of amazon network services that should be mirrored. Valid values: `amazon-dns`.
 	NetworkServices pulumi.StringArrayOutput `pulumi:"networkServices"`
 	Tags            pulumi.StringMapOutput   `pulumi:"tags"`
-	TagsAll         pulumi.StringMapOutput   `pulumi:"tagsAll"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewTrafficMirrorFilter registers a new resource with the given unique name, arguments, and options.
@@ -97,7 +98,8 @@ type trafficMirrorFilterState struct {
 	// List of amazon network services that should be mirrored. Valid values: `amazon-dns`.
 	NetworkServices []string          `pulumi:"networkServices"`
 	Tags            map[string]string `pulumi:"tags"`
-	TagsAll         map[string]string `pulumi:"tagsAll"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type TrafficMirrorFilterState struct {
@@ -108,7 +110,8 @@ type TrafficMirrorFilterState struct {
 	// List of amazon network services that should be mirrored. Valid values: `amazon-dns`.
 	NetworkServices pulumi.StringArrayInput
 	Tags            pulumi.StringMapInput
-	TagsAll         pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 }
 
 func (TrafficMirrorFilterState) ElementType() reflect.Type {

@@ -198,7 +198,7 @@ class Database(pulumi.CustomResource):
 
         ## Import
 
-        Timestream databases can be imported using the `database_name`, e.g.
+        Timestream databases can be imported using the `database_name`, e.g.,
 
         ```sh
          $ pulumi import aws:timestreamwrite/database:Database example example
@@ -243,7 +243,7 @@ class Database(pulumi.CustomResource):
 
         ## Import
 
-        Timestream databases can be imported using the `database_name`, e.g.
+        Timestream databases can be imported using the `database_name`, e.g.,
 
         ```sh
          $ pulumi import aws:timestreamwrite/database:Database example example

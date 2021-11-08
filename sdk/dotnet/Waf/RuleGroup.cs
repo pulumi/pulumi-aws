@@ -49,7 +49,7 @@ namespace Pulumi.Aws.Waf
     /// 
     /// ## Import
     /// 
-    /// WAF Rule Group can be imported using the id, e.g.
+    /// WAF Rule Group can be imported using the id, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:waf/ruleGroup:RuleGroup example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc

@@ -76,7 +76,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * WAF Web ACL can be imported using the `id`, e.g.
+ * WAF Web ACL can be imported using the `id`, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:waf/webAcl:WebAcl main 0c8e583e-18f3-4c13-9e2a-67c4805d2f94

@@ -278,7 +278,7 @@ class Queue(pulumi.CustomResource):
 
         ## Import
 
-        Media Convert Queue can be imported via the queue name, e.g.
+        Media Convert Queue can be imported via the queue name, e.g.,
 
         ```sh
          $ pulumi import aws:mediaconvert/queue:Queue test tf-test-queue
@@ -313,7 +313,7 @@ class Queue(pulumi.CustomResource):
 
         ## Import
 
-        Media Convert Queue can be imported via the queue name, e.g.
+        Media Convert Queue can be imported via the queue name, e.g.,
 
         ```sh
          $ pulumi import aws:mediaconvert/queue:Queue test tf-test-queue

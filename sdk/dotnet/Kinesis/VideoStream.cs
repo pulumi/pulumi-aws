@@ -41,7 +41,7 @@ namespace Pulumi.Aws.Kinesis
     /// 
     /// ## Import
     /// 
-    /// Kinesis Streams can be imported using the `arn`, e.g.
+    /// Kinesis Streams can be imported using the `arn`, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:kinesis/videoStream:VideoStream test_stream arn:aws:kinesisvideo:us-west-2:123456789012:stream/terraform-kinesis-test/1554978910975
@@ -98,6 +98,9 @@ namespace Pulumi.Aws.Kinesis
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -252,6 +255,10 @@ namespace Pulumi.Aws.Kinesis
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

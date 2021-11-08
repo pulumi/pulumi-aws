@@ -97,7 +97,7 @@ class DomainPolicy(pulumi.CustomResource):
                  domain_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Allows setting policy to an Elasticsearch domain while referencing domain attributes (e.g. ARN)
+        Allows setting policy to an Elasticsearch domain while referencing domain attributes (e.g., ARN)
 
         ## Example Usage
 
@@ -137,7 +137,7 @@ class DomainPolicy(pulumi.CustomResource):
                  args: DomainPolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Allows setting policy to an Elasticsearch domain while referencing domain attributes (e.g. ARN)
+        Allows setting policy to an Elasticsearch domain while referencing domain attributes (e.g., ARN)
 
         ## Example Usage
 

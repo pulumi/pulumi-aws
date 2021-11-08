@@ -503,7 +503,7 @@ class Cluster(pulumi.CustomResource):
 
         ## Import
 
-        EKS Clusters can be imported using the `name`, e.g.
+        EKS Clusters can be imported using the `name`, e.g.,
 
         ```sh
          $ pulumi import aws:eks/cluster:Cluster my_cluster my_cluster
@@ -605,7 +605,7 @@ class Cluster(pulumi.CustomResource):
 
         ## Import
 
-        EKS Clusters can be imported using the `name`, e.g.
+        EKS Clusters can be imported using the `name`, e.g.,
 
         ```sh
          $ pulumi import aws:eks/cluster:Cluster my_cluster my_cluster

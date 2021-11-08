@@ -132,7 +132,7 @@ namespace Pulumi.Aws.Cloud9
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The type of instance to connect to the environment, e.g. `t2.micro`.
+        /// The type of instance to connect to the environment, e.g., `t2.micro`.
         /// </summary>
         [Output("instanceType")]
         public Output<string> InstanceType { get; private set; } = null!;
@@ -162,13 +162,13 @@ namespace Pulumi.Aws.Cloud9
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the environment (e.g. `ssh` or `ec2`)
+        /// The type of the environment (e.g., `ssh` or `ec2`)
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -232,7 +232,7 @@ namespace Pulumi.Aws.Cloud9
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The type of instance to connect to the environment, e.g. `t2.micro`.
+        /// The type of instance to connect to the environment, e.g., `t2.micro`.
         /// </summary>
         [Input("instanceType", required: true)]
         public Input<string> InstanceType { get; set; } = null!;
@@ -293,7 +293,7 @@ namespace Pulumi.Aws.Cloud9
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The type of instance to connect to the environment, e.g. `t2.micro`.
+        /// The type of instance to connect to the environment, e.g., `t2.micro`.
         /// </summary>
         [Input("instanceType")]
         public Input<string>? InstanceType { get; set; }
@@ -332,7 +332,7 @@ namespace Pulumi.Aws.Cloud9
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -341,7 +341,7 @@ namespace Pulumi.Aws.Cloud9
         }
 
         /// <summary>
-        /// The type of the environment (e.g. `ssh` or `ec2`)
+        /// The type of the environment (e.g., `ssh` or `ec2`)
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

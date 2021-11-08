@@ -229,7 +229,7 @@ def get_file_system(creation_token: Optional[str] = None,
 
 
     :param str creation_token: Restricts the list to the file system with this creation token.
-    :param str file_system_id: The ID that identifies the file system (e.g. fs-ccfc0d65).
+    :param str file_system_id: The ID that identifies the file system (e.g., fs-ccfc0d65).
     :param Mapping[str, str] tags: Restricts the list to the file system with these tags.
     """
     __args__ = dict()
@@ -286,7 +286,7 @@ def get_file_system_output(creation_token: Optional[pulumi.Input[Optional[str]]]
 
 
     :param str creation_token: Restricts the list to the file system with this creation token.
-    :param str file_system_id: The ID that identifies the file system (e.g. fs-ccfc0d65).
+    :param str file_system_id: The ID that identifies the file system (e.g., fs-ccfc0d65).
     :param Mapping[str, str] tags: Restricts the list to the file system with these tags.
     """
     ...

@@ -25,7 +25,7 @@ class AliasRoutingStrategyArgs:
                  fleet_id: Optional[pulumi.Input[str]] = None,
                  message: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] type: Type of routing strategy. e.g. `SIMPLE` or `TERMINAL`
+        :param pulumi.Input[str] type: Type of routing strategyE.g., `SIMPLE` or `TERMINAL`
         :param pulumi.Input[str] fleet_id: ID of the Gamelift Fleet to point the alias to.
         :param pulumi.Input[str] message: Message text to be used with the `TERMINAL` routing strategy.
         """
@@ -39,7 +39,7 @@ class AliasRoutingStrategyArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        Type of routing strategy. e.g. `SIMPLE` or `TERMINAL`
+        Type of routing strategyE.g., `SIMPLE` or `TERMINAL`
         """
         return pulumi.get(self, "type")
 
@@ -133,8 +133,8 @@ class FleetEc2InboundPermissionArgs:
                  to_port: pulumi.Input[int]):
         """
         :param pulumi.Input[int] from_port: Starting value for a range of allowed port numbers.
-        :param pulumi.Input[str] ip_range: Range of allowed IP addresses expressed in CIDR notation. e.g. `000.000.000.000/[subnet mask]` or `0.0.0.0/[subnet mask]`.
-        :param pulumi.Input[str] protocol: Network communication protocol used by the fleet. e.g. `TCP` or `UDP`
+        :param pulumi.Input[str] ip_range: Range of allowed IP addresses expressed in CIDR notationE.g., `000.000.000.000/[subnet mask]` or `0.0.0.0/[subnet mask]`.
+        :param pulumi.Input[str] protocol: Network communication protocol used by the fleetE.g., `TCP` or `UDP`
         :param pulumi.Input[int] to_port: Ending value for a range of allowed port numbers. Port numbers are end-inclusive. This value must be higher than `from_port`.
         """
         pulumi.set(__self__, "from_port", from_port)
@@ -158,7 +158,7 @@ class FleetEc2InboundPermissionArgs:
     @pulumi.getter(name="ipRange")
     def ip_range(self) -> pulumi.Input[str]:
         """
-        Range of allowed IP addresses expressed in CIDR notation. e.g. `000.000.000.000/[subnet mask]` or `0.0.0.0/[subnet mask]`.
+        Range of allowed IP addresses expressed in CIDR notationE.g., `000.000.000.000/[subnet mask]` or `0.0.0.0/[subnet mask]`.
         """
         return pulumi.get(self, "ip_range")
 
@@ -170,7 +170,7 @@ class FleetEc2InboundPermissionArgs:
     @pulumi.getter
     def protocol(self) -> pulumi.Input[str]:
         """
-        Network communication protocol used by the fleet. e.g. `TCP` or `UDP`
+        Network communication protocol used by the fleetE.g., `TCP` or `UDP`
         """
         return pulumi.get(self, "protocol")
 

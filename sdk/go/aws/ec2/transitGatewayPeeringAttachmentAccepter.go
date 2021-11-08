@@ -41,7 +41,7 @@ import (
 //
 // ## Import
 //
-// `aws_ec2_transit_gateway_peering_attachment_accepter` can be imported by using the EC2 Transit Gateway Attachment identifier, e.g.
+// `aws_ec2_transit_gateway_peering_attachment_accepter` can be imported by using the EC2 Transit Gateway Attachment identifier, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:ec2/transitGatewayPeeringAttachmentAccepter:TransitGatewayPeeringAttachmentAccepter example tgw-attach-12345678
@@ -55,7 +55,8 @@ type TransitGatewayPeeringAttachmentAccepter struct {
 	// Identifier of EC2 Transit Gateway to peer with.
 	PeerTransitGatewayId pulumi.StringOutput    `pulumi:"peerTransitGatewayId"`
 	Tags                 pulumi.StringMapOutput `pulumi:"tags"`
-	TagsAll              pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The ID of the EC2 Transit Gateway Peering Attachment to manage.
 	TransitGatewayAttachmentId pulumi.StringOutput `pulumi:"transitGatewayAttachmentId"`
 	// Identifier of EC2 Transit Gateway.
@@ -100,7 +101,8 @@ type transitGatewayPeeringAttachmentAccepterState struct {
 	// Identifier of EC2 Transit Gateway to peer with.
 	PeerTransitGatewayId *string           `pulumi:"peerTransitGatewayId"`
 	Tags                 map[string]string `pulumi:"tags"`
-	TagsAll              map[string]string `pulumi:"tagsAll"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The ID of the EC2 Transit Gateway Peering Attachment to manage.
 	TransitGatewayAttachmentId *string `pulumi:"transitGatewayAttachmentId"`
 	// Identifier of EC2 Transit Gateway.
@@ -114,7 +116,8 @@ type TransitGatewayPeeringAttachmentAccepterState struct {
 	// Identifier of EC2 Transit Gateway to peer with.
 	PeerTransitGatewayId pulumi.StringPtrInput
 	Tags                 pulumi.StringMapInput
-	TagsAll              pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 	// The ID of the EC2 Transit Gateway Peering Attachment to manage.
 	TransitGatewayAttachmentId pulumi.StringPtrInput
 	// Identifier of EC2 Transit Gateway.

@@ -158,7 +158,7 @@ class BucketLifecycleConfigurationRuleExpiration(dict):
                  days: Optional[int] = None,
                  expired_object_delete_marker: Optional[bool] = None):
         """
-        :param str date: Date the object is to be deleted. Should be in `YYYY-MM-DD` date format, e.g. `2020-09-30`.
+        :param str date: Date the object is to be deleted. Should be in `YYYY-MM-DD` date format, e.g., `2020-09-30`.
         :param int days: Number of days before the object is to be deleted.
         :param bool expired_object_delete_marker: Enable to remove a delete marker with no noncurrent versions. Cannot be specified with `date` or `days`.
         """
@@ -173,7 +173,7 @@ class BucketLifecycleConfigurationRuleExpiration(dict):
     @pulumi.getter
     def date(self) -> Optional[str]:
         """
-        Date the object is to be deleted. Should be in `YYYY-MM-DD` date format, e.g. `2020-09-30`.
+        Date the object is to be deleted. Should be in `YYYY-MM-DD` date format, e.g., `2020-09-30`.
         """
         return pulumi.get(self, "date")
 

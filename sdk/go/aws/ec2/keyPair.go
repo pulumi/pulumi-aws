@@ -46,7 +46,7 @@ import (
 //
 // ## Import
 //
-// Key Pairs can be imported using the `key_name`, e.g.
+// Key Pairs can be imported using the `key_name`, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:ec2/keyPair:KeyPair deployer deployer-key
@@ -67,7 +67,8 @@ type KeyPair struct {
 	// The public key material.
 	PublicKey pulumi.StringOutput    `pulumi:"publicKey"`
 	Tags      pulumi.StringMapOutput `pulumi:"tags"`
-	TagsAll   pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewKeyPair registers a new resource with the given unique name, arguments, and options.
@@ -115,7 +116,8 @@ type keyPairState struct {
 	// The public key material.
 	PublicKey *string           `pulumi:"publicKey"`
 	Tags      map[string]string `pulumi:"tags"`
-	TagsAll   map[string]string `pulumi:"tagsAll"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type KeyPairState struct {
@@ -132,7 +134,8 @@ type KeyPairState struct {
 	// The public key material.
 	PublicKey pulumi.StringPtrInput
 	Tags      pulumi.StringMapInput
-	TagsAll   pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 }
 
 func (KeyPairState) ElementType() reflect.Type {

@@ -59,7 +59,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * `aws_storagegateway_cached_iscsi_volume` can be imported by using the volume Amazon Resource Name (ARN), e.g.
+ * `aws_storagegateway_cached_iscsi_volume` can be imported by using the volume Amazon Resource Name (ARN), e.g.,
  *
  * ```sh
  *  $ pulumi import aws:storagegateway/cachesIscsiVolume:CachesIscsiVolume example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678
@@ -94,7 +94,7 @@ export class CachesIscsiVolume extends pulumi.CustomResource {
     }
 
     /**
-     * Volume Amazon Resource Name (ARN), e.g. `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
+     * Volume Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
@@ -126,7 +126,7 @@ export class CachesIscsiVolume extends pulumi.CustomResource {
      */
     public /*out*/ readonly networkInterfacePort!: pulumi.Output<number>;
     /**
-     * The snapshot ID of the snapshot to restore as the new cached volume. e.g. `snap-1122aabb`.
+     * The snapshot ID of the snapshot to restore as the new cached volumeE.g., `snap-1122aabb`.
      */
     public readonly snapshotId!: pulumi.Output<string | undefined>;
     /**
@@ -138,7 +138,7 @@ export class CachesIscsiVolume extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider .
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -236,7 +236,7 @@ export class CachesIscsiVolume extends pulumi.CustomResource {
  */
 export interface CachesIscsiVolumeState {
     /**
-     * Volume Amazon Resource Name (ARN), e.g. `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
+     * Volume Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
      */
     arn?: pulumi.Input<string>;
     /**
@@ -268,7 +268,7 @@ export interface CachesIscsiVolumeState {
      */
     networkInterfacePort?: pulumi.Input<number>;
     /**
-     * The snapshot ID of the snapshot to restore as the new cached volume. e.g. `snap-1122aabb`.
+     * The snapshot ID of the snapshot to restore as the new cached volumeE.g., `snap-1122aabb`.
      */
     snapshotId?: pulumi.Input<string>;
     /**
@@ -280,7 +280,7 @@ export interface CachesIscsiVolumeState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider .
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -326,7 +326,7 @@ export interface CachesIscsiVolumeArgs {
      */
     networkInterfaceId: pulumi.Input<string>;
     /**
-     * The snapshot ID of the snapshot to restore as the new cached volume. e.g. `snap-1122aabb`.
+     * The snapshot ID of the snapshot to restore as the new cached volumeE.g., `snap-1122aabb`.
      */
     snapshotId?: pulumi.Input<string>;
     /**

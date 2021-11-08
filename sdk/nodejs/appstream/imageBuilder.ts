@@ -31,7 +31,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * `aws_appstream_image_builder` can be imported using the `name`, e.g.
+ * `aws_appstream_image_builder` can be imported using the `name`, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:appstream/imageBuilder:ImageBuilder example imageBuilderExample
@@ -128,7 +128,7 @@ export class ImageBuilder extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Configuration block for the VPC configuration for the image builder. See below.
      */
@@ -181,11 +181,11 @@ export class ImageBuilder extends pulumi.CustomResource {
             inputs["instanceType"] = args ? args.instanceType : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["vpcConfig"] = args ? args.vpcConfig : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["createdTime"] = undefined /*out*/;
             inputs["state"] = undefined /*out*/;
+            inputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -320,10 +320,6 @@ export interface ImageBuilderArgs {
      * A map of tags to assign to the instance. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Configuration block for the VPC configuration for the image builder. See below.
      */

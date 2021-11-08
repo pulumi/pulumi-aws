@@ -104,7 +104,7 @@ class InvitationAccepter(pulumi.CustomResource):
 
         ## Import
 
-        `aws_macie2_invitation_accepter` can be imported using the admin account ID, e.g.
+        `aws_macie2_invitation_accepter` can be imported using the admin account ID, e.g.,
 
         ```sh
          $ pulumi import aws:macie2/invitationAccepter:InvitationAccepter example 123456789012
@@ -144,7 +144,7 @@ class InvitationAccepter(pulumi.CustomResource):
 
         ## Import
 
-        `aws_macie2_invitation_accepter` can be imported using the admin account ID, e.g.
+        `aws_macie2_invitation_accepter` can be imported using the admin account ID, e.g.,
 
         ```sh
          $ pulumi import aws:macie2/invitationAccepter:InvitationAccepter example 123456789012

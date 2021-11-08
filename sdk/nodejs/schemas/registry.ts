@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * EventBridge schema registries can be imported using the `name`, e.g. console
+ * EventBridge schema registries can be imported using the `name`, e.g., console
  *
  * ```sh
  *  $ pulumi import aws:schemas/registry:Registry test my_own_registry
@@ -69,6 +69,9 @@ export class Registry extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
@@ -121,6 +124,9 @@ export interface RegistryState {
      */
     name?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 

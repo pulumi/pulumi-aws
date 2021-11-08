@@ -99,7 +99,7 @@ class ResourceAssociation(pulumi.CustomResource):
         """
         Manages a Resource Access Manager (RAM) Resource Association.
 
-        > *NOTE:* Certain AWS resources (e.g. EC2 Subnets) can only be shared in an AWS account that is a member of an AWS Organizations organization with organization-wide Resource Access Manager functionality enabled. See the [Resource Access Manager User Guide](https://docs.aws.amazon.com/ram/latest/userguide/what-is.html) and AWS service specific documentation for additional information.
+        > *NOTE:* Certain AWS resources (e.g., EC2 Subnets) can only be shared in an AWS account that is a member of an AWS Organizations organization with organization-wide Resource Access Manager functionality enabled. See the [Resource Access Manager User Guide](https://docs.aws.amazon.com/ram/latest/userguide/what-is.html) and AWS service specific documentation for additional information.
 
         ## Example Usage
 
@@ -114,7 +114,7 @@ class ResourceAssociation(pulumi.CustomResource):
 
         ## Import
 
-        RAM Resource Associations can be imported using their Resource Share ARN and Resource ARN separated by a comma, e.g.
+        RAM Resource Associations can be imported using their Resource Share ARN and Resource ARN separated by a comma, e.g.,
 
         ```sh
          $ pulumi import aws:ram/resourceAssociation:ResourceAssociation example arn:aws:ram:eu-west-1:123456789012:resource-share/73da1ab9-b94a-4ba3-8eb4-45917f7f4b12,arn:aws:ec2:eu-west-1:123456789012:subnet/subnet-12345678
@@ -134,7 +134,7 @@ class ResourceAssociation(pulumi.CustomResource):
         """
         Manages a Resource Access Manager (RAM) Resource Association.
 
-        > *NOTE:* Certain AWS resources (e.g. EC2 Subnets) can only be shared in an AWS account that is a member of an AWS Organizations organization with organization-wide Resource Access Manager functionality enabled. See the [Resource Access Manager User Guide](https://docs.aws.amazon.com/ram/latest/userguide/what-is.html) and AWS service specific documentation for additional information.
+        > *NOTE:* Certain AWS resources (e.g., EC2 Subnets) can only be shared in an AWS account that is a member of an AWS Organizations organization with organization-wide Resource Access Manager functionality enabled. See the [Resource Access Manager User Guide](https://docs.aws.amazon.com/ram/latest/userguide/what-is.html) and AWS service specific documentation for additional information.
 
         ## Example Usage
 
@@ -149,7 +149,7 @@ class ResourceAssociation(pulumi.CustomResource):
 
         ## Import
 
-        RAM Resource Associations can be imported using their Resource Share ARN and Resource ARN separated by a comma, e.g.
+        RAM Resource Associations can be imported using their Resource Share ARN and Resource ARN separated by a comma, e.g.,
 
         ```sh
          $ pulumi import aws:ram/resourceAssociation:ResourceAssociation example arn:aws:ram:eu-west-1:123456789012:resource-share/73da1ab9-b94a-4ba3-8eb4-45917f7f4b12,arn:aws:ec2:eu-west-1:123456789012:subnet/subnet-12345678

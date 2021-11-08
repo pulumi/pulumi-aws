@@ -195,7 +195,7 @@ import (
 //
 // ## Import
 //
-// ElastiCache Replication Groups can be imported using the `replication_group_id`, e.g.
+// ElastiCache Replication Groups can be imported using the `replication_group_id`, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:elasticache/replicationGroup:ReplicationGroup my_replication_group replication-group-1
@@ -219,13 +219,13 @@ type ReplicationGroup struct {
 	AvailabilityZones pulumi.StringArrayOutput `pulumi:"availabilityZones"`
 	// Indicates if cluster mode is enabled.
 	ClusterEnabled pulumi.BoolOutput `pulumi:"clusterEnabled"`
-	// Create a native Redis cluster. `automaticFailoverEnabled` must be set to true. Cluster Mode documented below. Only 1 `clusterMode` block is allowed. Note that configuring this block does not enable cluster mode, i.e. data sharding, this requires using a parameter group that has the parameter `cluster-enabled` set to true.
+	// Create a native Redis cluster. `automaticFailoverEnabled` must be set to true. Cluster Mode documented below. Only 1 `clusterMode` block is allowed. Note that configuring this block does not enable cluster mode, i.e., data sharding, this requires using a parameter group that has the parameter `cluster-enabled` set to true.
 	ClusterMode ReplicationGroupClusterModeOutput `pulumi:"clusterMode"`
 	// The address of the replication group configuration endpoint when cluster mode is enabled.
 	ConfigurationEndpointAddress pulumi.StringOutput `pulumi:"configurationEndpointAddress"`
 	// The name of the cache engine to be used for the clusters in this replication group. The only valid value is `redis`.
 	Engine pulumi.StringPtrOutput `pulumi:"engine"`
-	// The version number of the cache engine to be used for the cache clusters in this replication group. If the version is 6 or higher, only the major version can be set, e.g. `6.x`, otherwise, specify the full version desired, e.g. `5.0.6`. The actual engine version used is returned in the attribute `engineVersionActual`, defined below.
+	// The version number of the cache engine to be used for the cache clusters in this replication group. If the version is 6 or higher, only the major version can be set, e.g., `6.x`, otherwise, specify the full version desired, e.g., `5.0.6`. The actual engine version used is returned in the attribute `engineVersionActual`, defined below.
 	EngineVersion pulumi.StringOutput `pulumi:"engineVersion"`
 	// The running version of the cache engine.
 	EngineVersionActual pulumi.StringOutput `pulumi:"engineVersionActual"`
@@ -247,7 +247,7 @@ type ReplicationGroup struct {
 	NotificationTopicArn pulumi.StringPtrOutput `pulumi:"notificationTopicArn"`
 	// The number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. One of `numberCacheClusters` or `clusterMode` is required.
 	NumberCacheClusters pulumi.IntOutput `pulumi:"numberCacheClusters"`
-	// The name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used. To enable "cluster mode", i.e. data sharding, use a parameter group that has the parameter `cluster-enabled` set to true.
+	// The name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used. To enable "cluster mode", i.e., data sharding, use a parameter group that has the parameter `cluster-enabled` set to true.
 	ParameterGroupName pulumi.StringOutput `pulumi:"parameterGroupName"`
 	// The port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379.
 	Port pulumi.IntPtrOutput `pulumi:"port"`
@@ -274,7 +274,8 @@ type ReplicationGroup struct {
 	// The name of the cache subnet group to be used for the replication group.
 	SubnetGroupName pulumi.StringOutput    `pulumi:"subnetGroupName"`
 	Tags            pulumi.StringMapOutput `pulumi:"tags"`
-	TagsAll         pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Whether to enable encryption in transit.
 	TransitEncryptionEnabled pulumi.BoolOutput `pulumi:"transitEncryptionEnabled"`
 }
@@ -327,13 +328,13 @@ type replicationGroupState struct {
 	AvailabilityZones []string `pulumi:"availabilityZones"`
 	// Indicates if cluster mode is enabled.
 	ClusterEnabled *bool `pulumi:"clusterEnabled"`
-	// Create a native Redis cluster. `automaticFailoverEnabled` must be set to true. Cluster Mode documented below. Only 1 `clusterMode` block is allowed. Note that configuring this block does not enable cluster mode, i.e. data sharding, this requires using a parameter group that has the parameter `cluster-enabled` set to true.
+	// Create a native Redis cluster. `automaticFailoverEnabled` must be set to true. Cluster Mode documented below. Only 1 `clusterMode` block is allowed. Note that configuring this block does not enable cluster mode, i.e., data sharding, this requires using a parameter group that has the parameter `cluster-enabled` set to true.
 	ClusterMode *ReplicationGroupClusterMode `pulumi:"clusterMode"`
 	// The address of the replication group configuration endpoint when cluster mode is enabled.
 	ConfigurationEndpointAddress *string `pulumi:"configurationEndpointAddress"`
 	// The name of the cache engine to be used for the clusters in this replication group. The only valid value is `redis`.
 	Engine *string `pulumi:"engine"`
-	// The version number of the cache engine to be used for the cache clusters in this replication group. If the version is 6 or higher, only the major version can be set, e.g. `6.x`, otherwise, specify the full version desired, e.g. `5.0.6`. The actual engine version used is returned in the attribute `engineVersionActual`, defined below.
+	// The version number of the cache engine to be used for the cache clusters in this replication group. If the version is 6 or higher, only the major version can be set, e.g., `6.x`, otherwise, specify the full version desired, e.g., `5.0.6`. The actual engine version used is returned in the attribute `engineVersionActual`, defined below.
 	EngineVersion *string `pulumi:"engineVersion"`
 	// The running version of the cache engine.
 	EngineVersionActual *string `pulumi:"engineVersionActual"`
@@ -355,7 +356,7 @@ type replicationGroupState struct {
 	NotificationTopicArn *string `pulumi:"notificationTopicArn"`
 	// The number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. One of `numberCacheClusters` or `clusterMode` is required.
 	NumberCacheClusters *int `pulumi:"numberCacheClusters"`
-	// The name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used. To enable "cluster mode", i.e. data sharding, use a parameter group that has the parameter `cluster-enabled` set to true.
+	// The name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used. To enable "cluster mode", i.e., data sharding, use a parameter group that has the parameter `cluster-enabled` set to true.
 	ParameterGroupName *string `pulumi:"parameterGroupName"`
 	// The port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379.
 	Port *int `pulumi:"port"`
@@ -382,7 +383,8 @@ type replicationGroupState struct {
 	// The name of the cache subnet group to be used for the replication group.
 	SubnetGroupName *string           `pulumi:"subnetGroupName"`
 	Tags            map[string]string `pulumi:"tags"`
-	TagsAll         map[string]string `pulumi:"tagsAll"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Whether to enable encryption in transit.
 	TransitEncryptionEnabled *bool `pulumi:"transitEncryptionEnabled"`
 }
@@ -404,13 +406,13 @@ type ReplicationGroupState struct {
 	AvailabilityZones pulumi.StringArrayInput
 	// Indicates if cluster mode is enabled.
 	ClusterEnabled pulumi.BoolPtrInput
-	// Create a native Redis cluster. `automaticFailoverEnabled` must be set to true. Cluster Mode documented below. Only 1 `clusterMode` block is allowed. Note that configuring this block does not enable cluster mode, i.e. data sharding, this requires using a parameter group that has the parameter `cluster-enabled` set to true.
+	// Create a native Redis cluster. `automaticFailoverEnabled` must be set to true. Cluster Mode documented below. Only 1 `clusterMode` block is allowed. Note that configuring this block does not enable cluster mode, i.e., data sharding, this requires using a parameter group that has the parameter `cluster-enabled` set to true.
 	ClusterMode ReplicationGroupClusterModePtrInput
 	// The address of the replication group configuration endpoint when cluster mode is enabled.
 	ConfigurationEndpointAddress pulumi.StringPtrInput
 	// The name of the cache engine to be used for the clusters in this replication group. The only valid value is `redis`.
 	Engine pulumi.StringPtrInput
-	// The version number of the cache engine to be used for the cache clusters in this replication group. If the version is 6 or higher, only the major version can be set, e.g. `6.x`, otherwise, specify the full version desired, e.g. `5.0.6`. The actual engine version used is returned in the attribute `engineVersionActual`, defined below.
+	// The version number of the cache engine to be used for the cache clusters in this replication group. If the version is 6 or higher, only the major version can be set, e.g., `6.x`, otherwise, specify the full version desired, e.g., `5.0.6`. The actual engine version used is returned in the attribute `engineVersionActual`, defined below.
 	EngineVersion pulumi.StringPtrInput
 	// The running version of the cache engine.
 	EngineVersionActual pulumi.StringPtrInput
@@ -432,7 +434,7 @@ type ReplicationGroupState struct {
 	NotificationTopicArn pulumi.StringPtrInput
 	// The number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. One of `numberCacheClusters` or `clusterMode` is required.
 	NumberCacheClusters pulumi.IntPtrInput
-	// The name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used. To enable "cluster mode", i.e. data sharding, use a parameter group that has the parameter `cluster-enabled` set to true.
+	// The name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used. To enable "cluster mode", i.e., data sharding, use a parameter group that has the parameter `cluster-enabled` set to true.
 	ParameterGroupName pulumi.StringPtrInput
 	// The port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379.
 	Port pulumi.IntPtrInput
@@ -459,7 +461,8 @@ type ReplicationGroupState struct {
 	// The name of the cache subnet group to be used for the replication group.
 	SubnetGroupName pulumi.StringPtrInput
 	Tags            pulumi.StringMapInput
-	TagsAll         pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 	// Whether to enable encryption in transit.
 	TransitEncryptionEnabled pulumi.BoolPtrInput
 }
@@ -481,11 +484,11 @@ type replicationGroupArgs struct {
 	AutomaticFailoverEnabled *bool `pulumi:"automaticFailoverEnabled"`
 	// A list of EC2 availability zones in which the replication group's cache clusters will be created. The order of the availability zones in the list is not important.
 	AvailabilityZones []string `pulumi:"availabilityZones"`
-	// Create a native Redis cluster. `automaticFailoverEnabled` must be set to true. Cluster Mode documented below. Only 1 `clusterMode` block is allowed. Note that configuring this block does not enable cluster mode, i.e. data sharding, this requires using a parameter group that has the parameter `cluster-enabled` set to true.
+	// Create a native Redis cluster. `automaticFailoverEnabled` must be set to true. Cluster Mode documented below. Only 1 `clusterMode` block is allowed. Note that configuring this block does not enable cluster mode, i.e., data sharding, this requires using a parameter group that has the parameter `cluster-enabled` set to true.
 	ClusterMode *ReplicationGroupClusterMode `pulumi:"clusterMode"`
 	// The name of the cache engine to be used for the clusters in this replication group. The only valid value is `redis`.
 	Engine *string `pulumi:"engine"`
-	// The version number of the cache engine to be used for the cache clusters in this replication group. If the version is 6 or higher, only the major version can be set, e.g. `6.x`, otherwise, specify the full version desired, e.g. `5.0.6`. The actual engine version used is returned in the attribute `engineVersionActual`, defined below.
+	// The version number of the cache engine to be used for the cache clusters in this replication group. If the version is 6 or higher, only the major version can be set, e.g., `6.x`, otherwise, specify the full version desired, e.g., `5.0.6`. The actual engine version used is returned in the attribute `engineVersionActual`, defined below.
 	EngineVersion *string `pulumi:"engineVersion"`
 	// The name of your final node group (shard) snapshot. ElastiCache creates the snapshot from the primary node in the cluster. If omitted, no final snapshot will be made.
 	FinalSnapshotIdentifier *string `pulumi:"finalSnapshotIdentifier"`
@@ -503,7 +506,7 @@ type replicationGroupArgs struct {
 	NotificationTopicArn *string `pulumi:"notificationTopicArn"`
 	// The number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. One of `numberCacheClusters` or `clusterMode` is required.
 	NumberCacheClusters *int `pulumi:"numberCacheClusters"`
-	// The name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used. To enable "cluster mode", i.e. data sharding, use a parameter group that has the parameter `cluster-enabled` set to true.
+	// The name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used. To enable "cluster mode", i.e., data sharding, use a parameter group that has the parameter `cluster-enabled` set to true.
 	ParameterGroupName *string `pulumi:"parameterGroupName"`
 	// The port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379.
 	Port *int `pulumi:"port"`
@@ -544,11 +547,11 @@ type ReplicationGroupArgs struct {
 	AutomaticFailoverEnabled pulumi.BoolPtrInput
 	// A list of EC2 availability zones in which the replication group's cache clusters will be created. The order of the availability zones in the list is not important.
 	AvailabilityZones pulumi.StringArrayInput
-	// Create a native Redis cluster. `automaticFailoverEnabled` must be set to true. Cluster Mode documented below. Only 1 `clusterMode` block is allowed. Note that configuring this block does not enable cluster mode, i.e. data sharding, this requires using a parameter group that has the parameter `cluster-enabled` set to true.
+	// Create a native Redis cluster. `automaticFailoverEnabled` must be set to true. Cluster Mode documented below. Only 1 `clusterMode` block is allowed. Note that configuring this block does not enable cluster mode, i.e., data sharding, this requires using a parameter group that has the parameter `cluster-enabled` set to true.
 	ClusterMode ReplicationGroupClusterModePtrInput
 	// The name of the cache engine to be used for the clusters in this replication group. The only valid value is `redis`.
 	Engine pulumi.StringPtrInput
-	// The version number of the cache engine to be used for the cache clusters in this replication group. If the version is 6 or higher, only the major version can be set, e.g. `6.x`, otherwise, specify the full version desired, e.g. `5.0.6`. The actual engine version used is returned in the attribute `engineVersionActual`, defined below.
+	// The version number of the cache engine to be used for the cache clusters in this replication group. If the version is 6 or higher, only the major version can be set, e.g., `6.x`, otherwise, specify the full version desired, e.g., `5.0.6`. The actual engine version used is returned in the attribute `engineVersionActual`, defined below.
 	EngineVersion pulumi.StringPtrInput
 	// The name of your final node group (shard) snapshot. ElastiCache creates the snapshot from the primary node in the cluster. If omitted, no final snapshot will be made.
 	FinalSnapshotIdentifier pulumi.StringPtrInput
@@ -566,7 +569,7 @@ type ReplicationGroupArgs struct {
 	NotificationTopicArn pulumi.StringPtrInput
 	// The number of cache clusters (primary and replicas) this replication group will have. If Multi-AZ is enabled, the value of this parameter must be at least 2. Updates will occur before other modifications. One of `numberCacheClusters` or `clusterMode` is required.
 	NumberCacheClusters pulumi.IntPtrInput
-	// The name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used. To enable "cluster mode", i.e. data sharding, use a parameter group that has the parameter `cluster-enabled` set to true.
+	// The name of the parameter group to associate with this replication group. If this argument is omitted, the default cache parameter group for the specified engine is used. To enable "cluster mode", i.e., data sharding, use a parameter group that has the parameter `cluster-enabled` set to true.
 	ParameterGroupName pulumi.StringPtrInput
 	// The port number on which each of the cache nodes will accept connections. For Memcache the default is 11211, and for Redis the default port is 6379.
 	Port pulumi.IntPtrInput

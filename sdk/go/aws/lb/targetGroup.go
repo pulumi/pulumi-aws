@@ -103,7 +103,7 @@ import (
 //
 // ## Import
 //
-// Target Groups can be imported using their ARN, e.g.
+// Target Groups can be imported using their ARN, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:lb/targetGroup:TargetGroup app_front_end arn:aws:elasticloadbalancing:us-west-2:187416307283:targetgroup/app-front-end/20cfe21448b66314

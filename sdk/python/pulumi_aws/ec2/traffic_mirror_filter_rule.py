@@ -418,7 +418,7 @@ class TrafficMirrorFilterRule(pulumi.CustomResource):
 
         ## Import
 
-        Traffic mirror rules can be imported using the `traffic_mirror_filter_id` and `id` separated by `:` e.g.
+        Traffic mirror rules can be imported using the `traffic_mirror_filter_id` and `id` separated by `:` e.g.,
 
         ```sh
          $ pulumi import aws:ec2/trafficMirrorFilterRule:TrafficMirrorFilterRule rule tmf-0fbb93ddf38198f64:tmfr-05a458f06445d0aee
@@ -487,7 +487,7 @@ class TrafficMirrorFilterRule(pulumi.CustomResource):
 
         ## Import
 
-        Traffic mirror rules can be imported using the `traffic_mirror_filter_id` and `id` separated by `:` e.g.
+        Traffic mirror rules can be imported using the `traffic_mirror_filter_id` and `id` separated by `:` e.g.,
 
         ```sh
          $ pulumi import aws:ec2/trafficMirrorFilterRule:TrafficMirrorFilterRule rule tmf-0fbb93ddf38198f64:tmfr-05a458f06445d0aee

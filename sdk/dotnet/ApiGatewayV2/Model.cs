@@ -44,7 +44,7 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// 
     /// ## Import
     /// 
-    /// `aws_apigatewayv2_model` can be imported by using the API identifier and model identifier, e.g.
+    /// `aws_apigatewayv2_model` can be imported by using the API identifier and model identifier, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:apigatewayv2/model:Model example aabbccddee/1122334

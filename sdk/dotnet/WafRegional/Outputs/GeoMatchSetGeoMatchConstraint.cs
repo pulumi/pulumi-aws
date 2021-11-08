@@ -19,7 +19,7 @@ namespace Pulumi.Aws.WafRegional.Outputs
         public readonly string Type;
         /// <summary>
         /// The country that you want AWS WAF to search for.
-        /// This is the two-letter country code, e.g. `US`, `CA`, `RU`, `CN`, etc.
+        /// This is the two-letter country code, e.g., `US`, `CA`, `RU`, `CN`, etc.
         /// See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchConstraint.html) for all supported values.
         /// </summary>
         public readonly string Value;

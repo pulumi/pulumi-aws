@@ -86,7 +86,7 @@ type SshKey struct {
 
 	// The public key portion of an SSH key pair.
 	Body pulumi.StringOutput `pulumi:"body"`
-	// The Server ID of the Transfer Server (e.g. `s-12345678`)
+	// The Server ID of the Transfer Server (e.g., `s-12345678`)
 	ServerId pulumi.StringOutput `pulumi:"serverId"`
 	// The name of the user account that is assigned to one or more servers.
 	UserName pulumi.StringOutput `pulumi:"userName"`
@@ -132,7 +132,7 @@ func GetSshKey(ctx *pulumi.Context,
 type sshKeyState struct {
 	// The public key portion of an SSH key pair.
 	Body *string `pulumi:"body"`
-	// The Server ID of the Transfer Server (e.g. `s-12345678`)
+	// The Server ID of the Transfer Server (e.g., `s-12345678`)
 	ServerId *string `pulumi:"serverId"`
 	// The name of the user account that is assigned to one or more servers.
 	UserName *string `pulumi:"userName"`
@@ -141,7 +141,7 @@ type sshKeyState struct {
 type SshKeyState struct {
 	// The public key portion of an SSH key pair.
 	Body pulumi.StringPtrInput
-	// The Server ID of the Transfer Server (e.g. `s-12345678`)
+	// The Server ID of the Transfer Server (e.g., `s-12345678`)
 	ServerId pulumi.StringPtrInput
 	// The name of the user account that is assigned to one or more servers.
 	UserName pulumi.StringPtrInput
@@ -154,7 +154,7 @@ func (SshKeyState) ElementType() reflect.Type {
 type sshKeyArgs struct {
 	// The public key portion of an SSH key pair.
 	Body string `pulumi:"body"`
-	// The Server ID of the Transfer Server (e.g. `s-12345678`)
+	// The Server ID of the Transfer Server (e.g., `s-12345678`)
 	ServerId string `pulumi:"serverId"`
 	// The name of the user account that is assigned to one or more servers.
 	UserName string `pulumi:"userName"`
@@ -164,7 +164,7 @@ type sshKeyArgs struct {
 type SshKeyArgs struct {
 	// The public key portion of an SSH key pair.
 	Body pulumi.StringInput
-	// The Server ID of the Transfer Server (e.g. `s-12345678`)
+	// The Server ID of the Transfer Server (e.g., `s-12345678`)
 	ServerId pulumi.StringInput
 	// The name of the user account that is assigned to one or more servers.
 	UserName pulumi.StringInput

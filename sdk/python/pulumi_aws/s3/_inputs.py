@@ -37,6 +37,8 @@ __all__ = [
     'BucketReplicationConfigurationRuleArgs',
     'BucketReplicationConfigurationRuleDestinationArgs',
     'BucketReplicationConfigurationRuleDestinationAccessControlTranslationArgs',
+    'BucketReplicationConfigurationRuleDestinationMetricsArgs',
+    'BucketReplicationConfigurationRuleDestinationReplicationTimeArgs',
     'BucketReplicationConfigurationRuleFilterArgs',
     'BucketReplicationConfigurationRuleSourceSelectionCriteriaArgs',
     'BucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectsArgs',
@@ -1470,14 +1472,18 @@ class BucketReplicationConfigurationRuleDestinationArgs:
                  bucket: pulumi.Input[str],
                  access_control_translation: Optional[pulumi.Input['BucketReplicationConfigurationRuleDestinationAccessControlTranslationArgs']] = None,
                  account_id: Optional[pulumi.Input[str]] = None,
+                 metrics: Optional[pulumi.Input['BucketReplicationConfigurationRuleDestinationMetricsArgs']] = None,
                  replica_kms_key_id: Optional[pulumi.Input[str]] = None,
+                 replication_time: Optional[pulumi.Input['BucketReplicationConfigurationRuleDestinationReplicationTimeArgs']] = None,
                  storage_class: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] bucket: The ARN of the S3 bucket where you want Amazon S3 to store replicas of the object identified by the rule.
         :param pulumi.Input['BucketReplicationConfigurationRuleDestinationAccessControlTranslationArgs'] access_control_translation: Specifies the overrides to use for object owners on replication. Must be used in conjunction with `account_id` owner override configuration.
         :param pulumi.Input[str] account_id: The Account ID to use for overriding the object owner on replication. Must be used in conjunction with `access_control_translation` override configuration.
+        :param pulumi.Input['BucketReplicationConfigurationRuleDestinationMetricsArgs'] metrics: Enables replication metrics (required for S3 RTC) (documented below).
         :param pulumi.Input[str] replica_kms_key_id: Destination KMS encryption key ARN for SSE-KMS replication. Must be used in conjunction with
                `sse_kms_encrypted_objects` source selection criteria.
+        :param pulumi.Input['BucketReplicationConfigurationRuleDestinationReplicationTimeArgs'] replication_time: Enables S3 Replication Time Control (S3 RTC) (documented below).
         :param pulumi.Input[str] storage_class: The class of storage used to store the object. Can be `STANDARD`, `REDUCED_REDUNDANCY`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `GLACIER`, or `DEEP_ARCHIVE`.
         """
         pulumi.set(__self__, "bucket", bucket)
@@ -1485,8 +1491,12 @@ class BucketReplicationConfigurationRuleDestinationArgs:
             pulumi.set(__self__, "access_control_translation", access_control_translation)
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
+        if metrics is not None:
+            pulumi.set(__self__, "metrics", metrics)
         if replica_kms_key_id is not None:
             pulumi.set(__self__, "replica_kms_key_id", replica_kms_key_id)
+        if replication_time is not None:
+            pulumi.set(__self__, "replication_time", replication_time)
         if storage_class is not None:
             pulumi.set(__self__, "storage_class", storage_class)
 
@@ -1527,6 +1537,18 @@ class BucketReplicationConfigurationRuleDestinationArgs:
         pulumi.set(self, "account_id", value)
 
     @property
+    @pulumi.getter
+    def metrics(self) -> Optional[pulumi.Input['BucketReplicationConfigurationRuleDestinationMetricsArgs']]:
+        """
+        Enables replication metrics (required for S3 RTC) (documented below).
+        """
+        return pulumi.get(self, "metrics")
+
+    @metrics.setter
+    def metrics(self, value: Optional[pulumi.Input['BucketReplicationConfigurationRuleDestinationMetricsArgs']]):
+        pulumi.set(self, "metrics", value)
+
+    @property
     @pulumi.getter(name="replicaKmsKeyId")
     def replica_kms_key_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -1538,6 +1560,18 @@ class BucketReplicationConfigurationRuleDestinationArgs:
     @replica_kms_key_id.setter
     def replica_kms_key_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "replica_kms_key_id", value)
+
+    @property
+    @pulumi.getter(name="replicationTime")
+    def replication_time(self) -> Optional[pulumi.Input['BucketReplicationConfigurationRuleDestinationReplicationTimeArgs']]:
+        """
+        Enables S3 Replication Time Control (S3 RTC) (documented below).
+        """
+        return pulumi.get(self, "replication_time")
+
+    @replication_time.setter
+    def replication_time(self, value: Optional[pulumi.Input['BucketReplicationConfigurationRuleDestinationReplicationTimeArgs']]):
+        pulumi.set(self, "replication_time", value)
 
     @property
     @pulumi.getter(name="storageClass")
@@ -1572,6 +1606,84 @@ class BucketReplicationConfigurationRuleDestinationAccessControlTranslationArgs:
     @owner.setter
     def owner(self, value: pulumi.Input[str]):
         pulumi.set(self, "owner", value)
+
+
+@pulumi.input_type
+class BucketReplicationConfigurationRuleDestinationMetricsArgs:
+    def __init__(__self__, *,
+                 minutes: Optional[pulumi.Input[int]] = None,
+                 status: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[int] minutes: Threshold within which objects are to be replicated. The only valid value is `15`.
+        :param pulumi.Input[str] status: The status of replication metrics. Either `Enabled` or `Disabled`.
+        """
+        if minutes is not None:
+            pulumi.set(__self__, "minutes", minutes)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def minutes(self) -> Optional[pulumi.Input[int]]:
+        """
+        Threshold within which objects are to be replicated. The only valid value is `15`.
+        """
+        return pulumi.get(self, "minutes")
+
+    @minutes.setter
+    def minutes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "minutes", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        The status of replication metrics. Either `Enabled` or `Disabled`.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "status", value)
+
+
+@pulumi.input_type
+class BucketReplicationConfigurationRuleDestinationReplicationTimeArgs:
+    def __init__(__self__, *,
+                 minutes: Optional[pulumi.Input[int]] = None,
+                 status: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[int] minutes: Threshold within which objects are to be replicated. The only valid value is `15`.
+        :param pulumi.Input[str] status: The status of RTC. Either `Enabled` or `Disabled`.
+        """
+        if minutes is not None:
+            pulumi.set(__self__, "minutes", minutes)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def minutes(self) -> Optional[pulumi.Input[int]]:
+        """
+        Threshold within which objects are to be replicated. The only valid value is `15`.
+        """
+        return pulumi.get(self, "minutes")
+
+    @minutes.setter
+    def minutes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "minutes", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[str]]:
+        """
+        The status of RTC. Either `Enabled` or `Disabled`.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "status", value)
 
 
 @pulumi.input_type

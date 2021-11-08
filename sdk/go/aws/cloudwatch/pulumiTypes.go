@@ -3219,7 +3219,7 @@ type EventTargetInputTransformer struct {
 	// * You must use JSON dot notation, not bracket notation.
 	// * The keys can't start with "AWS".
 	InputPaths map[string]string `pulumi:"inputPaths"`
-	// Template to customize data sent to the target. Must be valid JSON. To send a string value, the string value must include double quotes. Values must be escaped for both JSON and the provider, e.g. `"\"Your string goes here.\\nA new line.\""`
+	// Template to customize data sent to the target. Must be valid JSON. To send a string value, the string value must include double quotes. Values must be escaped for both JSON and the provider, e.g., `"\"Your string goes here.\\nA new line.\""`
 	InputTemplate string `pulumi:"inputTemplate"`
 }
 
@@ -3240,7 +3240,7 @@ type EventTargetInputTransformerArgs struct {
 	// * You must use JSON dot notation, not bracket notation.
 	// * The keys can't start with "AWS".
 	InputPaths pulumi.StringMapInput `pulumi:"inputPaths"`
-	// Template to customize data sent to the target. Must be valid JSON. To send a string value, the string value must include double quotes. Values must be escaped for both JSON and the provider, e.g. `"\"Your string goes here.\\nA new line.\""`
+	// Template to customize data sent to the target. Must be valid JSON. To send a string value, the string value must include double quotes. Values must be escaped for both JSON and the provider, e.g., `"\"Your string goes here.\\nA new line.\""`
 	InputTemplate pulumi.StringInput `pulumi:"inputTemplate"`
 }
 
@@ -3329,7 +3329,7 @@ func (o EventTargetInputTransformerOutput) InputPaths() pulumi.StringMapOutput {
 	return o.ApplyT(func(v EventTargetInputTransformer) map[string]string { return v.InputPaths }).(pulumi.StringMapOutput)
 }
 
-// Template to customize data sent to the target. Must be valid JSON. To send a string value, the string value must include double quotes. Values must be escaped for both JSON and the provider, e.g. `"\"Your string goes here.\\nA new line.\""`
+// Template to customize data sent to the target. Must be valid JSON. To send a string value, the string value must include double quotes. Values must be escaped for both JSON and the provider, e.g., `"\"Your string goes here.\\nA new line.\""`
 func (o EventTargetInputTransformerOutput) InputTemplate() pulumi.StringOutput {
 	return o.ApplyT(func(v EventTargetInputTransformer) string { return v.InputTemplate }).(pulumi.StringOutput)
 }
@@ -3371,7 +3371,7 @@ func (o EventTargetInputTransformerPtrOutput) InputPaths() pulumi.StringMapOutpu
 	}).(pulumi.StringMapOutput)
 }
 
-// Template to customize data sent to the target. Must be valid JSON. To send a string value, the string value must include double quotes. Values must be escaped for both JSON and the provider, e.g. `"\"Your string goes here.\\nA new line.\""`
+// Template to customize data sent to the target. Must be valid JSON. To send a string value, the string value must include double quotes. Values must be escaped for both JSON and the provider, e.g., `"\"Your string goes here.\\nA new line.\""`
 func (o EventTargetInputTransformerPtrOutput) InputTemplate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventTargetInputTransformer) *string {
 		if v == nil {
@@ -4154,7 +4154,7 @@ type LogMetricFilterMetricTransformation struct {
 	DefaultValue *string `pulumi:"defaultValue"`
 	// Map of fields to use as dimensions for the metric. Up to 3 dimensions are allowed. Conflicts with `defaultValue`.
 	Dimensions map[string]string `pulumi:"dimensions"`
-	// The name of the CloudWatch metric to which the monitored log information should be published (e.g. `ErrorCount`)
+	// The name of the CloudWatch metric to which the monitored log information should be published (e.g., `ErrorCount`)
 	Name string `pulumi:"name"`
 	// The destination namespace of the CloudWatch metric.
 	Namespace string `pulumi:"namespace"`
@@ -4180,7 +4180,7 @@ type LogMetricFilterMetricTransformationArgs struct {
 	DefaultValue pulumi.StringPtrInput `pulumi:"defaultValue"`
 	// Map of fields to use as dimensions for the metric. Up to 3 dimensions are allowed. Conflicts with `defaultValue`.
 	Dimensions pulumi.StringMapInput `pulumi:"dimensions"`
-	// The name of the CloudWatch metric to which the monitored log information should be published (e.g. `ErrorCount`)
+	// The name of the CloudWatch metric to which the monitored log information should be published (e.g., `ErrorCount`)
 	Name pulumi.StringInput `pulumi:"name"`
 	// The destination namespace of the CloudWatch metric.
 	Namespace pulumi.StringInput `pulumi:"namespace"`
@@ -4277,7 +4277,7 @@ func (o LogMetricFilterMetricTransformationOutput) Dimensions() pulumi.StringMap
 	return o.ApplyT(func(v LogMetricFilterMetricTransformation) map[string]string { return v.Dimensions }).(pulumi.StringMapOutput)
 }
 
-// The name of the CloudWatch metric to which the monitored log information should be published (e.g. `ErrorCount`)
+// The name of the CloudWatch metric to which the monitored log information should be published (e.g., `ErrorCount`)
 func (o LogMetricFilterMetricTransformationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LogMetricFilterMetricTransformation) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -4341,7 +4341,7 @@ func (o LogMetricFilterMetricTransformationPtrOutput) Dimensions() pulumi.String
 	}).(pulumi.StringMapOutput)
 }
 
-// The name of the CloudWatch metric to which the monitored log information should be published (e.g. `ErrorCount`)
+// The name of the CloudWatch metric to which the monitored log information should be published (e.g., `ErrorCount`)
 func (o LogMetricFilterMetricTransformationPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LogMetricFilterMetricTransformation) *string {
 		if v == nil {

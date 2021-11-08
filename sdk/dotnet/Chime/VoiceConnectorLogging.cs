@@ -38,7 +38,7 @@ namespace Pulumi.Aws.Chime
     /// 
     /// ## Import
     /// 
-    /// Chime Voice Connector Logging can be imported using the `voice_connector_id`, e.g.
+    /// Chime Voice Connector Logging can be imported using the `voice_connector_id`, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:chime/voiceConnectorLogging:VoiceConnectorLogging default abcdef1ghij2klmno3pqr4

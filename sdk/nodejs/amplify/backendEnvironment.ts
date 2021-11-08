@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Amplify backend environment can be imported using `app_id` and `environment_name`, e.g.
+ * Amplify backend environment can be imported using `app_id` and `environment_name`, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:amplify/backendEnvironment:BackendEnvironment example d2ypk4k47z8u6/example

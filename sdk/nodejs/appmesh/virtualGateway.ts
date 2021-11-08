@@ -66,7 +66,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * App Mesh virtual gateway can be imported using `mesh_name` together with the virtual gateway's `name`, e.g.
+ * App Mesh virtual gateway can be imported using `mesh_name` together with the virtual gateway's `name`, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:appmesh/virtualGateway:VirtualGateway example mesh/gw1

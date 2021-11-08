@@ -1264,7 +1264,7 @@ class EventTargetInputTransformer(dict):
                  input_template: str,
                  input_paths: Optional[Mapping[str, str]] = None):
         """
-        :param str input_template: Template to customize data sent to the target. Must be valid JSON. To send a string value, the string value must include double quotes. Values must be escaped for both JSON and the provider, e.g. `"\"Your string goes here.\\nA new line.\""`
+        :param str input_template: Template to customize data sent to the target. Must be valid JSON. To send a string value, the string value must include double quotes. Values must be escaped for both JSON and the provider, e.g., `"\"Your string goes here.\\nA new line.\""`
         :param Mapping[str, str] input_paths: Key value pairs specified in the form of JSONPath (for example, time = $.time)
                * You can have as many as 100 key-value pairs.
                * You must use JSON dot notation, not bracket notation.
@@ -1278,7 +1278,7 @@ class EventTargetInputTransformer(dict):
     @pulumi.getter(name="inputTemplate")
     def input_template(self) -> str:
         """
-        Template to customize data sent to the target. Must be valid JSON. To send a string value, the string value must include double quotes. Values must be escaped for both JSON and the provider, e.g. `"\"Your string goes here.\\nA new line.\""`
+        Template to customize data sent to the target. Must be valid JSON. To send a string value, the string value must include double quotes. Values must be escaped for both JSON and the provider, e.g., `"\"Your string goes here.\\nA new line.\""`
         """
         return pulumi.get(self, "input_template")
 
@@ -1573,7 +1573,7 @@ class LogMetricFilterMetricTransformation(dict):
                  dimensions: Optional[Mapping[str, str]] = None,
                  unit: Optional[str] = None):
         """
-        :param str name: The name of the CloudWatch metric to which the monitored log information should be published (e.g. `ErrorCount`)
+        :param str name: The name of the CloudWatch metric to which the monitored log information should be published (e.g., `ErrorCount`)
         :param str namespace: The destination namespace of the CloudWatch metric.
         :param str value: What to publish to the metric. For example, if you're counting the occurrences of a particular term like "Error", the value will be "1" for each occurrence. If you're counting the bytes transferred the published value will be the value in the log event.
         :param str default_value: The value to emit when a filter pattern does not match a log event. Conflicts with `dimensions`.
@@ -1594,7 +1594,7 @@ class LogMetricFilterMetricTransformation(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the CloudWatch metric to which the monitored log information should be published (e.g. `ErrorCount`)
+        The name of the CloudWatch metric to which the monitored log information should be published (e.g., `ErrorCount`)
         """
         return pulumi.get(self, "name")
 

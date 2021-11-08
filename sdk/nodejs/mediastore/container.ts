@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * MediaStore Container can be imported using the MediaStore Container Name, e.g.
+ * MediaStore Container can be imported using the MediaStore Container Name, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:mediastore/container:Container example example

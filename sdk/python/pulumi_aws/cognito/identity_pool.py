@@ -402,7 +402,7 @@ class IdentityPool(pulumi.CustomResource):
 
         ## Import
 
-        Cognito Identity Pool can be imported using the name, e.g.
+        Cognito Identity Pool can be imported using the name, e.g.,
 
         ```sh
          $ pulumi import aws:cognito/identityPool:IdentityPool mypool <identity-pool-id>
@@ -463,7 +463,7 @@ class IdentityPool(pulumi.CustomResource):
 
         ## Import
 
-        Cognito Identity Pool can be imported using the name, e.g.
+        Cognito Identity Pool can be imported using the name, e.g.,
 
         ```sh
          $ pulumi import aws:cognito/identityPool:IdentityPool mypool <identity-pool-id>

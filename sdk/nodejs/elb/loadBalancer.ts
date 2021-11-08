@@ -77,7 +77,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * ELBs can be imported using the `name`, e.g.
+ * ELBs can be imported using the `name`, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:elb/loadBalancer:LoadBalancer bar elb-production-12345
@@ -190,6 +190,9 @@ export class LoadBalancer extends pulumi.CustomResource {
      */
     public readonly subnets!: pulumi.Output<string[]>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The canonical hosted zone ID of the ELB (to be used in a Route 53 Alias record)
@@ -349,6 +352,9 @@ export interface LoadBalancerState {
      */
     subnets?: pulumi.Input<pulumi.Input<string>[]>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The canonical hosted zone ID of the ELB (to be used in a Route 53 Alias record)

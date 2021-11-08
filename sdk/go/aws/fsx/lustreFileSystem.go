@@ -44,7 +44,7 @@ import (
 //
 // ## Import
 //
-// FSx File Systems can be imported using the `id`, e.g.
+// FSx File Systems can be imported using the `id`, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:fsx/lustreFileSystem:LustreFileSystem example fs-543ab12b1ca672f33
@@ -82,7 +82,7 @@ type LustreFileSystem struct {
 	DataCompressionType pulumi.StringPtrOutput `pulumi:"dataCompressionType"`
 	// - The filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`. `SCRATCH_1` deployment types cannot have `storageCapacity` increased.
 	DeploymentType pulumi.StringPtrOutput `pulumi:"deploymentType"`
-	// DNS name for the file system, e.g. `fs-12345678.fsx.us-west-2.amazonaws.com`
+	// DNS name for the file system, e.g., `fs-12345678.fsx.us-west-2.amazonaws.com`
 	DnsName pulumi.StringOutput `pulumi:"dnsName"`
 	// - The type of drive cache used by `PERSISTENT_1` filesystems that are provisioned with `HDD` storage_type. Required for `HDD` storage_type, set to either `READ` or `NONE`.
 	DriveCacheType pulumi.StringPtrOutput `pulumi:"driveCacheType"`
@@ -168,7 +168,7 @@ type lustreFileSystemState struct {
 	DataCompressionType *string `pulumi:"dataCompressionType"`
 	// - The filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`. `SCRATCH_1` deployment types cannot have `storageCapacity` increased.
 	DeploymentType *string `pulumi:"deploymentType"`
-	// DNS name for the file system, e.g. `fs-12345678.fsx.us-west-2.amazonaws.com`
+	// DNS name for the file system, e.g., `fs-12345678.fsx.us-west-2.amazonaws.com`
 	DnsName *string `pulumi:"dnsName"`
 	// - The type of drive cache used by `PERSISTENT_1` filesystems that are provisioned with `HDD` storage_type. Required for `HDD` storage_type, set to either `READ` or `NONE`.
 	DriveCacheType *string `pulumi:"driveCacheType"`
@@ -223,7 +223,7 @@ type LustreFileSystemState struct {
 	DataCompressionType pulumi.StringPtrInput
 	// - The filesystem deployment type. One of: `SCRATCH_1`, `SCRATCH_2`, `PERSISTENT_1`. `SCRATCH_1` deployment types cannot have `storageCapacity` increased.
 	DeploymentType pulumi.StringPtrInput
-	// DNS name for the file system, e.g. `fs-12345678.fsx.us-west-2.amazonaws.com`
+	// DNS name for the file system, e.g., `fs-12345678.fsx.us-west-2.amazonaws.com`
 	DnsName pulumi.StringPtrInput
 	// - The type of drive cache used by `PERSISTENT_1` filesystems that are provisioned with `HDD` storage_type. Required for `HDD` storage_type, set to either `READ` or `NONE`.
 	DriveCacheType pulumi.StringPtrInput

@@ -330,6 +330,7 @@ class _JobState:
         :param pulumi.Input[str] role_arn: The ARN of the IAM role associated with this job.
         :param pulumi.Input[str] security_configuration: The name of the Security Configuration to be associated with the job.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[int] timeout: The job timeout in minutes. The default is 2880 minutes (48 hours).
         :param pulumi.Input[str] worker_type: The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.
         """
@@ -567,6 +568,9 @@ class _JobState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -672,7 +676,7 @@ class Job(pulumi.CustomResource):
 
         ## Import
 
-        Glue Jobs can be imported using `name`, e.g.
+        Glue Jobs can be imported using `name`, e.g.,
 
         ```sh
          $ pulumi import aws:glue/job:Job MyJob MyJob
@@ -755,7 +759,7 @@ class Job(pulumi.CustomResource):
 
         ## Import
 
-        Glue Jobs can be imported using `name`, e.g.
+        Glue Jobs can be imported using `name`, e.g.,
 
         ```sh
          $ pulumi import aws:glue/job:Job MyJob MyJob
@@ -880,6 +884,7 @@ class Job(pulumi.CustomResource):
         :param pulumi.Input[str] role_arn: The ARN of the IAM role associated with this job.
         :param pulumi.Input[str] security_configuration: The name of the Security Configuration to be associated with the job.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[int] timeout: The job timeout in minutes. The default is 2880 minutes (48 hours).
         :param pulumi.Input[str] worker_type: The type of predefined worker that is allocated when a job runs. Accepts a value of Standard, G.1X, or G.2X.
         """
@@ -1039,6 +1044,9 @@ class Job(pulumi.CustomResource):
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @property

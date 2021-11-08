@@ -493,7 +493,7 @@ class ImagePipeline(pulumi.CustomResource):
 
         ## Import
 
-        `aws_imagebuilder_image_pipeline` resources can be imported using the Amazon Resource Name (ARN), e.g.
+        `aws_imagebuilder_image_pipeline` resources can be imported using the Amazon Resource Name (ARN), e.g.,
 
         ```sh
          $ pulumi import aws:imagebuilder/imagePipeline:ImagePipeline example arn:aws:imagebuilder:us-east-1:123456789012:image-pipeline/example
@@ -537,7 +537,7 @@ class ImagePipeline(pulumi.CustomResource):
 
         ## Import
 
-        `aws_imagebuilder_image_pipeline` resources can be imported using the Amazon Resource Name (ARN), e.g.
+        `aws_imagebuilder_image_pipeline` resources can be imported using the Amazon Resource Name (ARN), e.g.,
 
         ```sh
          $ pulumi import aws:imagebuilder/imagePipeline:ImagePipeline example arn:aws:imagebuilder:us-east-1:123456789012:image-pipeline/example

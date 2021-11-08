@@ -33,7 +33,7 @@ namespace Pulumi.Aws.Efs
     /// 
     /// ## Import
     /// 
-    /// The EFS access points can be imported using the `id`, e.g.
+    /// The EFS access points can be imported using the `id`, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:efs/accessPoint:AccessPoint test fsap-52a643fb

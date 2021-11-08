@@ -39,7 +39,7 @@ import (
 //
 // ## Import
 //
-// EventBridge schema registries can be imported using the `name`, e.g. console
+// EventBridge schema registries can be imported using the `name`, e.g., console
 //
 // ```sh
 //  $ pulumi import aws:schemas/registry:Registry test my_own_registry
@@ -52,8 +52,9 @@ type Registry struct {
 	// The description of the discoverer. Maximum of 256 characters.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The name of the custom event schema registry. Maximum of 64 characters consisting of lower case letters, upper case letters, 0-9, ., -, _.
-	Name    pulumi.StringOutput    `pulumi:"name"`
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	Name pulumi.StringOutput    `pulumi:"name"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -91,8 +92,9 @@ type registryState struct {
 	// The description of the discoverer. Maximum of 256 characters.
 	Description *string `pulumi:"description"`
 	// The name of the custom event schema registry. Maximum of 64 characters consisting of lower case letters, upper case letters, 0-9, ., -, _.
-	Name    *string           `pulumi:"name"`
-	Tags    map[string]string `pulumi:"tags"`
+	Name *string           `pulumi:"name"`
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -102,8 +104,9 @@ type RegistryState struct {
 	// The description of the discoverer. Maximum of 256 characters.
 	Description pulumi.StringPtrInput
 	// The name of the custom event schema registry. Maximum of 64 characters consisting of lower case letters, upper case letters, 0-9, ., -, _.
-	Name    pulumi.StringPtrInput
-	Tags    pulumi.StringMapInput
+	Name pulumi.StringPtrInput
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 

@@ -323,7 +323,7 @@ class Activation(pulumi.CustomResource):
 
         ## Import
 
-        AWS SSM Activation can be imported using the `id`, e.g.
+        AWS SSM Activation can be imported using the `id`, e.g.,
 
         ```sh
          $ pulumi import aws:ssm/activation:Activation example e488f2f6-e686-4afb-8a04-ef6dfEXAMPLE
@@ -374,7 +374,7 @@ class Activation(pulumi.CustomResource):
 
         ## Import
 
-        AWS SSM Activation can be imported using the `id`, e.g.
+        AWS SSM Activation can be imported using the `id`, e.g.,
 
         ```sh
          $ pulumi import aws:ssm/activation:Activation example e488f2f6-e686-4afb-8a04-ef6dfEXAMPLE
@@ -537,7 +537,7 @@ class Activation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="registrationLimit")
-    def registration_limit(self) -> pulumi.Output[int]:
+    def registration_limit(self) -> pulumi.Output[Optional[int]]:
         """
         The maximum number of managed instances you want to register. The default value is 1 instance.
         """

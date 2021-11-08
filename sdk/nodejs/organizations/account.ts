@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * The AWS member account can be imported by using the `account_id`, e.g.
+ * The AWS member account can be imported by using the `account_id`, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:organizations/account:Account my_org 111111111111

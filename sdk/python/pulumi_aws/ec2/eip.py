@@ -198,6 +198,7 @@ class _EipState:
         :param pulumi.Input[str] public_dns: Public DNS associated with the Elastic IP address.
         :param pulumi.Input[str] public_ip: Contains the public IP address.
         :param pulumi.Input[str] public_ipv4_pool: EC2 IPv4 address pool identifier or `amazon`. This option is only available for VPC EIPs.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[bool] vpc: Boolean if the EIP is in a VPC or not.
         """
         if address is not None:
@@ -443,6 +444,9 @@ class _EipState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -555,13 +559,13 @@ class Eip(pulumi.CustomResource):
 
         ## Import
 
-        EIPs in a VPC can be imported using their Allocation ID, e.g.
+        EIPs in a VPC can be imported using their Allocation ID, e.g.,
 
         ```sh
          $ pulumi import aws:ec2/eip:Eip bar eipalloc-00a10e96
         ```
 
-         EIPs in EC2 Classic can be imported using their Public IP, e.g.
+         EIPs in EC2 Classic can be imported using their Public IP, e.g.,
 
         ```sh
          $ pulumi import aws:ec2/eip:Eip bar 52.0.0.0
@@ -664,13 +668,13 @@ class Eip(pulumi.CustomResource):
 
         ## Import
 
-        EIPs in a VPC can be imported using their Allocation ID, e.g.
+        EIPs in a VPC can be imported using their Allocation ID, e.g.,
 
         ```sh
          $ pulumi import aws:ec2/eip:Eip bar eipalloc-00a10e96
         ```
 
-         EIPs in EC2 Classic can be imported using their Public IP, e.g.
+         EIPs in EC2 Classic can be imported using their Public IP, e.g.,
 
         ```sh
          $ pulumi import aws:ec2/eip:Eip bar 52.0.0.0
@@ -785,6 +789,7 @@ class Eip(pulumi.CustomResource):
         :param pulumi.Input[str] public_dns: Public DNS associated with the Elastic IP address.
         :param pulumi.Input[str] public_ip: Contains the public IP address.
         :param pulumi.Input[str] public_ipv4_pool: EC2 IPv4 address pool identifier or `amazon`. This option is only available for VPC EIPs.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[bool] vpc: Boolean if the EIP is in a VPC or not.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -948,6 +953,9 @@ class Eip(pulumi.CustomResource):
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @property

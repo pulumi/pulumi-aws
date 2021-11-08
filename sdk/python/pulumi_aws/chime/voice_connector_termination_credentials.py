@@ -130,7 +130,7 @@ class VoiceConnectorTerminationCredentials(pulumi.CustomResource):
 
         ## Import
 
-        Chime Voice Connector Termination Credentials can be imported using the `voice_connector_id`, e.g.
+        Chime Voice Connector Termination Credentials can be imported using the `voice_connector_id`, e.g.,
 
         ```sh
          $ pulumi import aws:chime/voiceConnectorTerminationCredentials:VoiceConnectorTerminationCredentials default abcdef1ghij2klmno3pqr4
@@ -179,7 +179,7 @@ class VoiceConnectorTerminationCredentials(pulumi.CustomResource):
 
         ## Import
 
-        Chime Voice Connector Termination Credentials can be imported using the `voice_connector_id`, e.g.
+        Chime Voice Connector Termination Credentials can be imported using the `voice_connector_id`, e.g.,
 
         ```sh
          $ pulumi import aws:chime/voiceConnectorTerminationCredentials:VoiceConnectorTerminationCredentials default abcdef1ghij2klmno3pqr4

@@ -47,7 +47,7 @@ namespace Pulumi.Aws.Ec2.Inputs
         public Input<string>? SnapshotId { get; set; }
 
         /// <summary>
-        /// The throughput to provision for a `gp3` volume in MiB/s (specified as an integer, e.g. 500), with a maximum of 1,000 MiB/s.
+        /// The throughput to provision for a `gp3` volume in MiB/s (specified as an integer, e.g., 500), with a maximum of 1,000 MiB/s.
         /// </summary>
         [Input("throughput")]
         public Input<int>? Throughput { get; set; }

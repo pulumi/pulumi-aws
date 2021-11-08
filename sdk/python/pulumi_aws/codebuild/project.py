@@ -739,7 +739,7 @@ class Project(pulumi.CustomResource):
                  vpc_config: Optional[pulumi.Input[pulumi.InputType['ProjectVpcConfigArgs']]] = None,
                  __props__=None):
         """
-        Provides a CodeBuild Project resource. See also the `codebuild.Webhook` resource, which manages the webhook to the source (e.g. the "rebuild every time a code change is pushed" option in the CodeBuild web console).
+        Provides a CodeBuild Project resource. See also the `codebuild.Webhook` resource, which manages the webhook to the source (e.g., the "rebuild every time a code change is pushed" option in the CodeBuild web console).
 
         ## Example Usage
 
@@ -919,7 +919,7 @@ class Project(pulumi.CustomResource):
 
         ## Import
 
-        CodeBuild Project can be imported using the `name`, e.g.
+        CodeBuild Project can be imported using the `name`, e.g.,
 
         ```sh
          $ pulumi import aws:codebuild/project:Project name project-name
@@ -955,7 +955,7 @@ class Project(pulumi.CustomResource):
                  args: ProjectArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a CodeBuild Project resource. See also the `codebuild.Webhook` resource, which manages the webhook to the source (e.g. the "rebuild every time a code change is pushed" option in the CodeBuild web console).
+        Provides a CodeBuild Project resource. See also the `codebuild.Webhook` resource, which manages the webhook to the source (e.g., the "rebuild every time a code change is pushed" option in the CodeBuild web console).
 
         ## Example Usage
 
@@ -1135,7 +1135,7 @@ class Project(pulumi.CustomResource):
 
         ## Import
 
-        CodeBuild Project can be imported using the `name`, e.g.
+        CodeBuild Project can be imported using the `name`, e.g.,
 
         ```sh
          $ pulumi import aws:codebuild/project:Project name project-name

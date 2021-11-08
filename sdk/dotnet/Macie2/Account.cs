@@ -34,7 +34,7 @@ namespace Pulumi.Aws.Macie2
     /// 
     /// ## Import
     /// 
-    /// `aws_macie2_account` can be imported using the id, e.g.
+    /// `aws_macie2_account` can be imported using the id, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:macie2/account:Account example abcd1

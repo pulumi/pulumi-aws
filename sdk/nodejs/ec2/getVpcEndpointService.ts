@@ -79,7 +79,7 @@ export interface GetVpcEndpointServiceArgs {
      */
     filters?: inputs.ec2.GetVpcEndpointServiceFilter[];
     /**
-     * The common name of an AWS service (e.g. `s3`).
+     * The common name of an AWS service (e.g., `s3`).
      */
     service?: string;
     /**
@@ -163,7 +163,7 @@ export interface GetVpcEndpointServiceOutputArgs {
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetVpcEndpointServiceFilterArgs>[]>;
     /**
-     * The common name of an AWS service (e.g. `s3`).
+     * The common name of an AWS service (e.g., `s3`).
      */
     service?: pulumi.Input<string>;
     /**

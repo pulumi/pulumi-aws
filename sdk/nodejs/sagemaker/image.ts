@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Sagemaker Code Images can be imported using the `name`, e.g.
+ * Sagemaker Code Images can be imported using the `name`, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:sagemaker/image:Image test_image my-code-repo

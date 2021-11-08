@@ -26,6 +26,7 @@ namespace Pulumi.Aws.Ec2.Outputs
         public readonly ImmutableArray<string> Ipv4Addresses;
         public readonly int Ipv6AddressCount;
         public readonly ImmutableArray<string> Ipv6Addresses;
+        public readonly int? NetworkCardIndex;
         public readonly string NetworkInterfaceId;
         public readonly string PrivateIpAddress;
         public readonly ImmutableArray<string> SecurityGroups;
@@ -53,6 +54,8 @@ namespace Pulumi.Aws.Ec2.Outputs
 
             ImmutableArray<string> ipv6Addresses,
 
+            int? networkCardIndex,
+
             string networkInterfaceId,
 
             string privateIpAddress,
@@ -71,6 +74,7 @@ namespace Pulumi.Aws.Ec2.Outputs
             Ipv4Addresses = ipv4Addresses;
             Ipv6AddressCount = ipv6AddressCount;
             Ipv6Addresses = ipv6Addresses;
+            NetworkCardIndex = networkCardIndex;
             NetworkInterfaceId = networkInterfaceId;
             PrivateIpAddress = privateIpAddress;
             SecurityGroups = securityGroups;

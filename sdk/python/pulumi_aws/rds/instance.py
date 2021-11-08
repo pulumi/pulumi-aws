@@ -135,7 +135,7 @@ class InstanceArgs:
                storage_type of "io1".
         :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key. If creating an
                encrypted replica, set this to the destination KMS ARN.
-        :param pulumi.Input[str] license_model: (Optional, but required for some DB engines, i.e. Oracle
+        :param pulumi.Input[str] license_model: (Optional, but required for some DB engines, i.e., Oracle
                SE1) License model information for this DB instance.
         :param pulumi.Input[str] maintenance_window: The window to perform maintenance in.
                Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00". See [RDS
@@ -672,7 +672,7 @@ class InstanceArgs:
     @pulumi.getter(name="licenseModel")
     def license_model(self) -> Optional[pulumi.Input[str]]:
         """
-        (Optional, but required for some DB engines, i.e. Oracle
+        (Optional, but required for some DB engines, i.e., Oracle
         SE1) License model information for this DB instance.
         """
         return pulumi.get(self, "license_model")
@@ -1201,7 +1201,7 @@ class _InstanceState:
         :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key. If creating an
                encrypted replica, set this to the destination KMS ARN.
         :param pulumi.Input[str] latest_restorable_time: The latest time, in UTC [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), to which a database can be restored with point-in-time restore.
-        :param pulumi.Input[str] license_model: (Optional, but required for some DB engines, i.e. Oracle
+        :param pulumi.Input[str] license_model: (Optional, but required for some DB engines, i.e., Oracle
                SE1) License model information for this DB instance.
         :param pulumi.Input[str] maintenance_window: The window to perform maintenance in.
                Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00". See [RDS
@@ -1835,7 +1835,7 @@ class _InstanceState:
     @pulumi.getter(name="licenseModel")
     def license_model(self) -> Optional[pulumi.Input[str]]:
         """
-        (Optional, but required for some DB engines, i.e. Oracle
+        (Optional, but required for some DB engines, i.e., Oracle
         SE1) License model information for this DB instance.
         """
         return pulumi.get(self, "license_model")
@@ -2388,7 +2388,7 @@ class Instance(pulumi.CustomResource):
 
         ## Import
 
-        DB Instances can be imported using the `identifier`, e.g.
+        DB Instances can be imported using the `identifier`, e.g.,
 
         ```sh
          $ pulumi import aws:rds/instance:Instance default mydb-rds-instance
@@ -2458,7 +2458,7 @@ class Instance(pulumi.CustomResource):
                storage_type of "io1".
         :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key. If creating an
                encrypted replica, set this to the destination KMS ARN.
-        :param pulumi.Input[str] license_model: (Optional, but required for some DB engines, i.e. Oracle
+        :param pulumi.Input[str] license_model: (Optional, but required for some DB engines, i.e., Oracle
                SE1) License model information for this DB instance.
         :param pulumi.Input[str] maintenance_window: The window to perform maintenance in.
                Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00". See [RDS
@@ -2596,7 +2596,7 @@ class Instance(pulumi.CustomResource):
 
         ## Import
 
-        DB Instances can be imported using the `identifier`, e.g.
+        DB Instances can be imported using the `identifier`, e.g.,
 
         ```sh
          $ pulumi import aws:rds/instance:Instance default mydb-rds-instance
@@ -2902,7 +2902,7 @@ class Instance(pulumi.CustomResource):
         :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key. If creating an
                encrypted replica, set this to the destination KMS ARN.
         :param pulumi.Input[str] latest_restorable_time: The latest time, in UTC [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8), to which a database can be restored with point-in-time restore.
-        :param pulumi.Input[str] license_model: (Optional, but required for some DB engines, i.e. Oracle
+        :param pulumi.Input[str] license_model: (Optional, but required for some DB engines, i.e., Oracle
                SE1) License model information for this DB instance.
         :param pulumi.Input[str] maintenance_window: The window to perform maintenance in.
                Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00". See [RDS
@@ -3348,7 +3348,7 @@ class Instance(pulumi.CustomResource):
     @pulumi.getter(name="licenseModel")
     def license_model(self) -> pulumi.Output[str]:
         """
-        (Optional, but required for some DB engines, i.e. Oracle
+        (Optional, but required for some DB engines, i.e., Oracle
         SE1) License model information for this DB instance.
         """
         return pulumi.get(self, "license_model")

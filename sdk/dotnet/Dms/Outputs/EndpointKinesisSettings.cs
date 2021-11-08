@@ -14,9 +14,33 @@ namespace Pulumi.Aws.Dms.Outputs
     public sealed class EndpointKinesisSettings
     {
         /// <summary>
+        /// Shows detailed control information for table definition, column definition, and table and column changes in the Kinesis message output. The default is `false`.
+        /// </summary>
+        public readonly bool? IncludeControlDetails;
+        /// <summary>
+        /// Include NULL and empty columns in the target. The default is `false`.
+        /// </summary>
+        public readonly bool? IncludeNullAndEmpty;
+        /// <summary>
+        /// Shows the partition value within the Kinesis message output, unless the partition type is schema-table-type. The default is `false`.
+        /// </summary>
+        public readonly bool? IncludePartitionValue;
+        /// <summary>
+        /// Includes any data definition language (DDL) operations that change the table in the control data. The default is `false`.
+        /// </summary>
+        public readonly bool? IncludeTableAlterOperations;
+        /// <summary>
+        /// Provides detailed transaction information from the source database. The default is `false`.
+        /// </summary>
+        public readonly bool? IncludeTransactionDetails;
+        /// <summary>
         /// Output format for the records created. Defaults to `json`. Valid values are `json` and `json_unformatted` (a single line with no tab).
         /// </summary>
         public readonly string? MessageFormat;
+        /// <summary>
+        /// Prefixes schema and table names to partition values, when the partition type is primary-key-type. The default is `false`.
+        /// </summary>
+        public readonly bool? PartitionIncludeSchemaTable;
         /// <summary>
         /// Amazon Resource Name (ARN) of the IAM Role with permissions to write to the Kinesis data stream.
         /// </summary>
@@ -28,13 +52,31 @@ namespace Pulumi.Aws.Dms.Outputs
 
         [OutputConstructor]
         private EndpointKinesisSettings(
+            bool? includeControlDetails,
+
+            bool? includeNullAndEmpty,
+
+            bool? includePartitionValue,
+
+            bool? includeTableAlterOperations,
+
+            bool? includeTransactionDetails,
+
             string? messageFormat,
+
+            bool? partitionIncludeSchemaTable,
 
             string? serviceAccessRoleArn,
 
             string? streamArn)
         {
+            IncludeControlDetails = includeControlDetails;
+            IncludeNullAndEmpty = includeNullAndEmpty;
+            IncludePartitionValue = includePartitionValue;
+            IncludeTableAlterOperations = includeTableAlterOperations;
+            IncludeTransactionDetails = includeTransactionDetails;
             MessageFormat = messageFormat;
+            PartitionIncludeSchemaTable = partitionIncludeSchemaTable;
             ServiceAccessRoleArn = serviceAccessRoleArn;
             StreamArn = streamArn;
         }

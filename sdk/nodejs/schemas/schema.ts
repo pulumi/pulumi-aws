@@ -45,7 +45,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * EventBridge schema can be imported using the `name` and `registry_name`, e.g. console
+ * EventBridge schema can be imported using the `name` and `registry_name`, e.g., console
  *
  * ```sh
  *  $ pulumi import aws:schemas/schema:Schema test name/registry
@@ -104,6 +104,9 @@ export class Schema extends pulumi.CustomResource {
      */
     public readonly registryName!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The type of the schema. Valid values: `OpenApi3`.
@@ -201,6 +204,9 @@ export interface SchemaState {
      */
     registryName?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The type of the schema. Valid values: `OpenApi3`.

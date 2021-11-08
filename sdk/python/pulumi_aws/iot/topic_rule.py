@@ -727,7 +727,7 @@ class TopicRule(pulumi.CustomResource):
 
         ## Import
 
-        IoT Topic Rules can be imported using the `name`, e.g.
+        IoT Topic Rules can be imported using the `name`, e.g.,
 
         ```sh
          $ pulumi import aws:iot/topicRule:TopicRule rule <name>
@@ -807,7 +807,7 @@ class TopicRule(pulumi.CustomResource):
 
         ## Import
 
-        IoT Topic Rules can be imported using the `name`, e.g.
+        IoT Topic Rules can be imported using the `name`, e.g.,
 
         ```sh
          $ pulumi import aws:iot/topicRule:TopicRule rule <name>

@@ -43,7 +43,7 @@ namespace Pulumi.Aws.SecurityHub
     /// 
     /// ## Import
     /// 
-    /// Security Hub product subscriptions can be imported in the form `product_arn,arn`, e.g.
+    /// Security Hub product subscriptions can be imported in the form `product_arn,arn`, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:securityhub/productSubscription:ProductSubscription example arn:aws:securityhub:eu-west-1:733251395267:product/alertlogic/althreatmanagement,arn:aws:securityhub:eu-west-1:123456789012:product-subscription/alertlogic/althreatmanagement

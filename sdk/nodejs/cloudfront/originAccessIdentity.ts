@@ -76,7 +76,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Cloudfront Origin Access Identities can be imported using the `id`, e.g.
+ * Cloudfront Origin Access Identities can be imported using the `id`, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:cloudfront/originAccessIdentity:OriginAccessIdentity origin_access E74FTE3AEXAMPLE

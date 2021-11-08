@@ -21,6 +21,10 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws:amp/alertManagerDefinition:AlertManagerDefinition":
+		r = &AlertManagerDefinition{}
+	case "aws:amp/ruleGroupNamespace:RuleGroupNamespace":
+		r = &RuleGroupNamespace{}
 	case "aws:amp/workspace:Workspace":
 		r = &Workspace{}
 	default:
@@ -36,6 +40,16 @@ func init() {
 	if err != nil {
 		fmt.Printf("failed to determine package version. defaulting to v1: %v\n", err)
 	}
+	pulumi.RegisterResourceModule(
+		"aws",
+		"amp/alertManagerDefinition",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"amp/ruleGroupNamespace",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"aws",
 		"amp/workspace",

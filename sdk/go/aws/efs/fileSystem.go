@@ -64,7 +64,7 @@ import (
 //
 // ## Import
 //
-// The EFS file systems can be imported using the `id`, e.g.
+// The EFS file systems can be imported using the `id`, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:efs/fileSystem:FileSystem foo fs-6fa144c6
@@ -102,7 +102,8 @@ type FileSystem struct {
 	// The latest known metered size (in bytes) of data stored in the file system, the value is not the exact size that the file system was at any point in time. See Size In Bytes.
 	SizeInBytes FileSystemSizeInByteArrayOutput `pulumi:"sizeInBytes"`
 	Tags        pulumi.StringMapOutput          `pulumi:"tags"`
-	TagsAll     pulumi.StringMapOutput          `pulumi:"tagsAll"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Throughput mode for the file system. Defaults to `bursting`. Valid values: `bursting`, `provisioned`. When using `provisioned`, also set `provisionedThroughputInMibps`.
 	ThroughputMode pulumi.StringPtrOutput `pulumi:"throughputMode"`
 }
@@ -166,7 +167,8 @@ type fileSystemState struct {
 	// The latest known metered size (in bytes) of data stored in the file system, the value is not the exact size that the file system was at any point in time. See Size In Bytes.
 	SizeInBytes []FileSystemSizeInByte `pulumi:"sizeInBytes"`
 	Tags        map[string]string      `pulumi:"tags"`
-	TagsAll     map[string]string      `pulumi:"tagsAll"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Throughput mode for the file system. Defaults to `bursting`. Valid values: `bursting`, `provisioned`. When using `provisioned`, also set `provisionedThroughputInMibps`.
 	ThroughputMode *string `pulumi:"throughputMode"`
 }
@@ -202,7 +204,8 @@ type FileSystemState struct {
 	// The latest known metered size (in bytes) of data stored in the file system, the value is not the exact size that the file system was at any point in time. See Size In Bytes.
 	SizeInBytes FileSystemSizeInByteArrayInput
 	Tags        pulumi.StringMapInput
-	TagsAll     pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 	// Throughput mode for the file system. Defaults to `bursting`. Valid values: `bursting`, `provisioned`. When using `provisioned`, also set `provisionedThroughputInMibps`.
 	ThroughputMode pulumi.StringPtrInput
 }

@@ -87,7 +87,7 @@ def get_log_groups(log_group_name_prefix: Optional[str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.cloudwatch.get_log_groups(log_group_prefix="/MyImportantLogs")
+    example = aws.cloudwatch.get_log_groups(log_group_name_prefix="/MyImportantLogs")
     ```
 
 
@@ -120,7 +120,7 @@ def get_log_groups_output(log_group_name_prefix: Optional[pulumi.Input[str]] = N
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.cloudwatch.get_log_groups(log_group_prefix="/MyImportantLogs")
+    example = aws.cloudwatch.get_log_groups(log_group_name_prefix="/MyImportantLogs")
     ```
 
 

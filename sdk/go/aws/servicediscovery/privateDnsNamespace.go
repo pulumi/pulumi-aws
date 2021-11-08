@@ -46,7 +46,7 @@ import (
 //
 // ## Import
 //
-// Service Discovery Private DNS Namespace can be imported using the namespace ID and VPC ID, e.g.
+// Service Discovery Private DNS Namespace can be imported using the namespace ID and VPC ID, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:servicediscovery/privateDnsNamespace:PrivateDnsNamespace example 0123456789:vpc-123345

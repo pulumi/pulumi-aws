@@ -204,7 +204,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Cloudfront Distributions can be imported using the `id`, e.g.
+ * Cloudfront Distributions can be imported using the `id`, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:cloudfront/distribution:Distribution distribution E74FTE3EXAMPLE

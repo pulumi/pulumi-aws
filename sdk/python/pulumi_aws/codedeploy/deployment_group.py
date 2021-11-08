@@ -770,7 +770,7 @@ class DeploymentGroup(pulumi.CustomResource):
 
         ## Import
 
-        CodeDeploy Deployment Groups can be imported by their `app_name`, a colon, and `deployment_group_name`, e.g.
+        CodeDeploy Deployment Groups can be imported by their `app_name`, a colon, and `deployment_group_name`, e.g.,
 
         ```sh
          $ pulumi import aws:codedeploy/deploymentGroup:DeploymentGroup example my-application:my-deployment-group
@@ -950,7 +950,7 @@ class DeploymentGroup(pulumi.CustomResource):
 
         ## Import
 
-        CodeDeploy Deployment Groups can be imported by their `app_name`, a colon, and `deployment_group_name`, e.g.
+        CodeDeploy Deployment Groups can be imported by their `app_name`, a colon, and `deployment_group_name`, e.g.,
 
         ```sh
          $ pulumi import aws:codedeploy/deploymentGroup:DeploymentGroup example my-application:my-deployment-group

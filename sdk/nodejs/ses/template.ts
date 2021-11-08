@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * SES templates can be imported using the template name, e.g.
+ * SES templates can be imported using the template name, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:ses/template:Template MyTemplate MyTemplate

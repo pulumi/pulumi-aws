@@ -39,7 +39,7 @@ import (
 //
 // ## Import
 //
-// Placement groups can be imported using the `name`, e.g.
+// Placement groups can be imported using the `name`, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:ec2/placementGroup:PlacementGroup prod_pg production-placement-group
@@ -54,7 +54,7 @@ type PlacementGroup struct {
 	// The number of partitions to create in the
 	// placement group.  Can only be specified when the `strategy` is set to
 	// `"partition"`.  Valid values are 1 - 7 (default is `2`).
-	PartitionCount pulumi.IntPtrOutput `pulumi:"partitionCount"`
+	PartitionCount pulumi.IntOutput `pulumi:"partitionCount"`
 	// The ID of the placement group.
 	PlacementGroupId pulumi.StringOutput `pulumi:"placementGroupId"`
 	// The placement strategy. Can be `"cluster"`, `"partition"` or `"spread"`.

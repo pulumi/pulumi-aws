@@ -355,7 +355,7 @@ class Pipeline(pulumi.CustomResource):
 
         ## Import
 
-        CodePipelines can be imported using the name, e.g.
+        CodePipelines can be imported using the name, e.g.,
 
         ```sh
          $ pulumi import aws:codepipeline/pipeline:Pipeline foo example
@@ -502,7 +502,7 @@ class Pipeline(pulumi.CustomResource):
 
         ## Import
 
-        CodePipelines can be imported using the name, e.g.
+        CodePipelines can be imported using the name, e.g.,
 
         ```sh
          $ pulumi import aws:codepipeline/pipeline:Pipeline foo example

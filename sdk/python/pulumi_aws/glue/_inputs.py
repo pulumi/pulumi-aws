@@ -1314,17 +1314,25 @@ class CrawlerS3TargetArgs:
     def __init__(__self__, *,
                  path: pulumi.Input[str],
                  connection_name: Optional[pulumi.Input[str]] = None,
+                 dlq_event_queue_arn: Optional[pulumi.Input[str]] = None,
+                 event_queue_arn: Optional[pulumi.Input[str]] = None,
                  exclusions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  sample_size: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[str] path: The path of the Amazon DocumentDB or MongoDB target (database/collection).
         :param pulumi.Input[str] connection_name: The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
+        :param pulumi.Input[str] dlq_event_queue_arn: The ARN of the dead-letter SQS queue.
+        :param pulumi.Input[str] event_queue_arn: The ARN of the SQS queue to receive S3 notifications from.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] exclusions: A list of glob patterns used to exclude from the crawl.
         :param pulumi.Input[int] sample_size: Sets the number of files in each leaf folder to be crawled when crawling sample files in a dataset. If not set, all the files are crawled. A valid value is an integer between 1 and 249.
         """
         pulumi.set(__self__, "path", path)
         if connection_name is not None:
             pulumi.set(__self__, "connection_name", connection_name)
+        if dlq_event_queue_arn is not None:
+            pulumi.set(__self__, "dlq_event_queue_arn", dlq_event_queue_arn)
+        if event_queue_arn is not None:
+            pulumi.set(__self__, "event_queue_arn", event_queue_arn)
         if exclusions is not None:
             pulumi.set(__self__, "exclusions", exclusions)
         if sample_size is not None:
@@ -1353,6 +1361,30 @@ class CrawlerS3TargetArgs:
     @connection_name.setter
     def connection_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "connection_name", value)
+
+    @property
+    @pulumi.getter(name="dlqEventQueueArn")
+    def dlq_event_queue_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the dead-letter SQS queue.
+        """
+        return pulumi.get(self, "dlq_event_queue_arn")
+
+    @dlq_event_queue_arn.setter
+    def dlq_event_queue_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "dlq_event_queue_arn", value)
+
+    @property
+    @pulumi.getter(name="eventQueueArn")
+    def event_queue_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the SQS queue to receive S3 notifications from.
+        """
+        return pulumi.get(self, "event_queue_arn")
+
+    @event_queue_arn.setter
+    def event_queue_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "event_queue_arn", value)
 
     @property
     @pulumi.getter

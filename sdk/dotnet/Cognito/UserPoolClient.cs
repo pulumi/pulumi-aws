@@ -135,7 +135,7 @@ namespace Pulumi.Aws.Cognito
     /// 
     /// ## Import
     /// 
-    /// Cognito User Pool Clients can be imported using the `id` of the Cognito User Pool, and the `id` of the Cognito User Pool Client, e.g.
+    /// Cognito User Pool Clients can be imported using the `id` of the Cognito User Pool, and the `id` of the Cognito User Pool Client, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:cognito/userPoolClient:UserPoolClient client &lt;user_pool_id&gt;/&lt;user_pool_client_id&gt;
@@ -247,7 +247,7 @@ namespace Pulumi.Aws.Cognito
         public Output<int?> RefreshTokenValidity { get; private set; } = null!;
 
         /// <summary>
-        /// List of provider names for the identity providers that are supported on this client.
+        /// List of provider names for the identity providers that are supported on this client. Uses the `provider_name` attribute of `aws.cognito.IdentityProvider` resource(s), or the equivalent string(s).
         /// </summary>
         [Output("supportedIdentityProviders")]
         public Output<ImmutableArray<string>> SupportedIdentityProviders { get; private set; } = null!;
@@ -452,7 +452,7 @@ namespace Pulumi.Aws.Cognito
         private InputList<string>? _supportedIdentityProviders;
 
         /// <summary>
-        /// List of provider names for the identity providers that are supported on this client.
+        /// List of provider names for the identity providers that are supported on this client. Uses the `provider_name` attribute of `aws.cognito.IdentityProvider` resource(s), or the equivalent string(s).
         /// </summary>
         public InputList<string> SupportedIdentityProviders
         {
@@ -633,7 +633,7 @@ namespace Pulumi.Aws.Cognito
         private InputList<string>? _supportedIdentityProviders;
 
         /// <summary>
-        /// List of provider names for the identity providers that are supported on this client.
+        /// List of provider names for the identity providers that are supported on this client. Uses the `provider_name` attribute of `aws.cognito.IdentityProvider` resource(s), or the equivalent string(s).
         /// </summary>
         public InputList<string> SupportedIdentityProviders
         {

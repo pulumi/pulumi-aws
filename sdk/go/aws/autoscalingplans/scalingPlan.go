@@ -22,7 +22,7 @@ import (
 //
 // ## Import
 //
-// Auto Scaling scaling plans can be imported using the `name`, e.g.
+// Auto Scaling scaling plans can be imported using the `name`, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:autoscalingplans/scalingPlan:ScalingPlan example MyScale1

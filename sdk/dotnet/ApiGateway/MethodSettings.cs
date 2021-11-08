@@ -105,7 +105,7 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// ## Import
     /// 
-    /// `aws_api_gateway_method_settings` can be imported using `REST-API-ID/STAGE-NAME/METHOD-PATH`, e.g.
+    /// `aws_api_gateway_method_settings` can be imported using `REST-API-ID/STAGE-NAME/METHOD-PATH`, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:apigateway/methodSettings:MethodSettings example 12345abcde/example/test/GET
@@ -115,7 +115,7 @@ namespace Pulumi.Aws.ApiGateway
     public partial class MethodSettings : Pulumi.CustomResource
     {
         /// <summary>
-        /// Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g. `trimprefix(aws_api_gateway_resource.example.path, "/")`).
+        /// Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g., `trimprefix(aws_api_gateway_resource.example.path, "/")`).
         /// </summary>
         [Output("methodPath")]
         public Output<string> MethodPath { get; private set; } = null!;
@@ -185,7 +185,7 @@ namespace Pulumi.Aws.ApiGateway
     public sealed class MethodSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g. `trimprefix(aws_api_gateway_resource.example.path, "/")`).
+        /// Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g., `trimprefix(aws_api_gateway_resource.example.path, "/")`).
         /// </summary>
         [Input("methodPath", required: true)]
         public Input<string> MethodPath { get; set; } = null!;
@@ -216,7 +216,7 @@ namespace Pulumi.Aws.ApiGateway
     public sealed class MethodSettingsState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g. `trimprefix(aws_api_gateway_resource.example.path, "/")`).
+        /// Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*/*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g., `trimprefix(aws_api_gateway_resource.example.path, "/")`).
         /// </summary>
         [Input("methodPath")]
         public Input<string>? MethodPath { get; set; }

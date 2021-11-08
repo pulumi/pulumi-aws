@@ -831,7 +831,7 @@ class EventSourceMapping(pulumi.CustomResource):
 
         ## Import
 
-        Lambda event source mappings can be imported using the `UUID` (event source mapping identifier), e.g.
+        Lambda event source mappings can be imported using the `UUID` (event source mapping identifier), e.g.,
 
         ```sh
          $ pulumi import aws:lambda/eventSourceMapping:EventSourceMapping event_source_mapping 12345kxodurf3443
@@ -1000,7 +1000,7 @@ class EventSourceMapping(pulumi.CustomResource):
 
         ## Import
 
-        Lambda event source mappings can be imported using the `UUID` (event source mapping identifier), e.g.
+        Lambda event source mappings can be imported using the `UUID` (event source mapping identifier), e.g.,
 
         ```sh
          $ pulumi import aws:lambda/eventSourceMapping:EventSourceMapping event_source_mapping 12345kxodurf3443

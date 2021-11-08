@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * DAX Clusters can be imported using the `cluster_name`, e.g.
+ * DAX Clusters can be imported using the `cluster_name`, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:dax/cluster:Cluster my_cluster my_cluster
@@ -107,7 +107,7 @@ export class Cluster extends pulumi.CustomResource {
     public readonly nodeType!: pulumi.Output<string>;
     /**
      * List of node objects including `id`, `address`, `port` and
-     * `availabilityZone`. Referenceable e.g. as
+     * `availabilityZone`. Referenceable e.g., as
      * `${aws_dax_cluster.test.nodes.0.address}`
      */
     public /*out*/ readonly nodes!: pulumi.Output<outputs.dax.ClusterNode[]>;
@@ -279,7 +279,7 @@ export interface ClusterState {
     nodeType?: pulumi.Input<string>;
     /**
      * List of node objects including `id`, `address`, `port` and
-     * `availabilityZone`. Referenceable e.g. as
+     * `availabilityZone`. Referenceable e.g., as
      * `${aws_dax_cluster.test.nodes.0.address}`
      */
     nodes?: pulumi.Input<pulumi.Input<inputs.dax.ClusterNode>[]>;

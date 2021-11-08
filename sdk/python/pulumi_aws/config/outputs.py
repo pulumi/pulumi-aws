@@ -103,29 +103,46 @@ class Endpoints(dict):
                  accessanalyzer: Optional[str] = None,
                  acm: Optional[str] = None,
                  acmpca: Optional[str] = None,
+                 alexaforbusiness: Optional[str] = None,
                  amplify: Optional[str] = None,
+                 amplifybackend: Optional[str] = None,
                  apigateway: Optional[str] = None,
+                 apigatewayv2: Optional[str] = None,
+                 appautoscaling: Optional[str] = None,
                  appconfig: Optional[str] = None,
+                 appflow: Optional[str] = None,
+                 appintegrations: Optional[str] = None,
+                 appintegrationsservice: Optional[str] = None,
                  applicationautoscaling: Optional[str] = None,
+                 applicationcostprofiler: Optional[str] = None,
+                 applicationdiscovery: Optional[str] = None,
+                 applicationdiscoveryservice: Optional[str] = None,
                  applicationinsights: Optional[str] = None,
                  appmesh: Optional[str] = None,
+                 appregistry: Optional[str] = None,
                  apprunner: Optional[str] = None,
                  appstream: Optional[str] = None,
                  appsync: Optional[str] = None,
                  athena: Optional[str] = None,
                  auditmanager: Optional[str] = None,
+                 augmentedairuntime: Optional[str] = None,
                  autoscaling: Optional[str] = None,
                  autoscalingplans: Optional[str] = None,
                  backup: Optional[str] = None,
                  batch: Optional[str] = None,
+                 braket: Optional[str] = None,
                  budgets: Optional[str] = None,
                  chime: Optional[str] = None,
                  cloud9: Optional[str] = None,
+                 cloudcontrol: Optional[str] = None,
                  cloudcontrolapi: Optional[str] = None,
+                 clouddirectory: Optional[str] = None,
                  cloudformation: Optional[str] = None,
                  cloudfront: Optional[str] = None,
                  cloudhsm: Optional[str] = None,
+                 cloudhsmv2: Optional[str] = None,
                  cloudsearch: Optional[str] = None,
+                 cloudsearchdomain: Optional[str] = None,
                  cloudtrail: Optional[str] = None,
                  cloudwatch: Optional[str] = None,
                  cloudwatchevents: Optional[str] = None,
@@ -134,26 +151,44 @@ class Endpoints(dict):
                  codebuild: Optional[str] = None,
                  codecommit: Optional[str] = None,
                  codedeploy: Optional[str] = None,
+                 codeguruprofiler: Optional[str] = None,
+                 codegurureviewer: Optional[str] = None,
                  codepipeline: Optional[str] = None,
+                 codestar: Optional[str] = None,
                  codestarconnections: Optional[str] = None,
+                 codestarnotifications: Optional[str] = None,
                  cognitoidentity: Optional[str] = None,
+                 cognitoidentityprovider: Optional[str] = None,
                  cognitoidp: Optional[str] = None,
+                 cognitosync: Optional[str] = None,
+                 comprehend: Optional[str] = None,
+                 comprehendmedical: Optional[str] = None,
+                 config: Optional[str] = None,
                  configservice: Optional[str] = None,
                  connect: Optional[str] = None,
+                 connectcontactlens: Optional[str] = None,
+                 connectparticipant: Optional[str] = None,
+                 costandusagereportservice: Optional[str] = None,
+                 costexplorer: Optional[str] = None,
                  cur: Optional[str] = None,
+                 databasemigration: Optional[str] = None,
+                 databasemigrationservice: Optional[str] = None,
                  dataexchange: Optional[str] = None,
                  datapipeline: Optional[str] = None,
                  datasync: Optional[str] = None,
                  dax: Optional[str] = None,
                  detective: Optional[str] = None,
                  devicefarm: Optional[str] = None,
+                 devopsguru: Optional[str] = None,
                  directconnect: Optional[str] = None,
                  dlm: Optional[str] = None,
                  dms: Optional[str] = None,
                  docdb: Optional[str] = None,
                  ds: Optional[str] = None,
                  dynamodb: Optional[str] = None,
+                 dynamodbstreams: Optional[str] = None,
                  ec2: Optional[str] = None,
+                 ec2instanceconnect: Optional[str] = None,
                  ecr: Optional[str] = None,
                  ecrpublic: Optional[str] = None,
                  ecs: Optional[str] = None,
@@ -161,69 +196,142 @@ class Endpoints(dict):
                  eks: Optional[str] = None,
                  elasticache: Optional[str] = None,
                  elasticbeanstalk: Optional[str] = None,
+                 elasticinference: Optional[str] = None,
+                 elasticsearch: Optional[str] = None,
+                 elasticsearchservice: Optional[str] = None,
                  elastictranscoder: Optional[str] = None,
                  elb: Optional[str] = None,
+                 elbv2: Optional[str] = None,
                  emr: Optional[str] = None,
                  emrcontainers: Optional[str] = None,
                  es: Optional[str] = None,
+                 finspace: Optional[str] = None,
+                 finspacedata: Optional[str] = None,
                  firehose: Optional[str] = None,
+                 fis: Optional[str] = None,
                  fms: Optional[str] = None,
                  forecast: Optional[str] = None,
+                 forecastquery: Optional[str] = None,
+                 forecastqueryservice: Optional[str] = None,
+                 forecastservice: Optional[str] = None,
+                 frauddetector: Optional[str] = None,
                  fsx: Optional[str] = None,
                  gamelift: Optional[str] = None,
                  glacier: Optional[str] = None,
                  globalaccelerator: Optional[str] = None,
                  glue: Optional[str] = None,
+                 gluedatabrew: Optional[str] = None,
                  greengrass: Optional[str] = None,
+                 greengrassv2: Optional[str] = None,
+                 groundstation: Optional[str] = None,
                  guardduty: Optional[str] = None,
+                 health: Optional[str] = None,
+                 healthlake: Optional[str] = None,
+                 honeycode: Optional[str] = None,
                  iam: Optional[str] = None,
                  identitystore: Optional[str] = None,
                  imagebuilder: Optional[str] = None,
                  inspector: Optional[str] = None,
                  iot: Optional[str] = None,
+                 iot1clickdevices: Optional[str] = None,
+                 iot1clickdevicesservice: Optional[str] = None,
+                 iot1clickprojects: Optional[str] = None,
                  iotanalytics: Optional[str] = None,
+                 iotdataplane: Optional[str] = None,
+                 iotdeviceadvisor: Optional[str] = None,
                  iotevents: Optional[str] = None,
+                 ioteventsdata: Optional[str] = None,
+                 iotfleethub: Optional[str] = None,
+                 iotjobsdataplane: Optional[str] = None,
+                 iotsecuretunneling: Optional[str] = None,
+                 iotsitewise: Optional[str] = None,
+                 iotthingsgraph: Optional[str] = None,
+                 iotwireless: Optional[str] = None,
                  kafka: Optional[str] = None,
+                 kendra: Optional[str] = None,
                  kinesis: Optional[str] = None,
                  kinesisanalytics: Optional[str] = None,
                  kinesisanalyticsv2: Optional[str] = None,
                  kinesisvideo: Optional[str] = None,
+                 kinesisvideoarchivedmedia: Optional[str] = None,
+                 kinesisvideomedia: Optional[str] = None,
+                 kinesisvideosignalingchannels: Optional[str] = None,
                  kms: Optional[str] = None,
                  lakeformation: Optional[str] = None,
                  lambda_: Optional[str] = None,
+                 lexmodelbuilding: Optional[str] = None,
+                 lexmodelbuildingservice: Optional[str] = None,
                  lexmodels: Optional[str] = None,
+                 lexmodelsv2: Optional[str] = None,
+                 lexruntime: Optional[str] = None,
+                 lexruntimeservice: Optional[str] = None,
+                 lexruntimev2: Optional[str] = None,
                  licensemanager: Optional[str] = None,
                  lightsail: Optional[str] = None,
                  location: Optional[str] = None,
+                 lookoutequipment: Optional[str] = None,
+                 lookoutforvision: Optional[str] = None,
+                 lookoutmetrics: Optional[str] = None,
+                 machinelearning: Optional[str] = None,
                  macie: Optional[str] = None,
                  macie2: Optional[str] = None,
                  managedblockchain: Optional[str] = None,
                  marketplacecatalog: Optional[str] = None,
+                 marketplacecommerceanalytics: Optional[str] = None,
+                 marketplaceentitlement: Optional[str] = None,
+                 marketplaceentitlementservice: Optional[str] = None,
+                 marketplacemetering: Optional[str] = None,
                  mediaconnect: Optional[str] = None,
                  mediaconvert: Optional[str] = None,
                  medialive: Optional[str] = None,
                  mediapackage: Optional[str] = None,
+                 mediapackagevod: Optional[str] = None,
                  mediastore: Optional[str] = None,
                  mediastoredata: Optional[str] = None,
+                 mediatailor: Optional[str] = None,
                  memorydb: Optional[str] = None,
+                 mgn: Optional[str] = None,
+                 migrationhub: Optional[str] = None,
+                 migrationhubconfig: Optional[str] = None,
+                 mobile: Optional[str] = None,
+                 mobileanalytics: Optional[str] = None,
                  mq: Optional[str] = None,
+                 mturk: Optional[str] = None,
                  mwaa: Optional[str] = None,
                  neptune: Optional[str] = None,
                  networkfirewall: Optional[str] = None,
                  networkmanager: Optional[str] = None,
+                 nimblestudio: Optional[str] = None,
                  opsworks: Optional[str] = None,
+                 opsworkscm: Optional[str] = None,
                  organizations: Optional[str] = None,
                  outposts: Optional[str] = None,
                  personalize: Optional[str] = None,
+                 personalizeevents: Optional[str] = None,
+                 personalizeruntime: Optional[str] = None,
+                 pi: Optional[str] = None,
                  pinpoint: Optional[str] = None,
+                 pinpointemail: Optional[str] = None,
+                 pinpointsmsvoice: Optional[str] = None,
+                 polly: Optional[str] = None,
                  pricing: Optional[str] = None,
+                 prometheus: Optional[str] = None,
+                 prometheusservice: Optional[str] = None,
+                 proton: Optional[str] = None,
                  qldb: Optional[str] = None,
+                 qldbsession: Optional[str] = None,
                  quicksight: Optional[str] = None,
                  ram: Optional[str] = None,
                  rds: Optional[str] = None,
+                 rdsdata: Optional[str] = None,
+                 rdsdataservice: Optional[str] = None,
                  redshift: Optional[str] = None,
+                 redshiftdata: Optional[str] = None,
+                 rekognition: Optional[str] = None,
                  resourcegroups: Optional[str] = None,
+                 resourcegroupstagging: Optional[str] = None,
                  resourcegroupstaggingapi: Optional[str] = None,
+                 robomaker: Optional[str] = None,
                  route53: Optional[str] = None,
                  route53domains: Optional[str] = None,
                  route53recoverycontrolconfig: Optional[str] = None,
@@ -233,33 +341,59 @@ class Endpoints(dict):
                  s3control: Optional[str] = None,
                  s3outposts: Optional[str] = None,
                  sagemaker: Optional[str] = None,
+                 sagemakeredgemanager: Optional[str] = None,
+                 sagemakerfeaturestoreruntime: Optional[str] = None,
+                 sagemakerruntime: Optional[str] = None,
+                 savingsplans: Optional[str] = None,
                  schemas: Optional[str] = None,
                  sdb: Optional[str] = None,
                  secretsmanager: Optional[str] = None,
                  securityhub: Optional[str] = None,
+                 serverlessapplicationrepository: Optional[str] = None,
+                 serverlessapprepo: Optional[str] = None,
                  serverlessrepo: Optional[str] = None,
                  servicecatalog: Optional[str] = None,
                  servicediscovery: Optional[str] = None,
                  servicequotas: Optional[str] = None,
                  ses: Optional[str] = None,
+                 sesv2: Optional[str] = None,
+                 sfn: Optional[str] = None,
                  shield: Optional[str] = None,
                  signer: Optional[str] = None,
+                 simpledb: Optional[str] = None,
+                 sms: Optional[str] = None,
+                 snowball: Optional[str] = None,
                  sns: Optional[str] = None,
                  sqs: Optional[str] = None,
                  ssm: Optional[str] = None,
+                 ssmcontacts: Optional[str] = None,
+                 ssmincidents: Optional[str] = None,
+                 sso: Optional[str] = None,
                  ssoadmin: Optional[str] = None,
+                 ssooidc: Optional[str] = None,
                  stepfunctions: Optional[str] = None,
                  storagegateway: Optional[str] = None,
                  sts: Optional[str] = None,
+                 support: Optional[str] = None,
                  swf: Optional[str] = None,
                  synthetics: Optional[str] = None,
+                 textract: Optional[str] = None,
+                 timestreamquery: Optional[str] = None,
                  timestreamwrite: Optional[str] = None,
+                 transcribe: Optional[str] = None,
+                 transcribeservice: Optional[str] = None,
+                 transcribestreaming: Optional[str] = None,
+                 transcribestreamingservice: Optional[str] = None,
                  transfer: Optional[str] = None,
+                 translate: Optional[str] = None,
                  waf: Optional[str] = None,
                  wafregional: Optional[str] = None,
                  wafv2: Optional[str] = None,
+                 wellarchitected: Optional[str] = None,
+                 workdocs: Optional[str] = None,
                  worklink: Optional[str] = None,
                  workmail: Optional[str] = None,
+                 workmailmessageflow: Optional[str] = None,
                  workspaces: Optional[str] = None,
                  xray: Optional[str] = None):
         if accessanalyzer is not None:
@@ -268,18 +402,40 @@ class Endpoints(dict):
             pulumi.set(__self__, "acm", acm)
         if acmpca is not None:
             pulumi.set(__self__, "acmpca", acmpca)
+        if alexaforbusiness is not None:
+            pulumi.set(__self__, "alexaforbusiness", alexaforbusiness)
         if amplify is not None:
             pulumi.set(__self__, "amplify", amplify)
+        if amplifybackend is not None:
+            pulumi.set(__self__, "amplifybackend", amplifybackend)
         if apigateway is not None:
             pulumi.set(__self__, "apigateway", apigateway)
+        if apigatewayv2 is not None:
+            pulumi.set(__self__, "apigatewayv2", apigatewayv2)
+        if appautoscaling is not None:
+            pulumi.set(__self__, "appautoscaling", appautoscaling)
         if appconfig is not None:
             pulumi.set(__self__, "appconfig", appconfig)
+        if appflow is not None:
+            pulumi.set(__self__, "appflow", appflow)
+        if appintegrations is not None:
+            pulumi.set(__self__, "appintegrations", appintegrations)
+        if appintegrationsservice is not None:
+            pulumi.set(__self__, "appintegrationsservice", appintegrationsservice)
         if applicationautoscaling is not None:
             pulumi.set(__self__, "applicationautoscaling", applicationautoscaling)
+        if applicationcostprofiler is not None:
+            pulumi.set(__self__, "applicationcostprofiler", applicationcostprofiler)
+        if applicationdiscovery is not None:
+            pulumi.set(__self__, "applicationdiscovery", applicationdiscovery)
+        if applicationdiscoveryservice is not None:
+            pulumi.set(__self__, "applicationdiscoveryservice", applicationdiscoveryservice)
         if applicationinsights is not None:
             pulumi.set(__self__, "applicationinsights", applicationinsights)
         if appmesh is not None:
             pulumi.set(__self__, "appmesh", appmesh)
+        if appregistry is not None:
+            pulumi.set(__self__, "appregistry", appregistry)
         if apprunner is not None:
             pulumi.set(__self__, "apprunner", apprunner)
         if appstream is not None:
@@ -290,6 +446,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "athena", athena)
         if auditmanager is not None:
             pulumi.set(__self__, "auditmanager", auditmanager)
+        if augmentedairuntime is not None:
+            pulumi.set(__self__, "augmentedairuntime", augmentedairuntime)
         if autoscaling is not None:
             pulumi.set(__self__, "autoscaling", autoscaling)
         if autoscalingplans is not None:
@@ -298,22 +456,32 @@ class Endpoints(dict):
             pulumi.set(__self__, "backup", backup)
         if batch is not None:
             pulumi.set(__self__, "batch", batch)
+        if braket is not None:
+            pulumi.set(__self__, "braket", braket)
         if budgets is not None:
             pulumi.set(__self__, "budgets", budgets)
         if chime is not None:
             pulumi.set(__self__, "chime", chime)
         if cloud9 is not None:
             pulumi.set(__self__, "cloud9", cloud9)
+        if cloudcontrol is not None:
+            pulumi.set(__self__, "cloudcontrol", cloudcontrol)
         if cloudcontrolapi is not None:
             pulumi.set(__self__, "cloudcontrolapi", cloudcontrolapi)
+        if clouddirectory is not None:
+            pulumi.set(__self__, "clouddirectory", clouddirectory)
         if cloudformation is not None:
             pulumi.set(__self__, "cloudformation", cloudformation)
         if cloudfront is not None:
             pulumi.set(__self__, "cloudfront", cloudfront)
         if cloudhsm is not None:
             pulumi.set(__self__, "cloudhsm", cloudhsm)
+        if cloudhsmv2 is not None:
+            pulumi.set(__self__, "cloudhsmv2", cloudhsmv2)
         if cloudsearch is not None:
             pulumi.set(__self__, "cloudsearch", cloudsearch)
+        if cloudsearchdomain is not None:
+            pulumi.set(__self__, "cloudsearchdomain", cloudsearchdomain)
         if cloudtrail is not None:
             pulumi.set(__self__, "cloudtrail", cloudtrail)
         if cloudwatch is not None:
@@ -330,20 +498,50 @@ class Endpoints(dict):
             pulumi.set(__self__, "codecommit", codecommit)
         if codedeploy is not None:
             pulumi.set(__self__, "codedeploy", codedeploy)
+        if codeguruprofiler is not None:
+            pulumi.set(__self__, "codeguruprofiler", codeguruprofiler)
+        if codegurureviewer is not None:
+            pulumi.set(__self__, "codegurureviewer", codegurureviewer)
         if codepipeline is not None:
             pulumi.set(__self__, "codepipeline", codepipeline)
+        if codestar is not None:
+            pulumi.set(__self__, "codestar", codestar)
         if codestarconnections is not None:
             pulumi.set(__self__, "codestarconnections", codestarconnections)
+        if codestarnotifications is not None:
+            pulumi.set(__self__, "codestarnotifications", codestarnotifications)
         if cognitoidentity is not None:
             pulumi.set(__self__, "cognitoidentity", cognitoidentity)
+        if cognitoidentityprovider is not None:
+            pulumi.set(__self__, "cognitoidentityprovider", cognitoidentityprovider)
         if cognitoidp is not None:
             pulumi.set(__self__, "cognitoidp", cognitoidp)
+        if cognitosync is not None:
+            pulumi.set(__self__, "cognitosync", cognitosync)
+        if comprehend is not None:
+            pulumi.set(__self__, "comprehend", comprehend)
+        if comprehendmedical is not None:
+            pulumi.set(__self__, "comprehendmedical", comprehendmedical)
+        if config is not None:
+            pulumi.set(__self__, "config", config)
         if configservice is not None:
             pulumi.set(__self__, "configservice", configservice)
         if connect is not None:
             pulumi.set(__self__, "connect", connect)
+        if connectcontactlens is not None:
+            pulumi.set(__self__, "connectcontactlens", connectcontactlens)
+        if connectparticipant is not None:
+            pulumi.set(__self__, "connectparticipant", connectparticipant)
+        if costandusagereportservice is not None:
+            pulumi.set(__self__, "costandusagereportservice", costandusagereportservice)
+        if costexplorer is not None:
+            pulumi.set(__self__, "costexplorer", costexplorer)
         if cur is not None:
             pulumi.set(__self__, "cur", cur)
+        if databasemigration is not None:
+            pulumi.set(__self__, "databasemigration", databasemigration)
+        if databasemigrationservice is not None:
+            pulumi.set(__self__, "databasemigrationservice", databasemigrationservice)
         if dataexchange is not None:
             pulumi.set(__self__, "dataexchange", dataexchange)
         if datapipeline is not None:
@@ -356,6 +554,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "detective", detective)
         if devicefarm is not None:
             pulumi.set(__self__, "devicefarm", devicefarm)
+        if devopsguru is not None:
+            pulumi.set(__self__, "devopsguru", devopsguru)
         if directconnect is not None:
             pulumi.set(__self__, "directconnect", directconnect)
         if dlm is not None:
@@ -368,8 +568,12 @@ class Endpoints(dict):
             pulumi.set(__self__, "ds", ds)
         if dynamodb is not None:
             pulumi.set(__self__, "dynamodb", dynamodb)
+        if dynamodbstreams is not None:
+            pulumi.set(__self__, "dynamodbstreams", dynamodbstreams)
         if ec2 is not None:
             pulumi.set(__self__, "ec2", ec2)
+        if ec2instanceconnect is not None:
+            pulumi.set(__self__, "ec2instanceconnect", ec2instanceconnect)
         if ecr is not None:
             pulumi.set(__self__, "ecr", ecr)
         if ecrpublic is not None:
@@ -384,22 +588,44 @@ class Endpoints(dict):
             pulumi.set(__self__, "elasticache", elasticache)
         if elasticbeanstalk is not None:
             pulumi.set(__self__, "elasticbeanstalk", elasticbeanstalk)
+        if elasticinference is not None:
+            pulumi.set(__self__, "elasticinference", elasticinference)
+        if elasticsearch is not None:
+            pulumi.set(__self__, "elasticsearch", elasticsearch)
+        if elasticsearchservice is not None:
+            pulumi.set(__self__, "elasticsearchservice", elasticsearchservice)
         if elastictranscoder is not None:
             pulumi.set(__self__, "elastictranscoder", elastictranscoder)
         if elb is not None:
             pulumi.set(__self__, "elb", elb)
+        if elbv2 is not None:
+            pulumi.set(__self__, "elbv2", elbv2)
         if emr is not None:
             pulumi.set(__self__, "emr", emr)
         if emrcontainers is not None:
             pulumi.set(__self__, "emrcontainers", emrcontainers)
         if es is not None:
             pulumi.set(__self__, "es", es)
+        if finspace is not None:
+            pulumi.set(__self__, "finspace", finspace)
+        if finspacedata is not None:
+            pulumi.set(__self__, "finspacedata", finspacedata)
         if firehose is not None:
             pulumi.set(__self__, "firehose", firehose)
+        if fis is not None:
+            pulumi.set(__self__, "fis", fis)
         if fms is not None:
             pulumi.set(__self__, "fms", fms)
         if forecast is not None:
             pulumi.set(__self__, "forecast", forecast)
+        if forecastquery is not None:
+            pulumi.set(__self__, "forecastquery", forecastquery)
+        if forecastqueryservice is not None:
+            pulumi.set(__self__, "forecastqueryservice", forecastqueryservice)
+        if forecastservice is not None:
+            pulumi.set(__self__, "forecastservice", forecastservice)
+        if frauddetector is not None:
+            pulumi.set(__self__, "frauddetector", frauddetector)
         if fsx is not None:
             pulumi.set(__self__, "fsx", fsx)
         if gamelift is not None:
@@ -410,10 +636,22 @@ class Endpoints(dict):
             pulumi.set(__self__, "globalaccelerator", globalaccelerator)
         if glue is not None:
             pulumi.set(__self__, "glue", glue)
+        if gluedatabrew is not None:
+            pulumi.set(__self__, "gluedatabrew", gluedatabrew)
         if greengrass is not None:
             pulumi.set(__self__, "greengrass", greengrass)
+        if greengrassv2 is not None:
+            pulumi.set(__self__, "greengrassv2", greengrassv2)
+        if groundstation is not None:
+            pulumi.set(__self__, "groundstation", groundstation)
         if guardduty is not None:
             pulumi.set(__self__, "guardduty", guardduty)
+        if health is not None:
+            pulumi.set(__self__, "health", health)
+        if healthlake is not None:
+            pulumi.set(__self__, "healthlake", healthlake)
+        if honeycode is not None:
+            pulumi.set(__self__, "honeycode", honeycode)
         if iam is not None:
             pulumi.set(__self__, "iam", iam)
         if identitystore is not None:
@@ -424,12 +662,38 @@ class Endpoints(dict):
             pulumi.set(__self__, "inspector", inspector)
         if iot is not None:
             pulumi.set(__self__, "iot", iot)
+        if iot1clickdevices is not None:
+            pulumi.set(__self__, "iot1clickdevices", iot1clickdevices)
+        if iot1clickdevicesservice is not None:
+            pulumi.set(__self__, "iot1clickdevicesservice", iot1clickdevicesservice)
+        if iot1clickprojects is not None:
+            pulumi.set(__self__, "iot1clickprojects", iot1clickprojects)
         if iotanalytics is not None:
             pulumi.set(__self__, "iotanalytics", iotanalytics)
+        if iotdataplane is not None:
+            pulumi.set(__self__, "iotdataplane", iotdataplane)
+        if iotdeviceadvisor is not None:
+            pulumi.set(__self__, "iotdeviceadvisor", iotdeviceadvisor)
         if iotevents is not None:
             pulumi.set(__self__, "iotevents", iotevents)
+        if ioteventsdata is not None:
+            pulumi.set(__self__, "ioteventsdata", ioteventsdata)
+        if iotfleethub is not None:
+            pulumi.set(__self__, "iotfleethub", iotfleethub)
+        if iotjobsdataplane is not None:
+            pulumi.set(__self__, "iotjobsdataplane", iotjobsdataplane)
+        if iotsecuretunneling is not None:
+            pulumi.set(__self__, "iotsecuretunneling", iotsecuretunneling)
+        if iotsitewise is not None:
+            pulumi.set(__self__, "iotsitewise", iotsitewise)
+        if iotthingsgraph is not None:
+            pulumi.set(__self__, "iotthingsgraph", iotthingsgraph)
+        if iotwireless is not None:
+            pulumi.set(__self__, "iotwireless", iotwireless)
         if kafka is not None:
             pulumi.set(__self__, "kafka", kafka)
+        if kendra is not None:
+            pulumi.set(__self__, "kendra", kendra)
         if kinesis is not None:
             pulumi.set(__self__, "kinesis", kinesis)
         if kinesisanalytics is not None:
@@ -438,20 +702,46 @@ class Endpoints(dict):
             pulumi.set(__self__, "kinesisanalyticsv2", kinesisanalyticsv2)
         if kinesisvideo is not None:
             pulumi.set(__self__, "kinesisvideo", kinesisvideo)
+        if kinesisvideoarchivedmedia is not None:
+            pulumi.set(__self__, "kinesisvideoarchivedmedia", kinesisvideoarchivedmedia)
+        if kinesisvideomedia is not None:
+            pulumi.set(__self__, "kinesisvideomedia", kinesisvideomedia)
+        if kinesisvideosignalingchannels is not None:
+            pulumi.set(__self__, "kinesisvideosignalingchannels", kinesisvideosignalingchannels)
         if kms is not None:
             pulumi.set(__self__, "kms", kms)
         if lakeformation is not None:
             pulumi.set(__self__, "lakeformation", lakeformation)
         if lambda_ is not None:
             pulumi.set(__self__, "lambda_", lambda_)
+        if lexmodelbuilding is not None:
+            pulumi.set(__self__, "lexmodelbuilding", lexmodelbuilding)
+        if lexmodelbuildingservice is not None:
+            pulumi.set(__self__, "lexmodelbuildingservice", lexmodelbuildingservice)
         if lexmodels is not None:
             pulumi.set(__self__, "lexmodels", lexmodels)
+        if lexmodelsv2 is not None:
+            pulumi.set(__self__, "lexmodelsv2", lexmodelsv2)
+        if lexruntime is not None:
+            pulumi.set(__self__, "lexruntime", lexruntime)
+        if lexruntimeservice is not None:
+            pulumi.set(__self__, "lexruntimeservice", lexruntimeservice)
+        if lexruntimev2 is not None:
+            pulumi.set(__self__, "lexruntimev2", lexruntimev2)
         if licensemanager is not None:
             pulumi.set(__self__, "licensemanager", licensemanager)
         if lightsail is not None:
             pulumi.set(__self__, "lightsail", lightsail)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if lookoutequipment is not None:
+            pulumi.set(__self__, "lookoutequipment", lookoutequipment)
+        if lookoutforvision is not None:
+            pulumi.set(__self__, "lookoutforvision", lookoutforvision)
+        if lookoutmetrics is not None:
+            pulumi.set(__self__, "lookoutmetrics", lookoutmetrics)
+        if machinelearning is not None:
+            pulumi.set(__self__, "machinelearning", machinelearning)
         if macie is not None:
             pulumi.set(__self__, "macie", macie)
         if macie2 is not None:
@@ -460,6 +750,14 @@ class Endpoints(dict):
             pulumi.set(__self__, "managedblockchain", managedblockchain)
         if marketplacecatalog is not None:
             pulumi.set(__self__, "marketplacecatalog", marketplacecatalog)
+        if marketplacecommerceanalytics is not None:
+            pulumi.set(__self__, "marketplacecommerceanalytics", marketplacecommerceanalytics)
+        if marketplaceentitlement is not None:
+            pulumi.set(__self__, "marketplaceentitlement", marketplaceentitlement)
+        if marketplaceentitlementservice is not None:
+            pulumi.set(__self__, "marketplaceentitlementservice", marketplaceentitlementservice)
+        if marketplacemetering is not None:
+            pulumi.set(__self__, "marketplacemetering", marketplacemetering)
         if mediaconnect is not None:
             pulumi.set(__self__, "mediaconnect", mediaconnect)
         if mediaconvert is not None:
@@ -468,14 +766,30 @@ class Endpoints(dict):
             pulumi.set(__self__, "medialive", medialive)
         if mediapackage is not None:
             pulumi.set(__self__, "mediapackage", mediapackage)
+        if mediapackagevod is not None:
+            pulumi.set(__self__, "mediapackagevod", mediapackagevod)
         if mediastore is not None:
             pulumi.set(__self__, "mediastore", mediastore)
         if mediastoredata is not None:
             pulumi.set(__self__, "mediastoredata", mediastoredata)
+        if mediatailor is not None:
+            pulumi.set(__self__, "mediatailor", mediatailor)
         if memorydb is not None:
             pulumi.set(__self__, "memorydb", memorydb)
+        if mgn is not None:
+            pulumi.set(__self__, "mgn", mgn)
+        if migrationhub is not None:
+            pulumi.set(__self__, "migrationhub", migrationhub)
+        if migrationhubconfig is not None:
+            pulumi.set(__self__, "migrationhubconfig", migrationhubconfig)
+        if mobile is not None:
+            pulumi.set(__self__, "mobile", mobile)
+        if mobileanalytics is not None:
+            pulumi.set(__self__, "mobileanalytics", mobileanalytics)
         if mq is not None:
             pulumi.set(__self__, "mq", mq)
+        if mturk is not None:
+            pulumi.set(__self__, "mturk", mturk)
         if mwaa is not None:
             pulumi.set(__self__, "mwaa", mwaa)
         if neptune is not None:
@@ -484,32 +798,68 @@ class Endpoints(dict):
             pulumi.set(__self__, "networkfirewall", networkfirewall)
         if networkmanager is not None:
             pulumi.set(__self__, "networkmanager", networkmanager)
+        if nimblestudio is not None:
+            pulumi.set(__self__, "nimblestudio", nimblestudio)
         if opsworks is not None:
             pulumi.set(__self__, "opsworks", opsworks)
+        if opsworkscm is not None:
+            pulumi.set(__self__, "opsworkscm", opsworkscm)
         if organizations is not None:
             pulumi.set(__self__, "organizations", organizations)
         if outposts is not None:
             pulumi.set(__self__, "outposts", outposts)
         if personalize is not None:
             pulumi.set(__self__, "personalize", personalize)
+        if personalizeevents is not None:
+            pulumi.set(__self__, "personalizeevents", personalizeevents)
+        if personalizeruntime is not None:
+            pulumi.set(__self__, "personalizeruntime", personalizeruntime)
+        if pi is not None:
+            pulumi.set(__self__, "pi", pi)
         if pinpoint is not None:
             pulumi.set(__self__, "pinpoint", pinpoint)
+        if pinpointemail is not None:
+            pulumi.set(__self__, "pinpointemail", pinpointemail)
+        if pinpointsmsvoice is not None:
+            pulumi.set(__self__, "pinpointsmsvoice", pinpointsmsvoice)
+        if polly is not None:
+            pulumi.set(__self__, "polly", polly)
         if pricing is not None:
             pulumi.set(__self__, "pricing", pricing)
+        if prometheus is not None:
+            pulumi.set(__self__, "prometheus", prometheus)
+        if prometheusservice is not None:
+            pulumi.set(__self__, "prometheusservice", prometheusservice)
+        if proton is not None:
+            pulumi.set(__self__, "proton", proton)
         if qldb is not None:
             pulumi.set(__self__, "qldb", qldb)
+        if qldbsession is not None:
+            pulumi.set(__self__, "qldbsession", qldbsession)
         if quicksight is not None:
             pulumi.set(__self__, "quicksight", quicksight)
         if ram is not None:
             pulumi.set(__self__, "ram", ram)
         if rds is not None:
             pulumi.set(__self__, "rds", rds)
+        if rdsdata is not None:
+            pulumi.set(__self__, "rdsdata", rdsdata)
+        if rdsdataservice is not None:
+            pulumi.set(__self__, "rdsdataservice", rdsdataservice)
         if redshift is not None:
             pulumi.set(__self__, "redshift", redshift)
+        if redshiftdata is not None:
+            pulumi.set(__self__, "redshiftdata", redshiftdata)
+        if rekognition is not None:
+            pulumi.set(__self__, "rekognition", rekognition)
         if resourcegroups is not None:
             pulumi.set(__self__, "resourcegroups", resourcegroups)
+        if resourcegroupstagging is not None:
+            pulumi.set(__self__, "resourcegroupstagging", resourcegroupstagging)
         if resourcegroupstaggingapi is not None:
             pulumi.set(__self__, "resourcegroupstaggingapi", resourcegroupstaggingapi)
+        if robomaker is not None:
+            pulumi.set(__self__, "robomaker", robomaker)
         if route53 is not None:
             pulumi.set(__self__, "route53", route53)
         if route53domains is not None:
@@ -528,6 +878,14 @@ class Endpoints(dict):
             pulumi.set(__self__, "s3outposts", s3outposts)
         if sagemaker is not None:
             pulumi.set(__self__, "sagemaker", sagemaker)
+        if sagemakeredgemanager is not None:
+            pulumi.set(__self__, "sagemakeredgemanager", sagemakeredgemanager)
+        if sagemakerfeaturestoreruntime is not None:
+            pulumi.set(__self__, "sagemakerfeaturestoreruntime", sagemakerfeaturestoreruntime)
+        if sagemakerruntime is not None:
+            pulumi.set(__self__, "sagemakerruntime", sagemakerruntime)
+        if savingsplans is not None:
+            pulumi.set(__self__, "savingsplans", savingsplans)
         if schemas is not None:
             pulumi.set(__self__, "schemas", schemas)
         if sdb is not None:
@@ -536,6 +894,10 @@ class Endpoints(dict):
             pulumi.set(__self__, "secretsmanager", secretsmanager)
         if securityhub is not None:
             pulumi.set(__self__, "securityhub", securityhub)
+        if serverlessapplicationrepository is not None:
+            pulumi.set(__self__, "serverlessapplicationrepository", serverlessapplicationrepository)
+        if serverlessapprepo is not None:
+            pulumi.set(__self__, "serverlessapprepo", serverlessapprepo)
         if serverlessrepo is not None:
             pulumi.set(__self__, "serverlessrepo", serverlessrepo)
         if servicecatalog is not None:
@@ -546,42 +908,82 @@ class Endpoints(dict):
             pulumi.set(__self__, "servicequotas", servicequotas)
         if ses is not None:
             pulumi.set(__self__, "ses", ses)
+        if sesv2 is not None:
+            pulumi.set(__self__, "sesv2", sesv2)
+        if sfn is not None:
+            pulumi.set(__self__, "sfn", sfn)
         if shield is not None:
             pulumi.set(__self__, "shield", shield)
         if signer is not None:
             pulumi.set(__self__, "signer", signer)
+        if simpledb is not None:
+            pulumi.set(__self__, "simpledb", simpledb)
+        if sms is not None:
+            pulumi.set(__self__, "sms", sms)
+        if snowball is not None:
+            pulumi.set(__self__, "snowball", snowball)
         if sns is not None:
             pulumi.set(__self__, "sns", sns)
         if sqs is not None:
             pulumi.set(__self__, "sqs", sqs)
         if ssm is not None:
             pulumi.set(__self__, "ssm", ssm)
+        if ssmcontacts is not None:
+            pulumi.set(__self__, "ssmcontacts", ssmcontacts)
+        if ssmincidents is not None:
+            pulumi.set(__self__, "ssmincidents", ssmincidents)
+        if sso is not None:
+            pulumi.set(__self__, "sso", sso)
         if ssoadmin is not None:
             pulumi.set(__self__, "ssoadmin", ssoadmin)
+        if ssooidc is not None:
+            pulumi.set(__self__, "ssooidc", ssooidc)
         if stepfunctions is not None:
             pulumi.set(__self__, "stepfunctions", stepfunctions)
         if storagegateway is not None:
             pulumi.set(__self__, "storagegateway", storagegateway)
         if sts is not None:
             pulumi.set(__self__, "sts", sts)
+        if support is not None:
+            pulumi.set(__self__, "support", support)
         if swf is not None:
             pulumi.set(__self__, "swf", swf)
         if synthetics is not None:
             pulumi.set(__self__, "synthetics", synthetics)
+        if textract is not None:
+            pulumi.set(__self__, "textract", textract)
+        if timestreamquery is not None:
+            pulumi.set(__self__, "timestreamquery", timestreamquery)
         if timestreamwrite is not None:
             pulumi.set(__self__, "timestreamwrite", timestreamwrite)
+        if transcribe is not None:
+            pulumi.set(__self__, "transcribe", transcribe)
+        if transcribeservice is not None:
+            pulumi.set(__self__, "transcribeservice", transcribeservice)
+        if transcribestreaming is not None:
+            pulumi.set(__self__, "transcribestreaming", transcribestreaming)
+        if transcribestreamingservice is not None:
+            pulumi.set(__self__, "transcribestreamingservice", transcribestreamingservice)
         if transfer is not None:
             pulumi.set(__self__, "transfer", transfer)
+        if translate is not None:
+            pulumi.set(__self__, "translate", translate)
         if waf is not None:
             pulumi.set(__self__, "waf", waf)
         if wafregional is not None:
             pulumi.set(__self__, "wafregional", wafregional)
         if wafv2 is not None:
             pulumi.set(__self__, "wafv2", wafv2)
+        if wellarchitected is not None:
+            pulumi.set(__self__, "wellarchitected", wellarchitected)
+        if workdocs is not None:
+            pulumi.set(__self__, "workdocs", workdocs)
         if worklink is not None:
             pulumi.set(__self__, "worklink", worklink)
         if workmail is not None:
             pulumi.set(__self__, "workmail", workmail)
+        if workmailmessageflow is not None:
+            pulumi.set(__self__, "workmailmessageflow", workmailmessageflow)
         if workspaces is not None:
             pulumi.set(__self__, "workspaces", workspaces)
         if xray is not None:
@@ -604,8 +1006,18 @@ class Endpoints(dict):
 
     @property
     @pulumi.getter
+    def alexaforbusiness(self) -> Optional[str]:
+        return pulumi.get(self, "alexaforbusiness")
+
+    @property
+    @pulumi.getter
     def amplify(self) -> Optional[str]:
         return pulumi.get(self, "amplify")
+
+    @property
+    @pulumi.getter
+    def amplifybackend(self) -> Optional[str]:
+        return pulumi.get(self, "amplifybackend")
 
     @property
     @pulumi.getter
@@ -614,13 +1026,53 @@ class Endpoints(dict):
 
     @property
     @pulumi.getter
+    def apigatewayv2(self) -> Optional[str]:
+        return pulumi.get(self, "apigatewayv2")
+
+    @property
+    @pulumi.getter
+    def appautoscaling(self) -> Optional[str]:
+        return pulumi.get(self, "appautoscaling")
+
+    @property
+    @pulumi.getter
     def appconfig(self) -> Optional[str]:
         return pulumi.get(self, "appconfig")
 
     @property
     @pulumi.getter
+    def appflow(self) -> Optional[str]:
+        return pulumi.get(self, "appflow")
+
+    @property
+    @pulumi.getter
+    def appintegrations(self) -> Optional[str]:
+        return pulumi.get(self, "appintegrations")
+
+    @property
+    @pulumi.getter
+    def appintegrationsservice(self) -> Optional[str]:
+        return pulumi.get(self, "appintegrationsservice")
+
+    @property
+    @pulumi.getter
     def applicationautoscaling(self) -> Optional[str]:
         return pulumi.get(self, "applicationautoscaling")
+
+    @property
+    @pulumi.getter
+    def applicationcostprofiler(self) -> Optional[str]:
+        return pulumi.get(self, "applicationcostprofiler")
+
+    @property
+    @pulumi.getter
+    def applicationdiscovery(self) -> Optional[str]:
+        return pulumi.get(self, "applicationdiscovery")
+
+    @property
+    @pulumi.getter
+    def applicationdiscoveryservice(self) -> Optional[str]:
+        return pulumi.get(self, "applicationdiscoveryservice")
 
     @property
     @pulumi.getter
@@ -631,6 +1083,11 @@ class Endpoints(dict):
     @pulumi.getter
     def appmesh(self) -> Optional[str]:
         return pulumi.get(self, "appmesh")
+
+    @property
+    @pulumi.getter
+    def appregistry(self) -> Optional[str]:
+        return pulumi.get(self, "appregistry")
 
     @property
     @pulumi.getter
@@ -659,6 +1116,11 @@ class Endpoints(dict):
 
     @property
     @pulumi.getter
+    def augmentedairuntime(self) -> Optional[str]:
+        return pulumi.get(self, "augmentedairuntime")
+
+    @property
+    @pulumi.getter
     def autoscaling(self) -> Optional[str]:
         return pulumi.get(self, "autoscaling")
 
@@ -679,6 +1141,11 @@ class Endpoints(dict):
 
     @property
     @pulumi.getter
+    def braket(self) -> Optional[str]:
+        return pulumi.get(self, "braket")
+
+    @property
+    @pulumi.getter
     def budgets(self) -> Optional[str]:
         return pulumi.get(self, "budgets")
 
@@ -694,8 +1161,18 @@ class Endpoints(dict):
 
     @property
     @pulumi.getter
+    def cloudcontrol(self) -> Optional[str]:
+        return pulumi.get(self, "cloudcontrol")
+
+    @property
+    @pulumi.getter
     def cloudcontrolapi(self) -> Optional[str]:
         return pulumi.get(self, "cloudcontrolapi")
+
+    @property
+    @pulumi.getter
+    def clouddirectory(self) -> Optional[str]:
+        return pulumi.get(self, "clouddirectory")
 
     @property
     @pulumi.getter
@@ -714,8 +1191,18 @@ class Endpoints(dict):
 
     @property
     @pulumi.getter
+    def cloudhsmv2(self) -> Optional[str]:
+        return pulumi.get(self, "cloudhsmv2")
+
+    @property
+    @pulumi.getter
     def cloudsearch(self) -> Optional[str]:
         return pulumi.get(self, "cloudsearch")
+
+    @property
+    @pulumi.getter
+    def cloudsearchdomain(self) -> Optional[str]:
+        return pulumi.get(self, "cloudsearchdomain")
 
     @property
     @pulumi.getter
@@ -759,8 +1246,23 @@ class Endpoints(dict):
 
     @property
     @pulumi.getter
+    def codeguruprofiler(self) -> Optional[str]:
+        return pulumi.get(self, "codeguruprofiler")
+
+    @property
+    @pulumi.getter
+    def codegurureviewer(self) -> Optional[str]:
+        return pulumi.get(self, "codegurureviewer")
+
+    @property
+    @pulumi.getter
     def codepipeline(self) -> Optional[str]:
         return pulumi.get(self, "codepipeline")
+
+    @property
+    @pulumi.getter
+    def codestar(self) -> Optional[str]:
+        return pulumi.get(self, "codestar")
 
     @property
     @pulumi.getter
@@ -769,13 +1271,43 @@ class Endpoints(dict):
 
     @property
     @pulumi.getter
+    def codestarnotifications(self) -> Optional[str]:
+        return pulumi.get(self, "codestarnotifications")
+
+    @property
+    @pulumi.getter
     def cognitoidentity(self) -> Optional[str]:
         return pulumi.get(self, "cognitoidentity")
 
     @property
     @pulumi.getter
+    def cognitoidentityprovider(self) -> Optional[str]:
+        return pulumi.get(self, "cognitoidentityprovider")
+
+    @property
+    @pulumi.getter
     def cognitoidp(self) -> Optional[str]:
         return pulumi.get(self, "cognitoidp")
+
+    @property
+    @pulumi.getter
+    def cognitosync(self) -> Optional[str]:
+        return pulumi.get(self, "cognitosync")
+
+    @property
+    @pulumi.getter
+    def comprehend(self) -> Optional[str]:
+        return pulumi.get(self, "comprehend")
+
+    @property
+    @pulumi.getter
+    def comprehendmedical(self) -> Optional[str]:
+        return pulumi.get(self, "comprehendmedical")
+
+    @property
+    @pulumi.getter
+    def config(self) -> Optional[str]:
+        return pulumi.get(self, "config")
 
     @property
     @pulumi.getter
@@ -789,8 +1321,38 @@ class Endpoints(dict):
 
     @property
     @pulumi.getter
+    def connectcontactlens(self) -> Optional[str]:
+        return pulumi.get(self, "connectcontactlens")
+
+    @property
+    @pulumi.getter
+    def connectparticipant(self) -> Optional[str]:
+        return pulumi.get(self, "connectparticipant")
+
+    @property
+    @pulumi.getter
+    def costandusagereportservice(self) -> Optional[str]:
+        return pulumi.get(self, "costandusagereportservice")
+
+    @property
+    @pulumi.getter
+    def costexplorer(self) -> Optional[str]:
+        return pulumi.get(self, "costexplorer")
+
+    @property
+    @pulumi.getter
     def cur(self) -> Optional[str]:
         return pulumi.get(self, "cur")
+
+    @property
+    @pulumi.getter
+    def databasemigration(self) -> Optional[str]:
+        return pulumi.get(self, "databasemigration")
+
+    @property
+    @pulumi.getter
+    def databasemigrationservice(self) -> Optional[str]:
+        return pulumi.get(self, "databasemigrationservice")
 
     @property
     @pulumi.getter
@@ -824,6 +1386,11 @@ class Endpoints(dict):
 
     @property
     @pulumi.getter
+    def devopsguru(self) -> Optional[str]:
+        return pulumi.get(self, "devopsguru")
+
+    @property
+    @pulumi.getter
     def directconnect(self) -> Optional[str]:
         return pulumi.get(self, "directconnect")
 
@@ -854,8 +1421,18 @@ class Endpoints(dict):
 
     @property
     @pulumi.getter
+    def dynamodbstreams(self) -> Optional[str]:
+        return pulumi.get(self, "dynamodbstreams")
+
+    @property
+    @pulumi.getter
     def ec2(self) -> Optional[str]:
         return pulumi.get(self, "ec2")
+
+    @property
+    @pulumi.getter
+    def ec2instanceconnect(self) -> Optional[str]:
+        return pulumi.get(self, "ec2instanceconnect")
 
     @property
     @pulumi.getter
@@ -894,6 +1471,21 @@ class Endpoints(dict):
 
     @property
     @pulumi.getter
+    def elasticinference(self) -> Optional[str]:
+        return pulumi.get(self, "elasticinference")
+
+    @property
+    @pulumi.getter
+    def elasticsearch(self) -> Optional[str]:
+        return pulumi.get(self, "elasticsearch")
+
+    @property
+    @pulumi.getter
+    def elasticsearchservice(self) -> Optional[str]:
+        return pulumi.get(self, "elasticsearchservice")
+
+    @property
+    @pulumi.getter
     def elastictranscoder(self) -> Optional[str]:
         return pulumi.get(self, "elastictranscoder")
 
@@ -901,6 +1493,11 @@ class Endpoints(dict):
     @pulumi.getter
     def elb(self) -> Optional[str]:
         return pulumi.get(self, "elb")
+
+    @property
+    @pulumi.getter
+    def elbv2(self) -> Optional[str]:
+        return pulumi.get(self, "elbv2")
 
     @property
     @pulumi.getter
@@ -919,8 +1516,23 @@ class Endpoints(dict):
 
     @property
     @pulumi.getter
+    def finspace(self) -> Optional[str]:
+        return pulumi.get(self, "finspace")
+
+    @property
+    @pulumi.getter
+    def finspacedata(self) -> Optional[str]:
+        return pulumi.get(self, "finspacedata")
+
+    @property
+    @pulumi.getter
     def firehose(self) -> Optional[str]:
         return pulumi.get(self, "firehose")
+
+    @property
+    @pulumi.getter
+    def fis(self) -> Optional[str]:
+        return pulumi.get(self, "fis")
 
     @property
     @pulumi.getter
@@ -931,6 +1543,26 @@ class Endpoints(dict):
     @pulumi.getter
     def forecast(self) -> Optional[str]:
         return pulumi.get(self, "forecast")
+
+    @property
+    @pulumi.getter
+    def forecastquery(self) -> Optional[str]:
+        return pulumi.get(self, "forecastquery")
+
+    @property
+    @pulumi.getter
+    def forecastqueryservice(self) -> Optional[str]:
+        return pulumi.get(self, "forecastqueryservice")
+
+    @property
+    @pulumi.getter
+    def forecastservice(self) -> Optional[str]:
+        return pulumi.get(self, "forecastservice")
+
+    @property
+    @pulumi.getter
+    def frauddetector(self) -> Optional[str]:
+        return pulumi.get(self, "frauddetector")
 
     @property
     @pulumi.getter
@@ -959,13 +1591,43 @@ class Endpoints(dict):
 
     @property
     @pulumi.getter
+    def gluedatabrew(self) -> Optional[str]:
+        return pulumi.get(self, "gluedatabrew")
+
+    @property
+    @pulumi.getter
     def greengrass(self) -> Optional[str]:
         return pulumi.get(self, "greengrass")
 
     @property
     @pulumi.getter
+    def greengrassv2(self) -> Optional[str]:
+        return pulumi.get(self, "greengrassv2")
+
+    @property
+    @pulumi.getter
+    def groundstation(self) -> Optional[str]:
+        return pulumi.get(self, "groundstation")
+
+    @property
+    @pulumi.getter
     def guardduty(self) -> Optional[str]:
         return pulumi.get(self, "guardduty")
+
+    @property
+    @pulumi.getter
+    def health(self) -> Optional[str]:
+        return pulumi.get(self, "health")
+
+    @property
+    @pulumi.getter
+    def healthlake(self) -> Optional[str]:
+        return pulumi.get(self, "healthlake")
+
+    @property
+    @pulumi.getter
+    def honeycode(self) -> Optional[str]:
+        return pulumi.get(self, "honeycode")
 
     @property
     @pulumi.getter
@@ -994,8 +1656,33 @@ class Endpoints(dict):
 
     @property
     @pulumi.getter
+    def iot1clickdevices(self) -> Optional[str]:
+        return pulumi.get(self, "iot1clickdevices")
+
+    @property
+    @pulumi.getter
+    def iot1clickdevicesservice(self) -> Optional[str]:
+        return pulumi.get(self, "iot1clickdevicesservice")
+
+    @property
+    @pulumi.getter
+    def iot1clickprojects(self) -> Optional[str]:
+        return pulumi.get(self, "iot1clickprojects")
+
+    @property
+    @pulumi.getter
     def iotanalytics(self) -> Optional[str]:
         return pulumi.get(self, "iotanalytics")
+
+    @property
+    @pulumi.getter
+    def iotdataplane(self) -> Optional[str]:
+        return pulumi.get(self, "iotdataplane")
+
+    @property
+    @pulumi.getter
+    def iotdeviceadvisor(self) -> Optional[str]:
+        return pulumi.get(self, "iotdeviceadvisor")
 
     @property
     @pulumi.getter
@@ -1004,8 +1691,48 @@ class Endpoints(dict):
 
     @property
     @pulumi.getter
+    def ioteventsdata(self) -> Optional[str]:
+        return pulumi.get(self, "ioteventsdata")
+
+    @property
+    @pulumi.getter
+    def iotfleethub(self) -> Optional[str]:
+        return pulumi.get(self, "iotfleethub")
+
+    @property
+    @pulumi.getter
+    def iotjobsdataplane(self) -> Optional[str]:
+        return pulumi.get(self, "iotjobsdataplane")
+
+    @property
+    @pulumi.getter
+    def iotsecuretunneling(self) -> Optional[str]:
+        return pulumi.get(self, "iotsecuretunneling")
+
+    @property
+    @pulumi.getter
+    def iotsitewise(self) -> Optional[str]:
+        return pulumi.get(self, "iotsitewise")
+
+    @property
+    @pulumi.getter
+    def iotthingsgraph(self) -> Optional[str]:
+        return pulumi.get(self, "iotthingsgraph")
+
+    @property
+    @pulumi.getter
+    def iotwireless(self) -> Optional[str]:
+        return pulumi.get(self, "iotwireless")
+
+    @property
+    @pulumi.getter
     def kafka(self) -> Optional[str]:
         return pulumi.get(self, "kafka")
+
+    @property
+    @pulumi.getter
+    def kendra(self) -> Optional[str]:
+        return pulumi.get(self, "kendra")
 
     @property
     @pulumi.getter
@@ -1029,6 +1756,21 @@ class Endpoints(dict):
 
     @property
     @pulumi.getter
+    def kinesisvideoarchivedmedia(self) -> Optional[str]:
+        return pulumi.get(self, "kinesisvideoarchivedmedia")
+
+    @property
+    @pulumi.getter
+    def kinesisvideomedia(self) -> Optional[str]:
+        return pulumi.get(self, "kinesisvideomedia")
+
+    @property
+    @pulumi.getter
+    def kinesisvideosignalingchannels(self) -> Optional[str]:
+        return pulumi.get(self, "kinesisvideosignalingchannels")
+
+    @property
+    @pulumi.getter
     def kms(self) -> Optional[str]:
         return pulumi.get(self, "kms")
 
@@ -1044,8 +1786,38 @@ class Endpoints(dict):
 
     @property
     @pulumi.getter
+    def lexmodelbuilding(self) -> Optional[str]:
+        return pulumi.get(self, "lexmodelbuilding")
+
+    @property
+    @pulumi.getter
+    def lexmodelbuildingservice(self) -> Optional[str]:
+        return pulumi.get(self, "lexmodelbuildingservice")
+
+    @property
+    @pulumi.getter
     def lexmodels(self) -> Optional[str]:
         return pulumi.get(self, "lexmodels")
+
+    @property
+    @pulumi.getter
+    def lexmodelsv2(self) -> Optional[str]:
+        return pulumi.get(self, "lexmodelsv2")
+
+    @property
+    @pulumi.getter
+    def lexruntime(self) -> Optional[str]:
+        return pulumi.get(self, "lexruntime")
+
+    @property
+    @pulumi.getter
+    def lexruntimeservice(self) -> Optional[str]:
+        return pulumi.get(self, "lexruntimeservice")
+
+    @property
+    @pulumi.getter
+    def lexruntimev2(self) -> Optional[str]:
+        return pulumi.get(self, "lexruntimev2")
 
     @property
     @pulumi.getter
@@ -1061,6 +1833,26 @@ class Endpoints(dict):
     @pulumi.getter
     def location(self) -> Optional[str]:
         return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
+    def lookoutequipment(self) -> Optional[str]:
+        return pulumi.get(self, "lookoutequipment")
+
+    @property
+    @pulumi.getter
+    def lookoutforvision(self) -> Optional[str]:
+        return pulumi.get(self, "lookoutforvision")
+
+    @property
+    @pulumi.getter
+    def lookoutmetrics(self) -> Optional[str]:
+        return pulumi.get(self, "lookoutmetrics")
+
+    @property
+    @pulumi.getter
+    def machinelearning(self) -> Optional[str]:
+        return pulumi.get(self, "machinelearning")
 
     @property
     @pulumi.getter
@@ -1084,6 +1876,26 @@ class Endpoints(dict):
 
     @property
     @pulumi.getter
+    def marketplacecommerceanalytics(self) -> Optional[str]:
+        return pulumi.get(self, "marketplacecommerceanalytics")
+
+    @property
+    @pulumi.getter
+    def marketplaceentitlement(self) -> Optional[str]:
+        return pulumi.get(self, "marketplaceentitlement")
+
+    @property
+    @pulumi.getter
+    def marketplaceentitlementservice(self) -> Optional[str]:
+        return pulumi.get(self, "marketplaceentitlementservice")
+
+    @property
+    @pulumi.getter
+    def marketplacemetering(self) -> Optional[str]:
+        return pulumi.get(self, "marketplacemetering")
+
+    @property
+    @pulumi.getter
     def mediaconnect(self) -> Optional[str]:
         return pulumi.get(self, "mediaconnect")
 
@@ -1104,6 +1916,11 @@ class Endpoints(dict):
 
     @property
     @pulumi.getter
+    def mediapackagevod(self) -> Optional[str]:
+        return pulumi.get(self, "mediapackagevod")
+
+    @property
+    @pulumi.getter
     def mediastore(self) -> Optional[str]:
         return pulumi.get(self, "mediastore")
 
@@ -1114,13 +1931,48 @@ class Endpoints(dict):
 
     @property
     @pulumi.getter
+    def mediatailor(self) -> Optional[str]:
+        return pulumi.get(self, "mediatailor")
+
+    @property
+    @pulumi.getter
     def memorydb(self) -> Optional[str]:
         return pulumi.get(self, "memorydb")
 
     @property
     @pulumi.getter
+    def mgn(self) -> Optional[str]:
+        return pulumi.get(self, "mgn")
+
+    @property
+    @pulumi.getter
+    def migrationhub(self) -> Optional[str]:
+        return pulumi.get(self, "migrationhub")
+
+    @property
+    @pulumi.getter
+    def migrationhubconfig(self) -> Optional[str]:
+        return pulumi.get(self, "migrationhubconfig")
+
+    @property
+    @pulumi.getter
+    def mobile(self) -> Optional[str]:
+        return pulumi.get(self, "mobile")
+
+    @property
+    @pulumi.getter
+    def mobileanalytics(self) -> Optional[str]:
+        return pulumi.get(self, "mobileanalytics")
+
+    @property
+    @pulumi.getter
     def mq(self) -> Optional[str]:
         return pulumi.get(self, "mq")
+
+    @property
+    @pulumi.getter
+    def mturk(self) -> Optional[str]:
+        return pulumi.get(self, "mturk")
 
     @property
     @pulumi.getter
@@ -1144,8 +1996,18 @@ class Endpoints(dict):
 
     @property
     @pulumi.getter
+    def nimblestudio(self) -> Optional[str]:
+        return pulumi.get(self, "nimblestudio")
+
+    @property
+    @pulumi.getter
     def opsworks(self) -> Optional[str]:
         return pulumi.get(self, "opsworks")
+
+    @property
+    @pulumi.getter
+    def opsworkscm(self) -> Optional[str]:
+        return pulumi.get(self, "opsworkscm")
 
     @property
     @pulumi.getter
@@ -1164,8 +2026,38 @@ class Endpoints(dict):
 
     @property
     @pulumi.getter
+    def personalizeevents(self) -> Optional[str]:
+        return pulumi.get(self, "personalizeevents")
+
+    @property
+    @pulumi.getter
+    def personalizeruntime(self) -> Optional[str]:
+        return pulumi.get(self, "personalizeruntime")
+
+    @property
+    @pulumi.getter
+    def pi(self) -> Optional[str]:
+        return pulumi.get(self, "pi")
+
+    @property
+    @pulumi.getter
     def pinpoint(self) -> Optional[str]:
         return pulumi.get(self, "pinpoint")
+
+    @property
+    @pulumi.getter
+    def pinpointemail(self) -> Optional[str]:
+        return pulumi.get(self, "pinpointemail")
+
+    @property
+    @pulumi.getter
+    def pinpointsmsvoice(self) -> Optional[str]:
+        return pulumi.get(self, "pinpointsmsvoice")
+
+    @property
+    @pulumi.getter
+    def polly(self) -> Optional[str]:
+        return pulumi.get(self, "polly")
 
     @property
     @pulumi.getter
@@ -1174,8 +2066,28 @@ class Endpoints(dict):
 
     @property
     @pulumi.getter
+    def prometheus(self) -> Optional[str]:
+        return pulumi.get(self, "prometheus")
+
+    @property
+    @pulumi.getter
+    def prometheusservice(self) -> Optional[str]:
+        return pulumi.get(self, "prometheusservice")
+
+    @property
+    @pulumi.getter
+    def proton(self) -> Optional[str]:
+        return pulumi.get(self, "proton")
+
+    @property
+    @pulumi.getter
     def qldb(self) -> Optional[str]:
         return pulumi.get(self, "qldb")
+
+    @property
+    @pulumi.getter
+    def qldbsession(self) -> Optional[str]:
+        return pulumi.get(self, "qldbsession")
 
     @property
     @pulumi.getter
@@ -1194,8 +2106,28 @@ class Endpoints(dict):
 
     @property
     @pulumi.getter
+    def rdsdata(self) -> Optional[str]:
+        return pulumi.get(self, "rdsdata")
+
+    @property
+    @pulumi.getter
+    def rdsdataservice(self) -> Optional[str]:
+        return pulumi.get(self, "rdsdataservice")
+
+    @property
+    @pulumi.getter
     def redshift(self) -> Optional[str]:
         return pulumi.get(self, "redshift")
+
+    @property
+    @pulumi.getter
+    def redshiftdata(self) -> Optional[str]:
+        return pulumi.get(self, "redshiftdata")
+
+    @property
+    @pulumi.getter
+    def rekognition(self) -> Optional[str]:
+        return pulumi.get(self, "rekognition")
 
     @property
     @pulumi.getter
@@ -1204,8 +2136,18 @@ class Endpoints(dict):
 
     @property
     @pulumi.getter
+    def resourcegroupstagging(self) -> Optional[str]:
+        return pulumi.get(self, "resourcegroupstagging")
+
+    @property
+    @pulumi.getter
     def resourcegroupstaggingapi(self) -> Optional[str]:
         return pulumi.get(self, "resourcegroupstaggingapi")
+
+    @property
+    @pulumi.getter
+    def robomaker(self) -> Optional[str]:
+        return pulumi.get(self, "robomaker")
 
     @property
     @pulumi.getter
@@ -1254,6 +2196,26 @@ class Endpoints(dict):
 
     @property
     @pulumi.getter
+    def sagemakeredgemanager(self) -> Optional[str]:
+        return pulumi.get(self, "sagemakeredgemanager")
+
+    @property
+    @pulumi.getter
+    def sagemakerfeaturestoreruntime(self) -> Optional[str]:
+        return pulumi.get(self, "sagemakerfeaturestoreruntime")
+
+    @property
+    @pulumi.getter
+    def sagemakerruntime(self) -> Optional[str]:
+        return pulumi.get(self, "sagemakerruntime")
+
+    @property
+    @pulumi.getter
+    def savingsplans(self) -> Optional[str]:
+        return pulumi.get(self, "savingsplans")
+
+    @property
+    @pulumi.getter
     def schemas(self) -> Optional[str]:
         return pulumi.get(self, "schemas")
 
@@ -1271,6 +2233,16 @@ class Endpoints(dict):
     @pulumi.getter
     def securityhub(self) -> Optional[str]:
         return pulumi.get(self, "securityhub")
+
+    @property
+    @pulumi.getter
+    def serverlessapplicationrepository(self) -> Optional[str]:
+        return pulumi.get(self, "serverlessapplicationrepository")
+
+    @property
+    @pulumi.getter
+    def serverlessapprepo(self) -> Optional[str]:
+        return pulumi.get(self, "serverlessapprepo")
 
     @property
     @pulumi.getter
@@ -1299,6 +2271,16 @@ class Endpoints(dict):
 
     @property
     @pulumi.getter
+    def sesv2(self) -> Optional[str]:
+        return pulumi.get(self, "sesv2")
+
+    @property
+    @pulumi.getter
+    def sfn(self) -> Optional[str]:
+        return pulumi.get(self, "sfn")
+
+    @property
+    @pulumi.getter
     def shield(self) -> Optional[str]:
         return pulumi.get(self, "shield")
 
@@ -1306,6 +2288,21 @@ class Endpoints(dict):
     @pulumi.getter
     def signer(self) -> Optional[str]:
         return pulumi.get(self, "signer")
+
+    @property
+    @pulumi.getter
+    def simpledb(self) -> Optional[str]:
+        return pulumi.get(self, "simpledb")
+
+    @property
+    @pulumi.getter
+    def sms(self) -> Optional[str]:
+        return pulumi.get(self, "sms")
+
+    @property
+    @pulumi.getter
+    def snowball(self) -> Optional[str]:
+        return pulumi.get(self, "snowball")
 
     @property
     @pulumi.getter
@@ -1324,8 +2321,28 @@ class Endpoints(dict):
 
     @property
     @pulumi.getter
+    def ssmcontacts(self) -> Optional[str]:
+        return pulumi.get(self, "ssmcontacts")
+
+    @property
+    @pulumi.getter
+    def ssmincidents(self) -> Optional[str]:
+        return pulumi.get(self, "ssmincidents")
+
+    @property
+    @pulumi.getter
+    def sso(self) -> Optional[str]:
+        return pulumi.get(self, "sso")
+
+    @property
+    @pulumi.getter
     def ssoadmin(self) -> Optional[str]:
         return pulumi.get(self, "ssoadmin")
+
+    @property
+    @pulumi.getter
+    def ssooidc(self) -> Optional[str]:
+        return pulumi.get(self, "ssooidc")
 
     @property
     @pulumi.getter
@@ -1344,6 +2361,11 @@ class Endpoints(dict):
 
     @property
     @pulumi.getter
+    def support(self) -> Optional[str]:
+        return pulumi.get(self, "support")
+
+    @property
+    @pulumi.getter
     def swf(self) -> Optional[str]:
         return pulumi.get(self, "swf")
 
@@ -1354,13 +2376,48 @@ class Endpoints(dict):
 
     @property
     @pulumi.getter
+    def textract(self) -> Optional[str]:
+        return pulumi.get(self, "textract")
+
+    @property
+    @pulumi.getter
+    def timestreamquery(self) -> Optional[str]:
+        return pulumi.get(self, "timestreamquery")
+
+    @property
+    @pulumi.getter
     def timestreamwrite(self) -> Optional[str]:
         return pulumi.get(self, "timestreamwrite")
 
     @property
     @pulumi.getter
+    def transcribe(self) -> Optional[str]:
+        return pulumi.get(self, "transcribe")
+
+    @property
+    @pulumi.getter
+    def transcribeservice(self) -> Optional[str]:
+        return pulumi.get(self, "transcribeservice")
+
+    @property
+    @pulumi.getter
+    def transcribestreaming(self) -> Optional[str]:
+        return pulumi.get(self, "transcribestreaming")
+
+    @property
+    @pulumi.getter
+    def transcribestreamingservice(self) -> Optional[str]:
+        return pulumi.get(self, "transcribestreamingservice")
+
+    @property
+    @pulumi.getter
     def transfer(self) -> Optional[str]:
         return pulumi.get(self, "transfer")
+
+    @property
+    @pulumi.getter
+    def translate(self) -> Optional[str]:
+        return pulumi.get(self, "translate")
 
     @property
     @pulumi.getter
@@ -1379,6 +2436,16 @@ class Endpoints(dict):
 
     @property
     @pulumi.getter
+    def wellarchitected(self) -> Optional[str]:
+        return pulumi.get(self, "wellarchitected")
+
+    @property
+    @pulumi.getter
+    def workdocs(self) -> Optional[str]:
+        return pulumi.get(self, "workdocs")
+
+    @property
+    @pulumi.getter
     def worklink(self) -> Optional[str]:
         return pulumi.get(self, "worklink")
 
@@ -1386,6 +2453,11 @@ class Endpoints(dict):
     @pulumi.getter
     def workmail(self) -> Optional[str]:
         return pulumi.get(self, "workmail")
+
+    @property
+    @pulumi.getter
+    def workmailmessageflow(self) -> Optional[str]:
+        return pulumi.get(self, "workmailmessageflow")
 
     @property
     @pulumi.getter

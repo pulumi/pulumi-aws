@@ -41,7 +41,7 @@ namespace Pulumi.Aws.Iot
     /// 
     /// ## Import
     /// 
-    /// IOT Authorizers can be imported using the name, e.g.
+    /// IOT Authorizers can be imported using the name, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:iot/authorizer:Authorizer example example

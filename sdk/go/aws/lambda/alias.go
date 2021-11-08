@@ -48,7 +48,7 @@ import (
 //
 // ## Import
 //
-// Lambda Function Aliases can be imported using the `function_name/alias`, e.g.
+// Lambda Function Aliases can be imported using the `function_name/alias`, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:lambda/alias:Alias test_lambda_alias my_test_lambda_function/my_alias

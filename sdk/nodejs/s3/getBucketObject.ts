@@ -148,7 +148,7 @@ export interface GetBucketObjectResult {
     readonly id: string;
     readonly key: string;
     /**
-     * Last modified date of the object in RFC1123 format (e.g. `Mon, 02 Jan 2006 15:04:05 MST`)
+     * Last modified date of the object in RFC1123 format (e.g., `Mon, 02 Jan 2006 15:04:05 MST`)
      */
     readonly lastModified: string;
     /**

@@ -166,13 +166,13 @@ import (
 //
 // ## Import
 //
-// EIPs in a VPC can be imported using their Allocation ID, e.g.
+// EIPs in a VPC can be imported using their Allocation ID, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:ec2/eip:Eip bar eipalloc-00a10e96
 // ```
 //
-//  EIPs in EC2 Classic can be imported using their Public IP, e.g.
+//  EIPs in EC2 Classic can be imported using their Public IP, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:ec2/eip:Eip bar 52.0.0.0
@@ -215,7 +215,8 @@ type Eip struct {
 	// EC2 IPv4 address pool identifier or `amazon`. This option is only available for VPC EIPs.
 	PublicIpv4Pool pulumi.StringOutput    `pulumi:"publicIpv4Pool"`
 	Tags           pulumi.StringMapOutput `pulumi:"tags"`
-	TagsAll        pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Boolean if the EIP is in a VPC or not.
 	Vpc pulumi.BoolOutput `pulumi:"vpc"`
 }
@@ -282,7 +283,8 @@ type eipState struct {
 	// EC2 IPv4 address pool identifier or `amazon`. This option is only available for VPC EIPs.
 	PublicIpv4Pool *string           `pulumi:"publicIpv4Pool"`
 	Tags           map[string]string `pulumi:"tags"`
-	TagsAll        map[string]string `pulumi:"tagsAll"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Boolean if the EIP is in a VPC or not.
 	Vpc *bool `pulumi:"vpc"`
 }
@@ -321,7 +323,8 @@ type EipState struct {
 	// EC2 IPv4 address pool identifier or `amazon`. This option is only available for VPC EIPs.
 	PublicIpv4Pool pulumi.StringPtrInput
 	Tags           pulumi.StringMapInput
-	TagsAll        pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 	// Boolean if the EIP is in a VPC or not.
 	Vpc pulumi.BoolPtrInput
 }

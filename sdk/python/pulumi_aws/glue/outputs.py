@@ -1431,6 +1431,10 @@ class CrawlerS3Target(dict):
         suggest = None
         if key == "connectionName":
             suggest = "connection_name"
+        elif key == "dlqEventQueueArn":
+            suggest = "dlq_event_queue_arn"
+        elif key == "eventQueueArn":
+            suggest = "event_queue_arn"
         elif key == "sampleSize":
             suggest = "sample_size"
 
@@ -1448,17 +1452,25 @@ class CrawlerS3Target(dict):
     def __init__(__self__, *,
                  path: str,
                  connection_name: Optional[str] = None,
+                 dlq_event_queue_arn: Optional[str] = None,
+                 event_queue_arn: Optional[str] = None,
                  exclusions: Optional[Sequence[str]] = None,
                  sample_size: Optional[int] = None):
         """
         :param str path: The path of the Amazon DocumentDB or MongoDB target (database/collection).
         :param str connection_name: The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
+        :param str dlq_event_queue_arn: The ARN of the dead-letter SQS queue.
+        :param str event_queue_arn: The ARN of the SQS queue to receive S3 notifications from.
         :param Sequence[str] exclusions: A list of glob patterns used to exclude from the crawl.
         :param int sample_size: Sets the number of files in each leaf folder to be crawled when crawling sample files in a dataset. If not set, all the files are crawled. A valid value is an integer between 1 and 249.
         """
         pulumi.set(__self__, "path", path)
         if connection_name is not None:
             pulumi.set(__self__, "connection_name", connection_name)
+        if dlq_event_queue_arn is not None:
+            pulumi.set(__self__, "dlq_event_queue_arn", dlq_event_queue_arn)
+        if event_queue_arn is not None:
+            pulumi.set(__self__, "event_queue_arn", event_queue_arn)
         if exclusions is not None:
             pulumi.set(__self__, "exclusions", exclusions)
         if sample_size is not None:
@@ -1479,6 +1491,22 @@ class CrawlerS3Target(dict):
         The name of the connection to use to connect to the Amazon DocumentDB or MongoDB target.
         """
         return pulumi.get(self, "connection_name")
+
+    @property
+    @pulumi.getter(name="dlqEventQueueArn")
+    def dlq_event_queue_arn(self) -> Optional[str]:
+        """
+        The ARN of the dead-letter SQS queue.
+        """
+        return pulumi.get(self, "dlq_event_queue_arn")
+
+    @property
+    @pulumi.getter(name="eventQueueArn")
+    def event_queue_arn(self) -> Optional[str]:
+        """
+        The ARN of the SQS queue to receive S3 notifications from.
+        """
+        return pulumi.get(self, "event_queue_arn")
 
     @property
     @pulumi.getter

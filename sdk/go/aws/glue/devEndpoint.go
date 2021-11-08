@@ -75,7 +75,7 @@ import (
 //
 // ## Import
 //
-// A Glue Development Endpoint can be imported using the `name`, e.g.
+// A Glue Development Endpoint can be imported using the `name`, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:glue/devEndpoint:DevEndpoint example foo
@@ -122,7 +122,8 @@ type DevEndpoint struct {
 	// The subnet ID for the new endpoint to use.
 	SubnetId pulumi.StringPtrOutput `pulumi:"subnetId"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// he ID of the VPC used by this endpoint.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
@@ -205,7 +206,8 @@ type devEndpointState struct {
 	// The subnet ID for the new endpoint to use.
 	SubnetId *string `pulumi:"subnetId"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    map[string]string `pulumi:"tags"`
+	Tags map[string]string `pulumi:"tags"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// he ID of the VPC used by this endpoint.
 	VpcId *string `pulumi:"vpcId"`
@@ -257,7 +259,8 @@ type DevEndpointState struct {
 	// The subnet ID for the new endpoint to use.
 	SubnetId pulumi.StringPtrInput
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	Tags    pulumi.StringMapInput
+	Tags pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// he ID of the VPC used by this endpoint.
 	VpcId pulumi.StringPtrInput

@@ -167,7 +167,7 @@ class ApiKey(pulumi.CustomResource):
 
         ## Import
 
-        `aws_appsync_api_key` can be imported using the AppSync API ID and key separated by `:`, e.g.
+        `aws_appsync_api_key` can be imported using the AppSync API ID and key separated by `:`, e.g.,
 
         ```sh
          $ pulumi import aws:appsync/apiKey:ApiKey example xxxxx:yyyyy
@@ -202,7 +202,7 @@ class ApiKey(pulumi.CustomResource):
 
         ## Import
 
-        `aws_appsync_api_key` can be imported using the AppSync API ID and key separated by `:`, e.g.
+        `aws_appsync_api_key` can be imported using the AppSync API ID and key separated by `:`, e.g.,
 
         ```sh
          $ pulumi import aws:appsync/apiKey:ApiKey example xxxxx:yyyyy

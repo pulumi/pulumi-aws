@@ -57,7 +57,7 @@ namespace Pulumi.Aws.Neptune
     /// 
     /// ## Import
     /// 
-    /// `aws_neptune_cluster_instance` can be imported by using the instance identifier, e.g.
+    /// `aws_neptune_cluster_instance` can be imported by using the instance identifier, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:neptune/clusterInstance:ClusterInstance example my-instance

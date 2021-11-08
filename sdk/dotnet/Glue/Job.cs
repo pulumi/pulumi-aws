@@ -95,7 +95,7 @@ namespace Pulumi.Aws.Glue
     /// 
     /// ## Import
     /// 
-    /// Glue Jobs can be imported using `name`, e.g.
+    /// Glue Jobs can be imported using `name`, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:glue/job:Job MyJob MyJob
@@ -200,6 +200,9 @@ namespace Pulumi.Aws.Glue
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -516,6 +519,10 @@ namespace Pulumi.Aws.Glue
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

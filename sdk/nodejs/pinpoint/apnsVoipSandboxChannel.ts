@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Pinpoint APNs VoIP Sandbox Channel can be imported using the `application-id`, e.g.
+ * Pinpoint APNs VoIP Sandbox Channel can be imported using the `application-id`, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:pinpoint/apnsVoipSandboxChannel:ApnsVoipSandboxChannel apns_voip_sandbox application-id

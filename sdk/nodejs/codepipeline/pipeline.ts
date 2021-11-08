@@ -136,7 +136,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * CodePipelines can be imported using the name, e.g.
+ * CodePipelines can be imported using the name, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:codepipeline/pipeline:Pipeline foo example

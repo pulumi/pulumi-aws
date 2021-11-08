@@ -79,7 +79,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * ECS services can be imported using the `name` together with ecs cluster `name`, e.g.
+ * ECS services can be imported using the `name` together with ecs cluster `name`, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:ecs/service:Service imported cluster-name/service-name
@@ -150,7 +150,7 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly enableExecuteCommand!: pulumi.Output<boolean | undefined>;
     /**
-     * Enable to force a new task deployment of the service. This can be used to update tasks to use a newer Docker image with same image/tag combination (e.g. `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy `orderedPlacementStrategy` and `placementConstraints` updates.
+     * Enable to force a new task deployment of the service. This can be used to update tasks to use a newer Docker image with same image/tag combination (e.g., `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy `orderedPlacementStrategy` and `placementConstraints` updates.
      */
     public readonly forceNewDeployment!: pulumi.Output<boolean | undefined>;
     /**
@@ -205,6 +205,9 @@ export class Service extends pulumi.CustomResource {
      * Key-value map of resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service. Required unless using the `EXTERNAL` deployment controller. If a revision is not specified, the latest `ACTIVE` revision is used.
@@ -331,7 +334,7 @@ export interface ServiceState {
      */
     enableExecuteCommand?: pulumi.Input<boolean>;
     /**
-     * Enable to force a new task deployment of the service. This can be used to update tasks to use a newer Docker image with same image/tag combination (e.g. `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy `orderedPlacementStrategy` and `placementConstraints` updates.
+     * Enable to force a new task deployment of the service. This can be used to update tasks to use a newer Docker image with same image/tag combination (e.g., `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy `orderedPlacementStrategy` and `placementConstraints` updates.
      */
     forceNewDeployment?: pulumi.Input<boolean>;
     /**
@@ -386,6 +389,9 @@ export interface ServiceState {
      * Key-value map of resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service. Required unless using the `EXTERNAL` deployment controller. If a revision is not specified, the latest `ACTIVE` revision is used.
@@ -438,7 +444,7 @@ export interface ServiceArgs {
      */
     enableExecuteCommand?: pulumi.Input<boolean>;
     /**
-     * Enable to force a new task deployment of the service. This can be used to update tasks to use a newer Docker image with same image/tag combination (e.g. `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy `orderedPlacementStrategy` and `placementConstraints` updates.
+     * Enable to force a new task deployment of the service. This can be used to update tasks to use a newer Docker image with same image/tag combination (e.g., `myimage:latest`), roll Fargate tasks onto a newer platform version, or immediately deploy `orderedPlacementStrategy` and `placementConstraints` updates.
      */
     forceNewDeployment?: pulumi.Input<boolean>;
     /**

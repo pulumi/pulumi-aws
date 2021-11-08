@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Pinpoint App can be imported using the `application-id`, e.g.
+ * Pinpoint App can be imported using the `application-id`, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:pinpoint/app:App name application-id

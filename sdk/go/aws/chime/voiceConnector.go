@@ -39,7 +39,7 @@ import (
 //
 // ## Import
 //
-// Configuration Recorder can be imported using the name, e.g.
+// Configuration Recorder can be imported using the name, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:chime/voiceConnector:VoiceConnector test example

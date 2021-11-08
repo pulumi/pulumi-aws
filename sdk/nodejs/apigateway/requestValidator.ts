@@ -24,7 +24,7 @@ import {RestApi} from "./index";
  *
  * ## Import
  *
- * `aws_api_gateway_request_validator` can be imported using `REST-API-ID/REQUEST-VALIDATOR-ID`, e.g.
+ * `aws_api_gateway_request_validator` can be imported using `REST-API-ID/REQUEST-VALIDATOR-ID`, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:apigateway/requestValidator:RequestValidator example 12345abcde/67890fghij

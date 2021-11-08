@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CodeBuild
 {
     /// <summary>
-    /// Provides a CodeBuild Project resource. See also the `aws.codebuild.Webhook` resource, which manages the webhook to the source (e.g. the "rebuild every time a code change is pushed" option in the CodeBuild web console).
+    /// Provides a CodeBuild Project resource. See also the `aws.codebuild.Webhook` resource, which manages the webhook to the source (e.g., the "rebuild every time a code change is pushed" option in the CodeBuild web console).
     /// 
     /// ## Example Usage
     /// 
@@ -239,7 +239,7 @@ namespace Pulumi.Aws.CodeBuild
     /// 
     /// ## Import
     /// 
-    /// CodeBuild Project can be imported using the `name`, e.g.
+    /// CodeBuild Project can be imported using the `name`, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:codebuild/project:Project name project-name

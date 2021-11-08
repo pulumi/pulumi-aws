@@ -646,7 +646,7 @@ class ReplicationInstance(pulumi.CustomResource):
 
         ## Import
 
-        Replication instances can be imported using the `replication_instance_id`, e.g.
+        Replication instances can be imported using the `replication_instance_id`, e.g.,
 
         ```sh
          $ pulumi import aws:dms/replicationInstance:ReplicationInstance test test-dms-replication-instance-tf
@@ -733,7 +733,7 @@ class ReplicationInstance(pulumi.CustomResource):
 
         ## Import
 
-        Replication instances can be imported using the `replication_instance_id`, e.g.
+        Replication instances can be imported using the `replication_instance_id`, e.g.,
 
         ```sh
          $ pulumi import aws:dms/replicationInstance:ReplicationInstance test test-dms-replication-instance-tf

@@ -55,7 +55,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Default VPC route tables can be imported using the `vpc_id`, e.g.
+ * Default VPC route tables can be imported using the `vpc_id`, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:ec2/defaultRouteTable:DefaultRouteTable example vpc-33cc44dd

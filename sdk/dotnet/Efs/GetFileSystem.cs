@@ -99,7 +99,7 @@ namespace Pulumi.Aws.Efs
         public string? CreationToken { get; set; }
 
         /// <summary>
-        /// The ID that identifies the file system (e.g. fs-ccfc0d65).
+        /// The ID that identifies the file system (e.g., fs-ccfc0d65).
         /// </summary>
         [Input("fileSystemId")]
         public string? FileSystemId { get; set; }
@@ -130,7 +130,7 @@ namespace Pulumi.Aws.Efs
         public Input<string>? CreationToken { get; set; }
 
         /// <summary>
-        /// The ID that identifies the file system (e.g. fs-ccfc0d65).
+        /// The ID that identifies the file system (e.g., fs-ccfc0d65).
         /// </summary>
         [Input("fileSystemId")]
         public Input<string>? FileSystemId { get; set; }

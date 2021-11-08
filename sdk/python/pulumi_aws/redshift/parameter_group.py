@@ -263,7 +263,7 @@ class ParameterGroup(pulumi.CustomResource):
 
         ## Import
 
-        Redshift Parameter Groups can be imported using the `name`, e.g.
+        Redshift Parameter Groups can be imported using the `name`, e.g.,
 
         ```sh
          $ pulumi import aws:redshift/parameterGroup:ParameterGroup paramgroup1 parameter-group-test
@@ -312,7 +312,7 @@ class ParameterGroup(pulumi.CustomResource):
 
         ## Import
 
-        Redshift Parameter Groups can be imported using the `name`, e.g.
+        Redshift Parameter Groups can be imported using the `name`, e.g.,
 
         ```sh
          $ pulumi import aws:redshift/parameterGroup:ParameterGroup paramgroup1 parameter-group-test

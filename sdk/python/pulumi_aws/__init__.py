@@ -566,6 +566,22 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "amp/alertManagerDefinition",
+  "fqn": "pulumi_aws.amp",
+  "classes": {
+   "aws:amp/alertManagerDefinition:AlertManagerDefinition": "AlertManagerDefinition"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "amp/ruleGroupNamespace",
+  "fqn": "pulumi_aws.amp",
+  "classes": {
+   "aws:amp/ruleGroupNamespace:RuleGroupNamespace": "RuleGroupNamespace"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "amp/workspace",
   "fqn": "pulumi_aws.amp",
   "classes": {
@@ -1302,6 +1318,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "backup/vaultLockConfiguration",
+  "fqn": "pulumi_aws.backup",
+  "classes": {
+   "aws:backup/vaultLockConfiguration:VaultLockConfiguration": "VaultLockConfiguration"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "backup/vaultNotifications",
   "fqn": "pulumi_aws.backup",
   "classes": {
@@ -1618,6 +1642,14 @@ _utilities.register(
   "fqn": "pulumi_aws.cloudfront",
   "classes": {
    "aws:cloudfront/realtimeLogConfig:RealtimeLogConfig": "RealtimeLogConfig"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "cloudfront/responseHeadersPolicy",
+  "fqn": "pulumi_aws.cloudfront",
+  "classes": {
+   "aws:cloudfront/responseHeadersPolicy:ResponseHeadersPolicy": "ResponseHeadersPolicy"
   }
  },
  {
@@ -4458,6 +4490,22 @@ _utilities.register(
   "fqn": "pulumi_aws.kms",
   "classes": {
    "aws:kms/key:Key": "Key"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "kms/replicaExternalKey",
+  "fqn": "pulumi_aws.kms",
+  "classes": {
+   "aws:kms/replicaExternalKey:ReplicaExternalKey": "ReplicaExternalKey"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "kms/replicaKey",
+  "fqn": "pulumi_aws.kms",
+  "classes": {
+   "aws:kms/replicaKey:ReplicaKey": "ReplicaKey"
   }
  },
  {

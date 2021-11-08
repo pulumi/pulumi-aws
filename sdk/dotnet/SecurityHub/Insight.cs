@@ -213,7 +213,7 @@ namespace Pulumi.Aws.SecurityHub
     /// 
     /// ## Import
     /// 
-    /// Security Hub insights can be imported using the ARN, e.g.
+    /// Security Hub insights can be imported using the ARN, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:securityhub/insight:Insight example arn:aws:securityhub:us-west-2:1234567890:insight/1234567890/custom/91299ed7-abd0-4e44-a858-d0b15e37141a
@@ -235,7 +235,7 @@ namespace Pulumi.Aws.SecurityHub
         public Output<Outputs.InsightFilters> Filters { get; private set; } = null!;
 
         /// <summary>
-        /// The attribute used to group the findings for the insight e.g. if an insight is grouped by `ResourceId`, then the insight produces a list of resource identifiers.
+        /// The attribute used to group the findings for the insight e.g., if an insight is grouped by `ResourceId`, then the insight produces a list of resource identifiers.
         /// </summary>
         [Output("groupByAttribute")]
         public Output<string> GroupByAttribute { get; private set; } = null!;
@@ -299,7 +299,7 @@ namespace Pulumi.Aws.SecurityHub
         public Input<Inputs.InsightFiltersArgs> Filters { get; set; } = null!;
 
         /// <summary>
-        /// The attribute used to group the findings for the insight e.g. if an insight is grouped by `ResourceId`, then the insight produces a list of resource identifiers.
+        /// The attribute used to group the findings for the insight e.g., if an insight is grouped by `ResourceId`, then the insight produces a list of resource identifiers.
         /// </summary>
         [Input("groupByAttribute", required: true)]
         public Input<string> GroupByAttribute { get; set; } = null!;
@@ -330,7 +330,7 @@ namespace Pulumi.Aws.SecurityHub
         public Input<Inputs.InsightFiltersGetArgs>? Filters { get; set; }
 
         /// <summary>
-        /// The attribute used to group the findings for the insight e.g. if an insight is grouped by `ResourceId`, then the insight produces a list of resource identifiers.
+        /// The attribute used to group the findings for the insight e.g., if an insight is grouped by `ResourceId`, then the insight produces a list of resource identifiers.
         /// </summary>
         [Input("groupByAttribute")]
         public Input<string>? GroupByAttribute { get; set; }

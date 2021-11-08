@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Route53 Recovery Control Config cluster can be imported via the cluster ARN, e.g.
+ * Route53 Recovery Control Config cluster can be imported via the cluster ARN, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:route53recoverycontrol/cluster:Cluster mycluster arn:aws:route53-recovery-control::313517334327:cluster/f9ae13be-a11e-4ec7-8522-94a70468e6ea

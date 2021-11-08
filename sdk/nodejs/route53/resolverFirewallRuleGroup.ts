@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- *  Route 53 Resolver DNS Firewall rule groups can be imported using the Route 53 Resolver DNS Firewall rule group ID, e.g.
+ *  Route 53 Resolver DNS Firewall rule groups can be imported using the Route 53 Resolver DNS Firewall rule group ID, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:route53/resolverFirewallRuleGroup:ResolverFirewallRuleGroup example rslvr-frg-0123456789abcdef
@@ -56,6 +56,7 @@ export class ResolverFirewallRuleGroup extends pulumi.CustomResource {
      * The ARN (Amazon Resource Name) of the rule group.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    public /*out*/ readonly id!: pulumi.Output<string>;
     /**
      * A name that lets you identify the rule group, to manage and use it.
      */
@@ -91,6 +92,7 @@ export class ResolverFirewallRuleGroup extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as ResolverFirewallRuleGroupState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
+            inputs["id"] = state ? state.id : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["ownerId"] = state ? state.ownerId : undefined;
             inputs["shareStatus"] = state ? state.shareStatus : undefined;
@@ -101,6 +103,7 @@ export class ResolverFirewallRuleGroup extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
+            inputs["id"] = undefined /*out*/;
             inputs["ownerId"] = undefined /*out*/;
             inputs["shareStatus"] = undefined /*out*/;
             inputs["tagsAll"] = undefined /*out*/;
@@ -120,6 +123,7 @@ export interface ResolverFirewallRuleGroupState {
      * The ARN (Amazon Resource Name) of the rule group.
      */
     arn?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
     /**
      * A name that lets you identify the rule group, to manage and use it.
      */

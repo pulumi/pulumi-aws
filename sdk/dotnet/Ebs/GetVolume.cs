@@ -197,7 +197,7 @@ namespace Pulumi.Aws.Ebs
     public sealed class GetVolumeResult
     {
         /// <summary>
-        /// The volume ARN (e.g. arn:aws:ec2:us-east-1:0123456789012:volume/vol-59fcb34e).
+        /// The volume ARN (e.g., arn:aws:ec2:us-east-1:0123456789012:volume/vol-59fcb34e).
         /// </summary>
         public readonly string Arn;
         /// <summary>
@@ -247,7 +247,7 @@ namespace Pulumi.Aws.Ebs
         /// </summary>
         public readonly int Throughput;
         /// <summary>
-        /// The volume ID (e.g. vol-59fcb34e).
+        /// The volume ID (e.g., vol-59fcb34e).
         /// </summary>
         public readonly string VolumeId;
         /// <summary>

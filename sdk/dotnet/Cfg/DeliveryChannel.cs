@@ -91,7 +91,7 @@ namespace Pulumi.Aws.Cfg
     /// 
     /// ## Import
     /// 
-    /// Delivery Channel can be imported using the name, e.g.
+    /// Delivery Channel can be imported using the name, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:cfg/deliveryChannel:DeliveryChannel foo example

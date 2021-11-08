@@ -74,6 +74,7 @@ class _DiscovererState:
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the discoverer.
         :param pulumi.Input[str] description: The description of the discoverer. Maximum of 256 characters.
         :param pulumi.Input[str] source_arn: The ARN of the event bus to discover event schemas on.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -134,6 +135,9 @@ class _DiscovererState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -169,7 +173,7 @@ class Discoverer(pulumi.CustomResource):
 
         ## Import
 
-        EventBridge discoverers can be imported using the `id`, e.g. console
+        EventBridge discoverers can be imported using the `id`, e.g., console
 
         ```sh
          $ pulumi import aws:schemas/discoverer:Discoverer test 123
@@ -205,7 +209,7 @@ class Discoverer(pulumi.CustomResource):
 
         ## Import
 
-        EventBridge discoverers can be imported using the `id`, e.g. console
+        EventBridge discoverers can be imported using the `id`, e.g., console
 
         ```sh
          $ pulumi import aws:schemas/discoverer:Discoverer test 123
@@ -273,6 +277,7 @@ class Discoverer(pulumi.CustomResource):
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the discoverer.
         :param pulumi.Input[str] description: The description of the discoverer. Maximum of 256 characters.
         :param pulumi.Input[str] source_arn: The ARN of the event bus to discover event schemas on.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -317,5 +322,8 @@ class Discoverer(pulumi.CustomResource):
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 

@@ -39,7 +39,7 @@ namespace Pulumi.Aws.Batch
     /// 
     /// ## Import
     /// 
-    /// Batch Job Queue can be imported using the `arn`, e.g.
+    /// Batch Job Queue can be imported using the `arn`, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:batch/jobQueue:JobQueue test_queue arn:aws:batch:us-east-1:123456789012:job-queue/sample

@@ -90,9 +90,9 @@ type LookupZoneResult struct {
 	Comment string `pulumi:"comment"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// The description provided by the service that created the Hosted Zone (e.g. `arn:aws:servicediscovery:us-east-1:1234567890:namespace/ns-xxxxxxxxxxxxxxxx`).
+	// The description provided by the service that created the Hosted Zone (e.g., `arn:aws:servicediscovery:us-east-1:1234567890:namespace/ns-xxxxxxxxxxxxxxxx`).
 	LinkedServiceDescription string `pulumi:"linkedServiceDescription"`
-	// The service that created the Hosted Zone (e.g. `servicediscovery.amazonaws.com`).
+	// The service that created the Hosted Zone (e.g., `servicediscovery.amazonaws.com`).
 	LinkedServicePrincipal string `pulumi:"linkedServicePrincipal"`
 	Name                   string `pulumi:"name"`
 	// The list of DNS name servers for the Hosted Zone.
@@ -169,12 +169,12 @@ func (o LookupZoneResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupZoneResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The description provided by the service that created the Hosted Zone (e.g. `arn:aws:servicediscovery:us-east-1:1234567890:namespace/ns-xxxxxxxxxxxxxxxx`).
+// The description provided by the service that created the Hosted Zone (e.g., `arn:aws:servicediscovery:us-east-1:1234567890:namespace/ns-xxxxxxxxxxxxxxxx`).
 func (o LookupZoneResultOutput) LinkedServiceDescription() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupZoneResult) string { return v.LinkedServiceDescription }).(pulumi.StringOutput)
 }
 
-// The service that created the Hosted Zone (e.g. `servicediscovery.amazonaws.com`).
+// The service that created the Hosted Zone (e.g., `servicediscovery.amazonaws.com`).
 func (o LookupZoneResultOutput) LinkedServicePrincipal() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupZoneResult) string { return v.LinkedServicePrincipal }).(pulumi.StringOutput)
 }

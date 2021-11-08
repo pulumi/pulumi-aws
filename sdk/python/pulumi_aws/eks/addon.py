@@ -349,7 +349,7 @@ class Addon(pulumi.CustomResource):
 
         ## Import
 
-        EKS add-on can be imported using the `cluster_name` and `addon_name` separated by a colon (`:`), e.g.
+        EKS add-on can be imported using the `cluster_name` and `addon_name` separated by a colon (`:`), e.g.,
 
         ```sh
          $ pulumi import aws:eks/addon:Addon my_eks_addon my_cluster_name:my_addon_name
@@ -400,7 +400,7 @@ class Addon(pulumi.CustomResource):
 
         ## Import
 
-        EKS add-on can be imported using the `cluster_name` and `addon_name` separated by a colon (`:`), e.g.
+        EKS add-on can be imported using the `cluster_name` and `addon_name` separated by a colon (`:`), e.g.,
 
         ```sh
          $ pulumi import aws:eks/addon:Addon my_eks_addon my_cluster_name:my_addon_name

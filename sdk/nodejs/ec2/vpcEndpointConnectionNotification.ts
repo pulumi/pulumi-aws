@@ -42,7 +42,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * VPC Endpoint connection notifications can be imported using the `VPC endpoint connection notification id`, e.g.
+ * VPC Endpoint connection notifications can be imported using the `VPC endpoint connection notification id`, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:ec2/vpcEndpointConnectionNotification:VpcEndpointConnectionNotification foo vpce-nfn-09e6ed3b4efba2263

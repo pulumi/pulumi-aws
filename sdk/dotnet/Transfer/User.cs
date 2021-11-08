@@ -138,7 +138,7 @@ namespace Pulumi.Aws.Transfer
         public Output<string> Role { get; private set; } = null!;
 
         /// <summary>
-        /// The Server ID of the Transfer Server (e.g. `s-12345678`)
+        /// The Server ID of the Transfer Server (e.g., `s-12345678`)
         /// </summary>
         [Output("serverId")]
         public Output<string> ServerId { get; private set; } = null!;
@@ -250,7 +250,7 @@ namespace Pulumi.Aws.Transfer
         public Input<string> Role { get; set; } = null!;
 
         /// <summary>
-        /// The Server ID of the Transfer Server (e.g. `s-12345678`)
+        /// The Server ID of the Transfer Server (e.g., `s-12345678`)
         /// </summary>
         [Input("serverId", required: true)]
         public Input<string> ServerId { get; set; } = null!;
@@ -329,7 +329,7 @@ namespace Pulumi.Aws.Transfer
         public Input<string>? Role { get; set; }
 
         /// <summary>
-        /// The Server ID of the Transfer Server (e.g. `s-12345678`)
+        /// The Server ID of the Transfer Server (e.g., `s-12345678`)
         /// </summary>
         [Input("serverId")]
         public Input<string>? ServerId { get; set; }

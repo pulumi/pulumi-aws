@@ -66,7 +66,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * CloudFront real-time log configurations can be imported using the ARN, e.g.
+ * CloudFront real-time log configurations can be imported using the ARN, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:cloudfront/realtimeLogConfig:RealtimeLogConfig example arn:aws:cloudfront::111122223333:realtime-log-config/ExampleNameForRealtimeLogConfig

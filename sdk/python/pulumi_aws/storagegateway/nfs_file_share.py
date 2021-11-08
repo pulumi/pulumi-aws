@@ -19,6 +19,7 @@ class NfsFileShareArgs:
                  gateway_arn: pulumi.Input[str],
                  location_arn: pulumi.Input[str],
                  role_arn: pulumi.Input[str],
+                 audit_destination_arn: Optional[pulumi.Input[str]] = None,
                  cache_attributes: Optional[pulumi.Input['NfsFileShareCacheAttributesArgs']] = None,
                  default_storage_class: Optional[pulumi.Input[str]] = None,
                  file_share_name: Optional[pulumi.Input[str]] = None,
@@ -38,6 +39,7 @@ class NfsFileShareArgs:
         :param pulumi.Input[str] gateway_arn: Amazon Resource Name (ARN) of the file gateway.
         :param pulumi.Input[str] location_arn: The ARN of the backed storage used for storing file data.
         :param pulumi.Input[str] role_arn: The ARN of the AWS Identity and Access Management (IAM) role that a file gateway assumes when it accesses the underlying storage.
+        :param pulumi.Input[str] audit_destination_arn: The Amazon Resource Name (ARN) of the storage used for audit logs.
         :param pulumi.Input['NfsFileShareCacheAttributesArgs'] cache_attributes: Refresh cache information. see Cache Attributes for more details.
         :param pulumi.Input[str] default_storage_class: The default storage class for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`. Valid values: `S3_STANDARD`, `S3_STANDARD_IA`, `S3_ONEZONE_IA`.
         :param pulumi.Input[str] file_share_name: The name of the file share. Must be set if an S3 prefix name is set in `location_arn`.
@@ -56,6 +58,8 @@ class NfsFileShareArgs:
         pulumi.set(__self__, "gateway_arn", gateway_arn)
         pulumi.set(__self__, "location_arn", location_arn)
         pulumi.set(__self__, "role_arn", role_arn)
+        if audit_destination_arn is not None:
+            pulumi.set(__self__, "audit_destination_arn", audit_destination_arn)
         if cache_attributes is not None:
             pulumi.set(__self__, "cache_attributes", cache_attributes)
         if default_storage_class is not None:
@@ -130,6 +134,18 @@ class NfsFileShareArgs:
     @role_arn.setter
     def role_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "role_arn", value)
+
+    @property
+    @pulumi.getter(name="auditDestinationArn")
+    def audit_destination_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the storage used for audit logs.
+        """
+        return pulumi.get(self, "audit_destination_arn")
+
+    @audit_destination_arn.setter
+    def audit_destination_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "audit_destination_arn", value)
 
     @property
     @pulumi.getter(name="cacheAttributes")
@@ -292,6 +308,7 @@ class NfsFileShareArgs:
 class _NfsFileShareState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
+                 audit_destination_arn: Optional[pulumi.Input[str]] = None,
                  cache_attributes: Optional[pulumi.Input['NfsFileShareCacheAttributesArgs']] = None,
                  client_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  default_storage_class: Optional[pulumi.Input[str]] = None,
@@ -315,6 +332,7 @@ class _NfsFileShareState:
         """
         Input properties used for looking up and filtering NfsFileShare resources.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the NFS File Share.
+        :param pulumi.Input[str] audit_destination_arn: The Amazon Resource Name (ARN) of the storage used for audit logs.
         :param pulumi.Input['NfsFileShareCacheAttributesArgs'] cache_attributes: Refresh cache information. see Cache Attributes for more details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] client_lists: The list of clients that are allowed to access the file gateway. The list must contain either valid IP addresses or valid CIDR blocks. Set to `["0.0.0.0/0"]` to not limit access. Minimum 1 item. Maximum 100 items.
         :param pulumi.Input[str] default_storage_class: The default storage class for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`. Valid values: `S3_STANDARD`, `S3_STANDARD_IA`, `S3_ONEZONE_IA`.
@@ -338,6 +356,8 @@ class _NfsFileShareState:
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
+        if audit_destination_arn is not None:
+            pulumi.set(__self__, "audit_destination_arn", audit_destination_arn)
         if cache_attributes is not None:
             pulumi.set(__self__, "cache_attributes", cache_attributes)
         if client_lists is not None:
@@ -390,6 +410,18 @@ class _NfsFileShareState:
     @arn.setter
     def arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="auditDestinationArn")
+    def audit_destination_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the storage used for audit logs.
+        """
+        return pulumi.get(self, "audit_destination_arn")
+
+    @audit_destination_arn.setter
+    def audit_destination_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "audit_destination_arn", value)
 
     @property
     @pulumi.getter(name="cacheAttributes")
@@ -637,6 +669,7 @@ class NfsFileShare(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 audit_destination_arn: Optional[pulumi.Input[str]] = None,
                  cache_attributes: Optional[pulumi.Input[pulumi.InputType['NfsFileShareCacheAttributesArgs']]] = None,
                  client_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  default_storage_class: Optional[pulumi.Input[str]] = None,
@@ -673,7 +706,7 @@ class NfsFileShare(pulumi.CustomResource):
 
         ## Import
 
-        `aws_storagegateway_nfs_file_share` can be imported by using the NFS File Share Amazon Resource Name (ARN), e.g.
+        `aws_storagegateway_nfs_file_share` can be imported by using the NFS File Share Amazon Resource Name (ARN), e.g.,
 
         ```sh
          $ pulumi import aws:storagegateway/nfsFileShare:NfsFileShare example arn:aws:storagegateway:us-east-1:123456789012:share/share-12345678
@@ -681,6 +714,7 @@ class NfsFileShare(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] audit_destination_arn: The Amazon Resource Name (ARN) of the storage used for audit logs.
         :param pulumi.Input[pulumi.InputType['NfsFileShareCacheAttributesArgs']] cache_attributes: Refresh cache information. see Cache Attributes for more details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] client_lists: The list of clients that are allowed to access the file gateway. The list must contain either valid IP addresses or valid CIDR blocks. Set to `["0.0.0.0/0"]` to not limit access. Minimum 1 item. Maximum 100 items.
         :param pulumi.Input[str] default_storage_class: The default storage class for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`. Valid values: `S3_STANDARD`, `S3_STANDARD_IA`, `S3_ONEZONE_IA`.
@@ -723,7 +757,7 @@ class NfsFileShare(pulumi.CustomResource):
 
         ## Import
 
-        `aws_storagegateway_nfs_file_share` can be imported by using the NFS File Share Amazon Resource Name (ARN), e.g.
+        `aws_storagegateway_nfs_file_share` can be imported by using the NFS File Share Amazon Resource Name (ARN), e.g.,
 
         ```sh
          $ pulumi import aws:storagegateway/nfsFileShare:NfsFileShare example arn:aws:storagegateway:us-east-1:123456789012:share/share-12345678
@@ -744,6 +778,7 @@ class NfsFileShare(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 audit_destination_arn: Optional[pulumi.Input[str]] = None,
                  cache_attributes: Optional[pulumi.Input[pulumi.InputType['NfsFileShareCacheAttributesArgs']]] = None,
                  client_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  default_storage_class: Optional[pulumi.Input[str]] = None,
@@ -773,6 +808,7 @@ class NfsFileShare(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = NfsFileShareArgs.__new__(NfsFileShareArgs)
 
+            __props__.__dict__["audit_destination_arn"] = audit_destination_arn
             __props__.__dict__["cache_attributes"] = cache_attributes
             if client_lists is None and not opts.urn:
                 raise TypeError("Missing required property 'client_lists'")
@@ -813,6 +849,7 @@ class NfsFileShare(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
+            audit_destination_arn: Optional[pulumi.Input[str]] = None,
             cache_attributes: Optional[pulumi.Input[pulumi.InputType['NfsFileShareCacheAttributesArgs']]] = None,
             client_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             default_storage_class: Optional[pulumi.Input[str]] = None,
@@ -841,6 +878,7 @@ class NfsFileShare(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of the NFS File Share.
+        :param pulumi.Input[str] audit_destination_arn: The Amazon Resource Name (ARN) of the storage used for audit logs.
         :param pulumi.Input[pulumi.InputType['NfsFileShareCacheAttributesArgs']] cache_attributes: Refresh cache information. see Cache Attributes for more details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] client_lists: The list of clients that are allowed to access the file gateway. The list must contain either valid IP addresses or valid CIDR blocks. Set to `["0.0.0.0/0"]` to not limit access. Minimum 1 item. Maximum 100 items.
         :param pulumi.Input[str] default_storage_class: The default storage class for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`. Valid values: `S3_STANDARD`, `S3_STANDARD_IA`, `S3_ONEZONE_IA`.
@@ -867,6 +905,7 @@ class NfsFileShare(pulumi.CustomResource):
         __props__ = _NfsFileShareState.__new__(_NfsFileShareState)
 
         __props__.__dict__["arn"] = arn
+        __props__.__dict__["audit_destination_arn"] = audit_destination_arn
         __props__.__dict__["cache_attributes"] = cache_attributes
         __props__.__dict__["client_lists"] = client_lists
         __props__.__dict__["default_storage_class"] = default_storage_class
@@ -896,6 +935,14 @@ class NfsFileShare(pulumi.CustomResource):
         Amazon Resource Name (ARN) of the NFS File Share.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="auditDestinationArn")
+    def audit_destination_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Amazon Resource Name (ARN) of the storage used for audit logs.
+        """
+        return pulumi.get(self, "audit_destination_arn")
 
     @property
     @pulumi.getter(name="cacheAttributes")

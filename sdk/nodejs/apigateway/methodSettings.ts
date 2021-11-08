@@ -71,7 +71,7 @@ import {RestApi} from "./index";
  *
  * ## Import
  *
- * `aws_api_gateway_method_settings` can be imported using `REST-API-ID/STAGE-NAME/METHOD-PATH`, e.g.
+ * `aws_api_gateway_method_settings` can be imported using `REST-API-ID/STAGE-NAME/METHOD-PATH`, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:apigateway/methodSettings:MethodSettings example 12345abcde/example/test/GET
@@ -106,7 +106,7 @@ export class MethodSettings extends pulumi.CustomResource {
     }
 
     /**
-     * Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*&#47;*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g. `trimprefix(aws_api_gateway_resource.example.path, "/")`).
+     * Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*&#47;*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g., `trimprefix(aws_api_gateway_resource.example.path, "/")`).
      */
     public readonly methodPath!: pulumi.Output<string>;
     /**
@@ -170,7 +170,7 @@ export class MethodSettings extends pulumi.CustomResource {
  */
 export interface MethodSettingsState {
     /**
-     * Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*&#47;*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g. `trimprefix(aws_api_gateway_resource.example.path, "/")`).
+     * Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*&#47;*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g., `trimprefix(aws_api_gateway_resource.example.path, "/")`).
      */
     methodPath?: pulumi.Input<string>;
     /**
@@ -192,7 +192,7 @@ export interface MethodSettingsState {
  */
 export interface MethodSettingsArgs {
     /**
-     * Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*&#47;*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g. `trimprefix(aws_api_gateway_resource.example.path, "/")`).
+     * Method path defined as `{resource_path}/{http_method}` for an individual method override, or `*&#47;*` for overriding all methods in the stage. Ensure to trim any leading forward slashes in the path (e.g., `trimprefix(aws_api_gateway_resource.example.path, "/")`).
      */
     methodPath: pulumi.Input<string>;
     /**

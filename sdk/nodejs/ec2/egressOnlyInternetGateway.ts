@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Egress-only Internet gateways can be imported using the `id`, e.g.
+ * Egress-only Internet gateways can be imported using the `id`, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:ec2/egressOnlyInternetGateway:EgressOnlyInternetGateway example eigw-015e0e244e24dfe8a
@@ -65,6 +65,9 @@ export class EgressOnlyInternetGateway extends pulumi.CustomResource {
     }
 
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The VPC ID to create in.
@@ -108,6 +111,9 @@ export class EgressOnlyInternetGateway extends pulumi.CustomResource {
  */
 export interface EgressOnlyInternetGatewayState {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The VPC ID to create in.

@@ -117,7 +117,7 @@ namespace Pulumi.Aws.Transfer
         /// </summary>
         public readonly string Domain;
         /// <summary>
-        /// The endpoint of the Transfer Server (e.g. `s-12345678.server.transfer.REGION.amazonaws.com`).
+        /// The endpoint of the Transfer Server (e.g., `s-12345678.server.transfer.REGION.amazonaws.com`).
         /// </summary>
         public readonly string Endpoint;
         /// <summary>

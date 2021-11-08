@@ -57,7 +57,7 @@ type LookupClusterResult struct {
 	// The Availability Zone for the cache cluster.
 	AvailabilityZone string `pulumi:"availabilityZone"`
 	// List of node objects including `id`, `address`, `port` and `availabilityZone`.
-	// Referenceable e.g. as `${data.aws_elasticache_cluster.bar.cache_nodes.0.address}`
+	// Referenceable e.g., as `${data.aws_elasticache_cluster.bar.cache_nodes.0.address}`
 	CacheNodes []GetClusterCacheNode `pulumi:"cacheNodes"`
 	// (Memcached only) The DNS name of the cache cluster without the port appended.
 	ClusterAddress string `pulumi:"clusterAddress"`
@@ -149,7 +149,7 @@ func (o LookupClusterResultOutput) AvailabilityZone() pulumi.StringOutput {
 }
 
 // List of node objects including `id`, `address`, `port` and `availabilityZone`.
-// Referenceable e.g. as `${data.aws_elasticache_cluster.bar.cache_nodes.0.address}`
+// Referenceable e.g., as `${data.aws_elasticache_cluster.bar.cache_nodes.0.address}`
 func (o LookupClusterResultOutput) CacheNodes() GetClusterCacheNodeArrayOutput {
 	return o.ApplyT(func(v LookupClusterResult) []GetClusterCacheNode { return v.CacheNodes }).(GetClusterCacheNodeArrayOutput)
 }

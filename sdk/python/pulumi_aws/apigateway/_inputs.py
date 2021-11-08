@@ -18,6 +18,7 @@ __all__ = [
     'RestApiEndpointConfigurationArgs',
     'StageAccessLogSettingsArgs',
     'UsagePlanApiStageArgs',
+    'UsagePlanApiStageThrottleArgs',
     'UsagePlanQuotaSettingsArgs',
     'UsagePlanThrottleSettingsArgs',
 ]
@@ -70,7 +71,7 @@ class DocumentationPartLocationArgs:
                  path: Optional[pulumi.Input[str]] = None,
                  status_code: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] type: The type of API entity to which the documentation content applies. e.g. `API`, `METHOD` or `REQUEST_BODY`
+        :param pulumi.Input[str] type: The type of API entity to which the documentation content appliesE.g., `API`, `METHOD` or `REQUEST_BODY`
         :param pulumi.Input[str] method: The HTTP verb of a method. The default value is `*` for any method.
         :param pulumi.Input[str] name: The name of the targeted API entity.
         :param pulumi.Input[str] path: The URL path of the target. The default value is `/` for the root resource.
@@ -90,7 +91,7 @@ class DocumentationPartLocationArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The type of API entity to which the documentation content applies. e.g. `API`, `METHOD` or `REQUEST_BODY`
+        The type of API entity to which the documentation content appliesE.g., `API`, `METHOD` or `REQUEST_BODY`
         """
         return pulumi.get(self, "type")
 
@@ -480,13 +481,17 @@ class StageAccessLogSettingsArgs:
 class UsagePlanApiStageArgs:
     def __init__(__self__, *,
                  api_id: pulumi.Input[str],
-                 stage: pulumi.Input[str]):
+                 stage: pulumi.Input[str],
+                 throttles: Optional[pulumi.Input[Sequence[pulumi.Input['UsagePlanApiStageThrottleArgs']]]] = None):
         """
         :param pulumi.Input[str] api_id: API Id of the associated API stage in a usage plan.
         :param pulumi.Input[str] stage: API stage name of the associated API stage in a usage plan.
+        :param pulumi.Input[Sequence[pulumi.Input['UsagePlanApiStageThrottleArgs']]] throttles: The throttling limits of the usage plan.
         """
         pulumi.set(__self__, "api_id", api_id)
         pulumi.set(__self__, "stage", stage)
+        if throttles is not None:
+            pulumi.set(__self__, "throttles", throttles)
 
     @property
     @pulumi.getter(name="apiId")
@@ -511,6 +516,72 @@ class UsagePlanApiStageArgs:
     @stage.setter
     def stage(self, value: pulumi.Input[str]):
         pulumi.set(self, "stage", value)
+
+    @property
+    @pulumi.getter
+    def throttles(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UsagePlanApiStageThrottleArgs']]]]:
+        """
+        The throttling limits of the usage plan.
+        """
+        return pulumi.get(self, "throttles")
+
+    @throttles.setter
+    def throttles(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['UsagePlanApiStageThrottleArgs']]]]):
+        pulumi.set(self, "throttles", value)
+
+
+@pulumi.input_type
+class UsagePlanApiStageThrottleArgs:
+    def __init__(__self__, *,
+                 path: pulumi.Input[str],
+                 burst_limit: Optional[pulumi.Input[int]] = None,
+                 rate_limit: Optional[pulumi.Input[float]] = None):
+        """
+        :param pulumi.Input[str] path: The method to apply the throttle settings for. Specfiy the path and method, for example `/test/GET`.
+        :param pulumi.Input[int] burst_limit: The API request burst limit, the maximum rate limit over a time ranging from one to a few seconds, depending upon whether the underlying token bucket is at its full capacity.
+        :param pulumi.Input[float] rate_limit: The API request steady-state rate limit.
+        """
+        pulumi.set(__self__, "path", path)
+        if burst_limit is not None:
+            pulumi.set(__self__, "burst_limit", burst_limit)
+        if rate_limit is not None:
+            pulumi.set(__self__, "rate_limit", rate_limit)
+
+    @property
+    @pulumi.getter
+    def path(self) -> pulumi.Input[str]:
+        """
+        The method to apply the throttle settings for. Specfiy the path and method, for example `/test/GET`.
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "path", value)
+
+    @property
+    @pulumi.getter(name="burstLimit")
+    def burst_limit(self) -> Optional[pulumi.Input[int]]:
+        """
+        The API request burst limit, the maximum rate limit over a time ranging from one to a few seconds, depending upon whether the underlying token bucket is at its full capacity.
+        """
+        return pulumi.get(self, "burst_limit")
+
+    @burst_limit.setter
+    def burst_limit(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "burst_limit", value)
+
+    @property
+    @pulumi.getter(name="rateLimit")
+    def rate_limit(self) -> Optional[pulumi.Input[float]]:
+        """
+        The API request steady-state rate limit.
+        """
+        return pulumi.get(self, "rate_limit")
+
+    @rate_limit.setter
+    def rate_limit(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "rate_limit", value)
 
 
 @pulumi.input_type

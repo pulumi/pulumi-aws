@@ -47,7 +47,7 @@ import (
 //
 // ## Import
 //
-//  Route 53 Resolver DNSSEC configs can be imported using the Route 53 Resolver DNSSEC config ID, e.g.
+//  Route 53 Resolver DNSSEC configs can be imported using the Route 53 Resolver DNSSEC config ID, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:route53/resolverDnsSecConfig:ResolverDnsSecConfig example rdsc-be1866ecc1683e95
@@ -57,6 +57,8 @@ type ResolverDnsSecConfig struct {
 
 	// The ARN for a configuration for DNSSEC validation.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The ID for a configuration for DNSSEC validation.
+	Id pulumi.StringOutput `pulumi:"id"`
 	// The owner account ID of the virtual private cloud (VPC) for a configuration for DNSSEC validation.
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
 	// The ID of the virtual private cloud (VPC) that you're updating the DNSSEC validation status for.
@@ -99,6 +101,8 @@ func GetResolverDnsSecConfig(ctx *pulumi.Context,
 type resolverDnsSecConfigState struct {
 	// The ARN for a configuration for DNSSEC validation.
 	Arn *string `pulumi:"arn"`
+	// The ID for a configuration for DNSSEC validation.
+	Id *string `pulumi:"id"`
 	// The owner account ID of the virtual private cloud (VPC) for a configuration for DNSSEC validation.
 	OwnerId *string `pulumi:"ownerId"`
 	// The ID of the virtual private cloud (VPC) that you're updating the DNSSEC validation status for.
@@ -110,6 +114,8 @@ type resolverDnsSecConfigState struct {
 type ResolverDnsSecConfigState struct {
 	// The ARN for a configuration for DNSSEC validation.
 	Arn pulumi.StringPtrInput
+	// The ID for a configuration for DNSSEC validation.
+	Id pulumi.StringPtrInput
 	// The owner account ID of the virtual private cloud (VPC) for a configuration for DNSSEC validation.
 	OwnerId pulumi.StringPtrInput
 	// The ID of the virtual private cloud (VPC) that you're updating the DNSSEC validation status for.

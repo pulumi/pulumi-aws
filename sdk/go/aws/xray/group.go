@@ -39,7 +39,7 @@ import (
 //
 // ## Import
 //
-// XRay Groups can be imported using the ARN, e.g.
+// XRay Groups can be imported using the ARN, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:xray/group:Group example arn:aws:xray:us-west-2:1234567890:group/example-group/TNGX7SW5U6QY36T4ZMOUA3HVLBYCZTWDIOOXY3CJAXTHSS3YCWUA
@@ -54,7 +54,8 @@ type Group struct {
 	// The name of the group.
 	GroupName pulumi.StringOutput    `pulumi:"groupName"`
 	Tags      pulumi.StringMapOutput `pulumi:"tags"`
-	TagsAll   pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewGroup registers a new resource with the given unique name, arguments, and options.
@@ -99,7 +100,8 @@ type groupState struct {
 	// The name of the group.
 	GroupName *string           `pulumi:"groupName"`
 	Tags      map[string]string `pulumi:"tags"`
-	TagsAll   map[string]string `pulumi:"tagsAll"`
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type GroupState struct {
@@ -110,7 +112,8 @@ type GroupState struct {
 	// The name of the group.
 	GroupName pulumi.StringPtrInput
 	Tags      pulumi.StringMapInput
-	TagsAll   pulumi.StringMapInput
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	TagsAll pulumi.StringMapInput
 }
 
 func (GroupState) ElementType() reflect.Type {

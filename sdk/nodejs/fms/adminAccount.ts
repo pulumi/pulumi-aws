@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Firewall Manager administrator account association can be imported using the account ID, e.g.
+ * Firewall Manager administrator account association can be imported using the account ID, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:fms/adminAccount:AdminAccount example 123456789012

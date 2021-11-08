@@ -56,7 +56,7 @@ export function getResourceShare(args: GetResourceShareArgs, opts?: pulumi.Invok
  */
 export interface GetResourceShareArgs {
     /**
-     * A filter used to scope the list e.g. by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
+     * A filter used to scope the list e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
      */
     filters?: inputs.ram.GetResourceShareFilter[];
     /**
@@ -111,7 +111,7 @@ export function getResourceShareOutput(args: GetResourceShareOutputArgs, opts?: 
  */
 export interface GetResourceShareOutputArgs {
     /**
-     * A filter used to scope the list e.g. by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
+     * A filter used to scope the list e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ram.GetResourceShareFilterArgs>[]>;
     /**

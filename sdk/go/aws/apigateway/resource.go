@@ -46,7 +46,7 @@ import (
 //
 // ## Import
 //
-// `aws_api_gateway_resource` can be imported using `REST-API-ID/RESOURCE-ID`, e.g.
+// `aws_api_gateway_resource` can be imported using `REST-API-ID/RESOURCE-ID`, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:apigateway/resource:Resource example 12345abcde/67890fghij

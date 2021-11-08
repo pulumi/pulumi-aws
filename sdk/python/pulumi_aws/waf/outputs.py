@@ -69,15 +69,15 @@ class ByteMatchSetByteMatchTuple(dict):
         :param 'ByteMatchSetByteMatchTupleFieldToMatchArgs' field_to_match: The part of a web request that you want to search, such as a specified header or a query string.
         :param str positional_constraint: Within the portion of a web request that you want to search
                (for example, in the query string, if any), specify where you want to search.
-               e.g. `CONTAINS`, `CONTAINS_WORD` or `EXACTLY`.
+               e.g., `CONTAINS`, `CONTAINS_WORD` or `EXACTLY`.
                See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-PositionalConstraint)
                for all supported values.
         :param str text_transformation: Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
                If you specify a transformation, AWS WAF performs the transformation on `target_string` before inspecting a request for a match.
-               e.g. `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
+               e.g., `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
                See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-TextTransformation)
                for all supported values.
-        :param str target_string: The value that you want to search for. e.g. `HEADER`, `METHOD` or `BODY`.
+        :param str target_string: The value that you want to search forE.g., `HEADER`, `METHOD` or `BODY`.
                See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-TargetString)
                for all supported values.
         """
@@ -101,7 +101,7 @@ class ByteMatchSetByteMatchTuple(dict):
         """
         Within the portion of a web request that you want to search
         (for example, in the query string, if any), specify where you want to search.
-        e.g. `CONTAINS`, `CONTAINS_WORD` or `EXACTLY`.
+        e.g., `CONTAINS`, `CONTAINS_WORD` or `EXACTLY`.
         See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-PositionalConstraint)
         for all supported values.
         """
@@ -113,7 +113,7 @@ class ByteMatchSetByteMatchTuple(dict):
         """
         Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
         If you specify a transformation, AWS WAF performs the transformation on `target_string` before inspecting a request for a match.
-        e.g. `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
+        e.g., `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
         See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-TextTransformation)
         for all supported values.
         """
@@ -123,7 +123,7 @@ class ByteMatchSetByteMatchTuple(dict):
     @pulumi.getter(name="targetString")
     def target_string(self) -> Optional[str]:
         """
-        The value that you want to search for. e.g. `HEADER`, `METHOD` or `BODY`.
+        The value that you want to search forE.g., `HEADER`, `METHOD` or `BODY`.
         See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_ByteMatchTuple.html#WAF-Type-ByteMatchTuple-TargetString)
         for all supported values.
         """
@@ -137,10 +137,10 @@ class ByteMatchSetByteMatchTupleFieldToMatch(dict):
                  data: Optional[str] = None):
         """
         :param str type: The part of the web request that you want AWS WAF to search for a specified string.
-               e.g. `HEADER`, `METHOD` or `BODY`.
+               e.g., `HEADER`, `METHOD` or `BODY`.
                See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_FieldToMatch.html)
                for all supported values.
-        :param str data: When `type` is `HEADER`, enter the name of the header that you want to search, e.g. `User-Agent` or `Referer`.
+        :param str data: When `type` is `HEADER`, enter the name of the header that you want to search, e.g., `User-Agent` or `Referer`.
                If `type` is any other value, omit this field.
         """
         pulumi.set(__self__, "type", type)
@@ -152,7 +152,7 @@ class ByteMatchSetByteMatchTupleFieldToMatch(dict):
     def type(self) -> str:
         """
         The part of the web request that you want AWS WAF to search for a specified string.
-        e.g. `HEADER`, `METHOD` or `BODY`.
+        e.g., `HEADER`, `METHOD` or `BODY`.
         See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_FieldToMatch.html)
         for all supported values.
         """
@@ -162,7 +162,7 @@ class ByteMatchSetByteMatchTupleFieldToMatch(dict):
     @pulumi.getter
     def data(self) -> Optional[str]:
         """
-        When `type` is `HEADER`, enter the name of the header that you want to search, e.g. `User-Agent` or `Referer`.
+        When `type` is `HEADER`, enter the name of the header that you want to search, e.g., `User-Agent` or `Referer`.
         If `type` is any other value, omit this field.
         """
         return pulumi.get(self, "data")
@@ -176,7 +176,7 @@ class GeoMatchSetGeoMatchConstraint(dict):
         """
         :param str type: The type of geographical area you want AWS WAF to search for. Currently Country is the only valid value.
         :param str value: The country that you want AWS WAF to search for.
-               This is the two-letter country code, e.g. `US`, `CA`, `RU`, `CN`, etc.
+               This is the two-letter country code, e.g., `US`, `CA`, `RU`, `CN`, etc.
                See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchConstraint.html) for all supported values.
         """
         pulumi.set(__self__, "type", type)
@@ -195,7 +195,7 @@ class GeoMatchSetGeoMatchConstraint(dict):
     def value(self) -> str:
         """
         The country that you want AWS WAF to search for.
-        This is the two-letter country code, e.g. `US`, `CA`, `RU`, `CN`, etc.
+        This is the two-letter country code, e.g., `US`, `CA`, `RU`, `CN`, etc.
         See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_GeoMatchConstraint.html) for all supported values.
         """
         return pulumi.get(self, "value")
@@ -208,7 +208,7 @@ class IpSetIpSetDescriptor(dict):
                  value: str):
         """
         :param str type: Type of the IP address - `IPV4` or `IPV6`.
-        :param str value: An IPv4 or IPv6 address specified via CIDR notation. e.g. `192.0.2.44/32` or `1111:0000:0000:0000:0000:0000:0000:0000/64`
+        :param str value: An IPv4 or IPv6 address specified via CIDR notationE.g., `192.0.2.44/32` or `1111:0000:0000:0000:0000:0000:0000:0000/64`
         """
         pulumi.set(__self__, "type", type)
         pulumi.set(__self__, "value", value)
@@ -225,7 +225,7 @@ class IpSetIpSetDescriptor(dict):
     @pulumi.getter
     def value(self) -> str:
         """
-        An IPv4 or IPv6 address specified via CIDR notation. e.g. `192.0.2.44/32` or `1111:0000:0000:0000:0000:0000:0000:0000/64`
+        An IPv4 or IPv6 address specified via CIDR notationE.g., `192.0.2.44/32` or `1111:0000:0000:0000:0000:0000:0000:0000/64`
         """
         return pulumi.get(self, "value")
 
@@ -367,10 +367,10 @@ class RegexMatchSetRegexMatchTupleFieldToMatch(dict):
                  data: Optional[str] = None):
         """
         :param str type: The part of the web request that you want AWS WAF to search for a specified string.
-               e.g. `HEADER`, `METHOD` or `BODY`.
+               e.g., `HEADER`, `METHOD` or `BODY`.
                See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_FieldToMatch.html)
                for all supported values.
-        :param str data: When `type` is `HEADER`, enter the name of the header that you want to search, e.g. `User-Agent` or `Referer`.
+        :param str data: When `type` is `HEADER`, enter the name of the header that you want to search, e.g., `User-Agent` or `Referer`.
                If `type` is any other value, omit this field.
         """
         pulumi.set(__self__, "type", type)
@@ -382,7 +382,7 @@ class RegexMatchSetRegexMatchTupleFieldToMatch(dict):
     def type(self) -> str:
         """
         The part of the web request that you want AWS WAF to search for a specified string.
-        e.g. `HEADER`, `METHOD` or `BODY`.
+        e.g., `HEADER`, `METHOD` or `BODY`.
         See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_FieldToMatch.html)
         for all supported values.
         """
@@ -392,7 +392,7 @@ class RegexMatchSetRegexMatchTupleFieldToMatch(dict):
     @pulumi.getter
     def data(self) -> Optional[str]:
         """
-        When `type` is `HEADER`, enter the name of the header that you want to search, e.g. `User-Agent` or `Referer`.
+        When `type` is `HEADER`, enter the name of the header that you want to search, e.g., `User-Agent` or `Referer`.
         If `type` is any other value, omit this field.
         """
         return pulumi.get(self, "data")
@@ -578,14 +578,14 @@ class SizeConstraintSetSizeConstraint(dict):
                  text_transformation: str):
         """
         :param str comparison_operator: The type of comparison you want to perform.
-               e.g. `EQ`, `NE`, `LT`, `GT`.
+               e.g., `EQ`, `NE`, `LT`, `GT`.
                See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_wafRegional_SizeConstraint.html) for all supported values.
         :param 'SizeConstraintSetSizeConstraintFieldToMatchArgs' field_to_match: Specifies where in a web request to look for the size constraint.
         :param int size: The size in bytes that you want to compare against the size of the specified `field_to_match`.
                Valid values are between 0 - 21474836480 bytes (0 - 20 GB).
         :param str text_transformation: Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
                If you specify a transformation, AWS WAF performs the transformation on `field_to_match` before inspecting a request for a match.
-               e.g. `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
+               e.g., `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
                See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_SizeConstraint.html#WAF-Type-SizeConstraint-TextTransformation)
                for all supported values.
                **Note:** if you choose `BODY` as `type`, you must choose `NONE` because CloudFront forwards only the first 8192 bytes for inspection.
@@ -600,7 +600,7 @@ class SizeConstraintSetSizeConstraint(dict):
     def comparison_operator(self) -> str:
         """
         The type of comparison you want to perform.
-        e.g. `EQ`, `NE`, `LT`, `GT`.
+        e.g., `EQ`, `NE`, `LT`, `GT`.
         See [docs](https://docs.aws.amazon.com/waf/latest/APIReference/API_wafRegional_SizeConstraint.html) for all supported values.
         """
         return pulumi.get(self, "comparison_operator")
@@ -628,7 +628,7 @@ class SizeConstraintSetSizeConstraint(dict):
         """
         Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
         If you specify a transformation, AWS WAF performs the transformation on `field_to_match` before inspecting a request for a match.
-        e.g. `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
+        e.g., `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
         See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_SizeConstraint.html#WAF-Type-SizeConstraint-TextTransformation)
         for all supported values.
         **Note:** if you choose `BODY` as `type`, you must choose `NONE` because CloudFront forwards only the first 8192 bytes for inspection.
@@ -643,10 +643,10 @@ class SizeConstraintSetSizeConstraintFieldToMatch(dict):
                  data: Optional[str] = None):
         """
         :param str type: The part of the web request that you want AWS WAF to search for a specified string.
-               e.g. `HEADER`, `METHOD` or `BODY`.
+               e.g., `HEADER`, `METHOD` or `BODY`.
                See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_FieldToMatch.html)
                for all supported values.
-        :param str data: When `type` is `HEADER`, enter the name of the header that you want to search, e.g. `User-Agent` or `Referer`.
+        :param str data: When `type` is `HEADER`, enter the name of the header that you want to search, e.g., `User-Agent` or `Referer`.
                If `type` is any other value, omit this field.
         """
         pulumi.set(__self__, "type", type)
@@ -658,7 +658,7 @@ class SizeConstraintSetSizeConstraintFieldToMatch(dict):
     def type(self) -> str:
         """
         The part of the web request that you want AWS WAF to search for a specified string.
-        e.g. `HEADER`, `METHOD` or `BODY`.
+        e.g., `HEADER`, `METHOD` or `BODY`.
         See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_FieldToMatch.html)
         for all supported values.
         """
@@ -668,7 +668,7 @@ class SizeConstraintSetSizeConstraintFieldToMatch(dict):
     @pulumi.getter
     def data(self) -> Optional[str]:
         """
-        When `type` is `HEADER`, enter the name of the header that you want to search, e.g. `User-Agent` or `Referer`.
+        When `type` is `HEADER`, enter the name of the header that you want to search, e.g., `User-Agent` or `Referer`.
         If `type` is any other value, omit this field.
         """
         return pulumi.get(self, "data")
@@ -702,7 +702,7 @@ class SqlInjectionMatchSetSqlInjectionMatchTuple(dict):
         :param 'SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatchArgs' field_to_match: Specifies where in a web request to look for snippets of malicious SQL code.
         :param str text_transformation: Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
                If you specify a transformation, AWS WAF performs the transformation on `field_to_match` before inspecting a request for a match.
-               e.g. `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
+               e.g., `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
                See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_SqlInjectionMatchTuple.html#WAF-Type-SqlInjectionMatchTuple-TextTransformation)
                for all supported values.
         """
@@ -723,7 +723,7 @@ class SqlInjectionMatchSetSqlInjectionMatchTuple(dict):
         """
         Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
         If you specify a transformation, AWS WAF performs the transformation on `field_to_match` before inspecting a request for a match.
-        e.g. `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
+        e.g., `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
         See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_SqlInjectionMatchTuple.html#WAF-Type-SqlInjectionMatchTuple-TextTransformation)
         for all supported values.
         """
@@ -737,10 +737,10 @@ class SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatch(dict):
                  data: Optional[str] = None):
         """
         :param str type: The part of the web request that you want AWS WAF to search for a specified string.
-               e.g. `HEADER`, `METHOD` or `BODY`.
+               e.g., `HEADER`, `METHOD` or `BODY`.
                See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_FieldToMatch.html)
                for all supported values.
-        :param str data: When `type` is `HEADER`, enter the name of the header that you want to search, e.g. `User-Agent` or `Referer`.
+        :param str data: When `type` is `HEADER`, enter the name of the header that you want to search, e.g., `User-Agent` or `Referer`.
                If `type` is any other value, omit this field.
         """
         pulumi.set(__self__, "type", type)
@@ -752,7 +752,7 @@ class SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatch(dict):
     def type(self) -> str:
         """
         The part of the web request that you want AWS WAF to search for a specified string.
-        e.g. `HEADER`, `METHOD` or `BODY`.
+        e.g., `HEADER`, `METHOD` or `BODY`.
         See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_FieldToMatch.html)
         for all supported values.
         """
@@ -762,7 +762,7 @@ class SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatch(dict):
     @pulumi.getter
     def data(self) -> Optional[str]:
         """
-        When `type` is `HEADER`, enter the name of the header that you want to search, e.g. `User-Agent` or `Referer`.
+        When `type` is `HEADER`, enter the name of the header that you want to search, e.g., `User-Agent` or `Referer`.
         If `type` is any other value, omit this field.
         """
         return pulumi.get(self, "data")
@@ -1050,7 +1050,7 @@ class XssMatchSetXssMatchTuple(dict):
         :param 'XssMatchSetXssMatchTupleFieldToMatchArgs' field_to_match: Specifies where in a web request to look for cross-site scripting attacks.
         :param str text_transformation: Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
                If you specify a transformation, AWS WAF performs the transformation on `target_string` before inspecting a request for a match.
-               e.g. `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
+               e.g., `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
                See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_XssMatchTuple.html#WAF-Type-XssMatchTuple-TextTransformation)
                for all supported values.
         """
@@ -1071,7 +1071,7 @@ class XssMatchSetXssMatchTuple(dict):
         """
         Text transformations used to eliminate unusual formatting that attackers use in web requests in an effort to bypass AWS WAF.
         If you specify a transformation, AWS WAF performs the transformation on `target_string` before inspecting a request for a match.
-        e.g. `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
+        e.g., `CMD_LINE`, `HTML_ENTITY_DECODE` or `NONE`.
         See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_XssMatchTuple.html#WAF-Type-XssMatchTuple-TextTransformation)
         for all supported values.
         """
@@ -1085,10 +1085,10 @@ class XssMatchSetXssMatchTupleFieldToMatch(dict):
                  data: Optional[str] = None):
         """
         :param str type: The part of the web request that you want AWS WAF to search for a specified string.
-               e.g. `HEADER`, `METHOD` or `BODY`.
+               e.g., `HEADER`, `METHOD` or `BODY`.
                See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_FieldToMatch.html)
                for all supported values.
-        :param str data: When `type` is `HEADER`, enter the name of the header that you want to search, e.g. `User-Agent` or `Referer`.
+        :param str data: When `type` is `HEADER`, enter the name of the header that you want to search, e.g., `User-Agent` or `Referer`.
                If `type` is any other value, omit this field.
         """
         pulumi.set(__self__, "type", type)
@@ -1100,7 +1100,7 @@ class XssMatchSetXssMatchTupleFieldToMatch(dict):
     def type(self) -> str:
         """
         The part of the web request that you want AWS WAF to search for a specified string.
-        e.g. `HEADER`, `METHOD` or `BODY`.
+        e.g., `HEADER`, `METHOD` or `BODY`.
         See [docs](http://docs.aws.amazon.com/waf/latest/APIReference/API_FieldToMatch.html)
         for all supported values.
         """
@@ -1110,7 +1110,7 @@ class XssMatchSetXssMatchTupleFieldToMatch(dict):
     @pulumi.getter
     def data(self) -> Optional[str]:
         """
-        When `type` is `HEADER`, enter the name of the header that you want to search, e.g. `User-Agent` or `Referer`.
+        When `type` is `HEADER`, enter the name of the header that you want to search, e.g., `User-Agent` or `Referer`.
         If `type` is any other value, omit this field.
         """
         return pulumi.get(self, "data")

@@ -37,7 +37,7 @@ namespace Pulumi.Aws.Msk.Inputs
         public Input<int> EbsVolumeSize { get; set; } = null!;
 
         /// <summary>
-        /// Specify the instance type to use for the kafka brokers. e.g. kafka.m5.large. ([Pricing info](https://aws.amazon.com/msk/pricing/))
+        /// Specify the instance type to use for the kafka brokersE.g., kafka.m5.large. ([Pricing info](https://aws.amazon.com/msk/pricing/))
         /// </summary>
         [Input("instanceType", required: true)]
         public Input<string> InstanceType { get; set; } = null!;

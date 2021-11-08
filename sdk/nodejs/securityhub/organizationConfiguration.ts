@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 /**
  * ## Import
  *
- * An existing Security Hub enabled account can be imported using the AWS account ID, e.g.
+ * An existing Security Hub enabled account can be imported using the AWS account ID, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:securityhub/organizationConfiguration:OrganizationConfiguration example 123456789012

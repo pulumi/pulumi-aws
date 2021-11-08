@@ -16,14 +16,18 @@ __all__ = ['CodeRepositoryArgs', 'CodeRepository']
 class CodeRepositoryArgs:
     def __init__(__self__, *,
                  code_repository_name: pulumi.Input[str],
-                 git_config: pulumi.Input['CodeRepositoryGitConfigArgs']):
+                 git_config: pulumi.Input['CodeRepositoryGitConfigArgs'],
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a CodeRepository resource.
         :param pulumi.Input[str] code_repository_name: The name of the Code Repository (must be unique).
         :param pulumi.Input['CodeRepositoryGitConfigArgs'] git_config: Specifies details about the repository. see Git Config details below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "code_repository_name", code_repository_name)
         pulumi.set(__self__, "git_config", git_config)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="codeRepositoryName")
@@ -49,18 +53,34 @@ class CodeRepositoryArgs:
     def git_config(self, value: pulumi.Input['CodeRepositoryGitConfigArgs']):
         pulumi.set(self, "git_config", value)
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
 
 @pulumi.input_type
 class _CodeRepositoryState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  code_repository_name: Optional[pulumi.Input[str]] = None,
-                 git_config: Optional[pulumi.Input['CodeRepositoryGitConfigArgs']] = None):
+                 git_config: Optional[pulumi.Input['CodeRepositoryGitConfigArgs']] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering CodeRepository resources.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) assigned by AWS to this Code Repository.
         :param pulumi.Input[str] code_repository_name: The name of the Code Repository (must be unique).
         :param pulumi.Input['CodeRepositoryGitConfigArgs'] git_config: Specifies details about the repository. see Git Config details below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -68,6 +88,10 @@ class _CodeRepositoryState:
             pulumi.set(__self__, "code_repository_name", code_repository_name)
         if git_config is not None:
             pulumi.set(__self__, "git_config", git_config)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -105,6 +129,30 @@ class _CodeRepositoryState:
     def git_config(self, value: Optional[pulumi.Input['CodeRepositoryGitConfigArgs']]):
         pulumi.set(self, "git_config", value)
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
+
 
 class CodeRepository(pulumi.CustomResource):
     @overload
@@ -113,6 +161,7 @@ class CodeRepository(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  code_repository_name: Optional[pulumi.Input[str]] = None,
                  git_config: Optional[pulumi.Input[pulumi.InputType['CodeRepositoryGitConfigArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Provides a Sagemaker Code Repository resource.
@@ -155,7 +204,7 @@ class CodeRepository(pulumi.CustomResource):
 
         ## Import
 
-        Sagemaker Code Repositories can be imported using the `name`, e.g.
+        Sagemaker Code Repositories can be imported using the `name`, e.g.,
 
         ```sh
          $ pulumi import aws:sagemaker/codeRepository:CodeRepository test_code_repository my-code-repo
@@ -165,6 +214,7 @@ class CodeRepository(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] code_repository_name: The name of the Code Repository (must be unique).
         :param pulumi.Input[pulumi.InputType['CodeRepositoryGitConfigArgs']] git_config: Specifies details about the repository. see Git Config details below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -213,7 +263,7 @@ class CodeRepository(pulumi.CustomResource):
 
         ## Import
 
-        Sagemaker Code Repositories can be imported using the `name`, e.g.
+        Sagemaker Code Repositories can be imported using the `name`, e.g.,
 
         ```sh
          $ pulumi import aws:sagemaker/codeRepository:CodeRepository test_code_repository my-code-repo
@@ -236,6 +286,7 @@ class CodeRepository(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  code_repository_name: Optional[pulumi.Input[str]] = None,
                  git_config: Optional[pulumi.Input[pulumi.InputType['CodeRepositoryGitConfigArgs']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -254,7 +305,9 @@ class CodeRepository(pulumi.CustomResource):
             if git_config is None and not opts.urn:
                 raise TypeError("Missing required property 'git_config'")
             __props__.__dict__["git_config"] = git_config
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
+            __props__.__dict__["tags_all"] = None
         super(CodeRepository, __self__).__init__(
             'aws:sagemaker/codeRepository:CodeRepository',
             resource_name,
@@ -267,7 +320,9 @@ class CodeRepository(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
             code_repository_name: Optional[pulumi.Input[str]] = None,
-            git_config: Optional[pulumi.Input[pulumi.InputType['CodeRepositoryGitConfigArgs']]] = None) -> 'CodeRepository':
+            git_config: Optional[pulumi.Input[pulumi.InputType['CodeRepositoryGitConfigArgs']]] = None,
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None) -> 'CodeRepository':
         """
         Get an existing CodeRepository resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -278,6 +333,8 @@ class CodeRepository(pulumi.CustomResource):
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) assigned by AWS to this Code Repository.
         :param pulumi.Input[str] code_repository_name: The name of the Code Repository (must be unique).
         :param pulumi.Input[pulumi.InputType['CodeRepositoryGitConfigArgs']] git_config: Specifies details about the repository. see Git Config details below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -286,6 +343,8 @@ class CodeRepository(pulumi.CustomResource):
         __props__.__dict__["arn"] = arn
         __props__.__dict__["code_repository_name"] = code_repository_name
         __props__.__dict__["git_config"] = git_config
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["tags_all"] = tags_all
         return CodeRepository(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -311,4 +370,20 @@ class CodeRepository(pulumi.CustomResource):
         Specifies details about the repository. see Git Config details below.
         """
         return pulumi.get(self, "git_config")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+        """
+        return pulumi.get(self, "tags_all")
 

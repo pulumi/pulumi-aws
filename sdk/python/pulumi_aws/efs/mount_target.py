@@ -303,7 +303,7 @@ class MountTarget(pulumi.CustomResource):
 
         ## Import
 
-        The EFS mount targets can be imported using the `id`, e.g.
+        The EFS mount targets can be imported using the `id`, e.g.,
 
         ```sh
          $ pulumi import aws:efs/mountTarget:MountTarget alpha fsmt-52a643fb
@@ -345,7 +345,7 @@ class MountTarget(pulumi.CustomResource):
 
         ## Import
 
-        The EFS mount targets can be imported using the `id`, e.g.
+        The EFS mount targets can be imported using the `id`, e.g.,
 
         ```sh
          $ pulumi import aws:efs/mountTarget:MountTarget alpha fsmt-52a643fb

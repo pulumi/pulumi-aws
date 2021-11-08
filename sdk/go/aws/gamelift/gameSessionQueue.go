@@ -50,7 +50,7 @@ import (
 //
 // ## Import
 //
-// Gamelift Game Session Queues can be imported by their `name`, e.g.
+// Gamelift Game Session Queues can be imported by their `name`, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:gamelift/gameSessionQueue:GameSessionQueue example example

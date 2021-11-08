@@ -105,7 +105,7 @@ export class SshKey extends pulumi.CustomResource {
      */
     public readonly body!: pulumi.Output<string>;
     /**
-     * The Server ID of the Transfer Server (e.g. `s-12345678`)
+     * The Server ID of the Transfer Server (e.g., `s-12345678`)
      */
     public readonly serverId!: pulumi.Output<string>;
     /**
@@ -160,7 +160,7 @@ export interface SshKeyState {
      */
     body?: pulumi.Input<string>;
     /**
-     * The Server ID of the Transfer Server (e.g. `s-12345678`)
+     * The Server ID of the Transfer Server (e.g., `s-12345678`)
      */
     serverId?: pulumi.Input<string>;
     /**
@@ -178,7 +178,7 @@ export interface SshKeyArgs {
      */
     body: pulumi.Input<string>;
     /**
-     * The Server ID of the Transfer Server (e.g. `s-12345678`)
+     * The Server ID of the Transfer Server (e.g., `s-12345678`)
      */
     serverId: pulumi.Input<string>;
     /**

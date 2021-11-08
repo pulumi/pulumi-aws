@@ -72,7 +72,7 @@ import (
 //
 // ## Import
 //
-// Sagemaker App Image Configs can be imported using the `name`, e.g.
+// Sagemaker App Image Configs can be imported using the `name`, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:sagemaker/appImageConfig:AppImageConfig example example
@@ -160,8 +160,6 @@ type appImageConfigArgs struct {
 	KernelGatewayImageConfig *AppImageConfigKernelGatewayImageConfig `pulumi:"kernelGatewayImageConfig"`
 	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a AppImageConfig resource.
@@ -172,8 +170,6 @@ type AppImageConfigArgs struct {
 	KernelGatewayImageConfig AppImageConfigKernelGatewayImageConfigPtrInput
 	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-	TagsAll pulumi.StringMapInput
 }
 
 func (AppImageConfigArgs) ElementType() reflect.Type {

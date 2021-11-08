@@ -60,9 +60,9 @@ type ObjectCopy struct {
 	ContentDisposition pulumi.StringOutput `pulumi:"contentDisposition"`
 	// Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.
 	ContentEncoding pulumi.StringOutput `pulumi:"contentEncoding"`
-	// Language the content is in e.g. en-US or en-GB.
+	// Language the content is in e.g., en-US or en-GB.
 	ContentLanguage pulumi.StringOutput `pulumi:"contentLanguage"`
-	// Standard MIME type describing the format of the object data, e.g. `application/octet-stream`. All Valid MIME Types are valid for this input.
+	// Standard MIME type describing the format of the object data, e.g., `application/octet-stream`. All Valid MIME Types are valid for this input.
 	ContentType pulumi.StringOutput `pulumi:"contentType"`
 	// Copies the object if its entity tag (ETag) matches the specified tag.
 	CopyIfMatch pulumi.StringPtrOutput `pulumi:"copyIfMatch"`
@@ -190,9 +190,9 @@ type objectCopyState struct {
 	ContentDisposition *string `pulumi:"contentDisposition"`
 	// Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.
 	ContentEncoding *string `pulumi:"contentEncoding"`
-	// Language the content is in e.g. en-US or en-GB.
+	// Language the content is in e.g., en-US or en-GB.
 	ContentLanguage *string `pulumi:"contentLanguage"`
-	// Standard MIME type describing the format of the object data, e.g. `application/octet-stream`. All Valid MIME Types are valid for this input.
+	// Standard MIME type describing the format of the object data, e.g., `application/octet-stream`. All Valid MIME Types are valid for this input.
 	ContentType *string `pulumi:"contentType"`
 	// Copies the object if its entity tag (ETag) matches the specified tag.
 	CopyIfMatch *string `pulumi:"copyIfMatch"`
@@ -283,9 +283,9 @@ type ObjectCopyState struct {
 	ContentDisposition pulumi.StringPtrInput
 	// Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.
 	ContentEncoding pulumi.StringPtrInput
-	// Language the content is in e.g. en-US or en-GB.
+	// Language the content is in e.g., en-US or en-GB.
 	ContentLanguage pulumi.StringPtrInput
-	// Standard MIME type describing the format of the object data, e.g. `application/octet-stream`. All Valid MIME Types are valid for this input.
+	// Standard MIME type describing the format of the object data, e.g., `application/octet-stream`. All Valid MIME Types are valid for this input.
 	ContentType pulumi.StringPtrInput
 	// Copies the object if its entity tag (ETag) matches the specified tag.
 	CopyIfMatch pulumi.StringPtrInput
@@ -380,9 +380,9 @@ type objectCopyArgs struct {
 	ContentDisposition *string `pulumi:"contentDisposition"`
 	// Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.
 	ContentEncoding *string `pulumi:"contentEncoding"`
-	// Language the content is in e.g. en-US or en-GB.
+	// Language the content is in e.g., en-US or en-GB.
 	ContentLanguage *string `pulumi:"contentLanguage"`
-	// Standard MIME type describing the format of the object data, e.g. `application/octet-stream`. All Valid MIME Types are valid for this input.
+	// Standard MIME type describing the format of the object data, e.g., `application/octet-stream`. All Valid MIME Types are valid for this input.
 	ContentType *string `pulumi:"contentType"`
 	// Copies the object if its entity tag (ETag) matches the specified tag.
 	CopyIfMatch *string `pulumi:"copyIfMatch"`
@@ -460,9 +460,9 @@ type ObjectCopyArgs struct {
 	ContentDisposition pulumi.StringPtrInput
 	// Specifies what content encodings have been applied to the object and thus what decoding mechanisms must be applied to obtain the media-type referenced by the Content-Type header field. Read [w3c content encoding](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.11) for further information.
 	ContentEncoding pulumi.StringPtrInput
-	// Language the content is in e.g. en-US or en-GB.
+	// Language the content is in e.g., en-US or en-GB.
 	ContentLanguage pulumi.StringPtrInput
-	// Standard MIME type describing the format of the object data, e.g. `application/octet-stream`. All Valid MIME Types are valid for this input.
+	// Standard MIME type describing the format of the object data, e.g., `application/octet-stream`. All Valid MIME Types are valid for this input.
 	ContentType pulumi.StringPtrInput
 	// Copies the object if its entity tag (ETag) matches the specified tag.
 	CopyIfMatch pulumi.StringPtrInput

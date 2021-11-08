@@ -307,6 +307,7 @@ class _DevEndpointState:
         :param pulumi.Input[str] status: The current status of this endpoint.
         :param pulumi.Input[str] subnet_id: The subnet ID for the new endpoint to use.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] vpc_id: he ID of the VPC used by this endpoint.
         :param pulumi.Input[str] worker_type: The type of predefined worker that is allocated to this endpoint. Accepts a value of Standard, G.1X, or G.2X.
         :param pulumi.Input[str] yarn_endpoint_address: The YARN endpoint address used by this endpoint.
@@ -606,6 +607,9 @@ class _DevEndpointState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -709,7 +713,7 @@ class DevEndpoint(pulumi.CustomResource):
 
         ## Import
 
-        A Glue Development Endpoint can be imported using the `name`, e.g.
+        A Glue Development Endpoint can be imported using the `name`, e.g.,
 
         ```sh
          $ pulumi import aws:glue/devEndpoint:DevEndpoint example foo
@@ -766,7 +770,7 @@ class DevEndpoint(pulumi.CustomResource):
 
         ## Import
 
-        A Glue Development Endpoint can be imported using the `name`, e.g.
+        A Glue Development Endpoint can be imported using the `name`, e.g.,
 
         ```sh
          $ pulumi import aws:glue/devEndpoint:DevEndpoint example foo
@@ -903,6 +907,7 @@ class DevEndpoint(pulumi.CustomResource):
         :param pulumi.Input[str] status: The current status of this endpoint.
         :param pulumi.Input[str] subnet_id: The subnet ID for the new endpoint to use.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] vpc_id: he ID of the VPC used by this endpoint.
         :param pulumi.Input[str] worker_type: The type of predefined worker that is allocated to this endpoint. Accepts a value of Standard, G.1X, or G.2X.
         :param pulumi.Input[str] yarn_endpoint_address: The YARN endpoint address used by this endpoint.
@@ -1102,6 +1107,9 @@ class DevEndpoint(pulumi.CustomResource):
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @property

@@ -478,7 +478,7 @@ class ClassificationJob(pulumi.CustomResource):
 
         ## Import
 
-        `aws_macie2_classification_job` can be imported using the id, e.g.
+        `aws_macie2_classification_job` can be imported using the id, e.g.,
 
         ```sh
          $ pulumi import aws:macie2/classificationJob:ClassificationJob example abcd1
@@ -526,7 +526,7 @@ class ClassificationJob(pulumi.CustomResource):
 
         ## Import
 
-        `aws_macie2_classification_job` can be imported using the id, e.g.
+        `aws_macie2_classification_job` can be imported using the id, e.g.,
 
         ```sh
          $ pulumi import aws:macie2/classificationJob:ClassificationJob example abcd1

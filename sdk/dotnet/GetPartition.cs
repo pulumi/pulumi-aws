@@ -61,7 +61,7 @@ namespace Pulumi.Aws
     public sealed class GetPartitionResult
     {
         /// <summary>
-        /// Base DNS domain name for the current partition (e.g. `amazonaws.com` in AWS Commercial, `amazonaws.com.cn` in AWS China).
+        /// Base DNS domain name for the current partition (e.g., `amazonaws.com` in AWS Commercial, `amazonaws.com.cn` in AWS China).
         /// </summary>
         public readonly string DnsSuffix;
         /// <summary>
@@ -69,11 +69,11 @@ namespace Pulumi.Aws
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Identifier of the current partition (e.g. `aws` in AWS Commercial, `aws-cn` in AWS China).
+        /// Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
         /// </summary>
         public readonly string Partition;
         /// <summary>
-        /// Prefix of service names (e.g. `com.amazonaws` in AWS Commercial, `cn.com.amazonaws` in AWS China).
+        /// Prefix of service names (e.g., `com.amazonaws` in AWS Commercial, `cn.com.amazonaws` in AWS China).
         /// </summary>
         public readonly string ReverseDnsPrefix;
 

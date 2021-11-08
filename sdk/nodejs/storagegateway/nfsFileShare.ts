@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * `aws_storagegateway_nfs_file_share` can be imported by using the NFS File Share Amazon Resource Name (ARN), e.g.
+ * `aws_storagegateway_nfs_file_share` can be imported by using the NFS File Share Amazon Resource Name (ARN), e.g.,
  *
  * ```sh
  *  $ pulumi import aws:storagegateway/nfsFileShare:NfsFileShare example arn:aws:storagegateway:us-east-1:123456789012:share/share-12345678
@@ -62,6 +62,10 @@ export class NfsFileShare extends pulumi.CustomResource {
      * Amazon Resource Name (ARN) of the NFS File Share.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the storage used for audit logs.
+     */
+    public readonly auditDestinationArn!: pulumi.Output<string | undefined>;
     /**
      * Refresh cache information. see Cache Attributes for more details.
      */
@@ -157,6 +161,7 @@ export class NfsFileShare extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as NfsFileShareState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
+            inputs["auditDestinationArn"] = state ? state.auditDestinationArn : undefined;
             inputs["cacheAttributes"] = state ? state.cacheAttributes : undefined;
             inputs["clientLists"] = state ? state.clientLists : undefined;
             inputs["defaultStorageClass"] = state ? state.defaultStorageClass : undefined;
@@ -191,6 +196,7 @@ export class NfsFileShare extends pulumi.CustomResource {
             if ((!args || args.roleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
+            inputs["auditDestinationArn"] = args ? args.auditDestinationArn : undefined;
             inputs["cacheAttributes"] = args ? args.cacheAttributes : undefined;
             inputs["clientLists"] = args ? args.clientLists : undefined;
             inputs["defaultStorageClass"] = args ? args.defaultStorageClass : undefined;
@@ -228,6 +234,10 @@ export interface NfsFileShareState {
      * Amazon Resource Name (ARN) of the NFS File Share.
      */
     arn?: pulumi.Input<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the storage used for audit logs.
+     */
+    auditDestinationArn?: pulumi.Input<string>;
     /**
      * Refresh cache information. see Cache Attributes for more details.
      */
@@ -314,6 +324,10 @@ export interface NfsFileShareState {
  * The set of arguments for constructing a NfsFileShare resource.
  */
 export interface NfsFileShareArgs {
+    /**
+     * The Amazon Resource Name (ARN) of the storage used for audit logs.
+     */
+    auditDestinationArn?: pulumi.Input<string>;
     /**
      * Refresh cache information. see Cache Attributes for more details.
      */

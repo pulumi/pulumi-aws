@@ -97,7 +97,7 @@ class GetZoneResult:
     @pulumi.getter(name="linkedServiceDescription")
     def linked_service_description(self) -> str:
         """
-        The description provided by the service that created the Hosted Zone (e.g. `arn:aws:servicediscovery:us-east-1:1234567890:namespace/ns-xxxxxxxxxxxxxxxx`).
+        The description provided by the service that created the Hosted Zone (e.g., `arn:aws:servicediscovery:us-east-1:1234567890:namespace/ns-xxxxxxxxxxxxxxxx`).
         """
         return pulumi.get(self, "linked_service_description")
 
@@ -105,7 +105,7 @@ class GetZoneResult:
     @pulumi.getter(name="linkedServicePrincipal")
     def linked_service_principal(self) -> str:
         """
-        The service that created the Hosted Zone (e.g. `servicediscovery.amazonaws.com`).
+        The service that created the Hosted Zone (e.g., `servicediscovery.amazonaws.com`).
         """
         return pulumi.get(self, "linked_service_principal")
 

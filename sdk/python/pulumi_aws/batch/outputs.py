@@ -11,6 +11,7 @@ from . import outputs
 
 __all__ = [
     'ComputeEnvironmentComputeResources',
+    'ComputeEnvironmentComputeResourcesEc2Configuration',
     'ComputeEnvironmentComputeResourcesLaunchTemplate',
     'JobDefinitionRetryStrategy',
     'JobDefinitionRetryStrategyEvaluateOnExit',
@@ -33,6 +34,8 @@ class ComputeEnvironmentComputeResources(dict):
             suggest = "bid_percentage"
         elif key == "desiredVcpus":
             suggest = "desired_vcpus"
+        elif key == "ec2Configuration":
+            suggest = "ec2_configuration"
         elif key == "ec2KeyPair":
             suggest = "ec2_key_pair"
         elif key == "imageId":
@@ -67,6 +70,7 @@ class ComputeEnvironmentComputeResources(dict):
                  allocation_strategy: Optional[str] = None,
                  bid_percentage: Optional[int] = None,
                  desired_vcpus: Optional[int] = None,
+                 ec2_configuration: Optional['outputs.ComputeEnvironmentComputeResourcesEc2Configuration'] = None,
                  ec2_key_pair: Optional[str] = None,
                  image_id: Optional[str] = None,
                  instance_role: Optional[str] = None,
@@ -83,8 +87,9 @@ class ComputeEnvironmentComputeResources(dict):
         :param str allocation_strategy: The allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated. Valid items are `BEST_FIT_PROGRESSIVE`, `SPOT_CAPACITY_OPTIMIZED` or `BEST_FIT`. Defaults to `BEST_FIT`. See [AWS docs](https://docs.aws.amazon.com/batch/latest/userguide/allocation-strategies.html) for details. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         :param int bid_percentage: Integer of minimum percentage that a Spot Instance price must be when compared with the On-Demand price for that instance type before instances are launched. For example, if your bid percentage is 20% (`20`), then the Spot price must be below 20% of the current On-Demand price for that EC2 instance. This parameter is required for SPOT compute environments. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         :param int desired_vcpus: The desired number of EC2 vCPUS in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+        :param 'ComputeEnvironmentComputeResourcesEc2ConfigurationArgs' ec2_configuration: Provides information used to select Amazon Machine Images (AMIs) for EC2 instances in the compute environment. If Ec2Configuration isn't specified, the default is ECS_AL2. This parameter isn't applicable to jobs that are running on Fargate resources, and shouldn't be specified.
         :param str ec2_key_pair: The EC2 key pair that is used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
-        :param str image_id: The Amazon Machine Image (AMI) ID used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+        :param str image_id: The Amazon Machine Image (AMI) ID used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified. (Deprecated, use `image_id_override` instead)
         :param str instance_role: The Amazon ECS instance role applied to Amazon EC2 instances in a compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         :param Sequence[str] instance_types: A list of instance types that may be launched. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         :param 'ComputeEnvironmentComputeResourcesLaunchTemplateArgs' launch_template: The launch template to use for your compute resources. See details below. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
@@ -102,6 +107,8 @@ class ComputeEnvironmentComputeResources(dict):
             pulumi.set(__self__, "bid_percentage", bid_percentage)
         if desired_vcpus is not None:
             pulumi.set(__self__, "desired_vcpus", desired_vcpus)
+        if ec2_configuration is not None:
+            pulumi.set(__self__, "ec2_configuration", ec2_configuration)
         if ec2_key_pair is not None:
             pulumi.set(__self__, "ec2_key_pair", ec2_key_pair)
         if image_id is not None:
@@ -176,6 +183,14 @@ class ComputeEnvironmentComputeResources(dict):
         return pulumi.get(self, "desired_vcpus")
 
     @property
+    @pulumi.getter(name="ec2Configuration")
+    def ec2_configuration(self) -> Optional['outputs.ComputeEnvironmentComputeResourcesEc2Configuration']:
+        """
+        Provides information used to select Amazon Machine Images (AMIs) for EC2 instances in the compute environment. If Ec2Configuration isn't specified, the default is ECS_AL2. This parameter isn't applicable to jobs that are running on Fargate resources, and shouldn't be specified.
+        """
+        return pulumi.get(self, "ec2_configuration")
+
+    @property
     @pulumi.getter(name="ec2KeyPair")
     def ec2_key_pair(self) -> Optional[str]:
         """
@@ -187,7 +202,7 @@ class ComputeEnvironmentComputeResources(dict):
     @pulumi.getter(name="imageId")
     def image_id(self) -> Optional[str]:
         """
-        The Amazon Machine Image (AMI) ID used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+        The Amazon Machine Image (AMI) ID used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified. (Deprecated, use `image_id_override` instead)
         """
         return pulumi.get(self, "image_id")
 
@@ -238,6 +253,56 @@ class ComputeEnvironmentComputeResources(dict):
         Key-value pair tags to be applied to resources that are launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         """
         return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
+class ComputeEnvironmentComputeResourcesEc2Configuration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "imageIdOverride":
+            suggest = "image_id_override"
+        elif key == "imageType":
+            suggest = "image_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ComputeEnvironmentComputeResourcesEc2Configuration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ComputeEnvironmentComputeResourcesEc2Configuration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ComputeEnvironmentComputeResourcesEc2Configuration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 image_id_override: Optional[str] = None,
+                 image_type: Optional[str] = None):
+        """
+        :param str image_id_override: The AMI ID used for instances launched in the compute environment that match the image type. This setting overrides the `image_id` argument in the `compute_resourcess block.
+        :param str image_type: The image type to match with the instance type to select an AMI. If the `image_id_override` parameter isn't specified, then a recent [Amazon ECS-optimized Amazon Linux 2 AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#al2ami) (`ECS_AL2`) is used.
+        """
+        if image_id_override is not None:
+            pulumi.set(__self__, "image_id_override", image_id_override)
+        if image_type is not None:
+            pulumi.set(__self__, "image_type", image_type)
+
+    @property
+    @pulumi.getter(name="imageIdOverride")
+    def image_id_override(self) -> Optional[str]:
+        """
+        The AMI ID used for instances launched in the compute environment that match the image type. This setting overrides the `image_id` argument in the `compute_resourcess block.
+        """
+        return pulumi.get(self, "image_id_override")
+
+    @property
+    @pulumi.getter(name="imageType")
+    def image_type(self) -> Optional[str]:
+        """
+        The image type to match with the instance type to select an AMI. If the `image_id_override` parameter isn't specified, then a recent [Amazon ECS-optimized Amazon Linux 2 AMI](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html#al2ami) (`ECS_AL2`) is used.
+        """
+        return pulumi.get(self, "image_type")
 
 
 @pulumi.output_type

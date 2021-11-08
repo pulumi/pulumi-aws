@@ -17,7 +17,7 @@ import (
 //
 // ## Import
 //
-// Sagemaker Code Studio Lifecycle Configs can be imported using the `studio_lifecycle_config_name`, e.g.
+// Sagemaker Code Studio Lifecycle Configs can be imported using the `studio_lifecycle_config_name`, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:sagemaker/studioLifecycleConfig:StudioLifecycleConfig example example
@@ -119,8 +119,6 @@ type studioLifecycleConfigArgs struct {
 	StudioLifecycleConfigName string `pulumi:"studioLifecycleConfigName"`
 	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a StudioLifecycleConfig resource.
@@ -133,8 +131,6 @@ type StudioLifecycleConfigArgs struct {
 	StudioLifecycleConfigName pulumi.StringInput
 	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-	TagsAll pulumi.StringMapInput
 }
 
 func (StudioLifecycleConfigArgs) ElementType() reflect.Type {

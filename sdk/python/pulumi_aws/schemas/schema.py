@@ -129,6 +129,7 @@ class _SchemaState:
         :param pulumi.Input[str] last_modified: The last modified date of the schema.
         :param pulumi.Input[str] name: The name of the schema. Maximum of 385 characters consisting of lower case letters, upper case letters, ., -, _, @.
         :param pulumi.Input[str] registry_name: The name of the registry in which this schema belongs.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] type: The type of the schema. Valid values: `OpenApi3`.
         :param pulumi.Input[str] version: The version of the schema.
         :param pulumi.Input[str] version_created_date: The created date of the version of the schema.
@@ -240,6 +241,9 @@ class _SchemaState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -336,7 +340,7 @@ class Schema(pulumi.CustomResource):
 
         ## Import
 
-        EventBridge schema can be imported using the `name` and `registry_name`, e.g. console
+        EventBridge schema can be imported using the `name` and `registry_name`, e.g., console
 
         ```sh
          $ pulumi import aws:schemas/schema:Schema test name/registry
@@ -397,7 +401,7 @@ class Schema(pulumi.CustomResource):
 
         ## Import
 
-        EventBridge schema can be imported using the `name` and `registry_name`, e.g. console
+        EventBridge schema can be imported using the `name` and `registry_name`, e.g., console
 
         ```sh
          $ pulumi import aws:schemas/schema:Schema test name/registry
@@ -487,6 +491,7 @@ class Schema(pulumi.CustomResource):
         :param pulumi.Input[str] last_modified: The last modified date of the schema.
         :param pulumi.Input[str] name: The name of the schema. Maximum of 385 characters consisting of lower case letters, upper case letters, ., -, _, @.
         :param pulumi.Input[str] registry_name: The name of the registry in which this schema belongs.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] type: The type of the schema. Valid values: `OpenApi3`.
         :param pulumi.Input[str] version: The version of the schema.
         :param pulumi.Input[str] version_created_date: The created date of the version of the schema.
@@ -564,6 +569,9 @@ class Schema(pulumi.CustomResource):
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @property

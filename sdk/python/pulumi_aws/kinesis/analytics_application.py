@@ -201,6 +201,7 @@ class _AnalyticsApplicationState:
         :param pulumi.Input[bool] start_application: Whether to start or stop the Kinesis Analytics Application. To start an application, an input with a defined `starting_position` must be configured.
                To modify an application's starting position, first stop the application by setting `start_application = false`, then update `starting_position` and set `start_application = true`.
         :param pulumi.Input[str] status: The Status of the application.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[int] version: The Version of the application.
         """
         if arn is not None:
@@ -393,6 +394,9 @@ class _AnalyticsApplicationState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -528,7 +532,7 @@ class AnalyticsApplication(pulumi.CustomResource):
 
         ## Import
 
-        Kinesis Analytics Application can be imported by using ARN, e.g.
+        Kinesis Analytics Application can be imported by using ARN, e.g.,
 
         ```sh
          $ pulumi import aws:kinesis/analyticsApplication:AnalyticsApplication example arn:aws:kinesisanalytics:us-west-2:1234567890:application/example
@@ -655,7 +659,7 @@ class AnalyticsApplication(pulumi.CustomResource):
 
         ## Import
 
-        Kinesis Analytics Application can be imported by using ARN, e.g.
+        Kinesis Analytics Application can be imported by using ARN, e.g.,
 
         ```sh
          $ pulumi import aws:kinesis/analyticsApplication:AnalyticsApplication example arn:aws:kinesisanalytics:us-west-2:1234567890:application/example
@@ -759,6 +763,7 @@ class AnalyticsApplication(pulumi.CustomResource):
         :param pulumi.Input[bool] start_application: Whether to start or stop the Kinesis Analytics Application. To start an application, an input with a defined `starting_position` must be configured.
                To modify an application's starting position, first stop the application by setting `start_application = false`, then update `starting_position` and set `start_application = true`.
         :param pulumi.Input[str] status: The Status of the application.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[int] version: The Version of the application.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -889,6 +894,9 @@ class AnalyticsApplication(pulumi.CustomResource):
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @property

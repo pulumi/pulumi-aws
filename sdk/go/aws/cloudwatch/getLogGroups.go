@@ -25,7 +25,7 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := cloudwatch.GetLogGroups(ctx, &cloudwatch.GetLogGroupsArgs{
-// 			LogGroupPrefix: "/MyImportantLogs",
+// 			LogGroupNamePrefix: "/MyImportantLogs",
 // 		}, nil)
 // 		if err != nil {
 // 			return err

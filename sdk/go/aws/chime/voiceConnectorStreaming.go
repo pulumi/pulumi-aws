@@ -50,7 +50,7 @@ import (
 //
 // ## Import
 //
-// Chime Voice Connector Streaming can be imported using the `voice_connector_id`, e.g.
+// Chime Voice Connector Streaming can be imported using the `voice_connector_id`, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:chime/voiceConnectorStreaming:VoiceConnectorStreaming default abcdef1ghij2klmno3pqr4

@@ -182,7 +182,7 @@ class Endpoint(pulumi.CustomResource):
 
         ## Import
 
-        Endpoints can be imported using the `name`, e.g.
+        Endpoints can be imported using the `name`, e.g.,
 
         ```sh
          $ pulumi import aws:sagemaker/endpoint:Endpoint test_endpoint my-endpoint
@@ -220,7 +220,7 @@ class Endpoint(pulumi.CustomResource):
 
         ## Import
 
-        Endpoints can be imported using the `name`, e.g.
+        Endpoints can be imported using the `name`, e.g.,
 
         ```sh
          $ pulumi import aws:sagemaker/endpoint:Endpoint test_endpoint my-endpoint

@@ -253,7 +253,7 @@ class SubnetGroup(pulumi.CustomResource):
 
         ## Import
 
-        DocumentDB Subnet groups can be imported using the `name`, e.g.
+        DocumentDB Subnet groups can be imported using the `name`, e.g.,
 
         ```sh
          $ pulumi import aws:docdb/subnetGroup:SubnetGroup default production-subnet-group
@@ -294,7 +294,7 @@ class SubnetGroup(pulumi.CustomResource):
 
         ## Import
 
-        DocumentDB Subnet groups can be imported using the `name`, e.g.
+        DocumentDB Subnet groups can be imported using the `name`, e.g.,
 
         ```sh
          $ pulumi import aws:docdb/subnetGroup:SubnetGroup default production-subnet-group

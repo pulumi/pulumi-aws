@@ -24,6 +24,7 @@ import (
 	"unicode"
 
 	awsbase "github.com/hashicorp/aws-sdk-go-base"
+	awsShim "github.com/hashicorp/terraform-provider-aws/shim"
 	homedir "github.com/mitchellh/go-homedir"
 	"github.com/pulumi/pulumi-aws/provider/v4/pkg/version"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
@@ -32,7 +33,6 @@ import (
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/tokens"
-	"github.com/terraform-providers/terraform-provider-aws/aws"
 )
 
 // all of the AWS token components used below.
@@ -279,7 +279,8 @@ var managedByPulumi = &tfbridge.DefaultInfo{Value: "Managed by Pulumi"}
 
 // Provider returns additional overlaid schema and metadata associated with the aws package.
 func Provider() tfbridge.ProviderInfo {
-	p := shimv2.NewProvider(aws.Provider())
+	p := shimv2.NewProvider(awsShim.NewProvider())
+
 	prov := tfbridge.ProviderInfo{
 		P:           p,
 		Name:        "aws",
@@ -289,6 +290,7 @@ func Provider() tfbridge.ProviderInfo {
 		Homepage:    "https://pulumi.io",
 		Repository:  "https://github.com/pulumi/pulumi-aws",
 		Version:     version.Version,
+		GitHubOrg:   "hashicorp",
 		Config: map[string]*tfbridge.SchemaInfo{
 			"region": {
 				Type: awsTypeDefaultFile(awsMod, "Region"),
@@ -671,12 +673,13 @@ func Provider() tfbridge.ProviderInfo {
 			// Autoscaling Plans
 			"aws_autoscalingplans_scaling_plan": {Tok: awsResource(autoscalingPlansMod, "ScalingPlan")},
 			// Backup
-			"aws_backup_plan":                {Tok: awsResource(backupMod, "Plan")},
-			"aws_backup_selection":           {Tok: awsResource(backupMod, "Selection")},
-			"aws_backup_vault":               {Tok: awsResource(backupMod, "Vault")},
-			"aws_backup_vault_notifications": {Tok: awsResource(backupMod, "VaultNotifications")},
-			"aws_backup_vault_policy":        {Tok: awsResource(backupMod, "VaultPolicy")},
-			"aws_backup_region_settings":     {Tok: awsResource(backupMod, "RegionSettings")},
+			"aws_backup_plan":                     {Tok: awsResource(backupMod, "Plan")},
+			"aws_backup_selection":                {Tok: awsResource(backupMod, "Selection")},
+			"aws_backup_vault":                    {Tok: awsResource(backupMod, "Vault")},
+			"aws_backup_vault_notifications":      {Tok: awsResource(backupMod, "VaultNotifications")},
+			"aws_backup_vault_policy":             {Tok: awsResource(backupMod, "VaultPolicy")},
+			"aws_backup_vault_lock_configuration": {Tok: awsResource(backupMod, "VaultLockConfiguration")},
+			"aws_backup_region_settings":          {Tok: awsResource(backupMod, "RegionSettings")},
 			"aws_backup_global_settings": {
 				Tok: awsResource(backupMod, "GlobalSettings"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -743,6 +746,7 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
+			"aws_cloudfront_response_headers_policy": {Tok: awsResource(cloudfrontMod, "ResponseHeadersPolicy")},
 			// CloudTrail
 			"aws_cloudtrail": {Tok: awsResource(cloudtrailMod, "Trail")},
 			// CloudWatch
@@ -1818,10 +1822,12 @@ func Provider() tfbridge.ProviderInfo {
 					}),
 				},
 			},
-			"aws_kms_ciphertext":   {Tok: awsResource(kmsMod, "Ciphertext")},
-			"aws_kms_external_key": {Tok: awsResource(kmsMod, "ExternalKey")},
-			"aws_kms_grant":        {Tok: awsResource(kmsMod, "Grant")},
-			"aws_kms_key":          {Tok: awsResource(kmsMod, "Key")},
+			"aws_kms_ciphertext":           {Tok: awsResource(kmsMod, "Ciphertext")},
+			"aws_kms_external_key":         {Tok: awsResource(kmsMod, "ExternalKey")},
+			"aws_kms_grant":                {Tok: awsResource(kmsMod, "Grant")},
+			"aws_kms_key":                  {Tok: awsResource(kmsMod, "Key")},
+			"aws_kms_replica_external_key": {Tok: awsResource(kmsMod, "ReplicaExternalKey")},
+			"aws_kms_replica_key":          {Tok: awsResource(kmsMod, "ReplicaKey")},
 			// Lambda
 			"aws_lambda_function": {
 				Tok:      awsResource(lambdaMod, "Function"),
@@ -1844,6 +1850,10 @@ func Provider() tfbridge.ProviderInfo {
 					"runtime": {
 						Type:     "string",
 						AltTypes: []tokens.Type{awsType(lambdaMod, "Runtime", "Runtime")},
+					},
+					"architectures": {
+						MaxItemsOne: tfbridge.False(),
+						Name:        "architectures",
 					},
 				},
 			},
@@ -2747,7 +2757,9 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_ssoadmin_account_assignment":           {Tok: awsResource(ssoAdminMod, "AccountAssignment")},
 
 			// AMP (Managed Prometheus)
-			"aws_prometheus_workspace": {Tok: awsResource(ampMod, "Workspace")},
+			"aws_prometheus_workspace":                {Tok: awsResource(ampMod, "Workspace")},
+			"aws_prometheus_alert_manager_definition": {Tok: awsResource(ampMod, "AlertManagerDefinition")},
+			"aws_prometheus_rule_group_namespace":     {Tok: awsResource(ampMod, "RuleGroupNamespace")},
 
 			// Amplify
 			"aws_amplify_app":                 {Tok: awsResource(amplifyMod, "App")},
@@ -4061,6 +4073,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_iam_users":              {Tok: awsDataSource(iamMod, "getUsers")},
 			"aws_iam_session_context":    {Tok: awsDataSource(iamMod, "getSessionContext")},
 			"aws_iam_roles":              {Tok: awsDataSource(iamMod, "getRoles")},
+			"aws_iam_user_ssh_key":       {Tok: awsDataSource(iamMod, "getUserSshKey")},
 			// IdentityStore
 			"aws_identitystore_group": {Tok: awsDataSource(identityStoreMod, "getGroup")},
 			"aws_identitystore_user":  {Tok: awsDataSource(identityStoreMod, "getUser")},
@@ -4170,6 +4183,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_cloudfront_log_delivery_canonical_user_id": {
 				Tok: awsDataSource(cloudfrontMod, "getLogDeliveryCanonicalUserId"),
 			},
+			"aws_cloudfront_response_headers_policy": {Tok: awsDataSource(cloudfrontMod, "getResponseHeadersPolicy")},
 			// Backup
 			"aws_backup_plan":      {Tok: awsDataSource(backupMod, "getPlan")},
 			"aws_backup_selection": {Tok: awsDataSource(backupMod, "getSelection")},

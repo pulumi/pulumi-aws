@@ -73,7 +73,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * WAFv2 Web ACL Logging Configurations can be imported using the WAFv2 Web ACL ARN e.g.
+ * WAFv2 Web ACL Logging Configurations can be imported using the WAFv2 Web ACL ARN e.g.,
  *
  * ```sh
  *  $ pulumi import aws:wafv2/webAclLoggingConfiguration:WebAclLoggingConfiguration example arn:aws:wafv2:us-west-2:123456789012:regional/webacl/test-logs/a1b2c3d4-5678-90ab-cdef

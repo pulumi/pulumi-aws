@@ -136,7 +136,7 @@ export class Deployment extends pulumi.CustomResource {
     /**
      * The execution ARN to be used in `lambdaPermission` resource's `sourceArn`
      * when allowing API Gateway to invoke a Lambda function,
-     * e.g. `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
+     * e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
      */
     public /*out*/ readonly executionArn!: pulumi.Output<string>;
     /**
@@ -224,7 +224,7 @@ export interface DeploymentState {
     /**
      * The execution ARN to be used in `lambdaPermission` resource's `sourceArn`
      * when allowing API Gateway to invoke a Lambda function,
-     * e.g. `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
+     * e.g., `arn:aws:execute-api:eu-west-2:123456789012:z4675bid1j/prod`
      */
     executionArn?: pulumi.Input<string>;
     /**

@@ -46,7 +46,7 @@ import (
 //
 // ## Import
 //
-// DAX Parameter Group can be imported using the `name`, e.g.
+// DAX Parameter Group can be imported using the `name`, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:dax/parameterGroup:ParameterGroup example my_dax_pg

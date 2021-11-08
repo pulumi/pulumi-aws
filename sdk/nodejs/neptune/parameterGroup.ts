@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Neptune Parameter Groups can be imported using the `name`, e.g.
+ * Neptune Parameter Groups can be imported using the `name`, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:neptune/parameterGroup:ParameterGroup some_pg some-pg

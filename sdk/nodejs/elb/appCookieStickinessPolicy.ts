@@ -31,7 +31,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Application cookie stickiness policies can be imported using the ELB name, port, and policy name separated by colons (`:`), e.g.
+ * Application cookie stickiness policies can be imported using the ELB name, port, and policy name separated by colons (`:`), e.g.,
  *
  * ```sh
  *  $ pulumi import aws:elb/appCookieStickinessPolicy:AppCookieStickinessPolicy example my-elb:80:my-policy

@@ -249,7 +249,7 @@ def get_vpc_endpoint_service(filters: Optional[Sequence[pulumi.InputType['GetVpc
 
 
     :param Sequence[pulumi.InputType['GetVpcEndpointServiceFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
-    :param str service: The common name of an AWS service (e.g. `s3`).
+    :param str service: The common name of an AWS service (e.g., `s3`).
     :param str service_name: The service name that is specified when creating a VPC endpoint. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
     :param str service_type: The service type, `Gateway` or `Interface`.
     :param Mapping[str, str] tags: A map of tags, each pair of which must exactly match a pair on the desired VPC Endpoint Service.
@@ -333,7 +333,7 @@ def get_vpc_endpoint_service_output(filters: Optional[pulumi.Input[Optional[Sequ
 
 
     :param Sequence[pulumi.InputType['GetVpcEndpointServiceFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
-    :param str service: The common name of an AWS service (e.g. `s3`).
+    :param str service: The common name of an AWS service (e.g., `s3`).
     :param str service_name: The service name that is specified when creating a VPC endpoint. For AWS services the service name is usually in the form `com.amazonaws.<region>.<service>` (the SageMaker Notebook service is an exception to this rule, the service name is in the form `aws.sagemaker.<region>.notebook`).
     :param str service_type: The service type, `Gateway` or `Interface`.
     :param Mapping[str, str] tags: A map of tags, each pair of which must exactly match a pair on the desired VPC Endpoint Service.

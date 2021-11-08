@@ -140,7 +140,7 @@ namespace Pulumi.Aws.AutoScaling
         private List<Inputs.GetAmiIdsFilterArgs>? _filters;
 
         /// <summary>
-        /// A filter used to scope the list e.g. by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
+        /// A filter used to scope the list e.g., by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
         /// </summary>
         public List<Inputs.GetAmiIdsFilterArgs> Filters
         {
@@ -159,7 +159,7 @@ namespace Pulumi.Aws.AutoScaling
         private InputList<Inputs.GetAmiIdsFilterInputArgs>? _filters;
 
         /// <summary>
-        /// A filter used to scope the list e.g. by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
+        /// A filter used to scope the list e.g., by tags. See [related docs](http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_Filter.html).
         /// </summary>
         public InputList<Inputs.GetAmiIdsFilterInputArgs> Filters
         {

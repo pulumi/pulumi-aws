@@ -89,11 +89,11 @@ export class NetworkAclRule extends pulumi.CustomResource {
      */
     public readonly fromPort!: pulumi.Output<number | undefined>;
     /**
-     * ICMP protocol: The ICMP code. Required if specifying ICMP for the protocol. e.g. -1
+     * ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1
      */
     public readonly icmpCode!: pulumi.Output<string | undefined>;
     /**
-     * ICMP protocol: The ICMP type. Required if specifying ICMP for the protocol. e.g. -1
+     * ICMP protocol: The ICMP type. Required if specifying ICMP for the protocolE.g., -1
      */
     public readonly icmpType!: pulumi.Output<string | undefined>;
     /**
@@ -195,11 +195,11 @@ export interface NetworkAclRuleState {
      */
     fromPort?: pulumi.Input<number>;
     /**
-     * ICMP protocol: The ICMP code. Required if specifying ICMP for the protocol. e.g. -1
+     * ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1
      */
     icmpCode?: pulumi.Input<string>;
     /**
-     * ICMP protocol: The ICMP type. Required if specifying ICMP for the protocol. e.g. -1
+     * ICMP protocol: The ICMP type. Required if specifying ICMP for the protocolE.g., -1
      */
     icmpType?: pulumi.Input<string>;
     /**
@@ -245,11 +245,11 @@ export interface NetworkAclRuleArgs {
      */
     fromPort?: pulumi.Input<number>;
     /**
-     * ICMP protocol: The ICMP code. Required if specifying ICMP for the protocol. e.g. -1
+     * ICMP protocol: The ICMP code. Required if specifying ICMP for the protocolE.g., -1
      */
     icmpCode?: pulumi.Input<string>;
     /**
-     * ICMP protocol: The ICMP type. Required if specifying ICMP for the protocol. e.g. -1
+     * ICMP protocol: The ICMP type. Required if specifying ICMP for the protocolE.g., -1
      */
     icmpType?: pulumi.Input<string>;
     /**

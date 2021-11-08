@@ -50,7 +50,7 @@ namespace Pulumi.Aws.ServerlessRepository
     /// 
     /// ## Import
     /// 
-    /// Serverless Application Repository Stack can be imported using the CloudFormation Stack name (with or without the `serverlessrepo-` prefix) or the CloudFormation Stack ID, e.g.
+    /// Serverless Application Repository Stack can be imported using the CloudFormation Stack name (with or without the `serverlessrepo-` prefix) or the CloudFormation Stack ID, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:serverlessrepository/cloudFormationStack:CloudFormationStack example serverlessrepo-postgres-rotator

@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Config aggregate authorizations can be imported using `account_id:region`, e.g.
+ * Config aggregate authorizations can be imported using `account_id:region`, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:cfg/aggregateAuthorization:AggregateAuthorization example 123456789012:us-east-1

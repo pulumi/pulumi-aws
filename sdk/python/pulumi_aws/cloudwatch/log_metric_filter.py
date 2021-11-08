@@ -189,7 +189,7 @@ class LogMetricFilter(pulumi.CustomResource):
 
         ## Import
 
-        CloudWatch Log Metric Filter can be imported using the `log_group_name:name`, e.g.
+        CloudWatch Log Metric Filter can be imported using the `log_group_name:name`, e.g.,
 
         ```sh
          $ pulumi import aws:cloudwatch/logMetricFilter:LogMetricFilter test /aws/lambda/function:test
@@ -231,7 +231,7 @@ class LogMetricFilter(pulumi.CustomResource):
 
         ## Import
 
-        CloudWatch Log Metric Filter can be imported using the `log_group_name:name`, e.g.
+        CloudWatch Log Metric Filter can be imported using the `log_group_name:name`, e.g.,
 
         ```sh
          $ pulumi import aws:cloudwatch/logMetricFilter:LogMetricFilter test /aws/lambda/function:test

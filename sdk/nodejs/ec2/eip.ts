@@ -93,13 +93,13 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * EIPs in a VPC can be imported using their Allocation ID, e.g.
+ * EIPs in a VPC can be imported using their Allocation ID, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:ec2/eip:Eip bar eipalloc-00a10e96
  * ```
  *
- *  EIPs in EC2 Classic can be imported using their Public IP, e.g.
+ *  EIPs in EC2 Classic can be imported using their Public IP, e.g.,
  *
  * ```sh
  *  $ pulumi import aws:ec2/eip:Eip bar 52.0.0.0
@@ -200,6 +200,9 @@ export class Eip extends pulumi.CustomResource {
      */
     public readonly publicIpv4Pool!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * Boolean if the EIP is in a VPC or not.
@@ -336,6 +339,9 @@ export interface EipState {
      */
     publicIpv4Pool?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Boolean if the EIP is in a VPC or not.

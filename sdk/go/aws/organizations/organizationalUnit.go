@@ -38,7 +38,7 @@ import (
 //
 // ## Import
 //
-// AWS Organizations Organizational Units can be imported by using the `id`, e.g.
+// AWS Organizations Organizational Units can be imported by using the `id`, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:organizations/organizationalUnit:OrganizationalUnit example ou-1234567

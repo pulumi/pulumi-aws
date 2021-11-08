@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Workspaces.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// The IP address range, in CIDR notation, e.g. `10.0.0.0/16`
+        /// The IP address range, in CIDR notation, e.g., `10.0.0.0/16`
         /// </summary>
         public readonly string Source;
 

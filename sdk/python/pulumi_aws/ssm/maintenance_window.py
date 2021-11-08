@@ -460,7 +460,7 @@ class MaintenanceWindow(pulumi.CustomResource):
 
         SSM
 
-        Maintenance Windows can be imported using the `maintenance window id`, e.g.
+        Maintenance Windows can be imported using the `maintenance window id`, e.g.,
 
         ```sh
          $ pulumi import aws:ssm/maintenanceWindow:MaintenanceWindow imported-window mw-0123456789
@@ -506,7 +506,7 @@ class MaintenanceWindow(pulumi.CustomResource):
 
         SSM
 
-        Maintenance Windows can be imported using the `maintenance window id`, e.g.
+        Maintenance Windows can be imported using the `maintenance window id`, e.g.,
 
         ```sh
          $ pulumi import aws:ssm/maintenanceWindow:MaintenanceWindow imported-window mw-0123456789

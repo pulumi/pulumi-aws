@@ -52,7 +52,7 @@ import (
 //
 // ## Import
 //
-// Feature Groups can be imported using the `name`, e.g.
+// Feature Groups can be imported using the `name`, e.g.,
 //
 // ```sh
 //  $ pulumi import aws:sagemaker/featureGroup:FeatureGroup test_feature_group feature_group-foo

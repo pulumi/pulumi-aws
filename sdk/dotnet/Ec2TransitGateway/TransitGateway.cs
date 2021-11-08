@@ -33,7 +33,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// 
     /// ## Import
     /// 
-    /// `aws_ec2_transit_gateway` can be imported by using the EC2 Transit Gateway identifier, e.g.
+    /// `aws_ec2_transit_gateway` can be imported by using the EC2 Transit Gateway identifier, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:ec2transitgateway/transitGateway:TransitGateway example tgw-12345678
@@ -105,6 +105,9 @@ namespace Pulumi.Aws.Ec2TransitGateway
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
@@ -287,6 +290,10 @@ namespace Pulumi.Aws.Ec2TransitGateway
 
         [Input("tagsAll")]
         private InputMap<string>? _tagsAll;
+
+        /// <summary>
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        /// </summary>
         public InputMap<string> TagsAll
         {
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());

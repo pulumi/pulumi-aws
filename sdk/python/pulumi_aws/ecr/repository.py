@@ -117,6 +117,7 @@ class _RepositoryState:
         :param pulumi.Input[str] name: Name of the repository.
         :param pulumi.Input[str] registry_id: The registry ID where the repository was created.
         :param pulumi.Input[str] repository_url: The URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -233,6 +234,9 @@ class _RepositoryState:
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 
     @tags_all.setter
@@ -269,7 +273,7 @@ class Repository(pulumi.CustomResource):
 
         ## Import
 
-        ECR Repositories can be imported using the `name`, e.g.
+        ECR Repositories can be imported using the `name`, e.g.,
 
         ```sh
          $ pulumi import aws:ecr/repository:Repository service test-service
@@ -306,7 +310,7 @@ class Repository(pulumi.CustomResource):
 
         ## Import
 
-        ECR Repositories can be imported using the `name`, e.g.
+        ECR Repositories can be imported using the `name`, e.g.,
 
         ```sh
          $ pulumi import aws:ecr/repository:Repository service test-service
@@ -386,6 +390,7 @@ class Repository(pulumi.CustomResource):
         :param pulumi.Input[str] name: Name of the repository.
         :param pulumi.Input[str] registry_id: The registry ID where the repository was created.
         :param pulumi.Input[str] repository_url: The URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -466,5 +471,8 @@ class Repository(pulumi.CustomResource):
     @property
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
         return pulumi.get(self, "tags_all")
 

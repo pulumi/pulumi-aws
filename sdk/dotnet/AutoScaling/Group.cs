@@ -394,9 +394,9 @@ namespace Pulumi.Aws.AutoScaling
     /// updates.
     /// 
     /// These parameters can be used to ensure that service is being provided before
-    /// this provider moves on. If new instances don't pass the ELB's health checks for any
-    /// reason, the deployment will time out, and the ASG will be marked as
-    /// tainted (i.e. marked to be destroyed in a follow up run).
+    /// the provider moves on. If new instances don't pass the ELB's health checks for any
+    /// reason, the apply will time out, and the ASG will be marked as
+    /// tainted (i.e., marked to be destroyed in a follow up run).
     /// 
     /// As with ASG Capacity, this provider will wait for up to `wait_for_capacity_timeout`
     /// for the proper number of instances to be healthy.
@@ -410,7 +410,7 @@ namespace Pulumi.Aws.AutoScaling
     /// 
     /// ## Import
     /// 
-    /// Auto Scaling Groups can be imported using the `name`, e.g.
+    /// Auto Scaling Groups can be imported using the `name`, e.g.,
     /// 
     /// ```sh
     ///  $ pulumi import aws:autoscaling/group:Group web web-asg

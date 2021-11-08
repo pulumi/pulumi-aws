@@ -14,15 +14,15 @@ namespace Pulumi.Aws.Mq.Outputs
     public sealed class BrokerMaintenanceWindowStartTime
     {
         /// <summary>
-        /// Day of the week, e.g. `MONDAY`, `TUESDAY`, or `WEDNESDAY`.
+        /// Day of the week, e.g., `MONDAY`, `TUESDAY`, or `WEDNESDAY`.
         /// </summary>
         public readonly string DayOfWeek;
         /// <summary>
-        /// Time, in 24-hour format, e.g. `02:00`.
+        /// Time, in 24-hour format, e.g., `02:00`.
         /// </summary>
         public readonly string TimeOfDay;
         /// <summary>
-        /// Time zone in either the Country/City format or the UTC offset format, e.g. `CET`.
+        /// Time zone in either the Country/City format or the UTC offset format, e.g., `CET`.
         /// </summary>
         public readonly string TimeZone;
 
