@@ -718,8 +718,8 @@ github.com/pulumi/terraform-diff-reader v0.0.0-20201211191010-ad4715e9285e h1:Di
 github.com/pulumi/terraform-diff-reader v0.0.0-20201211191010-ad4715e9285e/go.mod h1:sZ9FUzGO+yM41hsQHs/yIcj/Y993qMdBxBU5mpDmAfQ=
 github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20210629210550-59d24255d71f h1:YWtQ7xeRQvB9h5Uwtrl9wDKRKkyLTXWBzU7x0c9VOZ4=
 github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20210629210550-59d24255d71f/go.mod h1:grseeRo9g3yNkYW09iFlV8LG78jTa1ssBgouogQg/RU=
-github.com/pulumi/terraform-provider-aws v1.38.1-0.20211105210141-b9613af7517f h1:H5CV5f3XYUgAYmMPNc/FrRYccyR2gnLAxqzOuE1JRYE=
-github.com/pulumi/terraform-provider-aws v1.38.1-0.20211105210141-b9613af7517f/go.mod h1:9HdAgRYw5YXkTNwOtHvJocN/z1NFRmK+8y2Q/+s2d2I=
+github.com/pulumi/terraform-provider-aws v1.38.1-0.20211109181411-40058705b453 h1:WyrwR2pdJiAdzTkF7iE6C0t0Eh1otVATvVUWVpZGCzU=
+github.com/pulumi/terraform-provider-aws v1.38.1-0.20211109181411-40058705b453/go.mod h1:9HdAgRYw5YXkTNwOtHvJocN/z1NFRmK+8y2Q/+s2d2I=
 github.com/rjeczalik/notify v0.9.2 h1:MiTWrPj55mNDHEiIX5YUSKefw/+lCQVoAFmD6oQm5w8=
 github.com/rjeczalik/notify v0.9.2/go.mod h1:aErll2f0sUX9PXZnVNyeiObbmTlk5jnMoCa4QEjJeqM=
 github.com/rogpeppe/fastuuid v0.0.0-20150106093220-6724a57986af/go.mod h1:XWv6SoW27p1b0cqNHllgS5HIMJraePCO15w5zCzIWYg=

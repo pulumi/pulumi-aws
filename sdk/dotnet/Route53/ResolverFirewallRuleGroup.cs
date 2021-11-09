@@ -47,9 +47,6 @@ namespace Pulumi.Aws.Route53
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
-        [Output("id")]
-        public Output<string> Id { get; private set; } = null!;
-
         /// <summary>
         /// A name that lets you identify the rule group, to manage and use it.
         /// </summary>
@@ -156,9 +153,6 @@ namespace Pulumi.Aws.Route53
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
-
-        [Input("id")]
-        public Input<string>? Id { get; set; }
 
         /// <summary>
         /// A name that lets you identify the rule group, to manage and use it.

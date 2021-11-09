@@ -54,7 +54,6 @@ class ResolverFirewallRuleGroupArgs:
 class _ResolverFirewallRuleGroupState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
-                 id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  owner_id: Optional[pulumi.Input[str]] = None,
                  share_status: Optional[pulumi.Input[str]] = None,
@@ -71,8 +70,6 @@ class _ResolverFirewallRuleGroupState:
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
-        if id is not None:
-            pulumi.set(__self__, "id", id)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if owner_id is not None:
@@ -95,15 +92,6 @@ class _ResolverFirewallRuleGroupState:
     @arn.setter
     def arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "arn", value)
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "id", value)
 
     @property
     @pulumi.getter
@@ -257,7 +245,6 @@ class ResolverFirewallRuleGroup(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
-            __props__.__dict__["id"] = None
             __props__.__dict__["owner_id"] = None
             __props__.__dict__["share_status"] = None
             __props__.__dict__["tags_all"] = None
@@ -272,7 +259,6 @@ class ResolverFirewallRuleGroup(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
-            id: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             owner_id: Optional[pulumi.Input[str]] = None,
             share_status: Optional[pulumi.Input[str]] = None,
@@ -297,7 +283,6 @@ class ResolverFirewallRuleGroup(pulumi.CustomResource):
         __props__ = _ResolverFirewallRuleGroupState.__new__(_ResolverFirewallRuleGroupState)
 
         __props__.__dict__["arn"] = arn
-        __props__.__dict__["id"] = id
         __props__.__dict__["name"] = name
         __props__.__dict__["owner_id"] = owner_id
         __props__.__dict__["share_status"] = share_status
@@ -312,11 +297,6 @@ class ResolverFirewallRuleGroup(pulumi.CustomResource):
         The ARN (Amazon Resource Name) of the rule group.
         """
         return pulumi.get(self, "arn")
-
-    @property
-    @pulumi.getter
-    def id(self) -> pulumi.Output[str]:
-        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
