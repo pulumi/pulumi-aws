@@ -307,8 +307,8 @@ github.com/posener/complete v1.1.1/go.mod h1:em0nMJCgc9GFtwrmVmEMR/ZL6WyhyjMBndr
 github.com/pquerna/otp v1.3.0 h1:oJV/SkzR33anKXwQU3Of42rL4wbrffP4uvUf1SvS5Xs=
 github.com/pquerna/otp v1.3.0/go.mod h1:dkJfzwRKNiegxyNb54X/3fLwhCynbMspSyWKnvi1AEg=
 github.com/prometheus/client_model v0.0.0-20190812154241-14fe0d1b01d4/go.mod h1:xMI15A0UPsDsEKsMN9yxemIoYk6Tm2C1GtYGdfGttqA=
-github.com/pulumi/terraform-provider-aws v1.38.1-0.20211105210141-b9613af7517f h1:H5CV5f3XYUgAYmMPNc/FrRYccyR2gnLAxqzOuE1JRYE=
-github.com/pulumi/terraform-provider-aws v1.38.1-0.20211105210141-b9613af7517f/go.mod h1:9HdAgRYw5YXkTNwOtHvJocN/z1NFRmK+8y2Q/+s2d2I=
+github.com/pulumi/terraform-provider-aws v1.38.1-0.20211109181411-40058705b453 h1:WyrwR2pdJiAdzTkF7iE6C0t0Eh1otVATvVUWVpZGCzU=
+github.com/pulumi/terraform-provider-aws v1.38.1-0.20211109181411-40058705b453/go.mod h1:9HdAgRYw5YXkTNwOtHvJocN/z1NFRmK+8y2Q/+s2d2I=
 github.com/rogpeppe/go-internal v1.3.0/go.mod h1:M8bDsm7K2OlrFYOpmOWEs/qY81heoFRclV5y23lUDJ4=
 github.com/sebdah/goldie v1.0.0/go.mod h1:jXP4hmWywNEwZzhMuv2ccnqTSFpuq8iyQhtQdkkZBH4=
 github.com/sergi/go-diff v1.0.0/go.mod h1:0CfEIISq7TuYL3j771MWULgwwjU+GofnZX9QAmXWZgo=

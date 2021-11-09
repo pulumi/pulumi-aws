@@ -45,7 +45,6 @@ type ResolverFirewallRuleGroup struct {
 
 	// The ARN (Amazon Resource Name) of the rule group.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	Id  pulumi.StringOutput `pulumi:"id"`
 	// A name that lets you identify the rule group, to manage and use it.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The AWS account ID for the account that created the rule group. When a rule group is shared with your account, this is the account that has shared the rule group with you.
@@ -89,7 +88,6 @@ func GetResolverFirewallRuleGroup(ctx *pulumi.Context,
 type resolverFirewallRuleGroupState struct {
 	// The ARN (Amazon Resource Name) of the rule group.
 	Arn *string `pulumi:"arn"`
-	Id  *string `pulumi:"id"`
 	// A name that lets you identify the rule group, to manage and use it.
 	Name *string `pulumi:"name"`
 	// The AWS account ID for the account that created the rule group. When a rule group is shared with your account, this is the account that has shared the rule group with you.
@@ -105,7 +103,6 @@ type resolverFirewallRuleGroupState struct {
 type ResolverFirewallRuleGroupState struct {
 	// The ARN (Amazon Resource Name) of the rule group.
 	Arn pulumi.StringPtrInput
-	Id  pulumi.StringPtrInput
 	// A name that lets you identify the rule group, to manage and use it.
 	Name pulumi.StringPtrInput
 	// The AWS account ID for the account that created the rule group. When a rule group is shared with your account, this is the account that has shared the rule group with you.

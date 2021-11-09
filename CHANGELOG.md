@@ -2,7 +2,8 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Ensure `aws.route53.ResolverDnsSecConfig` has no duplicate `id` parameter.
+* Ensure `aws.route53.ResolverFirewallRuleGroup` has no duplicate `id` parameter.
 
 ---
 

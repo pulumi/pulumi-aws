@@ -55,12 +55,6 @@ namespace Pulumi.Aws.Route53
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The ID for a configuration for DNSSEC validation.
-        /// </summary>
-        [Output("id")]
-        public Output<string> Id { get; private set; } = null!;
-
-        /// <summary>
         /// The owner account ID of the virtual private cloud (VPC) for a configuration for DNSSEC validation.
         /// </summary>
         [Output("ownerId")]
@@ -142,12 +136,6 @@ namespace Pulumi.Aws.Route53
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
-
-        /// <summary>
-        /// The ID for a configuration for DNSSEC validation.
-        /// </summary>
-        [Input("id")]
-        public Input<string>? Id { get; set; }
 
         /// <summary>
         /// The owner account ID of the virtual private cloud (VPC) for a configuration for DNSSEC validation.
