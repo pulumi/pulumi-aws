@@ -2,10 +2,13 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Ensure `aws.route53.ResolverDnsSecConfig` has no duplicate `id` parameter.
-* Ensure `aws.route53.ResolverFirewallRuleGroup` has no duplicate `id` parameter.
+_(none)_
 
 ---
+
+## 4.27.1 (2021-11-09)
+* Ensure `aws.route53.ResolverDnsSecConfig` has no duplicate `id` parameter.
+* Ensure `aws.route53.ResolverFirewallRuleGroup` has no duplicate `id` parameter.
 
 ## 4.27.0 (2021-11-08)
 * Upgrade to v3.64.2 of the AWS Terraform Provider
