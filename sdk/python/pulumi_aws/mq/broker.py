@@ -15,7 +15,6 @@ __all__ = ['BrokerArgs', 'Broker']
 @pulumi.input_type
 class BrokerArgs:
     def __init__(__self__, *,
-                 broker_name: pulumi.Input[str],
                  engine_type: pulumi.Input[str],
                  engine_version: pulumi.Input[str],
                  host_instance_type: pulumi.Input[str],
@@ -23,6 +22,7 @@ class BrokerArgs:
                  apply_immediately: Optional[pulumi.Input[bool]] = None,
                  authentication_strategy: Optional[pulumi.Input[str]] = None,
                  auto_minor_version_upgrade: Optional[pulumi.Input[bool]] = None,
+                 broker_name: Optional[pulumi.Input[str]] = None,
                  configuration: Optional[pulumi.Input['BrokerConfigurationArgs']] = None,
                  deployment_mode: Optional[pulumi.Input[str]] = None,
                  encryption_options: Optional[pulumi.Input['BrokerEncryptionOptionsArgs']] = None,
@@ -36,7 +36,6 @@ class BrokerArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Broker resource.
-        :param pulumi.Input[str] broker_name: Name of the broker.
         :param pulumi.Input[str] engine_type: Type of broker engine. Valid values are `ActiveMQ` and `RabbitMQ`.
         :param pulumi.Input[str] engine_version: Version of the broker engine. See the [AmazonMQ Broker Engine docs](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/broker-engine.html) for supported versions. For example, `5.15.0`.
         :param pulumi.Input[str] host_instance_type: Broker's instance type. For example, `mq.t3.micro`, `mq.m5.large`.
@@ -44,6 +43,7 @@ class BrokerArgs:
         :param pulumi.Input[bool] apply_immediately: Specifies whether any broker modifications are applied immediately, or during the next maintenance window. Default is `false`.
         :param pulumi.Input[str] authentication_strategy: Authentication strategy used to secure the broker. Valid values are `simple` and `ldap`. `ldap` is not supported for `engine_type` `RabbitMQ`.
         :param pulumi.Input[bool] auto_minor_version_upgrade: Whether to automatically upgrade to new minor versions of brokers as Amazon MQ makes releases available.
+        :param pulumi.Input[str] broker_name: Name of the broker.
         :param pulumi.Input['BrokerConfigurationArgs'] configuration: Configuration block for broker configuration. Applies to `engine_type` of `ActiveMQ` only. Detailed below.
         :param pulumi.Input[str] deployment_mode: Deployment mode of the broker. Valid values are `SINGLE_INSTANCE`, `ACTIVE_STANDBY_MULTI_AZ`, and `CLUSTER_MULTI_AZ`. Default is `SINGLE_INSTANCE`.
         :param pulumi.Input['BrokerEncryptionOptionsArgs'] encryption_options: Configuration block containing encryption options. Detailed below.
@@ -56,7 +56,6 @@ class BrokerArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnet_ids: List of subnet IDs in which to launch the broker. A `SINGLE_INSTANCE` deployment requires one subnet. An `ACTIVE_STANDBY_MULTI_AZ` deployment requires multiple subnets.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of tags to assign to the broker. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        pulumi.set(__self__, "broker_name", broker_name)
         pulumi.set(__self__, "engine_type", engine_type)
         pulumi.set(__self__, "engine_version", engine_version)
         pulumi.set(__self__, "host_instance_type", host_instance_type)
@@ -67,6 +66,8 @@ class BrokerArgs:
             pulumi.set(__self__, "authentication_strategy", authentication_strategy)
         if auto_minor_version_upgrade is not None:
             pulumi.set(__self__, "auto_minor_version_upgrade", auto_minor_version_upgrade)
+        if broker_name is not None:
+            pulumi.set(__self__, "broker_name", broker_name)
         if configuration is not None:
             pulumi.set(__self__, "configuration", configuration)
         if deployment_mode is not None:
@@ -89,18 +90,6 @@ class BrokerArgs:
             pulumi.set(__self__, "subnet_ids", subnet_ids)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-
-    @property
-    @pulumi.getter(name="brokerName")
-    def broker_name(self) -> pulumi.Input[str]:
-        """
-        Name of the broker.
-        """
-        return pulumi.get(self, "broker_name")
-
-    @broker_name.setter
-    def broker_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "broker_name", value)
 
     @property
     @pulumi.getter(name="engineType")
@@ -185,6 +174,18 @@ class BrokerArgs:
     @auto_minor_version_upgrade.setter
     def auto_minor_version_upgrade(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "auto_minor_version_upgrade", value)
+
+    @property
+    @pulumi.getter(name="brokerName")
+    def broker_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the broker.
+        """
+        return pulumi.get(self, "broker_name")
+
+    @broker_name.setter
+    def broker_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "broker_name", value)
 
     @property
     @pulumi.getter
@@ -743,7 +744,6 @@ class Broker(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.mq.Broker("example",
-            broker_name="example",
             configuration=aws.mq.BrokerConfigurationArgs(
                 id=aws_mq_configuration["test"]["id"],
                 revision=aws_mq_configuration["test"]["latest_revision"],
@@ -766,7 +766,6 @@ class Broker(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.mq.Broker("example",
-            broker_name="example",
             configuration=aws.mq.BrokerConfigurationArgs(
                 id=aws_mq_configuration["test"]["id"],
                 revision=aws_mq_configuration["test"]["latest_revision"],
@@ -835,7 +834,6 @@ class Broker(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.mq.Broker("example",
-            broker_name="example",
             configuration=aws.mq.BrokerConfigurationArgs(
                 id=aws_mq_configuration["test"]["id"],
                 revision=aws_mq_configuration["test"]["latest_revision"],
@@ -858,7 +856,6 @@ class Broker(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.mq.Broker("example",
-            broker_name="example",
             configuration=aws.mq.BrokerConfigurationArgs(
                 id=aws_mq_configuration["test"]["id"],
                 revision=aws_mq_configuration["test"]["latest_revision"],
@@ -931,8 +928,6 @@ class Broker(pulumi.CustomResource):
             __props__.__dict__["apply_immediately"] = apply_immediately
             __props__.__dict__["authentication_strategy"] = authentication_strategy
             __props__.__dict__["auto_minor_version_upgrade"] = auto_minor_version_upgrade
-            if broker_name is None and not opts.urn:
-                raise TypeError("Missing required property 'broker_name'")
             __props__.__dict__["broker_name"] = broker_name
             __props__.__dict__["configuration"] = configuration
             __props__.__dict__["deployment_mode"] = deployment_mode

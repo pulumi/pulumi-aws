@@ -33,7 +33,6 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := mq.NewBroker(ctx, "example", &mq.BrokerArgs{
-// 			BrokerName: pulumi.String("example"),
 // 			Configuration: &mq.BrokerConfigurationArgs{
 // 				Id:       pulumi.Any(aws_mq_configuration.Test.Id),
 // 				Revision: pulumi.Any(aws_mq_configuration.Test.Latest_revision),
@@ -73,7 +72,6 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := mq.NewBroker(ctx, "example", &mq.BrokerArgs{
-// 			BrokerName: pulumi.String("example"),
 // 			Configuration: &mq.BrokerConfigurationArgs{
 // 				Id:       pulumi.Any(aws_mq_configuration.Test.Id),
 // 				Revision: pulumi.Any(aws_mq_configuration.Test.Latest_revision),
@@ -174,9 +172,6 @@ func NewBroker(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.BrokerName == nil {
-		return nil, errors.New("invalid value for required argument 'BrokerName'")
-	}
 	if args.EngineType == nil {
 		return nil, errors.New("invalid value for required argument 'EngineType'")
 	}
@@ -338,7 +333,7 @@ type brokerArgs struct {
 	// Whether to automatically upgrade to new minor versions of brokers as Amazon MQ makes releases available.
 	AutoMinorVersionUpgrade *bool `pulumi:"autoMinorVersionUpgrade"`
 	// Name of the broker.
-	BrokerName string `pulumi:"brokerName"`
+	BrokerName *string `pulumi:"brokerName"`
 	// Configuration block for broker configuration. Applies to `engineType` of `ActiveMQ` only. Detailed below.
 	Configuration *BrokerConfiguration `pulumi:"configuration"`
 	// Deployment mode of the broker. Valid values are `SINGLE_INSTANCE`, `ACTIVE_STANDBY_MULTI_AZ`, and `CLUSTER_MULTI_AZ`. Default is `SINGLE_INSTANCE`.
@@ -380,7 +375,7 @@ type BrokerArgs struct {
 	// Whether to automatically upgrade to new minor versions of brokers as Amazon MQ makes releases available.
 	AutoMinorVersionUpgrade pulumi.BoolPtrInput
 	// Name of the broker.
-	BrokerName pulumi.StringInput
+	BrokerName pulumi.StringPtrInput
 	// Configuration block for broker configuration. Applies to `engineType` of `ActiveMQ` only. Detailed below.
 	Configuration BrokerConfigurationPtrInput
 	// Deployment mode of the broker. Valid values are `SINGLE_INSTANCE`, `ACTIVE_STANDBY_MULTI_AZ`, and `CLUSTER_MULTI_AZ`. Default is `SINGLE_INSTANCE`.

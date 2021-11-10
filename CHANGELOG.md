@@ -2,7 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Fix regression in management of `aws.mq.Broker` this was due to an incorrect mapping in the provider SchemaInfo
 
 ---
 

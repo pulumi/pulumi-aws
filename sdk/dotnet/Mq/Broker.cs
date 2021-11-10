@@ -31,7 +31,6 @@ namespace Pulumi.Aws.Mq
     ///     {
     ///         var example = new Aws.Mq.Broker("example", new Aws.Mq.BrokerArgs
     ///         {
-    ///             BrokerName = "example",
     ///             Configuration = new Aws.Mq.Inputs.BrokerConfigurationArgs
     ///             {
     ///                 Id = aws_mq_configuration.Test.Id,
@@ -71,7 +70,6 @@ namespace Pulumi.Aws.Mq
     ///     {
     ///         var example = new Aws.Mq.Broker("example", new Aws.Mq.BrokerArgs
     ///         {
-    ///             BrokerName = "example",
     ///             Configuration = new Aws.Mq.Inputs.BrokerConfigurationArgs
     ///             {
     ///                 Id = aws_mq_configuration.Test.Id,
@@ -320,8 +318,8 @@ namespace Pulumi.Aws.Mq
         /// <summary>
         /// Name of the broker.
         /// </summary>
-        [Input("brokerName", required: true)]
-        public Input<string> BrokerName { get; set; } = null!;
+        [Input("brokerName")]
+        public Input<string>? BrokerName { get; set; }
 
         /// <summary>
         /// Configuration block for broker configuration. Applies to `engine_type` of `ActiveMQ` only. Detailed below.

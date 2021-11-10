@@ -22,7 +22,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.mq.Broker("example", {
- *     brokerName: "example",
  *     configuration: {
  *         id: aws_mq_configuration.test.id,
  *         revision: aws_mq_configuration.test.latest_revision,
@@ -46,7 +45,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.mq.Broker("example", {
- *     brokerName: "example",
  *     configuration: {
  *         id: aws_mq_configuration.test.id,
  *         revision: aws_mq_configuration.test.latest_revision,
@@ -236,9 +234,6 @@ export class Broker extends pulumi.CustomResource {
             inputs["users"] = state ? state.users : undefined;
         } else {
             const args = argsOrState as BrokerArgs | undefined;
-            if ((!args || args.brokerName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'brokerName'");
-            }
             if ((!args || args.engineType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'engineType'");
             }
@@ -405,7 +400,7 @@ export interface BrokerArgs {
     /**
      * Name of the broker.
      */
-    brokerName: pulumi.Input<string>;
+    brokerName?: pulumi.Input<string>;
     /**
      * Configuration block for broker configuration. Applies to `engineType` of `ActiveMQ` only. Detailed below.
      */
