@@ -1941,7 +1941,7 @@ func Provider() tfbridge.ProviderInfo {
 					// 1-50 characters long, must contain only letters, numbers, dashes, and underscores, and must not
 					// contain white spaces, brackets, wildcard characters, or special characters.
 					// https://awscli.amazonaws.com/v2/documentation/api/latest/reference/mq/create-broker.html#options
-					"brokerName": tfbridge.AutoName("brokerName", 55, "-"),
+					"broker_name": tfbridge.AutoName("brokerName", 55, "-"),
 				},
 			},
 			"aws_mq_configuration": {Tok: awsResource(mqMod, "Configuration")},
