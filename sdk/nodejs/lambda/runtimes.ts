@@ -36,7 +36,9 @@ export let Ruby2d7Runtime:       Runtime = "ruby2.7";
 /** The NodeJS10dXRuntime constant is deprecated, use Runtime.NodeJS10dX instead. */
 export let NodeJS10dXRuntime:    Runtime = "nodejs10.x";
 /** The NodeJS12dXRuntime constant is deprecated, use Runtime.NodeJS12dX instead. */
-export let NodeJS12dXRuntime:    Runtime = "nodejs12.x";
+export let NodeJS12dXRuntime: Runtime = "nodejs12.x";
+/** The NodeJS12dXRuntime constant is deprecated, use Runtime.NodeJS12dX instead. */
+export let NodeJS14dXRuntime: Runtime = "nodejs14.x";
 /** The Python2d7Runtime constant is deprecated, use Runtime.Python2d7 instead. */
 export let Python2d7Runtime:     Runtime = "python2.7";
 /** The Python3d6Runtime constant is deprecated, use Runtime.Python3d6 instead. */
