@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Fix regression in management of `aws.mq.Broker` this was due to an incorrect mapping in the provider SchemaInfo
+_(none)_
 
 ---
+
+## 4.27.2 (2021-11-10)
+* Fix regression in management of `aws.mq.Broker` this was due to an incorrect mapping in the provider SchemaInfo
 
 ## 4.27.1 (2021-11-09)
 * Ensure `aws.route53.ResolverDnsSecConfig` has no duplicate `id` parameter.
