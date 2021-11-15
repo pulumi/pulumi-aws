@@ -71,8 +71,10 @@ type Function struct {
 	Code pulumi.StringOutput `pulumi:"code"`
 	// Comment.
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
-	// ETag hash of the function
+	// ETag hash of the function. This is the value for the `DEVELOPMENT` stage of the function.
 	Etag pulumi.StringOutput `pulumi:"etag"`
+	// ETag hash of any `LIVE` stage of the function.
+	LiveStageEtag pulumi.StringOutput `pulumi:"liveStageEtag"`
 	// Unique name for your CloudFront Function.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Whether to publish creation/change as Live CloudFront Function Version. Defaults to `true`.
@@ -124,8 +126,10 @@ type functionState struct {
 	Code *string `pulumi:"code"`
 	// Comment.
 	Comment *string `pulumi:"comment"`
-	// ETag hash of the function
+	// ETag hash of the function. This is the value for the `DEVELOPMENT` stage of the function.
 	Etag *string `pulumi:"etag"`
+	// ETag hash of any `LIVE` stage of the function.
+	LiveStageEtag *string `pulumi:"liveStageEtag"`
 	// Unique name for your CloudFront Function.
 	Name *string `pulumi:"name"`
 	// Whether to publish creation/change as Live CloudFront Function Version. Defaults to `true`.
@@ -143,8 +147,10 @@ type FunctionState struct {
 	Code pulumi.StringPtrInput
 	// Comment.
 	Comment pulumi.StringPtrInput
-	// ETag hash of the function
+	// ETag hash of the function. This is the value for the `DEVELOPMENT` stage of the function.
 	Etag pulumi.StringPtrInput
+	// ETag hash of any `LIVE` stage of the function.
+	LiveStageEtag pulumi.StringPtrInput
 	// Unique name for your CloudFront Function.
 	Name pulumi.StringPtrInput
 	// Whether to publish creation/change as Live CloudFront Function Version. Defaults to `true`.

@@ -7,6 +7,8 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./cachePolicy";
 export * from "./distribution";
+export * from "./fieldLevelEncryptionConfig";
+export * from "./fieldLevelEncryptionProfile";
 export * from "./function";
 export * from "./getCachePolicy";
 export * from "./getDistribution";
@@ -24,6 +26,8 @@ export * from "./responseHeadersPolicy";
 // Import resources to register:
 import { CachePolicy } from "./cachePolicy";
 import { Distribution } from "./distribution";
+import { FieldLevelEncryptionConfig } from "./fieldLevelEncryptionConfig";
+import { FieldLevelEncryptionProfile } from "./fieldLevelEncryptionProfile";
 import { Function } from "./function";
 import { KeyGroup } from "./keyGroup";
 import { MonitoringSubscription } from "./monitoringSubscription";
@@ -41,6 +45,10 @@ const _module = {
                 return new CachePolicy(name, <any>undefined, { urn })
             case "aws:cloudfront/distribution:Distribution":
                 return new Distribution(name, <any>undefined, { urn })
+            case "aws:cloudfront/fieldLevelEncryptionConfig:FieldLevelEncryptionConfig":
+                return new FieldLevelEncryptionConfig(name, <any>undefined, { urn })
+            case "aws:cloudfront/fieldLevelEncryptionProfile:FieldLevelEncryptionProfile":
+                return new FieldLevelEncryptionProfile(name, <any>undefined, { urn })
             case "aws:cloudfront/function:Function":
                 return new Function(name, <any>undefined, { urn })
             case "aws:cloudfront/keyGroup:KeyGroup":
@@ -64,6 +72,8 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("aws", "cloudfront/cachePolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudfront/distribution", _module)
+pulumi.runtime.registerResourceModule("aws", "cloudfront/fieldLevelEncryptionConfig", _module)
+pulumi.runtime.registerResourceModule("aws", "cloudfront/fieldLevelEncryptionProfile", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudfront/function", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudfront/keyGroup", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudfront/monitoringSubscription", _module)

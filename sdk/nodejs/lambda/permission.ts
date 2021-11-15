@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 import {Function} from "./index";
 
 /**
- * Gives an external source (like a CloudWatch Event Rule, SNS, or S3) permission to access the Lambda function.
+ * Gives an external source (like an EventBridge Rule, SNS, or S3) permission to access the Lambda function.
  *
  * ## Example Usage
  * ### Basic Example
@@ -208,7 +208,7 @@ export class Permission extends pulumi.CustomResource {
      * When the principal is an AWS service, the ARN of the specific resource within that service to grant permission to.
      * Without this, any resource from `principal` will be granted permission – even if that resource is from another account.
      * For S3, this should be the ARN of the S3 Bucket.
-     * For CloudWatch Events, this should be the ARN of the CloudWatch Events Rule.
+     * For EventBridge events, this should be the ARN of the EventBridge Rule.
      * For API Gateway, this should be the ARN of the API, as described [here](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html).
      */
     public readonly sourceArn!: pulumi.Output<string | undefined>;
@@ -303,7 +303,7 @@ export interface PermissionState {
      * When the principal is an AWS service, the ARN of the specific resource within that service to grant permission to.
      * Without this, any resource from `principal` will be granted permission – even if that resource is from another account.
      * For S3, this should be the ARN of the S3 Bucket.
-     * For CloudWatch Events, this should be the ARN of the CloudWatch Events Rule.
+     * For EventBridge events, this should be the ARN of the EventBridge Rule.
      * For API Gateway, this should be the ARN of the API, as described [here](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html).
      */
     sourceArn?: pulumi.Input<string>;
@@ -349,7 +349,7 @@ export interface PermissionArgs {
      * When the principal is an AWS service, the ARN of the specific resource within that service to grant permission to.
      * Without this, any resource from `principal` will be granted permission – even if that resource is from another account.
      * For S3, this should be the ARN of the S3 Bucket.
-     * For CloudWatch Events, this should be the ARN of the CloudWatch Events Rule.
+     * For EventBridge events, this should be the ARN of the EventBridge Rule.
      * For API Gateway, this should be the ARN of the API, as described [here](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-control-access-using-iam-policies-to-invoke-api.html).
      */
     sourceArn?: pulumi.Input<string>;

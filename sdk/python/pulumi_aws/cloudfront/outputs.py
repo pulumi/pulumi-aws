@@ -44,6 +44,15 @@ __all__ = [
     'DistributionTrustedSigner',
     'DistributionTrustedSignerItem',
     'DistributionViewerCertificate',
+    'FieldLevelEncryptionConfigContentTypeProfileConfig',
+    'FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfiles',
+    'FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItem',
+    'FieldLevelEncryptionConfigQueryArgProfileConfig',
+    'FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfiles',
+    'FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItem',
+    'FieldLevelEncryptionProfileEncryptionEntities',
+    'FieldLevelEncryptionProfileEncryptionEntitiesItem',
+    'FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatterns',
     'MonitoringSubscriptionMonitoringSubscription',
     'MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfig',
     'OriginRequestPolicyCookiesConfig',
@@ -2612,6 +2621,323 @@ class DistributionViewerCertificate(dict):
     @pulumi.getter(name="sslSupportMethod")
     def ssl_support_method(self) -> Optional[str]:
         return pulumi.get(self, "ssl_support_method")
+
+
+@pulumi.output_type
+class FieldLevelEncryptionConfigContentTypeProfileConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "contentTypeProfiles":
+            suggest = "content_type_profiles"
+        elif key == "forwardWhenContentTypeIsUnknown":
+            suggest = "forward_when_content_type_is_unknown"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FieldLevelEncryptionConfigContentTypeProfileConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FieldLevelEncryptionConfigContentTypeProfileConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FieldLevelEncryptionConfigContentTypeProfileConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 content_type_profiles: 'outputs.FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfiles',
+                 forward_when_content_type_is_unknown: bool):
+        """
+        :param 'FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesArgs' content_type_profiles: Object that contains an attribute `items` that contains the list of configurations for a field-level encryption content type-profile. See Content Type Profile.
+        :param bool forward_when_content_type_is_unknown: specifies what to do when an unknown content type is provided for the profile. If true, content is forwarded without being encrypted when the content type is unknown. If false (the default), an error is returned when the content type is unknown.
+        """
+        pulumi.set(__self__, "content_type_profiles", content_type_profiles)
+        pulumi.set(__self__, "forward_when_content_type_is_unknown", forward_when_content_type_is_unknown)
+
+    @property
+    @pulumi.getter(name="contentTypeProfiles")
+    def content_type_profiles(self) -> 'outputs.FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfiles':
+        """
+        Object that contains an attribute `items` that contains the list of configurations for a field-level encryption content type-profile. See Content Type Profile.
+        """
+        return pulumi.get(self, "content_type_profiles")
+
+    @property
+    @pulumi.getter(name="forwardWhenContentTypeIsUnknown")
+    def forward_when_content_type_is_unknown(self) -> bool:
+        """
+        specifies what to do when an unknown content type is provided for the profile. If true, content is forwarded without being encrypted when the content type is unknown. If false (the default), an error is returned when the content type is unknown.
+        """
+        return pulumi.get(self, "forward_when_content_type_is_unknown")
+
+
+@pulumi.output_type
+class FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfiles(dict):
+    def __init__(__self__, *,
+                 items: Sequence['outputs.FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItem']):
+        pulumi.set(__self__, "items", items)
+
+    @property
+    @pulumi.getter
+    def items(self) -> Sequence['outputs.FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItem']:
+        return pulumi.get(self, "items")
+
+
+@pulumi.output_type
+class FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItem(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "contentType":
+            suggest = "content_type"
+        elif key == "profileId":
+            suggest = "profile_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItem. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItem.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItem.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 content_type: str,
+                 format: str,
+                 profile_id: Optional[str] = None):
+        """
+        :param str content_type: he content type for a field-level encryption content type-profile mapping. Valid value is `application/x-www-form-urlencoded`.
+        :param str format: The format for a field-level encryption content type-profile mapping. Valid value is `URLEncoded`.
+        :param str profile_id: ID of profile to use for field-level encryption query argument-profile mapping
+        """
+        pulumi.set(__self__, "content_type", content_type)
+        pulumi.set(__self__, "format", format)
+        if profile_id is not None:
+            pulumi.set(__self__, "profile_id", profile_id)
+
+    @property
+    @pulumi.getter(name="contentType")
+    def content_type(self) -> str:
+        """
+        he content type for a field-level encryption content type-profile mapping. Valid value is `application/x-www-form-urlencoded`.
+        """
+        return pulumi.get(self, "content_type")
+
+    @property
+    @pulumi.getter
+    def format(self) -> str:
+        """
+        The format for a field-level encryption content type-profile mapping. Valid value is `URLEncoded`.
+        """
+        return pulumi.get(self, "format")
+
+    @property
+    @pulumi.getter(name="profileId")
+    def profile_id(self) -> Optional[str]:
+        """
+        ID of profile to use for field-level encryption query argument-profile mapping
+        """
+        return pulumi.get(self, "profile_id")
+
+
+@pulumi.output_type
+class FieldLevelEncryptionConfigQueryArgProfileConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "forwardWhenQueryArgProfileIsUnknown":
+            suggest = "forward_when_query_arg_profile_is_unknown"
+        elif key == "queryArgProfiles":
+            suggest = "query_arg_profiles"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FieldLevelEncryptionConfigQueryArgProfileConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FieldLevelEncryptionConfigQueryArgProfileConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FieldLevelEncryptionConfigQueryArgProfileConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 forward_when_query_arg_profile_is_unknown: bool,
+                 query_arg_profiles: Optional['outputs.FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfiles'] = None):
+        """
+        :param bool forward_when_query_arg_profile_is_unknown: Flag to set if you want a request to be forwarded to the origin even if the profile specified by the field-level encryption query argument, fle-profile, is unknown.
+        :param 'FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesArgs' query_arg_profiles: Object that contains an attribute `items` that contains the list ofrofiles specified for query argument-profile mapping for field-level encryption. see Query Arg Profile.
+        """
+        pulumi.set(__self__, "forward_when_query_arg_profile_is_unknown", forward_when_query_arg_profile_is_unknown)
+        if query_arg_profiles is not None:
+            pulumi.set(__self__, "query_arg_profiles", query_arg_profiles)
+
+    @property
+    @pulumi.getter(name="forwardWhenQueryArgProfileIsUnknown")
+    def forward_when_query_arg_profile_is_unknown(self) -> bool:
+        """
+        Flag to set if you want a request to be forwarded to the origin even if the profile specified by the field-level encryption query argument, fle-profile, is unknown.
+        """
+        return pulumi.get(self, "forward_when_query_arg_profile_is_unknown")
+
+    @property
+    @pulumi.getter(name="queryArgProfiles")
+    def query_arg_profiles(self) -> Optional['outputs.FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfiles']:
+        """
+        Object that contains an attribute `items` that contains the list ofrofiles specified for query argument-profile mapping for field-level encryption. see Query Arg Profile.
+        """
+        return pulumi.get(self, "query_arg_profiles")
+
+
+@pulumi.output_type
+class FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfiles(dict):
+    def __init__(__self__, *,
+                 items: Optional[Sequence['outputs.FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItem']] = None):
+        if items is not None:
+            pulumi.set(__self__, "items", items)
+
+    @property
+    @pulumi.getter
+    def items(self) -> Optional[Sequence['outputs.FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItem']]:
+        return pulumi.get(self, "items")
+
+
+@pulumi.output_type
+class FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItem(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "profileId":
+            suggest = "profile_id"
+        elif key == "queryArg":
+            suggest = "query_arg"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItem. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItem.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItem.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 profile_id: str,
+                 query_arg: str):
+        """
+        :param str profile_id: ID of profile to use for field-level encryption query argument-profile mapping
+        :param str query_arg: Query argument for field-level encryption query argument-profile mapping.
+        """
+        pulumi.set(__self__, "profile_id", profile_id)
+        pulumi.set(__self__, "query_arg", query_arg)
+
+    @property
+    @pulumi.getter(name="profileId")
+    def profile_id(self) -> str:
+        """
+        ID of profile to use for field-level encryption query argument-profile mapping
+        """
+        return pulumi.get(self, "profile_id")
+
+    @property
+    @pulumi.getter(name="queryArg")
+    def query_arg(self) -> str:
+        """
+        Query argument for field-level encryption query argument-profile mapping.
+        """
+        return pulumi.get(self, "query_arg")
+
+
+@pulumi.output_type
+class FieldLevelEncryptionProfileEncryptionEntities(dict):
+    def __init__(__self__, *,
+                 items: Optional[Sequence['outputs.FieldLevelEncryptionProfileEncryptionEntitiesItem']] = None):
+        if items is not None:
+            pulumi.set(__self__, "items", items)
+
+    @property
+    @pulumi.getter
+    def items(self) -> Optional[Sequence['outputs.FieldLevelEncryptionProfileEncryptionEntitiesItem']]:
+        return pulumi.get(self, "items")
+
+
+@pulumi.output_type
+class FieldLevelEncryptionProfileEncryptionEntitiesItem(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fieldPatterns":
+            suggest = "field_patterns"
+        elif key == "providerId":
+            suggest = "provider_id"
+        elif key == "publicKeyId":
+            suggest = "public_key_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FieldLevelEncryptionProfileEncryptionEntitiesItem. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FieldLevelEncryptionProfileEncryptionEntitiesItem.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FieldLevelEncryptionProfileEncryptionEntitiesItem.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 field_patterns: 'outputs.FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatterns',
+                 provider_id: str,
+                 public_key_id: str):
+        """
+        :param 'FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatternsArgs' field_patterns: Object that contains an attribute `items` that contains the list of field patterns in a field-level encryption content type profile specify the fields that you want to be encrypted.
+        :param str provider_id: The provider associated with the public key being used for encryption.
+        :param str public_key_id: The public key associated with a set of field-level encryption patterns, to be used when encrypting the fields that match the patterns.
+        """
+        pulumi.set(__self__, "field_patterns", field_patterns)
+        pulumi.set(__self__, "provider_id", provider_id)
+        pulumi.set(__self__, "public_key_id", public_key_id)
+
+    @property
+    @pulumi.getter(name="fieldPatterns")
+    def field_patterns(self) -> 'outputs.FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatterns':
+        """
+        Object that contains an attribute `items` that contains the list of field patterns in a field-level encryption content type profile specify the fields that you want to be encrypted.
+        """
+        return pulumi.get(self, "field_patterns")
+
+    @property
+    @pulumi.getter(name="providerId")
+    def provider_id(self) -> str:
+        """
+        The provider associated with the public key being used for encryption.
+        """
+        return pulumi.get(self, "provider_id")
+
+    @property
+    @pulumi.getter(name="publicKeyId")
+    def public_key_id(self) -> str:
+        """
+        The public key associated with a set of field-level encryption patterns, to be used when encrypting the fields that match the patterns.
+        """
+        return pulumi.get(self, "public_key_id")
+
+
+@pulumi.output_type
+class FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatterns(dict):
+    def __init__(__self__, *,
+                 items: Optional[Sequence[str]] = None):
+        if items is not None:
+            pulumi.set(__self__, "items", items)
+
+    @property
+    @pulumi.getter
+    def items(self) -> Optional[Sequence[str]]:
+        return pulumi.get(self, "items")
 
 
 @pulumi.output_type

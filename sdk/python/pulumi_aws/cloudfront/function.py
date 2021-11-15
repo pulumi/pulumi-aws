@@ -103,6 +103,7 @@ class _FunctionState:
                  code: Optional[pulumi.Input[str]] = None,
                  comment: Optional[pulumi.Input[str]] = None,
                  etag: Optional[pulumi.Input[str]] = None,
+                 live_stage_etag: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  publish: Optional[pulumi.Input[bool]] = None,
                  runtime: Optional[pulumi.Input[str]] = None,
@@ -112,7 +113,8 @@ class _FunctionState:
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) identifying your CloudFront Function.
         :param pulumi.Input[str] code: Source code of the function
         :param pulumi.Input[str] comment: Comment.
-        :param pulumi.Input[str] etag: ETag hash of the function
+        :param pulumi.Input[str] etag: ETag hash of the function. This is the value for the `DEVELOPMENT` stage of the function.
+        :param pulumi.Input[str] live_stage_etag: ETag hash of any `LIVE` stage of the function.
         :param pulumi.Input[str] name: Unique name for your CloudFront Function.
         :param pulumi.Input[bool] publish: Whether to publish creation/change as Live CloudFront Function Version. Defaults to `true`.
         :param pulumi.Input[str] runtime: Identifier of the function's runtime. Currently only `cloudfront-js-1.0` is valid.
@@ -126,6 +128,8 @@ class _FunctionState:
             pulumi.set(__self__, "comment", comment)
         if etag is not None:
             pulumi.set(__self__, "etag", etag)
+        if live_stage_etag is not None:
+            pulumi.set(__self__, "live_stage_etag", live_stage_etag)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if publish is not None:
@@ -175,13 +179,25 @@ class _FunctionState:
     @pulumi.getter
     def etag(self) -> Optional[pulumi.Input[str]]:
         """
-        ETag hash of the function
+        ETag hash of the function. This is the value for the `DEVELOPMENT` stage of the function.
         """
         return pulumi.get(self, "etag")
 
     @etag.setter
     def etag(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "etag", value)
+
+    @property
+    @pulumi.getter(name="liveStageEtag")
+    def live_stage_etag(self) -> Optional[pulumi.Input[str]]:
+        """
+        ETag hash of any `LIVE` stage of the function.
+        """
+        return pulumi.get(self, "live_stage_etag")
+
+    @live_stage_etag.setter
+    def live_stage_etag(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "live_stage_etag", value)
 
     @property
     @pulumi.getter
@@ -358,6 +374,7 @@ class Function(pulumi.CustomResource):
             __props__.__dict__["runtime"] = runtime
             __props__.__dict__["arn"] = None
             __props__.__dict__["etag"] = None
+            __props__.__dict__["live_stage_etag"] = None
             __props__.__dict__["status"] = None
         super(Function, __self__).__init__(
             'aws:cloudfront/function:Function',
@@ -373,6 +390,7 @@ class Function(pulumi.CustomResource):
             code: Optional[pulumi.Input[str]] = None,
             comment: Optional[pulumi.Input[str]] = None,
             etag: Optional[pulumi.Input[str]] = None,
+            live_stage_etag: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             publish: Optional[pulumi.Input[bool]] = None,
             runtime: Optional[pulumi.Input[str]] = None,
@@ -387,7 +405,8 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) identifying your CloudFront Function.
         :param pulumi.Input[str] code: Source code of the function
         :param pulumi.Input[str] comment: Comment.
-        :param pulumi.Input[str] etag: ETag hash of the function
+        :param pulumi.Input[str] etag: ETag hash of the function. This is the value for the `DEVELOPMENT` stage of the function.
+        :param pulumi.Input[str] live_stage_etag: ETag hash of any `LIVE` stage of the function.
         :param pulumi.Input[str] name: Unique name for your CloudFront Function.
         :param pulumi.Input[bool] publish: Whether to publish creation/change as Live CloudFront Function Version. Defaults to `true`.
         :param pulumi.Input[str] runtime: Identifier of the function's runtime. Currently only `cloudfront-js-1.0` is valid.
@@ -401,6 +420,7 @@ class Function(pulumi.CustomResource):
         __props__.__dict__["code"] = code
         __props__.__dict__["comment"] = comment
         __props__.__dict__["etag"] = etag
+        __props__.__dict__["live_stage_etag"] = live_stage_etag
         __props__.__dict__["name"] = name
         __props__.__dict__["publish"] = publish
         __props__.__dict__["runtime"] = runtime
@@ -435,9 +455,17 @@ class Function(pulumi.CustomResource):
     @pulumi.getter
     def etag(self) -> pulumi.Output[str]:
         """
-        ETag hash of the function
+        ETag hash of the function. This is the value for the `DEVELOPMENT` stage of the function.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter(name="liveStageEtag")
+    def live_stage_etag(self) -> pulumi.Output[str]:
+        """
+        ETag hash of any `LIVE` stage of the function.
+        """
+        return pulumi.get(self, "live_stage_etag")
 
     @property
     @pulumi.getter

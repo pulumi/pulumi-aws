@@ -162,12 +162,6 @@ namespace Pulumi.Aws.CloudFront
         public Input<Inputs.OriginRequestPolicyCookiesConfigArgs> CookiesConfig { get; set; } = null!;
 
         /// <summary>
-        /// The current version of the origin request policy.
-        /// </summary>
-        [Input("etag")]
-        public Input<string>? Etag { get; set; }
-
-        /// <summary>
         /// Object that determines whether any HTTP headers (and if so, which headers) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.
         /// </summary>
         [Input("headersConfig", required: true)]

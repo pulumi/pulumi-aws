@@ -77,7 +77,7 @@ export class KeyPair extends pulumi.CustomResource {
     /**
      * Creates a unique name beginning with the specified prefix. Conflicts with `keyName`.
      */
-    public readonly keyNamePrefix!: pulumi.Output<string | undefined>;
+    public readonly keyNamePrefix!: pulumi.Output<string>;
     /**
      * The key pair ID.
      */

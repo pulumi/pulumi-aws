@@ -22,8 +22,7 @@ class JobQueueArgs:
         The set of arguments for constructing a JobQueue resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] compute_environments: Specifies the set of compute environments
                mapped to a job queue and their order.  The position of the compute environments
-               in the list will dictate the order. You can associate up to 3 compute environments
-               with a job queue.
+               in the list will dictate the order.
         :param pulumi.Input[int] priority: The priority of the job queue. Job queues with a higher priority
                are evaluated first when associated with the same compute environment.
         :param pulumi.Input[str] state: The state of the job queue. Must be one of: `ENABLED` or `DISABLED`
@@ -44,8 +43,7 @@ class JobQueueArgs:
         """
         Specifies the set of compute environments
         mapped to a job queue and their order.  The position of the compute environments
-        in the list will dictate the order. You can associate up to 3 compute environments
-        with a job queue.
+        in the list will dictate the order.
         """
         return pulumi.get(self, "compute_environments")
 
@@ -118,8 +116,7 @@ class _JobQueueState:
         :param pulumi.Input[str] arn: The Amazon Resource Name of the job queue.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] compute_environments: Specifies the set of compute environments
                mapped to a job queue and their order.  The position of the compute environments
-               in the list will dictate the order. You can associate up to 3 compute environments
-               with a job queue.
+               in the list will dictate the order.
         :param pulumi.Input[str] name: Specifies the name of the job queue.
         :param pulumi.Input[int] priority: The priority of the job queue. Job queues with a higher priority
                are evaluated first when associated with the same compute environment.
@@ -160,8 +157,7 @@ class _JobQueueState:
         """
         Specifies the set of compute environments
         mapped to a job queue and their order.  The position of the compute environments
-        in the list will dictate the order. You can associate up to 3 compute environments
-        with a job queue.
+        in the list will dictate the order.
         """
         return pulumi.get(self, "compute_environments")
 
@@ -272,8 +268,7 @@ class JobQueue(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] compute_environments: Specifies the set of compute environments
                mapped to a job queue and their order.  The position of the compute environments
-               in the list will dictate the order. You can associate up to 3 compute environments
-               with a job queue.
+               in the list will dictate the order.
         :param pulumi.Input[str] name: Specifies the name of the job queue.
         :param pulumi.Input[int] priority: The priority of the job queue. Job queues with a higher priority
                are evaluated first when associated with the same compute environment.
@@ -384,8 +379,7 @@ class JobQueue(pulumi.CustomResource):
         :param pulumi.Input[str] arn: The Amazon Resource Name of the job queue.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] compute_environments: Specifies the set of compute environments
                mapped to a job queue and their order.  The position of the compute environments
-               in the list will dictate the order. You can associate up to 3 compute environments
-               with a job queue.
+               in the list will dictate the order.
         :param pulumi.Input[str] name: Specifies the name of the job queue.
         :param pulumi.Input[int] priority: The priority of the job queue. Job queues with a higher priority
                are evaluated first when associated with the same compute environment.
@@ -420,8 +414,7 @@ class JobQueue(pulumi.CustomResource):
         """
         Specifies the set of compute environments
         mapped to a job queue and their order.  The position of the compute environments
-        in the list will dictate the order. You can associate up to 3 compute environments
-        with a job queue.
+        in the list will dictate the order.
         """
         return pulumi.get(self, "compute_environments")
 

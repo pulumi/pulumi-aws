@@ -25,6 +25,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &CachePolicy{}
 	case "aws:cloudfront/distribution:Distribution":
 		r = &Distribution{}
+	case "aws:cloudfront/fieldLevelEncryptionConfig:FieldLevelEncryptionConfig":
+		r = &FieldLevelEncryptionConfig{}
+	case "aws:cloudfront/fieldLevelEncryptionProfile:FieldLevelEncryptionProfile":
+		r = &FieldLevelEncryptionProfile{}
 	case "aws:cloudfront/function:Function":
 		r = &Function{}
 	case "aws:cloudfront/keyGroup:KeyGroup":
@@ -62,6 +66,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"cloudfront/distribution",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"cloudfront/fieldLevelEncryptionConfig",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"cloudfront/fieldLevelEncryptionProfile",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

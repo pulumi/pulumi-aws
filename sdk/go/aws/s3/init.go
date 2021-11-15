@@ -29,6 +29,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AnalyticsConfiguration{}
 	case "aws:s3/bucket:Bucket":
 		r = &Bucket{}
+	case "aws:s3/bucketIntelligentTieringConfiguration:BucketIntelligentTieringConfiguration":
+		r = &BucketIntelligentTieringConfiguration{}
 	case "aws:s3/bucketMetric:BucketMetric":
 		r = &BucketMetric{}
 	case "aws:s3/bucketNotification:BucketNotification":
@@ -76,6 +78,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"s3/bucket",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"s3/bucketIntelligentTieringConfiguration",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

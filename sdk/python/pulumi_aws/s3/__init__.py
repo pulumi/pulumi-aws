@@ -10,6 +10,7 @@ from .access_point import *
 from .account_public_access_block import *
 from .analytics_configuration import *
 from .bucket import *
+from .bucket_intelligent_tiering_configuration import *
 from .bucket_metric import *
 from .bucket_notification import *
 from .bucket_object import *

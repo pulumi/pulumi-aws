@@ -7,6 +7,8 @@ import typing
 # Export this package's modules as members:
 from .cache_policy import *
 from .distribution import *
+from .field_level_encryption_config import *
+from .field_level_encryption_profile import *
 from .function import *
 from .get_cache_policy import *
 from .get_distribution import *

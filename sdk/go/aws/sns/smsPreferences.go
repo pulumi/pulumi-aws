@@ -44,7 +44,7 @@ type SmsPreferences struct {
 	// The percentage of successful SMS deliveries for which Amazon SNS will write logs in CloudWatch Logs. The value must be between 0 and 100.
 	DeliveryStatusSuccessSamplingRate pulumi.StringPtrOutput `pulumi:"deliveryStatusSuccessSamplingRate"`
 	// The maximum amount in USD that you are willing to spend each month to send SMS messages.
-	MonthlySpendLimit pulumi.StringPtrOutput `pulumi:"monthlySpendLimit"`
+	MonthlySpendLimit pulumi.StringOutput `pulumi:"monthlySpendLimit"`
 	// The name of the Amazon S3 bucket to receive daily SMS usage reports from Amazon SNS.
 	UsageReportS3Bucket pulumi.StringPtrOutput `pulumi:"usageReportS3Bucket"`
 }

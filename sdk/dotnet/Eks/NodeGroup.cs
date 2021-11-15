@@ -175,7 +175,7 @@ namespace Pulumi.Aws.Eks
         public Output<bool?> ForceUpdateVersion { get; private set; } = null!;
 
         /// <summary>
-        /// Set of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. This provider will only perform drift detection if a configuration value is provided.
+        /// List of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. This provider will only perform drift detection if a configuration value is provided.
         /// </summary>
         [Output("instanceTypes")]
         public Output<ImmutableArray<string>> InstanceTypes { get; private set; } = null!;
@@ -353,7 +353,7 @@ namespace Pulumi.Aws.Eks
         private InputList<string>? _instanceTypes;
 
         /// <summary>
-        /// Set of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. This provider will only perform drift detection if a configuration value is provided.
+        /// List of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. This provider will only perform drift detection if a configuration value is provided.
         /// </summary>
         public InputList<string> InstanceTypes
         {
@@ -507,7 +507,7 @@ namespace Pulumi.Aws.Eks
         private InputList<string>? _instanceTypes;
 
         /// <summary>
-        /// Set of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. This provider will only perform drift detection if a configuration value is provided.
+        /// List of instance types associated with the EKS Node Group. Defaults to `["t3.medium"]`. This provider will only perform drift detection if a configuration value is provided.
         /// </summary>
         public InputList<string> InstanceTypes
         {

@@ -9,6 +9,7 @@ export * from "./accessPoint";
 export * from "./accountPublicAccessBlock";
 export * from "./analyticsConfiguration";
 export * from "./bucket";
+export * from "./bucketIntelligentTieringConfiguration";
 export * from "./bucketMetric";
 export * from "./bucketNotification";
 export * from "./bucketObject";
@@ -33,6 +34,7 @@ import { AccessPoint } from "./accessPoint";
 import { AccountPublicAccessBlock } from "./accountPublicAccessBlock";
 import { AnalyticsConfiguration } from "./analyticsConfiguration";
 import { Bucket } from "./bucket";
+import { BucketIntelligentTieringConfiguration } from "./bucketIntelligentTieringConfiguration";
 import { BucketMetric } from "./bucketMetric";
 import { BucketNotification } from "./bucketNotification";
 import { BucketObject } from "./bucketObject";
@@ -54,6 +56,8 @@ const _module = {
                 return new AnalyticsConfiguration(name, <any>undefined, { urn })
             case "aws:s3/bucket:Bucket":
                 return new Bucket(name, <any>undefined, { urn })
+            case "aws:s3/bucketIntelligentTieringConfiguration:BucketIntelligentTieringConfiguration":
+                return new BucketIntelligentTieringConfiguration(name, <any>undefined, { urn })
             case "aws:s3/bucketMetric:BucketMetric":
                 return new BucketMetric(name, <any>undefined, { urn })
             case "aws:s3/bucketNotification:BucketNotification":
@@ -79,6 +83,7 @@ pulumi.runtime.registerResourceModule("aws", "s3/accessPoint", _module)
 pulumi.runtime.registerResourceModule("aws", "s3/accountPublicAccessBlock", _module)
 pulumi.runtime.registerResourceModule("aws", "s3/analyticsConfiguration", _module)
 pulumi.runtime.registerResourceModule("aws", "s3/bucket", _module)
+pulumi.runtime.registerResourceModule("aws", "s3/bucketIntelligentTieringConfiguration", _module)
 pulumi.runtime.registerResourceModule("aws", "s3/bucketMetric", _module)
 pulumi.runtime.registerResourceModule("aws", "s3/bucketNotification", _module)
 pulumi.runtime.registerResourceModule("aws", "s3/bucketObject", _module)

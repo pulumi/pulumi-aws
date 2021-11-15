@@ -5771,6 +5771,1124 @@ func (o DistributionViewerCertificatePtrOutput) SslSupportMethod() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
+type FieldLevelEncryptionConfigContentTypeProfileConfig struct {
+	// Object that contains an attribute `items` that contains the list of configurations for a field-level encryption content type-profile. See Content Type Profile.
+	ContentTypeProfiles FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfiles `pulumi:"contentTypeProfiles"`
+	// specifies what to do when an unknown content type is provided for the profile. If true, content is forwarded without being encrypted when the content type is unknown. If false (the default), an error is returned when the content type is unknown.
+	ForwardWhenContentTypeIsUnknown bool `pulumi:"forwardWhenContentTypeIsUnknown"`
+}
+
+// FieldLevelEncryptionConfigContentTypeProfileConfigInput is an input type that accepts FieldLevelEncryptionConfigContentTypeProfileConfigArgs and FieldLevelEncryptionConfigContentTypeProfileConfigOutput values.
+// You can construct a concrete instance of `FieldLevelEncryptionConfigContentTypeProfileConfigInput` via:
+//
+//          FieldLevelEncryptionConfigContentTypeProfileConfigArgs{...}
+type FieldLevelEncryptionConfigContentTypeProfileConfigInput interface {
+	pulumi.Input
+
+	ToFieldLevelEncryptionConfigContentTypeProfileConfigOutput() FieldLevelEncryptionConfigContentTypeProfileConfigOutput
+	ToFieldLevelEncryptionConfigContentTypeProfileConfigOutputWithContext(context.Context) FieldLevelEncryptionConfigContentTypeProfileConfigOutput
+}
+
+type FieldLevelEncryptionConfigContentTypeProfileConfigArgs struct {
+	// Object that contains an attribute `items` that contains the list of configurations for a field-level encryption content type-profile. See Content Type Profile.
+	ContentTypeProfiles FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesInput `pulumi:"contentTypeProfiles"`
+	// specifies what to do when an unknown content type is provided for the profile. If true, content is forwarded without being encrypted when the content type is unknown. If false (the default), an error is returned when the content type is unknown.
+	ForwardWhenContentTypeIsUnknown pulumi.BoolInput `pulumi:"forwardWhenContentTypeIsUnknown"`
+}
+
+func (FieldLevelEncryptionConfigContentTypeProfileConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FieldLevelEncryptionConfigContentTypeProfileConfig)(nil)).Elem()
+}
+
+func (i FieldLevelEncryptionConfigContentTypeProfileConfigArgs) ToFieldLevelEncryptionConfigContentTypeProfileConfigOutput() FieldLevelEncryptionConfigContentTypeProfileConfigOutput {
+	return i.ToFieldLevelEncryptionConfigContentTypeProfileConfigOutputWithContext(context.Background())
+}
+
+func (i FieldLevelEncryptionConfigContentTypeProfileConfigArgs) ToFieldLevelEncryptionConfigContentTypeProfileConfigOutputWithContext(ctx context.Context) FieldLevelEncryptionConfigContentTypeProfileConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FieldLevelEncryptionConfigContentTypeProfileConfigOutput)
+}
+
+func (i FieldLevelEncryptionConfigContentTypeProfileConfigArgs) ToFieldLevelEncryptionConfigContentTypeProfileConfigPtrOutput() FieldLevelEncryptionConfigContentTypeProfileConfigPtrOutput {
+	return i.ToFieldLevelEncryptionConfigContentTypeProfileConfigPtrOutputWithContext(context.Background())
+}
+
+func (i FieldLevelEncryptionConfigContentTypeProfileConfigArgs) ToFieldLevelEncryptionConfigContentTypeProfileConfigPtrOutputWithContext(ctx context.Context) FieldLevelEncryptionConfigContentTypeProfileConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FieldLevelEncryptionConfigContentTypeProfileConfigOutput).ToFieldLevelEncryptionConfigContentTypeProfileConfigPtrOutputWithContext(ctx)
+}
+
+// FieldLevelEncryptionConfigContentTypeProfileConfigPtrInput is an input type that accepts FieldLevelEncryptionConfigContentTypeProfileConfigArgs, FieldLevelEncryptionConfigContentTypeProfileConfigPtr and FieldLevelEncryptionConfigContentTypeProfileConfigPtrOutput values.
+// You can construct a concrete instance of `FieldLevelEncryptionConfigContentTypeProfileConfigPtrInput` via:
+//
+//          FieldLevelEncryptionConfigContentTypeProfileConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type FieldLevelEncryptionConfigContentTypeProfileConfigPtrInput interface {
+	pulumi.Input
+
+	ToFieldLevelEncryptionConfigContentTypeProfileConfigPtrOutput() FieldLevelEncryptionConfigContentTypeProfileConfigPtrOutput
+	ToFieldLevelEncryptionConfigContentTypeProfileConfigPtrOutputWithContext(context.Context) FieldLevelEncryptionConfigContentTypeProfileConfigPtrOutput
+}
+
+type fieldLevelEncryptionConfigContentTypeProfileConfigPtrType FieldLevelEncryptionConfigContentTypeProfileConfigArgs
+
+func FieldLevelEncryptionConfigContentTypeProfileConfigPtr(v *FieldLevelEncryptionConfigContentTypeProfileConfigArgs) FieldLevelEncryptionConfigContentTypeProfileConfigPtrInput {
+	return (*fieldLevelEncryptionConfigContentTypeProfileConfigPtrType)(v)
+}
+
+func (*fieldLevelEncryptionConfigContentTypeProfileConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FieldLevelEncryptionConfigContentTypeProfileConfig)(nil)).Elem()
+}
+
+func (i *fieldLevelEncryptionConfigContentTypeProfileConfigPtrType) ToFieldLevelEncryptionConfigContentTypeProfileConfigPtrOutput() FieldLevelEncryptionConfigContentTypeProfileConfigPtrOutput {
+	return i.ToFieldLevelEncryptionConfigContentTypeProfileConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *fieldLevelEncryptionConfigContentTypeProfileConfigPtrType) ToFieldLevelEncryptionConfigContentTypeProfileConfigPtrOutputWithContext(ctx context.Context) FieldLevelEncryptionConfigContentTypeProfileConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FieldLevelEncryptionConfigContentTypeProfileConfigPtrOutput)
+}
+
+type FieldLevelEncryptionConfigContentTypeProfileConfigOutput struct{ *pulumi.OutputState }
+
+func (FieldLevelEncryptionConfigContentTypeProfileConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FieldLevelEncryptionConfigContentTypeProfileConfig)(nil)).Elem()
+}
+
+func (o FieldLevelEncryptionConfigContentTypeProfileConfigOutput) ToFieldLevelEncryptionConfigContentTypeProfileConfigOutput() FieldLevelEncryptionConfigContentTypeProfileConfigOutput {
+	return o
+}
+
+func (o FieldLevelEncryptionConfigContentTypeProfileConfigOutput) ToFieldLevelEncryptionConfigContentTypeProfileConfigOutputWithContext(ctx context.Context) FieldLevelEncryptionConfigContentTypeProfileConfigOutput {
+	return o
+}
+
+func (o FieldLevelEncryptionConfigContentTypeProfileConfigOutput) ToFieldLevelEncryptionConfigContentTypeProfileConfigPtrOutput() FieldLevelEncryptionConfigContentTypeProfileConfigPtrOutput {
+	return o.ToFieldLevelEncryptionConfigContentTypeProfileConfigPtrOutputWithContext(context.Background())
+}
+
+func (o FieldLevelEncryptionConfigContentTypeProfileConfigOutput) ToFieldLevelEncryptionConfigContentTypeProfileConfigPtrOutputWithContext(ctx context.Context) FieldLevelEncryptionConfigContentTypeProfileConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FieldLevelEncryptionConfigContentTypeProfileConfig) *FieldLevelEncryptionConfigContentTypeProfileConfig {
+		return &v
+	}).(FieldLevelEncryptionConfigContentTypeProfileConfigPtrOutput)
+}
+
+// Object that contains an attribute `items` that contains the list of configurations for a field-level encryption content type-profile. See Content Type Profile.
+func (o FieldLevelEncryptionConfigContentTypeProfileConfigOutput) ContentTypeProfiles() FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesOutput {
+	return o.ApplyT(func(v FieldLevelEncryptionConfigContentTypeProfileConfig) FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfiles {
+		return v.ContentTypeProfiles
+	}).(FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesOutput)
+}
+
+// specifies what to do when an unknown content type is provided for the profile. If true, content is forwarded without being encrypted when the content type is unknown. If false (the default), an error is returned when the content type is unknown.
+func (o FieldLevelEncryptionConfigContentTypeProfileConfigOutput) ForwardWhenContentTypeIsUnknown() pulumi.BoolOutput {
+	return o.ApplyT(func(v FieldLevelEncryptionConfigContentTypeProfileConfig) bool {
+		return v.ForwardWhenContentTypeIsUnknown
+	}).(pulumi.BoolOutput)
+}
+
+type FieldLevelEncryptionConfigContentTypeProfileConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (FieldLevelEncryptionConfigContentTypeProfileConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FieldLevelEncryptionConfigContentTypeProfileConfig)(nil)).Elem()
+}
+
+func (o FieldLevelEncryptionConfigContentTypeProfileConfigPtrOutput) ToFieldLevelEncryptionConfigContentTypeProfileConfigPtrOutput() FieldLevelEncryptionConfigContentTypeProfileConfigPtrOutput {
+	return o
+}
+
+func (o FieldLevelEncryptionConfigContentTypeProfileConfigPtrOutput) ToFieldLevelEncryptionConfigContentTypeProfileConfigPtrOutputWithContext(ctx context.Context) FieldLevelEncryptionConfigContentTypeProfileConfigPtrOutput {
+	return o
+}
+
+func (o FieldLevelEncryptionConfigContentTypeProfileConfigPtrOutput) Elem() FieldLevelEncryptionConfigContentTypeProfileConfigOutput {
+	return o.ApplyT(func(v *FieldLevelEncryptionConfigContentTypeProfileConfig) FieldLevelEncryptionConfigContentTypeProfileConfig {
+		if v != nil {
+			return *v
+		}
+		var ret FieldLevelEncryptionConfigContentTypeProfileConfig
+		return ret
+	}).(FieldLevelEncryptionConfigContentTypeProfileConfigOutput)
+}
+
+// Object that contains an attribute `items` that contains the list of configurations for a field-level encryption content type-profile. See Content Type Profile.
+func (o FieldLevelEncryptionConfigContentTypeProfileConfigPtrOutput) ContentTypeProfiles() FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesPtrOutput {
+	return o.ApplyT(func(v *FieldLevelEncryptionConfigContentTypeProfileConfig) *FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfiles {
+		if v == nil {
+			return nil
+		}
+		return &v.ContentTypeProfiles
+	}).(FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesPtrOutput)
+}
+
+// specifies what to do when an unknown content type is provided for the profile. If true, content is forwarded without being encrypted when the content type is unknown. If false (the default), an error is returned when the content type is unknown.
+func (o FieldLevelEncryptionConfigContentTypeProfileConfigPtrOutput) ForwardWhenContentTypeIsUnknown() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FieldLevelEncryptionConfigContentTypeProfileConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.ForwardWhenContentTypeIsUnknown
+	}).(pulumi.BoolPtrOutput)
+}
+
+type FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfiles struct {
+	Items []FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItem `pulumi:"items"`
+}
+
+// FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesInput is an input type that accepts FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesArgs and FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesOutput values.
+// You can construct a concrete instance of `FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesInput` via:
+//
+//          FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesArgs{...}
+type FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesInput interface {
+	pulumi.Input
+
+	ToFieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesOutput() FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesOutput
+	ToFieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesOutputWithContext(context.Context) FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesOutput
+}
+
+type FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesArgs struct {
+	Items FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArrayInput `pulumi:"items"`
+}
+
+func (FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfiles)(nil)).Elem()
+}
+
+func (i FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesArgs) ToFieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesOutput() FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesOutput {
+	return i.ToFieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesOutputWithContext(context.Background())
+}
+
+func (i FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesArgs) ToFieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesOutputWithContext(ctx context.Context) FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesOutput)
+}
+
+func (i FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesArgs) ToFieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesPtrOutput() FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesPtrOutput {
+	return i.ToFieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesPtrOutputWithContext(context.Background())
+}
+
+func (i FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesArgs) ToFieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesPtrOutputWithContext(ctx context.Context) FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesOutput).ToFieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesPtrOutputWithContext(ctx)
+}
+
+// FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesPtrInput is an input type that accepts FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesArgs, FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesPtr and FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesPtrOutput values.
+// You can construct a concrete instance of `FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesPtrInput` via:
+//
+//          FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesArgs{...}
+//
+//  or:
+//
+//          nil
+type FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesPtrInput interface {
+	pulumi.Input
+
+	ToFieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesPtrOutput() FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesPtrOutput
+	ToFieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesPtrOutputWithContext(context.Context) FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesPtrOutput
+}
+
+type fieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesPtrType FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesArgs
+
+func FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesPtr(v *FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesArgs) FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesPtrInput {
+	return (*fieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesPtrType)(v)
+}
+
+func (*fieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfiles)(nil)).Elem()
+}
+
+func (i *fieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesPtrType) ToFieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesPtrOutput() FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesPtrOutput {
+	return i.ToFieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesPtrOutputWithContext(context.Background())
+}
+
+func (i *fieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesPtrType) ToFieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesPtrOutputWithContext(ctx context.Context) FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesPtrOutput)
+}
+
+type FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesOutput struct{ *pulumi.OutputState }
+
+func (FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfiles)(nil)).Elem()
+}
+
+func (o FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesOutput) ToFieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesOutput() FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesOutput {
+	return o
+}
+
+func (o FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesOutput) ToFieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesOutputWithContext(ctx context.Context) FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesOutput {
+	return o
+}
+
+func (o FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesOutput) ToFieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesPtrOutput() FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesPtrOutput {
+	return o.ToFieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesPtrOutputWithContext(context.Background())
+}
+
+func (o FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesOutput) ToFieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesPtrOutputWithContext(ctx context.Context) FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfiles) *FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfiles {
+		return &v
+	}).(FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesPtrOutput)
+}
+
+func (o FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesOutput) Items() FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArrayOutput {
+	return o.ApplyT(func(v FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfiles) []FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItem {
+		return v.Items
+	}).(FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArrayOutput)
+}
+
+type FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesPtrOutput struct{ *pulumi.OutputState }
+
+func (FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfiles)(nil)).Elem()
+}
+
+func (o FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesPtrOutput) ToFieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesPtrOutput() FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesPtrOutput {
+	return o
+}
+
+func (o FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesPtrOutput) ToFieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesPtrOutputWithContext(ctx context.Context) FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesPtrOutput {
+	return o
+}
+
+func (o FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesPtrOutput) Elem() FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesOutput {
+	return o.ApplyT(func(v *FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfiles) FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfiles {
+		if v != nil {
+			return *v
+		}
+		var ret FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfiles
+		return ret
+	}).(FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesOutput)
+}
+
+func (o FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesPtrOutput) Items() FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArrayOutput {
+	return o.ApplyT(func(v *FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfiles) []FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItem {
+		if v == nil {
+			return nil
+		}
+		return v.Items
+	}).(FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArrayOutput)
+}
+
+type FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItem struct {
+	// he content type for a field-level encryption content type-profile mapping. Valid value is `application/x-www-form-urlencoded`.
+	ContentType string `pulumi:"contentType"`
+	// The format for a field-level encryption content type-profile mapping. Valid value is `URLEncoded`.
+	Format string `pulumi:"format"`
+	// ID of profile to use for field-level encryption query argument-profile mapping
+	ProfileId *string `pulumi:"profileId"`
+}
+
+// FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemInput is an input type that accepts FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArgs and FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemOutput values.
+// You can construct a concrete instance of `FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemInput` via:
+//
+//          FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArgs{...}
+type FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemInput interface {
+	pulumi.Input
+
+	ToFieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemOutput() FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemOutput
+	ToFieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemOutputWithContext(context.Context) FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemOutput
+}
+
+type FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArgs struct {
+	// he content type for a field-level encryption content type-profile mapping. Valid value is `application/x-www-form-urlencoded`.
+	ContentType pulumi.StringInput `pulumi:"contentType"`
+	// The format for a field-level encryption content type-profile mapping. Valid value is `URLEncoded`.
+	Format pulumi.StringInput `pulumi:"format"`
+	// ID of profile to use for field-level encryption query argument-profile mapping
+	ProfileId pulumi.StringPtrInput `pulumi:"profileId"`
+}
+
+func (FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItem)(nil)).Elem()
+}
+
+func (i FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArgs) ToFieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemOutput() FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemOutput {
+	return i.ToFieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemOutputWithContext(context.Background())
+}
+
+func (i FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArgs) ToFieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemOutputWithContext(ctx context.Context) FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemOutput)
+}
+
+// FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArrayInput is an input type that accepts FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArray and FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArrayOutput values.
+// You can construct a concrete instance of `FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArrayInput` via:
+//
+//          FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArray{ FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArgs{...} }
+type FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArrayInput interface {
+	pulumi.Input
+
+	ToFieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArrayOutput() FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArrayOutput
+	ToFieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArrayOutputWithContext(context.Context) FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArrayOutput
+}
+
+type FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArray []FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemInput
+
+func (FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItem)(nil)).Elem()
+}
+
+func (i FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArray) ToFieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArrayOutput() FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArrayOutput {
+	return i.ToFieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArrayOutputWithContext(context.Background())
+}
+
+func (i FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArray) ToFieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArrayOutputWithContext(ctx context.Context) FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArrayOutput)
+}
+
+type FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemOutput struct{ *pulumi.OutputState }
+
+func (FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItem)(nil)).Elem()
+}
+
+func (o FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemOutput) ToFieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemOutput() FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemOutput {
+	return o
+}
+
+func (o FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemOutput) ToFieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemOutputWithContext(ctx context.Context) FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemOutput {
+	return o
+}
+
+// he content type for a field-level encryption content type-profile mapping. Valid value is `application/x-www-form-urlencoded`.
+func (o FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemOutput) ContentType() pulumi.StringOutput {
+	return o.ApplyT(func(v FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItem) string {
+		return v.ContentType
+	}).(pulumi.StringOutput)
+}
+
+// The format for a field-level encryption content type-profile mapping. Valid value is `URLEncoded`.
+func (o FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemOutput) Format() pulumi.StringOutput {
+	return o.ApplyT(func(v FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItem) string {
+		return v.Format
+	}).(pulumi.StringOutput)
+}
+
+// ID of profile to use for field-level encryption query argument-profile mapping
+func (o FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemOutput) ProfileId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItem) *string {
+		return v.ProfileId
+	}).(pulumi.StringPtrOutput)
+}
+
+type FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArrayOutput struct{ *pulumi.OutputState }
+
+func (FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItem)(nil)).Elem()
+}
+
+func (o FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArrayOutput) ToFieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArrayOutput() FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArrayOutput {
+	return o
+}
+
+func (o FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArrayOutput) ToFieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArrayOutputWithContext(ctx context.Context) FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArrayOutput {
+	return o
+}
+
+func (o FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArrayOutput) Index(i pulumi.IntInput) FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItem {
+		return vs[0].([]FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItem)[vs[1].(int)]
+	}).(FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemOutput)
+}
+
+type FieldLevelEncryptionConfigQueryArgProfileConfig struct {
+	// Flag to set if you want a request to be forwarded to the origin even if the profile specified by the field-level encryption query argument, fle-profile, is unknown.
+	ForwardWhenQueryArgProfileIsUnknown bool `pulumi:"forwardWhenQueryArgProfileIsUnknown"`
+	// Object that contains an attribute `items` that contains the list ofrofiles specified for query argument-profile mapping for field-level encryption. see Query Arg Profile.
+	QueryArgProfiles *FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfiles `pulumi:"queryArgProfiles"`
+}
+
+// FieldLevelEncryptionConfigQueryArgProfileConfigInput is an input type that accepts FieldLevelEncryptionConfigQueryArgProfileConfigArgs and FieldLevelEncryptionConfigQueryArgProfileConfigOutput values.
+// You can construct a concrete instance of `FieldLevelEncryptionConfigQueryArgProfileConfigInput` via:
+//
+//          FieldLevelEncryptionConfigQueryArgProfileConfigArgs{...}
+type FieldLevelEncryptionConfigQueryArgProfileConfigInput interface {
+	pulumi.Input
+
+	ToFieldLevelEncryptionConfigQueryArgProfileConfigOutput() FieldLevelEncryptionConfigQueryArgProfileConfigOutput
+	ToFieldLevelEncryptionConfigQueryArgProfileConfigOutputWithContext(context.Context) FieldLevelEncryptionConfigQueryArgProfileConfigOutput
+}
+
+type FieldLevelEncryptionConfigQueryArgProfileConfigArgs struct {
+	// Flag to set if you want a request to be forwarded to the origin even if the profile specified by the field-level encryption query argument, fle-profile, is unknown.
+	ForwardWhenQueryArgProfileIsUnknown pulumi.BoolInput `pulumi:"forwardWhenQueryArgProfileIsUnknown"`
+	// Object that contains an attribute `items` that contains the list ofrofiles specified for query argument-profile mapping for field-level encryption. see Query Arg Profile.
+	QueryArgProfiles FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesPtrInput `pulumi:"queryArgProfiles"`
+}
+
+func (FieldLevelEncryptionConfigQueryArgProfileConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FieldLevelEncryptionConfigQueryArgProfileConfig)(nil)).Elem()
+}
+
+func (i FieldLevelEncryptionConfigQueryArgProfileConfigArgs) ToFieldLevelEncryptionConfigQueryArgProfileConfigOutput() FieldLevelEncryptionConfigQueryArgProfileConfigOutput {
+	return i.ToFieldLevelEncryptionConfigQueryArgProfileConfigOutputWithContext(context.Background())
+}
+
+func (i FieldLevelEncryptionConfigQueryArgProfileConfigArgs) ToFieldLevelEncryptionConfigQueryArgProfileConfigOutputWithContext(ctx context.Context) FieldLevelEncryptionConfigQueryArgProfileConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FieldLevelEncryptionConfigQueryArgProfileConfigOutput)
+}
+
+func (i FieldLevelEncryptionConfigQueryArgProfileConfigArgs) ToFieldLevelEncryptionConfigQueryArgProfileConfigPtrOutput() FieldLevelEncryptionConfigQueryArgProfileConfigPtrOutput {
+	return i.ToFieldLevelEncryptionConfigQueryArgProfileConfigPtrOutputWithContext(context.Background())
+}
+
+func (i FieldLevelEncryptionConfigQueryArgProfileConfigArgs) ToFieldLevelEncryptionConfigQueryArgProfileConfigPtrOutputWithContext(ctx context.Context) FieldLevelEncryptionConfigQueryArgProfileConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FieldLevelEncryptionConfigQueryArgProfileConfigOutput).ToFieldLevelEncryptionConfigQueryArgProfileConfigPtrOutputWithContext(ctx)
+}
+
+// FieldLevelEncryptionConfigQueryArgProfileConfigPtrInput is an input type that accepts FieldLevelEncryptionConfigQueryArgProfileConfigArgs, FieldLevelEncryptionConfigQueryArgProfileConfigPtr and FieldLevelEncryptionConfigQueryArgProfileConfigPtrOutput values.
+// You can construct a concrete instance of `FieldLevelEncryptionConfigQueryArgProfileConfigPtrInput` via:
+//
+//          FieldLevelEncryptionConfigQueryArgProfileConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type FieldLevelEncryptionConfigQueryArgProfileConfigPtrInput interface {
+	pulumi.Input
+
+	ToFieldLevelEncryptionConfigQueryArgProfileConfigPtrOutput() FieldLevelEncryptionConfigQueryArgProfileConfigPtrOutput
+	ToFieldLevelEncryptionConfigQueryArgProfileConfigPtrOutputWithContext(context.Context) FieldLevelEncryptionConfigQueryArgProfileConfigPtrOutput
+}
+
+type fieldLevelEncryptionConfigQueryArgProfileConfigPtrType FieldLevelEncryptionConfigQueryArgProfileConfigArgs
+
+func FieldLevelEncryptionConfigQueryArgProfileConfigPtr(v *FieldLevelEncryptionConfigQueryArgProfileConfigArgs) FieldLevelEncryptionConfigQueryArgProfileConfigPtrInput {
+	return (*fieldLevelEncryptionConfigQueryArgProfileConfigPtrType)(v)
+}
+
+func (*fieldLevelEncryptionConfigQueryArgProfileConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FieldLevelEncryptionConfigQueryArgProfileConfig)(nil)).Elem()
+}
+
+func (i *fieldLevelEncryptionConfigQueryArgProfileConfigPtrType) ToFieldLevelEncryptionConfigQueryArgProfileConfigPtrOutput() FieldLevelEncryptionConfigQueryArgProfileConfigPtrOutput {
+	return i.ToFieldLevelEncryptionConfigQueryArgProfileConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *fieldLevelEncryptionConfigQueryArgProfileConfigPtrType) ToFieldLevelEncryptionConfigQueryArgProfileConfigPtrOutputWithContext(ctx context.Context) FieldLevelEncryptionConfigQueryArgProfileConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FieldLevelEncryptionConfigQueryArgProfileConfigPtrOutput)
+}
+
+type FieldLevelEncryptionConfigQueryArgProfileConfigOutput struct{ *pulumi.OutputState }
+
+func (FieldLevelEncryptionConfigQueryArgProfileConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FieldLevelEncryptionConfigQueryArgProfileConfig)(nil)).Elem()
+}
+
+func (o FieldLevelEncryptionConfigQueryArgProfileConfigOutput) ToFieldLevelEncryptionConfigQueryArgProfileConfigOutput() FieldLevelEncryptionConfigQueryArgProfileConfigOutput {
+	return o
+}
+
+func (o FieldLevelEncryptionConfigQueryArgProfileConfigOutput) ToFieldLevelEncryptionConfigQueryArgProfileConfigOutputWithContext(ctx context.Context) FieldLevelEncryptionConfigQueryArgProfileConfigOutput {
+	return o
+}
+
+func (o FieldLevelEncryptionConfigQueryArgProfileConfigOutput) ToFieldLevelEncryptionConfigQueryArgProfileConfigPtrOutput() FieldLevelEncryptionConfigQueryArgProfileConfigPtrOutput {
+	return o.ToFieldLevelEncryptionConfigQueryArgProfileConfigPtrOutputWithContext(context.Background())
+}
+
+func (o FieldLevelEncryptionConfigQueryArgProfileConfigOutput) ToFieldLevelEncryptionConfigQueryArgProfileConfigPtrOutputWithContext(ctx context.Context) FieldLevelEncryptionConfigQueryArgProfileConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FieldLevelEncryptionConfigQueryArgProfileConfig) *FieldLevelEncryptionConfigQueryArgProfileConfig {
+		return &v
+	}).(FieldLevelEncryptionConfigQueryArgProfileConfigPtrOutput)
+}
+
+// Flag to set if you want a request to be forwarded to the origin even if the profile specified by the field-level encryption query argument, fle-profile, is unknown.
+func (o FieldLevelEncryptionConfigQueryArgProfileConfigOutput) ForwardWhenQueryArgProfileIsUnknown() pulumi.BoolOutput {
+	return o.ApplyT(func(v FieldLevelEncryptionConfigQueryArgProfileConfig) bool {
+		return v.ForwardWhenQueryArgProfileIsUnknown
+	}).(pulumi.BoolOutput)
+}
+
+// Object that contains an attribute `items` that contains the list ofrofiles specified for query argument-profile mapping for field-level encryption. see Query Arg Profile.
+func (o FieldLevelEncryptionConfigQueryArgProfileConfigOutput) QueryArgProfiles() FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesPtrOutput {
+	return o.ApplyT(func(v FieldLevelEncryptionConfigQueryArgProfileConfig) *FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfiles {
+		return v.QueryArgProfiles
+	}).(FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesPtrOutput)
+}
+
+type FieldLevelEncryptionConfigQueryArgProfileConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (FieldLevelEncryptionConfigQueryArgProfileConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FieldLevelEncryptionConfigQueryArgProfileConfig)(nil)).Elem()
+}
+
+func (o FieldLevelEncryptionConfigQueryArgProfileConfigPtrOutput) ToFieldLevelEncryptionConfigQueryArgProfileConfigPtrOutput() FieldLevelEncryptionConfigQueryArgProfileConfigPtrOutput {
+	return o
+}
+
+func (o FieldLevelEncryptionConfigQueryArgProfileConfigPtrOutput) ToFieldLevelEncryptionConfigQueryArgProfileConfigPtrOutputWithContext(ctx context.Context) FieldLevelEncryptionConfigQueryArgProfileConfigPtrOutput {
+	return o
+}
+
+func (o FieldLevelEncryptionConfigQueryArgProfileConfigPtrOutput) Elem() FieldLevelEncryptionConfigQueryArgProfileConfigOutput {
+	return o.ApplyT(func(v *FieldLevelEncryptionConfigQueryArgProfileConfig) FieldLevelEncryptionConfigQueryArgProfileConfig {
+		if v != nil {
+			return *v
+		}
+		var ret FieldLevelEncryptionConfigQueryArgProfileConfig
+		return ret
+	}).(FieldLevelEncryptionConfigQueryArgProfileConfigOutput)
+}
+
+// Flag to set if you want a request to be forwarded to the origin even if the profile specified by the field-level encryption query argument, fle-profile, is unknown.
+func (o FieldLevelEncryptionConfigQueryArgProfileConfigPtrOutput) ForwardWhenQueryArgProfileIsUnknown() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FieldLevelEncryptionConfigQueryArgProfileConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.ForwardWhenQueryArgProfileIsUnknown
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Object that contains an attribute `items` that contains the list ofrofiles specified for query argument-profile mapping for field-level encryption. see Query Arg Profile.
+func (o FieldLevelEncryptionConfigQueryArgProfileConfigPtrOutput) QueryArgProfiles() FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesPtrOutput {
+	return o.ApplyT(func(v *FieldLevelEncryptionConfigQueryArgProfileConfig) *FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfiles {
+		if v == nil {
+			return nil
+		}
+		return v.QueryArgProfiles
+	}).(FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesPtrOutput)
+}
+
+type FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfiles struct {
+	Items []FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItem `pulumi:"items"`
+}
+
+// FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesInput is an input type that accepts FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesArgs and FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesOutput values.
+// You can construct a concrete instance of `FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesInput` via:
+//
+//          FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesArgs{...}
+type FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesInput interface {
+	pulumi.Input
+
+	ToFieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesOutput() FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesOutput
+	ToFieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesOutputWithContext(context.Context) FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesOutput
+}
+
+type FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesArgs struct {
+	Items FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArrayInput `pulumi:"items"`
+}
+
+func (FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfiles)(nil)).Elem()
+}
+
+func (i FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesArgs) ToFieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesOutput() FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesOutput {
+	return i.ToFieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesOutputWithContext(context.Background())
+}
+
+func (i FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesArgs) ToFieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesOutputWithContext(ctx context.Context) FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesOutput)
+}
+
+func (i FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesArgs) ToFieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesPtrOutput() FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesPtrOutput {
+	return i.ToFieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesPtrOutputWithContext(context.Background())
+}
+
+func (i FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesArgs) ToFieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesPtrOutputWithContext(ctx context.Context) FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesOutput).ToFieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesPtrOutputWithContext(ctx)
+}
+
+// FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesPtrInput is an input type that accepts FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesArgs, FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesPtr and FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesPtrOutput values.
+// You can construct a concrete instance of `FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesPtrInput` via:
+//
+//          FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesArgs{...}
+//
+//  or:
+//
+//          nil
+type FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesPtrInput interface {
+	pulumi.Input
+
+	ToFieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesPtrOutput() FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesPtrOutput
+	ToFieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesPtrOutputWithContext(context.Context) FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesPtrOutput
+}
+
+type fieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesPtrType FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesArgs
+
+func FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesPtr(v *FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesArgs) FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesPtrInput {
+	return (*fieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesPtrType)(v)
+}
+
+func (*fieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfiles)(nil)).Elem()
+}
+
+func (i *fieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesPtrType) ToFieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesPtrOutput() FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesPtrOutput {
+	return i.ToFieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesPtrOutputWithContext(context.Background())
+}
+
+func (i *fieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesPtrType) ToFieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesPtrOutputWithContext(ctx context.Context) FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesPtrOutput)
+}
+
+type FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesOutput struct{ *pulumi.OutputState }
+
+func (FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfiles)(nil)).Elem()
+}
+
+func (o FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesOutput) ToFieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesOutput() FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesOutput {
+	return o
+}
+
+func (o FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesOutput) ToFieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesOutputWithContext(ctx context.Context) FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesOutput {
+	return o
+}
+
+func (o FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesOutput) ToFieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesPtrOutput() FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesPtrOutput {
+	return o.ToFieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesPtrOutputWithContext(context.Background())
+}
+
+func (o FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesOutput) ToFieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesPtrOutputWithContext(ctx context.Context) FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfiles) *FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfiles {
+		return &v
+	}).(FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesPtrOutput)
+}
+
+func (o FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesOutput) Items() FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArrayOutput {
+	return o.ApplyT(func(v FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfiles) []FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItem {
+		return v.Items
+	}).(FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArrayOutput)
+}
+
+type FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesPtrOutput struct{ *pulumi.OutputState }
+
+func (FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfiles)(nil)).Elem()
+}
+
+func (o FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesPtrOutput) ToFieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesPtrOutput() FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesPtrOutput {
+	return o
+}
+
+func (o FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesPtrOutput) ToFieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesPtrOutputWithContext(ctx context.Context) FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesPtrOutput {
+	return o
+}
+
+func (o FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesPtrOutput) Elem() FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesOutput {
+	return o.ApplyT(func(v *FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfiles) FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfiles {
+		if v != nil {
+			return *v
+		}
+		var ret FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfiles
+		return ret
+	}).(FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesOutput)
+}
+
+func (o FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesPtrOutput) Items() FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArrayOutput {
+	return o.ApplyT(func(v *FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfiles) []FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItem {
+		if v == nil {
+			return nil
+		}
+		return v.Items
+	}).(FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArrayOutput)
+}
+
+type FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItem struct {
+	// ID of profile to use for field-level encryption query argument-profile mapping
+	ProfileId string `pulumi:"profileId"`
+	// Query argument for field-level encryption query argument-profile mapping.
+	QueryArg string `pulumi:"queryArg"`
+}
+
+// FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemInput is an input type that accepts FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArgs and FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemOutput values.
+// You can construct a concrete instance of `FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemInput` via:
+//
+//          FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArgs{...}
+type FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemInput interface {
+	pulumi.Input
+
+	ToFieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemOutput() FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemOutput
+	ToFieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemOutputWithContext(context.Context) FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemOutput
+}
+
+type FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArgs struct {
+	// ID of profile to use for field-level encryption query argument-profile mapping
+	ProfileId pulumi.StringInput `pulumi:"profileId"`
+	// Query argument for field-level encryption query argument-profile mapping.
+	QueryArg pulumi.StringInput `pulumi:"queryArg"`
+}
+
+func (FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItem)(nil)).Elem()
+}
+
+func (i FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArgs) ToFieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemOutput() FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemOutput {
+	return i.ToFieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemOutputWithContext(context.Background())
+}
+
+func (i FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArgs) ToFieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemOutputWithContext(ctx context.Context) FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemOutput)
+}
+
+// FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArrayInput is an input type that accepts FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArray and FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArrayOutput values.
+// You can construct a concrete instance of `FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArrayInput` via:
+//
+//          FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArray{ FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArgs{...} }
+type FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArrayInput interface {
+	pulumi.Input
+
+	ToFieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArrayOutput() FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArrayOutput
+	ToFieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArrayOutputWithContext(context.Context) FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArrayOutput
+}
+
+type FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArray []FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemInput
+
+func (FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItem)(nil)).Elem()
+}
+
+func (i FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArray) ToFieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArrayOutput() FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArrayOutput {
+	return i.ToFieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArrayOutputWithContext(context.Background())
+}
+
+func (i FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArray) ToFieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArrayOutputWithContext(ctx context.Context) FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArrayOutput)
+}
+
+type FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemOutput struct{ *pulumi.OutputState }
+
+func (FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItem)(nil)).Elem()
+}
+
+func (o FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemOutput) ToFieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemOutput() FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemOutput {
+	return o
+}
+
+func (o FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemOutput) ToFieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemOutputWithContext(ctx context.Context) FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemOutput {
+	return o
+}
+
+// ID of profile to use for field-level encryption query argument-profile mapping
+func (o FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemOutput) ProfileId() pulumi.StringOutput {
+	return o.ApplyT(func(v FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItem) string { return v.ProfileId }).(pulumi.StringOutput)
+}
+
+// Query argument for field-level encryption query argument-profile mapping.
+func (o FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemOutput) QueryArg() pulumi.StringOutput {
+	return o.ApplyT(func(v FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItem) string { return v.QueryArg }).(pulumi.StringOutput)
+}
+
+type FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArrayOutput struct{ *pulumi.OutputState }
+
+func (FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItem)(nil)).Elem()
+}
+
+func (o FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArrayOutput) ToFieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArrayOutput() FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArrayOutput {
+	return o
+}
+
+func (o FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArrayOutput) ToFieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArrayOutputWithContext(ctx context.Context) FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArrayOutput {
+	return o
+}
+
+func (o FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArrayOutput) Index(i pulumi.IntInput) FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItem {
+		return vs[0].([]FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItem)[vs[1].(int)]
+	}).(FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemOutput)
+}
+
+type FieldLevelEncryptionProfileEncryptionEntities struct {
+	Items []FieldLevelEncryptionProfileEncryptionEntitiesItem `pulumi:"items"`
+}
+
+// FieldLevelEncryptionProfileEncryptionEntitiesInput is an input type that accepts FieldLevelEncryptionProfileEncryptionEntitiesArgs and FieldLevelEncryptionProfileEncryptionEntitiesOutput values.
+// You can construct a concrete instance of `FieldLevelEncryptionProfileEncryptionEntitiesInput` via:
+//
+//          FieldLevelEncryptionProfileEncryptionEntitiesArgs{...}
+type FieldLevelEncryptionProfileEncryptionEntitiesInput interface {
+	pulumi.Input
+
+	ToFieldLevelEncryptionProfileEncryptionEntitiesOutput() FieldLevelEncryptionProfileEncryptionEntitiesOutput
+	ToFieldLevelEncryptionProfileEncryptionEntitiesOutputWithContext(context.Context) FieldLevelEncryptionProfileEncryptionEntitiesOutput
+}
+
+type FieldLevelEncryptionProfileEncryptionEntitiesArgs struct {
+	Items FieldLevelEncryptionProfileEncryptionEntitiesItemArrayInput `pulumi:"items"`
+}
+
+func (FieldLevelEncryptionProfileEncryptionEntitiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FieldLevelEncryptionProfileEncryptionEntities)(nil)).Elem()
+}
+
+func (i FieldLevelEncryptionProfileEncryptionEntitiesArgs) ToFieldLevelEncryptionProfileEncryptionEntitiesOutput() FieldLevelEncryptionProfileEncryptionEntitiesOutput {
+	return i.ToFieldLevelEncryptionProfileEncryptionEntitiesOutputWithContext(context.Background())
+}
+
+func (i FieldLevelEncryptionProfileEncryptionEntitiesArgs) ToFieldLevelEncryptionProfileEncryptionEntitiesOutputWithContext(ctx context.Context) FieldLevelEncryptionProfileEncryptionEntitiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FieldLevelEncryptionProfileEncryptionEntitiesOutput)
+}
+
+func (i FieldLevelEncryptionProfileEncryptionEntitiesArgs) ToFieldLevelEncryptionProfileEncryptionEntitiesPtrOutput() FieldLevelEncryptionProfileEncryptionEntitiesPtrOutput {
+	return i.ToFieldLevelEncryptionProfileEncryptionEntitiesPtrOutputWithContext(context.Background())
+}
+
+func (i FieldLevelEncryptionProfileEncryptionEntitiesArgs) ToFieldLevelEncryptionProfileEncryptionEntitiesPtrOutputWithContext(ctx context.Context) FieldLevelEncryptionProfileEncryptionEntitiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FieldLevelEncryptionProfileEncryptionEntitiesOutput).ToFieldLevelEncryptionProfileEncryptionEntitiesPtrOutputWithContext(ctx)
+}
+
+// FieldLevelEncryptionProfileEncryptionEntitiesPtrInput is an input type that accepts FieldLevelEncryptionProfileEncryptionEntitiesArgs, FieldLevelEncryptionProfileEncryptionEntitiesPtr and FieldLevelEncryptionProfileEncryptionEntitiesPtrOutput values.
+// You can construct a concrete instance of `FieldLevelEncryptionProfileEncryptionEntitiesPtrInput` via:
+//
+//          FieldLevelEncryptionProfileEncryptionEntitiesArgs{...}
+//
+//  or:
+//
+//          nil
+type FieldLevelEncryptionProfileEncryptionEntitiesPtrInput interface {
+	pulumi.Input
+
+	ToFieldLevelEncryptionProfileEncryptionEntitiesPtrOutput() FieldLevelEncryptionProfileEncryptionEntitiesPtrOutput
+	ToFieldLevelEncryptionProfileEncryptionEntitiesPtrOutputWithContext(context.Context) FieldLevelEncryptionProfileEncryptionEntitiesPtrOutput
+}
+
+type fieldLevelEncryptionProfileEncryptionEntitiesPtrType FieldLevelEncryptionProfileEncryptionEntitiesArgs
+
+func FieldLevelEncryptionProfileEncryptionEntitiesPtr(v *FieldLevelEncryptionProfileEncryptionEntitiesArgs) FieldLevelEncryptionProfileEncryptionEntitiesPtrInput {
+	return (*fieldLevelEncryptionProfileEncryptionEntitiesPtrType)(v)
+}
+
+func (*fieldLevelEncryptionProfileEncryptionEntitiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FieldLevelEncryptionProfileEncryptionEntities)(nil)).Elem()
+}
+
+func (i *fieldLevelEncryptionProfileEncryptionEntitiesPtrType) ToFieldLevelEncryptionProfileEncryptionEntitiesPtrOutput() FieldLevelEncryptionProfileEncryptionEntitiesPtrOutput {
+	return i.ToFieldLevelEncryptionProfileEncryptionEntitiesPtrOutputWithContext(context.Background())
+}
+
+func (i *fieldLevelEncryptionProfileEncryptionEntitiesPtrType) ToFieldLevelEncryptionProfileEncryptionEntitiesPtrOutputWithContext(ctx context.Context) FieldLevelEncryptionProfileEncryptionEntitiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FieldLevelEncryptionProfileEncryptionEntitiesPtrOutput)
+}
+
+type FieldLevelEncryptionProfileEncryptionEntitiesOutput struct{ *pulumi.OutputState }
+
+func (FieldLevelEncryptionProfileEncryptionEntitiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FieldLevelEncryptionProfileEncryptionEntities)(nil)).Elem()
+}
+
+func (o FieldLevelEncryptionProfileEncryptionEntitiesOutput) ToFieldLevelEncryptionProfileEncryptionEntitiesOutput() FieldLevelEncryptionProfileEncryptionEntitiesOutput {
+	return o
+}
+
+func (o FieldLevelEncryptionProfileEncryptionEntitiesOutput) ToFieldLevelEncryptionProfileEncryptionEntitiesOutputWithContext(ctx context.Context) FieldLevelEncryptionProfileEncryptionEntitiesOutput {
+	return o
+}
+
+func (o FieldLevelEncryptionProfileEncryptionEntitiesOutput) ToFieldLevelEncryptionProfileEncryptionEntitiesPtrOutput() FieldLevelEncryptionProfileEncryptionEntitiesPtrOutput {
+	return o.ToFieldLevelEncryptionProfileEncryptionEntitiesPtrOutputWithContext(context.Background())
+}
+
+func (o FieldLevelEncryptionProfileEncryptionEntitiesOutput) ToFieldLevelEncryptionProfileEncryptionEntitiesPtrOutputWithContext(ctx context.Context) FieldLevelEncryptionProfileEncryptionEntitiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FieldLevelEncryptionProfileEncryptionEntities) *FieldLevelEncryptionProfileEncryptionEntities {
+		return &v
+	}).(FieldLevelEncryptionProfileEncryptionEntitiesPtrOutput)
+}
+
+func (o FieldLevelEncryptionProfileEncryptionEntitiesOutput) Items() FieldLevelEncryptionProfileEncryptionEntitiesItemArrayOutput {
+	return o.ApplyT(func(v FieldLevelEncryptionProfileEncryptionEntities) []FieldLevelEncryptionProfileEncryptionEntitiesItem {
+		return v.Items
+	}).(FieldLevelEncryptionProfileEncryptionEntitiesItemArrayOutput)
+}
+
+type FieldLevelEncryptionProfileEncryptionEntitiesPtrOutput struct{ *pulumi.OutputState }
+
+func (FieldLevelEncryptionProfileEncryptionEntitiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FieldLevelEncryptionProfileEncryptionEntities)(nil)).Elem()
+}
+
+func (o FieldLevelEncryptionProfileEncryptionEntitiesPtrOutput) ToFieldLevelEncryptionProfileEncryptionEntitiesPtrOutput() FieldLevelEncryptionProfileEncryptionEntitiesPtrOutput {
+	return o
+}
+
+func (o FieldLevelEncryptionProfileEncryptionEntitiesPtrOutput) ToFieldLevelEncryptionProfileEncryptionEntitiesPtrOutputWithContext(ctx context.Context) FieldLevelEncryptionProfileEncryptionEntitiesPtrOutput {
+	return o
+}
+
+func (o FieldLevelEncryptionProfileEncryptionEntitiesPtrOutput) Elem() FieldLevelEncryptionProfileEncryptionEntitiesOutput {
+	return o.ApplyT(func(v *FieldLevelEncryptionProfileEncryptionEntities) FieldLevelEncryptionProfileEncryptionEntities {
+		if v != nil {
+			return *v
+		}
+		var ret FieldLevelEncryptionProfileEncryptionEntities
+		return ret
+	}).(FieldLevelEncryptionProfileEncryptionEntitiesOutput)
+}
+
+func (o FieldLevelEncryptionProfileEncryptionEntitiesPtrOutput) Items() FieldLevelEncryptionProfileEncryptionEntitiesItemArrayOutput {
+	return o.ApplyT(func(v *FieldLevelEncryptionProfileEncryptionEntities) []FieldLevelEncryptionProfileEncryptionEntitiesItem {
+		if v == nil {
+			return nil
+		}
+		return v.Items
+	}).(FieldLevelEncryptionProfileEncryptionEntitiesItemArrayOutput)
+}
+
+type FieldLevelEncryptionProfileEncryptionEntitiesItem struct {
+	// Object that contains an attribute `items` that contains the list of field patterns in a field-level encryption content type profile specify the fields that you want to be encrypted.
+	FieldPatterns FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatterns `pulumi:"fieldPatterns"`
+	// The provider associated with the public key being used for encryption.
+	ProviderId string `pulumi:"providerId"`
+	// The public key associated with a set of field-level encryption patterns, to be used when encrypting the fields that match the patterns.
+	PublicKeyId string `pulumi:"publicKeyId"`
+}
+
+// FieldLevelEncryptionProfileEncryptionEntitiesItemInput is an input type that accepts FieldLevelEncryptionProfileEncryptionEntitiesItemArgs and FieldLevelEncryptionProfileEncryptionEntitiesItemOutput values.
+// You can construct a concrete instance of `FieldLevelEncryptionProfileEncryptionEntitiesItemInput` via:
+//
+//          FieldLevelEncryptionProfileEncryptionEntitiesItemArgs{...}
+type FieldLevelEncryptionProfileEncryptionEntitiesItemInput interface {
+	pulumi.Input
+
+	ToFieldLevelEncryptionProfileEncryptionEntitiesItemOutput() FieldLevelEncryptionProfileEncryptionEntitiesItemOutput
+	ToFieldLevelEncryptionProfileEncryptionEntitiesItemOutputWithContext(context.Context) FieldLevelEncryptionProfileEncryptionEntitiesItemOutput
+}
+
+type FieldLevelEncryptionProfileEncryptionEntitiesItemArgs struct {
+	// Object that contains an attribute `items` that contains the list of field patterns in a field-level encryption content type profile specify the fields that you want to be encrypted.
+	FieldPatterns FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatternsInput `pulumi:"fieldPatterns"`
+	// The provider associated with the public key being used for encryption.
+	ProviderId pulumi.StringInput `pulumi:"providerId"`
+	// The public key associated with a set of field-level encryption patterns, to be used when encrypting the fields that match the patterns.
+	PublicKeyId pulumi.StringInput `pulumi:"publicKeyId"`
+}
+
+func (FieldLevelEncryptionProfileEncryptionEntitiesItemArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FieldLevelEncryptionProfileEncryptionEntitiesItem)(nil)).Elem()
+}
+
+func (i FieldLevelEncryptionProfileEncryptionEntitiesItemArgs) ToFieldLevelEncryptionProfileEncryptionEntitiesItemOutput() FieldLevelEncryptionProfileEncryptionEntitiesItemOutput {
+	return i.ToFieldLevelEncryptionProfileEncryptionEntitiesItemOutputWithContext(context.Background())
+}
+
+func (i FieldLevelEncryptionProfileEncryptionEntitiesItemArgs) ToFieldLevelEncryptionProfileEncryptionEntitiesItemOutputWithContext(ctx context.Context) FieldLevelEncryptionProfileEncryptionEntitiesItemOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FieldLevelEncryptionProfileEncryptionEntitiesItemOutput)
+}
+
+// FieldLevelEncryptionProfileEncryptionEntitiesItemArrayInput is an input type that accepts FieldLevelEncryptionProfileEncryptionEntitiesItemArray and FieldLevelEncryptionProfileEncryptionEntitiesItemArrayOutput values.
+// You can construct a concrete instance of `FieldLevelEncryptionProfileEncryptionEntitiesItemArrayInput` via:
+//
+//          FieldLevelEncryptionProfileEncryptionEntitiesItemArray{ FieldLevelEncryptionProfileEncryptionEntitiesItemArgs{...} }
+type FieldLevelEncryptionProfileEncryptionEntitiesItemArrayInput interface {
+	pulumi.Input
+
+	ToFieldLevelEncryptionProfileEncryptionEntitiesItemArrayOutput() FieldLevelEncryptionProfileEncryptionEntitiesItemArrayOutput
+	ToFieldLevelEncryptionProfileEncryptionEntitiesItemArrayOutputWithContext(context.Context) FieldLevelEncryptionProfileEncryptionEntitiesItemArrayOutput
+}
+
+type FieldLevelEncryptionProfileEncryptionEntitiesItemArray []FieldLevelEncryptionProfileEncryptionEntitiesItemInput
+
+func (FieldLevelEncryptionProfileEncryptionEntitiesItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FieldLevelEncryptionProfileEncryptionEntitiesItem)(nil)).Elem()
+}
+
+func (i FieldLevelEncryptionProfileEncryptionEntitiesItemArray) ToFieldLevelEncryptionProfileEncryptionEntitiesItemArrayOutput() FieldLevelEncryptionProfileEncryptionEntitiesItemArrayOutput {
+	return i.ToFieldLevelEncryptionProfileEncryptionEntitiesItemArrayOutputWithContext(context.Background())
+}
+
+func (i FieldLevelEncryptionProfileEncryptionEntitiesItemArray) ToFieldLevelEncryptionProfileEncryptionEntitiesItemArrayOutputWithContext(ctx context.Context) FieldLevelEncryptionProfileEncryptionEntitiesItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FieldLevelEncryptionProfileEncryptionEntitiesItemArrayOutput)
+}
+
+type FieldLevelEncryptionProfileEncryptionEntitiesItemOutput struct{ *pulumi.OutputState }
+
+func (FieldLevelEncryptionProfileEncryptionEntitiesItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FieldLevelEncryptionProfileEncryptionEntitiesItem)(nil)).Elem()
+}
+
+func (o FieldLevelEncryptionProfileEncryptionEntitiesItemOutput) ToFieldLevelEncryptionProfileEncryptionEntitiesItemOutput() FieldLevelEncryptionProfileEncryptionEntitiesItemOutput {
+	return o
+}
+
+func (o FieldLevelEncryptionProfileEncryptionEntitiesItemOutput) ToFieldLevelEncryptionProfileEncryptionEntitiesItemOutputWithContext(ctx context.Context) FieldLevelEncryptionProfileEncryptionEntitiesItemOutput {
+	return o
+}
+
+// Object that contains an attribute `items` that contains the list of field patterns in a field-level encryption content type profile specify the fields that you want to be encrypted.
+func (o FieldLevelEncryptionProfileEncryptionEntitiesItemOutput) FieldPatterns() FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatternsOutput {
+	return o.ApplyT(func(v FieldLevelEncryptionProfileEncryptionEntitiesItem) FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatterns {
+		return v.FieldPatterns
+	}).(FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatternsOutput)
+}
+
+// The provider associated with the public key being used for encryption.
+func (o FieldLevelEncryptionProfileEncryptionEntitiesItemOutput) ProviderId() pulumi.StringOutput {
+	return o.ApplyT(func(v FieldLevelEncryptionProfileEncryptionEntitiesItem) string { return v.ProviderId }).(pulumi.StringOutput)
+}
+
+// The public key associated with a set of field-level encryption patterns, to be used when encrypting the fields that match the patterns.
+func (o FieldLevelEncryptionProfileEncryptionEntitiesItemOutput) PublicKeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v FieldLevelEncryptionProfileEncryptionEntitiesItem) string { return v.PublicKeyId }).(pulumi.StringOutput)
+}
+
+type FieldLevelEncryptionProfileEncryptionEntitiesItemArrayOutput struct{ *pulumi.OutputState }
+
+func (FieldLevelEncryptionProfileEncryptionEntitiesItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FieldLevelEncryptionProfileEncryptionEntitiesItem)(nil)).Elem()
+}
+
+func (o FieldLevelEncryptionProfileEncryptionEntitiesItemArrayOutput) ToFieldLevelEncryptionProfileEncryptionEntitiesItemArrayOutput() FieldLevelEncryptionProfileEncryptionEntitiesItemArrayOutput {
+	return o
+}
+
+func (o FieldLevelEncryptionProfileEncryptionEntitiesItemArrayOutput) ToFieldLevelEncryptionProfileEncryptionEntitiesItemArrayOutputWithContext(ctx context.Context) FieldLevelEncryptionProfileEncryptionEntitiesItemArrayOutput {
+	return o
+}
+
+func (o FieldLevelEncryptionProfileEncryptionEntitiesItemArrayOutput) Index(i pulumi.IntInput) FieldLevelEncryptionProfileEncryptionEntitiesItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FieldLevelEncryptionProfileEncryptionEntitiesItem {
+		return vs[0].([]FieldLevelEncryptionProfileEncryptionEntitiesItem)[vs[1].(int)]
+	}).(FieldLevelEncryptionProfileEncryptionEntitiesItemOutput)
+}
+
+type FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatterns struct {
+	Items []string `pulumi:"items"`
+}
+
+// FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatternsInput is an input type that accepts FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatternsArgs and FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatternsOutput values.
+// You can construct a concrete instance of `FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatternsInput` via:
+//
+//          FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatternsArgs{...}
+type FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatternsInput interface {
+	pulumi.Input
+
+	ToFieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatternsOutput() FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatternsOutput
+	ToFieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatternsOutputWithContext(context.Context) FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatternsOutput
+}
+
+type FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatternsArgs struct {
+	Items pulumi.StringArrayInput `pulumi:"items"`
+}
+
+func (FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatternsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatterns)(nil)).Elem()
+}
+
+func (i FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatternsArgs) ToFieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatternsOutput() FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatternsOutput {
+	return i.ToFieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatternsOutputWithContext(context.Background())
+}
+
+func (i FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatternsArgs) ToFieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatternsOutputWithContext(ctx context.Context) FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatternsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatternsOutput)
+}
+
+type FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatternsOutput struct{ *pulumi.OutputState }
+
+func (FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatternsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatterns)(nil)).Elem()
+}
+
+func (o FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatternsOutput) ToFieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatternsOutput() FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatternsOutput {
+	return o
+}
+
+func (o FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatternsOutput) ToFieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatternsOutputWithContext(ctx context.Context) FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatternsOutput {
+	return o
+}
+
+func (o FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatternsOutput) Items() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatterns) []string { return v.Items }).(pulumi.StringArrayOutput)
+}
+
 type MonitoringSubscriptionMonitoringSubscription struct {
 	// A subscription configuration for additional CloudWatch metrics. See below.
 	RealtimeMetricsSubscriptionConfig MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfig `pulumi:"realtimeMetricsSubscriptionConfig"`
@@ -12382,6 +13500,23 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionTrustedSignerItemArrayInput)(nil)).Elem(), DistributionTrustedSignerItemArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionViewerCertificateInput)(nil)).Elem(), DistributionViewerCertificateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionViewerCertificatePtrInput)(nil)).Elem(), DistributionViewerCertificateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FieldLevelEncryptionConfigContentTypeProfileConfigInput)(nil)).Elem(), FieldLevelEncryptionConfigContentTypeProfileConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FieldLevelEncryptionConfigContentTypeProfileConfigPtrInput)(nil)).Elem(), FieldLevelEncryptionConfigContentTypeProfileConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesInput)(nil)).Elem(), FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesPtrInput)(nil)).Elem(), FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemInput)(nil)).Elem(), FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArrayInput)(nil)).Elem(), FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FieldLevelEncryptionConfigQueryArgProfileConfigInput)(nil)).Elem(), FieldLevelEncryptionConfigQueryArgProfileConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FieldLevelEncryptionConfigQueryArgProfileConfigPtrInput)(nil)).Elem(), FieldLevelEncryptionConfigQueryArgProfileConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesInput)(nil)).Elem(), FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesPtrInput)(nil)).Elem(), FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemInput)(nil)).Elem(), FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArrayInput)(nil)).Elem(), FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FieldLevelEncryptionProfileEncryptionEntitiesInput)(nil)).Elem(), FieldLevelEncryptionProfileEncryptionEntitiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FieldLevelEncryptionProfileEncryptionEntitiesPtrInput)(nil)).Elem(), FieldLevelEncryptionProfileEncryptionEntitiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FieldLevelEncryptionProfileEncryptionEntitiesItemInput)(nil)).Elem(), FieldLevelEncryptionProfileEncryptionEntitiesItemArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FieldLevelEncryptionProfileEncryptionEntitiesItemArrayInput)(nil)).Elem(), FieldLevelEncryptionProfileEncryptionEntitiesItemArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatternsInput)(nil)).Elem(), FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatternsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringSubscriptionMonitoringSubscriptionInput)(nil)).Elem(), MonitoringSubscriptionMonitoringSubscriptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringSubscriptionMonitoringSubscriptionPtrInput)(nil)).Elem(), MonitoringSubscriptionMonitoringSubscriptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigInput)(nil)).Elem(), MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs{})
@@ -12549,6 +13684,23 @@ func init() {
 	pulumi.RegisterOutputType(DistributionTrustedSignerItemArrayOutput{})
 	pulumi.RegisterOutputType(DistributionViewerCertificateOutput{})
 	pulumi.RegisterOutputType(DistributionViewerCertificatePtrOutput{})
+	pulumi.RegisterOutputType(FieldLevelEncryptionConfigContentTypeProfileConfigOutput{})
+	pulumi.RegisterOutputType(FieldLevelEncryptionConfigContentTypeProfileConfigPtrOutput{})
+	pulumi.RegisterOutputType(FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesOutput{})
+	pulumi.RegisterOutputType(FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesPtrOutput{})
+	pulumi.RegisterOutputType(FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemOutput{})
+	pulumi.RegisterOutputType(FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArrayOutput{})
+	pulumi.RegisterOutputType(FieldLevelEncryptionConfigQueryArgProfileConfigOutput{})
+	pulumi.RegisterOutputType(FieldLevelEncryptionConfigQueryArgProfileConfigPtrOutput{})
+	pulumi.RegisterOutputType(FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesOutput{})
+	pulumi.RegisterOutputType(FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesPtrOutput{})
+	pulumi.RegisterOutputType(FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemOutput{})
+	pulumi.RegisterOutputType(FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArrayOutput{})
+	pulumi.RegisterOutputType(FieldLevelEncryptionProfileEncryptionEntitiesOutput{})
+	pulumi.RegisterOutputType(FieldLevelEncryptionProfileEncryptionEntitiesPtrOutput{})
+	pulumi.RegisterOutputType(FieldLevelEncryptionProfileEncryptionEntitiesItemOutput{})
+	pulumi.RegisterOutputType(FieldLevelEncryptionProfileEncryptionEntitiesItemArrayOutput{})
+	pulumi.RegisterOutputType(FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatternsOutput{})
 	pulumi.RegisterOutputType(MonitoringSubscriptionMonitoringSubscriptionOutput{})
 	pulumi.RegisterOutputType(MonitoringSubscriptionMonitoringSubscriptionPtrOutput{})
 	pulumi.RegisterOutputType(MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigOutput{})

@@ -149,6 +149,7 @@ class ProviderEndpointArgs:
                  acm: Optional[pulumi.Input[str]] = None,
                  acmpca: Optional[pulumi.Input[str]] = None,
                  alexaforbusiness: Optional[pulumi.Input[str]] = None,
+                 amp: Optional[pulumi.Input[str]] = None,
                  amplify: Optional[pulumi.Input[str]] = None,
                  amplifybackend: Optional[pulumi.Input[str]] = None,
                  apigateway: Optional[pulumi.Input[str]] = None,
@@ -250,6 +251,8 @@ class ProviderEndpointArgs:
                  emr: Optional[pulumi.Input[str]] = None,
                  emrcontainers: Optional[pulumi.Input[str]] = None,
                  es: Optional[pulumi.Input[str]] = None,
+                 eventbridge: Optional[pulumi.Input[str]] = None,
+                 events: Optional[pulumi.Input[str]] = None,
                  finspace: Optional[pulumi.Input[str]] = None,
                  finspacedata: Optional[pulumi.Input[str]] = None,
                  firehose: Optional[pulumi.Input[str]] = None,
@@ -449,6 +452,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "acmpca", acmpca)
         if alexaforbusiness is not None:
             pulumi.set(__self__, "alexaforbusiness", alexaforbusiness)
+        if amp is not None:
+            pulumi.set(__self__, "amp", amp)
         if amplify is not None:
             pulumi.set(__self__, "amplify", amplify)
         if amplifybackend is not None:
@@ -651,6 +656,10 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "emrcontainers", emrcontainers)
         if es is not None:
             pulumi.set(__self__, "es", es)
+        if eventbridge is not None:
+            pulumi.set(__self__, "eventbridge", eventbridge)
+        if events is not None:
+            pulumi.set(__self__, "events", events)
         if finspace is not None:
             pulumi.set(__self__, "finspace", finspace)
         if finspacedata is not None:
@@ -1069,6 +1078,15 @@ class ProviderEndpointArgs:
     @alexaforbusiness.setter
     def alexaforbusiness(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "alexaforbusiness", value)
+
+    @property
+    @pulumi.getter
+    def amp(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "amp")
+
+    @amp.setter
+    def amp(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "amp", value)
 
     @property
     @pulumi.getter
@@ -1978,6 +1996,24 @@ class ProviderEndpointArgs:
     @es.setter
     def es(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "es", value)
+
+    @property
+    @pulumi.getter
+    def eventbridge(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "eventbridge")
+
+    @eventbridge.setter
+    def eventbridge(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "eventbridge", value)
+
+    @property
+    @pulumi.getter
+    def events(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "events")
+
+    @events.setter
+    def events(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "events", value)
 
     @property
     @pulumi.getter

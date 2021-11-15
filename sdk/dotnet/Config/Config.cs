@@ -258,6 +258,7 @@ namespace Pulumi.Aws
                 public string? Acm { get; set; } = null!;
                 public string? Acmpca { get; set; } = null!;
                 public string? Alexaforbusiness { get; set; } = null!;
+                public string? Amp { get; set; } = null!;
                 public string? Amplify { get; set; } = null!;
                 public string? Amplifybackend { get; set; } = null!;
                 public string? Apigateway { get; set; } = null!;
@@ -359,6 +360,8 @@ namespace Pulumi.Aws
                 public string? Emr { get; set; } = null!;
                 public string? Emrcontainers { get; set; } = null!;
                 public string? Es { get; set; } = null!;
+                public string? Eventbridge { get; set; } = null!;
+                public string? Events { get; set; } = null!;
                 public string? Finspace { get; set; } = null!;
                 public string? Finspacedata { get; set; } = null!;
                 public string? Firehose { get; set; } = null!;

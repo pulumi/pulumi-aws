@@ -2,7 +2,8 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Upgrade to v3.65.0 of the AWS Terraform Provider
+  * **Please note**, `aws.cloudfront.originRequestPolicy` and `aws.cloudfront.cachePolicy` no longer supports the `etag` input as this was not able to be used by the API.
 
 ---
 

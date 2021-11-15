@@ -5392,7 +5392,7 @@ export namespace batch {
          */
         allocationStrategy?: string;
         /**
-         * Integer of minimum percentage that a Spot Instance price must be when compared with the On-Demand price for that instance type before instances are launched. For example, if your bid percentage is 20% (`20`), then the Spot price must be below 20% of the current On-Demand price for that EC2 instance. This parameter is required for SPOT compute environments. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+         * Integer of maximum percentage that a Spot Instance price can be when compared with the On-Demand price for that instance type before instances are launched. For example, if your bid percentage is 20% (`20`), then the Spot price must be below 20% of the current On-Demand price for that EC2 instance. If you leave this field empty, the default value is 100% of the On-Demand price. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
          */
         bidPercentage?: number;
         /**
@@ -6619,6 +6619,85 @@ export namespace cloudfront {
          */
         minimumProtocolVersion?: string;
         sslSupportMethod?: string;
+    }
+
+    export interface FieldLevelEncryptionConfigContentTypeProfileConfig {
+        /**
+         * Object that contains an attribute `items` that contains the list of configurations for a field-level encryption content type-profile. See Content Type Profile.
+         */
+        contentTypeProfiles: outputs.cloudfront.FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfiles;
+        /**
+         * specifies what to do when an unknown content type is provided for the profile. If true, content is forwarded without being encrypted when the content type is unknown. If false (the default), an error is returned when the content type is unknown.
+         */
+        forwardWhenContentTypeIsUnknown: boolean;
+    }
+
+    export interface FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfiles {
+        items: outputs.cloudfront.FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItem[];
+    }
+
+    export interface FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItem {
+        /**
+         * he content type for a field-level encryption content type-profile mapping. Valid value is `application/x-www-form-urlencoded`.
+         */
+        contentType: string;
+        /**
+         * The format for a field-level encryption content type-profile mapping. Valid value is `URLEncoded`.
+         */
+        format: string;
+        /**
+         * ID of profile to use for field-level encryption query argument-profile mapping
+         */
+        profileId?: string;
+    }
+
+    export interface FieldLevelEncryptionConfigQueryArgProfileConfig {
+        /**
+         * Flag to set if you want a request to be forwarded to the origin even if the profile specified by the field-level encryption query argument, fle-profile, is unknown.
+         */
+        forwardWhenQueryArgProfileIsUnknown: boolean;
+        /**
+         * Object that contains an attribute `items` that contains the list ofrofiles specified for query argument-profile mapping for field-level encryption. see Query Arg Profile.
+         */
+        queryArgProfiles?: outputs.cloudfront.FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfiles;
+    }
+
+    export interface FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfiles {
+        items?: outputs.cloudfront.FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItem[];
+    }
+
+    export interface FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItem {
+        /**
+         * ID of profile to use for field-level encryption query argument-profile mapping
+         */
+        profileId: string;
+        /**
+         * Query argument for field-level encryption query argument-profile mapping.
+         */
+        queryArg: string;
+    }
+
+    export interface FieldLevelEncryptionProfileEncryptionEntities {
+        items?: outputs.cloudfront.FieldLevelEncryptionProfileEncryptionEntitiesItem[];
+    }
+
+    export interface FieldLevelEncryptionProfileEncryptionEntitiesItem {
+        /**
+         * Object that contains an attribute `items` that contains the list of field patterns in a field-level encryption content type profile specify the fields that you want to be encrypted.
+         */
+        fieldPatterns: outputs.cloudfront.FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatterns;
+        /**
+         * The provider associated with the public key being used for encryption.
+         */
+        providerId: string;
+        /**
+         * The public key associated with a set of field-level encryption patterns, to be used when encrypting the fields that match the patterns.
+         */
+        publicKeyId: string;
+    }
+
+    export interface FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatterns {
+        items?: string[];
     }
 
     export interface GetCachePolicyParametersInCacheKeyAndForwardedToOrigin {
@@ -9098,6 +9177,7 @@ export namespace config {
         acm?: string;
         acmpca?: string;
         alexaforbusiness?: string;
+        amp?: string;
         amplify?: string;
         amplifybackend?: string;
         apigateway?: string;
@@ -9199,6 +9279,8 @@ export namespace config {
         emr?: string;
         emrcontainers?: string;
         es?: string;
+        eventbridge?: string;
+        events?: string;
         finspace?: string;
         finspacedata?: string;
         firehose?: string;
@@ -9915,6 +9997,17 @@ export namespace docdb {
          * The value of the documentDB parameter.
          */
         value: string;
+    }
+
+    export interface GlobalClusterGlobalClusterMember {
+        /**
+         * Amazon Resource Name (ARN) of member DB Cluster.
+         */
+        dbClusterArn: string;
+        /**
+         * Whether the member is the primary DB Cluster.
+         */
+        isWriter: boolean;
     }
 
 }
@@ -10957,6 +11050,17 @@ export namespace ec2 {
         /**
          * Set of values that are accepted for the given field.
          * An Internet Gateway will be selected if any one of the given values matches.
+         */
+        values: string[];
+    }
+
+    export interface GetKeyPairFilter {
+        /**
+         * The name of the filter field. Valid values can be found in the [EC2 DescribeKeyPairs API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeKeyPairs.html).
+         */
+        name: string;
+        /**
+         * Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
          */
         values: string[];
     }
@@ -12974,6 +13078,7 @@ export namespace ec2 {
         status: string;
         statusMessage: string;
     }
+
 }
 
 export namespace ec2clientvpn {
@@ -24907,6 +25012,28 @@ export namespace s3 {
          * Uri address to grant for. Used only when `type` is `Group`.
          */
         uri?: string;
+    }
+
+    export interface BucketIntelligentTieringConfigurationFilter {
+        /**
+         * An object key name prefix that identifies the subset of objects to which the configuration applies.
+         */
+        prefix?: string;
+        /**
+         * All of these tags must exist in the object's tag set in order for the configuration to apply.
+         */
+        tags?: {[key: string]: string};
+    }
+
+    export interface BucketIntelligentTieringConfigurationTiering {
+        /**
+         * S3 Intelligent-Tiering access tier. Valid values: `ARCHIVE_CONFIGURATION`, `DEEP_ARCHIVE_CONFIGURATION`.
+         */
+        accessTier: string;
+        /**
+         * The number of consecutive days of no access after which an object will be eligible to be transitioned to the corresponding tier.
+         */
+        days: number;
     }
 
     export interface BucketLifecycleRule {

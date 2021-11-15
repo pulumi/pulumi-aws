@@ -746,7 +746,9 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
-			"aws_cloudfront_response_headers_policy": {Tok: awsResource(cloudfrontMod, "ResponseHeadersPolicy")},
+			"aws_cloudfront_response_headers_policy":        {Tok: awsResource(cloudfrontMod, "ResponseHeadersPolicy")},
+			"aws_cloudfront_field_level_encryption_config":  {Tok: awsResource(cloudfrontMod, "FieldLevelEncryptionConfig")},
+			"aws_cloudfront_field_level_encryption_profile": {Tok: awsResource(cloudfrontMod, "FieldLevelEncryptionProfile")},
 			// CloudTrail
 			"aws_cloudtrail": {Tok: awsResource(cloudtrailMod, "Trail")},
 			// CloudWatch
@@ -953,6 +955,7 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
+			"aws_docdb_global_cluster": {Tok: awsResource(docdbMod, "GlobalCluster")},
 			// Direct Connect
 			"aws_dx_bgp_peer":                         {Tok: awsResource(dxMod, "BgpPeer")},
 			"aws_dx_connection":                       {Tok: awsResource(dxMod, "Connection")},
@@ -2370,6 +2373,9 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_s3_access_point":              {Tok: awsResource(s3Mod, "AccessPoint")},
 			"aws_s3_bucket_ownership_controls": {Tok: awsResource(s3Mod, "BucketOwnershipControls")},
 			"aws_s3_object_copy":               {Tok: awsResource(s3Mod, "ObjectCopy")},
+			"aws_s3_bucket_intelligent_tiering_configuration": {
+				Tok: awsResource(s3Mod, "BucketIntelligentTieringConfiguration"),
+			},
 			//S3 Control
 			"aws_s3control_bucket": {
 				Tok: awsResource(s3ControlMod, "Bucket"),
@@ -2456,7 +2462,14 @@ func Provider() tfbridge.ProviderInfo {
 			},
 			// Simple Notification Service (SNS)
 			"aws_sns_platform_application": {Tok: awsResource(snsMod, "PlatformApplication")},
-			"aws_sns_sms_preferences":      {Tok: awsResource(snsMod, "SmsPreferences")},
+			"aws_sns_sms_preferences": {
+				Tok: awsResource(snsMod, "SmsPreferences"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"monthly_spend_limit": {
+						Type: "string",
+					},
+				},
+			},
 			"aws_sns_topic": {
 				Tok: awsResource(snsMod, "Topic"),
 				Fields: map[string]*tfbridge.SchemaInfo{
@@ -3908,6 +3921,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_security_groups":                     {Tok: awsDataSource(ec2Mod, "getSecurityGroups")},
 			"aws_subnet":                              {Tok: awsDataSource(ec2Mod, "getSubnet")},
 			"aws_subnet_ids":                          {Tok: awsDataSource(ec2Mod, "getSubnetIds")},
+			"aws_key_pair":                            {Tok: awsDataSource(ec2Mod, "getKeyPair")},
 			"aws_subnets":                             {Tok: awsDataSource(ec2Mod, "getSubnets")},
 			"aws_vpc":                                 {Tok: awsDataSource(ec2Mod, "getVpc")},
 			"aws_vpc_dhcp_options":                    {Tok: awsDataSource(ec2Mod, "getVpcDhcpOptions")},

@@ -38,6 +38,7 @@ export * from "./getInstanceTypeOffering";
 export * from "./getInstanceTypeOfferings";
 export * from "./getInstances";
 export * from "./getInternetGateway";
+export * from "./getKeyPair";
 export * from "./getLaunchConfiguration";
 export * from "./getLaunchTemplate";
 export * from "./getLocalGateway";

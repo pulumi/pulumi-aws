@@ -57,8 +57,7 @@ namespace Pulumi.Aws.Batch
         /// <summary>
         /// Specifies the set of compute environments
         /// mapped to a job queue and their order.  The position of the compute environments
-        /// in the list will dictate the order. You can associate up to 3 compute environments
-        /// with a job queue.
+        /// in the list will dictate the order.
         /// </summary>
         [Output("computeEnvironments")]
         public Output<ImmutableArray<string>> ComputeEnvironments { get; private set; } = null!;
@@ -146,8 +145,7 @@ namespace Pulumi.Aws.Batch
         /// <summary>
         /// Specifies the set of compute environments
         /// mapped to a job queue and their order.  The position of the compute environments
-        /// in the list will dictate the order. You can associate up to 3 compute environments
-        /// with a job queue.
+        /// in the list will dictate the order.
         /// </summary>
         public InputList<string> ComputeEnvironments
         {
@@ -205,8 +203,7 @@ namespace Pulumi.Aws.Batch
         /// <summary>
         /// Specifies the set of compute environments
         /// mapped to a job queue and their order.  The position of the compute environments
-        /// in the list will dictate the order. You can associate up to 3 compute environments
-        /// with a job queue.
+        /// in the list will dictate the order.
         /// </summary>
         public InputList<string> ComputeEnvironments
         {

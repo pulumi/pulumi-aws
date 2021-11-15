@@ -98,6 +98,8 @@ type Cluster struct {
 	// when this DB cluster is deleted. If omitted, no final snapshot will be
 	// made.
 	FinalSnapshotIdentifier pulumi.StringPtrOutput `pulumi:"finalSnapshotIdentifier"`
+	// The global cluster identifier specified on [`docdb.GlobalCluster`](https://www.terraform.io/docs/providers/aws/r/docdb_global_cluster.html).
+	GlobalClusterIdentifier pulumi.StringPtrOutput `pulumi:"globalClusterIdentifier"`
 	// The Route53 Hosted Zone ID of the endpoint
 	HostedZoneId pulumi.StringOutput `pulumi:"hostedZoneId"`
 	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
@@ -198,6 +200,8 @@ type clusterState struct {
 	// when this DB cluster is deleted. If omitted, no final snapshot will be
 	// made.
 	FinalSnapshotIdentifier *string `pulumi:"finalSnapshotIdentifier"`
+	// The global cluster identifier specified on [`docdb.GlobalCluster`](https://www.terraform.io/docs/providers/aws/r/docdb_global_cluster.html).
+	GlobalClusterIdentifier *string `pulumi:"globalClusterIdentifier"`
 	// The Route53 Hosted Zone ID of the endpoint
 	HostedZoneId *string `pulumi:"hostedZoneId"`
 	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
@@ -270,6 +274,8 @@ type ClusterState struct {
 	// when this DB cluster is deleted. If omitted, no final snapshot will be
 	// made.
 	FinalSnapshotIdentifier pulumi.StringPtrInput
+	// The global cluster identifier specified on [`docdb.GlobalCluster`](https://www.terraform.io/docs/providers/aws/r/docdb_global_cluster.html).
+	GlobalClusterIdentifier pulumi.StringPtrInput
 	// The Route53 Hosted Zone ID of the endpoint
 	HostedZoneId pulumi.StringPtrInput
 	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
@@ -340,6 +346,8 @@ type clusterArgs struct {
 	// when this DB cluster is deleted. If omitted, no final snapshot will be
 	// made.
 	FinalSnapshotIdentifier *string `pulumi:"finalSnapshotIdentifier"`
+	// The global cluster identifier specified on [`docdb.GlobalCluster`](https://www.terraform.io/docs/providers/aws/r/docdb_global_cluster.html).
+	GlobalClusterIdentifier *string `pulumi:"globalClusterIdentifier"`
 	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Password for the master DB user. Note that this may
@@ -401,6 +409,8 @@ type ClusterArgs struct {
 	// when this DB cluster is deleted. If omitted, no final snapshot will be
 	// made.
 	FinalSnapshotIdentifier pulumi.StringPtrInput
+	// The global cluster identifier specified on [`docdb.GlobalCluster`](https://www.terraform.io/docs/providers/aws/r/docdb_global_cluster.html).
+	GlobalClusterIdentifier pulumi.StringPtrInput
 	// The ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
 	KmsKeyId pulumi.StringPtrInput
 	// Password for the master DB user. Note that this may

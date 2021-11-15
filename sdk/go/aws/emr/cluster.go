@@ -231,12 +231,10 @@ import (
 // 				&emr.ClusterStepArgs{
 // 					ActionOnFailure: pulumi.String("TERMINATE_CLUSTER"),
 // 					Name:            pulumi.String("Setup Hadoop Debugging"),
-// 					HadoopJarStep: emr.ClusterStepHadoopJarStepArgs{
-// 						map[string]interface{}{
-// 							"jar": "command-runner.jar",
-// 							"args": []string{
-// 								"state-pusher-script",
-// 							},
+// 					HadoopJarStep: &emr.ClusterStepHadoopJarStepArgs{
+// 						Jar: pulumi.String("command-runner.jar"),
+// 						Args: pulumi.StringArray{
+// 							pulumi.String("state-pusher-script"),
 // 						},
 // 					},
 // 				},

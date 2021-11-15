@@ -24,6 +24,9 @@ namespace Pulumi.Aws.Inputs
         [Input("alexaforbusiness")]
         public Input<string>? Alexaforbusiness { get; set; }
 
+        [Input("amp")]
+        public Input<string>? Amp { get; set; }
+
         [Input("amplify")]
         public Input<string>? Amplify { get; set; }
 
@@ -326,6 +329,12 @@ namespace Pulumi.Aws.Inputs
 
         [Input("es")]
         public Input<string>? Es { get; set; }
+
+        [Input("eventbridge")]
+        public Input<string>? Eventbridge { get; set; }
+
+        [Input("events")]
+        public Input<string>? Events { get; set; }
 
         [Input("finspace")]
         public Input<string>? Finspace { get; set; }

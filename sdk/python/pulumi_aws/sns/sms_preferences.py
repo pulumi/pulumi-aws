@@ -384,7 +384,7 @@ class SmsPreferences(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="monthlySpendLimit")
-    def monthly_spend_limit(self) -> pulumi.Output[Optional[str]]:
+    def monthly_spend_limit(self) -> pulumi.Output[str]:
         """
         The maximum amount in USD that you are willing to spend each month to send SMS messages.
         """

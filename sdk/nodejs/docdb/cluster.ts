@@ -140,6 +140,10 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly finalSnapshotIdentifier!: pulumi.Output<string | undefined>;
     /**
+     * The global cluster identifier specified on [`aws.docdb.GlobalCluster`](https://www.terraform.io/docs/providers/aws/r/docdb_global_cluster.html).
+     */
+    public readonly globalClusterIdentifier!: pulumi.Output<string | undefined>;
+    /**
      * The Route53 Hosted Zone ID of the endpoint
      */
     public /*out*/ readonly hostedZoneId!: pulumi.Output<string>;
@@ -228,6 +232,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["engine"] = state ? state.engine : undefined;
             inputs["engineVersion"] = state ? state.engineVersion : undefined;
             inputs["finalSnapshotIdentifier"] = state ? state.finalSnapshotIdentifier : undefined;
+            inputs["globalClusterIdentifier"] = state ? state.globalClusterIdentifier : undefined;
             inputs["hostedZoneId"] = state ? state.hostedZoneId : undefined;
             inputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
             inputs["masterPassword"] = state ? state.masterPassword : undefined;
@@ -257,6 +262,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["engine"] = args ? args.engine : undefined;
             inputs["engineVersion"] = args ? args.engineVersion : undefined;
             inputs["finalSnapshotIdentifier"] = args ? args.finalSnapshotIdentifier : undefined;
+            inputs["globalClusterIdentifier"] = args ? args.globalClusterIdentifier : undefined;
             inputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
             inputs["masterPassword"] = args ? args.masterPassword : undefined;
             inputs["masterUsername"] = args ? args.masterUsername : undefined;
@@ -356,6 +362,10 @@ export interface ClusterState {
      * made.
      */
     finalSnapshotIdentifier?: pulumi.Input<string>;
+    /**
+     * The global cluster identifier specified on [`aws.docdb.GlobalCluster`](https://www.terraform.io/docs/providers/aws/r/docdb_global_cluster.html).
+     */
+    globalClusterIdentifier?: pulumi.Input<string>;
     /**
      * The Route53 Hosted Zone ID of the endpoint
      */
@@ -479,6 +489,10 @@ export interface ClusterArgs {
      * made.
      */
     finalSnapshotIdentifier?: pulumi.Input<string>;
+    /**
+     * The global cluster identifier specified on [`aws.docdb.GlobalCluster`](https://www.terraform.io/docs/providers/aws/r/docdb_global_cluster.html).
+     */
+    globalClusterIdentifier?: pulumi.Input<string>;
     /**
      * The ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
      */

@@ -32,6 +32,14 @@ namespace Pulumi.Aws.Ebs
     /// 
     /// }
     /// ```
+    /// 
+    /// ## Import
+    /// 
+    /// Default EBS encryption state can be imported, e.g.,
+    /// 
+    /// ```sh
+    ///  $ pulumi import aws:ebs/encryptionByDefault:EncryptionByDefault example default
+    /// ```
     /// </summary>
     [AwsResourceType("aws:ebs/encryptionByDefault:EncryptionByDefault")]
     public partial class EncryptionByDefault : Pulumi.CustomResource

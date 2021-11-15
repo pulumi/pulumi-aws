@@ -155,6 +155,7 @@ type Endpoints struct {
 	Acm                             *string `pulumi:"acm"`
 	Acmpca                          *string `pulumi:"acmpca"`
 	Alexaforbusiness                *string `pulumi:"alexaforbusiness"`
+	Amp                             *string `pulumi:"amp"`
 	Amplify                         *string `pulumi:"amplify"`
 	Amplifybackend                  *string `pulumi:"amplifybackend"`
 	Apigateway                      *string `pulumi:"apigateway"`
@@ -256,6 +257,8 @@ type Endpoints struct {
 	Emr                             *string `pulumi:"emr"`
 	Emrcontainers                   *string `pulumi:"emrcontainers"`
 	Es                              *string `pulumi:"es"`
+	Eventbridge                     *string `pulumi:"eventbridge"`
+	Events                          *string `pulumi:"events"`
 	Finspace                        *string `pulumi:"finspace"`
 	Finspacedata                    *string `pulumi:"finspacedata"`
 	Firehose                        *string `pulumi:"firehose"`
@@ -465,6 +468,7 @@ type EndpointsArgs struct {
 	Acm                             pulumi.StringPtrInput `pulumi:"acm"`
 	Acmpca                          pulumi.StringPtrInput `pulumi:"acmpca"`
 	Alexaforbusiness                pulumi.StringPtrInput `pulumi:"alexaforbusiness"`
+	Amp                             pulumi.StringPtrInput `pulumi:"amp"`
 	Amplify                         pulumi.StringPtrInput `pulumi:"amplify"`
 	Amplifybackend                  pulumi.StringPtrInput `pulumi:"amplifybackend"`
 	Apigateway                      pulumi.StringPtrInput `pulumi:"apigateway"`
@@ -566,6 +570,8 @@ type EndpointsArgs struct {
 	Emr                             pulumi.StringPtrInput `pulumi:"emr"`
 	Emrcontainers                   pulumi.StringPtrInput `pulumi:"emrcontainers"`
 	Es                              pulumi.StringPtrInput `pulumi:"es"`
+	Eventbridge                     pulumi.StringPtrInput `pulumi:"eventbridge"`
+	Events                          pulumi.StringPtrInput `pulumi:"events"`
 	Finspace                        pulumi.StringPtrInput `pulumi:"finspace"`
 	Finspacedata                    pulumi.StringPtrInput `pulumi:"finspacedata"`
 	Firehose                        pulumi.StringPtrInput `pulumi:"firehose"`
@@ -824,6 +830,10 @@ func (o EndpointsOutput) Acmpca() pulumi.StringPtrOutput {
 
 func (o EndpointsOutput) Alexaforbusiness() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Alexaforbusiness }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointsOutput) Amp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Amp }).(pulumi.StringPtrOutput)
 }
 
 func (o EndpointsOutput) Amplify() pulumi.StringPtrOutput {
@@ -1228,6 +1238,14 @@ func (o EndpointsOutput) Emrcontainers() pulumi.StringPtrOutput {
 
 func (o EndpointsOutput) Es() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Es }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointsOutput) Eventbridge() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Eventbridge }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointsOutput) Events() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Events }).(pulumi.StringPtrOutput)
 }
 
 func (o EndpointsOutput) Finspace() pulumi.StringPtrOutput {

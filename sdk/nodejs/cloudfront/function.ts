@@ -76,9 +76,13 @@ export class Function extends pulumi.CustomResource {
      */
     public readonly comment!: pulumi.Output<string | undefined>;
     /**
-     * ETag hash of the function
+     * ETag hash of the function. This is the value for the `DEVELOPMENT` stage of the function.
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
+    /**
+     * ETag hash of any `LIVE` stage of the function.
+     */
+    public /*out*/ readonly liveStageEtag!: pulumi.Output<string>;
     /**
      * Unique name for your CloudFront Function.
      */
@@ -113,6 +117,7 @@ export class Function extends pulumi.CustomResource {
             inputs["code"] = state ? state.code : undefined;
             inputs["comment"] = state ? state.comment : undefined;
             inputs["etag"] = state ? state.etag : undefined;
+            inputs["liveStageEtag"] = state ? state.liveStageEtag : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["publish"] = state ? state.publish : undefined;
             inputs["runtime"] = state ? state.runtime : undefined;
@@ -132,6 +137,7 @@ export class Function extends pulumi.CustomResource {
             inputs["runtime"] = args ? args.runtime : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["etag"] = undefined /*out*/;
+            inputs["liveStageEtag"] = undefined /*out*/;
             inputs["status"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -158,9 +164,13 @@ export interface FunctionState {
      */
     comment?: pulumi.Input<string>;
     /**
-     * ETag hash of the function
+     * ETag hash of the function. This is the value for the `DEVELOPMENT` stage of the function.
      */
     etag?: pulumi.Input<string>;
+    /**
+     * ETag hash of any `LIVE` stage of the function.
+     */
+    liveStageEtag?: pulumi.Input<string>;
     /**
      * Unique name for your CloudFront Function.
      */

@@ -1416,6 +1416,268 @@ func (o BucketGrantArrayOutput) Index(i pulumi.IntInput) BucketGrantOutput {
 	}).(BucketGrantOutput)
 }
 
+type BucketIntelligentTieringConfigurationFilter struct {
+	// An object key name prefix that identifies the subset of objects to which the configuration applies.
+	Prefix *string `pulumi:"prefix"`
+	// All of these tags must exist in the object's tag set in order for the configuration to apply.
+	Tags map[string]string `pulumi:"tags"`
+}
+
+// BucketIntelligentTieringConfigurationFilterInput is an input type that accepts BucketIntelligentTieringConfigurationFilterArgs and BucketIntelligentTieringConfigurationFilterOutput values.
+// You can construct a concrete instance of `BucketIntelligentTieringConfigurationFilterInput` via:
+//
+//          BucketIntelligentTieringConfigurationFilterArgs{...}
+type BucketIntelligentTieringConfigurationFilterInput interface {
+	pulumi.Input
+
+	ToBucketIntelligentTieringConfigurationFilterOutput() BucketIntelligentTieringConfigurationFilterOutput
+	ToBucketIntelligentTieringConfigurationFilterOutputWithContext(context.Context) BucketIntelligentTieringConfigurationFilterOutput
+}
+
+type BucketIntelligentTieringConfigurationFilterArgs struct {
+	// An object key name prefix that identifies the subset of objects to which the configuration applies.
+	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
+	// All of these tags must exist in the object's tag set in order for the configuration to apply.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+}
+
+func (BucketIntelligentTieringConfigurationFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketIntelligentTieringConfigurationFilter)(nil)).Elem()
+}
+
+func (i BucketIntelligentTieringConfigurationFilterArgs) ToBucketIntelligentTieringConfigurationFilterOutput() BucketIntelligentTieringConfigurationFilterOutput {
+	return i.ToBucketIntelligentTieringConfigurationFilterOutputWithContext(context.Background())
+}
+
+func (i BucketIntelligentTieringConfigurationFilterArgs) ToBucketIntelligentTieringConfigurationFilterOutputWithContext(ctx context.Context) BucketIntelligentTieringConfigurationFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketIntelligentTieringConfigurationFilterOutput)
+}
+
+func (i BucketIntelligentTieringConfigurationFilterArgs) ToBucketIntelligentTieringConfigurationFilterPtrOutput() BucketIntelligentTieringConfigurationFilterPtrOutput {
+	return i.ToBucketIntelligentTieringConfigurationFilterPtrOutputWithContext(context.Background())
+}
+
+func (i BucketIntelligentTieringConfigurationFilterArgs) ToBucketIntelligentTieringConfigurationFilterPtrOutputWithContext(ctx context.Context) BucketIntelligentTieringConfigurationFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketIntelligentTieringConfigurationFilterOutput).ToBucketIntelligentTieringConfigurationFilterPtrOutputWithContext(ctx)
+}
+
+// BucketIntelligentTieringConfigurationFilterPtrInput is an input type that accepts BucketIntelligentTieringConfigurationFilterArgs, BucketIntelligentTieringConfigurationFilterPtr and BucketIntelligentTieringConfigurationFilterPtrOutput values.
+// You can construct a concrete instance of `BucketIntelligentTieringConfigurationFilterPtrInput` via:
+//
+//          BucketIntelligentTieringConfigurationFilterArgs{...}
+//
+//  or:
+//
+//          nil
+type BucketIntelligentTieringConfigurationFilterPtrInput interface {
+	pulumi.Input
+
+	ToBucketIntelligentTieringConfigurationFilterPtrOutput() BucketIntelligentTieringConfigurationFilterPtrOutput
+	ToBucketIntelligentTieringConfigurationFilterPtrOutputWithContext(context.Context) BucketIntelligentTieringConfigurationFilterPtrOutput
+}
+
+type bucketIntelligentTieringConfigurationFilterPtrType BucketIntelligentTieringConfigurationFilterArgs
+
+func BucketIntelligentTieringConfigurationFilterPtr(v *BucketIntelligentTieringConfigurationFilterArgs) BucketIntelligentTieringConfigurationFilterPtrInput {
+	return (*bucketIntelligentTieringConfigurationFilterPtrType)(v)
+}
+
+func (*bucketIntelligentTieringConfigurationFilterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketIntelligentTieringConfigurationFilter)(nil)).Elem()
+}
+
+func (i *bucketIntelligentTieringConfigurationFilterPtrType) ToBucketIntelligentTieringConfigurationFilterPtrOutput() BucketIntelligentTieringConfigurationFilterPtrOutput {
+	return i.ToBucketIntelligentTieringConfigurationFilterPtrOutputWithContext(context.Background())
+}
+
+func (i *bucketIntelligentTieringConfigurationFilterPtrType) ToBucketIntelligentTieringConfigurationFilterPtrOutputWithContext(ctx context.Context) BucketIntelligentTieringConfigurationFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketIntelligentTieringConfigurationFilterPtrOutput)
+}
+
+type BucketIntelligentTieringConfigurationFilterOutput struct{ *pulumi.OutputState }
+
+func (BucketIntelligentTieringConfigurationFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketIntelligentTieringConfigurationFilter)(nil)).Elem()
+}
+
+func (o BucketIntelligentTieringConfigurationFilterOutput) ToBucketIntelligentTieringConfigurationFilterOutput() BucketIntelligentTieringConfigurationFilterOutput {
+	return o
+}
+
+func (o BucketIntelligentTieringConfigurationFilterOutput) ToBucketIntelligentTieringConfigurationFilterOutputWithContext(ctx context.Context) BucketIntelligentTieringConfigurationFilterOutput {
+	return o
+}
+
+func (o BucketIntelligentTieringConfigurationFilterOutput) ToBucketIntelligentTieringConfigurationFilterPtrOutput() BucketIntelligentTieringConfigurationFilterPtrOutput {
+	return o.ToBucketIntelligentTieringConfigurationFilterPtrOutputWithContext(context.Background())
+}
+
+func (o BucketIntelligentTieringConfigurationFilterOutput) ToBucketIntelligentTieringConfigurationFilterPtrOutputWithContext(ctx context.Context) BucketIntelligentTieringConfigurationFilterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketIntelligentTieringConfigurationFilter) *BucketIntelligentTieringConfigurationFilter {
+		return &v
+	}).(BucketIntelligentTieringConfigurationFilterPtrOutput)
+}
+
+// An object key name prefix that identifies the subset of objects to which the configuration applies.
+func (o BucketIntelligentTieringConfigurationFilterOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BucketIntelligentTieringConfigurationFilter) *string { return v.Prefix }).(pulumi.StringPtrOutput)
+}
+
+// All of these tags must exist in the object's tag set in order for the configuration to apply.
+func (o BucketIntelligentTieringConfigurationFilterOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v BucketIntelligentTieringConfigurationFilter) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+type BucketIntelligentTieringConfigurationFilterPtrOutput struct{ *pulumi.OutputState }
+
+func (BucketIntelligentTieringConfigurationFilterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketIntelligentTieringConfigurationFilter)(nil)).Elem()
+}
+
+func (o BucketIntelligentTieringConfigurationFilterPtrOutput) ToBucketIntelligentTieringConfigurationFilterPtrOutput() BucketIntelligentTieringConfigurationFilterPtrOutput {
+	return o
+}
+
+func (o BucketIntelligentTieringConfigurationFilterPtrOutput) ToBucketIntelligentTieringConfigurationFilterPtrOutputWithContext(ctx context.Context) BucketIntelligentTieringConfigurationFilterPtrOutput {
+	return o
+}
+
+func (o BucketIntelligentTieringConfigurationFilterPtrOutput) Elem() BucketIntelligentTieringConfigurationFilterOutput {
+	return o.ApplyT(func(v *BucketIntelligentTieringConfigurationFilter) BucketIntelligentTieringConfigurationFilter {
+		if v != nil {
+			return *v
+		}
+		var ret BucketIntelligentTieringConfigurationFilter
+		return ret
+	}).(BucketIntelligentTieringConfigurationFilterOutput)
+}
+
+// An object key name prefix that identifies the subset of objects to which the configuration applies.
+func (o BucketIntelligentTieringConfigurationFilterPtrOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BucketIntelligentTieringConfigurationFilter) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Prefix
+	}).(pulumi.StringPtrOutput)
+}
+
+// All of these tags must exist in the object's tag set in order for the configuration to apply.
+func (o BucketIntelligentTieringConfigurationFilterPtrOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *BucketIntelligentTieringConfigurationFilter) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Tags
+	}).(pulumi.StringMapOutput)
+}
+
+type BucketIntelligentTieringConfigurationTiering struct {
+	// S3 Intelligent-Tiering access tier. Valid values: `ARCHIVE_CONFIGURATION`, `DEEP_ARCHIVE_CONFIGURATION`.
+	AccessTier string `pulumi:"accessTier"`
+	// The number of consecutive days of no access after which an object will be eligible to be transitioned to the corresponding tier.
+	Days int `pulumi:"days"`
+}
+
+// BucketIntelligentTieringConfigurationTieringInput is an input type that accepts BucketIntelligentTieringConfigurationTieringArgs and BucketIntelligentTieringConfigurationTieringOutput values.
+// You can construct a concrete instance of `BucketIntelligentTieringConfigurationTieringInput` via:
+//
+//          BucketIntelligentTieringConfigurationTieringArgs{...}
+type BucketIntelligentTieringConfigurationTieringInput interface {
+	pulumi.Input
+
+	ToBucketIntelligentTieringConfigurationTieringOutput() BucketIntelligentTieringConfigurationTieringOutput
+	ToBucketIntelligentTieringConfigurationTieringOutputWithContext(context.Context) BucketIntelligentTieringConfigurationTieringOutput
+}
+
+type BucketIntelligentTieringConfigurationTieringArgs struct {
+	// S3 Intelligent-Tiering access tier. Valid values: `ARCHIVE_CONFIGURATION`, `DEEP_ARCHIVE_CONFIGURATION`.
+	AccessTier pulumi.StringInput `pulumi:"accessTier"`
+	// The number of consecutive days of no access after which an object will be eligible to be transitioned to the corresponding tier.
+	Days pulumi.IntInput `pulumi:"days"`
+}
+
+func (BucketIntelligentTieringConfigurationTieringArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketIntelligentTieringConfigurationTiering)(nil)).Elem()
+}
+
+func (i BucketIntelligentTieringConfigurationTieringArgs) ToBucketIntelligentTieringConfigurationTieringOutput() BucketIntelligentTieringConfigurationTieringOutput {
+	return i.ToBucketIntelligentTieringConfigurationTieringOutputWithContext(context.Background())
+}
+
+func (i BucketIntelligentTieringConfigurationTieringArgs) ToBucketIntelligentTieringConfigurationTieringOutputWithContext(ctx context.Context) BucketIntelligentTieringConfigurationTieringOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketIntelligentTieringConfigurationTieringOutput)
+}
+
+// BucketIntelligentTieringConfigurationTieringArrayInput is an input type that accepts BucketIntelligentTieringConfigurationTieringArray and BucketIntelligentTieringConfigurationTieringArrayOutput values.
+// You can construct a concrete instance of `BucketIntelligentTieringConfigurationTieringArrayInput` via:
+//
+//          BucketIntelligentTieringConfigurationTieringArray{ BucketIntelligentTieringConfigurationTieringArgs{...} }
+type BucketIntelligentTieringConfigurationTieringArrayInput interface {
+	pulumi.Input
+
+	ToBucketIntelligentTieringConfigurationTieringArrayOutput() BucketIntelligentTieringConfigurationTieringArrayOutput
+	ToBucketIntelligentTieringConfigurationTieringArrayOutputWithContext(context.Context) BucketIntelligentTieringConfigurationTieringArrayOutput
+}
+
+type BucketIntelligentTieringConfigurationTieringArray []BucketIntelligentTieringConfigurationTieringInput
+
+func (BucketIntelligentTieringConfigurationTieringArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BucketIntelligentTieringConfigurationTiering)(nil)).Elem()
+}
+
+func (i BucketIntelligentTieringConfigurationTieringArray) ToBucketIntelligentTieringConfigurationTieringArrayOutput() BucketIntelligentTieringConfigurationTieringArrayOutput {
+	return i.ToBucketIntelligentTieringConfigurationTieringArrayOutputWithContext(context.Background())
+}
+
+func (i BucketIntelligentTieringConfigurationTieringArray) ToBucketIntelligentTieringConfigurationTieringArrayOutputWithContext(ctx context.Context) BucketIntelligentTieringConfigurationTieringArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketIntelligentTieringConfigurationTieringArrayOutput)
+}
+
+type BucketIntelligentTieringConfigurationTieringOutput struct{ *pulumi.OutputState }
+
+func (BucketIntelligentTieringConfigurationTieringOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketIntelligentTieringConfigurationTiering)(nil)).Elem()
+}
+
+func (o BucketIntelligentTieringConfigurationTieringOutput) ToBucketIntelligentTieringConfigurationTieringOutput() BucketIntelligentTieringConfigurationTieringOutput {
+	return o
+}
+
+func (o BucketIntelligentTieringConfigurationTieringOutput) ToBucketIntelligentTieringConfigurationTieringOutputWithContext(ctx context.Context) BucketIntelligentTieringConfigurationTieringOutput {
+	return o
+}
+
+// S3 Intelligent-Tiering access tier. Valid values: `ARCHIVE_CONFIGURATION`, `DEEP_ARCHIVE_CONFIGURATION`.
+func (o BucketIntelligentTieringConfigurationTieringOutput) AccessTier() pulumi.StringOutput {
+	return o.ApplyT(func(v BucketIntelligentTieringConfigurationTiering) string { return v.AccessTier }).(pulumi.StringOutput)
+}
+
+// The number of consecutive days of no access after which an object will be eligible to be transitioned to the corresponding tier.
+func (o BucketIntelligentTieringConfigurationTieringOutput) Days() pulumi.IntOutput {
+	return o.ApplyT(func(v BucketIntelligentTieringConfigurationTiering) int { return v.Days }).(pulumi.IntOutput)
+}
+
+type BucketIntelligentTieringConfigurationTieringArrayOutput struct{ *pulumi.OutputState }
+
+func (BucketIntelligentTieringConfigurationTieringArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BucketIntelligentTieringConfigurationTiering)(nil)).Elem()
+}
+
+func (o BucketIntelligentTieringConfigurationTieringArrayOutput) ToBucketIntelligentTieringConfigurationTieringArrayOutput() BucketIntelligentTieringConfigurationTieringArrayOutput {
+	return o
+}
+
+func (o BucketIntelligentTieringConfigurationTieringArrayOutput) ToBucketIntelligentTieringConfigurationTieringArrayOutputWithContext(ctx context.Context) BucketIntelligentTieringConfigurationTieringArrayOutput {
+	return o
+}
+
+func (o BucketIntelligentTieringConfigurationTieringArrayOutput) Index(i pulumi.IntInput) BucketIntelligentTieringConfigurationTieringOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BucketIntelligentTieringConfigurationTiering {
+		return vs[0].([]BucketIntelligentTieringConfigurationTiering)[vs[1].(int)]
+	}).(BucketIntelligentTieringConfigurationTieringOutput)
+}
+
 type BucketLifecycleRule struct {
 	// Specifies the number of days after initiating a multipart upload when the multipart upload must be completed.
 	AbortIncompleteMultipartUploadDays *int `pulumi:"abortIncompleteMultipartUploadDays"`
@@ -6718,6 +6980,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketCorsRuleArrayInput)(nil)).Elem(), BucketCorsRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketGrantInput)(nil)).Elem(), BucketGrantArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketGrantArrayInput)(nil)).Elem(), BucketGrantArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketIntelligentTieringConfigurationFilterInput)(nil)).Elem(), BucketIntelligentTieringConfigurationFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketIntelligentTieringConfigurationFilterPtrInput)(nil)).Elem(), BucketIntelligentTieringConfigurationFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketIntelligentTieringConfigurationTieringInput)(nil)).Elem(), BucketIntelligentTieringConfigurationTieringArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketIntelligentTieringConfigurationTieringArrayInput)(nil)).Elem(), BucketIntelligentTieringConfigurationTieringArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketLifecycleRuleInput)(nil)).Elem(), BucketLifecycleRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketLifecycleRuleArrayInput)(nil)).Elem(), BucketLifecycleRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketLifecycleRuleExpirationInput)(nil)).Elem(), BucketLifecycleRuleExpirationArgs{})
@@ -6807,6 +7073,10 @@ func init() {
 	pulumi.RegisterOutputType(BucketCorsRuleArrayOutput{})
 	pulumi.RegisterOutputType(BucketGrantOutput{})
 	pulumi.RegisterOutputType(BucketGrantArrayOutput{})
+	pulumi.RegisterOutputType(BucketIntelligentTieringConfigurationFilterOutput{})
+	pulumi.RegisterOutputType(BucketIntelligentTieringConfigurationFilterPtrOutput{})
+	pulumi.RegisterOutputType(BucketIntelligentTieringConfigurationTieringOutput{})
+	pulumi.RegisterOutputType(BucketIntelligentTieringConfigurationTieringArrayOutput{})
 	pulumi.RegisterOutputType(BucketLifecycleRuleOutput{})
 	pulumi.RegisterOutputType(BucketLifecycleRuleArrayOutput{})
 	pulumi.RegisterOutputType(BucketLifecycleRuleExpirationOutput{})
