@@ -104,6 +104,7 @@ class Endpoints(dict):
                  acm: Optional[str] = None,
                  acmpca: Optional[str] = None,
                  alexaforbusiness: Optional[str] = None,
+                 amp: Optional[str] = None,
                  amplify: Optional[str] = None,
                  amplifybackend: Optional[str] = None,
                  apigateway: Optional[str] = None,
@@ -205,6 +206,8 @@ class Endpoints(dict):
                  emr: Optional[str] = None,
                  emrcontainers: Optional[str] = None,
                  es: Optional[str] = None,
+                 eventbridge: Optional[str] = None,
+                 events: Optional[str] = None,
                  finspace: Optional[str] = None,
                  finspacedata: Optional[str] = None,
                  firehose: Optional[str] = None,
@@ -404,6 +407,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "acmpca", acmpca)
         if alexaforbusiness is not None:
             pulumi.set(__self__, "alexaforbusiness", alexaforbusiness)
+        if amp is not None:
+            pulumi.set(__self__, "amp", amp)
         if amplify is not None:
             pulumi.set(__self__, "amplify", amplify)
         if amplifybackend is not None:
@@ -606,6 +611,10 @@ class Endpoints(dict):
             pulumi.set(__self__, "emrcontainers", emrcontainers)
         if es is not None:
             pulumi.set(__self__, "es", es)
+        if eventbridge is not None:
+            pulumi.set(__self__, "eventbridge", eventbridge)
+        if events is not None:
+            pulumi.set(__self__, "events", events)
         if finspace is not None:
             pulumi.set(__self__, "finspace", finspace)
         if finspacedata is not None:
@@ -1008,6 +1017,11 @@ class Endpoints(dict):
     @pulumi.getter
     def alexaforbusiness(self) -> Optional[str]:
         return pulumi.get(self, "alexaforbusiness")
+
+    @property
+    @pulumi.getter
+    def amp(self) -> Optional[str]:
+        return pulumi.get(self, "amp")
 
     @property
     @pulumi.getter
@@ -1513,6 +1527,16 @@ class Endpoints(dict):
     @pulumi.getter
     def es(self) -> Optional[str]:
         return pulumi.get(self, "es")
+
+    @property
+    @pulumi.getter
+    def eventbridge(self) -> Optional[str]:
+        return pulumi.get(self, "eventbridge")
+
+    @property
+    @pulumi.getter
+    def events(self) -> Optional[str]:
+        return pulumi.get(self, "events")
 
     @property
     @pulumi.getter

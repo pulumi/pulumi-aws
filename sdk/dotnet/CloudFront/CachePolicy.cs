@@ -121,7 +121,7 @@ namespace Pulumi.Aws.CloudFront
         /// The HTTP headers, cookies, and URL query strings to include in the cache key. See Parameters In Cache Key And Forwarded To Origin for more information.
         /// </summary>
         [Output("parametersInCacheKeyAndForwardedToOrigin")]
-        public Output<Outputs.CachePolicyParametersInCacheKeyAndForwardedToOrigin?> ParametersInCacheKeyAndForwardedToOrigin { get; private set; } = null!;
+        public Output<Outputs.CachePolicyParametersInCacheKeyAndForwardedToOrigin> ParametersInCacheKeyAndForwardedToOrigin { get; private set; } = null!;
 
 
         /// <summary>
@@ -131,7 +131,7 @@ namespace Pulumi.Aws.CloudFront
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public CachePolicy(string name, CachePolicyArgs? args = null, CustomResourceOptions? options = null)
+        public CachePolicy(string name, CachePolicyArgs args, CustomResourceOptions? options = null)
             : base("aws:cloudfront/cachePolicy:CachePolicy", name, args ?? new CachePolicyArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -182,12 +182,6 @@ namespace Pulumi.Aws.CloudFront
         public Input<int>? DefaultTtl { get; set; }
 
         /// <summary>
-        /// The current version of the cache policy.
-        /// </summary>
-        [Input("etag")]
-        public Input<string>? Etag { get; set; }
-
-        /// <summary>
         /// The maximum amount of time, in seconds, that objects stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
         /// </summary>
         [Input("maxTtl")]
@@ -208,8 +202,8 @@ namespace Pulumi.Aws.CloudFront
         /// <summary>
         /// The HTTP headers, cookies, and URL query strings to include in the cache key. See Parameters In Cache Key And Forwarded To Origin for more information.
         /// </summary>
-        [Input("parametersInCacheKeyAndForwardedToOrigin")]
-        public Input<Inputs.CachePolicyParametersInCacheKeyAndForwardedToOriginArgs>? ParametersInCacheKeyAndForwardedToOrigin { get; set; }
+        [Input("parametersInCacheKeyAndForwardedToOrigin", required: true)]
+        public Input<Inputs.CachePolicyParametersInCacheKeyAndForwardedToOriginArgs> ParametersInCacheKeyAndForwardedToOrigin { get; set; } = null!;
 
         public CachePolicyArgs()
         {

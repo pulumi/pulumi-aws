@@ -160,6 +160,12 @@ namespace Pulumi.Aws.DocDB
         public Output<string?> FinalSnapshotIdentifier { get; private set; } = null!;
 
         /// <summary>
+        /// The global cluster identifier specified on [`aws.docdb.GlobalCluster`](https://www.terraform.io/docs/providers/aws/r/docdb_global_cluster.html).
+        /// </summary>
+        [Output("globalClusterIdentifier")]
+        public Output<string?> GlobalClusterIdentifier { get; private set; } = null!;
+
+        /// <summary>
         /// The Route53 Hosted Zone ID of the endpoint
         /// </summary>
         [Output("hostedZoneId")]
@@ -395,6 +401,12 @@ namespace Pulumi.Aws.DocDB
         public Input<string>? FinalSnapshotIdentifier { get; set; }
 
         /// <summary>
+        /// The global cluster identifier specified on [`aws.docdb.GlobalCluster`](https://www.terraform.io/docs/providers/aws/r/docdb_global_cluster.html).
+        /// </summary>
+        [Input("globalClusterIdentifier")]
+        public Input<string>? GlobalClusterIdentifier { get; set; }
+
+        /// <summary>
         /// The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
         /// </summary>
         [Input("kmsKeyId")]
@@ -601,6 +613,12 @@ namespace Pulumi.Aws.DocDB
         /// </summary>
         [Input("finalSnapshotIdentifier")]
         public Input<string>? FinalSnapshotIdentifier { get; set; }
+
+        /// <summary>
+        /// The global cluster identifier specified on [`aws.docdb.GlobalCluster`](https://www.terraform.io/docs/providers/aws/r/docdb_global_cluster.html).
+        /// </summary>
+        [Input("globalClusterIdentifier")]
+        public Input<string>? GlobalClusterIdentifier { get; set; }
 
         /// <summary>
         /// The Route53 Hosted Zone ID of the endpoint

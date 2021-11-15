@@ -13,7 +13,7 @@ namespace Pulumi.Aws.CloudWatch
     public static class GetEventConnection
     {
         /// <summary>
-        /// Use this data source to retrieve information about a EventBridge connection.
+        /// Use this data source to retrieve information about an EventBridge connection.
         /// 
         /// &gt; **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
         /// 
@@ -45,7 +45,7 @@ namespace Pulumi.Aws.CloudWatch
             => Pulumi.Deployment.Instance.InvokeAsync<GetEventConnectionResult>("aws:cloudwatch/getEventConnection:getEventConnection", args ?? new GetEventConnectionArgs(), options.WithVersion());
 
         /// <summary>
-        /// Use this data source to retrieve information about a EventBridge connection.
+        /// Use this data source to retrieve information about an EventBridge connection.
         /// 
         /// &gt; **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
         /// 

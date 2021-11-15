@@ -17211,6 +17211,112 @@ func (o GetInternetGatewayFilterArrayOutput) Index(i pulumi.IntInput) GetInterne
 	}).(GetInternetGatewayFilterOutput)
 }
 
+type GetKeyPairFilter struct {
+	// The name of the filter field. Valid values can be found in the [EC2 DescribeKeyPairs API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeKeyPairs.html).
+	Name string `pulumi:"name"`
+	// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+	Values []string `pulumi:"values"`
+}
+
+// GetKeyPairFilterInput is an input type that accepts GetKeyPairFilterArgs and GetKeyPairFilterOutput values.
+// You can construct a concrete instance of `GetKeyPairFilterInput` via:
+//
+//          GetKeyPairFilterArgs{...}
+type GetKeyPairFilterInput interface {
+	pulumi.Input
+
+	ToGetKeyPairFilterOutput() GetKeyPairFilterOutput
+	ToGetKeyPairFilterOutputWithContext(context.Context) GetKeyPairFilterOutput
+}
+
+type GetKeyPairFilterArgs struct {
+	// The name of the filter field. Valid values can be found in the [EC2 DescribeKeyPairs API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeKeyPairs.html).
+	Name pulumi.StringInput `pulumi:"name"`
+	// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetKeyPairFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetKeyPairFilter)(nil)).Elem()
+}
+
+func (i GetKeyPairFilterArgs) ToGetKeyPairFilterOutput() GetKeyPairFilterOutput {
+	return i.ToGetKeyPairFilterOutputWithContext(context.Background())
+}
+
+func (i GetKeyPairFilterArgs) ToGetKeyPairFilterOutputWithContext(ctx context.Context) GetKeyPairFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetKeyPairFilterOutput)
+}
+
+// GetKeyPairFilterArrayInput is an input type that accepts GetKeyPairFilterArray and GetKeyPairFilterArrayOutput values.
+// You can construct a concrete instance of `GetKeyPairFilterArrayInput` via:
+//
+//          GetKeyPairFilterArray{ GetKeyPairFilterArgs{...} }
+type GetKeyPairFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetKeyPairFilterArrayOutput() GetKeyPairFilterArrayOutput
+	ToGetKeyPairFilterArrayOutputWithContext(context.Context) GetKeyPairFilterArrayOutput
+}
+
+type GetKeyPairFilterArray []GetKeyPairFilterInput
+
+func (GetKeyPairFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetKeyPairFilter)(nil)).Elem()
+}
+
+func (i GetKeyPairFilterArray) ToGetKeyPairFilterArrayOutput() GetKeyPairFilterArrayOutput {
+	return i.ToGetKeyPairFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetKeyPairFilterArray) ToGetKeyPairFilterArrayOutputWithContext(ctx context.Context) GetKeyPairFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetKeyPairFilterArrayOutput)
+}
+
+type GetKeyPairFilterOutput struct{ *pulumi.OutputState }
+
+func (GetKeyPairFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetKeyPairFilter)(nil)).Elem()
+}
+
+func (o GetKeyPairFilterOutput) ToGetKeyPairFilterOutput() GetKeyPairFilterOutput {
+	return o
+}
+
+func (o GetKeyPairFilterOutput) ToGetKeyPairFilterOutputWithContext(ctx context.Context) GetKeyPairFilterOutput {
+	return o
+}
+
+// The name of the filter field. Valid values can be found in the [EC2 DescribeKeyPairs API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeKeyPairs.html).
+func (o GetKeyPairFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetKeyPairFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+func (o GetKeyPairFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetKeyPairFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetKeyPairFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetKeyPairFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetKeyPairFilter)(nil)).Elem()
+}
+
+func (o GetKeyPairFilterArrayOutput) ToGetKeyPairFilterArrayOutput() GetKeyPairFilterArrayOutput {
+	return o
+}
+
+func (o GetKeyPairFilterArrayOutput) ToGetKeyPairFilterArrayOutputWithContext(ctx context.Context) GetKeyPairFilterArrayOutput {
+	return o
+}
+
+func (o GetKeyPairFilterArrayOutput) Index(i pulumi.IntInput) GetKeyPairFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetKeyPairFilter {
+		return vs[0].([]GetKeyPairFilter)[vs[1].(int)]
+	}).(GetKeyPairFilterOutput)
+}
+
 type GetLaunchConfigurationEbsBlockDevice struct {
 	// Whether the EBS Volume will be deleted on instance termination.
 	DeleteOnTermination bool `pulumi:"deleteOnTermination"`
@@ -24073,6 +24179,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInternetGatewayAttachmentArrayInput)(nil)).Elem(), GetInternetGatewayAttachmentArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInternetGatewayFilterInput)(nil)).Elem(), GetInternetGatewayFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInternetGatewayFilterArrayInput)(nil)).Elem(), GetInternetGatewayFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetKeyPairFilterInput)(nil)).Elem(), GetKeyPairFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetKeyPairFilterArrayInput)(nil)).Elem(), GetKeyPairFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLaunchConfigurationEbsBlockDeviceInput)(nil)).Elem(), GetLaunchConfigurationEbsBlockDeviceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLaunchConfigurationEbsBlockDeviceArrayInput)(nil)).Elem(), GetLaunchConfigurationEbsBlockDeviceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLaunchConfigurationEphemeralBlockDeviceInput)(nil)).Elem(), GetLaunchConfigurationEphemeralBlockDeviceArgs{})
@@ -24420,6 +24528,8 @@ func init() {
 	pulumi.RegisterOutputType(GetInternetGatewayAttachmentArrayOutput{})
 	pulumi.RegisterOutputType(GetInternetGatewayFilterOutput{})
 	pulumi.RegisterOutputType(GetInternetGatewayFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetKeyPairFilterOutput{})
+	pulumi.RegisterOutputType(GetKeyPairFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetLaunchConfigurationEbsBlockDeviceOutput{})
 	pulumi.RegisterOutputType(GetLaunchConfigurationEbsBlockDeviceArrayOutput{})
 	pulumi.RegisterOutputType(GetLaunchConfigurationEphemeralBlockDeviceOutput{})

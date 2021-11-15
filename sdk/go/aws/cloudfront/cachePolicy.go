@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -87,16 +88,19 @@ type CachePolicy struct {
 	// A unique name to identify the cache policy.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The HTTP headers, cookies, and URL query strings to include in the cache key. See Parameters In Cache Key And Forwarded To Origin for more information.
-	ParametersInCacheKeyAndForwardedToOrigin CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput `pulumi:"parametersInCacheKeyAndForwardedToOrigin"`
+	ParametersInCacheKeyAndForwardedToOrigin CachePolicyParametersInCacheKeyAndForwardedToOriginOutput `pulumi:"parametersInCacheKeyAndForwardedToOrigin"`
 }
 
 // NewCachePolicy registers a new resource with the given unique name, arguments, and options.
 func NewCachePolicy(ctx *pulumi.Context,
 	name string, args *CachePolicyArgs, opts ...pulumi.ResourceOption) (*CachePolicy, error) {
 	if args == nil {
-		args = &CachePolicyArgs{}
+		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.ParametersInCacheKeyAndForwardedToOrigin == nil {
+		return nil, errors.New("invalid value for required argument 'ParametersInCacheKeyAndForwardedToOrigin'")
+	}
 	var resource CachePolicy
 	err := ctx.RegisterResource("aws:cloudfront/cachePolicy:CachePolicy", name, args, &resource, opts...)
 	if err != nil {
@@ -161,8 +165,6 @@ type cachePolicyArgs struct {
 	Comment *string `pulumi:"comment"`
 	// The default amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
 	DefaultTtl *int `pulumi:"defaultTtl"`
-	// The current version of the cache policy.
-	Etag *string `pulumi:"etag"`
 	// The maximum amount of time, in seconds, that objects stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
 	MaxTtl *int `pulumi:"maxTtl"`
 	// The minimum amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
@@ -170,7 +172,7 @@ type cachePolicyArgs struct {
 	// A unique name to identify the cache policy.
 	Name *string `pulumi:"name"`
 	// The HTTP headers, cookies, and URL query strings to include in the cache key. See Parameters In Cache Key And Forwarded To Origin for more information.
-	ParametersInCacheKeyAndForwardedToOrigin *CachePolicyParametersInCacheKeyAndForwardedToOrigin `pulumi:"parametersInCacheKeyAndForwardedToOrigin"`
+	ParametersInCacheKeyAndForwardedToOrigin CachePolicyParametersInCacheKeyAndForwardedToOrigin `pulumi:"parametersInCacheKeyAndForwardedToOrigin"`
 }
 
 // The set of arguments for constructing a CachePolicy resource.
@@ -179,8 +181,6 @@ type CachePolicyArgs struct {
 	Comment pulumi.StringPtrInput
 	// The default amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
 	DefaultTtl pulumi.IntPtrInput
-	// The current version of the cache policy.
-	Etag pulumi.StringPtrInput
 	// The maximum amount of time, in seconds, that objects stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
 	MaxTtl pulumi.IntPtrInput
 	// The minimum amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
@@ -188,7 +188,7 @@ type CachePolicyArgs struct {
 	// A unique name to identify the cache policy.
 	Name pulumi.StringPtrInput
 	// The HTTP headers, cookies, and URL query strings to include in the cache key. See Parameters In Cache Key And Forwarded To Origin for more information.
-	ParametersInCacheKeyAndForwardedToOrigin CachePolicyParametersInCacheKeyAndForwardedToOriginPtrInput
+	ParametersInCacheKeyAndForwardedToOrigin CachePolicyParametersInCacheKeyAndForwardedToOriginInput
 }
 
 func (CachePolicyArgs) ElementType() reflect.Type {

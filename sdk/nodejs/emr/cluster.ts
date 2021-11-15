@@ -231,10 +231,10 @@ import * as utilities from "../utilities";
  * const example = new aws.emr.Cluster("example", {steps: [{
  *     actionOnFailure: "TERMINATE_CLUSTER",
  *     name: "Setup Hadoop Debugging",
- *     hadoopJarStep: [{
+ *     hadoopJarStep: {
  *         jar: "command-runner.jar",
  *         args: ["state-pusher-script"],
- *     }],
+ *     },
  * }]});
  * ```
  * ### Multiple Node Master Instance Group

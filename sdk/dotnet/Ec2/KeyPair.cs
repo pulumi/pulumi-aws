@@ -72,7 +72,7 @@ namespace Pulumi.Aws.Ec2
         /// Creates a unique name beginning with the specified prefix. Conflicts with `key_name`.
         /// </summary>
         [Output("keyNamePrefix")]
-        public Output<string?> KeyNamePrefix { get; private set; } = null!;
+        public Output<string> KeyNamePrefix { get; private set; } = null!;
 
         /// <summary>
         /// The key pair ID.

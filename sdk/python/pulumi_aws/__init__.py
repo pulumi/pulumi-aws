@@ -1590,6 +1590,22 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "cloudfront/fieldLevelEncryptionConfig",
+  "fqn": "pulumi_aws.cloudfront",
+  "classes": {
+   "aws:cloudfront/fieldLevelEncryptionConfig:FieldLevelEncryptionConfig": "FieldLevelEncryptionConfig"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "cloudfront/fieldLevelEncryptionProfile",
+  "fqn": "pulumi_aws.cloudfront",
+  "classes": {
+   "aws:cloudfront/fieldLevelEncryptionProfile:FieldLevelEncryptionProfile": "FieldLevelEncryptionProfile"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "cloudfront/function",
   "fqn": "pulumi_aws.cloudfront",
   "classes": {
@@ -2426,6 +2442,14 @@ _utilities.register(
   "fqn": "pulumi_aws.docdb",
   "classes": {
    "aws:docdb/clusterSnapshot:ClusterSnapshot": "ClusterSnapshot"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "docdb/globalCluster",
+  "fqn": "pulumi_aws.docdb",
+  "classes": {
+   "aws:docdb/globalCluster:GlobalCluster": "GlobalCluster"
   }
  },
  {
@@ -5818,6 +5842,14 @@ _utilities.register(
   "fqn": "pulumi_aws.s3",
   "classes": {
    "aws:s3/bucket:Bucket": "Bucket"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "s3/bucketIntelligentTieringConfiguration",
+  "fqn": "pulumi_aws.s3",
+  "classes": {
+   "aws:s3/bucketIntelligentTieringConfiguration:BucketIntelligentTieringConfiguration": "BucketIntelligentTieringConfiguration"
   }
  },
  {

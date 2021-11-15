@@ -66,8 +66,7 @@ export class JobQueue extends pulumi.CustomResource {
     /**
      * Specifies the set of compute environments
      * mapped to a job queue and their order.  The position of the compute environments
-     * in the list will dictate the order. You can associate up to 3 compute environments
-     * with a job queue.
+     * in the list will dictate the order.
      */
     public readonly computeEnvironments!: pulumi.Output<string[]>;
     /**
@@ -149,8 +148,7 @@ export interface JobQueueState {
     /**
      * Specifies the set of compute environments
      * mapped to a job queue and their order.  The position of the compute environments
-     * in the list will dictate the order. You can associate up to 3 compute environments
-     * with a job queue.
+     * in the list will dictate the order.
      */
     computeEnvironments?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -183,8 +181,7 @@ export interface JobQueueArgs {
     /**
      * Specifies the set of compute environments
      * mapped to a job queue and their order.  The position of the compute environments
-     * in the list will dictate the order. You can associate up to 3 compute environments
-     * with a job queue.
+     * in the list will dictate the order.
      */
     computeEnvironments: pulumi.Input<pulumi.Input<string>[]>;
     /**

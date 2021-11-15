@@ -20,6 +20,8 @@ __all__ = [
     'AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestination',
     'BucketCorsRule',
     'BucketGrant',
+    'BucketIntelligentTieringConfigurationFilter',
+    'BucketIntelligentTieringConfigurationTiering',
     'BucketLifecycleRule',
     'BucketLifecycleRuleExpiration',
     'BucketLifecycleRuleNoncurrentVersionExpiration',
@@ -545,6 +547,83 @@ class BucketGrant(dict):
         Uri address to grant for. Used only when `type` is `Group`.
         """
         return pulumi.get(self, "uri")
+
+
+@pulumi.output_type
+class BucketIntelligentTieringConfigurationFilter(dict):
+    def __init__(__self__, *,
+                 prefix: Optional[str] = None,
+                 tags: Optional[Mapping[str, str]] = None):
+        """
+        :param str prefix: An object key name prefix that identifies the subset of objects to which the configuration applies.
+        :param Mapping[str, str] tags: All of these tags must exist in the object's tag set in order for the configuration to apply.
+        """
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> Optional[str]:
+        """
+        An object key name prefix that identifies the subset of objects to which the configuration applies.
+        """
+        return pulumi.get(self, "prefix")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        All of these tags must exist in the object's tag set in order for the configuration to apply.
+        """
+        return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
+class BucketIntelligentTieringConfigurationTiering(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessTier":
+            suggest = "access_tier"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketIntelligentTieringConfigurationTiering. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketIntelligentTieringConfigurationTiering.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketIntelligentTieringConfigurationTiering.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 access_tier: str,
+                 days: int):
+        """
+        :param str access_tier: S3 Intelligent-Tiering access tier. Valid values: `ARCHIVE_CONFIGURATION`, `DEEP_ARCHIVE_CONFIGURATION`.
+        :param int days: The number of consecutive days of no access after which an object will be eligible to be transitioned to the corresponding tier.
+        """
+        pulumi.set(__self__, "access_tier", access_tier)
+        pulumi.set(__self__, "days", days)
+
+    @property
+    @pulumi.getter(name="accessTier")
+    def access_tier(self) -> str:
+        """
+        S3 Intelligent-Tiering access tier. Valid values: `ARCHIVE_CONFIGURATION`, `DEEP_ARCHIVE_CONFIGURATION`.
+        """
+        return pulumi.get(self, "access_tier")
+
+    @property
+    @pulumi.getter
+    def days(self) -> int:
+        """
+        The number of consecutive days of no access after which an object will be eligible to be transitioned to the corresponding tier.
+        """
+        return pulumi.get(self, "days")
 
 
 @pulumi.output_type

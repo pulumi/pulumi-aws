@@ -70,10 +70,16 @@ namespace Pulumi.Aws.CloudFront
         public Output<string?> Comment { get; private set; } = null!;
 
         /// <summary>
-        /// ETag hash of the function
+        /// ETag hash of the function. This is the value for the `DEVELOPMENT` stage of the function.
         /// </summary>
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
+
+        /// <summary>
+        /// ETag hash of any `LIVE` stage of the function.
+        /// </summary>
+        [Output("liveStageEtag")]
+        public Output<string> LiveStageEtag { get; private set; } = null!;
 
         /// <summary>
         /// Unique name for your CloudFront Function.
@@ -201,10 +207,16 @@ namespace Pulumi.Aws.CloudFront
         public Input<string>? Comment { get; set; }
 
         /// <summary>
-        /// ETag hash of the function
+        /// ETag hash of the function. This is the value for the `DEVELOPMENT` stage of the function.
         /// </summary>
         [Input("etag")]
         public Input<string>? Etag { get; set; }
+
+        /// <summary>
+        /// ETag hash of any `LIVE` stage of the function.
+        /// </summary>
+        [Input("liveStageEtag")]
+        public Input<string>? LiveStageEtag { get; set; }
 
         /// <summary>
         /// Unique name for your CloudFront Function.

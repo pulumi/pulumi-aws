@@ -55,8 +55,7 @@ type JobQueue struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Specifies the set of compute environments
 	// mapped to a job queue and their order.  The position of the compute environments
-	// in the list will dictate the order. You can associate up to 3 compute environments
-	// with a job queue.
+	// in the list will dictate the order.
 	ComputeEnvironments pulumi.StringArrayOutput `pulumi:"computeEnvironments"`
 	// Specifies the name of the job queue.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -113,8 +112,7 @@ type jobQueueState struct {
 	Arn *string `pulumi:"arn"`
 	// Specifies the set of compute environments
 	// mapped to a job queue and their order.  The position of the compute environments
-	// in the list will dictate the order. You can associate up to 3 compute environments
-	// with a job queue.
+	// in the list will dictate the order.
 	ComputeEnvironments []string `pulumi:"computeEnvironments"`
 	// Specifies the name of the job queue.
 	Name *string `pulumi:"name"`
@@ -134,8 +132,7 @@ type JobQueueState struct {
 	Arn pulumi.StringPtrInput
 	// Specifies the set of compute environments
 	// mapped to a job queue and their order.  The position of the compute environments
-	// in the list will dictate the order. You can associate up to 3 compute environments
-	// with a job queue.
+	// in the list will dictate the order.
 	ComputeEnvironments pulumi.StringArrayInput
 	// Specifies the name of the job queue.
 	Name pulumi.StringPtrInput
@@ -157,8 +154,7 @@ func (JobQueueState) ElementType() reflect.Type {
 type jobQueueArgs struct {
 	// Specifies the set of compute environments
 	// mapped to a job queue and their order.  The position of the compute environments
-	// in the list will dictate the order. You can associate up to 3 compute environments
-	// with a job queue.
+	// in the list will dictate the order.
 	ComputeEnvironments []string `pulumi:"computeEnvironments"`
 	// Specifies the name of the job queue.
 	Name *string `pulumi:"name"`
@@ -175,8 +171,7 @@ type jobQueueArgs struct {
 type JobQueueArgs struct {
 	// Specifies the set of compute environments
 	// mapped to a job queue and their order.  The position of the compute environments
-	// in the list will dictate the order. You can associate up to 3 compute environments
-	// with a job queue.
+	// in the list will dictate the order.
 	ComputeEnvironments pulumi.StringArrayInput
 	// Specifies the name of the job queue.
 	Name pulumi.StringPtrInput

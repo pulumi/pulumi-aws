@@ -94,7 +94,7 @@ class AwaitableGetEventConnectionResult(GetEventConnectionResult):
 def get_event_connection(name: Optional[str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEventConnectionResult:
     """
-    Use this data source to retrieve information about a EventBridge connection.
+    Use this data source to retrieve information about an EventBridge connection.
 
     > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
 
@@ -130,7 +130,7 @@ def get_event_connection(name: Optional[str] = None,
 def get_event_connection_output(name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEventConnectionResult]:
     """
-    Use this data source to retrieve information about a EventBridge connection.
+    Use this data source to retrieve information about an EventBridge connection.
 
     > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
 

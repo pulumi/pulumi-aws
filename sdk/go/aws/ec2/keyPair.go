@@ -61,7 +61,7 @@ type KeyPair struct {
 	// The name for the key pair.
 	KeyName pulumi.StringOutput `pulumi:"keyName"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `keyName`.
-	KeyNamePrefix pulumi.StringPtrOutput `pulumi:"keyNamePrefix"`
+	KeyNamePrefix pulumi.StringOutput `pulumi:"keyNamePrefix"`
 	// The key pair ID.
 	KeyPairId pulumi.StringOutput `pulumi:"keyPairId"`
 	// The public key material.

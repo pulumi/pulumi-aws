@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Use this data source to retrieve information about a EventBridge connection.
+ * Use this data source to retrieve information about an EventBridge connection.
  *
  * > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
  *

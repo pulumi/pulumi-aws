@@ -708,7 +708,7 @@ class Branch(pulumi.CustomResource):
         ```
         ### Notifications
 
-        Amplify Console uses CloudWatch Events and SNS for email notifications.  To implement the same functionality, you need to set `enable_notification` in a `amplify.Branch` resource, as well as creating a CloudWatch Events Rule, a SNS topic, and SNS subscriptions.
+        Amplify Console uses EventBridge (formerly known as CloudWatch Events) and SNS for email notifications.  To implement the same functionality, you need to set `enable_notification` in a `amplify.Branch` resource, as well as creating an EventBridge Rule, an SNS topic, and SNS subscriptions.
 
         ```python
         import pulumi
@@ -720,7 +720,7 @@ class Branch(pulumi.CustomResource):
             app_id=example.id,
             branch_name="master",
             enable_notification=True)
-        # CloudWatch Events Rule for Amplify notifications
+        # EventBridge Rule for Amplify notifications
         amplify_app_master_event_rule = aws.cloudwatch.EventRule("amplifyAppMasterEventRule",
             description=master.branch_name.apply(lambda branch_name: f"AWS Amplify build notifications for :  App: {aws_amplify_app['app']['id']} Branch: {branch_name}"),
             event_pattern=pulumi.Output.all(example.id, master.branch_name).apply(lambda id, branch_name: json.dumps({
@@ -821,7 +821,7 @@ class Branch(pulumi.CustomResource):
         ```
         ### Notifications
 
-        Amplify Console uses CloudWatch Events and SNS for email notifications.  To implement the same functionality, you need to set `enable_notification` in a `amplify.Branch` resource, as well as creating a CloudWatch Events Rule, a SNS topic, and SNS subscriptions.
+        Amplify Console uses EventBridge (formerly known as CloudWatch Events) and SNS for email notifications.  To implement the same functionality, you need to set `enable_notification` in a `amplify.Branch` resource, as well as creating an EventBridge Rule, an SNS topic, and SNS subscriptions.
 
         ```python
         import pulumi
@@ -833,7 +833,7 @@ class Branch(pulumi.CustomResource):
             app_id=example.id,
             branch_name="master",
             enable_notification=True)
-        # CloudWatch Events Rule for Amplify notifications
+        # EventBridge Rule for Amplify notifications
         amplify_app_master_event_rule = aws.cloudwatch.EventRule("amplifyAppMasterEventRule",
             description=master.branch_name.apply(lambda branch_name: f"AWS Amplify build notifications for :  App: {aws_amplify_app['app']['id']} Branch: {branch_name}"),
             event_pattern=pulumi.Output.all(example.id, master.branch_name).apply(lambda id, branch_name: json.dumps({

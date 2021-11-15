@@ -76,7 +76,7 @@ export class OriginRequestPolicy extends pulumi.CustomResource {
     /**
      * The current version of the origin request policy.
      */
-    public readonly etag!: pulumi.Output<string>;
+    public /*out*/ readonly etag!: pulumi.Output<string>;
     /**
      * Object that determines whether any HTTP headers (and if so, which headers) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.
      */
@@ -122,10 +122,10 @@ export class OriginRequestPolicy extends pulumi.CustomResource {
             }
             inputs["comment"] = args ? args.comment : undefined;
             inputs["cookiesConfig"] = args ? args.cookiesConfig : undefined;
-            inputs["etag"] = args ? args.etag : undefined;
             inputs["headersConfig"] = args ? args.headersConfig : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["queryStringsConfig"] = args ? args.queryStringsConfig : undefined;
+            inputs["etag"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -176,10 +176,6 @@ export interface OriginRequestPolicyArgs {
      * Object that determines whether any cookies in viewer requests (and if so, which cookies) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.
      */
     cookiesConfig: pulumi.Input<inputs.cloudfront.OriginRequestPolicyCookiesConfig>;
-    /**
-     * The current version of the origin request policy.
-     */
-    etag?: pulumi.Input<string>;
     /**
      * Object that determines whether any HTTP headers (and if so, which headers) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.
      */

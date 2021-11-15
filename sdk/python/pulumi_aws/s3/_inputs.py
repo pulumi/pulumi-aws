@@ -19,6 +19,8 @@ __all__ = [
     'AnalyticsConfigurationStorageClassAnalysisDataExportDestinationS3BucketDestinationArgs',
     'BucketCorsRuleArgs',
     'BucketGrantArgs',
+    'BucketIntelligentTieringConfigurationFilterArgs',
+    'BucketIntelligentTieringConfigurationTieringArgs',
     'BucketLifecycleRuleArgs',
     'BucketLifecycleRuleExpirationArgs',
     'BucketLifecycleRuleNoncurrentVersionExpirationArgs',
@@ -505,6 +507,82 @@ class BucketGrantArgs:
     @uri.setter
     def uri(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "uri", value)
+
+
+@pulumi.input_type
+class BucketIntelligentTieringConfigurationFilterArgs:
+    def __init__(__self__, *,
+                 prefix: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] prefix: An object key name prefix that identifies the subset of objects to which the configuration applies.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: All of these tags must exist in the object's tag set in order for the configuration to apply.
+        """
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> Optional[pulumi.Input[str]]:
+        """
+        An object key name prefix that identifies the subset of objects to which the configuration applies.
+        """
+        return pulumi.get(self, "prefix")
+
+    @prefix.setter
+    def prefix(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "prefix", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        All of these tags must exist in the object's tag set in order for the configuration to apply.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+
+@pulumi.input_type
+class BucketIntelligentTieringConfigurationTieringArgs:
+    def __init__(__self__, *,
+                 access_tier: pulumi.Input[str],
+                 days: pulumi.Input[int]):
+        """
+        :param pulumi.Input[str] access_tier: S3 Intelligent-Tiering access tier. Valid values: `ARCHIVE_CONFIGURATION`, `DEEP_ARCHIVE_CONFIGURATION`.
+        :param pulumi.Input[int] days: The number of consecutive days of no access after which an object will be eligible to be transitioned to the corresponding tier.
+        """
+        pulumi.set(__self__, "access_tier", access_tier)
+        pulumi.set(__self__, "days", days)
+
+    @property
+    @pulumi.getter(name="accessTier")
+    def access_tier(self) -> pulumi.Input[str]:
+        """
+        S3 Intelligent-Tiering access tier. Valid values: `ARCHIVE_CONFIGURATION`, `DEEP_ARCHIVE_CONFIGURATION`.
+        """
+        return pulumi.get(self, "access_tier")
+
+    @access_tier.setter
+    def access_tier(self, value: pulumi.Input[str]):
+        pulumi.set(self, "access_tier", value)
+
+    @property
+    @pulumi.getter
+    def days(self) -> pulumi.Input[int]:
+        """
+        The number of consecutive days of no access after which an object will be eligible to be transitioned to the corresponding tier.
+        """
+        return pulumi.get(self, "days")
+
+    @days.setter
+    def days(self, value: pulumi.Input[int]):
+        pulumi.set(self, "days", value)
 
 
 @pulumi.input_type

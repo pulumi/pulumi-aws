@@ -36,6 +36,14 @@ import (
 // 	})
 // }
 // ```
+//
+// ## Import
+//
+// Default EBS encryption state can be imported, e.g.,
+//
+// ```sh
+//  $ pulumi import aws:ebs/encryptionByDefault:EncryptionByDefault example default
+// ```
 type EncryptionByDefault struct {
 	pulumi.CustomResourceState
 

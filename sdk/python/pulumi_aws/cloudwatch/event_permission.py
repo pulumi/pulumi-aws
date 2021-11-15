@@ -202,6 +202,8 @@ class EventPermission(pulumi.CustomResource):
 
         > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
 
+        > **Note:** The EventBridge bus policy resource  (`cloudwatch.EventBusPolicy`) is incompatible with the EventBridge permission resource (`cloudwatch.EventPermission`) and will overwrite permissions.
+
         ## Example Usage
         ### Account Access
 
@@ -255,6 +257,8 @@ class EventPermission(pulumi.CustomResource):
         Provides a resource to create an EventBridge permission to support cross-account events in the current account default event bus.
 
         > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
+
+        > **Note:** The EventBridge bus policy resource  (`cloudwatch.EventBusPolicy`) is incompatible with the EventBridge permission resource (`cloudwatch.EventPermission`) and will overwrite permissions.
 
         ## Example Usage
         ### Account Access

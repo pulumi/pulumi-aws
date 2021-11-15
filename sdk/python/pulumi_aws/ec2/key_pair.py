@@ -401,7 +401,7 @@ class KeyPair(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="keyNamePrefix")
-    def key_name_prefix(self) -> pulumi.Output[Optional[str]]:
+    def key_name_prefix(self) -> pulumi.Output[str]:
         """
         Creates a unique name beginning with the specified prefix. Conflicts with `key_name`.
         """

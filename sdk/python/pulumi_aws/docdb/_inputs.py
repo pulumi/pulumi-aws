@@ -10,6 +10,7 @@ from .. import _utilities
 
 __all__ = [
     'ClusterParameterGroupParameterArgs',
+    'GlobalClusterGlobalClusterMemberArgs',
 ]
 
 @pulumi.input_type
@@ -63,5 +64,44 @@ class ClusterParameterGroupParameterArgs:
     @apply_method.setter
     def apply_method(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "apply_method", value)
+
+
+@pulumi.input_type
+class GlobalClusterGlobalClusterMemberArgs:
+    def __init__(__self__, *,
+                 db_cluster_arn: Optional[pulumi.Input[str]] = None,
+                 is_writer: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[str] db_cluster_arn: Amazon Resource Name (ARN) of member DB Cluster.
+        :param pulumi.Input[bool] is_writer: Whether the member is the primary DB Cluster.
+        """
+        if db_cluster_arn is not None:
+            pulumi.set(__self__, "db_cluster_arn", db_cluster_arn)
+        if is_writer is not None:
+            pulumi.set(__self__, "is_writer", is_writer)
+
+    @property
+    @pulumi.getter(name="dbClusterArn")
+    def db_cluster_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Amazon Resource Name (ARN) of member DB Cluster.
+        """
+        return pulumi.get(self, "db_cluster_arn")
+
+    @db_cluster_arn.setter
+    def db_cluster_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "db_cluster_arn", value)
+
+    @property
+    @pulumi.getter(name="isWriter")
+    def is_writer(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether the member is the primary DB Cluster.
+        """
+        return pulumi.get(self, "is_writer")
+
+    @is_writer.setter
+    def is_writer(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_writer", value)
 
 

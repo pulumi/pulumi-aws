@@ -15,37 +15,44 @@ __all__ = ['CachePolicyArgs', 'CachePolicy']
 @pulumi.input_type
 class CachePolicyArgs:
     def __init__(__self__, *,
+                 parameters_in_cache_key_and_forwarded_to_origin: pulumi.Input['CachePolicyParametersInCacheKeyAndForwardedToOriginArgs'],
                  comment: Optional[pulumi.Input[str]] = None,
                  default_ttl: Optional[pulumi.Input[int]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  max_ttl: Optional[pulumi.Input[int]] = None,
                  min_ttl: Optional[pulumi.Input[int]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
-                 parameters_in_cache_key_and_forwarded_to_origin: Optional[pulumi.Input['CachePolicyParametersInCacheKeyAndForwardedToOriginArgs']] = None):
+                 name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a CachePolicy resource.
+        :param pulumi.Input['CachePolicyParametersInCacheKeyAndForwardedToOriginArgs'] parameters_in_cache_key_and_forwarded_to_origin: The HTTP headers, cookies, and URL query strings to include in the cache key. See Parameters In Cache Key And Forwarded To Origin for more information.
         :param pulumi.Input[str] comment: A comment to describe the cache policy.
         :param pulumi.Input[int] default_ttl: The default amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
-        :param pulumi.Input[str] etag: The current version of the cache policy.
         :param pulumi.Input[int] max_ttl: The maximum amount of time, in seconds, that objects stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
         :param pulumi.Input[int] min_ttl: The minimum amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
         :param pulumi.Input[str] name: A unique name to identify the cache policy.
-        :param pulumi.Input['CachePolicyParametersInCacheKeyAndForwardedToOriginArgs'] parameters_in_cache_key_and_forwarded_to_origin: The HTTP headers, cookies, and URL query strings to include in the cache key. See Parameters In Cache Key And Forwarded To Origin for more information.
         """
+        pulumi.set(__self__, "parameters_in_cache_key_and_forwarded_to_origin", parameters_in_cache_key_and_forwarded_to_origin)
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
         if default_ttl is not None:
             pulumi.set(__self__, "default_ttl", default_ttl)
-        if etag is not None:
-            pulumi.set(__self__, "etag", etag)
         if max_ttl is not None:
             pulumi.set(__self__, "max_ttl", max_ttl)
         if min_ttl is not None:
             pulumi.set(__self__, "min_ttl", min_ttl)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if parameters_in_cache_key_and_forwarded_to_origin is not None:
-            pulumi.set(__self__, "parameters_in_cache_key_and_forwarded_to_origin", parameters_in_cache_key_and_forwarded_to_origin)
+
+    @property
+    @pulumi.getter(name="parametersInCacheKeyAndForwardedToOrigin")
+    def parameters_in_cache_key_and_forwarded_to_origin(self) -> pulumi.Input['CachePolicyParametersInCacheKeyAndForwardedToOriginArgs']:
+        """
+        The HTTP headers, cookies, and URL query strings to include in the cache key. See Parameters In Cache Key And Forwarded To Origin for more information.
+        """
+        return pulumi.get(self, "parameters_in_cache_key_and_forwarded_to_origin")
+
+    @parameters_in_cache_key_and_forwarded_to_origin.setter
+    def parameters_in_cache_key_and_forwarded_to_origin(self, value: pulumi.Input['CachePolicyParametersInCacheKeyAndForwardedToOriginArgs']):
+        pulumi.set(self, "parameters_in_cache_key_and_forwarded_to_origin", value)
 
     @property
     @pulumi.getter
@@ -70,18 +77,6 @@ class CachePolicyArgs:
     @default_ttl.setter
     def default_ttl(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "default_ttl", value)
-
-    @property
-    @pulumi.getter
-    def etag(self) -> Optional[pulumi.Input[str]]:
-        """
-        The current version of the cache policy.
-        """
-        return pulumi.get(self, "etag")
-
-    @etag.setter
-    def etag(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "etag", value)
 
     @property
     @pulumi.getter(name="maxTtl")
@@ -118,18 +113,6 @@ class CachePolicyArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter(name="parametersInCacheKeyAndForwardedToOrigin")
-    def parameters_in_cache_key_and_forwarded_to_origin(self) -> Optional[pulumi.Input['CachePolicyParametersInCacheKeyAndForwardedToOriginArgs']]:
-        """
-        The HTTP headers, cookies, and URL query strings to include in the cache key. See Parameters In Cache Key And Forwarded To Origin for more information.
-        """
-        return pulumi.get(self, "parameters_in_cache_key_and_forwarded_to_origin")
-
-    @parameters_in_cache_key_and_forwarded_to_origin.setter
-    def parameters_in_cache_key_and_forwarded_to_origin(self, value: Optional[pulumi.Input['CachePolicyParametersInCacheKeyAndForwardedToOriginArgs']]):
-        pulumi.set(self, "parameters_in_cache_key_and_forwarded_to_origin", value)
 
 
 @pulumi.input_type
@@ -259,7 +242,6 @@ class CachePolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  comment: Optional[pulumi.Input[str]] = None,
                  default_ttl: Optional[pulumi.Input[int]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  max_ttl: Optional[pulumi.Input[int]] = None,
                  min_ttl: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -313,7 +295,6 @@ class CachePolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] comment: A comment to describe the cache policy.
         :param pulumi.Input[int] default_ttl: The default amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
-        :param pulumi.Input[str] etag: The current version of the cache policy.
         :param pulumi.Input[int] max_ttl: The maximum amount of time, in seconds, that objects stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
         :param pulumi.Input[int] min_ttl: The minimum amount of time, in seconds, that you want objects to stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
         :param pulumi.Input[str] name: A unique name to identify the cache policy.
@@ -323,7 +304,7 @@ class CachePolicy(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[CachePolicyArgs] = None,
+                 args: CachePolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ## Example Usage
@@ -386,7 +367,6 @@ class CachePolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  comment: Optional[pulumi.Input[str]] = None,
                  default_ttl: Optional[pulumi.Input[int]] = None,
-                 etag: Optional[pulumi.Input[str]] = None,
                  max_ttl: Optional[pulumi.Input[int]] = None,
                  min_ttl: Optional[pulumi.Input[int]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -405,11 +385,13 @@ class CachePolicy(pulumi.CustomResource):
 
             __props__.__dict__["comment"] = comment
             __props__.__dict__["default_ttl"] = default_ttl
-            __props__.__dict__["etag"] = etag
             __props__.__dict__["max_ttl"] = max_ttl
             __props__.__dict__["min_ttl"] = min_ttl
             __props__.__dict__["name"] = name
+            if parameters_in_cache_key_and_forwarded_to_origin is None and not opts.urn:
+                raise TypeError("Missing required property 'parameters_in_cache_key_and_forwarded_to_origin'")
             __props__.__dict__["parameters_in_cache_key_and_forwarded_to_origin"] = parameters_in_cache_key_and_forwarded_to_origin
+            __props__.__dict__["etag"] = None
         super(CachePolicy, __self__).__init__(
             'aws:cloudfront/cachePolicy:CachePolicy',
             resource_name,
@@ -505,7 +487,7 @@ class CachePolicy(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="parametersInCacheKeyAndForwardedToOrigin")
-    def parameters_in_cache_key_and_forwarded_to_origin(self) -> pulumi.Output[Optional['outputs.CachePolicyParametersInCacheKeyAndForwardedToOrigin']]:
+    def parameters_in_cache_key_and_forwarded_to_origin(self) -> pulumi.Output['outputs.CachePolicyParametersInCacheKeyAndForwardedToOrigin']:
         """
         The HTTP headers, cookies, and URL query strings to include in the cache key. See Parameters In Cache Key And Forwarded To Origin for more information.
         """

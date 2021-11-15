@@ -15,6 +15,8 @@ import (
 //
 // > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
 //
+// > **Note:** The EventBridge bus policy resource  (`cloudwatch.EventBusPolicy`) is incompatible with the EventBridge permission resource (`cloudwatch.EventPermission`) and will overwrite permissions.
+//
 // ## Example Usage
 // ### Account Access
 //

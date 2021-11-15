@@ -43,7 +43,7 @@ import * as utilities from "../utilities";
  * ```
  * ### Notifications
  *
- * Amplify Console uses CloudWatch Events and SNS for email notifications.  To implement the same functionality, you need to set `enableNotification` in a `aws.amplify.Branch` resource, as well as creating a CloudWatch Events Rule, a SNS topic, and SNS subscriptions.
+ * Amplify Console uses EventBridge (formerly known as CloudWatch Events) and SNS for email notifications.  To implement the same functionality, you need to set `enableNotification` in a `aws.amplify.Branch` resource, as well as creating an EventBridge Rule, an SNS topic, and SNS subscriptions.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -55,7 +55,7 @@ import * as utilities from "../utilities";
  *     branchName: "master",
  *     enableNotification: true,
  * });
- * // CloudWatch Events Rule for Amplify notifications
+ * // EventBridge Rule for Amplify notifications
  * const amplifyAppMasterEventRule = new aws.cloudwatch.EventRule("amplifyAppMasterEventRule", {
  *     description: pulumi.interpolate`AWS Amplify build notifications for :  App: ${aws_amplify_app.app.id} Branch: ${master.branchName}`,
  *     eventPattern: pulumi.all([example.id, master.branchName]).apply(([id, branchName]) => JSON.stringify({

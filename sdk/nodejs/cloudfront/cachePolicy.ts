@@ -89,7 +89,7 @@ export class CachePolicy extends pulumi.CustomResource {
     /**
      * The current version of the cache policy.
      */
-    public readonly etag!: pulumi.Output<string>;
+    public /*out*/ readonly etag!: pulumi.Output<string>;
     /**
      * The maximum amount of time, in seconds, that objects stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
      */
@@ -105,7 +105,7 @@ export class CachePolicy extends pulumi.CustomResource {
     /**
      * The HTTP headers, cookies, and URL query strings to include in the cache key. See Parameters In Cache Key And Forwarded To Origin for more information.
      */
-    public readonly parametersInCacheKeyAndForwardedToOrigin!: pulumi.Output<outputs.cloudfront.CachePolicyParametersInCacheKeyAndForwardedToOrigin | undefined>;
+    public readonly parametersInCacheKeyAndForwardedToOrigin!: pulumi.Output<outputs.cloudfront.CachePolicyParametersInCacheKeyAndForwardedToOrigin>;
 
     /**
      * Create a CachePolicy resource with the given unique name, arguments, and options.
@@ -114,7 +114,7 @@ export class CachePolicy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: CachePolicyArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: CachePolicyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: CachePolicyArgs | CachePolicyState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
@@ -129,13 +129,16 @@ export class CachePolicy extends pulumi.CustomResource {
             inputs["parametersInCacheKeyAndForwardedToOrigin"] = state ? state.parametersInCacheKeyAndForwardedToOrigin : undefined;
         } else {
             const args = argsOrState as CachePolicyArgs | undefined;
+            if ((!args || args.parametersInCacheKeyAndForwardedToOrigin === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'parametersInCacheKeyAndForwardedToOrigin'");
+            }
             inputs["comment"] = args ? args.comment : undefined;
             inputs["defaultTtl"] = args ? args.defaultTtl : undefined;
-            inputs["etag"] = args ? args.etag : undefined;
             inputs["maxTtl"] = args ? args.maxTtl : undefined;
             inputs["minTtl"] = args ? args.minTtl : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["parametersInCacheKeyAndForwardedToOrigin"] = args ? args.parametersInCacheKeyAndForwardedToOrigin : undefined;
+            inputs["etag"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -191,10 +194,6 @@ export interface CachePolicyArgs {
      */
     defaultTtl?: pulumi.Input<number>;
     /**
-     * The current version of the cache policy.
-     */
-    etag?: pulumi.Input<string>;
-    /**
      * The maximum amount of time, in seconds, that objects stay in the CloudFront cache before CloudFront sends another request to the origin to see if the object has been updated.
      */
     maxTtl?: pulumi.Input<number>;
@@ -209,5 +208,5 @@ export interface CachePolicyArgs {
     /**
      * The HTTP headers, cookies, and URL query strings to include in the cache key. See Parameters In Cache Key And Forwarded To Origin for more information.
      */
-    parametersInCacheKeyAndForwardedToOrigin?: pulumi.Input<inputs.cloudfront.CachePolicyParametersInCacheKeyAndForwardedToOrigin>;
+    parametersInCacheKeyAndForwardedToOrigin: pulumi.Input<inputs.cloudfront.CachePolicyParametersInCacheKeyAndForwardedToOrigin>;
 }
