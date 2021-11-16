@@ -2,10 +2,13 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v3.65.0 of the AWS Terraform Provider
-  * **Please note**, `aws.cloudfront.originRequestPolicy` and `aws.cloudfront.cachePolicy` no longer supports the `etag` input as this was not able to be used by the API.
+_(none)_
 
 ---
+
+## 4.28.0 (2021-11-16)
+* Upgrade to v3.65.0 of the AWS Terraform Provider
+  * **Please note**, `aws.cloudfront.originRequestPolicy` and `aws.cloudfront.cachePolicy` no longer supports the `etag` input as this was not able to be used by the API.
 
 ## 4.27.2 (2021-11-10)
 * Fix regression in management of `aws.mq.Broker` this was due to an incorrect mapping in the provider SchemaInfo
