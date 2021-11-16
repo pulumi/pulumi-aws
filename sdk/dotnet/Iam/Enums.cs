@@ -32,6 +32,7 @@ namespace Pulumi.Aws.Iam
         public static ManagedPolicy AWSCloudHSMRole { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSCloudHSMRole");
         public static ManagedPolicy AWSCloudTrailFullAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AWSCloudTrailFullAccess");
         public static ManagedPolicy AWSCloudTrailReadOnlyAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AWSCloudTrailReadOnlyAccess");
+        public static ManagedPolicy AWSCloudWatchLambdaInsightsExecutionRolePolicy { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AWSCloudWatchLambdaInsightsExecutionRolePolicy");
         public static ManagedPolicy AWSCodeBuildAdminAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AWSCodeBuildAdminAccess");
         public static ManagedPolicy AWSCodeBuildDeveloperAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AWSCodeBuildDeveloperAccess");
         public static ManagedPolicy AWSCodeBuildReadOnlyAccess { get; } = new ManagedPolicy("arn:aws:iam::aws:policy/AWSCodeBuildReadOnlyAccess");

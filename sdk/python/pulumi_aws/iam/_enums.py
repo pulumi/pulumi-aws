@@ -25,6 +25,7 @@ class ManagedPolicy(str, Enum):
     AWS_CLOUD_HSM_ROLE = "arn:aws:iam::aws:policy/service-role/AWSCloudHSMRole"
     AWS_CLOUD_TRAIL_FULL_ACCESS = "arn:aws:iam::aws:policy/AWSCloudTrailFullAccess"
     AWS_CLOUD_TRAIL_READ_ONLY_ACCESS = "arn:aws:iam::aws:policy/AWSCloudTrailReadOnlyAccess"
+    AWS_CLOUD_WATCH_LAMBDA_INSIGHTS_EXECUTION_ROLE_POLICY = "arn:aws:iam::aws:policy/AWSCloudWatchLambdaInsightsExecutionRolePolicy"
     AWS_CODE_BUILD_ADMIN_ACCESS = "arn:aws:iam::aws:policy/AWSCodeBuildAdminAccess"
     AWS_CODE_BUILD_DEVELOPER_ACCESS = "arn:aws:iam::aws:policy/AWSCodeBuildDeveloperAccess"
     AWS_CODE_BUILD_READ_ONLY_ACCESS = "arn:aws:iam::aws:policy/AWSCodeBuildReadOnlyAccess"

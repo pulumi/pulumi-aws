@@ -3365,6 +3365,7 @@ func Provider() tfbridge.ProviderInfo {
 					{Name: "AWSCloudHSMRole", Value: "arn:aws:iam::aws:policy/service-role/AWSCloudHSMRole"},
 					{Name: "AWSCloudTrailFullAccess", Value: "arn:aws:iam::aws:policy/AWSCloudTrailFullAccess"},
 					{Name: "AWSCloudTrailReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AWSCloudTrailReadOnlyAccess"},
+					{Name: "AWSCloudWatchLambdaInsightsExecutionRolePolicy", Value: "arn:aws:iam::aws:policy/AWSCloudWatchLambdaInsightsExecutionRolePolicy"},
 					{Name: "AWSCodeBuildAdminAccess", Value: "arn:aws:iam::aws:policy/AWSCodeBuildAdminAccess"},
 					{Name: "AWSCodeBuildDeveloperAccess", Value: "arn:aws:iam::aws:policy/AWSCodeBuildDeveloperAccess"},
 					{Name: "AWSCodeBuildReadOnlyAccess", Value: "arn:aws:iam::aws:policy/AWSCodeBuildReadOnlyAccess"},
