@@ -18,6 +18,7 @@ export const ManagedPolicy = {
     AWSCloudHSMRole: "arn:aws:iam::aws:policy/service-role/AWSCloudHSMRole",
     AWSCloudTrailFullAccess: "arn:aws:iam::aws:policy/AWSCloudTrailFullAccess",
     AWSCloudTrailReadOnlyAccess: "arn:aws:iam::aws:policy/AWSCloudTrailReadOnlyAccess",
+    AWSCloudWatchLambdaInsightsExecutionRolePolicy: "arn:aws:iam::aws:policy/AWSCloudWatchLambdaInsightsExecutionRolePolicy",
     AWSCodeBuildAdminAccess: "arn:aws:iam::aws:policy/AWSCodeBuildAdminAccess",
     AWSCodeBuildDeveloperAccess: "arn:aws:iam::aws:policy/AWSCodeBuildDeveloperAccess",
     AWSCodeBuildReadOnlyAccess: "arn:aws:iam::aws:policy/AWSCodeBuildReadOnlyAccess",
