@@ -335,7 +335,7 @@ func (o GetRouteTableFilterArrayOutput) Index(i pulumi.IntInput) GetRouteTableFi
 }
 
 type GetTransitGatewayFilter struct {
-	// Name of the filter.
+	// The name of the field to filter by, as defined by the [underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGateways.html).
 	Name string `pulumi:"name"`
 	// List of one or more values for the filter.
 	Values []string `pulumi:"values"`
@@ -353,7 +353,7 @@ type GetTransitGatewayFilterInput interface {
 }
 
 type GetTransitGatewayFilterArgs struct {
-	// Name of the filter.
+	// The name of the field to filter by, as defined by the [underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGateways.html).
 	Name pulumi.StringInput `pulumi:"name"`
 	// List of one or more values for the filter.
 	Values pulumi.StringArrayInput `pulumi:"values"`
@@ -410,7 +410,7 @@ func (o GetTransitGatewayFilterOutput) ToGetTransitGatewayFilterOutputWithContex
 	return o
 }
 
-// Name of the filter.
+// The name of the field to filter by, as defined by the [underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGateways.html).
 func (o GetTransitGatewayFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTransitGatewayFilter) string { return v.Name }).(pulumi.StringOutput)
 }

@@ -17,6 +17,7 @@ from .bucket_object import *
 from .bucket_ownership_controls import *
 from .bucket_policy import *
 from .bucket_public_access_block import *
+from .bucket_replication_config import *
 from .get_bucket import *
 from .get_bucket_object import *
 from .get_bucket_objects import *

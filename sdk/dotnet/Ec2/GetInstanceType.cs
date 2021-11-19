@@ -381,6 +381,10 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string EnaSupport;
         /// <summary>
+        /// Indicates whether encryption in-transit between instances is supported.
+        /// </summary>
+        public readonly bool EncryptionInTransitSupported;
+        /// <summary>
         /// Describes the FPGA accelerator settings for the instance type.
         /// * `fpgas.#.count` - The count of FPGA accelerators for the instance type.
         /// * `fpgas.#.manufacturer` - The manufacturer of the FPGA accelerator.
@@ -538,6 +542,8 @@ namespace Pulumi.Aws.Ec2
 
             string enaSupport,
 
+            bool encryptionInTransitSupported,
+
             ImmutableArray<Outputs.GetInstanceTypeFpgaResult> fpgas,
 
             bool freeTierEligible,
@@ -611,6 +617,7 @@ namespace Pulumi.Aws.Ec2
             EbsPerformanceMaximumThroughput = ebsPerformanceMaximumThroughput;
             EfaSupported = efaSupported;
             EnaSupport = enaSupport;
+            EncryptionInTransitSupported = encryptionInTransitSupported;
             Fpgas = fpgas;
             FreeTierEligible = freeTierEligible;
             Gpuses = gpuses;

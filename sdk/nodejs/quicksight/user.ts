@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * const example = new aws.quicksight.User("example", {
  *     email: "author@example.com",
  *     identityType: "IAM",
- *     userName: "an-author",
+ *     sessionName: "an-author",
  *     userRole: "AUTHOR",
  * });
  * ```

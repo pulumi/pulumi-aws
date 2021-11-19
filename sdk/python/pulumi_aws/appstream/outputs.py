@@ -9,6 +9,7 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'DirectoryConfigServiceAccountCredentials',
     'FleetComputeCapacity',
     'FleetDomainJoinInfo',
     'FleetVpcConfig',
@@ -20,6 +21,54 @@ __all__ = [
     'StackStorageConnector',
     'StackUserSetting',
 ]
+
+@pulumi.output_type
+class DirectoryConfigServiceAccountCredentials(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accountName":
+            suggest = "account_name"
+        elif key == "accountPassword":
+            suggest = "account_password"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DirectoryConfigServiceAccountCredentials. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DirectoryConfigServiceAccountCredentials.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DirectoryConfigServiceAccountCredentials.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 account_name: str,
+                 account_password: str):
+        """
+        :param str account_name: User name of the account. This account must have the following privileges: create computer objects, join computers to the domain, and change/reset the password on descendant computer objects for the organizational units specified.
+        :param str account_password: Password for the account.
+        """
+        pulumi.set(__self__, "account_name", account_name)
+        pulumi.set(__self__, "account_password", account_password)
+
+    @property
+    @pulumi.getter(name="accountName")
+    def account_name(self) -> str:
+        """
+        User name of the account. This account must have the following privileges: create computer objects, join computers to the domain, and change/reset the password on descendant computer objects for the organizational units specified.
+        """
+        return pulumi.get(self, "account_name")
+
+    @property
+    @pulumi.getter(name="accountPassword")
+    def account_password(self) -> str:
+        """
+        Password for the account.
+        """
+        return pulumi.get(self, "account_password")
+
 
 @pulumi.output_type
 class FleetComputeCapacity(dict):

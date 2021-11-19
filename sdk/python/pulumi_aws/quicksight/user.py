@@ -321,7 +321,7 @@ class User(pulumi.CustomResource):
         example = aws.quicksight.User("example",
             email="author@example.com",
             identity_type="IAM",
-            user_name="an-author",
+            session_name="an-author",
             user_role="AUTHOR")
         ```
 
@@ -358,7 +358,7 @@ class User(pulumi.CustomResource):
         example = aws.quicksight.User("example",
             email="author@example.com",
             identity_type="IAM",
-            user_name="an-author",
+            session_name="an-author",
             user_role="AUTHOR")
         ```
 

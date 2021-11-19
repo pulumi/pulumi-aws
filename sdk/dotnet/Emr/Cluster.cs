@@ -721,6 +721,12 @@ namespace Pulumi.Aws.Emr
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// An auto-termination policy for an Amazon EMR cluster. An auto-termination policy defines the amount of idle time in seconds after which a cluster automatically terminates. See Auto Termination Policy Below.
+        /// </summary>
+        [Output("autoTerminationPolicy")]
+        public Output<Outputs.ClusterAutoTerminationPolicy?> AutoTerminationPolicy { get; private set; } = null!;
+
+        /// <summary>
         /// IAM role for automatic scaling policies. The IAM role provides permissions that the automatic scaling feature requires to launch and terminate EC2 instances in an instance group.
         /// </summary>
         [Output("autoscalingRole")]
@@ -950,6 +956,12 @@ namespace Pulumi.Aws.Emr
         }
 
         /// <summary>
+        /// An auto-termination policy for an Amazon EMR cluster. An auto-termination policy defines the amount of idle time in seconds after which a cluster automatically terminates. See Auto Termination Policy Below.
+        /// </summary>
+        [Input("autoTerminationPolicy")]
+        public Input<Inputs.ClusterAutoTerminationPolicyArgs>? AutoTerminationPolicy { get; set; }
+
+        /// <summary>
         /// IAM role for automatic scaling policies. The IAM role provides permissions that the automatic scaling feature requires to launch and terminate EC2 instances in an instance group.
         /// </summary>
         [Input("autoscalingRole")]
@@ -1144,6 +1156,12 @@ namespace Pulumi.Aws.Emr
 
         [Input("arn")]
         public Input<string>? Arn { get; set; }
+
+        /// <summary>
+        /// An auto-termination policy for an Amazon EMR cluster. An auto-termination policy defines the amount of idle time in seconds after which a cluster automatically terminates. See Auto Termination Policy Below.
+        /// </summary>
+        [Input("autoTerminationPolicy")]
+        public Input<Inputs.ClusterAutoTerminationPolicyGetArgs>? AutoTerminationPolicy { get; set; }
 
         /// <summary>
         /// IAM role for automatic scaling policies. The IAM role provides permissions that the automatic scaling feature requires to launch and terminate EC2 instances in an instance group.

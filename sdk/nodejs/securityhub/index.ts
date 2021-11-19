@@ -7,6 +7,7 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./account";
 export * from "./actionTarget";
+export * from "./findingAggregator";
 export * from "./insight";
 export * from "./inviteAccepter";
 export * from "./member";
@@ -19,6 +20,7 @@ export * from "./standardsSubscription";
 // Import resources to register:
 import { Account } from "./account";
 import { ActionTarget } from "./actionTarget";
+import { FindingAggregator } from "./findingAggregator";
 import { Insight } from "./insight";
 import { InviteAccepter } from "./inviteAccepter";
 import { Member } from "./member";
@@ -36,6 +38,8 @@ const _module = {
                 return new Account(name, <any>undefined, { urn })
             case "aws:securityhub/actionTarget:ActionTarget":
                 return new ActionTarget(name, <any>undefined, { urn })
+            case "aws:securityhub/findingAggregator:FindingAggregator":
+                return new FindingAggregator(name, <any>undefined, { urn })
             case "aws:securityhub/insight:Insight":
                 return new Insight(name, <any>undefined, { urn })
             case "aws:securityhub/inviteAccepter:InviteAccepter":
@@ -59,6 +63,7 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("aws", "securityhub/account", _module)
 pulumi.runtime.registerResourceModule("aws", "securityhub/actionTarget", _module)
+pulumi.runtime.registerResourceModule("aws", "securityhub/findingAggregator", _module)
 pulumi.runtime.registerResourceModule("aws", "securityhub/insight", _module)
 pulumi.runtime.registerResourceModule("aws", "securityhub/inviteAccepter", _module)
 pulumi.runtime.registerResourceModule("aws", "securityhub/member", _module)

@@ -17,6 +17,7 @@ from .get_function import *
 from .get_invocation import *
 from .get_layer_version import *
 from .layer_version import *
+from .layer_version_permission import *
 from .permission import *
 from .provisioned_concurrency_config import *
 from ._inputs import *

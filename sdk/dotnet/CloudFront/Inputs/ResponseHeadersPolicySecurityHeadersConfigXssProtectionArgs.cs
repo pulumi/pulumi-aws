@@ -13,25 +13,25 @@ namespace Pulumi.Aws.CloudFront.Inputs
     public sealed class ResponseHeadersPolicySecurityHeadersConfigXssProtectionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A Boolean value that determines whether CloudFront includes the mode=block directive in the X-XSS-Protection header.
+        /// A Boolean value that determines whether CloudFront includes the `mode=block` directive in the `X-XSS-Protection` header.
         /// </summary>
         [Input("modeBlock")]
         public Input<bool>? ModeBlock { get; set; }
 
         /// <summary>
-        /// A Boolean value that determines whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
+        /// A Boolean value that determines whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
         /// </summary>
         [Input("override", required: true)]
         public Input<bool> Override { get; set; } = null!;
 
         /// <summary>
-        /// A Boolean value that determines the value of the X-XSS-Protection HTTP response header. When this setting is true, the value of the X-XSS-Protection header is 1. When this setting is false, the value of the X-XSS-Protection header is 0.
+        /// A Boolean value that determines the value of the `X-XSS-Protection` HTTP response header. When this setting is `true`, the value of the `X-XSS-Protection` header is `1`. When this setting is `false`, the value of the `X-XSS-Protection` header is `0`.
         /// </summary>
         [Input("protection", required: true)]
         public Input<bool> Protection { get; set; } = null!;
 
         /// <summary>
-        /// A Boolean value that determines whether CloudFront sets a reporting URI in the X-XSS-Protection header.
+        /// A reporting URI, which CloudFront uses as the value of the report directive in the `X-XSS-Protection` header. You cannot specify a `report_uri` when `mode_block` is `true`.
         /// </summary>
         [Input("reportUri")]
         public Input<string>? ReportUri { get; set; }

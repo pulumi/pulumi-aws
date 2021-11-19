@@ -54,6 +54,7 @@ __all__ = [
     'FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDeArgs',
     'FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDeArgs',
     'FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfigurationArgs',
+    'FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationArgs',
     'FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgs',
     'FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArgs',
     'FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameterArgs',
@@ -1791,6 +1792,7 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationArgs:
                  cloudwatch_logging_options: Optional[pulumi.Input['FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptionsArgs']] = None,
                  compression_format: Optional[pulumi.Input[str]] = None,
                  data_format_conversion_configuration: Optional[pulumi.Input['FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationArgs']] = None,
+                 dynamic_partitioning_configuration: Optional[pulumi.Input['FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationArgs']] = None,
                  error_output_prefix: Optional[pulumi.Input[str]] = None,
                  kms_key_arn: Optional[pulumi.Input[str]] = None,
                  prefix: Optional[pulumi.Input[str]] = None,
@@ -1826,6 +1828,8 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationArgs:
             pulumi.set(__self__, "compression_format", compression_format)
         if data_format_conversion_configuration is not None:
             pulumi.set(__self__, "data_format_conversion_configuration", data_format_conversion_configuration)
+        if dynamic_partitioning_configuration is not None:
+            pulumi.set(__self__, "dynamic_partitioning_configuration", dynamic_partitioning_configuration)
         if error_output_prefix is not None:
             pulumi.set(__self__, "error_output_prefix", error_output_prefix)
         if kms_key_arn is not None:
@@ -1923,6 +1927,15 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationArgs:
     @data_format_conversion_configuration.setter
     def data_format_conversion_configuration(self, value: Optional[pulumi.Input['FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationArgs']]):
         pulumi.set(self, "data_format_conversion_configuration", value)
+
+    @property
+    @pulumi.getter(name="dynamicPartitioningConfiguration")
+    def dynamic_partitioning_configuration(self) -> Optional[pulumi.Input['FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationArgs']]:
+        return pulumi.get(self, "dynamic_partitioning_configuration")
+
+    @dynamic_partitioning_configuration.setter
+    def dynamic_partitioning_configuration(self, value: Optional[pulumi.Input['FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationArgs']]):
+        pulumi.set(self, "dynamic_partitioning_configuration", value)
 
     @property
     @pulumi.getter(name="errorOutputPrefix")
@@ -2689,6 +2702,45 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigura
     @version_id.setter
     def version_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "version_id", value)
+
+
+@pulumi.input_type
+class FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 retry_duration: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[bool] enabled: Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+        :param pulumi.Input[int] retry_duration: The length of time during which Firehose retries delivery after a failure, starting from the initial request and including the first attempt. The default value is 3600 seconds (60 minutes). Firehose does not retry if the value of DurationInSeconds is 0 (zero) or if the first delivery attempt takes longer than the current value.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if retry_duration is not None:
+            pulumi.set(__self__, "retry_duration", retry_duration)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="retryDuration")
+    def retry_duration(self) -> Optional[pulumi.Input[int]]:
+        """
+        The length of time during which Firehose retries delivery after a failure, starting from the initial request and including the first attempt. The default value is 3600 seconds (60 minutes). Firehose does not retry if the value of DurationInSeconds is 0 (zero) or if the first delivery attempt takes longer than the current value.
+        """
+        return pulumi.get(self, "retry_duration")
+
+    @retry_duration.setter
+    def retry_duration(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "retry_duration", value)
 
 
 @pulumi.input_type

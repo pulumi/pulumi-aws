@@ -34,6 +34,13 @@ __all__ = [
     'EndpointConfigurationDataCaptureConfigCaptureContentTypeHeader',
     'EndpointConfigurationDataCaptureConfigCaptureOption',
     'EndpointConfigurationProductionVariant',
+    'EndpointDeploymentConfig',
+    'EndpointDeploymentConfigAutoRollbackConfiguration',
+    'EndpointDeploymentConfigAutoRollbackConfigurationAlarm',
+    'EndpointDeploymentConfigBlueGreenUpdatePolicy',
+    'EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration',
+    'EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySize',
+    'EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSize',
     'FeatureGroupFeatureDefinition',
     'FeatureGroupOfflineStoreConfig',
     'FeatureGroupOfflineStoreConfigDataCatalogConfig',
@@ -1446,6 +1453,304 @@ class EndpointConfigurationProductionVariant(dict):
         The name of the variant. If omitted, this provider will assign a random, unique name.
         """
         return pulumi.get(self, "variant_name")
+
+
+@pulumi.output_type
+class EndpointDeploymentConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "blueGreenUpdatePolicy":
+            suggest = "blue_green_update_policy"
+        elif key == "autoRollbackConfiguration":
+            suggest = "auto_rollback_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointDeploymentConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointDeploymentConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointDeploymentConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 blue_green_update_policy: 'outputs.EndpointDeploymentConfigBlueGreenUpdatePolicy',
+                 auto_rollback_configuration: Optional['outputs.EndpointDeploymentConfigAutoRollbackConfiguration'] = None):
+        """
+        :param 'EndpointDeploymentConfigBlueGreenUpdatePolicyArgs' blue_green_update_policy: Update policy for a blue/green deployment. If this update policy is specified, SageMaker creates a new fleet during the deployment while maintaining the old fleet. See Blue Green Update Config.
+        :param 'EndpointDeploymentConfigAutoRollbackConfigurationArgs' auto_rollback_configuration: Automatic rollback configuration for handling endpoint deployment failures and recovery. See Auto Rollback Configuration.
+        """
+        pulumi.set(__self__, "blue_green_update_policy", blue_green_update_policy)
+        if auto_rollback_configuration is not None:
+            pulumi.set(__self__, "auto_rollback_configuration", auto_rollback_configuration)
+
+    @property
+    @pulumi.getter(name="blueGreenUpdatePolicy")
+    def blue_green_update_policy(self) -> 'outputs.EndpointDeploymentConfigBlueGreenUpdatePolicy':
+        """
+        Update policy for a blue/green deployment. If this update policy is specified, SageMaker creates a new fleet during the deployment while maintaining the old fleet. See Blue Green Update Config.
+        """
+        return pulumi.get(self, "blue_green_update_policy")
+
+    @property
+    @pulumi.getter(name="autoRollbackConfiguration")
+    def auto_rollback_configuration(self) -> Optional['outputs.EndpointDeploymentConfigAutoRollbackConfiguration']:
+        """
+        Automatic rollback configuration for handling endpoint deployment failures and recovery. See Auto Rollback Configuration.
+        """
+        return pulumi.get(self, "auto_rollback_configuration")
+
+
+@pulumi.output_type
+class EndpointDeploymentConfigAutoRollbackConfiguration(dict):
+    def __init__(__self__, *,
+                 alarms: Optional[Sequence['outputs.EndpointDeploymentConfigAutoRollbackConfigurationAlarm']] = None):
+        """
+        :param Sequence['EndpointDeploymentConfigAutoRollbackConfigurationAlarmArgs'] alarms: List of CloudWatch alarms in your account that are configured to monitor metrics on an endpoint. If any alarms are tripped during a deployment, SageMaker rolls back the deployment. See Alarms.
+        """
+        if alarms is not None:
+            pulumi.set(__self__, "alarms", alarms)
+
+    @property
+    @pulumi.getter
+    def alarms(self) -> Optional[Sequence['outputs.EndpointDeploymentConfigAutoRollbackConfigurationAlarm']]:
+        """
+        List of CloudWatch alarms in your account that are configured to monitor metrics on an endpoint. If any alarms are tripped during a deployment, SageMaker rolls back the deployment. See Alarms.
+        """
+        return pulumi.get(self, "alarms")
+
+
+@pulumi.output_type
+class EndpointDeploymentConfigAutoRollbackConfigurationAlarm(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "alarmName":
+            suggest = "alarm_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointDeploymentConfigAutoRollbackConfigurationAlarm. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointDeploymentConfigAutoRollbackConfigurationAlarm.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointDeploymentConfigAutoRollbackConfigurationAlarm.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 alarm_name: str):
+        """
+        :param str alarm_name: The name of a CloudWatch alarm in your account.
+        """
+        pulumi.set(__self__, "alarm_name", alarm_name)
+
+    @property
+    @pulumi.getter(name="alarmName")
+    def alarm_name(self) -> str:
+        """
+        The name of a CloudWatch alarm in your account.
+        """
+        return pulumi.get(self, "alarm_name")
+
+
+@pulumi.output_type
+class EndpointDeploymentConfigBlueGreenUpdatePolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "trafficRoutingConfiguration":
+            suggest = "traffic_routing_configuration"
+        elif key == "maximumExecutionTimeoutInSeconds":
+            suggest = "maximum_execution_timeout_in_seconds"
+        elif key == "terminationWaitInSeconds":
+            suggest = "termination_wait_in_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointDeploymentConfigBlueGreenUpdatePolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointDeploymentConfigBlueGreenUpdatePolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointDeploymentConfigBlueGreenUpdatePolicy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 traffic_routing_configuration: 'outputs.EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration',
+                 maximum_execution_timeout_in_seconds: Optional[int] = None,
+                 termination_wait_in_seconds: Optional[int] = None):
+        """
+        :param 'EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationArgs' traffic_routing_configuration: Defines the traffic routing strategy to shift traffic from the old fleet to the new fleet during an endpoint deployment. See Traffic Routing Configuration.
+        :param int maximum_execution_timeout_in_seconds: Maximum execution timeout for the deployment. Note that the timeout value should be larger than the total waiting time specified in `termination_wait_in_seconds` and `wait_interval_in_seconds`. Valid values are between `600` and `14400`.
+        :param int termination_wait_in_seconds: Additional waiting time in seconds after the completion of an endpoint deployment before terminating the old endpoint fleet. Default is `0`. Valid values are between `0` and `3600`.
+        """
+        pulumi.set(__self__, "traffic_routing_configuration", traffic_routing_configuration)
+        if maximum_execution_timeout_in_seconds is not None:
+            pulumi.set(__self__, "maximum_execution_timeout_in_seconds", maximum_execution_timeout_in_seconds)
+        if termination_wait_in_seconds is not None:
+            pulumi.set(__self__, "termination_wait_in_seconds", termination_wait_in_seconds)
+
+    @property
+    @pulumi.getter(name="trafficRoutingConfiguration")
+    def traffic_routing_configuration(self) -> 'outputs.EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration':
+        """
+        Defines the traffic routing strategy to shift traffic from the old fleet to the new fleet during an endpoint deployment. See Traffic Routing Configuration.
+        """
+        return pulumi.get(self, "traffic_routing_configuration")
+
+    @property
+    @pulumi.getter(name="maximumExecutionTimeoutInSeconds")
+    def maximum_execution_timeout_in_seconds(self) -> Optional[int]:
+        """
+        Maximum execution timeout for the deployment. Note that the timeout value should be larger than the total waiting time specified in `termination_wait_in_seconds` and `wait_interval_in_seconds`. Valid values are between `600` and `14400`.
+        """
+        return pulumi.get(self, "maximum_execution_timeout_in_seconds")
+
+    @property
+    @pulumi.getter(name="terminationWaitInSeconds")
+    def termination_wait_in_seconds(self) -> Optional[int]:
+        """
+        Additional waiting time in seconds after the completion of an endpoint deployment before terminating the old endpoint fleet. Default is `0`. Valid values are between `0` and `3600`.
+        """
+        return pulumi.get(self, "termination_wait_in_seconds")
+
+
+@pulumi.output_type
+class EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "waitIntervalInSeconds":
+            suggest = "wait_interval_in_seconds"
+        elif key == "canarySize":
+            suggest = "canary_size"
+        elif key == "linearStepSize":
+            suggest = "linear_step_size"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: str,
+                 wait_interval_in_seconds: int,
+                 canary_size: Optional['outputs.EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySize'] = None,
+                 linear_step_size: Optional['outputs.EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSize'] = None):
+        """
+        :param str type: Specifies the endpoint capacity type. Valid values are: `INSTANCE_COUNT`, or `CAPACITY_PERCENT`.
+        :param int wait_interval_in_seconds: The waiting time (in seconds) between incremental steps to turn on traffic on the new endpoint fleet. Valid values are between `0` and `3600`.
+        :param 'EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizeArgs' canary_size: Batch size for the first step to turn on traffic on the new endpoint fleet. Value must be less than or equal to 50% of the variant's total instance count. See Canary Size.
+        :param 'EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizeArgs' linear_step_size: Batch size for each step to turn on traffic on the new endpoint fleet. Value must be 10-50% of the variant's total instance count. See Linear Step Size.
+        """
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "wait_interval_in_seconds", wait_interval_in_seconds)
+        if canary_size is not None:
+            pulumi.set(__self__, "canary_size", canary_size)
+        if linear_step_size is not None:
+            pulumi.set(__self__, "linear_step_size", linear_step_size)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Specifies the endpoint capacity type. Valid values are: `INSTANCE_COUNT`, or `CAPACITY_PERCENT`.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="waitIntervalInSeconds")
+    def wait_interval_in_seconds(self) -> int:
+        """
+        The waiting time (in seconds) between incremental steps to turn on traffic on the new endpoint fleet. Valid values are between `0` and `3600`.
+        """
+        return pulumi.get(self, "wait_interval_in_seconds")
+
+    @property
+    @pulumi.getter(name="canarySize")
+    def canary_size(self) -> Optional['outputs.EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySize']:
+        """
+        Batch size for the first step to turn on traffic on the new endpoint fleet. Value must be less than or equal to 50% of the variant's total instance count. See Canary Size.
+        """
+        return pulumi.get(self, "canary_size")
+
+    @property
+    @pulumi.getter(name="linearStepSize")
+    def linear_step_size(self) -> Optional['outputs.EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSize']:
+        """
+        Batch size for each step to turn on traffic on the new endpoint fleet. Value must be 10-50% of the variant's total instance count. See Linear Step Size.
+        """
+        return pulumi.get(self, "linear_step_size")
+
+
+@pulumi.output_type
+class EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySize(dict):
+    def __init__(__self__, *,
+                 type: str,
+                 value: int):
+        """
+        :param str type: Specifies the endpoint capacity type. Valid values are: `INSTANCE_COUNT`, or `CAPACITY_PERCENT`.
+        :param int value: Defines the capacity size, either as a number of instances or a capacity percentage.
+        """
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Specifies the endpoint capacity type. Valid values are: `INSTANCE_COUNT`, or `CAPACITY_PERCENT`.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> int:
+        """
+        Defines the capacity size, either as a number of instances or a capacity percentage.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSize(dict):
+    def __init__(__self__, *,
+                 type: str,
+                 value: int):
+        """
+        :param str type: Specifies the endpoint capacity type. Valid values are: `INSTANCE_COUNT`, or `CAPACITY_PERCENT`.
+        :param int value: Defines the capacity size, either as a number of instances or a capacity percentage.
+        """
+        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Specifies the endpoint capacity type. Valid values are: `INSTANCE_COUNT`, or `CAPACITY_PERCENT`.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> int:
+        """
+        Defines the capacity size, either as a number of instances or a capacity percentage.
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

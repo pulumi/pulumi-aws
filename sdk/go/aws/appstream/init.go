@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws:appstream/directoryConfig:DirectoryConfig":
+		r = &DirectoryConfig{}
 	case "aws:appstream/fleet:Fleet":
 		r = &Fleet{}
 	case "aws:appstream/imageBuilder:ImageBuilder":
@@ -40,6 +42,11 @@ func init() {
 	if err != nil {
 		fmt.Printf("failed to determine package version. defaulting to v1: %v\n", err)
 	}
+	pulumi.RegisterResourceModule(
+		"aws",
+		"appstream/directoryConfig",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"aws",
 		"appstream/fleet",

@@ -10,61 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.S3
 {
     /// <summary>
-    /// Provides a resource to manage an S3 Access Point.
-    /// 
-    /// ## Example Usage
-    /// ### AWS Partition Bucket
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var exampleBucket = new Aws.S3.Bucket("exampleBucket", new Aws.S3.BucketArgs
-    ///         {
-    ///         });
-    ///         var exampleAccessPoint = new Aws.S3.AccessPoint("exampleAccessPoint", new Aws.S3.AccessPointArgs
-    ///         {
-    ///             Bucket = exampleBucket.Id,
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
-    /// ### S3 on Outposts Bucket
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var exampleBucket = new Aws.S3Control.Bucket("exampleBucket", new Aws.S3Control.BucketArgs
-    ///         {
-    ///             Bucket = "example",
-    ///         });
-    ///         var exampleVpc = new Aws.Ec2.Vpc("exampleVpc", new Aws.Ec2.VpcArgs
-    ///         {
-    ///             CidrBlock = "10.0.0.0/16",
-    ///         });
-    ///         var exampleAccessPoint = new Aws.S3.AccessPoint("exampleAccessPoint", new Aws.S3.AccessPointArgs
-    ///         {
-    ///             Bucket = exampleBucket.Arn,
-    ///             VpcConfiguration = new Aws.S3.Inputs.AccessPointVpcConfigurationArgs
-    ///             {
-    ///                 VpcId = exampleVpc.Id,
-    ///             },
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// For Access Points associated with an AWS Partition S3 Bucket, this resource can be imported using the `account_id` and `name` separated by a colon (`:`), e.g.,
@@ -89,6 +34,12 @@ namespace Pulumi.Aws.S3
         public Output<string> AccountId { get; private set; } = null!;
 
         /// <summary>
+        /// The alias of the S3 Access Point.
+        /// </summary>
+        [Output("alias")]
+        public Output<string> Alias { get; private set; } = null!;
+
+        /// <summary>
         /// Amazon Resource Name (ARN) of the S3 Access Point.
         /// </summary>
         [Output("arn")]
@@ -106,6 +57,12 @@ namespace Pulumi.Aws.S3
         /// </summary>
         [Output("domainName")]
         public Output<string> DomainName { get; private set; } = null!;
+
+        /// <summary>
+        /// The VPC endpoints for the S3 Access Point.
+        /// </summary>
+        [Output("endpoints")]
+        public Output<ImmutableDictionary<string, string>> Endpoints { get; private set; } = null!;
 
         /// <summary>
         /// Indicates whether this access point currently has a policy that allows public access.
@@ -239,6 +196,12 @@ namespace Pulumi.Aws.S3
         public Input<string>? AccountId { get; set; }
 
         /// <summary>
+        /// The alias of the S3 Access Point.
+        /// </summary>
+        [Input("alias")]
+        public Input<string>? Alias { get; set; }
+
+        /// <summary>
         /// Amazon Resource Name (ARN) of the S3 Access Point.
         /// </summary>
         [Input("arn")]
@@ -256,6 +219,18 @@ namespace Pulumi.Aws.S3
         /// </summary>
         [Input("domainName")]
         public Input<string>? DomainName { get; set; }
+
+        [Input("endpoints")]
+        private InputMap<string>? _endpoints;
+
+        /// <summary>
+        /// The VPC endpoints for the S3 Access Point.
+        /// </summary>
+        public InputMap<string> Endpoints
+        {
+            get => _endpoints ?? (_endpoints = new InputMap<string>());
+            set => _endpoints = value;
+        }
 
         /// <summary>
         /// Indicates whether this access point currently has a policy that allows public access.

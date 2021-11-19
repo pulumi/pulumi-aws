@@ -16,6 +16,7 @@ export * from "./bucketObject";
 export * from "./bucketOwnershipControls";
 export * from "./bucketPolicy";
 export * from "./bucketPublicAccessBlock";
+export * from "./bucketReplicationConfig";
 export * from "./cannedAcl";
 export * from "./getBucket";
 export * from "./getBucketObject";
@@ -41,6 +42,7 @@ import { BucketObject } from "./bucketObject";
 import { BucketOwnershipControls } from "./bucketOwnershipControls";
 import { BucketPolicy } from "./bucketPolicy";
 import { BucketPublicAccessBlock } from "./bucketPublicAccessBlock";
+import { BucketReplicationConfig } from "./bucketReplicationConfig";
 import { Inventory } from "./inventory";
 import { ObjectCopy } from "./objectCopy";
 
@@ -70,6 +72,8 @@ const _module = {
                 return new BucketPolicy(name, <any>undefined, { urn })
             case "aws:s3/bucketPublicAccessBlock:BucketPublicAccessBlock":
                 return new BucketPublicAccessBlock(name, <any>undefined, { urn })
+            case "aws:s3/bucketReplicationConfig:BucketReplicationConfig":
+                return new BucketReplicationConfig(name, <any>undefined, { urn })
             case "aws:s3/inventory:Inventory":
                 return new Inventory(name, <any>undefined, { urn })
             case "aws:s3/objectCopy:ObjectCopy":
@@ -90,5 +94,6 @@ pulumi.runtime.registerResourceModule("aws", "s3/bucketObject", _module)
 pulumi.runtime.registerResourceModule("aws", "s3/bucketOwnershipControls", _module)
 pulumi.runtime.registerResourceModule("aws", "s3/bucketPolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "s3/bucketPublicAccessBlock", _module)
+pulumi.runtime.registerResourceModule("aws", "s3/bucketReplicationConfig", _module)
 pulumi.runtime.registerResourceModule("aws", "s3/inventory", _module)
 pulumi.runtime.registerResourceModule("aws", "s3/objectCopy", _module)

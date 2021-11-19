@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -64,15 +65,19 @@ export class Endpoint extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * The deployment configuration for an endpoint, which contains the desired deployment strategy and rollback configurations. See Deployment Config.
+     */
+    public readonly deploymentConfig!: pulumi.Output<outputs.sagemaker.EndpointDeploymentConfig | undefined>;
+    /**
      * The name of the endpoint configuration to use.
      */
     public readonly endpointConfigName!: pulumi.Output<string>;
     /**
-     * The name of the endpoint. If omitted, this provider will assign a random, unique name.
+     * The name of the endpoint.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -94,6 +99,7 @@ export class Endpoint extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as EndpointState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
+            inputs["deploymentConfig"] = state ? state.deploymentConfig : undefined;
             inputs["endpointConfigName"] = state ? state.endpointConfigName : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["tags"] = state ? state.tags : undefined;
@@ -103,6 +109,7 @@ export class Endpoint extends pulumi.CustomResource {
             if ((!args || args.endpointConfigName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'endpointConfigName'");
             }
+            inputs["deploymentConfig"] = args ? args.deploymentConfig : undefined;
             inputs["endpointConfigName"] = args ? args.endpointConfigName : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["tags"] = args ? args.tags : undefined;
@@ -125,15 +132,19 @@ export interface EndpointState {
      */
     arn?: pulumi.Input<string>;
     /**
+     * The deployment configuration for an endpoint, which contains the desired deployment strategy and rollback configurations. See Deployment Config.
+     */
+    deploymentConfig?: pulumi.Input<inputs.sagemaker.EndpointDeploymentConfig>;
+    /**
      * The name of the endpoint configuration to use.
      */
     endpointConfigName?: pulumi.Input<string>;
     /**
-     * The name of the endpoint. If omitted, this provider will assign a random, unique name.
+     * The name of the endpoint.
      */
     name?: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -147,15 +158,19 @@ export interface EndpointState {
  */
 export interface EndpointArgs {
     /**
+     * The deployment configuration for an endpoint, which contains the desired deployment strategy and rollback configurations. See Deployment Config.
+     */
+    deploymentConfig?: pulumi.Input<inputs.sagemaker.EndpointDeploymentConfig>;
+    /**
      * The name of the endpoint configuration to use.
      */
     endpointConfigName: pulumi.Input<string>;
     /**
-     * The name of the endpoint. If omitted, this provider will assign a random, unique name.
+     * The name of the endpoint.
      */
     name?: pulumi.Input<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

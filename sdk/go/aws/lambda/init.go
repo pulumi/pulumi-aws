@@ -33,6 +33,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &FunctionEventInvokeConfig{}
 	case "aws:lambda/layerVersion:LayerVersion":
 		r = &LayerVersion{}
+	case "aws:lambda/layerVersionPermission:LayerVersionPermission":
+		r = &LayerVersionPermission{}
 	case "aws:lambda/permission:Permission":
 		r = &Permission{}
 	case "aws:lambda/provisionedConcurrencyConfig:ProvisionedConcurrencyConfig":
@@ -78,6 +80,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"lambda/layerVersion",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"lambda/layerVersionPermission",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

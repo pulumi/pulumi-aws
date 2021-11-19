@@ -60,7 +60,7 @@ class GroupArgs:
         :param pulumi.Input[int] desired_capacity: The number of Amazon EC2 instances that
                should be running in the group. (See also Waiting for
                Capacity below.)
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_metrics: A list of metrics to collect. The allowed values are `GroupDesiredCapacity`, `GroupInServiceCapacity`, `GroupPendingCapacity`, `GroupMinSize`, `GroupMaxSize`, `GroupInServiceInstances`, `GroupPendingInstances`, `GroupStandbyInstances`, `GroupStandbyCapacity`, `GroupTerminatingCapacity`, `GroupTerminatingInstances`, `GroupTotalCapacity`, `GroupTotalInstances`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_metrics: A list of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
         :param pulumi.Input[bool] force_delete: Allows deleting the Auto Scaling Group without waiting
                for all instances in the pool to terminate.  You can force an Auto Scaling Group to delete
                even if it's in the process of scaling a resource. Normally, this provider
@@ -262,7 +262,7 @@ class GroupArgs:
     @pulumi.getter(name="enabledMetrics")
     def enabled_metrics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of metrics to collect. The allowed values are `GroupDesiredCapacity`, `GroupInServiceCapacity`, `GroupPendingCapacity`, `GroupMinSize`, `GroupMaxSize`, `GroupInServiceInstances`, `GroupPendingInstances`, `GroupStandbyInstances`, `GroupStandbyCapacity`, `GroupTerminatingCapacity`, `GroupTerminatingInstances`, `GroupTotalCapacity`, `GroupTotalInstances`.
+        A list of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
         """
         return pulumi.get(self, "enabled_metrics")
 
@@ -668,7 +668,7 @@ class _GroupState:
         :param pulumi.Input[int] desired_capacity: The number of Amazon EC2 instances that
                should be running in the group. (See also Waiting for
                Capacity below.)
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_metrics: A list of metrics to collect. The allowed values are `GroupDesiredCapacity`, `GroupInServiceCapacity`, `GroupPendingCapacity`, `GroupMinSize`, `GroupMaxSize`, `GroupInServiceInstances`, `GroupPendingInstances`, `GroupStandbyInstances`, `GroupStandbyCapacity`, `GroupTerminatingCapacity`, `GroupTerminatingInstances`, `GroupTotalCapacity`, `GroupTotalInstances`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_metrics: A list of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
         :param pulumi.Input[bool] force_delete: Allows deleting the Auto Scaling Group without waiting
                for all instances in the pool to terminate.  You can force an Auto Scaling Group to delete
                even if it's in the process of scaling a resource. Normally, this provider
@@ -864,7 +864,7 @@ class _GroupState:
     @pulumi.getter(name="enabledMetrics")
     def enabled_metrics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A list of metrics to collect. The allowed values are `GroupDesiredCapacity`, `GroupInServiceCapacity`, `GroupPendingCapacity`, `GroupMinSize`, `GroupMaxSize`, `GroupInServiceInstances`, `GroupPendingInstances`, `GroupStandbyInstances`, `GroupStandbyCapacity`, `GroupTerminatingCapacity`, `GroupTerminatingInstances`, `GroupTotalCapacity`, `GroupTotalInstances`.
+        A list of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
         """
         return pulumi.get(self, "enabled_metrics")
 
@@ -1573,7 +1573,7 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[int] desired_capacity: The number of Amazon EC2 instances that
                should be running in the group. (See also Waiting for
                Capacity below.)
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_metrics: A list of metrics to collect. The allowed values are `GroupDesiredCapacity`, `GroupInServiceCapacity`, `GroupPendingCapacity`, `GroupMinSize`, `GroupMaxSize`, `GroupInServiceInstances`, `GroupPendingInstances`, `GroupStandbyInstances`, `GroupStandbyCapacity`, `GroupTerminatingCapacity`, `GroupTerminatingInstances`, `GroupTotalCapacity`, `GroupTotalInstances`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_metrics: A list of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
         :param pulumi.Input[bool] force_delete: Allows deleting the Auto Scaling Group without waiting
                for all instances in the pool to terminate.  You can force an Auto Scaling Group to delete
                even if it's in the process of scaling a resource. Normally, this provider
@@ -2075,7 +2075,7 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[int] desired_capacity: The number of Amazon EC2 instances that
                should be running in the group. (See also Waiting for
                Capacity below.)
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_metrics: A list of metrics to collect. The allowed values are `GroupDesiredCapacity`, `GroupInServiceCapacity`, `GroupPendingCapacity`, `GroupMinSize`, `GroupMaxSize`, `GroupInServiceInstances`, `GroupPendingInstances`, `GroupStandbyInstances`, `GroupStandbyCapacity`, `GroupTerminatingCapacity`, `GroupTerminatingInstances`, `GroupTotalCapacity`, `GroupTotalInstances`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_metrics: A list of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
         :param pulumi.Input[bool] force_delete: Allows deleting the Auto Scaling Group without waiting
                for all instances in the pool to terminate.  You can force an Auto Scaling Group to delete
                even if it's in the process of scaling a resource. Normally, this provider
@@ -2221,7 +2221,7 @@ class Group(pulumi.CustomResource):
     @pulumi.getter(name="enabledMetrics")
     def enabled_metrics(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        A list of metrics to collect. The allowed values are `GroupDesiredCapacity`, `GroupInServiceCapacity`, `GroupPendingCapacity`, `GroupMinSize`, `GroupMaxSize`, `GroupInServiceInstances`, `GroupPendingInstances`, `GroupStandbyInstances`, `GroupStandbyCapacity`, `GroupTerminatingCapacity`, `GroupTerminatingInstances`, `GroupTotalCapacity`, `GroupTotalInstances`.
+        A list of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
         """
         return pulumi.get(self, "enabled_metrics")
 

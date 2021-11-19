@@ -617,6 +617,1077 @@ func (o BucketLifecycleConfigurationRuleFilterPtrOutput) Tags() pulumi.StringMap
 	}).(pulumi.StringMapOutput)
 }
 
+type MultiRegionAccessPointDetails struct {
+	// The name of the Multi-Region Access Point.
+	Name string `pulumi:"name"`
+	// Configuration block to manage the `PublicAccessBlock` configuration that you want to apply to this Multi-Region Access Point. You can enable the configuration options in any combination. See Public Access Block Configuration below for more details.
+	PublicAccessBlock *MultiRegionAccessPointDetailsPublicAccessBlock `pulumi:"publicAccessBlock"`
+	// The Region configuration block to specify the bucket associated with the Multi-Region Access Point. See Region Configuration below for more details.
+	Regions []MultiRegionAccessPointDetailsRegion `pulumi:"regions"`
+}
+
+// MultiRegionAccessPointDetailsInput is an input type that accepts MultiRegionAccessPointDetailsArgs and MultiRegionAccessPointDetailsOutput values.
+// You can construct a concrete instance of `MultiRegionAccessPointDetailsInput` via:
+//
+//          MultiRegionAccessPointDetailsArgs{...}
+type MultiRegionAccessPointDetailsInput interface {
+	pulumi.Input
+
+	ToMultiRegionAccessPointDetailsOutput() MultiRegionAccessPointDetailsOutput
+	ToMultiRegionAccessPointDetailsOutputWithContext(context.Context) MultiRegionAccessPointDetailsOutput
+}
+
+type MultiRegionAccessPointDetailsArgs struct {
+	// The name of the Multi-Region Access Point.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Configuration block to manage the `PublicAccessBlock` configuration that you want to apply to this Multi-Region Access Point. You can enable the configuration options in any combination. See Public Access Block Configuration below for more details.
+	PublicAccessBlock MultiRegionAccessPointDetailsPublicAccessBlockPtrInput `pulumi:"publicAccessBlock"`
+	// The Region configuration block to specify the bucket associated with the Multi-Region Access Point. See Region Configuration below for more details.
+	Regions MultiRegionAccessPointDetailsRegionArrayInput `pulumi:"regions"`
+}
+
+func (MultiRegionAccessPointDetailsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultiRegionAccessPointDetails)(nil)).Elem()
+}
+
+func (i MultiRegionAccessPointDetailsArgs) ToMultiRegionAccessPointDetailsOutput() MultiRegionAccessPointDetailsOutput {
+	return i.ToMultiRegionAccessPointDetailsOutputWithContext(context.Background())
+}
+
+func (i MultiRegionAccessPointDetailsArgs) ToMultiRegionAccessPointDetailsOutputWithContext(ctx context.Context) MultiRegionAccessPointDetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultiRegionAccessPointDetailsOutput)
+}
+
+func (i MultiRegionAccessPointDetailsArgs) ToMultiRegionAccessPointDetailsPtrOutput() MultiRegionAccessPointDetailsPtrOutput {
+	return i.ToMultiRegionAccessPointDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i MultiRegionAccessPointDetailsArgs) ToMultiRegionAccessPointDetailsPtrOutputWithContext(ctx context.Context) MultiRegionAccessPointDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultiRegionAccessPointDetailsOutput).ToMultiRegionAccessPointDetailsPtrOutputWithContext(ctx)
+}
+
+// MultiRegionAccessPointDetailsPtrInput is an input type that accepts MultiRegionAccessPointDetailsArgs, MultiRegionAccessPointDetailsPtr and MultiRegionAccessPointDetailsPtrOutput values.
+// You can construct a concrete instance of `MultiRegionAccessPointDetailsPtrInput` via:
+//
+//          MultiRegionAccessPointDetailsArgs{...}
+//
+//  or:
+//
+//          nil
+type MultiRegionAccessPointDetailsPtrInput interface {
+	pulumi.Input
+
+	ToMultiRegionAccessPointDetailsPtrOutput() MultiRegionAccessPointDetailsPtrOutput
+	ToMultiRegionAccessPointDetailsPtrOutputWithContext(context.Context) MultiRegionAccessPointDetailsPtrOutput
+}
+
+type multiRegionAccessPointDetailsPtrType MultiRegionAccessPointDetailsArgs
+
+func MultiRegionAccessPointDetailsPtr(v *MultiRegionAccessPointDetailsArgs) MultiRegionAccessPointDetailsPtrInput {
+	return (*multiRegionAccessPointDetailsPtrType)(v)
+}
+
+func (*multiRegionAccessPointDetailsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MultiRegionAccessPointDetails)(nil)).Elem()
+}
+
+func (i *multiRegionAccessPointDetailsPtrType) ToMultiRegionAccessPointDetailsPtrOutput() MultiRegionAccessPointDetailsPtrOutput {
+	return i.ToMultiRegionAccessPointDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i *multiRegionAccessPointDetailsPtrType) ToMultiRegionAccessPointDetailsPtrOutputWithContext(ctx context.Context) MultiRegionAccessPointDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultiRegionAccessPointDetailsPtrOutput)
+}
+
+type MultiRegionAccessPointDetailsOutput struct{ *pulumi.OutputState }
+
+func (MultiRegionAccessPointDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultiRegionAccessPointDetails)(nil)).Elem()
+}
+
+func (o MultiRegionAccessPointDetailsOutput) ToMultiRegionAccessPointDetailsOutput() MultiRegionAccessPointDetailsOutput {
+	return o
+}
+
+func (o MultiRegionAccessPointDetailsOutput) ToMultiRegionAccessPointDetailsOutputWithContext(ctx context.Context) MultiRegionAccessPointDetailsOutput {
+	return o
+}
+
+func (o MultiRegionAccessPointDetailsOutput) ToMultiRegionAccessPointDetailsPtrOutput() MultiRegionAccessPointDetailsPtrOutput {
+	return o.ToMultiRegionAccessPointDetailsPtrOutputWithContext(context.Background())
+}
+
+func (o MultiRegionAccessPointDetailsOutput) ToMultiRegionAccessPointDetailsPtrOutputWithContext(ctx context.Context) MultiRegionAccessPointDetailsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MultiRegionAccessPointDetails) *MultiRegionAccessPointDetails {
+		return &v
+	}).(MultiRegionAccessPointDetailsPtrOutput)
+}
+
+// The name of the Multi-Region Access Point.
+func (o MultiRegionAccessPointDetailsOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v MultiRegionAccessPointDetails) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Configuration block to manage the `PublicAccessBlock` configuration that you want to apply to this Multi-Region Access Point. You can enable the configuration options in any combination. See Public Access Block Configuration below for more details.
+func (o MultiRegionAccessPointDetailsOutput) PublicAccessBlock() MultiRegionAccessPointDetailsPublicAccessBlockPtrOutput {
+	return o.ApplyT(func(v MultiRegionAccessPointDetails) *MultiRegionAccessPointDetailsPublicAccessBlock {
+		return v.PublicAccessBlock
+	}).(MultiRegionAccessPointDetailsPublicAccessBlockPtrOutput)
+}
+
+// The Region configuration block to specify the bucket associated with the Multi-Region Access Point. See Region Configuration below for more details.
+func (o MultiRegionAccessPointDetailsOutput) Regions() MultiRegionAccessPointDetailsRegionArrayOutput {
+	return o.ApplyT(func(v MultiRegionAccessPointDetails) []MultiRegionAccessPointDetailsRegion { return v.Regions }).(MultiRegionAccessPointDetailsRegionArrayOutput)
+}
+
+type MultiRegionAccessPointDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (MultiRegionAccessPointDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MultiRegionAccessPointDetails)(nil)).Elem()
+}
+
+func (o MultiRegionAccessPointDetailsPtrOutput) ToMultiRegionAccessPointDetailsPtrOutput() MultiRegionAccessPointDetailsPtrOutput {
+	return o
+}
+
+func (o MultiRegionAccessPointDetailsPtrOutput) ToMultiRegionAccessPointDetailsPtrOutputWithContext(ctx context.Context) MultiRegionAccessPointDetailsPtrOutput {
+	return o
+}
+
+func (o MultiRegionAccessPointDetailsPtrOutput) Elem() MultiRegionAccessPointDetailsOutput {
+	return o.ApplyT(func(v *MultiRegionAccessPointDetails) MultiRegionAccessPointDetails {
+		if v != nil {
+			return *v
+		}
+		var ret MultiRegionAccessPointDetails
+		return ret
+	}).(MultiRegionAccessPointDetailsOutput)
+}
+
+// The name of the Multi-Region Access Point.
+func (o MultiRegionAccessPointDetailsPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MultiRegionAccessPointDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Configuration block to manage the `PublicAccessBlock` configuration that you want to apply to this Multi-Region Access Point. You can enable the configuration options in any combination. See Public Access Block Configuration below for more details.
+func (o MultiRegionAccessPointDetailsPtrOutput) PublicAccessBlock() MultiRegionAccessPointDetailsPublicAccessBlockPtrOutput {
+	return o.ApplyT(func(v *MultiRegionAccessPointDetails) *MultiRegionAccessPointDetailsPublicAccessBlock {
+		if v == nil {
+			return nil
+		}
+		return v.PublicAccessBlock
+	}).(MultiRegionAccessPointDetailsPublicAccessBlockPtrOutput)
+}
+
+// The Region configuration block to specify the bucket associated with the Multi-Region Access Point. See Region Configuration below for more details.
+func (o MultiRegionAccessPointDetailsPtrOutput) Regions() MultiRegionAccessPointDetailsRegionArrayOutput {
+	return o.ApplyT(func(v *MultiRegionAccessPointDetails) []MultiRegionAccessPointDetailsRegion {
+		if v == nil {
+			return nil
+		}
+		return v.Regions
+	}).(MultiRegionAccessPointDetailsRegionArrayOutput)
+}
+
+type MultiRegionAccessPointDetailsPublicAccessBlock struct {
+	// Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:
+	// * PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
+	// * PUT Object calls fail if the request includes a public ACL.
+	// * PUT Bucket calls fail if the request includes a public ACL.
+	BlockPublicAcls *bool `pulumi:"blockPublicAcls"`
+	// Whether Amazon S3 should block public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing bucket policies. When set to `true` causes Amazon S3 to:
+	// * Reject calls to PUT Bucket policy if the specified bucket policy allows public access.
+	BlockPublicPolicy *bool `pulumi:"blockPublicPolicy"`
+	// Whether Amazon S3 should ignore public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set. When set to `true` causes Amazon S3 to:
+	// * Ignore all public ACLs on buckets in this account and any objects that they contain.
+	IgnorePublicAcls *bool `pulumi:"ignorePublicAcls"`
+	// Whether Amazon S3 should restrict public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked. When set to `true`:
+	// * Only the bucket owner and AWS Services can access buckets with public policies.
+	RestrictPublicBuckets *bool `pulumi:"restrictPublicBuckets"`
+}
+
+// MultiRegionAccessPointDetailsPublicAccessBlockInput is an input type that accepts MultiRegionAccessPointDetailsPublicAccessBlockArgs and MultiRegionAccessPointDetailsPublicAccessBlockOutput values.
+// You can construct a concrete instance of `MultiRegionAccessPointDetailsPublicAccessBlockInput` via:
+//
+//          MultiRegionAccessPointDetailsPublicAccessBlockArgs{...}
+type MultiRegionAccessPointDetailsPublicAccessBlockInput interface {
+	pulumi.Input
+
+	ToMultiRegionAccessPointDetailsPublicAccessBlockOutput() MultiRegionAccessPointDetailsPublicAccessBlockOutput
+	ToMultiRegionAccessPointDetailsPublicAccessBlockOutputWithContext(context.Context) MultiRegionAccessPointDetailsPublicAccessBlockOutput
+}
+
+type MultiRegionAccessPointDetailsPublicAccessBlockArgs struct {
+	// Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:
+	// * PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
+	// * PUT Object calls fail if the request includes a public ACL.
+	// * PUT Bucket calls fail if the request includes a public ACL.
+	BlockPublicAcls pulumi.BoolPtrInput `pulumi:"blockPublicAcls"`
+	// Whether Amazon S3 should block public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing bucket policies. When set to `true` causes Amazon S3 to:
+	// * Reject calls to PUT Bucket policy if the specified bucket policy allows public access.
+	BlockPublicPolicy pulumi.BoolPtrInput `pulumi:"blockPublicPolicy"`
+	// Whether Amazon S3 should ignore public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set. When set to `true` causes Amazon S3 to:
+	// * Ignore all public ACLs on buckets in this account and any objects that they contain.
+	IgnorePublicAcls pulumi.BoolPtrInput `pulumi:"ignorePublicAcls"`
+	// Whether Amazon S3 should restrict public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked. When set to `true`:
+	// * Only the bucket owner and AWS Services can access buckets with public policies.
+	RestrictPublicBuckets pulumi.BoolPtrInput `pulumi:"restrictPublicBuckets"`
+}
+
+func (MultiRegionAccessPointDetailsPublicAccessBlockArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultiRegionAccessPointDetailsPublicAccessBlock)(nil)).Elem()
+}
+
+func (i MultiRegionAccessPointDetailsPublicAccessBlockArgs) ToMultiRegionAccessPointDetailsPublicAccessBlockOutput() MultiRegionAccessPointDetailsPublicAccessBlockOutput {
+	return i.ToMultiRegionAccessPointDetailsPublicAccessBlockOutputWithContext(context.Background())
+}
+
+func (i MultiRegionAccessPointDetailsPublicAccessBlockArgs) ToMultiRegionAccessPointDetailsPublicAccessBlockOutputWithContext(ctx context.Context) MultiRegionAccessPointDetailsPublicAccessBlockOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultiRegionAccessPointDetailsPublicAccessBlockOutput)
+}
+
+func (i MultiRegionAccessPointDetailsPublicAccessBlockArgs) ToMultiRegionAccessPointDetailsPublicAccessBlockPtrOutput() MultiRegionAccessPointDetailsPublicAccessBlockPtrOutput {
+	return i.ToMultiRegionAccessPointDetailsPublicAccessBlockPtrOutputWithContext(context.Background())
+}
+
+func (i MultiRegionAccessPointDetailsPublicAccessBlockArgs) ToMultiRegionAccessPointDetailsPublicAccessBlockPtrOutputWithContext(ctx context.Context) MultiRegionAccessPointDetailsPublicAccessBlockPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultiRegionAccessPointDetailsPublicAccessBlockOutput).ToMultiRegionAccessPointDetailsPublicAccessBlockPtrOutputWithContext(ctx)
+}
+
+// MultiRegionAccessPointDetailsPublicAccessBlockPtrInput is an input type that accepts MultiRegionAccessPointDetailsPublicAccessBlockArgs, MultiRegionAccessPointDetailsPublicAccessBlockPtr and MultiRegionAccessPointDetailsPublicAccessBlockPtrOutput values.
+// You can construct a concrete instance of `MultiRegionAccessPointDetailsPublicAccessBlockPtrInput` via:
+//
+//          MultiRegionAccessPointDetailsPublicAccessBlockArgs{...}
+//
+//  or:
+//
+//          nil
+type MultiRegionAccessPointDetailsPublicAccessBlockPtrInput interface {
+	pulumi.Input
+
+	ToMultiRegionAccessPointDetailsPublicAccessBlockPtrOutput() MultiRegionAccessPointDetailsPublicAccessBlockPtrOutput
+	ToMultiRegionAccessPointDetailsPublicAccessBlockPtrOutputWithContext(context.Context) MultiRegionAccessPointDetailsPublicAccessBlockPtrOutput
+}
+
+type multiRegionAccessPointDetailsPublicAccessBlockPtrType MultiRegionAccessPointDetailsPublicAccessBlockArgs
+
+func MultiRegionAccessPointDetailsPublicAccessBlockPtr(v *MultiRegionAccessPointDetailsPublicAccessBlockArgs) MultiRegionAccessPointDetailsPublicAccessBlockPtrInput {
+	return (*multiRegionAccessPointDetailsPublicAccessBlockPtrType)(v)
+}
+
+func (*multiRegionAccessPointDetailsPublicAccessBlockPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MultiRegionAccessPointDetailsPublicAccessBlock)(nil)).Elem()
+}
+
+func (i *multiRegionAccessPointDetailsPublicAccessBlockPtrType) ToMultiRegionAccessPointDetailsPublicAccessBlockPtrOutput() MultiRegionAccessPointDetailsPublicAccessBlockPtrOutput {
+	return i.ToMultiRegionAccessPointDetailsPublicAccessBlockPtrOutputWithContext(context.Background())
+}
+
+func (i *multiRegionAccessPointDetailsPublicAccessBlockPtrType) ToMultiRegionAccessPointDetailsPublicAccessBlockPtrOutputWithContext(ctx context.Context) MultiRegionAccessPointDetailsPublicAccessBlockPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultiRegionAccessPointDetailsPublicAccessBlockPtrOutput)
+}
+
+type MultiRegionAccessPointDetailsPublicAccessBlockOutput struct{ *pulumi.OutputState }
+
+func (MultiRegionAccessPointDetailsPublicAccessBlockOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultiRegionAccessPointDetailsPublicAccessBlock)(nil)).Elem()
+}
+
+func (o MultiRegionAccessPointDetailsPublicAccessBlockOutput) ToMultiRegionAccessPointDetailsPublicAccessBlockOutput() MultiRegionAccessPointDetailsPublicAccessBlockOutput {
+	return o
+}
+
+func (o MultiRegionAccessPointDetailsPublicAccessBlockOutput) ToMultiRegionAccessPointDetailsPublicAccessBlockOutputWithContext(ctx context.Context) MultiRegionAccessPointDetailsPublicAccessBlockOutput {
+	return o
+}
+
+func (o MultiRegionAccessPointDetailsPublicAccessBlockOutput) ToMultiRegionAccessPointDetailsPublicAccessBlockPtrOutput() MultiRegionAccessPointDetailsPublicAccessBlockPtrOutput {
+	return o.ToMultiRegionAccessPointDetailsPublicAccessBlockPtrOutputWithContext(context.Background())
+}
+
+func (o MultiRegionAccessPointDetailsPublicAccessBlockOutput) ToMultiRegionAccessPointDetailsPublicAccessBlockPtrOutputWithContext(ctx context.Context) MultiRegionAccessPointDetailsPublicAccessBlockPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MultiRegionAccessPointDetailsPublicAccessBlock) *MultiRegionAccessPointDetailsPublicAccessBlock {
+		return &v
+	}).(MultiRegionAccessPointDetailsPublicAccessBlockPtrOutput)
+}
+
+// Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:
+// * PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
+// * PUT Object calls fail if the request includes a public ACL.
+// * PUT Bucket calls fail if the request includes a public ACL.
+func (o MultiRegionAccessPointDetailsPublicAccessBlockOutput) BlockPublicAcls() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v MultiRegionAccessPointDetailsPublicAccessBlock) *bool { return v.BlockPublicAcls }).(pulumi.BoolPtrOutput)
+}
+
+// Whether Amazon S3 should block public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing bucket policies. When set to `true` causes Amazon S3 to:
+// * Reject calls to PUT Bucket policy if the specified bucket policy allows public access.
+func (o MultiRegionAccessPointDetailsPublicAccessBlockOutput) BlockPublicPolicy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v MultiRegionAccessPointDetailsPublicAccessBlock) *bool { return v.BlockPublicPolicy }).(pulumi.BoolPtrOutput)
+}
+
+// Whether Amazon S3 should ignore public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set. When set to `true` causes Amazon S3 to:
+// * Ignore all public ACLs on buckets in this account and any objects that they contain.
+func (o MultiRegionAccessPointDetailsPublicAccessBlockOutput) IgnorePublicAcls() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v MultiRegionAccessPointDetailsPublicAccessBlock) *bool { return v.IgnorePublicAcls }).(pulumi.BoolPtrOutput)
+}
+
+// Whether Amazon S3 should restrict public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked. When set to `true`:
+// * Only the bucket owner and AWS Services can access buckets with public policies.
+func (o MultiRegionAccessPointDetailsPublicAccessBlockOutput) RestrictPublicBuckets() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v MultiRegionAccessPointDetailsPublicAccessBlock) *bool { return v.RestrictPublicBuckets }).(pulumi.BoolPtrOutput)
+}
+
+type MultiRegionAccessPointDetailsPublicAccessBlockPtrOutput struct{ *pulumi.OutputState }
+
+func (MultiRegionAccessPointDetailsPublicAccessBlockPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MultiRegionAccessPointDetailsPublicAccessBlock)(nil)).Elem()
+}
+
+func (o MultiRegionAccessPointDetailsPublicAccessBlockPtrOutput) ToMultiRegionAccessPointDetailsPublicAccessBlockPtrOutput() MultiRegionAccessPointDetailsPublicAccessBlockPtrOutput {
+	return o
+}
+
+func (o MultiRegionAccessPointDetailsPublicAccessBlockPtrOutput) ToMultiRegionAccessPointDetailsPublicAccessBlockPtrOutputWithContext(ctx context.Context) MultiRegionAccessPointDetailsPublicAccessBlockPtrOutput {
+	return o
+}
+
+func (o MultiRegionAccessPointDetailsPublicAccessBlockPtrOutput) Elem() MultiRegionAccessPointDetailsPublicAccessBlockOutput {
+	return o.ApplyT(func(v *MultiRegionAccessPointDetailsPublicAccessBlock) MultiRegionAccessPointDetailsPublicAccessBlock {
+		if v != nil {
+			return *v
+		}
+		var ret MultiRegionAccessPointDetailsPublicAccessBlock
+		return ret
+	}).(MultiRegionAccessPointDetailsPublicAccessBlockOutput)
+}
+
+// Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:
+// * PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
+// * PUT Object calls fail if the request includes a public ACL.
+// * PUT Bucket calls fail if the request includes a public ACL.
+func (o MultiRegionAccessPointDetailsPublicAccessBlockPtrOutput) BlockPublicAcls() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *MultiRegionAccessPointDetailsPublicAccessBlock) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.BlockPublicAcls
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Whether Amazon S3 should block public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing bucket policies. When set to `true` causes Amazon S3 to:
+// * Reject calls to PUT Bucket policy if the specified bucket policy allows public access.
+func (o MultiRegionAccessPointDetailsPublicAccessBlockPtrOutput) BlockPublicPolicy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *MultiRegionAccessPointDetailsPublicAccessBlock) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.BlockPublicPolicy
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Whether Amazon S3 should ignore public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set. When set to `true` causes Amazon S3 to:
+// * Ignore all public ACLs on buckets in this account and any objects that they contain.
+func (o MultiRegionAccessPointDetailsPublicAccessBlockPtrOutput) IgnorePublicAcls() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *MultiRegionAccessPointDetailsPublicAccessBlock) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IgnorePublicAcls
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Whether Amazon S3 should restrict public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked. When set to `true`:
+// * Only the bucket owner and AWS Services can access buckets with public policies.
+func (o MultiRegionAccessPointDetailsPublicAccessBlockPtrOutput) RestrictPublicBuckets() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *MultiRegionAccessPointDetailsPublicAccessBlock) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RestrictPublicBuckets
+	}).(pulumi.BoolPtrOutput)
+}
+
+type MultiRegionAccessPointDetailsRegion struct {
+	// The name of the associated bucket for the Region.
+	Bucket string `pulumi:"bucket"`
+}
+
+// MultiRegionAccessPointDetailsRegionInput is an input type that accepts MultiRegionAccessPointDetailsRegionArgs and MultiRegionAccessPointDetailsRegionOutput values.
+// You can construct a concrete instance of `MultiRegionAccessPointDetailsRegionInput` via:
+//
+//          MultiRegionAccessPointDetailsRegionArgs{...}
+type MultiRegionAccessPointDetailsRegionInput interface {
+	pulumi.Input
+
+	ToMultiRegionAccessPointDetailsRegionOutput() MultiRegionAccessPointDetailsRegionOutput
+	ToMultiRegionAccessPointDetailsRegionOutputWithContext(context.Context) MultiRegionAccessPointDetailsRegionOutput
+}
+
+type MultiRegionAccessPointDetailsRegionArgs struct {
+	// The name of the associated bucket for the Region.
+	Bucket pulumi.StringInput `pulumi:"bucket"`
+}
+
+func (MultiRegionAccessPointDetailsRegionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultiRegionAccessPointDetailsRegion)(nil)).Elem()
+}
+
+func (i MultiRegionAccessPointDetailsRegionArgs) ToMultiRegionAccessPointDetailsRegionOutput() MultiRegionAccessPointDetailsRegionOutput {
+	return i.ToMultiRegionAccessPointDetailsRegionOutputWithContext(context.Background())
+}
+
+func (i MultiRegionAccessPointDetailsRegionArgs) ToMultiRegionAccessPointDetailsRegionOutputWithContext(ctx context.Context) MultiRegionAccessPointDetailsRegionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultiRegionAccessPointDetailsRegionOutput)
+}
+
+// MultiRegionAccessPointDetailsRegionArrayInput is an input type that accepts MultiRegionAccessPointDetailsRegionArray and MultiRegionAccessPointDetailsRegionArrayOutput values.
+// You can construct a concrete instance of `MultiRegionAccessPointDetailsRegionArrayInput` via:
+//
+//          MultiRegionAccessPointDetailsRegionArray{ MultiRegionAccessPointDetailsRegionArgs{...} }
+type MultiRegionAccessPointDetailsRegionArrayInput interface {
+	pulumi.Input
+
+	ToMultiRegionAccessPointDetailsRegionArrayOutput() MultiRegionAccessPointDetailsRegionArrayOutput
+	ToMultiRegionAccessPointDetailsRegionArrayOutputWithContext(context.Context) MultiRegionAccessPointDetailsRegionArrayOutput
+}
+
+type MultiRegionAccessPointDetailsRegionArray []MultiRegionAccessPointDetailsRegionInput
+
+func (MultiRegionAccessPointDetailsRegionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MultiRegionAccessPointDetailsRegion)(nil)).Elem()
+}
+
+func (i MultiRegionAccessPointDetailsRegionArray) ToMultiRegionAccessPointDetailsRegionArrayOutput() MultiRegionAccessPointDetailsRegionArrayOutput {
+	return i.ToMultiRegionAccessPointDetailsRegionArrayOutputWithContext(context.Background())
+}
+
+func (i MultiRegionAccessPointDetailsRegionArray) ToMultiRegionAccessPointDetailsRegionArrayOutputWithContext(ctx context.Context) MultiRegionAccessPointDetailsRegionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultiRegionAccessPointDetailsRegionArrayOutput)
+}
+
+type MultiRegionAccessPointDetailsRegionOutput struct{ *pulumi.OutputState }
+
+func (MultiRegionAccessPointDetailsRegionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultiRegionAccessPointDetailsRegion)(nil)).Elem()
+}
+
+func (o MultiRegionAccessPointDetailsRegionOutput) ToMultiRegionAccessPointDetailsRegionOutput() MultiRegionAccessPointDetailsRegionOutput {
+	return o
+}
+
+func (o MultiRegionAccessPointDetailsRegionOutput) ToMultiRegionAccessPointDetailsRegionOutputWithContext(ctx context.Context) MultiRegionAccessPointDetailsRegionOutput {
+	return o
+}
+
+// The name of the associated bucket for the Region.
+func (o MultiRegionAccessPointDetailsRegionOutput) Bucket() pulumi.StringOutput {
+	return o.ApplyT(func(v MultiRegionAccessPointDetailsRegion) string { return v.Bucket }).(pulumi.StringOutput)
+}
+
+type MultiRegionAccessPointDetailsRegionArrayOutput struct{ *pulumi.OutputState }
+
+func (MultiRegionAccessPointDetailsRegionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MultiRegionAccessPointDetailsRegion)(nil)).Elem()
+}
+
+func (o MultiRegionAccessPointDetailsRegionArrayOutput) ToMultiRegionAccessPointDetailsRegionArrayOutput() MultiRegionAccessPointDetailsRegionArrayOutput {
+	return o
+}
+
+func (o MultiRegionAccessPointDetailsRegionArrayOutput) ToMultiRegionAccessPointDetailsRegionArrayOutputWithContext(ctx context.Context) MultiRegionAccessPointDetailsRegionArrayOutput {
+	return o
+}
+
+func (o MultiRegionAccessPointDetailsRegionArrayOutput) Index(i pulumi.IntInput) MultiRegionAccessPointDetailsRegionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MultiRegionAccessPointDetailsRegion {
+		return vs[0].([]MultiRegionAccessPointDetailsRegion)[vs[1].(int)]
+	}).(MultiRegionAccessPointDetailsRegionOutput)
+}
+
+type MultiRegionAccessPointPolicyDetails struct {
+	// The name of the Multi-Region Access Point.
+	Name string `pulumi:"name"`
+	// A valid JSON document that specifies the policy that you want to associate with this Multi-Region Access Point. Once applied, the policy can be edited, but not deleted. For more information, see the documentation on [Multi-Region Access Point Permissions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPointPermissions.html).
+	Policy string `pulumi:"policy"`
+}
+
+// MultiRegionAccessPointPolicyDetailsInput is an input type that accepts MultiRegionAccessPointPolicyDetailsArgs and MultiRegionAccessPointPolicyDetailsOutput values.
+// You can construct a concrete instance of `MultiRegionAccessPointPolicyDetailsInput` via:
+//
+//          MultiRegionAccessPointPolicyDetailsArgs{...}
+type MultiRegionAccessPointPolicyDetailsInput interface {
+	pulumi.Input
+
+	ToMultiRegionAccessPointPolicyDetailsOutput() MultiRegionAccessPointPolicyDetailsOutput
+	ToMultiRegionAccessPointPolicyDetailsOutputWithContext(context.Context) MultiRegionAccessPointPolicyDetailsOutput
+}
+
+type MultiRegionAccessPointPolicyDetailsArgs struct {
+	// The name of the Multi-Region Access Point.
+	Name pulumi.StringInput `pulumi:"name"`
+	// A valid JSON document that specifies the policy that you want to associate with this Multi-Region Access Point. Once applied, the policy can be edited, but not deleted. For more information, see the documentation on [Multi-Region Access Point Permissions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPointPermissions.html).
+	Policy pulumi.StringInput `pulumi:"policy"`
+}
+
+func (MultiRegionAccessPointPolicyDetailsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultiRegionAccessPointPolicyDetails)(nil)).Elem()
+}
+
+func (i MultiRegionAccessPointPolicyDetailsArgs) ToMultiRegionAccessPointPolicyDetailsOutput() MultiRegionAccessPointPolicyDetailsOutput {
+	return i.ToMultiRegionAccessPointPolicyDetailsOutputWithContext(context.Background())
+}
+
+func (i MultiRegionAccessPointPolicyDetailsArgs) ToMultiRegionAccessPointPolicyDetailsOutputWithContext(ctx context.Context) MultiRegionAccessPointPolicyDetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultiRegionAccessPointPolicyDetailsOutput)
+}
+
+func (i MultiRegionAccessPointPolicyDetailsArgs) ToMultiRegionAccessPointPolicyDetailsPtrOutput() MultiRegionAccessPointPolicyDetailsPtrOutput {
+	return i.ToMultiRegionAccessPointPolicyDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i MultiRegionAccessPointPolicyDetailsArgs) ToMultiRegionAccessPointPolicyDetailsPtrOutputWithContext(ctx context.Context) MultiRegionAccessPointPolicyDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultiRegionAccessPointPolicyDetailsOutput).ToMultiRegionAccessPointPolicyDetailsPtrOutputWithContext(ctx)
+}
+
+// MultiRegionAccessPointPolicyDetailsPtrInput is an input type that accepts MultiRegionAccessPointPolicyDetailsArgs, MultiRegionAccessPointPolicyDetailsPtr and MultiRegionAccessPointPolicyDetailsPtrOutput values.
+// You can construct a concrete instance of `MultiRegionAccessPointPolicyDetailsPtrInput` via:
+//
+//          MultiRegionAccessPointPolicyDetailsArgs{...}
+//
+//  or:
+//
+//          nil
+type MultiRegionAccessPointPolicyDetailsPtrInput interface {
+	pulumi.Input
+
+	ToMultiRegionAccessPointPolicyDetailsPtrOutput() MultiRegionAccessPointPolicyDetailsPtrOutput
+	ToMultiRegionAccessPointPolicyDetailsPtrOutputWithContext(context.Context) MultiRegionAccessPointPolicyDetailsPtrOutput
+}
+
+type multiRegionAccessPointPolicyDetailsPtrType MultiRegionAccessPointPolicyDetailsArgs
+
+func MultiRegionAccessPointPolicyDetailsPtr(v *MultiRegionAccessPointPolicyDetailsArgs) MultiRegionAccessPointPolicyDetailsPtrInput {
+	return (*multiRegionAccessPointPolicyDetailsPtrType)(v)
+}
+
+func (*multiRegionAccessPointPolicyDetailsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MultiRegionAccessPointPolicyDetails)(nil)).Elem()
+}
+
+func (i *multiRegionAccessPointPolicyDetailsPtrType) ToMultiRegionAccessPointPolicyDetailsPtrOutput() MultiRegionAccessPointPolicyDetailsPtrOutput {
+	return i.ToMultiRegionAccessPointPolicyDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i *multiRegionAccessPointPolicyDetailsPtrType) ToMultiRegionAccessPointPolicyDetailsPtrOutputWithContext(ctx context.Context) MultiRegionAccessPointPolicyDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MultiRegionAccessPointPolicyDetailsPtrOutput)
+}
+
+type MultiRegionAccessPointPolicyDetailsOutput struct{ *pulumi.OutputState }
+
+func (MultiRegionAccessPointPolicyDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MultiRegionAccessPointPolicyDetails)(nil)).Elem()
+}
+
+func (o MultiRegionAccessPointPolicyDetailsOutput) ToMultiRegionAccessPointPolicyDetailsOutput() MultiRegionAccessPointPolicyDetailsOutput {
+	return o
+}
+
+func (o MultiRegionAccessPointPolicyDetailsOutput) ToMultiRegionAccessPointPolicyDetailsOutputWithContext(ctx context.Context) MultiRegionAccessPointPolicyDetailsOutput {
+	return o
+}
+
+func (o MultiRegionAccessPointPolicyDetailsOutput) ToMultiRegionAccessPointPolicyDetailsPtrOutput() MultiRegionAccessPointPolicyDetailsPtrOutput {
+	return o.ToMultiRegionAccessPointPolicyDetailsPtrOutputWithContext(context.Background())
+}
+
+func (o MultiRegionAccessPointPolicyDetailsOutput) ToMultiRegionAccessPointPolicyDetailsPtrOutputWithContext(ctx context.Context) MultiRegionAccessPointPolicyDetailsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MultiRegionAccessPointPolicyDetails) *MultiRegionAccessPointPolicyDetails {
+		return &v
+	}).(MultiRegionAccessPointPolicyDetailsPtrOutput)
+}
+
+// The name of the Multi-Region Access Point.
+func (o MultiRegionAccessPointPolicyDetailsOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v MultiRegionAccessPointPolicyDetails) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A valid JSON document that specifies the policy that you want to associate with this Multi-Region Access Point. Once applied, the policy can be edited, but not deleted. For more information, see the documentation on [Multi-Region Access Point Permissions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPointPermissions.html).
+func (o MultiRegionAccessPointPolicyDetailsOutput) Policy() pulumi.StringOutput {
+	return o.ApplyT(func(v MultiRegionAccessPointPolicyDetails) string { return v.Policy }).(pulumi.StringOutput)
+}
+
+type MultiRegionAccessPointPolicyDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (MultiRegionAccessPointPolicyDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MultiRegionAccessPointPolicyDetails)(nil)).Elem()
+}
+
+func (o MultiRegionAccessPointPolicyDetailsPtrOutput) ToMultiRegionAccessPointPolicyDetailsPtrOutput() MultiRegionAccessPointPolicyDetailsPtrOutput {
+	return o
+}
+
+func (o MultiRegionAccessPointPolicyDetailsPtrOutput) ToMultiRegionAccessPointPolicyDetailsPtrOutputWithContext(ctx context.Context) MultiRegionAccessPointPolicyDetailsPtrOutput {
+	return o
+}
+
+func (o MultiRegionAccessPointPolicyDetailsPtrOutput) Elem() MultiRegionAccessPointPolicyDetailsOutput {
+	return o.ApplyT(func(v *MultiRegionAccessPointPolicyDetails) MultiRegionAccessPointPolicyDetails {
+		if v != nil {
+			return *v
+		}
+		var ret MultiRegionAccessPointPolicyDetails
+		return ret
+	}).(MultiRegionAccessPointPolicyDetailsOutput)
+}
+
+// The name of the Multi-Region Access Point.
+func (o MultiRegionAccessPointPolicyDetailsPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MultiRegionAccessPointPolicyDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// A valid JSON document that specifies the policy that you want to associate with this Multi-Region Access Point. Once applied, the policy can be edited, but not deleted. For more information, see the documentation on [Multi-Region Access Point Permissions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPointPermissions.html).
+func (o MultiRegionAccessPointPolicyDetailsPtrOutput) Policy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MultiRegionAccessPointPolicyDetails) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Policy
+	}).(pulumi.StringPtrOutput)
+}
+
+type ObjectLambdaAccessPointConfiguration struct {
+	// Allowed features. Valid values: `GetObject-Range`, `GetObject-PartNumber`.
+	AllowedFeatures []string `pulumi:"allowedFeatures"`
+	// Whether or not the CloudWatch metrics configuration is enabled.
+	CloudWatchMetricsEnabled *bool `pulumi:"cloudWatchMetricsEnabled"`
+	// Standard access point associated with the Object Lambda Access Point.
+	SupportingAccessPoint string `pulumi:"supportingAccessPoint"`
+	// List of transformation configurations for the Object Lambda Access Point. See Transformation Configuration below for more details.
+	TransformationConfigurations []ObjectLambdaAccessPointConfigurationTransformationConfiguration `pulumi:"transformationConfigurations"`
+}
+
+// ObjectLambdaAccessPointConfigurationInput is an input type that accepts ObjectLambdaAccessPointConfigurationArgs and ObjectLambdaAccessPointConfigurationOutput values.
+// You can construct a concrete instance of `ObjectLambdaAccessPointConfigurationInput` via:
+//
+//          ObjectLambdaAccessPointConfigurationArgs{...}
+type ObjectLambdaAccessPointConfigurationInput interface {
+	pulumi.Input
+
+	ToObjectLambdaAccessPointConfigurationOutput() ObjectLambdaAccessPointConfigurationOutput
+	ToObjectLambdaAccessPointConfigurationOutputWithContext(context.Context) ObjectLambdaAccessPointConfigurationOutput
+}
+
+type ObjectLambdaAccessPointConfigurationArgs struct {
+	// Allowed features. Valid values: `GetObject-Range`, `GetObject-PartNumber`.
+	AllowedFeatures pulumi.StringArrayInput `pulumi:"allowedFeatures"`
+	// Whether or not the CloudWatch metrics configuration is enabled.
+	CloudWatchMetricsEnabled pulumi.BoolPtrInput `pulumi:"cloudWatchMetricsEnabled"`
+	// Standard access point associated with the Object Lambda Access Point.
+	SupportingAccessPoint pulumi.StringInput `pulumi:"supportingAccessPoint"`
+	// List of transformation configurations for the Object Lambda Access Point. See Transformation Configuration below for more details.
+	TransformationConfigurations ObjectLambdaAccessPointConfigurationTransformationConfigurationArrayInput `pulumi:"transformationConfigurations"`
+}
+
+func (ObjectLambdaAccessPointConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObjectLambdaAccessPointConfiguration)(nil)).Elem()
+}
+
+func (i ObjectLambdaAccessPointConfigurationArgs) ToObjectLambdaAccessPointConfigurationOutput() ObjectLambdaAccessPointConfigurationOutput {
+	return i.ToObjectLambdaAccessPointConfigurationOutputWithContext(context.Background())
+}
+
+func (i ObjectLambdaAccessPointConfigurationArgs) ToObjectLambdaAccessPointConfigurationOutputWithContext(ctx context.Context) ObjectLambdaAccessPointConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObjectLambdaAccessPointConfigurationOutput)
+}
+
+func (i ObjectLambdaAccessPointConfigurationArgs) ToObjectLambdaAccessPointConfigurationPtrOutput() ObjectLambdaAccessPointConfigurationPtrOutput {
+	return i.ToObjectLambdaAccessPointConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ObjectLambdaAccessPointConfigurationArgs) ToObjectLambdaAccessPointConfigurationPtrOutputWithContext(ctx context.Context) ObjectLambdaAccessPointConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObjectLambdaAccessPointConfigurationOutput).ToObjectLambdaAccessPointConfigurationPtrOutputWithContext(ctx)
+}
+
+// ObjectLambdaAccessPointConfigurationPtrInput is an input type that accepts ObjectLambdaAccessPointConfigurationArgs, ObjectLambdaAccessPointConfigurationPtr and ObjectLambdaAccessPointConfigurationPtrOutput values.
+// You can construct a concrete instance of `ObjectLambdaAccessPointConfigurationPtrInput` via:
+//
+//          ObjectLambdaAccessPointConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type ObjectLambdaAccessPointConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToObjectLambdaAccessPointConfigurationPtrOutput() ObjectLambdaAccessPointConfigurationPtrOutput
+	ToObjectLambdaAccessPointConfigurationPtrOutputWithContext(context.Context) ObjectLambdaAccessPointConfigurationPtrOutput
+}
+
+type objectLambdaAccessPointConfigurationPtrType ObjectLambdaAccessPointConfigurationArgs
+
+func ObjectLambdaAccessPointConfigurationPtr(v *ObjectLambdaAccessPointConfigurationArgs) ObjectLambdaAccessPointConfigurationPtrInput {
+	return (*objectLambdaAccessPointConfigurationPtrType)(v)
+}
+
+func (*objectLambdaAccessPointConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObjectLambdaAccessPointConfiguration)(nil)).Elem()
+}
+
+func (i *objectLambdaAccessPointConfigurationPtrType) ToObjectLambdaAccessPointConfigurationPtrOutput() ObjectLambdaAccessPointConfigurationPtrOutput {
+	return i.ToObjectLambdaAccessPointConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *objectLambdaAccessPointConfigurationPtrType) ToObjectLambdaAccessPointConfigurationPtrOutputWithContext(ctx context.Context) ObjectLambdaAccessPointConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObjectLambdaAccessPointConfigurationPtrOutput)
+}
+
+type ObjectLambdaAccessPointConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ObjectLambdaAccessPointConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObjectLambdaAccessPointConfiguration)(nil)).Elem()
+}
+
+func (o ObjectLambdaAccessPointConfigurationOutput) ToObjectLambdaAccessPointConfigurationOutput() ObjectLambdaAccessPointConfigurationOutput {
+	return o
+}
+
+func (o ObjectLambdaAccessPointConfigurationOutput) ToObjectLambdaAccessPointConfigurationOutputWithContext(ctx context.Context) ObjectLambdaAccessPointConfigurationOutput {
+	return o
+}
+
+func (o ObjectLambdaAccessPointConfigurationOutput) ToObjectLambdaAccessPointConfigurationPtrOutput() ObjectLambdaAccessPointConfigurationPtrOutput {
+	return o.ToObjectLambdaAccessPointConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ObjectLambdaAccessPointConfigurationOutput) ToObjectLambdaAccessPointConfigurationPtrOutputWithContext(ctx context.Context) ObjectLambdaAccessPointConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ObjectLambdaAccessPointConfiguration) *ObjectLambdaAccessPointConfiguration {
+		return &v
+	}).(ObjectLambdaAccessPointConfigurationPtrOutput)
+}
+
+// Allowed features. Valid values: `GetObject-Range`, `GetObject-PartNumber`.
+func (o ObjectLambdaAccessPointConfigurationOutput) AllowedFeatures() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ObjectLambdaAccessPointConfiguration) []string { return v.AllowedFeatures }).(pulumi.StringArrayOutput)
+}
+
+// Whether or not the CloudWatch metrics configuration is enabled.
+func (o ObjectLambdaAccessPointConfigurationOutput) CloudWatchMetricsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ObjectLambdaAccessPointConfiguration) *bool { return v.CloudWatchMetricsEnabled }).(pulumi.BoolPtrOutput)
+}
+
+// Standard access point associated with the Object Lambda Access Point.
+func (o ObjectLambdaAccessPointConfigurationOutput) SupportingAccessPoint() pulumi.StringOutput {
+	return o.ApplyT(func(v ObjectLambdaAccessPointConfiguration) string { return v.SupportingAccessPoint }).(pulumi.StringOutput)
+}
+
+// List of transformation configurations for the Object Lambda Access Point. See Transformation Configuration below for more details.
+func (o ObjectLambdaAccessPointConfigurationOutput) TransformationConfigurations() ObjectLambdaAccessPointConfigurationTransformationConfigurationArrayOutput {
+	return o.ApplyT(func(v ObjectLambdaAccessPointConfiguration) []ObjectLambdaAccessPointConfigurationTransformationConfiguration {
+		return v.TransformationConfigurations
+	}).(ObjectLambdaAccessPointConfigurationTransformationConfigurationArrayOutput)
+}
+
+type ObjectLambdaAccessPointConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ObjectLambdaAccessPointConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObjectLambdaAccessPointConfiguration)(nil)).Elem()
+}
+
+func (o ObjectLambdaAccessPointConfigurationPtrOutput) ToObjectLambdaAccessPointConfigurationPtrOutput() ObjectLambdaAccessPointConfigurationPtrOutput {
+	return o
+}
+
+func (o ObjectLambdaAccessPointConfigurationPtrOutput) ToObjectLambdaAccessPointConfigurationPtrOutputWithContext(ctx context.Context) ObjectLambdaAccessPointConfigurationPtrOutput {
+	return o
+}
+
+func (o ObjectLambdaAccessPointConfigurationPtrOutput) Elem() ObjectLambdaAccessPointConfigurationOutput {
+	return o.ApplyT(func(v *ObjectLambdaAccessPointConfiguration) ObjectLambdaAccessPointConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ObjectLambdaAccessPointConfiguration
+		return ret
+	}).(ObjectLambdaAccessPointConfigurationOutput)
+}
+
+// Allowed features. Valid values: `GetObject-Range`, `GetObject-PartNumber`.
+func (o ObjectLambdaAccessPointConfigurationPtrOutput) AllowedFeatures() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ObjectLambdaAccessPointConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedFeatures
+	}).(pulumi.StringArrayOutput)
+}
+
+// Whether or not the CloudWatch metrics configuration is enabled.
+func (o ObjectLambdaAccessPointConfigurationPtrOutput) CloudWatchMetricsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ObjectLambdaAccessPointConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.CloudWatchMetricsEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Standard access point associated with the Object Lambda Access Point.
+func (o ObjectLambdaAccessPointConfigurationPtrOutput) SupportingAccessPoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObjectLambdaAccessPointConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SupportingAccessPoint
+	}).(pulumi.StringPtrOutput)
+}
+
+// List of transformation configurations for the Object Lambda Access Point. See Transformation Configuration below for more details.
+func (o ObjectLambdaAccessPointConfigurationPtrOutput) TransformationConfigurations() ObjectLambdaAccessPointConfigurationTransformationConfigurationArrayOutput {
+	return o.ApplyT(func(v *ObjectLambdaAccessPointConfiguration) []ObjectLambdaAccessPointConfigurationTransformationConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.TransformationConfigurations
+	}).(ObjectLambdaAccessPointConfigurationTransformationConfigurationArrayOutput)
+}
+
+type ObjectLambdaAccessPointConfigurationTransformationConfiguration struct {
+	// The actions of an Object Lambda Access Point configuration. Valid values: `GetObject`.
+	Actions []string `pulumi:"actions"`
+	// The content transformation of an Object Lambda Access Point configuration. See Content Transformation below for more details.
+	ContentTransformation ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformation `pulumi:"contentTransformation"`
+}
+
+// ObjectLambdaAccessPointConfigurationTransformationConfigurationInput is an input type that accepts ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs and ObjectLambdaAccessPointConfigurationTransformationConfigurationOutput values.
+// You can construct a concrete instance of `ObjectLambdaAccessPointConfigurationTransformationConfigurationInput` via:
+//
+//          ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs{...}
+type ObjectLambdaAccessPointConfigurationTransformationConfigurationInput interface {
+	pulumi.Input
+
+	ToObjectLambdaAccessPointConfigurationTransformationConfigurationOutput() ObjectLambdaAccessPointConfigurationTransformationConfigurationOutput
+	ToObjectLambdaAccessPointConfigurationTransformationConfigurationOutputWithContext(context.Context) ObjectLambdaAccessPointConfigurationTransformationConfigurationOutput
+}
+
+type ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs struct {
+	// The actions of an Object Lambda Access Point configuration. Valid values: `GetObject`.
+	Actions pulumi.StringArrayInput `pulumi:"actions"`
+	// The content transformation of an Object Lambda Access Point configuration. See Content Transformation below for more details.
+	ContentTransformation ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationInput `pulumi:"contentTransformation"`
+}
+
+func (ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObjectLambdaAccessPointConfigurationTransformationConfiguration)(nil)).Elem()
+}
+
+func (i ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs) ToObjectLambdaAccessPointConfigurationTransformationConfigurationOutput() ObjectLambdaAccessPointConfigurationTransformationConfigurationOutput {
+	return i.ToObjectLambdaAccessPointConfigurationTransformationConfigurationOutputWithContext(context.Background())
+}
+
+func (i ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs) ToObjectLambdaAccessPointConfigurationTransformationConfigurationOutputWithContext(ctx context.Context) ObjectLambdaAccessPointConfigurationTransformationConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObjectLambdaAccessPointConfigurationTransformationConfigurationOutput)
+}
+
+// ObjectLambdaAccessPointConfigurationTransformationConfigurationArrayInput is an input type that accepts ObjectLambdaAccessPointConfigurationTransformationConfigurationArray and ObjectLambdaAccessPointConfigurationTransformationConfigurationArrayOutput values.
+// You can construct a concrete instance of `ObjectLambdaAccessPointConfigurationTransformationConfigurationArrayInput` via:
+//
+//          ObjectLambdaAccessPointConfigurationTransformationConfigurationArray{ ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs{...} }
+type ObjectLambdaAccessPointConfigurationTransformationConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToObjectLambdaAccessPointConfigurationTransformationConfigurationArrayOutput() ObjectLambdaAccessPointConfigurationTransformationConfigurationArrayOutput
+	ToObjectLambdaAccessPointConfigurationTransformationConfigurationArrayOutputWithContext(context.Context) ObjectLambdaAccessPointConfigurationTransformationConfigurationArrayOutput
+}
+
+type ObjectLambdaAccessPointConfigurationTransformationConfigurationArray []ObjectLambdaAccessPointConfigurationTransformationConfigurationInput
+
+func (ObjectLambdaAccessPointConfigurationTransformationConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ObjectLambdaAccessPointConfigurationTransformationConfiguration)(nil)).Elem()
+}
+
+func (i ObjectLambdaAccessPointConfigurationTransformationConfigurationArray) ToObjectLambdaAccessPointConfigurationTransformationConfigurationArrayOutput() ObjectLambdaAccessPointConfigurationTransformationConfigurationArrayOutput {
+	return i.ToObjectLambdaAccessPointConfigurationTransformationConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i ObjectLambdaAccessPointConfigurationTransformationConfigurationArray) ToObjectLambdaAccessPointConfigurationTransformationConfigurationArrayOutputWithContext(ctx context.Context) ObjectLambdaAccessPointConfigurationTransformationConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObjectLambdaAccessPointConfigurationTransformationConfigurationArrayOutput)
+}
+
+type ObjectLambdaAccessPointConfigurationTransformationConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ObjectLambdaAccessPointConfigurationTransformationConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObjectLambdaAccessPointConfigurationTransformationConfiguration)(nil)).Elem()
+}
+
+func (o ObjectLambdaAccessPointConfigurationTransformationConfigurationOutput) ToObjectLambdaAccessPointConfigurationTransformationConfigurationOutput() ObjectLambdaAccessPointConfigurationTransformationConfigurationOutput {
+	return o
+}
+
+func (o ObjectLambdaAccessPointConfigurationTransformationConfigurationOutput) ToObjectLambdaAccessPointConfigurationTransformationConfigurationOutputWithContext(ctx context.Context) ObjectLambdaAccessPointConfigurationTransformationConfigurationOutput {
+	return o
+}
+
+// The actions of an Object Lambda Access Point configuration. Valid values: `GetObject`.
+func (o ObjectLambdaAccessPointConfigurationTransformationConfigurationOutput) Actions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ObjectLambdaAccessPointConfigurationTransformationConfiguration) []string { return v.Actions }).(pulumi.StringArrayOutput)
+}
+
+// The content transformation of an Object Lambda Access Point configuration. See Content Transformation below for more details.
+func (o ObjectLambdaAccessPointConfigurationTransformationConfigurationOutput) ContentTransformation() ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationOutput {
+	return o.ApplyT(func(v ObjectLambdaAccessPointConfigurationTransformationConfiguration) ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformation {
+		return v.ContentTransformation
+	}).(ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationOutput)
+}
+
+type ObjectLambdaAccessPointConfigurationTransformationConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (ObjectLambdaAccessPointConfigurationTransformationConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ObjectLambdaAccessPointConfigurationTransformationConfiguration)(nil)).Elem()
+}
+
+func (o ObjectLambdaAccessPointConfigurationTransformationConfigurationArrayOutput) ToObjectLambdaAccessPointConfigurationTransformationConfigurationArrayOutput() ObjectLambdaAccessPointConfigurationTransformationConfigurationArrayOutput {
+	return o
+}
+
+func (o ObjectLambdaAccessPointConfigurationTransformationConfigurationArrayOutput) ToObjectLambdaAccessPointConfigurationTransformationConfigurationArrayOutputWithContext(ctx context.Context) ObjectLambdaAccessPointConfigurationTransformationConfigurationArrayOutput {
+	return o
+}
+
+func (o ObjectLambdaAccessPointConfigurationTransformationConfigurationArrayOutput) Index(i pulumi.IntInput) ObjectLambdaAccessPointConfigurationTransformationConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ObjectLambdaAccessPointConfigurationTransformationConfiguration {
+		return vs[0].([]ObjectLambdaAccessPointConfigurationTransformationConfiguration)[vs[1].(int)]
+	}).(ObjectLambdaAccessPointConfigurationTransformationConfigurationOutput)
+}
+
+type ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformation struct {
+	// Configuration for an AWS Lambda function. See AWS Lambda below for more details.
+	AwsLambda ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambda `pulumi:"awsLambda"`
+}
+
+// ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationInput is an input type that accepts ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationArgs and ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationOutput values.
+// You can construct a concrete instance of `ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationInput` via:
+//
+//          ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationArgs{...}
+type ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationInput interface {
+	pulumi.Input
+
+	ToObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationOutput() ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationOutput
+	ToObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationOutputWithContext(context.Context) ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationOutput
+}
+
+type ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationArgs struct {
+	// Configuration for an AWS Lambda function. See AWS Lambda below for more details.
+	AwsLambda ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaInput `pulumi:"awsLambda"`
+}
+
+func (ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformation)(nil)).Elem()
+}
+
+func (i ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationArgs) ToObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationOutput() ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationOutput {
+	return i.ToObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationOutputWithContext(context.Background())
+}
+
+func (i ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationArgs) ToObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationOutputWithContext(ctx context.Context) ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationOutput)
+}
+
+type ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationOutput struct{ *pulumi.OutputState }
+
+func (ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformation)(nil)).Elem()
+}
+
+func (o ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationOutput) ToObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationOutput() ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationOutput {
+	return o
+}
+
+func (o ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationOutput) ToObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationOutputWithContext(ctx context.Context) ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationOutput {
+	return o
+}
+
+// Configuration for an AWS Lambda function. See AWS Lambda below for more details.
+func (o ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationOutput) AwsLambda() ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaOutput {
+	return o.ApplyT(func(v ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformation) ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambda {
+		return v.AwsLambda
+	}).(ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaOutput)
+}
+
+type ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambda struct {
+	// The Amazon Resource Name (ARN) of the AWS Lambda function.
+	FunctionArn string `pulumi:"functionArn"`
+	// Additional JSON that provides supplemental data to the Lambda function used to transform objects.
+	FunctionPayload *string `pulumi:"functionPayload"`
+}
+
+// ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaInput is an input type that accepts ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgs and ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaOutput values.
+// You can construct a concrete instance of `ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaInput` via:
+//
+//          ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgs{...}
+type ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaInput interface {
+	pulumi.Input
+
+	ToObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaOutput() ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaOutput
+	ToObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaOutputWithContext(context.Context) ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaOutput
+}
+
+type ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgs struct {
+	// The Amazon Resource Name (ARN) of the AWS Lambda function.
+	FunctionArn pulumi.StringInput `pulumi:"functionArn"`
+	// Additional JSON that provides supplemental data to the Lambda function used to transform objects.
+	FunctionPayload pulumi.StringPtrInput `pulumi:"functionPayload"`
+}
+
+func (ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambda)(nil)).Elem()
+}
+
+func (i ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgs) ToObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaOutput() ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaOutput {
+	return i.ToObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaOutputWithContext(context.Background())
+}
+
+func (i ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgs) ToObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaOutputWithContext(ctx context.Context) ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaOutput)
+}
+
+type ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaOutput struct{ *pulumi.OutputState }
+
+func (ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambda)(nil)).Elem()
+}
+
+func (o ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaOutput) ToObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaOutput() ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaOutput {
+	return o
+}
+
+func (o ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaOutput) ToObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaOutputWithContext(ctx context.Context) ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaOutput {
+	return o
+}
+
+// The Amazon Resource Name (ARN) of the AWS Lambda function.
+func (o ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaOutput) FunctionArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambda) string {
+		return v.FunctionArn
+	}).(pulumi.StringOutput)
+}
+
+// Additional JSON that provides supplemental data to the Lambda function used to transform objects.
+func (o ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaOutput) FunctionPayload() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambda) *string {
+		return v.FunctionPayload
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketLifecycleConfigurationRuleInput)(nil)).Elem(), BucketLifecycleConfigurationRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketLifecycleConfigurationRuleArrayInput)(nil)).Elem(), BucketLifecycleConfigurationRuleArray{})
@@ -626,6 +1697,20 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketLifecycleConfigurationRuleExpirationPtrInput)(nil)).Elem(), BucketLifecycleConfigurationRuleExpirationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketLifecycleConfigurationRuleFilterInput)(nil)).Elem(), BucketLifecycleConfigurationRuleFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketLifecycleConfigurationRuleFilterPtrInput)(nil)).Elem(), BucketLifecycleConfigurationRuleFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultiRegionAccessPointDetailsInput)(nil)).Elem(), MultiRegionAccessPointDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultiRegionAccessPointDetailsPtrInput)(nil)).Elem(), MultiRegionAccessPointDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultiRegionAccessPointDetailsPublicAccessBlockInput)(nil)).Elem(), MultiRegionAccessPointDetailsPublicAccessBlockArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultiRegionAccessPointDetailsPublicAccessBlockPtrInput)(nil)).Elem(), MultiRegionAccessPointDetailsPublicAccessBlockArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultiRegionAccessPointDetailsRegionInput)(nil)).Elem(), MultiRegionAccessPointDetailsRegionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultiRegionAccessPointDetailsRegionArrayInput)(nil)).Elem(), MultiRegionAccessPointDetailsRegionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultiRegionAccessPointPolicyDetailsInput)(nil)).Elem(), MultiRegionAccessPointPolicyDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MultiRegionAccessPointPolicyDetailsPtrInput)(nil)).Elem(), MultiRegionAccessPointPolicyDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObjectLambdaAccessPointConfigurationInput)(nil)).Elem(), ObjectLambdaAccessPointConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObjectLambdaAccessPointConfigurationPtrInput)(nil)).Elem(), ObjectLambdaAccessPointConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObjectLambdaAccessPointConfigurationTransformationConfigurationInput)(nil)).Elem(), ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObjectLambdaAccessPointConfigurationTransformationConfigurationArrayInput)(nil)).Elem(), ObjectLambdaAccessPointConfigurationTransformationConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationInput)(nil)).Elem(), ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaInput)(nil)).Elem(), ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgs{})
 	pulumi.RegisterOutputType(BucketLifecycleConfigurationRuleOutput{})
 	pulumi.RegisterOutputType(BucketLifecycleConfigurationRuleArrayOutput{})
 	pulumi.RegisterOutputType(BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadOutput{})
@@ -634,4 +1719,18 @@ func init() {
 	pulumi.RegisterOutputType(BucketLifecycleConfigurationRuleExpirationPtrOutput{})
 	pulumi.RegisterOutputType(BucketLifecycleConfigurationRuleFilterOutput{})
 	pulumi.RegisterOutputType(BucketLifecycleConfigurationRuleFilterPtrOutput{})
+	pulumi.RegisterOutputType(MultiRegionAccessPointDetailsOutput{})
+	pulumi.RegisterOutputType(MultiRegionAccessPointDetailsPtrOutput{})
+	pulumi.RegisterOutputType(MultiRegionAccessPointDetailsPublicAccessBlockOutput{})
+	pulumi.RegisterOutputType(MultiRegionAccessPointDetailsPublicAccessBlockPtrOutput{})
+	pulumi.RegisterOutputType(MultiRegionAccessPointDetailsRegionOutput{})
+	pulumi.RegisterOutputType(MultiRegionAccessPointDetailsRegionArrayOutput{})
+	pulumi.RegisterOutputType(MultiRegionAccessPointPolicyDetailsOutput{})
+	pulumi.RegisterOutputType(MultiRegionAccessPointPolicyDetailsPtrOutput{})
+	pulumi.RegisterOutputType(ObjectLambdaAccessPointConfigurationOutput{})
+	pulumi.RegisterOutputType(ObjectLambdaAccessPointConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ObjectLambdaAccessPointConfigurationTransformationConfigurationOutput{})
+	pulumi.RegisterOutputType(ObjectLambdaAccessPointConfigurationTransformationConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationOutput{})
+	pulumi.RegisterOutputType(ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaOutput{})
 }

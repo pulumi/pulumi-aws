@@ -10,6 +10,162 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type DirectoryConfigServiceAccountCredentials struct {
+	// User name of the account. This account must have the following privileges: create computer objects, join computers to the domain, and change/reset the password on descendant computer objects for the organizational units specified.
+	AccountName string `pulumi:"accountName"`
+	// Password for the account.
+	AccountPassword string `pulumi:"accountPassword"`
+}
+
+// DirectoryConfigServiceAccountCredentialsInput is an input type that accepts DirectoryConfigServiceAccountCredentialsArgs and DirectoryConfigServiceAccountCredentialsOutput values.
+// You can construct a concrete instance of `DirectoryConfigServiceAccountCredentialsInput` via:
+//
+//          DirectoryConfigServiceAccountCredentialsArgs{...}
+type DirectoryConfigServiceAccountCredentialsInput interface {
+	pulumi.Input
+
+	ToDirectoryConfigServiceAccountCredentialsOutput() DirectoryConfigServiceAccountCredentialsOutput
+	ToDirectoryConfigServiceAccountCredentialsOutputWithContext(context.Context) DirectoryConfigServiceAccountCredentialsOutput
+}
+
+type DirectoryConfigServiceAccountCredentialsArgs struct {
+	// User name of the account. This account must have the following privileges: create computer objects, join computers to the domain, and change/reset the password on descendant computer objects for the organizational units specified.
+	AccountName pulumi.StringInput `pulumi:"accountName"`
+	// Password for the account.
+	AccountPassword pulumi.StringInput `pulumi:"accountPassword"`
+}
+
+func (DirectoryConfigServiceAccountCredentialsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryConfigServiceAccountCredentials)(nil)).Elem()
+}
+
+func (i DirectoryConfigServiceAccountCredentialsArgs) ToDirectoryConfigServiceAccountCredentialsOutput() DirectoryConfigServiceAccountCredentialsOutput {
+	return i.ToDirectoryConfigServiceAccountCredentialsOutputWithContext(context.Background())
+}
+
+func (i DirectoryConfigServiceAccountCredentialsArgs) ToDirectoryConfigServiceAccountCredentialsOutputWithContext(ctx context.Context) DirectoryConfigServiceAccountCredentialsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectoryConfigServiceAccountCredentialsOutput)
+}
+
+func (i DirectoryConfigServiceAccountCredentialsArgs) ToDirectoryConfigServiceAccountCredentialsPtrOutput() DirectoryConfigServiceAccountCredentialsPtrOutput {
+	return i.ToDirectoryConfigServiceAccountCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i DirectoryConfigServiceAccountCredentialsArgs) ToDirectoryConfigServiceAccountCredentialsPtrOutputWithContext(ctx context.Context) DirectoryConfigServiceAccountCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectoryConfigServiceAccountCredentialsOutput).ToDirectoryConfigServiceAccountCredentialsPtrOutputWithContext(ctx)
+}
+
+// DirectoryConfigServiceAccountCredentialsPtrInput is an input type that accepts DirectoryConfigServiceAccountCredentialsArgs, DirectoryConfigServiceAccountCredentialsPtr and DirectoryConfigServiceAccountCredentialsPtrOutput values.
+// You can construct a concrete instance of `DirectoryConfigServiceAccountCredentialsPtrInput` via:
+//
+//          DirectoryConfigServiceAccountCredentialsArgs{...}
+//
+//  or:
+//
+//          nil
+type DirectoryConfigServiceAccountCredentialsPtrInput interface {
+	pulumi.Input
+
+	ToDirectoryConfigServiceAccountCredentialsPtrOutput() DirectoryConfigServiceAccountCredentialsPtrOutput
+	ToDirectoryConfigServiceAccountCredentialsPtrOutputWithContext(context.Context) DirectoryConfigServiceAccountCredentialsPtrOutput
+}
+
+type directoryConfigServiceAccountCredentialsPtrType DirectoryConfigServiceAccountCredentialsArgs
+
+func DirectoryConfigServiceAccountCredentialsPtr(v *DirectoryConfigServiceAccountCredentialsArgs) DirectoryConfigServiceAccountCredentialsPtrInput {
+	return (*directoryConfigServiceAccountCredentialsPtrType)(v)
+}
+
+func (*directoryConfigServiceAccountCredentialsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DirectoryConfigServiceAccountCredentials)(nil)).Elem()
+}
+
+func (i *directoryConfigServiceAccountCredentialsPtrType) ToDirectoryConfigServiceAccountCredentialsPtrOutput() DirectoryConfigServiceAccountCredentialsPtrOutput {
+	return i.ToDirectoryConfigServiceAccountCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i *directoryConfigServiceAccountCredentialsPtrType) ToDirectoryConfigServiceAccountCredentialsPtrOutputWithContext(ctx context.Context) DirectoryConfigServiceAccountCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DirectoryConfigServiceAccountCredentialsPtrOutput)
+}
+
+type DirectoryConfigServiceAccountCredentialsOutput struct{ *pulumi.OutputState }
+
+func (DirectoryConfigServiceAccountCredentialsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DirectoryConfigServiceAccountCredentials)(nil)).Elem()
+}
+
+func (o DirectoryConfigServiceAccountCredentialsOutput) ToDirectoryConfigServiceAccountCredentialsOutput() DirectoryConfigServiceAccountCredentialsOutput {
+	return o
+}
+
+func (o DirectoryConfigServiceAccountCredentialsOutput) ToDirectoryConfigServiceAccountCredentialsOutputWithContext(ctx context.Context) DirectoryConfigServiceAccountCredentialsOutput {
+	return o
+}
+
+func (o DirectoryConfigServiceAccountCredentialsOutput) ToDirectoryConfigServiceAccountCredentialsPtrOutput() DirectoryConfigServiceAccountCredentialsPtrOutput {
+	return o.ToDirectoryConfigServiceAccountCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (o DirectoryConfigServiceAccountCredentialsOutput) ToDirectoryConfigServiceAccountCredentialsPtrOutputWithContext(ctx context.Context) DirectoryConfigServiceAccountCredentialsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DirectoryConfigServiceAccountCredentials) *DirectoryConfigServiceAccountCredentials {
+		return &v
+	}).(DirectoryConfigServiceAccountCredentialsPtrOutput)
+}
+
+// User name of the account. This account must have the following privileges: create computer objects, join computers to the domain, and change/reset the password on descendant computer objects for the organizational units specified.
+func (o DirectoryConfigServiceAccountCredentialsOutput) AccountName() pulumi.StringOutput {
+	return o.ApplyT(func(v DirectoryConfigServiceAccountCredentials) string { return v.AccountName }).(pulumi.StringOutput)
+}
+
+// Password for the account.
+func (o DirectoryConfigServiceAccountCredentialsOutput) AccountPassword() pulumi.StringOutput {
+	return o.ApplyT(func(v DirectoryConfigServiceAccountCredentials) string { return v.AccountPassword }).(pulumi.StringOutput)
+}
+
+type DirectoryConfigServiceAccountCredentialsPtrOutput struct{ *pulumi.OutputState }
+
+func (DirectoryConfigServiceAccountCredentialsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DirectoryConfigServiceAccountCredentials)(nil)).Elem()
+}
+
+func (o DirectoryConfigServiceAccountCredentialsPtrOutput) ToDirectoryConfigServiceAccountCredentialsPtrOutput() DirectoryConfigServiceAccountCredentialsPtrOutput {
+	return o
+}
+
+func (o DirectoryConfigServiceAccountCredentialsPtrOutput) ToDirectoryConfigServiceAccountCredentialsPtrOutputWithContext(ctx context.Context) DirectoryConfigServiceAccountCredentialsPtrOutput {
+	return o
+}
+
+func (o DirectoryConfigServiceAccountCredentialsPtrOutput) Elem() DirectoryConfigServiceAccountCredentialsOutput {
+	return o.ApplyT(func(v *DirectoryConfigServiceAccountCredentials) DirectoryConfigServiceAccountCredentials {
+		if v != nil {
+			return *v
+		}
+		var ret DirectoryConfigServiceAccountCredentials
+		return ret
+	}).(DirectoryConfigServiceAccountCredentialsOutput)
+}
+
+// User name of the account. This account must have the following privileges: create computer objects, join computers to the domain, and change/reset the password on descendant computer objects for the organizational units specified.
+func (o DirectoryConfigServiceAccountCredentialsPtrOutput) AccountName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DirectoryConfigServiceAccountCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AccountName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Password for the account.
+func (o DirectoryConfigServiceAccountCredentialsPtrOutput) AccountPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DirectoryConfigServiceAccountCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AccountPassword
+	}).(pulumi.StringPtrOutput)
+}
+
 type FleetComputeCapacity struct {
 	// Number of currently available instances that can be used to stream sessions.
 	Available *int `pulumi:"available"`
@@ -1404,6 +1560,8 @@ func (o StackUserSettingArrayOutput) Index(i pulumi.IntInput) StackUserSettingOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryConfigServiceAccountCredentialsInput)(nil)).Elem(), DirectoryConfigServiceAccountCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryConfigServiceAccountCredentialsPtrInput)(nil)).Elem(), DirectoryConfigServiceAccountCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetComputeCapacityInput)(nil)).Elem(), FleetComputeCapacityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetComputeCapacityPtrInput)(nil)).Elem(), FleetComputeCapacityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetDomainJoinInfoInput)(nil)).Elem(), FleetDomainJoinInfoArgs{})
@@ -1424,6 +1582,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StackStorageConnectorArrayInput)(nil)).Elem(), StackStorageConnectorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StackUserSettingInput)(nil)).Elem(), StackUserSettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StackUserSettingArrayInput)(nil)).Elem(), StackUserSettingArray{})
+	pulumi.RegisterOutputType(DirectoryConfigServiceAccountCredentialsOutput{})
+	pulumi.RegisterOutputType(DirectoryConfigServiceAccountCredentialsPtrOutput{})
 	pulumi.RegisterOutputType(FleetComputeCapacityOutput{})
 	pulumi.RegisterOutputType(FleetComputeCapacityPtrOutput{})
 	pulumi.RegisterOutputType(FleetDomainJoinInfoOutput{})

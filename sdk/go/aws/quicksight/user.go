@@ -28,7 +28,7 @@ import (
 // 		_, err := quicksight.NewUser(ctx, "example", &quicksight.UserArgs{
 // 			Email:        pulumi.String("author@example.com"),
 // 			IdentityType: pulumi.String("IAM"),
-// 			UserName:     pulumi.String("an-author"),
+// 			SessionName:  pulumi.String("an-author"),
 // 			UserRole:     pulumi.String("AUTHOR"),
 // 		})
 // 		if err != nil {

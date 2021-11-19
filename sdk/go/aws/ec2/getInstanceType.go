@@ -125,6 +125,8 @@ type GetInstanceTypeResult struct {
 	EfaSupported bool `pulumi:"efaSupported"`
 	// Indicates whether Elastic Network Adapter (ENA) is supported.
 	EnaSupport string `pulumi:"enaSupport"`
+	// Indicates whether encryption in-transit between instances is supported.
+	EncryptionInTransitSupported bool `pulumi:"encryptionInTransitSupported"`
 	// Describes the FPGA accelerator settings for the instance type.
 	// * `fpgas.#.count` - The count of FPGA accelerators for the instance type.
 	// * `fpgas.#.manufacturer` - The manufacturer of the FPGA accelerator.
@@ -357,6 +359,11 @@ func (o GetInstanceTypeResultOutput) EfaSupported() pulumi.BoolOutput {
 // Indicates whether Elastic Network Adapter (ENA) is supported.
 func (o GetInstanceTypeResultOutput) EnaSupport() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInstanceTypeResult) string { return v.EnaSupport }).(pulumi.StringOutput)
+}
+
+// Indicates whether encryption in-transit between instances is supported.
+func (o GetInstanceTypeResultOutput) EncryptionInTransitSupported() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetInstanceTypeResult) bool { return v.EncryptionInTransitSupported }).(pulumi.BoolOutput)
 }
 
 // Describes the FPGA accelerator settings for the instance type.

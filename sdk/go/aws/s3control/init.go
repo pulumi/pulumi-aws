@@ -21,12 +21,22 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws:s3control/accessPointPolicy:AccessPointPolicy":
+		r = &AccessPointPolicy{}
 	case "aws:s3control/bucket:Bucket":
 		r = &Bucket{}
 	case "aws:s3control/bucketLifecycleConfiguration:BucketLifecycleConfiguration":
 		r = &BucketLifecycleConfiguration{}
 	case "aws:s3control/bucketPolicy:BucketPolicy":
 		r = &BucketPolicy{}
+	case "aws:s3control/multiRegionAccessPoint:MultiRegionAccessPoint":
+		r = &MultiRegionAccessPoint{}
+	case "aws:s3control/multiRegionAccessPointPolicy:MultiRegionAccessPointPolicy":
+		r = &MultiRegionAccessPointPolicy{}
+	case "aws:s3control/objectLambdaAccessPoint:ObjectLambdaAccessPoint":
+		r = &ObjectLambdaAccessPoint{}
+	case "aws:s3control/objectLambdaAccessPointPolicy:ObjectLambdaAccessPointPolicy":
+		r = &ObjectLambdaAccessPointPolicy{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -42,6 +52,11 @@ func init() {
 	}
 	pulumi.RegisterResourceModule(
 		"aws",
+		"s3control/accessPointPolicy",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
 		"s3control/bucket",
 		&module{version},
 	)
@@ -53,6 +68,26 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"s3control/bucketPolicy",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"s3control/multiRegionAccessPoint",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"s3control/multiRegionAccessPointPolicy",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"s3control/objectLambdaAccessPoint",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"s3control/objectLambdaAccessPointPolicy",
 		&module{version},
 	)
 }

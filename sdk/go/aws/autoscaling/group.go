@@ -442,7 +442,7 @@ type Group struct {
 	// should be running in the group. (See also Waiting for
 	// Capacity below.)
 	DesiredCapacity pulumi.IntOutput `pulumi:"desiredCapacity"`
-	// A list of metrics to collect. The allowed values are `GroupDesiredCapacity`, `GroupInServiceCapacity`, `GroupPendingCapacity`, `GroupMinSize`, `GroupMaxSize`, `GroupInServiceInstances`, `GroupPendingInstances`, `GroupStandbyInstances`, `GroupStandbyCapacity`, `GroupTerminatingCapacity`, `GroupTerminatingInstances`, `GroupTotalCapacity`, `GroupTotalInstances`.
+	// A list of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
 	EnabledMetrics pulumi.StringArrayOutput `pulumi:"enabledMetrics"`
 	// Allows deleting the Auto Scaling Group without waiting
 	// for all instances in the pool to terminate.  You can force an Auto Scaling Group to delete
@@ -579,7 +579,7 @@ type groupState struct {
 	// should be running in the group. (See also Waiting for
 	// Capacity below.)
 	DesiredCapacity *int `pulumi:"desiredCapacity"`
-	// A list of metrics to collect. The allowed values are `GroupDesiredCapacity`, `GroupInServiceCapacity`, `GroupPendingCapacity`, `GroupMinSize`, `GroupMaxSize`, `GroupInServiceInstances`, `GroupPendingInstances`, `GroupStandbyInstances`, `GroupStandbyCapacity`, `GroupTerminatingCapacity`, `GroupTerminatingInstances`, `GroupTotalCapacity`, `GroupTotalInstances`.
+	// A list of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
 	EnabledMetrics []string `pulumi:"enabledMetrics"`
 	// Allows deleting the Auto Scaling Group without waiting
 	// for all instances in the pool to terminate.  You can force an Auto Scaling Group to delete
@@ -682,7 +682,7 @@ type GroupState struct {
 	// should be running in the group. (See also Waiting for
 	// Capacity below.)
 	DesiredCapacity pulumi.IntPtrInput
-	// A list of metrics to collect. The allowed values are `GroupDesiredCapacity`, `GroupInServiceCapacity`, `GroupPendingCapacity`, `GroupMinSize`, `GroupMaxSize`, `GroupInServiceInstances`, `GroupPendingInstances`, `GroupStandbyInstances`, `GroupStandbyCapacity`, `GroupTerminatingCapacity`, `GroupTerminatingInstances`, `GroupTotalCapacity`, `GroupTotalInstances`.
+	// A list of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
 	EnabledMetrics pulumi.StringArrayInput
 	// Allows deleting the Auto Scaling Group without waiting
 	// for all instances in the pool to terminate.  You can force an Auto Scaling Group to delete
@@ -787,7 +787,7 @@ type groupArgs struct {
 	// should be running in the group. (See also Waiting for
 	// Capacity below.)
 	DesiredCapacity *int `pulumi:"desiredCapacity"`
-	// A list of metrics to collect. The allowed values are `GroupDesiredCapacity`, `GroupInServiceCapacity`, `GroupPendingCapacity`, `GroupMinSize`, `GroupMaxSize`, `GroupInServiceInstances`, `GroupPendingInstances`, `GroupStandbyInstances`, `GroupStandbyCapacity`, `GroupTerminatingCapacity`, `GroupTerminatingInstances`, `GroupTotalCapacity`, `GroupTotalInstances`.
+	// A list of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
 	EnabledMetrics []string `pulumi:"enabledMetrics"`
 	// Allows deleting the Auto Scaling Group without waiting
 	// for all instances in the pool to terminate.  You can force an Auto Scaling Group to delete
@@ -889,7 +889,7 @@ type GroupArgs struct {
 	// should be running in the group. (See also Waiting for
 	// Capacity below.)
 	DesiredCapacity pulumi.IntPtrInput
-	// A list of metrics to collect. The allowed values are `GroupDesiredCapacity`, `GroupInServiceCapacity`, `GroupPendingCapacity`, `GroupMinSize`, `GroupMaxSize`, `GroupInServiceInstances`, `GroupPendingInstances`, `GroupStandbyInstances`, `GroupStandbyCapacity`, `GroupTerminatingCapacity`, `GroupTerminatingInstances`, `GroupTotalCapacity`, `GroupTotalInstances`.
+	// A list of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
 	EnabledMetrics pulumi.StringArrayInput
 	// Allows deleting the Auto Scaling Group without waiting
 	// for all instances in the pool to terminate.  You can force an Auto Scaling Group to delete

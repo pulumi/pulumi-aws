@@ -3882,6 +3882,1099 @@ func (o EndpointConfigurationProductionVariantArrayOutput) Index(i pulumi.IntInp
 	}).(EndpointConfigurationProductionVariantOutput)
 }
 
+type EndpointDeploymentConfig struct {
+	// Automatic rollback configuration for handling endpoint deployment failures and recovery. See Auto Rollback Configuration.
+	AutoRollbackConfiguration *EndpointDeploymentConfigAutoRollbackConfiguration `pulumi:"autoRollbackConfiguration"`
+	// Update policy for a blue/green deployment. If this update policy is specified, SageMaker creates a new fleet during the deployment while maintaining the old fleet. See Blue Green Update Config.
+	BlueGreenUpdatePolicy EndpointDeploymentConfigBlueGreenUpdatePolicy `pulumi:"blueGreenUpdatePolicy"`
+}
+
+// EndpointDeploymentConfigInput is an input type that accepts EndpointDeploymentConfigArgs and EndpointDeploymentConfigOutput values.
+// You can construct a concrete instance of `EndpointDeploymentConfigInput` via:
+//
+//          EndpointDeploymentConfigArgs{...}
+type EndpointDeploymentConfigInput interface {
+	pulumi.Input
+
+	ToEndpointDeploymentConfigOutput() EndpointDeploymentConfigOutput
+	ToEndpointDeploymentConfigOutputWithContext(context.Context) EndpointDeploymentConfigOutput
+}
+
+type EndpointDeploymentConfigArgs struct {
+	// Automatic rollback configuration for handling endpoint deployment failures and recovery. See Auto Rollback Configuration.
+	AutoRollbackConfiguration EndpointDeploymentConfigAutoRollbackConfigurationPtrInput `pulumi:"autoRollbackConfiguration"`
+	// Update policy for a blue/green deployment. If this update policy is specified, SageMaker creates a new fleet during the deployment while maintaining the old fleet. See Blue Green Update Config.
+	BlueGreenUpdatePolicy EndpointDeploymentConfigBlueGreenUpdatePolicyInput `pulumi:"blueGreenUpdatePolicy"`
+}
+
+func (EndpointDeploymentConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointDeploymentConfig)(nil)).Elem()
+}
+
+func (i EndpointDeploymentConfigArgs) ToEndpointDeploymentConfigOutput() EndpointDeploymentConfigOutput {
+	return i.ToEndpointDeploymentConfigOutputWithContext(context.Background())
+}
+
+func (i EndpointDeploymentConfigArgs) ToEndpointDeploymentConfigOutputWithContext(ctx context.Context) EndpointDeploymentConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointDeploymentConfigOutput)
+}
+
+func (i EndpointDeploymentConfigArgs) ToEndpointDeploymentConfigPtrOutput() EndpointDeploymentConfigPtrOutput {
+	return i.ToEndpointDeploymentConfigPtrOutputWithContext(context.Background())
+}
+
+func (i EndpointDeploymentConfigArgs) ToEndpointDeploymentConfigPtrOutputWithContext(ctx context.Context) EndpointDeploymentConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointDeploymentConfigOutput).ToEndpointDeploymentConfigPtrOutputWithContext(ctx)
+}
+
+// EndpointDeploymentConfigPtrInput is an input type that accepts EndpointDeploymentConfigArgs, EndpointDeploymentConfigPtr and EndpointDeploymentConfigPtrOutput values.
+// You can construct a concrete instance of `EndpointDeploymentConfigPtrInput` via:
+//
+//          EndpointDeploymentConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type EndpointDeploymentConfigPtrInput interface {
+	pulumi.Input
+
+	ToEndpointDeploymentConfigPtrOutput() EndpointDeploymentConfigPtrOutput
+	ToEndpointDeploymentConfigPtrOutputWithContext(context.Context) EndpointDeploymentConfigPtrOutput
+}
+
+type endpointDeploymentConfigPtrType EndpointDeploymentConfigArgs
+
+func EndpointDeploymentConfigPtr(v *EndpointDeploymentConfigArgs) EndpointDeploymentConfigPtrInput {
+	return (*endpointDeploymentConfigPtrType)(v)
+}
+
+func (*endpointDeploymentConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointDeploymentConfig)(nil)).Elem()
+}
+
+func (i *endpointDeploymentConfigPtrType) ToEndpointDeploymentConfigPtrOutput() EndpointDeploymentConfigPtrOutput {
+	return i.ToEndpointDeploymentConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *endpointDeploymentConfigPtrType) ToEndpointDeploymentConfigPtrOutputWithContext(ctx context.Context) EndpointDeploymentConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointDeploymentConfigPtrOutput)
+}
+
+type EndpointDeploymentConfigOutput struct{ *pulumi.OutputState }
+
+func (EndpointDeploymentConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointDeploymentConfig)(nil)).Elem()
+}
+
+func (o EndpointDeploymentConfigOutput) ToEndpointDeploymentConfigOutput() EndpointDeploymentConfigOutput {
+	return o
+}
+
+func (o EndpointDeploymentConfigOutput) ToEndpointDeploymentConfigOutputWithContext(ctx context.Context) EndpointDeploymentConfigOutput {
+	return o
+}
+
+func (o EndpointDeploymentConfigOutput) ToEndpointDeploymentConfigPtrOutput() EndpointDeploymentConfigPtrOutput {
+	return o.ToEndpointDeploymentConfigPtrOutputWithContext(context.Background())
+}
+
+func (o EndpointDeploymentConfigOutput) ToEndpointDeploymentConfigPtrOutputWithContext(ctx context.Context) EndpointDeploymentConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointDeploymentConfig) *EndpointDeploymentConfig {
+		return &v
+	}).(EndpointDeploymentConfigPtrOutput)
+}
+
+// Automatic rollback configuration for handling endpoint deployment failures and recovery. See Auto Rollback Configuration.
+func (o EndpointDeploymentConfigOutput) AutoRollbackConfiguration() EndpointDeploymentConfigAutoRollbackConfigurationPtrOutput {
+	return o.ApplyT(func(v EndpointDeploymentConfig) *EndpointDeploymentConfigAutoRollbackConfiguration {
+		return v.AutoRollbackConfiguration
+	}).(EndpointDeploymentConfigAutoRollbackConfigurationPtrOutput)
+}
+
+// Update policy for a blue/green deployment. If this update policy is specified, SageMaker creates a new fleet during the deployment while maintaining the old fleet. See Blue Green Update Config.
+func (o EndpointDeploymentConfigOutput) BlueGreenUpdatePolicy() EndpointDeploymentConfigBlueGreenUpdatePolicyOutput {
+	return o.ApplyT(func(v EndpointDeploymentConfig) EndpointDeploymentConfigBlueGreenUpdatePolicy {
+		return v.BlueGreenUpdatePolicy
+	}).(EndpointDeploymentConfigBlueGreenUpdatePolicyOutput)
+}
+
+type EndpointDeploymentConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointDeploymentConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointDeploymentConfig)(nil)).Elem()
+}
+
+func (o EndpointDeploymentConfigPtrOutput) ToEndpointDeploymentConfigPtrOutput() EndpointDeploymentConfigPtrOutput {
+	return o
+}
+
+func (o EndpointDeploymentConfigPtrOutput) ToEndpointDeploymentConfigPtrOutputWithContext(ctx context.Context) EndpointDeploymentConfigPtrOutput {
+	return o
+}
+
+func (o EndpointDeploymentConfigPtrOutput) Elem() EndpointDeploymentConfigOutput {
+	return o.ApplyT(func(v *EndpointDeploymentConfig) EndpointDeploymentConfig {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointDeploymentConfig
+		return ret
+	}).(EndpointDeploymentConfigOutput)
+}
+
+// Automatic rollback configuration for handling endpoint deployment failures and recovery. See Auto Rollback Configuration.
+func (o EndpointDeploymentConfigPtrOutput) AutoRollbackConfiguration() EndpointDeploymentConfigAutoRollbackConfigurationPtrOutput {
+	return o.ApplyT(func(v *EndpointDeploymentConfig) *EndpointDeploymentConfigAutoRollbackConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.AutoRollbackConfiguration
+	}).(EndpointDeploymentConfigAutoRollbackConfigurationPtrOutput)
+}
+
+// Update policy for a blue/green deployment. If this update policy is specified, SageMaker creates a new fleet during the deployment while maintaining the old fleet. See Blue Green Update Config.
+func (o EndpointDeploymentConfigPtrOutput) BlueGreenUpdatePolicy() EndpointDeploymentConfigBlueGreenUpdatePolicyPtrOutput {
+	return o.ApplyT(func(v *EndpointDeploymentConfig) *EndpointDeploymentConfigBlueGreenUpdatePolicy {
+		if v == nil {
+			return nil
+		}
+		return &v.BlueGreenUpdatePolicy
+	}).(EndpointDeploymentConfigBlueGreenUpdatePolicyPtrOutput)
+}
+
+type EndpointDeploymentConfigAutoRollbackConfiguration struct {
+	// List of CloudWatch alarms in your account that are configured to monitor metrics on an endpoint. If any alarms are tripped during a deployment, SageMaker rolls back the deployment. See Alarms.
+	Alarms []EndpointDeploymentConfigAutoRollbackConfigurationAlarm `pulumi:"alarms"`
+}
+
+// EndpointDeploymentConfigAutoRollbackConfigurationInput is an input type that accepts EndpointDeploymentConfigAutoRollbackConfigurationArgs and EndpointDeploymentConfigAutoRollbackConfigurationOutput values.
+// You can construct a concrete instance of `EndpointDeploymentConfigAutoRollbackConfigurationInput` via:
+//
+//          EndpointDeploymentConfigAutoRollbackConfigurationArgs{...}
+type EndpointDeploymentConfigAutoRollbackConfigurationInput interface {
+	pulumi.Input
+
+	ToEndpointDeploymentConfigAutoRollbackConfigurationOutput() EndpointDeploymentConfigAutoRollbackConfigurationOutput
+	ToEndpointDeploymentConfigAutoRollbackConfigurationOutputWithContext(context.Context) EndpointDeploymentConfigAutoRollbackConfigurationOutput
+}
+
+type EndpointDeploymentConfigAutoRollbackConfigurationArgs struct {
+	// List of CloudWatch alarms in your account that are configured to monitor metrics on an endpoint. If any alarms are tripped during a deployment, SageMaker rolls back the deployment. See Alarms.
+	Alarms EndpointDeploymentConfigAutoRollbackConfigurationAlarmArrayInput `pulumi:"alarms"`
+}
+
+func (EndpointDeploymentConfigAutoRollbackConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointDeploymentConfigAutoRollbackConfiguration)(nil)).Elem()
+}
+
+func (i EndpointDeploymentConfigAutoRollbackConfigurationArgs) ToEndpointDeploymentConfigAutoRollbackConfigurationOutput() EndpointDeploymentConfigAutoRollbackConfigurationOutput {
+	return i.ToEndpointDeploymentConfigAutoRollbackConfigurationOutputWithContext(context.Background())
+}
+
+func (i EndpointDeploymentConfigAutoRollbackConfigurationArgs) ToEndpointDeploymentConfigAutoRollbackConfigurationOutputWithContext(ctx context.Context) EndpointDeploymentConfigAutoRollbackConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointDeploymentConfigAutoRollbackConfigurationOutput)
+}
+
+func (i EndpointDeploymentConfigAutoRollbackConfigurationArgs) ToEndpointDeploymentConfigAutoRollbackConfigurationPtrOutput() EndpointDeploymentConfigAutoRollbackConfigurationPtrOutput {
+	return i.ToEndpointDeploymentConfigAutoRollbackConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i EndpointDeploymentConfigAutoRollbackConfigurationArgs) ToEndpointDeploymentConfigAutoRollbackConfigurationPtrOutputWithContext(ctx context.Context) EndpointDeploymentConfigAutoRollbackConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointDeploymentConfigAutoRollbackConfigurationOutput).ToEndpointDeploymentConfigAutoRollbackConfigurationPtrOutputWithContext(ctx)
+}
+
+// EndpointDeploymentConfigAutoRollbackConfigurationPtrInput is an input type that accepts EndpointDeploymentConfigAutoRollbackConfigurationArgs, EndpointDeploymentConfigAutoRollbackConfigurationPtr and EndpointDeploymentConfigAutoRollbackConfigurationPtrOutput values.
+// You can construct a concrete instance of `EndpointDeploymentConfigAutoRollbackConfigurationPtrInput` via:
+//
+//          EndpointDeploymentConfigAutoRollbackConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type EndpointDeploymentConfigAutoRollbackConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToEndpointDeploymentConfigAutoRollbackConfigurationPtrOutput() EndpointDeploymentConfigAutoRollbackConfigurationPtrOutput
+	ToEndpointDeploymentConfigAutoRollbackConfigurationPtrOutputWithContext(context.Context) EndpointDeploymentConfigAutoRollbackConfigurationPtrOutput
+}
+
+type endpointDeploymentConfigAutoRollbackConfigurationPtrType EndpointDeploymentConfigAutoRollbackConfigurationArgs
+
+func EndpointDeploymentConfigAutoRollbackConfigurationPtr(v *EndpointDeploymentConfigAutoRollbackConfigurationArgs) EndpointDeploymentConfigAutoRollbackConfigurationPtrInput {
+	return (*endpointDeploymentConfigAutoRollbackConfigurationPtrType)(v)
+}
+
+func (*endpointDeploymentConfigAutoRollbackConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointDeploymentConfigAutoRollbackConfiguration)(nil)).Elem()
+}
+
+func (i *endpointDeploymentConfigAutoRollbackConfigurationPtrType) ToEndpointDeploymentConfigAutoRollbackConfigurationPtrOutput() EndpointDeploymentConfigAutoRollbackConfigurationPtrOutput {
+	return i.ToEndpointDeploymentConfigAutoRollbackConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *endpointDeploymentConfigAutoRollbackConfigurationPtrType) ToEndpointDeploymentConfigAutoRollbackConfigurationPtrOutputWithContext(ctx context.Context) EndpointDeploymentConfigAutoRollbackConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointDeploymentConfigAutoRollbackConfigurationPtrOutput)
+}
+
+type EndpointDeploymentConfigAutoRollbackConfigurationOutput struct{ *pulumi.OutputState }
+
+func (EndpointDeploymentConfigAutoRollbackConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointDeploymentConfigAutoRollbackConfiguration)(nil)).Elem()
+}
+
+func (o EndpointDeploymentConfigAutoRollbackConfigurationOutput) ToEndpointDeploymentConfigAutoRollbackConfigurationOutput() EndpointDeploymentConfigAutoRollbackConfigurationOutput {
+	return o
+}
+
+func (o EndpointDeploymentConfigAutoRollbackConfigurationOutput) ToEndpointDeploymentConfigAutoRollbackConfigurationOutputWithContext(ctx context.Context) EndpointDeploymentConfigAutoRollbackConfigurationOutput {
+	return o
+}
+
+func (o EndpointDeploymentConfigAutoRollbackConfigurationOutput) ToEndpointDeploymentConfigAutoRollbackConfigurationPtrOutput() EndpointDeploymentConfigAutoRollbackConfigurationPtrOutput {
+	return o.ToEndpointDeploymentConfigAutoRollbackConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o EndpointDeploymentConfigAutoRollbackConfigurationOutput) ToEndpointDeploymentConfigAutoRollbackConfigurationPtrOutputWithContext(ctx context.Context) EndpointDeploymentConfigAutoRollbackConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointDeploymentConfigAutoRollbackConfiguration) *EndpointDeploymentConfigAutoRollbackConfiguration {
+		return &v
+	}).(EndpointDeploymentConfigAutoRollbackConfigurationPtrOutput)
+}
+
+// List of CloudWatch alarms in your account that are configured to monitor metrics on an endpoint. If any alarms are tripped during a deployment, SageMaker rolls back the deployment. See Alarms.
+func (o EndpointDeploymentConfigAutoRollbackConfigurationOutput) Alarms() EndpointDeploymentConfigAutoRollbackConfigurationAlarmArrayOutput {
+	return o.ApplyT(func(v EndpointDeploymentConfigAutoRollbackConfiguration) []EndpointDeploymentConfigAutoRollbackConfigurationAlarm {
+		return v.Alarms
+	}).(EndpointDeploymentConfigAutoRollbackConfigurationAlarmArrayOutput)
+}
+
+type EndpointDeploymentConfigAutoRollbackConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointDeploymentConfigAutoRollbackConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointDeploymentConfigAutoRollbackConfiguration)(nil)).Elem()
+}
+
+func (o EndpointDeploymentConfigAutoRollbackConfigurationPtrOutput) ToEndpointDeploymentConfigAutoRollbackConfigurationPtrOutput() EndpointDeploymentConfigAutoRollbackConfigurationPtrOutput {
+	return o
+}
+
+func (o EndpointDeploymentConfigAutoRollbackConfigurationPtrOutput) ToEndpointDeploymentConfigAutoRollbackConfigurationPtrOutputWithContext(ctx context.Context) EndpointDeploymentConfigAutoRollbackConfigurationPtrOutput {
+	return o
+}
+
+func (o EndpointDeploymentConfigAutoRollbackConfigurationPtrOutput) Elem() EndpointDeploymentConfigAutoRollbackConfigurationOutput {
+	return o.ApplyT(func(v *EndpointDeploymentConfigAutoRollbackConfiguration) EndpointDeploymentConfigAutoRollbackConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointDeploymentConfigAutoRollbackConfiguration
+		return ret
+	}).(EndpointDeploymentConfigAutoRollbackConfigurationOutput)
+}
+
+// List of CloudWatch alarms in your account that are configured to monitor metrics on an endpoint. If any alarms are tripped during a deployment, SageMaker rolls back the deployment. See Alarms.
+func (o EndpointDeploymentConfigAutoRollbackConfigurationPtrOutput) Alarms() EndpointDeploymentConfigAutoRollbackConfigurationAlarmArrayOutput {
+	return o.ApplyT(func(v *EndpointDeploymentConfigAutoRollbackConfiguration) []EndpointDeploymentConfigAutoRollbackConfigurationAlarm {
+		if v == nil {
+			return nil
+		}
+		return v.Alarms
+	}).(EndpointDeploymentConfigAutoRollbackConfigurationAlarmArrayOutput)
+}
+
+type EndpointDeploymentConfigAutoRollbackConfigurationAlarm struct {
+	// The name of a CloudWatch alarm in your account.
+	AlarmName string `pulumi:"alarmName"`
+}
+
+// EndpointDeploymentConfigAutoRollbackConfigurationAlarmInput is an input type that accepts EndpointDeploymentConfigAutoRollbackConfigurationAlarmArgs and EndpointDeploymentConfigAutoRollbackConfigurationAlarmOutput values.
+// You can construct a concrete instance of `EndpointDeploymentConfigAutoRollbackConfigurationAlarmInput` via:
+//
+//          EndpointDeploymentConfigAutoRollbackConfigurationAlarmArgs{...}
+type EndpointDeploymentConfigAutoRollbackConfigurationAlarmInput interface {
+	pulumi.Input
+
+	ToEndpointDeploymentConfigAutoRollbackConfigurationAlarmOutput() EndpointDeploymentConfigAutoRollbackConfigurationAlarmOutput
+	ToEndpointDeploymentConfigAutoRollbackConfigurationAlarmOutputWithContext(context.Context) EndpointDeploymentConfigAutoRollbackConfigurationAlarmOutput
+}
+
+type EndpointDeploymentConfigAutoRollbackConfigurationAlarmArgs struct {
+	// The name of a CloudWatch alarm in your account.
+	AlarmName pulumi.StringInput `pulumi:"alarmName"`
+}
+
+func (EndpointDeploymentConfigAutoRollbackConfigurationAlarmArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointDeploymentConfigAutoRollbackConfigurationAlarm)(nil)).Elem()
+}
+
+func (i EndpointDeploymentConfigAutoRollbackConfigurationAlarmArgs) ToEndpointDeploymentConfigAutoRollbackConfigurationAlarmOutput() EndpointDeploymentConfigAutoRollbackConfigurationAlarmOutput {
+	return i.ToEndpointDeploymentConfigAutoRollbackConfigurationAlarmOutputWithContext(context.Background())
+}
+
+func (i EndpointDeploymentConfigAutoRollbackConfigurationAlarmArgs) ToEndpointDeploymentConfigAutoRollbackConfigurationAlarmOutputWithContext(ctx context.Context) EndpointDeploymentConfigAutoRollbackConfigurationAlarmOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointDeploymentConfigAutoRollbackConfigurationAlarmOutput)
+}
+
+// EndpointDeploymentConfigAutoRollbackConfigurationAlarmArrayInput is an input type that accepts EndpointDeploymentConfigAutoRollbackConfigurationAlarmArray and EndpointDeploymentConfigAutoRollbackConfigurationAlarmArrayOutput values.
+// You can construct a concrete instance of `EndpointDeploymentConfigAutoRollbackConfigurationAlarmArrayInput` via:
+//
+//          EndpointDeploymentConfigAutoRollbackConfigurationAlarmArray{ EndpointDeploymentConfigAutoRollbackConfigurationAlarmArgs{...} }
+type EndpointDeploymentConfigAutoRollbackConfigurationAlarmArrayInput interface {
+	pulumi.Input
+
+	ToEndpointDeploymentConfigAutoRollbackConfigurationAlarmArrayOutput() EndpointDeploymentConfigAutoRollbackConfigurationAlarmArrayOutput
+	ToEndpointDeploymentConfigAutoRollbackConfigurationAlarmArrayOutputWithContext(context.Context) EndpointDeploymentConfigAutoRollbackConfigurationAlarmArrayOutput
+}
+
+type EndpointDeploymentConfigAutoRollbackConfigurationAlarmArray []EndpointDeploymentConfigAutoRollbackConfigurationAlarmInput
+
+func (EndpointDeploymentConfigAutoRollbackConfigurationAlarmArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EndpointDeploymentConfigAutoRollbackConfigurationAlarm)(nil)).Elem()
+}
+
+func (i EndpointDeploymentConfigAutoRollbackConfigurationAlarmArray) ToEndpointDeploymentConfigAutoRollbackConfigurationAlarmArrayOutput() EndpointDeploymentConfigAutoRollbackConfigurationAlarmArrayOutput {
+	return i.ToEndpointDeploymentConfigAutoRollbackConfigurationAlarmArrayOutputWithContext(context.Background())
+}
+
+func (i EndpointDeploymentConfigAutoRollbackConfigurationAlarmArray) ToEndpointDeploymentConfigAutoRollbackConfigurationAlarmArrayOutputWithContext(ctx context.Context) EndpointDeploymentConfigAutoRollbackConfigurationAlarmArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointDeploymentConfigAutoRollbackConfigurationAlarmArrayOutput)
+}
+
+type EndpointDeploymentConfigAutoRollbackConfigurationAlarmOutput struct{ *pulumi.OutputState }
+
+func (EndpointDeploymentConfigAutoRollbackConfigurationAlarmOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointDeploymentConfigAutoRollbackConfigurationAlarm)(nil)).Elem()
+}
+
+func (o EndpointDeploymentConfigAutoRollbackConfigurationAlarmOutput) ToEndpointDeploymentConfigAutoRollbackConfigurationAlarmOutput() EndpointDeploymentConfigAutoRollbackConfigurationAlarmOutput {
+	return o
+}
+
+func (o EndpointDeploymentConfigAutoRollbackConfigurationAlarmOutput) ToEndpointDeploymentConfigAutoRollbackConfigurationAlarmOutputWithContext(ctx context.Context) EndpointDeploymentConfigAutoRollbackConfigurationAlarmOutput {
+	return o
+}
+
+// The name of a CloudWatch alarm in your account.
+func (o EndpointDeploymentConfigAutoRollbackConfigurationAlarmOutput) AlarmName() pulumi.StringOutput {
+	return o.ApplyT(func(v EndpointDeploymentConfigAutoRollbackConfigurationAlarm) string { return v.AlarmName }).(pulumi.StringOutput)
+}
+
+type EndpointDeploymentConfigAutoRollbackConfigurationAlarmArrayOutput struct{ *pulumi.OutputState }
+
+func (EndpointDeploymentConfigAutoRollbackConfigurationAlarmArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EndpointDeploymentConfigAutoRollbackConfigurationAlarm)(nil)).Elem()
+}
+
+func (o EndpointDeploymentConfigAutoRollbackConfigurationAlarmArrayOutput) ToEndpointDeploymentConfigAutoRollbackConfigurationAlarmArrayOutput() EndpointDeploymentConfigAutoRollbackConfigurationAlarmArrayOutput {
+	return o
+}
+
+func (o EndpointDeploymentConfigAutoRollbackConfigurationAlarmArrayOutput) ToEndpointDeploymentConfigAutoRollbackConfigurationAlarmArrayOutputWithContext(ctx context.Context) EndpointDeploymentConfigAutoRollbackConfigurationAlarmArrayOutput {
+	return o
+}
+
+func (o EndpointDeploymentConfigAutoRollbackConfigurationAlarmArrayOutput) Index(i pulumi.IntInput) EndpointDeploymentConfigAutoRollbackConfigurationAlarmOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EndpointDeploymentConfigAutoRollbackConfigurationAlarm {
+		return vs[0].([]EndpointDeploymentConfigAutoRollbackConfigurationAlarm)[vs[1].(int)]
+	}).(EndpointDeploymentConfigAutoRollbackConfigurationAlarmOutput)
+}
+
+type EndpointDeploymentConfigBlueGreenUpdatePolicy struct {
+	// Maximum execution timeout for the deployment. Note that the timeout value should be larger than the total waiting time specified in `terminationWaitInSeconds` and `waitIntervalInSeconds`. Valid values are between `600` and `14400`.
+	MaximumExecutionTimeoutInSeconds *int `pulumi:"maximumExecutionTimeoutInSeconds"`
+	// Additional waiting time in seconds after the completion of an endpoint deployment before terminating the old endpoint fleet. Default is `0`. Valid values are between `0` and `3600`.
+	TerminationWaitInSeconds *int `pulumi:"terminationWaitInSeconds"`
+	// Defines the traffic routing strategy to shift traffic from the old fleet to the new fleet during an endpoint deployment. See Traffic Routing Configuration.
+	TrafficRoutingConfiguration EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration `pulumi:"trafficRoutingConfiguration"`
+}
+
+// EndpointDeploymentConfigBlueGreenUpdatePolicyInput is an input type that accepts EndpointDeploymentConfigBlueGreenUpdatePolicyArgs and EndpointDeploymentConfigBlueGreenUpdatePolicyOutput values.
+// You can construct a concrete instance of `EndpointDeploymentConfigBlueGreenUpdatePolicyInput` via:
+//
+//          EndpointDeploymentConfigBlueGreenUpdatePolicyArgs{...}
+type EndpointDeploymentConfigBlueGreenUpdatePolicyInput interface {
+	pulumi.Input
+
+	ToEndpointDeploymentConfigBlueGreenUpdatePolicyOutput() EndpointDeploymentConfigBlueGreenUpdatePolicyOutput
+	ToEndpointDeploymentConfigBlueGreenUpdatePolicyOutputWithContext(context.Context) EndpointDeploymentConfigBlueGreenUpdatePolicyOutput
+}
+
+type EndpointDeploymentConfigBlueGreenUpdatePolicyArgs struct {
+	// Maximum execution timeout for the deployment. Note that the timeout value should be larger than the total waiting time specified in `terminationWaitInSeconds` and `waitIntervalInSeconds`. Valid values are between `600` and `14400`.
+	MaximumExecutionTimeoutInSeconds pulumi.IntPtrInput `pulumi:"maximumExecutionTimeoutInSeconds"`
+	// Additional waiting time in seconds after the completion of an endpoint deployment before terminating the old endpoint fleet. Default is `0`. Valid values are between `0` and `3600`.
+	TerminationWaitInSeconds pulumi.IntPtrInput `pulumi:"terminationWaitInSeconds"`
+	// Defines the traffic routing strategy to shift traffic from the old fleet to the new fleet during an endpoint deployment. See Traffic Routing Configuration.
+	TrafficRoutingConfiguration EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationInput `pulumi:"trafficRoutingConfiguration"`
+}
+
+func (EndpointDeploymentConfigBlueGreenUpdatePolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointDeploymentConfigBlueGreenUpdatePolicy)(nil)).Elem()
+}
+
+func (i EndpointDeploymentConfigBlueGreenUpdatePolicyArgs) ToEndpointDeploymentConfigBlueGreenUpdatePolicyOutput() EndpointDeploymentConfigBlueGreenUpdatePolicyOutput {
+	return i.ToEndpointDeploymentConfigBlueGreenUpdatePolicyOutputWithContext(context.Background())
+}
+
+func (i EndpointDeploymentConfigBlueGreenUpdatePolicyArgs) ToEndpointDeploymentConfigBlueGreenUpdatePolicyOutputWithContext(ctx context.Context) EndpointDeploymentConfigBlueGreenUpdatePolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointDeploymentConfigBlueGreenUpdatePolicyOutput)
+}
+
+func (i EndpointDeploymentConfigBlueGreenUpdatePolicyArgs) ToEndpointDeploymentConfigBlueGreenUpdatePolicyPtrOutput() EndpointDeploymentConfigBlueGreenUpdatePolicyPtrOutput {
+	return i.ToEndpointDeploymentConfigBlueGreenUpdatePolicyPtrOutputWithContext(context.Background())
+}
+
+func (i EndpointDeploymentConfigBlueGreenUpdatePolicyArgs) ToEndpointDeploymentConfigBlueGreenUpdatePolicyPtrOutputWithContext(ctx context.Context) EndpointDeploymentConfigBlueGreenUpdatePolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointDeploymentConfigBlueGreenUpdatePolicyOutput).ToEndpointDeploymentConfigBlueGreenUpdatePolicyPtrOutputWithContext(ctx)
+}
+
+// EndpointDeploymentConfigBlueGreenUpdatePolicyPtrInput is an input type that accepts EndpointDeploymentConfigBlueGreenUpdatePolicyArgs, EndpointDeploymentConfigBlueGreenUpdatePolicyPtr and EndpointDeploymentConfigBlueGreenUpdatePolicyPtrOutput values.
+// You can construct a concrete instance of `EndpointDeploymentConfigBlueGreenUpdatePolicyPtrInput` via:
+//
+//          EndpointDeploymentConfigBlueGreenUpdatePolicyArgs{...}
+//
+//  or:
+//
+//          nil
+type EndpointDeploymentConfigBlueGreenUpdatePolicyPtrInput interface {
+	pulumi.Input
+
+	ToEndpointDeploymentConfigBlueGreenUpdatePolicyPtrOutput() EndpointDeploymentConfigBlueGreenUpdatePolicyPtrOutput
+	ToEndpointDeploymentConfigBlueGreenUpdatePolicyPtrOutputWithContext(context.Context) EndpointDeploymentConfigBlueGreenUpdatePolicyPtrOutput
+}
+
+type endpointDeploymentConfigBlueGreenUpdatePolicyPtrType EndpointDeploymentConfigBlueGreenUpdatePolicyArgs
+
+func EndpointDeploymentConfigBlueGreenUpdatePolicyPtr(v *EndpointDeploymentConfigBlueGreenUpdatePolicyArgs) EndpointDeploymentConfigBlueGreenUpdatePolicyPtrInput {
+	return (*endpointDeploymentConfigBlueGreenUpdatePolicyPtrType)(v)
+}
+
+func (*endpointDeploymentConfigBlueGreenUpdatePolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointDeploymentConfigBlueGreenUpdatePolicy)(nil)).Elem()
+}
+
+func (i *endpointDeploymentConfigBlueGreenUpdatePolicyPtrType) ToEndpointDeploymentConfigBlueGreenUpdatePolicyPtrOutput() EndpointDeploymentConfigBlueGreenUpdatePolicyPtrOutput {
+	return i.ToEndpointDeploymentConfigBlueGreenUpdatePolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *endpointDeploymentConfigBlueGreenUpdatePolicyPtrType) ToEndpointDeploymentConfigBlueGreenUpdatePolicyPtrOutputWithContext(ctx context.Context) EndpointDeploymentConfigBlueGreenUpdatePolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointDeploymentConfigBlueGreenUpdatePolicyPtrOutput)
+}
+
+type EndpointDeploymentConfigBlueGreenUpdatePolicyOutput struct{ *pulumi.OutputState }
+
+func (EndpointDeploymentConfigBlueGreenUpdatePolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointDeploymentConfigBlueGreenUpdatePolicy)(nil)).Elem()
+}
+
+func (o EndpointDeploymentConfigBlueGreenUpdatePolicyOutput) ToEndpointDeploymentConfigBlueGreenUpdatePolicyOutput() EndpointDeploymentConfigBlueGreenUpdatePolicyOutput {
+	return o
+}
+
+func (o EndpointDeploymentConfigBlueGreenUpdatePolicyOutput) ToEndpointDeploymentConfigBlueGreenUpdatePolicyOutputWithContext(ctx context.Context) EndpointDeploymentConfigBlueGreenUpdatePolicyOutput {
+	return o
+}
+
+func (o EndpointDeploymentConfigBlueGreenUpdatePolicyOutput) ToEndpointDeploymentConfigBlueGreenUpdatePolicyPtrOutput() EndpointDeploymentConfigBlueGreenUpdatePolicyPtrOutput {
+	return o.ToEndpointDeploymentConfigBlueGreenUpdatePolicyPtrOutputWithContext(context.Background())
+}
+
+func (o EndpointDeploymentConfigBlueGreenUpdatePolicyOutput) ToEndpointDeploymentConfigBlueGreenUpdatePolicyPtrOutputWithContext(ctx context.Context) EndpointDeploymentConfigBlueGreenUpdatePolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointDeploymentConfigBlueGreenUpdatePolicy) *EndpointDeploymentConfigBlueGreenUpdatePolicy {
+		return &v
+	}).(EndpointDeploymentConfigBlueGreenUpdatePolicyPtrOutput)
+}
+
+// Maximum execution timeout for the deployment. Note that the timeout value should be larger than the total waiting time specified in `terminationWaitInSeconds` and `waitIntervalInSeconds`. Valid values are between `600` and `14400`.
+func (o EndpointDeploymentConfigBlueGreenUpdatePolicyOutput) MaximumExecutionTimeoutInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointDeploymentConfigBlueGreenUpdatePolicy) *int { return v.MaximumExecutionTimeoutInSeconds }).(pulumi.IntPtrOutput)
+}
+
+// Additional waiting time in seconds after the completion of an endpoint deployment before terminating the old endpoint fleet. Default is `0`. Valid values are between `0` and `3600`.
+func (o EndpointDeploymentConfigBlueGreenUpdatePolicyOutput) TerminationWaitInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointDeploymentConfigBlueGreenUpdatePolicy) *int { return v.TerminationWaitInSeconds }).(pulumi.IntPtrOutput)
+}
+
+// Defines the traffic routing strategy to shift traffic from the old fleet to the new fleet during an endpoint deployment. See Traffic Routing Configuration.
+func (o EndpointDeploymentConfigBlueGreenUpdatePolicyOutput) TrafficRoutingConfiguration() EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationOutput {
+	return o.ApplyT(func(v EndpointDeploymentConfigBlueGreenUpdatePolicy) EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration {
+		return v.TrafficRoutingConfiguration
+	}).(EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationOutput)
+}
+
+type EndpointDeploymentConfigBlueGreenUpdatePolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointDeploymentConfigBlueGreenUpdatePolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointDeploymentConfigBlueGreenUpdatePolicy)(nil)).Elem()
+}
+
+func (o EndpointDeploymentConfigBlueGreenUpdatePolicyPtrOutput) ToEndpointDeploymentConfigBlueGreenUpdatePolicyPtrOutput() EndpointDeploymentConfigBlueGreenUpdatePolicyPtrOutput {
+	return o
+}
+
+func (o EndpointDeploymentConfigBlueGreenUpdatePolicyPtrOutput) ToEndpointDeploymentConfigBlueGreenUpdatePolicyPtrOutputWithContext(ctx context.Context) EndpointDeploymentConfigBlueGreenUpdatePolicyPtrOutput {
+	return o
+}
+
+func (o EndpointDeploymentConfigBlueGreenUpdatePolicyPtrOutput) Elem() EndpointDeploymentConfigBlueGreenUpdatePolicyOutput {
+	return o.ApplyT(func(v *EndpointDeploymentConfigBlueGreenUpdatePolicy) EndpointDeploymentConfigBlueGreenUpdatePolicy {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointDeploymentConfigBlueGreenUpdatePolicy
+		return ret
+	}).(EndpointDeploymentConfigBlueGreenUpdatePolicyOutput)
+}
+
+// Maximum execution timeout for the deployment. Note that the timeout value should be larger than the total waiting time specified in `terminationWaitInSeconds` and `waitIntervalInSeconds`. Valid values are between `600` and `14400`.
+func (o EndpointDeploymentConfigBlueGreenUpdatePolicyPtrOutput) MaximumExecutionTimeoutInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointDeploymentConfigBlueGreenUpdatePolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaximumExecutionTimeoutInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// Additional waiting time in seconds after the completion of an endpoint deployment before terminating the old endpoint fleet. Default is `0`. Valid values are between `0` and `3600`.
+func (o EndpointDeploymentConfigBlueGreenUpdatePolicyPtrOutput) TerminationWaitInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointDeploymentConfigBlueGreenUpdatePolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TerminationWaitInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// Defines the traffic routing strategy to shift traffic from the old fleet to the new fleet during an endpoint deployment. See Traffic Routing Configuration.
+func (o EndpointDeploymentConfigBlueGreenUpdatePolicyPtrOutput) TrafficRoutingConfiguration() EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationPtrOutput {
+	return o.ApplyT(func(v *EndpointDeploymentConfigBlueGreenUpdatePolicy) *EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.TrafficRoutingConfiguration
+	}).(EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationPtrOutput)
+}
+
+type EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration struct {
+	// Batch size for the first step to turn on traffic on the new endpoint fleet. Value must be less than or equal to 50% of the variant's total instance count. See Canary Size.
+	CanarySize *EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySize `pulumi:"canarySize"`
+	// Batch size for each step to turn on traffic on the new endpoint fleet. Value must be 10-50% of the variant's total instance count. See Linear Step Size.
+	LinearStepSize *EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSize `pulumi:"linearStepSize"`
+	// Specifies the endpoint capacity type. Valid values are: `INSTANCE_COUNT`, or `CAPACITY_PERCENT`.
+	Type string `pulumi:"type"`
+	// The waiting time (in seconds) between incremental steps to turn on traffic on the new endpoint fleet. Valid values are between `0` and `3600`.
+	WaitIntervalInSeconds int `pulumi:"waitIntervalInSeconds"`
+}
+
+// EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationInput is an input type that accepts EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationArgs and EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationOutput values.
+// You can construct a concrete instance of `EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationInput` via:
+//
+//          EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationArgs{...}
+type EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationInput interface {
+	pulumi.Input
+
+	ToEndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationOutput() EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationOutput
+	ToEndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationOutputWithContext(context.Context) EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationOutput
+}
+
+type EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationArgs struct {
+	// Batch size for the first step to turn on traffic on the new endpoint fleet. Value must be less than or equal to 50% of the variant's total instance count. See Canary Size.
+	CanarySize EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizePtrInput `pulumi:"canarySize"`
+	// Batch size for each step to turn on traffic on the new endpoint fleet. Value must be 10-50% of the variant's total instance count. See Linear Step Size.
+	LinearStepSize EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizePtrInput `pulumi:"linearStepSize"`
+	// Specifies the endpoint capacity type. Valid values are: `INSTANCE_COUNT`, or `CAPACITY_PERCENT`.
+	Type pulumi.StringInput `pulumi:"type"`
+	// The waiting time (in seconds) between incremental steps to turn on traffic on the new endpoint fleet. Valid values are between `0` and `3600`.
+	WaitIntervalInSeconds pulumi.IntInput `pulumi:"waitIntervalInSeconds"`
+}
+
+func (EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration)(nil)).Elem()
+}
+
+func (i EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationArgs) ToEndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationOutput() EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationOutput {
+	return i.ToEndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationOutputWithContext(context.Background())
+}
+
+func (i EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationArgs) ToEndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationOutputWithContext(ctx context.Context) EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationOutput)
+}
+
+func (i EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationArgs) ToEndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationPtrOutput() EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationPtrOutput {
+	return i.ToEndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationArgs) ToEndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationPtrOutputWithContext(ctx context.Context) EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationOutput).ToEndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationPtrOutputWithContext(ctx)
+}
+
+// EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationPtrInput is an input type that accepts EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationArgs, EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationPtr and EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationPtrOutput values.
+// You can construct a concrete instance of `EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationPtrInput` via:
+//
+//          EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToEndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationPtrOutput() EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationPtrOutput
+	ToEndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationPtrOutputWithContext(context.Context) EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationPtrOutput
+}
+
+type endpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationPtrType EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationArgs
+
+func EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationPtr(v *EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationArgs) EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationPtrInput {
+	return (*endpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationPtrType)(v)
+}
+
+func (*endpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration)(nil)).Elem()
+}
+
+func (i *endpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationPtrType) ToEndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationPtrOutput() EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationPtrOutput {
+	return i.ToEndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *endpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationPtrType) ToEndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationPtrOutputWithContext(ctx context.Context) EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationPtrOutput)
+}
+
+type EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationOutput struct{ *pulumi.OutputState }
+
+func (EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration)(nil)).Elem()
+}
+
+func (o EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationOutput) ToEndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationOutput() EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationOutput {
+	return o
+}
+
+func (o EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationOutput) ToEndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationOutputWithContext(ctx context.Context) EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationOutput {
+	return o
+}
+
+func (o EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationOutput) ToEndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationPtrOutput() EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationPtrOutput {
+	return o.ToEndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationOutput) ToEndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationPtrOutputWithContext(ctx context.Context) EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration) *EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration {
+		return &v
+	}).(EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationPtrOutput)
+}
+
+// Batch size for the first step to turn on traffic on the new endpoint fleet. Value must be less than or equal to 50% of the variant's total instance count. See Canary Size.
+func (o EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationOutput) CanarySize() EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizePtrOutput {
+	return o.ApplyT(func(v EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration) *EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySize {
+		return v.CanarySize
+	}).(EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizePtrOutput)
+}
+
+// Batch size for each step to turn on traffic on the new endpoint fleet. Value must be 10-50% of the variant's total instance count. See Linear Step Size.
+func (o EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationOutput) LinearStepSize() EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizePtrOutput {
+	return o.ApplyT(func(v EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration) *EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSize {
+		return v.LinearStepSize
+	}).(EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizePtrOutput)
+}
+
+// Specifies the endpoint capacity type. Valid values are: `INSTANCE_COUNT`, or `CAPACITY_PERCENT`.
+func (o EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The waiting time (in seconds) between incremental steps to turn on traffic on the new endpoint fleet. Valid values are between `0` and `3600`.
+func (o EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationOutput) WaitIntervalInSeconds() pulumi.IntOutput {
+	return o.ApplyT(func(v EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration) int {
+		return v.WaitIntervalInSeconds
+	}).(pulumi.IntOutput)
+}
+
+type EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration)(nil)).Elem()
+}
+
+func (o EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationPtrOutput) ToEndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationPtrOutput() EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationPtrOutput {
+	return o
+}
+
+func (o EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationPtrOutput) ToEndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationPtrOutputWithContext(ctx context.Context) EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationPtrOutput {
+	return o
+}
+
+func (o EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationPtrOutput) Elem() EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationOutput {
+	return o.ApplyT(func(v *EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration) EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration
+		return ret
+	}).(EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationOutput)
+}
+
+// Batch size for the first step to turn on traffic on the new endpoint fleet. Value must be less than or equal to 50% of the variant's total instance count. See Canary Size.
+func (o EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationPtrOutput) CanarySize() EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizePtrOutput {
+	return o.ApplyT(func(v *EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration) *EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySize {
+		if v == nil {
+			return nil
+		}
+		return v.CanarySize
+	}).(EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizePtrOutput)
+}
+
+// Batch size for each step to turn on traffic on the new endpoint fleet. Value must be 10-50% of the variant's total instance count. See Linear Step Size.
+func (o EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationPtrOutput) LinearStepSize() EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizePtrOutput {
+	return o.ApplyT(func(v *EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration) *EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSize {
+		if v == nil {
+			return nil
+		}
+		return v.LinearStepSize
+	}).(EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizePtrOutput)
+}
+
+// Specifies the endpoint capacity type. Valid values are: `INSTANCE_COUNT`, or `CAPACITY_PERCENT`.
+func (o EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// The waiting time (in seconds) between incremental steps to turn on traffic on the new endpoint fleet. Valid values are between `0` and `3600`.
+func (o EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationPtrOutput) WaitIntervalInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.WaitIntervalInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+type EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySize struct {
+	// Specifies the endpoint capacity type. Valid values are: `INSTANCE_COUNT`, or `CAPACITY_PERCENT`.
+	Type string `pulumi:"type"`
+	// Defines the capacity size, either as a number of instances or a capacity percentage.
+	Value int `pulumi:"value"`
+}
+
+// EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizeInput is an input type that accepts EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizeArgs and EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizeOutput values.
+// You can construct a concrete instance of `EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizeInput` via:
+//
+//          EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizeArgs{...}
+type EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizeInput interface {
+	pulumi.Input
+
+	ToEndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizeOutput() EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizeOutput
+	ToEndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizeOutputWithContext(context.Context) EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizeOutput
+}
+
+type EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizeArgs struct {
+	// Specifies the endpoint capacity type. Valid values are: `INSTANCE_COUNT`, or `CAPACITY_PERCENT`.
+	Type pulumi.StringInput `pulumi:"type"`
+	// Defines the capacity size, either as a number of instances or a capacity percentage.
+	Value pulumi.IntInput `pulumi:"value"`
+}
+
+func (EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySize)(nil)).Elem()
+}
+
+func (i EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizeArgs) ToEndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizeOutput() EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizeOutput {
+	return i.ToEndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizeOutputWithContext(context.Background())
+}
+
+func (i EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizeArgs) ToEndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizeOutputWithContext(ctx context.Context) EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizeOutput)
+}
+
+func (i EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizeArgs) ToEndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizePtrOutput() EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizePtrOutput {
+	return i.ToEndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizePtrOutputWithContext(context.Background())
+}
+
+func (i EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizeArgs) ToEndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizePtrOutputWithContext(ctx context.Context) EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizeOutput).ToEndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizePtrOutputWithContext(ctx)
+}
+
+// EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizePtrInput is an input type that accepts EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizeArgs, EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizePtr and EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizePtrOutput values.
+// You can construct a concrete instance of `EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizePtrInput` via:
+//
+//          EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizeArgs{...}
+//
+//  or:
+//
+//          nil
+type EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizePtrInput interface {
+	pulumi.Input
+
+	ToEndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizePtrOutput() EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizePtrOutput
+	ToEndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizePtrOutputWithContext(context.Context) EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizePtrOutput
+}
+
+type endpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizePtrType EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizeArgs
+
+func EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizePtr(v *EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizeArgs) EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizePtrInput {
+	return (*endpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizePtrType)(v)
+}
+
+func (*endpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySize)(nil)).Elem()
+}
+
+func (i *endpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizePtrType) ToEndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizePtrOutput() EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizePtrOutput {
+	return i.ToEndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizePtrOutputWithContext(context.Background())
+}
+
+func (i *endpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizePtrType) ToEndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizePtrOutputWithContext(ctx context.Context) EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizePtrOutput)
+}
+
+type EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizeOutput struct{ *pulumi.OutputState }
+
+func (EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySize)(nil)).Elem()
+}
+
+func (o EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizeOutput) ToEndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizeOutput() EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizeOutput {
+	return o
+}
+
+func (o EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizeOutput) ToEndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizeOutputWithContext(ctx context.Context) EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizeOutput {
+	return o
+}
+
+func (o EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizeOutput) ToEndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizePtrOutput() EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizePtrOutput {
+	return o.ToEndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizePtrOutputWithContext(context.Background())
+}
+
+func (o EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizeOutput) ToEndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizePtrOutputWithContext(ctx context.Context) EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySize) *EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySize {
+		return &v
+	}).(EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizePtrOutput)
+}
+
+// Specifies the endpoint capacity type. Valid values are: `INSTANCE_COUNT`, or `CAPACITY_PERCENT`.
+func (o EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySize) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+// Defines the capacity size, either as a number of instances or a capacity percentage.
+func (o EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizeOutput) Value() pulumi.IntOutput {
+	return o.ApplyT(func(v EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySize) int {
+		return v.Value
+	}).(pulumi.IntOutput)
+}
+
+type EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizePtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySize)(nil)).Elem()
+}
+
+func (o EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizePtrOutput) ToEndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizePtrOutput() EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizePtrOutput {
+	return o
+}
+
+func (o EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizePtrOutput) ToEndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizePtrOutputWithContext(ctx context.Context) EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizePtrOutput {
+	return o
+}
+
+func (o EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizePtrOutput) Elem() EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizeOutput {
+	return o.ApplyT(func(v *EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySize) EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySize {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySize
+		return ret
+	}).(EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizeOutput)
+}
+
+// Specifies the endpoint capacity type. Valid values are: `INSTANCE_COUNT`, or `CAPACITY_PERCENT`.
+func (o EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySize) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// Defines the capacity size, either as a number of instances or a capacity percentage.
+func (o EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizePtrOutput) Value() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySize) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.IntPtrOutput)
+}
+
+type EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSize struct {
+	// Specifies the endpoint capacity type. Valid values are: `INSTANCE_COUNT`, or `CAPACITY_PERCENT`.
+	Type string `pulumi:"type"`
+	// Defines the capacity size, either as a number of instances or a capacity percentage.
+	Value int `pulumi:"value"`
+}
+
+// EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizeInput is an input type that accepts EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizeArgs and EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizeOutput values.
+// You can construct a concrete instance of `EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizeInput` via:
+//
+//          EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizeArgs{...}
+type EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizeInput interface {
+	pulumi.Input
+
+	ToEndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizeOutput() EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizeOutput
+	ToEndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizeOutputWithContext(context.Context) EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizeOutput
+}
+
+type EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizeArgs struct {
+	// Specifies the endpoint capacity type. Valid values are: `INSTANCE_COUNT`, or `CAPACITY_PERCENT`.
+	Type pulumi.StringInput `pulumi:"type"`
+	// Defines the capacity size, either as a number of instances or a capacity percentage.
+	Value pulumi.IntInput `pulumi:"value"`
+}
+
+func (EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSize)(nil)).Elem()
+}
+
+func (i EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizeArgs) ToEndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizeOutput() EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizeOutput {
+	return i.ToEndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizeOutputWithContext(context.Background())
+}
+
+func (i EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizeArgs) ToEndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizeOutputWithContext(ctx context.Context) EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizeOutput)
+}
+
+func (i EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizeArgs) ToEndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizePtrOutput() EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizePtrOutput {
+	return i.ToEndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizePtrOutputWithContext(context.Background())
+}
+
+func (i EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizeArgs) ToEndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizePtrOutputWithContext(ctx context.Context) EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizeOutput).ToEndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizePtrOutputWithContext(ctx)
+}
+
+// EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizePtrInput is an input type that accepts EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizeArgs, EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizePtr and EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizePtrOutput values.
+// You can construct a concrete instance of `EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizePtrInput` via:
+//
+//          EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizeArgs{...}
+//
+//  or:
+//
+//          nil
+type EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizePtrInput interface {
+	pulumi.Input
+
+	ToEndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizePtrOutput() EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizePtrOutput
+	ToEndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizePtrOutputWithContext(context.Context) EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizePtrOutput
+}
+
+type endpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizePtrType EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizeArgs
+
+func EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizePtr(v *EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizeArgs) EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizePtrInput {
+	return (*endpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizePtrType)(v)
+}
+
+func (*endpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSize)(nil)).Elem()
+}
+
+func (i *endpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizePtrType) ToEndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizePtrOutput() EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizePtrOutput {
+	return i.ToEndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizePtrOutputWithContext(context.Background())
+}
+
+func (i *endpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizePtrType) ToEndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizePtrOutputWithContext(ctx context.Context) EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizePtrOutput)
+}
+
+type EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizeOutput struct{ *pulumi.OutputState }
+
+func (EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSize)(nil)).Elem()
+}
+
+func (o EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizeOutput) ToEndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizeOutput() EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizeOutput {
+	return o
+}
+
+func (o EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizeOutput) ToEndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizeOutputWithContext(ctx context.Context) EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizeOutput {
+	return o
+}
+
+func (o EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizeOutput) ToEndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizePtrOutput() EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizePtrOutput {
+	return o.ToEndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizePtrOutputWithContext(context.Background())
+}
+
+func (o EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizeOutput) ToEndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizePtrOutputWithContext(ctx context.Context) EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSize) *EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSize {
+		return &v
+	}).(EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizePtrOutput)
+}
+
+// Specifies the endpoint capacity type. Valid values are: `INSTANCE_COUNT`, or `CAPACITY_PERCENT`.
+func (o EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizeOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSize) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+// Defines the capacity size, either as a number of instances or a capacity percentage.
+func (o EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizeOutput) Value() pulumi.IntOutput {
+	return o.ApplyT(func(v EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSize) int {
+		return v.Value
+	}).(pulumi.IntOutput)
+}
+
+type EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizePtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSize)(nil)).Elem()
+}
+
+func (o EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizePtrOutput) ToEndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizePtrOutput() EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizePtrOutput {
+	return o
+}
+
+func (o EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizePtrOutput) ToEndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizePtrOutputWithContext(ctx context.Context) EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizePtrOutput {
+	return o
+}
+
+func (o EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizePtrOutput) Elem() EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizeOutput {
+	return o.ApplyT(func(v *EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSize) EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSize {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSize
+		return ret
+	}).(EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizeOutput)
+}
+
+// Specifies the endpoint capacity type. Valid values are: `INSTANCE_COUNT`, or `CAPACITY_PERCENT`.
+func (o EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSize) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// Defines the capacity size, either as a number of instances or a capacity percentage.
+func (o EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizePtrOutput) Value() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSize) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.IntPtrOutput)
+}
+
 type FeatureGroupFeatureDefinition struct {
 	// The name of a feature. `featureName` cannot be any of the following: `isDeleted`, `writeTime`, `apiInvocationTime`.
 	FeatureName *string `pulumi:"featureName"`
@@ -9741,6 +10834,20 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigurationDataCaptureConfigCaptureOptionArrayInput)(nil)).Elem(), EndpointConfigurationDataCaptureConfigCaptureOptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigurationProductionVariantInput)(nil)).Elem(), EndpointConfigurationProductionVariantArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigurationProductionVariantArrayInput)(nil)).Elem(), EndpointConfigurationProductionVariantArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointDeploymentConfigInput)(nil)).Elem(), EndpointDeploymentConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointDeploymentConfigPtrInput)(nil)).Elem(), EndpointDeploymentConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointDeploymentConfigAutoRollbackConfigurationInput)(nil)).Elem(), EndpointDeploymentConfigAutoRollbackConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointDeploymentConfigAutoRollbackConfigurationPtrInput)(nil)).Elem(), EndpointDeploymentConfigAutoRollbackConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointDeploymentConfigAutoRollbackConfigurationAlarmInput)(nil)).Elem(), EndpointDeploymentConfigAutoRollbackConfigurationAlarmArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointDeploymentConfigAutoRollbackConfigurationAlarmArrayInput)(nil)).Elem(), EndpointDeploymentConfigAutoRollbackConfigurationAlarmArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointDeploymentConfigBlueGreenUpdatePolicyInput)(nil)).Elem(), EndpointDeploymentConfigBlueGreenUpdatePolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointDeploymentConfigBlueGreenUpdatePolicyPtrInput)(nil)).Elem(), EndpointDeploymentConfigBlueGreenUpdatePolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationInput)(nil)).Elem(), EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationPtrInput)(nil)).Elem(), EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizeInput)(nil)).Elem(), EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizePtrInput)(nil)).Elem(), EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizeInput)(nil)).Elem(), EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizePtrInput)(nil)).Elem(), EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeatureGroupFeatureDefinitionInput)(nil)).Elem(), FeatureGroupFeatureDefinitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeatureGroupFeatureDefinitionArrayInput)(nil)).Elem(), FeatureGroupFeatureDefinitionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeatureGroupOfflineStoreConfigInput)(nil)).Elem(), FeatureGroupOfflineStoreConfigArgs{})
@@ -9861,6 +10968,20 @@ func init() {
 	pulumi.RegisterOutputType(EndpointConfigurationDataCaptureConfigCaptureOptionArrayOutput{})
 	pulumi.RegisterOutputType(EndpointConfigurationProductionVariantOutput{})
 	pulumi.RegisterOutputType(EndpointConfigurationProductionVariantArrayOutput{})
+	pulumi.RegisterOutputType(EndpointDeploymentConfigOutput{})
+	pulumi.RegisterOutputType(EndpointDeploymentConfigPtrOutput{})
+	pulumi.RegisterOutputType(EndpointDeploymentConfigAutoRollbackConfigurationOutput{})
+	pulumi.RegisterOutputType(EndpointDeploymentConfigAutoRollbackConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(EndpointDeploymentConfigAutoRollbackConfigurationAlarmOutput{})
+	pulumi.RegisterOutputType(EndpointDeploymentConfigAutoRollbackConfigurationAlarmArrayOutput{})
+	pulumi.RegisterOutputType(EndpointDeploymentConfigBlueGreenUpdatePolicyOutput{})
+	pulumi.RegisterOutputType(EndpointDeploymentConfigBlueGreenUpdatePolicyPtrOutput{})
+	pulumi.RegisterOutputType(EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationOutput{})
+	pulumi.RegisterOutputType(EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizeOutput{})
+	pulumi.RegisterOutputType(EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizePtrOutput{})
+	pulumi.RegisterOutputType(EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizeOutput{})
+	pulumi.RegisterOutputType(EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizePtrOutput{})
 	pulumi.RegisterOutputType(FeatureGroupFeatureDefinitionOutput{})
 	pulumi.RegisterOutputType(FeatureGroupFeatureDefinitionArrayOutput{})
 	pulumi.RegisterOutputType(FeatureGroupOfflineStoreConfigOutput{})

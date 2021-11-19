@@ -956,6 +956,8 @@ class Bucket(pulumi.CustomResource):
         ```
         ### Using replication configuration
 
+        > **NOTE:** See the [`s3.BucketReplicationConfig` resource](https://www.terraform.io/docs/providers/aws/r/s3_bucket_replication_configuration.html) to support bi-directional replication configuration and additional features.
+
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1283,6 +1285,8 @@ class Bucket(pulumi.CustomResource):
             ))
         ```
         ### Using replication configuration
+
+        > **NOTE:** See the [`s3.BucketReplicationConfig` resource](https://www.terraform.io/docs/providers/aws/r/s3_bucket_replication_configuration.html) to support bi-directional replication configuration and additional features.
 
         ```python
         import pulumi

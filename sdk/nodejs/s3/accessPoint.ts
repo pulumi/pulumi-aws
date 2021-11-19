@@ -6,34 +6,6 @@ import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Provides a resource to manage an S3 Access Point.
- *
- * ## Example Usage
- * ### AWS Partition Bucket
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleBucket = new aws.s3.Bucket("exampleBucket", {});
- * const exampleAccessPoint = new aws.s3.AccessPoint("exampleAccessPoint", {bucket: exampleBucket.id});
- * ```
- * ### S3 on Outposts Bucket
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const exampleBucket = new aws.s3control.Bucket("exampleBucket", {bucket: "example"});
- * const exampleVpc = new aws.ec2.Vpc("exampleVpc", {cidrBlock: "10.0.0.0/16"});
- * const exampleAccessPoint = new aws.s3.AccessPoint("exampleAccessPoint", {
- *     bucket: exampleBucket.arn,
- *     vpcConfiguration: {
- *         vpcId: exampleVpc.id,
- *     },
- * });
- * ```
- *
  * ## Import
  *
  * For Access Points associated with an AWS Partition S3 Bucket, this resource can be imported using the `account_id` and `name` separated by a colon (`:`), e.g.,
@@ -81,6 +53,10 @@ export class AccessPoint extends pulumi.CustomResource {
      */
     public readonly accountId!: pulumi.Output<string>;
     /**
+     * The alias of the S3 Access Point.
+     */
+    public /*out*/ readonly alias!: pulumi.Output<string>;
+    /**
      * Amazon Resource Name (ARN) of the S3 Access Point.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
@@ -93,6 +69,10 @@ export class AccessPoint extends pulumi.CustomResource {
      * Note: S3 access points only support secure access by HTTPS. HTTP isn't supported.
      */
     public /*out*/ readonly domainName!: pulumi.Output<string>;
+    /**
+     * The VPC endpoints for the S3 Access Point.
+     */
+    public /*out*/ readonly endpoints!: pulumi.Output<{[key: string]: string}>;
     /**
      * Indicates whether this access point currently has a policy that allows public access.
      */
@@ -132,9 +112,11 @@ export class AccessPoint extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as AccessPointState | undefined;
             inputs["accountId"] = state ? state.accountId : undefined;
+            inputs["alias"] = state ? state.alias : undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["bucket"] = state ? state.bucket : undefined;
             inputs["domainName"] = state ? state.domainName : undefined;
+            inputs["endpoints"] = state ? state.endpoints : undefined;
             inputs["hasPublicAccessPolicy"] = state ? state.hasPublicAccessPolicy : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["networkOrigin"] = state ? state.networkOrigin : undefined;
@@ -152,8 +134,10 @@ export class AccessPoint extends pulumi.CustomResource {
             inputs["policy"] = args ? args.policy : undefined;
             inputs["publicAccessBlockConfiguration"] = args ? args.publicAccessBlockConfiguration : undefined;
             inputs["vpcConfiguration"] = args ? args.vpcConfiguration : undefined;
+            inputs["alias"] = undefined /*out*/;
             inputs["arn"] = undefined /*out*/;
             inputs["domainName"] = undefined /*out*/;
+            inputs["endpoints"] = undefined /*out*/;
             inputs["hasPublicAccessPolicy"] = undefined /*out*/;
             inputs["networkOrigin"] = undefined /*out*/;
         }
@@ -173,6 +157,10 @@ export interface AccessPointState {
      */
     accountId?: pulumi.Input<string>;
     /**
+     * The alias of the S3 Access Point.
+     */
+    alias?: pulumi.Input<string>;
+    /**
      * Amazon Resource Name (ARN) of the S3 Access Point.
      */
     arn?: pulumi.Input<string>;
@@ -185,6 +173,10 @@ export interface AccessPointState {
      * Note: S3 access points only support secure access by HTTPS. HTTP isn't supported.
      */
     domainName?: pulumi.Input<string>;
+    /**
+     * The VPC endpoints for the S3 Access Point.
+     */
+    endpoints?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Indicates whether this access point currently has a policy that allows public access.
      */

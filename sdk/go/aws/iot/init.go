@@ -33,6 +33,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &RoleAlias{}
 	case "aws:iot/thing:Thing":
 		r = &Thing{}
+	case "aws:iot/thingGroup:ThingGroup":
+		r = &ThingGroup{}
+	case "aws:iot/thingGroupMembership:ThingGroupMembership":
+		r = &ThingGroupMembership{}
 	case "aws:iot/thingPrincipalAttachment:ThingPrincipalAttachment":
 		r = &ThingPrincipalAttachment{}
 	case "aws:iot/thingType:ThingType":
@@ -80,6 +84,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"iot/thing",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"iot/thingGroup",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"iot/thingGroupMembership",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

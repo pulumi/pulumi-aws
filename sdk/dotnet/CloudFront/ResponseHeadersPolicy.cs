@@ -17,7 +17,7 @@ namespace Pulumi.Aws.CloudFront
     /// 
     /// ## Example Usage
     /// 
-    /// The following example below creates a CloudFront response headers policy.
+    /// The example below creates a CloudFront response headers policy.
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -62,6 +62,42 @@ namespace Pulumi.Aws.CloudFront
     /// }
     /// ```
     /// 
+    /// The example below creates a CloudFront response headers policy with a custom headers config.
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.CloudFront.ResponseHeadersPolicy("example", new Aws.CloudFront.ResponseHeadersPolicyArgs
+    ///         {
+    ///             CustomHeadersConfig = new Aws.CloudFront.Inputs.ResponseHeadersPolicyCustomHeadersConfigArgs
+    ///             {
+    ///                 Items = 
+    ///                 {
+    ///                     new Aws.CloudFront.Inputs.ResponseHeadersPolicyCustomHeadersConfigItemArgs
+    ///                     {
+    ///                         Header = "X-Permitted-Cross-Domain-Policies",
+    ///                         Override = true,
+    ///                         Value = "none",
+    ///                     },
+    ///                     new Aws.CloudFront.Inputs.ResponseHeadersPolicyCustomHeadersConfigItemArgs
+    ///                     {
+    ///                         Header = "X-Test",
+    ///                         Override = true,
+    ///                         Value = "none",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Cloudfront Response Headers Policies can be imported using the `id`, e.g.
@@ -86,7 +122,7 @@ namespace Pulumi.Aws.CloudFront
         public Output<Outputs.ResponseHeadersPolicyCorsConfig?> CorsConfig { get; private set; } = null!;
 
         /// <summary>
-        /// Object that contains an attribute `items` that contains a list of Custom Headers See Custom Header for more information.
+        /// Object that contains an attribute `items` that contains a list of custom headers. See Custom Header for more information.
         /// </summary>
         [Output("customHeadersConfig")]
         public Output<Outputs.ResponseHeadersPolicyCustomHeadersConfig?> CustomHeadersConfig { get; private set; } = null!;
@@ -168,7 +204,7 @@ namespace Pulumi.Aws.CloudFront
         public Input<Inputs.ResponseHeadersPolicyCorsConfigArgs>? CorsConfig { get; set; }
 
         /// <summary>
-        /// Object that contains an attribute `items` that contains a list of Custom Headers See Custom Header for more information.
+        /// Object that contains an attribute `items` that contains a list of custom headers. See Custom Header for more information.
         /// </summary>
         [Input("customHeadersConfig")]
         public Input<Inputs.ResponseHeadersPolicyCustomHeadersConfigArgs>? CustomHeadersConfig { get; set; }
@@ -211,7 +247,7 @@ namespace Pulumi.Aws.CloudFront
         public Input<Inputs.ResponseHeadersPolicyCorsConfigGetArgs>? CorsConfig { get; set; }
 
         /// <summary>
-        /// Object that contains an attribute `items` that contains a list of Custom Headers See Custom Header for more information.
+        /// Object that contains an attribute `items` that contains a list of custom headers. See Custom Header for more information.
         /// </summary>
         [Input("customHeadersConfig")]
         public Input<Inputs.ResponseHeadersPolicyCustomHeadersConfigGetArgs>? CustomHeadersConfig { get; set; }

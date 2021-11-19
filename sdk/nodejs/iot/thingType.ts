@@ -69,6 +69,14 @@ export class ThingType extends pulumi.CustomResource {
      * , Configuration block that can contain the following properties of the thing type:
      */
     public readonly properties!: pulumi.Output<outputs.iot.ThingTypeProperties | undefined>;
+    /**
+     * Key-value mapping of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a ThingType resource with the given unique name, arguments, and options.
@@ -87,11 +95,15 @@ export class ThingType extends pulumi.CustomResource {
             inputs["deprecated"] = state ? state.deprecated : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["properties"] = state ? state.properties : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as ThingTypeArgs | undefined;
             inputs["deprecated"] = args ? args.deprecated : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["properties"] = args ? args.properties : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["arn"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -121,6 +133,14 @@ export interface ThingTypeState {
      * , Configuration block that can contain the following properties of the thing type:
      */
     properties?: pulumi.Input<inputs.iot.ThingTypeProperties>;
+    /**
+     * Key-value mapping of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+     */
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -139,4 +159,12 @@ export interface ThingTypeArgs {
      * , Configuration block that can contain the following properties of the thing type:
      */
     properties?: pulumi.Input<inputs.iot.ThingTypeProperties>;
+    /**
+     * Key-value mapping of resource tags. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+     */
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

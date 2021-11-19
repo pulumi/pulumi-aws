@@ -93,7 +93,7 @@ export class TargetGroupAttachment extends pulumi.CustomResource {
      */
     public readonly targetGroupArn!: pulumi.Output<string>;
     /**
-     * The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is ip, specify an IP address. If the target type is lambda, specify the arn of lambda.
+     * The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is ip, specify an IP address. If the target type is lambda, specify the arn of lambda. If the target type is alb, specify the arn of alb.
      */
     public readonly targetId!: pulumi.Output<string>;
 
@@ -153,7 +153,7 @@ export interface TargetGroupAttachmentState {
      */
     targetGroupArn?: pulumi.Input<string>;
     /**
-     * The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is ip, specify an IP address. If the target type is lambda, specify the arn of lambda.
+     * The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is ip, specify an IP address. If the target type is lambda, specify the arn of lambda. If the target type is alb, specify the arn of alb.
      */
     targetId?: pulumi.Input<string>;
 }
@@ -175,7 +175,7 @@ export interface TargetGroupAttachmentArgs {
      */
     targetGroupArn: pulumi.Input<string>;
     /**
-     * The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is ip, specify an IP address. If the target type is lambda, specify the arn of lambda.
+     * The ID of the target. This is the Instance ID for an instance, or the container ID for an ECS container. If the target type is ip, specify an IP address. If the target type is lambda, specify the arn of lambda. If the target type is alb, specify the arn of alb.
      */
     targetId: pulumi.Input<string>;
 }

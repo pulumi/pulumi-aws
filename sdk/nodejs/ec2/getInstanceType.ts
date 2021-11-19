@@ -190,6 +190,10 @@ export interface GetInstanceTypeResult {
      */
     readonly enaSupport: string;
     /**
+     * Indicates whether encryption in-transit between instances is supported.
+     */
+    readonly encryptionInTransitSupported: boolean;
+    /**
      * Describes the FPGA accelerator settings for the instance type.
      * * `fpgas.#.count` - The count of FPGA accelerators for the instance type.
      * * `fpgas.#.manufacturer` - The manufacturer of the FPGA accelerator.

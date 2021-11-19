@@ -13,34 +13,37 @@ namespace Pulumi.Aws.CloudFront.Inputs
     public sealed class ResponseHeadersPolicySecurityHeadersConfigGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// TThe policy directives and their values that CloudFront includes as values for the Content-Security-Policy HTTP response header.
+        /// The policy directives and their values that CloudFront includes as values for the `Content-Security-Policy` HTTP response header.
         /// </summary>
         [Input("contentSecurityPolicy")]
         public Input<Inputs.ResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyGetArgs>? ContentSecurityPolicy { get; set; }
 
         /// <summary>
-        /// TA setting that determines whether CloudFront includes the X-Content-Type-Options HTTP response header with its value set to nosniff. See Content Type Options for more information.
+        /// Determines whether CloudFront includes the `X-Content-Type-Options` HTTP response header with its value set to `nosniff`. See Content Type Options for more information.
         /// </summary>
         [Input("contentTypeOptions")]
         public Input<Inputs.ResponseHeadersPolicySecurityHeadersConfigContentTypeOptionsGetArgs>? ContentTypeOptions { get; set; }
 
         /// <summary>
-        /// TA setting that determines whether CloudFront includes the X-Frame-Options HTTP response header and the header’s value. See Frame Options for more information.
+        /// Determines whether CloudFront includes the `X-Frame-Options` HTTP response header and the header’s value. See Frame Options for more information.
         /// </summary>
         [Input("frameOptions")]
         public Input<Inputs.ResponseHeadersPolicySecurityHeadersConfigFrameOptionsGetArgs>? FrameOptions { get; set; }
 
         /// <summary>
-        /// The value of the Referrer-Policy HTTP response header. Valid Values: `no-referrer` | `no-referrer-when-downgrade` | `origin` | `origin-when-cross-origin` | `same-origin` | `strict-origin` | `strict-origin-when-cross-origin` | `unsafe-url`
+        /// The value of the `Referrer-Policy` HTTP response header. Valid Values: `no-referrer` | `no-referrer-when-downgrade` | `origin` | `origin-when-cross-origin` | `same-origin` | `strict-origin` | `strict-origin-when-cross-origin` | `unsafe-url`
         /// </summary>
         [Input("referrerPolicy")]
         public Input<Inputs.ResponseHeadersPolicySecurityHeadersConfigReferrerPolicyGetArgs>? ReferrerPolicy { get; set; }
 
+        /// <summary>
+        /// Determines whether CloudFront includes the `Strict-Transport-Security` HTTP response header and the header’s value. See Strict Transport Security for more information.
+        /// </summary>
         [Input("strictTransportSecurity")]
         public Input<Inputs.ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityGetArgs>? StrictTransportSecurity { get; set; }
 
         /// <summary>
-        /// TSettings that determine whether CloudFront includes the X-XSS-Protection HTTP response header and the header’s value. See XSS Protection for more information.
+        /// Determine whether CloudFront includes the `X-XSS-Protection` HTTP response header and the header’s value. See XSS Protection for more information.
         /// </summary>
         [Input("xssProtection")]
         public Input<Inputs.ResponseHeadersPolicySecurityHeadersConfigXssProtectionGetArgs>? XssProtection { get; set; }

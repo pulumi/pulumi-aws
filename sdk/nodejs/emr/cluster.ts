@@ -568,6 +568,10 @@ export class Cluster extends pulumi.CustomResource {
     public readonly applications!: pulumi.Output<string[] | undefined>;
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * An auto-termination policy for an Amazon EMR cluster. An auto-termination policy defines the amount of idle time in seconds after which a cluster automatically terminates. See Auto Termination Policy Below.
+     */
+    public readonly autoTerminationPolicy!: pulumi.Output<outputs.emr.ClusterAutoTerminationPolicy | undefined>;
+    /**
      * IAM role for automatic scaling policies. The IAM role provides permissions that the automatic scaling feature requires to launch and terminate EC2 instances in an instance group.
      */
     public readonly autoscalingRole!: pulumi.Output<string | undefined>;
@@ -693,6 +697,7 @@ export class Cluster extends pulumi.CustomResource {
             inputs["additionalInfo"] = state ? state.additionalInfo : undefined;
             inputs["applications"] = state ? state.applications : undefined;
             inputs["arn"] = state ? state.arn : undefined;
+            inputs["autoTerminationPolicy"] = state ? state.autoTerminationPolicy : undefined;
             inputs["autoscalingRole"] = state ? state.autoscalingRole : undefined;
             inputs["bootstrapActions"] = state ? state.bootstrapActions : undefined;
             inputs["clusterState"] = state ? state.clusterState : undefined;
@@ -731,6 +736,7 @@ export class Cluster extends pulumi.CustomResource {
             }
             inputs["additionalInfo"] = args ? args.additionalInfo : undefined;
             inputs["applications"] = args ? args.applications : undefined;
+            inputs["autoTerminationPolicy"] = args ? args.autoTerminationPolicy : undefined;
             inputs["autoscalingRole"] = args ? args.autoscalingRole : undefined;
             inputs["bootstrapActions"] = args ? args.bootstrapActions : undefined;
             inputs["configurations"] = args ? args.configurations : undefined;
@@ -781,6 +787,10 @@ export interface ClusterState {
      */
     applications?: pulumi.Input<pulumi.Input<string>[]>;
     arn?: pulumi.Input<string>;
+    /**
+     * An auto-termination policy for an Amazon EMR cluster. An auto-termination policy defines the amount of idle time in seconds after which a cluster automatically terminates. See Auto Termination Policy Below.
+     */
+    autoTerminationPolicy?: pulumi.Input<inputs.emr.ClusterAutoTerminationPolicy>;
     /**
      * IAM role for automatic scaling policies. The IAM role provides permissions that the automatic scaling feature requires to launch and terminate EC2 instances in an instance group.
      */
@@ -904,6 +914,10 @@ export interface ClusterArgs {
      * List of applications for the cluster. Valid values are: `Flink`, `Hadoop`, `Hive`, `Mahout`, `Pig`, `Spark`, and `JupyterHub` (as of EMR 5.14.0). Case insensitive.
      */
     applications?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * An auto-termination policy for an Amazon EMR cluster. An auto-termination policy defines the amount of idle time in seconds after which a cluster automatically terminates. See Auto Termination Policy Below.
+     */
+    autoTerminationPolicy?: pulumi.Input<inputs.emr.ClusterAutoTerminationPolicy>;
     /**
      * IAM role for automatic scaling policies. The IAM role provides permissions that the automatic scaling feature requires to launch and terminate EC2 instances in an instance group.
      */

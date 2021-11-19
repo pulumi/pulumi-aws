@@ -13,37 +13,37 @@ namespace Pulumi.Aws.CloudFront.Inputs
     public sealed class ResponseHeadersPolicyCorsConfigGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A Boolean value that CloudFront uses as the value for the Access-Control-Allow-Credentials HTTP response header.
+        /// A Boolean value that CloudFront uses as the value for the `Access-Control-Allow-Credentials` HTTP response header.
         /// </summary>
         [Input("accessControlAllowCredentials", required: true)]
         public Input<bool> AccessControlAllowCredentials { get; set; } = null!;
 
         /// <summary>
-        /// Object that contains an attribute `items` that contains a list of HTTP header names that CloudFront includes as values for the Access-Control-Allow-Headers HTTP response header.
+        /// Object that contains an attribute `items` that contains a list of HTTP header names that CloudFront includes as values for the `Access-Control-Allow-Headers` HTTP response header.
         /// </summary>
         [Input("accessControlAllowHeaders", required: true)]
         public Input<Inputs.ResponseHeadersPolicyCorsConfigAccessControlAllowHeadersGetArgs> AccessControlAllowHeaders { get; set; } = null!;
 
         /// <summary>
-        /// Object that contains an attribute `items` that contains a list of HTTP methods that CloudFront includes as values for the Access-Control-Allow-Methods HTTP response header. Valid values: `GET` | `POST` | `OPTIONS` | `PUT` | `DELETE` | `HEAD` | `ALL`
+        /// Object that contains an attribute `items` that contains a list of HTTP methods that CloudFront includes as values for the `Access-Control-Allow-Methods` HTTP response header. Valid values: `GET` | `POST` | `OPTIONS` | `PUT` | `DELETE` | `HEAD` | `ALL`
         /// </summary>
         [Input("accessControlAllowMethods", required: true)]
         public Input<Inputs.ResponseHeadersPolicyCorsConfigAccessControlAllowMethodsGetArgs> AccessControlAllowMethods { get; set; } = null!;
 
         /// <summary>
-        /// Object that contains an attribute `items` that contains a list of origins that CloudFront can use as the value for the Access-Control-Allow-Origin HTTP response header.
+        /// Object that contains an attribute `items` that contains a list of origins that CloudFront can use as the value for the `Access-Control-Allow-Origin` HTTP response header.
         /// </summary>
         [Input("accessControlAllowOrigins", required: true)]
         public Input<Inputs.ResponseHeadersPolicyCorsConfigAccessControlAllowOriginsGetArgs> AccessControlAllowOrigins { get; set; } = null!;
 
         /// <summary>
-        /// Object that contains an attribute `items` that contains a list of HTTP headers that CloudFront includes as values for the Access-Control-Expose-Headers HTTP response header.
+        /// Object that contains an attribute `items` that contains a list of HTTP headers that CloudFront includes as values for the `Access-Control-Expose-Headers` HTTP response header.
         /// </summary>
         [Input("accessControlExposeHeaders")]
         public Input<Inputs.ResponseHeadersPolicyCorsConfigAccessControlExposeHeadersGetArgs>? AccessControlExposeHeaders { get; set; }
 
         /// <summary>
-        /// A number that CloudFront uses as the value for the max-age directive in the Strict-Transport-Security HTTP response header.
+        /// A number that CloudFront uses as the value for the `max-age` directive in the `Strict-Transport-Security` HTTP response header.
         /// </summary>
         [Input("accessControlMaxAgeSec")]
         public Input<int>? AccessControlMaxAgeSec { get; set; }

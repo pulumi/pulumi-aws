@@ -17,6 +17,7 @@ export * from "./getInvocation";
 export * from "./getLayerVersion";
 export * from "./lambdaMixins";
 export * from "./layerVersion";
+export * from "./layerVersionPermission";
 export * from "./permission";
 export * from "./provisionedConcurrencyConfig";
 export * from "./runtimes";
@@ -31,6 +32,7 @@ import { EventSourceMapping } from "./eventSourceMapping";
 import { Function } from "./function";
 import { FunctionEventInvokeConfig } from "./functionEventInvokeConfig";
 import { LayerVersion } from "./layerVersion";
+import { LayerVersionPermission } from "./layerVersionPermission";
 import { Permission } from "./permission";
 import { ProvisionedConcurrencyConfig } from "./provisionedConcurrencyConfig";
 
@@ -50,6 +52,8 @@ const _module = {
                 return new FunctionEventInvokeConfig(name, <any>undefined, { urn })
             case "aws:lambda/layerVersion:LayerVersion":
                 return new LayerVersion(name, <any>undefined, { urn })
+            case "aws:lambda/layerVersionPermission:LayerVersionPermission":
+                return new LayerVersionPermission(name, <any>undefined, { urn })
             case "aws:lambda/permission:Permission":
                 return new Permission(name, <any>undefined, { urn })
             case "aws:lambda/provisionedConcurrencyConfig:ProvisionedConcurrencyConfig":
@@ -65,5 +69,6 @@ pulumi.runtime.registerResourceModule("aws", "lambda/eventSourceMapping", _modul
 pulumi.runtime.registerResourceModule("aws", "lambda/function", _module)
 pulumi.runtime.registerResourceModule("aws", "lambda/functionEventInvokeConfig", _module)
 pulumi.runtime.registerResourceModule("aws", "lambda/layerVersion", _module)
+pulumi.runtime.registerResourceModule("aws", "lambda/layerVersionPermission", _module)
 pulumi.runtime.registerResourceModule("aws", "lambda/permission", _module)
 pulumi.runtime.registerResourceModule("aws", "lambda/provisionedConcurrencyConfig", _module)

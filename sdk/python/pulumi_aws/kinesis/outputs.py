@@ -55,6 +55,7 @@ __all__ = [
     'FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerOrcSerDe',
     'FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDe',
     'FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfiguration',
+    'FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfiguration',
     'FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfiguration',
     'FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessor',
     'FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorParameter',
@@ -1987,6 +1988,8 @@ class FirehoseDeliveryStreamExtendedS3Configuration(dict):
             suggest = "compression_format"
         elif key == "dataFormatConversionConfiguration":
             suggest = "data_format_conversion_configuration"
+        elif key == "dynamicPartitioningConfiguration":
+            suggest = "dynamic_partitioning_configuration"
         elif key == "errorOutputPrefix":
             suggest = "error_output_prefix"
         elif key == "kmsKeyArn":
@@ -2017,6 +2020,7 @@ class FirehoseDeliveryStreamExtendedS3Configuration(dict):
                  cloudwatch_logging_options: Optional['outputs.FirehoseDeliveryStreamExtendedS3ConfigurationCloudwatchLoggingOptions'] = None,
                  compression_format: Optional[str] = None,
                  data_format_conversion_configuration: Optional['outputs.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfiguration'] = None,
+                 dynamic_partitioning_configuration: Optional['outputs.FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfiguration'] = None,
                  error_output_prefix: Optional[str] = None,
                  kms_key_arn: Optional[str] = None,
                  prefix: Optional[str] = None,
@@ -2052,6 +2056,8 @@ class FirehoseDeliveryStreamExtendedS3Configuration(dict):
             pulumi.set(__self__, "compression_format", compression_format)
         if data_format_conversion_configuration is not None:
             pulumi.set(__self__, "data_format_conversion_configuration", data_format_conversion_configuration)
+        if dynamic_partitioning_configuration is not None:
+            pulumi.set(__self__, "dynamic_partitioning_configuration", dynamic_partitioning_configuration)
         if error_output_prefix is not None:
             pulumi.set(__self__, "error_output_prefix", error_output_prefix)
         if kms_key_arn is not None:
@@ -2121,6 +2127,11 @@ class FirehoseDeliveryStreamExtendedS3Configuration(dict):
         Nested argument for the serializer, deserializer, and schema for converting data from the JSON format to the Parquet or ORC format before writing it to Amazon S3. More details given below.
         """
         return pulumi.get(self, "data_format_conversion_configuration")
+
+    @property
+    @pulumi.getter(name="dynamicPartitioningConfiguration")
+    def dynamic_partitioning_configuration(self) -> Optional['outputs.FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfiguration']:
+        return pulumi.get(self, "dynamic_partitioning_configuration")
 
     @property
     @pulumi.getter(name="errorOutputPrefix")
@@ -2906,6 +2917,54 @@ class FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigura
         Specifies the table version for the output data schema. Defaults to `LATEST`.
         """
         return pulumi.get(self, "version_id")
+
+
+@pulumi.output_type
+class FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "retryDuration":
+            suggest = "retry_duration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: Optional[bool] = None,
+                 retry_duration: Optional[int] = None):
+        """
+        :param bool enabled: Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+        :param int retry_duration: The length of time during which Firehose retries delivery after a failure, starting from the initial request and including the first attempt. The default value is 3600 seconds (60 minutes). Firehose does not retry if the value of DurationInSeconds is 0 (zero) or if the first delivery attempt takes longer than the current value.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if retry_duration is not None:
+            pulumi.set(__self__, "retry_duration", retry_duration)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="retryDuration")
+    def retry_duration(self) -> Optional[int]:
+        """
+        The length of time during which Firehose retries delivery after a failure, starting from the initial request and including the first attempt. The default value is 3600 seconds (60 minutes). Firehose does not retry if the value of DurationInSeconds is 0 (zero) or if the first delivery attempt takes longer than the current value.
+        """
+        return pulumi.get(self, "retry_duration")
 
 
 @pulumi.output_type

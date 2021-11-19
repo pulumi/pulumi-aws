@@ -5,8 +5,13 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .access_point_policy import *
 from .bucket import *
 from .bucket_lifecycle_configuration import *
 from .bucket_policy import *
+from .multi_region_access_point import *
+from .multi_region_access_point_policy import *
+from .object_lambda_access_point import *
+from .object_lambda_access_point_policy import *
 from ._inputs import *
 from . import outputs

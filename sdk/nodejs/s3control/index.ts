@@ -5,30 +5,55 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./accessPointPolicy";
 export * from "./bucket";
 export * from "./bucketLifecycleConfiguration";
 export * from "./bucketPolicy";
+export * from "./multiRegionAccessPoint";
+export * from "./multiRegionAccessPointPolicy";
+export * from "./objectLambdaAccessPoint";
+export * from "./objectLambdaAccessPointPolicy";
 
 // Import resources to register:
+import { AccessPointPolicy } from "./accessPointPolicy";
 import { Bucket } from "./bucket";
 import { BucketLifecycleConfiguration } from "./bucketLifecycleConfiguration";
 import { BucketPolicy } from "./bucketPolicy";
+import { MultiRegionAccessPoint } from "./multiRegionAccessPoint";
+import { MultiRegionAccessPointPolicy } from "./multiRegionAccessPointPolicy";
+import { ObjectLambdaAccessPoint } from "./objectLambdaAccessPoint";
+import { ObjectLambdaAccessPointPolicy } from "./objectLambdaAccessPointPolicy";
 
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws:s3control/accessPointPolicy:AccessPointPolicy":
+                return new AccessPointPolicy(name, <any>undefined, { urn })
             case "aws:s3control/bucket:Bucket":
                 return new Bucket(name, <any>undefined, { urn })
             case "aws:s3control/bucketLifecycleConfiguration:BucketLifecycleConfiguration":
                 return new BucketLifecycleConfiguration(name, <any>undefined, { urn })
             case "aws:s3control/bucketPolicy:BucketPolicy":
                 return new BucketPolicy(name, <any>undefined, { urn })
+            case "aws:s3control/multiRegionAccessPoint:MultiRegionAccessPoint":
+                return new MultiRegionAccessPoint(name, <any>undefined, { urn })
+            case "aws:s3control/multiRegionAccessPointPolicy:MultiRegionAccessPointPolicy":
+                return new MultiRegionAccessPointPolicy(name, <any>undefined, { urn })
+            case "aws:s3control/objectLambdaAccessPoint:ObjectLambdaAccessPoint":
+                return new ObjectLambdaAccessPoint(name, <any>undefined, { urn })
+            case "aws:s3control/objectLambdaAccessPointPolicy:ObjectLambdaAccessPointPolicy":
+                return new ObjectLambdaAccessPointPolicy(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
+pulumi.runtime.registerResourceModule("aws", "s3control/accessPointPolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "s3control/bucket", _module)
 pulumi.runtime.registerResourceModule("aws", "s3control/bucketLifecycleConfiguration", _module)
 pulumi.runtime.registerResourceModule("aws", "s3control/bucketPolicy", _module)
+pulumi.runtime.registerResourceModule("aws", "s3control/multiRegionAccessPoint", _module)
+pulumi.runtime.registerResourceModule("aws", "s3control/multiRegionAccessPointPolicy", _module)
+pulumi.runtime.registerResourceModule("aws", "s3control/objectLambdaAccessPoint", _module)
+pulumi.runtime.registerResourceModule("aws", "s3control/objectLambdaAccessPointPolicy", _module)

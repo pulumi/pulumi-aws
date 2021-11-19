@@ -19,6 +19,7 @@ class ClusterArgs:
                  service_role: pulumi.Input[str],
                  additional_info: Optional[pulumi.Input[str]] = None,
                  applications: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 auto_termination_policy: Optional[pulumi.Input['ClusterAutoTerminationPolicyArgs']] = None,
                  autoscaling_role: Optional[pulumi.Input[str]] = None,
                  bootstrap_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterBootstrapActionArgs']]]] = None,
                  configurations: Optional[pulumi.Input[str]] = None,
@@ -48,6 +49,7 @@ class ClusterArgs:
         :param pulumi.Input[str] service_role: IAM role that will be assumed by the Amazon EMR service to access AWS resources.
         :param pulumi.Input[str] additional_info: JSON string for selecting additional features such as adding proxy information. Note: Currently there is no API to retrieve the value of this argument after EMR cluster creation from provider, therefore this provider cannot detect drift from the actual EMR cluster if its value is changed outside this provider.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] applications: List of applications for the cluster. Valid values are: `Flink`, `Hadoop`, `Hive`, `Mahout`, `Pig`, `Spark`, and `JupyterHub` (as of EMR 5.14.0). Case insensitive.
+        :param pulumi.Input['ClusterAutoTerminationPolicyArgs'] auto_termination_policy: An auto-termination policy for an Amazon EMR cluster. An auto-termination policy defines the amount of idle time in seconds after which a cluster automatically terminates. See Auto Termination Policy Below.
         :param pulumi.Input[str] autoscaling_role: IAM role for automatic scaling policies. The IAM role provides permissions that the automatic scaling feature requires to launch and terminate EC2 instances in an instance group.
         :param pulumi.Input[Sequence[pulumi.Input['ClusterBootstrapActionArgs']]] bootstrap_actions: Ordered list of bootstrap actions that will be run before Hadoop is started on the cluster nodes. See below.
         :param pulumi.Input[str] configurations: Configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
@@ -78,6 +80,8 @@ class ClusterArgs:
             pulumi.set(__self__, "additional_info", additional_info)
         if applications is not None:
             pulumi.set(__self__, "applications", applications)
+        if auto_termination_policy is not None:
+            pulumi.set(__self__, "auto_termination_policy", auto_termination_policy)
         if autoscaling_role is not None:
             pulumi.set(__self__, "autoscaling_role", autoscaling_role)
         if bootstrap_actions is not None:
@@ -172,6 +176,18 @@ class ClusterArgs:
     @applications.setter
     def applications(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "applications", value)
+
+    @property
+    @pulumi.getter(name="autoTerminationPolicy")
+    def auto_termination_policy(self) -> Optional[pulumi.Input['ClusterAutoTerminationPolicyArgs']]:
+        """
+        An auto-termination policy for an Amazon EMR cluster. An auto-termination policy defines the amount of idle time in seconds after which a cluster automatically terminates. See Auto Termination Policy Below.
+        """
+        return pulumi.get(self, "auto_termination_policy")
+
+    @auto_termination_policy.setter
+    def auto_termination_policy(self, value: Optional[pulumi.Input['ClusterAutoTerminationPolicyArgs']]):
+        pulumi.set(self, "auto_termination_policy", value)
 
     @property
     @pulumi.getter(name="autoscalingRole")
@@ -456,6 +472,7 @@ class _ClusterState:
                  additional_info: Optional[pulumi.Input[str]] = None,
                  applications: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  arn: Optional[pulumi.Input[str]] = None,
+                 auto_termination_policy: Optional[pulumi.Input['ClusterAutoTerminationPolicyArgs']] = None,
                  autoscaling_role: Optional[pulumi.Input[str]] = None,
                  bootstrap_actions: Optional[pulumi.Input[Sequence[pulumi.Input['ClusterBootstrapActionArgs']]]] = None,
                  cluster_state: Optional[pulumi.Input[str]] = None,
@@ -488,6 +505,7 @@ class _ClusterState:
         Input properties used for looking up and filtering Cluster resources.
         :param pulumi.Input[str] additional_info: JSON string for selecting additional features such as adding proxy information. Note: Currently there is no API to retrieve the value of this argument after EMR cluster creation from provider, therefore this provider cannot detect drift from the actual EMR cluster if its value is changed outside this provider.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] applications: List of applications for the cluster. Valid values are: `Flink`, `Hadoop`, `Hive`, `Mahout`, `Pig`, `Spark`, and `JupyterHub` (as of EMR 5.14.0). Case insensitive.
+        :param pulumi.Input['ClusterAutoTerminationPolicyArgs'] auto_termination_policy: An auto-termination policy for an Amazon EMR cluster. An auto-termination policy defines the amount of idle time in seconds after which a cluster automatically terminates. See Auto Termination Policy Below.
         :param pulumi.Input[str] autoscaling_role: IAM role for automatic scaling policies. The IAM role provides permissions that the automatic scaling feature requires to launch and terminate EC2 instances in an instance group.
         :param pulumi.Input[Sequence[pulumi.Input['ClusterBootstrapActionArgs']]] bootstrap_actions: Ordered list of bootstrap actions that will be run before Hadoop is started on the cluster nodes. See below.
         :param pulumi.Input[str] configurations: Configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
@@ -522,6 +540,8 @@ class _ClusterState:
             pulumi.set(__self__, "applications", applications)
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
+        if auto_termination_policy is not None:
+            pulumi.set(__self__, "auto_termination_policy", auto_termination_policy)
         if autoscaling_role is not None:
             pulumi.set(__self__, "autoscaling_role", autoscaling_role)
         if bootstrap_actions is not None:
@@ -611,6 +631,18 @@ class _ClusterState:
     @arn.setter
     def arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="autoTerminationPolicy")
+    def auto_termination_policy(self) -> Optional[pulumi.Input['ClusterAutoTerminationPolicyArgs']]:
+        """
+        An auto-termination policy for an Amazon EMR cluster. An auto-termination policy defines the amount of idle time in seconds after which a cluster automatically terminates. See Auto Termination Policy Below.
+        """
+        return pulumi.get(self, "auto_termination_policy")
+
+    @auto_termination_policy.setter
+    def auto_termination_policy(self, value: Optional[pulumi.Input['ClusterAutoTerminationPolicyArgs']]):
+        pulumi.set(self, "auto_termination_policy", value)
 
     @property
     @pulumi.getter(name="autoscalingRole")
@@ -953,6 +985,7 @@ class Cluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  additional_info: Optional[pulumi.Input[str]] = None,
                  applications: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 auto_termination_policy: Optional[pulumi.Input[pulumi.InputType['ClusterAutoTerminationPolicyArgs']]] = None,
                  autoscaling_role: Optional[pulumi.Input[str]] = None,
                  bootstrap_actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterBootstrapActionArgs']]]]] = None,
                  configurations: Optional[pulumi.Input[str]] = None,
@@ -1495,6 +1528,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] additional_info: JSON string for selecting additional features such as adding proxy information. Note: Currently there is no API to retrieve the value of this argument after EMR cluster creation from provider, therefore this provider cannot detect drift from the actual EMR cluster if its value is changed outside this provider.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] applications: List of applications for the cluster. Valid values are: `Flink`, `Hadoop`, `Hive`, `Mahout`, `Pig`, `Spark`, and `JupyterHub` (as of EMR 5.14.0). Case insensitive.
+        :param pulumi.Input[pulumi.InputType['ClusterAutoTerminationPolicyArgs']] auto_termination_policy: An auto-termination policy for an Amazon EMR cluster. An auto-termination policy defines the amount of idle time in seconds after which a cluster automatically terminates. See Auto Termination Policy Below.
         :param pulumi.Input[str] autoscaling_role: IAM role for automatic scaling policies. The IAM role provides permissions that the automatic scaling feature requires to launch and terminate EC2 instances in an instance group.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterBootstrapActionArgs']]]] bootstrap_actions: Ordered list of bootstrap actions that will be run before Hadoop is started on the cluster nodes. See below.
         :param pulumi.Input[str] configurations: Configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
@@ -2056,6 +2090,7 @@ class Cluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  additional_info: Optional[pulumi.Input[str]] = None,
                  applications: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 auto_termination_policy: Optional[pulumi.Input[pulumi.InputType['ClusterAutoTerminationPolicyArgs']]] = None,
                  autoscaling_role: Optional[pulumi.Input[str]] = None,
                  bootstrap_actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterBootstrapActionArgs']]]]] = None,
                  configurations: Optional[pulumi.Input[str]] = None,
@@ -2095,6 +2130,7 @@ class Cluster(pulumi.CustomResource):
 
             __props__.__dict__["additional_info"] = additional_info
             __props__.__dict__["applications"] = applications
+            __props__.__dict__["auto_termination_policy"] = auto_termination_policy
             __props__.__dict__["autoscaling_role"] = autoscaling_role
             __props__.__dict__["bootstrap_actions"] = bootstrap_actions
             __props__.__dict__["configurations"] = configurations
@@ -2141,6 +2177,7 @@ class Cluster(pulumi.CustomResource):
             additional_info: Optional[pulumi.Input[str]] = None,
             applications: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             arn: Optional[pulumi.Input[str]] = None,
+            auto_termination_policy: Optional[pulumi.Input[pulumi.InputType['ClusterAutoTerminationPolicyArgs']]] = None,
             autoscaling_role: Optional[pulumi.Input[str]] = None,
             bootstrap_actions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterBootstrapActionArgs']]]]] = None,
             cluster_state: Optional[pulumi.Input[str]] = None,
@@ -2178,6 +2215,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] additional_info: JSON string for selecting additional features such as adding proxy information. Note: Currently there is no API to retrieve the value of this argument after EMR cluster creation from provider, therefore this provider cannot detect drift from the actual EMR cluster if its value is changed outside this provider.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] applications: List of applications for the cluster. Valid values are: `Flink`, `Hadoop`, `Hive`, `Mahout`, `Pig`, `Spark`, and `JupyterHub` (as of EMR 5.14.0). Case insensitive.
+        :param pulumi.Input[pulumi.InputType['ClusterAutoTerminationPolicyArgs']] auto_termination_policy: An auto-termination policy for an Amazon EMR cluster. An auto-termination policy defines the amount of idle time in seconds after which a cluster automatically terminates. See Auto Termination Policy Below.
         :param pulumi.Input[str] autoscaling_role: IAM role for automatic scaling policies. The IAM role provides permissions that the automatic scaling feature requires to launch and terminate EC2 instances in an instance group.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterBootstrapActionArgs']]]] bootstrap_actions: Ordered list of bootstrap actions that will be run before Hadoop is started on the cluster nodes. See below.
         :param pulumi.Input[str] configurations: Configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
@@ -2213,6 +2251,7 @@ class Cluster(pulumi.CustomResource):
         __props__.__dict__["additional_info"] = additional_info
         __props__.__dict__["applications"] = applications
         __props__.__dict__["arn"] = arn
+        __props__.__dict__["auto_termination_policy"] = auto_termination_policy
         __props__.__dict__["autoscaling_role"] = autoscaling_role
         __props__.__dict__["bootstrap_actions"] = bootstrap_actions
         __props__.__dict__["cluster_state"] = cluster_state
@@ -2263,6 +2302,14 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[str]:
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="autoTerminationPolicy")
+    def auto_termination_policy(self) -> pulumi.Output[Optional['outputs.ClusterAutoTerminationPolicy']]:
+        """
+        An auto-termination policy for an Amazon EMR cluster. An auto-termination policy defines the amount of idle time in seconds after which a cluster automatically terminates. See Auto Termination Policy Below.
+        """
+        return pulumi.get(self, "auto_termination_policy")
 
     @property
     @pulumi.getter(name="autoscalingRole")

@@ -13,6 +13,14 @@ __all__ = [
     'BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadArgs',
     'BucketLifecycleConfigurationRuleExpirationArgs',
     'BucketLifecycleConfigurationRuleFilterArgs',
+    'MultiRegionAccessPointDetailsArgs',
+    'MultiRegionAccessPointDetailsPublicAccessBlockArgs',
+    'MultiRegionAccessPointDetailsRegionArgs',
+    'MultiRegionAccessPointPolicyDetailsArgs',
+    'ObjectLambdaAccessPointConfigurationArgs',
+    'ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs',
+    'ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationArgs',
+    'ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgs',
 ]
 
 @pulumi.input_type
@@ -215,5 +223,366 @@ class BucketLifecycleConfigurationRuleFilterArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+
+@pulumi.input_type
+class MultiRegionAccessPointDetailsArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 regions: pulumi.Input[Sequence[pulumi.Input['MultiRegionAccessPointDetailsRegionArgs']]],
+                 public_access_block: Optional[pulumi.Input['MultiRegionAccessPointDetailsPublicAccessBlockArgs']] = None):
+        """
+        :param pulumi.Input[str] name: The name of the Multi-Region Access Point.
+        :param pulumi.Input[Sequence[pulumi.Input['MultiRegionAccessPointDetailsRegionArgs']]] regions: The Region configuration block to specify the bucket associated with the Multi-Region Access Point. See Region Configuration below for more details.
+        :param pulumi.Input['MultiRegionAccessPointDetailsPublicAccessBlockArgs'] public_access_block: Configuration block to manage the `PublicAccessBlock` configuration that you want to apply to this Multi-Region Access Point. You can enable the configuration options in any combination. See Public Access Block Configuration below for more details.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "regions", regions)
+        if public_access_block is not None:
+            pulumi.set(__self__, "public_access_block", public_access_block)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the Multi-Region Access Point.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def regions(self) -> pulumi.Input[Sequence[pulumi.Input['MultiRegionAccessPointDetailsRegionArgs']]]:
+        """
+        The Region configuration block to specify the bucket associated with the Multi-Region Access Point. See Region Configuration below for more details.
+        """
+        return pulumi.get(self, "regions")
+
+    @regions.setter
+    def regions(self, value: pulumi.Input[Sequence[pulumi.Input['MultiRegionAccessPointDetailsRegionArgs']]]):
+        pulumi.set(self, "regions", value)
+
+    @property
+    @pulumi.getter(name="publicAccessBlock")
+    def public_access_block(self) -> Optional[pulumi.Input['MultiRegionAccessPointDetailsPublicAccessBlockArgs']]:
+        """
+        Configuration block to manage the `PublicAccessBlock` configuration that you want to apply to this Multi-Region Access Point. You can enable the configuration options in any combination. See Public Access Block Configuration below for more details.
+        """
+        return pulumi.get(self, "public_access_block")
+
+    @public_access_block.setter
+    def public_access_block(self, value: Optional[pulumi.Input['MultiRegionAccessPointDetailsPublicAccessBlockArgs']]):
+        pulumi.set(self, "public_access_block", value)
+
+
+@pulumi.input_type
+class MultiRegionAccessPointDetailsPublicAccessBlockArgs:
+    def __init__(__self__, *,
+                 block_public_acls: Optional[pulumi.Input[bool]] = None,
+                 block_public_policy: Optional[pulumi.Input[bool]] = None,
+                 ignore_public_acls: Optional[pulumi.Input[bool]] = None,
+                 restrict_public_buckets: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[bool] block_public_acls: Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:
+               * PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
+               * PUT Object calls fail if the request includes a public ACL.
+               * PUT Bucket calls fail if the request includes a public ACL.
+        :param pulumi.Input[bool] block_public_policy: Whether Amazon S3 should block public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing bucket policies. When set to `true` causes Amazon S3 to:
+               * Reject calls to PUT Bucket policy if the specified bucket policy allows public access.
+        :param pulumi.Input[bool] ignore_public_acls: Whether Amazon S3 should ignore public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set. When set to `true` causes Amazon S3 to:
+               * Ignore all public ACLs on buckets in this account and any objects that they contain.
+        :param pulumi.Input[bool] restrict_public_buckets: Whether Amazon S3 should restrict public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked. When set to `true`:
+               * Only the bucket owner and AWS Services can access buckets with public policies.
+        """
+        if block_public_acls is not None:
+            pulumi.set(__self__, "block_public_acls", block_public_acls)
+        if block_public_policy is not None:
+            pulumi.set(__self__, "block_public_policy", block_public_policy)
+        if ignore_public_acls is not None:
+            pulumi.set(__self__, "ignore_public_acls", ignore_public_acls)
+        if restrict_public_buckets is not None:
+            pulumi.set(__self__, "restrict_public_buckets", restrict_public_buckets)
+
+    @property
+    @pulumi.getter(name="blockPublicAcls")
+    def block_public_acls(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:
+        * PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
+        * PUT Object calls fail if the request includes a public ACL.
+        * PUT Bucket calls fail if the request includes a public ACL.
+        """
+        return pulumi.get(self, "block_public_acls")
+
+    @block_public_acls.setter
+    def block_public_acls(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "block_public_acls", value)
+
+    @property
+    @pulumi.getter(name="blockPublicPolicy")
+    def block_public_policy(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether Amazon S3 should block public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing bucket policies. When set to `true` causes Amazon S3 to:
+        * Reject calls to PUT Bucket policy if the specified bucket policy allows public access.
+        """
+        return pulumi.get(self, "block_public_policy")
+
+    @block_public_policy.setter
+    def block_public_policy(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "block_public_policy", value)
+
+    @property
+    @pulumi.getter(name="ignorePublicAcls")
+    def ignore_public_acls(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether Amazon S3 should ignore public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set. When set to `true` causes Amazon S3 to:
+        * Ignore all public ACLs on buckets in this account and any objects that they contain.
+        """
+        return pulumi.get(self, "ignore_public_acls")
+
+    @ignore_public_acls.setter
+    def ignore_public_acls(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "ignore_public_acls", value)
+
+    @property
+    @pulumi.getter(name="restrictPublicBuckets")
+    def restrict_public_buckets(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether Amazon S3 should restrict public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked. When set to `true`:
+        * Only the bucket owner and AWS Services can access buckets with public policies.
+        """
+        return pulumi.get(self, "restrict_public_buckets")
+
+    @restrict_public_buckets.setter
+    def restrict_public_buckets(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "restrict_public_buckets", value)
+
+
+@pulumi.input_type
+class MultiRegionAccessPointDetailsRegionArgs:
+    def __init__(__self__, *,
+                 bucket: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] bucket: The name of the associated bucket for the Region.
+        """
+        pulumi.set(__self__, "bucket", bucket)
+
+    @property
+    @pulumi.getter
+    def bucket(self) -> pulumi.Input[str]:
+        """
+        The name of the associated bucket for the Region.
+        """
+        return pulumi.get(self, "bucket")
+
+    @bucket.setter
+    def bucket(self, value: pulumi.Input[str]):
+        pulumi.set(self, "bucket", value)
+
+
+@pulumi.input_type
+class MultiRegionAccessPointPolicyDetailsArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 policy: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] name: The name of the Multi-Region Access Point.
+        :param pulumi.Input[str] policy: A valid JSON document that specifies the policy that you want to associate with this Multi-Region Access Point. Once applied, the policy can be edited, but not deleted. For more information, see the documentation on [Multi-Region Access Point Permissions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPointPermissions.html).
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "policy", policy)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the Multi-Region Access Point.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def policy(self) -> pulumi.Input[str]:
+        """
+        A valid JSON document that specifies the policy that you want to associate with this Multi-Region Access Point. Once applied, the policy can be edited, but not deleted. For more information, see the documentation on [Multi-Region Access Point Permissions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPointPermissions.html).
+        """
+        return pulumi.get(self, "policy")
+
+    @policy.setter
+    def policy(self, value: pulumi.Input[str]):
+        pulumi.set(self, "policy", value)
+
+
+@pulumi.input_type
+class ObjectLambdaAccessPointConfigurationArgs:
+    def __init__(__self__, *,
+                 supporting_access_point: pulumi.Input[str],
+                 transformation_configurations: pulumi.Input[Sequence[pulumi.Input['ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs']]],
+                 allowed_features: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 cloud_watch_metrics_enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[str] supporting_access_point: Standard access point associated with the Object Lambda Access Point.
+        :param pulumi.Input[Sequence[pulumi.Input['ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs']]] transformation_configurations: List of transformation configurations for the Object Lambda Access Point. See Transformation Configuration below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] allowed_features: Allowed features. Valid values: `GetObject-Range`, `GetObject-PartNumber`.
+        :param pulumi.Input[bool] cloud_watch_metrics_enabled: Whether or not the CloudWatch metrics configuration is enabled.
+        """
+        pulumi.set(__self__, "supporting_access_point", supporting_access_point)
+        pulumi.set(__self__, "transformation_configurations", transformation_configurations)
+        if allowed_features is not None:
+            pulumi.set(__self__, "allowed_features", allowed_features)
+        if cloud_watch_metrics_enabled is not None:
+            pulumi.set(__self__, "cloud_watch_metrics_enabled", cloud_watch_metrics_enabled)
+
+    @property
+    @pulumi.getter(name="supportingAccessPoint")
+    def supporting_access_point(self) -> pulumi.Input[str]:
+        """
+        Standard access point associated with the Object Lambda Access Point.
+        """
+        return pulumi.get(self, "supporting_access_point")
+
+    @supporting_access_point.setter
+    def supporting_access_point(self, value: pulumi.Input[str]):
+        pulumi.set(self, "supporting_access_point", value)
+
+    @property
+    @pulumi.getter(name="transformationConfigurations")
+    def transformation_configurations(self) -> pulumi.Input[Sequence[pulumi.Input['ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs']]]:
+        """
+        List of transformation configurations for the Object Lambda Access Point. See Transformation Configuration below for more details.
+        """
+        return pulumi.get(self, "transformation_configurations")
+
+    @transformation_configurations.setter
+    def transformation_configurations(self, value: pulumi.Input[Sequence[pulumi.Input['ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs']]]):
+        pulumi.set(self, "transformation_configurations", value)
+
+    @property
+    @pulumi.getter(name="allowedFeatures")
+    def allowed_features(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Allowed features. Valid values: `GetObject-Range`, `GetObject-PartNumber`.
+        """
+        return pulumi.get(self, "allowed_features")
+
+    @allowed_features.setter
+    def allowed_features(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "allowed_features", value)
+
+    @property
+    @pulumi.getter(name="cloudWatchMetricsEnabled")
+    def cloud_watch_metrics_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether or not the CloudWatch metrics configuration is enabled.
+        """
+        return pulumi.get(self, "cloud_watch_metrics_enabled")
+
+    @cloud_watch_metrics_enabled.setter
+    def cloud_watch_metrics_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "cloud_watch_metrics_enabled", value)
+
+
+@pulumi.input_type
+class ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs:
+    def __init__(__self__, *,
+                 actions: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 content_transformation: pulumi.Input['ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationArgs']):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] actions: The actions of an Object Lambda Access Point configuration. Valid values: `GetObject`.
+        :param pulumi.Input['ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationArgs'] content_transformation: The content transformation of an Object Lambda Access Point configuration. See Content Transformation below for more details.
+        """
+        pulumi.set(__self__, "actions", actions)
+        pulumi.set(__self__, "content_transformation", content_transformation)
+
+    @property
+    @pulumi.getter
+    def actions(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The actions of an Object Lambda Access Point configuration. Valid values: `GetObject`.
+        """
+        return pulumi.get(self, "actions")
+
+    @actions.setter
+    def actions(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "actions", value)
+
+    @property
+    @pulumi.getter(name="contentTransformation")
+    def content_transformation(self) -> pulumi.Input['ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationArgs']:
+        """
+        The content transformation of an Object Lambda Access Point configuration. See Content Transformation below for more details.
+        """
+        return pulumi.get(self, "content_transformation")
+
+    @content_transformation.setter
+    def content_transformation(self, value: pulumi.Input['ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationArgs']):
+        pulumi.set(self, "content_transformation", value)
+
+
+@pulumi.input_type
+class ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationArgs:
+    def __init__(__self__, *,
+                 aws_lambda: pulumi.Input['ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgs']):
+        """
+        :param pulumi.Input['ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgs'] aws_lambda: Configuration for an AWS Lambda function. See AWS Lambda below for more details.
+        """
+        pulumi.set(__self__, "aws_lambda", aws_lambda)
+
+    @property
+    @pulumi.getter(name="awsLambda")
+    def aws_lambda(self) -> pulumi.Input['ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgs']:
+        """
+        Configuration for an AWS Lambda function. See AWS Lambda below for more details.
+        """
+        return pulumi.get(self, "aws_lambda")
+
+    @aws_lambda.setter
+    def aws_lambda(self, value: pulumi.Input['ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgs']):
+        pulumi.set(self, "aws_lambda", value)
+
+
+@pulumi.input_type
+class ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgs:
+    def __init__(__self__, *,
+                 function_arn: pulumi.Input[str],
+                 function_payload: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] function_arn: The Amazon Resource Name (ARN) of the AWS Lambda function.
+        :param pulumi.Input[str] function_payload: Additional JSON that provides supplemental data to the Lambda function used to transform objects.
+        """
+        pulumi.set(__self__, "function_arn", function_arn)
+        if function_payload is not None:
+            pulumi.set(__self__, "function_payload", function_payload)
+
+    @property
+    @pulumi.getter(name="functionArn")
+    def function_arn(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of the AWS Lambda function.
+        """
+        return pulumi.get(self, "function_arn")
+
+    @function_arn.setter
+    def function_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "function_arn", value)
+
+    @property
+    @pulumi.getter(name="functionPayload")
+    def function_payload(self) -> Optional[pulumi.Input[str]]:
+        """
+        Additional JSON that provides supplemental data to the Lambda function used to transform objects.
+        """
+        return pulumi.get(self, "function_payload")
+
+    @function_payload.setter
+    def function_payload(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "function_payload", value)
 
 
