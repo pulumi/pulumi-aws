@@ -22,7 +22,7 @@ class GetInstanceTypeResult:
     """
     A collection of values returned by getInstanceType.
     """
-    def __init__(__self__, auto_recovery_supported=None, bare_metal=None, burstable_performance_supported=None, current_generation=None, dedicated_hosts_supported=None, default_cores=None, default_threads_per_core=None, default_vcpus=None, ebs_encryption_support=None, ebs_nvme_support=None, ebs_optimized_support=None, ebs_performance_baseline_bandwidth=None, ebs_performance_baseline_iops=None, ebs_performance_baseline_throughput=None, ebs_performance_maximum_bandwidth=None, ebs_performance_maximum_iops=None, ebs_performance_maximum_throughput=None, efa_supported=None, ena_support=None, fpgas=None, free_tier_eligible=None, gpuses=None, hibernation_supported=None, hypervisor=None, id=None, inference_accelerators=None, instance_disks=None, instance_storage_supported=None, instance_type=None, ipv6_supported=None, maximum_ipv4_addresses_per_interface=None, maximum_ipv6_addresses_per_interface=None, maximum_network_interfaces=None, memory_size=None, network_performance=None, supported_architectures=None, supported_placement_strategies=None, supported_root_device_types=None, supported_usages_classes=None, supported_virtualization_types=None, sustained_clock_speed=None, total_fpga_memory=None, total_gpu_memory=None, total_instance_storage=None, valid_cores=None, valid_threads_per_cores=None):
+    def __init__(__self__, auto_recovery_supported=None, bare_metal=None, burstable_performance_supported=None, current_generation=None, dedicated_hosts_supported=None, default_cores=None, default_threads_per_core=None, default_vcpus=None, ebs_encryption_support=None, ebs_nvme_support=None, ebs_optimized_support=None, ebs_performance_baseline_bandwidth=None, ebs_performance_baseline_iops=None, ebs_performance_baseline_throughput=None, ebs_performance_maximum_bandwidth=None, ebs_performance_maximum_iops=None, ebs_performance_maximum_throughput=None, efa_supported=None, ena_support=None, encryption_in_transit_supported=None, fpgas=None, free_tier_eligible=None, gpuses=None, hibernation_supported=None, hypervisor=None, id=None, inference_accelerators=None, instance_disks=None, instance_storage_supported=None, instance_type=None, ipv6_supported=None, maximum_ipv4_addresses_per_interface=None, maximum_ipv6_addresses_per_interface=None, maximum_network_interfaces=None, memory_size=None, network_performance=None, supported_architectures=None, supported_placement_strategies=None, supported_root_device_types=None, supported_usages_classes=None, supported_virtualization_types=None, sustained_clock_speed=None, total_fpga_memory=None, total_gpu_memory=None, total_instance_storage=None, valid_cores=None, valid_threads_per_cores=None):
         if auto_recovery_supported and not isinstance(auto_recovery_supported, bool):
             raise TypeError("Expected argument 'auto_recovery_supported' to be a bool")
         pulumi.set(__self__, "auto_recovery_supported", auto_recovery_supported)
@@ -80,6 +80,9 @@ class GetInstanceTypeResult:
         if ena_support and not isinstance(ena_support, str):
             raise TypeError("Expected argument 'ena_support' to be a str")
         pulumi.set(__self__, "ena_support", ena_support)
+        if encryption_in_transit_supported and not isinstance(encryption_in_transit_supported, bool):
+            raise TypeError("Expected argument 'encryption_in_transit_supported' to be a bool")
+        pulumi.set(__self__, "encryption_in_transit_supported", encryption_in_transit_supported)
         if fpgas and not isinstance(fpgas, list):
             raise TypeError("Expected argument 'fpgas' to be a list")
         pulumi.set(__self__, "fpgas", fpgas)
@@ -313,6 +316,14 @@ class GetInstanceTypeResult:
         Indicates whether Elastic Network Adapter (ENA) is supported.
         """
         return pulumi.get(self, "ena_support")
+
+    @property
+    @pulumi.getter(name="encryptionInTransitSupported")
+    def encryption_in_transit_supported(self) -> bool:
+        """
+        Indicates whether encryption in-transit between instances is supported.
+        """
+        return pulumi.get(self, "encryption_in_transit_supported")
 
     @property
     @pulumi.getter
@@ -565,6 +576,7 @@ class AwaitableGetInstanceTypeResult(GetInstanceTypeResult):
             ebs_performance_maximum_throughput=self.ebs_performance_maximum_throughput,
             efa_supported=self.efa_supported,
             ena_support=self.ena_support,
+            encryption_in_transit_supported=self.encryption_in_transit_supported,
             fpgas=self.fpgas,
             free_tier_eligible=self.free_tier_eligible,
             gpuses=self.gpuses,
@@ -686,6 +698,7 @@ def get_instance_type(default_cores: Optional[int] = None,
         ebs_performance_maximum_throughput=__ret__.ebs_performance_maximum_throughput,
         efa_supported=__ret__.efa_supported,
         ena_support=__ret__.ena_support,
+        encryption_in_transit_supported=__ret__.encryption_in_transit_supported,
         fpgas=__ret__.fpgas,
         free_tier_eligible=__ret__.free_tier_eligible,
         gpuses=__ret__.gpuses,

@@ -481,6 +481,8 @@ type Cluster struct {
 	// List of applications for the cluster. Valid values are: `Flink`, `Hadoop`, `Hive`, `Mahout`, `Pig`, `Spark`, and `JupyterHub` (as of EMR 5.14.0). Case insensitive.
 	Applications pulumi.StringArrayOutput `pulumi:"applications"`
 	Arn          pulumi.StringOutput      `pulumi:"arn"`
+	// An auto-termination policy for an Amazon EMR cluster. An auto-termination policy defines the amount of idle time in seconds after which a cluster automatically terminates. See Auto Termination Policy Below.
+	AutoTerminationPolicy ClusterAutoTerminationPolicyPtrOutput `pulumi:"autoTerminationPolicy"`
 	// IAM role for automatic scaling policies. The IAM role provides permissions that the automatic scaling feature requires to launch and terminate EC2 instances in an instance group.
 	AutoscalingRole pulumi.StringPtrOutput `pulumi:"autoscalingRole"`
 	// Ordered list of bootstrap actions that will be run before Hadoop is started on the cluster nodes. See below.
@@ -578,6 +580,8 @@ type clusterState struct {
 	// List of applications for the cluster. Valid values are: `Flink`, `Hadoop`, `Hive`, `Mahout`, `Pig`, `Spark`, and `JupyterHub` (as of EMR 5.14.0). Case insensitive.
 	Applications []string `pulumi:"applications"`
 	Arn          *string  `pulumi:"arn"`
+	// An auto-termination policy for an Amazon EMR cluster. An auto-termination policy defines the amount of idle time in seconds after which a cluster automatically terminates. See Auto Termination Policy Below.
+	AutoTerminationPolicy *ClusterAutoTerminationPolicy `pulumi:"autoTerminationPolicy"`
 	// IAM role for automatic scaling policies. The IAM role provides permissions that the automatic scaling feature requires to launch and terminate EC2 instances in an instance group.
 	AutoscalingRole *string `pulumi:"autoscalingRole"`
 	// Ordered list of bootstrap actions that will be run before Hadoop is started on the cluster nodes. See below.
@@ -641,6 +645,8 @@ type ClusterState struct {
 	// List of applications for the cluster. Valid values are: `Flink`, `Hadoop`, `Hive`, `Mahout`, `Pig`, `Spark`, and `JupyterHub` (as of EMR 5.14.0). Case insensitive.
 	Applications pulumi.StringArrayInput
 	Arn          pulumi.StringPtrInput
+	// An auto-termination policy for an Amazon EMR cluster. An auto-termination policy defines the amount of idle time in seconds after which a cluster automatically terminates. See Auto Termination Policy Below.
+	AutoTerminationPolicy ClusterAutoTerminationPolicyPtrInput
 	// IAM role for automatic scaling policies. The IAM role provides permissions that the automatic scaling feature requires to launch and terminate EC2 instances in an instance group.
 	AutoscalingRole pulumi.StringPtrInput
 	// Ordered list of bootstrap actions that will be run before Hadoop is started on the cluster nodes. See below.
@@ -707,6 +713,8 @@ type clusterArgs struct {
 	AdditionalInfo *string `pulumi:"additionalInfo"`
 	// List of applications for the cluster. Valid values are: `Flink`, `Hadoop`, `Hive`, `Mahout`, `Pig`, `Spark`, and `JupyterHub` (as of EMR 5.14.0). Case insensitive.
 	Applications []string `pulumi:"applications"`
+	// An auto-termination policy for an Amazon EMR cluster. An auto-termination policy defines the amount of idle time in seconds after which a cluster automatically terminates. See Auto Termination Policy Below.
+	AutoTerminationPolicy *ClusterAutoTerminationPolicy `pulumi:"autoTerminationPolicy"`
 	// IAM role for automatic scaling policies. The IAM role provides permissions that the automatic scaling feature requires to launch and terminate EC2 instances in an instance group.
 	AutoscalingRole *string `pulumi:"autoscalingRole"`
 	// Ordered list of bootstrap actions that will be run before Hadoop is started on the cluster nodes. See below.
@@ -765,6 +773,8 @@ type ClusterArgs struct {
 	AdditionalInfo pulumi.StringPtrInput
 	// List of applications for the cluster. Valid values are: `Flink`, `Hadoop`, `Hive`, `Mahout`, `Pig`, `Spark`, and `JupyterHub` (as of EMR 5.14.0). Case insensitive.
 	Applications pulumi.StringArrayInput
+	// An auto-termination policy for an Amazon EMR cluster. An auto-termination policy defines the amount of idle time in seconds after which a cluster automatically terminates. See Auto Termination Policy Below.
+	AutoTerminationPolicy ClusterAutoTerminationPolicyPtrInput
 	// IAM role for automatic scaling policies. The IAM role provides permissions that the automatic scaling feature requires to launch and terminate EC2 instances in an instance group.
 	AutoscalingRole pulumi.StringPtrInput
 	// Ordered list of bootstrap actions that will be run before Hadoop is started on the cluster nodes. See below.

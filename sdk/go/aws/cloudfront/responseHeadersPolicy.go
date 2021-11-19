@@ -17,7 +17,7 @@ import (
 //
 // ## Example Usage
 //
-// The following example below creates a CloudFront response headers policy.
+// The example below creates a CloudFront response headers policy.
 //
 // ```go
 // package main
@@ -59,6 +59,42 @@ import (
 // }
 // ```
 //
+// The example below creates a CloudFront response headers policy with a custom headers config.
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/cloudfront"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := cloudfront.NewResponseHeadersPolicy(ctx, "example", &cloudfront.ResponseHeadersPolicyArgs{
+// 			CustomHeadersConfig: &cloudfront.ResponseHeadersPolicyCustomHeadersConfigArgs{
+// 				Items: cloudfront.ResponseHeadersPolicyCustomHeadersConfigItemArray{
+// 					&cloudfront.ResponseHeadersPolicyCustomHeadersConfigItemArgs{
+// 						Header:   pulumi.String("X-Permitted-Cross-Domain-Policies"),
+// 						Override: pulumi.Bool(true),
+// 						Value:    pulumi.String("none"),
+// 					},
+// 					&cloudfront.ResponseHeadersPolicyCustomHeadersConfigItemArgs{
+// 						Header:   pulumi.String("X-Test"),
+// 						Override: pulumi.Bool(true),
+// 						Value:    pulumi.String("none"),
+// 					},
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Import
 //
 // Cloudfront Response Headers Policies can be imported using the `id`, e.g.
@@ -73,7 +109,7 @@ type ResponseHeadersPolicy struct {
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
 	// A configuration for a set of HTTP response headers that are used for Cross-Origin Resource Sharing (CORS). See Cors Config for more information.
 	CorsConfig ResponseHeadersPolicyCorsConfigPtrOutput `pulumi:"corsConfig"`
-	// Object that contains an attribute `items` that contains a list of Custom Headers See Custom Header for more information.
+	// Object that contains an attribute `items` that contains a list of custom headers. See Custom Header for more information.
 	CustomHeadersConfig ResponseHeadersPolicyCustomHeadersConfigPtrOutput `pulumi:"customHeadersConfig"`
 	// The current version of the response headers policy.
 	Etag pulumi.StringOutput `pulumi:"etag"`
@@ -116,7 +152,7 @@ type responseHeadersPolicyState struct {
 	Comment *string `pulumi:"comment"`
 	// A configuration for a set of HTTP response headers that are used for Cross-Origin Resource Sharing (CORS). See Cors Config for more information.
 	CorsConfig *ResponseHeadersPolicyCorsConfig `pulumi:"corsConfig"`
-	// Object that contains an attribute `items` that contains a list of Custom Headers See Custom Header for more information.
+	// Object that contains an attribute `items` that contains a list of custom headers. See Custom Header for more information.
 	CustomHeadersConfig *ResponseHeadersPolicyCustomHeadersConfig `pulumi:"customHeadersConfig"`
 	// The current version of the response headers policy.
 	Etag *string `pulumi:"etag"`
@@ -131,7 +167,7 @@ type ResponseHeadersPolicyState struct {
 	Comment pulumi.StringPtrInput
 	// A configuration for a set of HTTP response headers that are used for Cross-Origin Resource Sharing (CORS). See Cors Config for more information.
 	CorsConfig ResponseHeadersPolicyCorsConfigPtrInput
-	// Object that contains an attribute `items` that contains a list of Custom Headers See Custom Header for more information.
+	// Object that contains an attribute `items` that contains a list of custom headers. See Custom Header for more information.
 	CustomHeadersConfig ResponseHeadersPolicyCustomHeadersConfigPtrInput
 	// The current version of the response headers policy.
 	Etag pulumi.StringPtrInput
@@ -150,7 +186,7 @@ type responseHeadersPolicyArgs struct {
 	Comment *string `pulumi:"comment"`
 	// A configuration for a set of HTTP response headers that are used for Cross-Origin Resource Sharing (CORS). See Cors Config for more information.
 	CorsConfig *ResponseHeadersPolicyCorsConfig `pulumi:"corsConfig"`
-	// Object that contains an attribute `items` that contains a list of Custom Headers See Custom Header for more information.
+	// Object that contains an attribute `items` that contains a list of custom headers. See Custom Header for more information.
 	CustomHeadersConfig *ResponseHeadersPolicyCustomHeadersConfig `pulumi:"customHeadersConfig"`
 	// The current version of the response headers policy.
 	Etag *string `pulumi:"etag"`
@@ -166,7 +202,7 @@ type ResponseHeadersPolicyArgs struct {
 	Comment pulumi.StringPtrInput
 	// A configuration for a set of HTTP response headers that are used for Cross-Origin Resource Sharing (CORS). See Cors Config for more information.
 	CorsConfig ResponseHeadersPolicyCorsConfigPtrInput
-	// Object that contains an attribute `items` that contains a list of Custom Headers See Custom Header for more information.
+	// Object that contains an attribute `items` that contains a list of custom headers. See Custom Header for more information.
 	CustomHeadersConfig ResponseHeadersPolicyCustomHeadersConfigPtrInput
 	// The current version of the response headers policy.
 	Etag pulumi.StringPtrInput

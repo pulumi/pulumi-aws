@@ -5380,6 +5380,7 @@ type FirehoseDeliveryStreamExtendedS3Configuration struct {
 	CompressionFormat *string `pulumi:"compressionFormat"`
 	// Nested argument for the serializer, deserializer, and schema for converting data from the JSON format to the Parquet or ORC format before writing it to Amazon S3. More details given below.
 	DataFormatConversionConfiguration *FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfiguration `pulumi:"dataFormatConversionConfiguration"`
+	DynamicPartitioningConfiguration  *FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfiguration  `pulumi:"dynamicPartitioningConfiguration"`
 	// Prefix added to failed records before writing them to S3. This prefix appears immediately following the bucket name.
 	ErrorOutputPrefix *string `pulumi:"errorOutputPrefix"`
 	// Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
@@ -5422,6 +5423,7 @@ type FirehoseDeliveryStreamExtendedS3ConfigurationArgs struct {
 	CompressionFormat pulumi.StringPtrInput `pulumi:"compressionFormat"`
 	// Nested argument for the serializer, deserializer, and schema for converting data from the JSON format to the Parquet or ORC format before writing it to Amazon S3. More details given below.
 	DataFormatConversionConfiguration FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationPtrInput `pulumi:"dataFormatConversionConfiguration"`
+	DynamicPartitioningConfiguration  FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationPtrInput  `pulumi:"dynamicPartitioningConfiguration"`
 	// Prefix added to failed records before writing them to S3. This prefix appears immediately following the bucket name.
 	ErrorOutputPrefix pulumi.StringPtrInput `pulumi:"errorOutputPrefix"`
 	// Specifies the KMS key ARN the stream will use to encrypt data. If not set, no encryption will
@@ -5551,6 +5553,12 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationOutput) DataFormatConversio
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationPtrOutput)
 }
 
+func (o FirehoseDeliveryStreamExtendedS3ConfigurationOutput) DynamicPartitioningConfiguration() FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3Configuration) *FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfiguration {
+		return v.DynamicPartitioningConfiguration
+	}).(FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationPtrOutput)
+}
+
 // Prefix added to failed records before writing them to S3. This prefix appears immediately following the bucket name.
 func (o FirehoseDeliveryStreamExtendedS3ConfigurationOutput) ErrorOutputPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3Configuration) *string { return v.ErrorOutputPrefix }).(pulumi.StringPtrOutput)
@@ -5674,6 +5682,15 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationPtrOutput) DataFormatConver
 		}
 		return v.DataFormatConversionConfiguration
 	}).(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationPtrOutput)
+}
+
+func (o FirehoseDeliveryStreamExtendedS3ConfigurationPtrOutput) DynamicPartitioningConfiguration() FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamExtendedS3Configuration) *FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.DynamicPartitioningConfiguration
+	}).(FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationPtrOutput)
 }
 
 // Prefix added to failed records before writing them to S3. This prefix appears immediately following the bucket name.
@@ -7860,6 +7877,166 @@ func (o FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigu
 		}
 		return v.VersionId
 	}).(pulumi.StringPtrOutput)
+}
+
+type FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfiguration struct {
+	// Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+	Enabled *bool `pulumi:"enabled"`
+	// The length of time during which Firehose retries delivery after a failure, starting from the initial request and including the first attempt. The default value is 3600 seconds (60 minutes). Firehose does not retry if the value of DurationInSeconds is 0 (zero) or if the first delivery attempt takes longer than the current value.
+	RetryDuration *int `pulumi:"retryDuration"`
+}
+
+// FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationInput is an input type that accepts FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationArgs and FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationInput` via:
+//
+//          FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationArgs{...}
+type FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationInput interface {
+	pulumi.Input
+
+	ToFirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationOutput() FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationOutput
+	ToFirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationOutputWithContext(context.Context) FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationOutput
+}
+
+type FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationArgs struct {
+	// Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// The length of time during which Firehose retries delivery after a failure, starting from the initial request and including the first attempt. The default value is 3600 seconds (60 minutes). Firehose does not retry if the value of DurationInSeconds is 0 (zero) or if the first delivery attempt takes longer than the current value.
+	RetryDuration pulumi.IntPtrInput `pulumi:"retryDuration"`
+}
+
+func (FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfiguration)(nil)).Elem()
+}
+
+func (i FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationArgs) ToFirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationOutput() FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationOutput {
+	return i.ToFirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationOutputWithContext(context.Background())
+}
+
+func (i FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationArgs) ToFirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationOutputWithContext(ctx context.Context) FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationOutput)
+}
+
+func (i FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationArgs) ToFirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationPtrOutput() FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationPtrOutput {
+	return i.ToFirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationArgs) ToFirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationOutput).ToFirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationPtrOutputWithContext(ctx)
+}
+
+// FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationPtrInput is an input type that accepts FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationArgs, FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationPtr and FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationPtrOutput values.
+// You can construct a concrete instance of `FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationPtrInput` via:
+//
+//          FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToFirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationPtrOutput() FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationPtrOutput
+	ToFirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationPtrOutputWithContext(context.Context) FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationPtrOutput
+}
+
+type firehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationPtrType FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationArgs
+
+func FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationPtr(v *FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationArgs) FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationPtrInput {
+	return (*firehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationPtrType)(v)
+}
+
+func (*firehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfiguration)(nil)).Elem()
+}
+
+func (i *firehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationPtrType) ToFirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationPtrOutput() FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationPtrOutput {
+	return i.ToFirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *firehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationPtrType) ToFirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationPtrOutput)
+}
+
+type FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfiguration)(nil)).Elem()
+}
+
+func (o FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationOutput) ToFirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationOutput() FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationOutput) ToFirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationOutputWithContext(ctx context.Context) FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationOutput) ToFirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationPtrOutput() FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationPtrOutput {
+	return o.ToFirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationOutput) ToFirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfiguration) *FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfiguration {
+		return &v
+	}).(FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationPtrOutput)
+}
+
+// Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+func (o FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfiguration) *bool {
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The length of time during which Firehose retries delivery after a failure, starting from the initial request and including the first attempt. The default value is 3600 seconds (60 minutes). Firehose does not retry if the value of DurationInSeconds is 0 (zero) or if the first delivery attempt takes longer than the current value.
+func (o FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationOutput) RetryDuration() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfiguration) *int {
+		return v.RetryDuration
+	}).(pulumi.IntPtrOutput)
+}
+
+type FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfiguration)(nil)).Elem()
+}
+
+func (o FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationPtrOutput) ToFirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationPtrOutput() FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationPtrOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationPtrOutput) ToFirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationPtrOutputWithContext(ctx context.Context) FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationPtrOutput {
+	return o
+}
+
+func (o FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationPtrOutput) Elem() FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfiguration) FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfiguration
+		return ret
+	}).(FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationOutput)
+}
+
+// Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+func (o FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The length of time during which Firehose retries delivery after a failure, starting from the initial request and including the first attempt. The default value is 3600 seconds (60 minutes). Firehose does not retry if the value of DurationInSeconds is 0 (zero) or if the first delivery attempt takes longer than the current value.
+func (o FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationPtrOutput) RetryDuration() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RetryDuration
+	}).(pulumi.IntPtrOutput)
 }
 
 type FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfiguration struct {
@@ -12946,6 +13123,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDePtrInput)(nil)).Elem(), FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfigurationInput)(nil)).Elem(), FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfigurationPtrInput)(nil)).Elem(), FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationInput)(nil)).Elem(), FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationPtrInput)(nil)).Elem(), FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationInput)(nil)).Elem(), FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationPtrInput)(nil)).Elem(), FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorInput)(nil)).Elem(), FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorArgs{})
@@ -13091,6 +13270,8 @@ func init() {
 	pulumi.RegisterOutputType(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationOutputFormatConfigurationSerializerParquetSerDePtrOutput{})
 	pulumi.RegisterOutputType(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfigurationOutput{})
 	pulumi.RegisterOutputType(FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationSchemaConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationOutput{})
+	pulumi.RegisterOutputType(FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationOutput{})
 	pulumi.RegisterOutputType(FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfigurationProcessorOutput{})

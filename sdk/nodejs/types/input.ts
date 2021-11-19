@@ -4448,6 +4448,17 @@ export namespace apprunner {
 }
 
 export namespace appstream {
+    export interface DirectoryConfigServiceAccountCredentials {
+        /**
+         * User name of the account. This account must have the following privileges: create computer objects, join computers to the domain, and change/reset the password on descendant computer objects for the organizational units specified.
+         */
+        accountName: pulumi.Input<string>;
+        /**
+         * Password for the account.
+         */
+        accountPassword: pulumi.Input<string>;
+    }
+
     export interface FleetComputeCapacity {
         /**
          * Number of currently available instances that can be used to stream sessions.
@@ -6817,27 +6828,27 @@ export namespace cloudfront {
 
     export interface ResponseHeadersPolicyCorsConfig {
         /**
-         * A Boolean value that CloudFront uses as the value for the Access-Control-Allow-Credentials HTTP response header.
+         * A Boolean value that CloudFront uses as the value for the `Access-Control-Allow-Credentials` HTTP response header.
          */
         accessControlAllowCredentials: pulumi.Input<boolean>;
         /**
-         * Object that contains an attribute `items` that contains a list of HTTP header names that CloudFront includes as values for the Access-Control-Allow-Headers HTTP response header.
+         * Object that contains an attribute `items` that contains a list of HTTP header names that CloudFront includes as values for the `Access-Control-Allow-Headers` HTTP response header.
          */
         accessControlAllowHeaders: pulumi.Input<inputs.cloudfront.ResponseHeadersPolicyCorsConfigAccessControlAllowHeaders>;
         /**
-         * Object that contains an attribute `items` that contains a list of HTTP methods that CloudFront includes as values for the Access-Control-Allow-Methods HTTP response header. Valid values: `GET` | `POST` | `OPTIONS` | `PUT` | `DELETE` | `HEAD` | `ALL`
+         * Object that contains an attribute `items` that contains a list of HTTP methods that CloudFront includes as values for the `Access-Control-Allow-Methods` HTTP response header. Valid values: `GET` | `POST` | `OPTIONS` | `PUT` | `DELETE` | `HEAD` | `ALL`
          */
         accessControlAllowMethods: pulumi.Input<inputs.cloudfront.ResponseHeadersPolicyCorsConfigAccessControlAllowMethods>;
         /**
-         * Object that contains an attribute `items` that contains a list of origins that CloudFront can use as the value for the Access-Control-Allow-Origin HTTP response header.
+         * Object that contains an attribute `items` that contains a list of origins that CloudFront can use as the value for the `Access-Control-Allow-Origin` HTTP response header.
          */
         accessControlAllowOrigins: pulumi.Input<inputs.cloudfront.ResponseHeadersPolicyCorsConfigAccessControlAllowOrigins>;
         /**
-         * Object that contains an attribute `items` that contains a list of HTTP headers that CloudFront includes as values for the Access-Control-Expose-Headers HTTP response header.
+         * Object that contains an attribute `items` that contains a list of HTTP headers that CloudFront includes as values for the `Access-Control-Expose-Headers` HTTP response header.
          */
         accessControlExposeHeaders?: pulumi.Input<inputs.cloudfront.ResponseHeadersPolicyCorsConfigAccessControlExposeHeaders>;
         /**
-         * A number that CloudFront uses as the value for the max-age directive in the Strict-Transport-Security HTTP response header.
+         * A number that CloudFront uses as the value for the `max-age` directive in the `Strict-Transport-Security` HTTP response header.
          */
         accessControlMaxAgeSec?: pulumi.Input<number>;
         originOverride: pulumi.Input<boolean>;
@@ -6869,7 +6880,7 @@ export namespace cloudfront {
          */
         header: pulumi.Input<string>;
         /**
-         * A Boolean value that determines whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
+         * A Boolean value that determines whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
          */
         override: pulumi.Input<boolean>;
         /**
@@ -6880,106 +6891,108 @@ export namespace cloudfront {
 
     export interface ResponseHeadersPolicySecurityHeadersConfig {
         /**
-         * TThe policy directives and their values that CloudFront includes as values for the Content-Security-Policy HTTP response header.
+         * The policy directives and their values that CloudFront includes as values for the `Content-Security-Policy` HTTP response header.
          */
         contentSecurityPolicy?: pulumi.Input<inputs.cloudfront.ResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicy>;
         /**
-         * TA setting that determines whether CloudFront includes the X-Content-Type-Options HTTP response header with its value set to nosniff. See Content Type Options for more information.
+         * Determines whether CloudFront includes the `X-Content-Type-Options` HTTP response header with its value set to `nosniff`. See Content Type Options for more information.
          */
         contentTypeOptions?: pulumi.Input<inputs.cloudfront.ResponseHeadersPolicySecurityHeadersConfigContentTypeOptions>;
         /**
-         * TA setting that determines whether CloudFront includes the X-Frame-Options HTTP response header and the header’s value. See Frame Options for more information.
+         * Determines whether CloudFront includes the `X-Frame-Options` HTTP response header and the header’s value. See Frame Options for more information.
          */
         frameOptions?: pulumi.Input<inputs.cloudfront.ResponseHeadersPolicySecurityHeadersConfigFrameOptions>;
         /**
-         * The value of the Referrer-Policy HTTP response header. Valid Values: `no-referrer` | `no-referrer-when-downgrade` | `origin` | `origin-when-cross-origin` | `same-origin` | `strict-origin` | `strict-origin-when-cross-origin` | `unsafe-url`
+         * The value of the `Referrer-Policy` HTTP response header. Valid Values: `no-referrer` | `no-referrer-when-downgrade` | `origin` | `origin-when-cross-origin` | `same-origin` | `strict-origin` | `strict-origin-when-cross-origin` | `unsafe-url`
          */
         referrerPolicy?: pulumi.Input<inputs.cloudfront.ResponseHeadersPolicySecurityHeadersConfigReferrerPolicy>;
+        /**
+         * Determines whether CloudFront includes the `Strict-Transport-Security` HTTP response header and the header’s value. See Strict Transport Security for more information.
+         */
         strictTransportSecurity?: pulumi.Input<inputs.cloudfront.ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity>;
         /**
-         * TSettings that determine whether CloudFront includes the X-XSS-Protection HTTP response header and the header’s value. See XSS Protection for more information.
+         * Determine whether CloudFront includes the `X-XSS-Protection` HTTP response header and the header’s value. See XSS Protection for more information.
          */
         xssProtection?: pulumi.Input<inputs.cloudfront.ResponseHeadersPolicySecurityHeadersConfigXssProtection>;
     }
 
     export interface ResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicy {
         /**
-         * TThe policy directives and their values that CloudFront includes as values for the Content-Security-Policy HTTP response header.
+         * The policy directives and their values that CloudFront includes as values for the `Content-Security-Policy` HTTP response header.
          */
         contentSecurityPolicy: pulumi.Input<string>;
         /**
-         * A Boolean value that determines whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
+         * A Boolean value that determines whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
          */
         override: pulumi.Input<boolean>;
     }
 
     export interface ResponseHeadersPolicySecurityHeadersConfigContentTypeOptions {
         /**
-         * A Boolean value that determines whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
+         * A Boolean value that determines whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
          */
         override: pulumi.Input<boolean>;
     }
 
     export interface ResponseHeadersPolicySecurityHeadersConfigFrameOptions {
         /**
-         * The value of the X-Frame-Options HTTP response header. Valid values: `DENY` | `SAMEORIGIN`
+         * The value of the `X-Frame-Options` HTTP response header. Valid values: `DENY` | `SAMEORIGIN`
          */
         frameOption: pulumi.Input<string>;
         /**
-         * A Boolean value that determines whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
+         * A Boolean value that determines whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
          */
         override: pulumi.Input<boolean>;
     }
 
     export interface ResponseHeadersPolicySecurityHeadersConfigReferrerPolicy {
         /**
-         * A Boolean value that determines whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
+         * A Boolean value that determines whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
          */
         override: pulumi.Input<boolean>;
         /**
-         * The value of the Referrer-Policy HTTP response header. Valid Values: `no-referrer` | `no-referrer-when-downgrade` | `origin` | `origin-when-cross-origin` | `same-origin` | `strict-origin` | `strict-origin-when-cross-origin` | `unsafe-url`
+         * The value of the `Referrer-Policy` HTTP response header. Valid Values: `no-referrer` | `no-referrer-when-downgrade` | `origin` | `origin-when-cross-origin` | `same-origin` | `strict-origin` | `strict-origin-when-cross-origin` | `unsafe-url`
          */
         referrerPolicy: pulumi.Input<string>;
     }
 
     export interface ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity {
         /**
-         * A number that CloudFront uses as the value for the max-age directive in the Strict-Transport-Security HTTP response header.
+         * A number that CloudFront uses as the value for the `max-age` directive in the `Strict-Transport-Security` HTTP response header.
          */
         accessControlMaxAgeSec: pulumi.Input<number>;
         /**
-         * A Boolean value that determines whether CloudFront includes the includeSubDomains directive in the Strict-Transport-Security HTTP response header.
+         * A Boolean value that determines whether CloudFront includes the `includeSubDomains` directive in the `Strict-Transport-Security` HTTP response header.
          */
         includeSubdomains?: pulumi.Input<boolean>;
         /**
-         * A Boolean value that determines whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
+         * A Boolean value that determines whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
          */
         override: pulumi.Input<boolean>;
         /**
-         * A Boolean value that determines whether CloudFront includes the preload directive in the Strict-Transport-Security HTTP response header.
+         * A Boolean value that determines whether CloudFront includes the `preload` directive in the `Strict-Transport-Security` HTTP response header.
          */
         preload?: pulumi.Input<boolean>;
     }
 
     export interface ResponseHeadersPolicySecurityHeadersConfigXssProtection {
         /**
-         * A Boolean value that determines whether CloudFront includes the mode=block directive in the X-XSS-Protection header.
+         * A Boolean value that determines whether CloudFront includes the `mode=block` directive in the `X-XSS-Protection` header.
          */
         modeBlock?: pulumi.Input<boolean>;
         /**
-         * A Boolean value that determines whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
+         * A Boolean value that determines whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
          */
         override: pulumi.Input<boolean>;
         /**
-         * A Boolean value that determines the value of the X-XSS-Protection HTTP response header. When this setting is true, the value of the X-XSS-Protection header is 1. When this setting is false, the value of the X-XSS-Protection header is 0.
+         * A Boolean value that determines the value of the `X-XSS-Protection` HTTP response header. When this setting is `true`, the value of the `X-XSS-Protection` header is `1`. When this setting is `false`, the value of the `X-XSS-Protection` header is `0`.
          */
         protection: pulumi.Input<boolean>;
         /**
-         * A Boolean value that determines whether CloudFront sets a reporting URI in the X-XSS-Protection header.
+         * A reporting URI, which CloudFront uses as the value of the report directive in the `X-XSS-Protection` header. You cannot specify a `reportUri` when `modeBlock` is `true`.
          */
         reportUri?: pulumi.Input<string>;
     }
-
 }
 
 export namespace cloudhsmv2 {
@@ -12563,7 +12576,7 @@ export namespace ec2transitgateway {
 
     export interface GetTransitGatewayFilter {
         /**
-         * Name of the filter.
+         * The name of the field to filter by, as defined by the [underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGateways.html).
          */
         name: string;
         /**
@@ -12574,7 +12587,7 @@ export namespace ec2transitgateway {
 
     export interface GetTransitGatewayFilterArgs {
         /**
-         * Name of the filter.
+         * The name of the field to filter by, as defined by the [underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGateways.html).
          */
         name: pulumi.Input<string>;
         /**
@@ -14672,6 +14685,13 @@ export namespace elb {
 }
 
 export namespace emr {
+    export interface ClusterAutoTerminationPolicy {
+        /**
+         * Specifies the amount of idle time in seconds after which the cluster automatically terminates. You can specify a minimum of `60` seconds and a maximum of `604800` seconds (seven days).
+         */
+        idleTimeout?: pulumi.Input<number>;
+    }
+
     export interface ClusterBootstrapAction {
         /**
          * List of command line arguments passed to the JAR file's main function when executed.
@@ -15123,6 +15143,28 @@ export namespace emr {
          * Key-Value map of Java properties that are set when the step runs. You can use these properties to pass key value pairs to your main function.
          */
         properties?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    }
+
+    export interface GetReleaseLabelsFilters {
+        /**
+         * Optional release label application filter. For example, `Spark@2.1.0` or `Spark`.
+         */
+        application?: string;
+        /**
+         * Optional release label version prefix filter. For example, `emr-5`.
+         */
+        prefix?: string;
+    }
+
+    export interface GetReleaseLabelsFiltersArgs {
+        /**
+         * Optional release label application filter. For example, `Spark@2.1.0` or `Spark`.
+         */
+        application?: pulumi.Input<string>;
+        /**
+         * Optional release label version prefix filter. For example, `emr-5`.
+         */
+        prefix?: pulumi.Input<string>;
     }
 
     export interface InstanceFleetInstanceTypeConfig {
@@ -16881,6 +16923,38 @@ export namespace imagebuilder {
 }
 
 export namespace iot {
+    export interface ThingGroupMetadata {
+        creationDate?: pulumi.Input<string>;
+        /**
+         * The name of the parent Thing Group.
+         */
+        parentGroupName?: pulumi.Input<string>;
+        rootToParentGroups?: pulumi.Input<pulumi.Input<inputs.iot.ThingGroupMetadataRootToParentGroup>[]>;
+    }
+
+    export interface ThingGroupMetadataRootToParentGroup {
+        groupArn?: pulumi.Input<string>;
+        groupName?: pulumi.Input<string>;
+    }
+
+    export interface ThingGroupProperties {
+        /**
+         * The Thing Group attributes. Defined below.
+         */
+        attributePayload?: pulumi.Input<inputs.iot.ThingGroupPropertiesAttributePayload>;
+        /**
+         * A description of the Thing Group.
+         */
+        description?: pulumi.Input<string>;
+    }
+
+    export interface ThingGroupPropertiesAttributePayload {
+        /**
+         * Key-value map.
+         */
+        attributes?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    }
+
     export interface ThingTypeProperties {
         /**
          * The description of the thing type.
@@ -17445,6 +17519,7 @@ export namespace iot {
          */
         stateMachineName: pulumi.Input<string>;
     }
+
 }
 
 export namespace kinesis {
@@ -17956,6 +18031,7 @@ export namespace kinesis {
          * Nested argument for the serializer, deserializer, and schema for converting data from the JSON format to the Parquet or ORC format before writing it to Amazon S3. More details given below.
          */
         dataFormatConversionConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfiguration>;
+        dynamicPartitioningConfiguration?: pulumi.Input<inputs.kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfiguration>;
         /**
          * Prefix added to failed records before writing them to S3. This prefix appears immediately following the bucket name.
          */
@@ -18174,6 +18250,17 @@ export namespace kinesis {
          * Specifies the table version for the output data schema. Defaults to `LATEST`.
          */
         versionId?: pulumi.Input<string>;
+    }
+
+    export interface FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfiguration {
+        /**
+         * Defaults to `true`. Set it to `false` if you want to disable format conversion while preserving the configuration details.
+         */
+        enabled?: pulumi.Input<boolean>;
+        /**
+         * The length of time during which Firehose retries delivery after a failure, starting from the initial request and including the first attempt. The default value is 3600 seconds (60 minutes). Firehose does not retry if the value of DurationInSeconds is 0 (zero) or if the first delivery attempt takes longer than the current value.
+         */
+        retryDuration?: pulumi.Input<number>;
     }
 
     export interface FirehoseDeliveryStreamExtendedS3ConfigurationProcessingConfiguration {
@@ -23731,6 +23818,202 @@ export namespace s3 {
         objectOwnership: pulumi.Input<string>;
     }
 
+    export interface BucketReplicationConfigRule {
+        /**
+         * Whether delete markers are replicated. This argument is only valid with V2 replication configurations (i.e., when `filter` is used)documented below.
+         */
+        deleteMarkerReplication?: pulumi.Input<inputs.s3.BucketReplicationConfigRuleDeleteMarkerReplication>;
+        /**
+         * Specifies the destination for the rule documented below.
+         */
+        destination: pulumi.Input<inputs.s3.BucketReplicationConfigRuleDestination>;
+        /**
+         * Replicate existing objects in the source bucket according to the rule configurations documented below.
+         */
+        existingObjectReplication?: pulumi.Input<inputs.s3.BucketReplicationConfigRuleExistingObjectReplication>;
+        /**
+         * Filter that identifies subset of objects to which the replication rule applies documented below.
+         */
+        filter?: pulumi.Input<inputs.s3.BucketReplicationConfigRuleFilter>;
+        /**
+         * Unique identifier for the rule. Must be less than or equal to 255 characters in length.
+         */
+        id?: pulumi.Input<string>;
+        /**
+         * Object key name prefix identifying one or more objects to which the rule applies. Must be less than or equal to 1024 characters in length.
+         */
+        prefix?: pulumi.Input<string>;
+        /**
+         * The priority associated with the rule. Priority should only be set if `filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.
+         */
+        priority?: pulumi.Input<number>;
+        /**
+         * Specifies special object selection criteria documented below.
+         */
+        sourceSelectionCriteria?: pulumi.Input<inputs.s3.BucketReplicationConfigRuleSourceSelectionCriteria>;
+        /**
+         * The status of the rule. Either `"Enabled"` or `"Disabled"`. The rule is ignored if status is not "Enabled".
+         */
+        status: pulumi.Input<string>;
+    }
+
+    export interface BucketReplicationConfigRuleDeleteMarkerReplication {
+        /**
+         * Whether delete markers should be replicated. Either `"Enabled"` or `"Disabled"`.
+         */
+        status: pulumi.Input<string>;
+    }
+
+    export interface BucketReplicationConfigRuleDestination {
+        /**
+         * A configuration block that specifies the overrides to use for object owners on replication documented below. Specify this only in a cross-account scenario (where source and destination bucket owners are not the same), and you want to change replica ownership to the AWS account that owns the destination bucket. If this is not specified in the replication configuration, the replicas are owned by same AWS account that owns the source object. Must be used in conjunction with `account` owner override configuration.
+         */
+        accessControlTranslation?: pulumi.Input<inputs.s3.BucketReplicationConfigRuleDestinationAccessControlTranslation>;
+        /**
+         * The Account ID to specify the replica ownership. Must be used in conjunction with `accessControlTranslation` override configuration.
+         */
+        account?: pulumi.Input<string>;
+        /**
+         * The ARN of the S3 bucket where you want Amazon S3 to store replicas of the objects identified by the rule.
+         */
+        bucket: pulumi.Input<string>;
+        /**
+         * A configuration block that provides information about encryption documented below. If `sourceSelectionCriteria` is specified, you must specify this element.
+         */
+        encryptionConfiguration?: pulumi.Input<inputs.s3.BucketReplicationConfigRuleDestinationEncryptionConfiguration>;
+        /**
+         * A configuration block that specifies replication metrics-related settings enabling replication metrics and events documented below.
+         */
+        metrics?: pulumi.Input<inputs.s3.BucketReplicationConfigRuleDestinationMetrics>;
+        /**
+         * A configuration block that specifies S3 Replication Time Control (S3 RTC), including whether S3 RTC is enabled and the time when all objects and operations on objects must be replicated documented below. Replication Time Control must be used in conjunction with `metrics`.
+         */
+        replicationTime?: pulumi.Input<inputs.s3.BucketReplicationConfigRuleDestinationReplicationTime>;
+        /**
+         * The class of storage used to store the object. Can be `STANDARD`, `REDUCED_REDUNDANCY`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `GLACIER`, or `DEEP_ARCHIVE`. By default, Amazon S3 uses the storage class of the source object to create the object replica.
+         */
+        storageClass?: pulumi.Input<string>;
+    }
+
+    export interface BucketReplicationConfigRuleDestinationAccessControlTranslation {
+        /**
+         * Specifies the replica ownership. For default and valid values, see [PUT bucket replication](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTreplication.html) in the Amazon S3 API Reference. Valid values: `Destination`.
+         */
+        owner: pulumi.Input<string>;
+    }
+
+    export interface BucketReplicationConfigRuleDestinationEncryptionConfiguration {
+        /**
+         * The ID (Key ARN or Alias ARN) of the customer managed AWS KMS key stored in AWS Key Management Service (KMS) for the destination bucket.
+         */
+        replicaKmsKeyId: pulumi.Input<string>;
+    }
+
+    export interface BucketReplicationConfigRuleDestinationMetrics {
+        /**
+         * A configuration block that specifies the time threshold for emitting the `s3:Replication:OperationMissedThreshold` event documented below.
+         */
+        eventThreshold: pulumi.Input<inputs.s3.BucketReplicationConfigRuleDestinationMetricsEventThreshold>;
+        /**
+         * The status of the Destination Metrics. Either `"Enabled"` or `"Disabled"`.
+         */
+        status: pulumi.Input<string>;
+    }
+
+    export interface BucketReplicationConfigRuleDestinationMetricsEventThreshold {
+        /**
+         * Time in minutes. Valid values: `15`.
+         */
+        minutes: pulumi.Input<number>;
+    }
+
+    export interface BucketReplicationConfigRuleDestinationReplicationTime {
+        /**
+         * The status of the Replication Time Control. Either `"Enabled"` or `"Disabled"`.
+         */
+        status: pulumi.Input<string>;
+        /**
+         * A configuration block specifying the time by which replication should be complete for all objects and operations on objects documented below.
+         */
+        time: pulumi.Input<inputs.s3.BucketReplicationConfigRuleDestinationReplicationTimeTime>;
+    }
+
+    export interface BucketReplicationConfigRuleDestinationReplicationTimeTime {
+        /**
+         * Time in minutes. Valid values: `15`.
+         */
+        minutes: pulumi.Input<number>;
+    }
+
+    export interface BucketReplicationConfigRuleExistingObjectReplication {
+        /**
+         * Whether the existing objects should be replicated. Either `"Enabled"` or `"Disabled"`.
+         */
+        status: pulumi.Input<string>;
+    }
+
+    export interface BucketReplicationConfigRuleFilter {
+        /**
+         * A configuration block for specifying rule filters. This element is required only if you specify more than one filter. See and below for more details.
+         */
+        and?: pulumi.Input<inputs.s3.BucketReplicationConfigRuleFilterAnd>;
+        /**
+         * An object key name prefix that identifies subset of objects to which the rule applies. Must be less than or equal to 1024 characters in length.
+         */
+        prefix?: pulumi.Input<string>;
+        /**
+         * A configuration block for specifying a tag key and value documented below.
+         */
+        tag?: pulumi.Input<inputs.s3.BucketReplicationConfigRuleFilterTag>;
+    }
+
+    export interface BucketReplicationConfigRuleFilterAnd {
+        /**
+         * An object key name prefix that identifies subset of objects to which the rule applies. Must be less than or equal to 1024 characters in length.
+         */
+        prefix?: pulumi.Input<string>;
+        /**
+         * A map of tags (key and value pairs) that identifies a subset of objects to which the rule applies. The rule applies only to objects having all the tags in its tagset.
+         */
+        tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    }
+
+    export interface BucketReplicationConfigRuleFilterTag {
+        /**
+         * Name of the object key.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Value of the tag.
+         */
+        value: pulumi.Input<string>;
+    }
+
+    export interface BucketReplicationConfigRuleSourceSelectionCriteria {
+        /**
+         * A configuration block that you can specify for selections for modifications on replicas. Amazon S3 doesn't replicate replica modifications by default. In the latest version of replication configuration (when `filter` is specified), you can specify this element and set the status to `Enabled` to replicate modifications on replicas.
+         */
+        replicaModifications?: pulumi.Input<inputs.s3.BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModifications>;
+        /**
+         * A configuration block for filter information for the selection of Amazon S3 objects encrypted with AWS KMS. If specified, `replicaKmsKeyId` in `destination` `encryptionConfiguration` must be specified as well.
+         */
+        sseKmsEncryptedObjects?: pulumi.Input<inputs.s3.BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjects>;
+    }
+
+    export interface BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModifications {
+        /**
+         * Whether the existing objects should be replicated. Either `"Enabled"` or `"Disabled"`.
+         */
+        status: pulumi.Input<string>;
+    }
+
+    export interface BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjects {
+        /**
+         * Whether the existing objects should be replicated. Either `"Enabled"` or `"Disabled"`.
+         */
+        status: pulumi.Input<string>;
+    }
+
     export interface BucketReplicationConfiguration {
         /**
          * The ARN of the IAM role for Amazon S3 to assume when replicating the objects.
@@ -24071,6 +24354,112 @@ export namespace s3control {
          */
         tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     }
+
+    export interface MultiRegionAccessPointDetails {
+        /**
+         * The name of the Multi-Region Access Point.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Configuration block to manage the `PublicAccessBlock` configuration that you want to apply to this Multi-Region Access Point. You can enable the configuration options in any combination. See Public Access Block Configuration below for more details.
+         */
+        publicAccessBlock?: pulumi.Input<inputs.s3control.MultiRegionAccessPointDetailsPublicAccessBlock>;
+        /**
+         * The Region configuration block to specify the bucket associated with the Multi-Region Access Point. See Region Configuration below for more details.
+         */
+        regions: pulumi.Input<pulumi.Input<inputs.s3control.MultiRegionAccessPointDetailsRegion>[]>;
+    }
+
+    export interface MultiRegionAccessPointDetailsPublicAccessBlock {
+        /**
+         * Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:
+         * * PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
+         * * PUT Object calls fail if the request includes a public ACL.
+         * * PUT Bucket calls fail if the request includes a public ACL.
+         */
+        blockPublicAcls?: pulumi.Input<boolean>;
+        /**
+         * Whether Amazon S3 should block public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect existing bucket policies. When set to `true` causes Amazon S3 to:
+         * * Reject calls to PUT Bucket policy if the specified bucket policy allows public access.
+         */
+        blockPublicPolicy?: pulumi.Input<boolean>;
+        /**
+         * Whether Amazon S3 should ignore public ACLs for buckets in this account. Defaults to `true`. Enabling this setting does not affect the persistence of any existing ACLs and doesn't prevent new public ACLs from being set. When set to `true` causes Amazon S3 to:
+         * * Ignore all public ACLs on buckets in this account and any objects that they contain.
+         */
+        ignorePublicAcls?: pulumi.Input<boolean>;
+        /**
+         * Whether Amazon S3 should restrict public bucket policies for buckets in this account. Defaults to `true`. Enabling this setting does not affect previously stored bucket policies, except that public and cross-account access within any public bucket policy, including non-public delegation to specific accounts, is blocked. When set to `true`:
+         * * Only the bucket owner and AWS Services can access buckets with public policies.
+         */
+        restrictPublicBuckets?: pulumi.Input<boolean>;
+    }
+
+    export interface MultiRegionAccessPointDetailsRegion {
+        /**
+         * The name of the associated bucket for the Region.
+         */
+        bucket: pulumi.Input<string>;
+    }
+
+    export interface MultiRegionAccessPointPolicyDetails {
+        /**
+         * The name of the Multi-Region Access Point.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * A valid JSON document that specifies the policy that you want to associate with this Multi-Region Access Point. Once applied, the policy can be edited, but not deleted. For more information, see the documentation on [Multi-Region Access Point Permissions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPointPermissions.html).
+         */
+        policy: pulumi.Input<string>;
+    }
+
+    export interface ObjectLambdaAccessPointConfiguration {
+        /**
+         * Allowed features. Valid values: `GetObject-Range`, `GetObject-PartNumber`.
+         */
+        allowedFeatures?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Whether or not the CloudWatch metrics configuration is enabled.
+         */
+        cloudWatchMetricsEnabled?: pulumi.Input<boolean>;
+        /**
+         * Standard access point associated with the Object Lambda Access Point.
+         */
+        supportingAccessPoint: pulumi.Input<string>;
+        /**
+         * List of transformation configurations for the Object Lambda Access Point. See Transformation Configuration below for more details.
+         */
+        transformationConfigurations: pulumi.Input<pulumi.Input<inputs.s3control.ObjectLambdaAccessPointConfigurationTransformationConfiguration>[]>;
+    }
+
+    export interface ObjectLambdaAccessPointConfigurationTransformationConfiguration {
+        /**
+         * The actions of an Object Lambda Access Point configuration. Valid values: `GetObject`.
+         */
+        actions: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The content transformation of an Object Lambda Access Point configuration. See Content Transformation below for more details.
+         */
+        contentTransformation: pulumi.Input<inputs.s3control.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformation>;
+    }
+
+    export interface ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformation {
+        /**
+         * Configuration for an AWS Lambda function. See AWS Lambda below for more details.
+         */
+        awsLambda: pulumi.Input<inputs.s3control.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambda>;
+    }
+
+    export interface ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambda {
+        /**
+         * The Amazon Resource Name (ARN) of the AWS Lambda function.
+         */
+        functionArn: pulumi.Input<string>;
+        /**
+         * Additional JSON that provides supplemental data to the Lambda function used to transform objects.
+         */
+        functionPayload?: pulumi.Input<string>;
+    }
 }
 
 export namespace s3outposts {
@@ -24401,6 +24790,87 @@ export namespace sagemaker {
          * The name of the variant. If omitted, this provider will assign a random, unique name.
          */
         variantName?: pulumi.Input<string>;
+    }
+
+    export interface EndpointDeploymentConfig {
+        /**
+         * Automatic rollback configuration for handling endpoint deployment failures and recovery. See Auto Rollback Configuration.
+         */
+        autoRollbackConfiguration?: pulumi.Input<inputs.sagemaker.EndpointDeploymentConfigAutoRollbackConfiguration>;
+        /**
+         * Update policy for a blue/green deployment. If this update policy is specified, SageMaker creates a new fleet during the deployment while maintaining the old fleet. See Blue Green Update Config.
+         */
+        blueGreenUpdatePolicy: pulumi.Input<inputs.sagemaker.EndpointDeploymentConfigBlueGreenUpdatePolicy>;
+    }
+
+    export interface EndpointDeploymentConfigAutoRollbackConfiguration {
+        /**
+         * List of CloudWatch alarms in your account that are configured to monitor metrics on an endpoint. If any alarms are tripped during a deployment, SageMaker rolls back the deployment. See Alarms.
+         */
+        alarms?: pulumi.Input<pulumi.Input<inputs.sagemaker.EndpointDeploymentConfigAutoRollbackConfigurationAlarm>[]>;
+    }
+
+    export interface EndpointDeploymentConfigAutoRollbackConfigurationAlarm {
+        /**
+         * The name of a CloudWatch alarm in your account.
+         */
+        alarmName: pulumi.Input<string>;
+    }
+
+    export interface EndpointDeploymentConfigBlueGreenUpdatePolicy {
+        /**
+         * Maximum execution timeout for the deployment. Note that the timeout value should be larger than the total waiting time specified in `terminationWaitInSeconds` and `waitIntervalInSeconds`. Valid values are between `600` and `14400`.
+         */
+        maximumExecutionTimeoutInSeconds?: pulumi.Input<number>;
+        /**
+         * Additional waiting time in seconds after the completion of an endpoint deployment before terminating the old endpoint fleet. Default is `0`. Valid values are between `0` and `3600`.
+         */
+        terminationWaitInSeconds?: pulumi.Input<number>;
+        /**
+         * Defines the traffic routing strategy to shift traffic from the old fleet to the new fleet during an endpoint deployment. See Traffic Routing Configuration.
+         */
+        trafficRoutingConfiguration: pulumi.Input<inputs.sagemaker.EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration>;
+    }
+
+    export interface EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration {
+        /**
+         * Batch size for the first step to turn on traffic on the new endpoint fleet. Value must be less than or equal to 50% of the variant's total instance count. See Canary Size.
+         */
+        canarySize?: pulumi.Input<inputs.sagemaker.EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySize>;
+        /**
+         * Batch size for each step to turn on traffic on the new endpoint fleet. Value must be 10-50% of the variant's total instance count. See Linear Step Size.
+         */
+        linearStepSize?: pulumi.Input<inputs.sagemaker.EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSize>;
+        /**
+         * Specifies the endpoint capacity type. Valid values are: `INSTANCE_COUNT`, or `CAPACITY_PERCENT`.
+         */
+        type: pulumi.Input<string>;
+        /**
+         * The waiting time (in seconds) between incremental steps to turn on traffic on the new endpoint fleet. Valid values are between `0` and `3600`.
+         */
+        waitIntervalInSeconds: pulumi.Input<number>;
+    }
+
+    export interface EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySize {
+        /**
+         * Specifies the endpoint capacity type. Valid values are: `INSTANCE_COUNT`, or `CAPACITY_PERCENT`.
+         */
+        type: pulumi.Input<string>;
+        /**
+         * Defines the capacity size, either as a number of instances or a capacity percentage.
+         */
+        value: pulumi.Input<number>;
+    }
+
+    export interface EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSize {
+        /**
+         * Specifies the endpoint capacity type. Valid values are: `INSTANCE_COUNT`, or `CAPACITY_PERCENT`.
+         */
+        type: pulumi.Input<string>;
+        /**
+         * Defines the capacity size, either as a number of instances or a capacity percentage.
+         */
+        value: pulumi.Input<number>;
     }
 
     export interface FeatureGroupFeatureDefinition {
@@ -24878,6 +25348,7 @@ export namespace sagemaker {
          */
         notificationTopicArn?: pulumi.Input<string>;
     }
+
 }
 
 export namespace secretsmanager {

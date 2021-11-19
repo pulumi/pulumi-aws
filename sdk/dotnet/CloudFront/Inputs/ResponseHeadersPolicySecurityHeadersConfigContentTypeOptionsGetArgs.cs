@@ -13,7 +13,7 @@ namespace Pulumi.Aws.CloudFront.Inputs
     public sealed class ResponseHeadersPolicySecurityHeadersConfigContentTypeOptionsGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A Boolean value that determines whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
+        /// A Boolean value that determines whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
         /// </summary>
         [Input("override", required: true)]
         public Input<bool> Override { get; set; } = null!;

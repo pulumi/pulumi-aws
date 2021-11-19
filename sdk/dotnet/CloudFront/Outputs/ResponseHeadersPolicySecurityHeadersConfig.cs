@@ -14,24 +14,27 @@ namespace Pulumi.Aws.CloudFront.Outputs
     public sealed class ResponseHeadersPolicySecurityHeadersConfig
     {
         /// <summary>
-        /// TThe policy directives and their values that CloudFront includes as values for the Content-Security-Policy HTTP response header.
+        /// The policy directives and their values that CloudFront includes as values for the `Content-Security-Policy` HTTP response header.
         /// </summary>
         public readonly Outputs.ResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicy? ContentSecurityPolicy;
         /// <summary>
-        /// TA setting that determines whether CloudFront includes the X-Content-Type-Options HTTP response header with its value set to nosniff. See Content Type Options for more information.
+        /// Determines whether CloudFront includes the `X-Content-Type-Options` HTTP response header with its value set to `nosniff`. See Content Type Options for more information.
         /// </summary>
         public readonly Outputs.ResponseHeadersPolicySecurityHeadersConfigContentTypeOptions? ContentTypeOptions;
         /// <summary>
-        /// TA setting that determines whether CloudFront includes the X-Frame-Options HTTP response header and the header’s value. See Frame Options for more information.
+        /// Determines whether CloudFront includes the `X-Frame-Options` HTTP response header and the header’s value. See Frame Options for more information.
         /// </summary>
         public readonly Outputs.ResponseHeadersPolicySecurityHeadersConfigFrameOptions? FrameOptions;
         /// <summary>
-        /// The value of the Referrer-Policy HTTP response header. Valid Values: `no-referrer` | `no-referrer-when-downgrade` | `origin` | `origin-when-cross-origin` | `same-origin` | `strict-origin` | `strict-origin-when-cross-origin` | `unsafe-url`
+        /// The value of the `Referrer-Policy` HTTP response header. Valid Values: `no-referrer` | `no-referrer-when-downgrade` | `origin` | `origin-when-cross-origin` | `same-origin` | `strict-origin` | `strict-origin-when-cross-origin` | `unsafe-url`
         /// </summary>
         public readonly Outputs.ResponseHeadersPolicySecurityHeadersConfigReferrerPolicy? ReferrerPolicy;
+        /// <summary>
+        /// Determines whether CloudFront includes the `Strict-Transport-Security` HTTP response header and the header’s value. See Strict Transport Security for more information.
+        /// </summary>
         public readonly Outputs.ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity? StrictTransportSecurity;
         /// <summary>
-        /// TSettings that determine whether CloudFront includes the X-XSS-Protection HTTP response header and the header’s value. See XSS Protection for more information.
+        /// Determine whether CloudFront includes the `X-XSS-Protection` HTTP response header and the header’s value. See XSS Protection for more information.
         /// </summary>
         public readonly Outputs.ResponseHeadersPolicySecurityHeadersConfigXssProtection? XssProtection;
 

@@ -10,6 +10,7 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'ClusterAutoTerminationPolicy',
     'ClusterBootstrapAction',
     'ClusterCoreInstanceFleet',
     'ClusterCoreInstanceFleetInstanceTypeConfig',
@@ -41,7 +42,44 @@ __all__ = [
     'InstanceFleetLaunchSpecificationsSpotSpecification',
     'InstanceGroupEbsConfig',
     'ManagedScalingPolicyComputeLimit',
+    'GetReleaseLabelsFiltersResult',
 ]
+
+@pulumi.output_type
+class ClusterAutoTerminationPolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "idleTimeout":
+            suggest = "idle_timeout"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterAutoTerminationPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterAutoTerminationPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterAutoTerminationPolicy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 idle_timeout: Optional[int] = None):
+        """
+        :param int idle_timeout: Specifies the amount of idle time in seconds after which the cluster automatically terminates. You can specify a minimum of `60` seconds and a maximum of `604800` seconds (seven days).
+        """
+        if idle_timeout is not None:
+            pulumi.set(__self__, "idle_timeout", idle_timeout)
+
+    @property
+    @pulumi.getter(name="idleTimeout")
+    def idle_timeout(self) -> Optional[int]:
+        """
+        Specifies the amount of idle time in seconds after which the cluster automatically terminates. You can specify a minimum of `60` seconds and a maximum of `604800` seconds (seven days).
+        """
+        return pulumi.get(self, "idle_timeout")
+
 
 @pulumi.output_type
 class ClusterBootstrapAction(dict):
@@ -2298,5 +2336,36 @@ class ManagedScalingPolicyComputeLimit(dict):
         The upper boundary of On-Demand EC2 units. It is measured through VCPU cores or instances for instance groups and measured through units for instance fleets. The On-Demand units are not allowed to scale beyond this boundary. The parameter is used to split capacity allocation between On-Demand and Spot instances.
         """
         return pulumi.get(self, "maximum_ondemand_capacity_units")
+
+
+@pulumi.output_type
+class GetReleaseLabelsFiltersResult(dict):
+    def __init__(__self__, *,
+                 application: Optional[str] = None,
+                 prefix: Optional[str] = None):
+        """
+        :param str application: Optional release label application filter. For example, `Spark@2.1.0` or `Spark`.
+        :param str prefix: Optional release label version prefix filter. For example, `emr-5`.
+        """
+        if application is not None:
+            pulumi.set(__self__, "application", application)
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+
+    @property
+    @pulumi.getter
+    def application(self) -> Optional[str]:
+        """
+        Optional release label application filter. For example, `Spark@2.1.0` or `Spark`.
+        """
+        return pulumi.get(self, "application")
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> Optional[str]:
+        """
+        Optional release label version prefix filter. For example, `emr-5`.
+        """
+        return pulumi.get(self, "prefix")
 
 

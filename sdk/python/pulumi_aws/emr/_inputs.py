@@ -9,6 +9,7 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'ClusterAutoTerminationPolicyArgs',
     'ClusterBootstrapActionArgs',
     'ClusterCoreInstanceFleetArgs',
     'ClusterCoreInstanceFleetInstanceTypeConfigArgs',
@@ -40,7 +41,31 @@ __all__ = [
     'InstanceFleetLaunchSpecificationsSpotSpecificationArgs',
     'InstanceGroupEbsConfigArgs',
     'ManagedScalingPolicyComputeLimitArgs',
+    'GetReleaseLabelsFiltersArgs',
 ]
+
+@pulumi.input_type
+class ClusterAutoTerminationPolicyArgs:
+    def __init__(__self__, *,
+                 idle_timeout: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[int] idle_timeout: Specifies the amount of idle time in seconds after which the cluster automatically terminates. You can specify a minimum of `60` seconds and a maximum of `604800` seconds (seven days).
+        """
+        if idle_timeout is not None:
+            pulumi.set(__self__, "idle_timeout", idle_timeout)
+
+    @property
+    @pulumi.getter(name="idleTimeout")
+    def idle_timeout(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the amount of idle time in seconds after which the cluster automatically terminates. You can specify a minimum of `60` seconds and a maximum of `604800` seconds (seven days).
+        """
+        return pulumi.get(self, "idle_timeout")
+
+    @idle_timeout.setter
+    def idle_timeout(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "idle_timeout", value)
+
 
 @pulumi.input_type
 class ClusterBootstrapActionArgs:
@@ -2232,5 +2257,44 @@ class ManagedScalingPolicyComputeLimitArgs:
     @maximum_ondemand_capacity_units.setter
     def maximum_ondemand_capacity_units(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "maximum_ondemand_capacity_units", value)
+
+
+@pulumi.input_type
+class GetReleaseLabelsFiltersArgs:
+    def __init__(__self__, *,
+                 application: Optional[str] = None,
+                 prefix: Optional[str] = None):
+        """
+        :param str application: Optional release label application filter. For example, `Spark@2.1.0` or `Spark`.
+        :param str prefix: Optional release label version prefix filter. For example, `emr-5`.
+        """
+        if application is not None:
+            pulumi.set(__self__, "application", application)
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+
+    @property
+    @pulumi.getter
+    def application(self) -> Optional[str]:
+        """
+        Optional release label application filter. For example, `Spark@2.1.0` or `Spark`.
+        """
+        return pulumi.get(self, "application")
+
+    @application.setter
+    def application(self, value: Optional[str]):
+        pulumi.set(self, "application", value)
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> Optional[str]:
+        """
+        Optional release label version prefix filter. For example, `emr-5`.
+        """
+        return pulumi.get(self, "prefix")
+
+    @prefix.setter
+    def prefix(self, value: Optional[str]):
+        pulumi.set(self, "prefix", value)
 
 

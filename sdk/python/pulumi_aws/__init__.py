@@ -1126,6 +1126,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "appstream/directoryConfig",
+  "fqn": "pulumi_aws.appstream",
+  "classes": {
+   "aws:appstream/directoryConfig:DirectoryConfig": "DirectoryConfig"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "appstream/fleet",
   "fqn": "pulumi_aws.appstream",
   "classes": {
@@ -4398,6 +4406,22 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "iot/thingGroup",
+  "fqn": "pulumi_aws.iot",
+  "classes": {
+   "aws:iot/thingGroup:ThingGroup": "ThingGroup"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "iot/thingGroupMembership",
+  "fqn": "pulumi_aws.iot",
+  "classes": {
+   "aws:iot/thingGroupMembership:ThingGroupMembership": "ThingGroupMembership"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "iot/thingPrincipalAttachment",
   "fqn": "pulumi_aws.iot",
   "classes": {
@@ -4602,6 +4626,14 @@ _utilities.register(
   "fqn": "pulumi_aws.lambda_",
   "classes": {
    "aws:lambda/layerVersion:LayerVersion": "LayerVersion"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "lambda/layerVersionPermission",
+  "fqn": "pulumi_aws.lambda_",
+  "classes": {
+   "aws:lambda/layerVersionPermission:LayerVersionPermission": "LayerVersionPermission"
   }
  },
  {
@@ -5902,6 +5934,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "s3/bucketReplicationConfig",
+  "fqn": "pulumi_aws.s3",
+  "classes": {
+   "aws:s3/bucketReplicationConfig:BucketReplicationConfig": "BucketReplicationConfig"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "s3/inventory",
   "fqn": "pulumi_aws.s3",
   "classes": {
@@ -5914,6 +5954,14 @@ _utilities.register(
   "fqn": "pulumi_aws.s3",
   "classes": {
    "aws:s3/objectCopy:ObjectCopy": "ObjectCopy"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "s3control/accessPointPolicy",
+  "fqn": "pulumi_aws.s3control",
+  "classes": {
+   "aws:s3control/accessPointPolicy:AccessPointPolicy": "AccessPointPolicy"
   }
  },
  {
@@ -5938,6 +5986,38 @@ _utilities.register(
   "fqn": "pulumi_aws.s3control",
   "classes": {
    "aws:s3control/bucketPolicy:BucketPolicy": "BucketPolicy"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "s3control/multiRegionAccessPoint",
+  "fqn": "pulumi_aws.s3control",
+  "classes": {
+   "aws:s3control/multiRegionAccessPoint:MultiRegionAccessPoint": "MultiRegionAccessPoint"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "s3control/multiRegionAccessPointPolicy",
+  "fqn": "pulumi_aws.s3control",
+  "classes": {
+   "aws:s3control/multiRegionAccessPointPolicy:MultiRegionAccessPointPolicy": "MultiRegionAccessPointPolicy"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "s3control/objectLambdaAccessPoint",
+  "fqn": "pulumi_aws.s3control",
+  "classes": {
+   "aws:s3control/objectLambdaAccessPoint:ObjectLambdaAccessPoint": "ObjectLambdaAccessPoint"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "s3control/objectLambdaAccessPointPolicy",
+  "fqn": "pulumi_aws.s3control",
+  "classes": {
+   "aws:s3control/objectLambdaAccessPointPolicy:ObjectLambdaAccessPointPolicy": "ObjectLambdaAccessPointPolicy"
   }
  },
  {
@@ -6186,6 +6266,14 @@ _utilities.register(
   "fqn": "pulumi_aws.securityhub",
   "classes": {
    "aws:securityhub/actionTarget:ActionTarget": "ActionTarget"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "securityhub/findingAggregator",
+  "fqn": "pulumi_aws.securityhub",
+  "classes": {
+   "aws:securityhub/findingAggregator:FindingAggregator": "FindingAggregator"
   }
  },
  {

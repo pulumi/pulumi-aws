@@ -10,6 +10,143 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type ClusterAutoTerminationPolicy struct {
+	// Specifies the amount of idle time in seconds after which the cluster automatically terminates. You can specify a minimum of `60` seconds and a maximum of `604800` seconds (seven days).
+	IdleTimeout *int `pulumi:"idleTimeout"`
+}
+
+// ClusterAutoTerminationPolicyInput is an input type that accepts ClusterAutoTerminationPolicyArgs and ClusterAutoTerminationPolicyOutput values.
+// You can construct a concrete instance of `ClusterAutoTerminationPolicyInput` via:
+//
+//          ClusterAutoTerminationPolicyArgs{...}
+type ClusterAutoTerminationPolicyInput interface {
+	pulumi.Input
+
+	ToClusterAutoTerminationPolicyOutput() ClusterAutoTerminationPolicyOutput
+	ToClusterAutoTerminationPolicyOutputWithContext(context.Context) ClusterAutoTerminationPolicyOutput
+}
+
+type ClusterAutoTerminationPolicyArgs struct {
+	// Specifies the amount of idle time in seconds after which the cluster automatically terminates. You can specify a minimum of `60` seconds and a maximum of `604800` seconds (seven days).
+	IdleTimeout pulumi.IntPtrInput `pulumi:"idleTimeout"`
+}
+
+func (ClusterAutoTerminationPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterAutoTerminationPolicy)(nil)).Elem()
+}
+
+func (i ClusterAutoTerminationPolicyArgs) ToClusterAutoTerminationPolicyOutput() ClusterAutoTerminationPolicyOutput {
+	return i.ToClusterAutoTerminationPolicyOutputWithContext(context.Background())
+}
+
+func (i ClusterAutoTerminationPolicyArgs) ToClusterAutoTerminationPolicyOutputWithContext(ctx context.Context) ClusterAutoTerminationPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterAutoTerminationPolicyOutput)
+}
+
+func (i ClusterAutoTerminationPolicyArgs) ToClusterAutoTerminationPolicyPtrOutput() ClusterAutoTerminationPolicyPtrOutput {
+	return i.ToClusterAutoTerminationPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterAutoTerminationPolicyArgs) ToClusterAutoTerminationPolicyPtrOutputWithContext(ctx context.Context) ClusterAutoTerminationPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterAutoTerminationPolicyOutput).ToClusterAutoTerminationPolicyPtrOutputWithContext(ctx)
+}
+
+// ClusterAutoTerminationPolicyPtrInput is an input type that accepts ClusterAutoTerminationPolicyArgs, ClusterAutoTerminationPolicyPtr and ClusterAutoTerminationPolicyPtrOutput values.
+// You can construct a concrete instance of `ClusterAutoTerminationPolicyPtrInput` via:
+//
+//          ClusterAutoTerminationPolicyArgs{...}
+//
+//  or:
+//
+//          nil
+type ClusterAutoTerminationPolicyPtrInput interface {
+	pulumi.Input
+
+	ToClusterAutoTerminationPolicyPtrOutput() ClusterAutoTerminationPolicyPtrOutput
+	ToClusterAutoTerminationPolicyPtrOutputWithContext(context.Context) ClusterAutoTerminationPolicyPtrOutput
+}
+
+type clusterAutoTerminationPolicyPtrType ClusterAutoTerminationPolicyArgs
+
+func ClusterAutoTerminationPolicyPtr(v *ClusterAutoTerminationPolicyArgs) ClusterAutoTerminationPolicyPtrInput {
+	return (*clusterAutoTerminationPolicyPtrType)(v)
+}
+
+func (*clusterAutoTerminationPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterAutoTerminationPolicy)(nil)).Elem()
+}
+
+func (i *clusterAutoTerminationPolicyPtrType) ToClusterAutoTerminationPolicyPtrOutput() ClusterAutoTerminationPolicyPtrOutput {
+	return i.ToClusterAutoTerminationPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterAutoTerminationPolicyPtrType) ToClusterAutoTerminationPolicyPtrOutputWithContext(ctx context.Context) ClusterAutoTerminationPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterAutoTerminationPolicyPtrOutput)
+}
+
+type ClusterAutoTerminationPolicyOutput struct{ *pulumi.OutputState }
+
+func (ClusterAutoTerminationPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterAutoTerminationPolicy)(nil)).Elem()
+}
+
+func (o ClusterAutoTerminationPolicyOutput) ToClusterAutoTerminationPolicyOutput() ClusterAutoTerminationPolicyOutput {
+	return o
+}
+
+func (o ClusterAutoTerminationPolicyOutput) ToClusterAutoTerminationPolicyOutputWithContext(ctx context.Context) ClusterAutoTerminationPolicyOutput {
+	return o
+}
+
+func (o ClusterAutoTerminationPolicyOutput) ToClusterAutoTerminationPolicyPtrOutput() ClusterAutoTerminationPolicyPtrOutput {
+	return o.ToClusterAutoTerminationPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterAutoTerminationPolicyOutput) ToClusterAutoTerminationPolicyPtrOutputWithContext(ctx context.Context) ClusterAutoTerminationPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterAutoTerminationPolicy) *ClusterAutoTerminationPolicy {
+		return &v
+	}).(ClusterAutoTerminationPolicyPtrOutput)
+}
+
+// Specifies the amount of idle time in seconds after which the cluster automatically terminates. You can specify a minimum of `60` seconds and a maximum of `604800` seconds (seven days).
+func (o ClusterAutoTerminationPolicyOutput) IdleTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ClusterAutoTerminationPolicy) *int { return v.IdleTimeout }).(pulumi.IntPtrOutput)
+}
+
+type ClusterAutoTerminationPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterAutoTerminationPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterAutoTerminationPolicy)(nil)).Elem()
+}
+
+func (o ClusterAutoTerminationPolicyPtrOutput) ToClusterAutoTerminationPolicyPtrOutput() ClusterAutoTerminationPolicyPtrOutput {
+	return o
+}
+
+func (o ClusterAutoTerminationPolicyPtrOutput) ToClusterAutoTerminationPolicyPtrOutputWithContext(ctx context.Context) ClusterAutoTerminationPolicyPtrOutput {
+	return o
+}
+
+func (o ClusterAutoTerminationPolicyPtrOutput) Elem() ClusterAutoTerminationPolicyOutput {
+	return o.ApplyT(func(v *ClusterAutoTerminationPolicy) ClusterAutoTerminationPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterAutoTerminationPolicy
+		return ret
+	}).(ClusterAutoTerminationPolicyOutput)
+}
+
+// Specifies the amount of idle time in seconds after which the cluster automatically terminates. You can specify a minimum of `60` seconds and a maximum of `604800` seconds (seven days).
+func (o ClusterAutoTerminationPolicyPtrOutput) IdleTimeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ClusterAutoTerminationPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return v.IdleTimeout
+	}).(pulumi.IntPtrOutput)
+}
+
 type ClusterBootstrapAction struct {
 	// List of command line arguments passed to the JAR file's main function when executed.
 	Args []string `pulumi:"args"`
@@ -4636,7 +4773,165 @@ func (o ManagedScalingPolicyComputeLimitArrayOutput) Index(i pulumi.IntInput) Ma
 	}).(ManagedScalingPolicyComputeLimitOutput)
 }
 
+type GetReleaseLabelsFilters struct {
+	// Optional release label application filter. For example, `Spark@2.1.0` or `Spark`.
+	Application *string `pulumi:"application"`
+	// Optional release label version prefix filter. For example, `emr-5`.
+	Prefix *string `pulumi:"prefix"`
+}
+
+// GetReleaseLabelsFiltersInput is an input type that accepts GetReleaseLabelsFiltersArgs and GetReleaseLabelsFiltersOutput values.
+// You can construct a concrete instance of `GetReleaseLabelsFiltersInput` via:
+//
+//          GetReleaseLabelsFiltersArgs{...}
+type GetReleaseLabelsFiltersInput interface {
+	pulumi.Input
+
+	ToGetReleaseLabelsFiltersOutput() GetReleaseLabelsFiltersOutput
+	ToGetReleaseLabelsFiltersOutputWithContext(context.Context) GetReleaseLabelsFiltersOutput
+}
+
+type GetReleaseLabelsFiltersArgs struct {
+	// Optional release label application filter. For example, `Spark@2.1.0` or `Spark`.
+	Application pulumi.StringPtrInput `pulumi:"application"`
+	// Optional release label version prefix filter. For example, `emr-5`.
+	Prefix pulumi.StringPtrInput `pulumi:"prefix"`
+}
+
+func (GetReleaseLabelsFiltersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetReleaseLabelsFilters)(nil)).Elem()
+}
+
+func (i GetReleaseLabelsFiltersArgs) ToGetReleaseLabelsFiltersOutput() GetReleaseLabelsFiltersOutput {
+	return i.ToGetReleaseLabelsFiltersOutputWithContext(context.Background())
+}
+
+func (i GetReleaseLabelsFiltersArgs) ToGetReleaseLabelsFiltersOutputWithContext(ctx context.Context) GetReleaseLabelsFiltersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetReleaseLabelsFiltersOutput)
+}
+
+func (i GetReleaseLabelsFiltersArgs) ToGetReleaseLabelsFiltersPtrOutput() GetReleaseLabelsFiltersPtrOutput {
+	return i.ToGetReleaseLabelsFiltersPtrOutputWithContext(context.Background())
+}
+
+func (i GetReleaseLabelsFiltersArgs) ToGetReleaseLabelsFiltersPtrOutputWithContext(ctx context.Context) GetReleaseLabelsFiltersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetReleaseLabelsFiltersOutput).ToGetReleaseLabelsFiltersPtrOutputWithContext(ctx)
+}
+
+// GetReleaseLabelsFiltersPtrInput is an input type that accepts GetReleaseLabelsFiltersArgs, GetReleaseLabelsFiltersPtr and GetReleaseLabelsFiltersPtrOutput values.
+// You can construct a concrete instance of `GetReleaseLabelsFiltersPtrInput` via:
+//
+//          GetReleaseLabelsFiltersArgs{...}
+//
+//  or:
+//
+//          nil
+type GetReleaseLabelsFiltersPtrInput interface {
+	pulumi.Input
+
+	ToGetReleaseLabelsFiltersPtrOutput() GetReleaseLabelsFiltersPtrOutput
+	ToGetReleaseLabelsFiltersPtrOutputWithContext(context.Context) GetReleaseLabelsFiltersPtrOutput
+}
+
+type getReleaseLabelsFiltersPtrType GetReleaseLabelsFiltersArgs
+
+func GetReleaseLabelsFiltersPtr(v *GetReleaseLabelsFiltersArgs) GetReleaseLabelsFiltersPtrInput {
+	return (*getReleaseLabelsFiltersPtrType)(v)
+}
+
+func (*getReleaseLabelsFiltersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetReleaseLabelsFilters)(nil)).Elem()
+}
+
+func (i *getReleaseLabelsFiltersPtrType) ToGetReleaseLabelsFiltersPtrOutput() GetReleaseLabelsFiltersPtrOutput {
+	return i.ToGetReleaseLabelsFiltersPtrOutputWithContext(context.Background())
+}
+
+func (i *getReleaseLabelsFiltersPtrType) ToGetReleaseLabelsFiltersPtrOutputWithContext(ctx context.Context) GetReleaseLabelsFiltersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetReleaseLabelsFiltersPtrOutput)
+}
+
+type GetReleaseLabelsFiltersOutput struct{ *pulumi.OutputState }
+
+func (GetReleaseLabelsFiltersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetReleaseLabelsFilters)(nil)).Elem()
+}
+
+func (o GetReleaseLabelsFiltersOutput) ToGetReleaseLabelsFiltersOutput() GetReleaseLabelsFiltersOutput {
+	return o
+}
+
+func (o GetReleaseLabelsFiltersOutput) ToGetReleaseLabelsFiltersOutputWithContext(ctx context.Context) GetReleaseLabelsFiltersOutput {
+	return o
+}
+
+func (o GetReleaseLabelsFiltersOutput) ToGetReleaseLabelsFiltersPtrOutput() GetReleaseLabelsFiltersPtrOutput {
+	return o.ToGetReleaseLabelsFiltersPtrOutputWithContext(context.Background())
+}
+
+func (o GetReleaseLabelsFiltersOutput) ToGetReleaseLabelsFiltersPtrOutputWithContext(ctx context.Context) GetReleaseLabelsFiltersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GetReleaseLabelsFilters) *GetReleaseLabelsFilters {
+		return &v
+	}).(GetReleaseLabelsFiltersPtrOutput)
+}
+
+// Optional release label application filter. For example, `Spark@2.1.0` or `Spark`.
+func (o GetReleaseLabelsFiltersOutput) Application() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetReleaseLabelsFilters) *string { return v.Application }).(pulumi.StringPtrOutput)
+}
+
+// Optional release label version prefix filter. For example, `emr-5`.
+func (o GetReleaseLabelsFiltersOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetReleaseLabelsFilters) *string { return v.Prefix }).(pulumi.StringPtrOutput)
+}
+
+type GetReleaseLabelsFiltersPtrOutput struct{ *pulumi.OutputState }
+
+func (GetReleaseLabelsFiltersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GetReleaseLabelsFilters)(nil)).Elem()
+}
+
+func (o GetReleaseLabelsFiltersPtrOutput) ToGetReleaseLabelsFiltersPtrOutput() GetReleaseLabelsFiltersPtrOutput {
+	return o
+}
+
+func (o GetReleaseLabelsFiltersPtrOutput) ToGetReleaseLabelsFiltersPtrOutputWithContext(ctx context.Context) GetReleaseLabelsFiltersPtrOutput {
+	return o
+}
+
+func (o GetReleaseLabelsFiltersPtrOutput) Elem() GetReleaseLabelsFiltersOutput {
+	return o.ApplyT(func(v *GetReleaseLabelsFilters) GetReleaseLabelsFilters {
+		if v != nil {
+			return *v
+		}
+		var ret GetReleaseLabelsFilters
+		return ret
+	}).(GetReleaseLabelsFiltersOutput)
+}
+
+// Optional release label application filter. For example, `Spark@2.1.0` or `Spark`.
+func (o GetReleaseLabelsFiltersPtrOutput) Application() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetReleaseLabelsFilters) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Application
+	}).(pulumi.StringPtrOutput)
+}
+
+// Optional release label version prefix filter. For example, `emr-5`.
+func (o GetReleaseLabelsFiltersPtrOutput) Prefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GetReleaseLabelsFilters) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Prefix
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterAutoTerminationPolicyInput)(nil)).Elem(), ClusterAutoTerminationPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterAutoTerminationPolicyPtrInput)(nil)).Elem(), ClusterAutoTerminationPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterBootstrapActionInput)(nil)).Elem(), ClusterBootstrapActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterBootstrapActionArrayInput)(nil)).Elem(), ClusterBootstrapActionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCoreInstanceFleetInput)(nil)).Elem(), ClusterCoreInstanceFleetArgs{})
@@ -4698,6 +4993,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceGroupEbsConfigArrayInput)(nil)).Elem(), InstanceGroupEbsConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedScalingPolicyComputeLimitInput)(nil)).Elem(), ManagedScalingPolicyComputeLimitArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedScalingPolicyComputeLimitArrayInput)(nil)).Elem(), ManagedScalingPolicyComputeLimitArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetReleaseLabelsFiltersInput)(nil)).Elem(), GetReleaseLabelsFiltersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetReleaseLabelsFiltersPtrInput)(nil)).Elem(), GetReleaseLabelsFiltersArgs{})
+	pulumi.RegisterOutputType(ClusterAutoTerminationPolicyOutput{})
+	pulumi.RegisterOutputType(ClusterAutoTerminationPolicyPtrOutput{})
 	pulumi.RegisterOutputType(ClusterBootstrapActionOutput{})
 	pulumi.RegisterOutputType(ClusterBootstrapActionArrayOutput{})
 	pulumi.RegisterOutputType(ClusterCoreInstanceFleetOutput{})
@@ -4759,4 +5058,6 @@ func init() {
 	pulumi.RegisterOutputType(InstanceGroupEbsConfigArrayOutput{})
 	pulumi.RegisterOutputType(ManagedScalingPolicyComputeLimitOutput{})
 	pulumi.RegisterOutputType(ManagedScalingPolicyComputeLimitArrayOutput{})
+	pulumi.RegisterOutputType(GetReleaseLabelsFiltersOutput{})
+	pulumi.RegisterOutputType(GetReleaseLabelsFiltersPtrOutput{})
 }

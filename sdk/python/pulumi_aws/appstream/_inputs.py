@@ -9,6 +9,7 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'DirectoryConfigServiceAccountCredentialsArgs',
     'FleetComputeCapacityArgs',
     'FleetDomainJoinInfoArgs',
     'FleetVpcConfigArgs',
@@ -20,6 +21,43 @@ __all__ = [
     'StackStorageConnectorArgs',
     'StackUserSettingArgs',
 ]
+
+@pulumi.input_type
+class DirectoryConfigServiceAccountCredentialsArgs:
+    def __init__(__self__, *,
+                 account_name: pulumi.Input[str],
+                 account_password: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] account_name: User name of the account. This account must have the following privileges: create computer objects, join computers to the domain, and change/reset the password on descendant computer objects for the organizational units specified.
+        :param pulumi.Input[str] account_password: Password for the account.
+        """
+        pulumi.set(__self__, "account_name", account_name)
+        pulumi.set(__self__, "account_password", account_password)
+
+    @property
+    @pulumi.getter(name="accountName")
+    def account_name(self) -> pulumi.Input[str]:
+        """
+        User name of the account. This account must have the following privileges: create computer objects, join computers to the domain, and change/reset the password on descendant computer objects for the organizational units specified.
+        """
+        return pulumi.get(self, "account_name")
+
+    @account_name.setter
+    def account_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "account_name", value)
+
+    @property
+    @pulumi.getter(name="accountPassword")
+    def account_password(self) -> pulumi.Input[str]:
+        """
+        Password for the account.
+        """
+        return pulumi.get(self, "account_password")
+
+    @account_password.setter
+    def account_password(self, value: pulumi.Input[str]):
+        pulumi.set(self, "account_password", value)
+
 
 @pulumi.input_type
 class FleetComputeCapacityArgs:

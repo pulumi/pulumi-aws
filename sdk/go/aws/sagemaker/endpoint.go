@@ -53,11 +53,13 @@ type Endpoint struct {
 
 	// The Amazon Resource Name (ARN) assigned by AWS to this endpoint.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The deployment configuration for an endpoint, which contains the desired deployment strategy and rollback configurations. See Deployment Config.
+	DeploymentConfig EndpointDeploymentConfigPtrOutput `pulumi:"deploymentConfig"`
 	// The name of the endpoint configuration to use.
 	EndpointConfigName pulumi.StringOutput `pulumi:"endpointConfigName"`
-	// The name of the endpoint. If omitted, this provider will assign a random, unique name.
+	// The name of the endpoint.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -97,11 +99,13 @@ func GetEndpoint(ctx *pulumi.Context,
 type endpointState struct {
 	// The Amazon Resource Name (ARN) assigned by AWS to this endpoint.
 	Arn *string `pulumi:"arn"`
+	// The deployment configuration for an endpoint, which contains the desired deployment strategy and rollback configurations. See Deployment Config.
+	DeploymentConfig *EndpointDeploymentConfig `pulumi:"deploymentConfig"`
 	// The name of the endpoint configuration to use.
 	EndpointConfigName *string `pulumi:"endpointConfigName"`
-	// The name of the endpoint. If omitted, this provider will assign a random, unique name.
+	// The name of the endpoint.
 	Name *string `pulumi:"name"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -110,11 +114,13 @@ type endpointState struct {
 type EndpointState struct {
 	// The Amazon Resource Name (ARN) assigned by AWS to this endpoint.
 	Arn pulumi.StringPtrInput
+	// The deployment configuration for an endpoint, which contains the desired deployment strategy and rollback configurations. See Deployment Config.
+	DeploymentConfig EndpointDeploymentConfigPtrInput
 	// The name of the endpoint configuration to use.
 	EndpointConfigName pulumi.StringPtrInput
-	// The name of the endpoint. If omitted, this provider will assign a random, unique name.
+	// The name of the endpoint.
 	Name pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapInput
@@ -125,21 +131,25 @@ func (EndpointState) ElementType() reflect.Type {
 }
 
 type endpointArgs struct {
+	// The deployment configuration for an endpoint, which contains the desired deployment strategy and rollback configurations. See Deployment Config.
+	DeploymentConfig *EndpointDeploymentConfig `pulumi:"deploymentConfig"`
 	// The name of the endpoint configuration to use.
 	EndpointConfigName string `pulumi:"endpointConfigName"`
-	// The name of the endpoint. If omitted, this provider will assign a random, unique name.
+	// The name of the endpoint.
 	Name *string `pulumi:"name"`
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Endpoint resource.
 type EndpointArgs struct {
+	// The deployment configuration for an endpoint, which contains the desired deployment strategy and rollback configurations. See Deployment Config.
+	DeploymentConfig EndpointDeploymentConfigPtrInput
 	// The name of the endpoint configuration to use.
 	EndpointConfigName pulumi.StringInput
-	// The name of the endpoint. If omitted, this provider will assign a random, unique name.
+	// The name of the endpoint.
 	Name pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
+	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
 

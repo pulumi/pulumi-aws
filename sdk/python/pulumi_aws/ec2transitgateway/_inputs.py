@@ -138,7 +138,7 @@ class GetTransitGatewayFilterArgs:
                  name: str,
                  values: Sequence[str]):
         """
-        :param str name: Name of the filter.
+        :param str name: The name of the field to filter by, as defined by the [underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGateways.html).
         :param Sequence[str] values: List of one or more values for the filter.
         """
         pulumi.set(__self__, "name", name)
@@ -148,7 +148,7 @@ class GetTransitGatewayFilterArgs:
     @pulumi.getter
     def name(self) -> str:
         """
-        Name of the filter.
+        The name of the field to filter by, as defined by the [underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGateways.html).
         """
         return pulumi.get(self, "name")
 

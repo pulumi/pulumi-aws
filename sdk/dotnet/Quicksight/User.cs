@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Quicksight
     ///         {
     ///             Email = "author@example.com",
     ///             IdentityType = "IAM",
-    ///             UserName = "an-author",
+    ///             SessionName = "an-author",
     ///             UserRole = "AUTHOR",
     ///         });
     ///     }

@@ -36,6 +36,22 @@ __all__ = [
     'BucketObjectLockConfigurationRule',
     'BucketObjectLockConfigurationRuleDefaultRetention',
     'BucketOwnershipControlsRule',
+    'BucketReplicationConfigRule',
+    'BucketReplicationConfigRuleDeleteMarkerReplication',
+    'BucketReplicationConfigRuleDestination',
+    'BucketReplicationConfigRuleDestinationAccessControlTranslation',
+    'BucketReplicationConfigRuleDestinationEncryptionConfiguration',
+    'BucketReplicationConfigRuleDestinationMetrics',
+    'BucketReplicationConfigRuleDestinationMetricsEventThreshold',
+    'BucketReplicationConfigRuleDestinationReplicationTime',
+    'BucketReplicationConfigRuleDestinationReplicationTimeTime',
+    'BucketReplicationConfigRuleExistingObjectReplication',
+    'BucketReplicationConfigRuleFilter',
+    'BucketReplicationConfigRuleFilterAnd',
+    'BucketReplicationConfigRuleFilterTag',
+    'BucketReplicationConfigRuleSourceSelectionCriteria',
+    'BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModifications',
+    'BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjects',
     'BucketReplicationConfiguration',
     'BucketReplicationConfigurationRule',
     'BucketReplicationConfigurationRuleDestination',
@@ -1442,6 +1458,659 @@ class BucketOwnershipControlsRule(dict):
         Object ownership. Valid values: `BucketOwnerPreferred` or `ObjectWriter`
         """
         return pulumi.get(self, "object_ownership")
+
+
+@pulumi.output_type
+class BucketReplicationConfigRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deleteMarkerReplication":
+            suggest = "delete_marker_replication"
+        elif key == "existingObjectReplication":
+            suggest = "existing_object_replication"
+        elif key == "sourceSelectionCriteria":
+            suggest = "source_selection_criteria"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketReplicationConfigRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketReplicationConfigRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketReplicationConfigRule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 destination: 'outputs.BucketReplicationConfigRuleDestination',
+                 status: str,
+                 delete_marker_replication: Optional['outputs.BucketReplicationConfigRuleDeleteMarkerReplication'] = None,
+                 existing_object_replication: Optional['outputs.BucketReplicationConfigRuleExistingObjectReplication'] = None,
+                 filter: Optional['outputs.BucketReplicationConfigRuleFilter'] = None,
+                 id: Optional[str] = None,
+                 prefix: Optional[str] = None,
+                 priority: Optional[int] = None,
+                 source_selection_criteria: Optional['outputs.BucketReplicationConfigRuleSourceSelectionCriteria'] = None):
+        """
+        :param 'BucketReplicationConfigRuleDestinationArgs' destination: Specifies the destination for the rule documented below.
+        :param str status: The status of the rule. Either `"Enabled"` or `"Disabled"`. The rule is ignored if status is not "Enabled".
+        :param 'BucketReplicationConfigRuleDeleteMarkerReplicationArgs' delete_marker_replication: Whether delete markers are replicated. This argument is only valid with V2 replication configurations (i.e., when `filter` is used)documented below.
+        :param 'BucketReplicationConfigRuleExistingObjectReplicationArgs' existing_object_replication: Replicate existing objects in the source bucket according to the rule configurations documented below.
+        :param 'BucketReplicationConfigRuleFilterArgs' filter: Filter that identifies subset of objects to which the replication rule applies documented below.
+        :param str id: Unique identifier for the rule. Must be less than or equal to 255 characters in length.
+        :param str prefix: Object key name prefix identifying one or more objects to which the rule applies. Must be less than or equal to 1024 characters in length.
+        :param int priority: The priority associated with the rule. Priority should only be set if `filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.
+        :param 'BucketReplicationConfigRuleSourceSelectionCriteriaArgs' source_selection_criteria: Specifies special object selection criteria documented below.
+        """
+        pulumi.set(__self__, "destination", destination)
+        pulumi.set(__self__, "status", status)
+        if delete_marker_replication is not None:
+            pulumi.set(__self__, "delete_marker_replication", delete_marker_replication)
+        if existing_object_replication is not None:
+            pulumi.set(__self__, "existing_object_replication", existing_object_replication)
+        if filter is not None:
+            pulumi.set(__self__, "filter", filter)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+        if priority is not None:
+            pulumi.set(__self__, "priority", priority)
+        if source_selection_criteria is not None:
+            pulumi.set(__self__, "source_selection_criteria", source_selection_criteria)
+
+    @property
+    @pulumi.getter
+    def destination(self) -> 'outputs.BucketReplicationConfigRuleDestination':
+        """
+        Specifies the destination for the rule documented below.
+        """
+        return pulumi.get(self, "destination")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        The status of the rule. Either `"Enabled"` or `"Disabled"`. The rule is ignored if status is not "Enabled".
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="deleteMarkerReplication")
+    def delete_marker_replication(self) -> Optional['outputs.BucketReplicationConfigRuleDeleteMarkerReplication']:
+        """
+        Whether delete markers are replicated. This argument is only valid with V2 replication configurations (i.e., when `filter` is used)documented below.
+        """
+        return pulumi.get(self, "delete_marker_replication")
+
+    @property
+    @pulumi.getter(name="existingObjectReplication")
+    def existing_object_replication(self) -> Optional['outputs.BucketReplicationConfigRuleExistingObjectReplication']:
+        """
+        Replicate existing objects in the source bucket according to the rule configurations documented below.
+        """
+        return pulumi.get(self, "existing_object_replication")
+
+    @property
+    @pulumi.getter
+    def filter(self) -> Optional['outputs.BucketReplicationConfigRuleFilter']:
+        """
+        Filter that identifies subset of objects to which the replication rule applies documented below.
+        """
+        return pulumi.get(self, "filter")
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Unique identifier for the rule. Must be less than or equal to 255 characters in length.
+        """
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> Optional[str]:
+        """
+        Object key name prefix identifying one or more objects to which the rule applies. Must be less than or equal to 1024 characters in length.
+        """
+        return pulumi.get(self, "prefix")
+
+    @property
+    @pulumi.getter
+    def priority(self) -> Optional[int]:
+        """
+        The priority associated with the rule. Priority should only be set if `filter` is configured. If not provided, defaults to `0`. Priority must be unique between multiple rules.
+        """
+        return pulumi.get(self, "priority")
+
+    @property
+    @pulumi.getter(name="sourceSelectionCriteria")
+    def source_selection_criteria(self) -> Optional['outputs.BucketReplicationConfigRuleSourceSelectionCriteria']:
+        """
+        Specifies special object selection criteria documented below.
+        """
+        return pulumi.get(self, "source_selection_criteria")
+
+
+@pulumi.output_type
+class BucketReplicationConfigRuleDeleteMarkerReplication(dict):
+    def __init__(__self__, *,
+                 status: str):
+        """
+        :param str status: Whether delete markers should be replicated. Either `"Enabled"` or `"Disabled"`.
+        """
+        pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        Whether delete markers should be replicated. Either `"Enabled"` or `"Disabled"`.
+        """
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class BucketReplicationConfigRuleDestination(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accessControlTranslation":
+            suggest = "access_control_translation"
+        elif key == "encryptionConfiguration":
+            suggest = "encryption_configuration"
+        elif key == "replicationTime":
+            suggest = "replication_time"
+        elif key == "storageClass":
+            suggest = "storage_class"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketReplicationConfigRuleDestination. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketReplicationConfigRuleDestination.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketReplicationConfigRuleDestination.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bucket: str,
+                 access_control_translation: Optional['outputs.BucketReplicationConfigRuleDestinationAccessControlTranslation'] = None,
+                 account: Optional[str] = None,
+                 encryption_configuration: Optional['outputs.BucketReplicationConfigRuleDestinationEncryptionConfiguration'] = None,
+                 metrics: Optional['outputs.BucketReplicationConfigRuleDestinationMetrics'] = None,
+                 replication_time: Optional['outputs.BucketReplicationConfigRuleDestinationReplicationTime'] = None,
+                 storage_class: Optional[str] = None):
+        """
+        :param str bucket: The ARN of the S3 bucket where you want Amazon S3 to store replicas of the objects identified by the rule.
+        :param 'BucketReplicationConfigRuleDestinationAccessControlTranslationArgs' access_control_translation: A configuration block that specifies the overrides to use for object owners on replication documented below. Specify this only in a cross-account scenario (where source and destination bucket owners are not the same), and you want to change replica ownership to the AWS account that owns the destination bucket. If this is not specified in the replication configuration, the replicas are owned by same AWS account that owns the source object. Must be used in conjunction with `account` owner override configuration.
+        :param str account: The Account ID to specify the replica ownership. Must be used in conjunction with `access_control_translation` override configuration.
+        :param 'BucketReplicationConfigRuleDestinationEncryptionConfigurationArgs' encryption_configuration: A configuration block that provides information about encryption documented below. If `source_selection_criteria` is specified, you must specify this element.
+        :param 'BucketReplicationConfigRuleDestinationMetricsArgs' metrics: A configuration block that specifies replication metrics-related settings enabling replication metrics and events documented below.
+        :param 'BucketReplicationConfigRuleDestinationReplicationTimeArgs' replication_time: A configuration block that specifies S3 Replication Time Control (S3 RTC), including whether S3 RTC is enabled and the time when all objects and operations on objects must be replicated documented below. Replication Time Control must be used in conjunction with `metrics`.
+        :param str storage_class: The class of storage used to store the object. Can be `STANDARD`, `REDUCED_REDUNDANCY`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `GLACIER`, or `DEEP_ARCHIVE`. By default, Amazon S3 uses the storage class of the source object to create the object replica.
+        """
+        pulumi.set(__self__, "bucket", bucket)
+        if access_control_translation is not None:
+            pulumi.set(__self__, "access_control_translation", access_control_translation)
+        if account is not None:
+            pulumi.set(__self__, "account", account)
+        if encryption_configuration is not None:
+            pulumi.set(__self__, "encryption_configuration", encryption_configuration)
+        if metrics is not None:
+            pulumi.set(__self__, "metrics", metrics)
+        if replication_time is not None:
+            pulumi.set(__self__, "replication_time", replication_time)
+        if storage_class is not None:
+            pulumi.set(__self__, "storage_class", storage_class)
+
+    @property
+    @pulumi.getter
+    def bucket(self) -> str:
+        """
+        The ARN of the S3 bucket where you want Amazon S3 to store replicas of the objects identified by the rule.
+        """
+        return pulumi.get(self, "bucket")
+
+    @property
+    @pulumi.getter(name="accessControlTranslation")
+    def access_control_translation(self) -> Optional['outputs.BucketReplicationConfigRuleDestinationAccessControlTranslation']:
+        """
+        A configuration block that specifies the overrides to use for object owners on replication documented below. Specify this only in a cross-account scenario (where source and destination bucket owners are not the same), and you want to change replica ownership to the AWS account that owns the destination bucket. If this is not specified in the replication configuration, the replicas are owned by same AWS account that owns the source object. Must be used in conjunction with `account` owner override configuration.
+        """
+        return pulumi.get(self, "access_control_translation")
+
+    @property
+    @pulumi.getter
+    def account(self) -> Optional[str]:
+        """
+        The Account ID to specify the replica ownership. Must be used in conjunction with `access_control_translation` override configuration.
+        """
+        return pulumi.get(self, "account")
+
+    @property
+    @pulumi.getter(name="encryptionConfiguration")
+    def encryption_configuration(self) -> Optional['outputs.BucketReplicationConfigRuleDestinationEncryptionConfiguration']:
+        """
+        A configuration block that provides information about encryption documented below. If `source_selection_criteria` is specified, you must specify this element.
+        """
+        return pulumi.get(self, "encryption_configuration")
+
+    @property
+    @pulumi.getter
+    def metrics(self) -> Optional['outputs.BucketReplicationConfigRuleDestinationMetrics']:
+        """
+        A configuration block that specifies replication metrics-related settings enabling replication metrics and events documented below.
+        """
+        return pulumi.get(self, "metrics")
+
+    @property
+    @pulumi.getter(name="replicationTime")
+    def replication_time(self) -> Optional['outputs.BucketReplicationConfigRuleDestinationReplicationTime']:
+        """
+        A configuration block that specifies S3 Replication Time Control (S3 RTC), including whether S3 RTC is enabled and the time when all objects and operations on objects must be replicated documented below. Replication Time Control must be used in conjunction with `metrics`.
+        """
+        return pulumi.get(self, "replication_time")
+
+    @property
+    @pulumi.getter(name="storageClass")
+    def storage_class(self) -> Optional[str]:
+        """
+        The class of storage used to store the object. Can be `STANDARD`, `REDUCED_REDUNDANCY`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `GLACIER`, or `DEEP_ARCHIVE`. By default, Amazon S3 uses the storage class of the source object to create the object replica.
+        """
+        return pulumi.get(self, "storage_class")
+
+
+@pulumi.output_type
+class BucketReplicationConfigRuleDestinationAccessControlTranslation(dict):
+    def __init__(__self__, *,
+                 owner: str):
+        """
+        :param str owner: Specifies the replica ownership. For default and valid values, see [PUT bucket replication](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTreplication.html) in the Amazon S3 API Reference. Valid values: `Destination`.
+        """
+        pulumi.set(__self__, "owner", owner)
+
+    @property
+    @pulumi.getter
+    def owner(self) -> str:
+        """
+        Specifies the replica ownership. For default and valid values, see [PUT bucket replication](https://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketPUTreplication.html) in the Amazon S3 API Reference. Valid values: `Destination`.
+        """
+        return pulumi.get(self, "owner")
+
+
+@pulumi.output_type
+class BucketReplicationConfigRuleDestinationEncryptionConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "replicaKmsKeyId":
+            suggest = "replica_kms_key_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketReplicationConfigRuleDestinationEncryptionConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketReplicationConfigRuleDestinationEncryptionConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketReplicationConfigRuleDestinationEncryptionConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 replica_kms_key_id: str):
+        """
+        :param str replica_kms_key_id: The ID (Key ARN or Alias ARN) of the customer managed AWS KMS key stored in AWS Key Management Service (KMS) for the destination bucket.
+        """
+        pulumi.set(__self__, "replica_kms_key_id", replica_kms_key_id)
+
+    @property
+    @pulumi.getter(name="replicaKmsKeyId")
+    def replica_kms_key_id(self) -> str:
+        """
+        The ID (Key ARN or Alias ARN) of the customer managed AWS KMS key stored in AWS Key Management Service (KMS) for the destination bucket.
+        """
+        return pulumi.get(self, "replica_kms_key_id")
+
+
+@pulumi.output_type
+class BucketReplicationConfigRuleDestinationMetrics(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "eventThreshold":
+            suggest = "event_threshold"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketReplicationConfigRuleDestinationMetrics. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketReplicationConfigRuleDestinationMetrics.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketReplicationConfigRuleDestinationMetrics.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 event_threshold: 'outputs.BucketReplicationConfigRuleDestinationMetricsEventThreshold',
+                 status: str):
+        """
+        :param 'BucketReplicationConfigRuleDestinationMetricsEventThresholdArgs' event_threshold: A configuration block that specifies the time threshold for emitting the `s3:Replication:OperationMissedThreshold` event documented below.
+        :param str status: The status of the Destination Metrics. Either `"Enabled"` or `"Disabled"`.
+        """
+        pulumi.set(__self__, "event_threshold", event_threshold)
+        pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="eventThreshold")
+    def event_threshold(self) -> 'outputs.BucketReplicationConfigRuleDestinationMetricsEventThreshold':
+        """
+        A configuration block that specifies the time threshold for emitting the `s3:Replication:OperationMissedThreshold` event documented below.
+        """
+        return pulumi.get(self, "event_threshold")
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        The status of the Destination Metrics. Either `"Enabled"` or `"Disabled"`.
+        """
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class BucketReplicationConfigRuleDestinationMetricsEventThreshold(dict):
+    def __init__(__self__, *,
+                 minutes: int):
+        """
+        :param int minutes: Time in minutes. Valid values: `15`.
+        """
+        pulumi.set(__self__, "minutes", minutes)
+
+    @property
+    @pulumi.getter
+    def minutes(self) -> int:
+        """
+        Time in minutes. Valid values: `15`.
+        """
+        return pulumi.get(self, "minutes")
+
+
+@pulumi.output_type
+class BucketReplicationConfigRuleDestinationReplicationTime(dict):
+    def __init__(__self__, *,
+                 status: str,
+                 time: 'outputs.BucketReplicationConfigRuleDestinationReplicationTimeTime'):
+        """
+        :param str status: The status of the Replication Time Control. Either `"Enabled"` or `"Disabled"`.
+        :param 'BucketReplicationConfigRuleDestinationReplicationTimeTimeArgs' time: A configuration block specifying the time by which replication should be complete for all objects and operations on objects documented below.
+        """
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "time", time)
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        The status of the Replication Time Control. Either `"Enabled"` or `"Disabled"`.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter
+    def time(self) -> 'outputs.BucketReplicationConfigRuleDestinationReplicationTimeTime':
+        """
+        A configuration block specifying the time by which replication should be complete for all objects and operations on objects documented below.
+        """
+        return pulumi.get(self, "time")
+
+
+@pulumi.output_type
+class BucketReplicationConfigRuleDestinationReplicationTimeTime(dict):
+    def __init__(__self__, *,
+                 minutes: int):
+        """
+        :param int minutes: Time in minutes. Valid values: `15`.
+        """
+        pulumi.set(__self__, "minutes", minutes)
+
+    @property
+    @pulumi.getter
+    def minutes(self) -> int:
+        """
+        Time in minutes. Valid values: `15`.
+        """
+        return pulumi.get(self, "minutes")
+
+
+@pulumi.output_type
+class BucketReplicationConfigRuleExistingObjectReplication(dict):
+    def __init__(__self__, *,
+                 status: str):
+        """
+        :param str status: Whether the existing objects should be replicated. Either `"Enabled"` or `"Disabled"`.
+        """
+        pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        Whether the existing objects should be replicated. Either `"Enabled"` or `"Disabled"`.
+        """
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class BucketReplicationConfigRuleFilter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "and":
+            suggest = "and_"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketReplicationConfigRuleFilter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketReplicationConfigRuleFilter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketReplicationConfigRuleFilter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 and_: Optional['outputs.BucketReplicationConfigRuleFilterAnd'] = None,
+                 prefix: Optional[str] = None,
+                 tag: Optional['outputs.BucketReplicationConfigRuleFilterTag'] = None):
+        """
+        :param 'BucketReplicationConfigRuleFilterAndArgs' and_: A configuration block for specifying rule filters. This element is required only if you specify more than one filter. See and below for more details.
+        :param str prefix: An object key name prefix that identifies subset of objects to which the rule applies. Must be less than or equal to 1024 characters in length.
+        :param 'BucketReplicationConfigRuleFilterTagArgs' tag: A configuration block for specifying a tag key and value documented below.
+        """
+        if and_ is not None:
+            pulumi.set(__self__, "and_", and_)
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+        if tag is not None:
+            pulumi.set(__self__, "tag", tag)
+
+    @property
+    @pulumi.getter(name="and")
+    def and_(self) -> Optional['outputs.BucketReplicationConfigRuleFilterAnd']:
+        """
+        A configuration block for specifying rule filters. This element is required only if you specify more than one filter. See and below for more details.
+        """
+        return pulumi.get(self, "and_")
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> Optional[str]:
+        """
+        An object key name prefix that identifies subset of objects to which the rule applies. Must be less than or equal to 1024 characters in length.
+        """
+        return pulumi.get(self, "prefix")
+
+    @property
+    @pulumi.getter
+    def tag(self) -> Optional['outputs.BucketReplicationConfigRuleFilterTag']:
+        """
+        A configuration block for specifying a tag key and value documented below.
+        """
+        return pulumi.get(self, "tag")
+
+
+@pulumi.output_type
+class BucketReplicationConfigRuleFilterAnd(dict):
+    def __init__(__self__, *,
+                 prefix: Optional[str] = None,
+                 tags: Optional[Mapping[str, str]] = None):
+        """
+        :param str prefix: An object key name prefix that identifies subset of objects to which the rule applies. Must be less than or equal to 1024 characters in length.
+        :param Mapping[str, str] tags: A map of tags (key and value pairs) that identifies a subset of objects to which the rule applies. The rule applies only to objects having all the tags in its tagset.
+        """
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> Optional[str]:
+        """
+        An object key name prefix that identifies subset of objects to which the rule applies. Must be less than or equal to 1024 characters in length.
+        """
+        return pulumi.get(self, "prefix")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, str]]:
+        """
+        A map of tags (key and value pairs) that identifies a subset of objects to which the rule applies. The rule applies only to objects having all the tags in its tagset.
+        """
+        return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
+class BucketReplicationConfigRuleFilterTag(dict):
+    def __init__(__self__, *,
+                 key: str,
+                 value: str):
+        """
+        :param str key: Name of the object key.
+        :param str value: Value of the tag.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> str:
+        """
+        Name of the object key.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        Value of the tag.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class BucketReplicationConfigRuleSourceSelectionCriteria(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "replicaModifications":
+            suggest = "replica_modifications"
+        elif key == "sseKmsEncryptedObjects":
+            suggest = "sse_kms_encrypted_objects"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketReplicationConfigRuleSourceSelectionCriteria. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketReplicationConfigRuleSourceSelectionCriteria.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketReplicationConfigRuleSourceSelectionCriteria.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 replica_modifications: Optional['outputs.BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModifications'] = None,
+                 sse_kms_encrypted_objects: Optional['outputs.BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjects'] = None):
+        """
+        :param 'BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModificationsArgs' replica_modifications: A configuration block that you can specify for selections for modifications on replicas. Amazon S3 doesn't replicate replica modifications by default. In the latest version of replication configuration (when `filter` is specified), you can specify this element and set the status to `Enabled` to replicate modifications on replicas.
+        :param 'BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjectsArgs' sse_kms_encrypted_objects: A configuration block for filter information for the selection of Amazon S3 objects encrypted with AWS KMS. If specified, `replica_kms_key_id` in `destination` `encryption_configuration` must be specified as well.
+        """
+        if replica_modifications is not None:
+            pulumi.set(__self__, "replica_modifications", replica_modifications)
+        if sse_kms_encrypted_objects is not None:
+            pulumi.set(__self__, "sse_kms_encrypted_objects", sse_kms_encrypted_objects)
+
+    @property
+    @pulumi.getter(name="replicaModifications")
+    def replica_modifications(self) -> Optional['outputs.BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModifications']:
+        """
+        A configuration block that you can specify for selections for modifications on replicas. Amazon S3 doesn't replicate replica modifications by default. In the latest version of replication configuration (when `filter` is specified), you can specify this element and set the status to `Enabled` to replicate modifications on replicas.
+        """
+        return pulumi.get(self, "replica_modifications")
+
+    @property
+    @pulumi.getter(name="sseKmsEncryptedObjects")
+    def sse_kms_encrypted_objects(self) -> Optional['outputs.BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjects']:
+        """
+        A configuration block for filter information for the selection of Amazon S3 objects encrypted with AWS KMS. If specified, `replica_kms_key_id` in `destination` `encryption_configuration` must be specified as well.
+        """
+        return pulumi.get(self, "sse_kms_encrypted_objects")
+
+
+@pulumi.output_type
+class BucketReplicationConfigRuleSourceSelectionCriteriaReplicaModifications(dict):
+    def __init__(__self__, *,
+                 status: str):
+        """
+        :param str status: Whether the existing objects should be replicated. Either `"Enabled"` or `"Disabled"`.
+        """
+        pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        Whether the existing objects should be replicated. Either `"Enabled"` or `"Disabled"`.
+        """
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class BucketReplicationConfigRuleSourceSelectionCriteriaSseKmsEncryptedObjects(dict):
+    def __init__(__self__, *,
+                 status: str):
+        """
+        :param str status: Whether the existing objects should be replicated. Either `"Enabled"` or `"Disabled"`.
+        """
+        pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def status(self) -> str:
+        """
+        Whether the existing objects should be replicated. Either `"Enabled"` or `"Disabled"`.
+        """
+        return pulumi.get(self, "status")
 
 
 @pulumi.output_type

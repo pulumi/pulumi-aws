@@ -10,6 +10,508 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type ThingGroupMetadata struct {
+	CreationDate *string `pulumi:"creationDate"`
+	// The name of the parent Thing Group.
+	ParentGroupName    *string                               `pulumi:"parentGroupName"`
+	RootToParentGroups []ThingGroupMetadataRootToParentGroup `pulumi:"rootToParentGroups"`
+}
+
+// ThingGroupMetadataInput is an input type that accepts ThingGroupMetadataArgs and ThingGroupMetadataOutput values.
+// You can construct a concrete instance of `ThingGroupMetadataInput` via:
+//
+//          ThingGroupMetadataArgs{...}
+type ThingGroupMetadataInput interface {
+	pulumi.Input
+
+	ToThingGroupMetadataOutput() ThingGroupMetadataOutput
+	ToThingGroupMetadataOutputWithContext(context.Context) ThingGroupMetadataOutput
+}
+
+type ThingGroupMetadataArgs struct {
+	CreationDate pulumi.StringPtrInput `pulumi:"creationDate"`
+	// The name of the parent Thing Group.
+	ParentGroupName    pulumi.StringPtrInput                         `pulumi:"parentGroupName"`
+	RootToParentGroups ThingGroupMetadataRootToParentGroupArrayInput `pulumi:"rootToParentGroups"`
+}
+
+func (ThingGroupMetadataArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThingGroupMetadata)(nil)).Elem()
+}
+
+func (i ThingGroupMetadataArgs) ToThingGroupMetadataOutput() ThingGroupMetadataOutput {
+	return i.ToThingGroupMetadataOutputWithContext(context.Background())
+}
+
+func (i ThingGroupMetadataArgs) ToThingGroupMetadataOutputWithContext(ctx context.Context) ThingGroupMetadataOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThingGroupMetadataOutput)
+}
+
+// ThingGroupMetadataArrayInput is an input type that accepts ThingGroupMetadataArray and ThingGroupMetadataArrayOutput values.
+// You can construct a concrete instance of `ThingGroupMetadataArrayInput` via:
+//
+//          ThingGroupMetadataArray{ ThingGroupMetadataArgs{...} }
+type ThingGroupMetadataArrayInput interface {
+	pulumi.Input
+
+	ToThingGroupMetadataArrayOutput() ThingGroupMetadataArrayOutput
+	ToThingGroupMetadataArrayOutputWithContext(context.Context) ThingGroupMetadataArrayOutput
+}
+
+type ThingGroupMetadataArray []ThingGroupMetadataInput
+
+func (ThingGroupMetadataArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ThingGroupMetadata)(nil)).Elem()
+}
+
+func (i ThingGroupMetadataArray) ToThingGroupMetadataArrayOutput() ThingGroupMetadataArrayOutput {
+	return i.ToThingGroupMetadataArrayOutputWithContext(context.Background())
+}
+
+func (i ThingGroupMetadataArray) ToThingGroupMetadataArrayOutputWithContext(ctx context.Context) ThingGroupMetadataArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThingGroupMetadataArrayOutput)
+}
+
+type ThingGroupMetadataOutput struct{ *pulumi.OutputState }
+
+func (ThingGroupMetadataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThingGroupMetadata)(nil)).Elem()
+}
+
+func (o ThingGroupMetadataOutput) ToThingGroupMetadataOutput() ThingGroupMetadataOutput {
+	return o
+}
+
+func (o ThingGroupMetadataOutput) ToThingGroupMetadataOutputWithContext(ctx context.Context) ThingGroupMetadataOutput {
+	return o
+}
+
+func (o ThingGroupMetadataOutput) CreationDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ThingGroupMetadata) *string { return v.CreationDate }).(pulumi.StringPtrOutput)
+}
+
+// The name of the parent Thing Group.
+func (o ThingGroupMetadataOutput) ParentGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ThingGroupMetadata) *string { return v.ParentGroupName }).(pulumi.StringPtrOutput)
+}
+
+func (o ThingGroupMetadataOutput) RootToParentGroups() ThingGroupMetadataRootToParentGroupArrayOutput {
+	return o.ApplyT(func(v ThingGroupMetadata) []ThingGroupMetadataRootToParentGroup { return v.RootToParentGroups }).(ThingGroupMetadataRootToParentGroupArrayOutput)
+}
+
+type ThingGroupMetadataArrayOutput struct{ *pulumi.OutputState }
+
+func (ThingGroupMetadataArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ThingGroupMetadata)(nil)).Elem()
+}
+
+func (o ThingGroupMetadataArrayOutput) ToThingGroupMetadataArrayOutput() ThingGroupMetadataArrayOutput {
+	return o
+}
+
+func (o ThingGroupMetadataArrayOutput) ToThingGroupMetadataArrayOutputWithContext(ctx context.Context) ThingGroupMetadataArrayOutput {
+	return o
+}
+
+func (o ThingGroupMetadataArrayOutput) Index(i pulumi.IntInput) ThingGroupMetadataOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ThingGroupMetadata {
+		return vs[0].([]ThingGroupMetadata)[vs[1].(int)]
+	}).(ThingGroupMetadataOutput)
+}
+
+type ThingGroupMetadataRootToParentGroup struct {
+	GroupArn  *string `pulumi:"groupArn"`
+	GroupName *string `pulumi:"groupName"`
+}
+
+// ThingGroupMetadataRootToParentGroupInput is an input type that accepts ThingGroupMetadataRootToParentGroupArgs and ThingGroupMetadataRootToParentGroupOutput values.
+// You can construct a concrete instance of `ThingGroupMetadataRootToParentGroupInput` via:
+//
+//          ThingGroupMetadataRootToParentGroupArgs{...}
+type ThingGroupMetadataRootToParentGroupInput interface {
+	pulumi.Input
+
+	ToThingGroupMetadataRootToParentGroupOutput() ThingGroupMetadataRootToParentGroupOutput
+	ToThingGroupMetadataRootToParentGroupOutputWithContext(context.Context) ThingGroupMetadataRootToParentGroupOutput
+}
+
+type ThingGroupMetadataRootToParentGroupArgs struct {
+	GroupArn  pulumi.StringPtrInput `pulumi:"groupArn"`
+	GroupName pulumi.StringPtrInput `pulumi:"groupName"`
+}
+
+func (ThingGroupMetadataRootToParentGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThingGroupMetadataRootToParentGroup)(nil)).Elem()
+}
+
+func (i ThingGroupMetadataRootToParentGroupArgs) ToThingGroupMetadataRootToParentGroupOutput() ThingGroupMetadataRootToParentGroupOutput {
+	return i.ToThingGroupMetadataRootToParentGroupOutputWithContext(context.Background())
+}
+
+func (i ThingGroupMetadataRootToParentGroupArgs) ToThingGroupMetadataRootToParentGroupOutputWithContext(ctx context.Context) ThingGroupMetadataRootToParentGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThingGroupMetadataRootToParentGroupOutput)
+}
+
+// ThingGroupMetadataRootToParentGroupArrayInput is an input type that accepts ThingGroupMetadataRootToParentGroupArray and ThingGroupMetadataRootToParentGroupArrayOutput values.
+// You can construct a concrete instance of `ThingGroupMetadataRootToParentGroupArrayInput` via:
+//
+//          ThingGroupMetadataRootToParentGroupArray{ ThingGroupMetadataRootToParentGroupArgs{...} }
+type ThingGroupMetadataRootToParentGroupArrayInput interface {
+	pulumi.Input
+
+	ToThingGroupMetadataRootToParentGroupArrayOutput() ThingGroupMetadataRootToParentGroupArrayOutput
+	ToThingGroupMetadataRootToParentGroupArrayOutputWithContext(context.Context) ThingGroupMetadataRootToParentGroupArrayOutput
+}
+
+type ThingGroupMetadataRootToParentGroupArray []ThingGroupMetadataRootToParentGroupInput
+
+func (ThingGroupMetadataRootToParentGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ThingGroupMetadataRootToParentGroup)(nil)).Elem()
+}
+
+func (i ThingGroupMetadataRootToParentGroupArray) ToThingGroupMetadataRootToParentGroupArrayOutput() ThingGroupMetadataRootToParentGroupArrayOutput {
+	return i.ToThingGroupMetadataRootToParentGroupArrayOutputWithContext(context.Background())
+}
+
+func (i ThingGroupMetadataRootToParentGroupArray) ToThingGroupMetadataRootToParentGroupArrayOutputWithContext(ctx context.Context) ThingGroupMetadataRootToParentGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThingGroupMetadataRootToParentGroupArrayOutput)
+}
+
+type ThingGroupMetadataRootToParentGroupOutput struct{ *pulumi.OutputState }
+
+func (ThingGroupMetadataRootToParentGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThingGroupMetadataRootToParentGroup)(nil)).Elem()
+}
+
+func (o ThingGroupMetadataRootToParentGroupOutput) ToThingGroupMetadataRootToParentGroupOutput() ThingGroupMetadataRootToParentGroupOutput {
+	return o
+}
+
+func (o ThingGroupMetadataRootToParentGroupOutput) ToThingGroupMetadataRootToParentGroupOutputWithContext(ctx context.Context) ThingGroupMetadataRootToParentGroupOutput {
+	return o
+}
+
+func (o ThingGroupMetadataRootToParentGroupOutput) GroupArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ThingGroupMetadataRootToParentGroup) *string { return v.GroupArn }).(pulumi.StringPtrOutput)
+}
+
+func (o ThingGroupMetadataRootToParentGroupOutput) GroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ThingGroupMetadataRootToParentGroup) *string { return v.GroupName }).(pulumi.StringPtrOutput)
+}
+
+type ThingGroupMetadataRootToParentGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (ThingGroupMetadataRootToParentGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ThingGroupMetadataRootToParentGroup)(nil)).Elem()
+}
+
+func (o ThingGroupMetadataRootToParentGroupArrayOutput) ToThingGroupMetadataRootToParentGroupArrayOutput() ThingGroupMetadataRootToParentGroupArrayOutput {
+	return o
+}
+
+func (o ThingGroupMetadataRootToParentGroupArrayOutput) ToThingGroupMetadataRootToParentGroupArrayOutputWithContext(ctx context.Context) ThingGroupMetadataRootToParentGroupArrayOutput {
+	return o
+}
+
+func (o ThingGroupMetadataRootToParentGroupArrayOutput) Index(i pulumi.IntInput) ThingGroupMetadataRootToParentGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ThingGroupMetadataRootToParentGroup {
+		return vs[0].([]ThingGroupMetadataRootToParentGroup)[vs[1].(int)]
+	}).(ThingGroupMetadataRootToParentGroupOutput)
+}
+
+type ThingGroupProperties struct {
+	// The Thing Group attributes. Defined below.
+	AttributePayload *ThingGroupPropertiesAttributePayload `pulumi:"attributePayload"`
+	// A description of the Thing Group.
+	Description *string `pulumi:"description"`
+}
+
+// ThingGroupPropertiesInput is an input type that accepts ThingGroupPropertiesArgs and ThingGroupPropertiesOutput values.
+// You can construct a concrete instance of `ThingGroupPropertiesInput` via:
+//
+//          ThingGroupPropertiesArgs{...}
+type ThingGroupPropertiesInput interface {
+	pulumi.Input
+
+	ToThingGroupPropertiesOutput() ThingGroupPropertiesOutput
+	ToThingGroupPropertiesOutputWithContext(context.Context) ThingGroupPropertiesOutput
+}
+
+type ThingGroupPropertiesArgs struct {
+	// The Thing Group attributes. Defined below.
+	AttributePayload ThingGroupPropertiesAttributePayloadPtrInput `pulumi:"attributePayload"`
+	// A description of the Thing Group.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+}
+
+func (ThingGroupPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThingGroupProperties)(nil)).Elem()
+}
+
+func (i ThingGroupPropertiesArgs) ToThingGroupPropertiesOutput() ThingGroupPropertiesOutput {
+	return i.ToThingGroupPropertiesOutputWithContext(context.Background())
+}
+
+func (i ThingGroupPropertiesArgs) ToThingGroupPropertiesOutputWithContext(ctx context.Context) ThingGroupPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThingGroupPropertiesOutput)
+}
+
+func (i ThingGroupPropertiesArgs) ToThingGroupPropertiesPtrOutput() ThingGroupPropertiesPtrOutput {
+	return i.ToThingGroupPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i ThingGroupPropertiesArgs) ToThingGroupPropertiesPtrOutputWithContext(ctx context.Context) ThingGroupPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThingGroupPropertiesOutput).ToThingGroupPropertiesPtrOutputWithContext(ctx)
+}
+
+// ThingGroupPropertiesPtrInput is an input type that accepts ThingGroupPropertiesArgs, ThingGroupPropertiesPtr and ThingGroupPropertiesPtrOutput values.
+// You can construct a concrete instance of `ThingGroupPropertiesPtrInput` via:
+//
+//          ThingGroupPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type ThingGroupPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToThingGroupPropertiesPtrOutput() ThingGroupPropertiesPtrOutput
+	ToThingGroupPropertiesPtrOutputWithContext(context.Context) ThingGroupPropertiesPtrOutput
+}
+
+type thingGroupPropertiesPtrType ThingGroupPropertiesArgs
+
+func ThingGroupPropertiesPtr(v *ThingGroupPropertiesArgs) ThingGroupPropertiesPtrInput {
+	return (*thingGroupPropertiesPtrType)(v)
+}
+
+func (*thingGroupPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ThingGroupProperties)(nil)).Elem()
+}
+
+func (i *thingGroupPropertiesPtrType) ToThingGroupPropertiesPtrOutput() ThingGroupPropertiesPtrOutput {
+	return i.ToThingGroupPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *thingGroupPropertiesPtrType) ToThingGroupPropertiesPtrOutputWithContext(ctx context.Context) ThingGroupPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThingGroupPropertiesPtrOutput)
+}
+
+type ThingGroupPropertiesOutput struct{ *pulumi.OutputState }
+
+func (ThingGroupPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThingGroupProperties)(nil)).Elem()
+}
+
+func (o ThingGroupPropertiesOutput) ToThingGroupPropertiesOutput() ThingGroupPropertiesOutput {
+	return o
+}
+
+func (o ThingGroupPropertiesOutput) ToThingGroupPropertiesOutputWithContext(ctx context.Context) ThingGroupPropertiesOutput {
+	return o
+}
+
+func (o ThingGroupPropertiesOutput) ToThingGroupPropertiesPtrOutput() ThingGroupPropertiesPtrOutput {
+	return o.ToThingGroupPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o ThingGroupPropertiesOutput) ToThingGroupPropertiesPtrOutputWithContext(ctx context.Context) ThingGroupPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ThingGroupProperties) *ThingGroupProperties {
+		return &v
+	}).(ThingGroupPropertiesPtrOutput)
+}
+
+// The Thing Group attributes. Defined below.
+func (o ThingGroupPropertiesOutput) AttributePayload() ThingGroupPropertiesAttributePayloadPtrOutput {
+	return o.ApplyT(func(v ThingGroupProperties) *ThingGroupPropertiesAttributePayload { return v.AttributePayload }).(ThingGroupPropertiesAttributePayloadPtrOutput)
+}
+
+// A description of the Thing Group.
+func (o ThingGroupPropertiesOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ThingGroupProperties) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+type ThingGroupPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ThingGroupPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ThingGroupProperties)(nil)).Elem()
+}
+
+func (o ThingGroupPropertiesPtrOutput) ToThingGroupPropertiesPtrOutput() ThingGroupPropertiesPtrOutput {
+	return o
+}
+
+func (o ThingGroupPropertiesPtrOutput) ToThingGroupPropertiesPtrOutputWithContext(ctx context.Context) ThingGroupPropertiesPtrOutput {
+	return o
+}
+
+func (o ThingGroupPropertiesPtrOutput) Elem() ThingGroupPropertiesOutput {
+	return o.ApplyT(func(v *ThingGroupProperties) ThingGroupProperties {
+		if v != nil {
+			return *v
+		}
+		var ret ThingGroupProperties
+		return ret
+	}).(ThingGroupPropertiesOutput)
+}
+
+// The Thing Group attributes. Defined below.
+func (o ThingGroupPropertiesPtrOutput) AttributePayload() ThingGroupPropertiesAttributePayloadPtrOutput {
+	return o.ApplyT(func(v *ThingGroupProperties) *ThingGroupPropertiesAttributePayload {
+		if v == nil {
+			return nil
+		}
+		return v.AttributePayload
+	}).(ThingGroupPropertiesAttributePayloadPtrOutput)
+}
+
+// A description of the Thing Group.
+func (o ThingGroupPropertiesPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ThingGroupProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+type ThingGroupPropertiesAttributePayload struct {
+	// Key-value map.
+	Attributes map[string]string `pulumi:"attributes"`
+}
+
+// ThingGroupPropertiesAttributePayloadInput is an input type that accepts ThingGroupPropertiesAttributePayloadArgs and ThingGroupPropertiesAttributePayloadOutput values.
+// You can construct a concrete instance of `ThingGroupPropertiesAttributePayloadInput` via:
+//
+//          ThingGroupPropertiesAttributePayloadArgs{...}
+type ThingGroupPropertiesAttributePayloadInput interface {
+	pulumi.Input
+
+	ToThingGroupPropertiesAttributePayloadOutput() ThingGroupPropertiesAttributePayloadOutput
+	ToThingGroupPropertiesAttributePayloadOutputWithContext(context.Context) ThingGroupPropertiesAttributePayloadOutput
+}
+
+type ThingGroupPropertiesAttributePayloadArgs struct {
+	// Key-value map.
+	Attributes pulumi.StringMapInput `pulumi:"attributes"`
+}
+
+func (ThingGroupPropertiesAttributePayloadArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThingGroupPropertiesAttributePayload)(nil)).Elem()
+}
+
+func (i ThingGroupPropertiesAttributePayloadArgs) ToThingGroupPropertiesAttributePayloadOutput() ThingGroupPropertiesAttributePayloadOutput {
+	return i.ToThingGroupPropertiesAttributePayloadOutputWithContext(context.Background())
+}
+
+func (i ThingGroupPropertiesAttributePayloadArgs) ToThingGroupPropertiesAttributePayloadOutputWithContext(ctx context.Context) ThingGroupPropertiesAttributePayloadOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThingGroupPropertiesAttributePayloadOutput)
+}
+
+func (i ThingGroupPropertiesAttributePayloadArgs) ToThingGroupPropertiesAttributePayloadPtrOutput() ThingGroupPropertiesAttributePayloadPtrOutput {
+	return i.ToThingGroupPropertiesAttributePayloadPtrOutputWithContext(context.Background())
+}
+
+func (i ThingGroupPropertiesAttributePayloadArgs) ToThingGroupPropertiesAttributePayloadPtrOutputWithContext(ctx context.Context) ThingGroupPropertiesAttributePayloadPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThingGroupPropertiesAttributePayloadOutput).ToThingGroupPropertiesAttributePayloadPtrOutputWithContext(ctx)
+}
+
+// ThingGroupPropertiesAttributePayloadPtrInput is an input type that accepts ThingGroupPropertiesAttributePayloadArgs, ThingGroupPropertiesAttributePayloadPtr and ThingGroupPropertiesAttributePayloadPtrOutput values.
+// You can construct a concrete instance of `ThingGroupPropertiesAttributePayloadPtrInput` via:
+//
+//          ThingGroupPropertiesAttributePayloadArgs{...}
+//
+//  or:
+//
+//          nil
+type ThingGroupPropertiesAttributePayloadPtrInput interface {
+	pulumi.Input
+
+	ToThingGroupPropertiesAttributePayloadPtrOutput() ThingGroupPropertiesAttributePayloadPtrOutput
+	ToThingGroupPropertiesAttributePayloadPtrOutputWithContext(context.Context) ThingGroupPropertiesAttributePayloadPtrOutput
+}
+
+type thingGroupPropertiesAttributePayloadPtrType ThingGroupPropertiesAttributePayloadArgs
+
+func ThingGroupPropertiesAttributePayloadPtr(v *ThingGroupPropertiesAttributePayloadArgs) ThingGroupPropertiesAttributePayloadPtrInput {
+	return (*thingGroupPropertiesAttributePayloadPtrType)(v)
+}
+
+func (*thingGroupPropertiesAttributePayloadPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ThingGroupPropertiesAttributePayload)(nil)).Elem()
+}
+
+func (i *thingGroupPropertiesAttributePayloadPtrType) ToThingGroupPropertiesAttributePayloadPtrOutput() ThingGroupPropertiesAttributePayloadPtrOutput {
+	return i.ToThingGroupPropertiesAttributePayloadPtrOutputWithContext(context.Background())
+}
+
+func (i *thingGroupPropertiesAttributePayloadPtrType) ToThingGroupPropertiesAttributePayloadPtrOutputWithContext(ctx context.Context) ThingGroupPropertiesAttributePayloadPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThingGroupPropertiesAttributePayloadPtrOutput)
+}
+
+type ThingGroupPropertiesAttributePayloadOutput struct{ *pulumi.OutputState }
+
+func (ThingGroupPropertiesAttributePayloadOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThingGroupPropertiesAttributePayload)(nil)).Elem()
+}
+
+func (o ThingGroupPropertiesAttributePayloadOutput) ToThingGroupPropertiesAttributePayloadOutput() ThingGroupPropertiesAttributePayloadOutput {
+	return o
+}
+
+func (o ThingGroupPropertiesAttributePayloadOutput) ToThingGroupPropertiesAttributePayloadOutputWithContext(ctx context.Context) ThingGroupPropertiesAttributePayloadOutput {
+	return o
+}
+
+func (o ThingGroupPropertiesAttributePayloadOutput) ToThingGroupPropertiesAttributePayloadPtrOutput() ThingGroupPropertiesAttributePayloadPtrOutput {
+	return o.ToThingGroupPropertiesAttributePayloadPtrOutputWithContext(context.Background())
+}
+
+func (o ThingGroupPropertiesAttributePayloadOutput) ToThingGroupPropertiesAttributePayloadPtrOutputWithContext(ctx context.Context) ThingGroupPropertiesAttributePayloadPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ThingGroupPropertiesAttributePayload) *ThingGroupPropertiesAttributePayload {
+		return &v
+	}).(ThingGroupPropertiesAttributePayloadPtrOutput)
+}
+
+// Key-value map.
+func (o ThingGroupPropertiesAttributePayloadOutput) Attributes() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ThingGroupPropertiesAttributePayload) map[string]string { return v.Attributes }).(pulumi.StringMapOutput)
+}
+
+type ThingGroupPropertiesAttributePayloadPtrOutput struct{ *pulumi.OutputState }
+
+func (ThingGroupPropertiesAttributePayloadPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ThingGroupPropertiesAttributePayload)(nil)).Elem()
+}
+
+func (o ThingGroupPropertiesAttributePayloadPtrOutput) ToThingGroupPropertiesAttributePayloadPtrOutput() ThingGroupPropertiesAttributePayloadPtrOutput {
+	return o
+}
+
+func (o ThingGroupPropertiesAttributePayloadPtrOutput) ToThingGroupPropertiesAttributePayloadPtrOutputWithContext(ctx context.Context) ThingGroupPropertiesAttributePayloadPtrOutput {
+	return o
+}
+
+func (o ThingGroupPropertiesAttributePayloadPtrOutput) Elem() ThingGroupPropertiesAttributePayloadOutput {
+	return o.ApplyT(func(v *ThingGroupPropertiesAttributePayload) ThingGroupPropertiesAttributePayload {
+		if v != nil {
+			return *v
+		}
+		var ret ThingGroupPropertiesAttributePayload
+		return ret
+	}).(ThingGroupPropertiesAttributePayloadOutput)
+}
+
+// Key-value map.
+func (o ThingGroupPropertiesAttributePayloadPtrOutput) Attributes() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ThingGroupPropertiesAttributePayload) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Attributes
+	}).(pulumi.StringMapOutput)
+}
+
 type ThingTypeProperties struct {
 	// The description of the thing type.
 	Description *string `pulumi:"description"`
@@ -6156,6 +6658,14 @@ func (o TopicRuleStepFunctionArrayOutput) Index(i pulumi.IntInput) TopicRuleStep
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ThingGroupMetadataInput)(nil)).Elem(), ThingGroupMetadataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ThingGroupMetadataArrayInput)(nil)).Elem(), ThingGroupMetadataArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ThingGroupMetadataRootToParentGroupInput)(nil)).Elem(), ThingGroupMetadataRootToParentGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ThingGroupMetadataRootToParentGroupArrayInput)(nil)).Elem(), ThingGroupMetadataRootToParentGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ThingGroupPropertiesInput)(nil)).Elem(), ThingGroupPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ThingGroupPropertiesPtrInput)(nil)).Elem(), ThingGroupPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ThingGroupPropertiesAttributePayloadInput)(nil)).Elem(), ThingGroupPropertiesAttributePayloadArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ThingGroupPropertiesAttributePayloadPtrInput)(nil)).Elem(), ThingGroupPropertiesAttributePayloadArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ThingTypePropertiesInput)(nil)).Elem(), ThingTypePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ThingTypePropertiesPtrInput)(nil)).Elem(), ThingTypePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleCloudwatchAlarmInput)(nil)).Elem(), TopicRuleCloudwatchAlarmArgs{})
@@ -6224,6 +6734,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleSqsPtrInput)(nil)).Elem(), TopicRuleSqsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleStepFunctionInput)(nil)).Elem(), TopicRuleStepFunctionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleStepFunctionArrayInput)(nil)).Elem(), TopicRuleStepFunctionArray{})
+	pulumi.RegisterOutputType(ThingGroupMetadataOutput{})
+	pulumi.RegisterOutputType(ThingGroupMetadataArrayOutput{})
+	pulumi.RegisterOutputType(ThingGroupMetadataRootToParentGroupOutput{})
+	pulumi.RegisterOutputType(ThingGroupMetadataRootToParentGroupArrayOutput{})
+	pulumi.RegisterOutputType(ThingGroupPropertiesOutput{})
+	pulumi.RegisterOutputType(ThingGroupPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ThingGroupPropertiesAttributePayloadOutput{})
+	pulumi.RegisterOutputType(ThingGroupPropertiesAttributePayloadPtrOutput{})
 	pulumi.RegisterOutputType(ThingTypePropertiesOutput{})
 	pulumi.RegisterOutputType(ThingTypePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(TopicRuleCloudwatchAlarmOutput{})

@@ -452,7 +452,7 @@ namespace Pulumi.Aws.AutoScaling
         public Output<int> DesiredCapacity { get; private set; } = null!;
 
         /// <summary>
-        /// A list of metrics to collect. The allowed values are `GroupDesiredCapacity`, `GroupInServiceCapacity`, `GroupPendingCapacity`, `GroupMinSize`, `GroupMaxSize`, `GroupInServiceInstances`, `GroupPendingInstances`, `GroupStandbyInstances`, `GroupStandbyCapacity`, `GroupTerminatingCapacity`, `GroupTerminatingInstances`, `GroupTotalCapacity`, `GroupTotalInstances`.
+        /// A list of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
         /// </summary>
         [Output("enabledMetrics")]
         public Output<ImmutableArray<string>> EnabledMetrics { get; private set; } = null!;
@@ -739,7 +739,7 @@ namespace Pulumi.Aws.AutoScaling
         private InputList<string>? _enabledMetrics;
 
         /// <summary>
-        /// A list of metrics to collect. The allowed values are `GroupDesiredCapacity`, `GroupInServiceCapacity`, `GroupPendingCapacity`, `GroupMinSize`, `GroupMaxSize`, `GroupInServiceInstances`, `GroupPendingInstances`, `GroupStandbyInstances`, `GroupStandbyCapacity`, `GroupTerminatingCapacity`, `GroupTerminatingInstances`, `GroupTotalCapacity`, `GroupTotalInstances`.
+        /// A list of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
         /// </summary>
         public InputList<string> EnabledMetrics
         {
@@ -1044,7 +1044,7 @@ namespace Pulumi.Aws.AutoScaling
         private InputList<string>? _enabledMetrics;
 
         /// <summary>
-        /// A list of metrics to collect. The allowed values are `GroupDesiredCapacity`, `GroupInServiceCapacity`, `GroupPendingCapacity`, `GroupMinSize`, `GroupMaxSize`, `GroupInServiceInstances`, `GroupPendingInstances`, `GroupStandbyInstances`, `GroupStandbyCapacity`, `GroupTerminatingCapacity`, `GroupTerminatingInstances`, `GroupTotalCapacity`, `GroupTotalInstances`.
+        /// A list of metrics to collect. The allowed values are defined by the [underlying AWS API](https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_EnableMetricsCollection.html).
         /// </summary>
         public InputList<string> EnabledMetrics
         {

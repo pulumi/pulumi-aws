@@ -5,11 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./directoryConfig";
 export * from "./fleet";
 export * from "./imageBuilder";
 export * from "./stack";
 
 // Import resources to register:
+import { DirectoryConfig } from "./directoryConfig";
 import { Fleet } from "./fleet";
 import { ImageBuilder } from "./imageBuilder";
 import { Stack } from "./stack";
@@ -18,6 +20,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws:appstream/directoryConfig:DirectoryConfig":
+                return new DirectoryConfig(name, <any>undefined, { urn })
             case "aws:appstream/fleet:Fleet":
                 return new Fleet(name, <any>undefined, { urn })
             case "aws:appstream/imageBuilder:ImageBuilder":
@@ -29,6 +33,7 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("aws", "appstream/directoryConfig", _module)
 pulumi.runtime.registerResourceModule("aws", "appstream/fleet", _module)
 pulumi.runtime.registerResourceModule("aws", "appstream/imageBuilder", _module)
 pulumi.runtime.registerResourceModule("aws", "appstream/stack", _module)

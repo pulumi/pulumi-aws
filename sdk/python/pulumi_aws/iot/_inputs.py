@@ -9,6 +9,10 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'ThingGroupMetadataArgs',
+    'ThingGroupMetadataRootToParentGroupArgs',
+    'ThingGroupPropertiesArgs',
+    'ThingGroupPropertiesAttributePayloadArgs',
     'ThingTypePropertiesArgs',
     'TopicRuleCloudwatchAlarmArgs',
     'TopicRuleCloudwatchMetricArgs',
@@ -44,6 +48,144 @@ __all__ = [
     'TopicRuleSqsArgs',
     'TopicRuleStepFunctionArgs',
 ]
+
+@pulumi.input_type
+class ThingGroupMetadataArgs:
+    def __init__(__self__, *,
+                 creation_date: Optional[pulumi.Input[str]] = None,
+                 parent_group_name: Optional[pulumi.Input[str]] = None,
+                 root_to_parent_groups: Optional[pulumi.Input[Sequence[pulumi.Input['ThingGroupMetadataRootToParentGroupArgs']]]] = None):
+        """
+        :param pulumi.Input[str] parent_group_name: The name of the parent Thing Group.
+        """
+        if creation_date is not None:
+            pulumi.set(__self__, "creation_date", creation_date)
+        if parent_group_name is not None:
+            pulumi.set(__self__, "parent_group_name", parent_group_name)
+        if root_to_parent_groups is not None:
+            pulumi.set(__self__, "root_to_parent_groups", root_to_parent_groups)
+
+    @property
+    @pulumi.getter(name="creationDate")
+    def creation_date(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "creation_date")
+
+    @creation_date.setter
+    def creation_date(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "creation_date", value)
+
+    @property
+    @pulumi.getter(name="parentGroupName")
+    def parent_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the parent Thing Group.
+        """
+        return pulumi.get(self, "parent_group_name")
+
+    @parent_group_name.setter
+    def parent_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "parent_group_name", value)
+
+    @property
+    @pulumi.getter(name="rootToParentGroups")
+    def root_to_parent_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ThingGroupMetadataRootToParentGroupArgs']]]]:
+        return pulumi.get(self, "root_to_parent_groups")
+
+    @root_to_parent_groups.setter
+    def root_to_parent_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ThingGroupMetadataRootToParentGroupArgs']]]]):
+        pulumi.set(self, "root_to_parent_groups", value)
+
+
+@pulumi.input_type
+class ThingGroupMetadataRootToParentGroupArgs:
+    def __init__(__self__, *,
+                 group_arn: Optional[pulumi.Input[str]] = None,
+                 group_name: Optional[pulumi.Input[str]] = None):
+        if group_arn is not None:
+            pulumi.set(__self__, "group_arn", group_arn)
+        if group_name is not None:
+            pulumi.set(__self__, "group_name", group_name)
+
+    @property
+    @pulumi.getter(name="groupArn")
+    def group_arn(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "group_arn")
+
+    @group_arn.setter
+    def group_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "group_arn", value)
+
+    @property
+    @pulumi.getter(name="groupName")
+    def group_name(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "group_name")
+
+    @group_name.setter
+    def group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "group_name", value)
+
+
+@pulumi.input_type
+class ThingGroupPropertiesArgs:
+    def __init__(__self__, *,
+                 attribute_payload: Optional[pulumi.Input['ThingGroupPropertiesAttributePayloadArgs']] = None,
+                 description: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input['ThingGroupPropertiesAttributePayloadArgs'] attribute_payload: The Thing Group attributes. Defined below.
+        :param pulumi.Input[str] description: A description of the Thing Group.
+        """
+        if attribute_payload is not None:
+            pulumi.set(__self__, "attribute_payload", attribute_payload)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @property
+    @pulumi.getter(name="attributePayload")
+    def attribute_payload(self) -> Optional[pulumi.Input['ThingGroupPropertiesAttributePayloadArgs']]:
+        """
+        The Thing Group attributes. Defined below.
+        """
+        return pulumi.get(self, "attribute_payload")
+
+    @attribute_payload.setter
+    def attribute_payload(self, value: Optional[pulumi.Input['ThingGroupPropertiesAttributePayloadArgs']]):
+        pulumi.set(self, "attribute_payload", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        A description of the Thing Group.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+
+@pulumi.input_type
+class ThingGroupPropertiesAttributePayloadArgs:
+    def __init__(__self__, *,
+                 attributes: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] attributes: Key-value map.
+        """
+        if attributes is not None:
+            pulumi.set(__self__, "attributes", attributes)
+
+    @property
+    @pulumi.getter
+    def attributes(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value map.
+        """
+        return pulumi.get(self, "attributes")
+
+    @attributes.setter
+    def attributes(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "attributes", value)
+
 
 @pulumi.input_type
 class ThingTypePropertiesArgs:

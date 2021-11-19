@@ -14,19 +14,19 @@ namespace Pulumi.Aws.CloudFront.Outputs
     public sealed class ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity
     {
         /// <summary>
-        /// A number that CloudFront uses as the value for the max-age directive in the Strict-Transport-Security HTTP response header.
+        /// A number that CloudFront uses as the value for the `max-age` directive in the `Strict-Transport-Security` HTTP response header.
         /// </summary>
         public readonly int AccessControlMaxAgeSec;
         /// <summary>
-        /// A Boolean value that determines whether CloudFront includes the includeSubDomains directive in the Strict-Transport-Security HTTP response header.
+        /// A Boolean value that determines whether CloudFront includes the `includeSubDomains` directive in the `Strict-Transport-Security` HTTP response header.
         /// </summary>
         public readonly bool? IncludeSubdomains;
         /// <summary>
-        /// A Boolean value that determines whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
+        /// A Boolean value that determines whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
         /// </summary>
         public readonly bool Override;
         /// <summary>
-        /// A Boolean value that determines whether CloudFront includes the preload directive in the Strict-Transport-Security HTTP response header.
+        /// A Boolean value that determines whether CloudFront includes the `preload` directive in the `Strict-Transport-Security` HTTP response header.
         /// </summary>
         public readonly bool? Preload;
 

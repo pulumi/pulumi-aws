@@ -13,25 +13,25 @@ namespace Pulumi.Aws.CloudFront.Inputs
     public sealed class ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A number that CloudFront uses as the value for the max-age directive in the Strict-Transport-Security HTTP response header.
+        /// A number that CloudFront uses as the value for the `max-age` directive in the `Strict-Transport-Security` HTTP response header.
         /// </summary>
         [Input("accessControlMaxAgeSec", required: true)]
         public Input<int> AccessControlMaxAgeSec { get; set; } = null!;
 
         /// <summary>
-        /// A Boolean value that determines whether CloudFront includes the includeSubDomains directive in the Strict-Transport-Security HTTP response header.
+        /// A Boolean value that determines whether CloudFront includes the `includeSubDomains` directive in the `Strict-Transport-Security` HTTP response header.
         /// </summary>
         [Input("includeSubdomains")]
         public Input<bool>? IncludeSubdomains { get; set; }
 
         /// <summary>
-        /// A Boolean value that determines whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
+        /// A Boolean value that determines whether CloudFront overrides the `X-XSS-Protection` HTTP response header received from the origin with the one specified in this response headers policy.
         /// </summary>
         [Input("override", required: true)]
         public Input<bool> Override { get; set; } = null!;
 
         /// <summary>
-        /// A Boolean value that determines whether CloudFront includes the preload directive in the Strict-Transport-Security HTTP response header.
+        /// A Boolean value that determines whether CloudFront includes the `preload` directive in the `Strict-Transport-Security` HTTP response header.
         /// </summary>
         [Input("preload")]
         public Input<bool>? Preload { get; set; }

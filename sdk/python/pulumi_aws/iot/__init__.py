@@ -12,6 +12,8 @@ from .policy import *
 from .policy_attachment import *
 from .role_alias import *
 from .thing import *
+from .thing_group import *
+from .thing_group_membership import *
 from .thing_principal_attachment import *
 from .thing_type import *
 from .topic_rule import *

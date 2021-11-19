@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- * The following example below creates a CloudFront response headers policy.
+ * The example below creates a CloudFront response headers policy.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -33,6 +33,30 @@ import * as utilities from "../utilities";
  *             items: ["test.example.comtest"],
  *         },
  *         originOverride: true,
+ *     },
+ * });
+ * ```
+ *
+ * The example below creates a CloudFront response headers policy with a custom headers config.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.cloudfront.ResponseHeadersPolicy("example", {
+ *     customHeadersConfig: {
+ *         items: [
+ *             {
+ *                 header: "X-Permitted-Cross-Domain-Policies",
+ *                 override: true,
+ *                 value: "none",
+ *             },
+ *             {
+ *                 header: "X-Test",
+ *                 override: true,
+ *                 value: "none",
+ *             },
+ *         ],
  *     },
  * });
  * ```
@@ -82,7 +106,7 @@ export class ResponseHeadersPolicy extends pulumi.CustomResource {
      */
     public readonly corsConfig!: pulumi.Output<outputs.cloudfront.ResponseHeadersPolicyCorsConfig | undefined>;
     /**
-     * Object that contains an attribute `items` that contains a list of Custom Headers See Custom Header for more information.
+     * Object that contains an attribute `items` that contains a list of custom headers. See Custom Header for more information.
      */
     public readonly customHeadersConfig!: pulumi.Output<outputs.cloudfront.ResponseHeadersPolicyCustomHeadersConfig | undefined>;
     /**
@@ -146,7 +170,7 @@ export interface ResponseHeadersPolicyState {
      */
     corsConfig?: pulumi.Input<inputs.cloudfront.ResponseHeadersPolicyCorsConfig>;
     /**
-     * Object that contains an attribute `items` that contains a list of Custom Headers See Custom Header for more information.
+     * Object that contains an attribute `items` that contains a list of custom headers. See Custom Header for more information.
      */
     customHeadersConfig?: pulumi.Input<inputs.cloudfront.ResponseHeadersPolicyCustomHeadersConfig>;
     /**
@@ -176,7 +200,7 @@ export interface ResponseHeadersPolicyArgs {
      */
     corsConfig?: pulumi.Input<inputs.cloudfront.ResponseHeadersPolicyCorsConfig>;
     /**
-     * Object that contains an attribute `items` that contains a list of Custom Headers See Custom Header for more information.
+     * Object that contains an attribute `items` that contains a list of custom headers. See Custom Header for more information.
      */
     customHeadersConfig?: pulumi.Input<inputs.cloudfront.ResponseHeadersPolicyCustomHeadersConfig>;
     /**

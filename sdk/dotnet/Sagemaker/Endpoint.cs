@@ -55,19 +55,25 @@ namespace Pulumi.Aws.Sagemaker
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// The deployment configuration for an endpoint, which contains the desired deployment strategy and rollback configurations. See Deployment Config.
+        /// </summary>
+        [Output("deploymentConfig")]
+        public Output<Outputs.EndpointDeploymentConfig?> DeploymentConfig { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the endpoint configuration to use.
         /// </summary>
         [Output("endpointConfigName")]
         public Output<string> EndpointConfigName { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the endpoint. If omitted, this provider will assign a random, unique name.
+        /// The name of the endpoint.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -125,13 +131,19 @@ namespace Pulumi.Aws.Sagemaker
     public sealed class EndpointArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The deployment configuration for an endpoint, which contains the desired deployment strategy and rollback configurations. See Deployment Config.
+        /// </summary>
+        [Input("deploymentConfig")]
+        public Input<Inputs.EndpointDeploymentConfigArgs>? DeploymentConfig { get; set; }
+
+        /// <summary>
         /// The name of the endpoint configuration to use.
         /// </summary>
         [Input("endpointConfigName", required: true)]
         public Input<string> EndpointConfigName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the endpoint. If omitted, this provider will assign a random, unique name.
+        /// The name of the endpoint.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -140,7 +152,7 @@ namespace Pulumi.Aws.Sagemaker
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -162,13 +174,19 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? Arn { get; set; }
 
         /// <summary>
+        /// The deployment configuration for an endpoint, which contains the desired deployment strategy and rollback configurations. See Deployment Config.
+        /// </summary>
+        [Input("deploymentConfig")]
+        public Input<Inputs.EndpointDeploymentConfigGetArgs>? DeploymentConfig { get; set; }
+
+        /// <summary>
         /// The name of the endpoint configuration to use.
         /// </summary>
         [Input("endpointConfigName")]
         public Input<string>? EndpointConfigName { get; set; }
 
         /// <summary>
-        /// The name of the endpoint. If omitted, this provider will assign a random, unique name.
+        /// The name of the endpoint.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -177,7 +195,7 @@ namespace Pulumi.Aws.Sagemaker
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource.
+        /// A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {

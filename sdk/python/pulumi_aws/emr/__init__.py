@@ -6,6 +6,7 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from .cluster import *
+from .get_release_labels import *
 from .instance_fleet import *
 from .instance_group import *
 from .managed_scaling_policy import *

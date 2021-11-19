@@ -38,6 +38,7 @@ namespace Pulumi.Aws.Kinesis.Outputs
         /// Nested argument for the serializer, deserializer, and schema for converting data from the JSON format to the Parquet or ORC format before writing it to Amazon S3. More details given below.
         /// </summary>
         public readonly Outputs.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfiguration? DataFormatConversionConfiguration;
+        public readonly Outputs.FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfiguration? DynamicPartitioningConfiguration;
         /// <summary>
         /// Prefix added to failed records before writing them to S3. This prefix appears immediately following the bucket name.
         /// </summary>
@@ -82,6 +83,8 @@ namespace Pulumi.Aws.Kinesis.Outputs
 
             Outputs.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfiguration? dataFormatConversionConfiguration,
 
+            Outputs.FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfiguration? dynamicPartitioningConfiguration,
+
             string? errorOutputPrefix,
 
             string? kmsKeyArn,
@@ -102,6 +105,7 @@ namespace Pulumi.Aws.Kinesis.Outputs
             CloudwatchLoggingOptions = cloudwatchLoggingOptions;
             CompressionFormat = compressionFormat;
             DataFormatConversionConfiguration = dataFormatConversionConfiguration;
+            DynamicPartitioningConfiguration = dynamicPartitioningConfiguration;
             ErrorOutputPrefix = errorOutputPrefix;
             KmsKeyArn = kmsKeyArn;
             Prefix = prefix;

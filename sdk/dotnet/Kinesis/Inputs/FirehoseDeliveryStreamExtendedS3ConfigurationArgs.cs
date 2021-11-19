@@ -49,6 +49,9 @@ namespace Pulumi.Aws.Kinesis.Inputs
         [Input("dataFormatConversionConfiguration")]
         public Input<Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationDataFormatConversionConfigurationArgs>? DataFormatConversionConfiguration { get; set; }
 
+        [Input("dynamicPartitioningConfiguration")]
+        public Input<Inputs.FirehoseDeliveryStreamExtendedS3ConfigurationDynamicPartitioningConfigurationArgs>? DynamicPartitioningConfiguration { get; set; }
+
         /// <summary>
         /// Prefix added to failed records before writing them to S3. This prefix appears immediately following the bucket name.
         /// </summary>

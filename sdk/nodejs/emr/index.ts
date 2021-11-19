@@ -6,6 +6,7 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./cluster";
+export * from "./getReleaseLabels";
 export * from "./instanceFleet";
 export * from "./instanceGroup";
 export * from "./managedScalingPolicy";

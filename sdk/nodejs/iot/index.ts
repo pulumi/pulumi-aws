@@ -12,6 +12,8 @@ export * from "./policy";
 export * from "./policyAttachment";
 export * from "./roleAlias";
 export * from "./thing";
+export * from "./thingGroup";
+export * from "./thingGroupMembership";
 export * from "./thingPrincipalAttachment";
 export * from "./thingType";
 export * from "./topicRule";
@@ -23,6 +25,8 @@ import { Policy } from "./policy";
 import { PolicyAttachment } from "./policyAttachment";
 import { RoleAlias } from "./roleAlias";
 import { Thing } from "./thing";
+import { ThingGroup } from "./thingGroup";
+import { ThingGroupMembership } from "./thingGroupMembership";
 import { ThingPrincipalAttachment } from "./thingPrincipalAttachment";
 import { ThingType } from "./thingType";
 import { TopicRule } from "./topicRule";
@@ -43,6 +47,10 @@ const _module = {
                 return new RoleAlias(name, <any>undefined, { urn })
             case "aws:iot/thing:Thing":
                 return new Thing(name, <any>undefined, { urn })
+            case "aws:iot/thingGroup:ThingGroup":
+                return new ThingGroup(name, <any>undefined, { urn })
+            case "aws:iot/thingGroupMembership:ThingGroupMembership":
+                return new ThingGroupMembership(name, <any>undefined, { urn })
             case "aws:iot/thingPrincipalAttachment:ThingPrincipalAttachment":
                 return new ThingPrincipalAttachment(name, <any>undefined, { urn })
             case "aws:iot/thingType:ThingType":
@@ -60,6 +68,8 @@ pulumi.runtime.registerResourceModule("aws", "iot/policy", _module)
 pulumi.runtime.registerResourceModule("aws", "iot/policyAttachment", _module)
 pulumi.runtime.registerResourceModule("aws", "iot/roleAlias", _module)
 pulumi.runtime.registerResourceModule("aws", "iot/thing", _module)
+pulumi.runtime.registerResourceModule("aws", "iot/thingGroup", _module)
+pulumi.runtime.registerResourceModule("aws", "iot/thingGroupMembership", _module)
 pulumi.runtime.registerResourceModule("aws", "iot/thingPrincipalAttachment", _module)
 pulumi.runtime.registerResourceModule("aws", "iot/thingType", _module)
 pulumi.runtime.registerResourceModule("aws", "iot/topicRule", _module)

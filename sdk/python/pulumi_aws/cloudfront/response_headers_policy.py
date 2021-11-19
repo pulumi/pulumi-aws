@@ -25,7 +25,7 @@ class ResponseHeadersPolicyArgs:
         The set of arguments for constructing a ResponseHeadersPolicy resource.
         :param pulumi.Input[str] comment: A comment to describe the response headers policy. The comment cannot be longer than 128 characters.
         :param pulumi.Input['ResponseHeadersPolicyCorsConfigArgs'] cors_config: A configuration for a set of HTTP response headers that are used for Cross-Origin Resource Sharing (CORS). See Cors Config for more information.
-        :param pulumi.Input['ResponseHeadersPolicyCustomHeadersConfigArgs'] custom_headers_config: Object that contains an attribute `items` that contains a list of Custom Headers See Custom Header for more information.
+        :param pulumi.Input['ResponseHeadersPolicyCustomHeadersConfigArgs'] custom_headers_config: Object that contains an attribute `items` that contains a list of custom headers. See Custom Header for more information.
         :param pulumi.Input[str] etag: The current version of the response headers policy.
         :param pulumi.Input[str] name: A unique name to identify the response headers policy.
         :param pulumi.Input['ResponseHeadersPolicySecurityHeadersConfigArgs'] security_headers_config: A configuration for a set of security-related HTTP response headers. See Security Headers Config for more information.
@@ -71,7 +71,7 @@ class ResponseHeadersPolicyArgs:
     @pulumi.getter(name="customHeadersConfig")
     def custom_headers_config(self) -> Optional[pulumi.Input['ResponseHeadersPolicyCustomHeadersConfigArgs']]:
         """
-        Object that contains an attribute `items` that contains a list of Custom Headers See Custom Header for more information.
+        Object that contains an attribute `items` that contains a list of custom headers. See Custom Header for more information.
         """
         return pulumi.get(self, "custom_headers_config")
 
@@ -129,7 +129,7 @@ class _ResponseHeadersPolicyState:
         Input properties used for looking up and filtering ResponseHeadersPolicy resources.
         :param pulumi.Input[str] comment: A comment to describe the response headers policy. The comment cannot be longer than 128 characters.
         :param pulumi.Input['ResponseHeadersPolicyCorsConfigArgs'] cors_config: A configuration for a set of HTTP response headers that are used for Cross-Origin Resource Sharing (CORS). See Cors Config for more information.
-        :param pulumi.Input['ResponseHeadersPolicyCustomHeadersConfigArgs'] custom_headers_config: Object that contains an attribute `items` that contains a list of Custom Headers See Custom Header for more information.
+        :param pulumi.Input['ResponseHeadersPolicyCustomHeadersConfigArgs'] custom_headers_config: Object that contains an attribute `items` that contains a list of custom headers. See Custom Header for more information.
         :param pulumi.Input[str] etag: The current version of the response headers policy.
         :param pulumi.Input[str] name: A unique name to identify the response headers policy.
         :param pulumi.Input['ResponseHeadersPolicySecurityHeadersConfigArgs'] security_headers_config: A configuration for a set of security-related HTTP response headers. See Security Headers Config for more information.
@@ -175,7 +175,7 @@ class _ResponseHeadersPolicyState:
     @pulumi.getter(name="customHeadersConfig")
     def custom_headers_config(self) -> Optional[pulumi.Input['ResponseHeadersPolicyCustomHeadersConfigArgs']]:
         """
-        Object that contains an attribute `items` that contains a list of Custom Headers See Custom Header for more information.
+        Object that contains an attribute `items` that contains a list of custom headers. See Custom Header for more information.
         """
         return pulumi.get(self, "custom_headers_config")
 
@@ -240,7 +240,7 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
-        The following example below creates a CloudFront response headers policy.
+        The example below creates a CloudFront response headers policy.
 
         ```python
         import pulumi
@@ -263,6 +263,28 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
             ))
         ```
 
+        The example below creates a CloudFront response headers policy with a custom headers config.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.cloudfront.ResponseHeadersPolicy("example", custom_headers_config=aws.cloudfront.ResponseHeadersPolicyCustomHeadersConfigArgs(
+            items=[
+                aws.cloudfront.ResponseHeadersPolicyCustomHeadersConfigItemArgs(
+                    header="X-Permitted-Cross-Domain-Policies",
+                    override=True,
+                    value="none",
+                ),
+                aws.cloudfront.ResponseHeadersPolicyCustomHeadersConfigItemArgs(
+                    header="X-Test",
+                    override=True,
+                    value="none",
+                ),
+            ],
+        ))
+        ```
+
         ## Import
 
         Cloudfront Response Headers Policies can be imported using the `id`, e.g.
@@ -275,7 +297,7 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] comment: A comment to describe the response headers policy. The comment cannot be longer than 128 characters.
         :param pulumi.Input[pulumi.InputType['ResponseHeadersPolicyCorsConfigArgs']] cors_config: A configuration for a set of HTTP response headers that are used for Cross-Origin Resource Sharing (CORS). See Cors Config for more information.
-        :param pulumi.Input[pulumi.InputType['ResponseHeadersPolicyCustomHeadersConfigArgs']] custom_headers_config: Object that contains an attribute `items` that contains a list of Custom Headers See Custom Header for more information.
+        :param pulumi.Input[pulumi.InputType['ResponseHeadersPolicyCustomHeadersConfigArgs']] custom_headers_config: Object that contains an attribute `items` that contains a list of custom headers. See Custom Header for more information.
         :param pulumi.Input[str] etag: The current version of the response headers policy.
         :param pulumi.Input[str] name: A unique name to identify the response headers policy.
         :param pulumi.Input[pulumi.InputType['ResponseHeadersPolicySecurityHeadersConfigArgs']] security_headers_config: A configuration for a set of security-related HTTP response headers. See Security Headers Config for more information.
@@ -294,7 +316,7 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
-        The following example below creates a CloudFront response headers policy.
+        The example below creates a CloudFront response headers policy.
 
         ```python
         import pulumi
@@ -315,6 +337,28 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
                 ),
                 origin_override=True,
             ))
+        ```
+
+        The example below creates a CloudFront response headers policy with a custom headers config.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.cloudfront.ResponseHeadersPolicy("example", custom_headers_config=aws.cloudfront.ResponseHeadersPolicyCustomHeadersConfigArgs(
+            items=[
+                aws.cloudfront.ResponseHeadersPolicyCustomHeadersConfigItemArgs(
+                    header="X-Permitted-Cross-Domain-Policies",
+                    override=True,
+                    value="none",
+                ),
+                aws.cloudfront.ResponseHeadersPolicyCustomHeadersConfigItemArgs(
+                    header="X-Test",
+                    override=True,
+                    value="none",
+                ),
+            ],
+        ))
         ```
 
         ## Import
@@ -389,7 +433,7 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] comment: A comment to describe the response headers policy. The comment cannot be longer than 128 characters.
         :param pulumi.Input[pulumi.InputType['ResponseHeadersPolicyCorsConfigArgs']] cors_config: A configuration for a set of HTTP response headers that are used for Cross-Origin Resource Sharing (CORS). See Cors Config for more information.
-        :param pulumi.Input[pulumi.InputType['ResponseHeadersPolicyCustomHeadersConfigArgs']] custom_headers_config: Object that contains an attribute `items` that contains a list of Custom Headers See Custom Header for more information.
+        :param pulumi.Input[pulumi.InputType['ResponseHeadersPolicyCustomHeadersConfigArgs']] custom_headers_config: Object that contains an attribute `items` that contains a list of custom headers. See Custom Header for more information.
         :param pulumi.Input[str] etag: The current version of the response headers policy.
         :param pulumi.Input[str] name: A unique name to identify the response headers policy.
         :param pulumi.Input[pulumi.InputType['ResponseHeadersPolicySecurityHeadersConfigArgs']] security_headers_config: A configuration for a set of security-related HTTP response headers. See Security Headers Config for more information.
@@ -426,7 +470,7 @@ class ResponseHeadersPolicy(pulumi.CustomResource):
     @pulumi.getter(name="customHeadersConfig")
     def custom_headers_config(self) -> pulumi.Output[Optional['outputs.ResponseHeadersPolicyCustomHeadersConfig']]:
         """
-        Object that contains an attribute `items` that contains a list of Custom Headers See Custom Header for more information.
+        Object that contains an attribute `items` that contains a list of custom headers. See Custom Header for more information.
         """
         return pulumi.get(self, "custom_headers_config")
 

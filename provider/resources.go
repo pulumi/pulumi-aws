@@ -1789,6 +1789,8 @@ func Provider() tfbridge.ProviderInfo {
 					"sqs":               {Name: "sqs", MaxItemsOne: boolRef(true)},
 				},
 			},
+			"aws_iot_thing_group":            {Tok: awsResource(iotMod, "ThingGroup")},
+			"aws_iot_thing_group_membership": {Tok: awsResource(iotMod, "ThingGroupMembership")},
 			// Kinesis
 			"aws_kinesis_firehose_delivery_stream": {Tok: awsResource(kinesisMod, "FirehoseDeliveryStream")},
 			"aws_kinesis_stream":                   {Tok: awsResource(kinesisMod, "Stream")},
@@ -1893,6 +1895,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_lambda_provisioned_concurrency_config": {Tok: awsResource(lambdaMod, "ProvisionedConcurrencyConfig")},
 			"aws_lambda_function_event_invoke_config":   {Tok: awsResource(lambdaMod, "FunctionEventInvokeConfig")},
 			"aws_lambda_code_signing_config":            {Tok: awsResource(lambdaMod, "CodeSigningConfig")},
+			"aws_lambda_layer_version_permission":       {Tok: awsResource(lambdaMod, "LayerVersionPermission")},
 			// License Manager
 			"aws_licensemanager_association":           {Tok: awsResource(licensemanagerMod, "Association")},
 			"aws_licensemanager_license_configuration": {Tok: awsResource(licensemanagerMod, "LicenseConfiguration")},
@@ -2266,6 +2269,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_securityhub_insight":                    {Tok: awsResource(securityhubMod, "Insight")},
 			"aws_securityhub_organization_configuration": {Tok: awsResource(securityhubMod, "OrganizationConfiguration")},
 			"aws_securityhub_standards_control":          {Tok: awsResource(securityhubMod, "StandardsControl")},
+			"aws_securityhub_finding_aggregator":         {Tok: awsResource(securityhubMod, "FindingAggregator")},
 			// Service Discovery
 			"aws_service_discovery_http_namespace":        {Tok: awsResource(servicediscoveryMod, "HttpNamespace")},
 			"aws_service_discovery_private_dns_namespace": {Tok: awsResource(servicediscoveryMod, "PrivateDnsNamespace")},
@@ -2376,6 +2380,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_s3_bucket_intelligent_tiering_configuration": {
 				Tok: awsResource(s3Mod, "BucketIntelligentTieringConfiguration"),
 			},
+			"aws_s3_bucket_replication_configuration": {Tok: awsResource(s3Mod, "BucketReplicationConfig")},
 			//S3 Control
 			"aws_s3control_bucket": {
 				Tok: awsResource(s3ControlMod, "Bucket"),
@@ -2385,8 +2390,13 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
-			"aws_s3control_bucket_lifecycle_configuration": {Tok: awsResource(s3ControlMod, "BucketLifecycleConfiguration")},
-			"aws_s3control_bucket_policy":                  {Tok: awsResource(s3ControlMod, "BucketPolicy")},
+			"aws_s3control_bucket_lifecycle_configuration":    {Tok: awsResource(s3ControlMod, "BucketLifecycleConfiguration")},
+			"aws_s3control_bucket_policy":                     {Tok: awsResource(s3ControlMod, "BucketPolicy")},
+			"aws_s3control_access_point_policy":               {Tok: awsResource(s3ControlMod, "AccessPointPolicy")},
+			"aws_s3control_multi_region_access_point":         {Tok: awsResource(s3ControlMod, "MultiRegionAccessPoint")},
+			"aws_s3control_multi_region_access_point_policy":  {Tok: awsResource(s3ControlMod, "MultiRegionAccessPointPolicy")},
+			"aws_s3control_object_lambda_access_point":        {Tok: awsResource(s3ControlMod, "ObjectLambdaAccessPoint")},
+			"aws_s3control_object_lambda_access_point_policy": {Tok: awsResource(s3ControlMod, "ObjectLambdaAccessPointPolicy")},
 			// S3 Outposts
 			"aws_s3outposts_endpoint": {Tok: awsResource(s3OutpostsMod, "Endpoint")},
 			// Systems Manager (SSM)
@@ -2790,9 +2800,10 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_appconfig_deployment":                   {Tok: awsResource(appConfigMod, "Deployment")},
 
 			// AppStream
-			"aws_appstream_stack":         {Tok: awsResource(appStreamMod, "Stack")},
-			"aws_appstream_fleet":         {Tok: awsResource(appStreamMod, "Fleet")},
-			"aws_appstream_image_builder": {Tok: awsResource(appStreamMod, "ImageBuilder")},
+			"aws_appstream_stack":            {Tok: awsResource(appStreamMod, "Stack")},
+			"aws_appstream_fleet":            {Tok: awsResource(appStreamMod, "Fleet")},
+			"aws_appstream_image_builder":    {Tok: awsResource(appStreamMod, "ImageBuilder")},
+			"aws_appstream_directory_config": {Tok: awsResource(appStreamMod, "DirectoryConfig")},
 
 			// mwaa
 			"aws_mwaa_environment": {Tok: awsResource(mwaaMod, "Environment")},
@@ -4024,6 +4035,8 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_elasticache_cluster":           {Tok: awsDataSource(elasticacheMod, "getCluster")},
 			"aws_elasticache_replication_group": {Tok: awsDataSource(elasticacheMod, "getReplicationGroup")},
 			"aws_elasticache_user":              {Tok: awsDataSource(elasticacheMod, "getUser")},
+			// EMR
+			"aws_emr_release_labels": {Tok: awsDataSource(emrMod, "getReleaseLabels")},
 			// Global Accelerator
 			"aws_globalaccelerator_accelerator": {Tok: awsDataSource(globalacceleratorMod, "getAccelerator")},
 			// Glue

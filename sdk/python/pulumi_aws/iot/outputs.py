@@ -10,6 +10,10 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'ThingGroupMetadata',
+    'ThingGroupMetadataRootToParentGroup',
+    'ThingGroupProperties',
+    'ThingGroupPropertiesAttributePayload',
     'ThingTypeProperties',
     'TopicRuleCloudwatchAlarm',
     'TopicRuleCloudwatchMetric',
@@ -45,6 +49,169 @@ __all__ = [
     'TopicRuleSqs',
     'TopicRuleStepFunction',
 ]
+
+@pulumi.output_type
+class ThingGroupMetadata(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "creationDate":
+            suggest = "creation_date"
+        elif key == "parentGroupName":
+            suggest = "parent_group_name"
+        elif key == "rootToParentGroups":
+            suggest = "root_to_parent_groups"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ThingGroupMetadata. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ThingGroupMetadata.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ThingGroupMetadata.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 creation_date: Optional[str] = None,
+                 parent_group_name: Optional[str] = None,
+                 root_to_parent_groups: Optional[Sequence['outputs.ThingGroupMetadataRootToParentGroup']] = None):
+        """
+        :param str parent_group_name: The name of the parent Thing Group.
+        """
+        if creation_date is not None:
+            pulumi.set(__self__, "creation_date", creation_date)
+        if parent_group_name is not None:
+            pulumi.set(__self__, "parent_group_name", parent_group_name)
+        if root_to_parent_groups is not None:
+            pulumi.set(__self__, "root_to_parent_groups", root_to_parent_groups)
+
+    @property
+    @pulumi.getter(name="creationDate")
+    def creation_date(self) -> Optional[str]:
+        return pulumi.get(self, "creation_date")
+
+    @property
+    @pulumi.getter(name="parentGroupName")
+    def parent_group_name(self) -> Optional[str]:
+        """
+        The name of the parent Thing Group.
+        """
+        return pulumi.get(self, "parent_group_name")
+
+    @property
+    @pulumi.getter(name="rootToParentGroups")
+    def root_to_parent_groups(self) -> Optional[Sequence['outputs.ThingGroupMetadataRootToParentGroup']]:
+        return pulumi.get(self, "root_to_parent_groups")
+
+
+@pulumi.output_type
+class ThingGroupMetadataRootToParentGroup(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "groupArn":
+            suggest = "group_arn"
+        elif key == "groupName":
+            suggest = "group_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ThingGroupMetadataRootToParentGroup. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ThingGroupMetadataRootToParentGroup.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ThingGroupMetadataRootToParentGroup.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 group_arn: Optional[str] = None,
+                 group_name: Optional[str] = None):
+        if group_arn is not None:
+            pulumi.set(__self__, "group_arn", group_arn)
+        if group_name is not None:
+            pulumi.set(__self__, "group_name", group_name)
+
+    @property
+    @pulumi.getter(name="groupArn")
+    def group_arn(self) -> Optional[str]:
+        return pulumi.get(self, "group_arn")
+
+    @property
+    @pulumi.getter(name="groupName")
+    def group_name(self) -> Optional[str]:
+        return pulumi.get(self, "group_name")
+
+
+@pulumi.output_type
+class ThingGroupProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "attributePayload":
+            suggest = "attribute_payload"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ThingGroupProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ThingGroupProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ThingGroupProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 attribute_payload: Optional['outputs.ThingGroupPropertiesAttributePayload'] = None,
+                 description: Optional[str] = None):
+        """
+        :param 'ThingGroupPropertiesAttributePayloadArgs' attribute_payload: The Thing Group attributes. Defined below.
+        :param str description: A description of the Thing Group.
+        """
+        if attribute_payload is not None:
+            pulumi.set(__self__, "attribute_payload", attribute_payload)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @property
+    @pulumi.getter(name="attributePayload")
+    def attribute_payload(self) -> Optional['outputs.ThingGroupPropertiesAttributePayload']:
+        """
+        The Thing Group attributes. Defined below.
+        """
+        return pulumi.get(self, "attribute_payload")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        A description of the Thing Group.
+        """
+        return pulumi.get(self, "description")
+
+
+@pulumi.output_type
+class ThingGroupPropertiesAttributePayload(dict):
+    def __init__(__self__, *,
+                 attributes: Optional[Mapping[str, str]] = None):
+        """
+        :param Mapping[str, str] attributes: Key-value map.
+        """
+        if attributes is not None:
+            pulumi.set(__self__, "attributes", attributes)
+
+    @property
+    @pulumi.getter
+    def attributes(self) -> Optional[Mapping[str, str]]:
+        """
+        Key-value map.
+        """
+        return pulumi.get(self, "attributes")
+
 
 @pulumi.output_type
 class ThingTypeProperties(dict):

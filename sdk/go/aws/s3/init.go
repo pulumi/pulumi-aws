@@ -43,6 +43,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &BucketPolicy{}
 	case "aws:s3/bucketPublicAccessBlock:BucketPublicAccessBlock":
 		r = &BucketPublicAccessBlock{}
+	case "aws:s3/bucketReplicationConfig:BucketReplicationConfig":
+		r = &BucketReplicationConfig{}
 	case "aws:s3/inventory:Inventory":
 		r = &Inventory{}
 	case "aws:s3/objectCopy:ObjectCopy":
@@ -113,6 +115,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"s3/bucketPublicAccessBlock",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"s3/bucketReplicationConfig",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
