@@ -13,6 +13,7 @@ namespace Pulumi.Aws.Dlm
     /// Provides a [Data Lifecycle Manager (DLM) lifecycle policy](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-lifecycle.html) for managing snapshots.
     /// 
     /// ## Example Usage
+    /// ### Basic
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -114,10 +115,105 @@ namespace Pulumi.Aws.Dlm
     /// 
     /// }
     /// ```
+    /// ### Example Cross-Region Snapshot Copy Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         // ...other configuration...
+    ///         var dlmCrossRegionCopyCmk = new Aws.Kms.Key("dlmCrossRegionCopyCmk", new Aws.Kms.KeyArgs
+    ///         {
+    ///             Description = "Example Alternate Region KMS Key",
+    ///             Policy = @"{
+    ///   ""Version"": ""2012-10-17"",
+    ///   ""Id"": ""dlm-cross-region-copy-cmk"",
+    ///   ""Statement"": [
+    ///     {
+    ///       ""Sid"": ""Enable IAM User Permissions"",
+    ///       ""Effect"": ""Allow"",
+    ///       ""Principal"": {
+    ///         ""AWS"": ""*""
+    ///       },
+    ///       ""Action"": ""kms:*"",
+    ///       ""Resource"": ""*""
+    ///     }
+    ///   ]
+    /// }
+    /// ",
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             Provider = aws.Alternate,
+    ///         });
+    ///         var example = new Aws.Dlm.LifecyclePolicy("example", new Aws.Dlm.LifecyclePolicyArgs
+    ///         {
+    ///             Description = "example DLM lifecycle policy",
+    ///             ExecutionRoleArn = aws_iam_role.Dlm_lifecycle_role.Arn,
+    ///             State = "ENABLED",
+    ///             PolicyDetails = new Aws.Dlm.Inputs.LifecyclePolicyPolicyDetailsArgs
+    ///             {
+    ///                 ResourceTypes = 
+    ///                 {
+    ///                     "VOLUME",
+    ///                 },
+    ///                 Schedules = 
+    ///                 {
+    ///                     new Aws.Dlm.Inputs.LifecyclePolicyPolicyDetailsScheduleArgs
+    ///                     {
+    ///                         Name = "2 weeks of daily snapshots",
+    ///                         CreateRule = new Aws.Dlm.Inputs.LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs
+    ///                         {
+    ///                             Interval = 24,
+    ///                             IntervalUnit = "HOURS",
+    ///                             Times = 
+    ///                             {
+    ///                                 "23:45",
+    ///                             },
+    ///                         },
+    ///                         RetainRule = new Aws.Dlm.Inputs.LifecyclePolicyPolicyDetailsScheduleRetainRuleArgs
+    ///                         {
+    ///                             Count = 14,
+    ///                         },
+    ///                         TagsToAdd = 
+    ///                         {
+    ///                             { "SnapshotCreator", "DLM" },
+    ///                         },
+    ///                         CopyTags = false,
+    ///                         CrossRegionCopyRules = 
+    ///                         {
+    ///                             new Aws.Dlm.Inputs.LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs
+    ///                             {
+    ///                                 Target = "us-west-2",
+    ///                                 Encrypted = true,
+    ///                                 CmkArn = dlmCrossRegionCopyCmk.Arn,
+    ///                                 CopyTags = true,
+    ///                                 RetainRule = new Aws.Dlm.Inputs.LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleArgs
+    ///                                 {
+    ///                                     Interval = 30,
+    ///                                     IntervalUnit = "DAYS",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 TargetTags = 
+    ///                 {
+    ///                     { "Snapshot", "true" },
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// 
     /// ## Import
     /// 
-    /// DLM lifecyle policies can be imported by their policy ID
+    /// DLM lifecycle policies can be imported by their policy ID
     /// 
     /// ```sh
     ///  $ pulumi import aws:dlm/lifecyclePolicy:LifecyclePolicy example policy-abcdef12345678901

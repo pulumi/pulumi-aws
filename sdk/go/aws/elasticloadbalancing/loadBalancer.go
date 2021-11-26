@@ -117,6 +117,8 @@ type LoadBalancer struct {
 	ConnectionDrainingTimeout pulumi.IntPtrOutput `pulumi:"connectionDrainingTimeout"`
 	// Enable cross-zone load balancing. Default: `true`
 	CrossZoneLoadBalancing pulumi.BoolPtrOutput `pulumi:"crossZoneLoadBalancing"`
+	// Determines how the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
+	DesyncMitigationMode pulumi.StringPtrOutput `pulumi:"desyncMitigationMode"`
 	// The DNS name of the ELB
 	DnsName pulumi.StringOutput `pulumi:"dnsName"`
 	// A healthCheck block. Health Check documented below.
@@ -198,6 +200,8 @@ type loadBalancerState struct {
 	ConnectionDrainingTimeout *int `pulumi:"connectionDrainingTimeout"`
 	// Enable cross-zone load balancing. Default: `true`
 	CrossZoneLoadBalancing *bool `pulumi:"crossZoneLoadBalancing"`
+	// Determines how the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
+	DesyncMitigationMode *string `pulumi:"desyncMitigationMode"`
 	// The DNS name of the ELB
 	DnsName *string `pulumi:"dnsName"`
 	// A healthCheck block. Health Check documented below.
@@ -248,6 +252,8 @@ type LoadBalancerState struct {
 	ConnectionDrainingTimeout pulumi.IntPtrInput
 	// Enable cross-zone load balancing. Default: `true`
 	CrossZoneLoadBalancing pulumi.BoolPtrInput
+	// Determines how the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
+	DesyncMitigationMode pulumi.StringPtrInput
 	// The DNS name of the ELB
 	DnsName pulumi.StringPtrInput
 	// A healthCheck block. Health Check documented below.
@@ -300,6 +306,8 @@ type loadBalancerArgs struct {
 	ConnectionDrainingTimeout *int `pulumi:"connectionDrainingTimeout"`
 	// Enable cross-zone load balancing. Default: `true`
 	CrossZoneLoadBalancing *bool `pulumi:"crossZoneLoadBalancing"`
+	// Determines how the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
+	DesyncMitigationMode *string `pulumi:"desyncMitigationMode"`
 	// A healthCheck block. Health Check documented below.
 	HealthCheck *LoadBalancerHealthCheck `pulumi:"healthCheck"`
 	// The time in seconds that the connection is allowed to be idle. Default: `60`
@@ -339,6 +347,8 @@ type LoadBalancerArgs struct {
 	ConnectionDrainingTimeout pulumi.IntPtrInput
 	// Enable cross-zone load balancing. Default: `true`
 	CrossZoneLoadBalancing pulumi.BoolPtrInput
+	// Determines how the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
+	DesyncMitigationMode pulumi.StringPtrInput
 	// A healthCheck block. Health Check documented below.
 	HealthCheck LoadBalancerHealthCheckPtrInput
 	// The time in seconds that the connection is allowed to be idle. Default: `60`

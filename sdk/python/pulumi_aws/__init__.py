@@ -30,6 +30,8 @@ from . import outputs
 if typing.TYPE_CHECKING:
     import pulumi_aws.accessanalyzer as __accessanalyzer
     accessanalyzer = __accessanalyzer
+    import pulumi_aws.account as __account
+    account = __account
     import pulumi_aws.acm as __acm
     acm = __acm
     import pulumi_aws.acmpca as __acmpca
@@ -320,6 +322,7 @@ if typing.TYPE_CHECKING:
     xray = __xray
 else:
     accessanalyzer = _utilities.lazy_import('pulumi_aws.accessanalyzer')
+    account = _utilities.lazy_import('pulumi_aws.account')
     acm = _utilities.lazy_import('pulumi_aws.acm')
     acmpca = _utilities.lazy_import('pulumi_aws.acmpca')
     alb = _utilities.lazy_import('pulumi_aws.alb')
@@ -474,6 +477,14 @@ _utilities.register(
   "fqn": "pulumi_aws.accessanalyzer",
   "classes": {
    "aws:accessanalyzer/analyzer:Analyzer": "Analyzer"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "account/alternativeContact",
+  "fqn": "pulumi_aws.account",
+  "classes": {
+   "aws:account/alternativeContact:AlternativeContact": "AlternativeContact"
   }
  },
  {
@@ -1142,6 +1153,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "appstream/fleetStackAssociation",
+  "fqn": "pulumi_aws.appstream",
+  "classes": {
+   "aws:appstream/fleetStackAssociation:FleetStackAssociation": "FleetStackAssociation"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "appstream/imageBuilder",
   "fqn": "pulumi_aws.appstream",
   "classes": {
@@ -1154,6 +1173,22 @@ _utilities.register(
   "fqn": "pulumi_aws.appstream",
   "classes": {
    "aws:appstream/stack:Stack": "Stack"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "appstream/user",
+  "fqn": "pulumi_aws.appstream",
+  "classes": {
+   "aws:appstream/user:User": "User"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "appstream/userStackAssociation",
+  "fqn": "pulumi_aws.appstream",
+  "classes": {
+   "aws:appstream/userStackAssociation:UserStackAssociation": "UserStackAssociation"
   }
  },
  {
@@ -3802,6 +3837,22 @@ _utilities.register(
   "fqn": "pulumi_aws.fsx",
   "classes": {
    "aws:fsx/ontapFileSystem:OntapFileSystem": "OntapFileSystem"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "fsx/ontapStorageVirtualMachine",
+  "fqn": "pulumi_aws.fsx",
+  "classes": {
+   "aws:fsx/ontapStorageVirtualMachine:OntapStorageVirtualMachine": "OntapStorageVirtualMachine"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "fsx/ontapVolume",
+  "fqn": "pulumi_aws.fsx",
+  "classes": {
+   "aws:fsx/ontapVolume:OntapVolume": "OntapVolume"
   }
  },
  {

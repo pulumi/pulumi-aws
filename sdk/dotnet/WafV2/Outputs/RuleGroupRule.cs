@@ -26,6 +26,10 @@ namespace Pulumi.Aws.WafV2.Outputs
         /// </summary>
         public readonly int Priority;
         /// <summary>
+        /// Labels to apply to web requests that match the rule match statement. See Rule Label below for details.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.RuleGroupRuleRuleLabel> RuleLabels;
+        /// <summary>
         /// The AWS WAF processing statement for the rule, for example `byte_match_statement` or `geo_match_statement`. See Statement below for details.
         /// </summary>
         public readonly Outputs.RuleGroupRuleStatement Statement;
@@ -42,6 +46,8 @@ namespace Pulumi.Aws.WafV2.Outputs
 
             int priority,
 
+            ImmutableArray<Outputs.RuleGroupRuleRuleLabel> ruleLabels,
+
             Outputs.RuleGroupRuleStatement statement,
 
             Outputs.RuleGroupRuleVisibilityConfig visibilityConfig)
@@ -49,6 +55,7 @@ namespace Pulumi.Aws.WafV2.Outputs
             Action = action;
             Name = name;
             Priority = priority;
+            RuleLabels = ruleLabels;
             Statement = statement;
             VisibilityConfig = visibilityConfig;
         }

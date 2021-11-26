@@ -15,6 +15,9 @@ namespace Pulumi.Aws.Inputs
         [Input("accessanalyzer")]
         public Input<string>? Accessanalyzer { get; set; }
 
+        [Input("account")]
+        public Input<string>? Account { get; set; }
+
         [Input("acm")]
         public Input<string>? Acm { get; set; }
 

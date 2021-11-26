@@ -14,15 +14,15 @@ namespace Pulumi.Aws.Cfg.Outputs
     public sealed class RemediationConfigurationParameter
     {
         /// <summary>
-        /// The name of the attribute.
+        /// Name of the attribute.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The value is dynamic and changes at run-time.
+        /// Value is dynamic and changes at run-time.
         /// </summary>
         public readonly string? ResourceValue;
         /// <summary>
-        /// The value is static and does not change at run-time.
+        /// Value is static and does not change at run-time.
         /// </summary>
         public readonly string? StaticValue;
 

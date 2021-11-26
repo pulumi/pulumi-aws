@@ -62,6 +62,7 @@ export interface GetLoadBalancerResult {
     readonly connectionDraining: boolean;
     readonly connectionDrainingTimeout: number;
     readonly crossZoneLoadBalancing: boolean;
+    readonly desyncMitigationMode: string;
     readonly dnsName: string;
     readonly healthCheck: outputs.elb.GetLoadBalancerHealthCheck;
     /**

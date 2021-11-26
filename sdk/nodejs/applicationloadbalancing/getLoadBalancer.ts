@@ -73,10 +73,12 @@ export interface GetLoadBalancerResult {
     readonly arn: string;
     readonly arnSuffix: string;
     readonly customerOwnedIpv4Pool: string;
+    readonly desyncMitigationMode: string;
     readonly dnsName: string;
     readonly dropInvalidHeaderFields: boolean;
     readonly enableDeletionProtection: boolean;
     readonly enableHttp2: boolean;
+    readonly enableWafFailOpen: boolean;
     /**
      * The provider-assigned unique ID for this managed resource.
      */

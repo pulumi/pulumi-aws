@@ -23,7 +23,7 @@ class GetLoadBalancerResult:
     """
     A collection of values returned by getLoadBalancer.
     """
-    def __init__(__self__, access_logs=None, arn=None, arn_suffix=None, customer_owned_ipv4_pool=None, dns_name=None, drop_invalid_header_fields=None, enable_deletion_protection=None, enable_http2=None, id=None, idle_timeout=None, internal=None, ip_address_type=None, load_balancer_type=None, name=None, security_groups=None, subnet_mappings=None, subnets=None, tags=None, vpc_id=None, zone_id=None):
+    def __init__(__self__, access_logs=None, arn=None, arn_suffix=None, customer_owned_ipv4_pool=None, desync_mitigation_mode=None, dns_name=None, drop_invalid_header_fields=None, enable_deletion_protection=None, enable_http2=None, enable_waf_fail_open=None, id=None, idle_timeout=None, internal=None, ip_address_type=None, load_balancer_type=None, name=None, security_groups=None, subnet_mappings=None, subnets=None, tags=None, vpc_id=None, zone_id=None):
         if access_logs and not isinstance(access_logs, dict):
             raise TypeError("Expected argument 'access_logs' to be a dict")
         pulumi.set(__self__, "access_logs", access_logs)
@@ -36,6 +36,9 @@ class GetLoadBalancerResult:
         if customer_owned_ipv4_pool and not isinstance(customer_owned_ipv4_pool, str):
             raise TypeError("Expected argument 'customer_owned_ipv4_pool' to be a str")
         pulumi.set(__self__, "customer_owned_ipv4_pool", customer_owned_ipv4_pool)
+        if desync_mitigation_mode and not isinstance(desync_mitigation_mode, str):
+            raise TypeError("Expected argument 'desync_mitigation_mode' to be a str")
+        pulumi.set(__self__, "desync_mitigation_mode", desync_mitigation_mode)
         if dns_name and not isinstance(dns_name, str):
             raise TypeError("Expected argument 'dns_name' to be a str")
         pulumi.set(__self__, "dns_name", dns_name)
@@ -48,6 +51,9 @@ class GetLoadBalancerResult:
         if enable_http2 and not isinstance(enable_http2, bool):
             raise TypeError("Expected argument 'enable_http2' to be a bool")
         pulumi.set(__self__, "enable_http2", enable_http2)
+        if enable_waf_fail_open and not isinstance(enable_waf_fail_open, bool):
+            raise TypeError("Expected argument 'enable_waf_fail_open' to be a bool")
+        pulumi.set(__self__, "enable_waf_fail_open", enable_waf_fail_open)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -106,6 +112,11 @@ class GetLoadBalancerResult:
         return pulumi.get(self, "customer_owned_ipv4_pool")
 
     @property
+    @pulumi.getter(name="desyncMitigationMode")
+    def desync_mitigation_mode(self) -> str:
+        return pulumi.get(self, "desync_mitigation_mode")
+
+    @property
     @pulumi.getter(name="dnsName")
     def dns_name(self) -> str:
         return pulumi.get(self, "dns_name")
@@ -124,6 +135,11 @@ class GetLoadBalancerResult:
     @pulumi.getter(name="enableHttp2")
     def enable_http2(self) -> bool:
         return pulumi.get(self, "enable_http2")
+
+    @property
+    @pulumi.getter(name="enableWafFailOpen")
+    def enable_waf_fail_open(self) -> bool:
+        return pulumi.get(self, "enable_waf_fail_open")
 
     @property
     @pulumi.getter
@@ -199,10 +215,12 @@ class AwaitableGetLoadBalancerResult(GetLoadBalancerResult):
             arn=self.arn,
             arn_suffix=self.arn_suffix,
             customer_owned_ipv4_pool=self.customer_owned_ipv4_pool,
+            desync_mitigation_mode=self.desync_mitigation_mode,
             dns_name=self.dns_name,
             drop_invalid_header_fields=self.drop_invalid_header_fields,
             enable_deletion_protection=self.enable_deletion_protection,
             enable_http2=self.enable_http2,
+            enable_waf_fail_open=self.enable_waf_fail_open,
             id=self.id,
             idle_timeout=self.idle_timeout,
             internal=self.internal,
@@ -268,10 +286,12 @@ def get_load_balancer(arn: Optional[str] = None,
         arn=__ret__.arn,
         arn_suffix=__ret__.arn_suffix,
         customer_owned_ipv4_pool=__ret__.customer_owned_ipv4_pool,
+        desync_mitigation_mode=__ret__.desync_mitigation_mode,
         dns_name=__ret__.dns_name,
         drop_invalid_header_fields=__ret__.drop_invalid_header_fields,
         enable_deletion_protection=__ret__.enable_deletion_protection,
         enable_http2=__ret__.enable_http2,
+        enable_waf_fail_open=__ret__.enable_waf_fail_open,
         id=__ret__.id,
         idle_timeout=__ret__.idle_timeout,
         internal=__ret__.internal,

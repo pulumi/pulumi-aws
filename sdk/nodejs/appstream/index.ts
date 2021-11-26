@@ -7,14 +7,20 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./directoryConfig";
 export * from "./fleet";
+export * from "./fleetStackAssociation";
 export * from "./imageBuilder";
 export * from "./stack";
+export * from "./user";
+export * from "./userStackAssociation";
 
 // Import resources to register:
 import { DirectoryConfig } from "./directoryConfig";
 import { Fleet } from "./fleet";
+import { FleetStackAssociation } from "./fleetStackAssociation";
 import { ImageBuilder } from "./imageBuilder";
 import { Stack } from "./stack";
+import { User } from "./user";
+import { UserStackAssociation } from "./userStackAssociation";
 
 const _module = {
     version: utilities.getVersion(),
@@ -24,10 +30,16 @@ const _module = {
                 return new DirectoryConfig(name, <any>undefined, { urn })
             case "aws:appstream/fleet:Fleet":
                 return new Fleet(name, <any>undefined, { urn })
+            case "aws:appstream/fleetStackAssociation:FleetStackAssociation":
+                return new FleetStackAssociation(name, <any>undefined, { urn })
             case "aws:appstream/imageBuilder:ImageBuilder":
                 return new ImageBuilder(name, <any>undefined, { urn })
             case "aws:appstream/stack:Stack":
                 return new Stack(name, <any>undefined, { urn })
+            case "aws:appstream/user:User":
+                return new User(name, <any>undefined, { urn })
+            case "aws:appstream/userStackAssociation:UserStackAssociation":
+                return new UserStackAssociation(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -35,5 +47,8 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("aws", "appstream/directoryConfig", _module)
 pulumi.runtime.registerResourceModule("aws", "appstream/fleet", _module)
+pulumi.runtime.registerResourceModule("aws", "appstream/fleetStackAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "appstream/imageBuilder", _module)
 pulumi.runtime.registerResourceModule("aws", "appstream/stack", _module)
+pulumi.runtime.registerResourceModule("aws", "appstream/user", _module)
+pulumi.runtime.registerResourceModule("aws", "appstream/userStackAssociation", _module)

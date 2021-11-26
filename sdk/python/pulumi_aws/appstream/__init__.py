@@ -7,7 +7,10 @@ import typing
 # Export this package's modules as members:
 from .directory_config import *
 from .fleet import *
+from .fleet_stack_association import *
 from .image_builder import *
 from .stack import *
+from .user import *
+from .user_stack_association import *
 from ._inputs import *
 from . import outputs

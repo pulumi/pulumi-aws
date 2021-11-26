@@ -21,7 +21,7 @@ class GetLoadBalancerResult:
     """
     A collection of values returned by getLoadBalancer.
     """
-    def __init__(__self__, access_logs=None, arn=None, availability_zones=None, connection_draining=None, connection_draining_timeout=None, cross_zone_load_balancing=None, dns_name=None, health_check=None, id=None, idle_timeout=None, instances=None, internal=None, listeners=None, name=None, security_groups=None, source_security_group=None, source_security_group_id=None, subnets=None, tags=None, zone_id=None):
+    def __init__(__self__, access_logs=None, arn=None, availability_zones=None, connection_draining=None, connection_draining_timeout=None, cross_zone_load_balancing=None, desync_mitigation_mode=None, dns_name=None, health_check=None, id=None, idle_timeout=None, instances=None, internal=None, listeners=None, name=None, security_groups=None, source_security_group=None, source_security_group_id=None, subnets=None, tags=None, zone_id=None):
         if access_logs and not isinstance(access_logs, dict):
             raise TypeError("Expected argument 'access_logs' to be a dict")
         pulumi.set(__self__, "access_logs", access_logs)
@@ -40,6 +40,9 @@ class GetLoadBalancerResult:
         if cross_zone_load_balancing and not isinstance(cross_zone_load_balancing, bool):
             raise TypeError("Expected argument 'cross_zone_load_balancing' to be a bool")
         pulumi.set(__self__, "cross_zone_load_balancing", cross_zone_load_balancing)
+        if desync_mitigation_mode and not isinstance(desync_mitigation_mode, str):
+            raise TypeError("Expected argument 'desync_mitigation_mode' to be a str")
+        pulumi.set(__self__, "desync_mitigation_mode", desync_mitigation_mode)
         if dns_name and not isinstance(dns_name, str):
             raise TypeError("Expected argument 'dns_name' to be a str")
         pulumi.set(__self__, "dns_name", dns_name)
@@ -112,6 +115,11 @@ class GetLoadBalancerResult:
     @pulumi.getter(name="crossZoneLoadBalancing")
     def cross_zone_load_balancing(self) -> bool:
         return pulumi.get(self, "cross_zone_load_balancing")
+
+    @property
+    @pulumi.getter(name="desyncMitigationMode")
+    def desync_mitigation_mode(self) -> str:
+        return pulumi.get(self, "desync_mitigation_mode")
 
     @property
     @pulumi.getter(name="dnsName")
@@ -199,6 +207,7 @@ class AwaitableGetLoadBalancerResult(GetLoadBalancerResult):
             connection_draining=self.connection_draining,
             connection_draining_timeout=self.connection_draining_timeout,
             cross_zone_load_balancing=self.cross_zone_load_balancing,
+            desync_mitigation_mode=self.desync_mitigation_mode,
             dns_name=self.dns_name,
             health_check=self.health_check,
             id=self.id,
@@ -259,6 +268,7 @@ def get_load_balancer(name: Optional[str] = None,
         connection_draining=__ret__.connection_draining,
         connection_draining_timeout=__ret__.connection_draining_timeout,
         cross_zone_load_balancing=__ret__.cross_zone_load_balancing,
+        desync_mitigation_mode=__ret__.desync_mitigation_mode,
         dns_name=__ret__.dns_name,
         health_check=__ret__.health_check,
         id=__ret__.id,

@@ -27,6 +27,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &LustreFileSystem{}
 	case "aws:fsx/ontapFileSystem:OntapFileSystem":
 		r = &OntapFileSystem{}
+	case "aws:fsx/ontapStorageVirtualMachine:OntapStorageVirtualMachine":
+		r = &OntapStorageVirtualMachine{}
+	case "aws:fsx/ontapVolume:OntapVolume":
+		r = &OntapVolume{}
 	case "aws:fsx/windowsFileSystem:WindowsFileSystem":
 		r = &WindowsFileSystem{}
 	default:
@@ -55,6 +59,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"fsx/ontapFileSystem",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"fsx/ontapStorageVirtualMachine",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"fsx/ontapVolume",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

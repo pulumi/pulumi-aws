@@ -14,6 +14,7 @@ import (
 // Provides a [Data Lifecycle Manager (DLM) lifecycle policy](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-lifecycle.html) for managing snapshots.
 //
 // ## Example Usage
+// ### Basic
 //
 // ```go
 // package main
@@ -80,10 +81,83 @@ import (
 // 	})
 // }
 // ```
+// ### Example Cross-Region Snapshot Copy Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/dlm"
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/kms"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		dlmCrossRegionCopyCmk, err := kms.NewKey(ctx, "dlmCrossRegionCopyCmk", &kms.KeyArgs{
+// 			Description: pulumi.String("Example Alternate Region KMS Key"),
+// 			Policy:      pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "{\n", "  \"Version\": \"2012-10-17\",\n", "  \"Id\": \"dlm-cross-region-copy-cmk\",\n", "  \"Statement\": [\n", "    {\n", "      \"Sid\": \"Enable IAM User Permissions\",\n", "      \"Effect\": \"Allow\",\n", "      \"Principal\": {\n", "        \"AWS\": \"*\"\n", "      },\n", "      \"Action\": \"kms:*\",\n", "      \"Resource\": \"*\"\n", "    }\n", "  ]\n", "}\n")),
+// 		}, pulumi.Provider(aws.Alternate))
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = dlm.NewLifecyclePolicy(ctx, "example", &dlm.LifecyclePolicyArgs{
+// 			Description:      pulumi.String("example DLM lifecycle policy"),
+// 			ExecutionRoleArn: pulumi.Any(aws_iam_role.Dlm_lifecycle_role.Arn),
+// 			State:            pulumi.String("ENABLED"),
+// 			PolicyDetails: &dlm.LifecyclePolicyPolicyDetailsArgs{
+// 				ResourceTypes: pulumi.StringArray{
+// 					pulumi.String("VOLUME"),
+// 				},
+// 				Schedules: dlm.LifecyclePolicyPolicyDetailsScheduleArray{
+// 					&dlm.LifecyclePolicyPolicyDetailsScheduleArgs{
+// 						Name: pulumi.String("2 weeks of daily snapshots"),
+// 						CreateRule: &dlm.LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs{
+// 							Interval:     pulumi.Int(24),
+// 							IntervalUnit: pulumi.String("HOURS"),
+// 							Times: pulumi.String{
+// 								"23:45",
+// 							},
+// 						},
+// 						RetainRule: &dlm.LifecyclePolicyPolicyDetailsScheduleRetainRuleArgs{
+// 							Count: pulumi.Int(14),
+// 						},
+// 						TagsToAdd: pulumi.StringMap{
+// 							"SnapshotCreator": pulumi.String("DLM"),
+// 						},
+// 						CopyTags: pulumi.Bool(false),
+// 						CrossRegionCopyRules: dlm.LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArray{
+// 							&dlm.LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs{
+// 								Target:    pulumi.String("us-west-2"),
+// 								Encrypted: pulumi.Bool(true),
+// 								CmkArn:    dlmCrossRegionCopyCmk.Arn,
+// 								CopyTags:  pulumi.Bool(true),
+// 								RetainRule: &dlm.LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleArgs{
+// 									Interval:     pulumi.Int(30),
+// 									IntervalUnit: pulumi.String("DAYS"),
+// 								},
+// 							},
+// 						},
+// 					},
+// 				},
+// 				TargetTags: pulumi.StringMap{
+// 					"Snapshot": pulumi.String("true"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 //
 // ## Import
 //
-// DLM lifecyle policies can be imported by their policy ID
+// DLM lifecycle policies can be imported by their policy ID
 //
 // ```sh
 //  $ pulumi import aws:dlm/lifecyclePolicy:LifecyclePolicy example policy-abcdef12345678901

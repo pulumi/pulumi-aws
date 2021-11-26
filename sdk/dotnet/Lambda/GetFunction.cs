@@ -172,6 +172,10 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// The URI of the container image.
+        /// </summary>
+        public readonly string ImageUri;
+        /// <summary>
         /// The ARN to be used for invoking Lambda Function from API Gateway.
         /// </summary>
         public readonly string InvokeArn;
@@ -264,6 +268,8 @@ namespace Pulumi.Aws.Lambda
 
             string id,
 
+            string imageUri,
+
             string invokeArn,
 
             string kmsKeyArn,
@@ -312,6 +318,7 @@ namespace Pulumi.Aws.Lambda
             FunctionName = functionName;
             Handler = handler;
             Id = id;
+            ImageUri = imageUri;
             InvokeArn = invokeArn;
             KmsKeyArn = kmsKeyArn;
             LastModified = lastModified;

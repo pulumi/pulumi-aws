@@ -24,6 +24,12 @@ namespace Pulumi.Aws.Ssm.Inputs
         [Input("s3KeyPrefix")]
         public Input<string>? S3KeyPrefix { get; set; }
 
+        /// <summary>
+        /// The S3 bucket region.
+        /// </summary>
+        [Input("s3Region")]
+        public Input<string>? S3Region { get; set; }
+
         public AssociationOutputLocationGetArgs()
         {
         }

@@ -25,6 +25,12 @@ namespace Pulumi.Aws.Athena.Inputs
         public Input<bool>? EnforceWorkgroupConfiguration { get; set; }
 
         /// <summary>
+        /// Configuration block for the Athena Engine Versioning. For more information, see [Athena Engine Versioning](https://docs.aws.amazon.com/athena/latest/ug/engine-versions.html). Documented below.
+        /// </summary>
+        [Input("engineVersion")]
+        public Input<Inputs.WorkgroupConfigurationEngineVersionGetArgs>? EngineVersion { get; set; }
+
+        /// <summary>
         /// Boolean whether Amazon CloudWatch metrics are enabled for the workgroup. Defaults to `true`.
         /// </summary>
         [Input("publishCloudwatchMetricsEnabled")]

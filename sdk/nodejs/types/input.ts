@@ -169,6 +169,7 @@ export interface ProviderDefaultTags {
 
 export interface ProviderEndpoint {
     accessanalyzer?: pulumi.Input<string>;
+    account?: pulumi.Input<string>;
     acm?: pulumi.Input<string>;
     acmpca?: pulumi.Input<string>;
     alexaforbusiness?: pulumi.Input<string>;
@@ -4318,7 +4319,7 @@ export namespace apprunner {
         /**
          * The Amazon Resource Name (ARN) of an IAM role that provides permissions to your App Runner service. These are permissions that your code needs when it calls any AWS APIs.
          */
-        instanceRoleArn: pulumi.Input<string>;
+        instanceRoleArn?: pulumi.Input<string>;
         /**
          * The amount of memory, in MB or GB, reserved for each instance of your App Runner service. Defaults to `2048`. Valid values: `2048|3072|4096|(2|3|4) GB`.
          */
@@ -4754,6 +4755,10 @@ export namespace athena {
          */
         enforceWorkgroupConfiguration?: pulumi.Input<boolean>;
         /**
+         * Configuration block for the Athena Engine Versioning. For more information, see [Athena Engine Versioning](https://docs.aws.amazon.com/athena/latest/ug/engine-versions.html). Documented below.
+         */
+        engineVersion?: pulumi.Input<inputs.athena.WorkgroupConfigurationEngineVersion>;
+        /**
          * Boolean whether Amazon CloudWatch metrics are enabled for the workgroup. Defaults to `true`.
          */
         publishCloudwatchMetricsEnabled?: pulumi.Input<boolean>;
@@ -4765,6 +4770,17 @@ export namespace athena {
          * Configuration block with result settings. Documented below.
          */
         resultConfiguration?: pulumi.Input<inputs.athena.WorkgroupConfigurationResultConfiguration>;
+    }
+
+    export interface WorkgroupConfigurationEngineVersion {
+        /**
+         * The engine version on which the query runs. If `selectedEngineVersion` is set to `AUTO`, the effective engine version is chosen by Athena.
+         */
+        effectiveEngineVersion?: pulumi.Input<string>;
+        /**
+         * The requested engine version. Defaults to `AUTO`.
+         */
+        selectedEngineVersion?: pulumi.Input<string>;
     }
 
     export interface WorkgroupConfigurationResultConfiguration {
@@ -5833,17 +5849,35 @@ export namespace cfg {
         resourceTypes?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
+    export interface RemediationConfigurationExecutionControls {
+        /**
+         * Configuration block for SSM controls. See below.
+         */
+        ssmControls?: pulumi.Input<inputs.cfg.RemediationConfigurationExecutionControlsSsmControls>;
+    }
+
+    export interface RemediationConfigurationExecutionControlsSsmControls {
+        /**
+         * Maximum percentage of remediation actions allowed to run in parallel on the non-compliant resources for that specific rule. The default value is 10%.
+         */
+        concurrentExecutionRatePercentage?: pulumi.Input<number>;
+        /**
+         * Percentage of errors that are allowed before SSM stops running automations on non-compliant resources for that specific rule. The default is 50%.
+         */
+        errorPercentage?: pulumi.Input<number>;
+    }
+
     export interface RemediationConfigurationParameter {
         /**
-         * The name of the attribute.
+         * Name of the attribute.
          */
         name: pulumi.Input<string>;
         /**
-         * The value is dynamic and changes at run-time.
+         * Value is dynamic and changes at run-time.
          */
         resourceValue?: pulumi.Input<string>;
         /**
-         * The value is static and does not change at run-time.
+         * Value is static and does not change at run-time.
          */
         staticValue?: pulumi.Input<string>;
     }
@@ -7055,7 +7089,11 @@ export namespace cloudtrail {
          */
         dataResources?: pulumi.Input<pulumi.Input<inputs.cloudtrail.TrailEventSelectorDataResource>[]>;
         /**
-         * Whether to include management events for your trail.
+         * A set of event sources to exclude. Valid values include: `kms.amazonaws.com` and `rdsdata.amazonaws.com`. `includeManagementEvents` must be set to`true` to allow this.
+         */
+        excludeManagementEventSources?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Whether to include management events for your trail. Defaults to `true`.
          */
         includeManagementEvents?: pulumi.Input<boolean>;
         /**
@@ -9138,7 +9176,7 @@ export namespace dlm {
 
     export interface LifecyclePolicyPolicyDetailsSchedule {
         /**
-         * Copy all user-defined tags on a source volume to snapshots of the volume created by this policy.
+         * Whether to copy all user-defined tags from the source snapshot to the cross-region snapshot copy.
          */
         copyTags?: pulumi.Input<boolean>;
         /**
@@ -9146,11 +9184,15 @@ export namespace dlm {
          */
         createRule: pulumi.Input<inputs.dlm.LifecyclePolicyPolicyDetailsScheduleCreateRule>;
         /**
+         * See the `crossRegionCopyRule` block. Max of 3 per schedule.
+         */
+        crossRegionCopyRules?: pulumi.Input<pulumi.Input<inputs.dlm.LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule>[]>;
+        /**
          * A name for the schedule.
          */
         name: pulumi.Input<string>;
         /**
-         * See the `retainRule` block. Max of 1 per schedule.
+         * The retention rule that indicates how long snapshot copies are to be retained in the destination Region. See the `retainRule` block. Max of 1 per schedule.
          */
         retainRule: pulumi.Input<inputs.dlm.LifecyclePolicyPolicyDetailsScheduleRetainRule>;
         /**
@@ -9161,17 +9203,66 @@ export namespace dlm {
 
     export interface LifecyclePolicyPolicyDetailsScheduleCreateRule {
         /**
-         * How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+         * The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
          */
         interval: pulumi.Input<number>;
         /**
-         * The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+         * The unit of time for time-based retention. Valid values: `DAYS`, `WEEKS`, `MONTHS`, or `YEARS`.
          */
         intervalUnit?: pulumi.Input<string>;
         /**
          * A list of times in 24 hour clock format that sets when the lifecycle policy should be evaluated. Max of 1.
          */
         times?: pulumi.Input<string>;
+    }
+
+    export interface LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule {
+        /**
+         * The Amazon Resource Name (ARN) of the AWS KMS customer master key (CMK) to use for EBS encryption. If this argument is not specified, the default KMS key for the account is used.
+         */
+        cmkArn?: pulumi.Input<string>;
+        /**
+         * Whether to copy all user-defined tags from the source snapshot to the cross-region snapshot copy.
+         */
+        copyTags?: pulumi.Input<boolean>;
+        /**
+         * The AMI deprecation rule for cross-Region AMI copies created by the rule. See the `deprecateRule` block.
+         */
+        deprecateRule?: pulumi.Input<inputs.dlm.LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRule>;
+        /**
+         * To encrypt a copy of an unencrypted snapshot if encryption by default is not enabled, enable encryption using this parameter. Copies of encrypted snapshots are encrypted, even if this parameter is false or if encryption by default is not enabled.
+         */
+        encrypted: pulumi.Input<boolean>;
+        /**
+         * The retention rule that indicates how long snapshot copies are to be retained in the destination Region. See the `retainRule` block. Max of 1 per schedule.
+         */
+        retainRule?: pulumi.Input<inputs.dlm.LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRule>;
+        /**
+         * The target Region or the Amazon Resource Name (ARN) of the target Outpost for the snapshot copies.
+         */
+        target: pulumi.Input<string>;
+    }
+
+    export interface LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRule {
+        /**
+         * The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
+         */
+        interval: pulumi.Input<number>;
+        /**
+         * The unit of time for time-based retention. Valid values: `DAYS`, `WEEKS`, `MONTHS`, or `YEARS`.
+         */
+        intervalUnit: pulumi.Input<string>;
+    }
+
+    export interface LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRule {
+        /**
+         * The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
+         */
+        interval: pulumi.Input<number>;
+        /**
+         * The unit of time for time-based retention. Valid values: `DAYS`, `WEEKS`, `MONTHS`, or `YEARS`.
+         */
+        intervalUnit: pulumi.Input<string>;
     }
 
     export interface LifecyclePolicyPolicyDetailsScheduleRetainRule {
@@ -10183,26 +10274,13 @@ export namespace ec2 {
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
-    export interface GetAmiIdsFilterArgs {
-        name: pulumi.Input<string>;
-        values: pulumi.Input<pulumi.Input<string>[]>;
-    }
-
     export interface GetAmiIdsFilter {
         name: string;
         values: string[];
     }
 
-    export interface GetCoipPoolFilterArgs {
-        /**
-         * The name of the field to filter by, as defined by
-         * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCoipPools.html).
-         */
+    export interface GetAmiIdsFilterArgs {
         name: pulumi.Input<string>;
-        /**
-         * Set of values that are accepted for the given field.
-         * A COIP Pool will be selected if any one of the given values matches.
-         */
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
@@ -10219,7 +10297,7 @@ export namespace ec2 {
         values: string[];
     }
 
-    export interface GetCoipPoolsFilterArgs {
+    export interface GetCoipPoolFilterArgs {
         /**
          * The name of the field to filter by, as defined by
          * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCoipPools.html).
@@ -10243,6 +10321,19 @@ export namespace ec2 {
          * A COIP Pool will be selected if any one of the given values matches.
          */
         values: string[];
+    }
+
+    export interface GetCoipPoolsFilterArgs {
+        /**
+         * The name of the field to filter by, as defined by
+         * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeCoipPools.html).
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Set of values that are accepted for the given field.
+         * A COIP Pool will be selected if any one of the given values matches.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface GetCustomerGatewayFilter {
@@ -10287,24 +10378,14 @@ export namespace ec2 {
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
-    export interface GetInstanceFilter {
-        name: string;
-        values: string[];
-    }
-
     export interface GetInstanceFilterArgs {
         name: pulumi.Input<string>;
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
-    export interface GetInstanceTypeFpga {
-        count?: number;
-        manufacturer?: string;
-        /**
-         * Size of the instance memory, in MiB.
-         */
-        memorySize?: number;
-        name?: string;
+    export interface GetInstanceFilter {
+        name: string;
+        values: string[];
     }
 
     export interface GetInstanceTypeFpgaArgs {
@@ -10317,7 +10398,7 @@ export namespace ec2 {
         name?: pulumi.Input<string>;
     }
 
-    export interface GetInstanceTypeGpus {
+    export interface GetInstanceTypeFpga {
         count?: number;
         manufacturer?: string;
         /**
@@ -10337,10 +10418,14 @@ export namespace ec2 {
         name?: pulumi.Input<string>;
     }
 
-    export interface GetInstanceTypeInferenceAcceleratorArgs {
-        count?: pulumi.Input<number>;
-        manufacturer?: pulumi.Input<string>;
-        name?: pulumi.Input<string>;
+    export interface GetInstanceTypeGpus {
+        count?: number;
+        manufacturer?: string;
+        /**
+         * Size of the instance memory, in MiB.
+         */
+        memorySize?: number;
+        name?: string;
     }
 
     export interface GetInstanceTypeInferenceAccelerator {
@@ -10349,16 +10434,22 @@ export namespace ec2 {
         name?: string;
     }
 
-    export interface GetInstanceTypeInstanceDisk {
-        count?: number;
-        size?: number;
-        type?: string;
+    export interface GetInstanceTypeInferenceAcceleratorArgs {
+        count?: pulumi.Input<number>;
+        manufacturer?: pulumi.Input<string>;
+        name?: pulumi.Input<string>;
     }
 
     export interface GetInstanceTypeInstanceDiskArgs {
         count?: pulumi.Input<number>;
         size?: pulumi.Input<number>;
         type?: pulumi.Input<string>;
+    }
+
+    export interface GetInstanceTypeInstanceDisk {
+        count?: number;
+        size?: number;
+        type?: string;
     }
 
     export interface GetInstanceTypeOfferingFilter {
@@ -10405,14 +10496,36 @@ export namespace ec2 {
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
-    export interface GetInstancesFilter {
+    export interface GetInstanceTypesFilterArgs {
+        /**
+         * Name of the filter.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * List of one or more values for the filter.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface GetInstanceTypesFilter {
+        /**
+         * Name of the filter.
+         */
         name: string;
+        /**
+         * List of one or more values for the filter.
+         */
         values: string[];
     }
 
     export interface GetInstancesFilterArgs {
         name: pulumi.Input<string>;
         values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface GetInstancesFilter {
+        name: string;
+        values: string[];
     }
 
     export interface GetInternetGatewayFilter {
@@ -10463,17 +10576,6 @@ export namespace ec2 {
         values: string[];
     }
 
-    export interface GetLaunchTemplateFilterArgs {
-        /**
-         * The name of the filter field. Valid values can be found in the [EC2 DescribeLaunchTemplates API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html).
-         */
-        name: pulumi.Input<string>;
-        /**
-         * Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
-         */
-        values: pulumi.Input<pulumi.Input<string>[]>;
-    }
-
     export interface GetLaunchTemplateFilter {
         /**
          * The name of the filter field. Valid values can be found in the [EC2 DescribeLaunchTemplates API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html).
@@ -10483,6 +10585,17 @@ export namespace ec2 {
          * Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
          */
         values: string[];
+    }
+
+    export interface GetLaunchTemplateFilterArgs {
+        /**
+         * The name of the filter field. Valid values can be found in the [EC2 DescribeLaunchTemplates API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLaunchTemplates.html).
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface GetLocalGatewayFilter {
@@ -10537,19 +10650,6 @@ export namespace ec2 {
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
-    export interface GetLocalGatewayRouteTablesFilterArgs {
-        /**
-         * The name of the field to filter by, as defined by
-         * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayRouteTables.html).
-         */
-        name: pulumi.Input<string>;
-        /**
-         * Set of values that are accepted for the given field.
-         * A Local Gateway Route Table will be selected if any one of the given values matches.
-         */
-        values: pulumi.Input<pulumi.Input<string>[]>;
-    }
-
     export interface GetLocalGatewayRouteTablesFilter {
         /**
          * The name of the field to filter by, as defined by
@@ -10561,6 +10661,19 @@ export namespace ec2 {
          * A Local Gateway Route Table will be selected if any one of the given values matches.
          */
         values: string[];
+    }
+
+    export interface GetLocalGatewayRouteTablesFilterArgs {
+        /**
+         * The name of the field to filter by, as defined by
+         * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGatewayRouteTables.html).
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Set of values that are accepted for the given field.
+         * A Local Gateway Route Table will be selected if any one of the given values matches.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface GetLocalGatewayVirtualInterfaceFilterArgs {
@@ -10629,19 +10742,6 @@ export namespace ec2 {
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
-    export interface GetLocalGatewaysFilter {
-        /**
-         * The name of the field to filter by, as defined by
-         * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGateways.html).
-         */
-        name: string;
-        /**
-         * Set of values that are accepted for the given field.
-         * A Local Gateway will be selected if any one of the given values matches.
-         */
-        values: string[];
-    }
-
     export interface GetLocalGatewaysFilterArgs {
         /**
          * The name of the field to filter by, as defined by
@@ -10653,6 +10753,19 @@ export namespace ec2 {
          * A Local Gateway will be selected if any one of the given values matches.
          */
         values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface GetLocalGatewaysFilter {
+        /**
+         * The name of the field to filter by, as defined by
+         * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeLocalGateways.html).
+         */
+        name: string;
+        /**
+         * Set of values that are accepted for the given field.
+         * A Local Gateway will be selected if any one of the given values matches.
+         */
+        values: string[];
     }
 
     export interface GetManagedPrefixListFilter {
@@ -10677,19 +10790,6 @@ export namespace ec2 {
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
-    export interface GetNatGatewayFilterArgs {
-        /**
-         * The name of the field to filter by, as defined by
-         * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNatGateways.html).
-         */
-        name: pulumi.Input<string>;
-        /**
-         * Set of values that are accepted for the given field.
-         * An Nat Gateway will be selected if any one of the given values matches.
-         */
-        values: pulumi.Input<pulumi.Input<string>[]>;
-    }
-
     export interface GetNatGatewayFilter {
         /**
          * The name of the field to filter by, as defined by
@@ -10701,6 +10801,19 @@ export namespace ec2 {
          * An Nat Gateway will be selected if any one of the given values matches.
          */
         values: string[];
+    }
+
+    export interface GetNatGatewayFilterArgs {
+        /**
+         * The name of the field to filter by, as defined by
+         * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeNatGateways.html).
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Set of values that are accepted for the given field.
+         * An Nat Gateway will be selected if any one of the given values matches.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface GetNetworkAclsFilter {
@@ -10763,17 +10876,6 @@ export namespace ec2 {
         values: string[];
     }
 
-    export interface GetPrefixListFilterArgs {
-        /**
-         * The name of the filter field. Valid values can be found in the [EC2 DescribePrefixLists API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribePrefixLists.html).
-         */
-        name: pulumi.Input<string>;
-        /**
-         * Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
-         */
-        values: pulumi.Input<pulumi.Input<string>[]>;
-    }
-
     export interface GetPrefixListFilter {
         /**
          * The name of the filter field. Valid values can be found in the [EC2 DescribePrefixLists API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribePrefixLists.html).
@@ -10785,13 +10887,13 @@ export namespace ec2 {
         values: string[];
     }
 
-    export interface GetRouteTableFilterArgs {
+    export interface GetPrefixListFilterArgs {
         /**
-         * Name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeRouteTables.html).
+         * The name of the filter field. Valid values can be found in the [EC2 DescribePrefixLists API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribePrefixLists.html).
          */
         name: pulumi.Input<string>;
         /**
-         * Set of values that are accepted for the given field. A Route Table will be selected if any one of the given values matches.
+         * Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
          */
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
@@ -10805,6 +10907,17 @@ export namespace ec2 {
          * Set of values that are accepted for the given field. A Route Table will be selected if any one of the given values matches.
          */
         values: string[];
+    }
+
+    export interface GetRouteTableFilterArgs {
+        /**
+         * Name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeRouteTables.html).
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Set of values that are accepted for the given field. A Route Table will be selected if any one of the given values matches.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface GetRouteTablesFilter {
@@ -10859,24 +10972,13 @@ export namespace ec2 {
         values: string[];
     }
 
-    export interface GetSecurityGroupsFilter {
-        name: string;
-        values: string[];
-    }
-
     export interface GetSecurityGroupsFilterArgs {
         name: pulumi.Input<string>;
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
-    export interface GetSpotPriceFilter {
-        /**
-         * Name of the filter.
-         */
+    export interface GetSecurityGroupsFilter {
         name: string;
-        /**
-         * List of one or more values for the filter.
-         */
         values: string[];
     }
 
@@ -10891,13 +10993,13 @@ export namespace ec2 {
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
-    export interface GetSubnetFilter {
+    export interface GetSpotPriceFilter {
         /**
-         * The name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
+         * Name of the filter.
          */
         name: string;
         /**
-         * Set of values that are accepted for the given field. A subnet will be selected if any one of the given values matches.
+         * List of one or more values for the filter.
          */
         values: string[];
     }
@@ -10913,18 +11015,15 @@ export namespace ec2 {
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
-    export interface GetSubnetIdsFilterArgs {
+    export interface GetSubnetFilter {
         /**
-         * The name of the field to filter by, as defined by
-         * [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
-         * For example, if matching against tag `Name`, use:
+         * The name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
          */
-        name: pulumi.Input<string>;
+        name: string;
         /**
-         * Set of values that are accepted for the given field.
-         * Subnet IDs will be selected if any one of the given values match.
+         * Set of values that are accepted for the given field. A subnet will be selected if any one of the given values matches.
          */
-        values: pulumi.Input<pulumi.Input<string>[]>;
+        values: string[];
     }
 
     export interface GetSubnetIdsFilter {
@@ -10941,18 +11040,18 @@ export namespace ec2 {
         values: string[];
     }
 
-    export interface GetSubnetsFilter {
+    export interface GetSubnetIdsFilterArgs {
         /**
          * The name of the field to filter by, as defined by
          * [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
          * For example, if matching against tag `Name`, use:
          */
-        name: string;
+        name: pulumi.Input<string>;
         /**
          * Set of values that are accepted for the given field.
          * Subnet IDs will be selected if any one of the given values match.
          */
-        values: string[];
+        values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface GetSubnetsFilterArgs {
@@ -10967,6 +11066,20 @@ export namespace ec2 {
          * Subnet IDs will be selected if any one of the given values match.
          */
         values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface GetSubnetsFilter {
+        /**
+         * The name of the field to filter by, as defined by
+         * [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
+         * For example, if matching against tag `Name`, use:
+         */
+        name: string;
+        /**
+         * Set of values that are accepted for the given field.
+         * Subnet IDs will be selected if any one of the given values match.
+         */
+        values: string[];
     }
 
     export interface GetTransitGatewayRouteTablesFilter {
@@ -10995,17 +11108,6 @@ export namespace ec2 {
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
-    export interface GetVpcDhcpOptionsFilter {
-        /**
-         * The name of the field to filter.
-         */
-        name: string;
-        /**
-         * Set of values for filtering.
-         */
-        values: string[];
-    }
-
     export interface GetVpcDhcpOptionsFilterArgs {
         /**
          * The name of the field to filter.
@@ -11015,6 +11117,17 @@ export namespace ec2 {
          * Set of values for filtering.
          */
         values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface GetVpcDhcpOptionsFilter {
+        /**
+         * The name of the field to filter.
+         */
+        name: string;
+        /**
+         * Set of values for filtering.
+         */
+        values: string[];
     }
 
     export interface GetVpcEndpointFilter {
@@ -11065,19 +11178,6 @@ export namespace ec2 {
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
-    export interface GetVpcFilterArgs {
-        /**
-         * The name of the field to filter by, as defined by
-         * [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcs.html).
-         */
-        name: pulumi.Input<string>;
-        /**
-         * Set of values that are accepted for the given field.
-         * A VPC will be selected if any one of the given values matches.
-         */
-        values: pulumi.Input<pulumi.Input<string>[]>;
-    }
-
     export interface GetVpcFilter {
         /**
          * The name of the field to filter by, as defined by
@@ -11091,17 +11191,17 @@ export namespace ec2 {
         values: string[];
     }
 
-    export interface GetVpcPeeringConnectionFilter {
+    export interface GetVpcFilterArgs {
         /**
          * The name of the field to filter by, as defined by
-         * [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcPeeringConnections.html).
+         * [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcs.html).
          */
-        name: string;
+        name: pulumi.Input<string>;
         /**
          * Set of values that are accepted for the given field.
-         * A VPC Peering Connection will be selected if any one of the given values matches.
+         * A VPC will be selected if any one of the given values matches.
          */
-        values: string[];
+        values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface GetVpcPeeringConnectionFilterArgs {
@@ -11117,17 +11217,17 @@ export namespace ec2 {
         values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
-    export interface GetVpcPeeringConnectionsFilterArgs {
+    export interface GetVpcPeeringConnectionFilter {
         /**
          * The name of the field to filter by, as defined by
          * [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcPeeringConnections.html).
          */
-        name: pulumi.Input<string>;
+        name: string;
         /**
          * Set of values that are accepted for the given field.
          * A VPC Peering Connection will be selected if any one of the given values matches.
          */
-        values: pulumi.Input<pulumi.Input<string>[]>;
+        values: string[];
     }
 
     export interface GetVpcPeeringConnectionsFilter {
@@ -11143,17 +11243,17 @@ export namespace ec2 {
         values: string[];
     }
 
-    export interface GetVpcsFilter {
+    export interface GetVpcPeeringConnectionsFilterArgs {
         /**
          * The name of the field to filter by, as defined by
-         * [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcs.html).
+         * [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcPeeringConnections.html).
          */
-        name: string;
+        name: pulumi.Input<string>;
         /**
          * Set of values that are accepted for the given field.
-         * A VPC will be selected if any one of the given values matches.
+         * A VPC Peering Connection will be selected if any one of the given values matches.
          */
-        values: string[];
+        values: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface GetVpcsFilterArgs {
@@ -11167,6 +11267,19 @@ export namespace ec2 {
          * A VPC will be selected if any one of the given values matches.
          */
         values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface GetVpcsFilter {
+        /**
+         * The name of the field to filter by, as defined by
+         * [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcs.html).
+         */
+        name: string;
+        /**
+         * Set of values that are accepted for the given field.
+         * A VPC will be selected if any one of the given values matches.
+         */
+        values: string[];
     }
 
     export interface GetVpnGatewayFilter {
@@ -12461,6 +12574,7 @@ export namespace ec2 {
         status?: pulumi.Input<string>;
         statusMessage?: pulumi.Input<string>;
     }
+
 }
 
 export namespace ec2clientvpn {
@@ -15384,6 +15498,109 @@ export namespace fsx {
         ipAddresses?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
+    export interface OntapStorageVirtualMachineActiveDirectoryConfiguration {
+        /**
+         * The NetBIOS name of the Active Directory computer object that will be created for your SVM. This is often the same as the SVM name but can be different. It is limited to 15 characters because of standard NetBIOS naming limits.
+         */
+        netbiosName?: pulumi.Input<string>;
+        selfManagedActiveDirectoryConfiguration?: pulumi.Input<inputs.fsx.OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration>;
+    }
+
+    export interface OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration {
+        /**
+         * A list of up to three IP addresses of DNS servers or domain controllers in the self-managed AD directory.
+         */
+        dnsIps: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The fully qualified domain name of the self-managed AD directory. For example, `corp.example.com`.
+         */
+        domainName: pulumi.Input<string>;
+        /**
+         * The name of the domain group whose members are granted administrative privileges for the SVM. The group that you specify must already exist in your domain. Defaults to `Domain Admins`.
+         */
+        fileSystemAdministratorsGroup?: pulumi.Input<string>;
+        organizationalUnitDistinguidshedName?: pulumi.Input<string>;
+        /**
+         * The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
+         */
+        password: pulumi.Input<string>;
+        /**
+         * The user name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
+         */
+        username: pulumi.Input<string>;
+    }
+
+    export interface OntapStorageVirtualMachineEndpoint {
+        /**
+         * An endpoint for accessing data on your storage virtual machine via iSCSI protocol. See Endpoint.
+         */
+        iscses?: pulumi.Input<pulumi.Input<inputs.fsx.OntapStorageVirtualMachineEndpointIscse>[]>;
+        /**
+         * An endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
+         */
+        managements?: pulumi.Input<pulumi.Input<inputs.fsx.OntapStorageVirtualMachineEndpointManagement>[]>;
+        /**
+         * An endpoint for accessing data on your storage virtual machine via NFS protocol. See Endpoint.
+         */
+        nfs?: pulumi.Input<pulumi.Input<inputs.fsx.OntapStorageVirtualMachineEndpointNf>[]>;
+        /**
+         * An endpoint for accessing data on your storage virtual machine via SMB protocol. This is only set if an activeDirectoryConfiguration has been set. See Endpoint.
+         */
+        smbs?: pulumi.Input<pulumi.Input<inputs.fsx.OntapStorageVirtualMachineEndpointSmb>[]>;
+    }
+
+    export interface OntapStorageVirtualMachineEndpointIscse {
+        /**
+         * The Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
+         */
+        dnsName?: pulumi.Input<string>;
+        /**
+         * IP addresses of the storage virtual machine endpoint.
+         */
+        ipAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface OntapStorageVirtualMachineEndpointManagement {
+        /**
+         * The Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
+         */
+        dnsName?: pulumi.Input<string>;
+        /**
+         * IP addresses of the storage virtual machine endpoint.
+         */
+        ipAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface OntapStorageVirtualMachineEndpointNf {
+        /**
+         * The Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
+         */
+        dnsName?: pulumi.Input<string>;
+        /**
+         * IP addresses of the storage virtual machine endpoint.
+         */
+        ipAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface OntapStorageVirtualMachineEndpointSmb {
+        /**
+         * The Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
+         */
+        dnsName?: pulumi.Input<string>;
+        /**
+         * IP addresses of the storage virtual machine endpoint.
+         */
+        ipAddresses?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface OntapVolumeTieringPolicy {
+        coolingPeriod?: pulumi.Input<number>;
+        /**
+         * Specifies the tiering policy for the ONTAP volume for moving data to the capacity pool storage. Valid values are `SNAPSHOT_ONLY`, `AUTO`, `ALL`, `NONE`. Default value is `SNAPSHOT_ONLY`.
+         */
+        name?: pulumi.Input<string>;
+    }
+
     export interface WindowsFileSystemAuditLogConfiguration {
         /**
          * The Amazon Resource Name (ARN) for the destination of the audit logs. The destination can be any Amazon CloudWatch Logs log group ARN or Amazon Kinesis Data Firehose delivery stream ARN. Can be specified when `fileAccessAuditLogLevel` and `fileShareAccessAuditLogLevel` are not set to `DISABLED`. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. The name of the Amazon Kinesis Data Firehouse delivery stream must begin with the `aws-fsx` prefix. If you do not provide a destination in `auditLogDestionation`, Amazon FSx will create and use a log stream in the CloudWatch Logs /aws/fsx/windows log group.
@@ -16781,6 +16998,28 @@ export namespace imagebuilder {
          * Set of AWS Account identifiers to assign.
          */
         userIds?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface GetImageRecipesFilterArgs {
+        /**
+         * The name of the filter field. Valid values can be found in the [Image Builder ListImageRecipes API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListImageRecipes.html).
+         */
+        name: pulumi.Input<string>;
+        /**
+         * Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+         */
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface GetImageRecipesFilter {
+        /**
+         * The name of the filter field. Valid values can be found in the [Image Builder ListImageRecipes API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListImageRecipes.html).
+         */
+        name: string;
+        /**
+         * Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+         */
+        values: string[];
     }
 
     export interface ImageImageTestsConfiguration {
@@ -27334,6 +27573,10 @@ export namespace ssm {
          * The S3 bucket prefix. Results stored in the root if not configured.
          */
         s3KeyPrefix?: pulumi.Input<string>;
+        /**
+         * The S3 bucket region.
+         */
+        s3Region?: pulumi.Input<string>;
     }
 
     export interface AssociationTarget {
@@ -28504,6 +28747,21 @@ export namespace wafv2 {
         regexString: pulumi.Input<string>;
     }
 
+    export interface RuleGroupCustomResponseBody {
+        /**
+         * The payload of the custom response.
+         */
+        content: pulumi.Input<string>;
+        /**
+         * The type of content in the payload that you are defining in the `content` argument. Valid values are `TEXT_PLAIN`, `TEXT_HTML`, or `APPLICATION_JSON`.
+         */
+        contentType: pulumi.Input<string>;
+        /**
+         * A unique key identifying the custom response body. This is referenced by the `customResponseBodyKey` argument in the Custom Response block.
+         */
+        key: pulumi.Input<string>;
+    }
+
     export interface RuleGroupRule {
         /**
          * The action that AWS WAF should take on a web request when it matches the rule's statement. Settings at the `aws.wafv2.WebAcl` level can override the rule action setting. See Action below for details.
@@ -28517,6 +28775,10 @@ export namespace wafv2 {
          * If you define more than one Rule in a WebACL, AWS WAF evaluates each request against the `rules` in order based on the value of `priority`. AWS WAF processes rules with lower priority first.
          */
         priority: pulumi.Input<number>;
+        /**
+         * Labels to apply to web requests that match the rule match statement. See Rule Label below for details.
+         */
+        ruleLabels?: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupRuleRuleLabel>[]>;
         /**
          * The AWS WAF processing statement for the rule, for example `byteMatchStatement` or `geoMatchStatement`. See Statement below for details.
          */
@@ -28558,7 +28820,7 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleActionAllowCustomRequestHandlingInsertHeader {
         /**
-         * The name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
+         * The label string.
          */
         name: pulumi.Input<string>;
         /**
@@ -28576,6 +28838,10 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleActionBlockCustomResponse {
         /**
+         * References the response body that you want AWS WAF to return to the web request client. This must reference a `key` defined in a `customResponseBody` block of this resource.
+         */
+        customResponseBodyKey?: pulumi.Input<string>;
+        /**
          * The HTTP status code to return to the client.
          */
         responseCode: pulumi.Input<number>;
@@ -28587,7 +28853,7 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleActionBlockCustomResponseResponseHeader {
         /**
-         * The name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
+         * The label string.
          */
         name: pulumi.Input<string>;
         /**
@@ -28612,13 +28878,20 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleActionCountCustomRequestHandlingInsertHeader {
         /**
-         * The name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
+         * The label string.
          */
         name: pulumi.Input<string>;
         /**
          * The value of the custom header.
          */
         value: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleRuleLabel {
+        /**
+         * The label string.
+         */
+        name: pulumi.Input<string>;
     }
 
     export interface RuleGroupRuleStatement {
@@ -28638,6 +28911,10 @@ export namespace wafv2 {
          * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
          */
         ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementIpSetReferenceStatement>;
+        /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementLabelMatchStatement>;
         /**
          * A logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
          */
@@ -28689,6 +28966,10 @@ export namespace wafv2 {
          */
         ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementIpSetReferenceStatement>;
         /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementLabelMatchStatement>;
+        /**
          * A logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
          */
         notStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementNotStatement>;
@@ -28734,6 +29015,10 @@ export namespace wafv2 {
          * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
          */
         ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementAndStatementStatementIpSetReferenceStatement>;
+        /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementAndStatementStatementLabelMatchStatement>;
         /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
@@ -28888,6 +29173,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementAndStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: pulumi.Input<string>;
     }
 
     export interface RuleGroupRuleStatementAndStatementStatementAndStatementStatementRegexPatternSetReferenceStatement {
@@ -29368,6 +29664,17 @@ export namespace wafv2 {
         position: pulumi.Input<string>;
     }
 
+    export interface RuleGroupRuleStatementAndStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: pulumi.Input<string>;
+    }
+
     export interface RuleGroupRuleStatementAndStatementStatementNotStatement {
         /**
          * The statement to negate. You can use any statement that can be nested. See Statement above for details.
@@ -29388,6 +29695,10 @@ export namespace wafv2 {
          * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
          */
         ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementNotStatementStatementIpSetReferenceStatement>;
+        /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementNotStatementStatementLabelMatchStatement>;
         /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
@@ -29542,6 +29853,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementNotStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: pulumi.Input<string>;
     }
 
     export interface RuleGroupRuleStatementAndStatementStatementNotStatementStatementRegexPatternSetReferenceStatement {
@@ -29905,6 +30227,10 @@ export namespace wafv2 {
          */
         ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementOrStatementStatementIpSetReferenceStatement>;
         /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementOrStatementStatementLabelMatchStatement>;
+        /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
         regexPatternSetReferenceStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementAndStatementStatementOrStatementStatementRegexPatternSetReferenceStatement>;
@@ -30058,6 +30384,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementOrStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: pulumi.Input<string>;
     }
 
     export interface RuleGroupRuleStatementAndStatementStatementOrStatementStatementRegexPatternSetReferenceStatement {
@@ -30878,6 +31215,17 @@ export namespace wafv2 {
         position: pulumi.Input<string>;
     }
 
+    export interface RuleGroupRuleStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: pulumi.Input<string>;
+    }
+
     export interface RuleGroupRuleStatementNotStatement {
         /**
          * The statement to negate. You can use any statement that can be nested. See Statement above for details.
@@ -30902,6 +31250,10 @@ export namespace wafv2 {
          * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
          */
         ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementIpSetReferenceStatement>;
+        /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementLabelMatchStatement>;
         /**
          * A logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
          */
@@ -30948,6 +31300,10 @@ export namespace wafv2 {
          * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
          */
         ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementAndStatementStatementIpSetReferenceStatement>;
+        /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementAndStatementStatementLabelMatchStatement>;
         /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
@@ -31102,6 +31458,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementAndStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: pulumi.Input<string>;
     }
 
     export interface RuleGroupRuleStatementNotStatementStatementAndStatementStatementRegexPatternSetReferenceStatement {
@@ -31582,6 +31949,17 @@ export namespace wafv2 {
         position: pulumi.Input<string>;
     }
 
+    export interface RuleGroupRuleStatementNotStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: pulumi.Input<string>;
+    }
+
     export interface RuleGroupRuleStatementNotStatementStatementNotStatement {
         /**
          * The statement to negate. You can use any statement that can be nested. See Statement above for details.
@@ -31602,6 +31980,10 @@ export namespace wafv2 {
          * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
          */
         ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementNotStatementStatementIpSetReferenceStatement>;
+        /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementNotStatementStatementLabelMatchStatement>;
         /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
@@ -31756,6 +32138,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementNotStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: pulumi.Input<string>;
     }
 
     export interface RuleGroupRuleStatementNotStatementStatementNotStatementStatementRegexPatternSetReferenceStatement {
@@ -32119,6 +32512,10 @@ export namespace wafv2 {
          */
         ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementOrStatementStatementIpSetReferenceStatement>;
         /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementOrStatementStatementLabelMatchStatement>;
+        /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
         regexPatternSetReferenceStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementNotStatementStatementOrStatementStatementRegexPatternSetReferenceStatement>;
@@ -32272,6 +32669,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementOrStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: pulumi.Input<string>;
     }
 
     export interface RuleGroupRuleStatementNotStatementStatementOrStatementStatementRegexPatternSetReferenceStatement {
@@ -32979,6 +33387,10 @@ export namespace wafv2 {
          */
         ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementIpSetReferenceStatement>;
         /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementLabelMatchStatement>;
+        /**
          * A logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
          */
         notStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementNotStatement>;
@@ -33024,6 +33436,10 @@ export namespace wafv2 {
          * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
          */
         ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementAndStatementStatementIpSetReferenceStatement>;
+        /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementAndStatementStatementLabelMatchStatement>;
         /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
@@ -33178,6 +33594,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementAndStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: pulumi.Input<string>;
     }
 
     export interface RuleGroupRuleStatementOrStatementStatementAndStatementStatementRegexPatternSetReferenceStatement {
@@ -33658,6 +34085,17 @@ export namespace wafv2 {
         position: pulumi.Input<string>;
     }
 
+    export interface RuleGroupRuleStatementOrStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: pulumi.Input<string>;
+    }
+
     export interface RuleGroupRuleStatementOrStatementStatementNotStatement {
         /**
          * The statement to negate. You can use any statement that can be nested. See Statement above for details.
@@ -33678,6 +34116,10 @@ export namespace wafv2 {
          * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
          */
         ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementNotStatementStatementIpSetReferenceStatement>;
+        /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementNotStatementStatementLabelMatchStatement>;
         /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
@@ -33832,6 +34274,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementNotStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: pulumi.Input<string>;
     }
 
     export interface RuleGroupRuleStatementOrStatementStatementNotStatementStatementRegexPatternSetReferenceStatement {
@@ -34195,6 +34648,10 @@ export namespace wafv2 {
          */
         ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementOrStatementStatementIpSetReferenceStatement>;
         /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementOrStatementStatementLabelMatchStatement>;
+        /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
         regexPatternSetReferenceStatement?: pulumi.Input<inputs.wafv2.RuleGroupRuleStatementOrStatementStatementOrStatementStatementRegexPatternSetReferenceStatement>;
@@ -34348,6 +34805,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: pulumi.Input<string>;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementOrStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: pulumi.Input<string>;
     }
 
     export interface RuleGroupRuleStatementOrStatementStatementOrStatementStatementRegexPatternSetReferenceStatement {
@@ -35400,6 +35868,21 @@ export namespace wafv2 {
         sampledRequestsEnabled: pulumi.Input<boolean>;
     }
 
+    export interface WebAclCustomResponseBody {
+        /**
+         * The payload of the custom response.
+         */
+        content: pulumi.Input<string>;
+        /**
+         * The type of content in the payload that you are defining in the `content` argument. Valid values are `TEXT_PLAIN`, `TEXT_HTML`, or `APPLICATION_JSON`.
+         */
+        contentType: pulumi.Input<string>;
+        /**
+         * A unique key identifying the custom response body. This is referenced by the `customResponseBodyKey` argument in the Custom Response block.
+         */
+        key: pulumi.Input<string>;
+    }
+
     export interface WebAclDefaultAction {
         /**
          * Specifies that AWS WAF should allow requests by default. See Allow below for details.
@@ -35427,7 +35910,7 @@ export namespace wafv2 {
 
     export interface WebAclDefaultActionAllowCustomRequestHandlingInsertHeader {
         /**
-         * The name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
+         * The label string.
          */
         name: pulumi.Input<string>;
         /**
@@ -35445,6 +35928,10 @@ export namespace wafv2 {
 
     export interface WebAclDefaultActionBlockCustomResponse {
         /**
+         * References the response body that you want AWS WAF to return to the web request client. This must reference a `key` defined in a `customResponseBody` block of this resource.
+         */
+        customResponseBodyKey?: pulumi.Input<string>;
+        /**
          * The HTTP status code to return to the client.
          */
         responseCode: pulumi.Input<number>;
@@ -35456,7 +35943,7 @@ export namespace wafv2 {
 
     export interface WebAclDefaultActionBlockCustomResponseResponseHeader {
         /**
-         * The name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
+         * The label string.
          */
         name: pulumi.Input<string>;
         /**
@@ -35602,6 +36089,10 @@ export namespace wafv2 {
          */
         priority: pulumi.Input<number>;
         /**
+         * Labels to apply to web requests that match the rule match statement. See Rule Label below for details.
+         */
+        ruleLabels?: pulumi.Input<pulumi.Input<inputs.wafv2.WebAclRuleRuleLabel>[]>;
+        /**
          * The AWS WAF processing statement for the rule, for example `byteMatchStatement` or `geoMatchStatement`. See Statement below for details.
          */
         statement: pulumi.Input<inputs.wafv2.WebAclRuleStatement>;
@@ -35642,7 +36133,7 @@ export namespace wafv2 {
 
     export interface WebAclRuleActionAllowCustomRequestHandlingInsertHeader {
         /**
-         * The name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
+         * The label string.
          */
         name: pulumi.Input<string>;
         /**
@@ -35660,6 +36151,10 @@ export namespace wafv2 {
 
     export interface WebAclRuleActionBlockCustomResponse {
         /**
+         * References the response body that you want AWS WAF to return to the web request client. This must reference a `key` defined in a `customResponseBody` block of this resource.
+         */
+        customResponseBodyKey?: pulumi.Input<string>;
+        /**
          * The HTTP status code to return to the client.
          */
         responseCode: pulumi.Input<number>;
@@ -35671,7 +36166,7 @@ export namespace wafv2 {
 
     export interface WebAclRuleActionBlockCustomResponseResponseHeader {
         /**
-         * The name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
+         * The label string.
          */
         name: pulumi.Input<string>;
         /**
@@ -35696,7 +36191,7 @@ export namespace wafv2 {
 
     export interface WebAclRuleActionCountCustomRequestHandlingInsertHeader {
         /**
-         * The name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
+         * The label string.
          */
         name: pulumi.Input<string>;
         /**
@@ -35722,6 +36217,13 @@ export namespace wafv2 {
     export interface WebAclRuleOverrideActionNone {
     }
 
+    export interface WebAclRuleRuleLabel {
+        /**
+         * The label string.
+         */
+        name: pulumi.Input<string>;
+    }
+
     export interface WebAclRuleStatement {
         /**
          * A logical rule statement used to combine other rule statements with AND logic. See AND Statement below for details.
@@ -35739,6 +36241,10 @@ export namespace wafv2 {
          * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
          */
         ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementIpSetReferenceStatement>;
+        /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementLabelMatchStatement>;
         /**
          * A rule statement used to run the rules that are defined in a managed rule group.  This statement can not be nested. See Managed Rule Group Statement below for details.
          */
@@ -35802,6 +36308,10 @@ export namespace wafv2 {
          */
         ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementAndStatementStatementIpSetReferenceStatement>;
         /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementAndStatementStatementLabelMatchStatement>;
+        /**
          * A logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
          */
         notStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementAndStatementStatementNotStatement>;
@@ -35852,6 +36362,10 @@ export namespace wafv2 {
          */
         ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementAndStatementStatementAndStatementStatementIpSetReferenceStatement>;
         /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementAndStatementStatementAndStatementStatementLabelMatchStatement>;
+        /**
          * A logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
          */
         notStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementAndStatementStatementAndStatementStatementNotStatement>;
@@ -35897,6 +36411,10 @@ export namespace wafv2 {
          * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
          */
         ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementAndStatementStatementAndStatementStatementAndStatementStatementIpSetReferenceStatement>;
+        /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementAndStatementStatementAndStatementStatementAndStatementStatementLabelMatchStatement>;
         /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
@@ -36051,6 +36569,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementAndStatementStatementAndStatementStatementAndStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: pulumi.Input<string>;
     }
 
     export interface WebAclRuleStatementAndStatementStatementAndStatementStatementAndStatementStatementRegexPatternSetReferenceStatement {
@@ -36531,6 +37060,17 @@ export namespace wafv2 {
         position: pulumi.Input<string>;
     }
 
+    export interface WebAclRuleStatementAndStatementStatementAndStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: pulumi.Input<string>;
+    }
+
     export interface WebAclRuleStatementAndStatementStatementAndStatementStatementNotStatement {
         /**
          * The statement to negate. You can use any statement that can be nested. See Statement above for details.
@@ -36551,6 +37091,10 @@ export namespace wafv2 {
          * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
          */
         ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementAndStatementStatementAndStatementStatementNotStatementStatementIpSetReferenceStatement>;
+        /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementAndStatementStatementAndStatementStatementNotStatementStatementLabelMatchStatement>;
         /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
@@ -36705,6 +37249,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementAndStatementStatementAndStatementStatementNotStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: pulumi.Input<string>;
     }
 
     export interface WebAclRuleStatementAndStatementStatementAndStatementStatementNotStatementStatementRegexPatternSetReferenceStatement {
@@ -37068,6 +37623,10 @@ export namespace wafv2 {
          */
         ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementAndStatementStatementAndStatementStatementOrStatementStatementIpSetReferenceStatement>;
         /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementAndStatementStatementAndStatementStatementOrStatementStatementLabelMatchStatement>;
+        /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
         regexPatternSetReferenceStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementAndStatementStatementAndStatementStatementOrStatementStatementRegexPatternSetReferenceStatement>;
@@ -37221,6 +37780,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementAndStatementStatementAndStatementStatementOrStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: pulumi.Input<string>;
     }
 
     export interface WebAclRuleStatementAndStatementStatementAndStatementStatementOrStatementStatementRegexPatternSetReferenceStatement {
@@ -38041,6 +38611,17 @@ export namespace wafv2 {
         position: pulumi.Input<string>;
     }
 
+    export interface WebAclRuleStatementAndStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: pulumi.Input<string>;
+    }
+
     export interface WebAclRuleStatementAndStatementStatementNotStatement {
         /**
          * The statement to negate. You can use any statement that can be nested. See Statement above for details.
@@ -38065,6 +38646,10 @@ export namespace wafv2 {
          * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
          */
         ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementAndStatementStatementNotStatementStatementIpSetReferenceStatement>;
+        /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementAndStatementStatementNotStatementStatementLabelMatchStatement>;
         /**
          * A logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
          */
@@ -38111,6 +38696,10 @@ export namespace wafv2 {
          * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
          */
         ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementAndStatementStatementNotStatementStatementAndStatementStatementIpSetReferenceStatement>;
+        /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementAndStatementStatementNotStatementStatementAndStatementStatementLabelMatchStatement>;
         /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
@@ -38265,6 +38854,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementAndStatementStatementNotStatementStatementAndStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: pulumi.Input<string>;
     }
 
     export interface WebAclRuleStatementAndStatementStatementNotStatementStatementAndStatementStatementRegexPatternSetReferenceStatement {
@@ -38745,6 +39345,17 @@ export namespace wafv2 {
         position: pulumi.Input<string>;
     }
 
+    export interface WebAclRuleStatementAndStatementStatementNotStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: pulumi.Input<string>;
+    }
+
     export interface WebAclRuleStatementAndStatementStatementNotStatementStatementNotStatement {
         /**
          * The statement to negate. You can use any statement that can be nested. See Statement above for details.
@@ -38765,6 +39376,10 @@ export namespace wafv2 {
          * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
          */
         ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementAndStatementStatementNotStatementStatementNotStatementStatementIpSetReferenceStatement>;
+        /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementAndStatementStatementNotStatementStatementNotStatementStatementLabelMatchStatement>;
         /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
@@ -38919,6 +39534,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementAndStatementStatementNotStatementStatementNotStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: pulumi.Input<string>;
     }
 
     export interface WebAclRuleStatementAndStatementStatementNotStatementStatementNotStatementStatementRegexPatternSetReferenceStatement {
@@ -39282,6 +39908,10 @@ export namespace wafv2 {
          */
         ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementAndStatementStatementNotStatementStatementOrStatementStatementIpSetReferenceStatement>;
         /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementAndStatementStatementNotStatementStatementOrStatementStatementLabelMatchStatement>;
+        /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
         regexPatternSetReferenceStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementAndStatementStatementNotStatementStatementOrStatementStatementRegexPatternSetReferenceStatement>;
@@ -39435,6 +40065,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementAndStatementStatementNotStatementStatementOrStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: pulumi.Input<string>;
     }
 
     export interface WebAclRuleStatementAndStatementStatementNotStatementStatementOrStatementStatementRegexPatternSetReferenceStatement {
@@ -40142,6 +40783,10 @@ export namespace wafv2 {
          */
         ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementAndStatementStatementOrStatementStatementIpSetReferenceStatement>;
         /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementAndStatementStatementOrStatementStatementLabelMatchStatement>;
+        /**
          * A logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
          */
         notStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementAndStatementStatementOrStatementStatementNotStatement>;
@@ -40187,6 +40832,10 @@ export namespace wafv2 {
          * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
          */
         ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementAndStatementStatementOrStatementStatementAndStatementStatementIpSetReferenceStatement>;
+        /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementAndStatementStatementOrStatementStatementAndStatementStatementLabelMatchStatement>;
         /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
@@ -40341,6 +40990,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementAndStatementStatementOrStatementStatementAndStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: pulumi.Input<string>;
     }
 
     export interface WebAclRuleStatementAndStatementStatementOrStatementStatementAndStatementStatementRegexPatternSetReferenceStatement {
@@ -40821,6 +41481,17 @@ export namespace wafv2 {
         position: pulumi.Input<string>;
     }
 
+    export interface WebAclRuleStatementAndStatementStatementOrStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: pulumi.Input<string>;
+    }
+
     export interface WebAclRuleStatementAndStatementStatementOrStatementStatementNotStatement {
         /**
          * The statement to negate. You can use any statement that can be nested. See Statement above for details.
@@ -40841,6 +41512,10 @@ export namespace wafv2 {
          * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
          */
         ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementAndStatementStatementOrStatementStatementNotStatementStatementIpSetReferenceStatement>;
+        /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementAndStatementStatementOrStatementStatementNotStatementStatementLabelMatchStatement>;
         /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
@@ -40995,6 +41670,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementAndStatementStatementOrStatementStatementNotStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: pulumi.Input<string>;
     }
 
     export interface WebAclRuleStatementAndStatementStatementOrStatementStatementNotStatementStatementRegexPatternSetReferenceStatement {
@@ -41358,6 +42044,10 @@ export namespace wafv2 {
          */
         ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementAndStatementStatementOrStatementStatementOrStatementStatementIpSetReferenceStatement>;
         /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementAndStatementStatementOrStatementStatementOrStatementStatementLabelMatchStatement>;
+        /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
         regexPatternSetReferenceStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementAndStatementStatementOrStatementStatementOrStatementStatementRegexPatternSetReferenceStatement>;
@@ -41511,6 +42201,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementAndStatementStatementOrStatementStatementOrStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: pulumi.Input<string>;
     }
 
     export interface WebAclRuleStatementAndStatementStatementOrStatementStatementOrStatementStatementRegexPatternSetReferenceStatement {
@@ -42671,6 +43372,17 @@ export namespace wafv2 {
         position: pulumi.Input<string>;
     }
 
+    export interface WebAclRuleStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: pulumi.Input<string>;
+    }
+
     export interface WebAclRuleStatementManagedRuleGroupStatement {
         /**
          * The `rules` whose actions are set to `COUNT` by the web ACL, regardless of the action that is set on the rule. See Excluded Rule below for details.
@@ -42714,6 +43426,10 @@ export namespace wafv2 {
          * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
          */
         ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementIpSetReferenceStatement>;
+        /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementLabelMatchStatement>;
         /**
          * A logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
          */
@@ -42765,6 +43481,10 @@ export namespace wafv2 {
          */
         ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementIpSetReferenceStatement>;
         /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementLabelMatchStatement>;
+        /**
          * A logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
          */
         notStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatement>;
@@ -42810,6 +43530,10 @@ export namespace wafv2 {
          * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
          */
         ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementIpSetReferenceStatement>;
+        /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementLabelMatchStatement>;
         /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
@@ -42964,6 +43688,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: pulumi.Input<string>;
     }
 
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementRegexPatternSetReferenceStatement {
@@ -43444,6 +44179,17 @@ export namespace wafv2 {
         position: pulumi.Input<string>;
     }
 
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: pulumi.Input<string>;
+    }
+
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatement {
         /**
          * The statement to negate. You can use any statement that can be nested. See Statement above for details.
@@ -43464,6 +44210,10 @@ export namespace wafv2 {
          * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
          */
         ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementIpSetReferenceStatement>;
+        /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementLabelMatchStatement>;
         /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
@@ -43618,6 +44368,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: pulumi.Input<string>;
     }
 
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementRegexPatternSetReferenceStatement {
@@ -43981,6 +44742,10 @@ export namespace wafv2 {
          */
         ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementIpSetReferenceStatement>;
         /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementLabelMatchStatement>;
+        /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
         regexPatternSetReferenceStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementRegexPatternSetReferenceStatement>;
@@ -44134,6 +44899,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: pulumi.Input<string>;
     }
 
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementRegexPatternSetReferenceStatement {
@@ -44954,6 +45730,17 @@ export namespace wafv2 {
         position: pulumi.Input<string>;
     }
 
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: pulumi.Input<string>;
+    }
+
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatement {
         /**
          * The statement to negate. You can use any statement that can be nested. See Statement above for details.
@@ -44978,6 +45765,10 @@ export namespace wafv2 {
          * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
          */
         ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementIpSetReferenceStatement>;
+        /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementLabelMatchStatement>;
         /**
          * A logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
          */
@@ -45024,6 +45815,10 @@ export namespace wafv2 {
          * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
          */
         ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementIpSetReferenceStatement>;
+        /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementLabelMatchStatement>;
         /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
@@ -45178,6 +45973,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: pulumi.Input<string>;
     }
 
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementRegexPatternSetReferenceStatement {
@@ -45658,6 +46464,17 @@ export namespace wafv2 {
         position: pulumi.Input<string>;
     }
 
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: pulumi.Input<string>;
+    }
+
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatement {
         /**
          * The statement to negate. You can use any statement that can be nested. See Statement above for details.
@@ -45678,6 +46495,10 @@ export namespace wafv2 {
          * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
          */
         ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementIpSetReferenceStatement>;
+        /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementLabelMatchStatement>;
         /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
@@ -45832,6 +46653,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: pulumi.Input<string>;
     }
 
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementRegexPatternSetReferenceStatement {
@@ -46195,6 +47027,10 @@ export namespace wafv2 {
          */
         ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementIpSetReferenceStatement>;
         /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementLabelMatchStatement>;
+        /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
         regexPatternSetReferenceStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementRegexPatternSetReferenceStatement>;
@@ -46348,6 +47184,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: pulumi.Input<string>;
     }
 
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementRegexPatternSetReferenceStatement {
@@ -47055,6 +47902,10 @@ export namespace wafv2 {
          */
         ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementIpSetReferenceStatement>;
         /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementLabelMatchStatement>;
+        /**
          * A logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
          */
         notStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatement>;
@@ -47100,6 +47951,10 @@ export namespace wafv2 {
          * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
          */
         ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementIpSetReferenceStatement>;
+        /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementLabelMatchStatement>;
         /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
@@ -47254,6 +48109,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: pulumi.Input<string>;
     }
 
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementRegexPatternSetReferenceStatement {
@@ -47734,6 +48600,17 @@ export namespace wafv2 {
         position: pulumi.Input<string>;
     }
 
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: pulumi.Input<string>;
+    }
+
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatement {
         /**
          * The statement to negate. You can use any statement that can be nested. See Statement above for details.
@@ -47754,6 +48631,10 @@ export namespace wafv2 {
          * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
          */
         ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementIpSetReferenceStatement>;
+        /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementLabelMatchStatement>;
         /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
@@ -47908,6 +48789,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: pulumi.Input<string>;
     }
 
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementRegexPatternSetReferenceStatement {
@@ -48271,6 +49163,10 @@ export namespace wafv2 {
          */
         ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementIpSetReferenceStatement>;
         /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementLabelMatchStatement>;
+        /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
         regexPatternSetReferenceStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementRegexPatternSetReferenceStatement>;
@@ -48424,6 +49320,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: pulumi.Input<string>;
     }
 
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementRegexPatternSetReferenceStatement {
@@ -49471,6 +50378,10 @@ export namespace wafv2 {
          */
         ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementNotStatementStatementIpSetReferenceStatement>;
         /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementNotStatementStatementLabelMatchStatement>;
+        /**
          * A logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
          */
         notStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementNotStatementStatementNotStatement>;
@@ -49521,6 +50432,10 @@ export namespace wafv2 {
          */
         ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementNotStatementStatementAndStatementStatementIpSetReferenceStatement>;
         /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementNotStatementStatementAndStatementStatementLabelMatchStatement>;
+        /**
          * A logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
          */
         notStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementNotStatementStatementAndStatementStatementNotStatement>;
@@ -49566,6 +50481,10 @@ export namespace wafv2 {
          * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
          */
         ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementNotStatementStatementAndStatementStatementAndStatementStatementIpSetReferenceStatement>;
+        /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementNotStatementStatementAndStatementStatementAndStatementStatementLabelMatchStatement>;
         /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
@@ -49720,6 +50639,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementNotStatementStatementAndStatementStatementAndStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: pulumi.Input<string>;
     }
 
     export interface WebAclRuleStatementNotStatementStatementAndStatementStatementAndStatementStatementRegexPatternSetReferenceStatement {
@@ -50200,6 +51130,17 @@ export namespace wafv2 {
         position: pulumi.Input<string>;
     }
 
+    export interface WebAclRuleStatementNotStatementStatementAndStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: pulumi.Input<string>;
+    }
+
     export interface WebAclRuleStatementNotStatementStatementAndStatementStatementNotStatement {
         /**
          * The statement to negate. You can use any statement that can be nested. See Statement above for details.
@@ -50220,6 +51161,10 @@ export namespace wafv2 {
          * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
          */
         ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementNotStatementStatementAndStatementStatementNotStatementStatementIpSetReferenceStatement>;
+        /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementNotStatementStatementAndStatementStatementNotStatementStatementLabelMatchStatement>;
         /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
@@ -50374,6 +51319,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementNotStatementStatementAndStatementStatementNotStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: pulumi.Input<string>;
     }
 
     export interface WebAclRuleStatementNotStatementStatementAndStatementStatementNotStatementStatementRegexPatternSetReferenceStatement {
@@ -50737,6 +51693,10 @@ export namespace wafv2 {
          */
         ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementNotStatementStatementAndStatementStatementOrStatementStatementIpSetReferenceStatement>;
         /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementNotStatementStatementAndStatementStatementOrStatementStatementLabelMatchStatement>;
+        /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
         regexPatternSetReferenceStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementNotStatementStatementAndStatementStatementOrStatementStatementRegexPatternSetReferenceStatement>;
@@ -50890,6 +51850,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementNotStatementStatementAndStatementStatementOrStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: pulumi.Input<string>;
     }
 
     export interface WebAclRuleStatementNotStatementStatementAndStatementStatementOrStatementStatementRegexPatternSetReferenceStatement {
@@ -51710,6 +52681,17 @@ export namespace wafv2 {
         position: pulumi.Input<string>;
     }
 
+    export interface WebAclRuleStatementNotStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: pulumi.Input<string>;
+    }
+
     export interface WebAclRuleStatementNotStatementStatementNotStatement {
         /**
          * The statement to negate. You can use any statement that can be nested. See Statement above for details.
@@ -51734,6 +52716,10 @@ export namespace wafv2 {
          * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
          */
         ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementNotStatementStatementNotStatementStatementIpSetReferenceStatement>;
+        /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementNotStatementStatementNotStatementStatementLabelMatchStatement>;
         /**
          * A logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
          */
@@ -51780,6 +52766,10 @@ export namespace wafv2 {
          * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
          */
         ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementNotStatementStatementNotStatementStatementAndStatementStatementIpSetReferenceStatement>;
+        /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementNotStatementStatementNotStatementStatementAndStatementStatementLabelMatchStatement>;
         /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
@@ -51934,6 +52924,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementNotStatementStatementNotStatementStatementAndStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: pulumi.Input<string>;
     }
 
     export interface WebAclRuleStatementNotStatementStatementNotStatementStatementAndStatementStatementRegexPatternSetReferenceStatement {
@@ -52414,6 +53415,17 @@ export namespace wafv2 {
         position: pulumi.Input<string>;
     }
 
+    export interface WebAclRuleStatementNotStatementStatementNotStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: pulumi.Input<string>;
+    }
+
     export interface WebAclRuleStatementNotStatementStatementNotStatementStatementNotStatement {
         /**
          * The statement to negate. You can use any statement that can be nested. See Statement above for details.
@@ -52434,6 +53446,10 @@ export namespace wafv2 {
          * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
          */
         ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementNotStatementStatementNotStatementStatementNotStatementStatementIpSetReferenceStatement>;
+        /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementNotStatementStatementNotStatementStatementNotStatementStatementLabelMatchStatement>;
         /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
@@ -52588,6 +53604,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementNotStatementStatementNotStatementStatementNotStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: pulumi.Input<string>;
     }
 
     export interface WebAclRuleStatementNotStatementStatementNotStatementStatementNotStatementStatementRegexPatternSetReferenceStatement {
@@ -52951,6 +53978,10 @@ export namespace wafv2 {
          */
         ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementNotStatementStatementNotStatementStatementOrStatementStatementIpSetReferenceStatement>;
         /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementNotStatementStatementNotStatementStatementOrStatementStatementLabelMatchStatement>;
+        /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
         regexPatternSetReferenceStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementNotStatementStatementNotStatementStatementOrStatementStatementRegexPatternSetReferenceStatement>;
@@ -53104,6 +54135,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementNotStatementStatementNotStatementStatementOrStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: pulumi.Input<string>;
     }
 
     export interface WebAclRuleStatementNotStatementStatementNotStatementStatementOrStatementStatementRegexPatternSetReferenceStatement {
@@ -53811,6 +54853,10 @@ export namespace wafv2 {
          */
         ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementNotStatementStatementOrStatementStatementIpSetReferenceStatement>;
         /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementNotStatementStatementOrStatementStatementLabelMatchStatement>;
+        /**
          * A logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
          */
         notStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementNotStatementStatementOrStatementStatementNotStatement>;
@@ -53856,6 +54902,10 @@ export namespace wafv2 {
          * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
          */
         ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementNotStatementStatementOrStatementStatementAndStatementStatementIpSetReferenceStatement>;
+        /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementNotStatementStatementOrStatementStatementAndStatementStatementLabelMatchStatement>;
         /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
@@ -54010,6 +55060,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementNotStatementStatementOrStatementStatementAndStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: pulumi.Input<string>;
     }
 
     export interface WebAclRuleStatementNotStatementStatementOrStatementStatementAndStatementStatementRegexPatternSetReferenceStatement {
@@ -54490,6 +55551,17 @@ export namespace wafv2 {
         position: pulumi.Input<string>;
     }
 
+    export interface WebAclRuleStatementNotStatementStatementOrStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: pulumi.Input<string>;
+    }
+
     export interface WebAclRuleStatementNotStatementStatementOrStatementStatementNotStatement {
         /**
          * The statement to negate. You can use any statement that can be nested. See Statement above for details.
@@ -54510,6 +55582,10 @@ export namespace wafv2 {
          * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
          */
         ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementNotStatementStatementOrStatementStatementNotStatementStatementIpSetReferenceStatement>;
+        /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementNotStatementStatementOrStatementStatementNotStatementStatementLabelMatchStatement>;
         /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
@@ -54664,6 +55740,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementNotStatementStatementOrStatementStatementNotStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: pulumi.Input<string>;
     }
 
     export interface WebAclRuleStatementNotStatementStatementOrStatementStatementNotStatementStatementRegexPatternSetReferenceStatement {
@@ -55027,6 +56114,10 @@ export namespace wafv2 {
          */
         ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementNotStatementStatementOrStatementStatementOrStatementStatementIpSetReferenceStatement>;
         /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementNotStatementStatementOrStatementStatementOrStatementStatementLabelMatchStatement>;
+        /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
         regexPatternSetReferenceStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementNotStatementStatementOrStatementStatementOrStatementStatementRegexPatternSetReferenceStatement>;
@@ -55180,6 +56271,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementNotStatementStatementOrStatementStatementOrStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: pulumi.Input<string>;
     }
 
     export interface WebAclRuleStatementNotStatementStatementOrStatementStatementOrStatementStatementRegexPatternSetReferenceStatement {
@@ -56227,6 +57329,10 @@ export namespace wafv2 {
          */
         ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementOrStatementStatementIpSetReferenceStatement>;
         /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementOrStatementStatementLabelMatchStatement>;
+        /**
          * A logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
          */
         notStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementOrStatementStatementNotStatement>;
@@ -56277,6 +57383,10 @@ export namespace wafv2 {
          */
         ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementOrStatementStatementAndStatementStatementIpSetReferenceStatement>;
         /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementOrStatementStatementAndStatementStatementLabelMatchStatement>;
+        /**
          * A logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
          */
         notStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementOrStatementStatementAndStatementStatementNotStatement>;
@@ -56322,6 +57432,10 @@ export namespace wafv2 {
          * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
          */
         ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementOrStatementStatementAndStatementStatementAndStatementStatementIpSetReferenceStatement>;
+        /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementOrStatementStatementAndStatementStatementAndStatementStatementLabelMatchStatement>;
         /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
@@ -56476,6 +57590,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementOrStatementStatementAndStatementStatementAndStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: pulumi.Input<string>;
     }
 
     export interface WebAclRuleStatementOrStatementStatementAndStatementStatementAndStatementStatementRegexPatternSetReferenceStatement {
@@ -56956,6 +58081,17 @@ export namespace wafv2 {
         position: pulumi.Input<string>;
     }
 
+    export interface WebAclRuleStatementOrStatementStatementAndStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: pulumi.Input<string>;
+    }
+
     export interface WebAclRuleStatementOrStatementStatementAndStatementStatementNotStatement {
         /**
          * The statement to negate. You can use any statement that can be nested. See Statement above for details.
@@ -56976,6 +58112,10 @@ export namespace wafv2 {
          * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
          */
         ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementOrStatementStatementAndStatementStatementNotStatementStatementIpSetReferenceStatement>;
+        /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementOrStatementStatementAndStatementStatementNotStatementStatementLabelMatchStatement>;
         /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
@@ -57130,6 +58270,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementOrStatementStatementAndStatementStatementNotStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: pulumi.Input<string>;
     }
 
     export interface WebAclRuleStatementOrStatementStatementAndStatementStatementNotStatementStatementRegexPatternSetReferenceStatement {
@@ -57493,6 +58644,10 @@ export namespace wafv2 {
          */
         ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementOrStatementStatementAndStatementStatementOrStatementStatementIpSetReferenceStatement>;
         /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementOrStatementStatementAndStatementStatementOrStatementStatementLabelMatchStatement>;
+        /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
         regexPatternSetReferenceStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementOrStatementStatementAndStatementStatementOrStatementStatementRegexPatternSetReferenceStatement>;
@@ -57646,6 +58801,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementOrStatementStatementAndStatementStatementOrStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: pulumi.Input<string>;
     }
 
     export interface WebAclRuleStatementOrStatementStatementAndStatementStatementOrStatementStatementRegexPatternSetReferenceStatement {
@@ -58466,6 +59632,17 @@ export namespace wafv2 {
         position: pulumi.Input<string>;
     }
 
+    export interface WebAclRuleStatementOrStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: pulumi.Input<string>;
+    }
+
     export interface WebAclRuleStatementOrStatementStatementNotStatement {
         /**
          * The statement to negate. You can use any statement that can be nested. See Statement above for details.
@@ -58490,6 +59667,10 @@ export namespace wafv2 {
          * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
          */
         ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementOrStatementStatementNotStatementStatementIpSetReferenceStatement>;
+        /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementOrStatementStatementNotStatementStatementLabelMatchStatement>;
         /**
          * A logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
          */
@@ -58536,6 +59717,10 @@ export namespace wafv2 {
          * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
          */
         ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementOrStatementStatementNotStatementStatementAndStatementStatementIpSetReferenceStatement>;
+        /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementOrStatementStatementNotStatementStatementAndStatementStatementLabelMatchStatement>;
         /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
@@ -58690,6 +59875,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementOrStatementStatementNotStatementStatementAndStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: pulumi.Input<string>;
     }
 
     export interface WebAclRuleStatementOrStatementStatementNotStatementStatementAndStatementStatementRegexPatternSetReferenceStatement {
@@ -59170,6 +60366,17 @@ export namespace wafv2 {
         position: pulumi.Input<string>;
     }
 
+    export interface WebAclRuleStatementOrStatementStatementNotStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: pulumi.Input<string>;
+    }
+
     export interface WebAclRuleStatementOrStatementStatementNotStatementStatementNotStatement {
         /**
          * The statement to negate. You can use any statement that can be nested. See Statement above for details.
@@ -59190,6 +60397,10 @@ export namespace wafv2 {
          * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
          */
         ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementOrStatementStatementNotStatementStatementNotStatementStatementIpSetReferenceStatement>;
+        /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementOrStatementStatementNotStatementStatementNotStatementStatementLabelMatchStatement>;
         /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
@@ -59344,6 +60555,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementOrStatementStatementNotStatementStatementNotStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: pulumi.Input<string>;
     }
 
     export interface WebAclRuleStatementOrStatementStatementNotStatementStatementNotStatementStatementRegexPatternSetReferenceStatement {
@@ -59707,6 +60929,10 @@ export namespace wafv2 {
          */
         ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementOrStatementStatementNotStatementStatementOrStatementStatementIpSetReferenceStatement>;
         /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementOrStatementStatementNotStatementStatementOrStatementStatementLabelMatchStatement>;
+        /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
         regexPatternSetReferenceStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementOrStatementStatementNotStatementStatementOrStatementStatementRegexPatternSetReferenceStatement>;
@@ -59860,6 +61086,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementOrStatementStatementNotStatementStatementOrStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: pulumi.Input<string>;
     }
 
     export interface WebAclRuleStatementOrStatementStatementNotStatementStatementOrStatementStatementRegexPatternSetReferenceStatement {
@@ -60567,6 +61804,10 @@ export namespace wafv2 {
          */
         ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementOrStatementStatementOrStatementStatementIpSetReferenceStatement>;
         /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementOrStatementStatementOrStatementStatementLabelMatchStatement>;
+        /**
          * A logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
          */
         notStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementOrStatementStatementOrStatementStatementNotStatement>;
@@ -60612,6 +61853,10 @@ export namespace wafv2 {
          * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
          */
         ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementOrStatementStatementOrStatementStatementAndStatementStatementIpSetReferenceStatement>;
+        /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementOrStatementStatementOrStatementStatementAndStatementStatementLabelMatchStatement>;
         /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
@@ -60766,6 +62011,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementOrStatementStatementOrStatementStatementAndStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: pulumi.Input<string>;
     }
 
     export interface WebAclRuleStatementOrStatementStatementOrStatementStatementAndStatementStatementRegexPatternSetReferenceStatement {
@@ -61246,6 +62502,17 @@ export namespace wafv2 {
         position: pulumi.Input<string>;
     }
 
+    export interface WebAclRuleStatementOrStatementStatementOrStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: pulumi.Input<string>;
+    }
+
     export interface WebAclRuleStatementOrStatementStatementOrStatementStatementNotStatement {
         /**
          * The statement to negate. You can use any statement that can be nested. See Statement above for details.
@@ -61266,6 +62533,10 @@ export namespace wafv2 {
          * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
          */
         ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementOrStatementStatementOrStatementStatementNotStatementStatementIpSetReferenceStatement>;
+        /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementOrStatementStatementOrStatementStatementNotStatementStatementLabelMatchStatement>;
         /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
@@ -61420,6 +62691,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementOrStatementStatementOrStatementStatementNotStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: pulumi.Input<string>;
     }
 
     export interface WebAclRuleStatementOrStatementStatementOrStatementStatementNotStatementStatementRegexPatternSetReferenceStatement {
@@ -61783,6 +63065,10 @@ export namespace wafv2 {
          */
         ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementOrStatementStatementOrStatementStatementOrStatementStatementIpSetReferenceStatement>;
         /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementOrStatementStatementOrStatementStatementOrStatementStatementLabelMatchStatement>;
+        /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
         regexPatternSetReferenceStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementOrStatementStatementOrStatementStatementOrStatementStatementRegexPatternSetReferenceStatement>;
@@ -61936,6 +63222,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementOrStatementStatementOrStatementStatementOrStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: pulumi.Input<string>;
     }
 
     export interface WebAclRuleStatementOrStatementStatementOrStatementStatementOrStatementStatementRegexPatternSetReferenceStatement {
@@ -63006,6 +64303,10 @@ export namespace wafv2 {
          */
         ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatement>;
         /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatement>;
+        /**
          * A logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
          */
         notStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatement>;
@@ -63056,6 +64357,10 @@ export namespace wafv2 {
          */
         ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementIpSetReferenceStatement>;
         /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementLabelMatchStatement>;
+        /**
          * A logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
          */
         notStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementNotStatement>;
@@ -63101,6 +64406,10 @@ export namespace wafv2 {
          * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
          */
         ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementAndStatementStatementIpSetReferenceStatement>;
+        /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementAndStatementStatementLabelMatchStatement>;
         /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
@@ -63255,6 +64564,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementAndStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: pulumi.Input<string>;
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementAndStatementStatementRegexPatternSetReferenceStatement {
@@ -63735,6 +65055,17 @@ export namespace wafv2 {
         position: pulumi.Input<string>;
     }
 
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: pulumi.Input<string>;
+    }
+
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementNotStatement {
         /**
          * The statement to negate. You can use any statement that can be nested. See Statement above for details.
@@ -63755,6 +65086,10 @@ export namespace wafv2 {
          * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
          */
         ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementNotStatementStatementIpSetReferenceStatement>;
+        /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementNotStatementStatementLabelMatchStatement>;
         /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
@@ -63909,6 +65244,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementNotStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: pulumi.Input<string>;
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementNotStatementStatementRegexPatternSetReferenceStatement {
@@ -64272,6 +65618,10 @@ export namespace wafv2 {
          */
         ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementOrStatementStatementIpSetReferenceStatement>;
         /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementOrStatementStatementLabelMatchStatement>;
+        /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
         regexPatternSetReferenceStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementOrStatementStatementRegexPatternSetReferenceStatement>;
@@ -64425,6 +65775,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementOrStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: pulumi.Input<string>;
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementOrStatementStatementRegexPatternSetReferenceStatement {
@@ -65245,6 +66606,17 @@ export namespace wafv2 {
         position: pulumi.Input<string>;
     }
 
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: pulumi.Input<string>;
+    }
+
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatement {
         /**
          * The statement to negate. You can use any statement that can be nested. See Statement above for details.
@@ -65269,6 +66641,10 @@ export namespace wafv2 {
          * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
          */
         ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementIpSetReferenceStatement>;
+        /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementLabelMatchStatement>;
         /**
          * A logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
          */
@@ -65315,6 +66691,10 @@ export namespace wafv2 {
          * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
          */
         ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementAndStatementStatementIpSetReferenceStatement>;
+        /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementAndStatementStatementLabelMatchStatement>;
         /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
@@ -65469,6 +66849,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementAndStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: pulumi.Input<string>;
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementAndStatementStatementRegexPatternSetReferenceStatement {
@@ -65949,6 +67340,17 @@ export namespace wafv2 {
         position: pulumi.Input<string>;
     }
 
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: pulumi.Input<string>;
+    }
+
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementNotStatement {
         /**
          * The statement to negate. You can use any statement that can be nested. See Statement above for details.
@@ -65969,6 +67371,10 @@ export namespace wafv2 {
          * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
          */
         ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementNotStatementStatementIpSetReferenceStatement>;
+        /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementNotStatementStatementLabelMatchStatement>;
         /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
@@ -66123,6 +67529,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementNotStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: pulumi.Input<string>;
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementNotStatementStatementRegexPatternSetReferenceStatement {
@@ -66486,6 +67903,10 @@ export namespace wafv2 {
          */
         ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementOrStatementStatementIpSetReferenceStatement>;
         /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementOrStatementStatementLabelMatchStatement>;
+        /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
         regexPatternSetReferenceStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementOrStatementStatementRegexPatternSetReferenceStatement>;
@@ -66639,6 +68060,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementOrStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: pulumi.Input<string>;
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementOrStatementStatementRegexPatternSetReferenceStatement {
@@ -67346,6 +68778,10 @@ export namespace wafv2 {
          */
         ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementStatementIpSetReferenceStatement>;
         /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementStatementLabelMatchStatement>;
+        /**
          * A logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
          */
         notStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementStatementNotStatement>;
@@ -67391,6 +68827,10 @@ export namespace wafv2 {
          * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
          */
         ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementStatementAndStatementStatementIpSetReferenceStatement>;
+        /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementStatementAndStatementStatementLabelMatchStatement>;
         /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
@@ -67545,6 +68985,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementStatementAndStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: pulumi.Input<string>;
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementStatementAndStatementStatementRegexPatternSetReferenceStatement {
@@ -68025,6 +69476,17 @@ export namespace wafv2 {
         position: pulumi.Input<string>;
     }
 
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: pulumi.Input<string>;
+    }
+
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementStatementNotStatement {
         /**
          * The statement to negate. You can use any statement that can be nested. See Statement above for details.
@@ -68045,6 +69507,10 @@ export namespace wafv2 {
          * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
          */
         ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementStatementNotStatementStatementIpSetReferenceStatement>;
+        /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementStatementNotStatementStatementLabelMatchStatement>;
         /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
@@ -68199,6 +69665,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementStatementNotStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: pulumi.Input<string>;
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementStatementNotStatementStatementRegexPatternSetReferenceStatement {
@@ -68562,6 +70039,10 @@ export namespace wafv2 {
          */
         ipSetReferenceStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementStatementOrStatementStatementIpSetReferenceStatement>;
         /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementStatementOrStatementStatementLabelMatchStatement>;
+        /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
         regexPatternSetReferenceStatement?: pulumi.Input<inputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementStatementOrStatementStatementRegexPatternSetReferenceStatement>;
@@ -68715,6 +70196,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: pulumi.Input<string>;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementStatementOrStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: pulumi.Input<string>;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: pulumi.Input<string>;
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementStatementOrStatementStatementRegexPatternSetReferenceStatement {

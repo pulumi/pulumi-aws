@@ -12,6 +12,7 @@ export * from "./getDistributionConfiguration";
 export * from "./getImage";
 export * from "./getImagePipeline";
 export * from "./getImageRecipe";
+export * from "./getImageRecipes";
 export * from "./getInfrastructureConfiguration";
 export * from "./image";
 export * from "./imagePipeline";

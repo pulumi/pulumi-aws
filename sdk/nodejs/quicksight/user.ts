@@ -78,11 +78,11 @@ export class User extends pulumi.CustomResource {
      */
     public readonly namespace!: pulumi.Output<string | undefined>;
     /**
-     * The name of the IAM session to use when assuming roles that can embed QuickSight dashboards.
+     * The name of the IAM session to use when assuming roles that can embed QuickSight dashboards. Only valid for registering users using an assumed IAM role. Additionally, if registering multiple users using the same IAM role, each user needs to have a unique session name.
      */
     public readonly sessionName!: pulumi.Output<string | undefined>;
     /**
-     * The Amazon QuickSight user name that you want to create for the user you are registering.
+     * The Amazon QuickSight user name that you want to create for the user you are registering. Only valid for registering a user with `identityType` set to `QUICKSIGHT`.
      */
     public readonly userName!: pulumi.Output<string | undefined>;
     /**
@@ -169,11 +169,11 @@ export interface UserState {
      */
     namespace?: pulumi.Input<string>;
     /**
-     * The name of the IAM session to use when assuming roles that can embed QuickSight dashboards.
+     * The name of the IAM session to use when assuming roles that can embed QuickSight dashboards. Only valid for registering users using an assumed IAM role. Additionally, if registering multiple users using the same IAM role, each user needs to have a unique session name.
      */
     sessionName?: pulumi.Input<string>;
     /**
-     * The Amazon QuickSight user name that you want to create for the user you are registering.
+     * The Amazon QuickSight user name that you want to create for the user you are registering. Only valid for registering a user with `identityType` set to `QUICKSIGHT`.
      */
     userName?: pulumi.Input<string>;
     /**
@@ -207,11 +207,11 @@ export interface UserArgs {
      */
     namespace?: pulumi.Input<string>;
     /**
-     * The name of the IAM session to use when assuming roles that can embed QuickSight dashboards.
+     * The name of the IAM session to use when assuming roles that can embed QuickSight dashboards. Only valid for registering users using an assumed IAM role. Additionally, if registering multiple users using the same IAM role, each user needs to have a unique session name.
      */
     sessionName?: pulumi.Input<string>;
     /**
-     * The Amazon QuickSight user name that you want to create for the user you are registering.
+     * The Amazon QuickSight user name that you want to create for the user you are registering. Only valid for registering a user with `identityType` set to `QUICKSIGHT`.
      */
     userName?: pulumi.Input<string>;
     /**

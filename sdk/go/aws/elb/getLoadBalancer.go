@@ -70,6 +70,7 @@ type LookupLoadBalancerResult struct {
 	ConnectionDraining        bool                       `pulumi:"connectionDraining"`
 	ConnectionDrainingTimeout int                        `pulumi:"connectionDrainingTimeout"`
 	CrossZoneLoadBalancing    bool                       `pulumi:"crossZoneLoadBalancing"`
+	DesyncMitigationMode      string                     `pulumi:"desyncMitigationMode"`
 	DnsName                   string                     `pulumi:"dnsName"`
 	HealthCheck               GetLoadBalancerHealthCheck `pulumi:"healthCheck"`
 	// The provider-assigned unique ID for this managed resource.
@@ -144,6 +145,10 @@ func (o LookupLoadBalancerResultOutput) ConnectionDrainingTimeout() pulumi.IntOu
 
 func (o LookupLoadBalancerResultOutput) CrossZoneLoadBalancing() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupLoadBalancerResult) bool { return v.CrossZoneLoadBalancing }).(pulumi.BoolOutput)
+}
+
+func (o LookupLoadBalancerResultOutput) DesyncMitigationMode() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLoadBalancerResult) string { return v.DesyncMitigationMode }).(pulumi.StringOutput)
 }
 
 func (o LookupLoadBalancerResultOutput) DnsName() pulumi.StringOutput {

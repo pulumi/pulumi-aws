@@ -16893,6 +16893,112 @@ func (o GetInstanceTypeOfferingsFilterArrayOutput) Index(i pulumi.IntInput) GetI
 	}).(GetInstanceTypeOfferingsFilterOutput)
 }
 
+type GetInstanceTypesFilter struct {
+	// Name of the filter.
+	Name string `pulumi:"name"`
+	// List of one or more values for the filter.
+	Values []string `pulumi:"values"`
+}
+
+// GetInstanceTypesFilterInput is an input type that accepts GetInstanceTypesFilterArgs and GetInstanceTypesFilterOutput values.
+// You can construct a concrete instance of `GetInstanceTypesFilterInput` via:
+//
+//          GetInstanceTypesFilterArgs{...}
+type GetInstanceTypesFilterInput interface {
+	pulumi.Input
+
+	ToGetInstanceTypesFilterOutput() GetInstanceTypesFilterOutput
+	ToGetInstanceTypesFilterOutputWithContext(context.Context) GetInstanceTypesFilterOutput
+}
+
+type GetInstanceTypesFilterArgs struct {
+	// Name of the filter.
+	Name pulumi.StringInput `pulumi:"name"`
+	// List of one or more values for the filter.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetInstanceTypesFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetInstanceTypesFilter)(nil)).Elem()
+}
+
+func (i GetInstanceTypesFilterArgs) ToGetInstanceTypesFilterOutput() GetInstanceTypesFilterOutput {
+	return i.ToGetInstanceTypesFilterOutputWithContext(context.Background())
+}
+
+func (i GetInstanceTypesFilterArgs) ToGetInstanceTypesFilterOutputWithContext(ctx context.Context) GetInstanceTypesFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetInstanceTypesFilterOutput)
+}
+
+// GetInstanceTypesFilterArrayInput is an input type that accepts GetInstanceTypesFilterArray and GetInstanceTypesFilterArrayOutput values.
+// You can construct a concrete instance of `GetInstanceTypesFilterArrayInput` via:
+//
+//          GetInstanceTypesFilterArray{ GetInstanceTypesFilterArgs{...} }
+type GetInstanceTypesFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetInstanceTypesFilterArrayOutput() GetInstanceTypesFilterArrayOutput
+	ToGetInstanceTypesFilterArrayOutputWithContext(context.Context) GetInstanceTypesFilterArrayOutput
+}
+
+type GetInstanceTypesFilterArray []GetInstanceTypesFilterInput
+
+func (GetInstanceTypesFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetInstanceTypesFilter)(nil)).Elem()
+}
+
+func (i GetInstanceTypesFilterArray) ToGetInstanceTypesFilterArrayOutput() GetInstanceTypesFilterArrayOutput {
+	return i.ToGetInstanceTypesFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetInstanceTypesFilterArray) ToGetInstanceTypesFilterArrayOutputWithContext(ctx context.Context) GetInstanceTypesFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetInstanceTypesFilterArrayOutput)
+}
+
+type GetInstanceTypesFilterOutput struct{ *pulumi.OutputState }
+
+func (GetInstanceTypesFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetInstanceTypesFilter)(nil)).Elem()
+}
+
+func (o GetInstanceTypesFilterOutput) ToGetInstanceTypesFilterOutput() GetInstanceTypesFilterOutput {
+	return o
+}
+
+func (o GetInstanceTypesFilterOutput) ToGetInstanceTypesFilterOutputWithContext(ctx context.Context) GetInstanceTypesFilterOutput {
+	return o
+}
+
+// Name of the filter.
+func (o GetInstanceTypesFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInstanceTypesFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// List of one or more values for the filter.
+func (o GetInstanceTypesFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetInstanceTypesFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetInstanceTypesFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetInstanceTypesFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetInstanceTypesFilter)(nil)).Elem()
+}
+
+func (o GetInstanceTypesFilterArrayOutput) ToGetInstanceTypesFilterArrayOutput() GetInstanceTypesFilterArrayOutput {
+	return o
+}
+
+func (o GetInstanceTypesFilterArrayOutput) ToGetInstanceTypesFilterArrayOutputWithContext(ctx context.Context) GetInstanceTypesFilterArrayOutput {
+	return o
+}
+
+func (o GetInstanceTypesFilterArrayOutput) Index(i pulumi.IntInput) GetInstanceTypesFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetInstanceTypesFilter {
+		return vs[0].([]GetInstanceTypesFilter)[vs[1].(int)]
+	}).(GetInstanceTypesFilterOutput)
+}
+
 type GetInstancesFilter struct {
 	Name   string   `pulumi:"name"`
 	Values []string `pulumi:"values"`
@@ -24173,6 +24279,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInstanceTypeOfferingFilterArrayInput)(nil)).Elem(), GetInstanceTypeOfferingFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInstanceTypeOfferingsFilterInput)(nil)).Elem(), GetInstanceTypeOfferingsFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInstanceTypeOfferingsFilterArrayInput)(nil)).Elem(), GetInstanceTypeOfferingsFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetInstanceTypesFilterInput)(nil)).Elem(), GetInstanceTypesFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetInstanceTypesFilterArrayInput)(nil)).Elem(), GetInstanceTypesFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInstancesFilterInput)(nil)).Elem(), GetInstancesFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInstancesFilterArrayInput)(nil)).Elem(), GetInstancesFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInternetGatewayAttachmentInput)(nil)).Elem(), GetInternetGatewayAttachmentArgs{})
@@ -24522,6 +24630,8 @@ func init() {
 	pulumi.RegisterOutputType(GetInstanceTypeOfferingFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetInstanceTypeOfferingsFilterOutput{})
 	pulumi.RegisterOutputType(GetInstanceTypeOfferingsFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetInstanceTypesFilterOutput{})
+	pulumi.RegisterOutputType(GetInstanceTypesFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetInstancesFilterOutput{})
 	pulumi.RegisterOutputType(GetInstancesFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetInternetGatewayAttachmentOutput{})

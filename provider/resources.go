@@ -43,6 +43,7 @@ const (
 	awsMod                      = "index"                    // the root index.
 	acmMod                      = "Acm"                      // AWS Certificate Manager
 	acmpcaMod                   = "Acmpca"                   // AWS Private Certificate Authority
+	accountMod                  = "Account"                  // Account
 	accessAnalyzerMod           = "AccessAnalyzer"           // Access Analyzer
 	ampMod                      = "Amp"                      // Amp
 	amplifyMod                  = "Amplify"                  // Amplify
@@ -342,6 +343,8 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_acmpca_certificate_authority_certificate": {
 				Tok: awsResource(acmpcaMod, "CertificateAuthorityCertificate"),
 			},
+			// Account
+			"aws_account_alternate_contact": {Tok: awsResource(accountMod, "AlternativeContact")},
 			// AppSync
 			"aws_appsync_api_key": {
 				Tok: awsResource(appsyncMod, "ApiKey"),
@@ -1475,10 +1478,12 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_emr_managed_scaling_policy": {Tok: awsResource(emrMod, "ManagedScalingPolicy")},
 			"aws_emr_instance_fleet":         {Tok: awsResource(emrMod, "InstanceFleet")},
 			// FSX
-			"aws_fsx_lustre_file_system":  {Tok: awsResource(fsxMod, "LustreFileSystem")},
-			"aws_fsx_windows_file_system": {Tok: awsResource(fsxMod, "WindowsFileSystem")},
-			"aws_fsx_backup":              {Tok: awsResource(fsxMod, "Backup")},
-			"aws_fsx_ontap_file_system":   {Tok: awsResource(fsxMod, "OntapFileSystem")},
+			"aws_fsx_lustre_file_system":            {Tok: awsResource(fsxMod, "LustreFileSystem")},
+			"aws_fsx_windows_file_system":           {Tok: awsResource(fsxMod, "WindowsFileSystem")},
+			"aws_fsx_backup":                        {Tok: awsResource(fsxMod, "Backup")},
+			"aws_fsx_ontap_file_system":             {Tok: awsResource(fsxMod, "OntapFileSystem")},
+			"aws_fsx_ontap_storage_virtual_machine": {Tok: awsResource(fsxMod, "OntapStorageVirtualMachine")},
+			"aws_fsx_ontap_volume":                  {Tok: awsResource(fsxMod, "OntapVolume")},
 			// GameLift
 			"aws_gamelift_alias":              {Tok: awsResource(gameliftMod, "Alias")},
 			"aws_gamelift_build":              {Tok: awsResource(gameliftMod, "Build")},
@@ -2800,10 +2805,13 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_appconfig_deployment":                   {Tok: awsResource(appConfigMod, "Deployment")},
 
 			// AppStream
-			"aws_appstream_stack":            {Tok: awsResource(appStreamMod, "Stack")},
-			"aws_appstream_fleet":            {Tok: awsResource(appStreamMod, "Fleet")},
-			"aws_appstream_image_builder":    {Tok: awsResource(appStreamMod, "ImageBuilder")},
-			"aws_appstream_directory_config": {Tok: awsResource(appStreamMod, "DirectoryConfig")},
+			"aws_appstream_stack":                   {Tok: awsResource(appStreamMod, "Stack")},
+			"aws_appstream_fleet":                   {Tok: awsResource(appStreamMod, "Fleet")},
+			"aws_appstream_image_builder":           {Tok: awsResource(appStreamMod, "ImageBuilder")},
+			"aws_appstream_directory_config":        {Tok: awsResource(appStreamMod, "DirectoryConfig")},
+			"aws_appstream_fleet_stack_association": {Tok: awsResource(appStreamMod, "FleetStackAssociation")},
+			"aws_appstream_user_stack_association":  {Tok: awsResource(appStreamMod, "UserStackAssociation")},
+			"aws_appstream_user":                    {Tok: awsResource(appStreamMod, "User")},
 
 			// mwaa
 			"aws_mwaa_environment": {Tok: awsResource(mwaaMod, "Environment")},
@@ -3962,6 +3970,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_ec2_host":                         {Tok: awsDataSource(ec2Mod, "getDedicatedHost")},
 			"aws_ec2_managed_prefix_list":          {Tok: awsDataSource(ec2Mod, "getManagedPrefixList")},
 			"aws_ec2_transit_gateway_route_tables": {Tok: awsDataSource(ec2Mod, "getTransitGatewayRouteTables")},
+			"aws_ec2_instance_types":               {Tok: awsDataSource(ec2Mod, "getInstanceTypes")},
 			// EC2 Transit Gateway
 			"aws_ec2_transit_gateway": {Tok: awsDataSource(ec2TransitGatewayMod, "getTransitGateway")},
 			"aws_ec2_transit_gateway_dx_gateway_attachment": {
@@ -4249,6 +4258,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_imagebuilder_image_pipeline": {Tok: awsDataSource(imageBuilderMod, "getImagePipeline")},
 			"aws_imagebuilder_image_recipe":   {Tok: awsDataSource(imageBuilderMod, "getImageRecipe")},
 			"aws_imagebuilder_image":          {Tok: awsDataSource(imageBuilderMod, "getImage")},
+			"aws_imagebuilder_image_recipes":  {Tok: awsDataSource(imageBuilderMod, "getImageRecipes")},
 			//signer
 			"aws_signer_signing_job":     {Tok: awsDataSource(signerMod, "getSigningJob")},
 			"aws_signer_signing_profile": {Tok: awsDataSource(signerMod, "getSigningProfile")},

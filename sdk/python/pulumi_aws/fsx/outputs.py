@@ -14,6 +14,14 @@ __all__ = [
     'OntapFileSystemEndpoint',
     'OntapFileSystemEndpointIntercluster',
     'OntapFileSystemEndpointManagement',
+    'OntapStorageVirtualMachineActiveDirectoryConfiguration',
+    'OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration',
+    'OntapStorageVirtualMachineEndpoint',
+    'OntapStorageVirtualMachineEndpointIscse',
+    'OntapStorageVirtualMachineEndpointManagement',
+    'OntapStorageVirtualMachineEndpointNf',
+    'OntapStorageVirtualMachineEndpointSmb',
+    'OntapVolumeTieringPolicy',
     'WindowsFileSystemAuditLogConfiguration',
     'WindowsFileSystemSelfManagedActiveDirectory',
 ]
@@ -178,6 +186,445 @@ class OntapFileSystemEndpointManagement(dict):
         IP addresses of the file system endpoint.
         """
         return pulumi.get(self, "ip_addresses")
+
+
+@pulumi.output_type
+class OntapStorageVirtualMachineActiveDirectoryConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "netbiosName":
+            suggest = "netbios_name"
+        elif key == "selfManagedActiveDirectoryConfiguration":
+            suggest = "self_managed_active_directory_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OntapStorageVirtualMachineActiveDirectoryConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OntapStorageVirtualMachineActiveDirectoryConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OntapStorageVirtualMachineActiveDirectoryConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 netbios_name: Optional[str] = None,
+                 self_managed_active_directory_configuration: Optional['outputs.OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration'] = None):
+        """
+        :param str netbios_name: The NetBIOS name of the Active Directory computer object that will be created for your SVM. This is often the same as the SVM name but can be different. It is limited to 15 characters because of standard NetBIOS naming limits.
+        """
+        if netbios_name is not None:
+            pulumi.set(__self__, "netbios_name", netbios_name)
+        if self_managed_active_directory_configuration is not None:
+            pulumi.set(__self__, "self_managed_active_directory_configuration", self_managed_active_directory_configuration)
+
+    @property
+    @pulumi.getter(name="netbiosName")
+    def netbios_name(self) -> Optional[str]:
+        """
+        The NetBIOS name of the Active Directory computer object that will be created for your SVM. This is often the same as the SVM name but can be different. It is limited to 15 characters because of standard NetBIOS naming limits.
+        """
+        return pulumi.get(self, "netbios_name")
+
+    @property
+    @pulumi.getter(name="selfManagedActiveDirectoryConfiguration")
+    def self_managed_active_directory_configuration(self) -> Optional['outputs.OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration']:
+        return pulumi.get(self, "self_managed_active_directory_configuration")
+
+
+@pulumi.output_type
+class OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dnsIps":
+            suggest = "dns_ips"
+        elif key == "domainName":
+            suggest = "domain_name"
+        elif key == "fileSystemAdministratorsGroup":
+            suggest = "file_system_administrators_group"
+        elif key == "organizationalUnitDistinguidshedName":
+            suggest = "organizational_unit_distinguidshed_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 dns_ips: Sequence[str],
+                 domain_name: str,
+                 password: str,
+                 username: str,
+                 file_system_administrators_group: Optional[str] = None,
+                 organizational_unit_distinguidshed_name: Optional[str] = None):
+        """
+        :param Sequence[str] dns_ips: A list of up to three IP addresses of DNS servers or domain controllers in the self-managed AD directory.
+        :param str domain_name: The fully qualified domain name of the self-managed AD directory. For example, `corp.example.com`.
+        :param str password: The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
+        :param str username: The user name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
+        :param str file_system_administrators_group: The name of the domain group whose members are granted administrative privileges for the SVM. The group that you specify must already exist in your domain. Defaults to `Domain Admins`.
+        """
+        pulumi.set(__self__, "dns_ips", dns_ips)
+        pulumi.set(__self__, "domain_name", domain_name)
+        pulumi.set(__self__, "password", password)
+        pulumi.set(__self__, "username", username)
+        if file_system_administrators_group is not None:
+            pulumi.set(__self__, "file_system_administrators_group", file_system_administrators_group)
+        if organizational_unit_distinguidshed_name is not None:
+            pulumi.set(__self__, "organizational_unit_distinguidshed_name", organizational_unit_distinguidshed_name)
+
+    @property
+    @pulumi.getter(name="dnsIps")
+    def dns_ips(self) -> Sequence[str]:
+        """
+        A list of up to three IP addresses of DNS servers or domain controllers in the self-managed AD directory.
+        """
+        return pulumi.get(self, "dns_ips")
+
+    @property
+    @pulumi.getter(name="domainName")
+    def domain_name(self) -> str:
+        """
+        The fully qualified domain name of the self-managed AD directory. For example, `corp.example.com`.
+        """
+        return pulumi.get(self, "domain_name")
+
+    @property
+    @pulumi.getter
+    def password(self) -> str:
+        """
+        The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
+        """
+        return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter
+    def username(self) -> str:
+        """
+        The user name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
+        """
+        return pulumi.get(self, "username")
+
+    @property
+    @pulumi.getter(name="fileSystemAdministratorsGroup")
+    def file_system_administrators_group(self) -> Optional[str]:
+        """
+        The name of the domain group whose members are granted administrative privileges for the SVM. The group that you specify must already exist in your domain. Defaults to `Domain Admins`.
+        """
+        return pulumi.get(self, "file_system_administrators_group")
+
+    @property
+    @pulumi.getter(name="organizationalUnitDistinguidshedName")
+    def organizational_unit_distinguidshed_name(self) -> Optional[str]:
+        return pulumi.get(self, "organizational_unit_distinguidshed_name")
+
+
+@pulumi.output_type
+class OntapStorageVirtualMachineEndpoint(dict):
+    def __init__(__self__, *,
+                 iscses: Optional[Sequence['outputs.OntapStorageVirtualMachineEndpointIscse']] = None,
+                 managements: Optional[Sequence['outputs.OntapStorageVirtualMachineEndpointManagement']] = None,
+                 nfs: Optional[Sequence['outputs.OntapStorageVirtualMachineEndpointNf']] = None,
+                 smbs: Optional[Sequence['outputs.OntapStorageVirtualMachineEndpointSmb']] = None):
+        """
+        :param Sequence['OntapStorageVirtualMachineEndpointIscseArgs'] iscses: An endpoint for accessing data on your storage virtual machine via iSCSI protocol. See Endpoint.
+        :param Sequence['OntapStorageVirtualMachineEndpointManagementArgs'] managements: An endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
+        :param Sequence['OntapStorageVirtualMachineEndpointNfArgs'] nfs: An endpoint for accessing data on your storage virtual machine via NFS protocol. See Endpoint.
+        :param Sequence['OntapStorageVirtualMachineEndpointSmbArgs'] smbs: An endpoint for accessing data on your storage virtual machine via SMB protocol. This is only set if an active_directory_configuration has been set. See Endpoint.
+        """
+        if iscses is not None:
+            pulumi.set(__self__, "iscses", iscses)
+        if managements is not None:
+            pulumi.set(__self__, "managements", managements)
+        if nfs is not None:
+            pulumi.set(__self__, "nfs", nfs)
+        if smbs is not None:
+            pulumi.set(__self__, "smbs", smbs)
+
+    @property
+    @pulumi.getter
+    def iscses(self) -> Optional[Sequence['outputs.OntapStorageVirtualMachineEndpointIscse']]:
+        """
+        An endpoint for accessing data on your storage virtual machine via iSCSI protocol. See Endpoint.
+        """
+        return pulumi.get(self, "iscses")
+
+    @property
+    @pulumi.getter
+    def managements(self) -> Optional[Sequence['outputs.OntapStorageVirtualMachineEndpointManagement']]:
+        """
+        An endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
+        """
+        return pulumi.get(self, "managements")
+
+    @property
+    @pulumi.getter
+    def nfs(self) -> Optional[Sequence['outputs.OntapStorageVirtualMachineEndpointNf']]:
+        """
+        An endpoint for accessing data on your storage virtual machine via NFS protocol. See Endpoint.
+        """
+        return pulumi.get(self, "nfs")
+
+    @property
+    @pulumi.getter
+    def smbs(self) -> Optional[Sequence['outputs.OntapStorageVirtualMachineEndpointSmb']]:
+        """
+        An endpoint for accessing data on your storage virtual machine via SMB protocol. This is only set if an active_directory_configuration has been set. See Endpoint.
+        """
+        return pulumi.get(self, "smbs")
+
+
+@pulumi.output_type
+class OntapStorageVirtualMachineEndpointIscse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dnsName":
+            suggest = "dns_name"
+        elif key == "ipAddresses":
+            suggest = "ip_addresses"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OntapStorageVirtualMachineEndpointIscse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OntapStorageVirtualMachineEndpointIscse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OntapStorageVirtualMachineEndpointIscse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 dns_name: Optional[str] = None,
+                 ip_addresses: Optional[Sequence[str]] = None):
+        """
+        :param str dns_name: The Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
+        :param Sequence[str] ip_addresses: IP addresses of the storage virtual machine endpoint.
+        """
+        if dns_name is not None:
+            pulumi.set(__self__, "dns_name", dns_name)
+        if ip_addresses is not None:
+            pulumi.set(__self__, "ip_addresses", ip_addresses)
+
+    @property
+    @pulumi.getter(name="dnsName")
+    def dns_name(self) -> Optional[str]:
+        """
+        The Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
+        """
+        return pulumi.get(self, "dns_name")
+
+    @property
+    @pulumi.getter(name="ipAddresses")
+    def ip_addresses(self) -> Optional[Sequence[str]]:
+        """
+        IP addresses of the storage virtual machine endpoint.
+        """
+        return pulumi.get(self, "ip_addresses")
+
+
+@pulumi.output_type
+class OntapStorageVirtualMachineEndpointManagement(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dnsName":
+            suggest = "dns_name"
+        elif key == "ipAddresses":
+            suggest = "ip_addresses"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OntapStorageVirtualMachineEndpointManagement. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OntapStorageVirtualMachineEndpointManagement.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OntapStorageVirtualMachineEndpointManagement.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 dns_name: Optional[str] = None,
+                 ip_addresses: Optional[Sequence[str]] = None):
+        """
+        :param str dns_name: The Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
+        :param Sequence[str] ip_addresses: IP addresses of the storage virtual machine endpoint.
+        """
+        if dns_name is not None:
+            pulumi.set(__self__, "dns_name", dns_name)
+        if ip_addresses is not None:
+            pulumi.set(__self__, "ip_addresses", ip_addresses)
+
+    @property
+    @pulumi.getter(name="dnsName")
+    def dns_name(self) -> Optional[str]:
+        """
+        The Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
+        """
+        return pulumi.get(self, "dns_name")
+
+    @property
+    @pulumi.getter(name="ipAddresses")
+    def ip_addresses(self) -> Optional[Sequence[str]]:
+        """
+        IP addresses of the storage virtual machine endpoint.
+        """
+        return pulumi.get(self, "ip_addresses")
+
+
+@pulumi.output_type
+class OntapStorageVirtualMachineEndpointNf(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dnsName":
+            suggest = "dns_name"
+        elif key == "ipAddresses":
+            suggest = "ip_addresses"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OntapStorageVirtualMachineEndpointNf. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OntapStorageVirtualMachineEndpointNf.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OntapStorageVirtualMachineEndpointNf.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 dns_name: Optional[str] = None,
+                 ip_addresses: Optional[Sequence[str]] = None):
+        """
+        :param str dns_name: The Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
+        :param Sequence[str] ip_addresses: IP addresses of the storage virtual machine endpoint.
+        """
+        if dns_name is not None:
+            pulumi.set(__self__, "dns_name", dns_name)
+        if ip_addresses is not None:
+            pulumi.set(__self__, "ip_addresses", ip_addresses)
+
+    @property
+    @pulumi.getter(name="dnsName")
+    def dns_name(self) -> Optional[str]:
+        """
+        The Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
+        """
+        return pulumi.get(self, "dns_name")
+
+    @property
+    @pulumi.getter(name="ipAddresses")
+    def ip_addresses(self) -> Optional[Sequence[str]]:
+        """
+        IP addresses of the storage virtual machine endpoint.
+        """
+        return pulumi.get(self, "ip_addresses")
+
+
+@pulumi.output_type
+class OntapStorageVirtualMachineEndpointSmb(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dnsName":
+            suggest = "dns_name"
+        elif key == "ipAddresses":
+            suggest = "ip_addresses"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OntapStorageVirtualMachineEndpointSmb. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OntapStorageVirtualMachineEndpointSmb.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OntapStorageVirtualMachineEndpointSmb.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 dns_name: Optional[str] = None,
+                 ip_addresses: Optional[Sequence[str]] = None):
+        """
+        :param str dns_name: The Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
+        :param Sequence[str] ip_addresses: IP addresses of the storage virtual machine endpoint.
+        """
+        if dns_name is not None:
+            pulumi.set(__self__, "dns_name", dns_name)
+        if ip_addresses is not None:
+            pulumi.set(__self__, "ip_addresses", ip_addresses)
+
+    @property
+    @pulumi.getter(name="dnsName")
+    def dns_name(self) -> Optional[str]:
+        """
+        The Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
+        """
+        return pulumi.get(self, "dns_name")
+
+    @property
+    @pulumi.getter(name="ipAddresses")
+    def ip_addresses(self) -> Optional[Sequence[str]]:
+        """
+        IP addresses of the storage virtual machine endpoint.
+        """
+        return pulumi.get(self, "ip_addresses")
+
+
+@pulumi.output_type
+class OntapVolumeTieringPolicy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "coolingPeriod":
+            suggest = "cooling_period"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OntapVolumeTieringPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OntapVolumeTieringPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OntapVolumeTieringPolicy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cooling_period: Optional[int] = None,
+                 name: Optional[str] = None):
+        """
+        :param str name: Specifies the tiering policy for the ONTAP volume for moving data to the capacity pool storage. Valid values are `SNAPSHOT_ONLY`, `AUTO`, `ALL`, `NONE`. Default value is `SNAPSHOT_ONLY`.
+        """
+        if cooling_period is not None:
+            pulumi.set(__self__, "cooling_period", cooling_period)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="coolingPeriod")
+    def cooling_period(self) -> Optional[int]:
+        return pulumi.get(self, "cooling_period")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Specifies the tiering policy for the ONTAP volume for moving data to the capacity pool storage. Valid values are `SNAPSHOT_ONLY`, `AUTO`, `ALL`, `NONE`. Default value is `SNAPSHOT_ONLY`.
+        """
+        return pulumi.get(self, "name")
 
 
 @pulumi.output_type

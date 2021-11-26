@@ -93,6 +93,10 @@ export interface GetFunctionResult {
      */
     readonly id: string;
     /**
+     * The URI of the container image.
+     */
+    readonly imageUri: string;
+    /**
      * The ARN to be used for invoking Lambda Function from API Gateway.
      */
     readonly invokeArn: string;

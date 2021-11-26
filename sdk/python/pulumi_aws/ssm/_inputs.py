@@ -36,14 +36,18 @@ __all__ = [
 class AssociationOutputLocationArgs:
     def __init__(__self__, *,
                  s3_bucket_name: pulumi.Input[str],
-                 s3_key_prefix: Optional[pulumi.Input[str]] = None):
+                 s3_key_prefix: Optional[pulumi.Input[str]] = None,
+                 s3_region: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] s3_bucket_name: The S3 bucket name.
         :param pulumi.Input[str] s3_key_prefix: The S3 bucket prefix. Results stored in the root if not configured.
+        :param pulumi.Input[str] s3_region: The S3 bucket region.
         """
         pulumi.set(__self__, "s3_bucket_name", s3_bucket_name)
         if s3_key_prefix is not None:
             pulumi.set(__self__, "s3_key_prefix", s3_key_prefix)
+        if s3_region is not None:
+            pulumi.set(__self__, "s3_region", s3_region)
 
     @property
     @pulumi.getter(name="s3BucketName")
@@ -68,6 +72,18 @@ class AssociationOutputLocationArgs:
     @s3_key_prefix.setter
     def s3_key_prefix(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "s3_key_prefix", value)
+
+    @property
+    @pulumi.getter(name="s3Region")
+    def s3_region(self) -> Optional[pulumi.Input[str]]:
+        """
+        The S3 bucket region.
+        """
+        return pulumi.get(self, "s3_region")
+
+    @s3_region.setter
+    def s3_region(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "s3_region", value)
 
 
 @pulumi.input_type

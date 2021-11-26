@@ -383,6 +383,7 @@ func (o ProviderDefaultTagsPtrOutput) Tags() pulumi.StringMapOutput {
 
 type ProviderEndpoint struct {
 	Accessanalyzer                  *string `pulumi:"accessanalyzer"`
+	Account                         *string `pulumi:"account"`
 	Acm                             *string `pulumi:"acm"`
 	Acmpca                          *string `pulumi:"acmpca"`
 	Alexaforbusiness                *string `pulumi:"alexaforbusiness"`
@@ -696,6 +697,7 @@ type ProviderEndpointInput interface {
 
 type ProviderEndpointArgs struct {
 	Accessanalyzer                  pulumi.StringPtrInput `pulumi:"accessanalyzer"`
+	Account                         pulumi.StringPtrInput `pulumi:"account"`
 	Acm                             pulumi.StringPtrInput `pulumi:"acm"`
 	Acmpca                          pulumi.StringPtrInput `pulumi:"acmpca"`
 	Alexaforbusiness                pulumi.StringPtrInput `pulumi:"alexaforbusiness"`
@@ -1049,6 +1051,10 @@ func (o ProviderEndpointOutput) ToProviderEndpointOutputWithContext(ctx context.
 
 func (o ProviderEndpointOutput) Accessanalyzer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Accessanalyzer }).(pulumi.StringPtrOutput)
+}
+
+func (o ProviderEndpointOutput) Account() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProviderEndpoint) *string { return v.Account }).(pulumi.StringPtrOutput)
 }
 
 func (o ProviderEndpointOutput) Acm() pulumi.StringPtrOutput {

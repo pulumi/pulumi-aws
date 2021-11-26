@@ -507,7 +507,7 @@ type ServiceInstanceConfiguration struct {
 	// The number of CPU units reserved for each instance of your App Runner service represented as a String. Defaults to `1024`. Valid values: `1024|2048|(1|2) vCPU`.
 	Cpu *string `pulumi:"cpu"`
 	// The Amazon Resource Name (ARN) of an IAM role that provides permissions to your App Runner service. These are permissions that your code needs when it calls any AWS APIs.
-	InstanceRoleArn string `pulumi:"instanceRoleArn"`
+	InstanceRoleArn *string `pulumi:"instanceRoleArn"`
 	// The amount of memory, in MB or GB, reserved for each instance of your App Runner service. Defaults to `2048`. Valid values: `2048|3072|4096|(2|3|4) GB`.
 	Memory *string `pulumi:"memory"`
 }
@@ -527,7 +527,7 @@ type ServiceInstanceConfigurationArgs struct {
 	// The number of CPU units reserved for each instance of your App Runner service represented as a String. Defaults to `1024`. Valid values: `1024|2048|(1|2) vCPU`.
 	Cpu pulumi.StringPtrInput `pulumi:"cpu"`
 	// The Amazon Resource Name (ARN) of an IAM role that provides permissions to your App Runner service. These are permissions that your code needs when it calls any AWS APIs.
-	InstanceRoleArn pulumi.StringInput `pulumi:"instanceRoleArn"`
+	InstanceRoleArn pulumi.StringPtrInput `pulumi:"instanceRoleArn"`
 	// The amount of memory, in MB or GB, reserved for each instance of your App Runner service. Defaults to `2048`. Valid values: `2048|3072|4096|(2|3|4) GB`.
 	Memory pulumi.StringPtrInput `pulumi:"memory"`
 }
@@ -615,8 +615,8 @@ func (o ServiceInstanceConfigurationOutput) Cpu() pulumi.StringPtrOutput {
 }
 
 // The Amazon Resource Name (ARN) of an IAM role that provides permissions to your App Runner service. These are permissions that your code needs when it calls any AWS APIs.
-func (o ServiceInstanceConfigurationOutput) InstanceRoleArn() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceInstanceConfiguration) string { return v.InstanceRoleArn }).(pulumi.StringOutput)
+func (o ServiceInstanceConfigurationOutput) InstanceRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceInstanceConfiguration) *string { return v.InstanceRoleArn }).(pulumi.StringPtrOutput)
 }
 
 // The amount of memory, in MB or GB, reserved for each instance of your App Runner service. Defaults to `2048`. Valid values: `2048|3072|4096|(2|3|4) GB`.
@@ -664,7 +664,7 @@ func (o ServiceInstanceConfigurationPtrOutput) InstanceRoleArn() pulumi.StringPt
 		if v == nil {
 			return nil
 		}
-		return &v.InstanceRoleArn
+		return v.InstanceRoleArn
 	}).(pulumi.StringPtrOutput)
 }
 

@@ -32,7 +32,7 @@ import (
 // 			Tags: autoscaling.GroupTagArray{
 // 				&autoscaling.GroupTagArgs{
 // 					Key:               pulumi.String("AmazonECSManaged"),
-// 					Value:             pulumi.String(""),
+// 					Value:             pulumi.String("true"),
 // 					PropagateAtLaunch: pulumi.Bool(true),
 // 				},
 // 			},

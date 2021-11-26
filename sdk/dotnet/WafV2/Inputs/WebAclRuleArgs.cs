@@ -36,6 +36,18 @@ namespace Pulumi.Aws.WafV2.Inputs
         [Input("priority", required: true)]
         public Input<int> Priority { get; set; } = null!;
 
+        [Input("ruleLabels")]
+        private InputList<Inputs.WebAclRuleRuleLabelArgs>? _ruleLabels;
+
+        /// <summary>
+        /// Labels to apply to web requests that match the rule match statement. See Rule Label below for details.
+        /// </summary>
+        public InputList<Inputs.WebAclRuleRuleLabelArgs> RuleLabels
+        {
+            get => _ruleLabels ?? (_ruleLabels = new InputList<Inputs.WebAclRuleRuleLabelArgs>());
+            set => _ruleLabels = value;
+        }
+
         /// <summary>
         /// The AWS WAF processing statement for the rule, for example `byte_match_statement` or `geo_match_statement`. See Statement below for details.
         /// </summary>

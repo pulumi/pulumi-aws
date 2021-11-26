@@ -78,13 +78,13 @@ namespace Pulumi.Aws.Quicksight
         public Output<string?> Namespace { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the IAM session to use when assuming roles that can embed QuickSight dashboards.
+        /// The name of the IAM session to use when assuming roles that can embed QuickSight dashboards. Only valid for registering users using an assumed IAM role. Additionally, if registering multiple users using the same IAM role, each user needs to have a unique session name.
         /// </summary>
         [Output("sessionName")]
         public Output<string?> SessionName { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon QuickSight user name that you want to create for the user you are registering.
+        /// The Amazon QuickSight user name that you want to create for the user you are registering. Only valid for registering a user with `identity_type` set to `QUICKSIGHT`.
         /// </summary>
         [Output("userName")]
         public Output<string?> UserName { get; private set; } = null!;
@@ -172,13 +172,13 @@ namespace Pulumi.Aws.Quicksight
         public Input<string>? Namespace { get; set; }
 
         /// <summary>
-        /// The name of the IAM session to use when assuming roles that can embed QuickSight dashboards.
+        /// The name of the IAM session to use when assuming roles that can embed QuickSight dashboards. Only valid for registering users using an assumed IAM role. Additionally, if registering multiple users using the same IAM role, each user needs to have a unique session name.
         /// </summary>
         [Input("sessionName")]
         public Input<string>? SessionName { get; set; }
 
         /// <summary>
-        /// The Amazon QuickSight user name that you want to create for the user you are registering.
+        /// The Amazon QuickSight user name that you want to create for the user you are registering. Only valid for registering a user with `identity_type` set to `QUICKSIGHT`.
         /// </summary>
         [Input("userName")]
         public Input<string>? UserName { get; set; }
@@ -233,13 +233,13 @@ namespace Pulumi.Aws.Quicksight
         public Input<string>? Namespace { get; set; }
 
         /// <summary>
-        /// The name of the IAM session to use when assuming roles that can embed QuickSight dashboards.
+        /// The name of the IAM session to use when assuming roles that can embed QuickSight dashboards. Only valid for registering users using an assumed IAM role. Additionally, if registering multiple users using the same IAM role, each user needs to have a unique session name.
         /// </summary>
         [Input("sessionName")]
         public Input<string>? SessionName { get; set; }
 
         /// <summary>
-        /// The Amazon QuickSight user name that you want to create for the user you are registering.
+        /// The Amazon QuickSight user name that you want to create for the user you are registering. Only valid for registering a user with `identity_type` set to `QUICKSIGHT`.
         /// </summary>
         [Input("userName")]
         public Input<string>? UserName { get; set; }

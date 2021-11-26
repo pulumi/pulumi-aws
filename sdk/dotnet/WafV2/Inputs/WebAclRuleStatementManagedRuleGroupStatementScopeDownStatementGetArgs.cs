@@ -37,6 +37,12 @@ namespace Pulumi.Aws.WafV2.Inputs
         public Input<Inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementIpSetReferenceStatementGetArgs>? IpSetReferenceStatement { get; set; }
 
         /// <summary>
+        /// A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+        /// </summary>
+        [Input("labelMatchStatement")]
+        public Input<Inputs.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementLabelMatchStatementGetArgs>? LabelMatchStatement { get; set; }
+
+        /// <summary>
         /// A logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
         /// </summary>
         [Input("notStatement")]

@@ -88,6 +88,7 @@ import (
 // }
 // ```
 // ### Rate Based
+// Rate-limit US and NL-based clients to 10,000 requests for every 5 minutes.
 //
 // ```go
 // package main
@@ -101,13 +102,13 @@ import (
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := wafv2.NewWebAcl(ctx, "example", &wafv2.WebAclArgs{
 // 			DefaultAction: &wafv2.WebAclDefaultActionArgs{
-// 				Block: nil,
+// 				Allow: nil,
 // 			},
-// 			Description: pulumi.String("Example of a rate based statement."),
+// 			Description: pulumi.String("Example of a Cloudfront rate based statement."),
 // 			Rules: wafv2.WebAclRuleArray{
 // 				&wafv2.WebAclRuleArgs{
 // 					Action: &wafv2.WebAclRuleActionArgs{
-// 						Count: nil,
+// 						Block: nil,
 // 					},
 // 					Name:     pulumi.String("rule-1"),
 // 					Priority: pulumi.Int(1),
@@ -132,7 +133,7 @@ import (
 // 					},
 // 				},
 // 			},
-// 			Scope: pulumi.String("REGIONAL"),
+// 			Scope: pulumi.String("CLOUDFRONT"),
 // 			Tags: pulumi.StringMap{
 // 				"Tag1": pulumi.String("Value1"),
 // 				"Tag2": pulumi.String("Value2"),
@@ -297,12 +298,14 @@ type WebAcl struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The web ACL capacity units (WCUs) currently being used by this web ACL.
 	Capacity pulumi.IntOutput `pulumi:"capacity"`
+	// Defines custom response bodies that can be referenced by `customResponse` actions. See Custom Response Body below for details.
+	CustomResponseBodies WebAclCustomResponseBodyArrayOutput `pulumi:"customResponseBodies"`
 	// The action to perform if none of the `rules` contained in the WebACL match. See Default Action below for details.
 	DefaultAction WebAclDefaultActionOutput `pulumi:"defaultAction"`
 	// A friendly description of the WebACL.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	LockToken   pulumi.StringOutput    `pulumi:"lockToken"`
-	// The name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
+	// The label string.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
 	Rules WebAclRuleArrayOutput `pulumi:"rules"`
@@ -358,12 +361,14 @@ type webAclState struct {
 	Arn *string `pulumi:"arn"`
 	// The web ACL capacity units (WCUs) currently being used by this web ACL.
 	Capacity *int `pulumi:"capacity"`
+	// Defines custom response bodies that can be referenced by `customResponse` actions. See Custom Response Body below for details.
+	CustomResponseBodies []WebAclCustomResponseBody `pulumi:"customResponseBodies"`
 	// The action to perform if none of the `rules` contained in the WebACL match. See Default Action below for details.
 	DefaultAction *WebAclDefaultAction `pulumi:"defaultAction"`
 	// A friendly description of the WebACL.
 	Description *string `pulumi:"description"`
 	LockToken   *string `pulumi:"lockToken"`
-	// The name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
+	// The label string.
 	Name *string `pulumi:"name"`
 	// The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
 	Rules []WebAclRule `pulumi:"rules"`
@@ -382,12 +387,14 @@ type WebAclState struct {
 	Arn pulumi.StringPtrInput
 	// The web ACL capacity units (WCUs) currently being used by this web ACL.
 	Capacity pulumi.IntPtrInput
+	// Defines custom response bodies that can be referenced by `customResponse` actions. See Custom Response Body below for details.
+	CustomResponseBodies WebAclCustomResponseBodyArrayInput
 	// The action to perform if none of the `rules` contained in the WebACL match. See Default Action below for details.
 	DefaultAction WebAclDefaultActionPtrInput
 	// A friendly description of the WebACL.
 	Description pulumi.StringPtrInput
 	LockToken   pulumi.StringPtrInput
-	// The name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
+	// The label string.
 	Name pulumi.StringPtrInput
 	// The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
 	Rules WebAclRuleArrayInput
@@ -406,11 +413,13 @@ func (WebAclState) ElementType() reflect.Type {
 }
 
 type webAclArgs struct {
+	// Defines custom response bodies that can be referenced by `customResponse` actions. See Custom Response Body below for details.
+	CustomResponseBodies []WebAclCustomResponseBody `pulumi:"customResponseBodies"`
 	// The action to perform if none of the `rules` contained in the WebACL match. See Default Action below for details.
 	DefaultAction WebAclDefaultAction `pulumi:"defaultAction"`
 	// A friendly description of the WebACL.
 	Description *string `pulumi:"description"`
-	// The name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
+	// The label string.
 	Name *string `pulumi:"name"`
 	// The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
 	Rules []WebAclRule `pulumi:"rules"`
@@ -426,11 +435,13 @@ type webAclArgs struct {
 
 // The set of arguments for constructing a WebAcl resource.
 type WebAclArgs struct {
+	// Defines custom response bodies that can be referenced by `customResponse` actions. See Custom Response Body below for details.
+	CustomResponseBodies WebAclCustomResponseBodyArrayInput
 	// The action to perform if none of the `rules` contained in the WebACL match. See Default Action below for details.
 	DefaultAction WebAclDefaultActionInput
 	// A friendly description of the WebACL.
 	Description pulumi.StringPtrInput
-	// The name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
+	// The label string.
 	Name pulumi.StringPtrInput
 	// The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
 	Rules WebAclRuleArrayInput

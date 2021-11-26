@@ -21,15 +21,22 @@ namespace Pulumi.Aws.Ssm.Outputs
         /// The S3 bucket prefix. Results stored in the root if not configured.
         /// </summary>
         public readonly string? S3KeyPrefix;
+        /// <summary>
+        /// The S3 bucket region.
+        /// </summary>
+        public readonly string? S3Region;
 
         [OutputConstructor]
         private AssociationOutputLocation(
             string s3BucketName,
 
-            string? s3KeyPrefix)
+            string? s3KeyPrefix,
+
+            string? s3Region)
         {
             S3BucketName = s3BucketName;
             S3KeyPrefix = s3KeyPrefix;
+            S3Region = s3Region;
         }
     }
 }

@@ -255,6 +255,7 @@ namespace Pulumi.Aws
              public class Endpoints
              {
                 public string? Accessanalyzer { get; set; } = null!;
+                public string? Account { get; set; } = null!;
                 public string? Acm { get; set; } = null!;
                 public string? Acmpca { get; set; } = null!;
                 public string? Alexaforbusiness { get; set; } = null!;

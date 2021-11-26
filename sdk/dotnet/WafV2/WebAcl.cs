@@ -98,6 +98,7 @@ namespace Pulumi.Aws.WafV2
     /// }
     /// ```
     /// ### Rate Based
+    /// Rate-limit US and NL-based clients to 10,000 requests for every 5 minutes.
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -111,16 +112,16 @@ namespace Pulumi.Aws.WafV2
     ///         {
     ///             DefaultAction = new Aws.WafV2.Inputs.WebAclDefaultActionArgs
     ///             {
-    ///                 Block = ,
+    ///                 Allow = ,
     ///             },
-    ///             Description = "Example of a rate based statement.",
+    ///             Description = "Example of a Cloudfront rate based statement.",
     ///             Rules = 
     ///             {
     ///                 new Aws.WafV2.Inputs.WebAclRuleArgs
     ///                 {
     ///                     Action = new Aws.WafV2.Inputs.WebAclRuleActionArgs
     ///                     {
-    ///                         Count = ,
+    ///                         Block = ,
     ///                     },
     ///                     Name = "rule-1",
     ///                     Priority = 1,
@@ -151,7 +152,7 @@ namespace Pulumi.Aws.WafV2
     ///                     },
     ///                 },
     ///             },
-    ///             Scope = "REGIONAL",
+    ///             Scope = "CLOUDFRONT",
     ///             Tags = 
     ///             {
     ///                 { "Tag1", "Value1" },
@@ -351,6 +352,12 @@ namespace Pulumi.Aws.WafV2
         public Output<int> Capacity { get; private set; } = null!;
 
         /// <summary>
+        /// Defines custom response bodies that can be referenced by `custom_response` actions. See Custom Response Body below for details.
+        /// </summary>
+        [Output("customResponseBodies")]
+        public Output<ImmutableArray<Outputs.WebAclCustomResponseBody>> CustomResponseBodies { get; private set; } = null!;
+
+        /// <summary>
         /// The action to perform if none of the `rules` contained in the WebACL match. See Default Action below for details.
         /// </summary>
         [Output("defaultAction")]
@@ -366,7 +373,7 @@ namespace Pulumi.Aws.WafV2
         public Output<string> LockToken { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
+        /// The label string.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -447,6 +454,18 @@ namespace Pulumi.Aws.WafV2
 
     public sealed class WebAclArgs : Pulumi.ResourceArgs
     {
+        [Input("customResponseBodies")]
+        private InputList<Inputs.WebAclCustomResponseBodyArgs>? _customResponseBodies;
+
+        /// <summary>
+        /// Defines custom response bodies that can be referenced by `custom_response` actions. See Custom Response Body below for details.
+        /// </summary>
+        public InputList<Inputs.WebAclCustomResponseBodyArgs> CustomResponseBodies
+        {
+            get => _customResponseBodies ?? (_customResponseBodies = new InputList<Inputs.WebAclCustomResponseBodyArgs>());
+            set => _customResponseBodies = value;
+        }
+
         /// <summary>
         /// The action to perform if none of the `rules` contained in the WebACL match. See Default Action below for details.
         /// </summary>
@@ -460,7 +479,7 @@ namespace Pulumi.Aws.WafV2
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
+        /// The label string.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -532,6 +551,18 @@ namespace Pulumi.Aws.WafV2
         [Input("capacity")]
         public Input<int>? Capacity { get; set; }
 
+        [Input("customResponseBodies")]
+        private InputList<Inputs.WebAclCustomResponseBodyGetArgs>? _customResponseBodies;
+
+        /// <summary>
+        /// Defines custom response bodies that can be referenced by `custom_response` actions. See Custom Response Body below for details.
+        /// </summary>
+        public InputList<Inputs.WebAclCustomResponseBodyGetArgs> CustomResponseBodies
+        {
+            get => _customResponseBodies ?? (_customResponseBodies = new InputList<Inputs.WebAclCustomResponseBodyGetArgs>());
+            set => _customResponseBodies = value;
+        }
+
         /// <summary>
         /// The action to perform if none of the `rules` contained in the WebACL match. See Default Action below for details.
         /// </summary>
@@ -548,7 +579,7 @@ namespace Pulumi.Aws.WafV2
         public Input<string>? LockToken { get; set; }
 
         /// <summary>
-        /// The name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
+        /// The label string.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

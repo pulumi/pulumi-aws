@@ -30,6 +30,10 @@ namespace Pulumi.Aws.WafV2.Outputs
         /// </summary>
         public readonly Outputs.WebAclRuleStatementIpSetReferenceStatement? IpSetReferenceStatement;
         /// <summary>
+        /// A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+        /// </summary>
+        public readonly Outputs.WebAclRuleStatementLabelMatchStatement? LabelMatchStatement;
+        /// <summary>
         /// A rule statement used to run the rules that are defined in a managed rule group.  This statement can not be nested. See Managed Rule Group Statement below for details.
         /// </summary>
         public readonly Outputs.WebAclRuleStatementManagedRuleGroupStatement? ManagedRuleGroupStatement;
@@ -76,6 +80,8 @@ namespace Pulumi.Aws.WafV2.Outputs
 
             Outputs.WebAclRuleStatementIpSetReferenceStatement? ipSetReferenceStatement,
 
+            Outputs.WebAclRuleStatementLabelMatchStatement? labelMatchStatement,
+
             Outputs.WebAclRuleStatementManagedRuleGroupStatement? managedRuleGroupStatement,
 
             Outputs.WebAclRuleStatementNotStatement? notStatement,
@@ -98,6 +104,7 @@ namespace Pulumi.Aws.WafV2.Outputs
             ByteMatchStatement = byteMatchStatement;
             GeoMatchStatement = geoMatchStatement;
             IpSetReferenceStatement = ipSetReferenceStatement;
+            LabelMatchStatement = labelMatchStatement;
             ManagedRuleGroupStatement = managedRuleGroupStatement;
             NotStatement = notStatement;
             OrStatement = orStatement;

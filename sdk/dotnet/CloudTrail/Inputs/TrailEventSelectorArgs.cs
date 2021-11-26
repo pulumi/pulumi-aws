@@ -24,8 +24,20 @@ namespace Pulumi.Aws.CloudTrail.Inputs
             set => _dataResources = value;
         }
 
+        [Input("excludeManagementEventSources")]
+        private InputList<string>? _excludeManagementEventSources;
+
         /// <summary>
-        /// Whether to include management events for your trail.
+        /// A set of event sources to exclude. Valid values include: `kms.amazonaws.com` and `rdsdata.amazonaws.com`. `include_management_events` must be set to`true` to allow this.
+        /// </summary>
+        public InputList<string> ExcludeManagementEventSources
+        {
+            get => _excludeManagementEventSources ?? (_excludeManagementEventSources = new InputList<string>());
+            set => _excludeManagementEventSources = value;
+        }
+
+        /// <summary>
+        /// Whether to include management events for your trail. Defaults to `true`.
         /// </summary>
         [Input("includeManagementEvents")]
         public Input<bool>? IncludeManagementEvents { get; set; }

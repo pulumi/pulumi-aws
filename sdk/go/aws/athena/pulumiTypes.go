@@ -171,6 +171,8 @@ type WorkgroupConfiguration struct {
 	BytesScannedCutoffPerQuery *int `pulumi:"bytesScannedCutoffPerQuery"`
 	// Boolean whether the settings for the workgroup override client-side settings. For more information, see [Workgroup Settings Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html). Defaults to `true`.
 	EnforceWorkgroupConfiguration *bool `pulumi:"enforceWorkgroupConfiguration"`
+	// Configuration block for the Athena Engine Versioning. For more information, see [Athena Engine Versioning](https://docs.aws.amazon.com/athena/latest/ug/engine-versions.html). Documented below.
+	EngineVersion *WorkgroupConfigurationEngineVersion `pulumi:"engineVersion"`
 	// Boolean whether Amazon CloudWatch metrics are enabled for the workgroup. Defaults to `true`.
 	PublishCloudwatchMetricsEnabled *bool `pulumi:"publishCloudwatchMetricsEnabled"`
 	// If set to true , allows members assigned to a workgroup to reference Amazon S3 Requester Pays buckets in queries. If set to false , workgroup members cannot query data from Requester Pays buckets, and queries that retrieve data from Requester Pays buckets cause an error. The default is false . For more information about Requester Pays buckets, see [Requester Pays Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) in the Amazon Simple Storage Service Developer Guide.
@@ -195,6 +197,8 @@ type WorkgroupConfigurationArgs struct {
 	BytesScannedCutoffPerQuery pulumi.IntPtrInput `pulumi:"bytesScannedCutoffPerQuery"`
 	// Boolean whether the settings for the workgroup override client-side settings. For more information, see [Workgroup Settings Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html). Defaults to `true`.
 	EnforceWorkgroupConfiguration pulumi.BoolPtrInput `pulumi:"enforceWorkgroupConfiguration"`
+	// Configuration block for the Athena Engine Versioning. For more information, see [Athena Engine Versioning](https://docs.aws.amazon.com/athena/latest/ug/engine-versions.html). Documented below.
+	EngineVersion WorkgroupConfigurationEngineVersionPtrInput `pulumi:"engineVersion"`
 	// Boolean whether Amazon CloudWatch metrics are enabled for the workgroup. Defaults to `true`.
 	PublishCloudwatchMetricsEnabled pulumi.BoolPtrInput `pulumi:"publishCloudwatchMetricsEnabled"`
 	// If set to true , allows members assigned to a workgroup to reference Amazon S3 Requester Pays buckets in queries. If set to false , workgroup members cannot query data from Requester Pays buckets, and queries that retrieve data from Requester Pays buckets cause an error. The default is false . For more information about Requester Pays buckets, see [Requester Pays Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) in the Amazon Simple Storage Service Developer Guide.
@@ -290,6 +294,11 @@ func (o WorkgroupConfigurationOutput) EnforceWorkgroupConfiguration() pulumi.Boo
 	return o.ApplyT(func(v WorkgroupConfiguration) *bool { return v.EnforceWorkgroupConfiguration }).(pulumi.BoolPtrOutput)
 }
 
+// Configuration block for the Athena Engine Versioning. For more information, see [Athena Engine Versioning](https://docs.aws.amazon.com/athena/latest/ug/engine-versions.html). Documented below.
+func (o WorkgroupConfigurationOutput) EngineVersion() WorkgroupConfigurationEngineVersionPtrOutput {
+	return o.ApplyT(func(v WorkgroupConfiguration) *WorkgroupConfigurationEngineVersion { return v.EngineVersion }).(WorkgroupConfigurationEngineVersionPtrOutput)
+}
+
 // Boolean whether Amazon CloudWatch metrics are enabled for the workgroup. Defaults to `true`.
 func (o WorkgroupConfigurationOutput) PublishCloudwatchMetricsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v WorkgroupConfiguration) *bool { return v.PublishCloudwatchMetricsEnabled }).(pulumi.BoolPtrOutput)
@@ -351,6 +360,16 @@ func (o WorkgroupConfigurationPtrOutput) EnforceWorkgroupConfiguration() pulumi.
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Configuration block for the Athena Engine Versioning. For more information, see [Athena Engine Versioning](https://docs.aws.amazon.com/athena/latest/ug/engine-versions.html). Documented below.
+func (o WorkgroupConfigurationPtrOutput) EngineVersion() WorkgroupConfigurationEngineVersionPtrOutput {
+	return o.ApplyT(func(v *WorkgroupConfiguration) *WorkgroupConfigurationEngineVersion {
+		if v == nil {
+			return nil
+		}
+		return v.EngineVersion
+	}).(WorkgroupConfigurationEngineVersionPtrOutput)
+}
+
 // Boolean whether Amazon CloudWatch metrics are enabled for the workgroup. Defaults to `true`.
 func (o WorkgroupConfigurationPtrOutput) PublishCloudwatchMetricsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *WorkgroupConfiguration) *bool {
@@ -379,6 +398,162 @@ func (o WorkgroupConfigurationPtrOutput) ResultConfiguration() WorkgroupConfigur
 		}
 		return v.ResultConfiguration
 	}).(WorkgroupConfigurationResultConfigurationPtrOutput)
+}
+
+type WorkgroupConfigurationEngineVersion struct {
+	// The engine version on which the query runs. If `selectedEngineVersion` is set to `AUTO`, the effective engine version is chosen by Athena.
+	EffectiveEngineVersion *string `pulumi:"effectiveEngineVersion"`
+	// The requested engine version. Defaults to `AUTO`.
+	SelectedEngineVersion *string `pulumi:"selectedEngineVersion"`
+}
+
+// WorkgroupConfigurationEngineVersionInput is an input type that accepts WorkgroupConfigurationEngineVersionArgs and WorkgroupConfigurationEngineVersionOutput values.
+// You can construct a concrete instance of `WorkgroupConfigurationEngineVersionInput` via:
+//
+//          WorkgroupConfigurationEngineVersionArgs{...}
+type WorkgroupConfigurationEngineVersionInput interface {
+	pulumi.Input
+
+	ToWorkgroupConfigurationEngineVersionOutput() WorkgroupConfigurationEngineVersionOutput
+	ToWorkgroupConfigurationEngineVersionOutputWithContext(context.Context) WorkgroupConfigurationEngineVersionOutput
+}
+
+type WorkgroupConfigurationEngineVersionArgs struct {
+	// The engine version on which the query runs. If `selectedEngineVersion` is set to `AUTO`, the effective engine version is chosen by Athena.
+	EffectiveEngineVersion pulumi.StringPtrInput `pulumi:"effectiveEngineVersion"`
+	// The requested engine version. Defaults to `AUTO`.
+	SelectedEngineVersion pulumi.StringPtrInput `pulumi:"selectedEngineVersion"`
+}
+
+func (WorkgroupConfigurationEngineVersionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkgroupConfigurationEngineVersion)(nil)).Elem()
+}
+
+func (i WorkgroupConfigurationEngineVersionArgs) ToWorkgroupConfigurationEngineVersionOutput() WorkgroupConfigurationEngineVersionOutput {
+	return i.ToWorkgroupConfigurationEngineVersionOutputWithContext(context.Background())
+}
+
+func (i WorkgroupConfigurationEngineVersionArgs) ToWorkgroupConfigurationEngineVersionOutputWithContext(ctx context.Context) WorkgroupConfigurationEngineVersionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkgroupConfigurationEngineVersionOutput)
+}
+
+func (i WorkgroupConfigurationEngineVersionArgs) ToWorkgroupConfigurationEngineVersionPtrOutput() WorkgroupConfigurationEngineVersionPtrOutput {
+	return i.ToWorkgroupConfigurationEngineVersionPtrOutputWithContext(context.Background())
+}
+
+func (i WorkgroupConfigurationEngineVersionArgs) ToWorkgroupConfigurationEngineVersionPtrOutputWithContext(ctx context.Context) WorkgroupConfigurationEngineVersionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkgroupConfigurationEngineVersionOutput).ToWorkgroupConfigurationEngineVersionPtrOutputWithContext(ctx)
+}
+
+// WorkgroupConfigurationEngineVersionPtrInput is an input type that accepts WorkgroupConfigurationEngineVersionArgs, WorkgroupConfigurationEngineVersionPtr and WorkgroupConfigurationEngineVersionPtrOutput values.
+// You can construct a concrete instance of `WorkgroupConfigurationEngineVersionPtrInput` via:
+//
+//          WorkgroupConfigurationEngineVersionArgs{...}
+//
+//  or:
+//
+//          nil
+type WorkgroupConfigurationEngineVersionPtrInput interface {
+	pulumi.Input
+
+	ToWorkgroupConfigurationEngineVersionPtrOutput() WorkgroupConfigurationEngineVersionPtrOutput
+	ToWorkgroupConfigurationEngineVersionPtrOutputWithContext(context.Context) WorkgroupConfigurationEngineVersionPtrOutput
+}
+
+type workgroupConfigurationEngineVersionPtrType WorkgroupConfigurationEngineVersionArgs
+
+func WorkgroupConfigurationEngineVersionPtr(v *WorkgroupConfigurationEngineVersionArgs) WorkgroupConfigurationEngineVersionPtrInput {
+	return (*workgroupConfigurationEngineVersionPtrType)(v)
+}
+
+func (*workgroupConfigurationEngineVersionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkgroupConfigurationEngineVersion)(nil)).Elem()
+}
+
+func (i *workgroupConfigurationEngineVersionPtrType) ToWorkgroupConfigurationEngineVersionPtrOutput() WorkgroupConfigurationEngineVersionPtrOutput {
+	return i.ToWorkgroupConfigurationEngineVersionPtrOutputWithContext(context.Background())
+}
+
+func (i *workgroupConfigurationEngineVersionPtrType) ToWorkgroupConfigurationEngineVersionPtrOutputWithContext(ctx context.Context) WorkgroupConfigurationEngineVersionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkgroupConfigurationEngineVersionPtrOutput)
+}
+
+type WorkgroupConfigurationEngineVersionOutput struct{ *pulumi.OutputState }
+
+func (WorkgroupConfigurationEngineVersionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkgroupConfigurationEngineVersion)(nil)).Elem()
+}
+
+func (o WorkgroupConfigurationEngineVersionOutput) ToWorkgroupConfigurationEngineVersionOutput() WorkgroupConfigurationEngineVersionOutput {
+	return o
+}
+
+func (o WorkgroupConfigurationEngineVersionOutput) ToWorkgroupConfigurationEngineVersionOutputWithContext(ctx context.Context) WorkgroupConfigurationEngineVersionOutput {
+	return o
+}
+
+func (o WorkgroupConfigurationEngineVersionOutput) ToWorkgroupConfigurationEngineVersionPtrOutput() WorkgroupConfigurationEngineVersionPtrOutput {
+	return o.ToWorkgroupConfigurationEngineVersionPtrOutputWithContext(context.Background())
+}
+
+func (o WorkgroupConfigurationEngineVersionOutput) ToWorkgroupConfigurationEngineVersionPtrOutputWithContext(ctx context.Context) WorkgroupConfigurationEngineVersionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkgroupConfigurationEngineVersion) *WorkgroupConfigurationEngineVersion {
+		return &v
+	}).(WorkgroupConfigurationEngineVersionPtrOutput)
+}
+
+// The engine version on which the query runs. If `selectedEngineVersion` is set to `AUTO`, the effective engine version is chosen by Athena.
+func (o WorkgroupConfigurationEngineVersionOutput) EffectiveEngineVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkgroupConfigurationEngineVersion) *string { return v.EffectiveEngineVersion }).(pulumi.StringPtrOutput)
+}
+
+// The requested engine version. Defaults to `AUTO`.
+func (o WorkgroupConfigurationEngineVersionOutput) SelectedEngineVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkgroupConfigurationEngineVersion) *string { return v.SelectedEngineVersion }).(pulumi.StringPtrOutput)
+}
+
+type WorkgroupConfigurationEngineVersionPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkgroupConfigurationEngineVersionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkgroupConfigurationEngineVersion)(nil)).Elem()
+}
+
+func (o WorkgroupConfigurationEngineVersionPtrOutput) ToWorkgroupConfigurationEngineVersionPtrOutput() WorkgroupConfigurationEngineVersionPtrOutput {
+	return o
+}
+
+func (o WorkgroupConfigurationEngineVersionPtrOutput) ToWorkgroupConfigurationEngineVersionPtrOutputWithContext(ctx context.Context) WorkgroupConfigurationEngineVersionPtrOutput {
+	return o
+}
+
+func (o WorkgroupConfigurationEngineVersionPtrOutput) Elem() WorkgroupConfigurationEngineVersionOutput {
+	return o.ApplyT(func(v *WorkgroupConfigurationEngineVersion) WorkgroupConfigurationEngineVersion {
+		if v != nil {
+			return *v
+		}
+		var ret WorkgroupConfigurationEngineVersion
+		return ret
+	}).(WorkgroupConfigurationEngineVersionOutput)
+}
+
+// The engine version on which the query runs. If `selectedEngineVersion` is set to `AUTO`, the effective engine version is chosen by Athena.
+func (o WorkgroupConfigurationEngineVersionPtrOutput) EffectiveEngineVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkgroupConfigurationEngineVersion) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EffectiveEngineVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// The requested engine version. Defaults to `AUTO`.
+func (o WorkgroupConfigurationEngineVersionPtrOutput) SelectedEngineVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkgroupConfigurationEngineVersion) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SelectedEngineVersion
+	}).(pulumi.StringPtrOutput)
 }
 
 type WorkgroupConfigurationResultConfiguration struct {
@@ -702,6 +877,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseEncryptionConfigurationPtrInput)(nil)).Elem(), DatabaseEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupConfigurationInput)(nil)).Elem(), WorkgroupConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupConfigurationPtrInput)(nil)).Elem(), WorkgroupConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupConfigurationEngineVersionInput)(nil)).Elem(), WorkgroupConfigurationEngineVersionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupConfigurationEngineVersionPtrInput)(nil)).Elem(), WorkgroupConfigurationEngineVersionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupConfigurationResultConfigurationInput)(nil)).Elem(), WorkgroupConfigurationResultConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupConfigurationResultConfigurationPtrInput)(nil)).Elem(), WorkgroupConfigurationResultConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupConfigurationResultConfigurationEncryptionConfigurationInput)(nil)).Elem(), WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs{})
@@ -710,6 +887,8 @@ func init() {
 	pulumi.RegisterOutputType(DatabaseEncryptionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(WorkgroupConfigurationOutput{})
 	pulumi.RegisterOutputType(WorkgroupConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(WorkgroupConfigurationEngineVersionOutput{})
+	pulumi.RegisterOutputType(WorkgroupConfigurationEngineVersionPtrOutput{})
 	pulumi.RegisterOutputType(WorkgroupConfigurationResultConfigurationOutput{})
 	pulumi.RegisterOutputType(WorkgroupConfigurationResultConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(WorkgroupConfigurationResultConfigurationEncryptionConfigurationOutput{})

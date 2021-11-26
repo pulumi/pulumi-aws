@@ -15,6 +15,8 @@ type AssociationOutputLocation struct {
 	S3BucketName string `pulumi:"s3BucketName"`
 	// The S3 bucket prefix. Results stored in the root if not configured.
 	S3KeyPrefix *string `pulumi:"s3KeyPrefix"`
+	// The S3 bucket region.
+	S3Region *string `pulumi:"s3Region"`
 }
 
 // AssociationOutputLocationInput is an input type that accepts AssociationOutputLocationArgs and AssociationOutputLocationOutput values.
@@ -33,6 +35,8 @@ type AssociationOutputLocationArgs struct {
 	S3BucketName pulumi.StringInput `pulumi:"s3BucketName"`
 	// The S3 bucket prefix. Results stored in the root if not configured.
 	S3KeyPrefix pulumi.StringPtrInput `pulumi:"s3KeyPrefix"`
+	// The S3 bucket region.
+	S3Region pulumi.StringPtrInput `pulumi:"s3Region"`
 }
 
 func (AssociationOutputLocationArgs) ElementType() reflect.Type {
@@ -122,6 +126,11 @@ func (o AssociationOutputLocationOutput) S3KeyPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AssociationOutputLocation) *string { return v.S3KeyPrefix }).(pulumi.StringPtrOutput)
 }
 
+// The S3 bucket region.
+func (o AssociationOutputLocationOutput) S3Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AssociationOutputLocation) *string { return v.S3Region }).(pulumi.StringPtrOutput)
+}
+
 type AssociationOutputLocationPtrOutput struct{ *pulumi.OutputState }
 
 func (AssociationOutputLocationPtrOutput) ElementType() reflect.Type {
@@ -163,6 +172,16 @@ func (o AssociationOutputLocationPtrOutput) S3KeyPrefix() pulumi.StringPtrOutput
 			return nil
 		}
 		return v.S3KeyPrefix
+	}).(pulumi.StringPtrOutput)
+}
+
+// The S3 bucket region.
+func (o AssociationOutputLocationPtrOutput) S3Region() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AssociationOutputLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3Region
 	}).(pulumi.StringPtrOutput)
 }
 

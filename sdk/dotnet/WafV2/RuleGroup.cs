@@ -376,6 +376,12 @@ namespace Pulumi.Aws.WafV2
         public Output<int> Capacity { get; private set; } = null!;
 
         /// <summary>
+        /// Defines custom response bodies that can be referenced by `custom_response` actions. See Custom Response Body below for details.
+        /// </summary>
+        [Output("customResponseBodies")]
+        public Output<ImmutableArray<Outputs.RuleGroupCustomResponseBody>> CustomResponseBodies { get; private set; } = null!;
+
+        /// <summary>
         /// A friendly description of the rule group.
         /// </summary>
         [Output("description")]
@@ -385,7 +391,7 @@ namespace Pulumi.Aws.WafV2
         public Output<string> LockToken { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
+        /// The label string.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -472,6 +478,18 @@ namespace Pulumi.Aws.WafV2
         [Input("capacity", required: true)]
         public Input<int> Capacity { get; set; } = null!;
 
+        [Input("customResponseBodies")]
+        private InputList<Inputs.RuleGroupCustomResponseBodyArgs>? _customResponseBodies;
+
+        /// <summary>
+        /// Defines custom response bodies that can be referenced by `custom_response` actions. See Custom Response Body below for details.
+        /// </summary>
+        public InputList<Inputs.RuleGroupCustomResponseBodyArgs> CustomResponseBodies
+        {
+            get => _customResponseBodies ?? (_customResponseBodies = new InputList<Inputs.RuleGroupCustomResponseBodyArgs>());
+            set => _customResponseBodies = value;
+        }
+
         /// <summary>
         /// A friendly description of the rule group.
         /// </summary>
@@ -479,7 +497,7 @@ namespace Pulumi.Aws.WafV2
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
+        /// The label string.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -551,6 +569,18 @@ namespace Pulumi.Aws.WafV2
         [Input("capacity")]
         public Input<int>? Capacity { get; set; }
 
+        [Input("customResponseBodies")]
+        private InputList<Inputs.RuleGroupCustomResponseBodyGetArgs>? _customResponseBodies;
+
+        /// <summary>
+        /// Defines custom response bodies that can be referenced by `custom_response` actions. See Custom Response Body below for details.
+        /// </summary>
+        public InputList<Inputs.RuleGroupCustomResponseBodyGetArgs> CustomResponseBodies
+        {
+            get => _customResponseBodies ?? (_customResponseBodies = new InputList<Inputs.RuleGroupCustomResponseBodyGetArgs>());
+            set => _customResponseBodies = value;
+        }
+
         /// <summary>
         /// A friendly description of the rule group.
         /// </summary>
@@ -561,7 +591,7 @@ namespace Pulumi.Aws.WafV2
         public Input<string>? LockToken { get; set; }
 
         /// <summary>
-        /// The name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
+        /// The label string.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

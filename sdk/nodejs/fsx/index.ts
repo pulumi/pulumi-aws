@@ -8,12 +8,16 @@ import * as utilities from "../utilities";
 export * from "./backup";
 export * from "./lustreFileSystem";
 export * from "./ontapFileSystem";
+export * from "./ontapStorageVirtualMachine";
+export * from "./ontapVolume";
 export * from "./windowsFileSystem";
 
 // Import resources to register:
 import { Backup } from "./backup";
 import { LustreFileSystem } from "./lustreFileSystem";
 import { OntapFileSystem } from "./ontapFileSystem";
+import { OntapStorageVirtualMachine } from "./ontapStorageVirtualMachine";
+import { OntapVolume } from "./ontapVolume";
 import { WindowsFileSystem } from "./windowsFileSystem";
 
 const _module = {
@@ -26,6 +30,10 @@ const _module = {
                 return new LustreFileSystem(name, <any>undefined, { urn })
             case "aws:fsx/ontapFileSystem:OntapFileSystem":
                 return new OntapFileSystem(name, <any>undefined, { urn })
+            case "aws:fsx/ontapStorageVirtualMachine:OntapStorageVirtualMachine":
+                return new OntapStorageVirtualMachine(name, <any>undefined, { urn })
+            case "aws:fsx/ontapVolume:OntapVolume":
+                return new OntapVolume(name, <any>undefined, { urn })
             case "aws:fsx/windowsFileSystem:WindowsFileSystem":
                 return new WindowsFileSystem(name, <any>undefined, { urn })
             default:
@@ -36,4 +44,6 @@ const _module = {
 pulumi.runtime.registerResourceModule("aws", "fsx/backup", _module)
 pulumi.runtime.registerResourceModule("aws", "fsx/lustreFileSystem", _module)
 pulumi.runtime.registerResourceModule("aws", "fsx/ontapFileSystem", _module)
+pulumi.runtime.registerResourceModule("aws", "fsx/ontapStorageVirtualMachine", _module)
+pulumi.runtime.registerResourceModule("aws", "fsx/ontapVolume", _module)
 pulumi.runtime.registerResourceModule("aws", "fsx/windowsFileSystem", _module)

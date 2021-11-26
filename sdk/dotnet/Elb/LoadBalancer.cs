@@ -145,6 +145,12 @@ namespace Pulumi.Aws.Elb
         public Output<bool?> CrossZoneLoadBalancing { get; private set; } = null!;
 
         /// <summary>
+        /// Determines how the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
+        /// </summary>
+        [Output("desyncMitigationMode")]
+        public Output<string?> DesyncMitigationMode { get; private set; } = null!;
+
+        /// <summary>
         /// The DNS name of the ELB
         /// </summary>
         [Output("dnsName")]
@@ -324,6 +330,12 @@ namespace Pulumi.Aws.Elb
         public Input<bool>? CrossZoneLoadBalancing { get; set; }
 
         /// <summary>
+        /// Determines how the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
+        /// </summary>
+        [Input("desyncMitigationMode")]
+        public Input<string>? DesyncMitigationMode { get; set; }
+
+        /// <summary>
         /// A health_check block. Health Check documented below.
         /// </summary>
         [Input("healthCheck")]
@@ -467,6 +479,12 @@ namespace Pulumi.Aws.Elb
         /// </summary>
         [Input("crossZoneLoadBalancing")]
         public Input<bool>? CrossZoneLoadBalancing { get; set; }
+
+        /// <summary>
+        /// Determines how the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
+        /// </summary>
+        [Input("desyncMitigationMode")]
+        public Input<string>? DesyncMitigationMode { get; set; }
 
         /// <summary>
         /// The DNS name of the ELB

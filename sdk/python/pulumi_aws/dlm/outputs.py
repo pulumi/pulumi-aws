@@ -13,6 +13,9 @@ __all__ = [
     'LifecyclePolicyPolicyDetails',
     'LifecyclePolicyPolicyDetailsSchedule',
     'LifecyclePolicyPolicyDetailsScheduleCreateRule',
+    'LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule',
+    'LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRule',
+    'LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRule',
     'LifecyclePolicyPolicyDetailsScheduleRetainRule',
 ]
 
@@ -86,6 +89,8 @@ class LifecyclePolicyPolicyDetailsSchedule(dict):
             suggest = "retain_rule"
         elif key == "copyTags":
             suggest = "copy_tags"
+        elif key == "crossRegionCopyRules":
+            suggest = "cross_region_copy_rules"
         elif key == "tagsToAdd":
             suggest = "tags_to_add"
 
@@ -105,12 +110,14 @@ class LifecyclePolicyPolicyDetailsSchedule(dict):
                  name: str,
                  retain_rule: 'outputs.LifecyclePolicyPolicyDetailsScheduleRetainRule',
                  copy_tags: Optional[bool] = None,
+                 cross_region_copy_rules: Optional[Sequence['outputs.LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule']] = None,
                  tags_to_add: Optional[Mapping[str, str]] = None):
         """
         :param 'LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs' create_rule: See the `create_rule` block. Max of 1 per schedule.
         :param str name: A name for the schedule.
-        :param 'LifecyclePolicyPolicyDetailsScheduleRetainRuleArgs' retain_rule: See the `retain_rule` block. Max of 1 per schedule.
-        :param bool copy_tags: Copy all user-defined tags on a source volume to snapshots of the volume created by this policy.
+        :param 'LifecyclePolicyPolicyDetailsScheduleRetainRuleArgs' retain_rule: The retention rule that indicates how long snapshot copies are to be retained in the destination Region. See the `retain_rule` block. Max of 1 per schedule.
+        :param bool copy_tags: Whether to copy all user-defined tags from the source snapshot to the cross-region snapshot copy.
+        :param Sequence['LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs'] cross_region_copy_rules: See the `cross_region_copy_rule` block. Max of 3 per schedule.
         :param Mapping[str, str] tags_to_add: A map of tag keys and their values. DLM lifecycle policies will already tag the snapshot with the tags on the volume. This configuration adds extra tags on top of these.
         """
         pulumi.set(__self__, "create_rule", create_rule)
@@ -118,6 +125,8 @@ class LifecyclePolicyPolicyDetailsSchedule(dict):
         pulumi.set(__self__, "retain_rule", retain_rule)
         if copy_tags is not None:
             pulumi.set(__self__, "copy_tags", copy_tags)
+        if cross_region_copy_rules is not None:
+            pulumi.set(__self__, "cross_region_copy_rules", cross_region_copy_rules)
         if tags_to_add is not None:
             pulumi.set(__self__, "tags_to_add", tags_to_add)
 
@@ -141,7 +150,7 @@ class LifecyclePolicyPolicyDetailsSchedule(dict):
     @pulumi.getter(name="retainRule")
     def retain_rule(self) -> 'outputs.LifecyclePolicyPolicyDetailsScheduleRetainRule':
         """
-        See the `retain_rule` block. Max of 1 per schedule.
+        The retention rule that indicates how long snapshot copies are to be retained in the destination Region. See the `retain_rule` block. Max of 1 per schedule.
         """
         return pulumi.get(self, "retain_rule")
 
@@ -149,9 +158,17 @@ class LifecyclePolicyPolicyDetailsSchedule(dict):
     @pulumi.getter(name="copyTags")
     def copy_tags(self) -> Optional[bool]:
         """
-        Copy all user-defined tags on a source volume to snapshots of the volume created by this policy.
+        Whether to copy all user-defined tags from the source snapshot to the cross-region snapshot copy.
         """
         return pulumi.get(self, "copy_tags")
+
+    @property
+    @pulumi.getter(name="crossRegionCopyRules")
+    def cross_region_copy_rules(self) -> Optional[Sequence['outputs.LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule']]:
+        """
+        See the `cross_region_copy_rule` block. Max of 3 per schedule.
+        """
+        return pulumi.get(self, "cross_region_copy_rules")
 
     @property
     @pulumi.getter(name="tagsToAdd")
@@ -186,8 +203,8 @@ class LifecyclePolicyPolicyDetailsScheduleCreateRule(dict):
                  interval_unit: Optional[str] = None,
                  times: Optional[str] = None):
         """
-        :param int interval: How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
-        :param str interval_unit: The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+        :param int interval: The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
+        :param str interval_unit: The unit of time for time-based retention. Valid values: `DAYS`, `WEEKS`, `MONTHS`, or `YEARS`.
         :param str times: A list of times in 24 hour clock format that sets when the lifecycle policy should be evaluated. Max of 1.
         """
         pulumi.set(__self__, "interval", interval)
@@ -200,7 +217,7 @@ class LifecyclePolicyPolicyDetailsScheduleCreateRule(dict):
     @pulumi.getter
     def interval(self) -> int:
         """
-        How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+        The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
         """
         return pulumi.get(self, "interval")
 
@@ -208,7 +225,7 @@ class LifecyclePolicyPolicyDetailsScheduleCreateRule(dict):
     @pulumi.getter(name="intervalUnit")
     def interval_unit(self) -> Optional[str]:
         """
-        The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+        The unit of time for time-based retention. Valid values: `DAYS`, `WEEKS`, `MONTHS`, or `YEARS`.
         """
         return pulumi.get(self, "interval_unit")
 
@@ -219,6 +236,198 @@ class LifecyclePolicyPolicyDetailsScheduleCreateRule(dict):
         A list of times in 24 hour clock format that sets when the lifecycle policy should be evaluated. Max of 1.
         """
         return pulumi.get(self, "times")
+
+
+@pulumi.output_type
+class LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cmkArn":
+            suggest = "cmk_arn"
+        elif key == "copyTags":
+            suggest = "copy_tags"
+        elif key == "deprecateRule":
+            suggest = "deprecate_rule"
+        elif key == "retainRule":
+            suggest = "retain_rule"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 encrypted: bool,
+                 target: str,
+                 cmk_arn: Optional[str] = None,
+                 copy_tags: Optional[bool] = None,
+                 deprecate_rule: Optional['outputs.LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRule'] = None,
+                 retain_rule: Optional['outputs.LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRule'] = None):
+        """
+        :param bool encrypted: To encrypt a copy of an unencrypted snapshot if encryption by default is not enabled, enable encryption using this parameter. Copies of encrypted snapshots are encrypted, even if this parameter is false or if encryption by default is not enabled.
+        :param str target: The target Region or the Amazon Resource Name (ARN) of the target Outpost for the snapshot copies.
+        :param str cmk_arn: The Amazon Resource Name (ARN) of the AWS KMS customer master key (CMK) to use for EBS encryption. If this argument is not specified, the default KMS key for the account is used.
+        :param bool copy_tags: Whether to copy all user-defined tags from the source snapshot to the cross-region snapshot copy.
+        :param 'LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleArgs' deprecate_rule: The AMI deprecation rule for cross-Region AMI copies created by the rule. See the `deprecate_rule` block.
+        :param 'LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleArgs' retain_rule: The retention rule that indicates how long snapshot copies are to be retained in the destination Region. See the `retain_rule` block. Max of 1 per schedule.
+        """
+        pulumi.set(__self__, "encrypted", encrypted)
+        pulumi.set(__self__, "target", target)
+        if cmk_arn is not None:
+            pulumi.set(__self__, "cmk_arn", cmk_arn)
+        if copy_tags is not None:
+            pulumi.set(__self__, "copy_tags", copy_tags)
+        if deprecate_rule is not None:
+            pulumi.set(__self__, "deprecate_rule", deprecate_rule)
+        if retain_rule is not None:
+            pulumi.set(__self__, "retain_rule", retain_rule)
+
+    @property
+    @pulumi.getter
+    def encrypted(self) -> bool:
+        """
+        To encrypt a copy of an unencrypted snapshot if encryption by default is not enabled, enable encryption using this parameter. Copies of encrypted snapshots are encrypted, even if this parameter is false or if encryption by default is not enabled.
+        """
+        return pulumi.get(self, "encrypted")
+
+    @property
+    @pulumi.getter
+    def target(self) -> str:
+        """
+        The target Region or the Amazon Resource Name (ARN) of the target Outpost for the snapshot copies.
+        """
+        return pulumi.get(self, "target")
+
+    @property
+    @pulumi.getter(name="cmkArn")
+    def cmk_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of the AWS KMS customer master key (CMK) to use for EBS encryption. If this argument is not specified, the default KMS key for the account is used.
+        """
+        return pulumi.get(self, "cmk_arn")
+
+    @property
+    @pulumi.getter(name="copyTags")
+    def copy_tags(self) -> Optional[bool]:
+        """
+        Whether to copy all user-defined tags from the source snapshot to the cross-region snapshot copy.
+        """
+        return pulumi.get(self, "copy_tags")
+
+    @property
+    @pulumi.getter(name="deprecateRule")
+    def deprecate_rule(self) -> Optional['outputs.LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRule']:
+        """
+        The AMI deprecation rule for cross-Region AMI copies created by the rule. See the `deprecate_rule` block.
+        """
+        return pulumi.get(self, "deprecate_rule")
+
+    @property
+    @pulumi.getter(name="retainRule")
+    def retain_rule(self) -> Optional['outputs.LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRule']:
+        """
+        The retention rule that indicates how long snapshot copies are to be retained in the destination Region. See the `retain_rule` block. Max of 1 per schedule.
+        """
+        return pulumi.get(self, "retain_rule")
+
+
+@pulumi.output_type
+class LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "intervalUnit":
+            suggest = "interval_unit"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 interval: int,
+                 interval_unit: str):
+        """
+        :param int interval: The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
+        :param str interval_unit: The unit of time for time-based retention. Valid values: `DAYS`, `WEEKS`, `MONTHS`, or `YEARS`.
+        """
+        pulumi.set(__self__, "interval", interval)
+        pulumi.set(__self__, "interval_unit", interval_unit)
+
+    @property
+    @pulumi.getter
+    def interval(self) -> int:
+        """
+        The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
+        """
+        return pulumi.get(self, "interval")
+
+    @property
+    @pulumi.getter(name="intervalUnit")
+    def interval_unit(self) -> str:
+        """
+        The unit of time for time-based retention. Valid values: `DAYS`, `WEEKS`, `MONTHS`, or `YEARS`.
+        """
+        return pulumi.get(self, "interval_unit")
+
+
+@pulumi.output_type
+class LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "intervalUnit":
+            suggest = "interval_unit"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 interval: int,
+                 interval_unit: str):
+        """
+        :param int interval: The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
+        :param str interval_unit: The unit of time for time-based retention. Valid values: `DAYS`, `WEEKS`, `MONTHS`, or `YEARS`.
+        """
+        pulumi.set(__self__, "interval", interval)
+        pulumi.set(__self__, "interval_unit", interval_unit)
+
+    @property
+    @pulumi.getter
+    def interval(self) -> int:
+        """
+        The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
+        """
+        return pulumi.get(self, "interval")
+
+    @property
+    @pulumi.getter(name="intervalUnit")
+    def interval_unit(self) -> str:
+        """
+        The unit of time for time-based retention. Valid values: `DAYS`, `WEEKS`, `MONTHS`, or `YEARS`.
+        """
+        return pulumi.get(self, "interval_unit")
 
 
 @pulumi.output_type
