@@ -58,6 +58,15 @@ import (
 // 					StaticValue: pulumi.String("AES256"),
 // 				},
 // 			},
+// 			Automatic:                pulumi.Bool(true),
+// 			MaximumAutomaticAttempts: pulumi.Int(10),
+// 			RetryAttemptSeconds:      pulumi.Int(600),
+// 			ExecutionControls: &cfg.RemediationConfigurationExecutionControlsArgs{
+// 				SsmControls: &cfg.RemediationConfigurationExecutionControlsSsmControlsArgs{
+// 					ConcurrentExecutionRatePercentage: pulumi.Int(25),
+// 					ErrorPercentage:                   pulumi.Int(20),
+// 				},
+// 			},
 // 		})
 // 		if err != nil {
 // 			return err
@@ -77,18 +86,25 @@ import (
 type RemediationConfiguration struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the Config Remediation Configuration.
+	// ARN of the Config Remediation Configuration.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The name of the AWS Config rule
+	// Remediation is triggered automatically if `true`.
+	Automatic pulumi.BoolPtrOutput `pulumi:"automatic"`
+	// Name of the AWS Config rule.
 	ConfigRuleName pulumi.StringOutput `pulumi:"configRuleName"`
-	// Can be specified multiple times for each
-	// parameter. Each parameter block supports fields documented below.
+	// Configuration block for execution controls. See below.
+	ExecutionControls RemediationConfigurationExecutionControlsPtrOutput `pulumi:"executionControls"`
+	// Maximum number of failed attempts for auto-remediation. If you do not select a number, the default is 5.
+	MaximumAutomaticAttempts pulumi.IntPtrOutput `pulumi:"maximumAutomaticAttempts"`
+	// Can be specified multiple times for each parameter. Each parameter block supports arguments below.
 	Parameters RemediationConfigurationParameterArrayOutput `pulumi:"parameters"`
-	// The type of a resource
+	// Type of resource.
 	ResourceType pulumi.StringPtrOutput `pulumi:"resourceType"`
-	// Target ID is the name of the public document
+	// Maximum time in seconds that AWS Config runs auto-remediation. If you do not select a number, the default is 60 seconds.
+	RetryAttemptSeconds pulumi.IntPtrOutput `pulumi:"retryAttemptSeconds"`
+	// Target ID is the name of the public document.
 	TargetId pulumi.StringOutput `pulumi:"targetId"`
-	// The type of the target. Target executes remediation. For example, SSM document
+	// Type of the target. Target executes remediation. For example, SSM document.
 	TargetType pulumi.StringOutput `pulumi:"targetType"`
 	// Version of the target. For example, version of the SSM document
 	TargetVersion pulumi.StringPtrOutput `pulumi:"targetVersion"`
@@ -132,36 +148,50 @@ func GetRemediationConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RemediationConfiguration resources.
 type remediationConfigurationState struct {
-	// Amazon Resource Name (ARN) of the Config Remediation Configuration.
+	// ARN of the Config Remediation Configuration.
 	Arn *string `pulumi:"arn"`
-	// The name of the AWS Config rule
+	// Remediation is triggered automatically if `true`.
+	Automatic *bool `pulumi:"automatic"`
+	// Name of the AWS Config rule.
 	ConfigRuleName *string `pulumi:"configRuleName"`
-	// Can be specified multiple times for each
-	// parameter. Each parameter block supports fields documented below.
+	// Configuration block for execution controls. See below.
+	ExecutionControls *RemediationConfigurationExecutionControls `pulumi:"executionControls"`
+	// Maximum number of failed attempts for auto-remediation. If you do not select a number, the default is 5.
+	MaximumAutomaticAttempts *int `pulumi:"maximumAutomaticAttempts"`
+	// Can be specified multiple times for each parameter. Each parameter block supports arguments below.
 	Parameters []RemediationConfigurationParameter `pulumi:"parameters"`
-	// The type of a resource
+	// Type of resource.
 	ResourceType *string `pulumi:"resourceType"`
-	// Target ID is the name of the public document
+	// Maximum time in seconds that AWS Config runs auto-remediation. If you do not select a number, the default is 60 seconds.
+	RetryAttemptSeconds *int `pulumi:"retryAttemptSeconds"`
+	// Target ID is the name of the public document.
 	TargetId *string `pulumi:"targetId"`
-	// The type of the target. Target executes remediation. For example, SSM document
+	// Type of the target. Target executes remediation. For example, SSM document.
 	TargetType *string `pulumi:"targetType"`
 	// Version of the target. For example, version of the SSM document
 	TargetVersion *string `pulumi:"targetVersion"`
 }
 
 type RemediationConfigurationState struct {
-	// Amazon Resource Name (ARN) of the Config Remediation Configuration.
+	// ARN of the Config Remediation Configuration.
 	Arn pulumi.StringPtrInput
-	// The name of the AWS Config rule
+	// Remediation is triggered automatically if `true`.
+	Automatic pulumi.BoolPtrInput
+	// Name of the AWS Config rule.
 	ConfigRuleName pulumi.StringPtrInput
-	// Can be specified multiple times for each
-	// parameter. Each parameter block supports fields documented below.
+	// Configuration block for execution controls. See below.
+	ExecutionControls RemediationConfigurationExecutionControlsPtrInput
+	// Maximum number of failed attempts for auto-remediation. If you do not select a number, the default is 5.
+	MaximumAutomaticAttempts pulumi.IntPtrInput
+	// Can be specified multiple times for each parameter. Each parameter block supports arguments below.
 	Parameters RemediationConfigurationParameterArrayInput
-	// The type of a resource
+	// Type of resource.
 	ResourceType pulumi.StringPtrInput
-	// Target ID is the name of the public document
+	// Maximum time in seconds that AWS Config runs auto-remediation. If you do not select a number, the default is 60 seconds.
+	RetryAttemptSeconds pulumi.IntPtrInput
+	// Target ID is the name of the public document.
 	TargetId pulumi.StringPtrInput
-	// The type of the target. Target executes remediation. For example, SSM document
+	// Type of the target. Target executes remediation. For example, SSM document.
 	TargetType pulumi.StringPtrInput
 	// Version of the target. For example, version of the SSM document
 	TargetVersion pulumi.StringPtrInput
@@ -172,16 +202,23 @@ func (RemediationConfigurationState) ElementType() reflect.Type {
 }
 
 type remediationConfigurationArgs struct {
-	// The name of the AWS Config rule
+	// Remediation is triggered automatically if `true`.
+	Automatic *bool `pulumi:"automatic"`
+	// Name of the AWS Config rule.
 	ConfigRuleName string `pulumi:"configRuleName"`
-	// Can be specified multiple times for each
-	// parameter. Each parameter block supports fields documented below.
+	// Configuration block for execution controls. See below.
+	ExecutionControls *RemediationConfigurationExecutionControls `pulumi:"executionControls"`
+	// Maximum number of failed attempts for auto-remediation. If you do not select a number, the default is 5.
+	MaximumAutomaticAttempts *int `pulumi:"maximumAutomaticAttempts"`
+	// Can be specified multiple times for each parameter. Each parameter block supports arguments below.
 	Parameters []RemediationConfigurationParameter `pulumi:"parameters"`
-	// The type of a resource
+	// Type of resource.
 	ResourceType *string `pulumi:"resourceType"`
-	// Target ID is the name of the public document
+	// Maximum time in seconds that AWS Config runs auto-remediation. If you do not select a number, the default is 60 seconds.
+	RetryAttemptSeconds *int `pulumi:"retryAttemptSeconds"`
+	// Target ID is the name of the public document.
 	TargetId string `pulumi:"targetId"`
-	// The type of the target. Target executes remediation. For example, SSM document
+	// Type of the target. Target executes remediation. For example, SSM document.
 	TargetType string `pulumi:"targetType"`
 	// Version of the target. For example, version of the SSM document
 	TargetVersion *string `pulumi:"targetVersion"`
@@ -189,16 +226,23 @@ type remediationConfigurationArgs struct {
 
 // The set of arguments for constructing a RemediationConfiguration resource.
 type RemediationConfigurationArgs struct {
-	// The name of the AWS Config rule
+	// Remediation is triggered automatically if `true`.
+	Automatic pulumi.BoolPtrInput
+	// Name of the AWS Config rule.
 	ConfigRuleName pulumi.StringInput
-	// Can be specified multiple times for each
-	// parameter. Each parameter block supports fields documented below.
+	// Configuration block for execution controls. See below.
+	ExecutionControls RemediationConfigurationExecutionControlsPtrInput
+	// Maximum number of failed attempts for auto-remediation. If you do not select a number, the default is 5.
+	MaximumAutomaticAttempts pulumi.IntPtrInput
+	// Can be specified multiple times for each parameter. Each parameter block supports arguments below.
 	Parameters RemediationConfigurationParameterArrayInput
-	// The type of a resource
+	// Type of resource.
 	ResourceType pulumi.StringPtrInput
-	// Target ID is the name of the public document
+	// Maximum time in seconds that AWS Config runs auto-remediation. If you do not select a number, the default is 60 seconds.
+	RetryAttemptSeconds pulumi.IntPtrInput
+	// Target ID is the name of the public document.
 	TargetId pulumi.StringInput
-	// The type of the target. Target executes remediation. For example, SSM document
+	// Type of the target. Target executes remediation. For example, SSM document.
 	TargetType pulumi.StringInput
 	// Version of the target. For example, version of the SSM document
 	TargetVersion pulumi.StringPtrInput

@@ -4238,7 +4238,7 @@ export namespace apprunner {
         /**
          * The Amazon Resource Name (ARN) of an IAM role that provides permissions to your App Runner service. These are permissions that your code needs when it calls any AWS APIs.
          */
-        instanceRoleArn: string;
+        instanceRoleArn?: string;
         /**
          * The amount of memory, in MB or GB, reserved for each instance of your App Runner service. Defaults to `2048`. Valid values: `2048|3072|4096|(2|3|4) GB`.
          */
@@ -4677,6 +4677,10 @@ export namespace athena {
          */
         enforceWorkgroupConfiguration?: boolean;
         /**
+         * Configuration block for the Athena Engine Versioning. For more information, see [Athena Engine Versioning](https://docs.aws.amazon.com/athena/latest/ug/engine-versions.html). Documented below.
+         */
+        engineVersion?: outputs.athena.WorkgroupConfigurationEngineVersion;
+        /**
          * Boolean whether Amazon CloudWatch metrics are enabled for the workgroup. Defaults to `true`.
          */
         publishCloudwatchMetricsEnabled?: boolean;
@@ -4688,6 +4692,17 @@ export namespace athena {
          * Configuration block with result settings. Documented below.
          */
         resultConfiguration?: outputs.athena.WorkgroupConfigurationResultConfiguration;
+    }
+
+    export interface WorkgroupConfigurationEngineVersion {
+        /**
+         * The engine version on which the query runs. If `selectedEngineVersion` is set to `AUTO`, the effective engine version is chosen by Athena.
+         */
+        effectiveEngineVersion: string;
+        /**
+         * The requested engine version. Defaults to `AUTO`.
+         */
+        selectedEngineVersion?: string;
     }
 
     export interface WorkgroupConfigurationResultConfiguration {
@@ -5768,17 +5783,35 @@ export namespace cfg {
         resourceTypes?: string[];
     }
 
+    export interface RemediationConfigurationExecutionControls {
+        /**
+         * Configuration block for SSM controls. See below.
+         */
+        ssmControls?: outputs.cfg.RemediationConfigurationExecutionControlsSsmControls;
+    }
+
+    export interface RemediationConfigurationExecutionControlsSsmControls {
+        /**
+         * Maximum percentage of remediation actions allowed to run in parallel on the non-compliant resources for that specific rule. The default value is 10%.
+         */
+        concurrentExecutionRatePercentage?: number;
+        /**
+         * Percentage of errors that are allowed before SSM stops running automations on non-compliant resources for that specific rule. The default is 50%.
+         */
+        errorPercentage?: number;
+    }
+
     export interface RemediationConfigurationParameter {
         /**
-         * The name of the attribute.
+         * Name of the attribute.
          */
         name: string;
         /**
-         * The value is dynamic and changes at run-time.
+         * Value is dynamic and changes at run-time.
          */
         resourceValue?: string;
         /**
-         * The value is static and does not change at run-time.
+         * Value is static and does not change at run-time.
          */
         staticValue?: string;
     }
@@ -7284,7 +7317,11 @@ export namespace cloudtrail {
          */
         dataResources?: outputs.cloudtrail.TrailEventSelectorDataResource[];
         /**
-         * Whether to include management events for your trail.
+         * A set of event sources to exclude. Valid values include: `kms.amazonaws.com` and `rdsdata.amazonaws.com`. `includeManagementEvents` must be set to`true` to allow this.
+         */
+        excludeManagementEventSources?: string[];
+        /**
+         * Whether to include management events for your trail. Defaults to `true`.
          */
         includeManagementEvents?: boolean;
         /**
@@ -9191,6 +9228,7 @@ export namespace config {
 
     export interface Endpoints {
         accessanalyzer?: string;
+        account?: string;
         acm?: string;
         acmpca?: string;
         alexaforbusiness?: string;
@@ -9737,7 +9775,7 @@ export namespace dlm {
 
     export interface LifecyclePolicyPolicyDetailsSchedule {
         /**
-         * Copy all user-defined tags on a source volume to snapshots of the volume created by this policy.
+         * Whether to copy all user-defined tags from the source snapshot to the cross-region snapshot copy.
          */
         copyTags: boolean;
         /**
@@ -9745,11 +9783,15 @@ export namespace dlm {
          */
         createRule: outputs.dlm.LifecyclePolicyPolicyDetailsScheduleCreateRule;
         /**
+         * See the `crossRegionCopyRule` block. Max of 3 per schedule.
+         */
+        crossRegionCopyRules?: outputs.dlm.LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule[];
+        /**
          * A name for the schedule.
          */
         name: string;
         /**
-         * See the `retainRule` block. Max of 1 per schedule.
+         * The retention rule that indicates how long snapshot copies are to be retained in the destination Region. See the `retainRule` block. Max of 1 per schedule.
          */
         retainRule: outputs.dlm.LifecyclePolicyPolicyDetailsScheduleRetainRule;
         /**
@@ -9760,17 +9802,66 @@ export namespace dlm {
 
     export interface LifecyclePolicyPolicyDetailsScheduleCreateRule {
         /**
-         * How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+         * The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
          */
         interval: number;
         /**
-         * The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+         * The unit of time for time-based retention. Valid values: `DAYS`, `WEEKS`, `MONTHS`, or `YEARS`.
          */
         intervalUnit?: string;
         /**
          * A list of times in 24 hour clock format that sets when the lifecycle policy should be evaluated. Max of 1.
          */
         times: string;
+    }
+
+    export interface LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule {
+        /**
+         * The Amazon Resource Name (ARN) of the AWS KMS customer master key (CMK) to use for EBS encryption. If this argument is not specified, the default KMS key for the account is used.
+         */
+        cmkArn?: string;
+        /**
+         * Whether to copy all user-defined tags from the source snapshot to the cross-region snapshot copy.
+         */
+        copyTags?: boolean;
+        /**
+         * The AMI deprecation rule for cross-Region AMI copies created by the rule. See the `deprecateRule` block.
+         */
+        deprecateRule?: outputs.dlm.LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRule;
+        /**
+         * To encrypt a copy of an unencrypted snapshot if encryption by default is not enabled, enable encryption using this parameter. Copies of encrypted snapshots are encrypted, even if this parameter is false or if encryption by default is not enabled.
+         */
+        encrypted: boolean;
+        /**
+         * The retention rule that indicates how long snapshot copies are to be retained in the destination Region. See the `retainRule` block. Max of 1 per schedule.
+         */
+        retainRule?: outputs.dlm.LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRule;
+        /**
+         * The target Region or the Amazon Resource Name (ARN) of the target Outpost for the snapshot copies.
+         */
+        target: string;
+    }
+
+    export interface LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRule {
+        /**
+         * The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
+         */
+        interval: number;
+        /**
+         * The unit of time for time-based retention. Valid values: `DAYS`, `WEEKS`, `MONTHS`, or `YEARS`.
+         */
+        intervalUnit: string;
+    }
+
+    export interface LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRule {
+        /**
+         * The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
+         */
+        interval: number;
+        /**
+         * The unit of time for time-based retention. Valid values: `DAYS`, `WEEKS`, `MONTHS`, or `YEARS`.
+         */
+        intervalUnit: string;
     }
 
     export interface LifecyclePolicyPolicyDetailsScheduleRetainRule {
@@ -11034,6 +11125,17 @@ export namespace ec2 {
     export interface GetInstanceTypeOfferingsFilter {
         /**
          * Name of the filter. The `location` filter depends on the top-level `locationType` argument and if not specified, defaults to the current region.
+         */
+        name: string;
+        /**
+         * List of one or more values for the filter.
+         */
+        values: string[];
+    }
+
+    export interface GetInstanceTypesFilter {
+        /**
+         * Name of the filter.
          */
         name: string;
         /**
@@ -13095,7 +13197,6 @@ export namespace ec2 {
         status: string;
         statusMessage: string;
     }
-
 }
 
 export namespace ec2clientvpn {
@@ -16462,6 +16563,109 @@ export namespace fsx {
         ipAddresses: string[];
     }
 
+    export interface OntapStorageVirtualMachineActiveDirectoryConfiguration {
+        /**
+         * The NetBIOS name of the Active Directory computer object that will be created for your SVM. This is often the same as the SVM name but can be different. It is limited to 15 characters because of standard NetBIOS naming limits.
+         */
+        netbiosName?: string;
+        selfManagedActiveDirectoryConfiguration?: outputs.fsx.OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration;
+    }
+
+    export interface OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration {
+        /**
+         * A list of up to three IP addresses of DNS servers or domain controllers in the self-managed AD directory.
+         */
+        dnsIps: string[];
+        /**
+         * The fully qualified domain name of the self-managed AD directory. For example, `corp.example.com`.
+         */
+        domainName: string;
+        /**
+         * The name of the domain group whose members are granted administrative privileges for the SVM. The group that you specify must already exist in your domain. Defaults to `Domain Admins`.
+         */
+        fileSystemAdministratorsGroup?: string;
+        organizationalUnitDistinguidshedName?: string;
+        /**
+         * The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
+         */
+        password: string;
+        /**
+         * The user name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
+         */
+        username: string;
+    }
+
+    export interface OntapStorageVirtualMachineEndpoint {
+        /**
+         * An endpoint for accessing data on your storage virtual machine via iSCSI protocol. See Endpoint.
+         */
+        iscses: outputs.fsx.OntapStorageVirtualMachineEndpointIscse[];
+        /**
+         * An endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
+         */
+        managements: outputs.fsx.OntapStorageVirtualMachineEndpointManagement[];
+        /**
+         * An endpoint for accessing data on your storage virtual machine via NFS protocol. See Endpoint.
+         */
+        nfs: outputs.fsx.OntapStorageVirtualMachineEndpointNf[];
+        /**
+         * An endpoint for accessing data on your storage virtual machine via SMB protocol. This is only set if an activeDirectoryConfiguration has been set. See Endpoint.
+         */
+        smbs: outputs.fsx.OntapStorageVirtualMachineEndpointSmb[];
+    }
+
+    export interface OntapStorageVirtualMachineEndpointIscse {
+        /**
+         * The Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
+         */
+        dnsName: string;
+        /**
+         * IP addresses of the storage virtual machine endpoint.
+         */
+        ipAddresses: string[];
+    }
+
+    export interface OntapStorageVirtualMachineEndpointManagement {
+        /**
+         * The Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
+         */
+        dnsName: string;
+        /**
+         * IP addresses of the storage virtual machine endpoint.
+         */
+        ipAddresses: string[];
+    }
+
+    export interface OntapStorageVirtualMachineEndpointNf {
+        /**
+         * The Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
+         */
+        dnsName: string;
+        /**
+         * IP addresses of the storage virtual machine endpoint.
+         */
+        ipAddresses: string[];
+    }
+
+    export interface OntapStorageVirtualMachineEndpointSmb {
+        /**
+         * The Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
+         */
+        dnsName: string;
+        /**
+         * IP addresses of the storage virtual machine endpoint.
+         */
+        ipAddresses: string[];
+    }
+
+    export interface OntapVolumeTieringPolicy {
+        coolingPeriod?: number;
+        /**
+         * Specifies the tiering policy for the ONTAP volume for moving data to the capacity pool storage. Valid values are `SNAPSHOT_ONLY`, `AUTO`, `ALL`, `NONE`. Default value is `SNAPSHOT_ONLY`.
+         */
+        name: string;
+    }
+
     export interface WindowsFileSystemAuditLogConfiguration {
         /**
          * The Amazon Resource Name (ARN) for the destination of the audit logs. The destination can be any Amazon CloudWatch Logs log group ARN or Amazon Kinesis Data Firehose delivery stream ARN. Can be specified when `fileAccessAuditLogLevel` and `fileShareAccessAuditLogLevel` are not set to `DISABLED`. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. The name of the Amazon Kinesis Data Firehouse delivery stream must begin with the `aws-fsx` prefix. If you do not provide a destination in `auditLogDestionation`, Amazon FSx will create and use a log stream in the CloudWatch Logs /aws/fsx/windows log group.
@@ -17960,6 +18164,17 @@ export namespace imagebuilder {
          * Amazon Resource Name (ARN) of the Image Builder Component.
          */
         componentArn: string;
+    }
+
+    export interface GetImageRecipesFilter {
+        /**
+         * The name of the filter field. Valid values can be found in the [Image Builder ListImageRecipes API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListImageRecipes.html).
+         */
+        name: string;
+        /**
+         * Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+         */
+        values: string[];
     }
 
     export interface GetInfrastructureConfigurationLogging {
@@ -28954,6 +29169,10 @@ export namespace ssm {
          * The S3 bucket prefix. Results stored in the root if not configured.
          */
         s3KeyPrefix?: string;
+        /**
+         * The S3 bucket region.
+         */
+        s3Region?: string;
     }
 
     export interface AssociationTarget {
@@ -30138,6 +30357,21 @@ export namespace wafv2 {
         regexString: string;
     }
 
+    export interface RuleGroupCustomResponseBody {
+        /**
+         * The payload of the custom response.
+         */
+        content: string;
+        /**
+         * The type of content in the payload that you are defining in the `content` argument. Valid values are `TEXT_PLAIN`, `TEXT_HTML`, or `APPLICATION_JSON`.
+         */
+        contentType: string;
+        /**
+         * A unique key identifying the custom response body. This is referenced by the `customResponseBodyKey` argument in the Custom Response block.
+         */
+        key: string;
+    }
+
     export interface RuleGroupRule {
         /**
          * The action that AWS WAF should take on a web request when it matches the rule's statement. Settings at the `aws.wafv2.WebAcl` level can override the rule action setting. See Action below for details.
@@ -30151,6 +30385,10 @@ export namespace wafv2 {
          * If you define more than one Rule in a WebACL, AWS WAF evaluates each request against the `rules` in order based on the value of `priority`. AWS WAF processes rules with lower priority first.
          */
         priority: number;
+        /**
+         * Labels to apply to web requests that match the rule match statement. See Rule Label below for details.
+         */
+        ruleLabels?: outputs.wafv2.RuleGroupRuleRuleLabel[];
         /**
          * The AWS WAF processing statement for the rule, for example `byteMatchStatement` or `geoMatchStatement`. See Statement below for details.
          */
@@ -30192,7 +30430,7 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleActionAllowCustomRequestHandlingInsertHeader {
         /**
-         * The name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
+         * The label string.
          */
         name: string;
         /**
@@ -30210,6 +30448,10 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleActionBlockCustomResponse {
         /**
+         * References the response body that you want AWS WAF to return to the web request client. This must reference a `key` defined in a `customResponseBody` block of this resource.
+         */
+        customResponseBodyKey?: string;
+        /**
          * The HTTP status code to return to the client.
          */
         responseCode: number;
@@ -30221,7 +30463,7 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleActionBlockCustomResponseResponseHeader {
         /**
-         * The name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
+         * The label string.
          */
         name: string;
         /**
@@ -30246,13 +30488,20 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleActionCountCustomRequestHandlingInsertHeader {
         /**
-         * The name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
+         * The label string.
          */
         name: string;
         /**
          * The value of the custom header.
          */
         value: string;
+    }
+
+    export interface RuleGroupRuleRuleLabel {
+        /**
+         * The label string.
+         */
+        name: string;
     }
 
     export interface RuleGroupRuleStatement {
@@ -30272,6 +30521,10 @@ export namespace wafv2 {
          * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
          */
         ipSetReferenceStatement?: outputs.wafv2.RuleGroupRuleStatementIpSetReferenceStatement;
+        /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: outputs.wafv2.RuleGroupRuleStatementLabelMatchStatement;
         /**
          * A logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
          */
@@ -30323,6 +30576,10 @@ export namespace wafv2 {
          */
         ipSetReferenceStatement?: outputs.wafv2.RuleGroupRuleStatementAndStatementStatementIpSetReferenceStatement;
         /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: outputs.wafv2.RuleGroupRuleStatementAndStatementStatementLabelMatchStatement;
+        /**
          * A logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
          */
         notStatement?: outputs.wafv2.RuleGroupRuleStatementAndStatementStatementNotStatement;
@@ -30368,6 +30625,10 @@ export namespace wafv2 {
          * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
          */
         ipSetReferenceStatement?: outputs.wafv2.RuleGroupRuleStatementAndStatementStatementAndStatementStatementIpSetReferenceStatement;
+        /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: outputs.wafv2.RuleGroupRuleStatementAndStatementStatementAndStatementStatementLabelMatchStatement;
         /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
@@ -30522,6 +30783,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: string;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementAndStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: string;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: string;
     }
 
     export interface RuleGroupRuleStatementAndStatementStatementAndStatementStatementRegexPatternSetReferenceStatement {
@@ -31002,6 +31274,17 @@ export namespace wafv2 {
         position: string;
     }
 
+    export interface RuleGroupRuleStatementAndStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: string;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: string;
+    }
+
     export interface RuleGroupRuleStatementAndStatementStatementNotStatement {
         /**
          * The statement to negate. You can use any statement that can be nested. See Statement above for details.
@@ -31022,6 +31305,10 @@ export namespace wafv2 {
          * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
          */
         ipSetReferenceStatement?: outputs.wafv2.RuleGroupRuleStatementAndStatementStatementNotStatementStatementIpSetReferenceStatement;
+        /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: outputs.wafv2.RuleGroupRuleStatementAndStatementStatementNotStatementStatementLabelMatchStatement;
         /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
@@ -31176,6 +31463,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: string;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementNotStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: string;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: string;
     }
 
     export interface RuleGroupRuleStatementAndStatementStatementNotStatementStatementRegexPatternSetReferenceStatement {
@@ -31539,6 +31837,10 @@ export namespace wafv2 {
          */
         ipSetReferenceStatement?: outputs.wafv2.RuleGroupRuleStatementAndStatementStatementOrStatementStatementIpSetReferenceStatement;
         /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: outputs.wafv2.RuleGroupRuleStatementAndStatementStatementOrStatementStatementLabelMatchStatement;
+        /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
         regexPatternSetReferenceStatement?: outputs.wafv2.RuleGroupRuleStatementAndStatementStatementOrStatementStatementRegexPatternSetReferenceStatement;
@@ -31692,6 +31994,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: string;
+    }
+
+    export interface RuleGroupRuleStatementAndStatementStatementOrStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: string;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: string;
     }
 
     export interface RuleGroupRuleStatementAndStatementStatementOrStatementStatementRegexPatternSetReferenceStatement {
@@ -32512,6 +32825,17 @@ export namespace wafv2 {
         position: string;
     }
 
+    export interface RuleGroupRuleStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: string;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: string;
+    }
+
     export interface RuleGroupRuleStatementNotStatement {
         /**
          * The statement to negate. You can use any statement that can be nested. See Statement above for details.
@@ -32536,6 +32860,10 @@ export namespace wafv2 {
          * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
          */
         ipSetReferenceStatement?: outputs.wafv2.RuleGroupRuleStatementNotStatementStatementIpSetReferenceStatement;
+        /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: outputs.wafv2.RuleGroupRuleStatementNotStatementStatementLabelMatchStatement;
         /**
          * A logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
          */
@@ -32582,6 +32910,10 @@ export namespace wafv2 {
          * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
          */
         ipSetReferenceStatement?: outputs.wafv2.RuleGroupRuleStatementNotStatementStatementAndStatementStatementIpSetReferenceStatement;
+        /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: outputs.wafv2.RuleGroupRuleStatementNotStatementStatementAndStatementStatementLabelMatchStatement;
         /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
@@ -32736,6 +33068,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: string;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementAndStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: string;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: string;
     }
 
     export interface RuleGroupRuleStatementNotStatementStatementAndStatementStatementRegexPatternSetReferenceStatement {
@@ -33216,6 +33559,17 @@ export namespace wafv2 {
         position: string;
     }
 
+    export interface RuleGroupRuleStatementNotStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: string;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: string;
+    }
+
     export interface RuleGroupRuleStatementNotStatementStatementNotStatement {
         /**
          * The statement to negate. You can use any statement that can be nested. See Statement above for details.
@@ -33236,6 +33590,10 @@ export namespace wafv2 {
          * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
          */
         ipSetReferenceStatement?: outputs.wafv2.RuleGroupRuleStatementNotStatementStatementNotStatementStatementIpSetReferenceStatement;
+        /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: outputs.wafv2.RuleGroupRuleStatementNotStatementStatementNotStatementStatementLabelMatchStatement;
         /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
@@ -33390,6 +33748,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: string;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementNotStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: string;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: string;
     }
 
     export interface RuleGroupRuleStatementNotStatementStatementNotStatementStatementRegexPatternSetReferenceStatement {
@@ -33753,6 +34122,10 @@ export namespace wafv2 {
          */
         ipSetReferenceStatement?: outputs.wafv2.RuleGroupRuleStatementNotStatementStatementOrStatementStatementIpSetReferenceStatement;
         /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: outputs.wafv2.RuleGroupRuleStatementNotStatementStatementOrStatementStatementLabelMatchStatement;
+        /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
         regexPatternSetReferenceStatement?: outputs.wafv2.RuleGroupRuleStatementNotStatementStatementOrStatementStatementRegexPatternSetReferenceStatement;
@@ -33906,6 +34279,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: string;
+    }
+
+    export interface RuleGroupRuleStatementNotStatementStatementOrStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: string;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: string;
     }
 
     export interface RuleGroupRuleStatementNotStatementStatementOrStatementStatementRegexPatternSetReferenceStatement {
@@ -34613,6 +34997,10 @@ export namespace wafv2 {
          */
         ipSetReferenceStatement?: outputs.wafv2.RuleGroupRuleStatementOrStatementStatementIpSetReferenceStatement;
         /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: outputs.wafv2.RuleGroupRuleStatementOrStatementStatementLabelMatchStatement;
+        /**
          * A logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
          */
         notStatement?: outputs.wafv2.RuleGroupRuleStatementOrStatementStatementNotStatement;
@@ -34658,6 +35046,10 @@ export namespace wafv2 {
          * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
          */
         ipSetReferenceStatement?: outputs.wafv2.RuleGroupRuleStatementOrStatementStatementAndStatementStatementIpSetReferenceStatement;
+        /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: outputs.wafv2.RuleGroupRuleStatementOrStatementStatementAndStatementStatementLabelMatchStatement;
         /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
@@ -34812,6 +35204,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: string;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementAndStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: string;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: string;
     }
 
     export interface RuleGroupRuleStatementOrStatementStatementAndStatementStatementRegexPatternSetReferenceStatement {
@@ -35292,6 +35695,17 @@ export namespace wafv2 {
         position: string;
     }
 
+    export interface RuleGroupRuleStatementOrStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: string;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: string;
+    }
+
     export interface RuleGroupRuleStatementOrStatementStatementNotStatement {
         /**
          * The statement to negate. You can use any statement that can be nested. See Statement above for details.
@@ -35312,6 +35726,10 @@ export namespace wafv2 {
          * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
          */
         ipSetReferenceStatement?: outputs.wafv2.RuleGroupRuleStatementOrStatementStatementNotStatementStatementIpSetReferenceStatement;
+        /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: outputs.wafv2.RuleGroupRuleStatementOrStatementStatementNotStatementStatementLabelMatchStatement;
         /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
@@ -35466,6 +35884,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: string;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementNotStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: string;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: string;
     }
 
     export interface RuleGroupRuleStatementOrStatementStatementNotStatementStatementRegexPatternSetReferenceStatement {
@@ -35829,6 +36258,10 @@ export namespace wafv2 {
          */
         ipSetReferenceStatement?: outputs.wafv2.RuleGroupRuleStatementOrStatementStatementOrStatementStatementIpSetReferenceStatement;
         /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: outputs.wafv2.RuleGroupRuleStatementOrStatementStatementOrStatementStatementLabelMatchStatement;
+        /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
         regexPatternSetReferenceStatement?: outputs.wafv2.RuleGroupRuleStatementOrStatementStatementOrStatementStatementRegexPatternSetReferenceStatement;
@@ -35982,6 +36415,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: string;
+    }
+
+    export interface RuleGroupRuleStatementOrStatementStatementOrStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: string;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: string;
     }
 
     export interface RuleGroupRuleStatementOrStatementStatementOrStatementStatementRegexPatternSetReferenceStatement {
@@ -37034,6 +37478,21 @@ export namespace wafv2 {
         sampledRequestsEnabled: boolean;
     }
 
+    export interface WebAclCustomResponseBody {
+        /**
+         * The payload of the custom response.
+         */
+        content: string;
+        /**
+         * The type of content in the payload that you are defining in the `content` argument. Valid values are `TEXT_PLAIN`, `TEXT_HTML`, or `APPLICATION_JSON`.
+         */
+        contentType: string;
+        /**
+         * A unique key identifying the custom response body. This is referenced by the `customResponseBodyKey` argument in the Custom Response block.
+         */
+        key: string;
+    }
+
     export interface WebAclDefaultAction {
         /**
          * Specifies that AWS WAF should allow requests by default. See Allow below for details.
@@ -37061,7 +37520,7 @@ export namespace wafv2 {
 
     export interface WebAclDefaultActionAllowCustomRequestHandlingInsertHeader {
         /**
-         * The name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
+         * The label string.
          */
         name: string;
         /**
@@ -37079,6 +37538,10 @@ export namespace wafv2 {
 
     export interface WebAclDefaultActionBlockCustomResponse {
         /**
+         * References the response body that you want AWS WAF to return to the web request client. This must reference a `key` defined in a `customResponseBody` block of this resource.
+         */
+        customResponseBodyKey?: string;
+        /**
          * The HTTP status code to return to the client.
          */
         responseCode: number;
@@ -37090,7 +37553,7 @@ export namespace wafv2 {
 
     export interface WebAclDefaultActionBlockCustomResponseResponseHeader {
         /**
-         * The name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
+         * The label string.
          */
         name: string;
         /**
@@ -37236,6 +37699,10 @@ export namespace wafv2 {
          */
         priority: number;
         /**
+         * Labels to apply to web requests that match the rule match statement. See Rule Label below for details.
+         */
+        ruleLabels?: outputs.wafv2.WebAclRuleRuleLabel[];
+        /**
          * The AWS WAF processing statement for the rule, for example `byteMatchStatement` or `geoMatchStatement`. See Statement below for details.
          */
         statement: outputs.wafv2.WebAclRuleStatement;
@@ -37276,7 +37743,7 @@ export namespace wafv2 {
 
     export interface WebAclRuleActionAllowCustomRequestHandlingInsertHeader {
         /**
-         * The name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
+         * The label string.
          */
         name: string;
         /**
@@ -37294,6 +37761,10 @@ export namespace wafv2 {
 
     export interface WebAclRuleActionBlockCustomResponse {
         /**
+         * References the response body that you want AWS WAF to return to the web request client. This must reference a `key` defined in a `customResponseBody` block of this resource.
+         */
+        customResponseBodyKey?: string;
+        /**
          * The HTTP status code to return to the client.
          */
         responseCode: number;
@@ -37305,7 +37776,7 @@ export namespace wafv2 {
 
     export interface WebAclRuleActionBlockCustomResponseResponseHeader {
         /**
-         * The name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
+         * The label string.
          */
         name: string;
         /**
@@ -37330,7 +37801,7 @@ export namespace wafv2 {
 
     export interface WebAclRuleActionCountCustomRequestHandlingInsertHeader {
         /**
-         * The name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
+         * The label string.
          */
         name: string;
         /**
@@ -37356,6 +37827,13 @@ export namespace wafv2 {
     export interface WebAclRuleOverrideActionNone {
     }
 
+    export interface WebAclRuleRuleLabel {
+        /**
+         * The label string.
+         */
+        name: string;
+    }
+
     export interface WebAclRuleStatement {
         /**
          * A logical rule statement used to combine other rule statements with AND logic. See AND Statement below for details.
@@ -37373,6 +37851,10 @@ export namespace wafv2 {
          * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
          */
         ipSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementIpSetReferenceStatement;
+        /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: outputs.wafv2.WebAclRuleStatementLabelMatchStatement;
         /**
          * A rule statement used to run the rules that are defined in a managed rule group.  This statement can not be nested. See Managed Rule Group Statement below for details.
          */
@@ -37436,6 +37918,10 @@ export namespace wafv2 {
          */
         ipSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementAndStatementStatementIpSetReferenceStatement;
         /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: outputs.wafv2.WebAclRuleStatementAndStatementStatementLabelMatchStatement;
+        /**
          * A logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
          */
         notStatement?: outputs.wafv2.WebAclRuleStatementAndStatementStatementNotStatement;
@@ -37486,6 +37972,10 @@ export namespace wafv2 {
          */
         ipSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementAndStatementStatementAndStatementStatementIpSetReferenceStatement;
         /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: outputs.wafv2.WebAclRuleStatementAndStatementStatementAndStatementStatementLabelMatchStatement;
+        /**
          * A logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
          */
         notStatement?: outputs.wafv2.WebAclRuleStatementAndStatementStatementAndStatementStatementNotStatement;
@@ -37531,6 +38021,10 @@ export namespace wafv2 {
          * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
          */
         ipSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementAndStatementStatementAndStatementStatementAndStatementStatementIpSetReferenceStatement;
+        /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: outputs.wafv2.WebAclRuleStatementAndStatementStatementAndStatementStatementAndStatementStatementLabelMatchStatement;
         /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
@@ -37685,6 +38179,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: string;
+    }
+
+    export interface WebAclRuleStatementAndStatementStatementAndStatementStatementAndStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: string;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: string;
     }
 
     export interface WebAclRuleStatementAndStatementStatementAndStatementStatementAndStatementStatementRegexPatternSetReferenceStatement {
@@ -38165,6 +38670,17 @@ export namespace wafv2 {
         position: string;
     }
 
+    export interface WebAclRuleStatementAndStatementStatementAndStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: string;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: string;
+    }
+
     export interface WebAclRuleStatementAndStatementStatementAndStatementStatementNotStatement {
         /**
          * The statement to negate. You can use any statement that can be nested. See Statement above for details.
@@ -38185,6 +38701,10 @@ export namespace wafv2 {
          * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
          */
         ipSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementAndStatementStatementAndStatementStatementNotStatementStatementIpSetReferenceStatement;
+        /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: outputs.wafv2.WebAclRuleStatementAndStatementStatementAndStatementStatementNotStatementStatementLabelMatchStatement;
         /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
@@ -38339,6 +38859,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: string;
+    }
+
+    export interface WebAclRuleStatementAndStatementStatementAndStatementStatementNotStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: string;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: string;
     }
 
     export interface WebAclRuleStatementAndStatementStatementAndStatementStatementNotStatementStatementRegexPatternSetReferenceStatement {
@@ -38702,6 +39233,10 @@ export namespace wafv2 {
          */
         ipSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementAndStatementStatementAndStatementStatementOrStatementStatementIpSetReferenceStatement;
         /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: outputs.wafv2.WebAclRuleStatementAndStatementStatementAndStatementStatementOrStatementStatementLabelMatchStatement;
+        /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
         regexPatternSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementAndStatementStatementAndStatementStatementOrStatementStatementRegexPatternSetReferenceStatement;
@@ -38855,6 +39390,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: string;
+    }
+
+    export interface WebAclRuleStatementAndStatementStatementAndStatementStatementOrStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: string;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: string;
     }
 
     export interface WebAclRuleStatementAndStatementStatementAndStatementStatementOrStatementStatementRegexPatternSetReferenceStatement {
@@ -39675,6 +40221,17 @@ export namespace wafv2 {
         position: string;
     }
 
+    export interface WebAclRuleStatementAndStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: string;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: string;
+    }
+
     export interface WebAclRuleStatementAndStatementStatementNotStatement {
         /**
          * The statement to negate. You can use any statement that can be nested. See Statement above for details.
@@ -39699,6 +40256,10 @@ export namespace wafv2 {
          * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
          */
         ipSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementAndStatementStatementNotStatementStatementIpSetReferenceStatement;
+        /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: outputs.wafv2.WebAclRuleStatementAndStatementStatementNotStatementStatementLabelMatchStatement;
         /**
          * A logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
          */
@@ -39745,6 +40306,10 @@ export namespace wafv2 {
          * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
          */
         ipSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementAndStatementStatementNotStatementStatementAndStatementStatementIpSetReferenceStatement;
+        /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: outputs.wafv2.WebAclRuleStatementAndStatementStatementNotStatementStatementAndStatementStatementLabelMatchStatement;
         /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
@@ -39899,6 +40464,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: string;
+    }
+
+    export interface WebAclRuleStatementAndStatementStatementNotStatementStatementAndStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: string;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: string;
     }
 
     export interface WebAclRuleStatementAndStatementStatementNotStatementStatementAndStatementStatementRegexPatternSetReferenceStatement {
@@ -40379,6 +40955,17 @@ export namespace wafv2 {
         position: string;
     }
 
+    export interface WebAclRuleStatementAndStatementStatementNotStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: string;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: string;
+    }
+
     export interface WebAclRuleStatementAndStatementStatementNotStatementStatementNotStatement {
         /**
          * The statement to negate. You can use any statement that can be nested. See Statement above for details.
@@ -40399,6 +40986,10 @@ export namespace wafv2 {
          * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
          */
         ipSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementAndStatementStatementNotStatementStatementNotStatementStatementIpSetReferenceStatement;
+        /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: outputs.wafv2.WebAclRuleStatementAndStatementStatementNotStatementStatementNotStatementStatementLabelMatchStatement;
         /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
@@ -40553,6 +41144,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: string;
+    }
+
+    export interface WebAclRuleStatementAndStatementStatementNotStatementStatementNotStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: string;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: string;
     }
 
     export interface WebAclRuleStatementAndStatementStatementNotStatementStatementNotStatementStatementRegexPatternSetReferenceStatement {
@@ -40916,6 +41518,10 @@ export namespace wafv2 {
          */
         ipSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementAndStatementStatementNotStatementStatementOrStatementStatementIpSetReferenceStatement;
         /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: outputs.wafv2.WebAclRuleStatementAndStatementStatementNotStatementStatementOrStatementStatementLabelMatchStatement;
+        /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
         regexPatternSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementAndStatementStatementNotStatementStatementOrStatementStatementRegexPatternSetReferenceStatement;
@@ -41069,6 +41675,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: string;
+    }
+
+    export interface WebAclRuleStatementAndStatementStatementNotStatementStatementOrStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: string;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: string;
     }
 
     export interface WebAclRuleStatementAndStatementStatementNotStatementStatementOrStatementStatementRegexPatternSetReferenceStatement {
@@ -41776,6 +42393,10 @@ export namespace wafv2 {
          */
         ipSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementAndStatementStatementOrStatementStatementIpSetReferenceStatement;
         /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: outputs.wafv2.WebAclRuleStatementAndStatementStatementOrStatementStatementLabelMatchStatement;
+        /**
          * A logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
          */
         notStatement?: outputs.wafv2.WebAclRuleStatementAndStatementStatementOrStatementStatementNotStatement;
@@ -41821,6 +42442,10 @@ export namespace wafv2 {
          * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
          */
         ipSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementAndStatementStatementOrStatementStatementAndStatementStatementIpSetReferenceStatement;
+        /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: outputs.wafv2.WebAclRuleStatementAndStatementStatementOrStatementStatementAndStatementStatementLabelMatchStatement;
         /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
@@ -41975,6 +42600,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: string;
+    }
+
+    export interface WebAclRuleStatementAndStatementStatementOrStatementStatementAndStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: string;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: string;
     }
 
     export interface WebAclRuleStatementAndStatementStatementOrStatementStatementAndStatementStatementRegexPatternSetReferenceStatement {
@@ -42455,6 +43091,17 @@ export namespace wafv2 {
         position: string;
     }
 
+    export interface WebAclRuleStatementAndStatementStatementOrStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: string;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: string;
+    }
+
     export interface WebAclRuleStatementAndStatementStatementOrStatementStatementNotStatement {
         /**
          * The statement to negate. You can use any statement that can be nested. See Statement above for details.
@@ -42475,6 +43122,10 @@ export namespace wafv2 {
          * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
          */
         ipSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementAndStatementStatementOrStatementStatementNotStatementStatementIpSetReferenceStatement;
+        /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: outputs.wafv2.WebAclRuleStatementAndStatementStatementOrStatementStatementNotStatementStatementLabelMatchStatement;
         /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
@@ -42629,6 +43280,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: string;
+    }
+
+    export interface WebAclRuleStatementAndStatementStatementOrStatementStatementNotStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: string;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: string;
     }
 
     export interface WebAclRuleStatementAndStatementStatementOrStatementStatementNotStatementStatementRegexPatternSetReferenceStatement {
@@ -42992,6 +43654,10 @@ export namespace wafv2 {
          */
         ipSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementAndStatementStatementOrStatementStatementOrStatementStatementIpSetReferenceStatement;
         /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: outputs.wafv2.WebAclRuleStatementAndStatementStatementOrStatementStatementOrStatementStatementLabelMatchStatement;
+        /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
         regexPatternSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementAndStatementStatementOrStatementStatementOrStatementStatementRegexPatternSetReferenceStatement;
@@ -43145,6 +43811,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: string;
+    }
+
+    export interface WebAclRuleStatementAndStatementStatementOrStatementStatementOrStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: string;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: string;
     }
 
     export interface WebAclRuleStatementAndStatementStatementOrStatementStatementOrStatementStatementRegexPatternSetReferenceStatement {
@@ -44305,6 +44982,17 @@ export namespace wafv2 {
         position: string;
     }
 
+    export interface WebAclRuleStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: string;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: string;
+    }
+
     export interface WebAclRuleStatementManagedRuleGroupStatement {
         /**
          * The `rules` whose actions are set to `COUNT` by the web ACL, regardless of the action that is set on the rule. See Excluded Rule below for details.
@@ -44348,6 +45036,10 @@ export namespace wafv2 {
          * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
          */
         ipSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementIpSetReferenceStatement;
+        /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementLabelMatchStatement;
         /**
          * A logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
          */
@@ -44399,6 +45091,10 @@ export namespace wafv2 {
          */
         ipSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementIpSetReferenceStatement;
         /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementLabelMatchStatement;
+        /**
          * A logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
          */
         notStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatement;
@@ -44444,6 +45140,10 @@ export namespace wafv2 {
          * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
          */
         ipSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementIpSetReferenceStatement;
+        /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementLabelMatchStatement;
         /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
@@ -44598,6 +45298,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: string;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: string;
     }
 
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementAndStatementStatementRegexPatternSetReferenceStatement {
@@ -45078,6 +45789,17 @@ export namespace wafv2 {
         position: string;
     }
 
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: string;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: string;
+    }
+
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatement {
         /**
          * The statement to negate. You can use any statement that can be nested. See Statement above for details.
@@ -45098,6 +45820,10 @@ export namespace wafv2 {
          * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
          */
         ipSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementIpSetReferenceStatement;
+        /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementLabelMatchStatement;
         /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
@@ -45252,6 +45978,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: string;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: string;
     }
 
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementNotStatementStatementRegexPatternSetReferenceStatement {
@@ -45615,6 +46352,10 @@ export namespace wafv2 {
          */
         ipSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementIpSetReferenceStatement;
         /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementLabelMatchStatement;
+        /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
         regexPatternSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementRegexPatternSetReferenceStatement;
@@ -45768,6 +46509,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: string;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: string;
     }
 
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementAndStatementStatementOrStatementStatementRegexPatternSetReferenceStatement {
@@ -46588,6 +47340,17 @@ export namespace wafv2 {
         position: string;
     }
 
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: string;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: string;
+    }
+
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatement {
         /**
          * The statement to negate. You can use any statement that can be nested. See Statement above for details.
@@ -46612,6 +47375,10 @@ export namespace wafv2 {
          * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
          */
         ipSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementIpSetReferenceStatement;
+        /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementLabelMatchStatement;
         /**
          * A logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
          */
@@ -46658,6 +47425,10 @@ export namespace wafv2 {
          * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
          */
         ipSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementIpSetReferenceStatement;
+        /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementLabelMatchStatement;
         /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
@@ -46812,6 +47583,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: string;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: string;
     }
 
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementAndStatementStatementRegexPatternSetReferenceStatement {
@@ -47292,6 +48074,17 @@ export namespace wafv2 {
         position: string;
     }
 
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: string;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: string;
+    }
+
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatement {
         /**
          * The statement to negate. You can use any statement that can be nested. See Statement above for details.
@@ -47312,6 +48105,10 @@ export namespace wafv2 {
          * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
          */
         ipSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementIpSetReferenceStatement;
+        /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementLabelMatchStatement;
         /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
@@ -47466,6 +48263,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: string;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: string;
     }
 
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementNotStatementStatementRegexPatternSetReferenceStatement {
@@ -47829,6 +48637,10 @@ export namespace wafv2 {
          */
         ipSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementIpSetReferenceStatement;
         /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementLabelMatchStatement;
+        /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
         regexPatternSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementRegexPatternSetReferenceStatement;
@@ -47982,6 +48794,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: string;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: string;
     }
 
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementNotStatementStatementOrStatementStatementRegexPatternSetReferenceStatement {
@@ -48689,6 +49512,10 @@ export namespace wafv2 {
          */
         ipSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementIpSetReferenceStatement;
         /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementLabelMatchStatement;
+        /**
          * A logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
          */
         notStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatement;
@@ -48734,6 +49561,10 @@ export namespace wafv2 {
          * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
          */
         ipSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementIpSetReferenceStatement;
+        /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementLabelMatchStatement;
         /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
@@ -48888,6 +49719,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: string;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: string;
     }
 
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementAndStatementStatementRegexPatternSetReferenceStatement {
@@ -49368,6 +50210,17 @@ export namespace wafv2 {
         position: string;
     }
 
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: string;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: string;
+    }
+
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatement {
         /**
          * The statement to negate. You can use any statement that can be nested. See Statement above for details.
@@ -49388,6 +50241,10 @@ export namespace wafv2 {
          * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
          */
         ipSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementIpSetReferenceStatement;
+        /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementLabelMatchStatement;
         /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
@@ -49542,6 +50399,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: string;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: string;
     }
 
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementNotStatementStatementRegexPatternSetReferenceStatement {
@@ -49905,6 +50773,10 @@ export namespace wafv2 {
          */
         ipSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementIpSetReferenceStatement;
         /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementLabelMatchStatement;
+        /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
         regexPatternSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementRegexPatternSetReferenceStatement;
@@ -50058,6 +50930,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: string;
+    }
+
+    export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: string;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: string;
     }
 
     export interface WebAclRuleStatementManagedRuleGroupStatementScopeDownStatementOrStatementStatementOrStatementStatementRegexPatternSetReferenceStatement {
@@ -51105,6 +51988,10 @@ export namespace wafv2 {
          */
         ipSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementNotStatementStatementIpSetReferenceStatement;
         /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: outputs.wafv2.WebAclRuleStatementNotStatementStatementLabelMatchStatement;
+        /**
          * A logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
          */
         notStatement?: outputs.wafv2.WebAclRuleStatementNotStatementStatementNotStatement;
@@ -51155,6 +52042,10 @@ export namespace wafv2 {
          */
         ipSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementNotStatementStatementAndStatementStatementIpSetReferenceStatement;
         /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: outputs.wafv2.WebAclRuleStatementNotStatementStatementAndStatementStatementLabelMatchStatement;
+        /**
          * A logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
          */
         notStatement?: outputs.wafv2.WebAclRuleStatementNotStatementStatementAndStatementStatementNotStatement;
@@ -51200,6 +52091,10 @@ export namespace wafv2 {
          * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
          */
         ipSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementNotStatementStatementAndStatementStatementAndStatementStatementIpSetReferenceStatement;
+        /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: outputs.wafv2.WebAclRuleStatementNotStatementStatementAndStatementStatementAndStatementStatementLabelMatchStatement;
         /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
@@ -51354,6 +52249,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: string;
+    }
+
+    export interface WebAclRuleStatementNotStatementStatementAndStatementStatementAndStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: string;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: string;
     }
 
     export interface WebAclRuleStatementNotStatementStatementAndStatementStatementAndStatementStatementRegexPatternSetReferenceStatement {
@@ -51834,6 +52740,17 @@ export namespace wafv2 {
         position: string;
     }
 
+    export interface WebAclRuleStatementNotStatementStatementAndStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: string;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: string;
+    }
+
     export interface WebAclRuleStatementNotStatementStatementAndStatementStatementNotStatement {
         /**
          * The statement to negate. You can use any statement that can be nested. See Statement above for details.
@@ -51854,6 +52771,10 @@ export namespace wafv2 {
          * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
          */
         ipSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementNotStatementStatementAndStatementStatementNotStatementStatementIpSetReferenceStatement;
+        /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: outputs.wafv2.WebAclRuleStatementNotStatementStatementAndStatementStatementNotStatementStatementLabelMatchStatement;
         /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
@@ -52008,6 +52929,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: string;
+    }
+
+    export interface WebAclRuleStatementNotStatementStatementAndStatementStatementNotStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: string;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: string;
     }
 
     export interface WebAclRuleStatementNotStatementStatementAndStatementStatementNotStatementStatementRegexPatternSetReferenceStatement {
@@ -52371,6 +53303,10 @@ export namespace wafv2 {
          */
         ipSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementNotStatementStatementAndStatementStatementOrStatementStatementIpSetReferenceStatement;
         /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: outputs.wafv2.WebAclRuleStatementNotStatementStatementAndStatementStatementOrStatementStatementLabelMatchStatement;
+        /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
         regexPatternSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementNotStatementStatementAndStatementStatementOrStatementStatementRegexPatternSetReferenceStatement;
@@ -52524,6 +53460,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: string;
+    }
+
+    export interface WebAclRuleStatementNotStatementStatementAndStatementStatementOrStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: string;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: string;
     }
 
     export interface WebAclRuleStatementNotStatementStatementAndStatementStatementOrStatementStatementRegexPatternSetReferenceStatement {
@@ -53344,6 +54291,17 @@ export namespace wafv2 {
         position: string;
     }
 
+    export interface WebAclRuleStatementNotStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: string;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: string;
+    }
+
     export interface WebAclRuleStatementNotStatementStatementNotStatement {
         /**
          * The statement to negate. You can use any statement that can be nested. See Statement above for details.
@@ -53368,6 +54326,10 @@ export namespace wafv2 {
          * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
          */
         ipSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementNotStatementStatementNotStatementStatementIpSetReferenceStatement;
+        /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: outputs.wafv2.WebAclRuleStatementNotStatementStatementNotStatementStatementLabelMatchStatement;
         /**
          * A logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
          */
@@ -53414,6 +54376,10 @@ export namespace wafv2 {
          * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
          */
         ipSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementNotStatementStatementNotStatementStatementAndStatementStatementIpSetReferenceStatement;
+        /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: outputs.wafv2.WebAclRuleStatementNotStatementStatementNotStatementStatementAndStatementStatementLabelMatchStatement;
         /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
@@ -53568,6 +54534,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: string;
+    }
+
+    export interface WebAclRuleStatementNotStatementStatementNotStatementStatementAndStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: string;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: string;
     }
 
     export interface WebAclRuleStatementNotStatementStatementNotStatementStatementAndStatementStatementRegexPatternSetReferenceStatement {
@@ -54048,6 +55025,17 @@ export namespace wafv2 {
         position: string;
     }
 
+    export interface WebAclRuleStatementNotStatementStatementNotStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: string;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: string;
+    }
+
     export interface WebAclRuleStatementNotStatementStatementNotStatementStatementNotStatement {
         /**
          * The statement to negate. You can use any statement that can be nested. See Statement above for details.
@@ -54068,6 +55056,10 @@ export namespace wafv2 {
          * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
          */
         ipSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementNotStatementStatementNotStatementStatementNotStatementStatementIpSetReferenceStatement;
+        /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: outputs.wafv2.WebAclRuleStatementNotStatementStatementNotStatementStatementNotStatementStatementLabelMatchStatement;
         /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
@@ -54222,6 +55214,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: string;
+    }
+
+    export interface WebAclRuleStatementNotStatementStatementNotStatementStatementNotStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: string;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: string;
     }
 
     export interface WebAclRuleStatementNotStatementStatementNotStatementStatementNotStatementStatementRegexPatternSetReferenceStatement {
@@ -54585,6 +55588,10 @@ export namespace wafv2 {
          */
         ipSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementNotStatementStatementNotStatementStatementOrStatementStatementIpSetReferenceStatement;
         /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: outputs.wafv2.WebAclRuleStatementNotStatementStatementNotStatementStatementOrStatementStatementLabelMatchStatement;
+        /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
         regexPatternSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementNotStatementStatementNotStatementStatementOrStatementStatementRegexPatternSetReferenceStatement;
@@ -54738,6 +55745,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: string;
+    }
+
+    export interface WebAclRuleStatementNotStatementStatementNotStatementStatementOrStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: string;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: string;
     }
 
     export interface WebAclRuleStatementNotStatementStatementNotStatementStatementOrStatementStatementRegexPatternSetReferenceStatement {
@@ -55445,6 +56463,10 @@ export namespace wafv2 {
          */
         ipSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementNotStatementStatementOrStatementStatementIpSetReferenceStatement;
         /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: outputs.wafv2.WebAclRuleStatementNotStatementStatementOrStatementStatementLabelMatchStatement;
+        /**
          * A logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
          */
         notStatement?: outputs.wafv2.WebAclRuleStatementNotStatementStatementOrStatementStatementNotStatement;
@@ -55490,6 +56512,10 @@ export namespace wafv2 {
          * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
          */
         ipSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementNotStatementStatementOrStatementStatementAndStatementStatementIpSetReferenceStatement;
+        /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: outputs.wafv2.WebAclRuleStatementNotStatementStatementOrStatementStatementAndStatementStatementLabelMatchStatement;
         /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
@@ -55644,6 +56670,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: string;
+    }
+
+    export interface WebAclRuleStatementNotStatementStatementOrStatementStatementAndStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: string;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: string;
     }
 
     export interface WebAclRuleStatementNotStatementStatementOrStatementStatementAndStatementStatementRegexPatternSetReferenceStatement {
@@ -56124,6 +57161,17 @@ export namespace wafv2 {
         position: string;
     }
 
+    export interface WebAclRuleStatementNotStatementStatementOrStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: string;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: string;
+    }
+
     export interface WebAclRuleStatementNotStatementStatementOrStatementStatementNotStatement {
         /**
          * The statement to negate. You can use any statement that can be nested. See Statement above for details.
@@ -56144,6 +57192,10 @@ export namespace wafv2 {
          * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
          */
         ipSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementNotStatementStatementOrStatementStatementNotStatementStatementIpSetReferenceStatement;
+        /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: outputs.wafv2.WebAclRuleStatementNotStatementStatementOrStatementStatementNotStatementStatementLabelMatchStatement;
         /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
@@ -56298,6 +57350,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: string;
+    }
+
+    export interface WebAclRuleStatementNotStatementStatementOrStatementStatementNotStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: string;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: string;
     }
 
     export interface WebAclRuleStatementNotStatementStatementOrStatementStatementNotStatementStatementRegexPatternSetReferenceStatement {
@@ -56661,6 +57724,10 @@ export namespace wafv2 {
          */
         ipSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementNotStatementStatementOrStatementStatementOrStatementStatementIpSetReferenceStatement;
         /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: outputs.wafv2.WebAclRuleStatementNotStatementStatementOrStatementStatementOrStatementStatementLabelMatchStatement;
+        /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
         regexPatternSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementNotStatementStatementOrStatementStatementOrStatementStatementRegexPatternSetReferenceStatement;
@@ -56814,6 +57881,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: string;
+    }
+
+    export interface WebAclRuleStatementNotStatementStatementOrStatementStatementOrStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: string;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: string;
     }
 
     export interface WebAclRuleStatementNotStatementStatementOrStatementStatementOrStatementStatementRegexPatternSetReferenceStatement {
@@ -57861,6 +58939,10 @@ export namespace wafv2 {
          */
         ipSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementOrStatementStatementIpSetReferenceStatement;
         /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: outputs.wafv2.WebAclRuleStatementOrStatementStatementLabelMatchStatement;
+        /**
          * A logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
          */
         notStatement?: outputs.wafv2.WebAclRuleStatementOrStatementStatementNotStatement;
@@ -57911,6 +58993,10 @@ export namespace wafv2 {
          */
         ipSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementOrStatementStatementAndStatementStatementIpSetReferenceStatement;
         /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: outputs.wafv2.WebAclRuleStatementOrStatementStatementAndStatementStatementLabelMatchStatement;
+        /**
          * A logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
          */
         notStatement?: outputs.wafv2.WebAclRuleStatementOrStatementStatementAndStatementStatementNotStatement;
@@ -57956,6 +59042,10 @@ export namespace wafv2 {
          * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
          */
         ipSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementOrStatementStatementAndStatementStatementAndStatementStatementIpSetReferenceStatement;
+        /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: outputs.wafv2.WebAclRuleStatementOrStatementStatementAndStatementStatementAndStatementStatementLabelMatchStatement;
         /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
@@ -58110,6 +59200,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: string;
+    }
+
+    export interface WebAclRuleStatementOrStatementStatementAndStatementStatementAndStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: string;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: string;
     }
 
     export interface WebAclRuleStatementOrStatementStatementAndStatementStatementAndStatementStatementRegexPatternSetReferenceStatement {
@@ -58590,6 +59691,17 @@ export namespace wafv2 {
         position: string;
     }
 
+    export interface WebAclRuleStatementOrStatementStatementAndStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: string;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: string;
+    }
+
     export interface WebAclRuleStatementOrStatementStatementAndStatementStatementNotStatement {
         /**
          * The statement to negate. You can use any statement that can be nested. See Statement above for details.
@@ -58610,6 +59722,10 @@ export namespace wafv2 {
          * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
          */
         ipSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementOrStatementStatementAndStatementStatementNotStatementStatementIpSetReferenceStatement;
+        /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: outputs.wafv2.WebAclRuleStatementOrStatementStatementAndStatementStatementNotStatementStatementLabelMatchStatement;
         /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
@@ -58764,6 +59880,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: string;
+    }
+
+    export interface WebAclRuleStatementOrStatementStatementAndStatementStatementNotStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: string;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: string;
     }
 
     export interface WebAclRuleStatementOrStatementStatementAndStatementStatementNotStatementStatementRegexPatternSetReferenceStatement {
@@ -59127,6 +60254,10 @@ export namespace wafv2 {
          */
         ipSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementOrStatementStatementAndStatementStatementOrStatementStatementIpSetReferenceStatement;
         /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: outputs.wafv2.WebAclRuleStatementOrStatementStatementAndStatementStatementOrStatementStatementLabelMatchStatement;
+        /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
         regexPatternSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementOrStatementStatementAndStatementStatementOrStatementStatementRegexPatternSetReferenceStatement;
@@ -59280,6 +60411,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: string;
+    }
+
+    export interface WebAclRuleStatementOrStatementStatementAndStatementStatementOrStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: string;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: string;
     }
 
     export interface WebAclRuleStatementOrStatementStatementAndStatementStatementOrStatementStatementRegexPatternSetReferenceStatement {
@@ -60100,6 +61242,17 @@ export namespace wafv2 {
         position: string;
     }
 
+    export interface WebAclRuleStatementOrStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: string;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: string;
+    }
+
     export interface WebAclRuleStatementOrStatementStatementNotStatement {
         /**
          * The statement to negate. You can use any statement that can be nested. See Statement above for details.
@@ -60124,6 +61277,10 @@ export namespace wafv2 {
          * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
          */
         ipSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementOrStatementStatementNotStatementStatementIpSetReferenceStatement;
+        /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: outputs.wafv2.WebAclRuleStatementOrStatementStatementNotStatementStatementLabelMatchStatement;
         /**
          * A logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
          */
@@ -60170,6 +61327,10 @@ export namespace wafv2 {
          * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
          */
         ipSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementOrStatementStatementNotStatementStatementAndStatementStatementIpSetReferenceStatement;
+        /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: outputs.wafv2.WebAclRuleStatementOrStatementStatementNotStatementStatementAndStatementStatementLabelMatchStatement;
         /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
@@ -60324,6 +61485,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: string;
+    }
+
+    export interface WebAclRuleStatementOrStatementStatementNotStatementStatementAndStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: string;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: string;
     }
 
     export interface WebAclRuleStatementOrStatementStatementNotStatementStatementAndStatementStatementRegexPatternSetReferenceStatement {
@@ -60804,6 +61976,17 @@ export namespace wafv2 {
         position: string;
     }
 
+    export interface WebAclRuleStatementOrStatementStatementNotStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: string;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: string;
+    }
+
     export interface WebAclRuleStatementOrStatementStatementNotStatementStatementNotStatement {
         /**
          * The statement to negate. You can use any statement that can be nested. See Statement above for details.
@@ -60824,6 +62007,10 @@ export namespace wafv2 {
          * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
          */
         ipSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementOrStatementStatementNotStatementStatementNotStatementStatementIpSetReferenceStatement;
+        /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: outputs.wafv2.WebAclRuleStatementOrStatementStatementNotStatementStatementNotStatementStatementLabelMatchStatement;
         /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
@@ -60978,6 +62165,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: string;
+    }
+
+    export interface WebAclRuleStatementOrStatementStatementNotStatementStatementNotStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: string;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: string;
     }
 
     export interface WebAclRuleStatementOrStatementStatementNotStatementStatementNotStatementStatementRegexPatternSetReferenceStatement {
@@ -61341,6 +62539,10 @@ export namespace wafv2 {
          */
         ipSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementOrStatementStatementNotStatementStatementOrStatementStatementIpSetReferenceStatement;
         /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: outputs.wafv2.WebAclRuleStatementOrStatementStatementNotStatementStatementOrStatementStatementLabelMatchStatement;
+        /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
         regexPatternSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementOrStatementStatementNotStatementStatementOrStatementStatementRegexPatternSetReferenceStatement;
@@ -61494,6 +62696,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: string;
+    }
+
+    export interface WebAclRuleStatementOrStatementStatementNotStatementStatementOrStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: string;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: string;
     }
 
     export interface WebAclRuleStatementOrStatementStatementNotStatementStatementOrStatementStatementRegexPatternSetReferenceStatement {
@@ -62201,6 +63414,10 @@ export namespace wafv2 {
          */
         ipSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementOrStatementStatementOrStatementStatementIpSetReferenceStatement;
         /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: outputs.wafv2.WebAclRuleStatementOrStatementStatementOrStatementStatementLabelMatchStatement;
+        /**
          * A logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
          */
         notStatement?: outputs.wafv2.WebAclRuleStatementOrStatementStatementOrStatementStatementNotStatement;
@@ -62246,6 +63463,10 @@ export namespace wafv2 {
          * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
          */
         ipSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementOrStatementStatementOrStatementStatementAndStatementStatementIpSetReferenceStatement;
+        /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: outputs.wafv2.WebAclRuleStatementOrStatementStatementOrStatementStatementAndStatementStatementLabelMatchStatement;
         /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
@@ -62400,6 +63621,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: string;
+    }
+
+    export interface WebAclRuleStatementOrStatementStatementOrStatementStatementAndStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: string;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: string;
     }
 
     export interface WebAclRuleStatementOrStatementStatementOrStatementStatementAndStatementStatementRegexPatternSetReferenceStatement {
@@ -62880,6 +64112,17 @@ export namespace wafv2 {
         position: string;
     }
 
+    export interface WebAclRuleStatementOrStatementStatementOrStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: string;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: string;
+    }
+
     export interface WebAclRuleStatementOrStatementStatementOrStatementStatementNotStatement {
         /**
          * The statement to negate. You can use any statement that can be nested. See Statement above for details.
@@ -62900,6 +64143,10 @@ export namespace wafv2 {
          * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
          */
         ipSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementOrStatementStatementOrStatementStatementNotStatementStatementIpSetReferenceStatement;
+        /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: outputs.wafv2.WebAclRuleStatementOrStatementStatementOrStatementStatementNotStatementStatementLabelMatchStatement;
         /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
@@ -63054,6 +64301,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: string;
+    }
+
+    export interface WebAclRuleStatementOrStatementStatementOrStatementStatementNotStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: string;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: string;
     }
 
     export interface WebAclRuleStatementOrStatementStatementOrStatementStatementNotStatementStatementRegexPatternSetReferenceStatement {
@@ -63417,6 +64675,10 @@ export namespace wafv2 {
          */
         ipSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementOrStatementStatementOrStatementStatementOrStatementStatementIpSetReferenceStatement;
         /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: outputs.wafv2.WebAclRuleStatementOrStatementStatementOrStatementStatementOrStatementStatementLabelMatchStatement;
+        /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
         regexPatternSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementOrStatementStatementOrStatementStatementOrStatementStatementRegexPatternSetReferenceStatement;
@@ -63570,6 +64832,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: string;
+    }
+
+    export interface WebAclRuleStatementOrStatementStatementOrStatementStatementOrStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: string;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: string;
     }
 
     export interface WebAclRuleStatementOrStatementStatementOrStatementStatementOrStatementStatementRegexPatternSetReferenceStatement {
@@ -64640,6 +65913,10 @@ export namespace wafv2 {
          */
         ipSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatement;
         /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatement;
+        /**
          * A logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
          */
         notStatement?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatement;
@@ -64690,6 +65967,10 @@ export namespace wafv2 {
          */
         ipSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementIpSetReferenceStatement;
         /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementLabelMatchStatement;
+        /**
          * A logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
          */
         notStatement?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementNotStatement;
@@ -64735,6 +66016,10 @@ export namespace wafv2 {
          * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
          */
         ipSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementAndStatementStatementIpSetReferenceStatement;
+        /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementAndStatementStatementLabelMatchStatement;
         /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
@@ -64889,6 +66174,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: string;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementAndStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: string;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: string;
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementAndStatementStatementRegexPatternSetReferenceStatement {
@@ -65369,6 +66665,17 @@ export namespace wafv2 {
         position: string;
     }
 
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: string;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: string;
+    }
+
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementNotStatement {
         /**
          * The statement to negate. You can use any statement that can be nested. See Statement above for details.
@@ -65389,6 +66696,10 @@ export namespace wafv2 {
          * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
          */
         ipSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementNotStatementStatementIpSetReferenceStatement;
+        /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementNotStatementStatementLabelMatchStatement;
         /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
@@ -65543,6 +66854,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: string;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementNotStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: string;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: string;
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementNotStatementStatementRegexPatternSetReferenceStatement {
@@ -65906,6 +67228,10 @@ export namespace wafv2 {
          */
         ipSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementOrStatementStatementIpSetReferenceStatement;
         /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementOrStatementStatementLabelMatchStatement;
+        /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
         regexPatternSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementOrStatementStatementRegexPatternSetReferenceStatement;
@@ -66059,6 +67385,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: string;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementOrStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: string;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: string;
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementAndStatementStatementOrStatementStatementRegexPatternSetReferenceStatement {
@@ -66879,6 +68216,17 @@ export namespace wafv2 {
         position: string;
     }
 
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: string;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: string;
+    }
+
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatement {
         /**
          * The statement to negate. You can use any statement that can be nested. See Statement above for details.
@@ -66903,6 +68251,10 @@ export namespace wafv2 {
          * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
          */
         ipSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementIpSetReferenceStatement;
+        /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementLabelMatchStatement;
         /**
          * A logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
          */
@@ -66949,6 +68301,10 @@ export namespace wafv2 {
          * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
          */
         ipSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementAndStatementStatementIpSetReferenceStatement;
+        /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementAndStatementStatementLabelMatchStatement;
         /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
@@ -67103,6 +68459,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: string;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementAndStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: string;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: string;
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementAndStatementStatementRegexPatternSetReferenceStatement {
@@ -67583,6 +68950,17 @@ export namespace wafv2 {
         position: string;
     }
 
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: string;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: string;
+    }
+
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementNotStatement {
         /**
          * The statement to negate. You can use any statement that can be nested. See Statement above for details.
@@ -67603,6 +68981,10 @@ export namespace wafv2 {
          * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
          */
         ipSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementNotStatementStatementIpSetReferenceStatement;
+        /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementNotStatementStatementLabelMatchStatement;
         /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
@@ -67757,6 +69139,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: string;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementNotStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: string;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: string;
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementNotStatementStatementRegexPatternSetReferenceStatement {
@@ -68120,6 +69513,10 @@ export namespace wafv2 {
          */
         ipSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementOrStatementStatementIpSetReferenceStatement;
         /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementOrStatementStatementLabelMatchStatement;
+        /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
         regexPatternSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementOrStatementStatementRegexPatternSetReferenceStatement;
@@ -68273,6 +69670,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: string;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementOrStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: string;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: string;
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementNotStatementStatementOrStatementStatementRegexPatternSetReferenceStatement {
@@ -68980,6 +70388,10 @@ export namespace wafv2 {
          */
         ipSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementStatementIpSetReferenceStatement;
         /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementStatementLabelMatchStatement;
+        /**
          * A logical rule statement used to negate the results of another rule statement. See NOT Statement below for details.
          */
         notStatement?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementStatementNotStatement;
@@ -69025,6 +70437,10 @@ export namespace wafv2 {
          * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
          */
         ipSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementStatementAndStatementStatementIpSetReferenceStatement;
+        /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementStatementAndStatementStatementLabelMatchStatement;
         /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
@@ -69179,6 +70595,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: string;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementStatementAndStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: string;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: string;
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementStatementAndStatementStatementRegexPatternSetReferenceStatement {
@@ -69659,6 +71086,17 @@ export namespace wafv2 {
         position: string;
     }
 
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: string;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: string;
+    }
+
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementStatementNotStatement {
         /**
          * The statement to negate. You can use any statement that can be nested. See Statement above for details.
@@ -69679,6 +71117,10 @@ export namespace wafv2 {
          * A rule statement used to detect web requests coming from particular IP addresses or address ranges. See IP Set Reference Statement below for details.
          */
         ipSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementStatementNotStatementStatementIpSetReferenceStatement;
+        /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementStatementNotStatementStatementLabelMatchStatement;
         /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
@@ -69833,6 +71275,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: string;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementStatementNotStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: string;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: string;
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementStatementNotStatementStatementRegexPatternSetReferenceStatement {
@@ -70196,6 +71649,10 @@ export namespace wafv2 {
          */
         ipSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementStatementOrStatementStatementIpSetReferenceStatement;
         /**
+         * A rule statement that defines a string match search against labels that have been added to the web request by rules that have already run in the web ACL. See Label Match Statement below for details.
+         */
+        labelMatchStatement?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementStatementOrStatementStatementLabelMatchStatement;
+        /**
          * A rule statement used to search web request components for matches with regular expressions. See Regex Pattern Set Reference Statement below for details.
          */
         regexPatternSetReferenceStatement?: outputs.wafv2.WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementStatementOrStatementStatementRegexPatternSetReferenceStatement;
@@ -70349,6 +71806,17 @@ export namespace wafv2 {
          * - The position in the header to search for the IP address. Valid values include: `FIRST`, `LAST`, or `ANY`. If `ANY` is specified and the header contains more than 10 IP addresses, AWS WAFv2 inspects the last 10.
          */
         position: string;
+    }
+
+    export interface WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementStatementOrStatementStatementLabelMatchStatement {
+        /**
+         * The string to match against.
+         */
+        key: string;
+        /**
+         * Specify whether you want to match using the label name or just the namespace. Valid values are `LABEL` or `NAMESPACE`.
+         */
+        scope: string;
     }
 
     export interface WebAclRuleStatementRateBasedStatementScopeDownStatementOrStatementStatementOrStatementStatementRegexPatternSetReferenceStatement {
@@ -71758,6 +73226,7 @@ export namespace wafv2 {
          */
         sampledRequestsEnabled: boolean;
     }
+
 }
 
 export namespace worklink {

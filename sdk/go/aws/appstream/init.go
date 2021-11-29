@@ -25,10 +25,16 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DirectoryConfig{}
 	case "aws:appstream/fleet:Fleet":
 		r = &Fleet{}
+	case "aws:appstream/fleetStackAssociation:FleetStackAssociation":
+		r = &FleetStackAssociation{}
 	case "aws:appstream/imageBuilder:ImageBuilder":
 		r = &ImageBuilder{}
 	case "aws:appstream/stack:Stack":
 		r = &Stack{}
+	case "aws:appstream/user:User":
+		r = &User{}
+	case "aws:appstream/userStackAssociation:UserStackAssociation":
+		r = &UserStackAssociation{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -54,12 +60,27 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"aws",
+		"appstream/fleetStackAssociation",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
 		"appstream/imageBuilder",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
 		"aws",
 		"appstream/stack",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"appstream/user",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"appstream/userStackAssociation",
 		&module{version},
 	)
 }

@@ -166,7 +166,7 @@ class CapacityProvider(pulumi.CustomResource):
         # ... other configuration, including potentially other tags ...
         test_group = aws.autoscaling.Group("testGroup", tags=[aws.autoscaling.GroupTagArgs(
             key="AmazonECSManaged",
-            value="",
+            value="true",
             propagate_at_launch=True,
         )])
         test_capacity_provider = aws.ecs.CapacityProvider("testCapacityProvider", auto_scaling_group_provider=aws.ecs.CapacityProviderAutoScalingGroupProviderArgs(
@@ -214,7 +214,7 @@ class CapacityProvider(pulumi.CustomResource):
         # ... other configuration, including potentially other tags ...
         test_group = aws.autoscaling.Group("testGroup", tags=[aws.autoscaling.GroupTagArgs(
             key="AmazonECSManaged",
-            value="",
+            value="true",
             propagate_at_launch=True,
         )])
         test_capacity_provider = aws.ecs.CapacityProvider("testCapacityProvider", auto_scaling_group_provider=aws.ecs.CapacityProviderAutoScalingGroupProviderArgs(

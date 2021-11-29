@@ -16,6 +16,8 @@ __all__ = [
     'DeliveryChannelSnapshotDeliveryProperties',
     'OrganizationConformancePackInputParameter',
     'RecorderRecordingGroup',
+    'RemediationConfigurationExecutionControls',
+    'RemediationConfigurationExecutionControlsSsmControls',
     'RemediationConfigurationParameter',
     'RuleScope',
     'RuleSource',
@@ -341,6 +343,92 @@ class RecorderRecordingGroup(dict):
 
 
 @pulumi.output_type
+class RemediationConfigurationExecutionControls(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ssmControls":
+            suggest = "ssm_controls"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RemediationConfigurationExecutionControls. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RemediationConfigurationExecutionControls.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RemediationConfigurationExecutionControls.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ssm_controls: Optional['outputs.RemediationConfigurationExecutionControlsSsmControls'] = None):
+        """
+        :param 'RemediationConfigurationExecutionControlsSsmControlsArgs' ssm_controls: Configuration block for SSM controls. See below.
+        """
+        if ssm_controls is not None:
+            pulumi.set(__self__, "ssm_controls", ssm_controls)
+
+    @property
+    @pulumi.getter(name="ssmControls")
+    def ssm_controls(self) -> Optional['outputs.RemediationConfigurationExecutionControlsSsmControls']:
+        """
+        Configuration block for SSM controls. See below.
+        """
+        return pulumi.get(self, "ssm_controls")
+
+
+@pulumi.output_type
+class RemediationConfigurationExecutionControlsSsmControls(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "concurrentExecutionRatePercentage":
+            suggest = "concurrent_execution_rate_percentage"
+        elif key == "errorPercentage":
+            suggest = "error_percentage"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RemediationConfigurationExecutionControlsSsmControls. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RemediationConfigurationExecutionControlsSsmControls.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RemediationConfigurationExecutionControlsSsmControls.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 concurrent_execution_rate_percentage: Optional[int] = None,
+                 error_percentage: Optional[int] = None):
+        """
+        :param int concurrent_execution_rate_percentage: Maximum percentage of remediation actions allowed to run in parallel on the non-compliant resources for that specific rule. The default value is 10%.
+        :param int error_percentage: Percentage of errors that are allowed before SSM stops running automations on non-compliant resources for that specific rule. The default is 50%.
+        """
+        if concurrent_execution_rate_percentage is not None:
+            pulumi.set(__self__, "concurrent_execution_rate_percentage", concurrent_execution_rate_percentage)
+        if error_percentage is not None:
+            pulumi.set(__self__, "error_percentage", error_percentage)
+
+    @property
+    @pulumi.getter(name="concurrentExecutionRatePercentage")
+    def concurrent_execution_rate_percentage(self) -> Optional[int]:
+        """
+        Maximum percentage of remediation actions allowed to run in parallel on the non-compliant resources for that specific rule. The default value is 10%.
+        """
+        return pulumi.get(self, "concurrent_execution_rate_percentage")
+
+    @property
+    @pulumi.getter(name="errorPercentage")
+    def error_percentage(self) -> Optional[int]:
+        """
+        Percentage of errors that are allowed before SSM stops running automations on non-compliant resources for that specific rule. The default is 50%.
+        """
+        return pulumi.get(self, "error_percentage")
+
+
+@pulumi.output_type
 class RemediationConfigurationParameter(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -366,9 +454,9 @@ class RemediationConfigurationParameter(dict):
                  resource_value: Optional[str] = None,
                  static_value: Optional[str] = None):
         """
-        :param str name: The name of the attribute.
-        :param str resource_value: The value is dynamic and changes at run-time.
-        :param str static_value: The value is static and does not change at run-time.
+        :param str name: Name of the attribute.
+        :param str resource_value: Value is dynamic and changes at run-time.
+        :param str static_value: Value is static and does not change at run-time.
         """
         pulumi.set(__self__, "name", name)
         if resource_value is not None:
@@ -380,7 +468,7 @@ class RemediationConfigurationParameter(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the attribute.
+        Name of the attribute.
         """
         return pulumi.get(self, "name")
 
@@ -388,7 +476,7 @@ class RemediationConfigurationParameter(dict):
     @pulumi.getter(name="resourceValue")
     def resource_value(self) -> Optional[str]:
         """
-        The value is dynamic and changes at run-time.
+        Value is dynamic and changes at run-time.
         """
         return pulumi.get(self, "resource_value")
 
@@ -396,7 +484,7 @@ class RemediationConfigurationParameter(dict):
     @pulumi.getter(name="staticValue")
     def static_value(self) -> Optional[str]:
         """
-        The value is static and does not change at run-time.
+        Value is static and does not change at run-time.
         """
         return pulumi.get(self, "static_value")
 

@@ -13,19 +13,19 @@ namespace Pulumi.Aws.Cfg.Inputs
     public sealed class RemediationConfigurationParameterGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the attribute.
+        /// Name of the attribute.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// The value is dynamic and changes at run-time.
+        /// Value is dynamic and changes at run-time.
         /// </summary>
         [Input("resourceValue")]
         public Input<string>? ResourceValue { get; set; }
 
         /// <summary>
-        /// The value is static and does not change at run-time.
+        /// Value is static and does not change at run-time.
         /// </summary>
         [Input("staticValue")]
         public Input<string>? StaticValue { get; set; }

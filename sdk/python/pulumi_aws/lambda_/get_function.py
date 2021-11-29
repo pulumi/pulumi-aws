@@ -21,7 +21,7 @@ class GetFunctionResult:
     """
     A collection of values returned by getFunction.
     """
-    def __init__(__self__, architectures=None, arn=None, code_signing_config_arn=None, dead_letter_config=None, description=None, environment=None, file_system_configs=None, function_name=None, handler=None, id=None, invoke_arn=None, kms_key_arn=None, last_modified=None, layers=None, memory_size=None, qualified_arn=None, qualifier=None, reserved_concurrent_executions=None, role=None, runtime=None, signing_job_arn=None, signing_profile_version_arn=None, source_code_hash=None, source_code_size=None, tags=None, timeout=None, tracing_config=None, version=None, vpc_config=None):
+    def __init__(__self__, architectures=None, arn=None, code_signing_config_arn=None, dead_letter_config=None, description=None, environment=None, file_system_configs=None, function_name=None, handler=None, id=None, image_uri=None, invoke_arn=None, kms_key_arn=None, last_modified=None, layers=None, memory_size=None, qualified_arn=None, qualifier=None, reserved_concurrent_executions=None, role=None, runtime=None, signing_job_arn=None, signing_profile_version_arn=None, source_code_hash=None, source_code_size=None, tags=None, timeout=None, tracing_config=None, version=None, vpc_config=None):
         if architectures and not isinstance(architectures, list):
             raise TypeError("Expected argument 'architectures' to be a list")
         pulumi.set(__self__, "architectures", architectures)
@@ -52,6 +52,9 @@ class GetFunctionResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if image_uri and not isinstance(image_uri, str):
+            raise TypeError("Expected argument 'image_uri' to be a str")
+        pulumi.set(__self__, "image_uri", image_uri)
         if invoke_arn and not isinstance(invoke_arn, str):
             raise TypeError("Expected argument 'invoke_arn' to be a str")
         pulumi.set(__self__, "invoke_arn", invoke_arn)
@@ -186,6 +189,14 @@ class GetFunctionResult:
         The provider-assigned unique ID for this managed resource.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="imageUri")
+    def image_uri(self) -> str:
+        """
+        The URI of the container image.
+        """
+        return pulumi.get(self, "image_uri")
 
     @property
     @pulumi.getter(name="invokeArn")
@@ -350,6 +361,7 @@ class AwaitableGetFunctionResult(GetFunctionResult):
             function_name=self.function_name,
             handler=self.handler,
             id=self.id,
+            image_uri=self.image_uri,
             invoke_arn=self.invoke_arn,
             kms_key_arn=self.kms_key_arn,
             last_modified=self.last_modified,
@@ -414,6 +426,7 @@ def get_function(function_name: Optional[str] = None,
         function_name=__ret__.function_name,
         handler=__ret__.handler,
         id=__ret__.id,
+        image_uri=__ret__.image_uri,
         invoke_arn=__ret__.invoke_arn,
         kms_key_arn=__ret__.kms_key_arn,
         last_modified=__ret__.last_modified,

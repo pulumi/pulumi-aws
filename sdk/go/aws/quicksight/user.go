@@ -57,9 +57,9 @@ type User struct {
 	IdentityType pulumi.StringOutput `pulumi:"identityType"`
 	// The namespace. Currently, you should set this to `default`.
 	Namespace pulumi.StringPtrOutput `pulumi:"namespace"`
-	// The name of the IAM session to use when assuming roles that can embed QuickSight dashboards.
+	// The name of the IAM session to use when assuming roles that can embed QuickSight dashboards. Only valid for registering users using an assumed IAM role. Additionally, if registering multiple users using the same IAM role, each user needs to have a unique session name.
 	SessionName pulumi.StringPtrOutput `pulumi:"sessionName"`
-	// The Amazon QuickSight user name that you want to create for the user you are registering.
+	// The Amazon QuickSight user name that you want to create for the user you are registering. Only valid for registering a user with `identityType` set to `QUICKSIGHT`.
 	UserName pulumi.StringPtrOutput `pulumi:"userName"`
 	// The Amazon QuickSight role of the user. The user role can be one of the following: `READER`, `AUTHOR`, or `ADMIN`
 	UserRole pulumi.StringOutput `pulumi:"userRole"`
@@ -115,9 +115,9 @@ type userState struct {
 	IdentityType *string `pulumi:"identityType"`
 	// The namespace. Currently, you should set this to `default`.
 	Namespace *string `pulumi:"namespace"`
-	// The name of the IAM session to use when assuming roles that can embed QuickSight dashboards.
+	// The name of the IAM session to use when assuming roles that can embed QuickSight dashboards. Only valid for registering users using an assumed IAM role. Additionally, if registering multiple users using the same IAM role, each user needs to have a unique session name.
 	SessionName *string `pulumi:"sessionName"`
-	// The Amazon QuickSight user name that you want to create for the user you are registering.
+	// The Amazon QuickSight user name that you want to create for the user you are registering. Only valid for registering a user with `identityType` set to `QUICKSIGHT`.
 	UserName *string `pulumi:"userName"`
 	// The Amazon QuickSight role of the user. The user role can be one of the following: `READER`, `AUTHOR`, or `ADMIN`
 	UserRole *string `pulumi:"userRole"`
@@ -136,9 +136,9 @@ type UserState struct {
 	IdentityType pulumi.StringPtrInput
 	// The namespace. Currently, you should set this to `default`.
 	Namespace pulumi.StringPtrInput
-	// The name of the IAM session to use when assuming roles that can embed QuickSight dashboards.
+	// The name of the IAM session to use when assuming roles that can embed QuickSight dashboards. Only valid for registering users using an assumed IAM role. Additionally, if registering multiple users using the same IAM role, each user needs to have a unique session name.
 	SessionName pulumi.StringPtrInput
-	// The Amazon QuickSight user name that you want to create for the user you are registering.
+	// The Amazon QuickSight user name that you want to create for the user you are registering. Only valid for registering a user with `identityType` set to `QUICKSIGHT`.
 	UserName pulumi.StringPtrInput
 	// The Amazon QuickSight role of the user. The user role can be one of the following: `READER`, `AUTHOR`, or `ADMIN`
 	UserRole pulumi.StringPtrInput
@@ -159,9 +159,9 @@ type userArgs struct {
 	IdentityType string `pulumi:"identityType"`
 	// The namespace. Currently, you should set this to `default`.
 	Namespace *string `pulumi:"namespace"`
-	// The name of the IAM session to use when assuming roles that can embed QuickSight dashboards.
+	// The name of the IAM session to use when assuming roles that can embed QuickSight dashboards. Only valid for registering users using an assumed IAM role. Additionally, if registering multiple users using the same IAM role, each user needs to have a unique session name.
 	SessionName *string `pulumi:"sessionName"`
-	// The Amazon QuickSight user name that you want to create for the user you are registering.
+	// The Amazon QuickSight user name that you want to create for the user you are registering. Only valid for registering a user with `identityType` set to `QUICKSIGHT`.
 	UserName *string `pulumi:"userName"`
 	// The Amazon QuickSight role of the user. The user role can be one of the following: `READER`, `AUTHOR`, or `ADMIN`
 	UserRole string `pulumi:"userRole"`
@@ -179,9 +179,9 @@ type UserArgs struct {
 	IdentityType pulumi.StringInput
 	// The namespace. Currently, you should set this to `default`.
 	Namespace pulumi.StringPtrInput
-	// The name of the IAM session to use when assuming roles that can embed QuickSight dashboards.
+	// The name of the IAM session to use when assuming roles that can embed QuickSight dashboards. Only valid for registering users using an assumed IAM role. Additionally, if registering multiple users using the same IAM role, each user needs to have a unique session name.
 	SessionName pulumi.StringPtrInput
-	// The Amazon QuickSight user name that you want to create for the user you are registering.
+	// The Amazon QuickSight user name that you want to create for the user you are registering. Only valid for registering a user with `identityType` set to `QUICKSIGHT`.
 	UserName pulumi.StringPtrInput
 	// The Amazon QuickSight role of the user. The user role can be one of the following: `READER`, `AUTHOR`, or `ADMIN`
 	UserRole pulumi.StringInput

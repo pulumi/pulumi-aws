@@ -32,7 +32,7 @@ namespace Pulumi.Aws.Ecs
     ///                 new Aws.AutoScaling.Inputs.GroupTagArgs
     ///                 {
     ///                     Key = "AmazonECSManaged",
-    ///                     Value = "",
+    ///                     Value = "true",
     ///                     PropagateAtLaunch = true,
     ///                 },
     ///             },

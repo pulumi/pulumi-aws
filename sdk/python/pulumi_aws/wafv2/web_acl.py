@@ -18,6 +18,7 @@ class WebAclArgs:
                  default_action: pulumi.Input['WebAclDefaultActionArgs'],
                  scope: pulumi.Input[str],
                  visibility_config: pulumi.Input['WebAclVisibilityConfigArgs'],
+                 custom_response_bodies: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclCustomResponseBodyArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  rules: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclRuleArgs']]]] = None,
@@ -28,8 +29,9 @@ class WebAclArgs:
         :param pulumi.Input['WebAclDefaultActionArgs'] default_action: The action to perform if none of the `rules` contained in the WebACL match. See Default Action below for details.
         :param pulumi.Input[str] scope: Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
         :param pulumi.Input['WebAclVisibilityConfigArgs'] visibility_config: Defines and enables Amazon CloudWatch metrics and web request sample collection. See Visibility Configuration below for details.
+        :param pulumi.Input[Sequence[pulumi.Input['WebAclCustomResponseBodyArgs']]] custom_response_bodies: Defines custom response bodies that can be referenced by `custom_response` actions. See Custom Response Body below for details.
         :param pulumi.Input[str] description: A friendly description of the WebACL.
-        :param pulumi.Input[str] name: The name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
+        :param pulumi.Input[str] name: The label string.
         :param pulumi.Input[Sequence[pulumi.Input['WebAclRuleArgs']]] rules: The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: An map of key:value pairs to associate with the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
@@ -37,6 +39,8 @@ class WebAclArgs:
         pulumi.set(__self__, "default_action", default_action)
         pulumi.set(__self__, "scope", scope)
         pulumi.set(__self__, "visibility_config", visibility_config)
+        if custom_response_bodies is not None:
+            pulumi.set(__self__, "custom_response_bodies", custom_response_bodies)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if name is not None:
@@ -85,6 +89,18 @@ class WebAclArgs:
         pulumi.set(self, "visibility_config", value)
 
     @property
+    @pulumi.getter(name="customResponseBodies")
+    def custom_response_bodies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebAclCustomResponseBodyArgs']]]]:
+        """
+        Defines custom response bodies that can be referenced by `custom_response` actions. See Custom Response Body below for details.
+        """
+        return pulumi.get(self, "custom_response_bodies")
+
+    @custom_response_bodies.setter
+    def custom_response_bodies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclCustomResponseBodyArgs']]]]):
+        pulumi.set(self, "custom_response_bodies", value)
+
+    @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
         """
@@ -100,7 +116,7 @@ class WebAclArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
+        The label string.
         """
         return pulumi.get(self, "name")
 
@@ -150,6 +166,7 @@ class _WebAclState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  capacity: Optional[pulumi.Input[int]] = None,
+                 custom_response_bodies: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclCustomResponseBodyArgs']]]] = None,
                  default_action: Optional[pulumi.Input['WebAclDefaultActionArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  lock_token: Optional[pulumi.Input[str]] = None,
@@ -163,9 +180,10 @@ class _WebAclState:
         Input properties used for looking up and filtering WebAcl resources.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the IP Set that this statement references.
         :param pulumi.Input[int] capacity: The web ACL capacity units (WCUs) currently being used by this web ACL.
+        :param pulumi.Input[Sequence[pulumi.Input['WebAclCustomResponseBodyArgs']]] custom_response_bodies: Defines custom response bodies that can be referenced by `custom_response` actions. See Custom Response Body below for details.
         :param pulumi.Input['WebAclDefaultActionArgs'] default_action: The action to perform if none of the `rules` contained in the WebACL match. See Default Action below for details.
         :param pulumi.Input[str] description: A friendly description of the WebACL.
-        :param pulumi.Input[str] name: The name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
+        :param pulumi.Input[str] name: The label string.
         :param pulumi.Input[Sequence[pulumi.Input['WebAclRuleArgs']]] rules: The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
         :param pulumi.Input[str] scope: Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: An map of key:value pairs to associate with the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -176,6 +194,8 @@ class _WebAclState:
             pulumi.set(__self__, "arn", arn)
         if capacity is not None:
             pulumi.set(__self__, "capacity", capacity)
+        if custom_response_bodies is not None:
+            pulumi.set(__self__, "custom_response_bodies", custom_response_bodies)
         if default_action is not None:
             pulumi.set(__self__, "default_action", default_action)
         if description is not None:
@@ -220,6 +240,18 @@ class _WebAclState:
         pulumi.set(self, "capacity", value)
 
     @property
+    @pulumi.getter(name="customResponseBodies")
+    def custom_response_bodies(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['WebAclCustomResponseBodyArgs']]]]:
+        """
+        Defines custom response bodies that can be referenced by `custom_response` actions. See Custom Response Body below for details.
+        """
+        return pulumi.get(self, "custom_response_bodies")
+
+    @custom_response_bodies.setter
+    def custom_response_bodies(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['WebAclCustomResponseBodyArgs']]]]):
+        pulumi.set(self, "custom_response_bodies", value)
+
+    @property
     @pulumi.getter(name="defaultAction")
     def default_action(self) -> Optional[pulumi.Input['WebAclDefaultActionArgs']]:
         """
@@ -256,7 +288,7 @@ class _WebAclState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
+        The label string.
         """
         return pulumi.get(self, "name")
 
@@ -330,6 +362,7 @@ class WebAcl(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 custom_response_bodies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebAclCustomResponseBodyArgs']]]]] = None,
                  default_action: Optional[pulumi.Input[pulumi.InputType['WebAclDefaultActionArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -402,6 +435,7 @@ class WebAcl(pulumi.CustomResource):
             ))
         ```
         ### Rate Based
+        Rate-limit US and NL-based clients to 10,000 requests for every 5 minutes.
 
         ```python
         import pulumi
@@ -409,12 +443,12 @@ class WebAcl(pulumi.CustomResource):
 
         example = aws.wafv2.WebAcl("example",
             default_action=aws.wafv2.WebAclDefaultActionArgs(
-                block=aws.wafv2.WebAclDefaultActionBlockArgs(),
+                allow=aws.wafv2.WebAclDefaultActionAllowArgs(),
             ),
-            description="Example of a rate based statement.",
+            description="Example of a Cloudfront rate based statement.",
             rules=[aws.wafv2.WebAclRuleArgs(
                 action=aws.wafv2.WebAclRuleActionArgs(
-                    count=aws.wafv2.WebAclRuleActionCountArgs(),
+                    block=aws.wafv2.WebAclRuleActionBlockArgs(),
                 ),
                 name="rule-1",
                 priority=1,
@@ -438,7 +472,7 @@ class WebAcl(pulumi.CustomResource):
                     sampled_requests_enabled=False,
                 ),
             )],
-            scope="REGIONAL",
+            scope="CLOUDFRONT",
             tags={
                 "Tag1": "Value1",
                 "Tag2": "Value2",
@@ -567,9 +601,10 @@ class WebAcl(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebAclCustomResponseBodyArgs']]]] custom_response_bodies: Defines custom response bodies that can be referenced by `custom_response` actions. See Custom Response Body below for details.
         :param pulumi.Input[pulumi.InputType['WebAclDefaultActionArgs']] default_action: The action to perform if none of the `rules` contained in the WebACL match. See Default Action below for details.
         :param pulumi.Input[str] description: A friendly description of the WebACL.
-        :param pulumi.Input[str] name: The name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
+        :param pulumi.Input[str] name: The label string.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebAclRuleArgs']]]] rules: The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
         :param pulumi.Input[str] scope: Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: An map of key:value pairs to associate with the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -645,6 +680,7 @@ class WebAcl(pulumi.CustomResource):
             ))
         ```
         ### Rate Based
+        Rate-limit US and NL-based clients to 10,000 requests for every 5 minutes.
 
         ```python
         import pulumi
@@ -652,12 +688,12 @@ class WebAcl(pulumi.CustomResource):
 
         example = aws.wafv2.WebAcl("example",
             default_action=aws.wafv2.WebAclDefaultActionArgs(
-                block=aws.wafv2.WebAclDefaultActionBlockArgs(),
+                allow=aws.wafv2.WebAclDefaultActionAllowArgs(),
             ),
-            description="Example of a rate based statement.",
+            description="Example of a Cloudfront rate based statement.",
             rules=[aws.wafv2.WebAclRuleArgs(
                 action=aws.wafv2.WebAclRuleActionArgs(
-                    count=aws.wafv2.WebAclRuleActionCountArgs(),
+                    block=aws.wafv2.WebAclRuleActionBlockArgs(),
                 ),
                 name="rule-1",
                 priority=1,
@@ -681,7 +717,7 @@ class WebAcl(pulumi.CustomResource):
                     sampled_requests_enabled=False,
                 ),
             )],
-            scope="REGIONAL",
+            scope="CLOUDFRONT",
             tags={
                 "Tag1": "Value1",
                 "Tag2": "Value2",
@@ -823,6 +859,7 @@ class WebAcl(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 custom_response_bodies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebAclCustomResponseBodyArgs']]]]] = None,
                  default_action: Optional[pulumi.Input[pulumi.InputType['WebAclDefaultActionArgs']]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -843,6 +880,7 @@ class WebAcl(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = WebAclArgs.__new__(WebAclArgs)
 
+            __props__.__dict__["custom_response_bodies"] = custom_response_bodies
             if default_action is None and not opts.urn:
                 raise TypeError("Missing required property 'default_action'")
             __props__.__dict__["default_action"] = default_action
@@ -872,6 +910,7 @@ class WebAcl(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
             capacity: Optional[pulumi.Input[int]] = None,
+            custom_response_bodies: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebAclCustomResponseBodyArgs']]]]] = None,
             default_action: Optional[pulumi.Input[pulumi.InputType['WebAclDefaultActionArgs']]] = None,
             description: Optional[pulumi.Input[str]] = None,
             lock_token: Optional[pulumi.Input[str]] = None,
@@ -890,9 +929,10 @@ class WebAcl(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the IP Set that this statement references.
         :param pulumi.Input[int] capacity: The web ACL capacity units (WCUs) currently being used by this web ACL.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebAclCustomResponseBodyArgs']]]] custom_response_bodies: Defines custom response bodies that can be referenced by `custom_response` actions. See Custom Response Body below for details.
         :param pulumi.Input[pulumi.InputType['WebAclDefaultActionArgs']] default_action: The action to perform if none of the `rules` contained in the WebACL match. See Default Action below for details.
         :param pulumi.Input[str] description: A friendly description of the WebACL.
-        :param pulumi.Input[str] name: The name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
+        :param pulumi.Input[str] name: The label string.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WebAclRuleArgs']]]] rules: The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
         :param pulumi.Input[str] scope: Specifies whether this is for an AWS CloudFront distribution or for a regional application. Valid values are `CLOUDFRONT` or `REGIONAL`. To work with CloudFront, you must also specify the region `us-east-1` (N. Virginia) on the AWS provider.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: An map of key:value pairs to associate with the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -905,6 +945,7 @@ class WebAcl(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = arn
         __props__.__dict__["capacity"] = capacity
+        __props__.__dict__["custom_response_bodies"] = custom_response_bodies
         __props__.__dict__["default_action"] = default_action
         __props__.__dict__["description"] = description
         __props__.__dict__["lock_token"] = lock_token
@@ -933,6 +974,14 @@ class WebAcl(pulumi.CustomResource):
         return pulumi.get(self, "capacity")
 
     @property
+    @pulumi.getter(name="customResponseBodies")
+    def custom_response_bodies(self) -> pulumi.Output[Optional[Sequence['outputs.WebAclCustomResponseBody']]]:
+        """
+        Defines custom response bodies that can be referenced by `custom_response` actions. See Custom Response Body below for details.
+        """
+        return pulumi.get(self, "custom_response_bodies")
+
+    @property
     @pulumi.getter(name="defaultAction")
     def default_action(self) -> pulumi.Output['outputs.WebAclDefaultAction']:
         """
@@ -957,7 +1006,7 @@ class WebAcl(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        The name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
+        The label string.
         """
         return pulumi.get(self, "name")
 

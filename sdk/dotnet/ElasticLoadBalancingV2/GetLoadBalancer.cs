@@ -163,10 +163,12 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2
         public readonly string Arn;
         public readonly string ArnSuffix;
         public readonly string CustomerOwnedIpv4Pool;
+        public readonly string DesyncMitigationMode;
         public readonly string DnsName;
         public readonly bool DropInvalidHeaderFields;
         public readonly bool EnableDeletionProtection;
         public readonly bool EnableHttp2;
+        public readonly bool EnableWafFailOpen;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
@@ -193,6 +195,8 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2
 
             string customerOwnedIpv4Pool,
 
+            string desyncMitigationMode,
+
             string dnsName,
 
             bool dropInvalidHeaderFields,
@@ -200,6 +204,8 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2
             bool enableDeletionProtection,
 
             bool enableHttp2,
+
+            bool enableWafFailOpen,
 
             string id,
 
@@ -229,10 +235,12 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2
             Arn = arn;
             ArnSuffix = arnSuffix;
             CustomerOwnedIpv4Pool = customerOwnedIpv4Pool;
+            DesyncMitigationMode = desyncMitigationMode;
             DnsName = dnsName;
             DropInvalidHeaderFields = dropInvalidHeaderFields;
             EnableDeletionProtection = enableDeletionProtection;
             EnableHttp2 = enableHttp2;
+            EnableWafFailOpen = enableWafFailOpen;
             Id = id;
             IdleTimeout = idleTimeout;
             Internal = @internal;

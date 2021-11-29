@@ -141,6 +141,7 @@ namespace Pulumi.Aws.ElasticLoadBalancing
         public readonly bool ConnectionDraining;
         public readonly int ConnectionDrainingTimeout;
         public readonly bool CrossZoneLoadBalancing;
+        public readonly string DesyncMitigationMode;
         public readonly string DnsName;
         public readonly Outputs.GetLoadBalancerHealthCheckResult HealthCheck;
         /// <summary>
@@ -172,6 +173,8 @@ namespace Pulumi.Aws.ElasticLoadBalancing
             int connectionDrainingTimeout,
 
             bool crossZoneLoadBalancing,
+
+            string desyncMitigationMode,
 
             string dnsName,
 
@@ -207,6 +210,7 @@ namespace Pulumi.Aws.ElasticLoadBalancing
             ConnectionDraining = connectionDraining;
             ConnectionDrainingTimeout = connectionDrainingTimeout;
             CrossZoneLoadBalancing = crossZoneLoadBalancing;
+            DesyncMitigationMode = desyncMitigationMode;
             DnsName = dnsName;
             HealthCheck = healthCheck;
             Id = id;

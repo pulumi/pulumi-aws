@@ -232,27 +232,20 @@ class ServiceInstanceConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 instance_role_arn: str,
                  cpu: Optional[str] = None,
+                 instance_role_arn: Optional[str] = None,
                  memory: Optional[str] = None):
         """
-        :param str instance_role_arn: The Amazon Resource Name (ARN) of an IAM role that provides permissions to your App Runner service. These are permissions that your code needs when it calls any AWS APIs.
         :param str cpu: The number of CPU units reserved for each instance of your App Runner service represented as a String. Defaults to `1024`. Valid values: `1024|2048|(1|2) vCPU`.
+        :param str instance_role_arn: The Amazon Resource Name (ARN) of an IAM role that provides permissions to your App Runner service. These are permissions that your code needs when it calls any AWS APIs.
         :param str memory: The amount of memory, in MB or GB, reserved for each instance of your App Runner service. Defaults to `2048`. Valid values: `2048|3072|4096|(2|3|4) GB`.
         """
-        pulumi.set(__self__, "instance_role_arn", instance_role_arn)
         if cpu is not None:
             pulumi.set(__self__, "cpu", cpu)
+        if instance_role_arn is not None:
+            pulumi.set(__self__, "instance_role_arn", instance_role_arn)
         if memory is not None:
             pulumi.set(__self__, "memory", memory)
-
-    @property
-    @pulumi.getter(name="instanceRoleArn")
-    def instance_role_arn(self) -> str:
-        """
-        The Amazon Resource Name (ARN) of an IAM role that provides permissions to your App Runner service. These are permissions that your code needs when it calls any AWS APIs.
-        """
-        return pulumi.get(self, "instance_role_arn")
 
     @property
     @pulumi.getter
@@ -261,6 +254,14 @@ class ServiceInstanceConfiguration(dict):
         The number of CPU units reserved for each instance of your App Runner service represented as a String. Defaults to `1024`. Valid values: `1024|2048|(1|2) vCPU`.
         """
         return pulumi.get(self, "cpu")
+
+    @property
+    @pulumi.getter(name="instanceRoleArn")
+    def instance_role_arn(self) -> Optional[str]:
+        """
+        The Amazon Resource Name (ARN) of an IAM role that provides permissions to your App Runner service. These are permissions that your code needs when it calls any AWS APIs.
+        """
+        return pulumi.get(self, "instance_role_arn")
 
     @property
     @pulumi.getter

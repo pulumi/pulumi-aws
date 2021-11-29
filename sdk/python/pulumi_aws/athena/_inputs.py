@@ -11,6 +11,7 @@ from .. import _utilities
 __all__ = [
     'DatabaseEncryptionConfigurationArgs',
     'WorkgroupConfigurationArgs',
+    'WorkgroupConfigurationEngineVersionArgs',
     'WorkgroupConfigurationResultConfigurationArgs',
     'WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs',
 ]
@@ -58,12 +59,14 @@ class WorkgroupConfigurationArgs:
     def __init__(__self__, *,
                  bytes_scanned_cutoff_per_query: Optional[pulumi.Input[int]] = None,
                  enforce_workgroup_configuration: Optional[pulumi.Input[bool]] = None,
+                 engine_version: Optional[pulumi.Input['WorkgroupConfigurationEngineVersionArgs']] = None,
                  publish_cloudwatch_metrics_enabled: Optional[pulumi.Input[bool]] = None,
                  requester_pays_enabled: Optional[pulumi.Input[bool]] = None,
                  result_configuration: Optional[pulumi.Input['WorkgroupConfigurationResultConfigurationArgs']] = None):
         """
         :param pulumi.Input[int] bytes_scanned_cutoff_per_query: Integer for the upper data usage limit (cutoff) for the amount of bytes a single query in a workgroup is allowed to scan. Must be at least `10485760`.
         :param pulumi.Input[bool] enforce_workgroup_configuration: Boolean whether the settings for the workgroup override client-side settings. For more information, see [Workgroup Settings Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html). Defaults to `true`.
+        :param pulumi.Input['WorkgroupConfigurationEngineVersionArgs'] engine_version: Configuration block for the Athena Engine Versioning. For more information, see [Athena Engine Versioning](https://docs.aws.amazon.com/athena/latest/ug/engine-versions.html). Documented below.
         :param pulumi.Input[bool] publish_cloudwatch_metrics_enabled: Boolean whether Amazon CloudWatch metrics are enabled for the workgroup. Defaults to `true`.
         :param pulumi.Input[bool] requester_pays_enabled: If set to true , allows members assigned to a workgroup to reference Amazon S3 Requester Pays buckets in queries. If set to false , workgroup members cannot query data from Requester Pays buckets, and queries that retrieve data from Requester Pays buckets cause an error. The default is false . For more information about Requester Pays buckets, see [Requester Pays Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) in the Amazon Simple Storage Service Developer Guide.
         :param pulumi.Input['WorkgroupConfigurationResultConfigurationArgs'] result_configuration: Configuration block with result settings. Documented below.
@@ -72,6 +75,8 @@ class WorkgroupConfigurationArgs:
             pulumi.set(__self__, "bytes_scanned_cutoff_per_query", bytes_scanned_cutoff_per_query)
         if enforce_workgroup_configuration is not None:
             pulumi.set(__self__, "enforce_workgroup_configuration", enforce_workgroup_configuration)
+        if engine_version is not None:
+            pulumi.set(__self__, "engine_version", engine_version)
         if publish_cloudwatch_metrics_enabled is not None:
             pulumi.set(__self__, "publish_cloudwatch_metrics_enabled", publish_cloudwatch_metrics_enabled)
         if requester_pays_enabled is not None:
@@ -102,6 +107,18 @@ class WorkgroupConfigurationArgs:
     @enforce_workgroup_configuration.setter
     def enforce_workgroup_configuration(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enforce_workgroup_configuration", value)
+
+    @property
+    @pulumi.getter(name="engineVersion")
+    def engine_version(self) -> Optional[pulumi.Input['WorkgroupConfigurationEngineVersionArgs']]:
+        """
+        Configuration block for the Athena Engine Versioning. For more information, see [Athena Engine Versioning](https://docs.aws.amazon.com/athena/latest/ug/engine-versions.html). Documented below.
+        """
+        return pulumi.get(self, "engine_version")
+
+    @engine_version.setter
+    def engine_version(self, value: Optional[pulumi.Input['WorkgroupConfigurationEngineVersionArgs']]):
+        pulumi.set(self, "engine_version", value)
 
     @property
     @pulumi.getter(name="publishCloudwatchMetricsEnabled")
@@ -138,6 +155,45 @@ class WorkgroupConfigurationArgs:
     @result_configuration.setter
     def result_configuration(self, value: Optional[pulumi.Input['WorkgroupConfigurationResultConfigurationArgs']]):
         pulumi.set(self, "result_configuration", value)
+
+
+@pulumi.input_type
+class WorkgroupConfigurationEngineVersionArgs:
+    def __init__(__self__, *,
+                 effective_engine_version: Optional[pulumi.Input[str]] = None,
+                 selected_engine_version: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] effective_engine_version: The engine version on which the query runs. If `selected_engine_version` is set to `AUTO`, the effective engine version is chosen by Athena.
+        :param pulumi.Input[str] selected_engine_version: The requested engine version. Defaults to `AUTO`.
+        """
+        if effective_engine_version is not None:
+            pulumi.set(__self__, "effective_engine_version", effective_engine_version)
+        if selected_engine_version is not None:
+            pulumi.set(__self__, "selected_engine_version", selected_engine_version)
+
+    @property
+    @pulumi.getter(name="effectiveEngineVersion")
+    def effective_engine_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The engine version on which the query runs. If `selected_engine_version` is set to `AUTO`, the effective engine version is chosen by Athena.
+        """
+        return pulumi.get(self, "effective_engine_version")
+
+    @effective_engine_version.setter
+    def effective_engine_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "effective_engine_version", value)
+
+    @property
+    @pulumi.getter(name="selectedEngineVersion")
+    def selected_engine_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The requested engine version. Defaults to `AUTO`.
+        """
+        return pulumi.get(self, "selected_engine_version")
+
+    @selected_engine_version.setter
+    def selected_engine_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "selected_engine_version", value)
 
 
 @pulumi.input_type

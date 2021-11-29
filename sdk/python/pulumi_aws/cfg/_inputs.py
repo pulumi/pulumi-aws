@@ -15,6 +15,8 @@ __all__ = [
     'DeliveryChannelSnapshotDeliveryPropertiesArgs',
     'OrganizationConformancePackInputParameterArgs',
     'RecorderRecordingGroupArgs',
+    'RemediationConfigurationExecutionControlsArgs',
+    'RemediationConfigurationExecutionControlsSsmControlsArgs',
     'RemediationConfigurationParameterArgs',
     'RuleScopeArgs',
     'RuleSourceArgs',
@@ -282,15 +284,77 @@ class RecorderRecordingGroupArgs:
 
 
 @pulumi.input_type
+class RemediationConfigurationExecutionControlsArgs:
+    def __init__(__self__, *,
+                 ssm_controls: Optional[pulumi.Input['RemediationConfigurationExecutionControlsSsmControlsArgs']] = None):
+        """
+        :param pulumi.Input['RemediationConfigurationExecutionControlsSsmControlsArgs'] ssm_controls: Configuration block for SSM controls. See below.
+        """
+        if ssm_controls is not None:
+            pulumi.set(__self__, "ssm_controls", ssm_controls)
+
+    @property
+    @pulumi.getter(name="ssmControls")
+    def ssm_controls(self) -> Optional[pulumi.Input['RemediationConfigurationExecutionControlsSsmControlsArgs']]:
+        """
+        Configuration block for SSM controls. See below.
+        """
+        return pulumi.get(self, "ssm_controls")
+
+    @ssm_controls.setter
+    def ssm_controls(self, value: Optional[pulumi.Input['RemediationConfigurationExecutionControlsSsmControlsArgs']]):
+        pulumi.set(self, "ssm_controls", value)
+
+
+@pulumi.input_type
+class RemediationConfigurationExecutionControlsSsmControlsArgs:
+    def __init__(__self__, *,
+                 concurrent_execution_rate_percentage: Optional[pulumi.Input[int]] = None,
+                 error_percentage: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[int] concurrent_execution_rate_percentage: Maximum percentage of remediation actions allowed to run in parallel on the non-compliant resources for that specific rule. The default value is 10%.
+        :param pulumi.Input[int] error_percentage: Percentage of errors that are allowed before SSM stops running automations on non-compliant resources for that specific rule. The default is 50%.
+        """
+        if concurrent_execution_rate_percentage is not None:
+            pulumi.set(__self__, "concurrent_execution_rate_percentage", concurrent_execution_rate_percentage)
+        if error_percentage is not None:
+            pulumi.set(__self__, "error_percentage", error_percentage)
+
+    @property
+    @pulumi.getter(name="concurrentExecutionRatePercentage")
+    def concurrent_execution_rate_percentage(self) -> Optional[pulumi.Input[int]]:
+        """
+        Maximum percentage of remediation actions allowed to run in parallel on the non-compliant resources for that specific rule. The default value is 10%.
+        """
+        return pulumi.get(self, "concurrent_execution_rate_percentage")
+
+    @concurrent_execution_rate_percentage.setter
+    def concurrent_execution_rate_percentage(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "concurrent_execution_rate_percentage", value)
+
+    @property
+    @pulumi.getter(name="errorPercentage")
+    def error_percentage(self) -> Optional[pulumi.Input[int]]:
+        """
+        Percentage of errors that are allowed before SSM stops running automations on non-compliant resources for that specific rule. The default is 50%.
+        """
+        return pulumi.get(self, "error_percentage")
+
+    @error_percentage.setter
+    def error_percentage(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "error_percentage", value)
+
+
+@pulumi.input_type
 class RemediationConfigurationParameterArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  resource_value: Optional[pulumi.Input[str]] = None,
                  static_value: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] name: The name of the attribute.
-        :param pulumi.Input[str] resource_value: The value is dynamic and changes at run-time.
-        :param pulumi.Input[str] static_value: The value is static and does not change at run-time.
+        :param pulumi.Input[str] name: Name of the attribute.
+        :param pulumi.Input[str] resource_value: Value is dynamic and changes at run-time.
+        :param pulumi.Input[str] static_value: Value is static and does not change at run-time.
         """
         pulumi.set(__self__, "name", name)
         if resource_value is not None:
@@ -302,7 +366,7 @@ class RemediationConfigurationParameterArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        The name of the attribute.
+        Name of the attribute.
         """
         return pulumi.get(self, "name")
 
@@ -314,7 +378,7 @@ class RemediationConfigurationParameterArgs:
     @pulumi.getter(name="resourceValue")
     def resource_value(self) -> Optional[pulumi.Input[str]]:
         """
-        The value is dynamic and changes at run-time.
+        Value is dynamic and changes at run-time.
         """
         return pulumi.get(self, "resource_value")
 
@@ -326,7 +390,7 @@ class RemediationConfigurationParameterArgs:
     @pulumi.getter(name="staticValue")
     def static_value(self) -> Optional[pulumi.Input[str]]:
         """
-        The value is static and does not change at run-time.
+        Value is static and does not change at run-time.
         """
         return pulumi.get(self, "static_value")
 

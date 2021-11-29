@@ -42,6 +42,15 @@ import * as utilities from "../utilities";
  *             staticValue: "AES256",
  *         },
  *     ],
+ *     automatic: true,
+ *     maximumAutomaticAttempts: 10,
+ *     retryAttemptSeconds: 600,
+ *     executionControls: {
+ *         ssmControls: {
+ *             concurrentExecutionRatePercentage: 25,
+ *             errorPercentage: 20,
+ *         },
+ *     },
  * });
  * ```
  *
@@ -82,28 +91,43 @@ export class RemediationConfiguration extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the Config Remediation Configuration.
+     * ARN of the Config Remediation Configuration.
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * The name of the AWS Config rule
+     * Remediation is triggered automatically if `true`.
+     */
+    public readonly automatic!: pulumi.Output<boolean | undefined>;
+    /**
+     * Name of the AWS Config rule.
      */
     public readonly configRuleName!: pulumi.Output<string>;
     /**
-     * Can be specified multiple times for each
-     * parameter. Each parameter block supports fields documented below.
+     * Configuration block for execution controls. See below.
+     */
+    public readonly executionControls!: pulumi.Output<outputs.cfg.RemediationConfigurationExecutionControls | undefined>;
+    /**
+     * Maximum number of failed attempts for auto-remediation. If you do not select a number, the default is 5.
+     */
+    public readonly maximumAutomaticAttempts!: pulumi.Output<number | undefined>;
+    /**
+     * Can be specified multiple times for each parameter. Each parameter block supports arguments below.
      */
     public readonly parameters!: pulumi.Output<outputs.cfg.RemediationConfigurationParameter[] | undefined>;
     /**
-     * The type of a resource
+     * Type of resource.
      */
     public readonly resourceType!: pulumi.Output<string | undefined>;
     /**
-     * Target ID is the name of the public document
+     * Maximum time in seconds that AWS Config runs auto-remediation. If you do not select a number, the default is 60 seconds.
+     */
+    public readonly retryAttemptSeconds!: pulumi.Output<number | undefined>;
+    /**
+     * Target ID is the name of the public document.
      */
     public readonly targetId!: pulumi.Output<string>;
     /**
-     * The type of the target. Target executes remediation. For example, SSM document
+     * Type of the target. Target executes remediation. For example, SSM document.
      */
     public readonly targetType!: pulumi.Output<string>;
     /**
@@ -125,9 +149,13 @@ export class RemediationConfiguration extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as RemediationConfigurationState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
+            inputs["automatic"] = state ? state.automatic : undefined;
             inputs["configRuleName"] = state ? state.configRuleName : undefined;
+            inputs["executionControls"] = state ? state.executionControls : undefined;
+            inputs["maximumAutomaticAttempts"] = state ? state.maximumAutomaticAttempts : undefined;
             inputs["parameters"] = state ? state.parameters : undefined;
             inputs["resourceType"] = state ? state.resourceType : undefined;
+            inputs["retryAttemptSeconds"] = state ? state.retryAttemptSeconds : undefined;
             inputs["targetId"] = state ? state.targetId : undefined;
             inputs["targetType"] = state ? state.targetType : undefined;
             inputs["targetVersion"] = state ? state.targetVersion : undefined;
@@ -142,9 +170,13 @@ export class RemediationConfiguration extends pulumi.CustomResource {
             if ((!args || args.targetType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetType'");
             }
+            inputs["automatic"] = args ? args.automatic : undefined;
             inputs["configRuleName"] = args ? args.configRuleName : undefined;
+            inputs["executionControls"] = args ? args.executionControls : undefined;
+            inputs["maximumAutomaticAttempts"] = args ? args.maximumAutomaticAttempts : undefined;
             inputs["parameters"] = args ? args.parameters : undefined;
             inputs["resourceType"] = args ? args.resourceType : undefined;
+            inputs["retryAttemptSeconds"] = args ? args.retryAttemptSeconds : undefined;
             inputs["targetId"] = args ? args.targetId : undefined;
             inputs["targetType"] = args ? args.targetType : undefined;
             inputs["targetVersion"] = args ? args.targetVersion : undefined;
@@ -162,28 +194,43 @@ export class RemediationConfiguration extends pulumi.CustomResource {
  */
 export interface RemediationConfigurationState {
     /**
-     * Amazon Resource Name (ARN) of the Config Remediation Configuration.
+     * ARN of the Config Remediation Configuration.
      */
     arn?: pulumi.Input<string>;
     /**
-     * The name of the AWS Config rule
+     * Remediation is triggered automatically if `true`.
+     */
+    automatic?: pulumi.Input<boolean>;
+    /**
+     * Name of the AWS Config rule.
      */
     configRuleName?: pulumi.Input<string>;
     /**
-     * Can be specified multiple times for each
-     * parameter. Each parameter block supports fields documented below.
+     * Configuration block for execution controls. See below.
+     */
+    executionControls?: pulumi.Input<inputs.cfg.RemediationConfigurationExecutionControls>;
+    /**
+     * Maximum number of failed attempts for auto-remediation. If you do not select a number, the default is 5.
+     */
+    maximumAutomaticAttempts?: pulumi.Input<number>;
+    /**
+     * Can be specified multiple times for each parameter. Each parameter block supports arguments below.
      */
     parameters?: pulumi.Input<pulumi.Input<inputs.cfg.RemediationConfigurationParameter>[]>;
     /**
-     * The type of a resource
+     * Type of resource.
      */
     resourceType?: pulumi.Input<string>;
     /**
-     * Target ID is the name of the public document
+     * Maximum time in seconds that AWS Config runs auto-remediation. If you do not select a number, the default is 60 seconds.
+     */
+    retryAttemptSeconds?: pulumi.Input<number>;
+    /**
+     * Target ID is the name of the public document.
      */
     targetId?: pulumi.Input<string>;
     /**
-     * The type of the target. Target executes remediation. For example, SSM document
+     * Type of the target. Target executes remediation. For example, SSM document.
      */
     targetType?: pulumi.Input<string>;
     /**
@@ -197,24 +244,39 @@ export interface RemediationConfigurationState {
  */
 export interface RemediationConfigurationArgs {
     /**
-     * The name of the AWS Config rule
+     * Remediation is triggered automatically if `true`.
+     */
+    automatic?: pulumi.Input<boolean>;
+    /**
+     * Name of the AWS Config rule.
      */
     configRuleName: pulumi.Input<string>;
     /**
-     * Can be specified multiple times for each
-     * parameter. Each parameter block supports fields documented below.
+     * Configuration block for execution controls. See below.
+     */
+    executionControls?: pulumi.Input<inputs.cfg.RemediationConfigurationExecutionControls>;
+    /**
+     * Maximum number of failed attempts for auto-remediation. If you do not select a number, the default is 5.
+     */
+    maximumAutomaticAttempts?: pulumi.Input<number>;
+    /**
+     * Can be specified multiple times for each parameter. Each parameter block supports arguments below.
      */
     parameters?: pulumi.Input<pulumi.Input<inputs.cfg.RemediationConfigurationParameter>[]>;
     /**
-     * The type of a resource
+     * Type of resource.
      */
     resourceType?: pulumi.Input<string>;
     /**
-     * Target ID is the name of the public document
+     * Maximum time in seconds that AWS Config runs auto-remediation. If you do not select a number, the default is 60 seconds.
+     */
+    retryAttemptSeconds?: pulumi.Input<number>;
+    /**
+     * Target ID is the name of the public document.
      */
     targetId: pulumi.Input<string>;
     /**
-     * The type of the target. Target executes remediation. For example, SSM document
+     * Type of the target. Target executes remediation. For example, SSM document.
      */
     targetType: pulumi.Input<string>;
     /**

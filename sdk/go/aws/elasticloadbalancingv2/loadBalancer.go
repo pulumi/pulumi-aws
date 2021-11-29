@@ -100,6 +100,8 @@ type LoadBalancer struct {
 	ArnSuffix pulumi.StringOutput `pulumi:"arnSuffix"`
 	// The ID of the customer owned ipv4 pool to use for this load balancer.
 	CustomerOwnedIpv4Pool pulumi.StringPtrOutput `pulumi:"customerOwnedIpv4Pool"`
+	// Determines how the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
+	DesyncMitigationMode pulumi.StringPtrOutput `pulumi:"desyncMitigationMode"`
 	// The DNS name of the load balancer.
 	DnsName pulumi.StringOutput `pulumi:"dnsName"`
 	// Indicates whether HTTP headers with header fields that are not valid are removed by the load balancer (true) or routed to targets (false). The default is false. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens. Only valid for Load Balancers of type `application`.
@@ -112,6 +114,8 @@ type LoadBalancer struct {
 	EnableDeletionProtection pulumi.BoolPtrOutput `pulumi:"enableDeletionProtection"`
 	// Indicates whether HTTP/2 is enabled in `application` load balancers. Defaults to `true`.
 	EnableHttp2 pulumi.BoolPtrOutput `pulumi:"enableHttp2"`
+	// Indicates whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF. Defaults to `false`.
+	EnableWafFailOpen pulumi.BoolPtrOutput `pulumi:"enableWafFailOpen"`
 	// The time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
 	IdleTimeout pulumi.IntPtrOutput `pulumi:"idleTimeout"`
 	// If true, the LB will be internal.
@@ -134,7 +138,7 @@ type LoadBalancer struct {
 	// cannot be updated for Load Balancers of type `network`. Changing this value
 	// for load balancers of type `network` will force a recreation of the resource.
 	Subnets pulumi.StringArrayOutput `pulumi:"subnets"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -181,6 +185,8 @@ type loadBalancerState struct {
 	ArnSuffix *string `pulumi:"arnSuffix"`
 	// The ID of the customer owned ipv4 pool to use for this load balancer.
 	CustomerOwnedIpv4Pool *string `pulumi:"customerOwnedIpv4Pool"`
+	// Determines how the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
+	DesyncMitigationMode *string `pulumi:"desyncMitigationMode"`
 	// The DNS name of the load balancer.
 	DnsName *string `pulumi:"dnsName"`
 	// Indicates whether HTTP headers with header fields that are not valid are removed by the load balancer (true) or routed to targets (false). The default is false. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens. Only valid for Load Balancers of type `application`.
@@ -193,6 +199,8 @@ type loadBalancerState struct {
 	EnableDeletionProtection *bool `pulumi:"enableDeletionProtection"`
 	// Indicates whether HTTP/2 is enabled in `application` load balancers. Defaults to `true`.
 	EnableHttp2 *bool `pulumi:"enableHttp2"`
+	// Indicates whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF. Defaults to `false`.
+	EnableWafFailOpen *bool `pulumi:"enableWafFailOpen"`
 	// The time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
 	IdleTimeout *int `pulumi:"idleTimeout"`
 	// If true, the LB will be internal.
@@ -215,7 +223,7 @@ type loadBalancerState struct {
 	// cannot be updated for Load Balancers of type `network`. Changing this value
 	// for load balancers of type `network` will force a recreation of the resource.
 	Subnets []string `pulumi:"subnets"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -234,6 +242,8 @@ type LoadBalancerState struct {
 	ArnSuffix pulumi.StringPtrInput
 	// The ID of the customer owned ipv4 pool to use for this load balancer.
 	CustomerOwnedIpv4Pool pulumi.StringPtrInput
+	// Determines how the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
+	DesyncMitigationMode pulumi.StringPtrInput
 	// The DNS name of the load balancer.
 	DnsName pulumi.StringPtrInput
 	// Indicates whether HTTP headers with header fields that are not valid are removed by the load balancer (true) or routed to targets (false). The default is false. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens. Only valid for Load Balancers of type `application`.
@@ -246,6 +256,8 @@ type LoadBalancerState struct {
 	EnableDeletionProtection pulumi.BoolPtrInput
 	// Indicates whether HTTP/2 is enabled in `application` load balancers. Defaults to `true`.
 	EnableHttp2 pulumi.BoolPtrInput
+	// Indicates whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF. Defaults to `false`.
+	EnableWafFailOpen pulumi.BoolPtrInput
 	// The time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
 	IdleTimeout pulumi.IntPtrInput
 	// If true, the LB will be internal.
@@ -268,7 +280,7 @@ type LoadBalancerState struct {
 	// cannot be updated for Load Balancers of type `network`. Changing this value
 	// for load balancers of type `network` will force a recreation of the resource.
 	Subnets pulumi.StringArrayInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapInput
@@ -287,6 +299,8 @@ type loadBalancerArgs struct {
 	AccessLogs *LoadBalancerAccessLogs `pulumi:"accessLogs"`
 	// The ID of the customer owned ipv4 pool to use for this load balancer.
 	CustomerOwnedIpv4Pool *string `pulumi:"customerOwnedIpv4Pool"`
+	// Determines how the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
+	DesyncMitigationMode *string `pulumi:"desyncMitigationMode"`
 	// Indicates whether HTTP headers with header fields that are not valid are removed by the load balancer (true) or routed to targets (false). The default is false. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens. Only valid for Load Balancers of type `application`.
 	DropInvalidHeaderFields *bool `pulumi:"dropInvalidHeaderFields"`
 	// If true, cross-zone load balancing of the load balancer will be enabled.
@@ -297,6 +311,8 @@ type loadBalancerArgs struct {
 	EnableDeletionProtection *bool `pulumi:"enableDeletionProtection"`
 	// Indicates whether HTTP/2 is enabled in `application` load balancers. Defaults to `true`.
 	EnableHttp2 *bool `pulumi:"enableHttp2"`
+	// Indicates whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF. Defaults to `false`.
+	EnableWafFailOpen *bool `pulumi:"enableWafFailOpen"`
 	// The time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
 	IdleTimeout *int `pulumi:"idleTimeout"`
 	// If true, the LB will be internal.
@@ -319,7 +335,7 @@ type loadBalancerArgs struct {
 	// cannot be updated for Load Balancers of type `network`. Changing this value
 	// for load balancers of type `network` will force a recreation of the resource.
 	Subnets []string `pulumi:"subnets"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -329,6 +345,8 @@ type LoadBalancerArgs struct {
 	AccessLogs LoadBalancerAccessLogsPtrInput
 	// The ID of the customer owned ipv4 pool to use for this load balancer.
 	CustomerOwnedIpv4Pool pulumi.StringPtrInput
+	// Determines how the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
+	DesyncMitigationMode pulumi.StringPtrInput
 	// Indicates whether HTTP headers with header fields that are not valid are removed by the load balancer (true) or routed to targets (false). The default is false. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens. Only valid for Load Balancers of type `application`.
 	DropInvalidHeaderFields pulumi.BoolPtrInput
 	// If true, cross-zone load balancing of the load balancer will be enabled.
@@ -339,6 +357,8 @@ type LoadBalancerArgs struct {
 	EnableDeletionProtection pulumi.BoolPtrInput
 	// Indicates whether HTTP/2 is enabled in `application` load balancers. Defaults to `true`.
 	EnableHttp2 pulumi.BoolPtrInput
+	// Indicates whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF. Defaults to `false`.
+	EnableWafFailOpen pulumi.BoolPtrInput
 	// The time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
 	IdleTimeout pulumi.IntPtrInput
 	// If true, the LB will be internal.
@@ -361,7 +381,7 @@ type LoadBalancerArgs struct {
 	// cannot be updated for Load Balancers of type `network`. Changing this value
 	// for load balancers of type `network` will force a recreation of the resource.
 	Subnets pulumi.StringArrayInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
 

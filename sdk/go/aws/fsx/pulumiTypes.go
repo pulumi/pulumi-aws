@@ -484,6 +484,1102 @@ func (o OntapFileSystemEndpointManagementArrayOutput) Index(i pulumi.IntInput) O
 	}).(OntapFileSystemEndpointManagementOutput)
 }
 
+type OntapStorageVirtualMachineActiveDirectoryConfiguration struct {
+	// The NetBIOS name of the Active Directory computer object that will be created for your SVM. This is often the same as the SVM name but can be different. It is limited to 15 characters because of standard NetBIOS naming limits.
+	NetbiosName                             *string                                                                                        `pulumi:"netbiosName"`
+	SelfManagedActiveDirectoryConfiguration *OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration `pulumi:"selfManagedActiveDirectoryConfiguration"`
+}
+
+// OntapStorageVirtualMachineActiveDirectoryConfigurationInput is an input type that accepts OntapStorageVirtualMachineActiveDirectoryConfigurationArgs and OntapStorageVirtualMachineActiveDirectoryConfigurationOutput values.
+// You can construct a concrete instance of `OntapStorageVirtualMachineActiveDirectoryConfigurationInput` via:
+//
+//          OntapStorageVirtualMachineActiveDirectoryConfigurationArgs{...}
+type OntapStorageVirtualMachineActiveDirectoryConfigurationInput interface {
+	pulumi.Input
+
+	ToOntapStorageVirtualMachineActiveDirectoryConfigurationOutput() OntapStorageVirtualMachineActiveDirectoryConfigurationOutput
+	ToOntapStorageVirtualMachineActiveDirectoryConfigurationOutputWithContext(context.Context) OntapStorageVirtualMachineActiveDirectoryConfigurationOutput
+}
+
+type OntapStorageVirtualMachineActiveDirectoryConfigurationArgs struct {
+	// The NetBIOS name of the Active Directory computer object that will be created for your SVM. This is often the same as the SVM name but can be different. It is limited to 15 characters because of standard NetBIOS naming limits.
+	NetbiosName                             pulumi.StringPtrInput                                                                                 `pulumi:"netbiosName"`
+	SelfManagedActiveDirectoryConfiguration OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationPtrInput `pulumi:"selfManagedActiveDirectoryConfiguration"`
+}
+
+func (OntapStorageVirtualMachineActiveDirectoryConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OntapStorageVirtualMachineActiveDirectoryConfiguration)(nil)).Elem()
+}
+
+func (i OntapStorageVirtualMachineActiveDirectoryConfigurationArgs) ToOntapStorageVirtualMachineActiveDirectoryConfigurationOutput() OntapStorageVirtualMachineActiveDirectoryConfigurationOutput {
+	return i.ToOntapStorageVirtualMachineActiveDirectoryConfigurationOutputWithContext(context.Background())
+}
+
+func (i OntapStorageVirtualMachineActiveDirectoryConfigurationArgs) ToOntapStorageVirtualMachineActiveDirectoryConfigurationOutputWithContext(ctx context.Context) OntapStorageVirtualMachineActiveDirectoryConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OntapStorageVirtualMachineActiveDirectoryConfigurationOutput)
+}
+
+func (i OntapStorageVirtualMachineActiveDirectoryConfigurationArgs) ToOntapStorageVirtualMachineActiveDirectoryConfigurationPtrOutput() OntapStorageVirtualMachineActiveDirectoryConfigurationPtrOutput {
+	return i.ToOntapStorageVirtualMachineActiveDirectoryConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i OntapStorageVirtualMachineActiveDirectoryConfigurationArgs) ToOntapStorageVirtualMachineActiveDirectoryConfigurationPtrOutputWithContext(ctx context.Context) OntapStorageVirtualMachineActiveDirectoryConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OntapStorageVirtualMachineActiveDirectoryConfigurationOutput).ToOntapStorageVirtualMachineActiveDirectoryConfigurationPtrOutputWithContext(ctx)
+}
+
+// OntapStorageVirtualMachineActiveDirectoryConfigurationPtrInput is an input type that accepts OntapStorageVirtualMachineActiveDirectoryConfigurationArgs, OntapStorageVirtualMachineActiveDirectoryConfigurationPtr and OntapStorageVirtualMachineActiveDirectoryConfigurationPtrOutput values.
+// You can construct a concrete instance of `OntapStorageVirtualMachineActiveDirectoryConfigurationPtrInput` via:
+//
+//          OntapStorageVirtualMachineActiveDirectoryConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type OntapStorageVirtualMachineActiveDirectoryConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToOntapStorageVirtualMachineActiveDirectoryConfigurationPtrOutput() OntapStorageVirtualMachineActiveDirectoryConfigurationPtrOutput
+	ToOntapStorageVirtualMachineActiveDirectoryConfigurationPtrOutputWithContext(context.Context) OntapStorageVirtualMachineActiveDirectoryConfigurationPtrOutput
+}
+
+type ontapStorageVirtualMachineActiveDirectoryConfigurationPtrType OntapStorageVirtualMachineActiveDirectoryConfigurationArgs
+
+func OntapStorageVirtualMachineActiveDirectoryConfigurationPtr(v *OntapStorageVirtualMachineActiveDirectoryConfigurationArgs) OntapStorageVirtualMachineActiveDirectoryConfigurationPtrInput {
+	return (*ontapStorageVirtualMachineActiveDirectoryConfigurationPtrType)(v)
+}
+
+func (*ontapStorageVirtualMachineActiveDirectoryConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OntapStorageVirtualMachineActiveDirectoryConfiguration)(nil)).Elem()
+}
+
+func (i *ontapStorageVirtualMachineActiveDirectoryConfigurationPtrType) ToOntapStorageVirtualMachineActiveDirectoryConfigurationPtrOutput() OntapStorageVirtualMachineActiveDirectoryConfigurationPtrOutput {
+	return i.ToOntapStorageVirtualMachineActiveDirectoryConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *ontapStorageVirtualMachineActiveDirectoryConfigurationPtrType) ToOntapStorageVirtualMachineActiveDirectoryConfigurationPtrOutputWithContext(ctx context.Context) OntapStorageVirtualMachineActiveDirectoryConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OntapStorageVirtualMachineActiveDirectoryConfigurationPtrOutput)
+}
+
+type OntapStorageVirtualMachineActiveDirectoryConfigurationOutput struct{ *pulumi.OutputState }
+
+func (OntapStorageVirtualMachineActiveDirectoryConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OntapStorageVirtualMachineActiveDirectoryConfiguration)(nil)).Elem()
+}
+
+func (o OntapStorageVirtualMachineActiveDirectoryConfigurationOutput) ToOntapStorageVirtualMachineActiveDirectoryConfigurationOutput() OntapStorageVirtualMachineActiveDirectoryConfigurationOutput {
+	return o
+}
+
+func (o OntapStorageVirtualMachineActiveDirectoryConfigurationOutput) ToOntapStorageVirtualMachineActiveDirectoryConfigurationOutputWithContext(ctx context.Context) OntapStorageVirtualMachineActiveDirectoryConfigurationOutput {
+	return o
+}
+
+func (o OntapStorageVirtualMachineActiveDirectoryConfigurationOutput) ToOntapStorageVirtualMachineActiveDirectoryConfigurationPtrOutput() OntapStorageVirtualMachineActiveDirectoryConfigurationPtrOutput {
+	return o.ToOntapStorageVirtualMachineActiveDirectoryConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o OntapStorageVirtualMachineActiveDirectoryConfigurationOutput) ToOntapStorageVirtualMachineActiveDirectoryConfigurationPtrOutputWithContext(ctx context.Context) OntapStorageVirtualMachineActiveDirectoryConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OntapStorageVirtualMachineActiveDirectoryConfiguration) *OntapStorageVirtualMachineActiveDirectoryConfiguration {
+		return &v
+	}).(OntapStorageVirtualMachineActiveDirectoryConfigurationPtrOutput)
+}
+
+// The NetBIOS name of the Active Directory computer object that will be created for your SVM. This is often the same as the SVM name but can be different. It is limited to 15 characters because of standard NetBIOS naming limits.
+func (o OntapStorageVirtualMachineActiveDirectoryConfigurationOutput) NetbiosName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OntapStorageVirtualMachineActiveDirectoryConfiguration) *string { return v.NetbiosName }).(pulumi.StringPtrOutput)
+}
+
+func (o OntapStorageVirtualMachineActiveDirectoryConfigurationOutput) SelfManagedActiveDirectoryConfiguration() OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationPtrOutput {
+	return o.ApplyT(func(v OntapStorageVirtualMachineActiveDirectoryConfiguration) *OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration {
+		return v.SelfManagedActiveDirectoryConfiguration
+	}).(OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationPtrOutput)
+}
+
+type OntapStorageVirtualMachineActiveDirectoryConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (OntapStorageVirtualMachineActiveDirectoryConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OntapStorageVirtualMachineActiveDirectoryConfiguration)(nil)).Elem()
+}
+
+func (o OntapStorageVirtualMachineActiveDirectoryConfigurationPtrOutput) ToOntapStorageVirtualMachineActiveDirectoryConfigurationPtrOutput() OntapStorageVirtualMachineActiveDirectoryConfigurationPtrOutput {
+	return o
+}
+
+func (o OntapStorageVirtualMachineActiveDirectoryConfigurationPtrOutput) ToOntapStorageVirtualMachineActiveDirectoryConfigurationPtrOutputWithContext(ctx context.Context) OntapStorageVirtualMachineActiveDirectoryConfigurationPtrOutput {
+	return o
+}
+
+func (o OntapStorageVirtualMachineActiveDirectoryConfigurationPtrOutput) Elem() OntapStorageVirtualMachineActiveDirectoryConfigurationOutput {
+	return o.ApplyT(func(v *OntapStorageVirtualMachineActiveDirectoryConfiguration) OntapStorageVirtualMachineActiveDirectoryConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret OntapStorageVirtualMachineActiveDirectoryConfiguration
+		return ret
+	}).(OntapStorageVirtualMachineActiveDirectoryConfigurationOutput)
+}
+
+// The NetBIOS name of the Active Directory computer object that will be created for your SVM. This is often the same as the SVM name but can be different. It is limited to 15 characters because of standard NetBIOS naming limits.
+func (o OntapStorageVirtualMachineActiveDirectoryConfigurationPtrOutput) NetbiosName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OntapStorageVirtualMachineActiveDirectoryConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.NetbiosName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o OntapStorageVirtualMachineActiveDirectoryConfigurationPtrOutput) SelfManagedActiveDirectoryConfiguration() OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationPtrOutput {
+	return o.ApplyT(func(v *OntapStorageVirtualMachineActiveDirectoryConfiguration) *OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.SelfManagedActiveDirectoryConfiguration
+	}).(OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationPtrOutput)
+}
+
+type OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration struct {
+	// A list of up to three IP addresses of DNS servers or domain controllers in the self-managed AD directory.
+	DnsIps []string `pulumi:"dnsIps"`
+	// The fully qualified domain name of the self-managed AD directory. For example, `corp.example.com`.
+	DomainName string `pulumi:"domainName"`
+	// The name of the domain group whose members are granted administrative privileges for the SVM. The group that you specify must already exist in your domain. Defaults to `Domain Admins`.
+	FileSystemAdministratorsGroup        *string `pulumi:"fileSystemAdministratorsGroup"`
+	OrganizationalUnitDistinguidshedName *string `pulumi:"organizationalUnitDistinguidshedName"`
+	// The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
+	Password string `pulumi:"password"`
+	// The user name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
+	Username string `pulumi:"username"`
+}
+
+// OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationInput is an input type that accepts OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArgs and OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationOutput values.
+// You can construct a concrete instance of `OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationInput` via:
+//
+//          OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArgs{...}
+type OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationInput interface {
+	pulumi.Input
+
+	ToOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationOutput() OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationOutput
+	ToOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationOutputWithContext(context.Context) OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationOutput
+}
+
+type OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArgs struct {
+	// A list of up to three IP addresses of DNS servers or domain controllers in the self-managed AD directory.
+	DnsIps pulumi.StringArrayInput `pulumi:"dnsIps"`
+	// The fully qualified domain name of the self-managed AD directory. For example, `corp.example.com`.
+	DomainName pulumi.StringInput `pulumi:"domainName"`
+	// The name of the domain group whose members are granted administrative privileges for the SVM. The group that you specify must already exist in your domain. Defaults to `Domain Admins`.
+	FileSystemAdministratorsGroup        pulumi.StringPtrInput `pulumi:"fileSystemAdministratorsGroup"`
+	OrganizationalUnitDistinguidshedName pulumi.StringPtrInput `pulumi:"organizationalUnitDistinguidshedName"`
+	// The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
+	Password pulumi.StringInput `pulumi:"password"`
+	// The user name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
+	Username pulumi.StringInput `pulumi:"username"`
+}
+
+func (OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration)(nil)).Elem()
+}
+
+func (i OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArgs) ToOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationOutput() OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationOutput {
+	return i.ToOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationOutputWithContext(context.Background())
+}
+
+func (i OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArgs) ToOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationOutputWithContext(ctx context.Context) OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationOutput)
+}
+
+func (i OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArgs) ToOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationPtrOutput() OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationPtrOutput {
+	return i.ToOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArgs) ToOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationPtrOutputWithContext(ctx context.Context) OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationOutput).ToOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationPtrOutputWithContext(ctx)
+}
+
+// OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationPtrInput is an input type that accepts OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArgs, OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationPtr and OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationPtrOutput values.
+// You can construct a concrete instance of `OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationPtrInput` via:
+//
+//          OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationPtrOutput() OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationPtrOutput
+	ToOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationPtrOutputWithContext(context.Context) OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationPtrOutput
+}
+
+type ontapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationPtrType OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArgs
+
+func OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationPtr(v *OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArgs) OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationPtrInput {
+	return (*ontapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationPtrType)(v)
+}
+
+func (*ontapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration)(nil)).Elem()
+}
+
+func (i *ontapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationPtrType) ToOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationPtrOutput() OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationPtrOutput {
+	return i.ToOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *ontapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationPtrType) ToOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationPtrOutputWithContext(ctx context.Context) OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationPtrOutput)
+}
+
+type OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationOutput struct{ *pulumi.OutputState }
+
+func (OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration)(nil)).Elem()
+}
+
+func (o OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationOutput) ToOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationOutput() OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationOutput {
+	return o
+}
+
+func (o OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationOutput) ToOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationOutputWithContext(ctx context.Context) OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationOutput {
+	return o
+}
+
+func (o OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationOutput) ToOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationPtrOutput() OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationPtrOutput {
+	return o.ToOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationOutput) ToOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationPtrOutputWithContext(ctx context.Context) OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration) *OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration {
+		return &v
+	}).(OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationPtrOutput)
+}
+
+// A list of up to three IP addresses of DNS servers or domain controllers in the self-managed AD directory.
+func (o OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationOutput) DnsIps() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration) []string {
+		return v.DnsIps
+	}).(pulumi.StringArrayOutput)
+}
+
+// The fully qualified domain name of the self-managed AD directory. For example, `corp.example.com`.
+func (o OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationOutput) DomainName() pulumi.StringOutput {
+	return o.ApplyT(func(v OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration) string {
+		return v.DomainName
+	}).(pulumi.StringOutput)
+}
+
+// The name of the domain group whose members are granted administrative privileges for the SVM. The group that you specify must already exist in your domain. Defaults to `Domain Admins`.
+func (o OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationOutput) FileSystemAdministratorsGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration) *string {
+		return v.FileSystemAdministratorsGroup
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationOutput) OrganizationalUnitDistinguidshedName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration) *string {
+		return v.OrganizationalUnitDistinguidshedName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
+func (o OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationOutput) Password() pulumi.StringOutput {
+	return o.ApplyT(func(v OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration) string {
+		return v.Password
+	}).(pulumi.StringOutput)
+}
+
+// The user name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
+func (o OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationOutput) Username() pulumi.StringOutput {
+	return o.ApplyT(func(v OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration) string {
+		return v.Username
+	}).(pulumi.StringOutput)
+}
+
+type OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration)(nil)).Elem()
+}
+
+func (o OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationPtrOutput) ToOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationPtrOutput() OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationPtrOutput {
+	return o
+}
+
+func (o OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationPtrOutput) ToOntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationPtrOutputWithContext(ctx context.Context) OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationPtrOutput {
+	return o
+}
+
+func (o OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationPtrOutput) Elem() OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationOutput {
+	return o.ApplyT(func(v *OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration) OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration
+		return ret
+	}).(OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationOutput)
+}
+
+// A list of up to three IP addresses of DNS servers or domain controllers in the self-managed AD directory.
+func (o OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationPtrOutput) DnsIps() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.DnsIps
+	}).(pulumi.StringArrayOutput)
+}
+
+// The fully qualified domain name of the self-managed AD directory. For example, `corp.example.com`.
+func (o OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationPtrOutput) DomainName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DomainName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the domain group whose members are granted administrative privileges for the SVM. The group that you specify must already exist in your domain. Defaults to `Domain Admins`.
+func (o OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationPtrOutput) FileSystemAdministratorsGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FileSystemAdministratorsGroup
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationPtrOutput) OrganizationalUnitDistinguidshedName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OrganizationalUnitDistinguidshedName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
+func (o OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationPtrOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Password
+	}).(pulumi.StringPtrOutput)
+}
+
+// The user name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
+func (o OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationPtrOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Username
+	}).(pulumi.StringPtrOutput)
+}
+
+type OntapStorageVirtualMachineEndpoint struct {
+	// An endpoint for accessing data on your storage virtual machine via iSCSI protocol. See Endpoint.
+	Iscses []OntapStorageVirtualMachineEndpointIscse `pulumi:"iscses"`
+	// An endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
+	Managements []OntapStorageVirtualMachineEndpointManagement `pulumi:"managements"`
+	// An endpoint for accessing data on your storage virtual machine via NFS protocol. See Endpoint.
+	Nfs []OntapStorageVirtualMachineEndpointNf `pulumi:"nfs"`
+	// An endpoint for accessing data on your storage virtual machine via SMB protocol. This is only set if an activeDirectoryConfiguration has been set. See Endpoint.
+	Smbs []OntapStorageVirtualMachineEndpointSmb `pulumi:"smbs"`
+}
+
+// OntapStorageVirtualMachineEndpointInput is an input type that accepts OntapStorageVirtualMachineEndpointArgs and OntapStorageVirtualMachineEndpointOutput values.
+// You can construct a concrete instance of `OntapStorageVirtualMachineEndpointInput` via:
+//
+//          OntapStorageVirtualMachineEndpointArgs{...}
+type OntapStorageVirtualMachineEndpointInput interface {
+	pulumi.Input
+
+	ToOntapStorageVirtualMachineEndpointOutput() OntapStorageVirtualMachineEndpointOutput
+	ToOntapStorageVirtualMachineEndpointOutputWithContext(context.Context) OntapStorageVirtualMachineEndpointOutput
+}
+
+type OntapStorageVirtualMachineEndpointArgs struct {
+	// An endpoint for accessing data on your storage virtual machine via iSCSI protocol. See Endpoint.
+	Iscses OntapStorageVirtualMachineEndpointIscseArrayInput `pulumi:"iscses"`
+	// An endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
+	Managements OntapStorageVirtualMachineEndpointManagementArrayInput `pulumi:"managements"`
+	// An endpoint for accessing data on your storage virtual machine via NFS protocol. See Endpoint.
+	Nfs OntapStorageVirtualMachineEndpointNfArrayInput `pulumi:"nfs"`
+	// An endpoint for accessing data on your storage virtual machine via SMB protocol. This is only set if an activeDirectoryConfiguration has been set. See Endpoint.
+	Smbs OntapStorageVirtualMachineEndpointSmbArrayInput `pulumi:"smbs"`
+}
+
+func (OntapStorageVirtualMachineEndpointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OntapStorageVirtualMachineEndpoint)(nil)).Elem()
+}
+
+func (i OntapStorageVirtualMachineEndpointArgs) ToOntapStorageVirtualMachineEndpointOutput() OntapStorageVirtualMachineEndpointOutput {
+	return i.ToOntapStorageVirtualMachineEndpointOutputWithContext(context.Background())
+}
+
+func (i OntapStorageVirtualMachineEndpointArgs) ToOntapStorageVirtualMachineEndpointOutputWithContext(ctx context.Context) OntapStorageVirtualMachineEndpointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OntapStorageVirtualMachineEndpointOutput)
+}
+
+// OntapStorageVirtualMachineEndpointArrayInput is an input type that accepts OntapStorageVirtualMachineEndpointArray and OntapStorageVirtualMachineEndpointArrayOutput values.
+// You can construct a concrete instance of `OntapStorageVirtualMachineEndpointArrayInput` via:
+//
+//          OntapStorageVirtualMachineEndpointArray{ OntapStorageVirtualMachineEndpointArgs{...} }
+type OntapStorageVirtualMachineEndpointArrayInput interface {
+	pulumi.Input
+
+	ToOntapStorageVirtualMachineEndpointArrayOutput() OntapStorageVirtualMachineEndpointArrayOutput
+	ToOntapStorageVirtualMachineEndpointArrayOutputWithContext(context.Context) OntapStorageVirtualMachineEndpointArrayOutput
+}
+
+type OntapStorageVirtualMachineEndpointArray []OntapStorageVirtualMachineEndpointInput
+
+func (OntapStorageVirtualMachineEndpointArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OntapStorageVirtualMachineEndpoint)(nil)).Elem()
+}
+
+func (i OntapStorageVirtualMachineEndpointArray) ToOntapStorageVirtualMachineEndpointArrayOutput() OntapStorageVirtualMachineEndpointArrayOutput {
+	return i.ToOntapStorageVirtualMachineEndpointArrayOutputWithContext(context.Background())
+}
+
+func (i OntapStorageVirtualMachineEndpointArray) ToOntapStorageVirtualMachineEndpointArrayOutputWithContext(ctx context.Context) OntapStorageVirtualMachineEndpointArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OntapStorageVirtualMachineEndpointArrayOutput)
+}
+
+type OntapStorageVirtualMachineEndpointOutput struct{ *pulumi.OutputState }
+
+func (OntapStorageVirtualMachineEndpointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OntapStorageVirtualMachineEndpoint)(nil)).Elem()
+}
+
+func (o OntapStorageVirtualMachineEndpointOutput) ToOntapStorageVirtualMachineEndpointOutput() OntapStorageVirtualMachineEndpointOutput {
+	return o
+}
+
+func (o OntapStorageVirtualMachineEndpointOutput) ToOntapStorageVirtualMachineEndpointOutputWithContext(ctx context.Context) OntapStorageVirtualMachineEndpointOutput {
+	return o
+}
+
+// An endpoint for accessing data on your storage virtual machine via iSCSI protocol. See Endpoint.
+func (o OntapStorageVirtualMachineEndpointOutput) Iscses() OntapStorageVirtualMachineEndpointIscseArrayOutput {
+	return o.ApplyT(func(v OntapStorageVirtualMachineEndpoint) []OntapStorageVirtualMachineEndpointIscse { return v.Iscses }).(OntapStorageVirtualMachineEndpointIscseArrayOutput)
+}
+
+// An endpoint for managing your file system using the NetApp ONTAP CLI and NetApp ONTAP API. See Endpoint.
+func (o OntapStorageVirtualMachineEndpointOutput) Managements() OntapStorageVirtualMachineEndpointManagementArrayOutput {
+	return o.ApplyT(func(v OntapStorageVirtualMachineEndpoint) []OntapStorageVirtualMachineEndpointManagement {
+		return v.Managements
+	}).(OntapStorageVirtualMachineEndpointManagementArrayOutput)
+}
+
+// An endpoint for accessing data on your storage virtual machine via NFS protocol. See Endpoint.
+func (o OntapStorageVirtualMachineEndpointOutput) Nfs() OntapStorageVirtualMachineEndpointNfArrayOutput {
+	return o.ApplyT(func(v OntapStorageVirtualMachineEndpoint) []OntapStorageVirtualMachineEndpointNf { return v.Nfs }).(OntapStorageVirtualMachineEndpointNfArrayOutput)
+}
+
+// An endpoint for accessing data on your storage virtual machine via SMB protocol. This is only set if an activeDirectoryConfiguration has been set. See Endpoint.
+func (o OntapStorageVirtualMachineEndpointOutput) Smbs() OntapStorageVirtualMachineEndpointSmbArrayOutput {
+	return o.ApplyT(func(v OntapStorageVirtualMachineEndpoint) []OntapStorageVirtualMachineEndpointSmb { return v.Smbs }).(OntapStorageVirtualMachineEndpointSmbArrayOutput)
+}
+
+type OntapStorageVirtualMachineEndpointArrayOutput struct{ *pulumi.OutputState }
+
+func (OntapStorageVirtualMachineEndpointArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OntapStorageVirtualMachineEndpoint)(nil)).Elem()
+}
+
+func (o OntapStorageVirtualMachineEndpointArrayOutput) ToOntapStorageVirtualMachineEndpointArrayOutput() OntapStorageVirtualMachineEndpointArrayOutput {
+	return o
+}
+
+func (o OntapStorageVirtualMachineEndpointArrayOutput) ToOntapStorageVirtualMachineEndpointArrayOutputWithContext(ctx context.Context) OntapStorageVirtualMachineEndpointArrayOutput {
+	return o
+}
+
+func (o OntapStorageVirtualMachineEndpointArrayOutput) Index(i pulumi.IntInput) OntapStorageVirtualMachineEndpointOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OntapStorageVirtualMachineEndpoint {
+		return vs[0].([]OntapStorageVirtualMachineEndpoint)[vs[1].(int)]
+	}).(OntapStorageVirtualMachineEndpointOutput)
+}
+
+type OntapStorageVirtualMachineEndpointIscse struct {
+	// The Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
+	DnsName *string `pulumi:"dnsName"`
+	// IP addresses of the storage virtual machine endpoint.
+	IpAddresses []string `pulumi:"ipAddresses"`
+}
+
+// OntapStorageVirtualMachineEndpointIscseInput is an input type that accepts OntapStorageVirtualMachineEndpointIscseArgs and OntapStorageVirtualMachineEndpointIscseOutput values.
+// You can construct a concrete instance of `OntapStorageVirtualMachineEndpointIscseInput` via:
+//
+//          OntapStorageVirtualMachineEndpointIscseArgs{...}
+type OntapStorageVirtualMachineEndpointIscseInput interface {
+	pulumi.Input
+
+	ToOntapStorageVirtualMachineEndpointIscseOutput() OntapStorageVirtualMachineEndpointIscseOutput
+	ToOntapStorageVirtualMachineEndpointIscseOutputWithContext(context.Context) OntapStorageVirtualMachineEndpointIscseOutput
+}
+
+type OntapStorageVirtualMachineEndpointIscseArgs struct {
+	// The Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
+	DnsName pulumi.StringPtrInput `pulumi:"dnsName"`
+	// IP addresses of the storage virtual machine endpoint.
+	IpAddresses pulumi.StringArrayInput `pulumi:"ipAddresses"`
+}
+
+func (OntapStorageVirtualMachineEndpointIscseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OntapStorageVirtualMachineEndpointIscse)(nil)).Elem()
+}
+
+func (i OntapStorageVirtualMachineEndpointIscseArgs) ToOntapStorageVirtualMachineEndpointIscseOutput() OntapStorageVirtualMachineEndpointIscseOutput {
+	return i.ToOntapStorageVirtualMachineEndpointIscseOutputWithContext(context.Background())
+}
+
+func (i OntapStorageVirtualMachineEndpointIscseArgs) ToOntapStorageVirtualMachineEndpointIscseOutputWithContext(ctx context.Context) OntapStorageVirtualMachineEndpointIscseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OntapStorageVirtualMachineEndpointIscseOutput)
+}
+
+// OntapStorageVirtualMachineEndpointIscseArrayInput is an input type that accepts OntapStorageVirtualMachineEndpointIscseArray and OntapStorageVirtualMachineEndpointIscseArrayOutput values.
+// You can construct a concrete instance of `OntapStorageVirtualMachineEndpointIscseArrayInput` via:
+//
+//          OntapStorageVirtualMachineEndpointIscseArray{ OntapStorageVirtualMachineEndpointIscseArgs{...} }
+type OntapStorageVirtualMachineEndpointIscseArrayInput interface {
+	pulumi.Input
+
+	ToOntapStorageVirtualMachineEndpointIscseArrayOutput() OntapStorageVirtualMachineEndpointIscseArrayOutput
+	ToOntapStorageVirtualMachineEndpointIscseArrayOutputWithContext(context.Context) OntapStorageVirtualMachineEndpointIscseArrayOutput
+}
+
+type OntapStorageVirtualMachineEndpointIscseArray []OntapStorageVirtualMachineEndpointIscseInput
+
+func (OntapStorageVirtualMachineEndpointIscseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OntapStorageVirtualMachineEndpointIscse)(nil)).Elem()
+}
+
+func (i OntapStorageVirtualMachineEndpointIscseArray) ToOntapStorageVirtualMachineEndpointIscseArrayOutput() OntapStorageVirtualMachineEndpointIscseArrayOutput {
+	return i.ToOntapStorageVirtualMachineEndpointIscseArrayOutputWithContext(context.Background())
+}
+
+func (i OntapStorageVirtualMachineEndpointIscseArray) ToOntapStorageVirtualMachineEndpointIscseArrayOutputWithContext(ctx context.Context) OntapStorageVirtualMachineEndpointIscseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OntapStorageVirtualMachineEndpointIscseArrayOutput)
+}
+
+type OntapStorageVirtualMachineEndpointIscseOutput struct{ *pulumi.OutputState }
+
+func (OntapStorageVirtualMachineEndpointIscseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OntapStorageVirtualMachineEndpointIscse)(nil)).Elem()
+}
+
+func (o OntapStorageVirtualMachineEndpointIscseOutput) ToOntapStorageVirtualMachineEndpointIscseOutput() OntapStorageVirtualMachineEndpointIscseOutput {
+	return o
+}
+
+func (o OntapStorageVirtualMachineEndpointIscseOutput) ToOntapStorageVirtualMachineEndpointIscseOutputWithContext(ctx context.Context) OntapStorageVirtualMachineEndpointIscseOutput {
+	return o
+}
+
+// The Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
+func (o OntapStorageVirtualMachineEndpointIscseOutput) DnsName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OntapStorageVirtualMachineEndpointIscse) *string { return v.DnsName }).(pulumi.StringPtrOutput)
+}
+
+// IP addresses of the storage virtual machine endpoint.
+func (o OntapStorageVirtualMachineEndpointIscseOutput) IpAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v OntapStorageVirtualMachineEndpointIscse) []string { return v.IpAddresses }).(pulumi.StringArrayOutput)
+}
+
+type OntapStorageVirtualMachineEndpointIscseArrayOutput struct{ *pulumi.OutputState }
+
+func (OntapStorageVirtualMachineEndpointIscseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OntapStorageVirtualMachineEndpointIscse)(nil)).Elem()
+}
+
+func (o OntapStorageVirtualMachineEndpointIscseArrayOutput) ToOntapStorageVirtualMachineEndpointIscseArrayOutput() OntapStorageVirtualMachineEndpointIscseArrayOutput {
+	return o
+}
+
+func (o OntapStorageVirtualMachineEndpointIscseArrayOutput) ToOntapStorageVirtualMachineEndpointIscseArrayOutputWithContext(ctx context.Context) OntapStorageVirtualMachineEndpointIscseArrayOutput {
+	return o
+}
+
+func (o OntapStorageVirtualMachineEndpointIscseArrayOutput) Index(i pulumi.IntInput) OntapStorageVirtualMachineEndpointIscseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OntapStorageVirtualMachineEndpointIscse {
+		return vs[0].([]OntapStorageVirtualMachineEndpointIscse)[vs[1].(int)]
+	}).(OntapStorageVirtualMachineEndpointIscseOutput)
+}
+
+type OntapStorageVirtualMachineEndpointManagement struct {
+	// The Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
+	DnsName *string `pulumi:"dnsName"`
+	// IP addresses of the storage virtual machine endpoint.
+	IpAddresses []string `pulumi:"ipAddresses"`
+}
+
+// OntapStorageVirtualMachineEndpointManagementInput is an input type that accepts OntapStorageVirtualMachineEndpointManagementArgs and OntapStorageVirtualMachineEndpointManagementOutput values.
+// You can construct a concrete instance of `OntapStorageVirtualMachineEndpointManagementInput` via:
+//
+//          OntapStorageVirtualMachineEndpointManagementArgs{...}
+type OntapStorageVirtualMachineEndpointManagementInput interface {
+	pulumi.Input
+
+	ToOntapStorageVirtualMachineEndpointManagementOutput() OntapStorageVirtualMachineEndpointManagementOutput
+	ToOntapStorageVirtualMachineEndpointManagementOutputWithContext(context.Context) OntapStorageVirtualMachineEndpointManagementOutput
+}
+
+type OntapStorageVirtualMachineEndpointManagementArgs struct {
+	// The Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
+	DnsName pulumi.StringPtrInput `pulumi:"dnsName"`
+	// IP addresses of the storage virtual machine endpoint.
+	IpAddresses pulumi.StringArrayInput `pulumi:"ipAddresses"`
+}
+
+func (OntapStorageVirtualMachineEndpointManagementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OntapStorageVirtualMachineEndpointManagement)(nil)).Elem()
+}
+
+func (i OntapStorageVirtualMachineEndpointManagementArgs) ToOntapStorageVirtualMachineEndpointManagementOutput() OntapStorageVirtualMachineEndpointManagementOutput {
+	return i.ToOntapStorageVirtualMachineEndpointManagementOutputWithContext(context.Background())
+}
+
+func (i OntapStorageVirtualMachineEndpointManagementArgs) ToOntapStorageVirtualMachineEndpointManagementOutputWithContext(ctx context.Context) OntapStorageVirtualMachineEndpointManagementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OntapStorageVirtualMachineEndpointManagementOutput)
+}
+
+// OntapStorageVirtualMachineEndpointManagementArrayInput is an input type that accepts OntapStorageVirtualMachineEndpointManagementArray and OntapStorageVirtualMachineEndpointManagementArrayOutput values.
+// You can construct a concrete instance of `OntapStorageVirtualMachineEndpointManagementArrayInput` via:
+//
+//          OntapStorageVirtualMachineEndpointManagementArray{ OntapStorageVirtualMachineEndpointManagementArgs{...} }
+type OntapStorageVirtualMachineEndpointManagementArrayInput interface {
+	pulumi.Input
+
+	ToOntapStorageVirtualMachineEndpointManagementArrayOutput() OntapStorageVirtualMachineEndpointManagementArrayOutput
+	ToOntapStorageVirtualMachineEndpointManagementArrayOutputWithContext(context.Context) OntapStorageVirtualMachineEndpointManagementArrayOutput
+}
+
+type OntapStorageVirtualMachineEndpointManagementArray []OntapStorageVirtualMachineEndpointManagementInput
+
+func (OntapStorageVirtualMachineEndpointManagementArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OntapStorageVirtualMachineEndpointManagement)(nil)).Elem()
+}
+
+func (i OntapStorageVirtualMachineEndpointManagementArray) ToOntapStorageVirtualMachineEndpointManagementArrayOutput() OntapStorageVirtualMachineEndpointManagementArrayOutput {
+	return i.ToOntapStorageVirtualMachineEndpointManagementArrayOutputWithContext(context.Background())
+}
+
+func (i OntapStorageVirtualMachineEndpointManagementArray) ToOntapStorageVirtualMachineEndpointManagementArrayOutputWithContext(ctx context.Context) OntapStorageVirtualMachineEndpointManagementArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OntapStorageVirtualMachineEndpointManagementArrayOutput)
+}
+
+type OntapStorageVirtualMachineEndpointManagementOutput struct{ *pulumi.OutputState }
+
+func (OntapStorageVirtualMachineEndpointManagementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OntapStorageVirtualMachineEndpointManagement)(nil)).Elem()
+}
+
+func (o OntapStorageVirtualMachineEndpointManagementOutput) ToOntapStorageVirtualMachineEndpointManagementOutput() OntapStorageVirtualMachineEndpointManagementOutput {
+	return o
+}
+
+func (o OntapStorageVirtualMachineEndpointManagementOutput) ToOntapStorageVirtualMachineEndpointManagementOutputWithContext(ctx context.Context) OntapStorageVirtualMachineEndpointManagementOutput {
+	return o
+}
+
+// The Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
+func (o OntapStorageVirtualMachineEndpointManagementOutput) DnsName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OntapStorageVirtualMachineEndpointManagement) *string { return v.DnsName }).(pulumi.StringPtrOutput)
+}
+
+// IP addresses of the storage virtual machine endpoint.
+func (o OntapStorageVirtualMachineEndpointManagementOutput) IpAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v OntapStorageVirtualMachineEndpointManagement) []string { return v.IpAddresses }).(pulumi.StringArrayOutput)
+}
+
+type OntapStorageVirtualMachineEndpointManagementArrayOutput struct{ *pulumi.OutputState }
+
+func (OntapStorageVirtualMachineEndpointManagementArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OntapStorageVirtualMachineEndpointManagement)(nil)).Elem()
+}
+
+func (o OntapStorageVirtualMachineEndpointManagementArrayOutput) ToOntapStorageVirtualMachineEndpointManagementArrayOutput() OntapStorageVirtualMachineEndpointManagementArrayOutput {
+	return o
+}
+
+func (o OntapStorageVirtualMachineEndpointManagementArrayOutput) ToOntapStorageVirtualMachineEndpointManagementArrayOutputWithContext(ctx context.Context) OntapStorageVirtualMachineEndpointManagementArrayOutput {
+	return o
+}
+
+func (o OntapStorageVirtualMachineEndpointManagementArrayOutput) Index(i pulumi.IntInput) OntapStorageVirtualMachineEndpointManagementOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OntapStorageVirtualMachineEndpointManagement {
+		return vs[0].([]OntapStorageVirtualMachineEndpointManagement)[vs[1].(int)]
+	}).(OntapStorageVirtualMachineEndpointManagementOutput)
+}
+
+type OntapStorageVirtualMachineEndpointNf struct {
+	// The Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
+	DnsName *string `pulumi:"dnsName"`
+	// IP addresses of the storage virtual machine endpoint.
+	IpAddresses []string `pulumi:"ipAddresses"`
+}
+
+// OntapStorageVirtualMachineEndpointNfInput is an input type that accepts OntapStorageVirtualMachineEndpointNfArgs and OntapStorageVirtualMachineEndpointNfOutput values.
+// You can construct a concrete instance of `OntapStorageVirtualMachineEndpointNfInput` via:
+//
+//          OntapStorageVirtualMachineEndpointNfArgs{...}
+type OntapStorageVirtualMachineEndpointNfInput interface {
+	pulumi.Input
+
+	ToOntapStorageVirtualMachineEndpointNfOutput() OntapStorageVirtualMachineEndpointNfOutput
+	ToOntapStorageVirtualMachineEndpointNfOutputWithContext(context.Context) OntapStorageVirtualMachineEndpointNfOutput
+}
+
+type OntapStorageVirtualMachineEndpointNfArgs struct {
+	// The Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
+	DnsName pulumi.StringPtrInput `pulumi:"dnsName"`
+	// IP addresses of the storage virtual machine endpoint.
+	IpAddresses pulumi.StringArrayInput `pulumi:"ipAddresses"`
+}
+
+func (OntapStorageVirtualMachineEndpointNfArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OntapStorageVirtualMachineEndpointNf)(nil)).Elem()
+}
+
+func (i OntapStorageVirtualMachineEndpointNfArgs) ToOntapStorageVirtualMachineEndpointNfOutput() OntapStorageVirtualMachineEndpointNfOutput {
+	return i.ToOntapStorageVirtualMachineEndpointNfOutputWithContext(context.Background())
+}
+
+func (i OntapStorageVirtualMachineEndpointNfArgs) ToOntapStorageVirtualMachineEndpointNfOutputWithContext(ctx context.Context) OntapStorageVirtualMachineEndpointNfOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OntapStorageVirtualMachineEndpointNfOutput)
+}
+
+// OntapStorageVirtualMachineEndpointNfArrayInput is an input type that accepts OntapStorageVirtualMachineEndpointNfArray and OntapStorageVirtualMachineEndpointNfArrayOutput values.
+// You can construct a concrete instance of `OntapStorageVirtualMachineEndpointNfArrayInput` via:
+//
+//          OntapStorageVirtualMachineEndpointNfArray{ OntapStorageVirtualMachineEndpointNfArgs{...} }
+type OntapStorageVirtualMachineEndpointNfArrayInput interface {
+	pulumi.Input
+
+	ToOntapStorageVirtualMachineEndpointNfArrayOutput() OntapStorageVirtualMachineEndpointNfArrayOutput
+	ToOntapStorageVirtualMachineEndpointNfArrayOutputWithContext(context.Context) OntapStorageVirtualMachineEndpointNfArrayOutput
+}
+
+type OntapStorageVirtualMachineEndpointNfArray []OntapStorageVirtualMachineEndpointNfInput
+
+func (OntapStorageVirtualMachineEndpointNfArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OntapStorageVirtualMachineEndpointNf)(nil)).Elem()
+}
+
+func (i OntapStorageVirtualMachineEndpointNfArray) ToOntapStorageVirtualMachineEndpointNfArrayOutput() OntapStorageVirtualMachineEndpointNfArrayOutput {
+	return i.ToOntapStorageVirtualMachineEndpointNfArrayOutputWithContext(context.Background())
+}
+
+func (i OntapStorageVirtualMachineEndpointNfArray) ToOntapStorageVirtualMachineEndpointNfArrayOutputWithContext(ctx context.Context) OntapStorageVirtualMachineEndpointNfArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OntapStorageVirtualMachineEndpointNfArrayOutput)
+}
+
+type OntapStorageVirtualMachineEndpointNfOutput struct{ *pulumi.OutputState }
+
+func (OntapStorageVirtualMachineEndpointNfOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OntapStorageVirtualMachineEndpointNf)(nil)).Elem()
+}
+
+func (o OntapStorageVirtualMachineEndpointNfOutput) ToOntapStorageVirtualMachineEndpointNfOutput() OntapStorageVirtualMachineEndpointNfOutput {
+	return o
+}
+
+func (o OntapStorageVirtualMachineEndpointNfOutput) ToOntapStorageVirtualMachineEndpointNfOutputWithContext(ctx context.Context) OntapStorageVirtualMachineEndpointNfOutput {
+	return o
+}
+
+// The Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
+func (o OntapStorageVirtualMachineEndpointNfOutput) DnsName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OntapStorageVirtualMachineEndpointNf) *string { return v.DnsName }).(pulumi.StringPtrOutput)
+}
+
+// IP addresses of the storage virtual machine endpoint.
+func (o OntapStorageVirtualMachineEndpointNfOutput) IpAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v OntapStorageVirtualMachineEndpointNf) []string { return v.IpAddresses }).(pulumi.StringArrayOutput)
+}
+
+type OntapStorageVirtualMachineEndpointNfArrayOutput struct{ *pulumi.OutputState }
+
+func (OntapStorageVirtualMachineEndpointNfArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OntapStorageVirtualMachineEndpointNf)(nil)).Elem()
+}
+
+func (o OntapStorageVirtualMachineEndpointNfArrayOutput) ToOntapStorageVirtualMachineEndpointNfArrayOutput() OntapStorageVirtualMachineEndpointNfArrayOutput {
+	return o
+}
+
+func (o OntapStorageVirtualMachineEndpointNfArrayOutput) ToOntapStorageVirtualMachineEndpointNfArrayOutputWithContext(ctx context.Context) OntapStorageVirtualMachineEndpointNfArrayOutput {
+	return o
+}
+
+func (o OntapStorageVirtualMachineEndpointNfArrayOutput) Index(i pulumi.IntInput) OntapStorageVirtualMachineEndpointNfOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OntapStorageVirtualMachineEndpointNf {
+		return vs[0].([]OntapStorageVirtualMachineEndpointNf)[vs[1].(int)]
+	}).(OntapStorageVirtualMachineEndpointNfOutput)
+}
+
+type OntapStorageVirtualMachineEndpointSmb struct {
+	// The Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
+	DnsName *string `pulumi:"dnsName"`
+	// IP addresses of the storage virtual machine endpoint.
+	IpAddresses []string `pulumi:"ipAddresses"`
+}
+
+// OntapStorageVirtualMachineEndpointSmbInput is an input type that accepts OntapStorageVirtualMachineEndpointSmbArgs and OntapStorageVirtualMachineEndpointSmbOutput values.
+// You can construct a concrete instance of `OntapStorageVirtualMachineEndpointSmbInput` via:
+//
+//          OntapStorageVirtualMachineEndpointSmbArgs{...}
+type OntapStorageVirtualMachineEndpointSmbInput interface {
+	pulumi.Input
+
+	ToOntapStorageVirtualMachineEndpointSmbOutput() OntapStorageVirtualMachineEndpointSmbOutput
+	ToOntapStorageVirtualMachineEndpointSmbOutputWithContext(context.Context) OntapStorageVirtualMachineEndpointSmbOutput
+}
+
+type OntapStorageVirtualMachineEndpointSmbArgs struct {
+	// The Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
+	DnsName pulumi.StringPtrInput `pulumi:"dnsName"`
+	// IP addresses of the storage virtual machine endpoint.
+	IpAddresses pulumi.StringArrayInput `pulumi:"ipAddresses"`
+}
+
+func (OntapStorageVirtualMachineEndpointSmbArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OntapStorageVirtualMachineEndpointSmb)(nil)).Elem()
+}
+
+func (i OntapStorageVirtualMachineEndpointSmbArgs) ToOntapStorageVirtualMachineEndpointSmbOutput() OntapStorageVirtualMachineEndpointSmbOutput {
+	return i.ToOntapStorageVirtualMachineEndpointSmbOutputWithContext(context.Background())
+}
+
+func (i OntapStorageVirtualMachineEndpointSmbArgs) ToOntapStorageVirtualMachineEndpointSmbOutputWithContext(ctx context.Context) OntapStorageVirtualMachineEndpointSmbOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OntapStorageVirtualMachineEndpointSmbOutput)
+}
+
+// OntapStorageVirtualMachineEndpointSmbArrayInput is an input type that accepts OntapStorageVirtualMachineEndpointSmbArray and OntapStorageVirtualMachineEndpointSmbArrayOutput values.
+// You can construct a concrete instance of `OntapStorageVirtualMachineEndpointSmbArrayInput` via:
+//
+//          OntapStorageVirtualMachineEndpointSmbArray{ OntapStorageVirtualMachineEndpointSmbArgs{...} }
+type OntapStorageVirtualMachineEndpointSmbArrayInput interface {
+	pulumi.Input
+
+	ToOntapStorageVirtualMachineEndpointSmbArrayOutput() OntapStorageVirtualMachineEndpointSmbArrayOutput
+	ToOntapStorageVirtualMachineEndpointSmbArrayOutputWithContext(context.Context) OntapStorageVirtualMachineEndpointSmbArrayOutput
+}
+
+type OntapStorageVirtualMachineEndpointSmbArray []OntapStorageVirtualMachineEndpointSmbInput
+
+func (OntapStorageVirtualMachineEndpointSmbArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OntapStorageVirtualMachineEndpointSmb)(nil)).Elem()
+}
+
+func (i OntapStorageVirtualMachineEndpointSmbArray) ToOntapStorageVirtualMachineEndpointSmbArrayOutput() OntapStorageVirtualMachineEndpointSmbArrayOutput {
+	return i.ToOntapStorageVirtualMachineEndpointSmbArrayOutputWithContext(context.Background())
+}
+
+func (i OntapStorageVirtualMachineEndpointSmbArray) ToOntapStorageVirtualMachineEndpointSmbArrayOutputWithContext(ctx context.Context) OntapStorageVirtualMachineEndpointSmbArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OntapStorageVirtualMachineEndpointSmbArrayOutput)
+}
+
+type OntapStorageVirtualMachineEndpointSmbOutput struct{ *pulumi.OutputState }
+
+func (OntapStorageVirtualMachineEndpointSmbOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OntapStorageVirtualMachineEndpointSmb)(nil)).Elem()
+}
+
+func (o OntapStorageVirtualMachineEndpointSmbOutput) ToOntapStorageVirtualMachineEndpointSmbOutput() OntapStorageVirtualMachineEndpointSmbOutput {
+	return o
+}
+
+func (o OntapStorageVirtualMachineEndpointSmbOutput) ToOntapStorageVirtualMachineEndpointSmbOutputWithContext(ctx context.Context) OntapStorageVirtualMachineEndpointSmbOutput {
+	return o
+}
+
+// The Domain Name Service (DNS) name for the storage virtual machine. You can mount your storage virtual machine using its DNS name.
+func (o OntapStorageVirtualMachineEndpointSmbOutput) DnsName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OntapStorageVirtualMachineEndpointSmb) *string { return v.DnsName }).(pulumi.StringPtrOutput)
+}
+
+// IP addresses of the storage virtual machine endpoint.
+func (o OntapStorageVirtualMachineEndpointSmbOutput) IpAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v OntapStorageVirtualMachineEndpointSmb) []string { return v.IpAddresses }).(pulumi.StringArrayOutput)
+}
+
+type OntapStorageVirtualMachineEndpointSmbArrayOutput struct{ *pulumi.OutputState }
+
+func (OntapStorageVirtualMachineEndpointSmbArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OntapStorageVirtualMachineEndpointSmb)(nil)).Elem()
+}
+
+func (o OntapStorageVirtualMachineEndpointSmbArrayOutput) ToOntapStorageVirtualMachineEndpointSmbArrayOutput() OntapStorageVirtualMachineEndpointSmbArrayOutput {
+	return o
+}
+
+func (o OntapStorageVirtualMachineEndpointSmbArrayOutput) ToOntapStorageVirtualMachineEndpointSmbArrayOutputWithContext(ctx context.Context) OntapStorageVirtualMachineEndpointSmbArrayOutput {
+	return o
+}
+
+func (o OntapStorageVirtualMachineEndpointSmbArrayOutput) Index(i pulumi.IntInput) OntapStorageVirtualMachineEndpointSmbOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OntapStorageVirtualMachineEndpointSmb {
+		return vs[0].([]OntapStorageVirtualMachineEndpointSmb)[vs[1].(int)]
+	}).(OntapStorageVirtualMachineEndpointSmbOutput)
+}
+
+type OntapVolumeTieringPolicy struct {
+	CoolingPeriod *int `pulumi:"coolingPeriod"`
+	// Specifies the tiering policy for the ONTAP volume for moving data to the capacity pool storage. Valid values are `SNAPSHOT_ONLY`, `AUTO`, `ALL`, `NONE`. Default value is `SNAPSHOT_ONLY`.
+	Name *string `pulumi:"name"`
+}
+
+// OntapVolumeTieringPolicyInput is an input type that accepts OntapVolumeTieringPolicyArgs and OntapVolumeTieringPolicyOutput values.
+// You can construct a concrete instance of `OntapVolumeTieringPolicyInput` via:
+//
+//          OntapVolumeTieringPolicyArgs{...}
+type OntapVolumeTieringPolicyInput interface {
+	pulumi.Input
+
+	ToOntapVolumeTieringPolicyOutput() OntapVolumeTieringPolicyOutput
+	ToOntapVolumeTieringPolicyOutputWithContext(context.Context) OntapVolumeTieringPolicyOutput
+}
+
+type OntapVolumeTieringPolicyArgs struct {
+	CoolingPeriod pulumi.IntPtrInput `pulumi:"coolingPeriod"`
+	// Specifies the tiering policy for the ONTAP volume for moving data to the capacity pool storage. Valid values are `SNAPSHOT_ONLY`, `AUTO`, `ALL`, `NONE`. Default value is `SNAPSHOT_ONLY`.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (OntapVolumeTieringPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OntapVolumeTieringPolicy)(nil)).Elem()
+}
+
+func (i OntapVolumeTieringPolicyArgs) ToOntapVolumeTieringPolicyOutput() OntapVolumeTieringPolicyOutput {
+	return i.ToOntapVolumeTieringPolicyOutputWithContext(context.Background())
+}
+
+func (i OntapVolumeTieringPolicyArgs) ToOntapVolumeTieringPolicyOutputWithContext(ctx context.Context) OntapVolumeTieringPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OntapVolumeTieringPolicyOutput)
+}
+
+func (i OntapVolumeTieringPolicyArgs) ToOntapVolumeTieringPolicyPtrOutput() OntapVolumeTieringPolicyPtrOutput {
+	return i.ToOntapVolumeTieringPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i OntapVolumeTieringPolicyArgs) ToOntapVolumeTieringPolicyPtrOutputWithContext(ctx context.Context) OntapVolumeTieringPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OntapVolumeTieringPolicyOutput).ToOntapVolumeTieringPolicyPtrOutputWithContext(ctx)
+}
+
+// OntapVolumeTieringPolicyPtrInput is an input type that accepts OntapVolumeTieringPolicyArgs, OntapVolumeTieringPolicyPtr and OntapVolumeTieringPolicyPtrOutput values.
+// You can construct a concrete instance of `OntapVolumeTieringPolicyPtrInput` via:
+//
+//          OntapVolumeTieringPolicyArgs{...}
+//
+//  or:
+//
+//          nil
+type OntapVolumeTieringPolicyPtrInput interface {
+	pulumi.Input
+
+	ToOntapVolumeTieringPolicyPtrOutput() OntapVolumeTieringPolicyPtrOutput
+	ToOntapVolumeTieringPolicyPtrOutputWithContext(context.Context) OntapVolumeTieringPolicyPtrOutput
+}
+
+type ontapVolumeTieringPolicyPtrType OntapVolumeTieringPolicyArgs
+
+func OntapVolumeTieringPolicyPtr(v *OntapVolumeTieringPolicyArgs) OntapVolumeTieringPolicyPtrInput {
+	return (*ontapVolumeTieringPolicyPtrType)(v)
+}
+
+func (*ontapVolumeTieringPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OntapVolumeTieringPolicy)(nil)).Elem()
+}
+
+func (i *ontapVolumeTieringPolicyPtrType) ToOntapVolumeTieringPolicyPtrOutput() OntapVolumeTieringPolicyPtrOutput {
+	return i.ToOntapVolumeTieringPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *ontapVolumeTieringPolicyPtrType) ToOntapVolumeTieringPolicyPtrOutputWithContext(ctx context.Context) OntapVolumeTieringPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OntapVolumeTieringPolicyPtrOutput)
+}
+
+type OntapVolumeTieringPolicyOutput struct{ *pulumi.OutputState }
+
+func (OntapVolumeTieringPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OntapVolumeTieringPolicy)(nil)).Elem()
+}
+
+func (o OntapVolumeTieringPolicyOutput) ToOntapVolumeTieringPolicyOutput() OntapVolumeTieringPolicyOutput {
+	return o
+}
+
+func (o OntapVolumeTieringPolicyOutput) ToOntapVolumeTieringPolicyOutputWithContext(ctx context.Context) OntapVolumeTieringPolicyOutput {
+	return o
+}
+
+func (o OntapVolumeTieringPolicyOutput) ToOntapVolumeTieringPolicyPtrOutput() OntapVolumeTieringPolicyPtrOutput {
+	return o.ToOntapVolumeTieringPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o OntapVolumeTieringPolicyOutput) ToOntapVolumeTieringPolicyPtrOutputWithContext(ctx context.Context) OntapVolumeTieringPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OntapVolumeTieringPolicy) *OntapVolumeTieringPolicy {
+		return &v
+	}).(OntapVolumeTieringPolicyPtrOutput)
+}
+
+func (o OntapVolumeTieringPolicyOutput) CoolingPeriod() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v OntapVolumeTieringPolicy) *int { return v.CoolingPeriod }).(pulumi.IntPtrOutput)
+}
+
+// Specifies the tiering policy for the ONTAP volume for moving data to the capacity pool storage. Valid values are `SNAPSHOT_ONLY`, `AUTO`, `ALL`, `NONE`. Default value is `SNAPSHOT_ONLY`.
+func (o OntapVolumeTieringPolicyOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OntapVolumeTieringPolicy) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type OntapVolumeTieringPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (OntapVolumeTieringPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OntapVolumeTieringPolicy)(nil)).Elem()
+}
+
+func (o OntapVolumeTieringPolicyPtrOutput) ToOntapVolumeTieringPolicyPtrOutput() OntapVolumeTieringPolicyPtrOutput {
+	return o
+}
+
+func (o OntapVolumeTieringPolicyPtrOutput) ToOntapVolumeTieringPolicyPtrOutputWithContext(ctx context.Context) OntapVolumeTieringPolicyPtrOutput {
+	return o
+}
+
+func (o OntapVolumeTieringPolicyPtrOutput) Elem() OntapVolumeTieringPolicyOutput {
+	return o.ApplyT(func(v *OntapVolumeTieringPolicy) OntapVolumeTieringPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret OntapVolumeTieringPolicy
+		return ret
+	}).(OntapVolumeTieringPolicyOutput)
+}
+
+func (o OntapVolumeTieringPolicyPtrOutput) CoolingPeriod() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *OntapVolumeTieringPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return v.CoolingPeriod
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies the tiering policy for the ONTAP volume for moving data to the capacity pool storage. Valid values are `SNAPSHOT_ONLY`, `AUTO`, `ALL`, `NONE`. Default value is `SNAPSHOT_ONLY`.
+func (o OntapVolumeTieringPolicyPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OntapVolumeTieringPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
 type WindowsFileSystemAuditLogConfiguration struct {
 	// The Amazon Resource Name (ARN) for the destination of the audit logs. The destination can be any Amazon CloudWatch Logs log group ARN or Amazon Kinesis Data Firehose delivery stream ARN. Can be specified when `fileAccessAuditLogLevel` and `fileShareAccessAuditLogLevel` are not set to `DISABLED`. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. The name of the Amazon Kinesis Data Firehouse delivery stream must begin with the `aws-fsx` prefix. If you do not provide a destination in `auditLogDestionation`, Amazon FSx will create and use a log stream in the CloudWatch Logs /aws/fsx/windows log group.
 	AuditLogDestination *string `pulumi:"auditLogDestination"`
@@ -902,6 +1998,22 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OntapFileSystemEndpointInterclusterArrayInput)(nil)).Elem(), OntapFileSystemEndpointInterclusterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OntapFileSystemEndpointManagementInput)(nil)).Elem(), OntapFileSystemEndpointManagementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OntapFileSystemEndpointManagementArrayInput)(nil)).Elem(), OntapFileSystemEndpointManagementArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OntapStorageVirtualMachineActiveDirectoryConfigurationInput)(nil)).Elem(), OntapStorageVirtualMachineActiveDirectoryConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OntapStorageVirtualMachineActiveDirectoryConfigurationPtrInput)(nil)).Elem(), OntapStorageVirtualMachineActiveDirectoryConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationInput)(nil)).Elem(), OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationPtrInput)(nil)).Elem(), OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OntapStorageVirtualMachineEndpointInput)(nil)).Elem(), OntapStorageVirtualMachineEndpointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OntapStorageVirtualMachineEndpointArrayInput)(nil)).Elem(), OntapStorageVirtualMachineEndpointArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OntapStorageVirtualMachineEndpointIscseInput)(nil)).Elem(), OntapStorageVirtualMachineEndpointIscseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OntapStorageVirtualMachineEndpointIscseArrayInput)(nil)).Elem(), OntapStorageVirtualMachineEndpointIscseArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OntapStorageVirtualMachineEndpointManagementInput)(nil)).Elem(), OntapStorageVirtualMachineEndpointManagementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OntapStorageVirtualMachineEndpointManagementArrayInput)(nil)).Elem(), OntapStorageVirtualMachineEndpointManagementArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OntapStorageVirtualMachineEndpointNfInput)(nil)).Elem(), OntapStorageVirtualMachineEndpointNfArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OntapStorageVirtualMachineEndpointNfArrayInput)(nil)).Elem(), OntapStorageVirtualMachineEndpointNfArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OntapStorageVirtualMachineEndpointSmbInput)(nil)).Elem(), OntapStorageVirtualMachineEndpointSmbArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OntapStorageVirtualMachineEndpointSmbArrayInput)(nil)).Elem(), OntapStorageVirtualMachineEndpointSmbArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OntapVolumeTieringPolicyInput)(nil)).Elem(), OntapVolumeTieringPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OntapVolumeTieringPolicyPtrInput)(nil)).Elem(), OntapVolumeTieringPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WindowsFileSystemAuditLogConfigurationInput)(nil)).Elem(), WindowsFileSystemAuditLogConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WindowsFileSystemAuditLogConfigurationPtrInput)(nil)).Elem(), WindowsFileSystemAuditLogConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WindowsFileSystemSelfManagedActiveDirectoryInput)(nil)).Elem(), WindowsFileSystemSelfManagedActiveDirectoryArgs{})
@@ -914,6 +2026,22 @@ func init() {
 	pulumi.RegisterOutputType(OntapFileSystemEndpointInterclusterArrayOutput{})
 	pulumi.RegisterOutputType(OntapFileSystemEndpointManagementOutput{})
 	pulumi.RegisterOutputType(OntapFileSystemEndpointManagementArrayOutput{})
+	pulumi.RegisterOutputType(OntapStorageVirtualMachineActiveDirectoryConfigurationOutput{})
+	pulumi.RegisterOutputType(OntapStorageVirtualMachineActiveDirectoryConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationOutput{})
+	pulumi.RegisterOutputType(OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(OntapStorageVirtualMachineEndpointOutput{})
+	pulumi.RegisterOutputType(OntapStorageVirtualMachineEndpointArrayOutput{})
+	pulumi.RegisterOutputType(OntapStorageVirtualMachineEndpointIscseOutput{})
+	pulumi.RegisterOutputType(OntapStorageVirtualMachineEndpointIscseArrayOutput{})
+	pulumi.RegisterOutputType(OntapStorageVirtualMachineEndpointManagementOutput{})
+	pulumi.RegisterOutputType(OntapStorageVirtualMachineEndpointManagementArrayOutput{})
+	pulumi.RegisterOutputType(OntapStorageVirtualMachineEndpointNfOutput{})
+	pulumi.RegisterOutputType(OntapStorageVirtualMachineEndpointNfArrayOutput{})
+	pulumi.RegisterOutputType(OntapStorageVirtualMachineEndpointSmbOutput{})
+	pulumi.RegisterOutputType(OntapStorageVirtualMachineEndpointSmbArrayOutput{})
+	pulumi.RegisterOutputType(OntapVolumeTieringPolicyOutput{})
+	pulumi.RegisterOutputType(OntapVolumeTieringPolicyPtrOutput{})
 	pulumi.RegisterOutputType(WindowsFileSystemAuditLogConfigurationOutput{})
 	pulumi.RegisterOutputType(WindowsFileSystemAuditLogConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(WindowsFileSystemSelfManagedActiveDirectoryOutput{})

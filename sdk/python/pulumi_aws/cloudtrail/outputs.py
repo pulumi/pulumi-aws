@@ -186,6 +186,8 @@ class TrailEventSelector(dict):
         suggest = None
         if key == "dataResources":
             suggest = "data_resources"
+        elif key == "excludeManagementEventSources":
+            suggest = "exclude_management_event_sources"
         elif key == "includeManagementEvents":
             suggest = "include_management_events"
         elif key == "readWriteType":
@@ -204,15 +206,19 @@ class TrailEventSelector(dict):
 
     def __init__(__self__, *,
                  data_resources: Optional[Sequence['outputs.TrailEventSelectorDataResource']] = None,
+                 exclude_management_event_sources: Optional[Sequence[str]] = None,
                  include_management_events: Optional[bool] = None,
                  read_write_type: Optional[str] = None):
         """
         :param Sequence['TrailEventSelectorDataResourceArgs'] data_resources: Configuration block for data events. See details below.
-        :param bool include_management_events: Whether to include management events for your trail.
+        :param Sequence[str] exclude_management_event_sources: A set of event sources to exclude. Valid values include: `kms.amazonaws.com` and `rdsdata.amazonaws.com`. `include_management_events` must be set to`true` to allow this.
+        :param bool include_management_events: Whether to include management events for your trail. Defaults to `true`.
         :param str read_write_type: Type of events to log. Valid values are `ReadOnly`, `WriteOnly`, `All`. Default value is `All`.
         """
         if data_resources is not None:
             pulumi.set(__self__, "data_resources", data_resources)
+        if exclude_management_event_sources is not None:
+            pulumi.set(__self__, "exclude_management_event_sources", exclude_management_event_sources)
         if include_management_events is not None:
             pulumi.set(__self__, "include_management_events", include_management_events)
         if read_write_type is not None:
@@ -227,10 +233,18 @@ class TrailEventSelector(dict):
         return pulumi.get(self, "data_resources")
 
     @property
+    @pulumi.getter(name="excludeManagementEventSources")
+    def exclude_management_event_sources(self) -> Optional[Sequence[str]]:
+        """
+        A set of event sources to exclude. Valid values include: `kms.amazonaws.com` and `rdsdata.amazonaws.com`. `include_management_events` must be set to`true` to allow this.
+        """
+        return pulumi.get(self, "exclude_management_event_sources")
+
+    @property
     @pulumi.getter(name="includeManagementEvents")
     def include_management_events(self) -> Optional[bool]:
         """
-        Whether to include management events for your trail.
+        Whether to include management events for your trail. Defaults to `true`.
         """
         return pulumi.get(self, "include_management_events")
 

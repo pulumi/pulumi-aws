@@ -14,6 +14,10 @@ namespace Pulumi.Aws.WafV2.Outputs
     public sealed class WebAclDefaultActionBlockCustomResponse
     {
         /// <summary>
+        /// References the response body that you want AWS WAF to return to the web request client. This must reference a `key` defined in a `custom_response_body` block of this resource.
+        /// </summary>
+        public readonly string? CustomResponseBodyKey;
+        /// <summary>
         /// The HTTP status code to return to the client.
         /// </summary>
         public readonly int ResponseCode;
@@ -24,10 +28,13 @@ namespace Pulumi.Aws.WafV2.Outputs
 
         [OutputConstructor]
         private WebAclDefaultActionBlockCustomResponse(
+            string? customResponseBodyKey,
+
             int responseCode,
 
             ImmutableArray<Outputs.WebAclDefaultActionBlockCustomResponseResponseHeader> responseHeaders)
         {
+            CustomResponseBodyKey = customResponseBodyKey;
             ResponseCode = responseCode;
             ResponseHeaders = responseHeaders;
         }

@@ -33,6 +33,7 @@ export * from "./types/enums";
 
 // Export sub-modules:
 import * as accessanalyzer from "./accessanalyzer";
+import * as account from "./account";
 import * as acm from "./acm";
 import * as acmpca from "./acmpca";
 import * as alb from "./alb";
@@ -182,6 +183,7 @@ import * as xray from "./xray";
 
 export {
     accessanalyzer,
+    account,
     acm,
     acmpca,
     alb,

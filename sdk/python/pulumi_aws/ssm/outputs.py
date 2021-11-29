@@ -42,6 +42,8 @@ class AssociationOutputLocation(dict):
             suggest = "s3_bucket_name"
         elif key == "s3KeyPrefix":
             suggest = "s3_key_prefix"
+        elif key == "s3Region":
+            suggest = "s3_region"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AssociationOutputLocation. Access the value via the '{suggest}' property getter instead.")
@@ -56,14 +58,18 @@ class AssociationOutputLocation(dict):
 
     def __init__(__self__, *,
                  s3_bucket_name: str,
-                 s3_key_prefix: Optional[str] = None):
+                 s3_key_prefix: Optional[str] = None,
+                 s3_region: Optional[str] = None):
         """
         :param str s3_bucket_name: The S3 bucket name.
         :param str s3_key_prefix: The S3 bucket prefix. Results stored in the root if not configured.
+        :param str s3_region: The S3 bucket region.
         """
         pulumi.set(__self__, "s3_bucket_name", s3_bucket_name)
         if s3_key_prefix is not None:
             pulumi.set(__self__, "s3_key_prefix", s3_key_prefix)
+        if s3_region is not None:
+            pulumi.set(__self__, "s3_region", s3_region)
 
     @property
     @pulumi.getter(name="s3BucketName")
@@ -80,6 +86,14 @@ class AssociationOutputLocation(dict):
         The S3 bucket prefix. Results stored in the root if not configured.
         """
         return pulumi.get(self, "s3_key_prefix")
+
+    @property
+    @pulumi.getter(name="s3Region")
+    def s3_region(self) -> Optional[str]:
+        """
+        The S3 bucket region.
+        """
+        return pulumi.get(self, "s3_region")
 
 
 @pulumi.output_type

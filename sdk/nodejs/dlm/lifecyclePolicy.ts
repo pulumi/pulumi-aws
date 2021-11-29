@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  * Provides a [Data Lifecycle Manager (DLM) lifecycle policy](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-lifecycle.html) for managing snapshots.
  *
  * ## Example Usage
+ * ### Basic
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -83,10 +84,75 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * ### Example Cross-Region Snapshot Copy Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * // ...other configuration...
+ * const dlmCrossRegionCopyCmk = new aws.kms.Key("dlmCrossRegionCopyCmk", {
+ *     description: "Example Alternate Region KMS Key",
+ *     policy: `{
+ *   "Version": "2012-10-17",
+ *   "Id": "dlm-cross-region-copy-cmk",
+ *   "Statement": [
+ *     {
+ *       "Sid": "Enable IAM User Permissions",
+ *       "Effect": "Allow",
+ *       "Principal": {
+ *         "AWS": "*"
+ *       },
+ *       "Action": "kms:*",
+ *       "Resource": "*"
+ *     }
+ *   ]
+ * }
+ * `,
+ * }, {
+ *     provider: aws.alternate,
+ * });
+ * const example = new aws.dlm.LifecyclePolicy("example", {
+ *     description: "example DLM lifecycle policy",
+ *     executionRoleArn: aws_iam_role.dlm_lifecycle_role.arn,
+ *     state: "ENABLED",
+ *     policyDetails: {
+ *         resourceTypes: ["VOLUME"],
+ *         schedules: [{
+ *             name: "2 weeks of daily snapshots",
+ *             createRule: {
+ *                 interval: 24,
+ *                 intervalUnit: "HOURS",
+ *                 times: ["23:45"],
+ *             },
+ *             retainRule: {
+ *                 count: 14,
+ *             },
+ *             tagsToAdd: {
+ *                 SnapshotCreator: "DLM",
+ *             },
+ *             copyTags: false,
+ *             crossRegionCopyRules: [{
+ *                 target: "us-west-2",
+ *                 encrypted: true,
+ *                 cmkArn: dlmCrossRegionCopyCmk.arn,
+ *                 copyTags: true,
+ *                 retainRule: {
+ *                     interval: 30,
+ *                     intervalUnit: "DAYS",
+ *                 },
+ *             }],
+ *         }],
+ *         targetTags: {
+ *             Snapshot: "true",
+ *         },
+ *     },
+ * });
+ * ```
  *
  * ## Import
  *
- * DLM lifecyle policies can be imported by their policy ID
+ * DLM lifecycle policies can be imported by their policy ID
  *
  * ```sh
  *  $ pulumi import aws:dlm/lifecyclePolicy:LifecyclePolicy example policy-abcdef12345678901

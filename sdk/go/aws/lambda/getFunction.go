@@ -76,6 +76,8 @@ type LookupFunctionResult struct {
 	Handler string `pulumi:"handler"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
+	// The URI of the container image.
+	ImageUri string `pulumi:"imageUri"`
 	// The ARN to be used for invoking Lambda Function from API Gateway.
 	InvokeArn string `pulumi:"invokeArn"`
 	// The ARN for the KMS encryption key.
@@ -198,6 +200,11 @@ func (o LookupFunctionResultOutput) Handler() pulumi.StringOutput {
 // The provider-assigned unique ID for this managed resource.
 func (o LookupFunctionResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFunctionResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The URI of the container image.
+func (o LookupFunctionResultOutput) ImageUri() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupFunctionResult) string { return v.ImageUri }).(pulumi.StringOutput)
 }
 
 // The ARN to be used for invoking Lambda Function from API Gateway.

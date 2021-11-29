@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Dlm.Outputs
     public sealed class LifecyclePolicyPolicyDetailsSchedule
     {
         /// <summary>
-        /// Copy all user-defined tags on a source volume to snapshots of the volume created by this policy.
+        /// Whether to copy all user-defined tags from the source snapshot to the cross-region snapshot copy.
         /// </summary>
         public readonly bool? CopyTags;
         /// <summary>
@@ -22,11 +22,15 @@ namespace Pulumi.Aws.Dlm.Outputs
         /// </summary>
         public readonly Outputs.LifecyclePolicyPolicyDetailsScheduleCreateRule CreateRule;
         /// <summary>
+        /// See the `cross_region_copy_rule` block. Max of 3 per schedule.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule> CrossRegionCopyRules;
+        /// <summary>
         /// A name for the schedule.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// See the `retain_rule` block. Max of 1 per schedule.
+        /// The retention rule that indicates how long snapshot copies are to be retained in the destination Region. See the `retain_rule` block. Max of 1 per schedule.
         /// </summary>
         public readonly Outputs.LifecyclePolicyPolicyDetailsScheduleRetainRule RetainRule;
         /// <summary>
@@ -40,6 +44,8 @@ namespace Pulumi.Aws.Dlm.Outputs
 
             Outputs.LifecyclePolicyPolicyDetailsScheduleCreateRule createRule,
 
+            ImmutableArray<Outputs.LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule> crossRegionCopyRules,
+
             string name,
 
             Outputs.LifecyclePolicyPolicyDetailsScheduleRetainRule retainRule,
@@ -48,6 +54,7 @@ namespace Pulumi.Aws.Dlm.Outputs
         {
             CopyTags = copyTags;
             CreateRule = createRule;
+            CrossRegionCopyRules = crossRegionCopyRules;
             Name = name;
             RetainRule = retainRule;
             TagsToAdd = tagsToAdd;

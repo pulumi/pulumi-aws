@@ -20,7 +20,7 @@ namespace Pulumi.Aws.AppRunner.Outputs
         /// <summary>
         /// The Amazon Resource Name (ARN) of an IAM role that provides permissions to your App Runner service. These are permissions that your code needs when it calls any AWS APIs.
         /// </summary>
-        public readonly string InstanceRoleArn;
+        public readonly string? InstanceRoleArn;
         /// <summary>
         /// The amount of memory, in MB or GB, reserved for each instance of your App Runner service. Defaults to `2048`. Valid values: `2048|3072|4096|(2|3|4) GB`.
         /// </summary>
@@ -30,7 +30,7 @@ namespace Pulumi.Aws.AppRunner.Outputs
         private ServiceInstanceConfiguration(
             string? cpu,
 
-            string instanceRoleArn,
+            string? instanceRoleArn,
 
             string? memory)
         {

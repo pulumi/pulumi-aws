@@ -288,12 +288,16 @@ export class RuleGroup extends pulumi.CustomResource {
      */
     public readonly capacity!: pulumi.Output<number>;
     /**
+     * Defines custom response bodies that can be referenced by `customResponse` actions. See Custom Response Body below for details.
+     */
+    public readonly customResponseBodies!: pulumi.Output<outputs.wafv2.RuleGroupCustomResponseBody[] | undefined>;
+    /**
      * A friendly description of the rule group.
      */
     public readonly description!: pulumi.Output<string | undefined>;
     public /*out*/ readonly lockToken!: pulumi.Output<string>;
     /**
-     * The name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
+     * The label string.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -332,6 +336,7 @@ export class RuleGroup extends pulumi.CustomResource {
             const state = argsOrState as RuleGroupState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["capacity"] = state ? state.capacity : undefined;
+            inputs["customResponseBodies"] = state ? state.customResponseBodies : undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["lockToken"] = state ? state.lockToken : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -352,6 +357,7 @@ export class RuleGroup extends pulumi.CustomResource {
                 throw new Error("Missing required property 'visibilityConfig'");
             }
             inputs["capacity"] = args ? args.capacity : undefined;
+            inputs["customResponseBodies"] = args ? args.customResponseBodies : undefined;
             inputs["description"] = args ? args.description : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["rules"] = args ? args.rules : undefined;
@@ -382,12 +388,16 @@ export interface RuleGroupState {
      */
     capacity?: pulumi.Input<number>;
     /**
+     * Defines custom response bodies that can be referenced by `customResponse` actions. See Custom Response Body below for details.
+     */
+    customResponseBodies?: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupCustomResponseBody>[]>;
+    /**
      * A friendly description of the rule group.
      */
     description?: pulumi.Input<string>;
     lockToken?: pulumi.Input<string>;
     /**
-     * The name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
+     * The label string.
      */
     name?: pulumi.Input<string>;
     /**
@@ -421,11 +431,15 @@ export interface RuleGroupArgs {
      */
     capacity: pulumi.Input<number>;
     /**
+     * Defines custom response bodies that can be referenced by `customResponse` actions. See Custom Response Body below for details.
+     */
+    customResponseBodies?: pulumi.Input<pulumi.Input<inputs.wafv2.RuleGroupCustomResponseBody>[]>;
+    /**
      * A friendly description of the rule group.
      */
     description?: pulumi.Input<string>;
     /**
-     * The name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
+     * The label string.
      */
     name?: pulumi.Input<string>;
     /**

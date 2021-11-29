@@ -148,6 +148,10 @@ export class LoadBalancer extends pulumi.CustomResource {
      */
     public readonly customerOwnedIpv4Pool!: pulumi.Output<string | undefined>;
     /**
+     * Determines how the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
+     */
+    public readonly desyncMitigationMode!: pulumi.Output<string | undefined>;
+    /**
      * The DNS name of the load balancer.
      */
     public /*out*/ readonly dnsName!: pulumi.Output<string>;
@@ -169,6 +173,10 @@ export class LoadBalancer extends pulumi.CustomResource {
      * Indicates whether HTTP/2 is enabled in `application` load balancers. Defaults to `true`.
      */
     public readonly enableHttp2!: pulumi.Output<boolean | undefined>;
+    /**
+     * Indicates whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF. Defaults to `false`.
+     */
+    public readonly enableWafFailOpen!: pulumi.Output<boolean | undefined>;
     /**
      * The time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
      */
@@ -210,7 +218,7 @@ export class LoadBalancer extends pulumi.CustomResource {
      */
     public readonly subnets!: pulumi.Output<string[]>;
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -244,11 +252,13 @@ export class LoadBalancer extends pulumi.CustomResource {
             inputs["arn"] = state ? state.arn : undefined;
             inputs["arnSuffix"] = state ? state.arnSuffix : undefined;
             inputs["customerOwnedIpv4Pool"] = state ? state.customerOwnedIpv4Pool : undefined;
+            inputs["desyncMitigationMode"] = state ? state.desyncMitigationMode : undefined;
             inputs["dnsName"] = state ? state.dnsName : undefined;
             inputs["dropInvalidHeaderFields"] = state ? state.dropInvalidHeaderFields : undefined;
             inputs["enableCrossZoneLoadBalancing"] = state ? state.enableCrossZoneLoadBalancing : undefined;
             inputs["enableDeletionProtection"] = state ? state.enableDeletionProtection : undefined;
             inputs["enableHttp2"] = state ? state.enableHttp2 : undefined;
+            inputs["enableWafFailOpen"] = state ? state.enableWafFailOpen : undefined;
             inputs["idleTimeout"] = state ? state.idleTimeout : undefined;
             inputs["internal"] = state ? state.internal : undefined;
             inputs["ipAddressType"] = state ? state.ipAddressType : undefined;
@@ -266,10 +276,12 @@ export class LoadBalancer extends pulumi.CustomResource {
             const args = argsOrState as LoadBalancerArgs | undefined;
             inputs["accessLogs"] = args ? args.accessLogs : undefined;
             inputs["customerOwnedIpv4Pool"] = args ? args.customerOwnedIpv4Pool : undefined;
+            inputs["desyncMitigationMode"] = args ? args.desyncMitigationMode : undefined;
             inputs["dropInvalidHeaderFields"] = args ? args.dropInvalidHeaderFields : undefined;
             inputs["enableCrossZoneLoadBalancing"] = args ? args.enableCrossZoneLoadBalancing : undefined;
             inputs["enableDeletionProtection"] = args ? args.enableDeletionProtection : undefined;
             inputs["enableHttp2"] = args ? args.enableHttp2 : undefined;
+            inputs["enableWafFailOpen"] = args ? args.enableWafFailOpen : undefined;
             inputs["idleTimeout"] = args ? args.idleTimeout : undefined;
             inputs["internal"] = args ? args.internal : undefined;
             inputs["ipAddressType"] = args ? args.ipAddressType : undefined;
@@ -315,6 +327,10 @@ export interface LoadBalancerState {
      */
     customerOwnedIpv4Pool?: pulumi.Input<string>;
     /**
+     * Determines how the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
+     */
+    desyncMitigationMode?: pulumi.Input<string>;
+    /**
      * The DNS name of the load balancer.
      */
     dnsName?: pulumi.Input<string>;
@@ -336,6 +352,10 @@ export interface LoadBalancerState {
      * Indicates whether HTTP/2 is enabled in `application` load balancers. Defaults to `true`.
      */
     enableHttp2?: pulumi.Input<boolean>;
+    /**
+     * Indicates whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF. Defaults to `false`.
+     */
+    enableWafFailOpen?: pulumi.Input<boolean>;
     /**
      * The time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
      */
@@ -377,7 +397,7 @@ export interface LoadBalancerState {
      */
     subnets?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -405,6 +425,10 @@ export interface LoadBalancerArgs {
      */
     customerOwnedIpv4Pool?: pulumi.Input<string>;
     /**
+     * Determines how the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
+     */
+    desyncMitigationMode?: pulumi.Input<string>;
+    /**
      * Indicates whether HTTP headers with header fields that are not valid are removed by the load balancer (true) or routed to targets (false). The default is false. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens. Only valid for Load Balancers of type `application`.
      */
     dropInvalidHeaderFields?: pulumi.Input<boolean>;
@@ -422,6 +446,10 @@ export interface LoadBalancerArgs {
      * Indicates whether HTTP/2 is enabled in `application` load balancers. Defaults to `true`.
      */
     enableHttp2?: pulumi.Input<boolean>;
+    /**
+     * Indicates whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF. Defaults to `false`.
+     */
+    enableWafFailOpen?: pulumi.Input<boolean>;
     /**
      * The time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
      */
@@ -463,7 +491,7 @@ export interface LoadBalancerArgs {
      */
     subnets?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

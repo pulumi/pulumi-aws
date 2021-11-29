@@ -3287,6 +3287,112 @@ func (o GetImageRecipeComponentArrayOutput) Index(i pulumi.IntInput) GetImageRec
 	}).(GetImageRecipeComponentOutput)
 }
 
+type GetImageRecipesFilter struct {
+	// The name of the filter field. Valid values can be found in the [Image Builder ListImageRecipes API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListImageRecipes.html).
+	Name string `pulumi:"name"`
+	// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+	Values []string `pulumi:"values"`
+}
+
+// GetImageRecipesFilterInput is an input type that accepts GetImageRecipesFilterArgs and GetImageRecipesFilterOutput values.
+// You can construct a concrete instance of `GetImageRecipesFilterInput` via:
+//
+//          GetImageRecipesFilterArgs{...}
+type GetImageRecipesFilterInput interface {
+	pulumi.Input
+
+	ToGetImageRecipesFilterOutput() GetImageRecipesFilterOutput
+	ToGetImageRecipesFilterOutputWithContext(context.Context) GetImageRecipesFilterOutput
+}
+
+type GetImageRecipesFilterArgs struct {
+	// The name of the filter field. Valid values can be found in the [Image Builder ListImageRecipes API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListImageRecipes.html).
+	Name pulumi.StringInput `pulumi:"name"`
+	// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetImageRecipesFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetImageRecipesFilter)(nil)).Elem()
+}
+
+func (i GetImageRecipesFilterArgs) ToGetImageRecipesFilterOutput() GetImageRecipesFilterOutput {
+	return i.ToGetImageRecipesFilterOutputWithContext(context.Background())
+}
+
+func (i GetImageRecipesFilterArgs) ToGetImageRecipesFilterOutputWithContext(ctx context.Context) GetImageRecipesFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetImageRecipesFilterOutput)
+}
+
+// GetImageRecipesFilterArrayInput is an input type that accepts GetImageRecipesFilterArray and GetImageRecipesFilterArrayOutput values.
+// You can construct a concrete instance of `GetImageRecipesFilterArrayInput` via:
+//
+//          GetImageRecipesFilterArray{ GetImageRecipesFilterArgs{...} }
+type GetImageRecipesFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetImageRecipesFilterArrayOutput() GetImageRecipesFilterArrayOutput
+	ToGetImageRecipesFilterArrayOutputWithContext(context.Context) GetImageRecipesFilterArrayOutput
+}
+
+type GetImageRecipesFilterArray []GetImageRecipesFilterInput
+
+func (GetImageRecipesFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetImageRecipesFilter)(nil)).Elem()
+}
+
+func (i GetImageRecipesFilterArray) ToGetImageRecipesFilterArrayOutput() GetImageRecipesFilterArrayOutput {
+	return i.ToGetImageRecipesFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetImageRecipesFilterArray) ToGetImageRecipesFilterArrayOutputWithContext(ctx context.Context) GetImageRecipesFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetImageRecipesFilterArrayOutput)
+}
+
+type GetImageRecipesFilterOutput struct{ *pulumi.OutputState }
+
+func (GetImageRecipesFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetImageRecipesFilter)(nil)).Elem()
+}
+
+func (o GetImageRecipesFilterOutput) ToGetImageRecipesFilterOutput() GetImageRecipesFilterOutput {
+	return o
+}
+
+func (o GetImageRecipesFilterOutput) ToGetImageRecipesFilterOutputWithContext(ctx context.Context) GetImageRecipesFilterOutput {
+	return o
+}
+
+// The name of the filter field. Valid values can be found in the [Image Builder ListImageRecipes API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListImageRecipes.html).
+func (o GetImageRecipesFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetImageRecipesFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+func (o GetImageRecipesFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetImageRecipesFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetImageRecipesFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetImageRecipesFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetImageRecipesFilter)(nil)).Elem()
+}
+
+func (o GetImageRecipesFilterArrayOutput) ToGetImageRecipesFilterArrayOutput() GetImageRecipesFilterArrayOutput {
+	return o
+}
+
+func (o GetImageRecipesFilterArrayOutput) ToGetImageRecipesFilterArrayOutputWithContext(ctx context.Context) GetImageRecipesFilterArrayOutput {
+	return o
+}
+
+func (o GetImageRecipesFilterArrayOutput) Index(i pulumi.IntInput) GetImageRecipesFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetImageRecipesFilter {
+		return vs[0].([]GetImageRecipesFilter)[vs[1].(int)]
+	}).(GetImageRecipesFilterOutput)
+}
+
 type GetInfrastructureConfigurationLogging struct {
 	// Nested list of S3 logs settings.
 	S3Logs []GetInfrastructureConfigurationLoggingS3Log `pulumi:"s3Logs"`
@@ -3541,6 +3647,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetImageRecipeBlockDeviceMappingEbArrayInput)(nil)).Elem(), GetImageRecipeBlockDeviceMappingEbArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetImageRecipeComponentInput)(nil)).Elem(), GetImageRecipeComponentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetImageRecipeComponentArrayInput)(nil)).Elem(), GetImageRecipeComponentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetImageRecipesFilterInput)(nil)).Elem(), GetImageRecipesFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetImageRecipesFilterArrayInput)(nil)).Elem(), GetImageRecipesFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInfrastructureConfigurationLoggingInput)(nil)).Elem(), GetInfrastructureConfigurationLoggingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInfrastructureConfigurationLoggingArrayInput)(nil)).Elem(), GetInfrastructureConfigurationLoggingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInfrastructureConfigurationLoggingS3LogInput)(nil)).Elem(), GetInfrastructureConfigurationLoggingS3LogArgs{})
@@ -3593,6 +3701,8 @@ func init() {
 	pulumi.RegisterOutputType(GetImageRecipeBlockDeviceMappingEbArrayOutput{})
 	pulumi.RegisterOutputType(GetImageRecipeComponentOutput{})
 	pulumi.RegisterOutputType(GetImageRecipeComponentArrayOutput{})
+	pulumi.RegisterOutputType(GetImageRecipesFilterOutput{})
+	pulumi.RegisterOutputType(GetImageRecipesFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetInfrastructureConfigurationLoggingOutput{})
 	pulumi.RegisterOutputType(GetInfrastructureConfigurationLoggingArrayOutput{})
 	pulumi.RegisterOutputType(GetInfrastructureConfigurationLoggingS3LogOutput{})

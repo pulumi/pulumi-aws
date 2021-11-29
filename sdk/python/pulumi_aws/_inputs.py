@@ -146,6 +146,7 @@ class ProviderDefaultTagsArgs:
 class ProviderEndpointArgs:
     def __init__(__self__, *,
                  accessanalyzer: Optional[pulumi.Input[str]] = None,
+                 account: Optional[pulumi.Input[str]] = None,
                  acm: Optional[pulumi.Input[str]] = None,
                  acmpca: Optional[pulumi.Input[str]] = None,
                  alexaforbusiness: Optional[pulumi.Input[str]] = None,
@@ -446,6 +447,8 @@ class ProviderEndpointArgs:
                  xray: Optional[pulumi.Input[str]] = None):
         if accessanalyzer is not None:
             pulumi.set(__self__, "accessanalyzer", accessanalyzer)
+        if account is not None:
+            pulumi.set(__self__, "account", account)
         if acm is not None:
             pulumi.set(__self__, "acm", acm)
         if acmpca is not None:
@@ -1051,6 +1054,15 @@ class ProviderEndpointArgs:
     @accessanalyzer.setter
     def accessanalyzer(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "accessanalyzer", value)
+
+    @property
+    @pulumi.getter
+    def account(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "account")
+
+    @account.setter
+    def account(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "account", value)
 
     @property
     @pulumi.getter

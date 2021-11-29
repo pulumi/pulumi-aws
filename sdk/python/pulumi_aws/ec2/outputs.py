@@ -124,6 +124,7 @@ __all__ = [
     'GetInstanceTypeInstanceDiskResult',
     'GetInstanceTypeOfferingFilterResult',
     'GetInstanceTypeOfferingsFilterResult',
+    'GetInstanceTypesFilterResult',
     'GetInstancesFilterResult',
     'GetInternetGatewayAttachmentResult',
     'GetInternetGatewayFilterResult',
@@ -7989,6 +7990,35 @@ class GetInstanceTypeOfferingsFilterResult(dict):
     def name(self) -> str:
         """
         Name of the filter. The `location` filter depends on the top-level `location_type` argument and if not specified, defaults to the current region.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
+        """
+        List of one or more values for the filter.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class GetInstanceTypesFilterResult(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 values: Sequence[str]):
+        """
+        :param str name: Name of the filter.
+        :param Sequence[str] values: List of one or more values for the filter.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        Name of the filter.
         """
         return pulumi.get(self, "name")
 

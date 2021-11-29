@@ -306,10 +306,12 @@ type RuleGroup struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The web ACL capacity units (WCUs) required for this rule group. See [here](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html#API_CreateRuleGroup_RequestSyntax) for general information and [here](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statements-list.html) for capacity specific information.
 	Capacity pulumi.IntOutput `pulumi:"capacity"`
+	// Defines custom response bodies that can be referenced by `customResponse` actions. See Custom Response Body below for details.
+	CustomResponseBodies RuleGroupCustomResponseBodyArrayOutput `pulumi:"customResponseBodies"`
 	// A friendly description of the rule group.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	LockToken   pulumi.StringOutput    `pulumi:"lockToken"`
-	// The name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
+	// The label string.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
 	Rules RuleGroupRuleArrayOutput `pulumi:"rules"`
@@ -365,10 +367,12 @@ type ruleGroupState struct {
 	Arn *string `pulumi:"arn"`
 	// The web ACL capacity units (WCUs) required for this rule group. See [here](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html#API_CreateRuleGroup_RequestSyntax) for general information and [here](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statements-list.html) for capacity specific information.
 	Capacity *int `pulumi:"capacity"`
+	// Defines custom response bodies that can be referenced by `customResponse` actions. See Custom Response Body below for details.
+	CustomResponseBodies []RuleGroupCustomResponseBody `pulumi:"customResponseBodies"`
 	// A friendly description of the rule group.
 	Description *string `pulumi:"description"`
 	LockToken   *string `pulumi:"lockToken"`
-	// The name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
+	// The label string.
 	Name *string `pulumi:"name"`
 	// The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
 	Rules []RuleGroupRule `pulumi:"rules"`
@@ -387,10 +391,12 @@ type RuleGroupState struct {
 	Arn pulumi.StringPtrInput
 	// The web ACL capacity units (WCUs) required for this rule group. See [here](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html#API_CreateRuleGroup_RequestSyntax) for general information and [here](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statements-list.html) for capacity specific information.
 	Capacity pulumi.IntPtrInput
+	// Defines custom response bodies that can be referenced by `customResponse` actions. See Custom Response Body below for details.
+	CustomResponseBodies RuleGroupCustomResponseBodyArrayInput
 	// A friendly description of the rule group.
 	Description pulumi.StringPtrInput
 	LockToken   pulumi.StringPtrInput
-	// The name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
+	// The label string.
 	Name pulumi.StringPtrInput
 	// The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
 	Rules RuleGroupRuleArrayInput
@@ -411,9 +417,11 @@ func (RuleGroupState) ElementType() reflect.Type {
 type ruleGroupArgs struct {
 	// The web ACL capacity units (WCUs) required for this rule group. See [here](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html#API_CreateRuleGroup_RequestSyntax) for general information and [here](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statements-list.html) for capacity specific information.
 	Capacity int `pulumi:"capacity"`
+	// Defines custom response bodies that can be referenced by `customResponse` actions. See Custom Response Body below for details.
+	CustomResponseBodies []RuleGroupCustomResponseBody `pulumi:"customResponseBodies"`
 	// A friendly description of the rule group.
 	Description *string `pulumi:"description"`
-	// The name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
+	// The label string.
 	Name *string `pulumi:"name"`
 	// The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
 	Rules []RuleGroupRule `pulumi:"rules"`
@@ -431,9 +439,11 @@ type ruleGroupArgs struct {
 type RuleGroupArgs struct {
 	// The web ACL capacity units (WCUs) required for this rule group. See [here](https://docs.aws.amazon.com/waf/latest/APIReference/API_CreateRuleGroup.html#API_CreateRuleGroup_RequestSyntax) for general information and [here](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-statements-list.html) for capacity specific information.
 	Capacity pulumi.IntInput
+	// Defines custom response bodies that can be referenced by `customResponse` actions. See Custom Response Body below for details.
+	CustomResponseBodies RuleGroupCustomResponseBodyArrayInput
 	// A friendly description of the rule group.
 	Description pulumi.StringPtrInput
-	// The name of the custom header. For custom request header insertion, when AWS WAF inserts the header into the request, it prefixes this name `x-amzn-waf-`, to avoid confusion with the headers that are already in the request. For example, for the header name `sample`, AWS WAF inserts the header `x-amzn-waf-sample`.
+	// The label string.
 	Name pulumi.StringPtrInput
 	// The rule blocks used to identify the web requests that you want to `allow`, `block`, or `count`. See Rules below for details.
 	Rules RuleGroupRuleArrayInput

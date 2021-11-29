@@ -22,6 +22,10 @@ namespace Pulumi.Aws.Athena.Outputs
         /// </summary>
         public readonly bool? EnforceWorkgroupConfiguration;
         /// <summary>
+        /// Configuration block for the Athena Engine Versioning. For more information, see [Athena Engine Versioning](https://docs.aws.amazon.com/athena/latest/ug/engine-versions.html). Documented below.
+        /// </summary>
+        public readonly Outputs.WorkgroupConfigurationEngineVersion? EngineVersion;
+        /// <summary>
         /// Boolean whether Amazon CloudWatch metrics are enabled for the workgroup. Defaults to `true`.
         /// </summary>
         public readonly bool? PublishCloudwatchMetricsEnabled;
@@ -40,6 +44,8 @@ namespace Pulumi.Aws.Athena.Outputs
 
             bool? enforceWorkgroupConfiguration,
 
+            Outputs.WorkgroupConfigurationEngineVersion? engineVersion,
+
             bool? publishCloudwatchMetricsEnabled,
 
             bool? requesterPaysEnabled,
@@ -48,6 +54,7 @@ namespace Pulumi.Aws.Athena.Outputs
         {
             BytesScannedCutoffPerQuery = bytesScannedCutoffPerQuery;
             EnforceWorkgroupConfiguration = enforceWorkgroupConfiguration;
+            EngineVersion = engineVersion;
             PublishCloudwatchMetricsEnabled = publishCloudwatchMetricsEnabled;
             RequesterPaysEnabled = requesterPaysEnabled;
             ResultConfiguration = resultConfiguration;

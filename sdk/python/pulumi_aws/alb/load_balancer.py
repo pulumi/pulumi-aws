@@ -17,10 +17,12 @@ class LoadBalancerArgs:
     def __init__(__self__, *,
                  access_logs: Optional[pulumi.Input['LoadBalancerAccessLogsArgs']] = None,
                  customer_owned_ipv4_pool: Optional[pulumi.Input[str]] = None,
+                 desync_mitigation_mode: Optional[pulumi.Input[str]] = None,
                  drop_invalid_header_fields: Optional[pulumi.Input[bool]] = None,
                  enable_cross_zone_load_balancing: Optional[pulumi.Input[bool]] = None,
                  enable_deletion_protection: Optional[pulumi.Input[bool]] = None,
                  enable_http2: Optional[pulumi.Input[bool]] = None,
+                 enable_waf_fail_open: Optional[pulumi.Input[bool]] = None,
                  idle_timeout: Optional[pulumi.Input[int]] = None,
                  internal: Optional[pulumi.Input[bool]] = None,
                  ip_address_type: Optional[pulumi.Input[str]] = None,
@@ -35,12 +37,14 @@ class LoadBalancerArgs:
         The set of arguments for constructing a LoadBalancer resource.
         :param pulumi.Input['LoadBalancerAccessLogsArgs'] access_logs: An Access Logs block. Access Logs documented below.
         :param pulumi.Input[str] customer_owned_ipv4_pool: The ID of the customer owned ipv4 pool to use for this load balancer.
+        :param pulumi.Input[str] desync_mitigation_mode: Determines how the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
         :param pulumi.Input[bool] drop_invalid_header_fields: Indicates whether HTTP headers with header fields that are not valid are removed by the load balancer (true) or routed to targets (false). The default is false. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens. Only valid for Load Balancers of type `application`.
         :param pulumi.Input[bool] enable_cross_zone_load_balancing: If true, cross-zone load balancing of the load balancer will be enabled.
                This is a `network` load balancer feature. Defaults to `false`.
         :param pulumi.Input[bool] enable_deletion_protection: If true, deletion of the load balancer will be disabled via
                the AWS API. This will prevent this provider from deleting the load balancer. Defaults to `false`.
         :param pulumi.Input[bool] enable_http2: Indicates whether HTTP/2 is enabled in `application` load balancers. Defaults to `true`.
+        :param pulumi.Input[bool] enable_waf_fail_open: Indicates whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF. Defaults to `false`.
         :param pulumi.Input[int] idle_timeout: The time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
         :param pulumi.Input[bool] internal: If true, the LB will be internal.
         :param pulumi.Input[str] ip_address_type: The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`
@@ -54,12 +58,14 @@ class LoadBalancerArgs:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnets: A list of subnet IDs to attach to the LB. Subnets
                cannot be updated for Load Balancers of type `network`. Changing this value
                for load balancers of type `network` will force a recreation of the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if access_logs is not None:
             pulumi.set(__self__, "access_logs", access_logs)
         if customer_owned_ipv4_pool is not None:
             pulumi.set(__self__, "customer_owned_ipv4_pool", customer_owned_ipv4_pool)
+        if desync_mitigation_mode is not None:
+            pulumi.set(__self__, "desync_mitigation_mode", desync_mitigation_mode)
         if drop_invalid_header_fields is not None:
             pulumi.set(__self__, "drop_invalid_header_fields", drop_invalid_header_fields)
         if enable_cross_zone_load_balancing is not None:
@@ -68,6 +74,8 @@ class LoadBalancerArgs:
             pulumi.set(__self__, "enable_deletion_protection", enable_deletion_protection)
         if enable_http2 is not None:
             pulumi.set(__self__, "enable_http2", enable_http2)
+        if enable_waf_fail_open is not None:
+            pulumi.set(__self__, "enable_waf_fail_open", enable_waf_fail_open)
         if idle_timeout is not None:
             pulumi.set(__self__, "idle_timeout", idle_timeout)
         if internal is not None:
@@ -112,6 +120,18 @@ class LoadBalancerArgs:
     @customer_owned_ipv4_pool.setter
     def customer_owned_ipv4_pool(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "customer_owned_ipv4_pool", value)
+
+    @property
+    @pulumi.getter(name="desyncMitigationMode")
+    def desync_mitigation_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Determines how the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
+        """
+        return pulumi.get(self, "desync_mitigation_mode")
+
+    @desync_mitigation_mode.setter
+    def desync_mitigation_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "desync_mitigation_mode", value)
 
     @property
     @pulumi.getter(name="dropInvalidHeaderFields")
@@ -162,6 +182,18 @@ class LoadBalancerArgs:
     @enable_http2.setter
     def enable_http2(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enable_http2", value)
+
+    @property
+    @pulumi.getter(name="enableWafFailOpen")
+    def enable_waf_fail_open(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF. Defaults to `false`.
+        """
+        return pulumi.get(self, "enable_waf_fail_open")
+
+    @enable_waf_fail_open.setter
+    def enable_waf_fail_open(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_waf_fail_open", value)
 
     @property
     @pulumi.getter(name="idleTimeout")
@@ -279,7 +311,7 @@ class LoadBalancerArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -295,11 +327,13 @@ class _LoadBalancerState:
                  arn: Optional[pulumi.Input[str]] = None,
                  arn_suffix: Optional[pulumi.Input[str]] = None,
                  customer_owned_ipv4_pool: Optional[pulumi.Input[str]] = None,
+                 desync_mitigation_mode: Optional[pulumi.Input[str]] = None,
                  dns_name: Optional[pulumi.Input[str]] = None,
                  drop_invalid_header_fields: Optional[pulumi.Input[bool]] = None,
                  enable_cross_zone_load_balancing: Optional[pulumi.Input[bool]] = None,
                  enable_deletion_protection: Optional[pulumi.Input[bool]] = None,
                  enable_http2: Optional[pulumi.Input[bool]] = None,
+                 enable_waf_fail_open: Optional[pulumi.Input[bool]] = None,
                  idle_timeout: Optional[pulumi.Input[int]] = None,
                  internal: Optional[pulumi.Input[bool]] = None,
                  ip_address_type: Optional[pulumi.Input[str]] = None,
@@ -319,6 +353,7 @@ class _LoadBalancerState:
         :param pulumi.Input[str] arn: The ARN of the load balancer (matches `id`).
         :param pulumi.Input[str] arn_suffix: The ARN suffix for use with CloudWatch Metrics.
         :param pulumi.Input[str] customer_owned_ipv4_pool: The ID of the customer owned ipv4 pool to use for this load balancer.
+        :param pulumi.Input[str] desync_mitigation_mode: Determines how the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
         :param pulumi.Input[str] dns_name: The DNS name of the load balancer.
         :param pulumi.Input[bool] drop_invalid_header_fields: Indicates whether HTTP headers with header fields that are not valid are removed by the load balancer (true) or routed to targets (false). The default is false. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens. Only valid for Load Balancers of type `application`.
         :param pulumi.Input[bool] enable_cross_zone_load_balancing: If true, cross-zone load balancing of the load balancer will be enabled.
@@ -326,6 +361,7 @@ class _LoadBalancerState:
         :param pulumi.Input[bool] enable_deletion_protection: If true, deletion of the load balancer will be disabled via
                the AWS API. This will prevent this provider from deleting the load balancer. Defaults to `false`.
         :param pulumi.Input[bool] enable_http2: Indicates whether HTTP/2 is enabled in `application` load balancers. Defaults to `true`.
+        :param pulumi.Input[bool] enable_waf_fail_open: Indicates whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF. Defaults to `false`.
         :param pulumi.Input[int] idle_timeout: The time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
         :param pulumi.Input[bool] internal: If true, the LB will be internal.
         :param pulumi.Input[str] ip_address_type: The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`
@@ -339,7 +375,7 @@ class _LoadBalancerState:
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnets: A list of subnet IDs to attach to the LB. Subnets
                cannot be updated for Load Balancers of type `network`. Changing this value
                for load balancers of type `network` will force a recreation of the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         :param pulumi.Input[str] zone_id: The canonical hosted zone ID of the load balancer (to be used in a Route 53 Alias record).
                * `subnet_mapping.*.outpost_id` - ID of the Outpost containing the load balancer.
@@ -352,6 +388,8 @@ class _LoadBalancerState:
             pulumi.set(__self__, "arn_suffix", arn_suffix)
         if customer_owned_ipv4_pool is not None:
             pulumi.set(__self__, "customer_owned_ipv4_pool", customer_owned_ipv4_pool)
+        if desync_mitigation_mode is not None:
+            pulumi.set(__self__, "desync_mitigation_mode", desync_mitigation_mode)
         if dns_name is not None:
             pulumi.set(__self__, "dns_name", dns_name)
         if drop_invalid_header_fields is not None:
@@ -362,6 +400,8 @@ class _LoadBalancerState:
             pulumi.set(__self__, "enable_deletion_protection", enable_deletion_protection)
         if enable_http2 is not None:
             pulumi.set(__self__, "enable_http2", enable_http2)
+        if enable_waf_fail_open is not None:
+            pulumi.set(__self__, "enable_waf_fail_open", enable_waf_fail_open)
         if idle_timeout is not None:
             pulumi.set(__self__, "idle_timeout", idle_timeout)
         if internal is not None:
@@ -438,6 +478,18 @@ class _LoadBalancerState:
         pulumi.set(self, "customer_owned_ipv4_pool", value)
 
     @property
+    @pulumi.getter(name="desyncMitigationMode")
+    def desync_mitigation_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Determines how the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
+        """
+        return pulumi.get(self, "desync_mitigation_mode")
+
+    @desync_mitigation_mode.setter
+    def desync_mitigation_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "desync_mitigation_mode", value)
+
+    @property
     @pulumi.getter(name="dnsName")
     def dns_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -498,6 +550,18 @@ class _LoadBalancerState:
     @enable_http2.setter
     def enable_http2(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enable_http2", value)
+
+    @property
+    @pulumi.getter(name="enableWafFailOpen")
+    def enable_waf_fail_open(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Indicates whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF. Defaults to `false`.
+        """
+        return pulumi.get(self, "enable_waf_fail_open")
+
+    @enable_waf_fail_open.setter
+    def enable_waf_fail_open(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enable_waf_fail_open", value)
 
     @property
     @pulumi.getter(name="idleTimeout")
@@ -615,7 +679,7 @@ class _LoadBalancerState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -665,10 +729,12 @@ class LoadBalancer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_logs: Optional[pulumi.Input[pulumi.InputType['LoadBalancerAccessLogsArgs']]] = None,
                  customer_owned_ipv4_pool: Optional[pulumi.Input[str]] = None,
+                 desync_mitigation_mode: Optional[pulumi.Input[str]] = None,
                  drop_invalid_header_fields: Optional[pulumi.Input[bool]] = None,
                  enable_cross_zone_load_balancing: Optional[pulumi.Input[bool]] = None,
                  enable_deletion_protection: Optional[pulumi.Input[bool]] = None,
                  enable_http2: Optional[pulumi.Input[bool]] = None,
+                 enable_waf_fail_open: Optional[pulumi.Input[bool]] = None,
                  idle_timeout: Optional[pulumi.Input[int]] = None,
                  internal: Optional[pulumi.Input[bool]] = None,
                  ip_address_type: Optional[pulumi.Input[str]] = None,
@@ -773,12 +839,14 @@ class LoadBalancer(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['LoadBalancerAccessLogsArgs']] access_logs: An Access Logs block. Access Logs documented below.
         :param pulumi.Input[str] customer_owned_ipv4_pool: The ID of the customer owned ipv4 pool to use for this load balancer.
+        :param pulumi.Input[str] desync_mitigation_mode: Determines how the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
         :param pulumi.Input[bool] drop_invalid_header_fields: Indicates whether HTTP headers with header fields that are not valid are removed by the load balancer (true) or routed to targets (false). The default is false. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens. Only valid for Load Balancers of type `application`.
         :param pulumi.Input[bool] enable_cross_zone_load_balancing: If true, cross-zone load balancing of the load balancer will be enabled.
                This is a `network` load balancer feature. Defaults to `false`.
         :param pulumi.Input[bool] enable_deletion_protection: If true, deletion of the load balancer will be disabled via
                the AWS API. This will prevent this provider from deleting the load balancer. Defaults to `false`.
         :param pulumi.Input[bool] enable_http2: Indicates whether HTTP/2 is enabled in `application` load balancers. Defaults to `true`.
+        :param pulumi.Input[bool] enable_waf_fail_open: Indicates whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF. Defaults to `false`.
         :param pulumi.Input[int] idle_timeout: The time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
         :param pulumi.Input[bool] internal: If true, the LB will be internal.
         :param pulumi.Input[str] ip_address_type: The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`
@@ -792,7 +860,7 @@ class LoadBalancer(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnets: A list of subnet IDs to attach to the LB. Subnets
                cannot be updated for Load Balancers of type `network`. Changing this value
                for load balancers of type `network` will force a recreation of the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -906,10 +974,12 @@ class LoadBalancer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_logs: Optional[pulumi.Input[pulumi.InputType['LoadBalancerAccessLogsArgs']]] = None,
                  customer_owned_ipv4_pool: Optional[pulumi.Input[str]] = None,
+                 desync_mitigation_mode: Optional[pulumi.Input[str]] = None,
                  drop_invalid_header_fields: Optional[pulumi.Input[bool]] = None,
                  enable_cross_zone_load_balancing: Optional[pulumi.Input[bool]] = None,
                  enable_deletion_protection: Optional[pulumi.Input[bool]] = None,
                  enable_http2: Optional[pulumi.Input[bool]] = None,
+                 enable_waf_fail_open: Optional[pulumi.Input[bool]] = None,
                  idle_timeout: Optional[pulumi.Input[int]] = None,
                  internal: Optional[pulumi.Input[bool]] = None,
                  ip_address_type: Optional[pulumi.Input[str]] = None,
@@ -934,10 +1004,12 @@ class LoadBalancer(pulumi.CustomResource):
 
             __props__.__dict__["access_logs"] = access_logs
             __props__.__dict__["customer_owned_ipv4_pool"] = customer_owned_ipv4_pool
+            __props__.__dict__["desync_mitigation_mode"] = desync_mitigation_mode
             __props__.__dict__["drop_invalid_header_fields"] = drop_invalid_header_fields
             __props__.__dict__["enable_cross_zone_load_balancing"] = enable_cross_zone_load_balancing
             __props__.__dict__["enable_deletion_protection"] = enable_deletion_protection
             __props__.__dict__["enable_http2"] = enable_http2
+            __props__.__dict__["enable_waf_fail_open"] = enable_waf_fail_open
             __props__.__dict__["idle_timeout"] = idle_timeout
             __props__.__dict__["internal"] = internal
             __props__.__dict__["ip_address_type"] = ip_address_type
@@ -970,11 +1042,13 @@ class LoadBalancer(pulumi.CustomResource):
             arn: Optional[pulumi.Input[str]] = None,
             arn_suffix: Optional[pulumi.Input[str]] = None,
             customer_owned_ipv4_pool: Optional[pulumi.Input[str]] = None,
+            desync_mitigation_mode: Optional[pulumi.Input[str]] = None,
             dns_name: Optional[pulumi.Input[str]] = None,
             drop_invalid_header_fields: Optional[pulumi.Input[bool]] = None,
             enable_cross_zone_load_balancing: Optional[pulumi.Input[bool]] = None,
             enable_deletion_protection: Optional[pulumi.Input[bool]] = None,
             enable_http2: Optional[pulumi.Input[bool]] = None,
+            enable_waf_fail_open: Optional[pulumi.Input[bool]] = None,
             idle_timeout: Optional[pulumi.Input[int]] = None,
             internal: Optional[pulumi.Input[bool]] = None,
             ip_address_type: Optional[pulumi.Input[str]] = None,
@@ -999,6 +1073,7 @@ class LoadBalancer(pulumi.CustomResource):
         :param pulumi.Input[str] arn: The ARN of the load balancer (matches `id`).
         :param pulumi.Input[str] arn_suffix: The ARN suffix for use with CloudWatch Metrics.
         :param pulumi.Input[str] customer_owned_ipv4_pool: The ID of the customer owned ipv4 pool to use for this load balancer.
+        :param pulumi.Input[str] desync_mitigation_mode: Determines how the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
         :param pulumi.Input[str] dns_name: The DNS name of the load balancer.
         :param pulumi.Input[bool] drop_invalid_header_fields: Indicates whether HTTP headers with header fields that are not valid are removed by the load balancer (true) or routed to targets (false). The default is false. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens. Only valid for Load Balancers of type `application`.
         :param pulumi.Input[bool] enable_cross_zone_load_balancing: If true, cross-zone load balancing of the load balancer will be enabled.
@@ -1006,6 +1081,7 @@ class LoadBalancer(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_deletion_protection: If true, deletion of the load balancer will be disabled via
                the AWS API. This will prevent this provider from deleting the load balancer. Defaults to `false`.
         :param pulumi.Input[bool] enable_http2: Indicates whether HTTP/2 is enabled in `application` load balancers. Defaults to `true`.
+        :param pulumi.Input[bool] enable_waf_fail_open: Indicates whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF. Defaults to `false`.
         :param pulumi.Input[int] idle_timeout: The time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
         :param pulumi.Input[bool] internal: If true, the LB will be internal.
         :param pulumi.Input[str] ip_address_type: The type of IP addresses used by the subnets for your load balancer. The possible values are `ipv4` and `dualstack`
@@ -1019,7 +1095,7 @@ class LoadBalancer(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[str]]] subnets: A list of subnet IDs to attach to the LB. Subnets
                cannot be updated for Load Balancers of type `network`. Changing this value
                for load balancers of type `network` will force a recreation of the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         :param pulumi.Input[str] zone_id: The canonical hosted zone ID of the load balancer (to be used in a Route 53 Alias record).
                * `subnet_mapping.*.outpost_id` - ID of the Outpost containing the load balancer.
@@ -1032,11 +1108,13 @@ class LoadBalancer(pulumi.CustomResource):
         __props__.__dict__["arn"] = arn
         __props__.__dict__["arn_suffix"] = arn_suffix
         __props__.__dict__["customer_owned_ipv4_pool"] = customer_owned_ipv4_pool
+        __props__.__dict__["desync_mitigation_mode"] = desync_mitigation_mode
         __props__.__dict__["dns_name"] = dns_name
         __props__.__dict__["drop_invalid_header_fields"] = drop_invalid_header_fields
         __props__.__dict__["enable_cross_zone_load_balancing"] = enable_cross_zone_load_balancing
         __props__.__dict__["enable_deletion_protection"] = enable_deletion_protection
         __props__.__dict__["enable_http2"] = enable_http2
+        __props__.__dict__["enable_waf_fail_open"] = enable_waf_fail_open
         __props__.__dict__["idle_timeout"] = idle_timeout
         __props__.__dict__["internal"] = internal
         __props__.__dict__["ip_address_type"] = ip_address_type
@@ -1085,6 +1163,14 @@ class LoadBalancer(pulumi.CustomResource):
         return pulumi.get(self, "customer_owned_ipv4_pool")
 
     @property
+    @pulumi.getter(name="desyncMitigationMode")
+    def desync_mitigation_mode(self) -> pulumi.Output[Optional[str]]:
+        """
+        Determines how the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
+        """
+        return pulumi.get(self, "desync_mitigation_mode")
+
+    @property
     @pulumi.getter(name="dnsName")
     def dns_name(self) -> pulumi.Output[str]:
         """
@@ -1125,6 +1211,14 @@ class LoadBalancer(pulumi.CustomResource):
         Indicates whether HTTP/2 is enabled in `application` load balancers. Defaults to `true`.
         """
         return pulumi.get(self, "enable_http2")
+
+    @property
+    @pulumi.getter(name="enableWafFailOpen")
+    def enable_waf_fail_open(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Indicates whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF. Defaults to `false`.
+        """
+        return pulumi.get(self, "enable_waf_fail_open")
 
     @property
     @pulumi.getter(name="idleTimeout")
@@ -1206,7 +1300,7 @@ class LoadBalancer(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 

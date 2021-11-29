@@ -144,25 +144,25 @@ namespace Pulumi.Aws.Ecs
     public partial class Service : Pulumi.CustomResource
     {
         /// <summary>
-        /// Capacity provider strategy to use for the service. Can be one or more.  Detailed below.
+        /// Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `force_new_deployment = true` and not changing from 0 `capacity_provider_strategy` blocks to greater than 0, or vice versa. See below.
         /// </summary>
         [Output("capacityProviderStrategies")]
         public Output<ImmutableArray<Outputs.ServiceCapacityProviderStrategy>> CapacityProviderStrategies { get; private set; } = null!;
 
         /// <summary>
-        /// ARN of an ECS cluster
+        /// ARN of an ECS cluster.
         /// </summary>
         [Output("cluster")]
         public Output<string> Cluster { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block for deployment circuit breaker. Detailed below.
+        /// Configuration block for deployment circuit breaker. See below.
         /// </summary>
         [Output("deploymentCircuitBreaker")]
         public Output<Outputs.ServiceDeploymentCircuitBreaker?> DeploymentCircuitBreaker { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block for deployment controller configuration. Detailed below.
+        /// Configuration block for deployment controller configuration. See below.
         /// </summary>
         [Output("deploymentController")]
         public Output<Outputs.ServiceDeploymentController?> DeploymentController { get; private set; } = null!;
@@ -222,7 +222,7 @@ namespace Pulumi.Aws.Ecs
         public Output<string> LaunchType { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block for load balancers. Detailed below.
+        /// Configuration block for load balancers. See below.
         /// </summary>
         [Output("loadBalancers")]
         public Output<ImmutableArray<Outputs.ServiceLoadBalancer>> LoadBalancers { get; private set; } = null!;
@@ -234,19 +234,19 @@ namespace Pulumi.Aws.Ecs
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. Detailed below.
+        /// Network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. See below.
         /// </summary>
         [Output("networkConfiguration")]
         public Output<Outputs.ServiceNetworkConfiguration?> NetworkConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. Updates to this configuration will take effect next task deployment unless `force_new_deployment` is enabled. The maximum number of `ordered_placement_strategy` blocks is `5`. Detailed below.
+        /// Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. Updates to this configuration will take effect next task deployment unless `force_new_deployment` is enabled. The maximum number of `ordered_placement_strategy` blocks is `5`. See below.
         /// </summary>
         [Output("orderedPlacementStrategies")]
         public Output<ImmutableArray<Outputs.ServiceOrderedPlacementStrategy>> OrderedPlacementStrategies { get; private set; } = null!;
 
         /// <summary>
-        /// Rules that are taken into consideration during task placement. Updates to this configuration will take effect next task deployment unless `force_new_deployment` is enabled. Maximum number of `placement_constraints` is `10`. Detailed below.
+        /// Rules that are taken into consideration during task placement. Updates to this configuration will take effect next task deployment unless `force_new_deployment` is enabled. Maximum number of `placement_constraints` is `10`. See below.
         /// </summary>
         [Output("placementConstraints")]
         public Output<ImmutableArray<Outputs.ServicePlacementConstraint>> PlacementConstraints { get; private set; } = null!;
@@ -270,13 +270,13 @@ namespace Pulumi.Aws.Ecs
         public Output<string?> SchedulingStrategy { get; private set; } = null!;
 
         /// <summary>
-        /// Service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. Detailed below.
+        /// Service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. See below.
         /// </summary>
         [Output("serviceRegistries")]
         public Output<Outputs.ServiceServiceRegistries?> ServiceRegistries { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value map of resource tags.
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -349,7 +349,7 @@ namespace Pulumi.Aws.Ecs
         private InputList<Inputs.ServiceCapacityProviderStrategyArgs>? _capacityProviderStrategies;
 
         /// <summary>
-        /// Capacity provider strategy to use for the service. Can be one or more.  Detailed below.
+        /// Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `force_new_deployment = true` and not changing from 0 `capacity_provider_strategy` blocks to greater than 0, or vice versa. See below.
         /// </summary>
         public InputList<Inputs.ServiceCapacityProviderStrategyArgs> CapacityProviderStrategies
         {
@@ -358,19 +358,19 @@ namespace Pulumi.Aws.Ecs
         }
 
         /// <summary>
-        /// ARN of an ECS cluster
+        /// ARN of an ECS cluster.
         /// </summary>
         [Input("cluster")]
         public Input<string>? Cluster { get; set; }
 
         /// <summary>
-        /// Configuration block for deployment circuit breaker. Detailed below.
+        /// Configuration block for deployment circuit breaker. See below.
         /// </summary>
         [Input("deploymentCircuitBreaker")]
         public Input<Inputs.ServiceDeploymentCircuitBreakerArgs>? DeploymentCircuitBreaker { get; set; }
 
         /// <summary>
-        /// Configuration block for deployment controller configuration. Detailed below.
+        /// Configuration block for deployment controller configuration. See below.
         /// </summary>
         [Input("deploymentController")]
         public Input<Inputs.ServiceDeploymentControllerArgs>? DeploymentController { get; set; }
@@ -433,7 +433,7 @@ namespace Pulumi.Aws.Ecs
         private InputList<Inputs.ServiceLoadBalancerArgs>? _loadBalancers;
 
         /// <summary>
-        /// Configuration block for load balancers. Detailed below.
+        /// Configuration block for load balancers. See below.
         /// </summary>
         public InputList<Inputs.ServiceLoadBalancerArgs> LoadBalancers
         {
@@ -448,7 +448,7 @@ namespace Pulumi.Aws.Ecs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. Detailed below.
+        /// Network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. See below.
         /// </summary>
         [Input("networkConfiguration")]
         public Input<Inputs.ServiceNetworkConfigurationArgs>? NetworkConfiguration { get; set; }
@@ -457,7 +457,7 @@ namespace Pulumi.Aws.Ecs
         private InputList<Inputs.ServiceOrderedPlacementStrategyArgs>? _orderedPlacementStrategies;
 
         /// <summary>
-        /// Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. Updates to this configuration will take effect next task deployment unless `force_new_deployment` is enabled. The maximum number of `ordered_placement_strategy` blocks is `5`. Detailed below.
+        /// Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. Updates to this configuration will take effect next task deployment unless `force_new_deployment` is enabled. The maximum number of `ordered_placement_strategy` blocks is `5`. See below.
         /// </summary>
         public InputList<Inputs.ServiceOrderedPlacementStrategyArgs> OrderedPlacementStrategies
         {
@@ -469,7 +469,7 @@ namespace Pulumi.Aws.Ecs
         private InputList<Inputs.ServicePlacementConstraintArgs>? _placementConstraints;
 
         /// <summary>
-        /// Rules that are taken into consideration during task placement. Updates to this configuration will take effect next task deployment unless `force_new_deployment` is enabled. Maximum number of `placement_constraints` is `10`. Detailed below.
+        /// Rules that are taken into consideration during task placement. Updates to this configuration will take effect next task deployment unless `force_new_deployment` is enabled. Maximum number of `placement_constraints` is `10`. See below.
         /// </summary>
         public InputList<Inputs.ServicePlacementConstraintArgs> PlacementConstraints
         {
@@ -496,7 +496,7 @@ namespace Pulumi.Aws.Ecs
         public Input<string>? SchedulingStrategy { get; set; }
 
         /// <summary>
-        /// Service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. Detailed below.
+        /// Service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. See below.
         /// </summary>
         [Input("serviceRegistries")]
         public Input<Inputs.ServiceServiceRegistriesArgs>? ServiceRegistries { get; set; }
@@ -505,7 +505,7 @@ namespace Pulumi.Aws.Ecs
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags.
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -536,7 +536,7 @@ namespace Pulumi.Aws.Ecs
         private InputList<Inputs.ServiceCapacityProviderStrategyGetArgs>? _capacityProviderStrategies;
 
         /// <summary>
-        /// Capacity provider strategy to use for the service. Can be one or more.  Detailed below.
+        /// Capacity provider strategies to use for the service. Can be one or more. These can be updated without destroying and recreating the service only if `force_new_deployment = true` and not changing from 0 `capacity_provider_strategy` blocks to greater than 0, or vice versa. See below.
         /// </summary>
         public InputList<Inputs.ServiceCapacityProviderStrategyGetArgs> CapacityProviderStrategies
         {
@@ -545,19 +545,19 @@ namespace Pulumi.Aws.Ecs
         }
 
         /// <summary>
-        /// ARN of an ECS cluster
+        /// ARN of an ECS cluster.
         /// </summary>
         [Input("cluster")]
         public Input<string>? Cluster { get; set; }
 
         /// <summary>
-        /// Configuration block for deployment circuit breaker. Detailed below.
+        /// Configuration block for deployment circuit breaker. See below.
         /// </summary>
         [Input("deploymentCircuitBreaker")]
         public Input<Inputs.ServiceDeploymentCircuitBreakerGetArgs>? DeploymentCircuitBreaker { get; set; }
 
         /// <summary>
-        /// Configuration block for deployment controller configuration. Detailed below.
+        /// Configuration block for deployment controller configuration. See below.
         /// </summary>
         [Input("deploymentController")]
         public Input<Inputs.ServiceDeploymentControllerGetArgs>? DeploymentController { get; set; }
@@ -620,7 +620,7 @@ namespace Pulumi.Aws.Ecs
         private InputList<Inputs.ServiceLoadBalancerGetArgs>? _loadBalancers;
 
         /// <summary>
-        /// Configuration block for load balancers. Detailed below.
+        /// Configuration block for load balancers. See below.
         /// </summary>
         public InputList<Inputs.ServiceLoadBalancerGetArgs> LoadBalancers
         {
@@ -635,7 +635,7 @@ namespace Pulumi.Aws.Ecs
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. Detailed below.
+        /// Network configuration for the service. This parameter is required for task definitions that use the `awsvpc` network mode to receive their own Elastic Network Interface, and it is not supported for other network modes. See below.
         /// </summary>
         [Input("networkConfiguration")]
         public Input<Inputs.ServiceNetworkConfigurationGetArgs>? NetworkConfiguration { get; set; }
@@ -644,7 +644,7 @@ namespace Pulumi.Aws.Ecs
         private InputList<Inputs.ServiceOrderedPlacementStrategyGetArgs>? _orderedPlacementStrategies;
 
         /// <summary>
-        /// Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. Updates to this configuration will take effect next task deployment unless `force_new_deployment` is enabled. The maximum number of `ordered_placement_strategy` blocks is `5`. Detailed below.
+        /// Service level strategy rules that are taken into consideration during task placement. List from top to bottom in order of precedence. Updates to this configuration will take effect next task deployment unless `force_new_deployment` is enabled. The maximum number of `ordered_placement_strategy` blocks is `5`. See below.
         /// </summary>
         public InputList<Inputs.ServiceOrderedPlacementStrategyGetArgs> OrderedPlacementStrategies
         {
@@ -656,7 +656,7 @@ namespace Pulumi.Aws.Ecs
         private InputList<Inputs.ServicePlacementConstraintGetArgs>? _placementConstraints;
 
         /// <summary>
-        /// Rules that are taken into consideration during task placement. Updates to this configuration will take effect next task deployment unless `force_new_deployment` is enabled. Maximum number of `placement_constraints` is `10`. Detailed below.
+        /// Rules that are taken into consideration during task placement. Updates to this configuration will take effect next task deployment unless `force_new_deployment` is enabled. Maximum number of `placement_constraints` is `10`. See below.
         /// </summary>
         public InputList<Inputs.ServicePlacementConstraintGetArgs> PlacementConstraints
         {
@@ -683,7 +683,7 @@ namespace Pulumi.Aws.Ecs
         public Input<string>? SchedulingStrategy { get; set; }
 
         /// <summary>
-        /// Service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. Detailed below.
+        /// Service discovery registries for the service. The maximum number of `service_registries` blocks is `1`. See below.
         /// </summary>
         [Input("serviceRegistries")]
         public Input<Inputs.ServiceServiceRegistriesGetArgs>? ServiceRegistries { get; set; }
@@ -692,7 +692,7 @@ namespace Pulumi.Aws.Ecs
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags.
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {

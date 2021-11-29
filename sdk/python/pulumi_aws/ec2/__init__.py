@@ -37,6 +37,7 @@ from .get_instance import *
 from .get_instance_type import *
 from .get_instance_type_offering import *
 from .get_instance_type_offerings import *
+from .get_instance_types import *
 from .get_instances import *
 from .get_internet_gateway import *
 from .get_key_pair import *

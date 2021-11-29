@@ -21,6 +21,7 @@ class LoadBalancerArgs:
                  connection_draining: Optional[pulumi.Input[bool]] = None,
                  connection_draining_timeout: Optional[pulumi.Input[int]] = None,
                  cross_zone_load_balancing: Optional[pulumi.Input[bool]] = None,
+                 desync_mitigation_mode: Optional[pulumi.Input[str]] = None,
                  health_check: Optional[pulumi.Input['LoadBalancerHealthCheckArgs']] = None,
                  idle_timeout: Optional[pulumi.Input[int]] = None,
                  instances: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -39,6 +40,7 @@ class LoadBalancerArgs:
         :param pulumi.Input[bool] connection_draining: Boolean to enable connection draining. Default: `false`
         :param pulumi.Input[int] connection_draining_timeout: The time in seconds to allow for connections to drain. Default: `300`
         :param pulumi.Input[bool] cross_zone_load_balancing: Enable cross-zone load balancing. Default: `true`
+        :param pulumi.Input[str] desync_mitigation_mode: Determines how the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
         :param pulumi.Input['LoadBalancerHealthCheckArgs'] health_check: A health_check block. Health Check documented below.
         :param pulumi.Input[int] idle_timeout: The time in seconds that the connection is allowed to be idle. Default: `60`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] instances: A list of instance ids to place in the ELB pool.
@@ -64,6 +66,8 @@ class LoadBalancerArgs:
             pulumi.set(__self__, "connection_draining_timeout", connection_draining_timeout)
         if cross_zone_load_balancing is not None:
             pulumi.set(__self__, "cross_zone_load_balancing", cross_zone_load_balancing)
+        if desync_mitigation_mode is not None:
+            pulumi.set(__self__, "desync_mitigation_mode", desync_mitigation_mode)
         if health_check is not None:
             pulumi.set(__self__, "health_check", health_check)
         if idle_timeout is not None:
@@ -156,6 +160,18 @@ class LoadBalancerArgs:
     @cross_zone_load_balancing.setter
     def cross_zone_load_balancing(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "cross_zone_load_balancing", value)
+
+    @property
+    @pulumi.getter(name="desyncMitigationMode")
+    def desync_mitigation_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Determines how the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
+        """
+        return pulumi.get(self, "desync_mitigation_mode")
+
+    @desync_mitigation_mode.setter
+    def desync_mitigation_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "desync_mitigation_mode", value)
 
     @property
     @pulumi.getter(name="healthCheck")
@@ -288,6 +304,7 @@ class _LoadBalancerState:
                  connection_draining: Optional[pulumi.Input[bool]] = None,
                  connection_draining_timeout: Optional[pulumi.Input[int]] = None,
                  cross_zone_load_balancing: Optional[pulumi.Input[bool]] = None,
+                 desync_mitigation_mode: Optional[pulumi.Input[str]] = None,
                  dns_name: Optional[pulumi.Input[str]] = None,
                  health_check: Optional[pulumi.Input['LoadBalancerHealthCheckArgs']] = None,
                  idle_timeout: Optional[pulumi.Input[int]] = None,
@@ -311,6 +328,7 @@ class _LoadBalancerState:
         :param pulumi.Input[bool] connection_draining: Boolean to enable connection draining. Default: `false`
         :param pulumi.Input[int] connection_draining_timeout: The time in seconds to allow for connections to drain. Default: `300`
         :param pulumi.Input[bool] cross_zone_load_balancing: Enable cross-zone load balancing. Default: `true`
+        :param pulumi.Input[str] desync_mitigation_mode: Determines how the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
         :param pulumi.Input[str] dns_name: The DNS name of the ELB
         :param pulumi.Input['LoadBalancerHealthCheckArgs'] health_check: A health_check block. Health Check documented below.
         :param pulumi.Input[int] idle_timeout: The time in seconds that the connection is allowed to be idle. Default: `60`
@@ -344,6 +362,8 @@ class _LoadBalancerState:
             pulumi.set(__self__, "connection_draining_timeout", connection_draining_timeout)
         if cross_zone_load_balancing is not None:
             pulumi.set(__self__, "cross_zone_load_balancing", cross_zone_load_balancing)
+        if desync_mitigation_mode is not None:
+            pulumi.set(__self__, "desync_mitigation_mode", desync_mitigation_mode)
         if dns_name is not None:
             pulumi.set(__self__, "dns_name", dns_name)
         if health_check is not None:
@@ -446,6 +466,18 @@ class _LoadBalancerState:
     @cross_zone_load_balancing.setter
     def cross_zone_load_balancing(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "cross_zone_load_balancing", value)
+
+    @property
+    @pulumi.getter(name="desyncMitigationMode")
+    def desync_mitigation_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        Determines how the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
+        """
+        return pulumi.get(self, "desync_mitigation_mode")
+
+    @desync_mitigation_mode.setter
+    def desync_mitigation_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "desync_mitigation_mode", value)
 
     @property
     @pulumi.getter(name="dnsName")
@@ -646,6 +678,7 @@ class LoadBalancer(pulumi.CustomResource):
                  connection_draining: Optional[pulumi.Input[bool]] = None,
                  connection_draining_timeout: Optional[pulumi.Input[int]] = None,
                  cross_zone_load_balancing: Optional[pulumi.Input[bool]] = None,
+                 desync_mitigation_mode: Optional[pulumi.Input[str]] = None,
                  health_check: Optional[pulumi.Input[pulumi.InputType['LoadBalancerHealthCheckArgs']]] = None,
                  idle_timeout: Optional[pulumi.Input[int]] = None,
                  instances: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -742,6 +775,7 @@ class LoadBalancer(pulumi.CustomResource):
         :param pulumi.Input[bool] connection_draining: Boolean to enable connection draining. Default: `false`
         :param pulumi.Input[int] connection_draining_timeout: The time in seconds to allow for connections to drain. Default: `300`
         :param pulumi.Input[bool] cross_zone_load_balancing: Enable cross-zone load balancing. Default: `true`
+        :param pulumi.Input[str] desync_mitigation_mode: Determines how the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
         :param pulumi.Input[pulumi.InputType['LoadBalancerHealthCheckArgs']] health_check: A health_check block. Health Check documented below.
         :param pulumi.Input[int] idle_timeout: The time in seconds that the connection is allowed to be idle. Default: `60`
         :param pulumi.Input[Sequence[pulumi.Input[str]]] instances: A list of instance ids to place in the ELB pool.
@@ -860,6 +894,7 @@ class LoadBalancer(pulumi.CustomResource):
                  connection_draining: Optional[pulumi.Input[bool]] = None,
                  connection_draining_timeout: Optional[pulumi.Input[int]] = None,
                  cross_zone_load_balancing: Optional[pulumi.Input[bool]] = None,
+                 desync_mitigation_mode: Optional[pulumi.Input[str]] = None,
                  health_check: Optional[pulumi.Input[pulumi.InputType['LoadBalancerHealthCheckArgs']]] = None,
                  idle_timeout: Optional[pulumi.Input[int]] = None,
                  instances: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -889,6 +924,7 @@ class LoadBalancer(pulumi.CustomResource):
             __props__.__dict__["connection_draining"] = connection_draining
             __props__.__dict__["connection_draining_timeout"] = connection_draining_timeout
             __props__.__dict__["cross_zone_load_balancing"] = cross_zone_load_balancing
+            __props__.__dict__["desync_mitigation_mode"] = desync_mitigation_mode
             __props__.__dict__["health_check"] = health_check
             __props__.__dict__["idle_timeout"] = idle_timeout
             __props__.__dict__["instances"] = instances
@@ -923,6 +959,7 @@ class LoadBalancer(pulumi.CustomResource):
             connection_draining: Optional[pulumi.Input[bool]] = None,
             connection_draining_timeout: Optional[pulumi.Input[int]] = None,
             cross_zone_load_balancing: Optional[pulumi.Input[bool]] = None,
+            desync_mitigation_mode: Optional[pulumi.Input[str]] = None,
             dns_name: Optional[pulumi.Input[str]] = None,
             health_check: Optional[pulumi.Input[pulumi.InputType['LoadBalancerHealthCheckArgs']]] = None,
             idle_timeout: Optional[pulumi.Input[int]] = None,
@@ -951,6 +988,7 @@ class LoadBalancer(pulumi.CustomResource):
         :param pulumi.Input[bool] connection_draining: Boolean to enable connection draining. Default: `false`
         :param pulumi.Input[int] connection_draining_timeout: The time in seconds to allow for connections to drain. Default: `300`
         :param pulumi.Input[bool] cross_zone_load_balancing: Enable cross-zone load balancing. Default: `true`
+        :param pulumi.Input[str] desync_mitigation_mode: Determines how the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
         :param pulumi.Input[str] dns_name: The DNS name of the ELB
         :param pulumi.Input[pulumi.InputType['LoadBalancerHealthCheckArgs']] health_check: A health_check block. Health Check documented below.
         :param pulumi.Input[int] idle_timeout: The time in seconds that the connection is allowed to be idle. Default: `60`
@@ -982,6 +1020,7 @@ class LoadBalancer(pulumi.CustomResource):
         __props__.__dict__["connection_draining"] = connection_draining
         __props__.__dict__["connection_draining_timeout"] = connection_draining_timeout
         __props__.__dict__["cross_zone_load_balancing"] = cross_zone_load_balancing
+        __props__.__dict__["desync_mitigation_mode"] = desync_mitigation_mode
         __props__.__dict__["dns_name"] = dns_name
         __props__.__dict__["health_check"] = health_check
         __props__.__dict__["idle_timeout"] = idle_timeout
@@ -1046,6 +1085,14 @@ class LoadBalancer(pulumi.CustomResource):
         Enable cross-zone load balancing. Default: `true`
         """
         return pulumi.get(self, "cross_zone_load_balancing")
+
+    @property
+    @pulumi.getter(name="desyncMitigationMode")
+    def desync_mitigation_mode(self) -> pulumi.Output[Optional[str]]:
+        """
+        Determines how the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
+        """
+        return pulumi.get(self, "desync_mitigation_mode")
 
     @property
     @pulumi.getter(name="dnsName")

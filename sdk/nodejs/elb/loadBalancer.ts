@@ -136,6 +136,10 @@ export class LoadBalancer extends pulumi.CustomResource {
      */
     public readonly crossZoneLoadBalancing!: pulumi.Output<boolean | undefined>;
     /**
+     * Determines how the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
+     */
+    public readonly desyncMitigationMode!: pulumi.Output<string | undefined>;
+    /**
      * The DNS name of the ELB
      */
     public /*out*/ readonly dnsName!: pulumi.Output<string>;
@@ -218,6 +222,7 @@ export class LoadBalancer extends pulumi.CustomResource {
             inputs["connectionDraining"] = state ? state.connectionDraining : undefined;
             inputs["connectionDrainingTimeout"] = state ? state.connectionDrainingTimeout : undefined;
             inputs["crossZoneLoadBalancing"] = state ? state.crossZoneLoadBalancing : undefined;
+            inputs["desyncMitigationMode"] = state ? state.desyncMitigationMode : undefined;
             inputs["dnsName"] = state ? state.dnsName : undefined;
             inputs["healthCheck"] = state ? state.healthCheck : undefined;
             inputs["idleTimeout"] = state ? state.idleTimeout : undefined;
@@ -243,6 +248,7 @@ export class LoadBalancer extends pulumi.CustomResource {
             inputs["connectionDraining"] = args ? args.connectionDraining : undefined;
             inputs["connectionDrainingTimeout"] = args ? args.connectionDrainingTimeout : undefined;
             inputs["crossZoneLoadBalancing"] = args ? args.crossZoneLoadBalancing : undefined;
+            inputs["desyncMitigationMode"] = args ? args.desyncMitigationMode : undefined;
             inputs["healthCheck"] = args ? args.healthCheck : undefined;
             inputs["idleTimeout"] = args ? args.idleTimeout : undefined;
             inputs["instances"] = args ? args.instances : undefined;
@@ -297,6 +303,10 @@ export interface LoadBalancerState {
      * Enable cross-zone load balancing. Default: `true`
      */
     crossZoneLoadBalancing?: pulumi.Input<boolean>;
+    /**
+     * Determines how the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
+     */
+    desyncMitigationMode?: pulumi.Input<string>;
     /**
      * The DNS name of the ELB
      */
@@ -386,6 +396,10 @@ export interface LoadBalancerArgs {
      * Enable cross-zone load balancing. Default: `true`
      */
     crossZoneLoadBalancing?: pulumi.Input<boolean>;
+    /**
+     * Determines how the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
+     */
+    desyncMitigationMode?: pulumi.Input<string>;
     /**
      * A healthCheck block. Health Check documented below.
      */

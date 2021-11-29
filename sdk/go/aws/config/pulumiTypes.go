@@ -152,6 +152,7 @@ func (o DefaultTagsOutput) Tags() pulumi.StringMapOutput {
 
 type Endpoints struct {
 	Accessanalyzer                  *string `pulumi:"accessanalyzer"`
+	Account                         *string `pulumi:"account"`
 	Acm                             *string `pulumi:"acm"`
 	Acmpca                          *string `pulumi:"acmpca"`
 	Alexaforbusiness                *string `pulumi:"alexaforbusiness"`
@@ -465,6 +466,7 @@ type EndpointsInput interface {
 
 type EndpointsArgs struct {
 	Accessanalyzer                  pulumi.StringPtrInput `pulumi:"accessanalyzer"`
+	Account                         pulumi.StringPtrInput `pulumi:"account"`
 	Acm                             pulumi.StringPtrInput `pulumi:"acm"`
 	Acmpca                          pulumi.StringPtrInput `pulumi:"acmpca"`
 	Alexaforbusiness                pulumi.StringPtrInput `pulumi:"alexaforbusiness"`
@@ -818,6 +820,10 @@ func (o EndpointsOutput) ToEndpointsOutputWithContext(ctx context.Context) Endpo
 
 func (o EndpointsOutput) Accessanalyzer() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Accessanalyzer }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointsOutput) Account() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Account }).(pulumi.StringPtrOutput)
 }
 
 func (o EndpointsOutput) Acm() pulumi.StringPtrOutput {

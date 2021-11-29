@@ -101,6 +101,7 @@ class DefaultTags(dict):
 class Endpoints(dict):
     def __init__(__self__, *,
                  accessanalyzer: Optional[str] = None,
+                 account: Optional[str] = None,
                  acm: Optional[str] = None,
                  acmpca: Optional[str] = None,
                  alexaforbusiness: Optional[str] = None,
@@ -401,6 +402,8 @@ class Endpoints(dict):
                  xray: Optional[str] = None):
         if accessanalyzer is not None:
             pulumi.set(__self__, "accessanalyzer", accessanalyzer)
+        if account is not None:
+            pulumi.set(__self__, "account", account)
         if acm is not None:
             pulumi.set(__self__, "acm", acm)
         if acmpca is not None:
@@ -1002,6 +1005,11 @@ class Endpoints(dict):
     @pulumi.getter
     def accessanalyzer(self) -> Optional[str]:
         return pulumi.get(self, "accessanalyzer")
+
+    @property
+    @pulumi.getter
+    def account(self) -> Optional[str]:
+        return pulumi.get(self, "account")
 
     @property
     @pulumi.getter

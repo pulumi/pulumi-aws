@@ -176,6 +176,12 @@ namespace Pulumi.Aws.Alb
         public Output<string?> CustomerOwnedIpv4Pool { get; private set; } = null!;
 
         /// <summary>
+        /// Determines how the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
+        /// </summary>
+        [Output("desyncMitigationMode")]
+        public Output<string?> DesyncMitigationMode { get; private set; } = null!;
+
+        /// <summary>
         /// The DNS name of the load balancer.
         /// </summary>
         [Output("dnsName")]
@@ -206,6 +212,12 @@ namespace Pulumi.Aws.Alb
         /// </summary>
         [Output("enableHttp2")]
         public Output<bool?> EnableHttp2 { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicates whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF. Defaults to `false`.
+        /// </summary>
+        [Output("enableWafFailOpen")]
+        public Output<bool?> EnableWafFailOpen { get; private set; } = null!;
 
         /// <summary>
         /// The time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
@@ -266,7 +278,7 @@ namespace Pulumi.Aws.Alb
         public Output<ImmutableArray<string>> Subnets { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -350,6 +362,12 @@ namespace Pulumi.Aws.Alb
         public Input<string>? CustomerOwnedIpv4Pool { get; set; }
 
         /// <summary>
+        /// Determines how the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
+        /// </summary>
+        [Input("desyncMitigationMode")]
+        public Input<string>? DesyncMitigationMode { get; set; }
+
+        /// <summary>
         /// Indicates whether HTTP headers with header fields that are not valid are removed by the load balancer (true) or routed to targets (false). The default is false. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens. Only valid for Load Balancers of type `application`.
         /// </summary>
         [Input("dropInvalidHeaderFields")]
@@ -374,6 +392,12 @@ namespace Pulumi.Aws.Alb
         /// </summary>
         [Input("enableHttp2")]
         public Input<bool>? EnableHttp2 { get; set; }
+
+        /// <summary>
+        /// Indicates whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF. Defaults to `false`.
+        /// </summary>
+        [Input("enableWafFailOpen")]
+        public Input<bool>? EnableWafFailOpen { get; set; }
 
         /// <summary>
         /// The time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
@@ -455,7 +479,7 @@ namespace Pulumi.Aws.Alb
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -495,6 +519,12 @@ namespace Pulumi.Aws.Alb
         public Input<string>? CustomerOwnedIpv4Pool { get; set; }
 
         /// <summary>
+        /// Determines how the load balancer handles requests that might pose a security risk to an application due to HTTP desync. Valid values are `monitor`, `defensive` (default), `strictest`.
+        /// </summary>
+        [Input("desyncMitigationMode")]
+        public Input<string>? DesyncMitigationMode { get; set; }
+
+        /// <summary>
         /// The DNS name of the load balancer.
         /// </summary>
         [Input("dnsName")]
@@ -525,6 +555,12 @@ namespace Pulumi.Aws.Alb
         /// </summary>
         [Input("enableHttp2")]
         public Input<bool>? EnableHttp2 { get; set; }
+
+        /// <summary>
+        /// Indicates whether to allow a WAF-enabled load balancer to route requests to targets if it is unable to forward the request to AWS WAF. Defaults to `false`.
+        /// </summary>
+        [Input("enableWafFailOpen")]
+        public Input<bool>? EnableWafFailOpen { get; set; }
 
         /// <summary>
         /// The time in seconds that the connection is allowed to be idle. Only valid for Load Balancers of type `application`. Default: 60.
@@ -606,7 +642,7 @@ namespace Pulumi.Aws.Alb
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {

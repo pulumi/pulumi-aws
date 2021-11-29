@@ -80,10 +80,12 @@ type LookupLoadBalancerResult struct {
 	Arn                      string                    `pulumi:"arn"`
 	ArnSuffix                string                    `pulumi:"arnSuffix"`
 	CustomerOwnedIpv4Pool    string                    `pulumi:"customerOwnedIpv4Pool"`
+	DesyncMitigationMode     string                    `pulumi:"desyncMitigationMode"`
 	DnsName                  string                    `pulumi:"dnsName"`
 	DropInvalidHeaderFields  bool                      `pulumi:"dropInvalidHeaderFields"`
 	EnableDeletionProtection bool                      `pulumi:"enableDeletionProtection"`
 	EnableHttp2              bool                      `pulumi:"enableHttp2"`
+	EnableWafFailOpen        bool                      `pulumi:"enableWafFailOpen"`
 	// The provider-assigned unique ID for this managed resource.
 	Id               string                         `pulumi:"id"`
 	IdleTimeout      int                            `pulumi:"idleTimeout"`
@@ -153,6 +155,10 @@ func (o LookupLoadBalancerResultOutput) CustomerOwnedIpv4Pool() pulumi.StringOut
 	return o.ApplyT(func(v LookupLoadBalancerResult) string { return v.CustomerOwnedIpv4Pool }).(pulumi.StringOutput)
 }
 
+func (o LookupLoadBalancerResultOutput) DesyncMitigationMode() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLoadBalancerResult) string { return v.DesyncMitigationMode }).(pulumi.StringOutput)
+}
+
 func (o LookupLoadBalancerResultOutput) DnsName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLoadBalancerResult) string { return v.DnsName }).(pulumi.StringOutput)
 }
@@ -167,6 +173,10 @@ func (o LookupLoadBalancerResultOutput) EnableDeletionProtection() pulumi.BoolOu
 
 func (o LookupLoadBalancerResultOutput) EnableHttp2() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupLoadBalancerResult) bool { return v.EnableHttp2 }).(pulumi.BoolOutput)
+}
+
+func (o LookupLoadBalancerResultOutput) EnableWafFailOpen() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupLoadBalancerResult) bool { return v.EnableWafFailOpen }).(pulumi.BoolOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.

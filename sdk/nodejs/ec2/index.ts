@@ -36,6 +36,7 @@ export * from "./getInstance";
 export * from "./getInstanceType";
 export * from "./getInstanceTypeOffering";
 export * from "./getInstanceTypeOfferings";
+export * from "./getInstanceTypes";
 export * from "./getInstances";
 export * from "./getInternetGateway";
 export * from "./getKeyPair";

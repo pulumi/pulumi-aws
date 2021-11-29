@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Dlm.Inputs
     public sealed class LifecyclePolicyPolicyDetailsScheduleArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Copy all user-defined tags on a source volume to snapshots of the volume created by this policy.
+        /// Whether to copy all user-defined tags from the source snapshot to the cross-region snapshot copy.
         /// </summary>
         [Input("copyTags")]
         public Input<bool>? CopyTags { get; set; }
@@ -24,6 +24,18 @@ namespace Pulumi.Aws.Dlm.Inputs
         [Input("createRule", required: true)]
         public Input<Inputs.LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs> CreateRule { get; set; } = null!;
 
+        [Input("crossRegionCopyRules")]
+        private InputList<Inputs.LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs>? _crossRegionCopyRules;
+
+        /// <summary>
+        /// See the `cross_region_copy_rule` block. Max of 3 per schedule.
+        /// </summary>
+        public InputList<Inputs.LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs> CrossRegionCopyRules
+        {
+            get => _crossRegionCopyRules ?? (_crossRegionCopyRules = new InputList<Inputs.LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs>());
+            set => _crossRegionCopyRules = value;
+        }
+
         /// <summary>
         /// A name for the schedule.
         /// </summary>
@@ -31,7 +43,7 @@ namespace Pulumi.Aws.Dlm.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// See the `retain_rule` block. Max of 1 per schedule.
+        /// The retention rule that indicates how long snapshot copies are to be retained in the destination Region. See the `retain_rule` block. Max of 1 per schedule.
         /// </summary>
         [Input("retainRule", required: true)]
         public Input<Inputs.LifecyclePolicyPolicyDetailsScheduleRetainRuleArgs> RetainRule { get; set; } = null!;

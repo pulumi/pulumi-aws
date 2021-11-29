@@ -270,7 +270,9 @@ func (o TrailAdvancedEventSelectorFieldSelectorArrayOutput) Index(i pulumi.IntIn
 type TrailEventSelector struct {
 	// Configuration block for data events. See details below.
 	DataResources []TrailEventSelectorDataResource `pulumi:"dataResources"`
-	// Whether to include management events for your trail.
+	// A set of event sources to exclude. Valid values include: `kms.amazonaws.com` and `rdsdata.amazonaws.com`. `includeManagementEvents` must be set to`true` to allow this.
+	ExcludeManagementEventSources []string `pulumi:"excludeManagementEventSources"`
+	// Whether to include management events for your trail. Defaults to `true`.
 	IncludeManagementEvents *bool `pulumi:"includeManagementEvents"`
 	// Type of events to log. Valid values are `ReadOnly`, `WriteOnly`, `All`. Default value is `All`.
 	ReadWriteType *string `pulumi:"readWriteType"`
@@ -290,7 +292,9 @@ type TrailEventSelectorInput interface {
 type TrailEventSelectorArgs struct {
 	// Configuration block for data events. See details below.
 	DataResources TrailEventSelectorDataResourceArrayInput `pulumi:"dataResources"`
-	// Whether to include management events for your trail.
+	// A set of event sources to exclude. Valid values include: `kms.amazonaws.com` and `rdsdata.amazonaws.com`. `includeManagementEvents` must be set to`true` to allow this.
+	ExcludeManagementEventSources pulumi.StringArrayInput `pulumi:"excludeManagementEventSources"`
+	// Whether to include management events for your trail. Defaults to `true`.
 	IncludeManagementEvents pulumi.BoolPtrInput `pulumi:"includeManagementEvents"`
 	// Type of events to log. Valid values are `ReadOnly`, `WriteOnly`, `All`. Default value is `All`.
 	ReadWriteType pulumi.StringPtrInput `pulumi:"readWriteType"`
@@ -352,7 +356,12 @@ func (o TrailEventSelectorOutput) DataResources() TrailEventSelectorDataResource
 	return o.ApplyT(func(v TrailEventSelector) []TrailEventSelectorDataResource { return v.DataResources }).(TrailEventSelectorDataResourceArrayOutput)
 }
 
-// Whether to include management events for your trail.
+// A set of event sources to exclude. Valid values include: `kms.amazonaws.com` and `rdsdata.amazonaws.com`. `includeManagementEvents` must be set to`true` to allow this.
+func (o TrailEventSelectorOutput) ExcludeManagementEventSources() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TrailEventSelector) []string { return v.ExcludeManagementEventSources }).(pulumi.StringArrayOutput)
+}
+
+// Whether to include management events for your trail. Defaults to `true`.
 func (o TrailEventSelectorOutput) IncludeManagementEvents() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TrailEventSelector) *bool { return v.IncludeManagementEvents }).(pulumi.BoolPtrOutput)
 }

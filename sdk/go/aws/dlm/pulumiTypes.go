@@ -186,13 +186,15 @@ func (o LifecyclePolicyPolicyDetailsPtrOutput) TargetTags() pulumi.StringMapOutp
 }
 
 type LifecyclePolicyPolicyDetailsSchedule struct {
-	// Copy all user-defined tags on a source volume to snapshots of the volume created by this policy.
+	// Whether to copy all user-defined tags from the source snapshot to the cross-region snapshot copy.
 	CopyTags *bool `pulumi:"copyTags"`
 	// See the `createRule` block. Max of 1 per schedule.
 	CreateRule LifecyclePolicyPolicyDetailsScheduleCreateRule `pulumi:"createRule"`
+	// See the `crossRegionCopyRule` block. Max of 3 per schedule.
+	CrossRegionCopyRules []LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule `pulumi:"crossRegionCopyRules"`
 	// A name for the schedule.
 	Name string `pulumi:"name"`
-	// See the `retainRule` block. Max of 1 per schedule.
+	// The retention rule that indicates how long snapshot copies are to be retained in the destination Region. See the `retainRule` block. Max of 1 per schedule.
 	RetainRule LifecyclePolicyPolicyDetailsScheduleRetainRule `pulumi:"retainRule"`
 	// A map of tag keys and their values. DLM lifecycle policies will already tag the snapshot with the tags on the volume. This configuration adds extra tags on top of these.
 	TagsToAdd map[string]string `pulumi:"tagsToAdd"`
@@ -210,13 +212,15 @@ type LifecyclePolicyPolicyDetailsScheduleInput interface {
 }
 
 type LifecyclePolicyPolicyDetailsScheduleArgs struct {
-	// Copy all user-defined tags on a source volume to snapshots of the volume created by this policy.
+	// Whether to copy all user-defined tags from the source snapshot to the cross-region snapshot copy.
 	CopyTags pulumi.BoolPtrInput `pulumi:"copyTags"`
 	// See the `createRule` block. Max of 1 per schedule.
 	CreateRule LifecyclePolicyPolicyDetailsScheduleCreateRuleInput `pulumi:"createRule"`
+	// See the `crossRegionCopyRule` block. Max of 3 per schedule.
+	CrossRegionCopyRules LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArrayInput `pulumi:"crossRegionCopyRules"`
 	// A name for the schedule.
 	Name pulumi.StringInput `pulumi:"name"`
-	// See the `retainRule` block. Max of 1 per schedule.
+	// The retention rule that indicates how long snapshot copies are to be retained in the destination Region. See the `retainRule` block. Max of 1 per schedule.
 	RetainRule LifecyclePolicyPolicyDetailsScheduleRetainRuleInput `pulumi:"retainRule"`
 	// A map of tag keys and their values. DLM lifecycle policies will already tag the snapshot with the tags on the volume. This configuration adds extra tags on top of these.
 	TagsToAdd pulumi.StringMapInput `pulumi:"tagsToAdd"`
@@ -273,7 +277,7 @@ func (o LifecyclePolicyPolicyDetailsScheduleOutput) ToLifecyclePolicyPolicyDetai
 	return o
 }
 
-// Copy all user-defined tags on a source volume to snapshots of the volume created by this policy.
+// Whether to copy all user-defined tags from the source snapshot to the cross-region snapshot copy.
 func (o LifecyclePolicyPolicyDetailsScheduleOutput) CopyTags() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsSchedule) *bool { return v.CopyTags }).(pulumi.BoolPtrOutput)
 }
@@ -285,12 +289,19 @@ func (o LifecyclePolicyPolicyDetailsScheduleOutput) CreateRule() LifecyclePolicy
 	}).(LifecyclePolicyPolicyDetailsScheduleCreateRuleOutput)
 }
 
+// See the `crossRegionCopyRule` block. Max of 3 per schedule.
+func (o LifecyclePolicyPolicyDetailsScheduleOutput) CrossRegionCopyRules() LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArrayOutput {
+	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsSchedule) []LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule {
+		return v.CrossRegionCopyRules
+	}).(LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArrayOutput)
+}
+
 // A name for the schedule.
 func (o LifecyclePolicyPolicyDetailsScheduleOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsSchedule) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// See the `retainRule` block. Max of 1 per schedule.
+// The retention rule that indicates how long snapshot copies are to be retained in the destination Region. See the `retainRule` block. Max of 1 per schedule.
 func (o LifecyclePolicyPolicyDetailsScheduleOutput) RetainRule() LifecyclePolicyPolicyDetailsScheduleRetainRuleOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsSchedule) LifecyclePolicyPolicyDetailsScheduleRetainRule {
 		return v.RetainRule
@@ -323,9 +334,9 @@ func (o LifecyclePolicyPolicyDetailsScheduleArrayOutput) Index(i pulumi.IntInput
 }
 
 type LifecyclePolicyPolicyDetailsScheduleCreateRule struct {
-	// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+	// The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
 	Interval int `pulumi:"interval"`
-	// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+	// The unit of time for time-based retention. Valid values: `DAYS`, `WEEKS`, `MONTHS`, or `YEARS`.
 	IntervalUnit *string `pulumi:"intervalUnit"`
 	// A list of times in 24 hour clock format that sets when the lifecycle policy should be evaluated. Max of 1.
 	Times *string `pulumi:"times"`
@@ -343,9 +354,9 @@ type LifecyclePolicyPolicyDetailsScheduleCreateRuleInput interface {
 }
 
 type LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs struct {
-	// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+	// The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
 	Interval pulumi.IntInput `pulumi:"interval"`
-	// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+	// The unit of time for time-based retention. Valid values: `DAYS`, `WEEKS`, `MONTHS`, or `YEARS`.
 	IntervalUnit pulumi.StringPtrInput `pulumi:"intervalUnit"`
 	// A list of times in 24 hour clock format that sets when the lifecycle policy should be evaluated. Max of 1.
 	Times pulumi.StringPtrInput `pulumi:"times"`
@@ -377,12 +388,12 @@ func (o LifecyclePolicyPolicyDetailsScheduleCreateRuleOutput) ToLifecyclePolicyP
 	return o
 }
 
-// How often this lifecycle policy should be evaluated. `1`, `2`,`3`,`4`,`6`,`8`,`12` or `24` are valid values.
+// The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
 func (o LifecyclePolicyPolicyDetailsScheduleCreateRuleOutput) Interval() pulumi.IntOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleCreateRule) int { return v.Interval }).(pulumi.IntOutput)
 }
 
-// The unit for how often the lifecycle policy should be evaluated. `HOURS` is currently the only allowed value and also the default value.
+// The unit of time for time-based retention. Valid values: `DAYS`, `WEEKS`, `MONTHS`, or `YEARS`.
 func (o LifecyclePolicyPolicyDetailsScheduleCreateRuleOutput) IntervalUnit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleCreateRule) *string { return v.IntervalUnit }).(pulumi.StringPtrOutput)
 }
@@ -390,6 +401,468 @@ func (o LifecyclePolicyPolicyDetailsScheduleCreateRuleOutput) IntervalUnit() pul
 // A list of times in 24 hour clock format that sets when the lifecycle policy should be evaluated. Max of 1.
 func (o LifecyclePolicyPolicyDetailsScheduleCreateRuleOutput) Times() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleCreateRule) *string { return v.Times }).(pulumi.StringPtrOutput)
+}
+
+type LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule struct {
+	// The Amazon Resource Name (ARN) of the AWS KMS customer master key (CMK) to use for EBS encryption. If this argument is not specified, the default KMS key for the account is used.
+	CmkArn *string `pulumi:"cmkArn"`
+	// Whether to copy all user-defined tags from the source snapshot to the cross-region snapshot copy.
+	CopyTags *bool `pulumi:"copyTags"`
+	// The AMI deprecation rule for cross-Region AMI copies created by the rule. See the `deprecateRule` block.
+	DeprecateRule *LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRule `pulumi:"deprecateRule"`
+	// To encrypt a copy of an unencrypted snapshot if encryption by default is not enabled, enable encryption using this parameter. Copies of encrypted snapshots are encrypted, even if this parameter is false or if encryption by default is not enabled.
+	Encrypted bool `pulumi:"encrypted"`
+	// The retention rule that indicates how long snapshot copies are to be retained in the destination Region. See the `retainRule` block. Max of 1 per schedule.
+	RetainRule *LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRule `pulumi:"retainRule"`
+	// The target Region or the Amazon Resource Name (ARN) of the target Outpost for the snapshot copies.
+	Target string `pulumi:"target"`
+}
+
+// LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleInput is an input type that accepts LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs and LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleOutput values.
+// You can construct a concrete instance of `LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleInput` via:
+//
+//          LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs{...}
+type LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleInput interface {
+	pulumi.Input
+
+	ToLifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleOutput() LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleOutput
+	ToLifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleOutputWithContext(context.Context) LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleOutput
+}
+
+type LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs struct {
+	// The Amazon Resource Name (ARN) of the AWS KMS customer master key (CMK) to use for EBS encryption. If this argument is not specified, the default KMS key for the account is used.
+	CmkArn pulumi.StringPtrInput `pulumi:"cmkArn"`
+	// Whether to copy all user-defined tags from the source snapshot to the cross-region snapshot copy.
+	CopyTags pulumi.BoolPtrInput `pulumi:"copyTags"`
+	// The AMI deprecation rule for cross-Region AMI copies created by the rule. See the `deprecateRule` block.
+	DeprecateRule LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRulePtrInput `pulumi:"deprecateRule"`
+	// To encrypt a copy of an unencrypted snapshot if encryption by default is not enabled, enable encryption using this parameter. Copies of encrypted snapshots are encrypted, even if this parameter is false or if encryption by default is not enabled.
+	Encrypted pulumi.BoolInput `pulumi:"encrypted"`
+	// The retention rule that indicates how long snapshot copies are to be retained in the destination Region. See the `retainRule` block. Max of 1 per schedule.
+	RetainRule LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRulePtrInput `pulumi:"retainRule"`
+	// The target Region or the Amazon Resource Name (ARN) of the target Outpost for the snapshot copies.
+	Target pulumi.StringInput `pulumi:"target"`
+}
+
+func (LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule)(nil)).Elem()
+}
+
+func (i LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs) ToLifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleOutput() LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleOutput {
+	return i.ToLifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleOutputWithContext(context.Background())
+}
+
+func (i LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs) ToLifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleOutput)
+}
+
+// LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArrayInput is an input type that accepts LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArray and LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArrayOutput values.
+// You can construct a concrete instance of `LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArrayInput` via:
+//
+//          LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArray{ LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs{...} }
+type LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArrayInput interface {
+	pulumi.Input
+
+	ToLifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArrayOutput() LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArrayOutput
+	ToLifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArrayOutputWithContext(context.Context) LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArrayOutput
+}
+
+type LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArray []LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleInput
+
+func (LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule)(nil)).Elem()
+}
+
+func (i LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArray) ToLifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArrayOutput() LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArrayOutput {
+	return i.ToLifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArrayOutputWithContext(context.Background())
+}
+
+func (i LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArray) ToLifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArrayOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArrayOutput)
+}
+
+type LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleOutput struct{ *pulumi.OutputState }
+
+func (LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule)(nil)).Elem()
+}
+
+func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleOutput) ToLifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleOutput() LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleOutput {
+	return o
+}
+
+func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleOutput) ToLifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleOutput {
+	return o
+}
+
+// The Amazon Resource Name (ARN) of the AWS KMS customer master key (CMK) to use for EBS encryption. If this argument is not specified, the default KMS key for the account is used.
+func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleOutput) CmkArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule) *string { return v.CmkArn }).(pulumi.StringPtrOutput)
+}
+
+// Whether to copy all user-defined tags from the source snapshot to the cross-region snapshot copy.
+func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleOutput) CopyTags() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule) *bool { return v.CopyTags }).(pulumi.BoolPtrOutput)
+}
+
+// The AMI deprecation rule for cross-Region AMI copies created by the rule. See the `deprecateRule` block.
+func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleOutput) DeprecateRule() LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRulePtrOutput {
+	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule) *LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRule {
+		return v.DeprecateRule
+	}).(LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRulePtrOutput)
+}
+
+// To encrypt a copy of an unencrypted snapshot if encryption by default is not enabled, enable encryption using this parameter. Copies of encrypted snapshots are encrypted, even if this parameter is false or if encryption by default is not enabled.
+func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleOutput) Encrypted() pulumi.BoolOutput {
+	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule) bool { return v.Encrypted }).(pulumi.BoolOutput)
+}
+
+// The retention rule that indicates how long snapshot copies are to be retained in the destination Region. See the `retainRule` block. Max of 1 per schedule.
+func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleOutput) RetainRule() LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRulePtrOutput {
+	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule) *LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRule {
+		return v.RetainRule
+	}).(LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRulePtrOutput)
+}
+
+// The target Region or the Amazon Resource Name (ARN) of the target Outpost for the snapshot copies.
+func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleOutput) Target() pulumi.StringOutput {
+	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule) string { return v.Target }).(pulumi.StringOutput)
+}
+
+type LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule)(nil)).Elem()
+}
+
+func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArrayOutput) ToLifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArrayOutput() LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArrayOutput {
+	return o
+}
+
+func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArrayOutput) ToLifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArrayOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArrayOutput {
+	return o
+}
+
+func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArrayOutput) Index(i pulumi.IntInput) LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule {
+		return vs[0].([]LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRule)[vs[1].(int)]
+	}).(LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleOutput)
+}
+
+type LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRule struct {
+	// The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
+	Interval int `pulumi:"interval"`
+	// The unit of time for time-based retention. Valid values: `DAYS`, `WEEKS`, `MONTHS`, or `YEARS`.
+	IntervalUnit string `pulumi:"intervalUnit"`
+}
+
+// LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleInput is an input type that accepts LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleArgs and LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleOutput values.
+// You can construct a concrete instance of `LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleInput` via:
+//
+//          LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleArgs{...}
+type LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleInput interface {
+	pulumi.Input
+
+	ToLifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleOutput() LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleOutput
+	ToLifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleOutputWithContext(context.Context) LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleOutput
+}
+
+type LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleArgs struct {
+	// The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
+	Interval pulumi.IntInput `pulumi:"interval"`
+	// The unit of time for time-based retention. Valid values: `DAYS`, `WEEKS`, `MONTHS`, or `YEARS`.
+	IntervalUnit pulumi.StringInput `pulumi:"intervalUnit"`
+}
+
+func (LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRule)(nil)).Elem()
+}
+
+func (i LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleArgs) ToLifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleOutput() LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleOutput {
+	return i.ToLifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleOutputWithContext(context.Background())
+}
+
+func (i LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleArgs) ToLifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleOutput)
+}
+
+func (i LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleArgs) ToLifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRulePtrOutput() LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRulePtrOutput {
+	return i.ToLifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRulePtrOutputWithContext(context.Background())
+}
+
+func (i LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleArgs) ToLifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRulePtrOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleOutput).ToLifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRulePtrOutputWithContext(ctx)
+}
+
+// LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRulePtrInput is an input type that accepts LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleArgs, LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRulePtr and LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRulePtrOutput values.
+// You can construct a concrete instance of `LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRulePtrInput` via:
+//
+//          LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleArgs{...}
+//
+//  or:
+//
+//          nil
+type LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRulePtrInput interface {
+	pulumi.Input
+
+	ToLifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRulePtrOutput() LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRulePtrOutput
+	ToLifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRulePtrOutputWithContext(context.Context) LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRulePtrOutput
+}
+
+type lifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRulePtrType LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleArgs
+
+func LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRulePtr(v *LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleArgs) LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRulePtrInput {
+	return (*lifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRulePtrType)(v)
+}
+
+func (*lifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRule)(nil)).Elem()
+}
+
+func (i *lifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRulePtrType) ToLifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRulePtrOutput() LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRulePtrOutput {
+	return i.ToLifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRulePtrOutputWithContext(context.Background())
+}
+
+func (i *lifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRulePtrType) ToLifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRulePtrOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRulePtrOutput)
+}
+
+type LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleOutput struct{ *pulumi.OutputState }
+
+func (LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRule)(nil)).Elem()
+}
+
+func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleOutput) ToLifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleOutput() LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleOutput {
+	return o
+}
+
+func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleOutput) ToLifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleOutput {
+	return o
+}
+
+func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleOutput) ToLifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRulePtrOutput() LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRulePtrOutput {
+	return o.ToLifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRulePtrOutputWithContext(context.Background())
+}
+
+func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleOutput) ToLifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRulePtrOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRulePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRule) *LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRule {
+		return &v
+	}).(LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRulePtrOutput)
+}
+
+// The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
+func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleOutput) Interval() pulumi.IntOutput {
+	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRule) int { return v.Interval }).(pulumi.IntOutput)
+}
+
+// The unit of time for time-based retention. Valid values: `DAYS`, `WEEKS`, `MONTHS`, or `YEARS`.
+func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleOutput) IntervalUnit() pulumi.StringOutput {
+	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRule) string {
+		return v.IntervalUnit
+	}).(pulumi.StringOutput)
+}
+
+type LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRulePtrOutput struct{ *pulumi.OutputState }
+
+func (LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRule)(nil)).Elem()
+}
+
+func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRulePtrOutput) ToLifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRulePtrOutput() LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRulePtrOutput {
+	return o
+}
+
+func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRulePtrOutput) ToLifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRulePtrOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRulePtrOutput {
+	return o
+}
+
+func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRulePtrOutput) Elem() LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleOutput {
+	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRule) LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRule {
+		if v != nil {
+			return *v
+		}
+		var ret LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRule
+		return ret
+	}).(LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleOutput)
+}
+
+// The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
+func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRulePtrOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRule) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Interval
+	}).(pulumi.IntPtrOutput)
+}
+
+// The unit of time for time-based retention. Valid values: `DAYS`, `WEEKS`, `MONTHS`, or `YEARS`.
+func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRulePtrOutput) IntervalUnit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRule) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.IntervalUnit
+	}).(pulumi.StringPtrOutput)
+}
+
+type LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRule struct {
+	// The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
+	Interval int `pulumi:"interval"`
+	// The unit of time for time-based retention. Valid values: `DAYS`, `WEEKS`, `MONTHS`, or `YEARS`.
+	IntervalUnit string `pulumi:"intervalUnit"`
+}
+
+// LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleInput is an input type that accepts LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleArgs and LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleOutput values.
+// You can construct a concrete instance of `LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleInput` via:
+//
+//          LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleArgs{...}
+type LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleInput interface {
+	pulumi.Input
+
+	ToLifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleOutput() LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleOutput
+	ToLifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleOutputWithContext(context.Context) LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleOutput
+}
+
+type LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleArgs struct {
+	// The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
+	Interval pulumi.IntInput `pulumi:"interval"`
+	// The unit of time for time-based retention. Valid values: `DAYS`, `WEEKS`, `MONTHS`, or `YEARS`.
+	IntervalUnit pulumi.StringInput `pulumi:"intervalUnit"`
+}
+
+func (LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRule)(nil)).Elem()
+}
+
+func (i LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleArgs) ToLifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleOutput() LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleOutput {
+	return i.ToLifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleOutputWithContext(context.Background())
+}
+
+func (i LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleArgs) ToLifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleOutput)
+}
+
+func (i LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleArgs) ToLifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRulePtrOutput() LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRulePtrOutput {
+	return i.ToLifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRulePtrOutputWithContext(context.Background())
+}
+
+func (i LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleArgs) ToLifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRulePtrOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleOutput).ToLifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRulePtrOutputWithContext(ctx)
+}
+
+// LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRulePtrInput is an input type that accepts LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleArgs, LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRulePtr and LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRulePtrOutput values.
+// You can construct a concrete instance of `LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRulePtrInput` via:
+//
+//          LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleArgs{...}
+//
+//  or:
+//
+//          nil
+type LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRulePtrInput interface {
+	pulumi.Input
+
+	ToLifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRulePtrOutput() LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRulePtrOutput
+	ToLifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRulePtrOutputWithContext(context.Context) LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRulePtrOutput
+}
+
+type lifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRulePtrType LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleArgs
+
+func LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRulePtr(v *LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleArgs) LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRulePtrInput {
+	return (*lifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRulePtrType)(v)
+}
+
+func (*lifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRule)(nil)).Elem()
+}
+
+func (i *lifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRulePtrType) ToLifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRulePtrOutput() LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRulePtrOutput {
+	return i.ToLifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRulePtrOutputWithContext(context.Background())
+}
+
+func (i *lifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRulePtrType) ToLifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRulePtrOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRulePtrOutput)
+}
+
+type LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleOutput struct{ *pulumi.OutputState }
+
+func (LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRule)(nil)).Elem()
+}
+
+func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleOutput) ToLifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleOutput() LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleOutput {
+	return o
+}
+
+func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleOutput) ToLifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleOutput {
+	return o
+}
+
+func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleOutput) ToLifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRulePtrOutput() LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRulePtrOutput {
+	return o.ToLifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRulePtrOutputWithContext(context.Background())
+}
+
+func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleOutput) ToLifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRulePtrOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRulePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRule) *LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRule {
+		return &v
+	}).(LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRulePtrOutput)
+}
+
+// The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
+func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleOutput) Interval() pulumi.IntOutput {
+	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRule) int { return v.Interval }).(pulumi.IntOutput)
+}
+
+// The unit of time for time-based retention. Valid values: `DAYS`, `WEEKS`, `MONTHS`, or `YEARS`.
+func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleOutput) IntervalUnit() pulumi.StringOutput {
+	return o.ApplyT(func(v LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRule) string {
+		return v.IntervalUnit
+	}).(pulumi.StringOutput)
+}
+
+type LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRulePtrOutput struct{ *pulumi.OutputState }
+
+func (LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRule)(nil)).Elem()
+}
+
+func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRulePtrOutput) ToLifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRulePtrOutput() LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRulePtrOutput {
+	return o
+}
+
+func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRulePtrOutput) ToLifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRulePtrOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRulePtrOutput {
+	return o
+}
+
+func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRulePtrOutput) Elem() LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleOutput {
+	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRule) LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRule {
+		if v != nil {
+			return *v
+		}
+		var ret LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRule
+		return ret
+	}).(LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleOutput)
+}
+
+// The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
+func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRulePtrOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRule) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Interval
+	}).(pulumi.IntPtrOutput)
+}
+
+// The unit of time for time-based retention. Valid values: `DAYS`, `WEEKS`, `MONTHS`, or `YEARS`.
+func (o LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRulePtrOutput) IntervalUnit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRule) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.IntervalUnit
+	}).(pulumi.StringPtrOutput)
 }
 
 type LifecyclePolicyPolicyDetailsScheduleRetainRule struct {
@@ -450,11 +923,23 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyPolicyDetailsScheduleInput)(nil)).Elem(), LifecyclePolicyPolicyDetailsScheduleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyPolicyDetailsScheduleArrayInput)(nil)).Elem(), LifecyclePolicyPolicyDetailsScheduleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyPolicyDetailsScheduleCreateRuleInput)(nil)).Elem(), LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleInput)(nil)).Elem(), LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArrayInput)(nil)).Elem(), LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleInput)(nil)).Elem(), LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRulePtrInput)(nil)).Elem(), LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleInput)(nil)).Elem(), LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRulePtrInput)(nil)).Elem(), LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyPolicyDetailsScheduleRetainRuleInput)(nil)).Elem(), LifecyclePolicyPolicyDetailsScheduleRetainRuleArgs{})
 	pulumi.RegisterOutputType(LifecyclePolicyPolicyDetailsOutput{})
 	pulumi.RegisterOutputType(LifecyclePolicyPolicyDetailsPtrOutput{})
 	pulumi.RegisterOutputType(LifecyclePolicyPolicyDetailsScheduleOutput{})
 	pulumi.RegisterOutputType(LifecyclePolicyPolicyDetailsScheduleArrayOutput{})
 	pulumi.RegisterOutputType(LifecyclePolicyPolicyDetailsScheduleCreateRuleOutput{})
+	pulumi.RegisterOutputType(LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleOutput{})
+	pulumi.RegisterOutputType(LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArrayOutput{})
+	pulumi.RegisterOutputType(LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRuleOutput{})
+	pulumi.RegisterOutputType(LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleDeprecateRulePtrOutput{})
+	pulumi.RegisterOutputType(LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleOutput{})
+	pulumi.RegisterOutputType(LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRulePtrOutput{})
 	pulumi.RegisterOutputType(LifecyclePolicyPolicyDetailsScheduleRetainRuleOutput{})
 }
