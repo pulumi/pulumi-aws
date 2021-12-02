@@ -69,6 +69,7 @@ export * from "./getVpc";
 export * from "./getVpcDhcpOptions";
 export * from "./getVpcEndpoint";
 export * from "./getVpcEndpointService";
+export * from "./getVpcIamPool";
 export * from "./getVpcPeeringConnection";
 export * from "./getVpcPeeringConnections";
 export * from "./getVpcs";
@@ -123,7 +124,13 @@ export * from "./vpcEndpointRouteTableAssociation";
 export * from "./vpcEndpointService";
 export * from "./vpcEndpointServiceAllowedPrinciple";
 export * from "./vpcEndpointSubnetAssociation";
+export * from "./vpcIpam";
+export * from "./vpcIpamPool";
+export * from "./vpcIpamPoolCidr";
+export * from "./vpcIpamPoolCidrAllocation";
+export * from "./vpcIpamScope";
 export * from "./vpcIpv4CidrBlockAssociation";
+export * from "./vpcIpv6CidrBlockAssociation";
 export * from "./vpcPeeringConnection";
 export * from "./vpcPeeringConnectionAccepter";
 export * from "./vpnConnection";
@@ -201,7 +208,13 @@ import { VpcEndpointRouteTableAssociation } from "./vpcEndpointRouteTableAssocia
 import { VpcEndpointService } from "./vpcEndpointService";
 import { VpcEndpointServiceAllowedPrinciple } from "./vpcEndpointServiceAllowedPrinciple";
 import { VpcEndpointSubnetAssociation } from "./vpcEndpointSubnetAssociation";
+import { VpcIpam } from "./vpcIpam";
+import { VpcIpamPool } from "./vpcIpamPool";
+import { VpcIpamPoolCidr } from "./vpcIpamPoolCidr";
+import { VpcIpamPoolCidrAllocation } from "./vpcIpamPoolCidrAllocation";
+import { VpcIpamScope } from "./vpcIpamScope";
 import { VpcIpv4CidrBlockAssociation } from "./vpcIpv4CidrBlockAssociation";
+import { VpcIpv6CidrBlockAssociation } from "./vpcIpv6CidrBlockAssociation";
 import { VpcPeeringConnection } from "./vpcPeeringConnection";
 import { VpcPeeringConnectionAccepter } from "./vpcPeeringConnectionAccepter";
 import { VpnConnection } from "./vpnConnection";
@@ -344,8 +357,20 @@ const _module = {
                 return new VpcEndpointServiceAllowedPrinciple(name, <any>undefined, { urn })
             case "aws:ec2/vpcEndpointSubnetAssociation:VpcEndpointSubnetAssociation":
                 return new VpcEndpointSubnetAssociation(name, <any>undefined, { urn })
+            case "aws:ec2/vpcIpam:VpcIpam":
+                return new VpcIpam(name, <any>undefined, { urn })
+            case "aws:ec2/vpcIpamPool:VpcIpamPool":
+                return new VpcIpamPool(name, <any>undefined, { urn })
+            case "aws:ec2/vpcIpamPoolCidr:VpcIpamPoolCidr":
+                return new VpcIpamPoolCidr(name, <any>undefined, { urn })
+            case "aws:ec2/vpcIpamPoolCidrAllocation:VpcIpamPoolCidrAllocation":
+                return new VpcIpamPoolCidrAllocation(name, <any>undefined, { urn })
+            case "aws:ec2/vpcIpamScope:VpcIpamScope":
+                return new VpcIpamScope(name, <any>undefined, { urn })
             case "aws:ec2/vpcIpv4CidrBlockAssociation:VpcIpv4CidrBlockAssociation":
                 return new VpcIpv4CidrBlockAssociation(name, <any>undefined, { urn })
+            case "aws:ec2/vpcIpv6CidrBlockAssociation:VpcIpv6CidrBlockAssociation":
+                return new VpcIpv6CidrBlockAssociation(name, <any>undefined, { urn })
             case "aws:ec2/vpcPeeringConnection:VpcPeeringConnection":
                 return new VpcPeeringConnection(name, <any>undefined, { urn })
             case "aws:ec2/vpcPeeringConnectionAccepter:VpcPeeringConnectionAccepter":
@@ -430,7 +455,13 @@ pulumi.runtime.registerResourceModule("aws", "ec2/vpcEndpointRouteTableAssociati
 pulumi.runtime.registerResourceModule("aws", "ec2/vpcEndpointService", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/vpcEndpointServiceAllowedPrinciple", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/vpcEndpointSubnetAssociation", _module)
+pulumi.runtime.registerResourceModule("aws", "ec2/vpcIpam", _module)
+pulumi.runtime.registerResourceModule("aws", "ec2/vpcIpamPool", _module)
+pulumi.runtime.registerResourceModule("aws", "ec2/vpcIpamPoolCidr", _module)
+pulumi.runtime.registerResourceModule("aws", "ec2/vpcIpamPoolCidrAllocation", _module)
+pulumi.runtime.registerResourceModule("aws", "ec2/vpcIpamScope", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/vpcIpv4CidrBlockAssociation", _module)
+pulumi.runtime.registerResourceModule("aws", "ec2/vpcIpv6CidrBlockAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/vpcPeeringConnection", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/vpcPeeringConnectionAccepter", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/vpnConnection", _module)

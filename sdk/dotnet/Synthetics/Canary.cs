@@ -59,6 +59,12 @@ namespace Pulumi.Aws.Synthetics
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// configuration for canary artifacts, including the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3. See Artifact Config.
+        /// </summary>
+        [Output("artifactConfig")]
+        public Output<Outputs.CanaryArtifactConfig?> ArtifactConfig { get; private set; } = null!;
+
+        /// <summary>
         /// Location in Amazon S3 where Synthetics stores artifacts from the test runs of this canary.
         /// </summary>
         [Output("artifactS3Location")]
@@ -155,7 +161,7 @@ namespace Pulumi.Aws.Synthetics
         public Output<int?> SuccessRetentionPeriod { get; private set; } = null!;
 
         /// <summary>
-        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -230,6 +236,12 @@ namespace Pulumi.Aws.Synthetics
 
     public sealed class CanaryArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// configuration for canary artifacts, including the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3. See Artifact Config.
+        /// </summary>
+        [Input("artifactConfig")]
+        public Input<Inputs.CanaryArtifactConfigArgs>? ArtifactConfig { get; set; }
+
         /// <summary>
         /// Location in Amazon S3 where Synthetics stores artifacts from the test runs of this canary.
         /// </summary>
@@ -312,7 +324,7 @@ namespace Pulumi.Aws.Synthetics
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -344,6 +356,12 @@ namespace Pulumi.Aws.Synthetics
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
+
+        /// <summary>
+        /// configuration for canary artifacts, including the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3. See Artifact Config.
+        /// </summary>
+        [Input("artifactConfig")]
+        public Input<Inputs.CanaryArtifactConfigGetArgs>? ArtifactConfig { get; set; }
 
         /// <summary>
         /// Location in Amazon S3 where Synthetics stores artifacts from the test runs of this canary.
@@ -445,7 +463,7 @@ namespace Pulumi.Aws.Synthetics
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {

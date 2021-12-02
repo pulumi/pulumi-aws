@@ -126,7 +126,7 @@ export class OntapVolume extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     public readonly tieringPolicy!: pulumi.Output<outputs.fsx.OntapVolumeTieringPolicy | undefined>;
     /**
      * The Volume's UUID (universally unique identifier).
@@ -186,13 +186,13 @@ export class OntapVolume extends pulumi.CustomResource {
             inputs["storageEfficiencyEnabled"] = args ? args.storageEfficiencyEnabled : undefined;
             inputs["storageVirtualMachineId"] = args ? args.storageVirtualMachineId : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["tieringPolicy"] = args ? args.tieringPolicy : undefined;
             inputs["volumeType"] = args ? args.volumeType : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["fileSystemId"] = undefined /*out*/;
             inputs["flexcacheEndpointType"] = undefined /*out*/;
             inputs["ontapVolumeType"] = undefined /*out*/;
+            inputs["tagsAll"] = undefined /*out*/;
             inputs["uuid"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -297,10 +297,6 @@ export interface OntapVolumeArgs {
      * A map of tags to assign to the volume. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     tieringPolicy?: pulumi.Input<inputs.fsx.OntapVolumeTieringPolicy>;
     /**
      * The type of volume, currently the only valid value is `ONTAP`.

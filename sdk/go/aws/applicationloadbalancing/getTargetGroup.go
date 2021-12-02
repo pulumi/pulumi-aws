@@ -75,10 +75,11 @@ type LookupTargetGroupArgs struct {
 
 // A collection of values returned by getTargetGroup.
 type LookupTargetGroupResult struct {
-	Arn                 string                    `pulumi:"arn"`
-	ArnSuffix           string                    `pulumi:"arnSuffix"`
-	DeregistrationDelay int                       `pulumi:"deregistrationDelay"`
-	HealthCheck         GetTargetGroupHealthCheck `pulumi:"healthCheck"`
+	Arn                   string                    `pulumi:"arn"`
+	ArnSuffix             string                    `pulumi:"arnSuffix"`
+	ConnectionTermination bool                      `pulumi:"connectionTermination"`
+	DeregistrationDelay   int                       `pulumi:"deregistrationDelay"`
+	HealthCheck           GetTargetGroupHealthCheck `pulumi:"healthCheck"`
 	// The provider-assigned unique ID for this managed resource.
 	Id                             string                   `pulumi:"id"`
 	LambdaMultiValueHeadersEnabled bool                     `pulumi:"lambdaMultiValueHeadersEnabled"`
@@ -139,6 +140,10 @@ func (o LookupTargetGroupResultOutput) Arn() pulumi.StringOutput {
 
 func (o LookupTargetGroupResultOutput) ArnSuffix() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTargetGroupResult) string { return v.ArnSuffix }).(pulumi.StringOutput)
+}
+
+func (o LookupTargetGroupResultOutput) ConnectionTermination() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupTargetGroupResult) bool { return v.ConnectionTermination }).(pulumi.BoolOutput)
 }
 
 func (o LookupTargetGroupResultOutput) DeregistrationDelay() pulumi.IntOutput {

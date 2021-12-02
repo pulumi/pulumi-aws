@@ -1961,6 +1961,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "codecommit/approvalRuleTemplate",
+  "fqn": "pulumi_aws.codecommit",
+  "classes": {
+   "aws:codecommit/approvalRuleTemplate:ApprovalRuleTemplate": "ApprovalRuleTemplate"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "codecommit/repository",
   "fqn": "pulumi_aws.codecommit",
   "classes": {
@@ -3113,10 +3121,58 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "ec2/vpcIpam",
+  "fqn": "pulumi_aws.ec2",
+  "classes": {
+   "aws:ec2/vpcIpam:VpcIpam": "VpcIpam"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "ec2/vpcIpamPool",
+  "fqn": "pulumi_aws.ec2",
+  "classes": {
+   "aws:ec2/vpcIpamPool:VpcIpamPool": "VpcIpamPool"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "ec2/vpcIpamPoolCidr",
+  "fqn": "pulumi_aws.ec2",
+  "classes": {
+   "aws:ec2/vpcIpamPoolCidr:VpcIpamPoolCidr": "VpcIpamPoolCidr"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "ec2/vpcIpamPoolCidrAllocation",
+  "fqn": "pulumi_aws.ec2",
+  "classes": {
+   "aws:ec2/vpcIpamPoolCidrAllocation:VpcIpamPoolCidrAllocation": "VpcIpamPoolCidrAllocation"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "ec2/vpcIpamScope",
+  "fqn": "pulumi_aws.ec2",
+  "classes": {
+   "aws:ec2/vpcIpamScope:VpcIpamScope": "VpcIpamScope"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "ec2/vpcIpv4CidrBlockAssociation",
   "fqn": "pulumi_aws.ec2",
   "classes": {
    "aws:ec2/vpcIpv4CidrBlockAssociation:VpcIpv4CidrBlockAssociation": "VpcIpv4CidrBlockAssociation"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "ec2/vpcIpv6CidrBlockAssociation",
+  "fqn": "pulumi_aws.ec2",
+  "classes": {
+   "aws:ec2/vpcIpv6CidrBlockAssociation:VpcIpv6CidrBlockAssociation": "VpcIpv6CidrBlockAssociation"
   }
  },
  {
@@ -3325,6 +3381,14 @@ _utilities.register(
   "fqn": "pulumi_aws.ecrpublic",
   "classes": {
    "aws:ecrpublic/repository:Repository": "Repository"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "ecs/accountSettingDefault",
+  "fqn": "pulumi_aws.ecs",
+  "classes": {
+   "aws:ecs/accountSettingDefault:AccountSettingDefault": "AccountSettingDefault"
   }
  },
  {

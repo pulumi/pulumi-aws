@@ -58,6 +58,10 @@ export class AlternativeContact extends pulumi.CustomResource {
     }
 
     /**
+     * The ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
+     */
+    public readonly accountId!: pulumi.Output<string | undefined>;
+    /**
      * The type of the alternate contact. Allowed values are: `BILLING`, `OPERATIONS`, `SECURITY`.
      */
     public readonly alternateContactType!: pulumi.Output<string>;
@@ -91,6 +95,7 @@ export class AlternativeContact extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AlternativeContactState | undefined;
+            inputs["accountId"] = state ? state.accountId : undefined;
             inputs["alternateContactType"] = state ? state.alternateContactType : undefined;
             inputs["emailAddress"] = state ? state.emailAddress : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -110,6 +115,7 @@ export class AlternativeContact extends pulumi.CustomResource {
             if ((!args || args.title === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'title'");
             }
+            inputs["accountId"] = args ? args.accountId : undefined;
             inputs["alternateContactType"] = args ? args.alternateContactType : undefined;
             inputs["emailAddress"] = args ? args.emailAddress : undefined;
             inputs["name"] = args ? args.name : undefined;
@@ -127,6 +133,10 @@ export class AlternativeContact extends pulumi.CustomResource {
  * Input properties used for looking up and filtering AlternativeContact resources.
  */
 export interface AlternativeContactState {
+    /**
+     * The ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
+     */
+    accountId?: pulumi.Input<string>;
     /**
      * The type of the alternate contact. Allowed values are: `BILLING`, `OPERATIONS`, `SECURITY`.
      */
@@ -153,6 +163,10 @@ export interface AlternativeContactState {
  * The set of arguments for constructing a AlternativeContact resource.
  */
 export interface AlternativeContactArgs {
+    /**
+     * The ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
+     */
+    accountId?: pulumi.Input<string>;
     /**
      * The type of the alternate contact. Allowed values are: `BILLING`, `OPERATIONS`, `SECURITY`.
      */

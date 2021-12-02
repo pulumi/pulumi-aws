@@ -70,6 +70,7 @@ from .get_vpc import *
 from .get_vpc_dhcp_options import *
 from .get_vpc_endpoint import *
 from .get_vpc_endpoint_service import *
+from .get_vpc_iam_pool import *
 from .get_vpc_peering_connection import *
 from .get_vpc_peering_connections import *
 from .get_vpcs import *
@@ -119,7 +120,13 @@ from .vpc_endpoint_route_table_association import *
 from .vpc_endpoint_service import *
 from .vpc_endpoint_service_allowed_principle import *
 from .vpc_endpoint_subnet_association import *
+from .vpc_ipam import *
+from .vpc_ipam_pool import *
+from .vpc_ipam_pool_cidr import *
+from .vpc_ipam_pool_cidr_allocation import *
+from .vpc_ipam_scope import *
 from .vpc_ipv4_cidr_block_association import *
+from .vpc_ipv6_cidr_block_association import *
 from .vpc_peering_connection import *
 from .vpc_peering_connection_accepter import *
 from .vpn_connection import *

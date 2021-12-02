@@ -5,6 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./accountSettingDefault";
 export * from "./capacityProvider";
 export * from "./cluster";
 export * from "./container";
@@ -17,6 +18,7 @@ export * from "./tag";
 export * from "./taskDefinition";
 
 // Import resources to register:
+import { AccountSettingDefault } from "./accountSettingDefault";
 import { CapacityProvider } from "./capacityProvider";
 import { Cluster } from "./cluster";
 import { Service } from "./service";
@@ -27,6 +29,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws:ecs/accountSettingDefault:AccountSettingDefault":
+                return new AccountSettingDefault(name, <any>undefined, { urn })
             case "aws:ecs/capacityProvider:CapacityProvider":
                 return new CapacityProvider(name, <any>undefined, { urn })
             case "aws:ecs/cluster:Cluster":
@@ -42,6 +46,7 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("aws", "ecs/accountSettingDefault", _module)
 pulumi.runtime.registerResourceModule("aws", "ecs/capacityProvider", _module)
 pulumi.runtime.registerResourceModule("aws", "ecs/cluster", _module)
 pulumi.runtime.registerResourceModule("aws", "ecs/service", _module)

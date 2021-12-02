@@ -68,6 +68,7 @@ export interface GetTargetGroupArgs {
 export interface GetTargetGroupResult {
     readonly arn: string;
     readonly arnSuffix: string;
+    readonly connectionTermination: boolean;
     readonly deregistrationDelay: number;
     readonly healthCheck: outputs.elasticloadbalancingv2.GetTargetGroupHealthCheck;
     /**

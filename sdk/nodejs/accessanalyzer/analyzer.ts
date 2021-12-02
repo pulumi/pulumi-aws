@@ -73,6 +73,9 @@ export class Analyzer extends pulumi.CustomResource {
      * Name of the Analyzer.
      */
     public readonly analyzerName!: pulumi.Output<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the Analyzer.
+     */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -131,6 +134,9 @@ export interface AnalyzerState {
      * Name of the Analyzer.
      */
     analyzerName?: pulumi.Input<string>;
+    /**
+     * The Amazon Resource Name (ARN) of the Analyzer.
+     */
     arn?: pulumi.Input<string>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

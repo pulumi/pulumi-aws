@@ -17,6 +17,11 @@ class DefaultVpcArgs:
                  enable_classiclink_dns_support: Optional[pulumi.Input[bool]] = None,
                  enable_dns_hostnames: Optional[pulumi.Input[bool]] = None,
                  enable_dns_support: Optional[pulumi.Input[bool]] = None,
+                 ipv4_ipam_pool_id: Optional[pulumi.Input[str]] = None,
+                 ipv4_netmask_length: Optional[pulumi.Input[int]] = None,
+                 ipv6_cidr_block: Optional[pulumi.Input[str]] = None,
+                 ipv6_ipam_pool_id: Optional[pulumi.Input[str]] = None,
+                 ipv6_netmask_length: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a DefaultVpc resource.
@@ -25,6 +30,7 @@ class DefaultVpcArgs:
                See the [ClassicLink documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html) for more information. Defaults false.
         :param pulumi.Input[bool] enable_dns_hostnames: A boolean flag to enable/disable DNS hostnames in the VPC. Defaults false.
         :param pulumi.Input[bool] enable_dns_support: A boolean flag to enable/disable DNS support in the VPC. Defaults true.
+        :param pulumi.Input[str] ipv6_cidr_block: The IPv6 CIDR block of the VPC
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
         """
         if enable_classiclink is not None:
@@ -35,6 +41,16 @@ class DefaultVpcArgs:
             pulumi.set(__self__, "enable_dns_hostnames", enable_dns_hostnames)
         if enable_dns_support is not None:
             pulumi.set(__self__, "enable_dns_support", enable_dns_support)
+        if ipv4_ipam_pool_id is not None:
+            pulumi.set(__self__, "ipv4_ipam_pool_id", ipv4_ipam_pool_id)
+        if ipv4_netmask_length is not None:
+            pulumi.set(__self__, "ipv4_netmask_length", ipv4_netmask_length)
+        if ipv6_cidr_block is not None:
+            pulumi.set(__self__, "ipv6_cidr_block", ipv6_cidr_block)
+        if ipv6_ipam_pool_id is not None:
+            pulumi.set(__self__, "ipv6_ipam_pool_id", ipv6_ipam_pool_id)
+        if ipv6_netmask_length is not None:
+            pulumi.set(__self__, "ipv6_netmask_length", ipv6_netmask_length)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -86,6 +102,54 @@ class DefaultVpcArgs:
         pulumi.set(self, "enable_dns_support", value)
 
     @property
+    @pulumi.getter(name="ipv4IpamPoolId")
+    def ipv4_ipam_pool_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "ipv4_ipam_pool_id")
+
+    @ipv4_ipam_pool_id.setter
+    def ipv4_ipam_pool_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ipv4_ipam_pool_id", value)
+
+    @property
+    @pulumi.getter(name="ipv4NetmaskLength")
+    def ipv4_netmask_length(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "ipv4_netmask_length")
+
+    @ipv4_netmask_length.setter
+    def ipv4_netmask_length(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "ipv4_netmask_length", value)
+
+    @property
+    @pulumi.getter(name="ipv6CidrBlock")
+    def ipv6_cidr_block(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IPv6 CIDR block of the VPC
+        """
+        return pulumi.get(self, "ipv6_cidr_block")
+
+    @ipv6_cidr_block.setter
+    def ipv6_cidr_block(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ipv6_cidr_block", value)
+
+    @property
+    @pulumi.getter(name="ipv6IpamPoolId")
+    def ipv6_ipam_pool_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "ipv6_ipam_pool_id")
+
+    @ipv6_ipam_pool_id.setter
+    def ipv6_ipam_pool_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ipv6_ipam_pool_id", value)
+
+    @property
+    @pulumi.getter(name="ipv6NetmaskLength")
+    def ipv6_netmask_length(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "ipv6_netmask_length")
+
+    @ipv6_netmask_length.setter
+    def ipv6_netmask_length(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "ipv6_netmask_length", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -113,8 +177,12 @@ class _DefaultVpcState:
                  enable_dns_hostnames: Optional[pulumi.Input[bool]] = None,
                  enable_dns_support: Optional[pulumi.Input[bool]] = None,
                  instance_tenancy: Optional[pulumi.Input[str]] = None,
+                 ipv4_ipam_pool_id: Optional[pulumi.Input[str]] = None,
+                 ipv4_netmask_length: Optional[pulumi.Input[int]] = None,
                  ipv6_association_id: Optional[pulumi.Input[str]] = None,
                  ipv6_cidr_block: Optional[pulumi.Input[str]] = None,
+                 ipv6_ipam_pool_id: Optional[pulumi.Input[str]] = None,
+                 ipv6_netmask_length: Optional[pulumi.Input[int]] = None,
                  main_route_table_id: Optional[pulumi.Input[str]] = None,
                  owner_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -166,10 +234,18 @@ class _DefaultVpcState:
             pulumi.set(__self__, "enable_dns_support", enable_dns_support)
         if instance_tenancy is not None:
             pulumi.set(__self__, "instance_tenancy", instance_tenancy)
+        if ipv4_ipam_pool_id is not None:
+            pulumi.set(__self__, "ipv4_ipam_pool_id", ipv4_ipam_pool_id)
+        if ipv4_netmask_length is not None:
+            pulumi.set(__self__, "ipv4_netmask_length", ipv4_netmask_length)
         if ipv6_association_id is not None:
             pulumi.set(__self__, "ipv6_association_id", ipv6_association_id)
         if ipv6_cidr_block is not None:
             pulumi.set(__self__, "ipv6_cidr_block", ipv6_cidr_block)
+        if ipv6_ipam_pool_id is not None:
+            pulumi.set(__self__, "ipv6_ipam_pool_id", ipv6_ipam_pool_id)
+        if ipv6_netmask_length is not None:
+            pulumi.set(__self__, "ipv6_netmask_length", ipv6_netmask_length)
         if main_route_table_id is not None:
             pulumi.set(__self__, "main_route_table_id", main_route_table_id)
         if owner_id is not None:
@@ -321,6 +397,24 @@ class _DefaultVpcState:
         pulumi.set(self, "instance_tenancy", value)
 
     @property
+    @pulumi.getter(name="ipv4IpamPoolId")
+    def ipv4_ipam_pool_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "ipv4_ipam_pool_id")
+
+    @ipv4_ipam_pool_id.setter
+    def ipv4_ipam_pool_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ipv4_ipam_pool_id", value)
+
+    @property
+    @pulumi.getter(name="ipv4NetmaskLength")
+    def ipv4_netmask_length(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "ipv4_netmask_length")
+
+    @ipv4_netmask_length.setter
+    def ipv4_netmask_length(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "ipv4_netmask_length", value)
+
+    @property
     @pulumi.getter(name="ipv6AssociationId")
     def ipv6_association_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -343,6 +437,24 @@ class _DefaultVpcState:
     @ipv6_cidr_block.setter
     def ipv6_cidr_block(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "ipv6_cidr_block", value)
+
+    @property
+    @pulumi.getter(name="ipv6IpamPoolId")
+    def ipv6_ipam_pool_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "ipv6_ipam_pool_id")
+
+    @ipv6_ipam_pool_id.setter
+    def ipv6_ipam_pool_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "ipv6_ipam_pool_id", value)
+
+    @property
+    @pulumi.getter(name="ipv6NetmaskLength")
+    def ipv6_netmask_length(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "ipv6_netmask_length")
+
+    @ipv6_netmask_length.setter
+    def ipv6_netmask_length(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "ipv6_netmask_length", value)
 
     @property
     @pulumi.getter(name="mainRouteTableId")
@@ -401,6 +513,11 @@ class DefaultVpc(pulumi.CustomResource):
                  enable_classiclink_dns_support: Optional[pulumi.Input[bool]] = None,
                  enable_dns_hostnames: Optional[pulumi.Input[bool]] = None,
                  enable_dns_support: Optional[pulumi.Input[bool]] = None,
+                 ipv4_ipam_pool_id: Optional[pulumi.Input[str]] = None,
+                 ipv4_netmask_length: Optional[pulumi.Input[int]] = None,
+                 ipv6_cidr_block: Optional[pulumi.Input[str]] = None,
+                 ipv6_ipam_pool_id: Optional[pulumi.Input[str]] = None,
+                 ipv6_netmask_length: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
@@ -443,6 +560,7 @@ class DefaultVpc(pulumi.CustomResource):
                See the [ClassicLink documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html) for more information. Defaults false.
         :param pulumi.Input[bool] enable_dns_hostnames: A boolean flag to enable/disable DNS hostnames in the VPC. Defaults false.
         :param pulumi.Input[bool] enable_dns_support: A boolean flag to enable/disable DNS support in the VPC. Defaults true.
+        :param pulumi.Input[str] ipv6_cidr_block: The IPv6 CIDR block of the VPC
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource.
         """
         ...
@@ -503,6 +621,11 @@ class DefaultVpc(pulumi.CustomResource):
                  enable_classiclink_dns_support: Optional[pulumi.Input[bool]] = None,
                  enable_dns_hostnames: Optional[pulumi.Input[bool]] = None,
                  enable_dns_support: Optional[pulumi.Input[bool]] = None,
+                 ipv4_ipam_pool_id: Optional[pulumi.Input[str]] = None,
+                 ipv4_netmask_length: Optional[pulumi.Input[int]] = None,
+                 ipv6_cidr_block: Optional[pulumi.Input[str]] = None,
+                 ipv6_ipam_pool_id: Optional[pulumi.Input[str]] = None,
+                 ipv6_netmask_length: Optional[pulumi.Input[int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         if opts is None:
@@ -520,6 +643,11 @@ class DefaultVpc(pulumi.CustomResource):
             __props__.__dict__["enable_classiclink_dns_support"] = enable_classiclink_dns_support
             __props__.__dict__["enable_dns_hostnames"] = enable_dns_hostnames
             __props__.__dict__["enable_dns_support"] = enable_dns_support
+            __props__.__dict__["ipv4_ipam_pool_id"] = ipv4_ipam_pool_id
+            __props__.__dict__["ipv4_netmask_length"] = ipv4_netmask_length
+            __props__.__dict__["ipv6_cidr_block"] = ipv6_cidr_block
+            __props__.__dict__["ipv6_ipam_pool_id"] = ipv6_ipam_pool_id
+            __props__.__dict__["ipv6_netmask_length"] = ipv6_netmask_length
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
             __props__.__dict__["assign_generated_ipv6_cidr_block"] = None
@@ -530,7 +658,6 @@ class DefaultVpc(pulumi.CustomResource):
             __props__.__dict__["dhcp_options_id"] = None
             __props__.__dict__["instance_tenancy"] = None
             __props__.__dict__["ipv6_association_id"] = None
-            __props__.__dict__["ipv6_cidr_block"] = None
             __props__.__dict__["main_route_table_id"] = None
             __props__.__dict__["owner_id"] = None
             __props__.__dict__["tags_all"] = None
@@ -556,8 +683,12 @@ class DefaultVpc(pulumi.CustomResource):
             enable_dns_hostnames: Optional[pulumi.Input[bool]] = None,
             enable_dns_support: Optional[pulumi.Input[bool]] = None,
             instance_tenancy: Optional[pulumi.Input[str]] = None,
+            ipv4_ipam_pool_id: Optional[pulumi.Input[str]] = None,
+            ipv4_netmask_length: Optional[pulumi.Input[int]] = None,
             ipv6_association_id: Optional[pulumi.Input[str]] = None,
             ipv6_cidr_block: Optional[pulumi.Input[str]] = None,
+            ipv6_ipam_pool_id: Optional[pulumi.Input[str]] = None,
+            ipv6_netmask_length: Optional[pulumi.Input[int]] = None,
             main_route_table_id: Optional[pulumi.Input[str]] = None,
             owner_id: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -606,8 +737,12 @@ class DefaultVpc(pulumi.CustomResource):
         __props__.__dict__["enable_dns_hostnames"] = enable_dns_hostnames
         __props__.__dict__["enable_dns_support"] = enable_dns_support
         __props__.__dict__["instance_tenancy"] = instance_tenancy
+        __props__.__dict__["ipv4_ipam_pool_id"] = ipv4_ipam_pool_id
+        __props__.__dict__["ipv4_netmask_length"] = ipv4_netmask_length
         __props__.__dict__["ipv6_association_id"] = ipv6_association_id
         __props__.__dict__["ipv6_cidr_block"] = ipv6_cidr_block
+        __props__.__dict__["ipv6_ipam_pool_id"] = ipv6_ipam_pool_id
+        __props__.__dict__["ipv6_netmask_length"] = ipv6_netmask_length
         __props__.__dict__["main_route_table_id"] = main_route_table_id
         __props__.__dict__["owner_id"] = owner_id
         __props__.__dict__["tags"] = tags
@@ -708,6 +843,16 @@ class DefaultVpc(pulumi.CustomResource):
         return pulumi.get(self, "instance_tenancy")
 
     @property
+    @pulumi.getter(name="ipv4IpamPoolId")
+    def ipv4_ipam_pool_id(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "ipv4_ipam_pool_id")
+
+    @property
+    @pulumi.getter(name="ipv4NetmaskLength")
+    def ipv4_netmask_length(self) -> pulumi.Output[Optional[int]]:
+        return pulumi.get(self, "ipv4_netmask_length")
+
+    @property
     @pulumi.getter(name="ipv6AssociationId")
     def ipv6_association_id(self) -> pulumi.Output[str]:
         """
@@ -722,6 +867,16 @@ class DefaultVpc(pulumi.CustomResource):
         The IPv6 CIDR block of the VPC
         """
         return pulumi.get(self, "ipv6_cidr_block")
+
+    @property
+    @pulumi.getter(name="ipv6IpamPoolId")
+    def ipv6_ipam_pool_id(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "ipv6_ipam_pool_id")
+
+    @property
+    @pulumi.getter(name="ipv6NetmaskLength")
+    def ipv6_netmask_length(self) -> pulumi.Output[Optional[int]]:
+        return pulumi.get(self, "ipv6_netmask_length")
 
     @property
     @pulumi.getter(name="mainRouteTableId")

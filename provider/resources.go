@@ -854,6 +854,7 @@ func Provider() tfbridge.ProviderInfo {
 					Source: "code_commit_trigger.html.markdown",
 				},
 			},
+			"aws_codecommit_approval_rule_template": {Tok: awsResource(codecommitMod, "ApprovalRuleTemplate")},
 			// CodePipeline
 			"aws_codepipeline": {
 				Tok: awsResource(codepipelineMod, "Pipeline"),
@@ -1285,11 +1286,17 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_ec2_local_gateway_route_table_vpc_association": {
 				Tok: awsResource(ec2Mod, "LocalGatewayRouteTableVpcAssociation"),
 			},
-			"aws_ec2_tag":                       {Tok: awsResource(ec2Mod, "Tag")},
-			"aws_ec2_host":                      {Tok: awsResource(ec2Mod, "DedicatedHost")},
-			"aws_ec2_managed_prefix_list":       {Tok: awsResource(ec2Mod, "ManagedPrefixList")},
-			"aws_ec2_carrier_gateway":           {Tok: awsResource(ec2Mod, "CarrierGateway")},
-			"aws_ec2_managed_prefix_list_entry": {Tok: awsResource(ec2Mod, "ManagedPrefixListEntry")},
+			"aws_ec2_tag":                         {Tok: awsResource(ec2Mod, "Tag")},
+			"aws_ec2_host":                        {Tok: awsResource(ec2Mod, "DedicatedHost")},
+			"aws_ec2_managed_prefix_list":         {Tok: awsResource(ec2Mod, "ManagedPrefixList")},
+			"aws_ec2_carrier_gateway":             {Tok: awsResource(ec2Mod, "CarrierGateway")},
+			"aws_ec2_managed_prefix_list_entry":   {Tok: awsResource(ec2Mod, "ManagedPrefixListEntry")},
+			"aws_vpc_ipam":                        {Tok: awsResource(ec2Mod, "VpcIpam")},
+			"aws_vpc_ipam_pool":                   {Tok: awsResource(ec2Mod, "VpcIpamPool")},
+			"aws_vpc_ipam_scope":                  {Tok: awsResource(ec2Mod, "VpcIpamScope")},
+			"aws_vpc_ipam_pool_cidr":              {Tok: awsResource(ec2Mod, "VpcIpamPoolCidr")},
+			"aws_vpc_ipam_pool_cidr_allocation":   {Tok: awsResource(ec2Mod, "VpcIpamPoolCidrAllocation")},
+			"aws_vpc_ipv6_cidr_block_association": {Tok: awsResource(ec2Mod, "VpcIpv6CidrBlockAssociation")},
 			// EC2 Client VPN
 			"aws_ec2_client_vpn_endpoint":            {Tok: awsResource(ec2ClientVpnMod, "Endpoint")},
 			"aws_ec2_client_vpn_network_association": {Tok: awsResource(ec2ClientVpnMod, "NetworkAssociation")},
@@ -1373,9 +1380,10 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
-			"aws_ecs_task_definition":   {Tok: awsResource(ecsMod, "TaskDefinition")},
-			"aws_ecs_capacity_provider": {Tok: awsResource(ecsMod, "CapacityProvider")},
-			"aws_ecs_tag":               {Tok: awsResource(ecsMod, "Tag")},
+			"aws_ecs_task_definition":         {Tok: awsResource(ecsMod, "TaskDefinition")},
+			"aws_ecs_capacity_provider":       {Tok: awsResource(ecsMod, "CapacityProvider")},
+			"aws_ecs_tag":                     {Tok: awsResource(ecsMod, "Tag")},
+			"aws_ecs_account_setting_default": {Tok: awsResource(ecsMod, "AccountSettingDefault")},
 			// Elastic File System
 			"aws_efs_file_system": {
 				Tok: awsResource(efsMod, "FileSystem"),
@@ -3878,7 +3886,8 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_cloudwatch_event_source":     {Tok: awsDataSource(cloudwatchMod, "getEventSource")},
 			"aws_cloudwatch_event_connection": {Tok: awsDataSource(cloudwatchMod, "getEventConnection")},
 			// CodeCommit
-			"aws_codecommit_repository": {Tok: awsDataSource(codecommitMod, "getRepository")},
+			"aws_codecommit_repository":             {Tok: awsDataSource(codecommitMod, "getRepository")},
+			"aws_codecommit_approval_rule_template": {Tok: awsDataSource(codecommitMod, "getApprovalRuleTemplate")},
 			// Cognito
 			"aws_cognito_user_pools": {Tok: awsDataSource(cognitoMod, "getUserPools")},
 			// Connect
@@ -3971,6 +3980,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_ec2_managed_prefix_list":          {Tok: awsDataSource(ec2Mod, "getManagedPrefixList")},
 			"aws_ec2_transit_gateway_route_tables": {Tok: awsDataSource(ec2Mod, "getTransitGatewayRouteTables")},
 			"aws_ec2_instance_types":               {Tok: awsDataSource(ec2Mod, "getInstanceTypes")},
+			"aws_vpc_ipam_pool":                    {Tok: awsDataSource(ec2Mod, "getVpcIamPool")},
 			// EC2 Transit Gateway
 			"aws_ec2_transit_gateway": {Tok: awsDataSource(ec2TransitGatewayMod, "getTransitGateway")},
 			"aws_ec2_transit_gateway_dx_gateway_attachment": {

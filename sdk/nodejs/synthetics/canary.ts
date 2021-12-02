@@ -69,6 +69,10 @@ export class Canary extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * configuration for canary artifacts, including the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3. See Artifact Config.
+     */
+    public readonly artifactConfig!: pulumi.Output<outputs.synthetics.CanaryArtifactConfig | undefined>;
+    /**
      * Location in Amazon S3 where Synthetics stores artifacts from the test runs of this canary.
      */
     public readonly artifactS3Location!: pulumi.Output<string>;
@@ -133,7 +137,7 @@ export class Canary extends pulumi.CustomResource {
      */
     public readonly successRetentionPeriod!: pulumi.Output<number | undefined>;
     /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -167,6 +171,7 @@ export class Canary extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as CanaryState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
+            inputs["artifactConfig"] = state ? state.artifactConfig : undefined;
             inputs["artifactS3Location"] = state ? state.artifactS3Location : undefined;
             inputs["engineArn"] = state ? state.engineArn : undefined;
             inputs["executionRoleArn"] = state ? state.executionRoleArn : undefined;
@@ -205,6 +210,7 @@ export class Canary extends pulumi.CustomResource {
             if ((!args || args.schedule === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'schedule'");
             }
+            inputs["artifactConfig"] = args ? args.artifactConfig : undefined;
             inputs["artifactS3Location"] = args ? args.artifactS3Location : undefined;
             inputs["executionRoleArn"] = args ? args.executionRoleArn : undefined;
             inputs["failureRetentionPeriod"] = args ? args.failureRetentionPeriod : undefined;
@@ -243,6 +249,10 @@ export interface CanaryState {
      * Amazon Resource Name (ARN) of the Canary.
      */
     arn?: pulumi.Input<string>;
+    /**
+     * configuration for canary artifacts, including the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3. See Artifact Config.
+     */
+    artifactConfig?: pulumi.Input<inputs.synthetics.CanaryArtifactConfig>;
     /**
      * Location in Amazon S3 where Synthetics stores artifacts from the test runs of this canary.
      */
@@ -308,7 +318,7 @@ export interface CanaryState {
      */
     successRetentionPeriod?: pulumi.Input<number>;
     /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -333,6 +343,10 @@ export interface CanaryState {
  * The set of arguments for constructing a Canary resource.
  */
 export interface CanaryArgs {
+    /**
+     * configuration for canary artifacts, including the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3. See Artifact Config.
+     */
+    artifactConfig?: pulumi.Input<inputs.synthetics.CanaryArtifactConfig>;
     /**
      * Location in Amazon S3 where Synthetics stores artifacts from the test runs of this canary.
      */
@@ -386,7 +400,7 @@ export interface CanaryArgs {
      */
     successRetentionPeriod?: pulumi.Input<number>;
     /**
-     * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

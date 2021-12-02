@@ -15,6 +15,7 @@ __all__ = ['TargetGroupArgs', 'TargetGroup']
 @pulumi.input_type
 class TargetGroupArgs:
     def __init__(__self__, *,
+                 connection_termination: Optional[pulumi.Input[bool]] = None,
                  deregistration_delay: Optional[pulumi.Input[int]] = None,
                  health_check: Optional[pulumi.Input['TargetGroupHealthCheckArgs']] = None,
                  lambda_multi_value_headers_enabled: Optional[pulumi.Input[bool]] = None,
@@ -33,6 +34,7 @@ class TargetGroupArgs:
                  vpc_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a TargetGroup resource.
+        :param pulumi.Input[bool] connection_termination: Whether to terminate connections at the end of the deregistration timeout on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#deregistration-delay) for more information. Default is `false`.
         :param pulumi.Input[int] deregistration_delay: Amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is 0-3600 seconds. The default value is 300 seconds.
         :param pulumi.Input['TargetGroupHealthCheckArgs'] health_check: Health Check configuration block. Detailed below.
         :param pulumi.Input[bool] lambda_multi_value_headers_enabled: Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`. Default is `false`.
@@ -50,6 +52,8 @@ class TargetGroupArgs:
         :param pulumi.Input[str] target_type: Type of target that you must specify when registering targets with this target group. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_CreateTargetGroup.html) for supported values. The default is `instance`.
         :param pulumi.Input[str] vpc_id: Identifier of the VPC in which to create the target group. Required when `target_type` is `instance` or `ip`. Does not apply when `target_type` is `lambda`.
         """
+        if connection_termination is not None:
+            pulumi.set(__self__, "connection_termination", connection_termination)
         if deregistration_delay is not None:
             pulumi.set(__self__, "deregistration_delay", deregistration_delay)
         if health_check is not None:
@@ -82,6 +86,18 @@ class TargetGroupArgs:
             pulumi.set(__self__, "target_type", target_type)
         if vpc_id is not None:
             pulumi.set(__self__, "vpc_id", vpc_id)
+
+    @property
+    @pulumi.getter(name="connectionTermination")
+    def connection_termination(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to terminate connections at the end of the deregistration timeout on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#deregistration-delay) for more information. Default is `false`.
+        """
+        return pulumi.get(self, "connection_termination")
+
+    @connection_termination.setter
+    def connection_termination(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "connection_termination", value)
 
     @property
     @pulumi.getter(name="deregistrationDelay")
@@ -281,6 +297,7 @@ class _TargetGroupState:
     def __init__(__self__, *,
                  arn: Optional[pulumi.Input[str]] = None,
                  arn_suffix: Optional[pulumi.Input[str]] = None,
+                 connection_termination: Optional[pulumi.Input[bool]] = None,
                  deregistration_delay: Optional[pulumi.Input[int]] = None,
                  health_check: Optional[pulumi.Input['TargetGroupHealthCheckArgs']] = None,
                  lambda_multi_value_headers_enabled: Optional[pulumi.Input[bool]] = None,
@@ -302,6 +319,7 @@ class _TargetGroupState:
         Input properties used for looking up and filtering TargetGroup resources.
         :param pulumi.Input[str] arn: ARN of the Target Group (matches `id`).
         :param pulumi.Input[str] arn_suffix: ARN suffix for use with CloudWatch Metrics.
+        :param pulumi.Input[bool] connection_termination: Whether to terminate connections at the end of the deregistration timeout on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#deregistration-delay) for more information. Default is `false`.
         :param pulumi.Input[int] deregistration_delay: Amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is 0-3600 seconds. The default value is 300 seconds.
         :param pulumi.Input['TargetGroupHealthCheckArgs'] health_check: Health Check configuration block. Detailed below.
         :param pulumi.Input[bool] lambda_multi_value_headers_enabled: Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`. Default is `false`.
@@ -324,6 +342,8 @@ class _TargetGroupState:
             pulumi.set(__self__, "arn", arn)
         if arn_suffix is not None:
             pulumi.set(__self__, "arn_suffix", arn_suffix)
+        if connection_termination is not None:
+            pulumi.set(__self__, "connection_termination", connection_termination)
         if deregistration_delay is not None:
             pulumi.set(__self__, "deregistration_delay", deregistration_delay)
         if health_check is not None:
@@ -382,6 +402,18 @@ class _TargetGroupState:
     @arn_suffix.setter
     def arn_suffix(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "arn_suffix", value)
+
+    @property
+    @pulumi.getter(name="connectionTermination")
+    def connection_termination(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to terminate connections at the end of the deregistration timeout on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#deregistration-delay) for more information. Default is `false`.
+        """
+        return pulumi.get(self, "connection_termination")
+
+    @connection_termination.setter
+    def connection_termination(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "connection_termination", value)
 
     @property
     @pulumi.getter(name="deregistrationDelay")
@@ -593,6 +625,7 @@ class TargetGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 connection_termination: Optional[pulumi.Input[bool]] = None,
                  deregistration_delay: Optional[pulumi.Input[int]] = None,
                  health_check: Optional[pulumi.Input[pulumi.InputType['TargetGroupHealthCheckArgs']]] = None,
                  lambda_multi_value_headers_enabled: Optional[pulumi.Input[bool]] = None,
@@ -660,6 +693,7 @@ class TargetGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] connection_termination: Whether to terminate connections at the end of the deregistration timeout on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#deregistration-delay) for more information. Default is `false`.
         :param pulumi.Input[int] deregistration_delay: Amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is 0-3600 seconds. The default value is 300 seconds.
         :param pulumi.Input[pulumi.InputType['TargetGroupHealthCheckArgs']] health_check: Health Check configuration block. Detailed below.
         :param pulumi.Input[bool] lambda_multi_value_headers_enabled: Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`. Default is `false`.
@@ -746,6 +780,7 @@ class TargetGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 connection_termination: Optional[pulumi.Input[bool]] = None,
                  deregistration_delay: Optional[pulumi.Input[int]] = None,
                  health_check: Optional[pulumi.Input[pulumi.InputType['TargetGroupHealthCheckArgs']]] = None,
                  lambda_multi_value_headers_enabled: Optional[pulumi.Input[bool]] = None,
@@ -774,6 +809,7 @@ class TargetGroup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = TargetGroupArgs.__new__(TargetGroupArgs)
 
+            __props__.__dict__["connection_termination"] = connection_termination
             __props__.__dict__["deregistration_delay"] = deregistration_delay
             __props__.__dict__["health_check"] = health_check
             __props__.__dict__["lambda_multi_value_headers_enabled"] = lambda_multi_value_headers_enabled
@@ -807,6 +843,7 @@ class TargetGroup(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             arn: Optional[pulumi.Input[str]] = None,
             arn_suffix: Optional[pulumi.Input[str]] = None,
+            connection_termination: Optional[pulumi.Input[bool]] = None,
             deregistration_delay: Optional[pulumi.Input[int]] = None,
             health_check: Optional[pulumi.Input[pulumi.InputType['TargetGroupHealthCheckArgs']]] = None,
             lambda_multi_value_headers_enabled: Optional[pulumi.Input[bool]] = None,
@@ -833,6 +870,7 @@ class TargetGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: ARN of the Target Group (matches `id`).
         :param pulumi.Input[str] arn_suffix: ARN suffix for use with CloudWatch Metrics.
+        :param pulumi.Input[bool] connection_termination: Whether to terminate connections at the end of the deregistration timeout on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#deregistration-delay) for more information. Default is `false`.
         :param pulumi.Input[int] deregistration_delay: Amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is 0-3600 seconds. The default value is 300 seconds.
         :param pulumi.Input[pulumi.InputType['TargetGroupHealthCheckArgs']] health_check: Health Check configuration block. Detailed below.
         :param pulumi.Input[bool] lambda_multi_value_headers_enabled: Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`. Default is `false`.
@@ -857,6 +895,7 @@ class TargetGroup(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = arn
         __props__.__dict__["arn_suffix"] = arn_suffix
+        __props__.__dict__["connection_termination"] = connection_termination
         __props__.__dict__["deregistration_delay"] = deregistration_delay
         __props__.__dict__["health_check"] = health_check
         __props__.__dict__["lambda_multi_value_headers_enabled"] = lambda_multi_value_headers_enabled
@@ -891,6 +930,14 @@ class TargetGroup(pulumi.CustomResource):
         ARN suffix for use with CloudWatch Metrics.
         """
         return pulumi.get(self, "arn_suffix")
+
+    @property
+    @pulumi.getter(name="connectionTermination")
+    def connection_termination(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether to terminate connections at the end of the deregistration timeout on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#deregistration-delay) for more information. Default is `false`.
+        """
+        return pulumi.get(self, "connection_termination")
 
     @property
     @pulumi.getter(name="deregistrationDelay")

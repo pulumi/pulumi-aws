@@ -89,7 +89,7 @@ export class ThingGroup extends pulumi.CustomResource {
      * Key-value mapping of resource tags
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The current version of the Thing Group record in the registry.
      */
@@ -122,9 +122,9 @@ export class ThingGroup extends pulumi.CustomResource {
             inputs["parentGroupName"] = args ? args.parentGroupName : undefined;
             inputs["properties"] = args ? args.properties : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["metadatas"] = undefined /*out*/;
+            inputs["tagsAll"] = undefined /*out*/;
             inputs["version"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -186,5 +186,4 @@ export interface ThingGroupArgs {
      * Key-value mapping of resource tags
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

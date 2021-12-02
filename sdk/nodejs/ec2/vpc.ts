@@ -35,6 +35,33 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * VPC with CIDR from AWS IPAM:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const current = aws.getRegion({});
+ * const testVpcIpam = new aws.ec2.VpcIpam("testVpcIpam", {operatingRegions: [{
+ *     regionName: current.then(current => current.name),
+ * }]});
+ * const testVpcIpamPool = new aws.ec2.VpcIpamPool("testVpcIpamPool", {
+ *     addressFamily: "ipv4",
+ *     ipamScopeId: testVpcIpam.privateDefaultScopeId,
+ *     locale: current.then(current => current.name),
+ * });
+ * const testVpcIpamPoolCidr = new aws.ec2.VpcIpamPoolCidr("testVpcIpamPoolCidr", {
+ *     ipamPoolId: testVpcIpamPool.id,
+ *     cidr: "172.2.0.0/16",
+ * });
+ * const testVpc = new aws.ec2.Vpc("testVpc", {
+ *     ipv4IpamPoolId: testVpcIpamPool.id,
+ *     ipv4NetmaskLength: "28",
+ * }, {
+ *     dependsOn: [testVpcIpamPoolCidr],
+ * });
+ * ```
+ *
  * ## Import
  *
  * VPCs can be imported using the `vpc id`, e.g.,
@@ -82,7 +109,7 @@ export class Vpc extends pulumi.CustomResource {
      */
     public readonly assignGeneratedIpv6CidrBlock!: pulumi.Output<boolean | undefined>;
     /**
-     * The CIDR block for the VPC.
+     * The IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv4NetmaskLength`.
      */
     public readonly cidrBlock!: pulumi.Output<string>;
     /**
@@ -118,10 +145,17 @@ export class Vpc extends pulumi.CustomResource {
      */
     public readonly enableDnsSupport!: pulumi.Output<boolean | undefined>;
     /**
-     * A tenancy option for instances launched into the VPC. Default is `default`, which
-     * makes your instances shared on the host. Using either of the other options (`dedicated` or `host`) costs at least $2/hr.
+     * A tenancy option for instances launched into the VPC. Default is `default`, which makes your instances shared on the host. Using either of the other options (`dedicated` or `host`) costs at least $2/hr.
      */
     public readonly instanceTenancy!: pulumi.Output<string | undefined>;
+    /**
+     * The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts. Using IPAM you can monitor IP address usage throughout your AWS Organization.
+     */
+    public readonly ipv4IpamPoolId!: pulumi.Output<string | undefined>;
+    /**
+     * The netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a `ipv4IpamPoolId`.
+     */
+    public readonly ipv4NetmaskLength!: pulumi.Output<number | undefined>;
     /**
      * The association ID for the IPv6 CIDR block.
      */
@@ -129,7 +163,9 @@ export class Vpc extends pulumi.CustomResource {
     /**
      * The IPv6 CIDR block.
      */
-    public /*out*/ readonly ipv6CidrBlock!: pulumi.Output<string>;
+    public readonly ipv6CidrBlock!: pulumi.Output<string>;
+    public readonly ipv6IpamPoolId!: pulumi.Output<string | undefined>;
+    public readonly ipv6NetmaskLength!: pulumi.Output<number | undefined>;
     /**
      * The ID of the main route table associated with
      * this VPC. Note that you can change a VPC's main route table by using an
@@ -156,7 +192,7 @@ export class Vpc extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: VpcArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args?: VpcArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VpcArgs | VpcState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
@@ -174,17 +210,18 @@ export class Vpc extends pulumi.CustomResource {
             inputs["enableDnsHostnames"] = state ? state.enableDnsHostnames : undefined;
             inputs["enableDnsSupport"] = state ? state.enableDnsSupport : undefined;
             inputs["instanceTenancy"] = state ? state.instanceTenancy : undefined;
+            inputs["ipv4IpamPoolId"] = state ? state.ipv4IpamPoolId : undefined;
+            inputs["ipv4NetmaskLength"] = state ? state.ipv4NetmaskLength : undefined;
             inputs["ipv6AssociationId"] = state ? state.ipv6AssociationId : undefined;
             inputs["ipv6CidrBlock"] = state ? state.ipv6CidrBlock : undefined;
+            inputs["ipv6IpamPoolId"] = state ? state.ipv6IpamPoolId : undefined;
+            inputs["ipv6NetmaskLength"] = state ? state.ipv6NetmaskLength : undefined;
             inputs["mainRouteTableId"] = state ? state.mainRouteTableId : undefined;
             inputs["ownerId"] = state ? state.ownerId : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as VpcArgs | undefined;
-            if ((!args || args.cidrBlock === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'cidrBlock'");
-            }
             inputs["assignGeneratedIpv6CidrBlock"] = args ? args.assignGeneratedIpv6CidrBlock : undefined;
             inputs["cidrBlock"] = args ? args.cidrBlock : undefined;
             inputs["enableClassiclink"] = args ? args.enableClassiclink : undefined;
@@ -192,6 +229,11 @@ export class Vpc extends pulumi.CustomResource {
             inputs["enableDnsHostnames"] = args ? args.enableDnsHostnames : undefined;
             inputs["enableDnsSupport"] = args ? args.enableDnsSupport : undefined;
             inputs["instanceTenancy"] = args ? args.instanceTenancy : undefined;
+            inputs["ipv4IpamPoolId"] = args ? args.ipv4IpamPoolId : undefined;
+            inputs["ipv4NetmaskLength"] = args ? args.ipv4NetmaskLength : undefined;
+            inputs["ipv6CidrBlock"] = args ? args.ipv6CidrBlock : undefined;
+            inputs["ipv6IpamPoolId"] = args ? args.ipv6IpamPoolId : undefined;
+            inputs["ipv6NetmaskLength"] = args ? args.ipv6NetmaskLength : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["defaultNetworkAclId"] = undefined /*out*/;
@@ -199,7 +241,6 @@ export class Vpc extends pulumi.CustomResource {
             inputs["defaultSecurityGroupId"] = undefined /*out*/;
             inputs["dhcpOptionsId"] = undefined /*out*/;
             inputs["ipv6AssociationId"] = undefined /*out*/;
-            inputs["ipv6CidrBlock"] = undefined /*out*/;
             inputs["mainRouteTableId"] = undefined /*out*/;
             inputs["ownerId"] = undefined /*out*/;
             inputs["tagsAll"] = undefined /*out*/;
@@ -226,7 +267,7 @@ export interface VpcState {
      */
     assignGeneratedIpv6CidrBlock?: pulumi.Input<boolean>;
     /**
-     * The CIDR block for the VPC.
+     * The IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv4NetmaskLength`.
      */
     cidrBlock?: pulumi.Input<string>;
     /**
@@ -262,10 +303,17 @@ export interface VpcState {
      */
     enableDnsSupport?: pulumi.Input<boolean>;
     /**
-     * A tenancy option for instances launched into the VPC. Default is `default`, which
-     * makes your instances shared on the host. Using either of the other options (`dedicated` or `host`) costs at least $2/hr.
+     * A tenancy option for instances launched into the VPC. Default is `default`, which makes your instances shared on the host. Using either of the other options (`dedicated` or `host`) costs at least $2/hr.
      */
     instanceTenancy?: pulumi.Input<string>;
+    /**
+     * The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts. Using IPAM you can monitor IP address usage throughout your AWS Organization.
+     */
+    ipv4IpamPoolId?: pulumi.Input<string>;
+    /**
+     * The netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a `ipv4IpamPoolId`.
+     */
+    ipv4NetmaskLength?: pulumi.Input<number>;
     /**
      * The association ID for the IPv6 CIDR block.
      */
@@ -274,6 +322,8 @@ export interface VpcState {
      * The IPv6 CIDR block.
      */
     ipv6CidrBlock?: pulumi.Input<string>;
+    ipv6IpamPoolId?: pulumi.Input<string>;
+    ipv6NetmaskLength?: pulumi.Input<number>;
     /**
      * The ID of the main route table associated with
      * this VPC. Note that you can change a VPC's main route table by using an
@@ -305,9 +355,9 @@ export interface VpcArgs {
      */
     assignGeneratedIpv6CidrBlock?: pulumi.Input<boolean>;
     /**
-     * The CIDR block for the VPC.
+     * The IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv4NetmaskLength`.
      */
-    cidrBlock: pulumi.Input<string>;
+    cidrBlock?: pulumi.Input<string>;
     /**
      * A boolean flag to enable/disable ClassicLink
      * for the VPC. Only valid in regions and accounts that support EC2 Classic.
@@ -328,10 +378,23 @@ export interface VpcArgs {
      */
     enableDnsSupport?: pulumi.Input<boolean>;
     /**
-     * A tenancy option for instances launched into the VPC. Default is `default`, which
-     * makes your instances shared on the host. Using either of the other options (`dedicated` or `host`) costs at least $2/hr.
+     * A tenancy option for instances launched into the VPC. Default is `default`, which makes your instances shared on the host. Using either of the other options (`dedicated` or `host`) costs at least $2/hr.
      */
     instanceTenancy?: pulumi.Input<string>;
+    /**
+     * The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts. Using IPAM you can monitor IP address usage throughout your AWS Organization.
+     */
+    ipv4IpamPoolId?: pulumi.Input<string>;
+    /**
+     * The netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a `ipv4IpamPoolId`.
+     */
+    ipv4NetmaskLength?: pulumi.Input<number>;
+    /**
+     * The IPv6 CIDR block.
+     */
+    ipv6CidrBlock?: pulumi.Input<string>;
+    ipv6IpamPoolId?: pulumi.Input<string>;
+    ipv6NetmaskLength?: pulumi.Input<number>;
     /**
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

@@ -82,11 +82,15 @@ type DefaultVpc struct {
 	// A boolean flag to enable/disable DNS support in the VPC. Defaults true.
 	EnableDnsSupport pulumi.BoolPtrOutput `pulumi:"enableDnsSupport"`
 	// Tenancy of instances spin up within VPC.
-	InstanceTenancy pulumi.StringOutput `pulumi:"instanceTenancy"`
+	InstanceTenancy   pulumi.StringOutput    `pulumi:"instanceTenancy"`
+	Ipv4IpamPoolId    pulumi.StringPtrOutput `pulumi:"ipv4IpamPoolId"`
+	Ipv4NetmaskLength pulumi.IntPtrOutput    `pulumi:"ipv4NetmaskLength"`
 	// The association ID for the IPv6 CIDR block of the VPC
 	Ipv6AssociationId pulumi.StringOutput `pulumi:"ipv6AssociationId"`
 	// The IPv6 CIDR block of the VPC
-	Ipv6CidrBlock pulumi.StringOutput `pulumi:"ipv6CidrBlock"`
+	Ipv6CidrBlock     pulumi.StringOutput    `pulumi:"ipv6CidrBlock"`
+	Ipv6IpamPoolId    pulumi.StringPtrOutput `pulumi:"ipv6IpamPoolId"`
+	Ipv6NetmaskLength pulumi.IntPtrOutput    `pulumi:"ipv6NetmaskLength"`
 	// The ID of the main route table associated with
 	// this VPC. Note that you can change a VPC's main route table by using an
 	// `ec2.MainRouteTableAssociation`
@@ -151,11 +155,15 @@ type defaultVpcState struct {
 	// A boolean flag to enable/disable DNS support in the VPC. Defaults true.
 	EnableDnsSupport *bool `pulumi:"enableDnsSupport"`
 	// Tenancy of instances spin up within VPC.
-	InstanceTenancy *string `pulumi:"instanceTenancy"`
+	InstanceTenancy   *string `pulumi:"instanceTenancy"`
+	Ipv4IpamPoolId    *string `pulumi:"ipv4IpamPoolId"`
+	Ipv4NetmaskLength *int    `pulumi:"ipv4NetmaskLength"`
 	// The association ID for the IPv6 CIDR block of the VPC
 	Ipv6AssociationId *string `pulumi:"ipv6AssociationId"`
 	// The IPv6 CIDR block of the VPC
-	Ipv6CidrBlock *string `pulumi:"ipv6CidrBlock"`
+	Ipv6CidrBlock     *string `pulumi:"ipv6CidrBlock"`
+	Ipv6IpamPoolId    *string `pulumi:"ipv6IpamPoolId"`
+	Ipv6NetmaskLength *int    `pulumi:"ipv6NetmaskLength"`
 	// The ID of the main route table associated with
 	// this VPC. Note that you can change a VPC's main route table by using an
 	// `ec2.MainRouteTableAssociation`
@@ -192,11 +200,15 @@ type DefaultVpcState struct {
 	// A boolean flag to enable/disable DNS support in the VPC. Defaults true.
 	EnableDnsSupport pulumi.BoolPtrInput
 	// Tenancy of instances spin up within VPC.
-	InstanceTenancy pulumi.StringPtrInput
+	InstanceTenancy   pulumi.StringPtrInput
+	Ipv4IpamPoolId    pulumi.StringPtrInput
+	Ipv4NetmaskLength pulumi.IntPtrInput
 	// The association ID for the IPv6 CIDR block of the VPC
 	Ipv6AssociationId pulumi.StringPtrInput
 	// The IPv6 CIDR block of the VPC
-	Ipv6CidrBlock pulumi.StringPtrInput
+	Ipv6CidrBlock     pulumi.StringPtrInput
+	Ipv6IpamPoolId    pulumi.StringPtrInput
+	Ipv6NetmaskLength pulumi.IntPtrInput
 	// The ID of the main route table associated with
 	// this VPC. Note that you can change a VPC's main route table by using an
 	// `ec2.MainRouteTableAssociation`
@@ -221,7 +233,13 @@ type defaultVpcArgs struct {
 	// A boolean flag to enable/disable DNS hostnames in the VPC. Defaults false.
 	EnableDnsHostnames *bool `pulumi:"enableDnsHostnames"`
 	// A boolean flag to enable/disable DNS support in the VPC. Defaults true.
-	EnableDnsSupport *bool `pulumi:"enableDnsSupport"`
+	EnableDnsSupport  *bool   `pulumi:"enableDnsSupport"`
+	Ipv4IpamPoolId    *string `pulumi:"ipv4IpamPoolId"`
+	Ipv4NetmaskLength *int    `pulumi:"ipv4NetmaskLength"`
+	// The IPv6 CIDR block of the VPC
+	Ipv6CidrBlock     *string `pulumi:"ipv6CidrBlock"`
+	Ipv6IpamPoolId    *string `pulumi:"ipv6IpamPoolId"`
+	Ipv6NetmaskLength *int    `pulumi:"ipv6NetmaskLength"`
 	// A map of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -236,7 +254,13 @@ type DefaultVpcArgs struct {
 	// A boolean flag to enable/disable DNS hostnames in the VPC. Defaults false.
 	EnableDnsHostnames pulumi.BoolPtrInput
 	// A boolean flag to enable/disable DNS support in the VPC. Defaults true.
-	EnableDnsSupport pulumi.BoolPtrInput
+	EnableDnsSupport  pulumi.BoolPtrInput
+	Ipv4IpamPoolId    pulumi.StringPtrInput
+	Ipv4NetmaskLength pulumi.IntPtrInput
+	// The IPv6 CIDR block of the VPC
+	Ipv6CidrBlock     pulumi.StringPtrInput
+	Ipv6IpamPoolId    pulumi.StringPtrInput
+	Ipv6NetmaskLength pulumi.IntPtrInput
 	// A map of tags to assign to the resource.
 	Tags pulumi.StringMapInput
 }

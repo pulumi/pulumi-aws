@@ -153,6 +153,7 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
     {
         public readonly string Arn;
         public readonly string ArnSuffix;
+        public readonly bool ConnectionTermination;
         public readonly int DeregistrationDelay;
         public readonly Outputs.GetTargetGroupHealthCheckResult HealthCheck;
         /// <summary>
@@ -178,6 +179,8 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
             string arn,
 
             string arnSuffix,
+
+            bool connectionTermination,
 
             int deregistrationDelay,
 
@@ -213,6 +216,7 @@ namespace Pulumi.Aws.ApplicationLoadBalancing
         {
             Arn = arn;
             ArnSuffix = arnSuffix;
+            ConnectionTermination = connectionTermination;
             DeregistrationDelay = deregistrationDelay;
             HealthCheck = healthCheck;
             Id = id;

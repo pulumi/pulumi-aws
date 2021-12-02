@@ -11865,6 +11865,11 @@ export namespace ec2 {
         values: string[];
     }
 
+    export interface GetVpcIamPoolFilter {
+        name: string;
+        values: string[];
+    }
+
     export interface GetVpcPeeringConnectionCidrBlockSet {
         /**
          * The primary CIDR block of the requester VPC of the specific VPC Peering Connection to retrieve.
@@ -13106,6 +13111,24 @@ export namespace ec2 {
          * Value the service provider adds to the private DNS name domain record before verification.
          */
         value: string;
+    }
+
+    export interface VpcIpamOperatingRegion {
+        /**
+         * The name of the Region you want to add to the IPAM.
+         */
+        regionName: string;
+    }
+
+    export interface VpcIpamPoolCidrCidrAuthorizationContext {
+        /**
+         * The plain-text authorization message for the prefix and account.
+         */
+        message?: string;
+        /**
+         * The signed authorization message for the prefix and account.
+         */
+        signature?: string;
     }
 
     export interface VpcPeeringConnectionAccepter {
@@ -25643,7 +25666,7 @@ export namespace s3 {
         /**
          * A configuration block that specifies the time threshold for emitting the `s3:Replication:OperationMissedThreshold` event documented below.
          */
-        eventThreshold: outputs.s3.BucketReplicationConfigRuleDestinationMetricsEventThreshold;
+        eventThreshold?: outputs.s3.BucketReplicationConfigRuleDestinationMetricsEventThreshold;
         /**
          * The status of the Destination Metrics. Either `"Enabled"` or `"Disabled"`.
          */
@@ -29538,6 +29561,24 @@ export namespace storagegateway {
 }
 
 export namespace synthetics {
+    export interface CanaryArtifactConfig {
+        /**
+         * Configuration of the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3. See S3 Encryption.
+         */
+        s3Encryption?: outputs.synthetics.CanaryArtifactConfigS3Encryption;
+    }
+
+    export interface CanaryArtifactConfigS3Encryption {
+        /**
+         * The encryption method to use for artifacts created by this canary. Valid values are: `SSE-S3` and `SSE-KMS`.
+         */
+        encryptionMode?: string;
+        /**
+         * The ARN of the customer-managed KMS key to use, if you specify `SSE-KMS` for `encryptionMode`.
+         */
+        kmsKeyArn?: string;
+    }
+
     export interface CanaryRunConfig {
         /**
          * Whether this canary is to use active AWS X-Ray tracing when it runs. You can enable active tracing only for canaries that use version syn-nodejs-2.0 or later for their canary runtime.

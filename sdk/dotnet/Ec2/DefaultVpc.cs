@@ -125,6 +125,12 @@ namespace Pulumi.Aws.Ec2
         [Output("instanceTenancy")]
         public Output<string> InstanceTenancy { get; private set; } = null!;
 
+        [Output("ipv4IpamPoolId")]
+        public Output<string?> Ipv4IpamPoolId { get; private set; } = null!;
+
+        [Output("ipv4NetmaskLength")]
+        public Output<int?> Ipv4NetmaskLength { get; private set; } = null!;
+
         /// <summary>
         /// The association ID for the IPv6 CIDR block of the VPC
         /// </summary>
@@ -136,6 +142,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Output("ipv6CidrBlock")]
         public Output<string> Ipv6CidrBlock { get; private set; } = null!;
+
+        [Output("ipv6IpamPoolId")]
+        public Output<string?> Ipv6IpamPoolId { get; private set; } = null!;
+
+        [Output("ipv6NetmaskLength")]
+        public Output<int?> Ipv6NetmaskLength { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the main route table associated with
@@ -229,6 +241,24 @@ namespace Pulumi.Aws.Ec2
         [Input("enableDnsSupport")]
         public Input<bool>? EnableDnsSupport { get; set; }
 
+        [Input("ipv4IpamPoolId")]
+        public Input<string>? Ipv4IpamPoolId { get; set; }
+
+        [Input("ipv4NetmaskLength")]
+        public Input<int>? Ipv4NetmaskLength { get; set; }
+
+        /// <summary>
+        /// The IPv6 CIDR block of the VPC
+        /// </summary>
+        [Input("ipv6CidrBlock")]
+        public Input<string>? Ipv6CidrBlock { get; set; }
+
+        [Input("ipv6IpamPoolId")]
+        public Input<string>? Ipv6IpamPoolId { get; set; }
+
+        [Input("ipv6NetmaskLength")]
+        public Input<int>? Ipv6NetmaskLength { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -317,6 +347,12 @@ namespace Pulumi.Aws.Ec2
         [Input("instanceTenancy")]
         public Input<string>? InstanceTenancy { get; set; }
 
+        [Input("ipv4IpamPoolId")]
+        public Input<string>? Ipv4IpamPoolId { get; set; }
+
+        [Input("ipv4NetmaskLength")]
+        public Input<int>? Ipv4NetmaskLength { get; set; }
+
         /// <summary>
         /// The association ID for the IPv6 CIDR block of the VPC
         /// </summary>
@@ -328,6 +364,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("ipv6CidrBlock")]
         public Input<string>? Ipv6CidrBlock { get; set; }
+
+        [Input("ipv6IpamPoolId")]
+        public Input<string>? Ipv6IpamPoolId { get; set; }
+
+        [Input("ipv6NetmaskLength")]
+        public Input<int>? Ipv6NetmaskLength { get; set; }
 
         /// <summary>
         /// The ID of the main route table associated with

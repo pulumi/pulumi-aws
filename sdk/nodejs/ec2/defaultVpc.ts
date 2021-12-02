@@ -112,6 +112,8 @@ export class DefaultVpc extends pulumi.CustomResource {
      * Tenancy of instances spin up within VPC.
      */
     public /*out*/ readonly instanceTenancy!: pulumi.Output<string>;
+    public readonly ipv4IpamPoolId!: pulumi.Output<string | undefined>;
+    public readonly ipv4NetmaskLength!: pulumi.Output<number | undefined>;
     /**
      * The association ID for the IPv6 CIDR block of the VPC
      */
@@ -119,7 +121,9 @@ export class DefaultVpc extends pulumi.CustomResource {
     /**
      * The IPv6 CIDR block of the VPC
      */
-    public /*out*/ readonly ipv6CidrBlock!: pulumi.Output<string>;
+    public readonly ipv6CidrBlock!: pulumi.Output<string>;
+    public readonly ipv6IpamPoolId!: pulumi.Output<string | undefined>;
+    public readonly ipv6NetmaskLength!: pulumi.Output<number | undefined>;
     /**
      * The ID of the main route table associated with
      * this VPC. Note that you can change a VPC's main route table by using an
@@ -161,8 +165,12 @@ export class DefaultVpc extends pulumi.CustomResource {
             inputs["enableDnsHostnames"] = state ? state.enableDnsHostnames : undefined;
             inputs["enableDnsSupport"] = state ? state.enableDnsSupport : undefined;
             inputs["instanceTenancy"] = state ? state.instanceTenancy : undefined;
+            inputs["ipv4IpamPoolId"] = state ? state.ipv4IpamPoolId : undefined;
+            inputs["ipv4NetmaskLength"] = state ? state.ipv4NetmaskLength : undefined;
             inputs["ipv6AssociationId"] = state ? state.ipv6AssociationId : undefined;
             inputs["ipv6CidrBlock"] = state ? state.ipv6CidrBlock : undefined;
+            inputs["ipv6IpamPoolId"] = state ? state.ipv6IpamPoolId : undefined;
+            inputs["ipv6NetmaskLength"] = state ? state.ipv6NetmaskLength : undefined;
             inputs["mainRouteTableId"] = state ? state.mainRouteTableId : undefined;
             inputs["ownerId"] = state ? state.ownerId : undefined;
             inputs["tags"] = state ? state.tags : undefined;
@@ -173,6 +181,11 @@ export class DefaultVpc extends pulumi.CustomResource {
             inputs["enableClassiclinkDnsSupport"] = args ? args.enableClassiclinkDnsSupport : undefined;
             inputs["enableDnsHostnames"] = args ? args.enableDnsHostnames : undefined;
             inputs["enableDnsSupport"] = args ? args.enableDnsSupport : undefined;
+            inputs["ipv4IpamPoolId"] = args ? args.ipv4IpamPoolId : undefined;
+            inputs["ipv4NetmaskLength"] = args ? args.ipv4NetmaskLength : undefined;
+            inputs["ipv6CidrBlock"] = args ? args.ipv6CidrBlock : undefined;
+            inputs["ipv6IpamPoolId"] = args ? args.ipv6IpamPoolId : undefined;
+            inputs["ipv6NetmaskLength"] = args ? args.ipv6NetmaskLength : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["assignGeneratedIpv6CidrBlock"] = undefined /*out*/;
@@ -183,7 +196,6 @@ export class DefaultVpc extends pulumi.CustomResource {
             inputs["dhcpOptionsId"] = undefined /*out*/;
             inputs["instanceTenancy"] = undefined /*out*/;
             inputs["ipv6AssociationId"] = undefined /*out*/;
-            inputs["ipv6CidrBlock"] = undefined /*out*/;
             inputs["mainRouteTableId"] = undefined /*out*/;
             inputs["ownerId"] = undefined /*out*/;
             inputs["tagsAll"] = undefined /*out*/;
@@ -244,6 +256,8 @@ export interface DefaultVpcState {
      * Tenancy of instances spin up within VPC.
      */
     instanceTenancy?: pulumi.Input<string>;
+    ipv4IpamPoolId?: pulumi.Input<string>;
+    ipv4NetmaskLength?: pulumi.Input<number>;
     /**
      * The association ID for the IPv6 CIDR block of the VPC
      */
@@ -252,6 +266,8 @@ export interface DefaultVpcState {
      * The IPv6 CIDR block of the VPC
      */
     ipv6CidrBlock?: pulumi.Input<string>;
+    ipv6IpamPoolId?: pulumi.Input<string>;
+    ipv6NetmaskLength?: pulumi.Input<number>;
     /**
      * The ID of the main route table associated with
      * this VPC. Note that you can change a VPC's main route table by using an
@@ -288,6 +304,14 @@ export interface DefaultVpcArgs {
      * A boolean flag to enable/disable DNS support in the VPC. Defaults true.
      */
     enableDnsSupport?: pulumi.Input<boolean>;
+    ipv4IpamPoolId?: pulumi.Input<string>;
+    ipv4NetmaskLength?: pulumi.Input<number>;
+    /**
+     * The IPv6 CIDR block of the VPC
+     */
+    ipv6CidrBlock?: pulumi.Input<string>;
+    ipv6IpamPoolId?: pulumi.Input<string>;
+    ipv6NetmaskLength?: pulumi.Input<number>;
     /**
      * A map of tags to assign to the resource.
      */

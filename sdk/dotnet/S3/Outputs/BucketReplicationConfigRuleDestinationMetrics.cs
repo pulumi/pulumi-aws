@@ -16,7 +16,7 @@ namespace Pulumi.Aws.S3.Outputs
         /// <summary>
         /// A configuration block that specifies the time threshold for emitting the `s3:Replication:OperationMissedThreshold` event documented below.
         /// </summary>
-        public readonly Outputs.BucketReplicationConfigRuleDestinationMetricsEventThreshold EventThreshold;
+        public readonly Outputs.BucketReplicationConfigRuleDestinationMetricsEventThreshold? EventThreshold;
         /// <summary>
         /// The status of the Destination Metrics. Either `"Enabled"` or `"Disabled"`.
         /// </summary>
@@ -24,7 +24,7 @@ namespace Pulumi.Aws.S3.Outputs
 
         [OutputConstructor]
         private BucketReplicationConfigRuleDestinationMetrics(
-            Outputs.BucketReplicationConfigRuleDestinationMetricsEventThreshold eventThreshold,
+            Outputs.BucketReplicationConfigRuleDestinationMetricsEventThreshold? eventThreshold,
 
             string status)
         {
