@@ -151,8 +151,20 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &VpcEndpointServiceAllowedPrinciple{}
 	case "aws:ec2/vpcEndpointSubnetAssociation:VpcEndpointSubnetAssociation":
 		r = &VpcEndpointSubnetAssociation{}
+	case "aws:ec2/vpcIpam:VpcIpam":
+		r = &VpcIpam{}
+	case "aws:ec2/vpcIpamPool:VpcIpamPool":
+		r = &VpcIpamPool{}
+	case "aws:ec2/vpcIpamPoolCidr:VpcIpamPoolCidr":
+		r = &VpcIpamPoolCidr{}
+	case "aws:ec2/vpcIpamPoolCidrAllocation:VpcIpamPoolCidrAllocation":
+		r = &VpcIpamPoolCidrAllocation{}
+	case "aws:ec2/vpcIpamScope:VpcIpamScope":
+		r = &VpcIpamScope{}
 	case "aws:ec2/vpcIpv4CidrBlockAssociation:VpcIpv4CidrBlockAssociation":
 		r = &VpcIpv4CidrBlockAssociation{}
+	case "aws:ec2/vpcIpv6CidrBlockAssociation:VpcIpv6CidrBlockAssociation":
+		r = &VpcIpv6CidrBlockAssociation{}
 	case "aws:ec2/vpcPeeringConnection:VpcPeeringConnection":
 		r = &VpcPeeringConnection{}
 	case "aws:ec2/vpcPeeringConnectionAccepter:VpcPeeringConnectionAccepter":
@@ -507,7 +519,37 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"aws",
+		"ec2/vpcIpam",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"ec2/vpcIpamPool",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"ec2/vpcIpamPoolCidr",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"ec2/vpcIpamPoolCidrAllocation",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"ec2/vpcIpamScope",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
 		"ec2/vpcIpv4CidrBlockAssociation",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"ec2/vpcIpv6CidrBlockAssociation",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

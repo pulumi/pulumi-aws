@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws:codecommit/approvalRuleTemplate:ApprovalRuleTemplate":
+		r = &ApprovalRuleTemplate{}
 	case "aws:codecommit/repository:Repository":
 		r = &Repository{}
 	case "aws:codecommit/trigger:Trigger":
@@ -38,6 +40,11 @@ func init() {
 	if err != nil {
 		fmt.Printf("failed to determine package version. defaulting to v1: %v\n", err)
 	}
+	pulumi.RegisterResourceModule(
+		"aws",
+		"codecommit/approvalRuleTemplate",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"aws",
 		"codecommit/repository",

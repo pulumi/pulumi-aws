@@ -5,6 +5,7 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .account_setting_default import *
 from .capacity_provider import *
 from .cluster import *
 from .get_cluster import *

@@ -117,6 +117,8 @@ type TargetGroup struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// ARN suffix for use with CloudWatch Metrics.
 	ArnSuffix pulumi.StringOutput `pulumi:"arnSuffix"`
+	// Whether to terminate connections at the end of the deregistration timeout on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#deregistration-delay) for more information. Default is `false`.
+	ConnectionTermination pulumi.BoolPtrOutput `pulumi:"connectionTermination"`
 	// Amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is 0-3600 seconds. The default value is 300 seconds.
 	DeregistrationDelay pulumi.IntPtrOutput `pulumi:"deregistrationDelay"`
 	// Health Check configuration block. Detailed below.
@@ -186,6 +188,8 @@ type targetGroupState struct {
 	Arn *string `pulumi:"arn"`
 	// ARN suffix for use with CloudWatch Metrics.
 	ArnSuffix *string `pulumi:"arnSuffix"`
+	// Whether to terminate connections at the end of the deregistration timeout on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#deregistration-delay) for more information. Default is `false`.
+	ConnectionTermination *bool `pulumi:"connectionTermination"`
 	// Amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is 0-3600 seconds. The default value is 300 seconds.
 	DeregistrationDelay *int `pulumi:"deregistrationDelay"`
 	// Health Check configuration block. Detailed below.
@@ -227,6 +231,8 @@ type TargetGroupState struct {
 	Arn pulumi.StringPtrInput
 	// ARN suffix for use with CloudWatch Metrics.
 	ArnSuffix pulumi.StringPtrInput
+	// Whether to terminate connections at the end of the deregistration timeout on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#deregistration-delay) for more information. Default is `false`.
+	ConnectionTermination pulumi.BoolPtrInput
 	// Amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is 0-3600 seconds. The default value is 300 seconds.
 	DeregistrationDelay pulumi.IntPtrInput
 	// Health Check configuration block. Detailed below.
@@ -268,6 +274,8 @@ func (TargetGroupState) ElementType() reflect.Type {
 }
 
 type targetGroupArgs struct {
+	// Whether to terminate connections at the end of the deregistration timeout on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#deregistration-delay) for more information. Default is `false`.
+	ConnectionTermination *bool `pulumi:"connectionTermination"`
 	// Amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is 0-3600 seconds. The default value is 300 seconds.
 	DeregistrationDelay *int `pulumi:"deregistrationDelay"`
 	// Health Check configuration block. Detailed below.
@@ -304,6 +312,8 @@ type targetGroupArgs struct {
 
 // The set of arguments for constructing a TargetGroup resource.
 type TargetGroupArgs struct {
+	// Whether to terminate connections at the end of the deregistration timeout on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#deregistration-delay) for more information. Default is `false`.
+	ConnectionTermination pulumi.BoolPtrInput
 	// Amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is 0-3600 seconds. The default value is 300 seconds.
 	DeregistrationDelay pulumi.IntPtrInput
 	// Health Check configuration block. Detailed below.

@@ -23,13 +23,16 @@ class GetTargetGroupResult:
     """
     A collection of values returned by getTargetGroup.
     """
-    def __init__(__self__, arn=None, arn_suffix=None, deregistration_delay=None, health_check=None, id=None, lambda_multi_value_headers_enabled=None, load_balancing_algorithm_type=None, name=None, port=None, preserve_client_ip=None, protocol=None, protocol_version=None, proxy_protocol_v2=None, slow_start=None, stickiness=None, tags=None, target_type=None, vpc_id=None):
+    def __init__(__self__, arn=None, arn_suffix=None, connection_termination=None, deregistration_delay=None, health_check=None, id=None, lambda_multi_value_headers_enabled=None, load_balancing_algorithm_type=None, name=None, port=None, preserve_client_ip=None, protocol=None, protocol_version=None, proxy_protocol_v2=None, slow_start=None, stickiness=None, tags=None, target_type=None, vpc_id=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
         if arn_suffix and not isinstance(arn_suffix, str):
             raise TypeError("Expected argument 'arn_suffix' to be a str")
         pulumi.set(__self__, "arn_suffix", arn_suffix)
+        if connection_termination and not isinstance(connection_termination, bool):
+            raise TypeError("Expected argument 'connection_termination' to be a bool")
+        pulumi.set(__self__, "connection_termination", connection_termination)
         if deregistration_delay and not isinstance(deregistration_delay, int):
             raise TypeError("Expected argument 'deregistration_delay' to be a int")
         pulumi.set(__self__, "deregistration_delay", deregistration_delay)
@@ -88,6 +91,11 @@ class GetTargetGroupResult:
     @pulumi.getter(name="arnSuffix")
     def arn_suffix(self) -> str:
         return pulumi.get(self, "arn_suffix")
+
+    @property
+    @pulumi.getter(name="connectionTermination")
+    def connection_termination(self) -> bool:
+        return pulumi.get(self, "connection_termination")
 
     @property
     @pulumi.getter(name="deregistrationDelay")
@@ -181,6 +189,7 @@ class AwaitableGetTargetGroupResult(GetTargetGroupResult):
         return GetTargetGroupResult(
             arn=self.arn,
             arn_suffix=self.arn_suffix,
+            connection_termination=self.connection_termination,
             deregistration_delay=self.deregistration_delay,
             health_check=self.health_check,
             id=self.id,
@@ -247,6 +256,7 @@ def get_target_group(arn: Optional[str] = None,
     return AwaitableGetTargetGroupResult(
         arn=__ret__.arn,
         arn_suffix=__ret__.arn_suffix,
+        connection_termination=__ret__.connection_termination,
         deregistration_delay=__ret__.deregistration_delay,
         health_check=__ret__.health_check,
         id=__ret__.id,

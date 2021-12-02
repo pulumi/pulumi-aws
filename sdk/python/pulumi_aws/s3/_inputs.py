@@ -1726,26 +1726,15 @@ class BucketReplicationConfigRuleDestinationEncryptionConfigurationArgs:
 @pulumi.input_type
 class BucketReplicationConfigRuleDestinationMetricsArgs:
     def __init__(__self__, *,
-                 event_threshold: pulumi.Input['BucketReplicationConfigRuleDestinationMetricsEventThresholdArgs'],
-                 status: pulumi.Input[str]):
+                 status: pulumi.Input[str],
+                 event_threshold: Optional[pulumi.Input['BucketReplicationConfigRuleDestinationMetricsEventThresholdArgs']] = None):
         """
-        :param pulumi.Input['BucketReplicationConfigRuleDestinationMetricsEventThresholdArgs'] event_threshold: A configuration block that specifies the time threshold for emitting the `s3:Replication:OperationMissedThreshold` event documented below.
         :param pulumi.Input[str] status: The status of the Destination Metrics. Either `"Enabled"` or `"Disabled"`.
+        :param pulumi.Input['BucketReplicationConfigRuleDestinationMetricsEventThresholdArgs'] event_threshold: A configuration block that specifies the time threshold for emitting the `s3:Replication:OperationMissedThreshold` event documented below.
         """
-        pulumi.set(__self__, "event_threshold", event_threshold)
         pulumi.set(__self__, "status", status)
-
-    @property
-    @pulumi.getter(name="eventThreshold")
-    def event_threshold(self) -> pulumi.Input['BucketReplicationConfigRuleDestinationMetricsEventThresholdArgs']:
-        """
-        A configuration block that specifies the time threshold for emitting the `s3:Replication:OperationMissedThreshold` event documented below.
-        """
-        return pulumi.get(self, "event_threshold")
-
-    @event_threshold.setter
-    def event_threshold(self, value: pulumi.Input['BucketReplicationConfigRuleDestinationMetricsEventThresholdArgs']):
-        pulumi.set(self, "event_threshold", value)
+        if event_threshold is not None:
+            pulumi.set(__self__, "event_threshold", event_threshold)
 
     @property
     @pulumi.getter
@@ -1758,6 +1747,18 @@ class BucketReplicationConfigRuleDestinationMetricsArgs:
     @status.setter
     def status(self, value: pulumi.Input[str]):
         pulumi.set(self, "status", value)
+
+    @property
+    @pulumi.getter(name="eventThreshold")
+    def event_threshold(self) -> Optional[pulumi.Input['BucketReplicationConfigRuleDestinationMetricsEventThresholdArgs']]:
+        """
+        A configuration block that specifies the time threshold for emitting the `s3:Replication:OperationMissedThreshold` event documented below.
+        """
+        return pulumi.get(self, "event_threshold")
+
+    @event_threshold.setter
+    def event_threshold(self, value: Optional[pulumi.Input['BucketReplicationConfigRuleDestinationMetricsEventThresholdArgs']]):
+        pulumi.set(self, "event_threshold", value)
 
 
 @pulumi.input_type

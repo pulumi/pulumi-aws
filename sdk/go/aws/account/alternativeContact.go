@@ -49,6 +49,8 @@ import (
 type AlternativeContact struct {
 	pulumi.CustomResourceState
 
+	// The ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
+	AccountId pulumi.StringPtrOutput `pulumi:"accountId"`
 	// The type of the alternate contact. Allowed values are: `BILLING`, `OPERATIONS`, `SECURITY`.
 	AlternateContactType pulumi.StringOutput `pulumi:"alternateContactType"`
 	// An email address for the alternate contact.
@@ -102,6 +104,8 @@ func GetAlternativeContact(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AlternativeContact resources.
 type alternativeContactState struct {
+	// The ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
+	AccountId *string `pulumi:"accountId"`
 	// The type of the alternate contact. Allowed values are: `BILLING`, `OPERATIONS`, `SECURITY`.
 	AlternateContactType *string `pulumi:"alternateContactType"`
 	// An email address for the alternate contact.
@@ -115,6 +119,8 @@ type alternativeContactState struct {
 }
 
 type AlternativeContactState struct {
+	// The ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
+	AccountId pulumi.StringPtrInput
 	// The type of the alternate contact. Allowed values are: `BILLING`, `OPERATIONS`, `SECURITY`.
 	AlternateContactType pulumi.StringPtrInput
 	// An email address for the alternate contact.
@@ -132,6 +138,8 @@ func (AlternativeContactState) ElementType() reflect.Type {
 }
 
 type alternativeContactArgs struct {
+	// The ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
+	AccountId *string `pulumi:"accountId"`
 	// The type of the alternate contact. Allowed values are: `BILLING`, `OPERATIONS`, `SECURITY`.
 	AlternateContactType string `pulumi:"alternateContactType"`
 	// An email address for the alternate contact.
@@ -146,6 +154,8 @@ type alternativeContactArgs struct {
 
 // The set of arguments for constructing a AlternativeContact resource.
 type AlternativeContactArgs struct {
+	// The ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
+	AccountId pulumi.StringPtrInput
 	// The type of the alternate contact. Allowed values are: `BILLING`, `OPERATIONS`, `SECURITY`.
 	AlternateContactType pulumi.StringInput
 	// An email address for the alternate contact.

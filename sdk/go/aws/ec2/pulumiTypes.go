@@ -13420,6 +13420,259 @@ func (o VpcEndpointServicePrivateDnsNameConfigurationArrayOutput) Index(i pulumi
 	}).(VpcEndpointServicePrivateDnsNameConfigurationOutput)
 }
 
+type VpcIpamOperatingRegion struct {
+	// The name of the Region you want to add to the IPAM.
+	RegionName string `pulumi:"regionName"`
+}
+
+// VpcIpamOperatingRegionInput is an input type that accepts VpcIpamOperatingRegionArgs and VpcIpamOperatingRegionOutput values.
+// You can construct a concrete instance of `VpcIpamOperatingRegionInput` via:
+//
+//          VpcIpamOperatingRegionArgs{...}
+type VpcIpamOperatingRegionInput interface {
+	pulumi.Input
+
+	ToVpcIpamOperatingRegionOutput() VpcIpamOperatingRegionOutput
+	ToVpcIpamOperatingRegionOutputWithContext(context.Context) VpcIpamOperatingRegionOutput
+}
+
+type VpcIpamOperatingRegionArgs struct {
+	// The name of the Region you want to add to the IPAM.
+	RegionName pulumi.StringInput `pulumi:"regionName"`
+}
+
+func (VpcIpamOperatingRegionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcIpamOperatingRegion)(nil)).Elem()
+}
+
+func (i VpcIpamOperatingRegionArgs) ToVpcIpamOperatingRegionOutput() VpcIpamOperatingRegionOutput {
+	return i.ToVpcIpamOperatingRegionOutputWithContext(context.Background())
+}
+
+func (i VpcIpamOperatingRegionArgs) ToVpcIpamOperatingRegionOutputWithContext(ctx context.Context) VpcIpamOperatingRegionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcIpamOperatingRegionOutput)
+}
+
+// VpcIpamOperatingRegionArrayInput is an input type that accepts VpcIpamOperatingRegionArray and VpcIpamOperatingRegionArrayOutput values.
+// You can construct a concrete instance of `VpcIpamOperatingRegionArrayInput` via:
+//
+//          VpcIpamOperatingRegionArray{ VpcIpamOperatingRegionArgs{...} }
+type VpcIpamOperatingRegionArrayInput interface {
+	pulumi.Input
+
+	ToVpcIpamOperatingRegionArrayOutput() VpcIpamOperatingRegionArrayOutput
+	ToVpcIpamOperatingRegionArrayOutputWithContext(context.Context) VpcIpamOperatingRegionArrayOutput
+}
+
+type VpcIpamOperatingRegionArray []VpcIpamOperatingRegionInput
+
+func (VpcIpamOperatingRegionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VpcIpamOperatingRegion)(nil)).Elem()
+}
+
+func (i VpcIpamOperatingRegionArray) ToVpcIpamOperatingRegionArrayOutput() VpcIpamOperatingRegionArrayOutput {
+	return i.ToVpcIpamOperatingRegionArrayOutputWithContext(context.Background())
+}
+
+func (i VpcIpamOperatingRegionArray) ToVpcIpamOperatingRegionArrayOutputWithContext(ctx context.Context) VpcIpamOperatingRegionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcIpamOperatingRegionArrayOutput)
+}
+
+type VpcIpamOperatingRegionOutput struct{ *pulumi.OutputState }
+
+func (VpcIpamOperatingRegionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcIpamOperatingRegion)(nil)).Elem()
+}
+
+func (o VpcIpamOperatingRegionOutput) ToVpcIpamOperatingRegionOutput() VpcIpamOperatingRegionOutput {
+	return o
+}
+
+func (o VpcIpamOperatingRegionOutput) ToVpcIpamOperatingRegionOutputWithContext(ctx context.Context) VpcIpamOperatingRegionOutput {
+	return o
+}
+
+// The name of the Region you want to add to the IPAM.
+func (o VpcIpamOperatingRegionOutput) RegionName() pulumi.StringOutput {
+	return o.ApplyT(func(v VpcIpamOperatingRegion) string { return v.RegionName }).(pulumi.StringOutput)
+}
+
+type VpcIpamOperatingRegionArrayOutput struct{ *pulumi.OutputState }
+
+func (VpcIpamOperatingRegionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VpcIpamOperatingRegion)(nil)).Elem()
+}
+
+func (o VpcIpamOperatingRegionArrayOutput) ToVpcIpamOperatingRegionArrayOutput() VpcIpamOperatingRegionArrayOutput {
+	return o
+}
+
+func (o VpcIpamOperatingRegionArrayOutput) ToVpcIpamOperatingRegionArrayOutputWithContext(ctx context.Context) VpcIpamOperatingRegionArrayOutput {
+	return o
+}
+
+func (o VpcIpamOperatingRegionArrayOutput) Index(i pulumi.IntInput) VpcIpamOperatingRegionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VpcIpamOperatingRegion {
+		return vs[0].([]VpcIpamOperatingRegion)[vs[1].(int)]
+	}).(VpcIpamOperatingRegionOutput)
+}
+
+type VpcIpamPoolCidrCidrAuthorizationContext struct {
+	// The plain-text authorization message for the prefix and account.
+	Message *string `pulumi:"message"`
+	// The signed authorization message for the prefix and account.
+	Signature *string `pulumi:"signature"`
+}
+
+// VpcIpamPoolCidrCidrAuthorizationContextInput is an input type that accepts VpcIpamPoolCidrCidrAuthorizationContextArgs and VpcIpamPoolCidrCidrAuthorizationContextOutput values.
+// You can construct a concrete instance of `VpcIpamPoolCidrCidrAuthorizationContextInput` via:
+//
+//          VpcIpamPoolCidrCidrAuthorizationContextArgs{...}
+type VpcIpamPoolCidrCidrAuthorizationContextInput interface {
+	pulumi.Input
+
+	ToVpcIpamPoolCidrCidrAuthorizationContextOutput() VpcIpamPoolCidrCidrAuthorizationContextOutput
+	ToVpcIpamPoolCidrCidrAuthorizationContextOutputWithContext(context.Context) VpcIpamPoolCidrCidrAuthorizationContextOutput
+}
+
+type VpcIpamPoolCidrCidrAuthorizationContextArgs struct {
+	// The plain-text authorization message for the prefix and account.
+	Message pulumi.StringPtrInput `pulumi:"message"`
+	// The signed authorization message for the prefix and account.
+	Signature pulumi.StringPtrInput `pulumi:"signature"`
+}
+
+func (VpcIpamPoolCidrCidrAuthorizationContextArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcIpamPoolCidrCidrAuthorizationContext)(nil)).Elem()
+}
+
+func (i VpcIpamPoolCidrCidrAuthorizationContextArgs) ToVpcIpamPoolCidrCidrAuthorizationContextOutput() VpcIpamPoolCidrCidrAuthorizationContextOutput {
+	return i.ToVpcIpamPoolCidrCidrAuthorizationContextOutputWithContext(context.Background())
+}
+
+func (i VpcIpamPoolCidrCidrAuthorizationContextArgs) ToVpcIpamPoolCidrCidrAuthorizationContextOutputWithContext(ctx context.Context) VpcIpamPoolCidrCidrAuthorizationContextOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcIpamPoolCidrCidrAuthorizationContextOutput)
+}
+
+func (i VpcIpamPoolCidrCidrAuthorizationContextArgs) ToVpcIpamPoolCidrCidrAuthorizationContextPtrOutput() VpcIpamPoolCidrCidrAuthorizationContextPtrOutput {
+	return i.ToVpcIpamPoolCidrCidrAuthorizationContextPtrOutputWithContext(context.Background())
+}
+
+func (i VpcIpamPoolCidrCidrAuthorizationContextArgs) ToVpcIpamPoolCidrCidrAuthorizationContextPtrOutputWithContext(ctx context.Context) VpcIpamPoolCidrCidrAuthorizationContextPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcIpamPoolCidrCidrAuthorizationContextOutput).ToVpcIpamPoolCidrCidrAuthorizationContextPtrOutputWithContext(ctx)
+}
+
+// VpcIpamPoolCidrCidrAuthorizationContextPtrInput is an input type that accepts VpcIpamPoolCidrCidrAuthorizationContextArgs, VpcIpamPoolCidrCidrAuthorizationContextPtr and VpcIpamPoolCidrCidrAuthorizationContextPtrOutput values.
+// You can construct a concrete instance of `VpcIpamPoolCidrCidrAuthorizationContextPtrInput` via:
+//
+//          VpcIpamPoolCidrCidrAuthorizationContextArgs{...}
+//
+//  or:
+//
+//          nil
+type VpcIpamPoolCidrCidrAuthorizationContextPtrInput interface {
+	pulumi.Input
+
+	ToVpcIpamPoolCidrCidrAuthorizationContextPtrOutput() VpcIpamPoolCidrCidrAuthorizationContextPtrOutput
+	ToVpcIpamPoolCidrCidrAuthorizationContextPtrOutputWithContext(context.Context) VpcIpamPoolCidrCidrAuthorizationContextPtrOutput
+}
+
+type vpcIpamPoolCidrCidrAuthorizationContextPtrType VpcIpamPoolCidrCidrAuthorizationContextArgs
+
+func VpcIpamPoolCidrCidrAuthorizationContextPtr(v *VpcIpamPoolCidrCidrAuthorizationContextArgs) VpcIpamPoolCidrCidrAuthorizationContextPtrInput {
+	return (*vpcIpamPoolCidrCidrAuthorizationContextPtrType)(v)
+}
+
+func (*vpcIpamPoolCidrCidrAuthorizationContextPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpcIpamPoolCidrCidrAuthorizationContext)(nil)).Elem()
+}
+
+func (i *vpcIpamPoolCidrCidrAuthorizationContextPtrType) ToVpcIpamPoolCidrCidrAuthorizationContextPtrOutput() VpcIpamPoolCidrCidrAuthorizationContextPtrOutput {
+	return i.ToVpcIpamPoolCidrCidrAuthorizationContextPtrOutputWithContext(context.Background())
+}
+
+func (i *vpcIpamPoolCidrCidrAuthorizationContextPtrType) ToVpcIpamPoolCidrCidrAuthorizationContextPtrOutputWithContext(ctx context.Context) VpcIpamPoolCidrCidrAuthorizationContextPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcIpamPoolCidrCidrAuthorizationContextPtrOutput)
+}
+
+type VpcIpamPoolCidrCidrAuthorizationContextOutput struct{ *pulumi.OutputState }
+
+func (VpcIpamPoolCidrCidrAuthorizationContextOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcIpamPoolCidrCidrAuthorizationContext)(nil)).Elem()
+}
+
+func (o VpcIpamPoolCidrCidrAuthorizationContextOutput) ToVpcIpamPoolCidrCidrAuthorizationContextOutput() VpcIpamPoolCidrCidrAuthorizationContextOutput {
+	return o
+}
+
+func (o VpcIpamPoolCidrCidrAuthorizationContextOutput) ToVpcIpamPoolCidrCidrAuthorizationContextOutputWithContext(ctx context.Context) VpcIpamPoolCidrCidrAuthorizationContextOutput {
+	return o
+}
+
+func (o VpcIpamPoolCidrCidrAuthorizationContextOutput) ToVpcIpamPoolCidrCidrAuthorizationContextPtrOutput() VpcIpamPoolCidrCidrAuthorizationContextPtrOutput {
+	return o.ToVpcIpamPoolCidrCidrAuthorizationContextPtrOutputWithContext(context.Background())
+}
+
+func (o VpcIpamPoolCidrCidrAuthorizationContextOutput) ToVpcIpamPoolCidrCidrAuthorizationContextPtrOutputWithContext(ctx context.Context) VpcIpamPoolCidrCidrAuthorizationContextPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpcIpamPoolCidrCidrAuthorizationContext) *VpcIpamPoolCidrCidrAuthorizationContext {
+		return &v
+	}).(VpcIpamPoolCidrCidrAuthorizationContextPtrOutput)
+}
+
+// The plain-text authorization message for the prefix and account.
+func (o VpcIpamPoolCidrCidrAuthorizationContextOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VpcIpamPoolCidrCidrAuthorizationContext) *string { return v.Message }).(pulumi.StringPtrOutput)
+}
+
+// The signed authorization message for the prefix and account.
+func (o VpcIpamPoolCidrCidrAuthorizationContextOutput) Signature() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VpcIpamPoolCidrCidrAuthorizationContext) *string { return v.Signature }).(pulumi.StringPtrOutput)
+}
+
+type VpcIpamPoolCidrCidrAuthorizationContextPtrOutput struct{ *pulumi.OutputState }
+
+func (VpcIpamPoolCidrCidrAuthorizationContextPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpcIpamPoolCidrCidrAuthorizationContext)(nil)).Elem()
+}
+
+func (o VpcIpamPoolCidrCidrAuthorizationContextPtrOutput) ToVpcIpamPoolCidrCidrAuthorizationContextPtrOutput() VpcIpamPoolCidrCidrAuthorizationContextPtrOutput {
+	return o
+}
+
+func (o VpcIpamPoolCidrCidrAuthorizationContextPtrOutput) ToVpcIpamPoolCidrCidrAuthorizationContextPtrOutputWithContext(ctx context.Context) VpcIpamPoolCidrCidrAuthorizationContextPtrOutput {
+	return o
+}
+
+func (o VpcIpamPoolCidrCidrAuthorizationContextPtrOutput) Elem() VpcIpamPoolCidrCidrAuthorizationContextOutput {
+	return o.ApplyT(func(v *VpcIpamPoolCidrCidrAuthorizationContext) VpcIpamPoolCidrCidrAuthorizationContext {
+		if v != nil {
+			return *v
+		}
+		var ret VpcIpamPoolCidrCidrAuthorizationContext
+		return ret
+	}).(VpcIpamPoolCidrCidrAuthorizationContextOutput)
+}
+
+// The plain-text authorization message for the prefix and account.
+func (o VpcIpamPoolCidrCidrAuthorizationContextPtrOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcIpamPoolCidrCidrAuthorizationContext) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Message
+	}).(pulumi.StringPtrOutput)
+}
+
+// The signed authorization message for the prefix and account.
+func (o VpcIpamPoolCidrCidrAuthorizationContextPtrOutput) Signature() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcIpamPoolCidrCidrAuthorizationContext) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Signature
+	}).(pulumi.StringPtrOutput)
+}
+
 type VpcPeeringConnectionAccepterType struct {
 	// Allow a local linked EC2-Classic instance to communicate
 	// with instances in a peer VPC. This enables an outbound communication from the local ClassicLink connection
@@ -23411,6 +23664,106 @@ func (o GetVpcFilterArrayOutput) Index(i pulumi.IntInput) GetVpcFilterOutput {
 	}).(GetVpcFilterOutput)
 }
 
+type GetVpcIamPoolFilter struct {
+	Name   string   `pulumi:"name"`
+	Values []string `pulumi:"values"`
+}
+
+// GetVpcIamPoolFilterInput is an input type that accepts GetVpcIamPoolFilterArgs and GetVpcIamPoolFilterOutput values.
+// You can construct a concrete instance of `GetVpcIamPoolFilterInput` via:
+//
+//          GetVpcIamPoolFilterArgs{...}
+type GetVpcIamPoolFilterInput interface {
+	pulumi.Input
+
+	ToGetVpcIamPoolFilterOutput() GetVpcIamPoolFilterOutput
+	ToGetVpcIamPoolFilterOutputWithContext(context.Context) GetVpcIamPoolFilterOutput
+}
+
+type GetVpcIamPoolFilterArgs struct {
+	Name   pulumi.StringInput      `pulumi:"name"`
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (GetVpcIamPoolFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVpcIamPoolFilter)(nil)).Elem()
+}
+
+func (i GetVpcIamPoolFilterArgs) ToGetVpcIamPoolFilterOutput() GetVpcIamPoolFilterOutput {
+	return i.ToGetVpcIamPoolFilterOutputWithContext(context.Background())
+}
+
+func (i GetVpcIamPoolFilterArgs) ToGetVpcIamPoolFilterOutputWithContext(ctx context.Context) GetVpcIamPoolFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVpcIamPoolFilterOutput)
+}
+
+// GetVpcIamPoolFilterArrayInput is an input type that accepts GetVpcIamPoolFilterArray and GetVpcIamPoolFilterArrayOutput values.
+// You can construct a concrete instance of `GetVpcIamPoolFilterArrayInput` via:
+//
+//          GetVpcIamPoolFilterArray{ GetVpcIamPoolFilterArgs{...} }
+type GetVpcIamPoolFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetVpcIamPoolFilterArrayOutput() GetVpcIamPoolFilterArrayOutput
+	ToGetVpcIamPoolFilterArrayOutputWithContext(context.Context) GetVpcIamPoolFilterArrayOutput
+}
+
+type GetVpcIamPoolFilterArray []GetVpcIamPoolFilterInput
+
+func (GetVpcIamPoolFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVpcIamPoolFilter)(nil)).Elem()
+}
+
+func (i GetVpcIamPoolFilterArray) ToGetVpcIamPoolFilterArrayOutput() GetVpcIamPoolFilterArrayOutput {
+	return i.ToGetVpcIamPoolFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetVpcIamPoolFilterArray) ToGetVpcIamPoolFilterArrayOutputWithContext(ctx context.Context) GetVpcIamPoolFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVpcIamPoolFilterArrayOutput)
+}
+
+type GetVpcIamPoolFilterOutput struct{ *pulumi.OutputState }
+
+func (GetVpcIamPoolFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVpcIamPoolFilter)(nil)).Elem()
+}
+
+func (o GetVpcIamPoolFilterOutput) ToGetVpcIamPoolFilterOutput() GetVpcIamPoolFilterOutput {
+	return o
+}
+
+func (o GetVpcIamPoolFilterOutput) ToGetVpcIamPoolFilterOutputWithContext(ctx context.Context) GetVpcIamPoolFilterOutput {
+	return o
+}
+
+func (o GetVpcIamPoolFilterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpcIamPoolFilter) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetVpcIamPoolFilterOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetVpcIamPoolFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type GetVpcIamPoolFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVpcIamPoolFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVpcIamPoolFilter)(nil)).Elem()
+}
+
+func (o GetVpcIamPoolFilterArrayOutput) ToGetVpcIamPoolFilterArrayOutput() GetVpcIamPoolFilterArrayOutput {
+	return o
+}
+
+func (o GetVpcIamPoolFilterArrayOutput) ToGetVpcIamPoolFilterArrayOutputWithContext(ctx context.Context) GetVpcIamPoolFilterArrayOutput {
+	return o
+}
+
+func (o GetVpcIamPoolFilterArrayOutput) Index(i pulumi.IntInput) GetVpcIamPoolFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVpcIamPoolFilter {
+		return vs[0].([]GetVpcIamPoolFilter)[vs[1].(int)]
+	}).(GetVpcIamPoolFilterOutput)
+}
+
 type GetVpcPeeringConnectionCidrBlockSet struct {
 	// The primary CIDR block of the requester VPC of the specific VPC Peering Connection to retrieve.
 	CidrBlock string `pulumi:"cidrBlock"`
@@ -24223,6 +24576,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointDnsEntryArrayInput)(nil)).Elem(), VpcEndpointDnsEntryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointServicePrivateDnsNameConfigurationInput)(nil)).Elem(), VpcEndpointServicePrivateDnsNameConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointServicePrivateDnsNameConfigurationArrayInput)(nil)).Elem(), VpcEndpointServicePrivateDnsNameConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcIpamOperatingRegionInput)(nil)).Elem(), VpcIpamOperatingRegionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcIpamOperatingRegionArrayInput)(nil)).Elem(), VpcIpamOperatingRegionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcIpamPoolCidrCidrAuthorizationContextInput)(nil)).Elem(), VpcIpamPoolCidrCidrAuthorizationContextArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcIpamPoolCidrCidrAuthorizationContextPtrInput)(nil)).Elem(), VpcIpamPoolCidrCidrAuthorizationContextArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcPeeringConnectionAccepterTypeInput)(nil)).Elem(), VpcPeeringConnectionAccepterTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcPeeringConnectionAccepterTypePtrInput)(nil)).Elem(), VpcPeeringConnectionAccepterTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcPeeringConnectionAccepterAccepterInput)(nil)).Elem(), VpcPeeringConnectionAccepterAccepterArgs{})
@@ -24393,6 +24750,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcEndpointServiceFilterArrayInput)(nil)).Elem(), GetVpcEndpointServiceFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcFilterInput)(nil)).Elem(), GetVpcFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcFilterArrayInput)(nil)).Elem(), GetVpcFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcIamPoolFilterInput)(nil)).Elem(), GetVpcIamPoolFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcIamPoolFilterArrayInput)(nil)).Elem(), GetVpcIamPoolFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcPeeringConnectionCidrBlockSetInput)(nil)).Elem(), GetVpcPeeringConnectionCidrBlockSetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcPeeringConnectionCidrBlockSetArrayInput)(nil)).Elem(), GetVpcPeeringConnectionCidrBlockSetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcPeeringConnectionFilterInput)(nil)).Elem(), GetVpcPeeringConnectionFilterArgs{})
@@ -24574,6 +24933,10 @@ func init() {
 	pulumi.RegisterOutputType(VpcEndpointDnsEntryArrayOutput{})
 	pulumi.RegisterOutputType(VpcEndpointServicePrivateDnsNameConfigurationOutput{})
 	pulumi.RegisterOutputType(VpcEndpointServicePrivateDnsNameConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(VpcIpamOperatingRegionOutput{})
+	pulumi.RegisterOutputType(VpcIpamOperatingRegionArrayOutput{})
+	pulumi.RegisterOutputType(VpcIpamPoolCidrCidrAuthorizationContextOutput{})
+	pulumi.RegisterOutputType(VpcIpamPoolCidrCidrAuthorizationContextPtrOutput{})
 	pulumi.RegisterOutputType(VpcPeeringConnectionAccepterTypeOutput{})
 	pulumi.RegisterOutputType(VpcPeeringConnectionAccepterTypePtrOutput{})
 	pulumi.RegisterOutputType(VpcPeeringConnectionAccepterAccepterOutput{})
@@ -24744,6 +25107,8 @@ func init() {
 	pulumi.RegisterOutputType(GetVpcEndpointServiceFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetVpcFilterOutput{})
 	pulumi.RegisterOutputType(GetVpcFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetVpcIamPoolFilterOutput{})
+	pulumi.RegisterOutputType(GetVpcIamPoolFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetVpcPeeringConnectionCidrBlockSetOutput{})
 	pulumi.RegisterOutputType(GetVpcPeeringConnectionCidrBlockSetArrayOutput{})
 	pulumi.RegisterOutputType(GetVpcPeeringConnectionFilterOutput{})

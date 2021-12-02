@@ -94,6 +94,10 @@ export class TargetGroup extends pulumi.CustomResource {
      */
     public /*out*/ readonly arnSuffix!: pulumi.Output<string>;
     /**
+     * Whether to terminate connections at the end of the deregistration timeout on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#deregistration-delay) for more information. Default is `false`.
+     */
+    public readonly connectionTermination!: pulumi.Output<boolean | undefined>;
+    /**
      * Amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is 0-3600 seconds. The default value is 300 seconds.
      */
     public readonly deregistrationDelay!: pulumi.Output<number | undefined>;
@@ -177,6 +181,7 @@ export class TargetGroup extends pulumi.CustomResource {
             const state = argsOrState as TargetGroupState | undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["arnSuffix"] = state ? state.arnSuffix : undefined;
+            inputs["connectionTermination"] = state ? state.connectionTermination : undefined;
             inputs["deregistrationDelay"] = state ? state.deregistrationDelay : undefined;
             inputs["healthCheck"] = state ? state.healthCheck : undefined;
             inputs["lambdaMultiValueHeadersEnabled"] = state ? state.lambdaMultiValueHeadersEnabled : undefined;
@@ -196,6 +201,7 @@ export class TargetGroup extends pulumi.CustomResource {
             inputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
             const args = argsOrState as TargetGroupArgs | undefined;
+            inputs["connectionTermination"] = args ? args.connectionTermination : undefined;
             inputs["deregistrationDelay"] = args ? args.deregistrationDelay : undefined;
             inputs["healthCheck"] = args ? args.healthCheck : undefined;
             inputs["lambdaMultiValueHeadersEnabled"] = args ? args.lambdaMultiValueHeadersEnabled : undefined;
@@ -237,6 +243,10 @@ export interface TargetGroupState {
      * ARN suffix for use with CloudWatch Metrics.
      */
     arnSuffix?: pulumi.Input<string>;
+    /**
+     * Whether to terminate connections at the end of the deregistration timeout on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#deregistration-delay) for more information. Default is `false`.
+     */
+    connectionTermination?: pulumi.Input<boolean>;
     /**
      * Amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is 0-3600 seconds. The default value is 300 seconds.
      */
@@ -311,6 +321,10 @@ export interface TargetGroupState {
  * The set of arguments for constructing a TargetGroup resource.
  */
 export interface TargetGroupArgs {
+    /**
+     * Whether to terminate connections at the end of the deregistration timeout on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#deregistration-delay) for more information. Default is `false`.
+     */
+    connectionTermination?: pulumi.Input<boolean>;
     /**
      * Amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is 0-3600 seconds. The default value is 300 seconds.
      */

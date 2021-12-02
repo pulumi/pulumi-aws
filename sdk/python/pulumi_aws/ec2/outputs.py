@@ -96,6 +96,8 @@ __all__ = [
     'TrafficMirrorFilterRuleSourcePortRange',
     'VpcEndpointDnsEntry',
     'VpcEndpointServicePrivateDnsNameConfiguration',
+    'VpcIpamOperatingRegion',
+    'VpcIpamPoolCidrCidrAuthorizationContext',
     'VpcPeeringConnectionAccepter',
     'VpcPeeringConnectionAccepterAccepter',
     'VpcPeeringConnectionAccepterRequester',
@@ -181,6 +183,7 @@ __all__ = [
     'GetVpcEndpointFilterResult',
     'GetVpcEndpointServiceFilterResult',
     'GetVpcFilterResult',
+    'GetVpcIamPoolFilterResult',
     'GetVpcPeeringConnectionCidrBlockSetResult',
     'GetVpcPeeringConnectionFilterResult',
     'GetVpcPeeringConnectionPeerCidrBlockSetResult',
@@ -6806,6 +6809,72 @@ class VpcEndpointServicePrivateDnsNameConfiguration(dict):
 
 
 @pulumi.output_type
+class VpcIpamOperatingRegion(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "regionName":
+            suggest = "region_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VpcIpamOperatingRegion. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VpcIpamOperatingRegion.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VpcIpamOperatingRegion.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 region_name: str):
+        """
+        :param str region_name: The name of the Region you want to add to the IPAM.
+        """
+        pulumi.set(__self__, "region_name", region_name)
+
+    @property
+    @pulumi.getter(name="regionName")
+    def region_name(self) -> str:
+        """
+        The name of the Region you want to add to the IPAM.
+        """
+        return pulumi.get(self, "region_name")
+
+
+@pulumi.output_type
+class VpcIpamPoolCidrCidrAuthorizationContext(dict):
+    def __init__(__self__, *,
+                 message: Optional[str] = None,
+                 signature: Optional[str] = None):
+        """
+        :param str message: The plain-text authorization message for the prefix and account.
+        :param str signature: The signed authorization message for the prefix and account.
+        """
+        if message is not None:
+            pulumi.set(__self__, "message", message)
+        if signature is not None:
+            pulumi.set(__self__, "signature", signature)
+
+    @property
+    @pulumi.getter
+    def message(self) -> Optional[str]:
+        """
+        The plain-text authorization message for the prefix and account.
+        """
+        return pulumi.get(self, "message")
+
+    @property
+    @pulumi.getter
+    def signature(self) -> Optional[str]:
+        """
+        The signed authorization message for the prefix and account.
+        """
+        return pulumi.get(self, "signature")
+
+
+@pulumi.output_type
 class VpcPeeringConnectionAccepter(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -10136,6 +10205,25 @@ class GetVpcFilterResult(dict):
         Set of values that are accepted for the given field.
         A VPC will be selected if any one of the given values matches.
         """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class GetVpcIamPoolFilterResult(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 values: Sequence[str]):
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Sequence[str]:
         return pulumi.get(self, "values")
 
 

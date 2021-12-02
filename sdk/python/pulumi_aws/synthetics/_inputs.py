@@ -9,11 +9,75 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'CanaryArtifactConfigArgs',
+    'CanaryArtifactConfigS3EncryptionArgs',
     'CanaryRunConfigArgs',
     'CanaryScheduleArgs',
     'CanaryTimelineArgs',
     'CanaryVpcConfigArgs',
 ]
+
+@pulumi.input_type
+class CanaryArtifactConfigArgs:
+    def __init__(__self__, *,
+                 s3_encryption: Optional[pulumi.Input['CanaryArtifactConfigS3EncryptionArgs']] = None):
+        """
+        :param pulumi.Input['CanaryArtifactConfigS3EncryptionArgs'] s3_encryption: Configuration of the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3. See S3 Encryption.
+        """
+        if s3_encryption is not None:
+            pulumi.set(__self__, "s3_encryption", s3_encryption)
+
+    @property
+    @pulumi.getter(name="s3Encryption")
+    def s3_encryption(self) -> Optional[pulumi.Input['CanaryArtifactConfigS3EncryptionArgs']]:
+        """
+        Configuration of the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3. See S3 Encryption.
+        """
+        return pulumi.get(self, "s3_encryption")
+
+    @s3_encryption.setter
+    def s3_encryption(self, value: Optional[pulumi.Input['CanaryArtifactConfigS3EncryptionArgs']]):
+        pulumi.set(self, "s3_encryption", value)
+
+
+@pulumi.input_type
+class CanaryArtifactConfigS3EncryptionArgs:
+    def __init__(__self__, *,
+                 encryption_mode: Optional[pulumi.Input[str]] = None,
+                 kms_key_arn: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] encryption_mode: The encryption method to use for artifacts created by this canary. Valid values are: `SSE-S3` and `SSE-KMS`.
+        :param pulumi.Input[str] kms_key_arn: The ARN of the customer-managed KMS key to use, if you specify `SSE-KMS` for `encryption_mode`.
+        """
+        if encryption_mode is not None:
+            pulumi.set(__self__, "encryption_mode", encryption_mode)
+        if kms_key_arn is not None:
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+
+    @property
+    @pulumi.getter(name="encryptionMode")
+    def encryption_mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        The encryption method to use for artifacts created by this canary. Valid values are: `SSE-S3` and `SSE-KMS`.
+        """
+        return pulumi.get(self, "encryption_mode")
+
+    @encryption_mode.setter
+    def encryption_mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "encryption_mode", value)
+
+    @property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the customer-managed KMS key to use, if you specify `SSE-KMS` for `encryption_mode`.
+        """
+        return pulumi.get(self, "kms_key_arn")
+
+    @kms_key_arn.setter
+    def kms_key_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kms_key_arn", value)
+
 
 @pulumi.input_type
 class CanaryRunConfigArgs:

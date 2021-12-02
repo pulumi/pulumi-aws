@@ -18,8 +18,7 @@ class ThingGroupArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  parent_group_name: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input['ThingGroupPropertiesArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ThingGroup resource.
         :param pulumi.Input[str] name: The name of the Thing Group.
@@ -35,8 +34,6 @@ class ThingGroupArgs:
             pulumi.set(__self__, "properties", properties)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tags_all is not None:
-            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter
@@ -85,15 +82,6 @@ class ThingGroupArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
-
-    @property
-    @pulumi.getter(name="tagsAll")
-    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        return pulumi.get(self, "tags_all")
-
-    @tags_all.setter
-    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "tags_all", value)
 
 
 @pulumi.input_type
@@ -233,7 +221,6 @@ class ThingGroup(pulumi.CustomResource):
                  parent_group_name: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['ThingGroupPropertiesArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Manages an AWS IoT Thing Group.
@@ -335,7 +322,6 @@ class ThingGroup(pulumi.CustomResource):
                  parent_group_name: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['ThingGroupPropertiesArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -352,9 +338,9 @@ class ThingGroup(pulumi.CustomResource):
             __props__.__dict__["parent_group_name"] = parent_group_name
             __props__.__dict__["properties"] = properties
             __props__.__dict__["tags"] = tags
-            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
             __props__.__dict__["metadatas"] = None
+            __props__.__dict__["tags_all"] = None
             __props__.__dict__["version"] = None
         super(ThingGroup, __self__).__init__(
             'aws:iot/thingGroup:ThingGroup',

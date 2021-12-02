@@ -57,6 +57,8 @@ type Canary struct {
 
 	// Amazon Resource Name (ARN) of the Canary.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// configuration for canary artifacts, including the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3. See Artifact Config.
+	ArtifactConfig CanaryArtifactConfigPtrOutput `pulumi:"artifactConfig"`
 	// Location in Amazon S3 where Synthetics stores artifacts from the test runs of this canary.
 	ArtifactS3Location pulumi.StringOutput `pulumi:"artifactS3Location"`
 	// ARN of the Lambda function that is used as your canary's engine.
@@ -89,7 +91,7 @@ type Canary struct {
 	Status pulumi.StringOutput `pulumi:"status"`
 	// Number of days to retain data about successful runs of this canary. If you omit this field, the default of 31 days is used. The valid range is 1 to 455 days.
 	SuccessRetentionPeriod pulumi.IntPtrOutput `pulumi:"successRetentionPeriod"`
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -147,6 +149,8 @@ func GetCanary(ctx *pulumi.Context,
 type canaryState struct {
 	// Amazon Resource Name (ARN) of the Canary.
 	Arn *string `pulumi:"arn"`
+	// configuration for canary artifacts, including the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3. See Artifact Config.
+	ArtifactConfig *CanaryArtifactConfig `pulumi:"artifactConfig"`
 	// Location in Amazon S3 where Synthetics stores artifacts from the test runs of this canary.
 	ArtifactS3Location *string `pulumi:"artifactS3Location"`
 	// ARN of the Lambda function that is used as your canary's engine.
@@ -179,7 +183,7 @@ type canaryState struct {
 	Status *string `pulumi:"status"`
 	// Number of days to retain data about successful runs of this canary. If you omit this field, the default of 31 days is used. The valid range is 1 to 455 days.
 	SuccessRetentionPeriod *int `pulumi:"successRetentionPeriod"`
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -194,6 +198,8 @@ type canaryState struct {
 type CanaryState struct {
 	// Amazon Resource Name (ARN) of the Canary.
 	Arn pulumi.StringPtrInput
+	// configuration for canary artifacts, including the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3. See Artifact Config.
+	ArtifactConfig CanaryArtifactConfigPtrInput
 	// Location in Amazon S3 where Synthetics stores artifacts from the test runs of this canary.
 	ArtifactS3Location pulumi.StringPtrInput
 	// ARN of the Lambda function that is used as your canary's engine.
@@ -226,7 +232,7 @@ type CanaryState struct {
 	Status pulumi.StringPtrInput
 	// Number of days to retain data about successful runs of this canary. If you omit this field, the default of 31 days is used. The valid range is 1 to 455 days.
 	SuccessRetentionPeriod pulumi.IntPtrInput
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapInput
@@ -243,6 +249,8 @@ func (CanaryState) ElementType() reflect.Type {
 }
 
 type canaryArgs struct {
+	// configuration for canary artifacts, including the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3. See Artifact Config.
+	ArtifactConfig *CanaryArtifactConfig `pulumi:"artifactConfig"`
 	// Location in Amazon S3 where Synthetics stores artifacts from the test runs of this canary.
 	ArtifactS3Location string `pulumi:"artifactS3Location"`
 	// ARN of the IAM role to be used to run the canary. see [AWS Docs](https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_CreateCanary.html#API_CreateCanary_RequestSyntax) for permissions needs for IAM Role.
@@ -269,7 +277,7 @@ type canaryArgs struct {
 	StartCanary *bool `pulumi:"startCanary"`
 	// Number of days to retain data about successful runs of this canary. If you omit this field, the default of 31 days is used. The valid range is 1 to 455 days.
 	SuccessRetentionPeriod *int `pulumi:"successRetentionPeriod"`
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Configuration block. Detailed below.
 	VpcConfig *CanaryVpcConfig `pulumi:"vpcConfig"`
@@ -279,6 +287,8 @@ type canaryArgs struct {
 
 // The set of arguments for constructing a Canary resource.
 type CanaryArgs struct {
+	// configuration for canary artifacts, including the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3. See Artifact Config.
+	ArtifactConfig CanaryArtifactConfigPtrInput
 	// Location in Amazon S3 where Synthetics stores artifacts from the test runs of this canary.
 	ArtifactS3Location pulumi.StringInput
 	// ARN of the IAM role to be used to run the canary. see [AWS Docs](https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_CreateCanary.html#API_CreateCanary_RequestSyntax) for permissions needs for IAM Role.
@@ -305,7 +315,7 @@ type CanaryArgs struct {
 	StartCanary pulumi.BoolPtrInput
 	// Number of days to retain data about successful runs of this canary. If you omit this field, the default of 31 days is used. The valid range is 1 to 455 days.
 	SuccessRetentionPeriod pulumi.IntPtrInput
-	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Configuration block. Detailed below.
 	VpcConfig CanaryVpcConfigPtrInput

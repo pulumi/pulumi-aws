@@ -81,6 +81,9 @@ namespace Pulumi.Aws.AccessAnalyzer
         [Output("analyzerName")]
         public Output<string> AnalyzerName { get; private set; } = null!;
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Analyzer.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
@@ -185,6 +188,9 @@ namespace Pulumi.Aws.AccessAnalyzer
         [Input("analyzerName")]
         public Input<string>? AnalyzerName { get; set; }
 
+        /// <summary>
+        /// The Amazon Resource Name (ARN) of the Analyzer.
+        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 

@@ -4354,7 +4354,7 @@ func (o BucketReplicationConfigRuleDestinationEncryptionConfigurationPtrOutput) 
 
 type BucketReplicationConfigRuleDestinationMetrics struct {
 	// A configuration block that specifies the time threshold for emitting the `s3:Replication:OperationMissedThreshold` event documented below.
-	EventThreshold BucketReplicationConfigRuleDestinationMetricsEventThreshold `pulumi:"eventThreshold"`
+	EventThreshold *BucketReplicationConfigRuleDestinationMetricsEventThreshold `pulumi:"eventThreshold"`
 	// The status of the Destination Metrics. Either `"Enabled"` or `"Disabled"`.
 	Status string `pulumi:"status"`
 }
@@ -4372,7 +4372,7 @@ type BucketReplicationConfigRuleDestinationMetricsInput interface {
 
 type BucketReplicationConfigRuleDestinationMetricsArgs struct {
 	// A configuration block that specifies the time threshold for emitting the `s3:Replication:OperationMissedThreshold` event documented below.
-	EventThreshold BucketReplicationConfigRuleDestinationMetricsEventThresholdInput `pulumi:"eventThreshold"`
+	EventThreshold BucketReplicationConfigRuleDestinationMetricsEventThresholdPtrInput `pulumi:"eventThreshold"`
 	// The status of the Destination Metrics. Either `"Enabled"` or `"Disabled"`.
 	Status pulumi.StringInput `pulumi:"status"`
 }
@@ -4455,10 +4455,10 @@ func (o BucketReplicationConfigRuleDestinationMetricsOutput) ToBucketReplication
 }
 
 // A configuration block that specifies the time threshold for emitting the `s3:Replication:OperationMissedThreshold` event documented below.
-func (o BucketReplicationConfigRuleDestinationMetricsOutput) EventThreshold() BucketReplicationConfigRuleDestinationMetricsEventThresholdOutput {
-	return o.ApplyT(func(v BucketReplicationConfigRuleDestinationMetrics) BucketReplicationConfigRuleDestinationMetricsEventThreshold {
+func (o BucketReplicationConfigRuleDestinationMetricsOutput) EventThreshold() BucketReplicationConfigRuleDestinationMetricsEventThresholdPtrOutput {
+	return o.ApplyT(func(v BucketReplicationConfigRuleDestinationMetrics) *BucketReplicationConfigRuleDestinationMetricsEventThreshold {
 		return v.EventThreshold
-	}).(BucketReplicationConfigRuleDestinationMetricsEventThresholdOutput)
+	}).(BucketReplicationConfigRuleDestinationMetricsEventThresholdPtrOutput)
 }
 
 // The status of the Destination Metrics. Either `"Enabled"` or `"Disabled"`.
@@ -4496,7 +4496,7 @@ func (o BucketReplicationConfigRuleDestinationMetricsPtrOutput) EventThreshold()
 		if v == nil {
 			return nil
 		}
-		return &v.EventThreshold
+		return v.EventThreshold
 	}).(BucketReplicationConfigRuleDestinationMetricsEventThresholdPtrOutput)
 }
 

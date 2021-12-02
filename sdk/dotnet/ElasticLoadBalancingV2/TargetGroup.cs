@@ -108,6 +108,12 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2
         public Output<string> ArnSuffix { get; private set; } = null!;
 
         /// <summary>
+        /// Whether to terminate connections at the end of the deregistration timeout on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#deregistration-delay) for more information. Default is `false`.
+        /// </summary>
+        [Output("connectionTermination")]
+        public Output<bool?> ConnectionTermination { get; private set; } = null!;
+
+        /// <summary>
         /// Amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is 0-3600 seconds. The default value is 300 seconds.
         /// </summary>
         [Output("deregistrationDelay")]
@@ -256,6 +262,12 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2
     public sealed class TargetGroupArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Whether to terminate connections at the end of the deregistration timeout on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#deregistration-delay) for more information. Default is `false`.
+        /// </summary>
+        [Input("connectionTermination")]
+        public Input<bool>? ConnectionTermination { get; set; }
+
+        /// <summary>
         /// Amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is 0-3600 seconds. The default value is 300 seconds.
         /// </summary>
         [Input("deregistrationDelay")]
@@ -375,6 +387,12 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2
         /// </summary>
         [Input("arnSuffix")]
         public Input<string>? ArnSuffix { get; set; }
+
+        /// <summary>
+        /// Whether to terminate connections at the end of the deregistration timeout on Network Load Balancers. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#deregistration-delay) for more information. Default is `false`.
+        /// </summary>
+        [Input("connectionTermination")]
+        public Input<bool>? ConnectionTermination { get; set; }
 
         /// <summary>
         /// Amount time for Elastic Load Balancing to wait before changing the state of a deregistering target from draining to unused. The range is 0-3600 seconds. The default value is 300 seconds.

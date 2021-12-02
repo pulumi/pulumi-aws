@@ -17,6 +17,7 @@ class AlternativeContactArgs:
                  email_address: pulumi.Input[str],
                  phone_number: pulumi.Input[str],
                  title: pulumi.Input[str],
+                 account_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a AlternativeContact resource.
@@ -24,12 +25,15 @@ class AlternativeContactArgs:
         :param pulumi.Input[str] email_address: An email address for the alternate contact.
         :param pulumi.Input[str] phone_number: A phone number for the alternate contact.
         :param pulumi.Input[str] title: A title for the alternate contact.
+        :param pulumi.Input[str] account_id: The ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
         :param pulumi.Input[str] name: The name of the alternate contact.
         """
         pulumi.set(__self__, "alternate_contact_type", alternate_contact_type)
         pulumi.set(__self__, "email_address", email_address)
         pulumi.set(__self__, "phone_number", phone_number)
         pulumi.set(__self__, "title", title)
+        if account_id is not None:
+            pulumi.set(__self__, "account_id", account_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
 
@@ -82,6 +86,18 @@ class AlternativeContactArgs:
         pulumi.set(self, "title", value)
 
     @property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
+        """
+        return pulumi.get(self, "account_id")
+
+    @account_id.setter
+    def account_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "account_id", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -97,6 +113,7 @@ class AlternativeContactArgs:
 @pulumi.input_type
 class _AlternativeContactState:
     def __init__(__self__, *,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  alternate_contact_type: Optional[pulumi.Input[str]] = None,
                  email_address: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -104,12 +121,15 @@ class _AlternativeContactState:
                  title: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering AlternativeContact resources.
+        :param pulumi.Input[str] account_id: The ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
         :param pulumi.Input[str] alternate_contact_type: The type of the alternate contact. Allowed values are: `BILLING`, `OPERATIONS`, `SECURITY`.
         :param pulumi.Input[str] email_address: An email address for the alternate contact.
         :param pulumi.Input[str] name: The name of the alternate contact.
         :param pulumi.Input[str] phone_number: A phone number for the alternate contact.
         :param pulumi.Input[str] title: A title for the alternate contact.
         """
+        if account_id is not None:
+            pulumi.set(__self__, "account_id", account_id)
         if alternate_contact_type is not None:
             pulumi.set(__self__, "alternate_contact_type", alternate_contact_type)
         if email_address is not None:
@@ -120,6 +140,18 @@ class _AlternativeContactState:
             pulumi.set(__self__, "phone_number", phone_number)
         if title is not None:
             pulumi.set(__self__, "title", title)
+
+    @property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
+        """
+        return pulumi.get(self, "account_id")
+
+    @account_id.setter
+    def account_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "account_id", value)
 
     @property
     @pulumi.getter(name="alternateContactType")
@@ -187,6 +219,7 @@ class AlternativeContact(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  alternate_contact_type: Optional[pulumi.Input[str]] = None,
                  email_address: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -219,6 +252,7 @@ class AlternativeContact(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] account_id: The ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
         :param pulumi.Input[str] alternate_contact_type: The type of the alternate contact. Allowed values are: `BILLING`, `OPERATIONS`, `SECURITY`.
         :param pulumi.Input[str] email_address: An email address for the alternate contact.
         :param pulumi.Input[str] name: The name of the alternate contact.
@@ -270,6 +304,7 @@ class AlternativeContact(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 account_id: Optional[pulumi.Input[str]] = None,
                  alternate_contact_type: Optional[pulumi.Input[str]] = None,
                  email_address: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -287,6 +322,7 @@ class AlternativeContact(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AlternativeContactArgs.__new__(AlternativeContactArgs)
 
+            __props__.__dict__["account_id"] = account_id
             if alternate_contact_type is None and not opts.urn:
                 raise TypeError("Missing required property 'alternate_contact_type'")
             __props__.__dict__["alternate_contact_type"] = alternate_contact_type
@@ -310,6 +346,7 @@ class AlternativeContact(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            account_id: Optional[pulumi.Input[str]] = None,
             alternate_contact_type: Optional[pulumi.Input[str]] = None,
             email_address: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -322,6 +359,7 @@ class AlternativeContact(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] account_id: The ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
         :param pulumi.Input[str] alternate_contact_type: The type of the alternate contact. Allowed values are: `BILLING`, `OPERATIONS`, `SECURITY`.
         :param pulumi.Input[str] email_address: An email address for the alternate contact.
         :param pulumi.Input[str] name: The name of the alternate contact.
@@ -332,12 +370,21 @@ class AlternativeContact(pulumi.CustomResource):
 
         __props__ = _AlternativeContactState.__new__(_AlternativeContactState)
 
+        __props__.__dict__["account_id"] = account_id
         __props__.__dict__["alternate_contact_type"] = alternate_contact_type
         __props__.__dict__["email_address"] = email_address
         __props__.__dict__["name"] = name
         __props__.__dict__["phone_number"] = phone_number
         __props__.__dict__["title"] = title
         return AlternativeContact(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="accountId")
+    def account_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
+        """
+        return pulumi.get(self, "account_id")
 
     @property
     @pulumi.getter(name="alternateContactType")

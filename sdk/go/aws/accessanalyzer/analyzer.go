@@ -83,7 +83,8 @@ type Analyzer struct {
 
 	// Name of the Analyzer.
 	AnalyzerName pulumi.StringOutput `pulumi:"analyzerName"`
-	Arn          pulumi.StringOutput `pulumi:"arn"`
+	// The Amazon Resource Name (ARN) of the Analyzer.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
@@ -126,7 +127,8 @@ func GetAnalyzer(ctx *pulumi.Context,
 type analyzerState struct {
 	// Name of the Analyzer.
 	AnalyzerName *string `pulumi:"analyzerName"`
-	Arn          *string `pulumi:"arn"`
+	// The Amazon Resource Name (ARN) of the Analyzer.
+	Arn *string `pulumi:"arn"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
@@ -138,7 +140,8 @@ type analyzerState struct {
 type AnalyzerState struct {
 	// Name of the Analyzer.
 	AnalyzerName pulumi.StringPtrInput
-	Arn          pulumi.StringPtrInput
+	// The Amazon Resource Name (ARN) of the Analyzer.
+	Arn pulumi.StringPtrInput
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider .

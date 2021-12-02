@@ -46,6 +46,12 @@ namespace Pulumi.Aws.Account
     public partial class AlternativeContact : Pulumi.CustomResource
     {
         /// <summary>
+        /// The ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
+        /// </summary>
+        [Output("accountId")]
+        public Output<string?> AccountId { get; private set; } = null!;
+
+        /// <summary>
         /// The type of the alternate contact. Allowed values are: `BILLING`, `OPERATIONS`, `SECURITY`.
         /// </summary>
         [Output("alternateContactType")]
@@ -122,6 +128,12 @@ namespace Pulumi.Aws.Account
     public sealed class AlternativeContactArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// The ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
+        /// </summary>
+        [Input("accountId")]
+        public Input<string>? AccountId { get; set; }
+
+        /// <summary>
         /// The type of the alternate contact. Allowed values are: `BILLING`, `OPERATIONS`, `SECURITY`.
         /// </summary>
         [Input("alternateContactType", required: true)]
@@ -158,6 +170,12 @@ namespace Pulumi.Aws.Account
 
     public sealed class AlternativeContactState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ID of the target account when managing member accounts. Will manage current user's account by default if omitted.
+        /// </summary>
+        [Input("accountId")]
+        public Input<string>? AccountId { get; set; }
+
         /// <summary>
         /// The type of the alternate contact. Allowed values are: `BILLING`, `OPERATIONS`, `SECURITY`.
         /// </summary>
