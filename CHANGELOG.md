@@ -2,9 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
-
----
+* Add support for g4ad.xlarge and g4ad.2xlarge EC2 instance types.
 
 ## 4.31.0 (2021-12-03)
 * Upgrade to v3.68.0 of the AWS Terraform Provider

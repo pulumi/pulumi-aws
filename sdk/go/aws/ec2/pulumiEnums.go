@@ -285,6 +285,8 @@ const (
 	InstanceType_G3_8XLarge    = InstanceType("g3.8xlarge")
 	InstanceType_G3s_XLarge    = InstanceType("g3s.xlarge")
 	InstanceType_G4ad_16XLarge = InstanceType("g4ad.16xlarge")
+	InstanceType_G4ad_XLarge   = InstanceType("g4ad.xlarge")
+	InstanceType_G4ad_2XLarge  = InstanceType("g4ad.2xlarge")
 	InstanceType_G4ad_4XLarge  = InstanceType("g4ad.4xlarge")
 	InstanceType_G4ad_8XLarge  = InstanceType("g4ad.8xlarge")
 	InstanceType_G4dn_12XLarge = InstanceType("g4dn.12xlarge")

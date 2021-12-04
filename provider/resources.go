@@ -3064,6 +3064,8 @@ func Provider() tfbridge.ProviderInfo {
 					{Name: "G3_8XLarge", Value: "g3.8xlarge"},
 					{Name: "G3s_XLarge", Value: "g3s.xlarge"},
 					{Name: "G4ad_16XLarge", Value: "g4ad.16xlarge"},
+					{Name: "G4ad_XLarge", Value: "g4ad.xlarge"},
+					{Name: "G4ad_2XLarge", Value: "g4ad.2xlarge"},
 					{Name: "G4ad_4XLarge", Value: "g4ad.4xlarge"},
 					{Name: "G4ad_8XLarge", Value: "g4ad.8xlarge"},
 					{Name: "G4dn_12XLarge", Value: "g4dn.12xlarge"},
@@ -3174,7 +3176,6 @@ func Provider() tfbridge.ProviderInfo {
 					{Name: "M5zn_Large", Value: "m5zn.large"},
 					{Name: "M5zn_Metal", Value: "m5zn.metal"},
 					{Name: "M5zn_XLarge", Value: "m5zn.xlarge"},
-
 					{Name: "M6g_12XLarge", Value: "m6g.12xlarge"},
 					{Name: "M6g_16XLarge", Value: "m6g.16xlarge"},
 					{Name: "M6g_2XLarge", Value: "m6g.2xlarge"},

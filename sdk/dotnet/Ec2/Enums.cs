@@ -153,6 +153,8 @@ namespace Pulumi.Aws.Ec2
         public static InstanceType G3_8XLarge { get; } = new InstanceType("g3.8xlarge");
         public static InstanceType G3s_XLarge { get; } = new InstanceType("g3s.xlarge");
         public static InstanceType G4ad_16XLarge { get; } = new InstanceType("g4ad.16xlarge");
+        public static InstanceType G4ad_XLarge { get; } = new InstanceType("g4ad.xlarge");
+        public static InstanceType G4ad_2XLarge { get; } = new InstanceType("g4ad.2xlarge");
         public static InstanceType G4ad_4XLarge { get; } = new InstanceType("g4ad.4xlarge");
         public static InstanceType G4ad_8XLarge { get; } = new InstanceType("g4ad.8xlarge");
         public static InstanceType G4dn_12XLarge { get; } = new InstanceType("g4dn.12xlarge");
