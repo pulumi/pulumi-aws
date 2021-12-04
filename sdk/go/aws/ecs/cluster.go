@@ -103,7 +103,7 @@ type Cluster struct {
 	Configuration ClusterConfigurationPtrOutput `pulumi:"configuration"`
 	// Configuration block for capacity provider strategy to use by default for the cluster. Can be one or more. Detailed below.
 	DefaultCapacityProviderStrategies ClusterDefaultCapacityProviderStrategyArrayOutput `pulumi:"defaultCapacityProviderStrategies"`
-	// Name of the setting to manage. Valid values: `containerInsights`.
+	// The name of the cluster (up to 255 letters, numbers, hyphens, and underscores).
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Detailed below.
 	Settings ClusterSettingArrayOutput `pulumi:"settings"`
@@ -148,7 +148,7 @@ type clusterState struct {
 	Configuration *ClusterConfiguration `pulumi:"configuration"`
 	// Configuration block for capacity provider strategy to use by default for the cluster. Can be one or more. Detailed below.
 	DefaultCapacityProviderStrategies []ClusterDefaultCapacityProviderStrategy `pulumi:"defaultCapacityProviderStrategies"`
-	// Name of the setting to manage. Valid values: `containerInsights`.
+	// The name of the cluster (up to 255 letters, numbers, hyphens, and underscores).
 	Name *string `pulumi:"name"`
 	// Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Detailed below.
 	Settings []ClusterSetting  `pulumi:"settings"`
@@ -165,7 +165,7 @@ type ClusterState struct {
 	Configuration ClusterConfigurationPtrInput
 	// Configuration block for capacity provider strategy to use by default for the cluster. Can be one or more. Detailed below.
 	DefaultCapacityProviderStrategies ClusterDefaultCapacityProviderStrategyArrayInput
-	// Name of the setting to manage. Valid values: `containerInsights`.
+	// The name of the cluster (up to 255 letters, numbers, hyphens, and underscores).
 	Name pulumi.StringPtrInput
 	// Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Detailed below.
 	Settings ClusterSettingArrayInput
@@ -184,7 +184,7 @@ type clusterArgs struct {
 	Configuration *ClusterConfiguration `pulumi:"configuration"`
 	// Configuration block for capacity provider strategy to use by default for the cluster. Can be one or more. Detailed below.
 	DefaultCapacityProviderStrategies []ClusterDefaultCapacityProviderStrategy `pulumi:"defaultCapacityProviderStrategies"`
-	// Name of the setting to manage. Valid values: `containerInsights`.
+	// The name of the cluster (up to 255 letters, numbers, hyphens, and underscores).
 	Name *string `pulumi:"name"`
 	// Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Detailed below.
 	Settings []ClusterSetting  `pulumi:"settings"`
@@ -199,7 +199,7 @@ type ClusterArgs struct {
 	Configuration ClusterConfigurationPtrInput
 	// Configuration block for capacity provider strategy to use by default for the cluster. Can be one or more. Detailed below.
 	DefaultCapacityProviderStrategies ClusterDefaultCapacityProviderStrategyArrayInput
-	// Name of the setting to manage. Valid values: `containerInsights`.
+	// The name of the cluster (up to 255 letters, numbers, hyphens, and underscores).
 	Name pulumi.StringPtrInput
 	// Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Detailed below.
 	Settings ClusterSettingArrayInput

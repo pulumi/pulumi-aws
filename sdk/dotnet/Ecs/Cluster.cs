@@ -113,7 +113,7 @@ namespace Pulumi.Aws.Ecs
         public Output<ImmutableArray<Outputs.ClusterDefaultCapacityProviderStrategy>> DefaultCapacityProviderStrategies { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the setting to manage. Valid values: `containerInsights`.
+        /// The name of the cluster (up to 255 letters, numbers, hyphens, and underscores).
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -207,7 +207,7 @@ namespace Pulumi.Aws.Ecs
         }
 
         /// <summary>
-        /// Name of the setting to manage. Valid values: `containerInsights`.
+        /// The name of the cluster (up to 255 letters, numbers, hyphens, and underscores).
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -276,7 +276,7 @@ namespace Pulumi.Aws.Ecs
         }
 
         /// <summary>
-        /// Name of the setting to manage. Valid values: `containerInsights`.
+        /// The name of the cluster (up to 255 letters, numbers, hyphens, and underscores).
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

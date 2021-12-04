@@ -98,7 +98,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly defaultCapacityProviderStrategies!: pulumi.Output<outputs.ecs.ClusterDefaultCapacityProviderStrategy[] | undefined>;
     /**
-     * Name of the setting to manage. Valid values: `containerInsights`.
+     * The name of the cluster (up to 255 letters, numbers, hyphens, and underscores).
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -168,7 +168,7 @@ export interface ClusterState {
      */
     defaultCapacityProviderStrategies?: pulumi.Input<pulumi.Input<inputs.ecs.ClusterDefaultCapacityProviderStrategy>[]>;
     /**
-     * Name of the setting to manage. Valid values: `containerInsights`.
+     * The name of the cluster (up to 255 letters, numbers, hyphens, and underscores).
      */
     name?: pulumi.Input<string>;
     /**
@@ -196,7 +196,7 @@ export interface ClusterArgs {
      */
     defaultCapacityProviderStrategies?: pulumi.Input<pulumi.Input<inputs.ecs.ClusterDefaultCapacityProviderStrategy>[]>;
     /**
-     * Name of the setting to manage. Valid values: `containerInsights`.
+     * The name of the cluster (up to 255 letters, numbers, hyphens, and underscores).
      */
     name?: pulumi.Input<string>;
     /**

@@ -2,9 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
-
----
+* Fix labelling of ECS cluster name parameters.
 
 ## 4.31.0 (2021-12-03)
 * Upgrade to v3.68.0 of the AWS Terraform Provider
