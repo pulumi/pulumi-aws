@@ -15,7 +15,7 @@ jobs:
         UPDATE_LABELS: automation/update
         UPDATE_METHOD: rebase
       name: Automerge
-      uses: pascalgn/automerge-action@v0.13.1
+      uses: pascalgn/automerge-action@v0.14.3
 name: pr-automation
 "on":
   check_suite:
