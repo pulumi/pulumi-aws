@@ -12,6 +12,9 @@ from . import outputs
 __all__ = [
     'DomainAdvancedSecurityOptions',
     'DomainAdvancedSecurityOptionsMasterUserOptions',
+    'DomainAutoTuneOptions',
+    'DomainAutoTuneOptionsMaintenanceSchedule',
+    'DomainAutoTuneOptionsMaintenanceScheduleDuration',
     'DomainClusterConfig',
     'DomainClusterConfigZoneAwarenessConfig',
     'DomainCognitoOptions',
@@ -25,6 +28,9 @@ __all__ = [
     'DomainSnapshotOptions',
     'DomainVpcOptions',
     'GetDomainAdvancedSecurityOptionResult',
+    'GetDomainAutoTuneOptionResult',
+    'GetDomainAutoTuneOptionMaintenanceScheduleResult',
+    'GetDomainAutoTuneOptionMaintenanceScheduleDurationResult',
     'GetDomainClusterConfigResult',
     'GetDomainClusterConfigZoneAwarenessConfigResult',
     'GetDomainCognitoOptionResult',
@@ -159,6 +165,157 @@ class DomainAdvancedSecurityOptionsMasterUserOptions(dict):
         Main user's password, which is stored in the Amazon Elasticsearch Service domain's internal database. Only specify if `internal_user_database_enabled` is set to `true`.
         """
         return pulumi.get(self, "master_user_password")
+
+
+@pulumi.output_type
+class DomainAutoTuneOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "desiredState":
+            suggest = "desired_state"
+        elif key == "maintenanceSchedules":
+            suggest = "maintenance_schedules"
+        elif key == "rollbackOnDisable":
+            suggest = "rollback_on_disable"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainAutoTuneOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainAutoTuneOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainAutoTuneOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 desired_state: str,
+                 maintenance_schedules: Optional[Sequence['outputs.DomainAutoTuneOptionsMaintenanceSchedule']] = None,
+                 rollback_on_disable: Optional[str] = None):
+        """
+        :param str desired_state: The Auto-Tune desired state for the domain. Valid values: `ENABLED` or `DISABLED`.
+        :param Sequence['DomainAutoTuneOptionsMaintenanceScheduleArgs'] maintenance_schedules: Configuration block for Auto-Tune maintenance windows. Can be specified multiple times for each maintenance window. Detailed below.
+        :param str rollback_on_disable: Whether to roll back to default Auto-Tune settings when disabling Auto-Tune. Valid values: `DEFAULT_ROLLBACK` or `NO_ROLLBACK`.
+        """
+        pulumi.set(__self__, "desired_state", desired_state)
+        if maintenance_schedules is not None:
+            pulumi.set(__self__, "maintenance_schedules", maintenance_schedules)
+        if rollback_on_disable is not None:
+            pulumi.set(__self__, "rollback_on_disable", rollback_on_disable)
+
+    @property
+    @pulumi.getter(name="desiredState")
+    def desired_state(self) -> str:
+        """
+        The Auto-Tune desired state for the domain. Valid values: `ENABLED` or `DISABLED`.
+        """
+        return pulumi.get(self, "desired_state")
+
+    @property
+    @pulumi.getter(name="maintenanceSchedules")
+    def maintenance_schedules(self) -> Optional[Sequence['outputs.DomainAutoTuneOptionsMaintenanceSchedule']]:
+        """
+        Configuration block for Auto-Tune maintenance windows. Can be specified multiple times for each maintenance window. Detailed below.
+        """
+        return pulumi.get(self, "maintenance_schedules")
+
+    @property
+    @pulumi.getter(name="rollbackOnDisable")
+    def rollback_on_disable(self) -> Optional[str]:
+        """
+        Whether to roll back to default Auto-Tune settings when disabling Auto-Tune. Valid values: `DEFAULT_ROLLBACK` or `NO_ROLLBACK`.
+        """
+        return pulumi.get(self, "rollback_on_disable")
+
+
+@pulumi.output_type
+class DomainAutoTuneOptionsMaintenanceSchedule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cronExpressionForRecurrence":
+            suggest = "cron_expression_for_recurrence"
+        elif key == "startAt":
+            suggest = "start_at"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DomainAutoTuneOptionsMaintenanceSchedule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DomainAutoTuneOptionsMaintenanceSchedule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DomainAutoTuneOptionsMaintenanceSchedule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cron_expression_for_recurrence: str,
+                 duration: 'outputs.DomainAutoTuneOptionsMaintenanceScheduleDuration',
+                 start_at: str):
+        """
+        :param str cron_expression_for_recurrence: A cron expression specifying the recurrence pattern for an Auto-Tune maintenance schedule.
+        :param 'DomainAutoTuneOptionsMaintenanceScheduleDurationArgs' duration: Configuration block for the duration of the Auto-Tune maintenance window. Detailed below.
+        :param str start_at: Date and time at which to start the Auto-Tune maintenance schedule in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+        """
+        pulumi.set(__self__, "cron_expression_for_recurrence", cron_expression_for_recurrence)
+        pulumi.set(__self__, "duration", duration)
+        pulumi.set(__self__, "start_at", start_at)
+
+    @property
+    @pulumi.getter(name="cronExpressionForRecurrence")
+    def cron_expression_for_recurrence(self) -> str:
+        """
+        A cron expression specifying the recurrence pattern for an Auto-Tune maintenance schedule.
+        """
+        return pulumi.get(self, "cron_expression_for_recurrence")
+
+    @property
+    @pulumi.getter
+    def duration(self) -> 'outputs.DomainAutoTuneOptionsMaintenanceScheduleDuration':
+        """
+        Configuration block for the duration of the Auto-Tune maintenance window. Detailed below.
+        """
+        return pulumi.get(self, "duration")
+
+    @property
+    @pulumi.getter(name="startAt")
+    def start_at(self) -> str:
+        """
+        Date and time at which to start the Auto-Tune maintenance schedule in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+        """
+        return pulumi.get(self, "start_at")
+
+
+@pulumi.output_type
+class DomainAutoTuneOptionsMaintenanceScheduleDuration(dict):
+    def __init__(__self__, *,
+                 unit: str,
+                 value: int):
+        """
+        :param str unit: The unit of time specifying the duration of an Auto-Tune maintenance window. Valid values: `HOURS`.
+        :param int value: An integer specifying the value of the duration of an Auto-Tune maintenance window.
+        """
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> str:
+        """
+        The unit of time specifying the duration of an Auto-Tune maintenance window. Valid values: `HOURS`.
+        """
+        return pulumi.get(self, "unit")
+
+    @property
+    @pulumi.getter
+    def value(self) -> int:
+        """
+        An integer specifying the value of the duration of an Auto-Tune maintenance window.
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
@@ -1016,6 +1173,115 @@ class GetDomainAdvancedSecurityOptionResult(dict):
         Whether the internal user database is enabled.
         """
         return pulumi.get(self, "internal_user_database_enabled")
+
+
+@pulumi.output_type
+class GetDomainAutoTuneOptionResult(dict):
+    def __init__(__self__, *,
+                 desired_state: str,
+                 maintenance_schedules: Sequence['outputs.GetDomainAutoTuneOptionMaintenanceScheduleResult'],
+                 rollback_on_disable: str):
+        """
+        :param str desired_state: The Auto-Tune desired state for the domain.
+        :param Sequence['GetDomainAutoTuneOptionMaintenanceScheduleArgs'] maintenance_schedules: A list of the nested configurations for the Auto-Tune maintenance windows of the domain.
+        :param str rollback_on_disable: Whether the domain is set to roll back to default Auto-Tune settings when disabling Auto-Tune.
+        """
+        pulumi.set(__self__, "desired_state", desired_state)
+        pulumi.set(__self__, "maintenance_schedules", maintenance_schedules)
+        pulumi.set(__self__, "rollback_on_disable", rollback_on_disable)
+
+    @property
+    @pulumi.getter(name="desiredState")
+    def desired_state(self) -> str:
+        """
+        The Auto-Tune desired state for the domain.
+        """
+        return pulumi.get(self, "desired_state")
+
+    @property
+    @pulumi.getter(name="maintenanceSchedules")
+    def maintenance_schedules(self) -> Sequence['outputs.GetDomainAutoTuneOptionMaintenanceScheduleResult']:
+        """
+        A list of the nested configurations for the Auto-Tune maintenance windows of the domain.
+        """
+        return pulumi.get(self, "maintenance_schedules")
+
+    @property
+    @pulumi.getter(name="rollbackOnDisable")
+    def rollback_on_disable(self) -> str:
+        """
+        Whether the domain is set to roll back to default Auto-Tune settings when disabling Auto-Tune.
+        """
+        return pulumi.get(self, "rollback_on_disable")
+
+
+@pulumi.output_type
+class GetDomainAutoTuneOptionMaintenanceScheduleResult(dict):
+    def __init__(__self__, *,
+                 cron_expression_for_recurrence: str,
+                 durations: Sequence['outputs.GetDomainAutoTuneOptionMaintenanceScheduleDurationResult'],
+                 start_at: str):
+        """
+        :param str cron_expression_for_recurrence: A cron expression specifying the recurrence pattern for an Auto-Tune maintenance schedule.
+        :param Sequence['GetDomainAutoTuneOptionMaintenanceScheduleDurationArgs'] durations: Configuration block for the duration of the Auto-Tune maintenance window.
+        :param str start_at: Date and time at which the Auto-Tune maintenance schedule starts in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+        """
+        pulumi.set(__self__, "cron_expression_for_recurrence", cron_expression_for_recurrence)
+        pulumi.set(__self__, "durations", durations)
+        pulumi.set(__self__, "start_at", start_at)
+
+    @property
+    @pulumi.getter(name="cronExpressionForRecurrence")
+    def cron_expression_for_recurrence(self) -> str:
+        """
+        A cron expression specifying the recurrence pattern for an Auto-Tune maintenance schedule.
+        """
+        return pulumi.get(self, "cron_expression_for_recurrence")
+
+    @property
+    @pulumi.getter
+    def durations(self) -> Sequence['outputs.GetDomainAutoTuneOptionMaintenanceScheduleDurationResult']:
+        """
+        Configuration block for the duration of the Auto-Tune maintenance window.
+        """
+        return pulumi.get(self, "durations")
+
+    @property
+    @pulumi.getter(name="startAt")
+    def start_at(self) -> str:
+        """
+        Date and time at which the Auto-Tune maintenance schedule starts in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+        """
+        return pulumi.get(self, "start_at")
+
+
+@pulumi.output_type
+class GetDomainAutoTuneOptionMaintenanceScheduleDurationResult(dict):
+    def __init__(__self__, *,
+                 unit: str,
+                 value: int):
+        """
+        :param str unit: The unit of time specifying the duration of an Auto-Tune maintenance window.
+        :param int value: An integer specifying the value of the duration of an Auto-Tune maintenance window.
+        """
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> str:
+        """
+        The unit of time specifying the duration of an Auto-Tune maintenance window.
+        """
+        return pulumi.get(self, "unit")
+
+    @property
+    @pulumi.getter
+    def value(self) -> int:
+        """
+        An integer specifying the value of the duration of an Auto-Tune maintenance window.
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

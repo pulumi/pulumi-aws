@@ -21,6 +21,7 @@ class EventSourceMappingArgs:
                  destination_config: Optional[pulumi.Input['EventSourceMappingDestinationConfigArgs']] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  event_source_arn: Optional[pulumi.Input[str]] = None,
+                 filter_criteria: Optional[pulumi.Input['EventSourceMappingFilterCriteriaArgs']] = None,
                  function_response_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  maximum_batching_window_in_seconds: Optional[pulumi.Input[int]] = None,
                  maximum_record_age_in_seconds: Optional[pulumi.Input[int]] = None,
@@ -41,6 +42,7 @@ class EventSourceMappingArgs:
                * `destination_config`: - (Optional) An Amazon SQS queue or Amazon SNS topic destination for failed records. Only available for stream sources (DynamoDB and Kinesis). Detailed below.
         :param pulumi.Input[bool] enabled: Determines if the mapping will be enabled on creation. Defaults to `true`.
         :param pulumi.Input[str] event_source_arn: The event source ARN - this is required for Kinesis stream, DynamoDB stream, SQS queue, MQ broker or MSK cluster.  It is incompatible with a Self Managed Kafka source.
+        :param pulumi.Input['EventSourceMappingFilterCriteriaArgs'] filter_criteria: The criteria to use for [event filtering](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html) Kinesis stream, DynamoDB stream, SQS queue event sources. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] function_response_types: A list of current response type enums applied to the event source mapping for [AWS Lambda checkpointing](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-batchfailurereporting). Only available for stream sources (DynamoDB and Kinesis). Valid values: `ReportBatchItemFailures`.
         :param pulumi.Input[int] maximum_batching_window_in_seconds: The maximum amount of time to gather records before invoking the function, in seconds (between 0 and 300). Records will continue to buffer (or accumulate in the case of an SQS queue event source) until either `maximum_batching_window_in_seconds` expires or `batch_size` has been met. For streaming event sources, defaults to as soon as records are available in the stream. If the batch it reads from the stream/queue only has one record in it, Lambda only sends one record to the function. Only available for stream sources (DynamoDB and Kinesis) and SQS standard queues.
                * `maximum_record_age_in_seconds`: - (Optional) The maximum age of a record that Lambda sends to a function for processing. Only available for stream sources (DynamoDB and Kinesis). Must be either -1 (forever, and the default value) or between 60 and 604800 (inclusive).
@@ -65,6 +67,8 @@ class EventSourceMappingArgs:
             pulumi.set(__self__, "enabled", enabled)
         if event_source_arn is not None:
             pulumi.set(__self__, "event_source_arn", event_source_arn)
+        if filter_criteria is not None:
+            pulumi.set(__self__, "filter_criteria", filter_criteria)
         if function_response_types is not None:
             pulumi.set(__self__, "function_response_types", function_response_types)
         if maximum_batching_window_in_seconds is not None:
@@ -157,6 +161,18 @@ class EventSourceMappingArgs:
     @event_source_arn.setter
     def event_source_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "event_source_arn", value)
+
+    @property
+    @pulumi.getter(name="filterCriteria")
+    def filter_criteria(self) -> Optional[pulumi.Input['EventSourceMappingFilterCriteriaArgs']]:
+        """
+        The criteria to use for [event filtering](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html) Kinesis stream, DynamoDB stream, SQS queue event sources. Detailed below.
+        """
+        return pulumi.get(self, "filter_criteria")
+
+    @filter_criteria.setter
+    def filter_criteria(self, value: Optional[pulumi.Input['EventSourceMappingFilterCriteriaArgs']]):
+        pulumi.set(self, "filter_criteria", value)
 
     @property
     @pulumi.getter(name="functionResponseTypes")
@@ -301,6 +317,7 @@ class _EventSourceMappingState:
                  destination_config: Optional[pulumi.Input['EventSourceMappingDestinationConfigArgs']] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  event_source_arn: Optional[pulumi.Input[str]] = None,
+                 filter_criteria: Optional[pulumi.Input['EventSourceMappingFilterCriteriaArgs']] = None,
                  function_arn: Optional[pulumi.Input[str]] = None,
                  function_name: Optional[pulumi.Input[str]] = None,
                  function_response_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -327,6 +344,7 @@ class _EventSourceMappingState:
                * `destination_config`: - (Optional) An Amazon SQS queue or Amazon SNS topic destination for failed records. Only available for stream sources (DynamoDB and Kinesis). Detailed below.
         :param pulumi.Input[bool] enabled: Determines if the mapping will be enabled on creation. Defaults to `true`.
         :param pulumi.Input[str] event_source_arn: The event source ARN - this is required for Kinesis stream, DynamoDB stream, SQS queue, MQ broker or MSK cluster.  It is incompatible with a Self Managed Kafka source.
+        :param pulumi.Input['EventSourceMappingFilterCriteriaArgs'] filter_criteria: The criteria to use for [event filtering](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html) Kinesis stream, DynamoDB stream, SQS queue event sources. Detailed below.
         :param pulumi.Input[str] function_arn: The the ARN of the Lambda function the event source mapping is sending events to. (Note: this is a computed value that differs from `function_name` above.)
         :param pulumi.Input[str] function_name: The name or the ARN of the Lambda function that will be subscribing to events.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] function_response_types: A list of current response type enums applied to the event source mapping for [AWS Lambda checkpointing](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-batchfailurereporting). Only available for stream sources (DynamoDB and Kinesis). Valid values: `ReportBatchItemFailures`.
@@ -357,6 +375,8 @@ class _EventSourceMappingState:
             pulumi.set(__self__, "enabled", enabled)
         if event_source_arn is not None:
             pulumi.set(__self__, "event_source_arn", event_source_arn)
+        if filter_criteria is not None:
+            pulumi.set(__self__, "filter_criteria", filter_criteria)
         if function_arn is not None:
             pulumi.set(__self__, "function_arn", function_arn)
         if function_name is not None:
@@ -451,6 +471,18 @@ class _EventSourceMappingState:
     @event_source_arn.setter
     def event_source_arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "event_source_arn", value)
+
+    @property
+    @pulumi.getter(name="filterCriteria")
+    def filter_criteria(self) -> Optional[pulumi.Input['EventSourceMappingFilterCriteriaArgs']]:
+        """
+        The criteria to use for [event filtering](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html) Kinesis stream, DynamoDB stream, SQS queue event sources. Detailed below.
+        """
+        return pulumi.get(self, "filter_criteria")
+
+    @filter_criteria.setter
+    def filter_criteria(self, value: Optional[pulumi.Input['EventSourceMappingFilterCriteriaArgs']]):
+        pulumi.set(self, "filter_criteria", value)
 
     @property
     @pulumi.getter(name="functionArn")
@@ -681,6 +713,7 @@ class EventSourceMapping(pulumi.CustomResource):
                  destination_config: Optional[pulumi.Input[pulumi.InputType['EventSourceMappingDestinationConfigArgs']]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  event_source_arn: Optional[pulumi.Input[str]] = None,
+                 filter_criteria: Optional[pulumi.Input[pulumi.InputType['EventSourceMappingFilterCriteriaArgs']]] = None,
                  function_name: Optional[pulumi.Input[str]] = None,
                  function_response_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  maximum_batching_window_in_seconds: Optional[pulumi.Input[int]] = None,
@@ -776,6 +809,34 @@ class EventSourceMapping(pulumi.CustomResource):
             event_source_arn=aws_sqs_queue["sqs_queue_test"]["arn"],
             function_name=aws_lambda_function["example"]["arn"])
         ```
+        ### SQS with event filter
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        example = aws.lambda_.EventSourceMapping("example",
+            event_source_arn=aws_sqs_queue["sqs_queue_test"]["arn"],
+            function_name=aws_lambda_function["example"]["arn"],
+            filter_criteria=aws.lambda..EventSourceMappingFilterCriteriaArgs(
+                filters=[aws.lambda..EventSourceMappingFilterCriteriaFilterArgs(
+                    pattern=json.dumps({
+                        "body": {
+                            "Temperature": [{
+                                "numeric": [
+                                    ">",
+                                    0,
+                                    "<=",
+                                    100,
+                                ],
+                            }],
+                            "Location": ["New York"],
+                        },
+                    }),
+                )],
+            ))
+        ```
         ### Amazon MQ (ActiveMQ)
 
         ```python
@@ -844,6 +905,7 @@ class EventSourceMapping(pulumi.CustomResource):
                * `destination_config`: - (Optional) An Amazon SQS queue or Amazon SNS topic destination for failed records. Only available for stream sources (DynamoDB and Kinesis). Detailed below.
         :param pulumi.Input[bool] enabled: Determines if the mapping will be enabled on creation. Defaults to `true`.
         :param pulumi.Input[str] event_source_arn: The event source ARN - this is required for Kinesis stream, DynamoDB stream, SQS queue, MQ broker or MSK cluster.  It is incompatible with a Self Managed Kafka source.
+        :param pulumi.Input[pulumi.InputType['EventSourceMappingFilterCriteriaArgs']] filter_criteria: The criteria to use for [event filtering](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html) Kinesis stream, DynamoDB stream, SQS queue event sources. Detailed below.
         :param pulumi.Input[str] function_name: The name or the ARN of the Lambda function that will be subscribing to events.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] function_response_types: A list of current response type enums applied to the event source mapping for [AWS Lambda checkpointing](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-batchfailurereporting). Only available for stream sources (DynamoDB and Kinesis). Valid values: `ReportBatchItemFailures`.
         :param pulumi.Input[int] maximum_batching_window_in_seconds: The maximum amount of time to gather records before invoking the function, in seconds (between 0 and 300). Records will continue to buffer (or accumulate in the case of an SQS queue event source) until either `maximum_batching_window_in_seconds` expires or `batch_size` has been met. For streaming event sources, defaults to as soon as records are available in the stream. If the batch it reads from the stream/queue only has one record in it, Lambda only sends one record to the function. Only available for stream sources (DynamoDB and Kinesis) and SQS standard queues.
@@ -945,6 +1007,34 @@ class EventSourceMapping(pulumi.CustomResource):
             event_source_arn=aws_sqs_queue["sqs_queue_test"]["arn"],
             function_name=aws_lambda_function["example"]["arn"])
         ```
+        ### SQS with event filter
+
+        ```python
+        import pulumi
+        import json
+        import pulumi_aws as aws
+
+        example = aws.lambda_.EventSourceMapping("example",
+            event_source_arn=aws_sqs_queue["sqs_queue_test"]["arn"],
+            function_name=aws_lambda_function["example"]["arn"],
+            filter_criteria=aws.lambda..EventSourceMappingFilterCriteriaArgs(
+                filters=[aws.lambda..EventSourceMappingFilterCriteriaFilterArgs(
+                    pattern=json.dumps({
+                        "body": {
+                            "Temperature": [{
+                                "numeric": [
+                                    ">",
+                                    0,
+                                    "<=",
+                                    100,
+                                ],
+                            }],
+                            "Location": ["New York"],
+                        },
+                    }),
+                )],
+            ))
+        ```
         ### Amazon MQ (ActiveMQ)
 
         ```python
@@ -1026,6 +1116,7 @@ class EventSourceMapping(pulumi.CustomResource):
                  destination_config: Optional[pulumi.Input[pulumi.InputType['EventSourceMappingDestinationConfigArgs']]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  event_source_arn: Optional[pulumi.Input[str]] = None,
+                 filter_criteria: Optional[pulumi.Input[pulumi.InputType['EventSourceMappingFilterCriteriaArgs']]] = None,
                  function_name: Optional[pulumi.Input[str]] = None,
                  function_response_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  maximum_batching_window_in_seconds: Optional[pulumi.Input[int]] = None,
@@ -1056,6 +1147,7 @@ class EventSourceMapping(pulumi.CustomResource):
             __props__.__dict__["destination_config"] = destination_config
             __props__.__dict__["enabled"] = enabled
             __props__.__dict__["event_source_arn"] = event_source_arn
+            __props__.__dict__["filter_criteria"] = filter_criteria
             if function_name is None and not opts.urn:
                 raise TypeError("Missing required property 'function_name'")
             __props__.__dict__["function_name"] = function_name
@@ -1092,6 +1184,7 @@ class EventSourceMapping(pulumi.CustomResource):
             destination_config: Optional[pulumi.Input[pulumi.InputType['EventSourceMappingDestinationConfigArgs']]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
             event_source_arn: Optional[pulumi.Input[str]] = None,
+            filter_criteria: Optional[pulumi.Input[pulumi.InputType['EventSourceMappingFilterCriteriaArgs']]] = None,
             function_arn: Optional[pulumi.Input[str]] = None,
             function_name: Optional[pulumi.Input[str]] = None,
             function_response_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -1123,6 +1216,7 @@ class EventSourceMapping(pulumi.CustomResource):
                * `destination_config`: - (Optional) An Amazon SQS queue or Amazon SNS topic destination for failed records. Only available for stream sources (DynamoDB and Kinesis). Detailed below.
         :param pulumi.Input[bool] enabled: Determines if the mapping will be enabled on creation. Defaults to `true`.
         :param pulumi.Input[str] event_source_arn: The event source ARN - this is required for Kinesis stream, DynamoDB stream, SQS queue, MQ broker or MSK cluster.  It is incompatible with a Self Managed Kafka source.
+        :param pulumi.Input[pulumi.InputType['EventSourceMappingFilterCriteriaArgs']] filter_criteria: The criteria to use for [event filtering](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html) Kinesis stream, DynamoDB stream, SQS queue event sources. Detailed below.
         :param pulumi.Input[str] function_arn: The the ARN of the Lambda function the event source mapping is sending events to. (Note: this is a computed value that differs from `function_name` above.)
         :param pulumi.Input[str] function_name: The name or the ARN of the Lambda function that will be subscribing to events.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] function_response_types: A list of current response type enums applied to the event source mapping for [AWS Lambda checkpointing](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-batchfailurereporting). Only available for stream sources (DynamoDB and Kinesis). Valid values: `ReportBatchItemFailures`.
@@ -1152,6 +1246,7 @@ class EventSourceMapping(pulumi.CustomResource):
         __props__.__dict__["destination_config"] = destination_config
         __props__.__dict__["enabled"] = enabled
         __props__.__dict__["event_source_arn"] = event_source_arn
+        __props__.__dict__["filter_criteria"] = filter_criteria
         __props__.__dict__["function_arn"] = function_arn
         __props__.__dict__["function_name"] = function_name
         __props__.__dict__["function_response_types"] = function_response_types
@@ -1208,6 +1303,14 @@ class EventSourceMapping(pulumi.CustomResource):
         The event source ARN - this is required for Kinesis stream, DynamoDB stream, SQS queue, MQ broker or MSK cluster.  It is incompatible with a Self Managed Kafka source.
         """
         return pulumi.get(self, "event_source_arn")
+
+    @property
+    @pulumi.getter(name="filterCriteria")
+    def filter_criteria(self) -> pulumi.Output[Optional['outputs.EventSourceMappingFilterCriteria']]:
+        """
+        The criteria to use for [event filtering](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html) Kinesis stream, DynamoDB stream, SQS queue event sources. Detailed below.
+        """
+        return pulumi.get(self, "filter_criteria")
 
     @property
     @pulumi.getter(name="functionArn")

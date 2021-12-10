@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws:codecommit/approvalRuleTemplate:ApprovalRuleTemplate":
 		r = &ApprovalRuleTemplate{}
+	case "aws:codecommit/approvalRuleTemplateAssociation:ApprovalRuleTemplateAssociation":
+		r = &ApprovalRuleTemplateAssociation{}
 	case "aws:codecommit/repository:Repository":
 		r = &Repository{}
 	case "aws:codecommit/trigger:Trigger":
@@ -43,6 +45,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"codecommit/approvalRuleTemplate",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"codecommit/approvalRuleTemplateAssociation",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

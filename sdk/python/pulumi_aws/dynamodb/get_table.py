@@ -22,7 +22,7 @@ class GetTableResult:
     """
     A collection of values returned by getTable.
     """
-    def __init__(__self__, arn=None, attributes=None, billing_mode=None, global_secondary_indexes=None, hash_key=None, id=None, local_secondary_indexes=None, name=None, point_in_time_recovery=None, range_key=None, read_capacity=None, replicas=None, server_side_encryption=None, stream_arn=None, stream_enabled=None, stream_label=None, stream_view_type=None, tags=None, ttl=None, write_capacity=None):
+    def __init__(__self__, arn=None, attributes=None, billing_mode=None, global_secondary_indexes=None, hash_key=None, id=None, local_secondary_indexes=None, name=None, point_in_time_recovery=None, range_key=None, read_capacity=None, replicas=None, server_side_encryption=None, stream_arn=None, stream_enabled=None, stream_label=None, stream_view_type=None, table_class=None, tags=None, ttl=None, write_capacity=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -74,6 +74,9 @@ class GetTableResult:
         if stream_view_type and not isinstance(stream_view_type, str):
             raise TypeError("Expected argument 'stream_view_type' to be a str")
         pulumi.set(__self__, "stream_view_type", stream_view_type)
+        if table_class and not isinstance(table_class, str):
+            raise TypeError("Expected argument 'table_class' to be a str")
+        pulumi.set(__self__, "table_class", table_class)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -173,6 +176,11 @@ class GetTableResult:
         return pulumi.get(self, "stream_view_type")
 
     @property
+    @pulumi.getter(name="tableClass")
+    def table_class(self) -> str:
+        return pulumi.get(self, "table_class")
+
+    @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
         return pulumi.get(self, "tags")
@@ -211,6 +219,7 @@ class AwaitableGetTableResult(GetTableResult):
             stream_enabled=self.stream_enabled,
             stream_label=self.stream_label,
             stream_view_type=self.stream_view_type,
+            table_class=self.table_class,
             tags=self.tags,
             ttl=self.ttl,
             write_capacity=self.write_capacity)
@@ -263,6 +272,7 @@ def get_table(name: Optional[str] = None,
         stream_enabled=__ret__.stream_enabled,
         stream_label=__ret__.stream_label,
         stream_view_type=__ret__.stream_view_type,
+        table_class=__ret__.table_class,
         tags=__ret__.tags,
         ttl=__ret__.ttl,
         write_capacity=__ret__.write_capacity)

@@ -34,18 +34,18 @@ namespace Pulumi.Aws.AutoScaling
         ///             {
         ///                 new Aws.AutoScaling.Inputs.GetAmiIdsFilterArgs
         ///                 {
-        ///                     Name = "key",
+        ///                     Name = "tag:Team",
         ///                     Values = 
         ///                     {
-        ///                         "Team",
+        ///                         "Pets",
         ///                     },
         ///                 },
         ///                 new Aws.AutoScaling.Inputs.GetAmiIdsFilterArgs
         ///                 {
-        ///                     Name = "value",
+        ///                     Name = "tag-key",
         ///                     Values = 
         ///                     {
-        ///                         "Pets",
+        ///                         "Environment",
         ///                     },
         ///                 },
         ///             },
@@ -94,18 +94,18 @@ namespace Pulumi.Aws.AutoScaling
         ///             {
         ///                 new Aws.AutoScaling.Inputs.GetAmiIdsFilterArgs
         ///                 {
-        ///                     Name = "key",
+        ///                     Name = "tag:Team",
         ///                     Values = 
         ///                     {
-        ///                         "Team",
+        ///                         "Pets",
         ///                     },
         ///                 },
         ///                 new Aws.AutoScaling.Inputs.GetAmiIdsFilterArgs
         ///                 {
-        ///                     Name = "value",
+        ///                     Name = "tag-key",
         ///                     Values = 
         ///                     {
-        ///                         "Pets",
+        ///                         "Environment",
         ///                     },
         ///                 },
         ///             },

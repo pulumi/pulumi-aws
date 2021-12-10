@@ -208,6 +208,10 @@ export class Domain extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
+     * Configuration block for the Auto-Tune options of the domain. Detailed below.
+     */
+    public readonly autoTuneOptions!: pulumi.Output<outputs.elasticsearch.DomainAutoTuneOptions>;
+    /**
      * Configuration block for the cluster of the domain. Detailed below.
      */
     public readonly clusterConfig!: pulumi.Output<outputs.elasticsearch.DomainClusterConfig>;
@@ -286,6 +290,7 @@ export class Domain extends pulumi.CustomResource {
             inputs["advancedOptions"] = state ? state.advancedOptions : undefined;
             inputs["advancedSecurityOptions"] = state ? state.advancedSecurityOptions : undefined;
             inputs["arn"] = state ? state.arn : undefined;
+            inputs["autoTuneOptions"] = state ? state.autoTuneOptions : undefined;
             inputs["clusterConfig"] = state ? state.clusterConfig : undefined;
             inputs["cognitoOptions"] = state ? state.cognitoOptions : undefined;
             inputs["domainEndpointOptions"] = state ? state.domainEndpointOptions : undefined;
@@ -307,6 +312,7 @@ export class Domain extends pulumi.CustomResource {
             inputs["accessPolicies"] = args ? args.accessPolicies : undefined;
             inputs["advancedOptions"] = args ? args.advancedOptions : undefined;
             inputs["advancedSecurityOptions"] = args ? args.advancedSecurityOptions : undefined;
+            inputs["autoTuneOptions"] = args ? args.autoTuneOptions : undefined;
             inputs["clusterConfig"] = args ? args.clusterConfig : undefined;
             inputs["cognitoOptions"] = args ? args.cognitoOptions : undefined;
             inputs["domainEndpointOptions"] = args ? args.domainEndpointOptions : undefined;
@@ -349,6 +355,10 @@ export interface DomainState {
      * ARN of the domain.
      */
     arn?: pulumi.Input<string>;
+    /**
+     * Configuration block for the Auto-Tune options of the domain. Detailed below.
+     */
+    autoTuneOptions?: pulumi.Input<inputs.elasticsearch.DomainAutoTuneOptions>;
     /**
      * Configuration block for the cluster of the domain. Detailed below.
      */
@@ -425,6 +435,10 @@ export interface DomainArgs {
      * Configuration block for [fine-grained access control](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/fgac.html). Detailed below.
      */
     advancedSecurityOptions?: pulumi.Input<inputs.elasticsearch.DomainAdvancedSecurityOptions>;
+    /**
+     * Configuration block for the Auto-Tune options of the domain. Detailed below.
+     */
+    autoTuneOptions?: pulumi.Input<inputs.elasticsearch.DomainAutoTuneOptions>;
     /**
      * Configuration block for the cluster of the domain. Detailed below.
      */

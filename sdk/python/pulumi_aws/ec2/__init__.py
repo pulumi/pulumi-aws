@@ -104,6 +104,7 @@ from .spot_datafeed_subscription import *
 from .spot_fleet_request import *
 from .spot_instance_request import *
 from .subnet import *
+from .subnet_cidr_reservation import *
 from .tag import *
 from .traffic_mirror_filter import *
 from .traffic_mirror_filter_rule import *

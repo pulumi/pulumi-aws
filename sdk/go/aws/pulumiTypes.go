@@ -2845,7 +2845,7 @@ func (o GetAmiProductCodeArrayOutput) Index(i pulumi.IntInput) GetAmiProductCode
 }
 
 type GetAutoscalingGroupsFilter struct {
-	// The name of the filter. The valid values are: `auto-scaling-group`, `key`, `value`, and `propagate-at-launch`.
+	// The name of the DescribeAutoScalingGroup filter. The recommended values are: `tag-key`, `tag-value`, and `tag:<tag name>`
 	Name string `pulumi:"name"`
 	// The value of the filter.
 	Values []string `pulumi:"values"`
@@ -2863,7 +2863,7 @@ type GetAutoscalingGroupsFilterInput interface {
 }
 
 type GetAutoscalingGroupsFilterArgs struct {
-	// The name of the filter. The valid values are: `auto-scaling-group`, `key`, `value`, and `propagate-at-launch`.
+	// The name of the DescribeAutoScalingGroup filter. The recommended values are: `tag-key`, `tag-value`, and `tag:<tag name>`
 	Name pulumi.StringInput `pulumi:"name"`
 	// The value of the filter.
 	Values pulumi.StringArrayInput `pulumi:"values"`
@@ -2920,7 +2920,7 @@ func (o GetAutoscalingGroupsFilterOutput) ToGetAutoscalingGroupsFilterOutputWith
 	return o
 }
 
-// The name of the filter. The valid values are: `auto-scaling-group`, `key`, `value`, and `propagate-at-launch`.
+// The name of the DescribeAutoScalingGroup filter. The recommended values are: `tag-key`, `tag-value`, and `tag:<tag name>`
 func (o GetAutoscalingGroupsFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAutoscalingGroupsFilter) string { return v.Name }).(pulumi.StringOutput)
 }

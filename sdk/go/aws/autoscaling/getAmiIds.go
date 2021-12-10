@@ -28,15 +28,15 @@ import (
 // 		groups, err := autoscaling.GetAmiIds(ctx, &autoscaling.GetAmiIdsArgs{
 // 			Filters: []autoscaling.GetAmiIdsFilter{
 // 				autoscaling.GetAmiIdsFilter{
-// 					Name: "key",
+// 					Name: "tag:Team",
 // 					Values: []string{
-// 						"Team",
+// 						"Pets",
 // 					},
 // 				},
 // 				autoscaling.GetAmiIdsFilter{
-// 					Name: "value",
+// 					Name: "tag-key",
 // 					Values: []string{
-// 						"Pets",
+// 						"Environment",
 // 					},
 // 				},
 // 			},

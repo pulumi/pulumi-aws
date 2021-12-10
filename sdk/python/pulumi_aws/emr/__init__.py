@@ -11,5 +11,7 @@ from .instance_fleet import *
 from .instance_group import *
 from .managed_scaling_policy import *
 from .security_configuration import *
+from .studio import *
+from .studio_session_mapping import *
 from ._inputs import *
 from . import outputs

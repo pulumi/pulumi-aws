@@ -84,6 +84,8 @@ __all__ = [
     'FirehoseDeliveryStreamSplunkConfigurationProcessingConfiguration',
     'FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessor',
     'FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameter',
+    'StreamStreamModeDetails',
+    'GetStreamStreamModeDetailResult',
 ]
 
 @pulumi.output_type
@@ -4848,5 +4850,58 @@ class FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorP
         Parameter value. Must be between 1 and 512 length (inclusive). When providing a Lambda ARN, you should specify the resource version as well.
         """
         return pulumi.get(self, "parameter_value")
+
+
+@pulumi.output_type
+class StreamStreamModeDetails(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "streamMode":
+            suggest = "stream_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StreamStreamModeDetails. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StreamStreamModeDetails.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StreamStreamModeDetails.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 stream_mode: str):
+        """
+        :param str stream_mode: Specifies the capacity mode of the stream. Must be either `PROVISIONED` or `ON_DEMAND`.
+        """
+        pulumi.set(__self__, "stream_mode", stream_mode)
+
+    @property
+    @pulumi.getter(name="streamMode")
+    def stream_mode(self) -> str:
+        """
+        Specifies the capacity mode of the stream. Must be either `PROVISIONED` or `ON_DEMAND`.
+        """
+        return pulumi.get(self, "stream_mode")
+
+
+@pulumi.output_type
+class GetStreamStreamModeDetailResult(dict):
+    def __init__(__self__, *,
+                 stream_mode: str):
+        """
+        :param str stream_mode: The capacity mode of the stream. Either `ON_DEMAND` or `PROVISIONED`.
+        """
+        pulumi.set(__self__, "stream_mode", stream_mode)
+
+    @property
+    @pulumi.getter(name="streamMode")
+    def stream_mode(self) -> str:
+        """
+        The capacity mode of the stream. Either `ON_DEMAND` or `PROVISIONED`.
+        """
+        return pulumi.get(self, "stream_mode")
 
 

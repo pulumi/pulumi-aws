@@ -23,7 +23,7 @@ import {IpAddressType, LoadBalancerType} from "../alb";
  *     internal: false,
  *     loadBalancerType: "application",
  *     securityGroups: [aws_security_group.lb_sg.id],
- *     subnets: aws_subnet["public"].map(__item => __item.id),
+ *     subnets: .map(subnet => subnet.id),
  *     enableDeletionProtection: true,
  *     accessLogs: {
  *         bucket: aws_s3_bucket.lb_logs.bucket,
@@ -44,7 +44,7 @@ import {IpAddressType, LoadBalancerType} from "../alb";
  * const test = new aws.lb.LoadBalancer("test", {
  *     internal: false,
  *     loadBalancerType: "network",
- *     subnets: aws_subnet["public"].map(__item => __item.id),
+ *     subnets: .map(subnet => subnet.id),
  *     enableDeletionProtection: true,
  *     tags: {
  *         Environment: "production",

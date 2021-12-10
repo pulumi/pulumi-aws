@@ -13,8 +13,7 @@ import (
 
 // Provides a resource to associate additional IPv6 CIDR blocks with a VPC.
 //
-// When a VPC is created, a primary IPv6 CIDR block for the VPC must be specified.
-// The `ec2.VpcIpv6CidrBlockAssociation` resource allows further IPv6 CIDR blocks to be added to the VPC.
+// The `ec2.VpcIpv6CidrBlockAssociation` resource allows IPv6 CIDR blocks to be added to the VPC.
 //
 // ## Example Usage
 //
@@ -56,6 +55,7 @@ import (
 type VpcIpv6CidrBlockAssociation struct {
 	pulumi.CustomResourceState
 
+	// The IPv6 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv6NetmaskLength`. This parameter is required if `ipv6NetmaskLength` is not set and he IPAM pool does not have `allocationDefaultNetmask` set.
 	Ipv6CidrBlock pulumi.StringOutput `pulumi:"ipv6CidrBlock"`
 	// The ID of an IPv6 IPAM pool you want to use for allocating this VPC's CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts.
 	Ipv6IpamPoolId pulumi.StringOutput `pulumi:"ipv6IpamPoolId"`
@@ -100,6 +100,7 @@ func GetVpcIpv6CidrBlockAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VpcIpv6CidrBlockAssociation resources.
 type vpcIpv6CidrBlockAssociationState struct {
+	// The IPv6 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv6NetmaskLength`. This parameter is required if `ipv6NetmaskLength` is not set and he IPAM pool does not have `allocationDefaultNetmask` set.
 	Ipv6CidrBlock *string `pulumi:"ipv6CidrBlock"`
 	// The ID of an IPv6 IPAM pool you want to use for allocating this VPC's CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts.
 	Ipv6IpamPoolId *string `pulumi:"ipv6IpamPoolId"`
@@ -110,6 +111,7 @@ type vpcIpv6CidrBlockAssociationState struct {
 }
 
 type VpcIpv6CidrBlockAssociationState struct {
+	// The IPv6 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv6NetmaskLength`. This parameter is required if `ipv6NetmaskLength` is not set and he IPAM pool does not have `allocationDefaultNetmask` set.
 	Ipv6CidrBlock pulumi.StringPtrInput
 	// The ID of an IPv6 IPAM pool you want to use for allocating this VPC's CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts.
 	Ipv6IpamPoolId pulumi.StringPtrInput
@@ -124,6 +126,7 @@ func (VpcIpv6CidrBlockAssociationState) ElementType() reflect.Type {
 }
 
 type vpcIpv6CidrBlockAssociationArgs struct {
+	// The IPv6 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv6NetmaskLength`. This parameter is required if `ipv6NetmaskLength` is not set and he IPAM pool does not have `allocationDefaultNetmask` set.
 	Ipv6CidrBlock *string `pulumi:"ipv6CidrBlock"`
 	// The ID of an IPv6 IPAM pool you want to use for allocating this VPC's CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts.
 	Ipv6IpamPoolId string `pulumi:"ipv6IpamPoolId"`
@@ -135,6 +138,7 @@ type vpcIpv6CidrBlockAssociationArgs struct {
 
 // The set of arguments for constructing a VpcIpv6CidrBlockAssociation resource.
 type VpcIpv6CidrBlockAssociationArgs struct {
+	// The IPv6 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv6NetmaskLength`. This parameter is required if `ipv6NetmaskLength` is not set and he IPAM pool does not have `allocationDefaultNetmask` set.
 	Ipv6CidrBlock pulumi.StringPtrInput
 	// The ID of an IPv6 IPAM pool you want to use for allocating this VPC's CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts.
 	Ipv6IpamPoolId pulumi.StringInput

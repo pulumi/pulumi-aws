@@ -71,6 +71,7 @@ type LookupTableResult struct {
 	StreamEnabled         bool                          `pulumi:"streamEnabled"`
 	StreamLabel           string                        `pulumi:"streamLabel"`
 	StreamViewType        string                        `pulumi:"streamViewType"`
+	TableClass            string                        `pulumi:"tableClass"`
 	Tags                  map[string]string             `pulumi:"tags"`
 	Ttl                   GetTableTtl                   `pulumi:"ttl"`
 	WriteCapacity         int                           `pulumi:"writeCapacity"`
@@ -179,6 +180,10 @@ func (o LookupTableResultOutput) StreamLabel() pulumi.StringOutput {
 
 func (o LookupTableResultOutput) StreamViewType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTableResult) string { return v.StreamViewType }).(pulumi.StringOutput)
+}
+
+func (o LookupTableResultOutput) TableClass() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTableResult) string { return v.TableClass }).(pulumi.StringOutput)
 }
 
 func (o LookupTableResultOutput) Tags() pulumi.StringMapOutput {

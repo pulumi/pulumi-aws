@@ -169,6 +169,10 @@ namespace Pulumi.Aws.Kinesis
         /// </summary>
         public readonly string Status;
         /// <summary>
+        /// Indicates the [capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetStreamStreamModeDetailResult> StreamModeDetails;
+        /// <summary>
         /// A map of tags to assigned to the stream.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
@@ -193,6 +197,8 @@ namespace Pulumi.Aws.Kinesis
 
             string status,
 
+            ImmutableArray<Outputs.GetStreamStreamModeDetailResult> streamModeDetails,
+
             ImmutableDictionary<string, string> tags)
         {
             Arn = arn;
@@ -204,6 +210,7 @@ namespace Pulumi.Aws.Kinesis
             RetentionPeriod = retentionPeriod;
             ShardLevelMetrics = shardLevelMetrics;
             Status = status;
+            StreamModeDetails = streamModeDetails;
             Tags = tags;
         }
     }

@@ -178,6 +178,11 @@ namespace Pulumi.Aws.CloudWatch
     ///         {
     ///             Policy = ssmLifecyclePolicyDocument.Apply(ssmLifecyclePolicyDocument =&gt; ssmLifecyclePolicyDocument.Json),
     ///         });
+    ///         var ssmLifecycleRolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("ssmLifecycleRolePolicyAttachment", new Aws.Iam.RolePolicyAttachmentArgs
+    ///         {
+    ///             PolicyArn = ssmLifecyclePolicy.Arn,
+    ///             Role = ssmLifecycleRole.Name,
+    ///         });
     ///         var stopInstancesEventRule = new Aws.CloudWatch.EventRule("stopInstancesEventRule", new Aws.CloudWatch.EventRuleArgs
     ///         {
     ///             Description = "Stop instances nightly",

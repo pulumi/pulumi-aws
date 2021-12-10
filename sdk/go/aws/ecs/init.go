@@ -33,6 +33,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Tag{}
 	case "aws:ecs/taskDefinition:TaskDefinition":
 		r = &TaskDefinition{}
+	case "aws:ecs/taskSet:TaskSet":
+		r = &TaskSet{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -74,6 +76,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"ecs/taskDefinition",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"ecs/taskSet",
 		&module{version},
 	)
 }

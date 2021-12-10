@@ -15,5 +15,6 @@ from .get_task_definition import *
 from .service import *
 from .tag import *
 from .task_definition import *
+from .task_set import *
 from ._inputs import *
 from . import outputs

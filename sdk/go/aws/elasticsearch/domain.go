@@ -142,6 +142,8 @@ type Domain struct {
 	AdvancedSecurityOptions DomainAdvancedSecurityOptionsOutput `pulumi:"advancedSecurityOptions"`
 	// ARN of the domain.
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Configuration block for the Auto-Tune options of the domain. Detailed below.
+	AutoTuneOptions DomainAutoTuneOptionsOutput `pulumi:"autoTuneOptions"`
 	// Configuration block for the cluster of the domain. Detailed below.
 	ClusterConfig DomainClusterConfigOutput `pulumi:"clusterConfig"`
 	// Configuration block for authenticating Kibana with Cognito. Detailed below.
@@ -211,6 +213,8 @@ type domainState struct {
 	AdvancedSecurityOptions *DomainAdvancedSecurityOptions `pulumi:"advancedSecurityOptions"`
 	// ARN of the domain.
 	Arn *string `pulumi:"arn"`
+	// Configuration block for the Auto-Tune options of the domain. Detailed below.
+	AutoTuneOptions *DomainAutoTuneOptions `pulumi:"autoTuneOptions"`
 	// Configuration block for the cluster of the domain. Detailed below.
 	ClusterConfig *DomainClusterConfig `pulumi:"clusterConfig"`
 	// Configuration block for authenticating Kibana with Cognito. Detailed below.
@@ -252,6 +256,8 @@ type DomainState struct {
 	AdvancedSecurityOptions DomainAdvancedSecurityOptionsPtrInput
 	// ARN of the domain.
 	Arn pulumi.StringPtrInput
+	// Configuration block for the Auto-Tune options of the domain. Detailed below.
+	AutoTuneOptions DomainAutoTuneOptionsPtrInput
 	// Configuration block for the cluster of the domain. Detailed below.
 	ClusterConfig DomainClusterConfigPtrInput
 	// Configuration block for authenticating Kibana with Cognito. Detailed below.
@@ -295,6 +301,8 @@ type domainArgs struct {
 	AdvancedOptions map[string]string `pulumi:"advancedOptions"`
 	// Configuration block for [fine-grained access control](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/fgac.html). Detailed below.
 	AdvancedSecurityOptions *DomainAdvancedSecurityOptions `pulumi:"advancedSecurityOptions"`
+	// Configuration block for the Auto-Tune options of the domain. Detailed below.
+	AutoTuneOptions *DomainAutoTuneOptions `pulumi:"autoTuneOptions"`
 	// Configuration block for the cluster of the domain. Detailed below.
 	ClusterConfig *DomainClusterConfig `pulumi:"clusterConfig"`
 	// Configuration block for authenticating Kibana with Cognito. Detailed below.
@@ -328,6 +336,8 @@ type DomainArgs struct {
 	AdvancedOptions pulumi.StringMapInput
 	// Configuration block for [fine-grained access control](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/fgac.html). Detailed below.
 	AdvancedSecurityOptions DomainAdvancedSecurityOptionsPtrInput
+	// Configuration block for the Auto-Tune options of the domain. Detailed below.
+	AutoTuneOptions DomainAutoTuneOptionsPtrInput
 	// Configuration block for the cluster of the domain. Detailed below.
 	ClusterConfig DomainClusterConfigPtrInput
 	// Configuration block for authenticating Kibana with Cognito. Detailed below.

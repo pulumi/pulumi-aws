@@ -24,16 +24,24 @@ namespace Pulumi.Aws.Backup
     ///     {
     ///         var test = new Aws.Backup.RegionSettings("test", new Aws.Backup.RegionSettingsArgs
     ///         {
+    ///             ResourceTypeManagementPreference = 
+    ///             {
+    ///                 { "DynamoDB", true },
+    ///                 { "EFS", true },
+    ///             },
     ///             ResourceTypeOptInPreference = 
     ///             {
     ///                 { "Aurora", true },
+    ///                 { "DocumentDB", true },
     ///                 { "DynamoDB", true },
     ///                 { "EBS", true },
     ///                 { "EC2", true },
     ///                 { "EFS", true },
     ///                 { "FSx", true },
+    ///                 { "Neptune", true },
     ///                 { "RDS", true },
     ///                 { "Storage Gateway", true },
+    ///                 { "VirtualMachine", true },
     ///             },
     ///         });
     ///     }
@@ -52,6 +60,12 @@ namespace Pulumi.Aws.Backup
     [AwsResourceType("aws:backup/regionSettings:RegionSettings")]
     public partial class RegionSettings : Pulumi.CustomResource
     {
+        /// <summary>
+        /// A map of services along with the management preferences for the Region.
+        /// </summary>
+        [Output("resourceTypeManagementPreference")]
+        public Output<ImmutableDictionary<string, bool>> ResourceTypeManagementPreference { get; private set; } = null!;
+
         /// <summary>
         /// A map of services along with the opt-in preferences for the Region.
         /// </summary>
@@ -104,6 +118,18 @@ namespace Pulumi.Aws.Backup
 
     public sealed class RegionSettingsArgs : Pulumi.ResourceArgs
     {
+        [Input("resourceTypeManagementPreference")]
+        private InputMap<bool>? _resourceTypeManagementPreference;
+
+        /// <summary>
+        /// A map of services along with the management preferences for the Region.
+        /// </summary>
+        public InputMap<bool> ResourceTypeManagementPreference
+        {
+            get => _resourceTypeManagementPreference ?? (_resourceTypeManagementPreference = new InputMap<bool>());
+            set => _resourceTypeManagementPreference = value;
+        }
+
         [Input("resourceTypeOptInPreference", required: true)]
         private InputMap<bool>? _resourceTypeOptInPreference;
 
@@ -123,6 +149,18 @@ namespace Pulumi.Aws.Backup
 
     public sealed class RegionSettingsState : Pulumi.ResourceArgs
     {
+        [Input("resourceTypeManagementPreference")]
+        private InputMap<bool>? _resourceTypeManagementPreference;
+
+        /// <summary>
+        /// A map of services along with the management preferences for the Region.
+        /// </summary>
+        public InputMap<bool> ResourceTypeManagementPreference
+        {
+            get => _resourceTypeManagementPreference ?? (_resourceTypeManagementPreference = new InputMap<bool>());
+            set => _resourceTypeManagementPreference = value;
+        }
+
         [Input("resourceTypeOptInPreference")]
         private InputMap<bool>? _resourceTypeOptInPreference;
 

@@ -45,7 +45,7 @@ export interface GetAmiProductCode {
 
 export interface GetAutoscalingGroupsFilter {
     /**
-     * The name of the filter. The valid values are: `auto-scaling-group`, `key`, `value`, and `propagate-at-launch`.
+     * The name of the DescribeAutoScalingGroup filter. The recommended values are: `tag-key`, `tag-value`, and `tag:<tag name>`
      */
     name: string;
     /**
@@ -4732,7 +4732,7 @@ export namespace athena {
 export namespace autoscaling {
     export interface GetAmiIdsFilter {
         /**
-         * The name of the filter. The valid values are: `auto-scaling-group`, `key`, `value`, and `propagate-at-launch`.
+         * The name of the DescribeAutoScalingGroup filter. The recommended values are: `tag-key`, `tag-value`, and `tag:<tag name>`
          */
         name: string;
         /**
@@ -13698,6 +13698,17 @@ export namespace ecs {
         type?: string;
     }
 
+    export interface TaskDefinitionRuntimePlatform {
+        /**
+         * Must be set to either `X86_64` or `ARM64`; see [cpu architecture](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform)
+         */
+        cpuArchitecture?: string;
+        /**
+         * If the `requiresCompatibilities` is `FARGATE` this field is required; must be set to a valid option from the [operating system family in the runtime platform](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform) setting
+         */
+        operatingSystemFamily?: string;
+    }
+
     export interface TaskDefinitionVolume {
         /**
          * Configuration block to configure a docker volume. Detailed below.
@@ -13803,6 +13814,85 @@ export namespace ecs {
          * A fully qualified domain name hosted by an AWS Directory Service Managed Microsoft AD (Active Directory) or self-hosted AD on Amazon EC2.
          */
         domain: string;
+    }
+
+    export interface TaskSetCapacityProviderStrategy {
+        /**
+         * The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
+         */
+        base?: number;
+        /**
+         * The short name or full Amazon Resource Name (ARN) of the capacity provider.
+         */
+        capacityProvider: string;
+        /**
+         * The relative percentage of the total number of launched tasks that should use the specified capacity provider.
+         */
+        weight: number;
+    }
+
+    export interface TaskSetLoadBalancer {
+        /**
+         * The name of the container to associate with the load balancer (as it appears in a container definition).
+         */
+        containerName: string;
+        /**
+         * The port on the container to associate with the load balancer. Defaults to `0` if not specified.
+         */
+        containerPort?: number;
+        /**
+         * The name of the ELB (Classic) to associate with the service.
+         */
+        loadBalancerName?: string;
+        /**
+         * The ARN of the Load Balancer target group to associate with the service.
+         */
+        targetGroupArn?: string;
+    }
+
+    export interface TaskSetNetworkConfiguration {
+        /**
+         * Whether to assign a public IP address to the ENI (`FARGATE` launch type only). Valid values are `true` or `false`. Default `false`.
+         */
+        assignPublicIp?: boolean;
+        /**
+         * The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used. Maximum of 5.
+         */
+        securityGroups?: string[];
+        /**
+         * The subnets associated with the task or service. Maximum of 16.
+         */
+        subnets: string[];
+    }
+
+    export interface TaskSetScale {
+        /**
+         * The unit of measure for the scale value. Default: `PERCENT`.
+         */
+        unit?: string;
+        /**
+         * The value, specified as a percent total of a service's `desiredCount`, to scale the task set. Defaults to `0` if not specified. Accepted values are numbers between 0.0 and 100.0.
+         */
+        value?: number;
+    }
+
+    export interface TaskSetServiceRegistries {
+        /**
+         * The container name value, already specified in the task definition, to be used for your service discovery service.
+         */
+        containerName?: string;
+        /**
+         * The port value, already specified in the task definition, to be used for your service discovery service.
+         */
+        containerPort?: number;
+        /**
+         * The port value used if your Service Discovery service specified an SRV record.
+         */
+        port?: number;
+        /**
+         * The ARN of the Service Registry. The currently supported service registry is Amazon Route 53 Auto Naming Service([`aws.servicediscovery.Service` resource](https://www.terraform.io/docs/providers/aws/r/service_discovery_service.html)). For more information, see [Service](https://docs.aws.amazon.com/Route53/latest/APIReference/API_autonaming_Service.html).
+         */
+        registryArn: string;
     }
 
 }
@@ -15171,6 +15261,47 @@ export namespace elasticsearch {
         masterUserPassword?: string;
     }
 
+    export interface DomainAutoTuneOptions {
+        /**
+         * The Auto-Tune desired state for the domain. Valid values: `ENABLED` or `DISABLED`.
+         */
+        desiredState: string;
+        /**
+         * Configuration block for Auto-Tune maintenance windows. Can be specified multiple times for each maintenance window. Detailed below.
+         */
+        maintenanceSchedules: outputs.elasticsearch.DomainAutoTuneOptionsMaintenanceSchedule[];
+        /**
+         * Whether to roll back to default Auto-Tune settings when disabling Auto-Tune. Valid values: `DEFAULT_ROLLBACK` or `NO_ROLLBACK`.
+         */
+        rollbackOnDisable: string;
+    }
+
+    export interface DomainAutoTuneOptionsMaintenanceSchedule {
+        /**
+         * A cron expression specifying the recurrence pattern for an Auto-Tune maintenance schedule.
+         */
+        cronExpressionForRecurrence: string;
+        /**
+         * Configuration block for the duration of the Auto-Tune maintenance window. Detailed below.
+         */
+        duration: outputs.elasticsearch.DomainAutoTuneOptionsMaintenanceScheduleDuration;
+        /**
+         * Date and time at which to start the Auto-Tune maintenance schedule in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+         */
+        startAt: string;
+    }
+
+    export interface DomainAutoTuneOptionsMaintenanceScheduleDuration {
+        /**
+         * The unit of time specifying the duration of an Auto-Tune maintenance window. Valid values: `HOURS`.
+         */
+        unit: string;
+        /**
+         * An integer specifying the value of the duration of an Auto-Tune maintenance window.
+         */
+        value: number;
+    }
+
     export interface DomainClusterConfig {
         /**
          * Number of dedicated main nodes in the cluster.
@@ -15383,6 +15514,47 @@ export namespace elasticsearch {
          * Whether the internal user database is enabled.
          */
         internalUserDatabaseEnabled: boolean;
+    }
+
+    export interface GetDomainAutoTuneOption {
+        /**
+         * The Auto-Tune desired state for the domain.
+         */
+        desiredState: string;
+        /**
+         * A list of the nested configurations for the Auto-Tune maintenance windows of the domain.
+         */
+        maintenanceSchedules: outputs.elasticsearch.GetDomainAutoTuneOptionMaintenanceSchedule[];
+        /**
+         * Whether the domain is set to roll back to default Auto-Tune settings when disabling Auto-Tune.
+         */
+        rollbackOnDisable: string;
+    }
+
+    export interface GetDomainAutoTuneOptionMaintenanceSchedule {
+        /**
+         * A cron expression specifying the recurrence pattern for an Auto-Tune maintenance schedule.
+         */
+        cronExpressionForRecurrence: string;
+        /**
+         * Configuration block for the duration of the Auto-Tune maintenance window.
+         */
+        durations: outputs.elasticsearch.GetDomainAutoTuneOptionMaintenanceScheduleDuration[];
+        /**
+         * Date and time at which the Auto-Tune maintenance schedule starts in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+         */
+        startAt: string;
+    }
+
+    export interface GetDomainAutoTuneOptionMaintenanceScheduleDuration {
+        /**
+         * The unit of time specifying the duration of an Auto-Tune maintenance window.
+         */
+        unit: string;
+        /**
+         * An integer specifying the value of the duration of an Auto-Tune maintenance window.
+         */
+        value: number;
     }
 
     export interface GetDomainClusterConfig {
@@ -20213,6 +20385,19 @@ export namespace kinesis {
         parameterValue: string;
     }
 
+    export interface GetStreamStreamModeDetail {
+        /**
+         * The capacity mode of the stream. Either `ON_DEMAND` or `PROVISIONED`.
+         */
+        streamMode: string;
+    }
+
+    export interface StreamStreamModeDetails {
+        /**
+         * Specifies the capacity mode of the stream. Must be either `PROVISIONED` or `ON_DEMAND`.
+         */
+        streamMode: string;
+    }
 }
 
 export namespace kinesisanalyticsv2 {
@@ -21005,6 +21190,20 @@ export namespace lambda {
          * The Amazon Resource Name (ARN) of the destination resource.
          */
         destinationArn: string;
+    }
+
+    export interface EventSourceMappingFilterCriteria {
+        /**
+         * A set of up to 5 filter. If an event satisfies at least one, Lambda sends the event to the function or adds it to the next batch. Detailed below.
+         */
+        filters?: outputs.lambda.EventSourceMappingFilterCriteriaFilter[];
+    }
+
+    export interface EventSourceMappingFilterCriteriaFilter {
+        /**
+         * A filter pattern up to 4096 characters. See [Filter Rule Syntax](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-syntax).
+         */
+        pattern?: string;
     }
 
     export interface EventSourceMappingSelfManagedEventSource {

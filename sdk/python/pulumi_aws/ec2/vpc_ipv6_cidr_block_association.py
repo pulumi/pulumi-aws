@@ -21,6 +21,7 @@ class VpcIpv6CidrBlockAssociationArgs:
         The set of arguments for constructing a VpcIpv6CidrBlockAssociation resource.
         :param pulumi.Input[str] ipv6_ipam_pool_id: The ID of an IPv6 IPAM pool you want to use for allocating this VPC's CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts.
         :param pulumi.Input[str] vpc_id: The ID of the VPC to make the association with.
+        :param pulumi.Input[str] ipv6_cidr_block: The IPv6 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv6_netmask_length`. This parameter is required if `ipv6_netmask_length` is not set and he IPAM pool does not have `allocation_default_netmask` set.
         :param pulumi.Input[int] ipv6_netmask_length: The netmask length of the IPv6 CIDR you want to allocate to this VPC. Requires specifying a `ipv6_ipam_pool_id`. This parameter is optional if the IPAM pool has `allocation_default_netmask` set, otherwise it or `cidr_block` are required
         """
         pulumi.set(__self__, "ipv6_ipam_pool_id", ipv6_ipam_pool_id)
@@ -57,6 +58,9 @@ class VpcIpv6CidrBlockAssociationArgs:
     @property
     @pulumi.getter(name="ipv6CidrBlock")
     def ipv6_cidr_block(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IPv6 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv6_netmask_length`. This parameter is required if `ipv6_netmask_length` is not set and he IPAM pool does not have `allocation_default_netmask` set.
+        """
         return pulumi.get(self, "ipv6_cidr_block")
 
     @ipv6_cidr_block.setter
@@ -85,6 +89,7 @@ class _VpcIpv6CidrBlockAssociationState:
                  vpc_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering VpcIpv6CidrBlockAssociation resources.
+        :param pulumi.Input[str] ipv6_cidr_block: The IPv6 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv6_netmask_length`. This parameter is required if `ipv6_netmask_length` is not set and he IPAM pool does not have `allocation_default_netmask` set.
         :param pulumi.Input[str] ipv6_ipam_pool_id: The ID of an IPv6 IPAM pool you want to use for allocating this VPC's CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts.
         :param pulumi.Input[int] ipv6_netmask_length: The netmask length of the IPv6 CIDR you want to allocate to this VPC. Requires specifying a `ipv6_ipam_pool_id`. This parameter is optional if the IPAM pool has `allocation_default_netmask` set, otherwise it or `cidr_block` are required
         :param pulumi.Input[str] vpc_id: The ID of the VPC to make the association with.
@@ -101,6 +106,9 @@ class _VpcIpv6CidrBlockAssociationState:
     @property
     @pulumi.getter(name="ipv6CidrBlock")
     def ipv6_cidr_block(self) -> Optional[pulumi.Input[str]]:
+        """
+        The IPv6 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv6_netmask_length`. This parameter is required if `ipv6_netmask_length` is not set and he IPAM pool does not have `allocation_default_netmask` set.
+        """
         return pulumi.get(self, "ipv6_cidr_block")
 
     @ipv6_cidr_block.setter
@@ -157,8 +165,7 @@ class VpcIpv6CidrBlockAssociation(pulumi.CustomResource):
         """
         Provides a resource to associate additional IPv6 CIDR blocks with a VPC.
 
-        When a VPC is created, a primary IPv6 CIDR block for the VPC must be specified.
-        The `ec2.VpcIpv6CidrBlockAssociation` resource allows further IPv6 CIDR blocks to be added to the VPC.
+        The `ec2.VpcIpv6CidrBlockAssociation` resource allows IPv6 CIDR blocks to be added to the VPC.
 
         ## Example Usage
 
@@ -182,6 +189,7 @@ class VpcIpv6CidrBlockAssociation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] ipv6_cidr_block: The IPv6 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv6_netmask_length`. This parameter is required if `ipv6_netmask_length` is not set and he IPAM pool does not have `allocation_default_netmask` set.
         :param pulumi.Input[str] ipv6_ipam_pool_id: The ID of an IPv6 IPAM pool you want to use for allocating this VPC's CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts.
         :param pulumi.Input[int] ipv6_netmask_length: The netmask length of the IPv6 CIDR you want to allocate to this VPC. Requires specifying a `ipv6_ipam_pool_id`. This parameter is optional if the IPAM pool has `allocation_default_netmask` set, otherwise it or `cidr_block` are required
         :param pulumi.Input[str] vpc_id: The ID of the VPC to make the association with.
@@ -195,8 +203,7 @@ class VpcIpv6CidrBlockAssociation(pulumi.CustomResource):
         """
         Provides a resource to associate additional IPv6 CIDR blocks with a VPC.
 
-        When a VPC is created, a primary IPv6 CIDR block for the VPC must be specified.
-        The `ec2.VpcIpv6CidrBlockAssociation` resource allows further IPv6 CIDR blocks to be added to the VPC.
+        The `ec2.VpcIpv6CidrBlockAssociation` resource allows IPv6 CIDR blocks to be added to the VPC.
 
         ## Example Usage
 
@@ -278,6 +285,7 @@ class VpcIpv6CidrBlockAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] ipv6_cidr_block: The IPv6 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv6_netmask_length`. This parameter is required if `ipv6_netmask_length` is not set and he IPAM pool does not have `allocation_default_netmask` set.
         :param pulumi.Input[str] ipv6_ipam_pool_id: The ID of an IPv6 IPAM pool you want to use for allocating this VPC's CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts.
         :param pulumi.Input[int] ipv6_netmask_length: The netmask length of the IPv6 CIDR you want to allocate to this VPC. Requires specifying a `ipv6_ipam_pool_id`. This parameter is optional if the IPAM pool has `allocation_default_netmask` set, otherwise it or `cidr_block` are required
         :param pulumi.Input[str] vpc_id: The ID of the VPC to make the association with.
@@ -295,6 +303,9 @@ class VpcIpv6CidrBlockAssociation(pulumi.CustomResource):
     @property
     @pulumi.getter(name="ipv6CidrBlock")
     def ipv6_cidr_block(self) -> pulumi.Output[str]:
+        """
+        The IPv6 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv6_netmask_length`. This parameter is required if `ipv6_netmask_length` is not set and he IPAM pool does not have `allocation_default_netmask` set.
+        """
         return pulumi.get(self, "ipv6_cidr_block")
 
     @property

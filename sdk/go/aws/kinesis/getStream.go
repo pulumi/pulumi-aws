@@ -74,6 +74,8 @@ type LookupStreamResult struct {
 	ShardLevelMetrics []string `pulumi:"shardLevelMetrics"`
 	// The current status of the stream. The stream status is one of CREATING, DELETING, ACTIVE, or UPDATING.
 	Status string `pulumi:"status"`
+	// Indicates the [capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
+	StreamModeDetails []GetStreamStreamModeDetail `pulumi:"streamModeDetails"`
 	// A map of tags to assigned to the stream.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -157,6 +159,11 @@ func (o LookupStreamResultOutput) ShardLevelMetrics() pulumi.StringArrayOutput {
 // The current status of the stream. The stream status is one of CREATING, DELETING, ACTIVE, or UPDATING.
 func (o LookupStreamResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupStreamResult) string { return v.Status }).(pulumi.StringOutput)
+}
+
+// Indicates the [capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
+func (o LookupStreamResultOutput) StreamModeDetails() GetStreamStreamModeDetailArrayOutput {
+	return o.ApplyT(func(v LookupStreamResult) []GetStreamStreamModeDetail { return v.StreamModeDetails }).(GetStreamStreamModeDetailArrayOutput)
 }
 
 // A map of tags to assigned to the stream.

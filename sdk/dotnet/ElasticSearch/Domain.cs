@@ -275,6 +275,12 @@ namespace Pulumi.Aws.ElasticSearch
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// Configuration block for the Auto-Tune options of the domain. Detailed below.
+        /// </summary>
+        [Output("autoTuneOptions")]
+        public Output<Outputs.DomainAutoTuneOptions> AutoTuneOptions { get; private set; } = null!;
+
+        /// <summary>
         /// Configuration block for the cluster of the domain. Detailed below.
         /// </summary>
         [Output("clusterConfig")]
@@ -434,6 +440,12 @@ namespace Pulumi.Aws.ElasticSearch
         public Input<Inputs.DomainAdvancedSecurityOptionsArgs>? AdvancedSecurityOptions { get; set; }
 
         /// <summary>
+        /// Configuration block for the Auto-Tune options of the domain. Detailed below.
+        /// </summary>
+        [Input("autoTuneOptions")]
+        public Input<Inputs.DomainAutoTuneOptionsArgs>? AutoTuneOptions { get; set; }
+
+        /// <summary>
         /// Configuration block for the cluster of the domain. Detailed below.
         /// </summary>
         [Input("clusterConfig")]
@@ -549,6 +561,12 @@ namespace Pulumi.Aws.ElasticSearch
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
+
+        /// <summary>
+        /// Configuration block for the Auto-Tune options of the domain. Detailed below.
+        /// </summary>
+        [Input("autoTuneOptions")]
+        public Input<Inputs.DomainAutoTuneOptionsGetArgs>? AutoTuneOptions { get; set; }
 
         /// <summary>
         /// Configuration block for the cluster of the domain. Detailed below.

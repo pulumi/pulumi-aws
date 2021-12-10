@@ -39,7 +39,7 @@ class VpcIpamPoolArgs:
         :param pulumi.Input[str] aws_service: Limits which AWS service the pool can be used in. Only useable on public scopes. Valid Values: `ec2`.
         :param pulumi.Input[str] description: A description for the IPAM pool.
         :param pulumi.Input[str] locale: The locale in which you would like to create the IPAM pool. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. Possible values: Any AWS region, such as `us-east-1`.
-        :param pulumi.Input[bool] publicly_advertisable: Defines whether or not IPv6 pool space is publicly ∂advertisable over the internet. This option is not available for IPv4 pool space.
+        :param pulumi.Input[bool] publicly_advertisable: Defines whether or not IPv6 pool space is publicly advertisable over the internet. This option is not available for IPv4 pool space.
         :param pulumi.Input[str] source_ipam_pool_id: The ID of the source IPAM pool. Use this argument to create a child pool within an existing pool.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -193,7 +193,7 @@ class VpcIpamPoolArgs:
     @pulumi.getter(name="publiclyAdvertisable")
     def publicly_advertisable(self) -> Optional[pulumi.Input[bool]]:
         """
-        Defines whether or not IPv6 pool space is publicly ∂advertisable over the internet. This option is not available for IPv4 pool space.
+        Defines whether or not IPv6 pool space is publicly advertisable over the internet. This option is not available for IPv4 pool space.
         """
         return pulumi.get(self, "publicly_advertisable")
 
@@ -261,7 +261,7 @@ class _VpcIpamPoolState:
         :param pulumi.Input[str] description: A description for the IPAM pool.
         :param pulumi.Input[str] ipam_scope_id: The ID of the scope in which you would like to create the IPAM pool.
         :param pulumi.Input[str] locale: The locale in which you would like to create the IPAM pool. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. Possible values: Any AWS region, such as `us-east-1`.
-        :param pulumi.Input[bool] publicly_advertisable: Defines whether or not IPv6 pool space is publicly ∂advertisable over the internet. This option is not available for IPv4 pool space.
+        :param pulumi.Input[bool] publicly_advertisable: Defines whether or not IPv6 pool space is publicly advertisable over the internet. This option is not available for IPv4 pool space.
         :param pulumi.Input[str] source_ipam_pool_id: The ID of the source IPAM pool. Use this argument to create a child pool within an existing pool.
         :param pulumi.Input[str] state: The ID of the IPAM
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
@@ -459,7 +459,7 @@ class _VpcIpamPoolState:
     @pulumi.getter(name="publiclyAdvertisable")
     def publicly_advertisable(self) -> Optional[pulumi.Input[bool]]:
         """
-        Defines whether or not IPv6 pool space is publicly ∂advertisable over the internet. This option is not available for IPv4 pool space.
+        Defines whether or not IPv6 pool space is publicly advertisable over the internet. This option is not available for IPv4 pool space.
         """
         return pulumi.get(self, "publicly_advertisable")
 
@@ -536,7 +536,7 @@ class VpcIpamPool(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        Provides a VPC resource.
+        Provides an IP address pool resource for IPAM.
 
         ## Example Usage
 
@@ -603,7 +603,7 @@ class VpcIpamPool(pulumi.CustomResource):
         :param pulumi.Input[str] description: A description for the IPAM pool.
         :param pulumi.Input[str] ipam_scope_id: The ID of the scope in which you would like to create the IPAM pool.
         :param pulumi.Input[str] locale: The locale in which you would like to create the IPAM pool. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. Possible values: Any AWS region, such as `us-east-1`.
-        :param pulumi.Input[bool] publicly_advertisable: Defines whether or not IPv6 pool space is publicly ∂advertisable over the internet. This option is not available for IPv4 pool space.
+        :param pulumi.Input[bool] publicly_advertisable: Defines whether or not IPv6 pool space is publicly advertisable over the internet. This option is not available for IPv4 pool space.
         :param pulumi.Input[str] source_ipam_pool_id: The ID of the source IPAM pool. Use this argument to create a child pool within an existing pool.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -614,7 +614,7 @@ class VpcIpamPool(pulumi.CustomResource):
                  args: VpcIpamPoolArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a VPC resource.
+        Provides an IP address pool resource for IPAM.
 
         ## Example Usage
 
@@ -777,7 +777,7 @@ class VpcIpamPool(pulumi.CustomResource):
         :param pulumi.Input[str] description: A description for the IPAM pool.
         :param pulumi.Input[str] ipam_scope_id: The ID of the scope in which you would like to create the IPAM pool.
         :param pulumi.Input[str] locale: The locale in which you would like to create the IPAM pool. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM. You can only create VPCs from a pool whose locale matches the VPC's Region. Possible values: Any AWS region, such as `us-east-1`.
-        :param pulumi.Input[bool] publicly_advertisable: Defines whether or not IPv6 pool space is publicly ∂advertisable over the internet. This option is not available for IPv4 pool space.
+        :param pulumi.Input[bool] publicly_advertisable: Defines whether or not IPv6 pool space is publicly advertisable over the internet. This option is not available for IPv4 pool space.
         :param pulumi.Input[str] source_ipam_pool_id: The ID of the source IPAM pool. Use this argument to create a child pool within an existing pool.
         :param pulumi.Input[str] state: The ID of the IPAM
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
@@ -910,7 +910,7 @@ class VpcIpamPool(pulumi.CustomResource):
     @pulumi.getter(name="publiclyAdvertisable")
     def publicly_advertisable(self) -> pulumi.Output[Optional[bool]]:
         """
-        Defines whether or not IPv6 pool space is publicly ∂advertisable over the internet. This option is not available for IPv4 pool space.
+        Defines whether or not IPv6 pool space is publicly advertisable over the internet. This option is not available for IPv4 pool space.
         """
         return pulumi.get(self, "publicly_advertisable")
 

@@ -56,7 +56,7 @@ import * as utilities from "../utilities";
  * });
  * const testVpc = new aws.ec2.Vpc("testVpc", {
  *     ipv4IpamPoolId: testVpcIpamPool.id,
- *     ipv4NetmaskLength: "28",
+ *     ipv4NetmaskLength: 28,
  * }, {
  *     dependsOn: [testVpcIpamPoolCidr],
  * });
@@ -103,9 +103,7 @@ export class Vpc extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * Requests an Amazon-provided IPv6 CIDR
-     * block with a /56 prefix length for the VPC. You cannot specify the range of IP addresses, or
-     * the size of the CIDR block. Default is `false`.
+     * Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IP addresses, or the size of the CIDR block. Default is `false`. Conflicts with `ipv6IpamPoolId`
      */
     public readonly assignGeneratedIpv6CidrBlock!: pulumi.Output<boolean | undefined>;
     /**
@@ -161,10 +159,16 @@ export class Vpc extends pulumi.CustomResource {
      */
     public /*out*/ readonly ipv6AssociationId!: pulumi.Output<string>;
     /**
-     * The IPv6 CIDR block.
+     * IPv6 CIDR block to request from an IPAM Pool. Can be set explicitly or derived from IPAM using `ipv6NetmaskLength`.
      */
     public readonly ipv6CidrBlock!: pulumi.Output<string>;
+    /**
+     * IPAM Pool ID for a IPv6 pool. Conflicts with `assignGeneratedIpv6CidrBlock`.
+     */
     public readonly ipv6IpamPoolId!: pulumi.Output<string | undefined>;
+    /**
+     * Netmask length to request from IPAM Pool. Conflicts with `ipv6CidrBlock`. This can be omitted if IPAM pool as a `allocationDefaultNetmaskLength` set. Valid values: `56`.
+     */
     public readonly ipv6NetmaskLength!: pulumi.Output<number | undefined>;
     /**
      * The ID of the main route table associated with
@@ -177,7 +181,7 @@ export class Vpc extends pulumi.CustomResource {
      */
     public /*out*/ readonly ownerId!: pulumi.Output<string>;
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -261,9 +265,7 @@ export interface VpcState {
      */
     arn?: pulumi.Input<string>;
     /**
-     * Requests an Amazon-provided IPv6 CIDR
-     * block with a /56 prefix length for the VPC. You cannot specify the range of IP addresses, or
-     * the size of the CIDR block. Default is `false`.
+     * Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IP addresses, or the size of the CIDR block. Default is `false`. Conflicts with `ipv6IpamPoolId`
      */
     assignGeneratedIpv6CidrBlock?: pulumi.Input<boolean>;
     /**
@@ -319,10 +321,16 @@ export interface VpcState {
      */
     ipv6AssociationId?: pulumi.Input<string>;
     /**
-     * The IPv6 CIDR block.
+     * IPv6 CIDR block to request from an IPAM Pool. Can be set explicitly or derived from IPAM using `ipv6NetmaskLength`.
      */
     ipv6CidrBlock?: pulumi.Input<string>;
+    /**
+     * IPAM Pool ID for a IPv6 pool. Conflicts with `assignGeneratedIpv6CidrBlock`.
+     */
     ipv6IpamPoolId?: pulumi.Input<string>;
+    /**
+     * Netmask length to request from IPAM Pool. Conflicts with `ipv6CidrBlock`. This can be omitted if IPAM pool as a `allocationDefaultNetmaskLength` set. Valid values: `56`.
+     */
     ipv6NetmaskLength?: pulumi.Input<number>;
     /**
      * The ID of the main route table associated with
@@ -335,7 +343,7 @@ export interface VpcState {
      */
     ownerId?: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -349,9 +357,7 @@ export interface VpcState {
  */
 export interface VpcArgs {
     /**
-     * Requests an Amazon-provided IPv6 CIDR
-     * block with a /56 prefix length for the VPC. You cannot specify the range of IP addresses, or
-     * the size of the CIDR block. Default is `false`.
+     * Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IP addresses, or the size of the CIDR block. Default is `false`. Conflicts with `ipv6IpamPoolId`
      */
     assignGeneratedIpv6CidrBlock?: pulumi.Input<boolean>;
     /**
@@ -390,13 +396,19 @@ export interface VpcArgs {
      */
     ipv4NetmaskLength?: pulumi.Input<number>;
     /**
-     * The IPv6 CIDR block.
+     * IPv6 CIDR block to request from an IPAM Pool. Can be set explicitly or derived from IPAM using `ipv6NetmaskLength`.
      */
     ipv6CidrBlock?: pulumi.Input<string>;
+    /**
+     * IPAM Pool ID for a IPv6 pool. Conflicts with `assignGeneratedIpv6CidrBlock`.
+     */
     ipv6IpamPoolId?: pulumi.Input<string>;
+    /**
+     * Netmask length to request from IPAM Pool. Conflicts with `ipv6CidrBlock`. This can be omitted if IPAM pool as a `allocationDefaultNetmaskLength` set. Valid values: `56`.
+     */
     ipv6NetmaskLength?: pulumi.Input<number>;
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

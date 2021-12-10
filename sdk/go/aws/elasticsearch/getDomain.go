@@ -61,6 +61,8 @@ type LookupDomainResult struct {
 	AdvancedSecurityOptions []GetDomainAdvancedSecurityOption `pulumi:"advancedSecurityOptions"`
 	// The Amazon Resource Name (ARN) of the domain.
 	Arn string `pulumi:"arn"`
+	// Configuration of the Auto-Tune options of the domain.
+	AutoTuneOptions []GetDomainAutoTuneOption `pulumi:"autoTuneOptions"`
 	// Cluster configuration of the domain.
 	ClusterConfigs []GetDomainClusterConfig `pulumi:"clusterConfigs"`
 	// Domain Amazon Cognito Authentication options for Kibana.
@@ -152,6 +154,11 @@ func (o LookupDomainResultOutput) AdvancedSecurityOptions() GetDomainAdvancedSec
 // The Amazon Resource Name (ARN) of the domain.
 func (o LookupDomainResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDomainResult) string { return v.Arn }).(pulumi.StringOutput)
+}
+
+// Configuration of the Auto-Tune options of the domain.
+func (o LookupDomainResultOutput) AutoTuneOptions() GetDomainAutoTuneOptionArrayOutput {
+	return o.ApplyT(func(v LookupDomainResult) []GetDomainAutoTuneOption { return v.AutoTuneOptions }).(GetDomainAutoTuneOptionArrayOutput)
 }
 
 // Cluster configuration of the domain.

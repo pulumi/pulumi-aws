@@ -11,6 +11,8 @@ export * from "./instanceFleet";
 export * from "./instanceGroup";
 export * from "./managedScalingPolicy";
 export * from "./securityConfiguration";
+export * from "./studio";
+export * from "./studioSessionMapping";
 
 // Import resources to register:
 import { Cluster } from "./cluster";
@@ -18,6 +20,8 @@ import { InstanceFleet } from "./instanceFleet";
 import { InstanceGroup } from "./instanceGroup";
 import { ManagedScalingPolicy } from "./managedScalingPolicy";
 import { SecurityConfiguration } from "./securityConfiguration";
+import { Studio } from "./studio";
+import { StudioSessionMapping } from "./studioSessionMapping";
 
 const _module = {
     version: utilities.getVersion(),
@@ -33,6 +37,10 @@ const _module = {
                 return new ManagedScalingPolicy(name, <any>undefined, { urn })
             case "aws:emr/securityConfiguration:SecurityConfiguration":
                 return new SecurityConfiguration(name, <any>undefined, { urn })
+            case "aws:emr/studio:Studio":
+                return new Studio(name, <any>undefined, { urn })
+            case "aws:emr/studioSessionMapping:StudioSessionMapping":
+                return new StudioSessionMapping(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -43,3 +51,5 @@ pulumi.runtime.registerResourceModule("aws", "emr/instanceFleet", _module)
 pulumi.runtime.registerResourceModule("aws", "emr/instanceGroup", _module)
 pulumi.runtime.registerResourceModule("aws", "emr/managedScalingPolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "emr/securityConfiguration", _module)
+pulumi.runtime.registerResourceModule("aws", "emr/studio", _module)
+pulumi.runtime.registerResourceModule("aws", "emr/studioSessionMapping", _module)

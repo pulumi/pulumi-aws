@@ -253,6 +253,12 @@ namespace Pulumi.Aws.ElastiCache
         public Output<string> ConfigurationEndpointAddress { get; private set; } = null!;
 
         /// <summary>
+        /// Enables data tiering. Data tiering is only supported for replication groups using the r6gd node type. This parameter must be set to `true` when using r6gd nodes.
+        /// </summary>
+        [Output("dataTieringEnabled")]
+        public Output<bool> DataTieringEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the cache engine to be used for the clusters in this replication group. The only valid value is `redis`.
         /// </summary>
         [Output("engine")]
@@ -512,6 +518,12 @@ namespace Pulumi.Aws.ElastiCache
         public Input<Inputs.ReplicationGroupClusterModeArgs>? ClusterMode { get; set; }
 
         /// <summary>
+        /// Enables data tiering. Data tiering is only supported for replication groups using the r6gd node type. This parameter must be set to `true` when using r6gd nodes.
+        /// </summary>
+        [Input("dataTieringEnabled")]
+        public Input<bool>? DataTieringEnabled { get; set; }
+
+        /// <summary>
         /// The name of the cache engine to be used for the clusters in this replication group. The only valid value is `redis`.
         /// </summary>
         [Input("engine")]
@@ -741,6 +753,12 @@ namespace Pulumi.Aws.ElastiCache
         /// </summary>
         [Input("configurationEndpointAddress")]
         public Input<string>? ConfigurationEndpointAddress { get; set; }
+
+        /// <summary>
+        /// Enables data tiering. Data tiering is only supported for replication groups using the r6gd node type. This parameter must be set to `true` when using r6gd nodes.
+        /// </summary>
+        [Input("dataTieringEnabled")]
+        public Input<bool>? DataTieringEnabled { get; set; }
 
         /// <summary>
         /// The name of the cache engine to be used for the clusters in this replication group. The only valid value is `redis`.

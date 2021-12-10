@@ -147,6 +147,62 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// }
     /// ```
+    /// ### SQS with event filter
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.Lambda.EventSourceMapping("example", new Aws.Lambda.EventSourceMappingArgs
+    ///         {
+    ///             EventSourceArn = aws_sqs_queue.Sqs_queue_test.Arn,
+    ///             FunctionName = aws_lambda_function.Example.Arn,
+    ///             FilterCriteria = new Aws.Lambda.Inputs.EventSourceMappingFilterCriteriaArgs
+    ///             {
+    ///                 Filters = 
+    ///                 {
+    ///                     new Aws.Lambda.Inputs.EventSourceMappingFilterCriteriaFilterArgs
+    ///                     {
+    ///                         Pattern = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///                         {
+    ///                             { "body", new Dictionary&lt;string, object?&gt;
+    ///                             {
+    ///                                 { "Temperature", new[]
+    ///                                     {
+    ///                                         new Dictionary&lt;string, object?&gt;
+    ///                                         {
+    ///                                             { "numeric", new[]
+    ///                                                 {
+    ///                                                     "&gt;",
+    ///                                                     0,
+    ///                                                     "&lt;=",
+    ///                                                     100,
+    ///                                                 }
+    ///                                              },
+    ///                                         },
+    ///                                     }
+    ///                                  },
+    ///                                 { "Location", new[]
+    ///                                     {
+    ///                                         "New York",
+    ///                                     }
+    ///                                  },
+    ///                             } },
+    ///                         }),
+    ///                     },
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// ### Amazon MQ (ActiveMQ)
     /// 
     /// ```csharp
@@ -279,6 +335,12 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         [Output("eventSourceArn")]
         public Output<string?> EventSourceArn { get; private set; } = null!;
+
+        /// <summary>
+        /// The criteria to use for [event filtering](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html) Kinesis stream, DynamoDB stream, SQS queue event sources. Detailed below.
+        /// </summary>
+        [Output("filterCriteria")]
+        public Output<Outputs.EventSourceMappingFilterCriteria?> FilterCriteria { get; private set; } = null!;
 
         /// <summary>
         /// The the ARN of the Lambda function the event source mapping is sending events to. (Note: this is a computed value that differs from `function_name` above.)
@@ -457,6 +519,12 @@ namespace Pulumi.Aws.Lambda
         public Input<string>? EventSourceArn { get; set; }
 
         /// <summary>
+        /// The criteria to use for [event filtering](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html) Kinesis stream, DynamoDB stream, SQS queue event sources. Detailed below.
+        /// </summary>
+        [Input("filterCriteria")]
+        public Input<Inputs.EventSourceMappingFilterCriteriaArgs>? FilterCriteria { get; set; }
+
+        /// <summary>
         /// The name or the ARN of the Lambda function that will be subscribing to events.
         /// </summary>
         [Input("functionName", required: true)]
@@ -579,6 +647,12 @@ namespace Pulumi.Aws.Lambda
         /// </summary>
         [Input("eventSourceArn")]
         public Input<string>? EventSourceArn { get; set; }
+
+        /// <summary>
+        /// The criteria to use for [event filtering](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html) Kinesis stream, DynamoDB stream, SQS queue event sources. Detailed below.
+        /// </summary>
+        [Input("filterCriteria")]
+        public Input<Inputs.EventSourceMappingFilterCriteriaGetArgs>? FilterCriteria { get; set; }
 
         /// <summary>
         /// The the ARN of the Lambda function the event source mapping is sending events to. (Note: this is a computed value that differs from `function_name` above.)

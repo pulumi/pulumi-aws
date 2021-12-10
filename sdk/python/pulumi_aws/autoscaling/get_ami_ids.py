@@ -92,12 +92,12 @@ def get_ami_ids(filters: Optional[Sequence[pulumi.InputType['GetAmiIdsFilterArgs
 
     groups = aws.autoscaling.get_ami_ids(filters=[
         aws.autoscaling.GetAmiIdsFilterArgs(
-            name="key",
-            values=["Team"],
+            name="tag:Team",
+            values=["Pets"],
         ),
         aws.autoscaling.GetAmiIdsFilterArgs(
-            name="value",
-            values=["Pets"],
+            name="tag-key",
+            values=["Environment"],
         ),
     ])
     slack_notifications = aws.autoscaling.Notification("slackNotifications",
@@ -144,12 +144,12 @@ def get_ami_ids_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.I
 
     groups = aws.autoscaling.get_ami_ids(filters=[
         aws.autoscaling.GetAmiIdsFilterArgs(
-            name="key",
-            values=["Team"],
+            name="tag:Team",
+            values=["Pets"],
         ),
         aws.autoscaling.GetAmiIdsFilterArgs(
-            name="value",
-            values=["Pets"],
+            name="tag-key",
+            values=["Environment"],
         ),
     ])
     slack_notifications = aws.autoscaling.Notification("slackNotifications",

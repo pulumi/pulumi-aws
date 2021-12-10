@@ -302,13 +302,48 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := ecs.NewTaskDefinition(ctx, "test", &ecs.TaskDefinitionArgs{
-// 			ContainerDefinitions: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "[\n", "	{\n", "		\"cpu\": 10,\n", "		\"command\": [\"sleep\", \"10\"],\n", "		\"entryPoint\": [\"/\"],\n", "		\"environment\": [\n", "			{\"name\": \"VARNAME\", \"value\": \"VARVAL\"}\n", "		],\n", "		\"essential\": true,\n", "		\"image\": \"jenkins\",\n", "		\"memory\": 128,\n", "		\"name\": \"jenkins\",\n", "		\"portMappings\": [\n", "			{\n", "				\"containerPort\": 80,\n", "				\"hostPort\": 8080\n", "			}\n", "		],\n", "        \"resourceRequirements\":[\n", "            {\n", "                \"type\":\"InferenceAccelerator\",\n", "                \"value\":\"device_1\"\n", "            }\n", "        ]\n", "	}\n", "]\n", "\n")),
-// 			Family: pulumi.String("test"),
+// 			ContainerDefinitions: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v%v", "[\n", "  {\n", "    \"cpu\": 10,\n", "    \"command\": [\"sleep\", \"10\"],\n", "    \"entryPoint\": [\"/\"],\n", "    \"environment\": [\n", "      {\"name\": \"VARNAME\", \"value\": \"VARVAL\"}\n", "    ],\n", "    \"essential\": true,\n", "    \"image\": \"jenkins\",\n", "    \"memory\": 128,\n", "    \"name\": \"jenkins\",\n", "    \"portMappings\": [\n", "      {\n", "        \"containerPort\": 80,\n", "        \"hostPort\": 8080\n", "      }\n", "    ],\n", "        \"resourceRequirements\":[\n", "            {\n", "                \"type\":\"InferenceAccelerator\",\n", "                \"value\":\"device_1\"\n", "            }\n", "        ]\n", "  }\n", "]\n", "\n")),
+// 			Family:               pulumi.String("test"),
 // 			InferenceAccelerators: ecs.TaskDefinitionInferenceAcceleratorArray{
 // 				&ecs.TaskDefinitionInferenceAcceleratorArgs{
 // 					DeviceName: pulumi.String("device_1"),
 // 					DeviceType: pulumi.String("eia1.medium"),
 // 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### Example Using `runtimePlatform` and `fargate`
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/ecs"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := ecs.NewTaskDefinition(ctx, "test", &ecs.TaskDefinitionArgs{
+// 			ContainerDefinitions: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v%v%v%v", "[\n", "  {\n", "    \"name\": \"iis\",\n", "    \"image\": \"mcr.microsoft.com/windows/servercore/iis\",\n", "    \"cpu\": 1024,\n", "    \"memory\": 2048,\n", "    \"essential\": true\n", "  }\n", "]\n", "\n")),
+// 			Cpu:                  pulumi.String("1024"),
+// 			Family:               pulumi.String("test"),
+// 			Memory:               pulumi.String("2048"),
+// 			NetworkMode:          pulumi.String("awsvpc"),
+// 			RequiresCompatibilities: pulumi.StringArray{
+// 				pulumi.String("FARGATE"),
+// 			},
+// 			RuntimePlatform: &ecs.TaskDefinitionRuntimePlatformArgs{
+// 				CpuArchitecture:       pulumi.String("X86_64"),
+// 				OperatingSystemFamily: pulumi.String("WINDOWS_SERVER_2019_CORE"),
 // 			},
 // 		})
 // 		if err != nil {
@@ -359,6 +394,8 @@ type TaskDefinition struct {
 	RequiresCompatibilities pulumi.StringArrayOutput `pulumi:"requiresCompatibilities"`
 	// Revision of the task in a particular family.
 	Revision pulumi.IntOutput `pulumi:"revision"`
+	// Configuration block for runtimePlatform that containers in your task may use.
+	RuntimePlatform TaskDefinitionRuntimePlatformPtrOutput `pulumi:"runtimePlatform"`
 	// Key-value map of resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider.
@@ -434,6 +471,8 @@ type taskDefinitionState struct {
 	RequiresCompatibilities []string `pulumi:"requiresCompatibilities"`
 	// Revision of the task in a particular family.
 	Revision *int `pulumi:"revision"`
+	// Configuration block for runtimePlatform that containers in your task may use.
+	RuntimePlatform *TaskDefinitionRuntimePlatform `pulumi:"runtimePlatform"`
 	// Key-value map of resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider.
@@ -475,6 +514,8 @@ type TaskDefinitionState struct {
 	RequiresCompatibilities pulumi.StringArrayInput
 	// Revision of the task in a particular family.
 	Revision pulumi.IntPtrInput
+	// Configuration block for runtimePlatform that containers in your task may use.
+	RuntimePlatform TaskDefinitionRuntimePlatformPtrInput
 	// Key-value map of resource tags.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider.
@@ -516,6 +557,8 @@ type taskDefinitionArgs struct {
 	ProxyConfiguration *TaskDefinitionProxyConfiguration `pulumi:"proxyConfiguration"`
 	// Set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
 	RequiresCompatibilities []string `pulumi:"requiresCompatibilities"`
+	// Configuration block for runtimePlatform that containers in your task may use.
+	RuntimePlatform *TaskDefinitionRuntimePlatform `pulumi:"runtimePlatform"`
 	// Key-value map of resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
@@ -552,6 +595,8 @@ type TaskDefinitionArgs struct {
 	ProxyConfiguration TaskDefinitionProxyConfigurationPtrInput
 	// Set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
 	RequiresCompatibilities pulumi.StringArrayInput
+	// Configuration block for runtimePlatform that containers in your task may use.
+	RuntimePlatform TaskDefinitionRuntimePlatformPtrInput
 	// Key-value map of resource tags.
 	Tags pulumi.StringMapInput
 	// ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.

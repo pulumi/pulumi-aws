@@ -12,8 +12,7 @@ namespace Pulumi.Aws.Ec2
     /// <summary>
     /// Provides a resource to associate additional IPv6 CIDR blocks with a VPC.
     /// 
-    /// When a VPC is created, a primary IPv6 CIDR block for the VPC must be specified.
-    /// The `aws.ec2.VpcIpv6CidrBlockAssociation` resource allows further IPv6 CIDR blocks to be added to the VPC.
+    /// The `aws.ec2.VpcIpv6CidrBlockAssociation` resource allows IPv6 CIDR blocks to be added to the VPC.
     /// 
     /// ## Example Usage
     /// 
@@ -50,6 +49,9 @@ namespace Pulumi.Aws.Ec2
     [AwsResourceType("aws:ec2/vpcIpv6CidrBlockAssociation:VpcIpv6CidrBlockAssociation")]
     public partial class VpcIpv6CidrBlockAssociation : Pulumi.CustomResource
     {
+        /// <summary>
+        /// The IPv6 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv6_netmask_length`. This parameter is required if `ipv6_netmask_length` is not set and he IPAM pool does not have `allocation_default_netmask` set.
+        /// </summary>
         [Output("ipv6CidrBlock")]
         public Output<string> Ipv6CidrBlock { get; private set; } = null!;
 
@@ -117,6 +119,9 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class VpcIpv6CidrBlockAssociationArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The IPv6 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv6_netmask_length`. This parameter is required if `ipv6_netmask_length` is not set and he IPAM pool does not have `allocation_default_netmask` set.
+        /// </summary>
         [Input("ipv6CidrBlock")]
         public Input<string>? Ipv6CidrBlock { get; set; }
 
@@ -145,6 +150,9 @@ namespace Pulumi.Aws.Ec2
 
     public sealed class VpcIpv6CidrBlockAssociationState : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The IPv6 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv6_netmask_length`. This parameter is required if `ipv6_netmask_length` is not set and he IPAM pool does not have `allocation_default_netmask` set.
+        /// </summary>
         [Input("ipv6CidrBlock")]
         public Input<string>? Ipv6CidrBlock { get; set; }
 

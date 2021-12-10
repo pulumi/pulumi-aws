@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2
 {
     /// <summary>
-    /// Provides a VPC resource.
+    /// Provides an IP address pool resource for IPAM.
     /// 
     /// ## Example Usage
     /// 
@@ -179,7 +179,7 @@ namespace Pulumi.Aws.Ec2
         public Output<int> PoolDepth { get; private set; } = null!;
 
         /// <summary>
-        /// Defines whether or not IPv6 pool space is publicly ∂advertisable over the internet. This option is not available for IPv4 pool space.
+        /// Defines whether or not IPv6 pool space is publicly advertisable over the internet. This option is not available for IPv4 pool space.
         /// </summary>
         [Output("publiclyAdvertisable")]
         public Output<bool?> PubliclyAdvertisable { get; private set; } = null!;
@@ -322,7 +322,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Locale { get; set; }
 
         /// <summary>
-        /// Defines whether or not IPv6 pool space is publicly ∂advertisable over the internet. This option is not available for IPv4 pool space.
+        /// Defines whether or not IPv6 pool space is publicly advertisable over the internet. This option is not available for IPv4 pool space.
         /// </summary>
         [Input("publiclyAdvertisable")]
         public Input<bool>? PubliclyAdvertisable { get; set; }
@@ -432,7 +432,7 @@ namespace Pulumi.Aws.Ec2
         public Input<int>? PoolDepth { get; set; }
 
         /// <summary>
-        /// Defines whether or not IPv6 pool space is publicly ∂advertisable over the internet. This option is not available for IPv4 pool space.
+        /// Defines whether or not IPv6 pool space is publicly advertisable over the internet. This option is not available for IPv4 pool space.
         /// </summary>
         [Input("publiclyAdvertisable")]
         public Input<bool>? PubliclyAdvertisable { get; set; }

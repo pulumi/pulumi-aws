@@ -23,6 +23,7 @@ class ReplicationGroupArgs:
                  automatic_failover_enabled: Optional[pulumi.Input[bool]] = None,
                  availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  cluster_mode: Optional[pulumi.Input['ReplicationGroupClusterModeArgs']] = None,
+                 data_tiering_enabled: Optional[pulumi.Input[bool]] = None,
                  engine: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
                  final_snapshot_identifier: Optional[pulumi.Input[str]] = None,
@@ -55,6 +56,7 @@ class ReplicationGroupArgs:
         :param pulumi.Input[bool] automatic_failover_enabled: Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `number_cache_clusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: A list of EC2 availability zones in which the replication group's cache clusters will be created. The order of the availability zones in the list is not important.
         :param pulumi.Input['ReplicationGroupClusterModeArgs'] cluster_mode: Create a native Redis cluster. `automatic_failover_enabled` must be set to true. Cluster Mode documented below. Only 1 `cluster_mode` block is allowed. Note that configuring this block does not enable cluster mode, i.e., data sharding, this requires using a parameter group that has the parameter `cluster-enabled` set to true.
+        :param pulumi.Input[bool] data_tiering_enabled: Enables data tiering. Data tiering is only supported for replication groups using the r6gd node type. This parameter must be set to `true` when using r6gd nodes.
         :param pulumi.Input[str] engine: The name of the cache engine to be used for the clusters in this replication group. The only valid value is `redis`.
         :param pulumi.Input[str] engine_version: The version number of the cache engine to be used for the cache clusters in this replication group. If the version is 6 or higher, only the major version can be set, e.g., `6.x`, otherwise, specify the full version desired, e.g., `5.0.6`. The actual engine version used is returned in the attribute `engine_version_actual`, defined below.
         :param pulumi.Input[str] final_snapshot_identifier: The name of your final node group (shard) snapshot. ElastiCache creates the snapshot from the primary node in the cluster. If omitted, no final snapshot will be made.
@@ -92,6 +94,8 @@ class ReplicationGroupArgs:
             pulumi.set(__self__, "availability_zones", availability_zones)
         if cluster_mode is not None:
             pulumi.set(__self__, "cluster_mode", cluster_mode)
+        if data_tiering_enabled is not None:
+            pulumi.set(__self__, "data_tiering_enabled", data_tiering_enabled)
         if engine is not None:
             pulumi.set(__self__, "engine", engine)
         if engine_version is not None:
@@ -232,6 +236,18 @@ class ReplicationGroupArgs:
     @cluster_mode.setter
     def cluster_mode(self, value: Optional[pulumi.Input['ReplicationGroupClusterModeArgs']]):
         pulumi.set(self, "cluster_mode", value)
+
+    @property
+    @pulumi.getter(name="dataTieringEnabled")
+    def data_tiering_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enables data tiering. Data tiering is only supported for replication groups using the r6gd node type. This parameter must be set to `true` when using r6gd nodes.
+        """
+        return pulumi.get(self, "data_tiering_enabled")
+
+    @data_tiering_enabled.setter
+    def data_tiering_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "data_tiering_enabled", value)
 
     @property
     @pulumi.getter
@@ -508,6 +524,7 @@ class _ReplicationGroupState:
                  cluster_enabled: Optional[pulumi.Input[bool]] = None,
                  cluster_mode: Optional[pulumi.Input['ReplicationGroupClusterModeArgs']] = None,
                  configuration_endpoint_address: Optional[pulumi.Input[str]] = None,
+                 data_tiering_enabled: Optional[pulumi.Input[bool]] = None,
                  engine: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
                  engine_version_actual: Optional[pulumi.Input[str]] = None,
@@ -548,6 +565,7 @@ class _ReplicationGroupState:
         :param pulumi.Input[bool] cluster_enabled: Indicates if cluster mode is enabled.
         :param pulumi.Input['ReplicationGroupClusterModeArgs'] cluster_mode: Create a native Redis cluster. `automatic_failover_enabled` must be set to true. Cluster Mode documented below. Only 1 `cluster_mode` block is allowed. Note that configuring this block does not enable cluster mode, i.e., data sharding, this requires using a parameter group that has the parameter `cluster-enabled` set to true.
         :param pulumi.Input[str] configuration_endpoint_address: The address of the replication group configuration endpoint when cluster mode is enabled.
+        :param pulumi.Input[bool] data_tiering_enabled: Enables data tiering. Data tiering is only supported for replication groups using the r6gd node type. This parameter must be set to `true` when using r6gd nodes.
         :param pulumi.Input[str] engine: The name of the cache engine to be used for the clusters in this replication group. The only valid value is `redis`.
         :param pulumi.Input[str] engine_version: The version number of the cache engine to be used for the cache clusters in this replication group. If the version is 6 or higher, only the major version can be set, e.g., `6.x`, otherwise, specify the full version desired, e.g., `5.0.6`. The actual engine version used is returned in the attribute `engine_version_actual`, defined below.
         :param pulumi.Input[str] engine_version_actual: The running version of the cache engine.
@@ -596,6 +614,8 @@ class _ReplicationGroupState:
             pulumi.set(__self__, "cluster_mode", cluster_mode)
         if configuration_endpoint_address is not None:
             pulumi.set(__self__, "configuration_endpoint_address", configuration_endpoint_address)
+        if data_tiering_enabled is not None:
+            pulumi.set(__self__, "data_tiering_enabled", data_tiering_enabled)
         if engine is not None:
             pulumi.set(__self__, "engine", engine)
         if engine_version is not None:
@@ -772,6 +792,18 @@ class _ReplicationGroupState:
     @configuration_endpoint_address.setter
     def configuration_endpoint_address(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "configuration_endpoint_address", value)
+
+    @property
+    @pulumi.getter(name="dataTieringEnabled")
+    def data_tiering_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Enables data tiering. Data tiering is only supported for replication groups using the r6gd node type. This parameter must be set to `true` when using r6gd nodes.
+        """
+        return pulumi.get(self, "data_tiering_enabled")
+
+    @data_tiering_enabled.setter
+    def data_tiering_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "data_tiering_enabled", value)
 
     @property
     @pulumi.getter
@@ -1119,6 +1151,7 @@ class ReplicationGroup(pulumi.CustomResource):
                  automatic_failover_enabled: Optional[pulumi.Input[bool]] = None,
                  availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  cluster_mode: Optional[pulumi.Input[pulumi.InputType['ReplicationGroupClusterModeArgs']]] = None,
+                 data_tiering_enabled: Optional[pulumi.Input[bool]] = None,
                  engine: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
                  final_snapshot_identifier: Optional[pulumi.Input[str]] = None,
@@ -1278,6 +1311,7 @@ class ReplicationGroup(pulumi.CustomResource):
         :param pulumi.Input[bool] automatic_failover_enabled: Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `number_cache_clusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] availability_zones: A list of EC2 availability zones in which the replication group's cache clusters will be created. The order of the availability zones in the list is not important.
         :param pulumi.Input[pulumi.InputType['ReplicationGroupClusterModeArgs']] cluster_mode: Create a native Redis cluster. `automatic_failover_enabled` must be set to true. Cluster Mode documented below. Only 1 `cluster_mode` block is allowed. Note that configuring this block does not enable cluster mode, i.e., data sharding, this requires using a parameter group that has the parameter `cluster-enabled` set to true.
+        :param pulumi.Input[bool] data_tiering_enabled: Enables data tiering. Data tiering is only supported for replication groups using the r6gd node type. This parameter must be set to `true` when using r6gd nodes.
         :param pulumi.Input[str] engine: The name of the cache engine to be used for the clusters in this replication group. The only valid value is `redis`.
         :param pulumi.Input[str] engine_version: The version number of the cache engine to be used for the cache clusters in this replication group. If the version is 6 or higher, only the major version can be set, e.g., `6.x`, otherwise, specify the full version desired, e.g., `5.0.6`. The actual engine version used is returned in the attribute `engine_version_actual`, defined below.
         :param pulumi.Input[str] final_snapshot_identifier: The name of your final node group (shard) snapshot. ElastiCache creates the snapshot from the primary node in the cluster. If omitted, no final snapshot will be made.
@@ -1455,6 +1489,7 @@ class ReplicationGroup(pulumi.CustomResource):
                  automatic_failover_enabled: Optional[pulumi.Input[bool]] = None,
                  availability_zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  cluster_mode: Optional[pulumi.Input[pulumi.InputType['ReplicationGroupClusterModeArgs']]] = None,
+                 data_tiering_enabled: Optional[pulumi.Input[bool]] = None,
                  engine: Optional[pulumi.Input[str]] = None,
                  engine_version: Optional[pulumi.Input[str]] = None,
                  final_snapshot_identifier: Optional[pulumi.Input[str]] = None,
@@ -1497,6 +1532,7 @@ class ReplicationGroup(pulumi.CustomResource):
             __props__.__dict__["automatic_failover_enabled"] = automatic_failover_enabled
             __props__.__dict__["availability_zones"] = availability_zones
             __props__.__dict__["cluster_mode"] = cluster_mode
+            __props__.__dict__["data_tiering_enabled"] = data_tiering_enabled
             __props__.__dict__["engine"] = engine
             __props__.__dict__["engine_version"] = engine_version
             __props__.__dict__["final_snapshot_identifier"] = final_snapshot_identifier
@@ -1550,6 +1586,7 @@ class ReplicationGroup(pulumi.CustomResource):
             cluster_enabled: Optional[pulumi.Input[bool]] = None,
             cluster_mode: Optional[pulumi.Input[pulumi.InputType['ReplicationGroupClusterModeArgs']]] = None,
             configuration_endpoint_address: Optional[pulumi.Input[str]] = None,
+            data_tiering_enabled: Optional[pulumi.Input[bool]] = None,
             engine: Optional[pulumi.Input[str]] = None,
             engine_version: Optional[pulumi.Input[str]] = None,
             engine_version_actual: Optional[pulumi.Input[str]] = None,
@@ -1595,6 +1632,7 @@ class ReplicationGroup(pulumi.CustomResource):
         :param pulumi.Input[bool] cluster_enabled: Indicates if cluster mode is enabled.
         :param pulumi.Input[pulumi.InputType['ReplicationGroupClusterModeArgs']] cluster_mode: Create a native Redis cluster. `automatic_failover_enabled` must be set to true. Cluster Mode documented below. Only 1 `cluster_mode` block is allowed. Note that configuring this block does not enable cluster mode, i.e., data sharding, this requires using a parameter group that has the parameter `cluster-enabled` set to true.
         :param pulumi.Input[str] configuration_endpoint_address: The address of the replication group configuration endpoint when cluster mode is enabled.
+        :param pulumi.Input[bool] data_tiering_enabled: Enables data tiering. Data tiering is only supported for replication groups using the r6gd node type. This parameter must be set to `true` when using r6gd nodes.
         :param pulumi.Input[str] engine: The name of the cache engine to be used for the clusters in this replication group. The only valid value is `redis`.
         :param pulumi.Input[str] engine_version: The version number of the cache engine to be used for the cache clusters in this replication group. If the version is 6 or higher, only the major version can be set, e.g., `6.x`, otherwise, specify the full version desired, e.g., `5.0.6`. The actual engine version used is returned in the attribute `engine_version_actual`, defined below.
         :param pulumi.Input[str] engine_version_actual: The running version of the cache engine.
@@ -1637,6 +1675,7 @@ class ReplicationGroup(pulumi.CustomResource):
         __props__.__dict__["cluster_enabled"] = cluster_enabled
         __props__.__dict__["cluster_mode"] = cluster_mode
         __props__.__dict__["configuration_endpoint_address"] = configuration_endpoint_address
+        __props__.__dict__["data_tiering_enabled"] = data_tiering_enabled
         __props__.__dict__["engine"] = engine
         __props__.__dict__["engine_version"] = engine_version
         __props__.__dict__["engine_version_actual"] = engine_version_actual
@@ -1746,6 +1785,14 @@ class ReplicationGroup(pulumi.CustomResource):
         The address of the replication group configuration endpoint when cluster mode is enabled.
         """
         return pulumi.get(self, "configuration_endpoint_address")
+
+    @property
+    @pulumi.getter(name="dataTieringEnabled")
+    def data_tiering_enabled(self) -> pulumi.Output[bool]:
+        """
+        Enables data tiering. Data tiering is only supported for replication groups using the r6gd node type. This parameter must be set to `true` when using r6gd nodes.
+        """
+        return pulumi.get(self, "data_tiering_enabled")
 
     @property
     @pulumi.getter

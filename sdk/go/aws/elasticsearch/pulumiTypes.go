@@ -362,6 +362,361 @@ func (o DomainAdvancedSecurityOptionsMasterUserOptionsPtrOutput) MasterUserPassw
 	}).(pulumi.StringPtrOutput)
 }
 
+type DomainAutoTuneOptions struct {
+	// The Auto-Tune desired state for the domain. Valid values: `ENABLED` or `DISABLED`.
+	DesiredState string `pulumi:"desiredState"`
+	// Configuration block for Auto-Tune maintenance windows. Can be specified multiple times for each maintenance window. Detailed below.
+	MaintenanceSchedules []DomainAutoTuneOptionsMaintenanceSchedule `pulumi:"maintenanceSchedules"`
+	// Whether to roll back to default Auto-Tune settings when disabling Auto-Tune. Valid values: `DEFAULT_ROLLBACK` or `NO_ROLLBACK`.
+	RollbackOnDisable *string `pulumi:"rollbackOnDisable"`
+}
+
+// DomainAutoTuneOptionsInput is an input type that accepts DomainAutoTuneOptionsArgs and DomainAutoTuneOptionsOutput values.
+// You can construct a concrete instance of `DomainAutoTuneOptionsInput` via:
+//
+//          DomainAutoTuneOptionsArgs{...}
+type DomainAutoTuneOptionsInput interface {
+	pulumi.Input
+
+	ToDomainAutoTuneOptionsOutput() DomainAutoTuneOptionsOutput
+	ToDomainAutoTuneOptionsOutputWithContext(context.Context) DomainAutoTuneOptionsOutput
+}
+
+type DomainAutoTuneOptionsArgs struct {
+	// The Auto-Tune desired state for the domain. Valid values: `ENABLED` or `DISABLED`.
+	DesiredState pulumi.StringInput `pulumi:"desiredState"`
+	// Configuration block for Auto-Tune maintenance windows. Can be specified multiple times for each maintenance window. Detailed below.
+	MaintenanceSchedules DomainAutoTuneOptionsMaintenanceScheduleArrayInput `pulumi:"maintenanceSchedules"`
+	// Whether to roll back to default Auto-Tune settings when disabling Auto-Tune. Valid values: `DEFAULT_ROLLBACK` or `NO_ROLLBACK`.
+	RollbackOnDisable pulumi.StringPtrInput `pulumi:"rollbackOnDisable"`
+}
+
+func (DomainAutoTuneOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainAutoTuneOptions)(nil)).Elem()
+}
+
+func (i DomainAutoTuneOptionsArgs) ToDomainAutoTuneOptionsOutput() DomainAutoTuneOptionsOutput {
+	return i.ToDomainAutoTuneOptionsOutputWithContext(context.Background())
+}
+
+func (i DomainAutoTuneOptionsArgs) ToDomainAutoTuneOptionsOutputWithContext(ctx context.Context) DomainAutoTuneOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainAutoTuneOptionsOutput)
+}
+
+func (i DomainAutoTuneOptionsArgs) ToDomainAutoTuneOptionsPtrOutput() DomainAutoTuneOptionsPtrOutput {
+	return i.ToDomainAutoTuneOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i DomainAutoTuneOptionsArgs) ToDomainAutoTuneOptionsPtrOutputWithContext(ctx context.Context) DomainAutoTuneOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainAutoTuneOptionsOutput).ToDomainAutoTuneOptionsPtrOutputWithContext(ctx)
+}
+
+// DomainAutoTuneOptionsPtrInput is an input type that accepts DomainAutoTuneOptionsArgs, DomainAutoTuneOptionsPtr and DomainAutoTuneOptionsPtrOutput values.
+// You can construct a concrete instance of `DomainAutoTuneOptionsPtrInput` via:
+//
+//          DomainAutoTuneOptionsArgs{...}
+//
+//  or:
+//
+//          nil
+type DomainAutoTuneOptionsPtrInput interface {
+	pulumi.Input
+
+	ToDomainAutoTuneOptionsPtrOutput() DomainAutoTuneOptionsPtrOutput
+	ToDomainAutoTuneOptionsPtrOutputWithContext(context.Context) DomainAutoTuneOptionsPtrOutput
+}
+
+type domainAutoTuneOptionsPtrType DomainAutoTuneOptionsArgs
+
+func DomainAutoTuneOptionsPtr(v *DomainAutoTuneOptionsArgs) DomainAutoTuneOptionsPtrInput {
+	return (*domainAutoTuneOptionsPtrType)(v)
+}
+
+func (*domainAutoTuneOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainAutoTuneOptions)(nil)).Elem()
+}
+
+func (i *domainAutoTuneOptionsPtrType) ToDomainAutoTuneOptionsPtrOutput() DomainAutoTuneOptionsPtrOutput {
+	return i.ToDomainAutoTuneOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *domainAutoTuneOptionsPtrType) ToDomainAutoTuneOptionsPtrOutputWithContext(ctx context.Context) DomainAutoTuneOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainAutoTuneOptionsPtrOutput)
+}
+
+type DomainAutoTuneOptionsOutput struct{ *pulumi.OutputState }
+
+func (DomainAutoTuneOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainAutoTuneOptions)(nil)).Elem()
+}
+
+func (o DomainAutoTuneOptionsOutput) ToDomainAutoTuneOptionsOutput() DomainAutoTuneOptionsOutput {
+	return o
+}
+
+func (o DomainAutoTuneOptionsOutput) ToDomainAutoTuneOptionsOutputWithContext(ctx context.Context) DomainAutoTuneOptionsOutput {
+	return o
+}
+
+func (o DomainAutoTuneOptionsOutput) ToDomainAutoTuneOptionsPtrOutput() DomainAutoTuneOptionsPtrOutput {
+	return o.ToDomainAutoTuneOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o DomainAutoTuneOptionsOutput) ToDomainAutoTuneOptionsPtrOutputWithContext(ctx context.Context) DomainAutoTuneOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainAutoTuneOptions) *DomainAutoTuneOptions {
+		return &v
+	}).(DomainAutoTuneOptionsPtrOutput)
+}
+
+// The Auto-Tune desired state for the domain. Valid values: `ENABLED` or `DISABLED`.
+func (o DomainAutoTuneOptionsOutput) DesiredState() pulumi.StringOutput {
+	return o.ApplyT(func(v DomainAutoTuneOptions) string { return v.DesiredState }).(pulumi.StringOutput)
+}
+
+// Configuration block for Auto-Tune maintenance windows. Can be specified multiple times for each maintenance window. Detailed below.
+func (o DomainAutoTuneOptionsOutput) MaintenanceSchedules() DomainAutoTuneOptionsMaintenanceScheduleArrayOutput {
+	return o.ApplyT(func(v DomainAutoTuneOptions) []DomainAutoTuneOptionsMaintenanceSchedule {
+		return v.MaintenanceSchedules
+	}).(DomainAutoTuneOptionsMaintenanceScheduleArrayOutput)
+}
+
+// Whether to roll back to default Auto-Tune settings when disabling Auto-Tune. Valid values: `DEFAULT_ROLLBACK` or `NO_ROLLBACK`.
+func (o DomainAutoTuneOptionsOutput) RollbackOnDisable() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DomainAutoTuneOptions) *string { return v.RollbackOnDisable }).(pulumi.StringPtrOutput)
+}
+
+type DomainAutoTuneOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainAutoTuneOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainAutoTuneOptions)(nil)).Elem()
+}
+
+func (o DomainAutoTuneOptionsPtrOutput) ToDomainAutoTuneOptionsPtrOutput() DomainAutoTuneOptionsPtrOutput {
+	return o
+}
+
+func (o DomainAutoTuneOptionsPtrOutput) ToDomainAutoTuneOptionsPtrOutputWithContext(ctx context.Context) DomainAutoTuneOptionsPtrOutput {
+	return o
+}
+
+func (o DomainAutoTuneOptionsPtrOutput) Elem() DomainAutoTuneOptionsOutput {
+	return o.ApplyT(func(v *DomainAutoTuneOptions) DomainAutoTuneOptions {
+		if v != nil {
+			return *v
+		}
+		var ret DomainAutoTuneOptions
+		return ret
+	}).(DomainAutoTuneOptionsOutput)
+}
+
+// The Auto-Tune desired state for the domain. Valid values: `ENABLED` or `DISABLED`.
+func (o DomainAutoTuneOptionsPtrOutput) DesiredState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainAutoTuneOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DesiredState
+	}).(pulumi.StringPtrOutput)
+}
+
+// Configuration block for Auto-Tune maintenance windows. Can be specified multiple times for each maintenance window. Detailed below.
+func (o DomainAutoTuneOptionsPtrOutput) MaintenanceSchedules() DomainAutoTuneOptionsMaintenanceScheduleArrayOutput {
+	return o.ApplyT(func(v *DomainAutoTuneOptions) []DomainAutoTuneOptionsMaintenanceSchedule {
+		if v == nil {
+			return nil
+		}
+		return v.MaintenanceSchedules
+	}).(DomainAutoTuneOptionsMaintenanceScheduleArrayOutput)
+}
+
+// Whether to roll back to default Auto-Tune settings when disabling Auto-Tune. Valid values: `DEFAULT_ROLLBACK` or `NO_ROLLBACK`.
+func (o DomainAutoTuneOptionsPtrOutput) RollbackOnDisable() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainAutoTuneOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RollbackOnDisable
+	}).(pulumi.StringPtrOutput)
+}
+
+type DomainAutoTuneOptionsMaintenanceSchedule struct {
+	// A cron expression specifying the recurrence pattern for an Auto-Tune maintenance schedule.
+	CronExpressionForRecurrence string `pulumi:"cronExpressionForRecurrence"`
+	// Configuration block for the duration of the Auto-Tune maintenance window. Detailed below.
+	Duration DomainAutoTuneOptionsMaintenanceScheduleDuration `pulumi:"duration"`
+	// Date and time at which to start the Auto-Tune maintenance schedule in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+	StartAt string `pulumi:"startAt"`
+}
+
+// DomainAutoTuneOptionsMaintenanceScheduleInput is an input type that accepts DomainAutoTuneOptionsMaintenanceScheduleArgs and DomainAutoTuneOptionsMaintenanceScheduleOutput values.
+// You can construct a concrete instance of `DomainAutoTuneOptionsMaintenanceScheduleInput` via:
+//
+//          DomainAutoTuneOptionsMaintenanceScheduleArgs{...}
+type DomainAutoTuneOptionsMaintenanceScheduleInput interface {
+	pulumi.Input
+
+	ToDomainAutoTuneOptionsMaintenanceScheduleOutput() DomainAutoTuneOptionsMaintenanceScheduleOutput
+	ToDomainAutoTuneOptionsMaintenanceScheduleOutputWithContext(context.Context) DomainAutoTuneOptionsMaintenanceScheduleOutput
+}
+
+type DomainAutoTuneOptionsMaintenanceScheduleArgs struct {
+	// A cron expression specifying the recurrence pattern for an Auto-Tune maintenance schedule.
+	CronExpressionForRecurrence pulumi.StringInput `pulumi:"cronExpressionForRecurrence"`
+	// Configuration block for the duration of the Auto-Tune maintenance window. Detailed below.
+	Duration DomainAutoTuneOptionsMaintenanceScheduleDurationInput `pulumi:"duration"`
+	// Date and time at which to start the Auto-Tune maintenance schedule in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+	StartAt pulumi.StringInput `pulumi:"startAt"`
+}
+
+func (DomainAutoTuneOptionsMaintenanceScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainAutoTuneOptionsMaintenanceSchedule)(nil)).Elem()
+}
+
+func (i DomainAutoTuneOptionsMaintenanceScheduleArgs) ToDomainAutoTuneOptionsMaintenanceScheduleOutput() DomainAutoTuneOptionsMaintenanceScheduleOutput {
+	return i.ToDomainAutoTuneOptionsMaintenanceScheduleOutputWithContext(context.Background())
+}
+
+func (i DomainAutoTuneOptionsMaintenanceScheduleArgs) ToDomainAutoTuneOptionsMaintenanceScheduleOutputWithContext(ctx context.Context) DomainAutoTuneOptionsMaintenanceScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainAutoTuneOptionsMaintenanceScheduleOutput)
+}
+
+// DomainAutoTuneOptionsMaintenanceScheduleArrayInput is an input type that accepts DomainAutoTuneOptionsMaintenanceScheduleArray and DomainAutoTuneOptionsMaintenanceScheduleArrayOutput values.
+// You can construct a concrete instance of `DomainAutoTuneOptionsMaintenanceScheduleArrayInput` via:
+//
+//          DomainAutoTuneOptionsMaintenanceScheduleArray{ DomainAutoTuneOptionsMaintenanceScheduleArgs{...} }
+type DomainAutoTuneOptionsMaintenanceScheduleArrayInput interface {
+	pulumi.Input
+
+	ToDomainAutoTuneOptionsMaintenanceScheduleArrayOutput() DomainAutoTuneOptionsMaintenanceScheduleArrayOutput
+	ToDomainAutoTuneOptionsMaintenanceScheduleArrayOutputWithContext(context.Context) DomainAutoTuneOptionsMaintenanceScheduleArrayOutput
+}
+
+type DomainAutoTuneOptionsMaintenanceScheduleArray []DomainAutoTuneOptionsMaintenanceScheduleInput
+
+func (DomainAutoTuneOptionsMaintenanceScheduleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DomainAutoTuneOptionsMaintenanceSchedule)(nil)).Elem()
+}
+
+func (i DomainAutoTuneOptionsMaintenanceScheduleArray) ToDomainAutoTuneOptionsMaintenanceScheduleArrayOutput() DomainAutoTuneOptionsMaintenanceScheduleArrayOutput {
+	return i.ToDomainAutoTuneOptionsMaintenanceScheduleArrayOutputWithContext(context.Background())
+}
+
+func (i DomainAutoTuneOptionsMaintenanceScheduleArray) ToDomainAutoTuneOptionsMaintenanceScheduleArrayOutputWithContext(ctx context.Context) DomainAutoTuneOptionsMaintenanceScheduleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainAutoTuneOptionsMaintenanceScheduleArrayOutput)
+}
+
+type DomainAutoTuneOptionsMaintenanceScheduleOutput struct{ *pulumi.OutputState }
+
+func (DomainAutoTuneOptionsMaintenanceScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainAutoTuneOptionsMaintenanceSchedule)(nil)).Elem()
+}
+
+func (o DomainAutoTuneOptionsMaintenanceScheduleOutput) ToDomainAutoTuneOptionsMaintenanceScheduleOutput() DomainAutoTuneOptionsMaintenanceScheduleOutput {
+	return o
+}
+
+func (o DomainAutoTuneOptionsMaintenanceScheduleOutput) ToDomainAutoTuneOptionsMaintenanceScheduleOutputWithContext(ctx context.Context) DomainAutoTuneOptionsMaintenanceScheduleOutput {
+	return o
+}
+
+// A cron expression specifying the recurrence pattern for an Auto-Tune maintenance schedule.
+func (o DomainAutoTuneOptionsMaintenanceScheduleOutput) CronExpressionForRecurrence() pulumi.StringOutput {
+	return o.ApplyT(func(v DomainAutoTuneOptionsMaintenanceSchedule) string { return v.CronExpressionForRecurrence }).(pulumi.StringOutput)
+}
+
+// Configuration block for the duration of the Auto-Tune maintenance window. Detailed below.
+func (o DomainAutoTuneOptionsMaintenanceScheduleOutput) Duration() DomainAutoTuneOptionsMaintenanceScheduleDurationOutput {
+	return o.ApplyT(func(v DomainAutoTuneOptionsMaintenanceSchedule) DomainAutoTuneOptionsMaintenanceScheduleDuration {
+		return v.Duration
+	}).(DomainAutoTuneOptionsMaintenanceScheduleDurationOutput)
+}
+
+// Date and time at which to start the Auto-Tune maintenance schedule in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+func (o DomainAutoTuneOptionsMaintenanceScheduleOutput) StartAt() pulumi.StringOutput {
+	return o.ApplyT(func(v DomainAutoTuneOptionsMaintenanceSchedule) string { return v.StartAt }).(pulumi.StringOutput)
+}
+
+type DomainAutoTuneOptionsMaintenanceScheduleArrayOutput struct{ *pulumi.OutputState }
+
+func (DomainAutoTuneOptionsMaintenanceScheduleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DomainAutoTuneOptionsMaintenanceSchedule)(nil)).Elem()
+}
+
+func (o DomainAutoTuneOptionsMaintenanceScheduleArrayOutput) ToDomainAutoTuneOptionsMaintenanceScheduleArrayOutput() DomainAutoTuneOptionsMaintenanceScheduleArrayOutput {
+	return o
+}
+
+func (o DomainAutoTuneOptionsMaintenanceScheduleArrayOutput) ToDomainAutoTuneOptionsMaintenanceScheduleArrayOutputWithContext(ctx context.Context) DomainAutoTuneOptionsMaintenanceScheduleArrayOutput {
+	return o
+}
+
+func (o DomainAutoTuneOptionsMaintenanceScheduleArrayOutput) Index(i pulumi.IntInput) DomainAutoTuneOptionsMaintenanceScheduleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DomainAutoTuneOptionsMaintenanceSchedule {
+		return vs[0].([]DomainAutoTuneOptionsMaintenanceSchedule)[vs[1].(int)]
+	}).(DomainAutoTuneOptionsMaintenanceScheduleOutput)
+}
+
+type DomainAutoTuneOptionsMaintenanceScheduleDuration struct {
+	// The unit of time specifying the duration of an Auto-Tune maintenance window. Valid values: `HOURS`.
+	Unit string `pulumi:"unit"`
+	// An integer specifying the value of the duration of an Auto-Tune maintenance window.
+	Value int `pulumi:"value"`
+}
+
+// DomainAutoTuneOptionsMaintenanceScheduleDurationInput is an input type that accepts DomainAutoTuneOptionsMaintenanceScheduleDurationArgs and DomainAutoTuneOptionsMaintenanceScheduleDurationOutput values.
+// You can construct a concrete instance of `DomainAutoTuneOptionsMaintenanceScheduleDurationInput` via:
+//
+//          DomainAutoTuneOptionsMaintenanceScheduleDurationArgs{...}
+type DomainAutoTuneOptionsMaintenanceScheduleDurationInput interface {
+	pulumi.Input
+
+	ToDomainAutoTuneOptionsMaintenanceScheduleDurationOutput() DomainAutoTuneOptionsMaintenanceScheduleDurationOutput
+	ToDomainAutoTuneOptionsMaintenanceScheduleDurationOutputWithContext(context.Context) DomainAutoTuneOptionsMaintenanceScheduleDurationOutput
+}
+
+type DomainAutoTuneOptionsMaintenanceScheduleDurationArgs struct {
+	// The unit of time specifying the duration of an Auto-Tune maintenance window. Valid values: `HOURS`.
+	Unit pulumi.StringInput `pulumi:"unit"`
+	// An integer specifying the value of the duration of an Auto-Tune maintenance window.
+	Value pulumi.IntInput `pulumi:"value"`
+}
+
+func (DomainAutoTuneOptionsMaintenanceScheduleDurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainAutoTuneOptionsMaintenanceScheduleDuration)(nil)).Elem()
+}
+
+func (i DomainAutoTuneOptionsMaintenanceScheduleDurationArgs) ToDomainAutoTuneOptionsMaintenanceScheduleDurationOutput() DomainAutoTuneOptionsMaintenanceScheduleDurationOutput {
+	return i.ToDomainAutoTuneOptionsMaintenanceScheduleDurationOutputWithContext(context.Background())
+}
+
+func (i DomainAutoTuneOptionsMaintenanceScheduleDurationArgs) ToDomainAutoTuneOptionsMaintenanceScheduleDurationOutputWithContext(ctx context.Context) DomainAutoTuneOptionsMaintenanceScheduleDurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainAutoTuneOptionsMaintenanceScheduleDurationOutput)
+}
+
+type DomainAutoTuneOptionsMaintenanceScheduleDurationOutput struct{ *pulumi.OutputState }
+
+func (DomainAutoTuneOptionsMaintenanceScheduleDurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainAutoTuneOptionsMaintenanceScheduleDuration)(nil)).Elem()
+}
+
+func (o DomainAutoTuneOptionsMaintenanceScheduleDurationOutput) ToDomainAutoTuneOptionsMaintenanceScheduleDurationOutput() DomainAutoTuneOptionsMaintenanceScheduleDurationOutput {
+	return o
+}
+
+func (o DomainAutoTuneOptionsMaintenanceScheduleDurationOutput) ToDomainAutoTuneOptionsMaintenanceScheduleDurationOutputWithContext(ctx context.Context) DomainAutoTuneOptionsMaintenanceScheduleDurationOutput {
+	return o
+}
+
+// The unit of time specifying the duration of an Auto-Tune maintenance window. Valid values: `HOURS`.
+func (o DomainAutoTuneOptionsMaintenanceScheduleDurationOutput) Unit() pulumi.StringOutput {
+	return o.ApplyT(func(v DomainAutoTuneOptionsMaintenanceScheduleDuration) string { return v.Unit }).(pulumi.StringOutput)
+}
+
+// An integer specifying the value of the duration of an Auto-Tune maintenance window.
+func (o DomainAutoTuneOptionsMaintenanceScheduleDurationOutput) Value() pulumi.IntOutput {
+	return o.ApplyT(func(v DomainAutoTuneOptionsMaintenanceScheduleDuration) int { return v.Value }).(pulumi.IntOutput)
+}
+
 type DomainClusterConfig struct {
 	// Number of dedicated main nodes in the cluster.
 	DedicatedMasterCount *int `pulumi:"dedicatedMasterCount"`
@@ -2648,6 +3003,346 @@ func (o GetDomainAdvancedSecurityOptionArrayOutput) Index(i pulumi.IntInput) Get
 	}).(GetDomainAdvancedSecurityOptionOutput)
 }
 
+type GetDomainAutoTuneOption struct {
+	// The Auto-Tune desired state for the domain.
+	DesiredState string `pulumi:"desiredState"`
+	// A list of the nested configurations for the Auto-Tune maintenance windows of the domain.
+	MaintenanceSchedules []GetDomainAutoTuneOptionMaintenanceSchedule `pulumi:"maintenanceSchedules"`
+	// Whether the domain is set to roll back to default Auto-Tune settings when disabling Auto-Tune.
+	RollbackOnDisable string `pulumi:"rollbackOnDisable"`
+}
+
+// GetDomainAutoTuneOptionInput is an input type that accepts GetDomainAutoTuneOptionArgs and GetDomainAutoTuneOptionOutput values.
+// You can construct a concrete instance of `GetDomainAutoTuneOptionInput` via:
+//
+//          GetDomainAutoTuneOptionArgs{...}
+type GetDomainAutoTuneOptionInput interface {
+	pulumi.Input
+
+	ToGetDomainAutoTuneOptionOutput() GetDomainAutoTuneOptionOutput
+	ToGetDomainAutoTuneOptionOutputWithContext(context.Context) GetDomainAutoTuneOptionOutput
+}
+
+type GetDomainAutoTuneOptionArgs struct {
+	// The Auto-Tune desired state for the domain.
+	DesiredState pulumi.StringInput `pulumi:"desiredState"`
+	// A list of the nested configurations for the Auto-Tune maintenance windows of the domain.
+	MaintenanceSchedules GetDomainAutoTuneOptionMaintenanceScheduleArrayInput `pulumi:"maintenanceSchedules"`
+	// Whether the domain is set to roll back to default Auto-Tune settings when disabling Auto-Tune.
+	RollbackOnDisable pulumi.StringInput `pulumi:"rollbackOnDisable"`
+}
+
+func (GetDomainAutoTuneOptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDomainAutoTuneOption)(nil)).Elem()
+}
+
+func (i GetDomainAutoTuneOptionArgs) ToGetDomainAutoTuneOptionOutput() GetDomainAutoTuneOptionOutput {
+	return i.ToGetDomainAutoTuneOptionOutputWithContext(context.Background())
+}
+
+func (i GetDomainAutoTuneOptionArgs) ToGetDomainAutoTuneOptionOutputWithContext(ctx context.Context) GetDomainAutoTuneOptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDomainAutoTuneOptionOutput)
+}
+
+// GetDomainAutoTuneOptionArrayInput is an input type that accepts GetDomainAutoTuneOptionArray and GetDomainAutoTuneOptionArrayOutput values.
+// You can construct a concrete instance of `GetDomainAutoTuneOptionArrayInput` via:
+//
+//          GetDomainAutoTuneOptionArray{ GetDomainAutoTuneOptionArgs{...} }
+type GetDomainAutoTuneOptionArrayInput interface {
+	pulumi.Input
+
+	ToGetDomainAutoTuneOptionArrayOutput() GetDomainAutoTuneOptionArrayOutput
+	ToGetDomainAutoTuneOptionArrayOutputWithContext(context.Context) GetDomainAutoTuneOptionArrayOutput
+}
+
+type GetDomainAutoTuneOptionArray []GetDomainAutoTuneOptionInput
+
+func (GetDomainAutoTuneOptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDomainAutoTuneOption)(nil)).Elem()
+}
+
+func (i GetDomainAutoTuneOptionArray) ToGetDomainAutoTuneOptionArrayOutput() GetDomainAutoTuneOptionArrayOutput {
+	return i.ToGetDomainAutoTuneOptionArrayOutputWithContext(context.Background())
+}
+
+func (i GetDomainAutoTuneOptionArray) ToGetDomainAutoTuneOptionArrayOutputWithContext(ctx context.Context) GetDomainAutoTuneOptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDomainAutoTuneOptionArrayOutput)
+}
+
+type GetDomainAutoTuneOptionOutput struct{ *pulumi.OutputState }
+
+func (GetDomainAutoTuneOptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDomainAutoTuneOption)(nil)).Elem()
+}
+
+func (o GetDomainAutoTuneOptionOutput) ToGetDomainAutoTuneOptionOutput() GetDomainAutoTuneOptionOutput {
+	return o
+}
+
+func (o GetDomainAutoTuneOptionOutput) ToGetDomainAutoTuneOptionOutputWithContext(ctx context.Context) GetDomainAutoTuneOptionOutput {
+	return o
+}
+
+// The Auto-Tune desired state for the domain.
+func (o GetDomainAutoTuneOptionOutput) DesiredState() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDomainAutoTuneOption) string { return v.DesiredState }).(pulumi.StringOutput)
+}
+
+// A list of the nested configurations for the Auto-Tune maintenance windows of the domain.
+func (o GetDomainAutoTuneOptionOutput) MaintenanceSchedules() GetDomainAutoTuneOptionMaintenanceScheduleArrayOutput {
+	return o.ApplyT(func(v GetDomainAutoTuneOption) []GetDomainAutoTuneOptionMaintenanceSchedule {
+		return v.MaintenanceSchedules
+	}).(GetDomainAutoTuneOptionMaintenanceScheduleArrayOutput)
+}
+
+// Whether the domain is set to roll back to default Auto-Tune settings when disabling Auto-Tune.
+func (o GetDomainAutoTuneOptionOutput) RollbackOnDisable() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDomainAutoTuneOption) string { return v.RollbackOnDisable }).(pulumi.StringOutput)
+}
+
+type GetDomainAutoTuneOptionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDomainAutoTuneOptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDomainAutoTuneOption)(nil)).Elem()
+}
+
+func (o GetDomainAutoTuneOptionArrayOutput) ToGetDomainAutoTuneOptionArrayOutput() GetDomainAutoTuneOptionArrayOutput {
+	return o
+}
+
+func (o GetDomainAutoTuneOptionArrayOutput) ToGetDomainAutoTuneOptionArrayOutputWithContext(ctx context.Context) GetDomainAutoTuneOptionArrayOutput {
+	return o
+}
+
+func (o GetDomainAutoTuneOptionArrayOutput) Index(i pulumi.IntInput) GetDomainAutoTuneOptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDomainAutoTuneOption {
+		return vs[0].([]GetDomainAutoTuneOption)[vs[1].(int)]
+	}).(GetDomainAutoTuneOptionOutput)
+}
+
+type GetDomainAutoTuneOptionMaintenanceSchedule struct {
+	// A cron expression specifying the recurrence pattern for an Auto-Tune maintenance schedule.
+	CronExpressionForRecurrence string `pulumi:"cronExpressionForRecurrence"`
+	// Configuration block for the duration of the Auto-Tune maintenance window.
+	Durations []GetDomainAutoTuneOptionMaintenanceScheduleDuration `pulumi:"durations"`
+	// Date and time at which the Auto-Tune maintenance schedule starts in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+	StartAt string `pulumi:"startAt"`
+}
+
+// GetDomainAutoTuneOptionMaintenanceScheduleInput is an input type that accepts GetDomainAutoTuneOptionMaintenanceScheduleArgs and GetDomainAutoTuneOptionMaintenanceScheduleOutput values.
+// You can construct a concrete instance of `GetDomainAutoTuneOptionMaintenanceScheduleInput` via:
+//
+//          GetDomainAutoTuneOptionMaintenanceScheduleArgs{...}
+type GetDomainAutoTuneOptionMaintenanceScheduleInput interface {
+	pulumi.Input
+
+	ToGetDomainAutoTuneOptionMaintenanceScheduleOutput() GetDomainAutoTuneOptionMaintenanceScheduleOutput
+	ToGetDomainAutoTuneOptionMaintenanceScheduleOutputWithContext(context.Context) GetDomainAutoTuneOptionMaintenanceScheduleOutput
+}
+
+type GetDomainAutoTuneOptionMaintenanceScheduleArgs struct {
+	// A cron expression specifying the recurrence pattern for an Auto-Tune maintenance schedule.
+	CronExpressionForRecurrence pulumi.StringInput `pulumi:"cronExpressionForRecurrence"`
+	// Configuration block for the duration of the Auto-Tune maintenance window.
+	Durations GetDomainAutoTuneOptionMaintenanceScheduleDurationArrayInput `pulumi:"durations"`
+	// Date and time at which the Auto-Tune maintenance schedule starts in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+	StartAt pulumi.StringInput `pulumi:"startAt"`
+}
+
+func (GetDomainAutoTuneOptionMaintenanceScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDomainAutoTuneOptionMaintenanceSchedule)(nil)).Elem()
+}
+
+func (i GetDomainAutoTuneOptionMaintenanceScheduleArgs) ToGetDomainAutoTuneOptionMaintenanceScheduleOutput() GetDomainAutoTuneOptionMaintenanceScheduleOutput {
+	return i.ToGetDomainAutoTuneOptionMaintenanceScheduleOutputWithContext(context.Background())
+}
+
+func (i GetDomainAutoTuneOptionMaintenanceScheduleArgs) ToGetDomainAutoTuneOptionMaintenanceScheduleOutputWithContext(ctx context.Context) GetDomainAutoTuneOptionMaintenanceScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDomainAutoTuneOptionMaintenanceScheduleOutput)
+}
+
+// GetDomainAutoTuneOptionMaintenanceScheduleArrayInput is an input type that accepts GetDomainAutoTuneOptionMaintenanceScheduleArray and GetDomainAutoTuneOptionMaintenanceScheduleArrayOutput values.
+// You can construct a concrete instance of `GetDomainAutoTuneOptionMaintenanceScheduleArrayInput` via:
+//
+//          GetDomainAutoTuneOptionMaintenanceScheduleArray{ GetDomainAutoTuneOptionMaintenanceScheduleArgs{...} }
+type GetDomainAutoTuneOptionMaintenanceScheduleArrayInput interface {
+	pulumi.Input
+
+	ToGetDomainAutoTuneOptionMaintenanceScheduleArrayOutput() GetDomainAutoTuneOptionMaintenanceScheduleArrayOutput
+	ToGetDomainAutoTuneOptionMaintenanceScheduleArrayOutputWithContext(context.Context) GetDomainAutoTuneOptionMaintenanceScheduleArrayOutput
+}
+
+type GetDomainAutoTuneOptionMaintenanceScheduleArray []GetDomainAutoTuneOptionMaintenanceScheduleInput
+
+func (GetDomainAutoTuneOptionMaintenanceScheduleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDomainAutoTuneOptionMaintenanceSchedule)(nil)).Elem()
+}
+
+func (i GetDomainAutoTuneOptionMaintenanceScheduleArray) ToGetDomainAutoTuneOptionMaintenanceScheduleArrayOutput() GetDomainAutoTuneOptionMaintenanceScheduleArrayOutput {
+	return i.ToGetDomainAutoTuneOptionMaintenanceScheduleArrayOutputWithContext(context.Background())
+}
+
+func (i GetDomainAutoTuneOptionMaintenanceScheduleArray) ToGetDomainAutoTuneOptionMaintenanceScheduleArrayOutputWithContext(ctx context.Context) GetDomainAutoTuneOptionMaintenanceScheduleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDomainAutoTuneOptionMaintenanceScheduleArrayOutput)
+}
+
+type GetDomainAutoTuneOptionMaintenanceScheduleOutput struct{ *pulumi.OutputState }
+
+func (GetDomainAutoTuneOptionMaintenanceScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDomainAutoTuneOptionMaintenanceSchedule)(nil)).Elem()
+}
+
+func (o GetDomainAutoTuneOptionMaintenanceScheduleOutput) ToGetDomainAutoTuneOptionMaintenanceScheduleOutput() GetDomainAutoTuneOptionMaintenanceScheduleOutput {
+	return o
+}
+
+func (o GetDomainAutoTuneOptionMaintenanceScheduleOutput) ToGetDomainAutoTuneOptionMaintenanceScheduleOutputWithContext(ctx context.Context) GetDomainAutoTuneOptionMaintenanceScheduleOutput {
+	return o
+}
+
+// A cron expression specifying the recurrence pattern for an Auto-Tune maintenance schedule.
+func (o GetDomainAutoTuneOptionMaintenanceScheduleOutput) CronExpressionForRecurrence() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDomainAutoTuneOptionMaintenanceSchedule) string { return v.CronExpressionForRecurrence }).(pulumi.StringOutput)
+}
+
+// Configuration block for the duration of the Auto-Tune maintenance window.
+func (o GetDomainAutoTuneOptionMaintenanceScheduleOutput) Durations() GetDomainAutoTuneOptionMaintenanceScheduleDurationArrayOutput {
+	return o.ApplyT(func(v GetDomainAutoTuneOptionMaintenanceSchedule) []GetDomainAutoTuneOptionMaintenanceScheduleDuration {
+		return v.Durations
+	}).(GetDomainAutoTuneOptionMaintenanceScheduleDurationArrayOutput)
+}
+
+// Date and time at which the Auto-Tune maintenance schedule starts in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+func (o GetDomainAutoTuneOptionMaintenanceScheduleOutput) StartAt() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDomainAutoTuneOptionMaintenanceSchedule) string { return v.StartAt }).(pulumi.StringOutput)
+}
+
+type GetDomainAutoTuneOptionMaintenanceScheduleArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDomainAutoTuneOptionMaintenanceScheduleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDomainAutoTuneOptionMaintenanceSchedule)(nil)).Elem()
+}
+
+func (o GetDomainAutoTuneOptionMaintenanceScheduleArrayOutput) ToGetDomainAutoTuneOptionMaintenanceScheduleArrayOutput() GetDomainAutoTuneOptionMaintenanceScheduleArrayOutput {
+	return o
+}
+
+func (o GetDomainAutoTuneOptionMaintenanceScheduleArrayOutput) ToGetDomainAutoTuneOptionMaintenanceScheduleArrayOutputWithContext(ctx context.Context) GetDomainAutoTuneOptionMaintenanceScheduleArrayOutput {
+	return o
+}
+
+func (o GetDomainAutoTuneOptionMaintenanceScheduleArrayOutput) Index(i pulumi.IntInput) GetDomainAutoTuneOptionMaintenanceScheduleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDomainAutoTuneOptionMaintenanceSchedule {
+		return vs[0].([]GetDomainAutoTuneOptionMaintenanceSchedule)[vs[1].(int)]
+	}).(GetDomainAutoTuneOptionMaintenanceScheduleOutput)
+}
+
+type GetDomainAutoTuneOptionMaintenanceScheduleDuration struct {
+	// The unit of time specifying the duration of an Auto-Tune maintenance window.
+	Unit string `pulumi:"unit"`
+	// An integer specifying the value of the duration of an Auto-Tune maintenance window.
+	Value int `pulumi:"value"`
+}
+
+// GetDomainAutoTuneOptionMaintenanceScheduleDurationInput is an input type that accepts GetDomainAutoTuneOptionMaintenanceScheduleDurationArgs and GetDomainAutoTuneOptionMaintenanceScheduleDurationOutput values.
+// You can construct a concrete instance of `GetDomainAutoTuneOptionMaintenanceScheduleDurationInput` via:
+//
+//          GetDomainAutoTuneOptionMaintenanceScheduleDurationArgs{...}
+type GetDomainAutoTuneOptionMaintenanceScheduleDurationInput interface {
+	pulumi.Input
+
+	ToGetDomainAutoTuneOptionMaintenanceScheduleDurationOutput() GetDomainAutoTuneOptionMaintenanceScheduleDurationOutput
+	ToGetDomainAutoTuneOptionMaintenanceScheduleDurationOutputWithContext(context.Context) GetDomainAutoTuneOptionMaintenanceScheduleDurationOutput
+}
+
+type GetDomainAutoTuneOptionMaintenanceScheduleDurationArgs struct {
+	// The unit of time specifying the duration of an Auto-Tune maintenance window.
+	Unit pulumi.StringInput `pulumi:"unit"`
+	// An integer specifying the value of the duration of an Auto-Tune maintenance window.
+	Value pulumi.IntInput `pulumi:"value"`
+}
+
+func (GetDomainAutoTuneOptionMaintenanceScheduleDurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDomainAutoTuneOptionMaintenanceScheduleDuration)(nil)).Elem()
+}
+
+func (i GetDomainAutoTuneOptionMaintenanceScheduleDurationArgs) ToGetDomainAutoTuneOptionMaintenanceScheduleDurationOutput() GetDomainAutoTuneOptionMaintenanceScheduleDurationOutput {
+	return i.ToGetDomainAutoTuneOptionMaintenanceScheduleDurationOutputWithContext(context.Background())
+}
+
+func (i GetDomainAutoTuneOptionMaintenanceScheduleDurationArgs) ToGetDomainAutoTuneOptionMaintenanceScheduleDurationOutputWithContext(ctx context.Context) GetDomainAutoTuneOptionMaintenanceScheduleDurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDomainAutoTuneOptionMaintenanceScheduleDurationOutput)
+}
+
+// GetDomainAutoTuneOptionMaintenanceScheduleDurationArrayInput is an input type that accepts GetDomainAutoTuneOptionMaintenanceScheduleDurationArray and GetDomainAutoTuneOptionMaintenanceScheduleDurationArrayOutput values.
+// You can construct a concrete instance of `GetDomainAutoTuneOptionMaintenanceScheduleDurationArrayInput` via:
+//
+//          GetDomainAutoTuneOptionMaintenanceScheduleDurationArray{ GetDomainAutoTuneOptionMaintenanceScheduleDurationArgs{...} }
+type GetDomainAutoTuneOptionMaintenanceScheduleDurationArrayInput interface {
+	pulumi.Input
+
+	ToGetDomainAutoTuneOptionMaintenanceScheduleDurationArrayOutput() GetDomainAutoTuneOptionMaintenanceScheduleDurationArrayOutput
+	ToGetDomainAutoTuneOptionMaintenanceScheduleDurationArrayOutputWithContext(context.Context) GetDomainAutoTuneOptionMaintenanceScheduleDurationArrayOutput
+}
+
+type GetDomainAutoTuneOptionMaintenanceScheduleDurationArray []GetDomainAutoTuneOptionMaintenanceScheduleDurationInput
+
+func (GetDomainAutoTuneOptionMaintenanceScheduleDurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDomainAutoTuneOptionMaintenanceScheduleDuration)(nil)).Elem()
+}
+
+func (i GetDomainAutoTuneOptionMaintenanceScheduleDurationArray) ToGetDomainAutoTuneOptionMaintenanceScheduleDurationArrayOutput() GetDomainAutoTuneOptionMaintenanceScheduleDurationArrayOutput {
+	return i.ToGetDomainAutoTuneOptionMaintenanceScheduleDurationArrayOutputWithContext(context.Background())
+}
+
+func (i GetDomainAutoTuneOptionMaintenanceScheduleDurationArray) ToGetDomainAutoTuneOptionMaintenanceScheduleDurationArrayOutputWithContext(ctx context.Context) GetDomainAutoTuneOptionMaintenanceScheduleDurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetDomainAutoTuneOptionMaintenanceScheduleDurationArrayOutput)
+}
+
+type GetDomainAutoTuneOptionMaintenanceScheduleDurationOutput struct{ *pulumi.OutputState }
+
+func (GetDomainAutoTuneOptionMaintenanceScheduleDurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetDomainAutoTuneOptionMaintenanceScheduleDuration)(nil)).Elem()
+}
+
+func (o GetDomainAutoTuneOptionMaintenanceScheduleDurationOutput) ToGetDomainAutoTuneOptionMaintenanceScheduleDurationOutput() GetDomainAutoTuneOptionMaintenanceScheduleDurationOutput {
+	return o
+}
+
+func (o GetDomainAutoTuneOptionMaintenanceScheduleDurationOutput) ToGetDomainAutoTuneOptionMaintenanceScheduleDurationOutputWithContext(ctx context.Context) GetDomainAutoTuneOptionMaintenanceScheduleDurationOutput {
+	return o
+}
+
+// The unit of time specifying the duration of an Auto-Tune maintenance window.
+func (o GetDomainAutoTuneOptionMaintenanceScheduleDurationOutput) Unit() pulumi.StringOutput {
+	return o.ApplyT(func(v GetDomainAutoTuneOptionMaintenanceScheduleDuration) string { return v.Unit }).(pulumi.StringOutput)
+}
+
+// An integer specifying the value of the duration of an Auto-Tune maintenance window.
+func (o GetDomainAutoTuneOptionMaintenanceScheduleDurationOutput) Value() pulumi.IntOutput {
+	return o.ApplyT(func(v GetDomainAutoTuneOptionMaintenanceScheduleDuration) int { return v.Value }).(pulumi.IntOutput)
+}
+
+type GetDomainAutoTuneOptionMaintenanceScheduleDurationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetDomainAutoTuneOptionMaintenanceScheduleDurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetDomainAutoTuneOptionMaintenanceScheduleDuration)(nil)).Elem()
+}
+
+func (o GetDomainAutoTuneOptionMaintenanceScheduleDurationArrayOutput) ToGetDomainAutoTuneOptionMaintenanceScheduleDurationArrayOutput() GetDomainAutoTuneOptionMaintenanceScheduleDurationArrayOutput {
+	return o
+}
+
+func (o GetDomainAutoTuneOptionMaintenanceScheduleDurationArrayOutput) ToGetDomainAutoTuneOptionMaintenanceScheduleDurationArrayOutputWithContext(ctx context.Context) GetDomainAutoTuneOptionMaintenanceScheduleDurationArrayOutput {
+	return o
+}
+
+func (o GetDomainAutoTuneOptionMaintenanceScheduleDurationArrayOutput) Index(i pulumi.IntInput) GetDomainAutoTuneOptionMaintenanceScheduleDurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetDomainAutoTuneOptionMaintenanceScheduleDuration {
+		return vs[0].([]GetDomainAutoTuneOptionMaintenanceScheduleDuration)[vs[1].(int)]
+	}).(GetDomainAutoTuneOptionMaintenanceScheduleDurationOutput)
+}
+
 type GetDomainClusterConfig struct {
 	// Number of dedicated master nodes in the cluster.
 	DedicatedMasterCount int `pulumi:"dedicatedMasterCount"`
@@ -3717,6 +4412,11 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainAdvancedSecurityOptionsPtrInput)(nil)).Elem(), DomainAdvancedSecurityOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainAdvancedSecurityOptionsMasterUserOptionsInput)(nil)).Elem(), DomainAdvancedSecurityOptionsMasterUserOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainAdvancedSecurityOptionsMasterUserOptionsPtrInput)(nil)).Elem(), DomainAdvancedSecurityOptionsMasterUserOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainAutoTuneOptionsInput)(nil)).Elem(), DomainAutoTuneOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainAutoTuneOptionsPtrInput)(nil)).Elem(), DomainAutoTuneOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainAutoTuneOptionsMaintenanceScheduleInput)(nil)).Elem(), DomainAutoTuneOptionsMaintenanceScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainAutoTuneOptionsMaintenanceScheduleArrayInput)(nil)).Elem(), DomainAutoTuneOptionsMaintenanceScheduleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainAutoTuneOptionsMaintenanceScheduleDurationInput)(nil)).Elem(), DomainAutoTuneOptionsMaintenanceScheduleDurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainClusterConfigInput)(nil)).Elem(), DomainClusterConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainClusterConfigPtrInput)(nil)).Elem(), DomainClusterConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainClusterConfigZoneAwarenessConfigInput)(nil)).Elem(), DomainClusterConfigZoneAwarenessConfigArgs{})
@@ -3743,6 +4443,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainVpcOptionsPtrInput)(nil)).Elem(), DomainVpcOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainAdvancedSecurityOptionInput)(nil)).Elem(), GetDomainAdvancedSecurityOptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainAdvancedSecurityOptionArrayInput)(nil)).Elem(), GetDomainAdvancedSecurityOptionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainAutoTuneOptionInput)(nil)).Elem(), GetDomainAutoTuneOptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainAutoTuneOptionArrayInput)(nil)).Elem(), GetDomainAutoTuneOptionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainAutoTuneOptionMaintenanceScheduleInput)(nil)).Elem(), GetDomainAutoTuneOptionMaintenanceScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainAutoTuneOptionMaintenanceScheduleArrayInput)(nil)).Elem(), GetDomainAutoTuneOptionMaintenanceScheduleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainAutoTuneOptionMaintenanceScheduleDurationInput)(nil)).Elem(), GetDomainAutoTuneOptionMaintenanceScheduleDurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainAutoTuneOptionMaintenanceScheduleDurationArrayInput)(nil)).Elem(), GetDomainAutoTuneOptionMaintenanceScheduleDurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainClusterConfigInput)(nil)).Elem(), GetDomainClusterConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainClusterConfigArrayInput)(nil)).Elem(), GetDomainClusterConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainClusterConfigZoneAwarenessConfigInput)(nil)).Elem(), GetDomainClusterConfigZoneAwarenessConfigArgs{})
@@ -3765,6 +4471,11 @@ func init() {
 	pulumi.RegisterOutputType(DomainAdvancedSecurityOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DomainAdvancedSecurityOptionsMasterUserOptionsOutput{})
 	pulumi.RegisterOutputType(DomainAdvancedSecurityOptionsMasterUserOptionsPtrOutput{})
+	pulumi.RegisterOutputType(DomainAutoTuneOptionsOutput{})
+	pulumi.RegisterOutputType(DomainAutoTuneOptionsPtrOutput{})
+	pulumi.RegisterOutputType(DomainAutoTuneOptionsMaintenanceScheduleOutput{})
+	pulumi.RegisterOutputType(DomainAutoTuneOptionsMaintenanceScheduleArrayOutput{})
+	pulumi.RegisterOutputType(DomainAutoTuneOptionsMaintenanceScheduleDurationOutput{})
 	pulumi.RegisterOutputType(DomainClusterConfigOutput{})
 	pulumi.RegisterOutputType(DomainClusterConfigPtrOutput{})
 	pulumi.RegisterOutputType(DomainClusterConfigZoneAwarenessConfigOutput{})
@@ -3791,6 +4502,12 @@ func init() {
 	pulumi.RegisterOutputType(DomainVpcOptionsPtrOutput{})
 	pulumi.RegisterOutputType(GetDomainAdvancedSecurityOptionOutput{})
 	pulumi.RegisterOutputType(GetDomainAdvancedSecurityOptionArrayOutput{})
+	pulumi.RegisterOutputType(GetDomainAutoTuneOptionOutput{})
+	pulumi.RegisterOutputType(GetDomainAutoTuneOptionArrayOutput{})
+	pulumi.RegisterOutputType(GetDomainAutoTuneOptionMaintenanceScheduleOutput{})
+	pulumi.RegisterOutputType(GetDomainAutoTuneOptionMaintenanceScheduleArrayOutput{})
+	pulumi.RegisterOutputType(GetDomainAutoTuneOptionMaintenanceScheduleDurationOutput{})
+	pulumi.RegisterOutputType(GetDomainAutoTuneOptionMaintenanceScheduleDurationArrayOutput{})
 	pulumi.RegisterOutputType(GetDomainClusterConfigOutput{})
 	pulumi.RegisterOutputType(GetDomainClusterConfigArrayOutput{})
 	pulumi.RegisterOutputType(GetDomainClusterConfigZoneAwarenessConfigOutput{})

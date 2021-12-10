@@ -29,12 +29,18 @@ __all__ = [
     'TaskDefinitionInferenceAccelerator',
     'TaskDefinitionPlacementConstraint',
     'TaskDefinitionProxyConfiguration',
+    'TaskDefinitionRuntimePlatform',
     'TaskDefinitionVolume',
     'TaskDefinitionVolumeDockerVolumeConfiguration',
     'TaskDefinitionVolumeEfsVolumeConfiguration',
     'TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfig',
     'TaskDefinitionVolumeFsxWindowsFileServerVolumeConfiguration',
     'TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfig',
+    'TaskSetCapacityProviderStrategy',
+    'TaskSetLoadBalancer',
+    'TaskSetNetworkConfiguration',
+    'TaskSetScale',
+    'TaskSetServiceRegistries',
     'GetClusterSettingResult',
 ]
 
@@ -1027,6 +1033,56 @@ class TaskDefinitionProxyConfiguration(dict):
 
 
 @pulumi.output_type
+class TaskDefinitionRuntimePlatform(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cpuArchitecture":
+            suggest = "cpu_architecture"
+        elif key == "operatingSystemFamily":
+            suggest = "operating_system_family"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TaskDefinitionRuntimePlatform. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TaskDefinitionRuntimePlatform.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TaskDefinitionRuntimePlatform.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cpu_architecture: Optional[str] = None,
+                 operating_system_family: Optional[str] = None):
+        """
+        :param str cpu_architecture: Must be set to either `X86_64` or `ARM64`; see [cpu architecture](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform)
+        :param str operating_system_family: If the `requires_compatibilities` is `FARGATE` this field is required; must be set to a valid option from the [operating system family in the runtime platform](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform) setting
+        """
+        if cpu_architecture is not None:
+            pulumi.set(__self__, "cpu_architecture", cpu_architecture)
+        if operating_system_family is not None:
+            pulumi.set(__self__, "operating_system_family", operating_system_family)
+
+    @property
+    @pulumi.getter(name="cpuArchitecture")
+    def cpu_architecture(self) -> Optional[str]:
+        """
+        Must be set to either `X86_64` or `ARM64`; see [cpu architecture](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform)
+        """
+        return pulumi.get(self, "cpu_architecture")
+
+    @property
+    @pulumi.getter(name="operatingSystemFamily")
+    def operating_system_family(self) -> Optional[str]:
+        """
+        If the `requires_compatibilities` is `FARGATE` this field is required; must be set to a valid option from the [operating system family in the runtime platform](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform) setting
+        """
+        return pulumi.get(self, "operating_system_family")
+
+
+@pulumi.output_type
 class TaskDefinitionVolume(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -1445,6 +1501,308 @@ class TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationCo
         A fully qualified domain name hosted by an AWS Directory Service Managed Microsoft AD (Active Directory) or self-hosted AD on Amazon EC2.
         """
         return pulumi.get(self, "domain")
+
+
+@pulumi.output_type
+class TaskSetCapacityProviderStrategy(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "capacityProvider":
+            suggest = "capacity_provider"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TaskSetCapacityProviderStrategy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TaskSetCapacityProviderStrategy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TaskSetCapacityProviderStrategy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 capacity_provider: str,
+                 weight: int,
+                 base: Optional[int] = None):
+        """
+        :param str capacity_provider: The short name or full Amazon Resource Name (ARN) of the capacity provider.
+        :param int weight: The relative percentage of the total number of launched tasks that should use the specified capacity provider.
+        :param int base: The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
+        """
+        pulumi.set(__self__, "capacity_provider", capacity_provider)
+        pulumi.set(__self__, "weight", weight)
+        if base is not None:
+            pulumi.set(__self__, "base", base)
+
+    @property
+    @pulumi.getter(name="capacityProvider")
+    def capacity_provider(self) -> str:
+        """
+        The short name or full Amazon Resource Name (ARN) of the capacity provider.
+        """
+        return pulumi.get(self, "capacity_provider")
+
+    @property
+    @pulumi.getter
+    def weight(self) -> int:
+        """
+        The relative percentage of the total number of launched tasks that should use the specified capacity provider.
+        """
+        return pulumi.get(self, "weight")
+
+    @property
+    @pulumi.getter
+    def base(self) -> Optional[int]:
+        """
+        The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
+        """
+        return pulumi.get(self, "base")
+
+
+@pulumi.output_type
+class TaskSetLoadBalancer(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "containerName":
+            suggest = "container_name"
+        elif key == "containerPort":
+            suggest = "container_port"
+        elif key == "loadBalancerName":
+            suggest = "load_balancer_name"
+        elif key == "targetGroupArn":
+            suggest = "target_group_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TaskSetLoadBalancer. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TaskSetLoadBalancer.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TaskSetLoadBalancer.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 container_name: str,
+                 container_port: Optional[int] = None,
+                 load_balancer_name: Optional[str] = None,
+                 target_group_arn: Optional[str] = None):
+        """
+        :param str container_name: The name of the container to associate with the load balancer (as it appears in a container definition).
+        :param int container_port: The port on the container to associate with the load balancer. Defaults to `0` if not specified.
+        :param str load_balancer_name: The name of the ELB (Classic) to associate with the service.
+        :param str target_group_arn: The ARN of the Load Balancer target group to associate with the service.
+        """
+        pulumi.set(__self__, "container_name", container_name)
+        if container_port is not None:
+            pulumi.set(__self__, "container_port", container_port)
+        if load_balancer_name is not None:
+            pulumi.set(__self__, "load_balancer_name", load_balancer_name)
+        if target_group_arn is not None:
+            pulumi.set(__self__, "target_group_arn", target_group_arn)
+
+    @property
+    @pulumi.getter(name="containerName")
+    def container_name(self) -> str:
+        """
+        The name of the container to associate with the load balancer (as it appears in a container definition).
+        """
+        return pulumi.get(self, "container_name")
+
+    @property
+    @pulumi.getter(name="containerPort")
+    def container_port(self) -> Optional[int]:
+        """
+        The port on the container to associate with the load balancer. Defaults to `0` if not specified.
+        """
+        return pulumi.get(self, "container_port")
+
+    @property
+    @pulumi.getter(name="loadBalancerName")
+    def load_balancer_name(self) -> Optional[str]:
+        """
+        The name of the ELB (Classic) to associate with the service.
+        """
+        return pulumi.get(self, "load_balancer_name")
+
+    @property
+    @pulumi.getter(name="targetGroupArn")
+    def target_group_arn(self) -> Optional[str]:
+        """
+        The ARN of the Load Balancer target group to associate with the service.
+        """
+        return pulumi.get(self, "target_group_arn")
+
+
+@pulumi.output_type
+class TaskSetNetworkConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "assignPublicIp":
+            suggest = "assign_public_ip"
+        elif key == "securityGroups":
+            suggest = "security_groups"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TaskSetNetworkConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TaskSetNetworkConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TaskSetNetworkConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 subnets: Sequence[str],
+                 assign_public_ip: Optional[bool] = None,
+                 security_groups: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[str] subnets: The subnets associated with the task or service. Maximum of 16.
+        :param bool assign_public_ip: Whether to assign a public IP address to the ENI (`FARGATE` launch type only). Valid values are `true` or `false`. Default `false`.
+        :param Sequence[str] security_groups: The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used. Maximum of 5.
+        """
+        pulumi.set(__self__, "subnets", subnets)
+        if assign_public_ip is not None:
+            pulumi.set(__self__, "assign_public_ip", assign_public_ip)
+        if security_groups is not None:
+            pulumi.set(__self__, "security_groups", security_groups)
+
+    @property
+    @pulumi.getter
+    def subnets(self) -> Sequence[str]:
+        """
+        The subnets associated with the task or service. Maximum of 16.
+        """
+        return pulumi.get(self, "subnets")
+
+    @property
+    @pulumi.getter(name="assignPublicIp")
+    def assign_public_ip(self) -> Optional[bool]:
+        """
+        Whether to assign a public IP address to the ENI (`FARGATE` launch type only). Valid values are `true` or `false`. Default `false`.
+        """
+        return pulumi.get(self, "assign_public_ip")
+
+    @property
+    @pulumi.getter(name="securityGroups")
+    def security_groups(self) -> Optional[Sequence[str]]:
+        """
+        The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used. Maximum of 5.
+        """
+        return pulumi.get(self, "security_groups")
+
+
+@pulumi.output_type
+class TaskSetScale(dict):
+    def __init__(__self__, *,
+                 unit: Optional[str] = None,
+                 value: Optional[float] = None):
+        """
+        :param str unit: The unit of measure for the scale value. Default: `PERCENT`.
+        :param float value: The value, specified as a percent total of a service's `desiredCount`, to scale the task set. Defaults to `0` if not specified. Accepted values are numbers between 0.0 and 100.0.
+        """
+        if unit is not None:
+            pulumi.set(__self__, "unit", unit)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> Optional[str]:
+        """
+        The unit of measure for the scale value. Default: `PERCENT`.
+        """
+        return pulumi.get(self, "unit")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[float]:
+        """
+        The value, specified as a percent total of a service's `desiredCount`, to scale the task set. Defaults to `0` if not specified. Accepted values are numbers between 0.0 and 100.0.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class TaskSetServiceRegistries(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "registryArn":
+            suggest = "registry_arn"
+        elif key == "containerName":
+            suggest = "container_name"
+        elif key == "containerPort":
+            suggest = "container_port"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TaskSetServiceRegistries. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TaskSetServiceRegistries.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TaskSetServiceRegistries.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 registry_arn: str,
+                 container_name: Optional[str] = None,
+                 container_port: Optional[int] = None,
+                 port: Optional[int] = None):
+        """
+        :param str registry_arn: The ARN of the Service Registry. The currently supported service registry is Amazon Route 53 Auto Naming Service([`servicediscovery.Service` resource](https://www.terraform.io/docs/providers/aws/r/service_discovery_service.html)). For more information, see [Service](https://docs.aws.amazon.com/Route53/latest/APIReference/API_autonaming_Service.html).
+        :param str container_name: The container name value, already specified in the task definition, to be used for your service discovery service.
+        :param int container_port: The port value, already specified in the task definition, to be used for your service discovery service.
+        :param int port: The port value used if your Service Discovery service specified an SRV record.
+        """
+        pulumi.set(__self__, "registry_arn", registry_arn)
+        if container_name is not None:
+            pulumi.set(__self__, "container_name", container_name)
+        if container_port is not None:
+            pulumi.set(__self__, "container_port", container_port)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+
+    @property
+    @pulumi.getter(name="registryArn")
+    def registry_arn(self) -> str:
+        """
+        The ARN of the Service Registry. The currently supported service registry is Amazon Route 53 Auto Naming Service([`servicediscovery.Service` resource](https://www.terraform.io/docs/providers/aws/r/service_discovery_service.html)). For more information, see [Service](https://docs.aws.amazon.com/Route53/latest/APIReference/API_autonaming_Service.html).
+        """
+        return pulumi.get(self, "registry_arn")
+
+    @property
+    @pulumi.getter(name="containerName")
+    def container_name(self) -> Optional[str]:
+        """
+        The container name value, already specified in the task definition, to be used for your service discovery service.
+        """
+        return pulumi.get(self, "container_name")
+
+    @property
+    @pulumi.getter(name="containerPort")
+    def container_port(self) -> Optional[int]:
+        """
+        The port value, already specified in the task definition, to be used for your service discovery service.
+        """
+        return pulumi.get(self, "container_port")
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[int]:
+        """
+        The port value used if your Service Discovery service specified an SRV record.
+        """
+        return pulumi.get(self, "port")
 
 
 @pulumi.output_type

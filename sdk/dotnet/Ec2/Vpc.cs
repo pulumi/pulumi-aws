@@ -123,9 +123,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Requests an Amazon-provided IPv6 CIDR
-        /// block with a /56 prefix length for the VPC. You cannot specify the range of IP addresses, or
-        /// the size of the CIDR block. Default is `false`.
+        /// Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IP addresses, or the size of the CIDR block. Default is `false`. Conflicts with `ipv6_ipam_pool_id`
         /// </summary>
         [Output("assignGeneratedIpv6CidrBlock")]
         public Output<bool?> AssignGeneratedIpv6CidrBlock { get; private set; } = null!;
@@ -209,14 +207,20 @@ namespace Pulumi.Aws.Ec2
         public Output<string> Ipv6AssociationId { get; private set; } = null!;
 
         /// <summary>
-        /// The IPv6 CIDR block.
+        /// IPv6 CIDR block to request from an IPAM Pool. Can be set explicitly or derived from IPAM using `ipv6_netmask_length`.
         /// </summary>
         [Output("ipv6CidrBlock")]
         public Output<string> Ipv6CidrBlock { get; private set; } = null!;
 
+        /// <summary>
+        /// IPAM Pool ID for a IPv6 pool. Conflicts with `assign_generated_ipv6_cidr_block`.
+        /// </summary>
         [Output("ipv6IpamPoolId")]
         public Output<string?> Ipv6IpamPoolId { get; private set; } = null!;
 
+        /// <summary>
+        /// Netmask length to request from IPAM Pool. Conflicts with `ipv6_cidr_block`. This can be omitted if IPAM pool as a `allocation_default_netmask_length` set. Valid values: `56`.
+        /// </summary>
         [Output("ipv6NetmaskLength")]
         public Output<int?> Ipv6NetmaskLength { get; private set; } = null!;
 
@@ -235,7 +239,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string> OwnerId { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -293,9 +297,7 @@ namespace Pulumi.Aws.Ec2
     public sealed class VpcArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Requests an Amazon-provided IPv6 CIDR
-        /// block with a /56 prefix length for the VPC. You cannot specify the range of IP addresses, or
-        /// the size of the CIDR block. Default is `false`.
+        /// Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IP addresses, or the size of the CIDR block. Default is `false`. Conflicts with `ipv6_ipam_pool_id`
         /// </summary>
         [Input("assignGeneratedIpv6CidrBlock")]
         public Input<bool>? AssignGeneratedIpv6CidrBlock { get; set; }
@@ -352,14 +354,20 @@ namespace Pulumi.Aws.Ec2
         public Input<int>? Ipv4NetmaskLength { get; set; }
 
         /// <summary>
-        /// The IPv6 CIDR block.
+        /// IPv6 CIDR block to request from an IPAM Pool. Can be set explicitly or derived from IPAM using `ipv6_netmask_length`.
         /// </summary>
         [Input("ipv6CidrBlock")]
         public Input<string>? Ipv6CidrBlock { get; set; }
 
+        /// <summary>
+        /// IPAM Pool ID for a IPv6 pool. Conflicts with `assign_generated_ipv6_cidr_block`.
+        /// </summary>
         [Input("ipv6IpamPoolId")]
         public Input<string>? Ipv6IpamPoolId { get; set; }
 
+        /// <summary>
+        /// Netmask length to request from IPAM Pool. Conflicts with `ipv6_cidr_block`. This can be omitted if IPAM pool as a `allocation_default_netmask_length` set. Valid values: `56`.
+        /// </summary>
         [Input("ipv6NetmaskLength")]
         public Input<int>? Ipv6NetmaskLength { get; set; }
 
@@ -367,7 +375,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -389,9 +397,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// Requests an Amazon-provided IPv6 CIDR
-        /// block with a /56 prefix length for the VPC. You cannot specify the range of IP addresses, or
-        /// the size of the CIDR block. Default is `false`.
+        /// Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IP addresses, or the size of the CIDR block. Default is `false`. Conflicts with `ipv6_ipam_pool_id`
         /// </summary>
         [Input("assignGeneratedIpv6CidrBlock")]
         public Input<bool>? AssignGeneratedIpv6CidrBlock { get; set; }
@@ -475,14 +481,20 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Ipv6AssociationId { get; set; }
 
         /// <summary>
-        /// The IPv6 CIDR block.
+        /// IPv6 CIDR block to request from an IPAM Pool. Can be set explicitly or derived from IPAM using `ipv6_netmask_length`.
         /// </summary>
         [Input("ipv6CidrBlock")]
         public Input<string>? Ipv6CidrBlock { get; set; }
 
+        /// <summary>
+        /// IPAM Pool ID for a IPv6 pool. Conflicts with `assign_generated_ipv6_cidr_block`.
+        /// </summary>
         [Input("ipv6IpamPoolId")]
         public Input<string>? Ipv6IpamPoolId { get; set; }
 
+        /// <summary>
+        /// Netmask length to request from IPAM Pool. Conflicts with `ipv6_cidr_block`. This can be omitted if IPAM pool as a `allocation_default_netmask_length` set. Valid values: `56`.
+        /// </summary>
         [Input("ipv6NetmaskLength")]
         public Input<int>? Ipv6NetmaskLength { get; set; }
 
@@ -504,7 +516,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {

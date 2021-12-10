@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -23,6 +24,9 @@ import * as utilities from "../utilities";
  *         "IncomingBytes",
  *         "OutgoingBytes",
  *     ],
+ *     streamModeDetails: {
+ *         streamMode: "PROVISIONED",
+ *     },
  *     tags: {
  *         Environment: "test",
  *     },
@@ -92,14 +96,18 @@ export class Stream extends pulumi.CustomResource {
      */
     public readonly retentionPeriod!: pulumi.Output<number | undefined>;
     /**
-     * The number of shards that the stream will use.
+     * The number of shards that the stream will use. If the `streamMode` is `PROVISIONED`, this field is required.
      * Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
      */
-    public readonly shardCount!: pulumi.Output<number>;
+    public readonly shardCount!: pulumi.Output<number | undefined>;
     /**
      * A list of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
      */
     public readonly shardLevelMetrics!: pulumi.Output<string[] | undefined>;
+    /**
+     * Indicates the [capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
+     */
+    public readonly streamModeDetails!: pulumi.Output<outputs.kinesis.StreamStreamModeDetails>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -113,7 +121,7 @@ export class Stream extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: StreamArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args?: StreamArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: StreamArgs | StreamState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
@@ -127,13 +135,11 @@ export class Stream extends pulumi.CustomResource {
             inputs["retentionPeriod"] = state ? state.retentionPeriod : undefined;
             inputs["shardCount"] = state ? state.shardCount : undefined;
             inputs["shardLevelMetrics"] = state ? state.shardLevelMetrics : undefined;
+            inputs["streamModeDetails"] = state ? state.streamModeDetails : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as StreamArgs | undefined;
-            if ((!args || args.shardCount === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'shardCount'");
-            }
             inputs["arn"] = args ? args.arn : undefined;
             inputs["encryptionType"] = args ? args.encryptionType : undefined;
             inputs["enforceConsumerDeletion"] = args ? args.enforceConsumerDeletion : undefined;
@@ -142,6 +148,7 @@ export class Stream extends pulumi.CustomResource {
             inputs["retentionPeriod"] = args ? args.retentionPeriod : undefined;
             inputs["shardCount"] = args ? args.shardCount : undefined;
             inputs["shardLevelMetrics"] = args ? args.shardLevelMetrics : undefined;
+            inputs["streamModeDetails"] = args ? args.streamModeDetails : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["tagsAll"] = undefined /*out*/;
         }
@@ -181,7 +188,7 @@ export interface StreamState {
      */
     retentionPeriod?: pulumi.Input<number>;
     /**
-     * The number of shards that the stream will use.
+     * The number of shards that the stream will use. If the `streamMode` is `PROVISIONED`, this field is required.
      * Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
      */
     shardCount?: pulumi.Input<number>;
@@ -189,6 +196,10 @@ export interface StreamState {
      * A list of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
      */
     shardLevelMetrics?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Indicates the [capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
+     */
+    streamModeDetails?: pulumi.Input<inputs.kinesis.StreamStreamModeDetails>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -225,13 +236,17 @@ export interface StreamArgs {
      */
     retentionPeriod?: pulumi.Input<number>;
     /**
-     * The number of shards that the stream will use.
+     * The number of shards that the stream will use. If the `streamMode` is `PROVISIONED`, this field is required.
      * Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
      */
-    shardCount: pulumi.Input<number>;
+    shardCount?: pulumi.Input<number>;
     /**
      * A list of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
      */
     shardLevelMetrics?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Indicates the [capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
+     */
+    streamModeDetails?: pulumi.Input<inputs.kinesis.StreamStreamModeDetails>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

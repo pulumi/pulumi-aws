@@ -16,6 +16,8 @@ __all__ = [
     'CodeSigningConfigPolicies',
     'EventSourceMappingDestinationConfig',
     'EventSourceMappingDestinationConfigOnFailure',
+    'EventSourceMappingFilterCriteria',
+    'EventSourceMappingFilterCriteriaFilter',
     'EventSourceMappingSelfManagedEventSource',
     'EventSourceMappingSourceAccessConfiguration',
     'FunctionDeadLetterConfig',
@@ -211,6 +213,44 @@ class EventSourceMappingDestinationConfigOnFailure(dict):
         The Amazon Resource Name (ARN) of the destination resource.
         """
         return pulumi.get(self, "destination_arn")
+
+
+@pulumi.output_type
+class EventSourceMappingFilterCriteria(dict):
+    def __init__(__self__, *,
+                 filters: Optional[Sequence['outputs.EventSourceMappingFilterCriteriaFilter']] = None):
+        """
+        :param Sequence['EventSourceMappingFilterCriteriaFilterArgs'] filters: A set of up to 5 filter. If an event satisfies at least one, Lambda sends the event to the function or adds it to the next batch. Detailed below.
+        """
+        if filters is not None:
+            pulumi.set(__self__, "filters", filters)
+
+    @property
+    @pulumi.getter
+    def filters(self) -> Optional[Sequence['outputs.EventSourceMappingFilterCriteriaFilter']]:
+        """
+        A set of up to 5 filter. If an event satisfies at least one, Lambda sends the event to the function or adds it to the next batch. Detailed below.
+        """
+        return pulumi.get(self, "filters")
+
+
+@pulumi.output_type
+class EventSourceMappingFilterCriteriaFilter(dict):
+    def __init__(__self__, *,
+                 pattern: Optional[str] = None):
+        """
+        :param str pattern: A filter pattern up to 4096 characters. See [Filter Rule Syntax](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-syntax).
+        """
+        if pattern is not None:
+            pulumi.set(__self__, "pattern", pattern)
+
+    @property
+    @pulumi.getter
+    def pattern(self) -> Optional[str]:
+        """
+        A filter pattern up to 4096 characters. See [Filter Rule Syntax](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-syntax).
+        """
+        return pulumi.get(self, "pattern")
 
 
 @pulumi.output_type

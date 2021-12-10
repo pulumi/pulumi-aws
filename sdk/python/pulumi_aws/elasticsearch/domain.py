@@ -18,6 +18,7 @@ class DomainArgs:
                  access_policies: Optional[pulumi.Input[str]] = None,
                  advanced_options: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  advanced_security_options: Optional[pulumi.Input['DomainAdvancedSecurityOptionsArgs']] = None,
+                 auto_tune_options: Optional[pulumi.Input['DomainAutoTuneOptionsArgs']] = None,
                  cluster_config: Optional[pulumi.Input['DomainClusterConfigArgs']] = None,
                  cognito_options: Optional[pulumi.Input['DomainCognitoOptionsArgs']] = None,
                  domain_endpoint_options: Optional[pulumi.Input['DomainDomainEndpointOptionsArgs']] = None,
@@ -34,6 +35,7 @@ class DomainArgs:
         The set of arguments for constructing a Domain resource.
         :param pulumi.Input[str] access_policies: IAM policy document specifying the access policies for the domain.
         :param pulumi.Input['DomainAdvancedSecurityOptionsArgs'] advanced_security_options: Configuration block for [fine-grained access control](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/fgac.html). Detailed below.
+        :param pulumi.Input['DomainAutoTuneOptionsArgs'] auto_tune_options: Configuration block for the Auto-Tune options of the domain. Detailed below.
         :param pulumi.Input['DomainClusterConfigArgs'] cluster_config: Configuration block for the cluster of the domain. Detailed below.
         :param pulumi.Input['DomainCognitoOptionsArgs'] cognito_options: Configuration block for authenticating Kibana with Cognito. Detailed below.
         :param pulumi.Input['DomainDomainEndpointOptionsArgs'] domain_endpoint_options: Configuration block for domain endpoint HTTP(S) related options. Detailed below.
@@ -53,6 +55,8 @@ class DomainArgs:
             pulumi.set(__self__, "advanced_options", advanced_options)
         if advanced_security_options is not None:
             pulumi.set(__self__, "advanced_security_options", advanced_security_options)
+        if auto_tune_options is not None:
+            pulumi.set(__self__, "auto_tune_options", auto_tune_options)
         if cluster_config is not None:
             pulumi.set(__self__, "cluster_config", cluster_config)
         if cognito_options is not None:
@@ -110,6 +114,18 @@ class DomainArgs:
     @advanced_security_options.setter
     def advanced_security_options(self, value: Optional[pulumi.Input['DomainAdvancedSecurityOptionsArgs']]):
         pulumi.set(self, "advanced_security_options", value)
+
+    @property
+    @pulumi.getter(name="autoTuneOptions")
+    def auto_tune_options(self) -> Optional[pulumi.Input['DomainAutoTuneOptionsArgs']]:
+        """
+        Configuration block for the Auto-Tune options of the domain. Detailed below.
+        """
+        return pulumi.get(self, "auto_tune_options")
+
+    @auto_tune_options.setter
+    def auto_tune_options(self, value: Optional[pulumi.Input['DomainAutoTuneOptionsArgs']]):
+        pulumi.set(self, "auto_tune_options", value)
 
     @property
     @pulumi.getter(name="clusterConfig")
@@ -263,6 +279,7 @@ class _DomainState:
                  advanced_options: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  advanced_security_options: Optional[pulumi.Input['DomainAdvancedSecurityOptionsArgs']] = None,
                  arn: Optional[pulumi.Input[str]] = None,
+                 auto_tune_options: Optional[pulumi.Input['DomainAutoTuneOptionsArgs']] = None,
                  cluster_config: Optional[pulumi.Input['DomainClusterConfigArgs']] = None,
                  cognito_options: Optional[pulumi.Input['DomainCognitoOptionsArgs']] = None,
                  domain_endpoint_options: Optional[pulumi.Input['DomainDomainEndpointOptionsArgs']] = None,
@@ -284,6 +301,7 @@ class _DomainState:
         :param pulumi.Input[str] access_policies: IAM policy document specifying the access policies for the domain.
         :param pulumi.Input['DomainAdvancedSecurityOptionsArgs'] advanced_security_options: Configuration block for [fine-grained access control](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/fgac.html). Detailed below.
         :param pulumi.Input[str] arn: ARN of the domain.
+        :param pulumi.Input['DomainAutoTuneOptionsArgs'] auto_tune_options: Configuration block for the Auto-Tune options of the domain. Detailed below.
         :param pulumi.Input['DomainClusterConfigArgs'] cluster_config: Configuration block for the cluster of the domain. Detailed below.
         :param pulumi.Input['DomainCognitoOptionsArgs'] cognito_options: Configuration block for authenticating Kibana with Cognito. Detailed below.
         :param pulumi.Input['DomainDomainEndpointOptionsArgs'] domain_endpoint_options: Configuration block for domain endpoint HTTP(S) related options. Detailed below.
@@ -308,6 +326,8 @@ class _DomainState:
             pulumi.set(__self__, "advanced_security_options", advanced_security_options)
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
+        if auto_tune_options is not None:
+            pulumi.set(__self__, "auto_tune_options", auto_tune_options)
         if cluster_config is not None:
             pulumi.set(__self__, "cluster_config", cluster_config)
         if cognito_options is not None:
@@ -385,6 +405,18 @@ class _DomainState:
     @arn.setter
     def arn(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "arn", value)
+
+    @property
+    @pulumi.getter(name="autoTuneOptions")
+    def auto_tune_options(self) -> Optional[pulumi.Input['DomainAutoTuneOptionsArgs']]:
+        """
+        Configuration block for the Auto-Tune options of the domain. Detailed below.
+        """
+        return pulumi.get(self, "auto_tune_options")
+
+    @auto_tune_options.setter
+    def auto_tune_options(self, value: Optional[pulumi.Input['DomainAutoTuneOptionsArgs']]):
+        pulumi.set(self, "auto_tune_options", value)
 
     @property
     @pulumi.getter(name="clusterConfig")
@@ -584,6 +616,7 @@ class Domain(pulumi.CustomResource):
                  access_policies: Optional[pulumi.Input[str]] = None,
                  advanced_options: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  advanced_security_options: Optional[pulumi.Input[pulumi.InputType['DomainAdvancedSecurityOptionsArgs']]] = None,
+                 auto_tune_options: Optional[pulumi.Input[pulumi.InputType['DomainAutoTuneOptionsArgs']]] = None,
                  cluster_config: Optional[pulumi.Input[pulumi.InputType['DomainClusterConfigArgs']]] = None,
                  cognito_options: Optional[pulumi.Input[pulumi.InputType['DomainCognitoOptionsArgs']]] = None,
                  domain_endpoint_options: Optional[pulumi.Input[pulumi.InputType['DomainDomainEndpointOptionsArgs']]] = None,
@@ -755,6 +788,7 @@ class Domain(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] access_policies: IAM policy document specifying the access policies for the domain.
         :param pulumi.Input[pulumi.InputType['DomainAdvancedSecurityOptionsArgs']] advanced_security_options: Configuration block for [fine-grained access control](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/fgac.html). Detailed below.
+        :param pulumi.Input[pulumi.InputType['DomainAutoTuneOptionsArgs']] auto_tune_options: Configuration block for the Auto-Tune options of the domain. Detailed below.
         :param pulumi.Input[pulumi.InputType['DomainClusterConfigArgs']] cluster_config: Configuration block for the cluster of the domain. Detailed below.
         :param pulumi.Input[pulumi.InputType['DomainCognitoOptionsArgs']] cognito_options: Configuration block for authenticating Kibana with Cognito. Detailed below.
         :param pulumi.Input[pulumi.InputType['DomainDomainEndpointOptionsArgs']] domain_endpoint_options: Configuration block for domain endpoint HTTP(S) related options. Detailed below.
@@ -946,6 +980,7 @@ class Domain(pulumi.CustomResource):
                  access_policies: Optional[pulumi.Input[str]] = None,
                  advanced_options: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  advanced_security_options: Optional[pulumi.Input[pulumi.InputType['DomainAdvancedSecurityOptionsArgs']]] = None,
+                 auto_tune_options: Optional[pulumi.Input[pulumi.InputType['DomainAutoTuneOptionsArgs']]] = None,
                  cluster_config: Optional[pulumi.Input[pulumi.InputType['DomainClusterConfigArgs']]] = None,
                  cognito_options: Optional[pulumi.Input[pulumi.InputType['DomainCognitoOptionsArgs']]] = None,
                  domain_endpoint_options: Optional[pulumi.Input[pulumi.InputType['DomainDomainEndpointOptionsArgs']]] = None,
@@ -973,6 +1008,7 @@ class Domain(pulumi.CustomResource):
             __props__.__dict__["access_policies"] = access_policies
             __props__.__dict__["advanced_options"] = advanced_options
             __props__.__dict__["advanced_security_options"] = advanced_security_options
+            __props__.__dict__["auto_tune_options"] = auto_tune_options
             __props__.__dict__["cluster_config"] = cluster_config
             __props__.__dict__["cognito_options"] = cognito_options
             __props__.__dict__["domain_endpoint_options"] = domain_endpoint_options
@@ -1004,6 +1040,7 @@ class Domain(pulumi.CustomResource):
             advanced_options: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             advanced_security_options: Optional[pulumi.Input[pulumi.InputType['DomainAdvancedSecurityOptionsArgs']]] = None,
             arn: Optional[pulumi.Input[str]] = None,
+            auto_tune_options: Optional[pulumi.Input[pulumi.InputType['DomainAutoTuneOptionsArgs']]] = None,
             cluster_config: Optional[pulumi.Input[pulumi.InputType['DomainClusterConfigArgs']]] = None,
             cognito_options: Optional[pulumi.Input[pulumi.InputType['DomainCognitoOptionsArgs']]] = None,
             domain_endpoint_options: Optional[pulumi.Input[pulumi.InputType['DomainDomainEndpointOptionsArgs']]] = None,
@@ -1030,6 +1067,7 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[str] access_policies: IAM policy document specifying the access policies for the domain.
         :param pulumi.Input[pulumi.InputType['DomainAdvancedSecurityOptionsArgs']] advanced_security_options: Configuration block for [fine-grained access control](https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/fgac.html). Detailed below.
         :param pulumi.Input[str] arn: ARN of the domain.
+        :param pulumi.Input[pulumi.InputType['DomainAutoTuneOptionsArgs']] auto_tune_options: Configuration block for the Auto-Tune options of the domain. Detailed below.
         :param pulumi.Input[pulumi.InputType['DomainClusterConfigArgs']] cluster_config: Configuration block for the cluster of the domain. Detailed below.
         :param pulumi.Input[pulumi.InputType['DomainCognitoOptionsArgs']] cognito_options: Configuration block for authenticating Kibana with Cognito. Detailed below.
         :param pulumi.Input[pulumi.InputType['DomainDomainEndpointOptionsArgs']] domain_endpoint_options: Configuration block for domain endpoint HTTP(S) related options. Detailed below.
@@ -1054,6 +1092,7 @@ class Domain(pulumi.CustomResource):
         __props__.__dict__["advanced_options"] = advanced_options
         __props__.__dict__["advanced_security_options"] = advanced_security_options
         __props__.__dict__["arn"] = arn
+        __props__.__dict__["auto_tune_options"] = auto_tune_options
         __props__.__dict__["cluster_config"] = cluster_config
         __props__.__dict__["cognito_options"] = cognito_options
         __props__.__dict__["domain_endpoint_options"] = domain_endpoint_options
@@ -1100,6 +1139,14 @@ class Domain(pulumi.CustomResource):
         ARN of the domain.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="autoTuneOptions")
+    def auto_tune_options(self) -> pulumi.Output['outputs.DomainAutoTuneOptions']:
+        """
+        Configuration block for the Auto-Tune options of the domain. Detailed below.
+        """
+        return pulumi.get(self, "auto_tune_options")
 
     @property
     @pulumi.getter(name="clusterConfig")
