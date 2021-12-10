@@ -15,6 +15,8 @@ __all__ = [
     'CodeSigningConfigPoliciesArgs',
     'EventSourceMappingDestinationConfigArgs',
     'EventSourceMappingDestinationConfigOnFailureArgs',
+    'EventSourceMappingFilterCriteriaArgs',
+    'EventSourceMappingFilterCriteriaFilterArgs',
     'EventSourceMappingSelfManagedEventSourceArgs',
     'EventSourceMappingSourceAccessConfigurationArgs',
     'FunctionDeadLetterConfigArgs',
@@ -138,6 +140,52 @@ class EventSourceMappingDestinationConfigOnFailureArgs:
     @destination_arn.setter
     def destination_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "destination_arn", value)
+
+
+@pulumi.input_type
+class EventSourceMappingFilterCriteriaArgs:
+    def __init__(__self__, *,
+                 filters: Optional[pulumi.Input[Sequence[pulumi.Input['EventSourceMappingFilterCriteriaFilterArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['EventSourceMappingFilterCriteriaFilterArgs']]] filters: A set of up to 5 filter. If an event satisfies at least one, Lambda sends the event to the function or adds it to the next batch. Detailed below.
+        """
+        if filters is not None:
+            pulumi.set(__self__, "filters", filters)
+
+    @property
+    @pulumi.getter
+    def filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventSourceMappingFilterCriteriaFilterArgs']]]]:
+        """
+        A set of up to 5 filter. If an event satisfies at least one, Lambda sends the event to the function or adds it to the next batch. Detailed below.
+        """
+        return pulumi.get(self, "filters")
+
+    @filters.setter
+    def filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventSourceMappingFilterCriteriaFilterArgs']]]]):
+        pulumi.set(self, "filters", value)
+
+
+@pulumi.input_type
+class EventSourceMappingFilterCriteriaFilterArgs:
+    def __init__(__self__, *,
+                 pattern: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] pattern: A filter pattern up to 4096 characters. See [Filter Rule Syntax](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-syntax).
+        """
+        if pattern is not None:
+            pulumi.set(__self__, "pattern", pattern)
+
+    @property
+    @pulumi.getter
+    def pattern(self) -> Optional[pulumi.Input[str]]:
+        """
+        A filter pattern up to 4096 characters. See [Filter Rule Syntax](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-syntax).
+        """
+        return pulumi.get(self, "pattern")
+
+    @pattern.setter
+    def pattern(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "pattern", value)
 
 
 @pulumi.input_type

@@ -13,12 +13,16 @@ __all__ = ['RegionSettingsArgs', 'RegionSettings']
 @pulumi.input_type
 class RegionSettingsArgs:
     def __init__(__self__, *,
-                 resource_type_opt_in_preference: pulumi.Input[Mapping[str, pulumi.Input[bool]]]):
+                 resource_type_opt_in_preference: pulumi.Input[Mapping[str, pulumi.Input[bool]]],
+                 resource_type_management_preference: Optional[pulumi.Input[Mapping[str, pulumi.Input[bool]]]] = None):
         """
         The set of arguments for constructing a RegionSettings resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[bool]]] resource_type_opt_in_preference: A map of services along with the opt-in preferences for the Region.
+        :param pulumi.Input[Mapping[str, pulumi.Input[bool]]] resource_type_management_preference: A map of services along with the management preferences for the Region.
         """
         pulumi.set(__self__, "resource_type_opt_in_preference", resource_type_opt_in_preference)
+        if resource_type_management_preference is not None:
+            pulumi.set(__self__, "resource_type_management_preference", resource_type_management_preference)
 
     @property
     @pulumi.getter(name="resourceTypeOptInPreference")
@@ -32,17 +36,45 @@ class RegionSettingsArgs:
     def resource_type_opt_in_preference(self, value: pulumi.Input[Mapping[str, pulumi.Input[bool]]]):
         pulumi.set(self, "resource_type_opt_in_preference", value)
 
+    @property
+    @pulumi.getter(name="resourceTypeManagementPreference")
+    def resource_type_management_preference(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[bool]]]]:
+        """
+        A map of services along with the management preferences for the Region.
+        """
+        return pulumi.get(self, "resource_type_management_preference")
+
+    @resource_type_management_preference.setter
+    def resource_type_management_preference(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[bool]]]]):
+        pulumi.set(self, "resource_type_management_preference", value)
+
 
 @pulumi.input_type
 class _RegionSettingsState:
     def __init__(__self__, *,
+                 resource_type_management_preference: Optional[pulumi.Input[Mapping[str, pulumi.Input[bool]]]] = None,
                  resource_type_opt_in_preference: Optional[pulumi.Input[Mapping[str, pulumi.Input[bool]]]] = None):
         """
         Input properties used for looking up and filtering RegionSettings resources.
+        :param pulumi.Input[Mapping[str, pulumi.Input[bool]]] resource_type_management_preference: A map of services along with the management preferences for the Region.
         :param pulumi.Input[Mapping[str, pulumi.Input[bool]]] resource_type_opt_in_preference: A map of services along with the opt-in preferences for the Region.
         """
+        if resource_type_management_preference is not None:
+            pulumi.set(__self__, "resource_type_management_preference", resource_type_management_preference)
         if resource_type_opt_in_preference is not None:
             pulumi.set(__self__, "resource_type_opt_in_preference", resource_type_opt_in_preference)
+
+    @property
+    @pulumi.getter(name="resourceTypeManagementPreference")
+    def resource_type_management_preference(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[bool]]]]:
+        """
+        A map of services along with the management preferences for the Region.
+        """
+        return pulumi.get(self, "resource_type_management_preference")
+
+    @resource_type_management_preference.setter
+    def resource_type_management_preference(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[bool]]]]):
+        pulumi.set(self, "resource_type_management_preference", value)
 
     @property
     @pulumi.getter(name="resourceTypeOptInPreference")
@@ -62,6 +94,7 @@ class RegionSettings(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 resource_type_management_preference: Optional[pulumi.Input[Mapping[str, pulumi.Input[bool]]]] = None,
                  resource_type_opt_in_preference: Optional[pulumi.Input[Mapping[str, pulumi.Input[bool]]]] = None,
                  __props__=None):
         """
@@ -73,16 +106,24 @@ class RegionSettings(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.backup.RegionSettings("test", resource_type_opt_in_preference={
-            "Aurora": True,
-            "DynamoDB": True,
-            "EBS": True,
-            "EC2": True,
-            "EFS": True,
-            "FSx": True,
-            "RDS": True,
-            "Storage Gateway": True,
-        })
+        test = aws.backup.RegionSettings("test",
+            resource_type_management_preference={
+                "DynamoDB": True,
+                "EFS": True,
+            },
+            resource_type_opt_in_preference={
+                "Aurora": True,
+                "DocumentDB": True,
+                "DynamoDB": True,
+                "EBS": True,
+                "EC2": True,
+                "EFS": True,
+                "FSx": True,
+                "Neptune": True,
+                "RDS": True,
+                "Storage Gateway": True,
+                "VirtualMachine": True,
+            })
         ```
 
         ## Import
@@ -95,6 +136,7 @@ class RegionSettings(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[bool]]] resource_type_management_preference: A map of services along with the management preferences for the Region.
         :param pulumi.Input[Mapping[str, pulumi.Input[bool]]] resource_type_opt_in_preference: A map of services along with the opt-in preferences for the Region.
         """
         ...
@@ -112,16 +154,24 @@ class RegionSettings(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        test = aws.backup.RegionSettings("test", resource_type_opt_in_preference={
-            "Aurora": True,
-            "DynamoDB": True,
-            "EBS": True,
-            "EC2": True,
-            "EFS": True,
-            "FSx": True,
-            "RDS": True,
-            "Storage Gateway": True,
-        })
+        test = aws.backup.RegionSettings("test",
+            resource_type_management_preference={
+                "DynamoDB": True,
+                "EFS": True,
+            },
+            resource_type_opt_in_preference={
+                "Aurora": True,
+                "DocumentDB": True,
+                "DynamoDB": True,
+                "EBS": True,
+                "EC2": True,
+                "EFS": True,
+                "FSx": True,
+                "Neptune": True,
+                "RDS": True,
+                "Storage Gateway": True,
+                "VirtualMachine": True,
+            })
         ```
 
         ## Import
@@ -147,6 +197,7 @@ class RegionSettings(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 resource_type_management_preference: Optional[pulumi.Input[Mapping[str, pulumi.Input[bool]]]] = None,
                  resource_type_opt_in_preference: Optional[pulumi.Input[Mapping[str, pulumi.Input[bool]]]] = None,
                  __props__=None):
         if opts is None:
@@ -160,6 +211,7 @@ class RegionSettings(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = RegionSettingsArgs.__new__(RegionSettingsArgs)
 
+            __props__.__dict__["resource_type_management_preference"] = resource_type_management_preference
             if resource_type_opt_in_preference is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_type_opt_in_preference'")
             __props__.__dict__["resource_type_opt_in_preference"] = resource_type_opt_in_preference
@@ -173,6 +225,7 @@ class RegionSettings(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            resource_type_management_preference: Optional[pulumi.Input[Mapping[str, pulumi.Input[bool]]]] = None,
             resource_type_opt_in_preference: Optional[pulumi.Input[Mapping[str, pulumi.Input[bool]]]] = None) -> 'RegionSettings':
         """
         Get an existing RegionSettings resource's state with the given name, id, and optional extra
@@ -181,14 +234,24 @@ class RegionSettings(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[bool]]] resource_type_management_preference: A map of services along with the management preferences for the Region.
         :param pulumi.Input[Mapping[str, pulumi.Input[bool]]] resource_type_opt_in_preference: A map of services along with the opt-in preferences for the Region.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = _RegionSettingsState.__new__(_RegionSettingsState)
 
+        __props__.__dict__["resource_type_management_preference"] = resource_type_management_preference
         __props__.__dict__["resource_type_opt_in_preference"] = resource_type_opt_in_preference
         return RegionSettings(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="resourceTypeManagementPreference")
+    def resource_type_management_preference(self) -> pulumi.Output[Mapping[str, bool]]:
+        """
+        A map of services along with the management preferences for the Region.
+        """
+        return pulumi.get(self, "resource_type_management_preference")
 
     @property
     @pulumi.getter(name="resourceTypeOptInPreference")

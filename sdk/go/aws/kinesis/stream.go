@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -34,6 +33,9 @@ import (
 // 			ShardLevelMetrics: pulumi.StringArray{
 // 				pulumi.String("IncomingBytes"),
 // 				pulumi.String("OutgoingBytes"),
+// 			},
+// 			StreamModeDetails: &kinesis.StreamStreamModeDetailsArgs{
+// 				StreamMode: pulumi.String("PROVISIONED"),
 // 			},
 // 			Tags: pulumi.StringMap{
 // 				"Environment": pulumi.String("test"),
@@ -71,12 +73,14 @@ type Stream struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Length of time data records are accessible after they are added to the stream. The maximum value of a stream's retention period is 8760 hours. Minimum value is 24. Default is 24.
 	RetentionPeriod pulumi.IntPtrOutput `pulumi:"retentionPeriod"`
-	// The number of shards that the stream will use.
+	// The number of shards that the stream will use. If the `streamMode` is `PROVISIONED`, this field is required.
 	// Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
-	ShardCount pulumi.IntOutput `pulumi:"shardCount"`
+	ShardCount pulumi.IntPtrOutput `pulumi:"shardCount"`
 	// A list of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
 	ShardLevelMetrics pulumi.StringArrayOutput `pulumi:"shardLevelMetrics"`
-	Tags              pulumi.StringMapOutput   `pulumi:"tags"`
+	// Indicates the [capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
+	StreamModeDetails StreamStreamModeDetailsOutput `pulumi:"streamModeDetails"`
+	Tags              pulumi.StringMapOutput        `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
@@ -85,12 +89,9 @@ type Stream struct {
 func NewStream(ctx *pulumi.Context,
 	name string, args *StreamArgs, opts ...pulumi.ResourceOption) (*Stream, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &StreamArgs{}
 	}
 
-	if args.ShardCount == nil {
-		return nil, errors.New("invalid value for required argument 'ShardCount'")
-	}
 	var resource Stream
 	err := ctx.RegisterResource("aws:kinesis/stream:Stream", name, args, &resource, opts...)
 	if err != nil {
@@ -125,12 +126,14 @@ type streamState struct {
 	Name *string `pulumi:"name"`
 	// Length of time data records are accessible after they are added to the stream. The maximum value of a stream's retention period is 8760 hours. Minimum value is 24. Default is 24.
 	RetentionPeriod *int `pulumi:"retentionPeriod"`
-	// The number of shards that the stream will use.
+	// The number of shards that the stream will use. If the `streamMode` is `PROVISIONED`, this field is required.
 	// Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
 	ShardCount *int `pulumi:"shardCount"`
 	// A list of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
-	ShardLevelMetrics []string          `pulumi:"shardLevelMetrics"`
-	Tags              map[string]string `pulumi:"tags"`
+	ShardLevelMetrics []string `pulumi:"shardLevelMetrics"`
+	// Indicates the [capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
+	StreamModeDetails *StreamStreamModeDetails `pulumi:"streamModeDetails"`
+	Tags              map[string]string        `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
@@ -148,11 +151,13 @@ type StreamState struct {
 	Name pulumi.StringPtrInput
 	// Length of time data records are accessible after they are added to the stream. The maximum value of a stream's retention period is 8760 hours. Minimum value is 24. Default is 24.
 	RetentionPeriod pulumi.IntPtrInput
-	// The number of shards that the stream will use.
+	// The number of shards that the stream will use. If the `streamMode` is `PROVISIONED`, this field is required.
 	// Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
 	ShardCount pulumi.IntPtrInput
 	// A list of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
 	ShardLevelMetrics pulumi.StringArrayInput
+	// Indicates the [capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
+	StreamModeDetails StreamStreamModeDetailsPtrInput
 	Tags              pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
@@ -175,12 +180,14 @@ type streamArgs struct {
 	Name *string `pulumi:"name"`
 	// Length of time data records are accessible after they are added to the stream. The maximum value of a stream's retention period is 8760 hours. Minimum value is 24. Default is 24.
 	RetentionPeriod *int `pulumi:"retentionPeriod"`
-	// The number of shards that the stream will use.
+	// The number of shards that the stream will use. If the `streamMode` is `PROVISIONED`, this field is required.
 	// Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
-	ShardCount int `pulumi:"shardCount"`
+	ShardCount *int `pulumi:"shardCount"`
 	// A list of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
-	ShardLevelMetrics []string          `pulumi:"shardLevelMetrics"`
-	Tags              map[string]string `pulumi:"tags"`
+	ShardLevelMetrics []string `pulumi:"shardLevelMetrics"`
+	// Indicates the [capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
+	StreamModeDetails *StreamStreamModeDetails `pulumi:"streamModeDetails"`
+	Tags              map[string]string        `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Stream resource.
@@ -197,11 +204,13 @@ type StreamArgs struct {
 	Name pulumi.StringPtrInput
 	// Length of time data records are accessible after they are added to the stream. The maximum value of a stream's retention period is 8760 hours. Minimum value is 24. Default is 24.
 	RetentionPeriod pulumi.IntPtrInput
-	// The number of shards that the stream will use.
+	// The number of shards that the stream will use. If the `streamMode` is `PROVISIONED`, this field is required.
 	// Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
-	ShardCount pulumi.IntInput
+	ShardCount pulumi.IntPtrInput
 	// A list of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
 	ShardLevelMetrics pulumi.StringArrayInput
+	// Indicates the [capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
+	StreamModeDetails StreamStreamModeDetailsPtrInput
 	Tags              pulumi.StringMapInput
 }
 

@@ -2,6 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -89,6 +90,10 @@ export interface GetStreamResult {
      * The current status of the stream. The stream status is one of CREATING, DELETING, ACTIVE, or UPDATING.
      */
     readonly status: string;
+    /**
+     * Indicates the [capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
+     */
+    readonly streamModeDetails: outputs.kinesis.GetStreamStreamModeDetail[];
     /**
      * A map of tags to assigned to the stream.
      */

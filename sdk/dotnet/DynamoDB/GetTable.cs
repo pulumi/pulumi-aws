@@ -144,6 +144,7 @@ namespace Pulumi.Aws.DynamoDB
         public readonly bool StreamEnabled;
         public readonly string StreamLabel;
         public readonly string StreamViewType;
+        public readonly string TableClass;
         public readonly ImmutableDictionary<string, string> Tags;
         public readonly Outputs.GetTableTtlResult Ttl;
         public readonly int WriteCapacity;
@@ -184,6 +185,8 @@ namespace Pulumi.Aws.DynamoDB
 
             string streamViewType,
 
+            string tableClass,
+
             ImmutableDictionary<string, string> tags,
 
             Outputs.GetTableTtlResult ttl,
@@ -207,6 +210,7 @@ namespace Pulumi.Aws.DynamoDB
             StreamEnabled = streamEnabled;
             StreamLabel = streamLabel;
             StreamViewType = streamViewType;
+            TableClass = tableClass;
             Tags = tags;
             Ttl = ttl;
             WriteCapacity = writeCapacity;

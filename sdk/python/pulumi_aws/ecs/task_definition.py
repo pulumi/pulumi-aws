@@ -28,6 +28,7 @@ class TaskDefinitionArgs:
                  placement_constraints: Optional[pulumi.Input[Sequence[pulumi.Input['TaskDefinitionPlacementConstraintArgs']]]] = None,
                  proxy_configuration: Optional[pulumi.Input['TaskDefinitionProxyConfigurationArgs']] = None,
                  requires_compatibilities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 runtime_platform: Optional[pulumi.Input['TaskDefinitionRuntimePlatformArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  task_role_arn: Optional[pulumi.Input[str]] = None,
                  volumes: Optional[pulumi.Input[Sequence[pulumi.Input['TaskDefinitionVolumeArgs']]]] = None):
@@ -46,6 +47,7 @@ class TaskDefinitionArgs:
         :param pulumi.Input[Sequence[pulumi.Input['TaskDefinitionPlacementConstraintArgs']]] placement_constraints: Configuration block for rules that are taken into consideration during task placement. Maximum number of `placement_constraints` is `10`. Detailed below.
         :param pulumi.Input['TaskDefinitionProxyConfigurationArgs'] proxy_configuration: Configuration block for the App Mesh proxy. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] requires_compatibilities: Set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
+        :param pulumi.Input['TaskDefinitionRuntimePlatformArgs'] runtime_platform: Configuration block for runtime_platform that containers in your task may use.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags.
         :param pulumi.Input[str] task_role_arn: ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
         :param pulumi.Input[Sequence[pulumi.Input['TaskDefinitionVolumeArgs']]] volumes: Configuration block for volumes that containers in your task may use. Detailed below.
@@ -74,6 +76,8 @@ class TaskDefinitionArgs:
             pulumi.set(__self__, "proxy_configuration", proxy_configuration)
         if requires_compatibilities is not None:
             pulumi.set(__self__, "requires_compatibilities", requires_compatibilities)
+        if runtime_platform is not None:
+            pulumi.set(__self__, "runtime_platform", runtime_platform)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if task_role_arn is not None:
@@ -238,6 +242,18 @@ class TaskDefinitionArgs:
         pulumi.set(self, "requires_compatibilities", value)
 
     @property
+    @pulumi.getter(name="runtimePlatform")
+    def runtime_platform(self) -> Optional[pulumi.Input['TaskDefinitionRuntimePlatformArgs']]:
+        """
+        Configuration block for runtime_platform that containers in your task may use.
+        """
+        return pulumi.get(self, "runtime_platform")
+
+    @runtime_platform.setter
+    def runtime_platform(self, value: Optional[pulumi.Input['TaskDefinitionRuntimePlatformArgs']]):
+        pulumi.set(self, "runtime_platform", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -292,6 +308,7 @@ class _TaskDefinitionState:
                  proxy_configuration: Optional[pulumi.Input['TaskDefinitionProxyConfigurationArgs']] = None,
                  requires_compatibilities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  revision: Optional[pulumi.Input[int]] = None,
+                 runtime_platform: Optional[pulumi.Input['TaskDefinitionRuntimePlatformArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  task_role_arn: Optional[pulumi.Input[str]] = None,
@@ -313,6 +330,7 @@ class _TaskDefinitionState:
         :param pulumi.Input['TaskDefinitionProxyConfigurationArgs'] proxy_configuration: Configuration block for the App Mesh proxy. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] requires_compatibilities: Set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
         :param pulumi.Input[int] revision: Revision of the task in a particular family.
+        :param pulumi.Input['TaskDefinitionRuntimePlatformArgs'] runtime_platform: Configuration block for runtime_platform that containers in your task may use.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider.
         :param pulumi.Input[str] task_role_arn: ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
@@ -348,6 +366,8 @@ class _TaskDefinitionState:
             pulumi.set(__self__, "requires_compatibilities", requires_compatibilities)
         if revision is not None:
             pulumi.set(__self__, "revision", revision)
+        if runtime_platform is not None:
+            pulumi.set(__self__, "runtime_platform", runtime_platform)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -538,6 +558,18 @@ class _TaskDefinitionState:
         pulumi.set(self, "revision", value)
 
     @property
+    @pulumi.getter(name="runtimePlatform")
+    def runtime_platform(self) -> Optional[pulumi.Input['TaskDefinitionRuntimePlatformArgs']]:
+        """
+        Configuration block for runtime_platform that containers in your task may use.
+        """
+        return pulumi.get(self, "runtime_platform")
+
+    @runtime_platform.setter
+    def runtime_platform(self, value: Optional[pulumi.Input['TaskDefinitionRuntimePlatformArgs']]):
+        pulumi.set(self, "runtime_platform", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -604,6 +636,7 @@ class TaskDefinition(pulumi.CustomResource):
                  placement_constraints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskDefinitionPlacementConstraintArgs']]]]] = None,
                  proxy_configuration: Optional[pulumi.Input[pulumi.InputType['TaskDefinitionProxyConfigurationArgs']]] = None,
                  requires_compatibilities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 runtime_platform: Optional[pulumi.Input[pulumi.InputType['TaskDefinitionRuntimePlatformArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  task_role_arn: Optional[pulumi.Input[str]] = None,
                  volumes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskDefinitionVolumeArgs']]]]] = None,
@@ -757,30 +790,30 @@ class TaskDefinition(pulumi.CustomResource):
 
         test = aws.ecs.TaskDefinition("test",
             container_definitions=\"\"\"[
-        	{
-        		"cpu": 10,
-        		"command": ["sleep", "10"],
-        		"entryPoint": ["/"],
-        		"environment": [
-        			{"name": "VARNAME", "value": "VARVAL"}
-        		],
-        		"essential": true,
-        		"image": "jenkins",
-        		"memory": 128,
-        		"name": "jenkins",
-        		"portMappings": [
-        			{
-        				"containerPort": 80,
-        				"hostPort": 8080
-        			}
-        		],
+          {
+            "cpu": 10,
+            "command": ["sleep", "10"],
+            "entryPoint": ["/"],
+            "environment": [
+              {"name": "VARNAME", "value": "VARVAL"}
+            ],
+            "essential": true,
+            "image": "jenkins",
+            "memory": 128,
+            "name": "jenkins",
+            "portMappings": [
+              {
+                "containerPort": 80,
+                "hostPort": 8080
+              }
+            ],
                 "resourceRequirements":[
                     {
                         "type":"InferenceAccelerator",
                         "value":"device_1"
                     }
                 ]
-        	}
+          }
         ]
 
         \"\"\",
@@ -789,6 +822,34 @@ class TaskDefinition(pulumi.CustomResource):
                 device_name="device_1",
                 device_type="eia1.medium",
             )])
+        ```
+        ### Example Using `runtime_platform` and `fargate`
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.ecs.TaskDefinition("test",
+            container_definitions=\"\"\"[
+          {
+            "name": "iis",
+            "image": "mcr.microsoft.com/windows/servercore/iis",
+            "cpu": 1024,
+            "memory": 2048,
+            "essential": true
+          }
+        ]
+
+        \"\"\",
+            cpu="1024",
+            family="test",
+            memory="2048",
+            network_mode="awsvpc",
+            requires_compatibilities=["FARGATE"],
+            runtime_platform=aws.ecs.TaskDefinitionRuntimePlatformArgs(
+                cpu_architecture="X86_64",
+                operating_system_family="WINDOWS_SERVER_2019_CORE",
+            ))
         ```
 
         ## Import
@@ -814,6 +875,7 @@ class TaskDefinition(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskDefinitionPlacementConstraintArgs']]]] placement_constraints: Configuration block for rules that are taken into consideration during task placement. Maximum number of `placement_constraints` is `10`. Detailed below.
         :param pulumi.Input[pulumi.InputType['TaskDefinitionProxyConfigurationArgs']] proxy_configuration: Configuration block for the App Mesh proxy. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] requires_compatibilities: Set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
+        :param pulumi.Input[pulumi.InputType['TaskDefinitionRuntimePlatformArgs']] runtime_platform: Configuration block for runtime_platform that containers in your task may use.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags.
         :param pulumi.Input[str] task_role_arn: ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskDefinitionVolumeArgs']]]] volumes: Configuration block for volumes that containers in your task may use. Detailed below.
@@ -973,30 +1035,30 @@ class TaskDefinition(pulumi.CustomResource):
 
         test = aws.ecs.TaskDefinition("test",
             container_definitions=\"\"\"[
-        	{
-        		"cpu": 10,
-        		"command": ["sleep", "10"],
-        		"entryPoint": ["/"],
-        		"environment": [
-        			{"name": "VARNAME", "value": "VARVAL"}
-        		],
-        		"essential": true,
-        		"image": "jenkins",
-        		"memory": 128,
-        		"name": "jenkins",
-        		"portMappings": [
-        			{
-        				"containerPort": 80,
-        				"hostPort": 8080
-        			}
-        		],
+          {
+            "cpu": 10,
+            "command": ["sleep", "10"],
+            "entryPoint": ["/"],
+            "environment": [
+              {"name": "VARNAME", "value": "VARVAL"}
+            ],
+            "essential": true,
+            "image": "jenkins",
+            "memory": 128,
+            "name": "jenkins",
+            "portMappings": [
+              {
+                "containerPort": 80,
+                "hostPort": 8080
+              }
+            ],
                 "resourceRequirements":[
                     {
                         "type":"InferenceAccelerator",
                         "value":"device_1"
                     }
                 ]
-        	}
+          }
         ]
 
         \"\"\",
@@ -1005,6 +1067,34 @@ class TaskDefinition(pulumi.CustomResource):
                 device_name="device_1",
                 device_type="eia1.medium",
             )])
+        ```
+        ### Example Using `runtime_platform` and `fargate`
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.ecs.TaskDefinition("test",
+            container_definitions=\"\"\"[
+          {
+            "name": "iis",
+            "image": "mcr.microsoft.com/windows/servercore/iis",
+            "cpu": 1024,
+            "memory": 2048,
+            "essential": true
+          }
+        ]
+
+        \"\"\",
+            cpu="1024",
+            family="test",
+            memory="2048",
+            network_mode="awsvpc",
+            requires_compatibilities=["FARGATE"],
+            runtime_platform=aws.ecs.TaskDefinitionRuntimePlatformArgs(
+                cpu_architecture="X86_64",
+                operating_system_family="WINDOWS_SERVER_2019_CORE",
+            ))
         ```
 
         ## Import
@@ -1043,6 +1133,7 @@ class TaskDefinition(pulumi.CustomResource):
                  placement_constraints: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskDefinitionPlacementConstraintArgs']]]]] = None,
                  proxy_configuration: Optional[pulumi.Input[pulumi.InputType['TaskDefinitionProxyConfigurationArgs']]] = None,
                  requires_compatibilities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 runtime_platform: Optional[pulumi.Input[pulumi.InputType['TaskDefinitionRuntimePlatformArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  task_role_arn: Optional[pulumi.Input[str]] = None,
                  volumes: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TaskDefinitionVolumeArgs']]]]] = None,
@@ -1075,6 +1166,7 @@ class TaskDefinition(pulumi.CustomResource):
             __props__.__dict__["placement_constraints"] = placement_constraints
             __props__.__dict__["proxy_configuration"] = proxy_configuration
             __props__.__dict__["requires_compatibilities"] = requires_compatibilities
+            __props__.__dict__["runtime_platform"] = runtime_platform
             __props__.__dict__["tags"] = tags
             __props__.__dict__["task_role_arn"] = task_role_arn
             __props__.__dict__["volumes"] = volumes
@@ -1106,6 +1198,7 @@ class TaskDefinition(pulumi.CustomResource):
             proxy_configuration: Optional[pulumi.Input[pulumi.InputType['TaskDefinitionProxyConfigurationArgs']]] = None,
             requires_compatibilities: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             revision: Optional[pulumi.Input[int]] = None,
+            runtime_platform: Optional[pulumi.Input[pulumi.InputType['TaskDefinitionRuntimePlatformArgs']]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             task_role_arn: Optional[pulumi.Input[str]] = None,
@@ -1132,6 +1225,7 @@ class TaskDefinition(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['TaskDefinitionProxyConfigurationArgs']] proxy_configuration: Configuration block for the App Mesh proxy. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] requires_compatibilities: Set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
         :param pulumi.Input[int] revision: Revision of the task in a particular family.
+        :param pulumi.Input[pulumi.InputType['TaskDefinitionRuntimePlatformArgs']] runtime_platform: Configuration block for runtime_platform that containers in your task may use.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider.
         :param pulumi.Input[str] task_role_arn: ARN of IAM role that allows your Amazon ECS container task to make calls to other AWS services.
@@ -1156,6 +1250,7 @@ class TaskDefinition(pulumi.CustomResource):
         __props__.__dict__["proxy_configuration"] = proxy_configuration
         __props__.__dict__["requires_compatibilities"] = requires_compatibilities
         __props__.__dict__["revision"] = revision
+        __props__.__dict__["runtime_platform"] = runtime_platform
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["task_role_arn"] = task_role_arn
@@ -1281,6 +1376,14 @@ class TaskDefinition(pulumi.CustomResource):
         Revision of the task in a particular family.
         """
         return pulumi.get(self, "revision")
+
+    @property
+    @pulumi.getter(name="runtimePlatform")
+    def runtime_platform(self) -> pulumi.Output[Optional['outputs.TaskDefinitionRuntimePlatform']]:
+        """
+        Configuration block for runtime_platform that containers in your task may use.
+        """
+        return pulumi.get(self, "runtime_platform")
 
     @property
     @pulumi.getter

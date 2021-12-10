@@ -83,6 +83,7 @@ __all__ = [
     'FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationArgs',
     'FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorArgs',
     'FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameterArgs',
+    'StreamStreamModeDetailsArgs',
 ]
 
 @pulumi.input_type
@@ -4615,5 +4616,27 @@ class FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorP
     @parameter_value.setter
     def parameter_value(self, value: pulumi.Input[str]):
         pulumi.set(self, "parameter_value", value)
+
+
+@pulumi.input_type
+class StreamStreamModeDetailsArgs:
+    def __init__(__self__, *,
+                 stream_mode: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] stream_mode: Specifies the capacity mode of the stream. Must be either `PROVISIONED` or `ON_DEMAND`.
+        """
+        pulumi.set(__self__, "stream_mode", stream_mode)
+
+    @property
+    @pulumi.getter(name="streamMode")
+    def stream_mode(self) -> pulumi.Input[str]:
+        """
+        Specifies the capacity mode of the stream. Must be either `PROVISIONED` or `ON_DEMAND`.
+        """
+        return pulumi.get(self, "stream_mode")
+
+    @stream_mode.setter
+    def stream_mode(self, value: pulumi.Input[str]):
+        pulumi.set(self, "stream_mode", value)
 
 

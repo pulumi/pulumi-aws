@@ -107,6 +107,7 @@ export * from "./spotDatafeedSubscription";
 export * from "./spotFleetRequest";
 export * from "./spotInstanceRequest";
 export * from "./subnet";
+export * from "./subnetCidrReservation";
 export * from "./tag";
 export * from "./tenancy";
 export * from "./trafficMirrorFilter";
@@ -192,6 +193,7 @@ import { SpotDatafeedSubscription } from "./spotDatafeedSubscription";
 import { SpotFleetRequest } from "./spotFleetRequest";
 import { SpotInstanceRequest } from "./spotInstanceRequest";
 import { Subnet } from "./subnet";
+import { SubnetCidrReservation } from "./subnetCidrReservation";
 import { Tag } from "./tag";
 import { TrafficMirrorFilter } from "./trafficMirrorFilter";
 import { TrafficMirrorFilterRule } from "./trafficMirrorFilterRule";
@@ -325,6 +327,8 @@ const _module = {
                 return new SpotInstanceRequest(name, <any>undefined, { urn })
             case "aws:ec2/subnet:Subnet":
                 return new Subnet(name, <any>undefined, { urn })
+            case "aws:ec2/subnetCidrReservation:SubnetCidrReservation":
+                return new SubnetCidrReservation(name, <any>undefined, { urn })
             case "aws:ec2/tag:Tag":
                 return new Tag(name, <any>undefined, { urn })
             case "aws:ec2/trafficMirrorFilter:TrafficMirrorFilter":
@@ -439,6 +443,7 @@ pulumi.runtime.registerResourceModule("aws", "ec2/spotDatafeedSubscription", _mo
 pulumi.runtime.registerResourceModule("aws", "ec2/spotFleetRequest", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/spotInstanceRequest", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/subnet", _module)
+pulumi.runtime.registerResourceModule("aws", "ec2/subnetCidrReservation", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/tag", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/trafficMirrorFilter", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/trafficMirrorFilterRule", _module)

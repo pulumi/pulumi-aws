@@ -143,6 +143,10 @@ namespace Pulumi.Aws.ElasticSearch
         /// </summary>
         public readonly string Arn;
         /// <summary>
+        /// Configuration of the Auto-Tune options of the domain.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetDomainAutoTuneOptionResult> AutoTuneOptions;
+        /// <summary>
         /// Cluster configuration of the domain.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetDomainClusterConfigResult> ClusterConfigs;
@@ -220,6 +224,8 @@ namespace Pulumi.Aws.ElasticSearch
 
             string arn,
 
+            ImmutableArray<Outputs.GetDomainAutoTuneOptionResult> autoTuneOptions,
+
             ImmutableArray<Outputs.GetDomainClusterConfigResult> clusterConfigs,
 
             ImmutableArray<Outputs.GetDomainCognitoOptionResult> cognitoOptions,
@@ -260,6 +266,7 @@ namespace Pulumi.Aws.ElasticSearch
             AdvancedOptions = advancedOptions;
             AdvancedSecurityOptions = advancedSecurityOptions;
             Arn = arn;
+            AutoTuneOptions = autoTuneOptions;
             ClusterConfigs = clusterConfigs;
             CognitoOptions = cognitoOptions;
             Created = created;

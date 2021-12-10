@@ -70,6 +70,7 @@ export interface GetTableResult {
     readonly streamEnabled: boolean;
     readonly streamLabel: string;
     readonly streamViewType: string;
+    readonly tableClass: string;
     readonly tags: {[key: string]: string};
     readonly ttl: outputs.dynamodb.GetTableTtl;
     readonly writeCapacity: number;

@@ -259,30 +259,30 @@ namespace Pulumi.Aws.Ecs
     ///         var test = new Aws.Ecs.TaskDefinition("test", new Aws.Ecs.TaskDefinitionArgs
     ///         {
     ///             ContainerDefinitions = @"[
-    /// 	{
-    /// 		""cpu"": 10,
-    /// 		""command"": [""sleep"", ""10""],
-    /// 		""entryPoint"": [""/""],
-    /// 		""environment"": [
-    /// 			{""name"": ""VARNAME"", ""value"": ""VARVAL""}
-    /// 		],
-    /// 		""essential"": true,
-    /// 		""image"": ""jenkins"",
-    /// 		""memory"": 128,
-    /// 		""name"": ""jenkins"",
-    /// 		""portMappings"": [
-    /// 			{
-    /// 				""containerPort"": 80,
-    /// 				""hostPort"": 8080
-    /// 			}
-    /// 		],
+    ///   {
+    ///     ""cpu"": 10,
+    ///     ""command"": [""sleep"", ""10""],
+    ///     ""entryPoint"": [""/""],
+    ///     ""environment"": [
+    ///       {""name"": ""VARNAME"", ""value"": ""VARVAL""}
+    ///     ],
+    ///     ""essential"": true,
+    ///     ""image"": ""jenkins"",
+    ///     ""memory"": 128,
+    ///     ""name"": ""jenkins"",
+    ///     ""portMappings"": [
+    ///       {
+    ///         ""containerPort"": 80,
+    ///         ""hostPort"": 8080
+    ///       }
+    ///     ],
     ///         ""resourceRequirements"":[
     ///             {
     ///                 ""type"":""InferenceAccelerator"",
     ///                 ""value"":""device_1""
     ///             }
     ///         ]
-    /// 	}
+    ///   }
     /// ]
     /// 
     /// ",
@@ -294,6 +294,47 @@ namespace Pulumi.Aws.Ecs
     ///                     DeviceName = "device_1",
     ///                     DeviceType = "eia1.medium",
     ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### Example Using `runtime_platform` and `fargate`
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var test = new Aws.Ecs.TaskDefinition("test", new Aws.Ecs.TaskDefinitionArgs
+    ///         {
+    ///             ContainerDefinitions = @"[
+    ///   {
+    ///     ""name"": ""iis"",
+    ///     ""image"": ""mcr.microsoft.com/windows/servercore/iis"",
+    ///     ""cpu"": 1024,
+    ///     ""memory"": 2048,
+    ///     ""essential"": true
+    ///   }
+    /// ]
+    /// 
+    /// ",
+    ///             Cpu = "1024",
+    ///             Family = "test",
+    ///             Memory = "2048",
+    ///             NetworkMode = "awsvpc",
+    ///             RequiresCompatibilities = 
+    ///             {
+    ///                 "FARGATE",
+    ///             },
+    ///             RuntimePlatform = new Aws.Ecs.Inputs.TaskDefinitionRuntimePlatformArgs
+    ///             {
+    ///                 CpuArchitecture = "X86_64",
+    ///                 OperatingSystemFamily = "WINDOWS_SERVER_2019_CORE",
     ///             },
     ///         });
     ///     }
@@ -401,6 +442,12 @@ namespace Pulumi.Aws.Ecs
         /// </summary>
         [Output("revision")]
         public Output<int> Revision { get; private set; } = null!;
+
+        /// <summary>
+        /// Configuration block for runtime_platform that containers in your task may use.
+        /// </summary>
+        [Output("runtimePlatform")]
+        public Output<Outputs.TaskDefinitionRuntimePlatform?> RuntimePlatform { get; private set; } = null!;
 
         /// <summary>
         /// Key-value map of resource tags.
@@ -568,6 +615,12 @@ namespace Pulumi.Aws.Ecs
             set => _requiresCompatibilities = value;
         }
 
+        /// <summary>
+        /// Configuration block for runtime_platform that containers in your task may use.
+        /// </summary>
+        [Input("runtimePlatform")]
+        public Input<Inputs.TaskDefinitionRuntimePlatformArgs>? RuntimePlatform { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -712,6 +765,12 @@ namespace Pulumi.Aws.Ecs
         /// </summary>
         [Input("revision")]
         public Input<int>? Revision { get; set; }
+
+        /// <summary>
+        /// Configuration block for runtime_platform that containers in your task may use.
+        /// </summary>
+        [Input("runtimePlatform")]
+        public Input<Inputs.TaskDefinitionRuntimePlatformGetArgs>? RuntimePlatform { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

@@ -68,6 +68,10 @@ export interface GetDomainResult {
      */
     readonly arn: string;
     /**
+     * Configuration of the Auto-Tune options of the domain.
+     */
+    readonly autoTuneOptions: outputs.elasticsearch.GetDomainAutoTuneOption[];
+    /**
      * Cluster configuration of the domain.
      */
     readonly clusterConfigs: outputs.elasticsearch.GetDomainClusterConfig[];

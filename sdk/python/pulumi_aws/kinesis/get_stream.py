@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetStreamResult',
@@ -20,7 +21,7 @@ class GetStreamResult:
     """
     A collection of values returned by getStream.
     """
-    def __init__(__self__, arn=None, closed_shards=None, creation_timestamp=None, id=None, name=None, open_shards=None, retention_period=None, shard_level_metrics=None, status=None, tags=None):
+    def __init__(__self__, arn=None, closed_shards=None, creation_timestamp=None, id=None, name=None, open_shards=None, retention_period=None, shard_level_metrics=None, status=None, stream_mode_details=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -48,6 +49,9 @@ class GetStreamResult:
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
+        if stream_mode_details and not isinstance(stream_mode_details, list):
+            raise TypeError("Expected argument 'stream_mode_details' to be a list")
+        pulumi.set(__self__, "stream_mode_details", stream_mode_details)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -125,6 +129,14 @@ class GetStreamResult:
         return pulumi.get(self, "status")
 
     @property
+    @pulumi.getter(name="streamModeDetails")
+    def stream_mode_details(self) -> Sequence['outputs.GetStreamStreamModeDetailResult']:
+        """
+        Indicates the [capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
+        """
+        return pulumi.get(self, "stream_mode_details")
+
+    @property
     @pulumi.getter
     def tags(self) -> Mapping[str, str]:
         """
@@ -148,6 +160,7 @@ class AwaitableGetStreamResult(GetStreamResult):
             retention_period=self.retention_period,
             shard_level_metrics=self.shard_level_metrics,
             status=self.status,
+            stream_mode_details=self.stream_mode_details,
             tags=self.tags)
 
 
@@ -192,6 +205,7 @@ def get_stream(name: Optional[str] = None,
         retention_period=__ret__.retention_period,
         shard_level_metrics=__ret__.shard_level_metrics,
         status=__ret__.status,
+        stream_mode_details=__ret__.stream_mode_details,
         tags=__ret__.tags)
 
 

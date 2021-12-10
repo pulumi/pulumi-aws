@@ -52,6 +52,19 @@ import * as utilities from "../utilities";
  *
  * ## Server-side encryption (SSE)
  *
+ * Using [SSE-SQS](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sqs-sse-queue.html):
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const terraformQueue = new aws.sqs.Queue("terraform_queue", {
+ *     sqsManagedSseEnabled: true,
+ * });
+ * ```
+ *
+ * Using [SSE-KMS](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sse-existing-queue.html):
+ *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -159,6 +172,10 @@ export class Queue extends pulumi.CustomResource {
      */
     public readonly redrivePolicy!: pulumi.Output<string | undefined>;
     /**
+     * Boolean to enable server-side encryption (SSE) of message content with SQS-owned encryption keys. Defaults to `false`. See [Encryption at rest](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html).
+     */
+    public readonly sqsManagedSseEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * A map of tags to assign to the queue. If configured with a provider `defaultTags` configuration block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -203,6 +220,7 @@ export class Queue extends pulumi.CustomResource {
             inputs["policy"] = state ? state.policy : undefined;
             inputs["receiveWaitTimeSeconds"] = state ? state.receiveWaitTimeSeconds : undefined;
             inputs["redrivePolicy"] = state ? state.redrivePolicy : undefined;
+            inputs["sqsManagedSseEnabled"] = state ? state.sqsManagedSseEnabled : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["url"] = state ? state.url : undefined;
@@ -223,6 +241,7 @@ export class Queue extends pulumi.CustomResource {
             inputs["policy"] = args ? args.policy : undefined;
             inputs["receiveWaitTimeSeconds"] = args ? args.receiveWaitTimeSeconds : undefined;
             inputs["redrivePolicy"] = args ? args.redrivePolicy : undefined;
+            inputs["sqsManagedSseEnabled"] = args ? args.sqsManagedSseEnabled : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["visibilityTimeoutSeconds"] = args ? args.visibilityTimeoutSeconds : undefined;
             inputs["arn"] = undefined /*out*/;
@@ -301,6 +320,10 @@ export interface QueueState {
      */
     redrivePolicy?: pulumi.Input<string>;
     /**
+     * Boolean to enable server-side encryption (SSE) of message content with SQS-owned encryption keys. Defaults to `false`. See [Encryption at rest](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html).
+     */
+    sqsManagedSseEnabled?: pulumi.Input<boolean>;
+    /**
      * A map of tags to assign to the queue. If configured with a provider `defaultTags` configuration block) present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -378,6 +401,10 @@ export interface QueueArgs {
      * The JSON policy to set up the Dead Letter Queue, see [AWS docs](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html). **Note:** when specifying `maxReceiveCount`, you must specify it as an integer (`5`), and not a string (`"5"`).
      */
     redrivePolicy?: pulumi.Input<string>;
+    /**
+     * Boolean to enable server-side encryption (SSE) of message content with SQS-owned encryption keys. Defaults to `false`. See [Encryption at rest](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html).
+     */
+    sqsManagedSseEnabled?: pulumi.Input<boolean>;
     /**
      * A map of tags to assign to the queue. If configured with a provider `defaultTags` configuration block) present, tags with matching keys will overwrite those defined at the provider-level.
      */

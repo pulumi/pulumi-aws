@@ -2802,6 +2802,162 @@ func (o TaskDefinitionProxyConfigurationPtrOutput) Type() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+type TaskDefinitionRuntimePlatform struct {
+	// Must be set to either `X86_64` or `ARM64`; see [cpu architecture](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform)
+	CpuArchitecture *string `pulumi:"cpuArchitecture"`
+	// If the `requiresCompatibilities` is `FARGATE` this field is required; must be set to a valid option from the [operating system family in the runtime platform](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform) setting
+	OperatingSystemFamily *string `pulumi:"operatingSystemFamily"`
+}
+
+// TaskDefinitionRuntimePlatformInput is an input type that accepts TaskDefinitionRuntimePlatformArgs and TaskDefinitionRuntimePlatformOutput values.
+// You can construct a concrete instance of `TaskDefinitionRuntimePlatformInput` via:
+//
+//          TaskDefinitionRuntimePlatformArgs{...}
+type TaskDefinitionRuntimePlatformInput interface {
+	pulumi.Input
+
+	ToTaskDefinitionRuntimePlatformOutput() TaskDefinitionRuntimePlatformOutput
+	ToTaskDefinitionRuntimePlatformOutputWithContext(context.Context) TaskDefinitionRuntimePlatformOutput
+}
+
+type TaskDefinitionRuntimePlatformArgs struct {
+	// Must be set to either `X86_64` or `ARM64`; see [cpu architecture](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform)
+	CpuArchitecture pulumi.StringPtrInput `pulumi:"cpuArchitecture"`
+	// If the `requiresCompatibilities` is `FARGATE` this field is required; must be set to a valid option from the [operating system family in the runtime platform](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform) setting
+	OperatingSystemFamily pulumi.StringPtrInput `pulumi:"operatingSystemFamily"`
+}
+
+func (TaskDefinitionRuntimePlatformArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskDefinitionRuntimePlatform)(nil)).Elem()
+}
+
+func (i TaskDefinitionRuntimePlatformArgs) ToTaskDefinitionRuntimePlatformOutput() TaskDefinitionRuntimePlatformOutput {
+	return i.ToTaskDefinitionRuntimePlatformOutputWithContext(context.Background())
+}
+
+func (i TaskDefinitionRuntimePlatformArgs) ToTaskDefinitionRuntimePlatformOutputWithContext(ctx context.Context) TaskDefinitionRuntimePlatformOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionRuntimePlatformOutput)
+}
+
+func (i TaskDefinitionRuntimePlatformArgs) ToTaskDefinitionRuntimePlatformPtrOutput() TaskDefinitionRuntimePlatformPtrOutput {
+	return i.ToTaskDefinitionRuntimePlatformPtrOutputWithContext(context.Background())
+}
+
+func (i TaskDefinitionRuntimePlatformArgs) ToTaskDefinitionRuntimePlatformPtrOutputWithContext(ctx context.Context) TaskDefinitionRuntimePlatformPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionRuntimePlatformOutput).ToTaskDefinitionRuntimePlatformPtrOutputWithContext(ctx)
+}
+
+// TaskDefinitionRuntimePlatformPtrInput is an input type that accepts TaskDefinitionRuntimePlatformArgs, TaskDefinitionRuntimePlatformPtr and TaskDefinitionRuntimePlatformPtrOutput values.
+// You can construct a concrete instance of `TaskDefinitionRuntimePlatformPtrInput` via:
+//
+//          TaskDefinitionRuntimePlatformArgs{...}
+//
+//  or:
+//
+//          nil
+type TaskDefinitionRuntimePlatformPtrInput interface {
+	pulumi.Input
+
+	ToTaskDefinitionRuntimePlatformPtrOutput() TaskDefinitionRuntimePlatformPtrOutput
+	ToTaskDefinitionRuntimePlatformPtrOutputWithContext(context.Context) TaskDefinitionRuntimePlatformPtrOutput
+}
+
+type taskDefinitionRuntimePlatformPtrType TaskDefinitionRuntimePlatformArgs
+
+func TaskDefinitionRuntimePlatformPtr(v *TaskDefinitionRuntimePlatformArgs) TaskDefinitionRuntimePlatformPtrInput {
+	return (*taskDefinitionRuntimePlatformPtrType)(v)
+}
+
+func (*taskDefinitionRuntimePlatformPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TaskDefinitionRuntimePlatform)(nil)).Elem()
+}
+
+func (i *taskDefinitionRuntimePlatformPtrType) ToTaskDefinitionRuntimePlatformPtrOutput() TaskDefinitionRuntimePlatformPtrOutput {
+	return i.ToTaskDefinitionRuntimePlatformPtrOutputWithContext(context.Background())
+}
+
+func (i *taskDefinitionRuntimePlatformPtrType) ToTaskDefinitionRuntimePlatformPtrOutputWithContext(ctx context.Context) TaskDefinitionRuntimePlatformPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskDefinitionRuntimePlatformPtrOutput)
+}
+
+type TaskDefinitionRuntimePlatformOutput struct{ *pulumi.OutputState }
+
+func (TaskDefinitionRuntimePlatformOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskDefinitionRuntimePlatform)(nil)).Elem()
+}
+
+func (o TaskDefinitionRuntimePlatformOutput) ToTaskDefinitionRuntimePlatformOutput() TaskDefinitionRuntimePlatformOutput {
+	return o
+}
+
+func (o TaskDefinitionRuntimePlatformOutput) ToTaskDefinitionRuntimePlatformOutputWithContext(ctx context.Context) TaskDefinitionRuntimePlatformOutput {
+	return o
+}
+
+func (o TaskDefinitionRuntimePlatformOutput) ToTaskDefinitionRuntimePlatformPtrOutput() TaskDefinitionRuntimePlatformPtrOutput {
+	return o.ToTaskDefinitionRuntimePlatformPtrOutputWithContext(context.Background())
+}
+
+func (o TaskDefinitionRuntimePlatformOutput) ToTaskDefinitionRuntimePlatformPtrOutputWithContext(ctx context.Context) TaskDefinitionRuntimePlatformPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TaskDefinitionRuntimePlatform) *TaskDefinitionRuntimePlatform {
+		return &v
+	}).(TaskDefinitionRuntimePlatformPtrOutput)
+}
+
+// Must be set to either `X86_64` or `ARM64`; see [cpu architecture](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform)
+func (o TaskDefinitionRuntimePlatformOutput) CpuArchitecture() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskDefinitionRuntimePlatform) *string { return v.CpuArchitecture }).(pulumi.StringPtrOutput)
+}
+
+// If the `requiresCompatibilities` is `FARGATE` this field is required; must be set to a valid option from the [operating system family in the runtime platform](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform) setting
+func (o TaskDefinitionRuntimePlatformOutput) OperatingSystemFamily() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskDefinitionRuntimePlatform) *string { return v.OperatingSystemFamily }).(pulumi.StringPtrOutput)
+}
+
+type TaskDefinitionRuntimePlatformPtrOutput struct{ *pulumi.OutputState }
+
+func (TaskDefinitionRuntimePlatformPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TaskDefinitionRuntimePlatform)(nil)).Elem()
+}
+
+func (o TaskDefinitionRuntimePlatformPtrOutput) ToTaskDefinitionRuntimePlatformPtrOutput() TaskDefinitionRuntimePlatformPtrOutput {
+	return o
+}
+
+func (o TaskDefinitionRuntimePlatformPtrOutput) ToTaskDefinitionRuntimePlatformPtrOutputWithContext(ctx context.Context) TaskDefinitionRuntimePlatformPtrOutput {
+	return o
+}
+
+func (o TaskDefinitionRuntimePlatformPtrOutput) Elem() TaskDefinitionRuntimePlatformOutput {
+	return o.ApplyT(func(v *TaskDefinitionRuntimePlatform) TaskDefinitionRuntimePlatform {
+		if v != nil {
+			return *v
+		}
+		var ret TaskDefinitionRuntimePlatform
+		return ret
+	}).(TaskDefinitionRuntimePlatformOutput)
+}
+
+// Must be set to either `X86_64` or `ARM64`; see [cpu architecture](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform)
+func (o TaskDefinitionRuntimePlatformPtrOutput) CpuArchitecture() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TaskDefinitionRuntimePlatform) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CpuArchitecture
+	}).(pulumi.StringPtrOutput)
+}
+
+// If the `requiresCompatibilities` is `FARGATE` this field is required; must be set to a valid option from the [operating system family in the runtime platform](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform) setting
+func (o TaskDefinitionRuntimePlatformPtrOutput) OperatingSystemFamily() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TaskDefinitionRuntimePlatform) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OperatingSystemFamily
+	}).(pulumi.StringPtrOutput)
+}
+
 type TaskDefinitionVolume struct {
 	// Configuration block to configure a docker volume. Detailed below.
 	DockerVolumeConfiguration *TaskDefinitionVolumeDockerVolumeConfiguration `pulumi:"dockerVolumeConfiguration"`
@@ -3865,6 +4021,770 @@ func (o TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorization
 	}).(pulumi.StringPtrOutput)
 }
 
+type TaskSetCapacityProviderStrategy struct {
+	// The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
+	Base *int `pulumi:"base"`
+	// The short name or full Amazon Resource Name (ARN) of the capacity provider.
+	CapacityProvider string `pulumi:"capacityProvider"`
+	// The relative percentage of the total number of launched tasks that should use the specified capacity provider.
+	Weight int `pulumi:"weight"`
+}
+
+// TaskSetCapacityProviderStrategyInput is an input type that accepts TaskSetCapacityProviderStrategyArgs and TaskSetCapacityProviderStrategyOutput values.
+// You can construct a concrete instance of `TaskSetCapacityProviderStrategyInput` via:
+//
+//          TaskSetCapacityProviderStrategyArgs{...}
+type TaskSetCapacityProviderStrategyInput interface {
+	pulumi.Input
+
+	ToTaskSetCapacityProviderStrategyOutput() TaskSetCapacityProviderStrategyOutput
+	ToTaskSetCapacityProviderStrategyOutputWithContext(context.Context) TaskSetCapacityProviderStrategyOutput
+}
+
+type TaskSetCapacityProviderStrategyArgs struct {
+	// The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
+	Base pulumi.IntPtrInput `pulumi:"base"`
+	// The short name or full Amazon Resource Name (ARN) of the capacity provider.
+	CapacityProvider pulumi.StringInput `pulumi:"capacityProvider"`
+	// The relative percentage of the total number of launched tasks that should use the specified capacity provider.
+	Weight pulumi.IntInput `pulumi:"weight"`
+}
+
+func (TaskSetCapacityProviderStrategyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskSetCapacityProviderStrategy)(nil)).Elem()
+}
+
+func (i TaskSetCapacityProviderStrategyArgs) ToTaskSetCapacityProviderStrategyOutput() TaskSetCapacityProviderStrategyOutput {
+	return i.ToTaskSetCapacityProviderStrategyOutputWithContext(context.Background())
+}
+
+func (i TaskSetCapacityProviderStrategyArgs) ToTaskSetCapacityProviderStrategyOutputWithContext(ctx context.Context) TaskSetCapacityProviderStrategyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskSetCapacityProviderStrategyOutput)
+}
+
+// TaskSetCapacityProviderStrategyArrayInput is an input type that accepts TaskSetCapacityProviderStrategyArray and TaskSetCapacityProviderStrategyArrayOutput values.
+// You can construct a concrete instance of `TaskSetCapacityProviderStrategyArrayInput` via:
+//
+//          TaskSetCapacityProviderStrategyArray{ TaskSetCapacityProviderStrategyArgs{...} }
+type TaskSetCapacityProviderStrategyArrayInput interface {
+	pulumi.Input
+
+	ToTaskSetCapacityProviderStrategyArrayOutput() TaskSetCapacityProviderStrategyArrayOutput
+	ToTaskSetCapacityProviderStrategyArrayOutputWithContext(context.Context) TaskSetCapacityProviderStrategyArrayOutput
+}
+
+type TaskSetCapacityProviderStrategyArray []TaskSetCapacityProviderStrategyInput
+
+func (TaskSetCapacityProviderStrategyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TaskSetCapacityProviderStrategy)(nil)).Elem()
+}
+
+func (i TaskSetCapacityProviderStrategyArray) ToTaskSetCapacityProviderStrategyArrayOutput() TaskSetCapacityProviderStrategyArrayOutput {
+	return i.ToTaskSetCapacityProviderStrategyArrayOutputWithContext(context.Background())
+}
+
+func (i TaskSetCapacityProviderStrategyArray) ToTaskSetCapacityProviderStrategyArrayOutputWithContext(ctx context.Context) TaskSetCapacityProviderStrategyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskSetCapacityProviderStrategyArrayOutput)
+}
+
+type TaskSetCapacityProviderStrategyOutput struct{ *pulumi.OutputState }
+
+func (TaskSetCapacityProviderStrategyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskSetCapacityProviderStrategy)(nil)).Elem()
+}
+
+func (o TaskSetCapacityProviderStrategyOutput) ToTaskSetCapacityProviderStrategyOutput() TaskSetCapacityProviderStrategyOutput {
+	return o
+}
+
+func (o TaskSetCapacityProviderStrategyOutput) ToTaskSetCapacityProviderStrategyOutputWithContext(ctx context.Context) TaskSetCapacityProviderStrategyOutput {
+	return o
+}
+
+// The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
+func (o TaskSetCapacityProviderStrategyOutput) Base() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TaskSetCapacityProviderStrategy) *int { return v.Base }).(pulumi.IntPtrOutput)
+}
+
+// The short name or full Amazon Resource Name (ARN) of the capacity provider.
+func (o TaskSetCapacityProviderStrategyOutput) CapacityProvider() pulumi.StringOutput {
+	return o.ApplyT(func(v TaskSetCapacityProviderStrategy) string { return v.CapacityProvider }).(pulumi.StringOutput)
+}
+
+// The relative percentage of the total number of launched tasks that should use the specified capacity provider.
+func (o TaskSetCapacityProviderStrategyOutput) Weight() pulumi.IntOutput {
+	return o.ApplyT(func(v TaskSetCapacityProviderStrategy) int { return v.Weight }).(pulumi.IntOutput)
+}
+
+type TaskSetCapacityProviderStrategyArrayOutput struct{ *pulumi.OutputState }
+
+func (TaskSetCapacityProviderStrategyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TaskSetCapacityProviderStrategy)(nil)).Elem()
+}
+
+func (o TaskSetCapacityProviderStrategyArrayOutput) ToTaskSetCapacityProviderStrategyArrayOutput() TaskSetCapacityProviderStrategyArrayOutput {
+	return o
+}
+
+func (o TaskSetCapacityProviderStrategyArrayOutput) ToTaskSetCapacityProviderStrategyArrayOutputWithContext(ctx context.Context) TaskSetCapacityProviderStrategyArrayOutput {
+	return o
+}
+
+func (o TaskSetCapacityProviderStrategyArrayOutput) Index(i pulumi.IntInput) TaskSetCapacityProviderStrategyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TaskSetCapacityProviderStrategy {
+		return vs[0].([]TaskSetCapacityProviderStrategy)[vs[1].(int)]
+	}).(TaskSetCapacityProviderStrategyOutput)
+}
+
+type TaskSetLoadBalancer struct {
+	// The name of the container to associate with the load balancer (as it appears in a container definition).
+	ContainerName string `pulumi:"containerName"`
+	// The port on the container to associate with the load balancer. Defaults to `0` if not specified.
+	ContainerPort *int `pulumi:"containerPort"`
+	// The name of the ELB (Classic) to associate with the service.
+	LoadBalancerName *string `pulumi:"loadBalancerName"`
+	// The ARN of the Load Balancer target group to associate with the service.
+	TargetGroupArn *string `pulumi:"targetGroupArn"`
+}
+
+// TaskSetLoadBalancerInput is an input type that accepts TaskSetLoadBalancerArgs and TaskSetLoadBalancerOutput values.
+// You can construct a concrete instance of `TaskSetLoadBalancerInput` via:
+//
+//          TaskSetLoadBalancerArgs{...}
+type TaskSetLoadBalancerInput interface {
+	pulumi.Input
+
+	ToTaskSetLoadBalancerOutput() TaskSetLoadBalancerOutput
+	ToTaskSetLoadBalancerOutputWithContext(context.Context) TaskSetLoadBalancerOutput
+}
+
+type TaskSetLoadBalancerArgs struct {
+	// The name of the container to associate with the load balancer (as it appears in a container definition).
+	ContainerName pulumi.StringInput `pulumi:"containerName"`
+	// The port on the container to associate with the load balancer. Defaults to `0` if not specified.
+	ContainerPort pulumi.IntPtrInput `pulumi:"containerPort"`
+	// The name of the ELB (Classic) to associate with the service.
+	LoadBalancerName pulumi.StringPtrInput `pulumi:"loadBalancerName"`
+	// The ARN of the Load Balancer target group to associate with the service.
+	TargetGroupArn pulumi.StringPtrInput `pulumi:"targetGroupArn"`
+}
+
+func (TaskSetLoadBalancerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskSetLoadBalancer)(nil)).Elem()
+}
+
+func (i TaskSetLoadBalancerArgs) ToTaskSetLoadBalancerOutput() TaskSetLoadBalancerOutput {
+	return i.ToTaskSetLoadBalancerOutputWithContext(context.Background())
+}
+
+func (i TaskSetLoadBalancerArgs) ToTaskSetLoadBalancerOutputWithContext(ctx context.Context) TaskSetLoadBalancerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskSetLoadBalancerOutput)
+}
+
+// TaskSetLoadBalancerArrayInput is an input type that accepts TaskSetLoadBalancerArray and TaskSetLoadBalancerArrayOutput values.
+// You can construct a concrete instance of `TaskSetLoadBalancerArrayInput` via:
+//
+//          TaskSetLoadBalancerArray{ TaskSetLoadBalancerArgs{...} }
+type TaskSetLoadBalancerArrayInput interface {
+	pulumi.Input
+
+	ToTaskSetLoadBalancerArrayOutput() TaskSetLoadBalancerArrayOutput
+	ToTaskSetLoadBalancerArrayOutputWithContext(context.Context) TaskSetLoadBalancerArrayOutput
+}
+
+type TaskSetLoadBalancerArray []TaskSetLoadBalancerInput
+
+func (TaskSetLoadBalancerArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TaskSetLoadBalancer)(nil)).Elem()
+}
+
+func (i TaskSetLoadBalancerArray) ToTaskSetLoadBalancerArrayOutput() TaskSetLoadBalancerArrayOutput {
+	return i.ToTaskSetLoadBalancerArrayOutputWithContext(context.Background())
+}
+
+func (i TaskSetLoadBalancerArray) ToTaskSetLoadBalancerArrayOutputWithContext(ctx context.Context) TaskSetLoadBalancerArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskSetLoadBalancerArrayOutput)
+}
+
+type TaskSetLoadBalancerOutput struct{ *pulumi.OutputState }
+
+func (TaskSetLoadBalancerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskSetLoadBalancer)(nil)).Elem()
+}
+
+func (o TaskSetLoadBalancerOutput) ToTaskSetLoadBalancerOutput() TaskSetLoadBalancerOutput {
+	return o
+}
+
+func (o TaskSetLoadBalancerOutput) ToTaskSetLoadBalancerOutputWithContext(ctx context.Context) TaskSetLoadBalancerOutput {
+	return o
+}
+
+// The name of the container to associate with the load balancer (as it appears in a container definition).
+func (o TaskSetLoadBalancerOutput) ContainerName() pulumi.StringOutput {
+	return o.ApplyT(func(v TaskSetLoadBalancer) string { return v.ContainerName }).(pulumi.StringOutput)
+}
+
+// The port on the container to associate with the load balancer. Defaults to `0` if not specified.
+func (o TaskSetLoadBalancerOutput) ContainerPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TaskSetLoadBalancer) *int { return v.ContainerPort }).(pulumi.IntPtrOutput)
+}
+
+// The name of the ELB (Classic) to associate with the service.
+func (o TaskSetLoadBalancerOutput) LoadBalancerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskSetLoadBalancer) *string { return v.LoadBalancerName }).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the Load Balancer target group to associate with the service.
+func (o TaskSetLoadBalancerOutput) TargetGroupArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskSetLoadBalancer) *string { return v.TargetGroupArn }).(pulumi.StringPtrOutput)
+}
+
+type TaskSetLoadBalancerArrayOutput struct{ *pulumi.OutputState }
+
+func (TaskSetLoadBalancerArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TaskSetLoadBalancer)(nil)).Elem()
+}
+
+func (o TaskSetLoadBalancerArrayOutput) ToTaskSetLoadBalancerArrayOutput() TaskSetLoadBalancerArrayOutput {
+	return o
+}
+
+func (o TaskSetLoadBalancerArrayOutput) ToTaskSetLoadBalancerArrayOutputWithContext(ctx context.Context) TaskSetLoadBalancerArrayOutput {
+	return o
+}
+
+func (o TaskSetLoadBalancerArrayOutput) Index(i pulumi.IntInput) TaskSetLoadBalancerOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TaskSetLoadBalancer {
+		return vs[0].([]TaskSetLoadBalancer)[vs[1].(int)]
+	}).(TaskSetLoadBalancerOutput)
+}
+
+type TaskSetNetworkConfiguration struct {
+	// Whether to assign a public IP address to the ENI (`FARGATE` launch type only). Valid values are `true` or `false`. Default `false`.
+	AssignPublicIp *bool `pulumi:"assignPublicIp"`
+	// The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used. Maximum of 5.
+	SecurityGroups []string `pulumi:"securityGroups"`
+	// The subnets associated with the task or service. Maximum of 16.
+	Subnets []string `pulumi:"subnets"`
+}
+
+// TaskSetNetworkConfigurationInput is an input type that accepts TaskSetNetworkConfigurationArgs and TaskSetNetworkConfigurationOutput values.
+// You can construct a concrete instance of `TaskSetNetworkConfigurationInput` via:
+//
+//          TaskSetNetworkConfigurationArgs{...}
+type TaskSetNetworkConfigurationInput interface {
+	pulumi.Input
+
+	ToTaskSetNetworkConfigurationOutput() TaskSetNetworkConfigurationOutput
+	ToTaskSetNetworkConfigurationOutputWithContext(context.Context) TaskSetNetworkConfigurationOutput
+}
+
+type TaskSetNetworkConfigurationArgs struct {
+	// Whether to assign a public IP address to the ENI (`FARGATE` launch type only). Valid values are `true` or `false`. Default `false`.
+	AssignPublicIp pulumi.BoolPtrInput `pulumi:"assignPublicIp"`
+	// The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used. Maximum of 5.
+	SecurityGroups pulumi.StringArrayInput `pulumi:"securityGroups"`
+	// The subnets associated with the task or service. Maximum of 16.
+	Subnets pulumi.StringArrayInput `pulumi:"subnets"`
+}
+
+func (TaskSetNetworkConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskSetNetworkConfiguration)(nil)).Elem()
+}
+
+func (i TaskSetNetworkConfigurationArgs) ToTaskSetNetworkConfigurationOutput() TaskSetNetworkConfigurationOutput {
+	return i.ToTaskSetNetworkConfigurationOutputWithContext(context.Background())
+}
+
+func (i TaskSetNetworkConfigurationArgs) ToTaskSetNetworkConfigurationOutputWithContext(ctx context.Context) TaskSetNetworkConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskSetNetworkConfigurationOutput)
+}
+
+func (i TaskSetNetworkConfigurationArgs) ToTaskSetNetworkConfigurationPtrOutput() TaskSetNetworkConfigurationPtrOutput {
+	return i.ToTaskSetNetworkConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i TaskSetNetworkConfigurationArgs) ToTaskSetNetworkConfigurationPtrOutputWithContext(ctx context.Context) TaskSetNetworkConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskSetNetworkConfigurationOutput).ToTaskSetNetworkConfigurationPtrOutputWithContext(ctx)
+}
+
+// TaskSetNetworkConfigurationPtrInput is an input type that accepts TaskSetNetworkConfigurationArgs, TaskSetNetworkConfigurationPtr and TaskSetNetworkConfigurationPtrOutput values.
+// You can construct a concrete instance of `TaskSetNetworkConfigurationPtrInput` via:
+//
+//          TaskSetNetworkConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type TaskSetNetworkConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToTaskSetNetworkConfigurationPtrOutput() TaskSetNetworkConfigurationPtrOutput
+	ToTaskSetNetworkConfigurationPtrOutputWithContext(context.Context) TaskSetNetworkConfigurationPtrOutput
+}
+
+type taskSetNetworkConfigurationPtrType TaskSetNetworkConfigurationArgs
+
+func TaskSetNetworkConfigurationPtr(v *TaskSetNetworkConfigurationArgs) TaskSetNetworkConfigurationPtrInput {
+	return (*taskSetNetworkConfigurationPtrType)(v)
+}
+
+func (*taskSetNetworkConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TaskSetNetworkConfiguration)(nil)).Elem()
+}
+
+func (i *taskSetNetworkConfigurationPtrType) ToTaskSetNetworkConfigurationPtrOutput() TaskSetNetworkConfigurationPtrOutput {
+	return i.ToTaskSetNetworkConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *taskSetNetworkConfigurationPtrType) ToTaskSetNetworkConfigurationPtrOutputWithContext(ctx context.Context) TaskSetNetworkConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskSetNetworkConfigurationPtrOutput)
+}
+
+type TaskSetNetworkConfigurationOutput struct{ *pulumi.OutputState }
+
+func (TaskSetNetworkConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskSetNetworkConfiguration)(nil)).Elem()
+}
+
+func (o TaskSetNetworkConfigurationOutput) ToTaskSetNetworkConfigurationOutput() TaskSetNetworkConfigurationOutput {
+	return o
+}
+
+func (o TaskSetNetworkConfigurationOutput) ToTaskSetNetworkConfigurationOutputWithContext(ctx context.Context) TaskSetNetworkConfigurationOutput {
+	return o
+}
+
+func (o TaskSetNetworkConfigurationOutput) ToTaskSetNetworkConfigurationPtrOutput() TaskSetNetworkConfigurationPtrOutput {
+	return o.ToTaskSetNetworkConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o TaskSetNetworkConfigurationOutput) ToTaskSetNetworkConfigurationPtrOutputWithContext(ctx context.Context) TaskSetNetworkConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TaskSetNetworkConfiguration) *TaskSetNetworkConfiguration {
+		return &v
+	}).(TaskSetNetworkConfigurationPtrOutput)
+}
+
+// Whether to assign a public IP address to the ENI (`FARGATE` launch type only). Valid values are `true` or `false`. Default `false`.
+func (o TaskSetNetworkConfigurationOutput) AssignPublicIp() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v TaskSetNetworkConfiguration) *bool { return v.AssignPublicIp }).(pulumi.BoolPtrOutput)
+}
+
+// The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used. Maximum of 5.
+func (o TaskSetNetworkConfigurationOutput) SecurityGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TaskSetNetworkConfiguration) []string { return v.SecurityGroups }).(pulumi.StringArrayOutput)
+}
+
+// The subnets associated with the task or service. Maximum of 16.
+func (o TaskSetNetworkConfigurationOutput) Subnets() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TaskSetNetworkConfiguration) []string { return v.Subnets }).(pulumi.StringArrayOutput)
+}
+
+type TaskSetNetworkConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (TaskSetNetworkConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TaskSetNetworkConfiguration)(nil)).Elem()
+}
+
+func (o TaskSetNetworkConfigurationPtrOutput) ToTaskSetNetworkConfigurationPtrOutput() TaskSetNetworkConfigurationPtrOutput {
+	return o
+}
+
+func (o TaskSetNetworkConfigurationPtrOutput) ToTaskSetNetworkConfigurationPtrOutputWithContext(ctx context.Context) TaskSetNetworkConfigurationPtrOutput {
+	return o
+}
+
+func (o TaskSetNetworkConfigurationPtrOutput) Elem() TaskSetNetworkConfigurationOutput {
+	return o.ApplyT(func(v *TaskSetNetworkConfiguration) TaskSetNetworkConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret TaskSetNetworkConfiguration
+		return ret
+	}).(TaskSetNetworkConfigurationOutput)
+}
+
+// Whether to assign a public IP address to the ENI (`FARGATE` launch type only). Valid values are `true` or `false`. Default `false`.
+func (o TaskSetNetworkConfigurationPtrOutput) AssignPublicIp() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TaskSetNetworkConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AssignPublicIp
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used. Maximum of 5.
+func (o TaskSetNetworkConfigurationPtrOutput) SecurityGroups() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *TaskSetNetworkConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroups
+	}).(pulumi.StringArrayOutput)
+}
+
+// The subnets associated with the task or service. Maximum of 16.
+func (o TaskSetNetworkConfigurationPtrOutput) Subnets() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *TaskSetNetworkConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Subnets
+	}).(pulumi.StringArrayOutput)
+}
+
+type TaskSetScale struct {
+	// The unit of measure for the scale value. Default: `PERCENT`.
+	Unit *string `pulumi:"unit"`
+	// The value, specified as a percent total of a service's `desiredCount`, to scale the task set. Defaults to `0` if not specified. Accepted values are numbers between 0.0 and 100.0.
+	Value *float64 `pulumi:"value"`
+}
+
+// TaskSetScaleInput is an input type that accepts TaskSetScaleArgs and TaskSetScaleOutput values.
+// You can construct a concrete instance of `TaskSetScaleInput` via:
+//
+//          TaskSetScaleArgs{...}
+type TaskSetScaleInput interface {
+	pulumi.Input
+
+	ToTaskSetScaleOutput() TaskSetScaleOutput
+	ToTaskSetScaleOutputWithContext(context.Context) TaskSetScaleOutput
+}
+
+type TaskSetScaleArgs struct {
+	// The unit of measure for the scale value. Default: `PERCENT`.
+	Unit pulumi.StringPtrInput `pulumi:"unit"`
+	// The value, specified as a percent total of a service's `desiredCount`, to scale the task set. Defaults to `0` if not specified. Accepted values are numbers between 0.0 and 100.0.
+	Value pulumi.Float64PtrInput `pulumi:"value"`
+}
+
+func (TaskSetScaleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskSetScale)(nil)).Elem()
+}
+
+func (i TaskSetScaleArgs) ToTaskSetScaleOutput() TaskSetScaleOutput {
+	return i.ToTaskSetScaleOutputWithContext(context.Background())
+}
+
+func (i TaskSetScaleArgs) ToTaskSetScaleOutputWithContext(ctx context.Context) TaskSetScaleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskSetScaleOutput)
+}
+
+func (i TaskSetScaleArgs) ToTaskSetScalePtrOutput() TaskSetScalePtrOutput {
+	return i.ToTaskSetScalePtrOutputWithContext(context.Background())
+}
+
+func (i TaskSetScaleArgs) ToTaskSetScalePtrOutputWithContext(ctx context.Context) TaskSetScalePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskSetScaleOutput).ToTaskSetScalePtrOutputWithContext(ctx)
+}
+
+// TaskSetScalePtrInput is an input type that accepts TaskSetScaleArgs, TaskSetScalePtr and TaskSetScalePtrOutput values.
+// You can construct a concrete instance of `TaskSetScalePtrInput` via:
+//
+//          TaskSetScaleArgs{...}
+//
+//  or:
+//
+//          nil
+type TaskSetScalePtrInput interface {
+	pulumi.Input
+
+	ToTaskSetScalePtrOutput() TaskSetScalePtrOutput
+	ToTaskSetScalePtrOutputWithContext(context.Context) TaskSetScalePtrOutput
+}
+
+type taskSetScalePtrType TaskSetScaleArgs
+
+func TaskSetScalePtr(v *TaskSetScaleArgs) TaskSetScalePtrInput {
+	return (*taskSetScalePtrType)(v)
+}
+
+func (*taskSetScalePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TaskSetScale)(nil)).Elem()
+}
+
+func (i *taskSetScalePtrType) ToTaskSetScalePtrOutput() TaskSetScalePtrOutput {
+	return i.ToTaskSetScalePtrOutputWithContext(context.Background())
+}
+
+func (i *taskSetScalePtrType) ToTaskSetScalePtrOutputWithContext(ctx context.Context) TaskSetScalePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskSetScalePtrOutput)
+}
+
+type TaskSetScaleOutput struct{ *pulumi.OutputState }
+
+func (TaskSetScaleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskSetScale)(nil)).Elem()
+}
+
+func (o TaskSetScaleOutput) ToTaskSetScaleOutput() TaskSetScaleOutput {
+	return o
+}
+
+func (o TaskSetScaleOutput) ToTaskSetScaleOutputWithContext(ctx context.Context) TaskSetScaleOutput {
+	return o
+}
+
+func (o TaskSetScaleOutput) ToTaskSetScalePtrOutput() TaskSetScalePtrOutput {
+	return o.ToTaskSetScalePtrOutputWithContext(context.Background())
+}
+
+func (o TaskSetScaleOutput) ToTaskSetScalePtrOutputWithContext(ctx context.Context) TaskSetScalePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TaskSetScale) *TaskSetScale {
+		return &v
+	}).(TaskSetScalePtrOutput)
+}
+
+// The unit of measure for the scale value. Default: `PERCENT`.
+func (o TaskSetScaleOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskSetScale) *string { return v.Unit }).(pulumi.StringPtrOutput)
+}
+
+// The value, specified as a percent total of a service's `desiredCount`, to scale the task set. Defaults to `0` if not specified. Accepted values are numbers between 0.0 and 100.0.
+func (o TaskSetScaleOutput) Value() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v TaskSetScale) *float64 { return v.Value }).(pulumi.Float64PtrOutput)
+}
+
+type TaskSetScalePtrOutput struct{ *pulumi.OutputState }
+
+func (TaskSetScalePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TaskSetScale)(nil)).Elem()
+}
+
+func (o TaskSetScalePtrOutput) ToTaskSetScalePtrOutput() TaskSetScalePtrOutput {
+	return o
+}
+
+func (o TaskSetScalePtrOutput) ToTaskSetScalePtrOutputWithContext(ctx context.Context) TaskSetScalePtrOutput {
+	return o
+}
+
+func (o TaskSetScalePtrOutput) Elem() TaskSetScaleOutput {
+	return o.ApplyT(func(v *TaskSetScale) TaskSetScale {
+		if v != nil {
+			return *v
+		}
+		var ret TaskSetScale
+		return ret
+	}).(TaskSetScaleOutput)
+}
+
+// The unit of measure for the scale value. Default: `PERCENT`.
+func (o TaskSetScalePtrOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TaskSetScale) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Unit
+	}).(pulumi.StringPtrOutput)
+}
+
+// The value, specified as a percent total of a service's `desiredCount`, to scale the task set. Defaults to `0` if not specified. Accepted values are numbers between 0.0 and 100.0.
+func (o TaskSetScalePtrOutput) Value() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *TaskSetScale) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Value
+	}).(pulumi.Float64PtrOutput)
+}
+
+type TaskSetServiceRegistries struct {
+	// The container name value, already specified in the task definition, to be used for your service discovery service.
+	ContainerName *string `pulumi:"containerName"`
+	// The port value, already specified in the task definition, to be used for your service discovery service.
+	ContainerPort *int `pulumi:"containerPort"`
+	// The port value used if your Service Discovery service specified an SRV record.
+	Port *int `pulumi:"port"`
+	// The ARN of the Service Registry. The currently supported service registry is Amazon Route 53 Auto Naming Service([`servicediscovery.Service` resource](https://www.terraform.io/docs/providers/aws/r/service_discovery_service.html)). For more information, see [Service](https://docs.aws.amazon.com/Route53/latest/APIReference/API_autonaming_Service.html).
+	RegistryArn string `pulumi:"registryArn"`
+}
+
+// TaskSetServiceRegistriesInput is an input type that accepts TaskSetServiceRegistriesArgs and TaskSetServiceRegistriesOutput values.
+// You can construct a concrete instance of `TaskSetServiceRegistriesInput` via:
+//
+//          TaskSetServiceRegistriesArgs{...}
+type TaskSetServiceRegistriesInput interface {
+	pulumi.Input
+
+	ToTaskSetServiceRegistriesOutput() TaskSetServiceRegistriesOutput
+	ToTaskSetServiceRegistriesOutputWithContext(context.Context) TaskSetServiceRegistriesOutput
+}
+
+type TaskSetServiceRegistriesArgs struct {
+	// The container name value, already specified in the task definition, to be used for your service discovery service.
+	ContainerName pulumi.StringPtrInput `pulumi:"containerName"`
+	// The port value, already specified in the task definition, to be used for your service discovery service.
+	ContainerPort pulumi.IntPtrInput `pulumi:"containerPort"`
+	// The port value used if your Service Discovery service specified an SRV record.
+	Port pulumi.IntPtrInput `pulumi:"port"`
+	// The ARN of the Service Registry. The currently supported service registry is Amazon Route 53 Auto Naming Service([`servicediscovery.Service` resource](https://www.terraform.io/docs/providers/aws/r/service_discovery_service.html)). For more information, see [Service](https://docs.aws.amazon.com/Route53/latest/APIReference/API_autonaming_Service.html).
+	RegistryArn pulumi.StringInput `pulumi:"registryArn"`
+}
+
+func (TaskSetServiceRegistriesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskSetServiceRegistries)(nil)).Elem()
+}
+
+func (i TaskSetServiceRegistriesArgs) ToTaskSetServiceRegistriesOutput() TaskSetServiceRegistriesOutput {
+	return i.ToTaskSetServiceRegistriesOutputWithContext(context.Background())
+}
+
+func (i TaskSetServiceRegistriesArgs) ToTaskSetServiceRegistriesOutputWithContext(ctx context.Context) TaskSetServiceRegistriesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskSetServiceRegistriesOutput)
+}
+
+func (i TaskSetServiceRegistriesArgs) ToTaskSetServiceRegistriesPtrOutput() TaskSetServiceRegistriesPtrOutput {
+	return i.ToTaskSetServiceRegistriesPtrOutputWithContext(context.Background())
+}
+
+func (i TaskSetServiceRegistriesArgs) ToTaskSetServiceRegistriesPtrOutputWithContext(ctx context.Context) TaskSetServiceRegistriesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskSetServiceRegistriesOutput).ToTaskSetServiceRegistriesPtrOutputWithContext(ctx)
+}
+
+// TaskSetServiceRegistriesPtrInput is an input type that accepts TaskSetServiceRegistriesArgs, TaskSetServiceRegistriesPtr and TaskSetServiceRegistriesPtrOutput values.
+// You can construct a concrete instance of `TaskSetServiceRegistriesPtrInput` via:
+//
+//          TaskSetServiceRegistriesArgs{...}
+//
+//  or:
+//
+//          nil
+type TaskSetServiceRegistriesPtrInput interface {
+	pulumi.Input
+
+	ToTaskSetServiceRegistriesPtrOutput() TaskSetServiceRegistriesPtrOutput
+	ToTaskSetServiceRegistriesPtrOutputWithContext(context.Context) TaskSetServiceRegistriesPtrOutput
+}
+
+type taskSetServiceRegistriesPtrType TaskSetServiceRegistriesArgs
+
+func TaskSetServiceRegistriesPtr(v *TaskSetServiceRegistriesArgs) TaskSetServiceRegistriesPtrInput {
+	return (*taskSetServiceRegistriesPtrType)(v)
+}
+
+func (*taskSetServiceRegistriesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TaskSetServiceRegistries)(nil)).Elem()
+}
+
+func (i *taskSetServiceRegistriesPtrType) ToTaskSetServiceRegistriesPtrOutput() TaskSetServiceRegistriesPtrOutput {
+	return i.ToTaskSetServiceRegistriesPtrOutputWithContext(context.Background())
+}
+
+func (i *taskSetServiceRegistriesPtrType) ToTaskSetServiceRegistriesPtrOutputWithContext(ctx context.Context) TaskSetServiceRegistriesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskSetServiceRegistriesPtrOutput)
+}
+
+type TaskSetServiceRegistriesOutput struct{ *pulumi.OutputState }
+
+func (TaskSetServiceRegistriesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskSetServiceRegistries)(nil)).Elem()
+}
+
+func (o TaskSetServiceRegistriesOutput) ToTaskSetServiceRegistriesOutput() TaskSetServiceRegistriesOutput {
+	return o
+}
+
+func (o TaskSetServiceRegistriesOutput) ToTaskSetServiceRegistriesOutputWithContext(ctx context.Context) TaskSetServiceRegistriesOutput {
+	return o
+}
+
+func (o TaskSetServiceRegistriesOutput) ToTaskSetServiceRegistriesPtrOutput() TaskSetServiceRegistriesPtrOutput {
+	return o.ToTaskSetServiceRegistriesPtrOutputWithContext(context.Background())
+}
+
+func (o TaskSetServiceRegistriesOutput) ToTaskSetServiceRegistriesPtrOutputWithContext(ctx context.Context) TaskSetServiceRegistriesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TaskSetServiceRegistries) *TaskSetServiceRegistries {
+		return &v
+	}).(TaskSetServiceRegistriesPtrOutput)
+}
+
+// The container name value, already specified in the task definition, to be used for your service discovery service.
+func (o TaskSetServiceRegistriesOutput) ContainerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskSetServiceRegistries) *string { return v.ContainerName }).(pulumi.StringPtrOutput)
+}
+
+// The port value, already specified in the task definition, to be used for your service discovery service.
+func (o TaskSetServiceRegistriesOutput) ContainerPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TaskSetServiceRegistries) *int { return v.ContainerPort }).(pulumi.IntPtrOutput)
+}
+
+// The port value used if your Service Discovery service specified an SRV record.
+func (o TaskSetServiceRegistriesOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TaskSetServiceRegistries) *int { return v.Port }).(pulumi.IntPtrOutput)
+}
+
+// The ARN of the Service Registry. The currently supported service registry is Amazon Route 53 Auto Naming Service([`servicediscovery.Service` resource](https://www.terraform.io/docs/providers/aws/r/service_discovery_service.html)). For more information, see [Service](https://docs.aws.amazon.com/Route53/latest/APIReference/API_autonaming_Service.html).
+func (o TaskSetServiceRegistriesOutput) RegistryArn() pulumi.StringOutput {
+	return o.ApplyT(func(v TaskSetServiceRegistries) string { return v.RegistryArn }).(pulumi.StringOutput)
+}
+
+type TaskSetServiceRegistriesPtrOutput struct{ *pulumi.OutputState }
+
+func (TaskSetServiceRegistriesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TaskSetServiceRegistries)(nil)).Elem()
+}
+
+func (o TaskSetServiceRegistriesPtrOutput) ToTaskSetServiceRegistriesPtrOutput() TaskSetServiceRegistriesPtrOutput {
+	return o
+}
+
+func (o TaskSetServiceRegistriesPtrOutput) ToTaskSetServiceRegistriesPtrOutputWithContext(ctx context.Context) TaskSetServiceRegistriesPtrOutput {
+	return o
+}
+
+func (o TaskSetServiceRegistriesPtrOutput) Elem() TaskSetServiceRegistriesOutput {
+	return o.ApplyT(func(v *TaskSetServiceRegistries) TaskSetServiceRegistries {
+		if v != nil {
+			return *v
+		}
+		var ret TaskSetServiceRegistries
+		return ret
+	}).(TaskSetServiceRegistriesOutput)
+}
+
+// The container name value, already specified in the task definition, to be used for your service discovery service.
+func (o TaskSetServiceRegistriesPtrOutput) ContainerName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TaskSetServiceRegistries) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ContainerName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The port value, already specified in the task definition, to be used for your service discovery service.
+func (o TaskSetServiceRegistriesPtrOutput) ContainerPort() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TaskSetServiceRegistries) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ContainerPort
+	}).(pulumi.IntPtrOutput)
+}
+
+// The port value used if your Service Discovery service specified an SRV record.
+func (o TaskSetServiceRegistriesPtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TaskSetServiceRegistries) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Port
+	}).(pulumi.IntPtrOutput)
+}
+
+// The ARN of the Service Registry. The currently supported service registry is Amazon Route 53 Auto Naming Service([`servicediscovery.Service` resource](https://www.terraform.io/docs/providers/aws/r/service_discovery_service.html)). For more information, see [Service](https://docs.aws.amazon.com/Route53/latest/APIReference/API_autonaming_Service.html).
+func (o TaskSetServiceRegistriesPtrOutput) RegistryArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TaskSetServiceRegistries) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RegistryArn
+	}).(pulumi.StringPtrOutput)
+}
+
 type GetClusterSetting struct {
 	Name  string `pulumi:"name"`
 	Value string `pulumi:"value"`
@@ -4004,6 +4924,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionPlacementConstraintArrayInput)(nil)).Elem(), TaskDefinitionPlacementConstraintArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionProxyConfigurationInput)(nil)).Elem(), TaskDefinitionProxyConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionProxyConfigurationPtrInput)(nil)).Elem(), TaskDefinitionProxyConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionRuntimePlatformInput)(nil)).Elem(), TaskDefinitionRuntimePlatformArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionRuntimePlatformPtrInput)(nil)).Elem(), TaskDefinitionRuntimePlatformArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionVolumeInput)(nil)).Elem(), TaskDefinitionVolumeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionVolumeArrayInput)(nil)).Elem(), TaskDefinitionVolumeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionVolumeDockerVolumeConfigurationInput)(nil)).Elem(), TaskDefinitionVolumeDockerVolumeConfigurationArgs{})
@@ -4016,6 +4938,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationPtrInput)(nil)).Elem(), TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigInput)(nil)).Elem(), TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigPtrInput)(nil)).Elem(), TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskSetCapacityProviderStrategyInput)(nil)).Elem(), TaskSetCapacityProviderStrategyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskSetCapacityProviderStrategyArrayInput)(nil)).Elem(), TaskSetCapacityProviderStrategyArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskSetLoadBalancerInput)(nil)).Elem(), TaskSetLoadBalancerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskSetLoadBalancerArrayInput)(nil)).Elem(), TaskSetLoadBalancerArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskSetNetworkConfigurationInput)(nil)).Elem(), TaskSetNetworkConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskSetNetworkConfigurationPtrInput)(nil)).Elem(), TaskSetNetworkConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskSetScaleInput)(nil)).Elem(), TaskSetScaleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskSetScalePtrInput)(nil)).Elem(), TaskSetScaleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskSetServiceRegistriesInput)(nil)).Elem(), TaskSetServiceRegistriesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskSetServiceRegistriesPtrInput)(nil)).Elem(), TaskSetServiceRegistriesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterSettingInput)(nil)).Elem(), GetClusterSettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterSettingArrayInput)(nil)).Elem(), GetClusterSettingArray{})
 	pulumi.RegisterOutputType(CapacityProviderAutoScalingGroupProviderOutput{})
@@ -4056,6 +4988,8 @@ func init() {
 	pulumi.RegisterOutputType(TaskDefinitionPlacementConstraintArrayOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionProxyConfigurationOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionProxyConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(TaskDefinitionRuntimePlatformOutput{})
+	pulumi.RegisterOutputType(TaskDefinitionRuntimePlatformPtrOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionVolumeOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionVolumeArrayOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionVolumeDockerVolumeConfigurationOutput{})
@@ -4068,6 +5002,16 @@ func init() {
 	pulumi.RegisterOutputType(TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigOutput{})
 	pulumi.RegisterOutputType(TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigPtrOutput{})
+	pulumi.RegisterOutputType(TaskSetCapacityProviderStrategyOutput{})
+	pulumi.RegisterOutputType(TaskSetCapacityProviderStrategyArrayOutput{})
+	pulumi.RegisterOutputType(TaskSetLoadBalancerOutput{})
+	pulumi.RegisterOutputType(TaskSetLoadBalancerArrayOutput{})
+	pulumi.RegisterOutputType(TaskSetNetworkConfigurationOutput{})
+	pulumi.RegisterOutputType(TaskSetNetworkConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(TaskSetScaleOutput{})
+	pulumi.RegisterOutputType(TaskSetScalePtrOutput{})
+	pulumi.RegisterOutputType(TaskSetServiceRegistriesOutput{})
+	pulumi.RegisterOutputType(TaskSetServiceRegistriesPtrOutput{})
 	pulumi.RegisterOutputType(GetClusterSettingOutput{})
 	pulumi.RegisterOutputType(GetClusterSettingArrayOutput{})
 }

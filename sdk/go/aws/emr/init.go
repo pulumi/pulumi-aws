@@ -31,6 +31,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ManagedScalingPolicy{}
 	case "aws:emr/securityConfiguration:SecurityConfiguration":
 		r = &SecurityConfiguration{}
+	case "aws:emr/studio:Studio":
+		r = &Studio{}
+	case "aws:emr/studioSessionMapping:StudioSessionMapping":
+		r = &StudioSessionMapping{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -67,6 +71,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"emr/securityConfiguration",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"emr/studio",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"emr/studioSessionMapping",
 		&module{version},
 	)
 }

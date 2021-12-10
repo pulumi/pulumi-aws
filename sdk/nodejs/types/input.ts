@@ -34,7 +34,7 @@ export interface GetAmiIdsFilter {
 
 export interface GetAutoscalingGroupsFilterArgs {
     /**
-     * The name of the filter. The valid values are: `auto-scaling-group`, `key`, `value`, and `propagate-at-launch`.
+     * The name of the DescribeAutoScalingGroup filter. The recommended values are: `tag-key`, `tag-value`, and `tag:<tag name>`
      */
     name: pulumi.Input<string>;
     /**
@@ -45,7 +45,7 @@ export interface GetAutoscalingGroupsFilterArgs {
 
 export interface GetAutoscalingGroupsFilter {
     /**
-     * The name of the filter. The valid values are: `auto-scaling-group`, `key`, `value`, and `propagate-at-launch`.
+     * The name of the DescribeAutoScalingGroup filter. The recommended values are: `tag-key`, `tag-value`, and `tag:<tag name>`
      */
     name: string;
     /**
@@ -4809,7 +4809,7 @@ export namespace athena {
 export namespace autoscaling {
     export interface GetAmiIdsFilter {
         /**
-         * The name of the filter. The valid values are: `auto-scaling-group`, `key`, `value`, and `propagate-at-launch`.
+         * The name of the DescribeAutoScalingGroup filter. The recommended values are: `tag-key`, `tag-value`, and `tag:<tag name>`
          */
         name: string;
         /**
@@ -4820,7 +4820,7 @@ export namespace autoscaling {
 
     export interface GetAmiIdsFilterArgs {
         /**
-         * The name of the filter. The valid values are: `auto-scaling-group`, `key`, `value`, and `propagate-at-launch`.
+         * The name of the DescribeAutoScalingGroup filter. The recommended values are: `tag-key`, `tag-value`, and `tag:<tag name>`
          */
         name: pulumi.Input<string>;
         /**
@@ -13121,6 +13121,17 @@ export namespace ecs {
         type?: pulumi.Input<string>;
     }
 
+    export interface TaskDefinitionRuntimePlatform {
+        /**
+         * Must be set to either `X86_64` or `ARM64`; see [cpu architecture](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform)
+         */
+        cpuArchitecture?: pulumi.Input<string>;
+        /**
+         * If the `requiresCompatibilities` is `FARGATE` this field is required; must be set to a valid option from the [operating system family in the runtime platform](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform) setting
+         */
+        operatingSystemFamily?: pulumi.Input<string>;
+    }
+
     export interface TaskDefinitionVolume {
         /**
          * Configuration block to configure a docker volume. Detailed below.
@@ -13226,6 +13237,85 @@ export namespace ecs {
          * A fully qualified domain name hosted by an AWS Directory Service Managed Microsoft AD (Active Directory) or self-hosted AD on Amazon EC2.
          */
         domain: pulumi.Input<string>;
+    }
+
+    export interface TaskSetCapacityProviderStrategy {
+        /**
+         * The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
+         */
+        base?: pulumi.Input<number>;
+        /**
+         * The short name or full Amazon Resource Name (ARN) of the capacity provider.
+         */
+        capacityProvider: pulumi.Input<string>;
+        /**
+         * The relative percentage of the total number of launched tasks that should use the specified capacity provider.
+         */
+        weight: pulumi.Input<number>;
+    }
+
+    export interface TaskSetLoadBalancer {
+        /**
+         * The name of the container to associate with the load balancer (as it appears in a container definition).
+         */
+        containerName: pulumi.Input<string>;
+        /**
+         * The port on the container to associate with the load balancer. Defaults to `0` if not specified.
+         */
+        containerPort?: pulumi.Input<number>;
+        /**
+         * The name of the ELB (Classic) to associate with the service.
+         */
+        loadBalancerName?: pulumi.Input<string>;
+        /**
+         * The ARN of the Load Balancer target group to associate with the service.
+         */
+        targetGroupArn?: pulumi.Input<string>;
+    }
+
+    export interface TaskSetNetworkConfiguration {
+        /**
+         * Whether to assign a public IP address to the ENI (`FARGATE` launch type only). Valid values are `true` or `false`. Default `false`.
+         */
+        assignPublicIp?: pulumi.Input<boolean>;
+        /**
+         * The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used. Maximum of 5.
+         */
+        securityGroups?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The subnets associated with the task or service. Maximum of 16.
+         */
+        subnets: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface TaskSetScale {
+        /**
+         * The unit of measure for the scale value. Default: `PERCENT`.
+         */
+        unit?: pulumi.Input<string>;
+        /**
+         * The value, specified as a percent total of a service's `desiredCount`, to scale the task set. Defaults to `0` if not specified. Accepted values are numbers between 0.0 and 100.0.
+         */
+        value?: pulumi.Input<number>;
+    }
+
+    export interface TaskSetServiceRegistries {
+        /**
+         * The container name value, already specified in the task definition, to be used for your service discovery service.
+         */
+        containerName?: pulumi.Input<string>;
+        /**
+         * The port value, already specified in the task definition, to be used for your service discovery service.
+         */
+        containerPort?: pulumi.Input<number>;
+        /**
+         * The port value used if your Service Discovery service specified an SRV record.
+         */
+        port?: pulumi.Input<number>;
+        /**
+         * The ARN of the Service Registry. The currently supported service registry is Amazon Route 53 Auto Naming Service([`aws.servicediscovery.Service` resource](https://www.terraform.io/docs/providers/aws/r/service_discovery_service.html)). For more information, see [Service](https://docs.aws.amazon.com/Route53/latest/APIReference/API_autonaming_Service.html).
+         */
+        registryArn: pulumi.Input<string>;
     }
 }
 
@@ -14280,6 +14370,47 @@ export namespace elasticsearch {
          * Main user's password, which is stored in the Amazon Elasticsearch Service domain's internal database. Only specify if `internalUserDatabaseEnabled` is set to `true`.
          */
         masterUserPassword?: pulumi.Input<string>;
+    }
+
+    export interface DomainAutoTuneOptions {
+        /**
+         * The Auto-Tune desired state for the domain. Valid values: `ENABLED` or `DISABLED`.
+         */
+        desiredState: pulumi.Input<string>;
+        /**
+         * Configuration block for Auto-Tune maintenance windows. Can be specified multiple times for each maintenance window. Detailed below.
+         */
+        maintenanceSchedules?: pulumi.Input<pulumi.Input<inputs.elasticsearch.DomainAutoTuneOptionsMaintenanceSchedule>[]>;
+        /**
+         * Whether to roll back to default Auto-Tune settings when disabling Auto-Tune. Valid values: `DEFAULT_ROLLBACK` or `NO_ROLLBACK`.
+         */
+        rollbackOnDisable?: pulumi.Input<string>;
+    }
+
+    export interface DomainAutoTuneOptionsMaintenanceSchedule {
+        /**
+         * A cron expression specifying the recurrence pattern for an Auto-Tune maintenance schedule.
+         */
+        cronExpressionForRecurrence: pulumi.Input<string>;
+        /**
+         * Configuration block for the duration of the Auto-Tune maintenance window. Detailed below.
+         */
+        duration: pulumi.Input<inputs.elasticsearch.DomainAutoTuneOptionsMaintenanceScheduleDuration>;
+        /**
+         * Date and time at which to start the Auto-Tune maintenance schedule in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+         */
+        startAt: pulumi.Input<string>;
+    }
+
+    export interface DomainAutoTuneOptionsMaintenanceScheduleDuration {
+        /**
+         * The unit of time specifying the duration of an Auto-Tune maintenance window. Valid values: `HOURS`.
+         */
+        unit: pulumi.Input<string>;
+        /**
+         * An integer specifying the value of the duration of an Auto-Tune maintenance window.
+         */
+        value: pulumi.Input<number>;
     }
 
     export interface DomainClusterConfig {
@@ -19043,6 +19174,12 @@ export namespace kinesis {
         parameterValue: pulumi.Input<string>;
     }
 
+    export interface StreamStreamModeDetails {
+        /**
+         * Specifies the capacity mode of the stream. Must be either `PROVISIONED` or `ON_DEMAND`.
+         */
+        streamMode: pulumi.Input<string>;
+    }
 }
 
 export namespace kinesisanalyticsv2 {
@@ -19891,6 +20028,20 @@ export namespace lambda {
          * The Amazon Resource Name (ARN) of the destination resource.
          */
         destinationArn: pulumi.Input<string>;
+    }
+
+    export interface EventSourceMappingFilterCriteria {
+        /**
+         * A set of up to 5 filter. If an event satisfies at least one, Lambda sends the event to the function or adds it to the next batch. Detailed below.
+         */
+        filters?: pulumi.Input<pulumi.Input<inputs.lambda.EventSourceMappingFilterCriteriaFilter>[]>;
+    }
+
+    export interface EventSourceMappingFilterCriteriaFilter {
+        /**
+         * A filter pattern up to 4096 characters. See [Filter Rule Syntax](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html#filtering-syntax).
+         */
+        pattern?: pulumi.Input<string>;
     }
 
     export interface EventSourceMappingSelfManagedEventSource {

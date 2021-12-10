@@ -242,6 +242,12 @@ namespace Pulumi.Aws.DynamoDB
         public Output<string> StreamViewType { get; private set; } = null!;
 
         /// <summary>
+        /// The storage class of the table. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
+        /// </summary>
+        [Output("tableClass")]
+        public Output<string?> TableClass { get; private set; } = null!;
+
+        /// <summary>
         /// A map of tags to populate on the created table. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
@@ -418,6 +424,12 @@ namespace Pulumi.Aws.DynamoDB
         [Input("streamViewType")]
         public Input<string>? StreamViewType { get; set; }
 
+        /// <summary>
+        /// The storage class of the table. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
+        /// </summary>
+        [Input("tableClass")]
+        public Input<string>? TableClass { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -576,6 +588,12 @@ namespace Pulumi.Aws.DynamoDB
         /// </summary>
         [Input("streamViewType")]
         public Input<string>? StreamViewType { get; set; }
+
+        /// <summary>
+        /// The storage class of the table. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
+        /// </summary>
+        [Input("tableClass")]
+        public Input<string>? TableClass { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

@@ -85,6 +85,27 @@ namespace Pulumi.Aws.Sqs
     /// 
     /// ## Server-side encryption (SSE)
     /// 
+    /// Using [SSE-SQS](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sqs-sse-queue.html):
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var terraformQueue = new Aws.Sqs.Queue("terraformQueue", new Aws.Sqs.QueueArgs
+    ///         {
+    ///             SqsManagedSseEnabled = true,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// Using [SSE-KMS](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sse-existing-queue.html):
+    /// 
     /// ```csharp
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
@@ -203,6 +224,12 @@ namespace Pulumi.Aws.Sqs
         /// </summary>
         [Output("redrivePolicy")]
         public Output<string?> RedrivePolicy { get; private set; } = null!;
+
+        /// <summary>
+        /// Boolean to enable server-side encryption (SSE) of message content with SQS-owned encryption keys. Defaults to `false`. See [Encryption at rest](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html).
+        /// </summary>
+        [Output("sqsManagedSseEnabled")]
+        public Output<bool?> SqsManagedSseEnabled { get; private set; } = null!;
 
         /// <summary>
         /// A map of tags to assign to the queue. If configured with a provider `default_tags` configuration block) present, tags with matching keys will overwrite those defined at the provider-level.
@@ -358,6 +385,12 @@ namespace Pulumi.Aws.Sqs
         [Input("redrivePolicy")]
         public Input<string>? RedrivePolicy { get; set; }
 
+        /// <summary>
+        /// Boolean to enable server-side encryption (SSE) of message content with SQS-owned encryption keys. Defaults to `false`. See [Encryption at rest](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html).
+        /// </summary>
+        [Input("sqsManagedSseEnabled")]
+        public Input<bool>? SqsManagedSseEnabled { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -472,6 +505,12 @@ namespace Pulumi.Aws.Sqs
         /// </summary>
         [Input("redrivePolicy")]
         public Input<string>? RedrivePolicy { get; set; }
+
+        /// <summary>
+        /// Boolean to enable server-side encryption (SSE) of message content with SQS-owned encryption keys. Defaults to `false`. See [Encryption at rest](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-server-side-encryption.html).
+        /// </summary>
+        [Input("sqsManagedSseEnabled")]
+        public Input<bool>? SqsManagedSseEnabled { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

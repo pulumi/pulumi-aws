@@ -91,6 +91,34 @@ import * as utilities from "../utilities";
  *     functionName: aws_lambda_function.example.arn,
  * });
  * ```
+ * ### SQS with event filter
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.lambda.EventSourceMapping("example", {
+ *     eventSourceArn: aws_sqs_queue.sqs_queue_test.arn,
+ *     functionName: aws_lambda_function.example.arn,
+ *     filterCriteria: {
+ *         filters: [{
+ *             pattern: JSON.stringify({
+ *                 body: {
+ *                     Temperature: [{
+ *                         numeric: [
+ *                             ">",
+ *                             0,
+ *                             "<=",
+ *                             100,
+ *                         ],
+ *                     }],
+ *                     Location: ["New York"],
+ *                 },
+ *             }),
+ *         }],
+ *     },
+ * });
+ * ```
  * ### Amazon MQ (ActiveMQ)
  *
  * ```typescript
@@ -200,6 +228,10 @@ export class EventSourceMapping extends pulumi.CustomResource {
      */
     public readonly eventSourceArn!: pulumi.Output<string | undefined>;
     /**
+     * The criteria to use for [event filtering](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html) Kinesis stream, DynamoDB stream, SQS queue event sources. Detailed below.
+     */
+    public readonly filterCriteria!: pulumi.Output<outputs.lambda.EventSourceMappingFilterCriteria | undefined>;
+    /**
      * The the ARN of the Lambda function the event source mapping is sending events to. (Note: this is a computed value that differs from `functionName` above.)
      */
     public /*out*/ readonly functionArn!: pulumi.Output<string>;
@@ -284,6 +316,7 @@ export class EventSourceMapping extends pulumi.CustomResource {
             inputs["destinationConfig"] = state ? state.destinationConfig : undefined;
             inputs["enabled"] = state ? state.enabled : undefined;
             inputs["eventSourceArn"] = state ? state.eventSourceArn : undefined;
+            inputs["filterCriteria"] = state ? state.filterCriteria : undefined;
             inputs["functionArn"] = state ? state.functionArn : undefined;
             inputs["functionName"] = state ? state.functionName : undefined;
             inputs["functionResponseTypes"] = state ? state.functionResponseTypes : undefined;
@@ -313,6 +346,7 @@ export class EventSourceMapping extends pulumi.CustomResource {
             inputs["destinationConfig"] = args ? args.destinationConfig : undefined;
             inputs["enabled"] = args ? args.enabled : undefined;
             inputs["eventSourceArn"] = args ? args.eventSourceArn : undefined;
+            inputs["filterCriteria"] = args ? args.filterCriteria : undefined;
             inputs["functionName"] = args ? args.functionName : undefined;
             inputs["functionResponseTypes"] = args ? args.functionResponseTypes : undefined;
             inputs["maximumBatchingWindowInSeconds"] = args ? args.maximumBatchingWindowInSeconds : undefined;
@@ -360,6 +394,10 @@ export interface EventSourceMappingState {
      * The event source ARN - this is required for Kinesis stream, DynamoDB stream, SQS queue, MQ broker or MSK cluster.  It is incompatible with a Self Managed Kafka source.
      */
     eventSourceArn?: pulumi.Input<string>;
+    /**
+     * The criteria to use for [event filtering](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html) Kinesis stream, DynamoDB stream, SQS queue event sources. Detailed below.
+     */
+    filterCriteria?: pulumi.Input<inputs.lambda.EventSourceMappingFilterCriteria>;
     /**
      * The the ARN of the Lambda function the event source mapping is sending events to. (Note: this is a computed value that differs from `functionName` above.)
      */
@@ -448,6 +486,10 @@ export interface EventSourceMappingArgs {
      * The event source ARN - this is required for Kinesis stream, DynamoDB stream, SQS queue, MQ broker or MSK cluster.  It is incompatible with a Self Managed Kafka source.
      */
     eventSourceArn?: pulumi.Input<string>;
+    /**
+     * The criteria to use for [event filtering](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html) Kinesis stream, DynamoDB stream, SQS queue event sources. Detailed below.
+     */
+    filterCriteria?: pulumi.Input<inputs.lambda.EventSourceMappingFilterCriteria>;
     /**
      * The name or the ARN of the Lambda function that will be subscribing to events.
      */

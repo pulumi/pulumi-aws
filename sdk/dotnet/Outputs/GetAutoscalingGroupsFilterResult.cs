@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Outputs
     public sealed class GetAutoscalingGroupsFilterResult
     {
         /// <summary>
-        /// The name of the filter. The valid values are: `auto-scaling-group`, `key`, `value`, and `propagate-at-launch`.
+        /// The name of the DescribeAutoScalingGroup filter. The recommended values are: `tag-key`, `tag-value`, and `tag:&lt;tag name&gt;`
         /// </summary>
         public readonly string Name;
         /// <summary>

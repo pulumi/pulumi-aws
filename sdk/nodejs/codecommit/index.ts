@@ -6,6 +6,7 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./approvalRuleTemplate";
+export * from "./approvalRuleTemplateAssociation";
 export * from "./getApprovalRuleTemplate";
 export * from "./getRepository";
 export * from "./repository";
@@ -13,6 +14,7 @@ export * from "./trigger";
 
 // Import resources to register:
 import { ApprovalRuleTemplate } from "./approvalRuleTemplate";
+import { ApprovalRuleTemplateAssociation } from "./approvalRuleTemplateAssociation";
 import { Repository } from "./repository";
 import { Trigger } from "./trigger";
 
@@ -22,6 +24,8 @@ const _module = {
         switch (type) {
             case "aws:codecommit/approvalRuleTemplate:ApprovalRuleTemplate":
                 return new ApprovalRuleTemplate(name, <any>undefined, { urn })
+            case "aws:codecommit/approvalRuleTemplateAssociation:ApprovalRuleTemplateAssociation":
+                return new ApprovalRuleTemplateAssociation(name, <any>undefined, { urn })
             case "aws:codecommit/repository:Repository":
                 return new Repository(name, <any>undefined, { urn })
             case "aws:codecommit/trigger:Trigger":
@@ -32,5 +36,6 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("aws", "codecommit/approvalRuleTemplate", _module)
+pulumi.runtime.registerResourceModule("aws", "codecommit/approvalRuleTemplateAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "codecommit/repository", _module)
 pulumi.runtime.registerResourceModule("aws", "codecommit/trigger", _module)

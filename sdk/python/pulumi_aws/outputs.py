@@ -142,7 +142,7 @@ class GetAutoscalingGroupsFilterResult(dict):
                  name: str,
                  values: Sequence[str]):
         """
-        :param str name: The name of the filter. The valid values are: `auto-scaling-group`, `key`, `value`, and `propagate-at-launch`.
+        :param str name: The name of the DescribeAutoScalingGroup filter. The recommended values are: `tag-key`, `tag-value`, and `tag:<tag name>`
         :param Sequence[str] values: The value of the filter.
         """
         pulumi.set(__self__, "name", name)
@@ -152,7 +152,7 @@ class GetAutoscalingGroupsFilterResult(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the filter. The valid values are: `auto-scaling-group`, `key`, `value`, and `propagate-at-launch`.
+        The name of the DescribeAutoScalingGroup filter. The recommended values are: `tag-key`, `tag-value`, and `tag:<tag name>`
         """
         return pulumi.get(self, "name")
 

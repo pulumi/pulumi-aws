@@ -28,9 +28,7 @@ class VpcArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Vpc resource.
-        :param pulumi.Input[bool] assign_generated_ipv6_cidr_block: Requests an Amazon-provided IPv6 CIDR
-               block with a /56 prefix length for the VPC. You cannot specify the range of IP addresses, or
-               the size of the CIDR block. Default is `false`.
+        :param pulumi.Input[bool] assign_generated_ipv6_cidr_block: Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IP addresses, or the size of the CIDR block. Default is `false`. Conflicts with `ipv6_ipam_pool_id`
         :param pulumi.Input[str] cidr_block: The IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv4_netmask_length`.
         :param pulumi.Input[bool] enable_classiclink: A boolean flag to enable/disable ClassicLink
                for the VPC. Only valid in regions and accounts that support EC2 Classic.
@@ -42,8 +40,10 @@ class VpcArgs:
         :param pulumi.Input[str] instance_tenancy: A tenancy option for instances launched into the VPC. Default is `default`, which makes your instances shared on the host. Using either of the other options (`dedicated` or `host`) costs at least $2/hr.
         :param pulumi.Input[str] ipv4_ipam_pool_id: The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts. Using IPAM you can monitor IP address usage throughout your AWS Organization.
         :param pulumi.Input[int] ipv4_netmask_length: The netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a `ipv4_ipam_pool_id`.
-        :param pulumi.Input[str] ipv6_cidr_block: The IPv6 CIDR block.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[str] ipv6_cidr_block: IPv6 CIDR block to request from an IPAM Pool. Can be set explicitly or derived from IPAM using `ipv6_netmask_length`.
+        :param pulumi.Input[str] ipv6_ipam_pool_id: IPAM Pool ID for a IPv6 pool. Conflicts with `assign_generated_ipv6_cidr_block`.
+        :param pulumi.Input[int] ipv6_netmask_length: Netmask length to request from IPAM Pool. Conflicts with `ipv6_cidr_block`. This can be omitted if IPAM pool as a `allocation_default_netmask_length` set. Valid values: `56`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if assign_generated_ipv6_cidr_block is not None:
             pulumi.set(__self__, "assign_generated_ipv6_cidr_block", assign_generated_ipv6_cidr_block)
@@ -76,9 +76,7 @@ class VpcArgs:
     @pulumi.getter(name="assignGeneratedIpv6CidrBlock")
     def assign_generated_ipv6_cidr_block(self) -> Optional[pulumi.Input[bool]]:
         """
-        Requests an Amazon-provided IPv6 CIDR
-        block with a /56 prefix length for the VPC. You cannot specify the range of IP addresses, or
-        the size of the CIDR block. Default is `false`.
+        Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IP addresses, or the size of the CIDR block. Default is `false`. Conflicts with `ipv6_ipam_pool_id`
         """
         return pulumi.get(self, "assign_generated_ipv6_cidr_block")
 
@@ -189,7 +187,7 @@ class VpcArgs:
     @pulumi.getter(name="ipv6CidrBlock")
     def ipv6_cidr_block(self) -> Optional[pulumi.Input[str]]:
         """
-        The IPv6 CIDR block.
+        IPv6 CIDR block to request from an IPAM Pool. Can be set explicitly or derived from IPAM using `ipv6_netmask_length`.
         """
         return pulumi.get(self, "ipv6_cidr_block")
 
@@ -200,6 +198,9 @@ class VpcArgs:
     @property
     @pulumi.getter(name="ipv6IpamPoolId")
     def ipv6_ipam_pool_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        IPAM Pool ID for a IPv6 pool. Conflicts with `assign_generated_ipv6_cidr_block`.
+        """
         return pulumi.get(self, "ipv6_ipam_pool_id")
 
     @ipv6_ipam_pool_id.setter
@@ -209,6 +210,9 @@ class VpcArgs:
     @property
     @pulumi.getter(name="ipv6NetmaskLength")
     def ipv6_netmask_length(self) -> Optional[pulumi.Input[int]]:
+        """
+        Netmask length to request from IPAM Pool. Conflicts with `ipv6_cidr_block`. This can be omitted if IPAM pool as a `allocation_default_netmask_length` set. Valid values: `56`.
+        """
         return pulumi.get(self, "ipv6_netmask_length")
 
     @ipv6_netmask_length.setter
@@ -219,7 +223,7 @@ class VpcArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -256,9 +260,7 @@ class _VpcState:
         """
         Input properties used for looking up and filtering Vpc resources.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of VPC
-        :param pulumi.Input[bool] assign_generated_ipv6_cidr_block: Requests an Amazon-provided IPv6 CIDR
-               block with a /56 prefix length for the VPC. You cannot specify the range of IP addresses, or
-               the size of the CIDR block. Default is `false`.
+        :param pulumi.Input[bool] assign_generated_ipv6_cidr_block: Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IP addresses, or the size of the CIDR block. Default is `false`. Conflicts with `ipv6_ipam_pool_id`
         :param pulumi.Input[str] cidr_block: The IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv4_netmask_length`.
         :param pulumi.Input[str] default_network_acl_id: The ID of the network ACL created by default on VPC creation
         :param pulumi.Input[str] default_route_table_id: The ID of the route table created by default on VPC creation
@@ -274,12 +276,14 @@ class _VpcState:
         :param pulumi.Input[str] ipv4_ipam_pool_id: The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts. Using IPAM you can monitor IP address usage throughout your AWS Organization.
         :param pulumi.Input[int] ipv4_netmask_length: The netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a `ipv4_ipam_pool_id`.
         :param pulumi.Input[str] ipv6_association_id: The association ID for the IPv6 CIDR block.
-        :param pulumi.Input[str] ipv6_cidr_block: The IPv6 CIDR block.
+        :param pulumi.Input[str] ipv6_cidr_block: IPv6 CIDR block to request from an IPAM Pool. Can be set explicitly or derived from IPAM using `ipv6_netmask_length`.
+        :param pulumi.Input[str] ipv6_ipam_pool_id: IPAM Pool ID for a IPv6 pool. Conflicts with `assign_generated_ipv6_cidr_block`.
+        :param pulumi.Input[int] ipv6_netmask_length: Netmask length to request from IPAM Pool. Conflicts with `ipv6_cidr_block`. This can be omitted if IPAM pool as a `allocation_default_netmask_length` set. Valid values: `56`.
         :param pulumi.Input[str] main_route_table_id: The ID of the main route table associated with
                this VPC. Note that you can change a VPC's main route table by using an
                `ec2.MainRouteTableAssociation`.
         :param pulumi.Input[str] owner_id: The ID of the AWS account that owns the VPC.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         """
         if arn is not None:
@@ -343,9 +347,7 @@ class _VpcState:
     @pulumi.getter(name="assignGeneratedIpv6CidrBlock")
     def assign_generated_ipv6_cidr_block(self) -> Optional[pulumi.Input[bool]]:
         """
-        Requests an Amazon-provided IPv6 CIDR
-        block with a /56 prefix length for the VPC. You cannot specify the range of IP addresses, or
-        the size of the CIDR block. Default is `false`.
+        Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IP addresses, or the size of the CIDR block. Default is `false`. Conflicts with `ipv6_ipam_pool_id`
         """
         return pulumi.get(self, "assign_generated_ipv6_cidr_block")
 
@@ -513,7 +515,7 @@ class _VpcState:
     @pulumi.getter(name="ipv6CidrBlock")
     def ipv6_cidr_block(self) -> Optional[pulumi.Input[str]]:
         """
-        The IPv6 CIDR block.
+        IPv6 CIDR block to request from an IPAM Pool. Can be set explicitly or derived from IPAM using `ipv6_netmask_length`.
         """
         return pulumi.get(self, "ipv6_cidr_block")
 
@@ -524,6 +526,9 @@ class _VpcState:
     @property
     @pulumi.getter(name="ipv6IpamPoolId")
     def ipv6_ipam_pool_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        IPAM Pool ID for a IPv6 pool. Conflicts with `assign_generated_ipv6_cidr_block`.
+        """
         return pulumi.get(self, "ipv6_ipam_pool_id")
 
     @ipv6_ipam_pool_id.setter
@@ -533,6 +538,9 @@ class _VpcState:
     @property
     @pulumi.getter(name="ipv6NetmaskLength")
     def ipv6_netmask_length(self) -> Optional[pulumi.Input[int]]:
+        """
+        Netmask length to request from IPAM Pool. Conflicts with `ipv6_cidr_block`. This can be omitted if IPAM pool as a `allocation_default_netmask_length` set. Valid values: `56`.
+        """
         return pulumi.get(self, "ipv6_netmask_length")
 
     @ipv6_netmask_length.setter
@@ -569,7 +577,7 @@ class _VpcState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -670,9 +678,7 @@ class Vpc(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] assign_generated_ipv6_cidr_block: Requests an Amazon-provided IPv6 CIDR
-               block with a /56 prefix length for the VPC. You cannot specify the range of IP addresses, or
-               the size of the CIDR block. Default is `false`.
+        :param pulumi.Input[bool] assign_generated_ipv6_cidr_block: Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IP addresses, or the size of the CIDR block. Default is `false`. Conflicts with `ipv6_ipam_pool_id`
         :param pulumi.Input[str] cidr_block: The IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv4_netmask_length`.
         :param pulumi.Input[bool] enable_classiclink: A boolean flag to enable/disable ClassicLink
                for the VPC. Only valid in regions and accounts that support EC2 Classic.
@@ -684,8 +690,10 @@ class Vpc(pulumi.CustomResource):
         :param pulumi.Input[str] instance_tenancy: A tenancy option for instances launched into the VPC. Default is `default`, which makes your instances shared on the host. Using either of the other options (`dedicated` or `host`) costs at least $2/hr.
         :param pulumi.Input[str] ipv4_ipam_pool_id: The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts. Using IPAM you can monitor IP address usage throughout your AWS Organization.
         :param pulumi.Input[int] ipv4_netmask_length: The netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a `ipv4_ipam_pool_id`.
-        :param pulumi.Input[str] ipv6_cidr_block: The IPv6 CIDR block.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[str] ipv6_cidr_block: IPv6 CIDR block to request from an IPAM Pool. Can be set explicitly or derived from IPAM using `ipv6_netmask_length`.
+        :param pulumi.Input[str] ipv6_ipam_pool_id: IPAM Pool ID for a IPv6 pool. Conflicts with `assign_generated_ipv6_cidr_block`.
+        :param pulumi.Input[int] ipv6_netmask_length: Netmask length to request from IPAM Pool. Conflicts with `ipv6_cidr_block`. This can be omitted if IPAM pool as a `allocation_default_netmask_length` set. Valid values: `56`.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -854,9 +862,7 @@ class Vpc(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: Amazon Resource Name (ARN) of VPC
-        :param pulumi.Input[bool] assign_generated_ipv6_cidr_block: Requests an Amazon-provided IPv6 CIDR
-               block with a /56 prefix length for the VPC. You cannot specify the range of IP addresses, or
-               the size of the CIDR block. Default is `false`.
+        :param pulumi.Input[bool] assign_generated_ipv6_cidr_block: Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IP addresses, or the size of the CIDR block. Default is `false`. Conflicts with `ipv6_ipam_pool_id`
         :param pulumi.Input[str] cidr_block: The IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv4_netmask_length`.
         :param pulumi.Input[str] default_network_acl_id: The ID of the network ACL created by default on VPC creation
         :param pulumi.Input[str] default_route_table_id: The ID of the route table created by default on VPC creation
@@ -872,12 +878,14 @@ class Vpc(pulumi.CustomResource):
         :param pulumi.Input[str] ipv4_ipam_pool_id: The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts. Using IPAM you can monitor IP address usage throughout your AWS Organization.
         :param pulumi.Input[int] ipv4_netmask_length: The netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a `ipv4_ipam_pool_id`.
         :param pulumi.Input[str] ipv6_association_id: The association ID for the IPv6 CIDR block.
-        :param pulumi.Input[str] ipv6_cidr_block: The IPv6 CIDR block.
+        :param pulumi.Input[str] ipv6_cidr_block: IPv6 CIDR block to request from an IPAM Pool. Can be set explicitly or derived from IPAM using `ipv6_netmask_length`.
+        :param pulumi.Input[str] ipv6_ipam_pool_id: IPAM Pool ID for a IPv6 pool. Conflicts with `assign_generated_ipv6_cidr_block`.
+        :param pulumi.Input[int] ipv6_netmask_length: Netmask length to request from IPAM Pool. Conflicts with `ipv6_cidr_block`. This can be omitted if IPAM pool as a `allocation_default_netmask_length` set. Valid values: `56`.
         :param pulumi.Input[str] main_route_table_id: The ID of the main route table associated with
                this VPC. Note that you can change a VPC's main route table by using an
                `ec2.MainRouteTableAssociation`.
         :param pulumi.Input[str] owner_id: The ID of the AWS account that owns the VPC.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -920,9 +928,7 @@ class Vpc(pulumi.CustomResource):
     @pulumi.getter(name="assignGeneratedIpv6CidrBlock")
     def assign_generated_ipv6_cidr_block(self) -> pulumi.Output[Optional[bool]]:
         """
-        Requests an Amazon-provided IPv6 CIDR
-        block with a /56 prefix length for the VPC. You cannot specify the range of IP addresses, or
-        the size of the CIDR block. Default is `false`.
+        Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IP addresses, or the size of the CIDR block. Default is `false`. Conflicts with `ipv6_ipam_pool_id`
         """
         return pulumi.get(self, "assign_generated_ipv6_cidr_block")
 
@@ -1034,18 +1040,24 @@ class Vpc(pulumi.CustomResource):
     @pulumi.getter(name="ipv6CidrBlock")
     def ipv6_cidr_block(self) -> pulumi.Output[str]:
         """
-        The IPv6 CIDR block.
+        IPv6 CIDR block to request from an IPAM Pool. Can be set explicitly or derived from IPAM using `ipv6_netmask_length`.
         """
         return pulumi.get(self, "ipv6_cidr_block")
 
     @property
     @pulumi.getter(name="ipv6IpamPoolId")
     def ipv6_ipam_pool_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        IPAM Pool ID for a IPv6 pool. Conflicts with `assign_generated_ipv6_cidr_block`.
+        """
         return pulumi.get(self, "ipv6_ipam_pool_id")
 
     @property
     @pulumi.getter(name="ipv6NetmaskLength")
     def ipv6_netmask_length(self) -> pulumi.Output[Optional[int]]:
+        """
+        Netmask length to request from IPAM Pool. Conflicts with `ipv6_cidr_block`. This can be omitted if IPAM pool as a `allocation_default_netmask_length` set. Valid values: `56`.
+        """
         return pulumi.get(self, "ipv6_netmask_length")
 
     @property
@@ -1070,7 +1082,7 @@ class Vpc(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 

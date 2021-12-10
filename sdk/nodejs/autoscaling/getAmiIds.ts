@@ -18,12 +18,12 @@ import * as utilities from "../utilities";
  * const groups = aws.autoscaling.getAmiIds({
  *     filters: [
  *         {
- *             name: "key",
- *             values: ["Team"],
+ *             name: "tag:Team",
+ *             values: ["Pets"],
  *         },
  *         {
- *             name: "value",
- *             values: ["Pets"],
+ *             name: "tag-key",
+ *             values: ["Environment"],
  *         },
  *     ],
  * });

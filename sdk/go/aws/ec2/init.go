@@ -119,6 +119,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &SpotInstanceRequest{}
 	case "aws:ec2/subnet:Subnet":
 		r = &Subnet{}
+	case "aws:ec2/subnetCidrReservation:SubnetCidrReservation":
+		r = &SubnetCidrReservation{}
 	case "aws:ec2/tag:Tag":
 		r = &Tag{}
 	case "aws:ec2/trafficMirrorFilter:TrafficMirrorFilter":
@@ -435,6 +437,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"ec2/subnet",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"ec2/subnetCidrReservation",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

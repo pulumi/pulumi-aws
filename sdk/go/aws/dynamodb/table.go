@@ -171,6 +171,8 @@ type Table struct {
 	StreamLabel pulumi.StringOutput `pulumi:"streamLabel"`
 	// When an item in the table is modified, StreamViewType determines what information is written to the table's stream. Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
 	StreamViewType pulumi.StringOutput `pulumi:"streamViewType"`
+	// The storage class of the table. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
+	TableClass pulumi.StringPtrOutput `pulumi:"tableClass"`
 	// A map of tags to populate on the created table. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
@@ -256,6 +258,8 @@ type tableState struct {
 	StreamLabel *string `pulumi:"streamLabel"`
 	// When an item in the table is modified, StreamViewType determines what information is written to the table's stream. Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
 	StreamViewType *string `pulumi:"streamViewType"`
+	// The storage class of the table. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
+	TableClass *string `pulumi:"tableClass"`
 	// A map of tags to populate on the created table. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
@@ -307,6 +311,8 @@ type TableState struct {
 	StreamLabel pulumi.StringPtrInput
 	// When an item in the table is modified, StreamViewType determines what information is written to the table's stream. Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
 	StreamViewType pulumi.StringPtrInput
+	// The storage class of the table. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
+	TableClass pulumi.StringPtrInput
 	// A map of tags to populate on the created table. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider .
@@ -353,6 +359,8 @@ type tableArgs struct {
 	StreamEnabled *bool `pulumi:"streamEnabled"`
 	// When an item in the table is modified, StreamViewType determines what information is written to the table's stream. Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
 	StreamViewType *string `pulumi:"streamViewType"`
+	// The storage class of the table. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
+	TableClass *string `pulumi:"tableClass"`
 	// A map of tags to populate on the created table. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Defines ttl, has two properties, and can only be specified once:
@@ -394,6 +402,8 @@ type TableArgs struct {
 	StreamEnabled pulumi.BoolPtrInput
 	// When an item in the table is modified, StreamViewType determines what information is written to the table's stream. Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
 	StreamViewType pulumi.StringPtrInput
+	// The storage class of the table. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
+	TableClass pulumi.StringPtrInput
 	// A map of tags to populate on the created table. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Defines ttl, has two properties, and can only be specified once:

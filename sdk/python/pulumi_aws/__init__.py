@@ -118,6 +118,8 @@ if typing.TYPE_CHECKING:
     datasync = __datasync
     import pulumi_aws.dax as __dax
     dax = __dax
+    import pulumi_aws.detective as __detective
+    detective = __detective
     import pulumi_aws.devicefarm as __devicefarm
     devicefarm = __devicefarm
     import pulumi_aws.directconnect as __directconnect
@@ -366,6 +368,7 @@ else:
     datapipeline = _utilities.lazy_import('pulumi_aws.datapipeline')
     datasync = _utilities.lazy_import('pulumi_aws.datasync')
     dax = _utilities.lazy_import('pulumi_aws.dax')
+    detective = _utilities.lazy_import('pulumi_aws.detective')
     devicefarm = _utilities.lazy_import('pulumi_aws.devicefarm')
     directconnect = _utilities.lazy_import('pulumi_aws.directconnect')
     directoryservice = _utilities.lazy_import('pulumi_aws.directoryservice')
@@ -1969,6 +1972,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "codecommit/approvalRuleTemplateAssociation",
+  "fqn": "pulumi_aws.codecommit",
+  "classes": {
+   "aws:codecommit/approvalRuleTemplateAssociation:ApprovalRuleTemplateAssociation": "ApprovalRuleTemplateAssociation"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "codecommit/repository",
   "fqn": "pulumi_aws.codecommit",
   "classes": {
@@ -2229,6 +2240,14 @@ _utilities.register(
   "fqn": "pulumi_aws.dax",
   "classes": {
    "aws:dax/subnetGroup:SubnetGroup": "SubnetGroup"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "detective/graph",
+  "fqn": "pulumi_aws.detective",
+  "classes": {
+   "aws:detective/graph:Graph": "Graph"
   }
  },
  {
@@ -2993,6 +3012,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "ec2/subnetCidrReservation",
+  "fqn": "pulumi_aws.ec2",
+  "classes": {
+   "aws:ec2/subnetCidrReservation:SubnetCidrReservation": "SubnetCidrReservation"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "ec2/tag",
   "fqn": "pulumi_aws.ec2",
   "classes": {
@@ -3433,6 +3460,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "ecs/taskSet",
+  "fqn": "pulumi_aws.ecs",
+  "classes": {
+   "aws:ecs/taskSet:TaskSet": "TaskSet"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "efs/accessPoint",
   "fqn": "pulumi_aws.efs",
   "classes": {
@@ -3861,6 +3896,22 @@ _utilities.register(
   "fqn": "pulumi_aws.emr",
   "classes": {
    "aws:emr/securityConfiguration:SecurityConfiguration": "SecurityConfiguration"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "emr/studio",
+  "fqn": "pulumi_aws.emr",
+  "classes": {
+   "aws:emr/studio:Studio": "Studio"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "emr/studioSessionMapping",
+  "fqn": "pulumi_aws.emr",
+  "classes": {
+   "aws:emr/studioSessionMapping:StudioSessionMapping": "StudioSessionMapping"
   }
  },
  {

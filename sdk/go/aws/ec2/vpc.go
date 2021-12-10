@@ -132,9 +132,7 @@ type Vpc struct {
 
 	// Amazon Resource Name (ARN) of VPC
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Requests an Amazon-provided IPv6 CIDR
-	// block with a /56 prefix length for the VPC. You cannot specify the range of IP addresses, or
-	// the size of the CIDR block. Default is `false`.
+	// Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IP addresses, or the size of the CIDR block. Default is `false`. Conflicts with `ipv6IpamPoolId`
 	AssignGeneratedIpv6CidrBlock pulumi.BoolPtrOutput `pulumi:"assignGeneratedIpv6CidrBlock"`
 	// The IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv4NetmaskLength`.
 	CidrBlock pulumi.StringOutput `pulumi:"cidrBlock"`
@@ -164,17 +162,19 @@ type Vpc struct {
 	Ipv4NetmaskLength pulumi.IntPtrOutput `pulumi:"ipv4NetmaskLength"`
 	// The association ID for the IPv6 CIDR block.
 	Ipv6AssociationId pulumi.StringOutput `pulumi:"ipv6AssociationId"`
-	// The IPv6 CIDR block.
-	Ipv6CidrBlock     pulumi.StringOutput    `pulumi:"ipv6CidrBlock"`
-	Ipv6IpamPoolId    pulumi.StringPtrOutput `pulumi:"ipv6IpamPoolId"`
-	Ipv6NetmaskLength pulumi.IntPtrOutput    `pulumi:"ipv6NetmaskLength"`
+	// IPv6 CIDR block to request from an IPAM Pool. Can be set explicitly or derived from IPAM using `ipv6NetmaskLength`.
+	Ipv6CidrBlock pulumi.StringOutput `pulumi:"ipv6CidrBlock"`
+	// IPAM Pool ID for a IPv6 pool. Conflicts with `assignGeneratedIpv6CidrBlock`.
+	Ipv6IpamPoolId pulumi.StringPtrOutput `pulumi:"ipv6IpamPoolId"`
+	// Netmask length to request from IPAM Pool. Conflicts with `ipv6CidrBlock`. This can be omitted if IPAM pool as a `allocationDefaultNetmaskLength` set. Valid values: `56`.
+	Ipv6NetmaskLength pulumi.IntPtrOutput `pulumi:"ipv6NetmaskLength"`
 	// The ID of the main route table associated with
 	// this VPC. Note that you can change a VPC's main route table by using an
 	// `ec2.MainRouteTableAssociation`.
 	MainRouteTableId pulumi.StringOutput `pulumi:"mainRouteTableId"`
 	// The ID of the AWS account that owns the VPC.
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -211,9 +211,7 @@ func GetVpc(ctx *pulumi.Context,
 type vpcState struct {
 	// Amazon Resource Name (ARN) of VPC
 	Arn *string `pulumi:"arn"`
-	// Requests an Amazon-provided IPv6 CIDR
-	// block with a /56 prefix length for the VPC. You cannot specify the range of IP addresses, or
-	// the size of the CIDR block. Default is `false`.
+	// Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IP addresses, or the size of the CIDR block. Default is `false`. Conflicts with `ipv6IpamPoolId`
 	AssignGeneratedIpv6CidrBlock *bool `pulumi:"assignGeneratedIpv6CidrBlock"`
 	// The IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv4NetmaskLength`.
 	CidrBlock *string `pulumi:"cidrBlock"`
@@ -243,17 +241,19 @@ type vpcState struct {
 	Ipv4NetmaskLength *int `pulumi:"ipv4NetmaskLength"`
 	// The association ID for the IPv6 CIDR block.
 	Ipv6AssociationId *string `pulumi:"ipv6AssociationId"`
-	// The IPv6 CIDR block.
-	Ipv6CidrBlock     *string `pulumi:"ipv6CidrBlock"`
-	Ipv6IpamPoolId    *string `pulumi:"ipv6IpamPoolId"`
-	Ipv6NetmaskLength *int    `pulumi:"ipv6NetmaskLength"`
+	// IPv6 CIDR block to request from an IPAM Pool. Can be set explicitly or derived from IPAM using `ipv6NetmaskLength`.
+	Ipv6CidrBlock *string `pulumi:"ipv6CidrBlock"`
+	// IPAM Pool ID for a IPv6 pool. Conflicts with `assignGeneratedIpv6CidrBlock`.
+	Ipv6IpamPoolId *string `pulumi:"ipv6IpamPoolId"`
+	// Netmask length to request from IPAM Pool. Conflicts with `ipv6CidrBlock`. This can be omitted if IPAM pool as a `allocationDefaultNetmaskLength` set. Valid values: `56`.
+	Ipv6NetmaskLength *int `pulumi:"ipv6NetmaskLength"`
 	// The ID of the main route table associated with
 	// this VPC. Note that you can change a VPC's main route table by using an
 	// `ec2.MainRouteTableAssociation`.
 	MainRouteTableId *string `pulumi:"mainRouteTableId"`
 	// The ID of the AWS account that owns the VPC.
 	OwnerId *string `pulumi:"ownerId"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -262,9 +262,7 @@ type vpcState struct {
 type VpcState struct {
 	// Amazon Resource Name (ARN) of VPC
 	Arn pulumi.StringPtrInput
-	// Requests an Amazon-provided IPv6 CIDR
-	// block with a /56 prefix length for the VPC. You cannot specify the range of IP addresses, or
-	// the size of the CIDR block. Default is `false`.
+	// Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IP addresses, or the size of the CIDR block. Default is `false`. Conflicts with `ipv6IpamPoolId`
 	AssignGeneratedIpv6CidrBlock pulumi.BoolPtrInput
 	// The IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv4NetmaskLength`.
 	CidrBlock pulumi.StringPtrInput
@@ -294,9 +292,11 @@ type VpcState struct {
 	Ipv4NetmaskLength pulumi.IntPtrInput
 	// The association ID for the IPv6 CIDR block.
 	Ipv6AssociationId pulumi.StringPtrInput
-	// The IPv6 CIDR block.
-	Ipv6CidrBlock     pulumi.StringPtrInput
-	Ipv6IpamPoolId    pulumi.StringPtrInput
+	// IPv6 CIDR block to request from an IPAM Pool. Can be set explicitly or derived from IPAM using `ipv6NetmaskLength`.
+	Ipv6CidrBlock pulumi.StringPtrInput
+	// IPAM Pool ID for a IPv6 pool. Conflicts with `assignGeneratedIpv6CidrBlock`.
+	Ipv6IpamPoolId pulumi.StringPtrInput
+	// Netmask length to request from IPAM Pool. Conflicts with `ipv6CidrBlock`. This can be omitted if IPAM pool as a `allocationDefaultNetmaskLength` set. Valid values: `56`.
 	Ipv6NetmaskLength pulumi.IntPtrInput
 	// The ID of the main route table associated with
 	// this VPC. Note that you can change a VPC's main route table by using an
@@ -304,7 +304,7 @@ type VpcState struct {
 	MainRouteTableId pulumi.StringPtrInput
 	// The ID of the AWS account that owns the VPC.
 	OwnerId pulumi.StringPtrInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapInput
@@ -315,9 +315,7 @@ func (VpcState) ElementType() reflect.Type {
 }
 
 type vpcArgs struct {
-	// Requests an Amazon-provided IPv6 CIDR
-	// block with a /56 prefix length for the VPC. You cannot specify the range of IP addresses, or
-	// the size of the CIDR block. Default is `false`.
+	// Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IP addresses, or the size of the CIDR block. Default is `false`. Conflicts with `ipv6IpamPoolId`
 	AssignGeneratedIpv6CidrBlock *bool `pulumi:"assignGeneratedIpv6CidrBlock"`
 	// The IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv4NetmaskLength`.
 	CidrBlock *string `pulumi:"cidrBlock"`
@@ -338,19 +336,19 @@ type vpcArgs struct {
 	Ipv4IpamPoolId *string `pulumi:"ipv4IpamPoolId"`
 	// The netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a `ipv4IpamPoolId`.
 	Ipv4NetmaskLength *int `pulumi:"ipv4NetmaskLength"`
-	// The IPv6 CIDR block.
-	Ipv6CidrBlock     *string `pulumi:"ipv6CidrBlock"`
-	Ipv6IpamPoolId    *string `pulumi:"ipv6IpamPoolId"`
-	Ipv6NetmaskLength *int    `pulumi:"ipv6NetmaskLength"`
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// IPv6 CIDR block to request from an IPAM Pool. Can be set explicitly or derived from IPAM using `ipv6NetmaskLength`.
+	Ipv6CidrBlock *string `pulumi:"ipv6CidrBlock"`
+	// IPAM Pool ID for a IPv6 pool. Conflicts with `assignGeneratedIpv6CidrBlock`.
+	Ipv6IpamPoolId *string `pulumi:"ipv6IpamPoolId"`
+	// Netmask length to request from IPAM Pool. Conflicts with `ipv6CidrBlock`. This can be omitted if IPAM pool as a `allocationDefaultNetmaskLength` set. Valid values: `56`.
+	Ipv6NetmaskLength *int `pulumi:"ipv6NetmaskLength"`
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Vpc resource.
 type VpcArgs struct {
-	// Requests an Amazon-provided IPv6 CIDR
-	// block with a /56 prefix length for the VPC. You cannot specify the range of IP addresses, or
-	// the size of the CIDR block. Default is `false`.
+	// Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IP addresses, or the size of the CIDR block. Default is `false`. Conflicts with `ipv6IpamPoolId`
 	AssignGeneratedIpv6CidrBlock pulumi.BoolPtrInput
 	// The IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv4NetmaskLength`.
 	CidrBlock pulumi.StringPtrInput
@@ -371,11 +369,13 @@ type VpcArgs struct {
 	Ipv4IpamPoolId pulumi.StringPtrInput
 	// The netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a `ipv4IpamPoolId`.
 	Ipv4NetmaskLength pulumi.IntPtrInput
-	// The IPv6 CIDR block.
-	Ipv6CidrBlock     pulumi.StringPtrInput
-	Ipv6IpamPoolId    pulumi.StringPtrInput
+	// IPv6 CIDR block to request from an IPAM Pool. Can be set explicitly or derived from IPAM using `ipv6NetmaskLength`.
+	Ipv6CidrBlock pulumi.StringPtrInput
+	// IPAM Pool ID for a IPv6 pool. Conflicts with `assignGeneratedIpv6CidrBlock`.
+	Ipv6IpamPoolId pulumi.StringPtrInput
+	// Netmask length to request from IPAM Pool. Conflicts with `ipv6CidrBlock`. This can be omitted if IPAM pool as a `allocationDefaultNetmaskLength` set. Valid values: `56`.
 	Ipv6NetmaskLength pulumi.IntPtrInput
-	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
 

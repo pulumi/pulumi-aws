@@ -28,12 +28,18 @@ __all__ = [
     'TaskDefinitionInferenceAcceleratorArgs',
     'TaskDefinitionPlacementConstraintArgs',
     'TaskDefinitionProxyConfigurationArgs',
+    'TaskDefinitionRuntimePlatformArgs',
     'TaskDefinitionVolumeArgs',
     'TaskDefinitionVolumeDockerVolumeConfigurationArgs',
     'TaskDefinitionVolumeEfsVolumeConfigurationArgs',
     'TaskDefinitionVolumeEfsVolumeConfigurationAuthorizationConfigArgs',
     'TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationArgs',
     'TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArgs',
+    'TaskSetCapacityProviderStrategyArgs',
+    'TaskSetLoadBalancerArgs',
+    'TaskSetNetworkConfigurationArgs',
+    'TaskSetScaleArgs',
+    'TaskSetServiceRegistriesArgs',
 ]
 
 @pulumi.input_type
@@ -974,6 +980,45 @@ class TaskDefinitionProxyConfigurationArgs:
 
 
 @pulumi.input_type
+class TaskDefinitionRuntimePlatformArgs:
+    def __init__(__self__, *,
+                 cpu_architecture: Optional[pulumi.Input[str]] = None,
+                 operating_system_family: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] cpu_architecture: Must be set to either `X86_64` or `ARM64`; see [cpu architecture](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform)
+        :param pulumi.Input[str] operating_system_family: If the `requires_compatibilities` is `FARGATE` this field is required; must be set to a valid option from the [operating system family in the runtime platform](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform) setting
+        """
+        if cpu_architecture is not None:
+            pulumi.set(__self__, "cpu_architecture", cpu_architecture)
+        if operating_system_family is not None:
+            pulumi.set(__self__, "operating_system_family", operating_system_family)
+
+    @property
+    @pulumi.getter(name="cpuArchitecture")
+    def cpu_architecture(self) -> Optional[pulumi.Input[str]]:
+        """
+        Must be set to either `X86_64` or `ARM64`; see [cpu architecture](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform)
+        """
+        return pulumi.get(self, "cpu_architecture")
+
+    @cpu_architecture.setter
+    def cpu_architecture(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "cpu_architecture", value)
+
+    @property
+    @pulumi.getter(name="operatingSystemFamily")
+    def operating_system_family(self) -> Optional[pulumi.Input[str]]:
+        """
+        If the `requires_compatibilities` is `FARGATE` this field is required; must be set to a valid option from the [operating system family in the runtime platform](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#runtime-platform) setting
+        """
+        return pulumi.get(self, "operating_system_family")
+
+    @operating_system_family.setter
+    def operating_system_family(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "operating_system_family", value)
+
+
+@pulumi.input_type
 class TaskDefinitionVolumeArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
@@ -1360,5 +1405,291 @@ class TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationCo
     @domain.setter
     def domain(self, value: pulumi.Input[str]):
         pulumi.set(self, "domain", value)
+
+
+@pulumi.input_type
+class TaskSetCapacityProviderStrategyArgs:
+    def __init__(__self__, *,
+                 capacity_provider: pulumi.Input[str],
+                 weight: pulumi.Input[int],
+                 base: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[str] capacity_provider: The short name or full Amazon Resource Name (ARN) of the capacity provider.
+        :param pulumi.Input[int] weight: The relative percentage of the total number of launched tasks that should use the specified capacity provider.
+        :param pulumi.Input[int] base: The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
+        """
+        pulumi.set(__self__, "capacity_provider", capacity_provider)
+        pulumi.set(__self__, "weight", weight)
+        if base is not None:
+            pulumi.set(__self__, "base", base)
+
+    @property
+    @pulumi.getter(name="capacityProvider")
+    def capacity_provider(self) -> pulumi.Input[str]:
+        """
+        The short name or full Amazon Resource Name (ARN) of the capacity provider.
+        """
+        return pulumi.get(self, "capacity_provider")
+
+    @capacity_provider.setter
+    def capacity_provider(self, value: pulumi.Input[str]):
+        pulumi.set(self, "capacity_provider", value)
+
+    @property
+    @pulumi.getter
+    def weight(self) -> pulumi.Input[int]:
+        """
+        The relative percentage of the total number of launched tasks that should use the specified capacity provider.
+        """
+        return pulumi.get(self, "weight")
+
+    @weight.setter
+    def weight(self, value: pulumi.Input[int]):
+        pulumi.set(self, "weight", value)
+
+    @property
+    @pulumi.getter
+    def base(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
+        """
+        return pulumi.get(self, "base")
+
+    @base.setter
+    def base(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "base", value)
+
+
+@pulumi.input_type
+class TaskSetLoadBalancerArgs:
+    def __init__(__self__, *,
+                 container_name: pulumi.Input[str],
+                 container_port: Optional[pulumi.Input[int]] = None,
+                 load_balancer_name: Optional[pulumi.Input[str]] = None,
+                 target_group_arn: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] container_name: The name of the container to associate with the load balancer (as it appears in a container definition).
+        :param pulumi.Input[int] container_port: The port on the container to associate with the load balancer. Defaults to `0` if not specified.
+        :param pulumi.Input[str] load_balancer_name: The name of the ELB (Classic) to associate with the service.
+        :param pulumi.Input[str] target_group_arn: The ARN of the Load Balancer target group to associate with the service.
+        """
+        pulumi.set(__self__, "container_name", container_name)
+        if container_port is not None:
+            pulumi.set(__self__, "container_port", container_port)
+        if load_balancer_name is not None:
+            pulumi.set(__self__, "load_balancer_name", load_balancer_name)
+        if target_group_arn is not None:
+            pulumi.set(__self__, "target_group_arn", target_group_arn)
+
+    @property
+    @pulumi.getter(name="containerName")
+    def container_name(self) -> pulumi.Input[str]:
+        """
+        The name of the container to associate with the load balancer (as it appears in a container definition).
+        """
+        return pulumi.get(self, "container_name")
+
+    @container_name.setter
+    def container_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "container_name", value)
+
+    @property
+    @pulumi.getter(name="containerPort")
+    def container_port(self) -> Optional[pulumi.Input[int]]:
+        """
+        The port on the container to associate with the load balancer. Defaults to `0` if not specified.
+        """
+        return pulumi.get(self, "container_port")
+
+    @container_port.setter
+    def container_port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "container_port", value)
+
+    @property
+    @pulumi.getter(name="loadBalancerName")
+    def load_balancer_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the ELB (Classic) to associate with the service.
+        """
+        return pulumi.get(self, "load_balancer_name")
+
+    @load_balancer_name.setter
+    def load_balancer_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "load_balancer_name", value)
+
+    @property
+    @pulumi.getter(name="targetGroupArn")
+    def target_group_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the Load Balancer target group to associate with the service.
+        """
+        return pulumi.get(self, "target_group_arn")
+
+    @target_group_arn.setter
+    def target_group_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "target_group_arn", value)
+
+
+@pulumi.input_type
+class TaskSetNetworkConfigurationArgs:
+    def __init__(__self__, *,
+                 subnets: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 assign_public_ip: Optional[pulumi.Input[bool]] = None,
+                 security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] subnets: The subnets associated with the task or service. Maximum of 16.
+        :param pulumi.Input[bool] assign_public_ip: Whether to assign a public IP address to the ENI (`FARGATE` launch type only). Valid values are `true` or `false`. Default `false`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] security_groups: The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used. Maximum of 5.
+        """
+        pulumi.set(__self__, "subnets", subnets)
+        if assign_public_ip is not None:
+            pulumi.set(__self__, "assign_public_ip", assign_public_ip)
+        if security_groups is not None:
+            pulumi.set(__self__, "security_groups", security_groups)
+
+    @property
+    @pulumi.getter
+    def subnets(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        The subnets associated with the task or service. Maximum of 16.
+        """
+        return pulumi.get(self, "subnets")
+
+    @subnets.setter
+    def subnets(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "subnets", value)
+
+    @property
+    @pulumi.getter(name="assignPublicIp")
+    def assign_public_ip(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to assign a public IP address to the ENI (`FARGATE` launch type only). Valid values are `true` or `false`. Default `false`.
+        """
+        return pulumi.get(self, "assign_public_ip")
+
+    @assign_public_ip.setter
+    def assign_public_ip(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "assign_public_ip", value)
+
+    @property
+    @pulumi.getter(name="securityGroups")
+    def security_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used. Maximum of 5.
+        """
+        return pulumi.get(self, "security_groups")
+
+    @security_groups.setter
+    def security_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "security_groups", value)
+
+
+@pulumi.input_type
+class TaskSetScaleArgs:
+    def __init__(__self__, *,
+                 unit: Optional[pulumi.Input[str]] = None,
+                 value: Optional[pulumi.Input[float]] = None):
+        """
+        :param pulumi.Input[str] unit: The unit of measure for the scale value. Default: `PERCENT`.
+        :param pulumi.Input[float] value: The value, specified as a percent total of a service's `desiredCount`, to scale the task set. Defaults to `0` if not specified. Accepted values are numbers between 0.0 and 100.0.
+        """
+        if unit is not None:
+            pulumi.set(__self__, "unit", unit)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def unit(self) -> Optional[pulumi.Input[str]]:
+        """
+        The unit of measure for the scale value. Default: `PERCENT`.
+        """
+        return pulumi.get(self, "unit")
+
+    @unit.setter
+    def unit(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "unit", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[float]]:
+        """
+        The value, specified as a percent total of a service's `desiredCount`, to scale the task set. Defaults to `0` if not specified. Accepted values are numbers between 0.0 and 100.0.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[float]]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class TaskSetServiceRegistriesArgs:
+    def __init__(__self__, *,
+                 registry_arn: pulumi.Input[str],
+                 container_name: Optional[pulumi.Input[str]] = None,
+                 container_port: Optional[pulumi.Input[int]] = None,
+                 port: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[str] registry_arn: The ARN of the Service Registry. The currently supported service registry is Amazon Route 53 Auto Naming Service([`servicediscovery.Service` resource](https://www.terraform.io/docs/providers/aws/r/service_discovery_service.html)). For more information, see [Service](https://docs.aws.amazon.com/Route53/latest/APIReference/API_autonaming_Service.html).
+        :param pulumi.Input[str] container_name: The container name value, already specified in the task definition, to be used for your service discovery service.
+        :param pulumi.Input[int] container_port: The port value, already specified in the task definition, to be used for your service discovery service.
+        :param pulumi.Input[int] port: The port value used if your Service Discovery service specified an SRV record.
+        """
+        pulumi.set(__self__, "registry_arn", registry_arn)
+        if container_name is not None:
+            pulumi.set(__self__, "container_name", container_name)
+        if container_port is not None:
+            pulumi.set(__self__, "container_port", container_port)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+
+    @property
+    @pulumi.getter(name="registryArn")
+    def registry_arn(self) -> pulumi.Input[str]:
+        """
+        The ARN of the Service Registry. The currently supported service registry is Amazon Route 53 Auto Naming Service([`servicediscovery.Service` resource](https://www.terraform.io/docs/providers/aws/r/service_discovery_service.html)). For more information, see [Service](https://docs.aws.amazon.com/Route53/latest/APIReference/API_autonaming_Service.html).
+        """
+        return pulumi.get(self, "registry_arn")
+
+    @registry_arn.setter
+    def registry_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "registry_arn", value)
+
+    @property
+    @pulumi.getter(name="containerName")
+    def container_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The container name value, already specified in the task definition, to be used for your service discovery service.
+        """
+        return pulumi.get(self, "container_name")
+
+    @container_name.setter
+    def container_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "container_name", value)
+
+    @property
+    @pulumi.getter(name="containerPort")
+    def container_port(self) -> Optional[pulumi.Input[int]]:
+        """
+        The port value, already specified in the task definition, to be used for your service discovery service.
+        """
+        return pulumi.get(self, "container_port")
+
+    @container_port.setter
+    def container_port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "container_port", value)
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[pulumi.Input[int]]:
+        """
+        The port value used if your Service Discovery service specified an SRV record.
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "port", value)
 
 

@@ -77,6 +77,7 @@ import * as cur from "./cur";
 import * as datapipeline from "./datapipeline";
 import * as datasync from "./datasync";
 import * as dax from "./dax";
+import * as detective from "./detective";
 import * as devicefarm from "./devicefarm";
 import * as directconnect from "./directconnect";
 import * as directoryservice from "./directoryservice";
@@ -227,6 +228,7 @@ export {
     datapipeline,
     datasync,
     dax,
+    detective,
     devicefarm,
     directconnect,
     directoryservice,

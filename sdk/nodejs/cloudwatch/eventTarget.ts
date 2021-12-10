@@ -104,6 +104,10 @@ import * as utilities from "../utilities";
  * }));
  * const ssmLifecycleRole = new aws.iam.Role("ssmLifecycleRole", {assumeRolePolicy: ssmLifecycleTrust.then(ssmLifecycleTrust => ssmLifecycleTrust.json)});
  * const ssmLifecyclePolicy = new aws.iam.Policy("ssmLifecyclePolicy", {policy: ssmLifecyclePolicyDocument.apply(ssmLifecyclePolicyDocument => ssmLifecyclePolicyDocument.json)});
+ * const ssmLifecycleRolePolicyAttachment = new aws.iam.RolePolicyAttachment("ssmLifecycleRolePolicyAttachment", {
+ *     policyArn: ssmLifecyclePolicy.arn,
+ *     role: ssmLifecycleRole.name,
+ * });
  * const stopInstancesEventRule = new aws.cloudwatch.EventRule("stopInstancesEventRule", {
  *     description: "Stop instances nightly",
  *     scheduleExpression: "cron(0 0 * * ? *)",

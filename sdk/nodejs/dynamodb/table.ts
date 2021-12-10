@@ -195,6 +195,10 @@ export class Table extends pulumi.CustomResource {
      */
     public readonly streamViewType!: pulumi.Output<string>;
     /**
+     * The storage class of the table. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
+     */
+    public readonly tableClass!: pulumi.Output<string | undefined>;
+    /**
      * A map of tags to populate on the created table. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -240,6 +244,7 @@ export class Table extends pulumi.CustomResource {
             inputs["streamEnabled"] = state ? state.streamEnabled : undefined;
             inputs["streamLabel"] = state ? state.streamLabel : undefined;
             inputs["streamViewType"] = state ? state.streamViewType : undefined;
+            inputs["tableClass"] = state ? state.tableClass : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["ttl"] = state ? state.ttl : undefined;
@@ -265,6 +270,7 @@ export class Table extends pulumi.CustomResource {
             inputs["serverSideEncryption"] = args ? args.serverSideEncryption : undefined;
             inputs["streamEnabled"] = args ? args.streamEnabled : undefined;
             inputs["streamViewType"] = args ? args.streamViewType : undefined;
+            inputs["tableClass"] = args ? args.tableClass : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["ttl"] = args ? args.ttl : undefined;
             inputs["writeCapacity"] = args ? args.writeCapacity : undefined;
@@ -357,6 +363,10 @@ export interface TableState {
      */
     streamViewType?: pulumi.Input<string>;
     /**
+     * The storage class of the table. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
+     */
+    tableClass?: pulumi.Input<string>;
+    /**
      * A map of tags to populate on the created table. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -435,6 +445,10 @@ export interface TableArgs {
      * When an item in the table is modified, StreamViewType determines what information is written to the table's stream. Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
      */
     streamViewType?: pulumi.Input<string>;
+    /**
+     * The storage class of the table. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
+     */
+    tableClass?: pulumi.Input<string>;
     /**
      * A map of tags to populate on the created table. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

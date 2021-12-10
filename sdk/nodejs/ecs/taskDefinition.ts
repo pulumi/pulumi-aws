@@ -162,30 +162,30 @@ import * as utilities from "../utilities";
  *
  * const test = new aws.ecs.TaskDefinition("test", {
  *     containerDefinitions: `[
- * 	{
- * 		"cpu": 10,
- * 		"command": ["sleep", "10"],
- * 		"entryPoint": ["/"],
- * 		"environment": [
- * 			{"name": "VARNAME", "value": "VARVAL"}
- * 		],
- * 		"essential": true,
- * 		"image": "jenkins",
- * 		"memory": 128,
- * 		"name": "jenkins",
- * 		"portMappings": [
- * 			{
- * 				"containerPort": 80,
- * 				"hostPort": 8080
- * 			}
- * 		],
+ *   {
+ *     "cpu": 10,
+ *     "command": ["sleep", "10"],
+ *     "entryPoint": ["/"],
+ *     "environment": [
+ *       {"name": "VARNAME", "value": "VARVAL"}
+ *     ],
+ *     "essential": true,
+ *     "image": "jenkins",
+ *     "memory": 128,
+ *     "name": "jenkins",
+ *     "portMappings": [
+ *       {
+ *         "containerPort": 80,
+ *         "hostPort": 8080
+ *       }
+ *     ],
  *         "resourceRequirements":[
  *             {
  *                 "type":"InferenceAccelerator",
  *                 "value":"device_1"
  *             }
  *         ]
- * 	}
+ *   }
  * ]
  * `,
  *     family: "test",
@@ -193,6 +193,34 @@ import * as utilities from "../utilities";
  *         deviceName: "device_1",
  *         deviceType: "eia1.medium",
  *     }],
+ * });
+ * ```
+ * ### Example Using `runtimePlatform` and `fargate`
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const test = new aws.ecs.TaskDefinition("test", {
+ *     containerDefinitions: `[
+ *   {
+ *     "name": "iis",
+ *     "image": "mcr.microsoft.com/windows/servercore/iis",
+ *     "cpu": 1024,
+ *     "memory": 2048,
+ *     "essential": true
+ *   }
+ * ]
+ * `,
+ *     cpu: "1024",
+ *     family: "test",
+ *     memory: "2048",
+ *     networkMode: "awsvpc",
+ *     requiresCompatibilities: ["FARGATE"],
+ *     runtimePlatform: {
+ *         cpuArchitecture: "X86_64",
+ *         operatingSystemFamily: "WINDOWS_SERVER_2019_CORE",
+ *     },
  * });
  * ```
  *
@@ -293,6 +321,10 @@ export class TaskDefinition extends pulumi.CustomResource {
      */
     public /*out*/ readonly revision!: pulumi.Output<number>;
     /**
+     * Configuration block for runtimePlatform that containers in your task may use.
+     */
+    public readonly runtimePlatform!: pulumi.Output<outputs.ecs.TaskDefinitionRuntimePlatform | undefined>;
+    /**
      * Key-value map of resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -337,6 +369,7 @@ export class TaskDefinition extends pulumi.CustomResource {
             inputs["proxyConfiguration"] = state ? state.proxyConfiguration : undefined;
             inputs["requiresCompatibilities"] = state ? state.requiresCompatibilities : undefined;
             inputs["revision"] = state ? state.revision : undefined;
+            inputs["runtimePlatform"] = state ? state.runtimePlatform : undefined;
             inputs["tags"] = state ? state.tags : undefined;
             inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["taskRoleArn"] = state ? state.taskRoleArn : undefined;
@@ -362,6 +395,7 @@ export class TaskDefinition extends pulumi.CustomResource {
             inputs["placementConstraints"] = args ? args.placementConstraints : undefined;
             inputs["proxyConfiguration"] = args ? args.proxyConfiguration : undefined;
             inputs["requiresCompatibilities"] = args ? args.requiresCompatibilities : undefined;
+            inputs["runtimePlatform"] = args ? args.runtimePlatform : undefined;
             inputs["tags"] = args ? args.tags : undefined;
             inputs["taskRoleArn"] = args ? args.taskRoleArn : undefined;
             inputs["volumes"] = args ? args.volumes : undefined;
@@ -441,6 +475,10 @@ export interface TaskDefinitionState {
      */
     revision?: pulumi.Input<number>;
     /**
+     * Configuration block for runtimePlatform that containers in your task may use.
+     */
+    runtimePlatform?: pulumi.Input<inputs.ecs.TaskDefinitionRuntimePlatform>;
+    /**
      * Key-value map of resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -514,6 +552,10 @@ export interface TaskDefinitionArgs {
      * Set of launch types required by the task. The valid values are `EC2` and `FARGATE`.
      */
     requiresCompatibilities?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Configuration block for runtimePlatform that containers in your task may use.
+     */
+    runtimePlatform?: pulumi.Input<inputs.ecs.TaskDefinitionRuntimePlatform>;
     /**
      * Key-value map of resource tags.
      */

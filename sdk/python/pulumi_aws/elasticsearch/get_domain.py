@@ -21,7 +21,7 @@ class GetDomainResult:
     """
     A collection of values returned by getDomain.
     """
-    def __init__(__self__, access_policies=None, advanced_options=None, advanced_security_options=None, arn=None, cluster_configs=None, cognito_options=None, created=None, deleted=None, domain_id=None, domain_name=None, ebs_options=None, elasticsearch_version=None, encryption_at_rests=None, endpoint=None, id=None, kibana_endpoint=None, log_publishing_options=None, node_to_node_encryptions=None, processing=None, snapshot_options=None, tags=None, vpc_options=None):
+    def __init__(__self__, access_policies=None, advanced_options=None, advanced_security_options=None, arn=None, auto_tune_options=None, cluster_configs=None, cognito_options=None, created=None, deleted=None, domain_id=None, domain_name=None, ebs_options=None, elasticsearch_version=None, encryption_at_rests=None, endpoint=None, id=None, kibana_endpoint=None, log_publishing_options=None, node_to_node_encryptions=None, processing=None, snapshot_options=None, tags=None, vpc_options=None):
         if access_policies and not isinstance(access_policies, str):
             raise TypeError("Expected argument 'access_policies' to be a str")
         pulumi.set(__self__, "access_policies", access_policies)
@@ -34,6 +34,9 @@ class GetDomainResult:
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
+        if auto_tune_options and not isinstance(auto_tune_options, list):
+            raise TypeError("Expected argument 'auto_tune_options' to be a list")
+        pulumi.set(__self__, "auto_tune_options", auto_tune_options)
         if cluster_configs and not isinstance(cluster_configs, list):
             raise TypeError("Expected argument 'cluster_configs' to be a list")
         pulumi.set(__self__, "cluster_configs", cluster_configs)
@@ -120,6 +123,14 @@ class GetDomainResult:
         The Amazon Resource Name (ARN) of the domain.
         """
         return pulumi.get(self, "arn")
+
+    @property
+    @pulumi.getter(name="autoTuneOptions")
+    def auto_tune_options(self) -> Sequence['outputs.GetDomainAutoTuneOptionResult']:
+        """
+        Configuration of the Auto-Tune options of the domain.
+        """
+        return pulumi.get(self, "auto_tune_options")
 
     @property
     @pulumi.getter(name="clusterConfigs")
@@ -271,6 +282,7 @@ class AwaitableGetDomainResult(GetDomainResult):
             advanced_options=self.advanced_options,
             advanced_security_options=self.advanced_security_options,
             arn=self.arn,
+            auto_tune_options=self.auto_tune_options,
             cluster_configs=self.cluster_configs,
             cognito_options=self.cognito_options,
             created=self.created,
@@ -324,6 +336,7 @@ def get_domain(domain_name: Optional[str] = None,
         advanced_options=__ret__.advanced_options,
         advanced_security_options=__ret__.advanced_security_options,
         arn=__ret__.arn,
+        auto_tune_options=__ret__.auto_tune_options,
         cluster_configs=__ret__.cluster_configs,
         cognito_options=__ret__.cognito_options,
         created=__ret__.created,

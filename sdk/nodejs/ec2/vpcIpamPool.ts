@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Provides a VPC resource.
+ * Provides an IP address pool resource for IPAM.
  *
  * ## Example Usage
  *
@@ -140,7 +140,7 @@ export class VpcIpamPool extends pulumi.CustomResource {
     public readonly locale!: pulumi.Output<string | undefined>;
     public /*out*/ readonly poolDepth!: pulumi.Output<number>;
     /**
-     * Defines whether or not IPv6 pool space is publicly ∂advertisable over the internet. This option is not available for IPv4 pool space.
+     * Defines whether or not IPv6 pool space is publicly advertisable over the internet. This option is not available for IPv4 pool space.
      */
     public readonly publiclyAdvertisable!: pulumi.Output<boolean | undefined>;
     /**
@@ -277,7 +277,7 @@ export interface VpcIpamPoolState {
     locale?: pulumi.Input<string>;
     poolDepth?: pulumi.Input<number>;
     /**
-     * Defines whether or not IPv6 pool space is publicly ∂advertisable over the internet. This option is not available for IPv4 pool space.
+     * Defines whether or not IPv6 pool space is publicly advertisable over the internet. This option is not available for IPv4 pool space.
      */
     publiclyAdvertisable?: pulumi.Input<boolean>;
     /**
@@ -344,7 +344,7 @@ export interface VpcIpamPoolArgs {
      */
     locale?: pulumi.Input<string>;
     /**
-     * Defines whether or not IPv6 pool space is publicly ∂advertisable over the internet. This option is not available for IPv4 pool space.
+     * Defines whether or not IPv6 pool space is publicly advertisable over the internet. This option is not available for IPv4 pool space.
      */
     publiclyAdvertisable?: pulumi.Input<boolean>;
     /**

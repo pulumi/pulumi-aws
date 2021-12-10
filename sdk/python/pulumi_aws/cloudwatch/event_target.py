@@ -685,6 +685,9 @@ class EventTarget(pulumi.CustomResource):
         ]))
         ssm_lifecycle_role = aws.iam.Role("ssmLifecycleRole", assume_role_policy=ssm_lifecycle_trust.json)
         ssm_lifecycle_policy = aws.iam.Policy("ssmLifecyclePolicy", policy=ssm_lifecycle_policy_document.json)
+        ssm_lifecycle_role_policy_attachment = aws.iam.RolePolicyAttachment("ssmLifecycleRolePolicyAttachment",
+            policy_arn=ssm_lifecycle_policy.arn,
+            role=ssm_lifecycle_role.name)
         stop_instances_event_rule = aws.cloudwatch.EventRule("stopInstancesEventRule",
             description="Stop instances nightly",
             schedule_expression="cron(0 0 * * ? *)")
@@ -915,6 +918,9 @@ class EventTarget(pulumi.CustomResource):
         ]))
         ssm_lifecycle_role = aws.iam.Role("ssmLifecycleRole", assume_role_policy=ssm_lifecycle_trust.json)
         ssm_lifecycle_policy = aws.iam.Policy("ssmLifecyclePolicy", policy=ssm_lifecycle_policy_document.json)
+        ssm_lifecycle_role_policy_attachment = aws.iam.RolePolicyAttachment("ssmLifecycleRolePolicyAttachment",
+            policy_arn=ssm_lifecycle_policy.arn,
+            role=ssm_lifecycle_role.name)
         stop_instances_event_rule = aws.cloudwatch.EventRule("stopInstancesEventRule",
             description="Stop instances nightly",
             schedule_expression="cron(0 0 * * ? *)")

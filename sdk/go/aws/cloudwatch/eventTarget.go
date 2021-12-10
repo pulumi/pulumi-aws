@@ -76,6 +76,7 @@ import (
 // import (
 // 	"fmt"
 //
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws"
 // 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/cloudwatch"
 // 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/iam"
 // 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/ssm"
@@ -117,10 +118,17 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = iam.NewPolicy(ctx, "ssmLifecyclePolicy", &iam.PolicyArgs{
+// 		ssmLifecyclePolicy, err := iam.NewPolicy(ctx, "ssmLifecyclePolicy", &iam.PolicyArgs{
 // 			Policy: ssmLifecyclePolicyDocument.ApplyT(func(ssmLifecyclePolicyDocument iam.GetPolicyDocumentResult) (string, error) {
 // 				return ssmLifecyclePolicyDocument.Json, nil
 // 			}).(pulumi.StringOutput),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = iam.NewRolePolicyAttachment(ctx, "ssmLifecycleRolePolicyAttachment", &iam.RolePolicyAttachmentArgs{
+// 			PolicyArn: ssmLifecyclePolicy.Arn,
+// 			Role:      ssmLifecycleRole.Name,
 // 		})
 // 		if err != nil {
 // 			return err

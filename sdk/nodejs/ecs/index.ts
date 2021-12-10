@@ -16,6 +16,7 @@ export * from "./getTaskDefinition";
 export * from "./service";
 export * from "./tag";
 export * from "./taskDefinition";
+export * from "./taskSet";
 
 // Import resources to register:
 import { AccountSettingDefault } from "./accountSettingDefault";
@@ -24,6 +25,7 @@ import { Cluster } from "./cluster";
 import { Service } from "./service";
 import { Tag } from "./tag";
 import { TaskDefinition } from "./taskDefinition";
+import { TaskSet } from "./taskSet";
 
 const _module = {
     version: utilities.getVersion(),
@@ -41,6 +43,8 @@ const _module = {
                 return new Tag(name, <any>undefined, { urn })
             case "aws:ecs/taskDefinition:TaskDefinition":
                 return new TaskDefinition(name, <any>undefined, { urn })
+            case "aws:ecs/taskSet:TaskSet":
+                return new TaskSet(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -52,3 +56,4 @@ pulumi.runtime.registerResourceModule("aws", "ecs/cluster", _module)
 pulumi.runtime.registerResourceModule("aws", "ecs/service", _module)
 pulumi.runtime.registerResourceModule("aws", "ecs/tag", _module)
 pulumi.runtime.registerResourceModule("aws", "ecs/taskDefinition", _module)
+pulumi.runtime.registerResourceModule("aws", "ecs/taskSet", _module)

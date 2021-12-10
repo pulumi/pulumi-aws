@@ -34,6 +34,10 @@ namespace Pulumi.Aws.Kinesis
     ///                 "IncomingBytes",
     ///                 "OutgoingBytes",
     ///             },
+    ///             StreamModeDetails = new Aws.Kinesis.Inputs.StreamStreamModeDetailsArgs
+    ///             {
+    ///                 StreamMode = "PROVISIONED",
+    ///             },
     ///             Tags = 
     ///             {
     ///                 { "Environment", "test" },
@@ -94,17 +98,23 @@ namespace Pulumi.Aws.Kinesis
         public Output<int?> RetentionPeriod { get; private set; } = null!;
 
         /// <summary>
-        /// The number of shards that the stream will use.
+        /// The number of shards that the stream will use. If the `stream_mode` is `PROVISIONED`, this field is required.
         /// Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
         /// </summary>
         [Output("shardCount")]
-        public Output<int> ShardCount { get; private set; } = null!;
+        public Output<int?> ShardCount { get; private set; } = null!;
 
         /// <summary>
         /// A list of shard-level CloudWatch metrics which can be enabled for the stream. See [Monitoring with CloudWatch](https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html) for more. Note that the value ALL should not be used; instead you should provide an explicit list of metrics you wish to enable.
         /// </summary>
         [Output("shardLevelMetrics")]
         public Output<ImmutableArray<string>> ShardLevelMetrics { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicates the [capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
+        /// </summary>
+        [Output("streamModeDetails")]
+        public Output<Outputs.StreamStreamModeDetails> StreamModeDetails { get; private set; } = null!;
 
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -123,7 +133,7 @@ namespace Pulumi.Aws.Kinesis
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Stream(string name, StreamArgs args, CustomResourceOptions? options = null)
+        public Stream(string name, StreamArgs? args = null, CustomResourceOptions? options = null)
             : base("aws:kinesis/stream:Stream", name, args ?? new StreamArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -198,11 +208,11 @@ namespace Pulumi.Aws.Kinesis
         public Input<int>? RetentionPeriod { get; set; }
 
         /// <summary>
-        /// The number of shards that the stream will use.
+        /// The number of shards that the stream will use. If the `stream_mode` is `PROVISIONED`, this field is required.
         /// Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
         /// </summary>
-        [Input("shardCount", required: true)]
-        public Input<int> ShardCount { get; set; } = null!;
+        [Input("shardCount")]
+        public Input<int>? ShardCount { get; set; }
 
         [Input("shardLevelMetrics")]
         private InputList<string>? _shardLevelMetrics;
@@ -215,6 +225,12 @@ namespace Pulumi.Aws.Kinesis
             get => _shardLevelMetrics ?? (_shardLevelMetrics = new InputList<string>());
             set => _shardLevelMetrics = value;
         }
+
+        /// <summary>
+        /// Indicates the [capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
+        /// </summary>
+        [Input("streamModeDetails")]
+        public Input<Inputs.StreamStreamModeDetailsArgs>? StreamModeDetails { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -268,7 +284,7 @@ namespace Pulumi.Aws.Kinesis
         public Input<int>? RetentionPeriod { get; set; }
 
         /// <summary>
-        /// The number of shards that the stream will use.
+        /// The number of shards that the stream will use. If the `stream_mode` is `PROVISIONED`, this field is required.
         /// Amazon has guidelines for specifying the Stream size that should be referenced when creating a Kinesis stream. See [Amazon Kinesis Streams](https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html) for more.
         /// </summary>
         [Input("shardCount")]
@@ -285,6 +301,12 @@ namespace Pulumi.Aws.Kinesis
             get => _shardLevelMetrics ?? (_shardLevelMetrics = new InputList<string>());
             set => _shardLevelMetrics = value;
         }
+
+        /// <summary>
+        /// Indicates the [capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
+        /// </summary>
+        [Input("streamModeDetails")]
+        public Input<Inputs.StreamStreamModeDetailsGetArgs>? StreamModeDetails { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

@@ -84,6 +84,7 @@ const (
 	datasyncMod                 = "DataSync"                 // DataSync
 	daxMod                      = "Dax"                      // DynamoDB Accelerator
 	dlmMod                      = "Dlm"                      // Data Lifecycle Manager
+	detectiveMod                = "Detective"                // Detective
 	devicefarmMod               = "DeviceFarm"               // Device Farm
 	directoryserviceMod         = "DirectoryService"         // Directory Services
 	docdbMod                    = "DocDB"                    // Document DB
@@ -855,6 +856,9 @@ func Provider() tfbridge.ProviderInfo {
 				},
 			},
 			"aws_codecommit_approval_rule_template": {Tok: awsResource(codecommitMod, "ApprovalRuleTemplate")},
+			"aws_codecommit_approval_rule_template_association": {
+				Tok: awsResource(codecommitMod, "ApprovalRuleTemplateAssociation"),
+			},
 			// CodePipeline
 			"aws_codepipeline": {
 				Tok: awsResource(codepipelineMod, "Pipeline"),
@@ -924,6 +928,8 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_datasync_location_fsx_windows_file_system": {Tok: awsResource(datasyncMod, "LocationFsxWindows")},
 			// Data Lifecycle Manager
 			"aws_dlm_lifecycle_policy": {Tok: awsResource(dlmMod, "LifecyclePolicy")},
+			// Detective
+			"aws_detective_graph": {Tok: awsResource(detectiveMod, "Graph")},
 			// Data Migration Service
 			"aws_dms_certificate":              {Tok: awsResource(dmsMod, "Certificate")},
 			"aws_dms_endpoint":                 {Tok: awsResource(dmsMod, "Endpoint")},
@@ -1297,6 +1303,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_vpc_ipam_pool_cidr":              {Tok: awsResource(ec2Mod, "VpcIpamPoolCidr")},
 			"aws_vpc_ipam_pool_cidr_allocation":   {Tok: awsResource(ec2Mod, "VpcIpamPoolCidrAllocation")},
 			"aws_vpc_ipv6_cidr_block_association": {Tok: awsResource(ec2Mod, "VpcIpv6CidrBlockAssociation")},
+			"aws_ec2_subnet_cidr_reservation":     {Tok: awsResource(ec2Mod, "SubnetCidrReservation")},
 			// EC2 Client VPN
 			"aws_ec2_client_vpn_endpoint":            {Tok: awsResource(ec2ClientVpnMod, "Endpoint")},
 			"aws_ec2_client_vpn_network_association": {Tok: awsResource(ec2ClientVpnMod, "NetworkAssociation")},
@@ -1384,6 +1391,7 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_ecs_capacity_provider":       {Tok: awsResource(ecsMod, "CapacityProvider")},
 			"aws_ecs_tag":                     {Tok: awsResource(ecsMod, "Tag")},
 			"aws_ecs_account_setting_default": {Tok: awsResource(ecsMod, "AccountSettingDefault")},
+			"aws_ecs_task_set":                {Tok: awsResource(ecsMod, "TaskSet")},
 			// Elastic File System
 			"aws_efs_file_system": {
 				Tok: awsResource(efsMod, "FileSystem"),
@@ -1485,6 +1493,8 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_emr_security_configuration": {Tok: awsResource(emrMod, "SecurityConfiguration")},
 			"aws_emr_managed_scaling_policy": {Tok: awsResource(emrMod, "ManagedScalingPolicy")},
 			"aws_emr_instance_fleet":         {Tok: awsResource(emrMod, "InstanceFleet")},
+			"aws_emr_studio":                 {Tok: awsResource(emrMod, "Studio")},
+			"aws_emr_studio_session_mapping": {Tok: awsResource(emrMod, "StudioSessionMapping")},
 			// FSX
 			"aws_fsx_lustre_file_system":            {Tok: awsResource(fsxMod, "LustreFileSystem")},
 			"aws_fsx_windows_file_system":           {Tok: awsResource(fsxMod, "WindowsFileSystem")},

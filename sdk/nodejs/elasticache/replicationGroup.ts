@@ -209,6 +209,10 @@ export class ReplicationGroup extends pulumi.CustomResource {
      */
     public /*out*/ readonly configurationEndpointAddress!: pulumi.Output<string>;
     /**
+     * Enables data tiering. Data tiering is only supported for replication groups using the r6gd node type. This parameter must be set to `true` when using r6gd nodes.
+     */
+    public readonly dataTieringEnabled!: pulumi.Output<boolean>;
+    /**
      * The name of the cache engine to be used for the clusters in this replication group. The only valid value is `redis`.
      */
     public readonly engine!: pulumi.Output<string | undefined>;
@@ -341,6 +345,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
             inputs["clusterEnabled"] = state ? state.clusterEnabled : undefined;
             inputs["clusterMode"] = state ? state.clusterMode : undefined;
             inputs["configurationEndpointAddress"] = state ? state.configurationEndpointAddress : undefined;
+            inputs["dataTieringEnabled"] = state ? state.dataTieringEnabled : undefined;
             inputs["engine"] = state ? state.engine : undefined;
             inputs["engineVersion"] = state ? state.engineVersion : undefined;
             inputs["engineVersionActual"] = state ? state.engineVersionActual : undefined;
@@ -381,6 +386,7 @@ export class ReplicationGroup extends pulumi.CustomResource {
             inputs["automaticFailoverEnabled"] = args ? args.automaticFailoverEnabled : undefined;
             inputs["availabilityZones"] = args ? args.availabilityZones : undefined;
             inputs["clusterMode"] = args ? args.clusterMode : undefined;
+            inputs["dataTieringEnabled"] = args ? args.dataTieringEnabled : undefined;
             inputs["engine"] = args ? args.engine : undefined;
             inputs["engineVersion"] = args ? args.engineVersion : undefined;
             inputs["finalSnapshotIdentifier"] = args ? args.finalSnapshotIdentifier : undefined;
@@ -464,6 +470,10 @@ export interface ReplicationGroupState {
      * The address of the replication group configuration endpoint when cluster mode is enabled.
      */
     configurationEndpointAddress?: pulumi.Input<string>;
+    /**
+     * Enables data tiering. Data tiering is only supported for replication groups using the r6gd node type. This parameter must be set to `true` when using r6gd nodes.
+     */
+    dataTieringEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the cache engine to be used for the clusters in this replication group. The only valid value is `redis`.
      */
@@ -607,6 +617,10 @@ export interface ReplicationGroupArgs {
      * Create a native Redis cluster. `automaticFailoverEnabled` must be set to true. Cluster Mode documented below. Only 1 `clusterMode` block is allowed. Note that configuring this block does not enable cluster mode, i.e., data sharding, this requires using a parameter group that has the parameter `cluster-enabled` set to true.
      */
     clusterMode?: pulumi.Input<inputs.elasticache.ReplicationGroupClusterMode>;
+    /**
+     * Enables data tiering. Data tiering is only supported for replication groups using the r6gd node type. This parameter must be set to `true` when using r6gd nodes.
+     */
+    dataTieringEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the cache engine to be used for the clusters in this replication group. The only valid value is `redis`.
      */
