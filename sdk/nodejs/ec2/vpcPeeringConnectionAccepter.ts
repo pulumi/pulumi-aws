@@ -136,7 +136,7 @@ export class VpcPeeringConnectionAccepter extends pulumi.CustomResource {
     /**
      * A map of tags assigned to the resource, including those inherited from the provider .
      */
-    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * The ID of the accepter VPC.
      */
@@ -179,12 +179,12 @@ export class VpcPeeringConnectionAccepter extends pulumi.CustomResource {
             inputs["autoAccept"] = args ? args.autoAccept : undefined;
             inputs["requester"] = args ? args.requester : undefined;
             inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["vpcPeeringConnectionId"] = args ? args.vpcPeeringConnectionId : undefined;
             inputs["acceptStatus"] = undefined /*out*/;
             inputs["peerOwnerId"] = undefined /*out*/;
             inputs["peerRegion"] = undefined /*out*/;
             inputs["peerVpcId"] = undefined /*out*/;
+            inputs["tagsAll"] = undefined /*out*/;
             inputs["vpcId"] = undefined /*out*/;
         }
         if (!opts.version) {
@@ -268,10 +268,6 @@ export interface VpcPeeringConnectionAccepterArgs {
      * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * A map of tags assigned to the resource, including those inherited from the provider .
-     */
-    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The VPC Peering Connection ID to manage.
      */

@@ -9,12 +9,78 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'RegistryScanningConfigurationRuleArgs',
+    'RegistryScanningConfigurationRuleRepositoryFilterArgs',
     'ReplicationConfigurationReplicationConfigurationArgs',
     'ReplicationConfigurationReplicationConfigurationRuleArgs',
     'ReplicationConfigurationReplicationConfigurationRuleDestinationArgs',
     'RepositoryEncryptionConfigurationArgs',
     'RepositoryImageScanningConfigurationArgs',
 ]
+
+@pulumi.input_type
+class RegistryScanningConfigurationRuleArgs:
+    def __init__(__self__, *,
+                 repository_filters: pulumi.Input[Sequence[pulumi.Input['RegistryScanningConfigurationRuleRepositoryFilterArgs']]],
+                 scan_frequency: pulumi.Input[str]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['RegistryScanningConfigurationRuleRepositoryFilterArgs']]] repository_filters: One or more repository filter blocks, containing a `filter` (required string filtering repositories, see pattern regex [here](https://docs.aws.amazon.com/AmazonECR/latest/APIReference/API_ScanningRepositoryFilter.html)) and a `filter_type` (required string, currently only `WILDCARD` is supported).
+        :param pulumi.Input[str] scan_frequency: The frequency that scans are performed at for a private registry. Can be `SCAN_ON_PUSH`, `CONTINUOUS_SCAN`, or `MANUAL`.
+        """
+        pulumi.set(__self__, "repository_filters", repository_filters)
+        pulumi.set(__self__, "scan_frequency", scan_frequency)
+
+    @property
+    @pulumi.getter(name="repositoryFilters")
+    def repository_filters(self) -> pulumi.Input[Sequence[pulumi.Input['RegistryScanningConfigurationRuleRepositoryFilterArgs']]]:
+        """
+        One or more repository filter blocks, containing a `filter` (required string filtering repositories, see pattern regex [here](https://docs.aws.amazon.com/AmazonECR/latest/APIReference/API_ScanningRepositoryFilter.html)) and a `filter_type` (required string, currently only `WILDCARD` is supported).
+        """
+        return pulumi.get(self, "repository_filters")
+
+    @repository_filters.setter
+    def repository_filters(self, value: pulumi.Input[Sequence[pulumi.Input['RegistryScanningConfigurationRuleRepositoryFilterArgs']]]):
+        pulumi.set(self, "repository_filters", value)
+
+    @property
+    @pulumi.getter(name="scanFrequency")
+    def scan_frequency(self) -> pulumi.Input[str]:
+        """
+        The frequency that scans are performed at for a private registry. Can be `SCAN_ON_PUSH`, `CONTINUOUS_SCAN`, or `MANUAL`.
+        """
+        return pulumi.get(self, "scan_frequency")
+
+    @scan_frequency.setter
+    def scan_frequency(self, value: pulumi.Input[str]):
+        pulumi.set(self, "scan_frequency", value)
+
+
+@pulumi.input_type
+class RegistryScanningConfigurationRuleRepositoryFilterArgs:
+    def __init__(__self__, *,
+                 filter: pulumi.Input[str],
+                 filter_type: pulumi.Input[str]):
+        pulumi.set(__self__, "filter", filter)
+        pulumi.set(__self__, "filter_type", filter_type)
+
+    @property
+    @pulumi.getter
+    def filter(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "filter")
+
+    @filter.setter
+    def filter(self, value: pulumi.Input[str]):
+        pulumi.set(self, "filter", value)
+
+    @property
+    @pulumi.getter(name="filterType")
+    def filter_type(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "filter_type")
+
+    @filter_type.setter
+    def filter_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "filter_type", value)
+
 
 @pulumi.input_type
 class ReplicationConfigurationReplicationConfigurationArgs:

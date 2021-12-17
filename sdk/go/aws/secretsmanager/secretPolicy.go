@@ -56,7 +56,7 @@ type SecretPolicy struct {
 
 	// Makes an optional API call to Zelkova to validate the Resource Policy to prevent broad access to your secret.
 	BlockPublicPolicy pulumi.BoolPtrOutput `pulumi:"blockPublicPolicy"`
-	// A valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html).
+	// Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Unlike `secretsmanager.Secret`, where `policy` can be set to `"{}"` to delete the policy, `"{}"` is not a valid policy since `policy` is required.
 	Policy pulumi.StringOutput `pulumi:"policy"`
 	// Secret ARN.
 	SecretArn pulumi.StringOutput `pulumi:"secretArn"`
@@ -99,7 +99,7 @@ func GetSecretPolicy(ctx *pulumi.Context,
 type secretPolicyState struct {
 	// Makes an optional API call to Zelkova to validate the Resource Policy to prevent broad access to your secret.
 	BlockPublicPolicy *bool `pulumi:"blockPublicPolicy"`
-	// A valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html).
+	// Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Unlike `secretsmanager.Secret`, where `policy` can be set to `"{}"` to delete the policy, `"{}"` is not a valid policy since `policy` is required.
 	Policy *string `pulumi:"policy"`
 	// Secret ARN.
 	SecretArn *string `pulumi:"secretArn"`
@@ -108,7 +108,7 @@ type secretPolicyState struct {
 type SecretPolicyState struct {
 	// Makes an optional API call to Zelkova to validate the Resource Policy to prevent broad access to your secret.
 	BlockPublicPolicy pulumi.BoolPtrInput
-	// A valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html).
+	// Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Unlike `secretsmanager.Secret`, where `policy` can be set to `"{}"` to delete the policy, `"{}"` is not a valid policy since `policy` is required.
 	Policy pulumi.StringPtrInput
 	// Secret ARN.
 	SecretArn pulumi.StringPtrInput
@@ -121,7 +121,7 @@ func (SecretPolicyState) ElementType() reflect.Type {
 type secretPolicyArgs struct {
 	// Makes an optional API call to Zelkova to validate the Resource Policy to prevent broad access to your secret.
 	BlockPublicPolicy *bool `pulumi:"blockPublicPolicy"`
-	// A valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html).
+	// Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Unlike `secretsmanager.Secret`, where `policy` can be set to `"{}"` to delete the policy, `"{}"` is not a valid policy since `policy` is required.
 	Policy string `pulumi:"policy"`
 	// Secret ARN.
 	SecretArn string `pulumi:"secretArn"`
@@ -131,7 +131,7 @@ type secretPolicyArgs struct {
 type SecretPolicyArgs struct {
 	// Makes an optional API call to Zelkova to validate the Resource Policy to prevent broad access to your secret.
 	BlockPublicPolicy pulumi.BoolPtrInput
-	// A valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html).
+	// Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Unlike `secretsmanager.Secret`, where `policy` can be set to `"{}"` to delete the policy, `"{}"` is not a valid policy since `policy` is required.
 	Policy pulumi.StringInput
 	// Secret ARN.
 	SecretArn pulumi.StringInput

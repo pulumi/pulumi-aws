@@ -274,8 +274,9 @@ type ReplicationGroup struct {
 	// The daily time range (in UTC) during which ElastiCache will begin taking a daily snapshot of your cache cluster. The minimum snapshot window is a 60 minute period. Example: `05:00-09:00`
 	SnapshotWindow pulumi.StringOutput `pulumi:"snapshotWindow"`
 	// The name of the cache subnet group to be used for the replication group.
-	SubnetGroupName pulumi.StringOutput    `pulumi:"subnetGroupName"`
-	Tags            pulumi.StringMapOutput `pulumi:"tags"`
+	SubnetGroupName pulumi.StringOutput `pulumi:"subnetGroupName"`
+	// A map of tags to assign to the resource. Adding tags to this resource will add or overwrite any existing tags on the clusters in the replication group and not to the group itself. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Whether to enable encryption in transit.
@@ -385,8 +386,9 @@ type replicationGroupState struct {
 	// The daily time range (in UTC) during which ElastiCache will begin taking a daily snapshot of your cache cluster. The minimum snapshot window is a 60 minute period. Example: `05:00-09:00`
 	SnapshotWindow *string `pulumi:"snapshotWindow"`
 	// The name of the cache subnet group to be used for the replication group.
-	SubnetGroupName *string           `pulumi:"subnetGroupName"`
-	Tags            map[string]string `pulumi:"tags"`
+	SubnetGroupName *string `pulumi:"subnetGroupName"`
+	// A map of tags to assign to the resource. Adding tags to this resource will add or overwrite any existing tags on the clusters in the replication group and not to the group itself. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Whether to enable encryption in transit.
@@ -466,7 +468,8 @@ type ReplicationGroupState struct {
 	SnapshotWindow pulumi.StringPtrInput
 	// The name of the cache subnet group to be used for the replication group.
 	SubnetGroupName pulumi.StringPtrInput
-	Tags            pulumi.StringMapInput
+	// A map of tags to assign to the resource. Adding tags to this resource will add or overwrite any existing tags on the clusters in the replication group and not to the group itself. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// Whether to enable encryption in transit.
@@ -535,8 +538,9 @@ type replicationGroupArgs struct {
 	// The daily time range (in UTC) during which ElastiCache will begin taking a daily snapshot of your cache cluster. The minimum snapshot window is a 60 minute period. Example: `05:00-09:00`
 	SnapshotWindow *string `pulumi:"snapshotWindow"`
 	// The name of the cache subnet group to be used for the replication group.
-	SubnetGroupName *string           `pulumi:"subnetGroupName"`
-	Tags            map[string]string `pulumi:"tags"`
+	SubnetGroupName *string `pulumi:"subnetGroupName"`
+	// A map of tags to assign to the resource. Adding tags to this resource will add or overwrite any existing tags on the clusters in the replication group and not to the group itself. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 	// Whether to enable encryption in transit.
 	TransitEncryptionEnabled *bool `pulumi:"transitEncryptionEnabled"`
 }
@@ -601,7 +605,8 @@ type ReplicationGroupArgs struct {
 	SnapshotWindow pulumi.StringPtrInput
 	// The name of the cache subnet group to be used for the replication group.
 	SubnetGroupName pulumi.StringPtrInput
-	Tags            pulumi.StringMapInput
+	// A map of tags to assign to the resource. Adding tags to this resource will add or overwrite any existing tags on the clusters in the replication group and not to the group itself. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 	// Whether to enable encryption in transit.
 	TransitEncryptionEnabled pulumi.BoolPtrInput
 }

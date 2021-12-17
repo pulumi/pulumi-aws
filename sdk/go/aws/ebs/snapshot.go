@@ -73,7 +73,7 @@ type Snapshot struct {
 	OwnerAlias pulumi.StringOutput `pulumi:"ownerAlias"`
 	// The AWS account ID of the EBS snapshot owner.
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
-	// A map of tags for the snapshot.
+	// A map of tags to assign to the snapshot. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -129,7 +129,7 @@ type snapshotState struct {
 	OwnerAlias *string `pulumi:"ownerAlias"`
 	// The AWS account ID of the EBS snapshot owner.
 	OwnerId *string `pulumi:"ownerId"`
-	// A map of tags for the snapshot.
+	// A map of tags to assign to the snapshot. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -154,7 +154,7 @@ type SnapshotState struct {
 	OwnerAlias pulumi.StringPtrInput
 	// The AWS account ID of the EBS snapshot owner.
 	OwnerId pulumi.StringPtrInput
-	// A map of tags for the snapshot.
+	// A map of tags to assign to the snapshot. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
@@ -171,7 +171,7 @@ func (SnapshotState) ElementType() reflect.Type {
 type snapshotArgs struct {
 	// A description of what the snapshot is.
 	Description *string `pulumi:"description"`
-	// A map of tags for the snapshot.
+	// A map of tags to assign to the snapshot. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// The Volume ID of which to make a snapshot.
 	VolumeId string `pulumi:"volumeId"`
@@ -181,7 +181,7 @@ type snapshotArgs struct {
 type SnapshotArgs struct {
 	// A description of what the snapshot is.
 	Description pulumi.StringPtrInput
-	// A map of tags for the snapshot.
+	// A map of tags to assign to the snapshot. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// The Volume ID of which to make a snapshot.
 	VolumeId pulumi.StringInput

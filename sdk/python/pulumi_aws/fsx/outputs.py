@@ -247,6 +247,8 @@ class OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDir
             suggest = "file_system_administrators_group"
         elif key == "organizationalUnitDistinguidshedName":
             suggest = "organizational_unit_distinguidshed_name"
+        elif key == "organizationalUnitDistinguishedName":
+            suggest = "organizational_unit_distinguished_name"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfiguration. Access the value via the '{suggest}' property getter instead.")
@@ -265,13 +267,15 @@ class OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDir
                  password: str,
                  username: str,
                  file_system_administrators_group: Optional[str] = None,
-                 organizational_unit_distinguidshed_name: Optional[str] = None):
+                 organizational_unit_distinguidshed_name: Optional[str] = None,
+                 organizational_unit_distinguished_name: Optional[str] = None):
         """
         :param Sequence[str] dns_ips: A list of up to three IP addresses of DNS servers or domain controllers in the self-managed AD directory.
         :param str domain_name: The fully qualified domain name of the self-managed AD directory. For example, `corp.example.com`.
         :param str password: The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
         :param str username: The user name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
         :param str file_system_administrators_group: The name of the domain group whose members are granted administrative privileges for the SVM. The group that you specify must already exist in your domain. Defaults to `Domain Admins`.
+        :param str organizational_unit_distinguished_name: The fully qualified distinguished name of the organizational unit within your self-managed AD directory that the Windows File Server instance will join. For example, `OU=FSx,DC=yourdomain,DC=corp,DC=com`. Only accepts OU as the direct parent of the SVM. If none is provided, the SVM is created in the default location of your self-managed AD directory. To learn more, see [RFC 2253](https://tools.ietf.org/html/rfc2253).
         """
         pulumi.set(__self__, "dns_ips", dns_ips)
         pulumi.set(__self__, "domain_name", domain_name)
@@ -281,6 +285,8 @@ class OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDir
             pulumi.set(__self__, "file_system_administrators_group", file_system_administrators_group)
         if organizational_unit_distinguidshed_name is not None:
             pulumi.set(__self__, "organizational_unit_distinguidshed_name", organizational_unit_distinguidshed_name)
+        if organizational_unit_distinguished_name is not None:
+            pulumi.set(__self__, "organizational_unit_distinguished_name", organizational_unit_distinguished_name)
 
     @property
     @pulumi.getter(name="dnsIps")
@@ -326,6 +332,14 @@ class OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDir
     @pulumi.getter(name="organizationalUnitDistinguidshedName")
     def organizational_unit_distinguidshed_name(self) -> Optional[str]:
         return pulumi.get(self, "organizational_unit_distinguidshed_name")
+
+    @property
+    @pulumi.getter(name="organizationalUnitDistinguishedName")
+    def organizational_unit_distinguished_name(self) -> Optional[str]:
+        """
+        The fully qualified distinguished name of the organizational unit within your self-managed AD directory that the Windows File Server instance will join. For example, `OU=FSx,DC=yourdomain,DC=corp,DC=com`. Only accepts OU as the direct parent of the SVM. If none is provided, the SVM is created in the default location of your self-managed AD directory. To learn more, see [RFC 2253](https://tools.ietf.org/html/rfc2253).
+        """
+        return pulumi.get(self, "organizational_unit_distinguished_name")
 
 
 @pulumi.output_type

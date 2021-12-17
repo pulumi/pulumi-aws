@@ -2132,6 +2132,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "connect/botAssociation",
+  "fqn": "pulumi_aws.connect",
+  "classes": {
+   "aws:connect/botAssociation:BotAssociation": "BotAssociation"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "connect/contactFlow",
   "fqn": "pulumi_aws.connect",
   "classes": {
@@ -2140,10 +2148,26 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "connect/hoursOfOperation",
+  "fqn": "pulumi_aws.connect",
+  "classes": {
+   "aws:connect/hoursOfOperation:HoursOfOperation": "HoursOfOperation"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "connect/instance",
   "fqn": "pulumi_aws.connect",
   "classes": {
    "aws:connect/instance:Instance": "Instance"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "connect/lambdaFunctionAssociation",
+  "fqn": "pulumi_aws.connect",
+  "classes": {
+   "aws:connect/lambdaFunctionAssociation:LambdaFunctionAssociation": "LambdaFunctionAssociation"
   }
  },
  {
@@ -3372,10 +3396,26 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "ecr/pullThroughCacheRule",
+  "fqn": "pulumi_aws.ecr",
+  "classes": {
+   "aws:ecr/pullThroughCacheRule:PullThroughCacheRule": "PullThroughCacheRule"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "ecr/registryPolicy",
   "fqn": "pulumi_aws.ecr",
   "classes": {
    "aws:ecr/registryPolicy:RegistryPolicy": "RegistryPolicy"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "ecr/registryScanningConfiguration",
+  "fqn": "pulumi_aws.ecr",
+  "classes": {
+   "aws:ecr/registryScanningConfiguration:RegistryScanningConfiguration": "RegistryScanningConfiguration"
   }
  },
  {
@@ -3408,6 +3448,14 @@ _utilities.register(
   "fqn": "pulumi_aws.ecrpublic",
   "classes": {
    "aws:ecrpublic/repository:Repository": "Repository"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "ecrpublic/repositoryPolicy",
+  "fqn": "pulumi_aws.ecrpublic",
+  "classes": {
+   "aws:ecrpublic/repositoryPolicy:RepositoryPolicy": "RepositoryPolicy"
   }
  },
  {

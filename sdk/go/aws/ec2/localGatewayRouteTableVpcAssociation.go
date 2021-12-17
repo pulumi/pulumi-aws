@@ -62,8 +62,9 @@ type LocalGatewayRouteTableVpcAssociation struct {
 
 	LocalGatewayId pulumi.StringOutput `pulumi:"localGatewayId"`
 	// Identifier of EC2 Local Gateway Route Table.
-	LocalGatewayRouteTableId pulumi.StringOutput    `pulumi:"localGatewayRouteTableId"`
-	Tags                     pulumi.StringMapOutput `pulumi:"tags"`
+	LocalGatewayRouteTableId pulumi.StringOutput `pulumi:"localGatewayRouteTableId"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Identifier of EC2 VPC.
@@ -107,8 +108,9 @@ func GetLocalGatewayRouteTableVpcAssociation(ctx *pulumi.Context,
 type localGatewayRouteTableVpcAssociationState struct {
 	LocalGatewayId *string `pulumi:"localGatewayId"`
 	// Identifier of EC2 Local Gateway Route Table.
-	LocalGatewayRouteTableId *string           `pulumi:"localGatewayRouteTableId"`
-	Tags                     map[string]string `pulumi:"tags"`
+	LocalGatewayRouteTableId *string `pulumi:"localGatewayRouteTableId"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Identifier of EC2 VPC.
@@ -119,7 +121,8 @@ type LocalGatewayRouteTableVpcAssociationState struct {
 	LocalGatewayId pulumi.StringPtrInput
 	// Identifier of EC2 Local Gateway Route Table.
 	LocalGatewayRouteTableId pulumi.StringPtrInput
-	Tags                     pulumi.StringMapInput
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// Identifier of EC2 VPC.
@@ -132,8 +135,9 @@ func (LocalGatewayRouteTableVpcAssociationState) ElementType() reflect.Type {
 
 type localGatewayRouteTableVpcAssociationArgs struct {
 	// Identifier of EC2 Local Gateway Route Table.
-	LocalGatewayRouteTableId string            `pulumi:"localGatewayRouteTableId"`
-	Tags                     map[string]string `pulumi:"tags"`
+	LocalGatewayRouteTableId string `pulumi:"localGatewayRouteTableId"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 	// Identifier of EC2 VPC.
 	VpcId string `pulumi:"vpcId"`
 }
@@ -142,7 +146,8 @@ type localGatewayRouteTableVpcAssociationArgs struct {
 type LocalGatewayRouteTableVpcAssociationArgs struct {
 	// Identifier of EC2 Local Gateway Route Table.
 	LocalGatewayRouteTableId pulumi.StringInput
-	Tags                     pulumi.StringMapInput
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 	// Identifier of EC2 VPC.
 	VpcId pulumi.StringInput
 }

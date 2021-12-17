@@ -86,7 +86,7 @@ export class OriginRequestPolicy extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Query Strings Config for more information.
+     * Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Query String Config for more information.
      */
     public readonly queryStringsConfig!: pulumi.Output<outputs.cloudfront.OriginRequestPolicyQueryStringsConfig>;
 
@@ -159,7 +159,7 @@ export interface OriginRequestPolicyState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Query Strings Config for more information.
+     * Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Query String Config for more information.
      */
     queryStringsConfig?: pulumi.Input<inputs.cloudfront.OriginRequestPolicyQueryStringsConfig>;
 }
@@ -185,7 +185,7 @@ export interface OriginRequestPolicyArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Query Strings Config for more information.
+     * Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Query String Config for more information.
      */
     queryStringsConfig: pulumi.Input<inputs.cloudfront.OriginRequestPolicyQueryStringsConfig>;
 }

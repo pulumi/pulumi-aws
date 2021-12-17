@@ -19,6 +19,16 @@ import * as utilities from "../utilities";
  *     authenticationType: "API_KEY",
  * });
  * ```
+ * ### AWS IAM Authentication
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.appsync.GraphQLApi("example", {
+ *     authenticationType: "AWS_IAM",
+ * });
+ * ```
  * ### AWS Cognito User Pool Authentication
  *
  * ```typescript
@@ -34,14 +44,49 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * ### AWS IAM Authentication
+ * ### OpenID Connect Authentication
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.appsync.GraphQLApi("example", {
- *     authenticationType: "AWS_IAM",
+ *     authenticationType: "OPENID_CONNECT",
+ *     openidConnectConfig: {
+ *         issuer: "https://example.com",
+ *     },
+ * });
+ * ```
+ * ### AWS Lambda Authorizer Authentication
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.appsync.GraphQLApi("example", {
+ *     authenticationType: "AWS_LAMBDA",
+ *     lambdaAuthorizerConfig: {
+ *         authorizerUri: "arn:aws:lambda:us-east-1:123456789012:function:custom_lambda_authorizer",
+ *     },
+ * });
+ * const appsyncLambdaAuthorizer = new aws.lambda.Permission("appsyncLambdaAuthorizer", {
+ *     action: "lambda:InvokeFunction",
+ *     "function": "custom_lambda_authorizer",
+ *     principal: "appsync.amazonaws.com",
+ *     sourceArn: example.arn,
+ * });
+ * ```
+ * ### With Multiple Authentication Providers
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.appsync.GraphQLApi("example", {
+ *     additionalAuthenticationProviders: [{
+ *         authenticationType: "AWS_IAM",
+ *     }],
+ *     authenticationType: "API_KEY",
  * });
  * ```
  * ### With Schema
@@ -59,32 +104,6 @@ import * as utilities from "../utilities";
  *   test: Int
  * }
  * `,
- * });
- * ```
- * ### OpenID Connect Authentication
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.appsync.GraphQLApi("example", {
- *     authenticationType: "OPENID_CONNECT",
- *     openidConnectConfig: {
- *         issuer: "https://example.com",
- *     },
- * });
- * ```
- * ### With Multiple Authentication Providers
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.appsync.GraphQLApi("example", {
- *     additionalAuthenticationProviders: [{
- *         authenticationType: "AWS_IAM",
- *     }],
- *     authenticationType: "API_KEY",
  * });
  * ```
  * ### Enabling Logging
@@ -204,9 +223,13 @@ export class GraphQLApi extends pulumi.CustomResource {
      */
     public /*out*/ readonly arn!: pulumi.Output<string>;
     /**
-     * The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`
+     * The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
      */
     public readonly authenticationType!: pulumi.Output<string>;
+    /**
+     * Nested argument containing Lambda authorizer configuration. Defined below.
+     */
+    public readonly lambdaAuthorizerConfig!: pulumi.Output<outputs.appsync.GraphQLApiLambdaAuthorizerConfig | undefined>;
     /**
      * Nested argument containing logging configuration. Defined below.
      */
@@ -260,6 +283,7 @@ export class GraphQLApi extends pulumi.CustomResource {
             inputs["additionalAuthenticationProviders"] = state ? state.additionalAuthenticationProviders : undefined;
             inputs["arn"] = state ? state.arn : undefined;
             inputs["authenticationType"] = state ? state.authenticationType : undefined;
+            inputs["lambdaAuthorizerConfig"] = state ? state.lambdaAuthorizerConfig : undefined;
             inputs["logConfig"] = state ? state.logConfig : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["openidConnectConfig"] = state ? state.openidConnectConfig : undefined;
@@ -276,6 +300,7 @@ export class GraphQLApi extends pulumi.CustomResource {
             }
             inputs["additionalAuthenticationProviders"] = args ? args.additionalAuthenticationProviders : undefined;
             inputs["authenticationType"] = args ? args.authenticationType : undefined;
+            inputs["lambdaAuthorizerConfig"] = args ? args.lambdaAuthorizerConfig : undefined;
             inputs["logConfig"] = args ? args.logConfig : undefined;
             inputs["name"] = args ? args.name : undefined;
             inputs["openidConnectConfig"] = args ? args.openidConnectConfig : undefined;
@@ -307,9 +332,13 @@ export interface GraphQLApiState {
      */
     arn?: pulumi.Input<string>;
     /**
-     * The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`
+     * The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
      */
     authenticationType?: pulumi.Input<string>;
+    /**
+     * Nested argument containing Lambda authorizer configuration. Defined below.
+     */
+    lambdaAuthorizerConfig?: pulumi.Input<inputs.appsync.GraphQLApiLambdaAuthorizerConfig>;
     /**
      * Nested argument containing logging configuration. Defined below.
      */
@@ -357,9 +386,13 @@ export interface GraphQLApiArgs {
      */
     additionalAuthenticationProviders?: pulumi.Input<pulumi.Input<inputs.appsync.GraphQLApiAdditionalAuthenticationProvider>[]>;
     /**
-     * The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`
+     * The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
      */
     authenticationType: pulumi.Input<string>;
+    /**
+     * Nested argument containing Lambda authorizer configuration. Defined below.
+     */
+    lambdaAuthorizerConfig?: pulumi.Input<inputs.appsync.GraphQLApiLambdaAuthorizerConfig>;
     /**
      * Nested argument containing logging configuration. Defined below.
      */

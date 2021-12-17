@@ -131,6 +131,14 @@ export class Endpoint extends pulumi.CustomResource {
      */
     public readonly s3Settings!: pulumi.Output<outputs.dms.EndpointS3Settings | undefined>;
     /**
+     * Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in SecretsManagerSecret.
+     */
+    public readonly secretsManagerAccessRoleArn!: pulumi.Output<string | undefined>;
+    /**
+     * The full ARN, partial ARN, or friendly name of the SecretsManagerSecret that contains the endpoint connection details. Supported only for `engineName` as `oracle` and `postgres`.
+     */
+    public readonly secretsManagerArn!: pulumi.Output<string | undefined>;
+    /**
      * The host name of the server.
      */
     public readonly serverName!: pulumi.Output<string | undefined>;
@@ -183,6 +191,8 @@ export class Endpoint extends pulumi.CustomResource {
             inputs["password"] = state ? state.password : undefined;
             inputs["port"] = state ? state.port : undefined;
             inputs["s3Settings"] = state ? state.s3Settings : undefined;
+            inputs["secretsManagerAccessRoleArn"] = state ? state.secretsManagerAccessRoleArn : undefined;
+            inputs["secretsManagerArn"] = state ? state.secretsManagerArn : undefined;
             inputs["serverName"] = state ? state.serverName : undefined;
             inputs["serviceAccessRole"] = state ? state.serviceAccessRole : undefined;
             inputs["sslMode"] = state ? state.sslMode : undefined;
@@ -214,6 +224,8 @@ export class Endpoint extends pulumi.CustomResource {
             inputs["password"] = args ? args.password : undefined;
             inputs["port"] = args ? args.port : undefined;
             inputs["s3Settings"] = args ? args.s3Settings : undefined;
+            inputs["secretsManagerAccessRoleArn"] = args ? args.secretsManagerAccessRoleArn : undefined;
+            inputs["secretsManagerArn"] = args ? args.secretsManagerArn : undefined;
             inputs["serverName"] = args ? args.serverName : undefined;
             inputs["serviceAccessRole"] = args ? args.serviceAccessRole : undefined;
             inputs["sslMode"] = args ? args.sslMode : undefined;
@@ -293,6 +305,14 @@ export interface EndpointState {
      * Configuration block with S3 settings. Detailed below.
      */
     s3Settings?: pulumi.Input<inputs.dms.EndpointS3Settings>;
+    /**
+     * Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in SecretsManagerSecret.
+     */
+    secretsManagerAccessRoleArn?: pulumi.Input<string>;
+    /**
+     * The full ARN, partial ARN, or friendly name of the SecretsManagerSecret that contains the endpoint connection details. Supported only for `engineName` as `oracle` and `postgres`.
+     */
+    secretsManagerArn?: pulumi.Input<string>;
     /**
      * The host name of the server.
      */
@@ -379,6 +399,14 @@ export interface EndpointArgs {
      * Configuration block with S3 settings. Detailed below.
      */
     s3Settings?: pulumi.Input<inputs.dms.EndpointS3Settings>;
+    /**
+     * Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in SecretsManagerSecret.
+     */
+    secretsManagerAccessRoleArn?: pulumi.Input<string>;
+    /**
+     * The full ARN, partial ARN, or friendly name of the SecretsManagerSecret that contains the endpoint connection details. Supported only for `engineName` as `oracle` and `postgres`.
+     */
+    secretsManagerArn?: pulumi.Input<string>;
     /**
      * The host name of the server.
      */

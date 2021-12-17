@@ -61,8 +61,9 @@ type Repository struct {
 	// The registry ID where the repository was created.
 	RegistryId pulumi.StringOutput `pulumi:"registryId"`
 	// The URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`).
-	RepositoryUrl pulumi.StringOutput    `pulumi:"repositoryUrl"`
-	Tags          pulumi.StringMapOutput `pulumi:"tags"`
+	RepositoryUrl pulumi.StringOutput `pulumi:"repositoryUrl"`
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
@@ -109,8 +110,9 @@ type repositoryState struct {
 	// The registry ID where the repository was created.
 	RegistryId *string `pulumi:"registryId"`
 	// The URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`).
-	RepositoryUrl *string           `pulumi:"repositoryUrl"`
-	Tags          map[string]string `pulumi:"tags"`
+	RepositoryUrl *string `pulumi:"repositoryUrl"`
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
@@ -130,7 +132,8 @@ type RepositoryState struct {
 	RegistryId pulumi.StringPtrInput
 	// The URL of the repository (in the form `aws_account_id.dkr.ecr.region.amazonaws.com/repositoryName`).
 	RepositoryUrl pulumi.StringPtrInput
-	Tags          pulumi.StringMapInput
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
@@ -147,7 +150,8 @@ type repositoryArgs struct {
 	// The tag mutability setting for the repository. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
 	ImageTagMutability *string `pulumi:"imageTagMutability"`
 	// Name of the repository.
-	Name *string           `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -161,6 +165,7 @@ type RepositoryArgs struct {
 	ImageTagMutability pulumi.StringPtrInput
 	// Name of the repository.
 	Name pulumi.StringPtrInput
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
 

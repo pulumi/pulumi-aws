@@ -97,6 +97,9 @@ export class ApplicationVersion extends pulumi.CustomResource {
      * Unique name for the this Application Version.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * Key-value map of tags for the Elastic Beanstalk Application Version. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
@@ -182,6 +185,9 @@ export interface ApplicationVersionState {
      * Unique name for the this Application Version.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Key-value map of tags for the Elastic Beanstalk Application Version. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -214,5 +220,8 @@ export interface ApplicationVersionArgs {
      * Unique name for the this Application Version.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Key-value map of tags for the Elastic Beanstalk Application Version. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

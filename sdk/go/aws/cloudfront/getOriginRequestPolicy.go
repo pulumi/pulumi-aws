@@ -64,7 +64,7 @@ type LookupOriginRequestPolicyResult struct {
 	HeadersConfigs []GetOriginRequestPolicyHeadersConfig `pulumi:"headersConfigs"`
 	Id             *string                               `pulumi:"id"`
 	Name           *string                               `pulumi:"name"`
-	// Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Query Strings Config for more information.
+	// Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Query String Config for more information.
 	QueryStringsConfigs []GetOriginRequestPolicyQueryStringsConfig `pulumi:"queryStringsConfigs"`
 }
 
@@ -132,7 +132,7 @@ func (o LookupOriginRequestPolicyResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupOriginRequestPolicyResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Query Strings Config for more information.
+// Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Query String Config for more information.
 func (o LookupOriginRequestPolicyResultOutput) QueryStringsConfigs() GetOriginRequestPolicyQueryStringsConfigArrayOutput {
 	return o.ApplyT(func(v LookupOriginRequestPolicyResult) []GetOriginRequestPolicyQueryStringsConfig {
 		return v.QueryStringsConfigs

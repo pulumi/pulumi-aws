@@ -66,6 +66,9 @@ export interface GetResourceResult {
      */
     readonly id: string;
     readonly identifier: string;
+    /**
+     * JSON string matching the CloudFormation resource type schema with current configuration.
+     */
     readonly properties: string;
     readonly roleArn?: string;
     readonly typeName: string;

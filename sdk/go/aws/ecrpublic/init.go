@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws:ecrpublic/repository:Repository":
 		r = &Repository{}
+	case "aws:ecrpublic/repositoryPolicy:RepositoryPolicy":
+		r = &RepositoryPolicy{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -39,6 +41,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"ecrpublic/repository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"ecrpublic/repositoryPolicy",
 		&module{version},
 	)
 }

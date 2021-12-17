@@ -10,6 +10,7 @@ import {ARN} from "..";
  * Provides an SNS topic resource
  *
  * ## Example Usage
+ * ### Basic Example
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -17,7 +18,7 @@ import {ARN} from "..";
  *
  * const userUpdates = new aws.sns.Topic("user_updates", {});
  * ```
- * ## Example with Delivery Policy
+ * ### Example with Delivery Policy
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -44,8 +45,7 @@ import {ARN} from "..";
  * `,
  * });
  * ```
- *
- * ## Example with Server-side encryption (SSE)
+ * ### Example with Server-side encryption (SSE)
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -55,8 +55,7 @@ import {ARN} from "..";
  *     kmsMasterKeyId: "alias/aws/sns",
  * });
  * ```
- *
- * ## Example with First-In-First-Out (FIFO)
+ * ### Example with First-In-First-Out (FIFO)
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -67,7 +66,6 @@ import {ARN} from "..";
  *     fifoTopic: true,
  * });
  * ```
- *
  * ## Message Delivery Status Arguments
  *
  * The `<endpoint>_success_feedback_role_arn` and `<endpoint>_failure_feedback_role_arn` arguments are used to give Amazon SNS write access to use CloudWatch Logs on your behalf. The `<endpoint>_success_feedback_sample_rate` argument is for specifying the sample rate percentage (0-100) of successfully delivered messages. After you configure the  `<endpoint>_failure_feedback_role_arn` argument, then all failed message deliveries generate CloudWatch Logs.

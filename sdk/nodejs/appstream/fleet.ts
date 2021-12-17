@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  *     displayName: "test-fleet",
  *     enableDefaultInternetAccess: false,
  *     fleetType: "ON_DEMAND",
- *     idleDisconnectTimeoutInSeconds: 15,
+ *     idleDisconnectTimeoutInSeconds: 60,
  *     imageName: "Amazon-AppStream2-Sample-Image-02-04-2019",
  *     instanceType: "stream.standard.large",
  *     maxUserDurationInSeconds: 600,

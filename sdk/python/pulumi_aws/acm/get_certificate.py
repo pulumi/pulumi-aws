@@ -153,7 +153,7 @@ def get_certificate(domain: Optional[str] = None,
 
 
     :param str domain: The domain of the certificate to look up. If no certificate is found with this name, an error will be returned.
-    :param Sequence[str] key_types: A list of key algorithms to filter certificates. By default, ACM does not return all certificate types when searching. Valid values are `RSA_1024`, `RSA_2048`, `RSA_4096`, `EC_prime256v1`, `EC_secp384r1`, and `EC_secp521r1`.
+    :param Sequence[str] key_types: A list of key algorithms to filter certificates. By default, ACM does not return all certificate types when searching. See the [ACM API Reference](https://docs.aws.amazon.com/acm/latest/APIReference/API_CertificateDetail.html#ACM-Type-CertificateDetail-KeyAlgorithm) for supported key algorithms.
     :param bool most_recent: If set to true, it sorts the certificates matched by previous criteria by the NotBefore field, returning only the most recent one. If set to false, it returns an error if more than one certificate is found. Defaults to false.
     :param Sequence[str] statuses: A list of statuses on which to filter the returned list. Valid values are `PENDING_VALIDATION`, `ISSUED`,
            `INACTIVE`, `EXPIRED`, `VALIDATION_TIMED_OUT`, `REVOKED` and `FAILED`. If no value is specified, only certificates in the `ISSUED` state
@@ -216,7 +216,7 @@ def get_certificate_output(domain: Optional[pulumi.Input[str]] = None,
 
 
     :param str domain: The domain of the certificate to look up. If no certificate is found with this name, an error will be returned.
-    :param Sequence[str] key_types: A list of key algorithms to filter certificates. By default, ACM does not return all certificate types when searching. Valid values are `RSA_1024`, `RSA_2048`, `RSA_4096`, `EC_prime256v1`, `EC_secp384r1`, and `EC_secp521r1`.
+    :param Sequence[str] key_types: A list of key algorithms to filter certificates. By default, ACM does not return all certificate types when searching. See the [ACM API Reference](https://docs.aws.amazon.com/acm/latest/APIReference/API_CertificateDetail.html#ACM-Type-CertificateDetail-KeyAlgorithm) for supported key algorithms.
     :param bool most_recent: If set to true, it sorts the certificates matched by previous criteria by the NotBefore field, returning only the most recent one. If set to false, it returns an error if more than one certificate is found. Defaults to false.
     :param Sequence[str] statuses: A list of statuses on which to filter the returned list. Valid values are `PENDING_VALIDATION`, `ISSUED`,
            `INACTIVE`, `EXPIRED`, `VALIDATION_TIMED_OUT`, `REVOKED` and `FAILED`. If no value is specified, only certificates in the `ISSUED` state

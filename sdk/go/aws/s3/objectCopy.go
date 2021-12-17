@@ -126,8 +126,7 @@ type ObjectCopy struct {
 	SourceCustomerKeyMd5 pulumi.StringPtrOutput `pulumi:"sourceCustomerKeyMd5"`
 	// Version of the copied object in the source bucket.
 	SourceVersionId pulumi.StringOutput `pulumi:"sourceVersionId"`
-	// Specifies the desired [Storage Class](http://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html)
-	// for the object. Can be either `STANDARD`, `REDUCED_REDUNDANCY`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `GLACIER`, `DEEP_ARCHIVE`, or `STANDARD_IA`. Defaults to `STANDARD`.
+	// Specifies the desired [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html#AmazonS3-CopyObject-request-header-StorageClass) for the object. Defaults to `STANDARD`.
 	StorageClass pulumi.StringOutput `pulumi:"storageClass"`
 	// Specifies whether the object tag-set are copied from the source object or replaced with tag-set provided in the request. Valid values are `COPY` and `REPLACE`.
 	TaggingDirective pulumi.StringPtrOutput `pulumi:"taggingDirective"`
@@ -256,8 +255,7 @@ type objectCopyState struct {
 	SourceCustomerKeyMd5 *string `pulumi:"sourceCustomerKeyMd5"`
 	// Version of the copied object in the source bucket.
 	SourceVersionId *string `pulumi:"sourceVersionId"`
-	// Specifies the desired [Storage Class](http://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html)
-	// for the object. Can be either `STANDARD`, `REDUCED_REDUNDANCY`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `GLACIER`, `DEEP_ARCHIVE`, or `STANDARD_IA`. Defaults to `STANDARD`.
+	// Specifies the desired [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html#AmazonS3-CopyObject-request-header-StorageClass) for the object. Defaults to `STANDARD`.
 	StorageClass *string `pulumi:"storageClass"`
 	// Specifies whether the object tag-set are copied from the source object or replaced with tag-set provided in the request. Valid values are `COPY` and `REPLACE`.
 	TaggingDirective *string `pulumi:"taggingDirective"`
@@ -349,8 +347,7 @@ type ObjectCopyState struct {
 	SourceCustomerKeyMd5 pulumi.StringPtrInput
 	// Version of the copied object in the source bucket.
 	SourceVersionId pulumi.StringPtrInput
-	// Specifies the desired [Storage Class](http://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html)
-	// for the object. Can be either `STANDARD`, `REDUCED_REDUNDANCY`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `GLACIER`, `DEEP_ARCHIVE`, or `STANDARD_IA`. Defaults to `STANDARD`.
+	// Specifies the desired [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html#AmazonS3-CopyObject-request-header-StorageClass) for the object. Defaults to `STANDARD`.
 	StorageClass pulumi.StringPtrInput
 	// Specifies whether the object tag-set are copied from the source object or replaced with tag-set provided in the request. Valid values are `COPY` and `REPLACE`.
 	TaggingDirective pulumi.StringPtrInput
@@ -436,8 +433,7 @@ type objectCopyArgs struct {
 	SourceCustomerKey *string `pulumi:"sourceCustomerKey"`
 	// Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
 	SourceCustomerKeyMd5 *string `pulumi:"sourceCustomerKeyMd5"`
-	// Specifies the desired [Storage Class](http://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html)
-	// for the object. Can be either `STANDARD`, `REDUCED_REDUNDANCY`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `GLACIER`, `DEEP_ARCHIVE`, or `STANDARD_IA`. Defaults to `STANDARD`.
+	// Specifies the desired [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html#AmazonS3-CopyObject-request-header-StorageClass) for the object. Defaults to `STANDARD`.
 	StorageClass *string `pulumi:"storageClass"`
 	// Specifies whether the object tag-set are copied from the source object or replaced with tag-set provided in the request. Valid values are `COPY` and `REPLACE`.
 	TaggingDirective *string `pulumi:"taggingDirective"`
@@ -516,8 +512,7 @@ type ObjectCopyArgs struct {
 	SourceCustomerKey pulumi.StringPtrInput
 	// Specifies the 128-bit MD5 digest of the encryption key according to RFC 1321. Amazon S3 uses this header for a message integrity check to ensure that the encryption key was transmitted without error.
 	SourceCustomerKeyMd5 pulumi.StringPtrInput
-	// Specifies the desired [Storage Class](http://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html)
-	// for the object. Can be either `STANDARD`, `REDUCED_REDUNDANCY`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `GLACIER`, `DEEP_ARCHIVE`, or `STANDARD_IA`. Defaults to `STANDARD`.
+	// Specifies the desired [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html#AmazonS3-CopyObject-request-header-StorageClass) for the object. Defaults to `STANDARD`.
 	StorageClass pulumi.StringPtrInput
 	// Specifies whether the object tag-set are copied from the source object or replaced with tag-set provided in the request. Valid values are `COPY` and `REPLACE`.
 	TaggingDirective pulumi.StringPtrInput

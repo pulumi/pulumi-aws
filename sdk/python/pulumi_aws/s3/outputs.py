@@ -879,7 +879,7 @@ class BucketLifecycleRuleNoncurrentVersionTransition(dict):
                  storage_class: str,
                  days: Optional[int] = None):
         """
-        :param str storage_class: Specifies the Amazon S3 storage class to which you want the noncurrent object versions to transition. Can be `ONEZONE_IA`, `STANDARD_IA`, `INTELLIGENT_TIERING`, `GLACIER`, or `DEEP_ARCHIVE`.
+        :param str storage_class: Specifies the Amazon S3 [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Transition.html#AmazonS3-Type-Transition-StorageClass) to which you want the object to transition.
         :param int days: Specifies the number of days noncurrent object versions transition.
         """
         pulumi.set(__self__, "storage_class", storage_class)
@@ -890,7 +890,7 @@ class BucketLifecycleRuleNoncurrentVersionTransition(dict):
     @pulumi.getter(name="storageClass")
     def storage_class(self) -> str:
         """
-        Specifies the Amazon S3 storage class to which you want the noncurrent object versions to transition. Can be `ONEZONE_IA`, `STANDARD_IA`, `INTELLIGENT_TIERING`, `GLACIER`, or `DEEP_ARCHIVE`.
+        Specifies the Amazon S3 [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Transition.html#AmazonS3-Type-Transition-StorageClass) to which you want the object to transition.
         """
         return pulumi.get(self, "storage_class")
 
@@ -927,7 +927,7 @@ class BucketLifecycleRuleTransition(dict):
                  date: Optional[str] = None,
                  days: Optional[int] = None):
         """
-        :param str storage_class: Specifies the Amazon S3 storage class to which you want the object to transition. Can be `ONEZONE_IA`, `STANDARD_IA`, `INTELLIGENT_TIERING`, `GLACIER`, or `DEEP_ARCHIVE`.
+        :param str storage_class: Specifies the Amazon S3 [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Transition.html#AmazonS3-Type-Transition-StorageClass) to which you want the object to transition.
         :param str date: Specifies the date after which you want the corresponding action to take effect.
         :param int days: Specifies the number of days after object creation when the specific rule action takes effect.
         """
@@ -941,7 +941,7 @@ class BucketLifecycleRuleTransition(dict):
     @pulumi.getter(name="storageClass")
     def storage_class(self) -> str:
         """
-        Specifies the Amazon S3 storage class to which you want the object to transition. Can be `ONEZONE_IA`, `STANDARD_IA`, `INTELLIGENT_TIERING`, `GLACIER`, or `DEEP_ARCHIVE`.
+        Specifies the Amazon S3 [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Transition.html#AmazonS3-Type-Transition-StorageClass) to which you want the object to transition.
         """
         return pulumi.get(self, "storage_class")
 
@@ -1447,7 +1447,7 @@ class BucketOwnershipControlsRule(dict):
     def __init__(__self__, *,
                  object_ownership: str):
         """
-        :param str object_ownership: Object ownership. Valid values: `BucketOwnerPreferred` or `ObjectWriter`
+        :param str object_ownership: Object ownership. Valid values: `BucketOwnerPreferred`, `ObjectWriter` or `BucketOwnerEnforced`
         """
         pulumi.set(__self__, "object_ownership", object_ownership)
 
@@ -1455,7 +1455,7 @@ class BucketOwnershipControlsRule(dict):
     @pulumi.getter(name="objectOwnership")
     def object_ownership(self) -> str:
         """
-        Object ownership. Valid values: `BucketOwnerPreferred` or `ObjectWriter`
+        Object ownership. Valid values: `BucketOwnerPreferred`, `ObjectWriter` or `BucketOwnerEnforced`
         """
         return pulumi.get(self, "object_ownership")
 
@@ -1652,7 +1652,7 @@ class BucketReplicationConfigRuleDestination(dict):
         :param 'BucketReplicationConfigRuleDestinationEncryptionConfigurationArgs' encryption_configuration: A configuration block that provides information about encryption documented below. If `source_selection_criteria` is specified, you must specify this element.
         :param 'BucketReplicationConfigRuleDestinationMetricsArgs' metrics: A configuration block that specifies replication metrics-related settings enabling replication metrics and events documented below.
         :param 'BucketReplicationConfigRuleDestinationReplicationTimeArgs' replication_time: A configuration block that specifies S3 Replication Time Control (S3 RTC), including whether S3 RTC is enabled and the time when all objects and operations on objects must be replicated documented below. Replication Time Control must be used in conjunction with `metrics`.
-        :param str storage_class: The class of storage used to store the object. Can be `STANDARD`, `REDUCED_REDUNDANCY`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `GLACIER`, or `DEEP_ARCHIVE`. By default, Amazon S3 uses the storage class of the source object to create the object replica.
+        :param str storage_class: The [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Destination.html#AmazonS3-Type-Destination-StorageClass) used to store the object. By default, Amazon S3 uses the storage class of the source object to create the object replica.
         """
         pulumi.set(__self__, "bucket", bucket)
         if access_control_translation is not None:
@@ -1720,7 +1720,7 @@ class BucketReplicationConfigRuleDestination(dict):
     @pulumi.getter(name="storageClass")
     def storage_class(self) -> Optional[str]:
         """
-        The class of storage used to store the object. Can be `STANDARD`, `REDUCED_REDUNDANCY`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `GLACIER`, or `DEEP_ARCHIVE`. By default, Amazon S3 uses the storage class of the source object to create the object replica.
+        The [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Destination.html#AmazonS3-Type-Destination-StorageClass) used to store the object. By default, Amazon S3 uses the storage class of the source object to create the object replica.
         """
         return pulumi.get(self, "storage_class")
 
@@ -2306,7 +2306,7 @@ class BucketReplicationConfigurationRuleDestination(dict):
         :param str replica_kms_key_id: Destination KMS encryption key ARN for SSE-KMS replication. Must be used in conjunction with
                `sse_kms_encrypted_objects` source selection criteria.
         :param 'BucketReplicationConfigurationRuleDestinationReplicationTimeArgs' replication_time: Enables S3 Replication Time Control (S3 RTC) (documented below).
-        :param str storage_class: The class of storage used to store the object. Can be `STANDARD`, `REDUCED_REDUNDANCY`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `GLACIER`, or `DEEP_ARCHIVE`.
+        :param str storage_class: The [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Destination.html#AmazonS3-Type-Destination-StorageClass) used to store the object. By default, Amazon S3 uses the storage class of the source object to create the object replica.
         """
         pulumi.set(__self__, "bucket", bucket)
         if access_control_translation is not None:
@@ -2375,7 +2375,7 @@ class BucketReplicationConfigurationRuleDestination(dict):
     @pulumi.getter(name="storageClass")
     def storage_class(self) -> Optional[str]:
         """
-        The class of storage used to store the object. Can be `STANDARD`, `REDUCED_REDUNDANCY`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `GLACIER`, or `DEEP_ARCHIVE`.
+        The [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Destination.html#AmazonS3-Type-Destination-StorageClass) used to store the object. By default, Amazon S3 uses the storage class of the source object to create the object replica.
         """
         return pulumi.get(self, "storage_class")
 

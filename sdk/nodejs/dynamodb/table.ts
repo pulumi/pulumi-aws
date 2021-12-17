@@ -156,7 +156,7 @@ export class Table extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Point-in-time recovery options.
+     * Enable point-in-time recovery options.
      */
     public readonly pointInTimeRecovery!: pulumi.Output<outputs.dynamodb.TablePointInTimeRecovery>;
     /**
@@ -166,11 +166,23 @@ export class Table extends pulumi.CustomResource {
     /**
      * The number of read units for this index. Must be set if billingMode is set to PROVISIONED.
      */
-    public readonly readCapacity!: pulumi.Output<number | undefined>;
+    public readonly readCapacity!: pulumi.Output<number>;
     /**
      * Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. Detailed below.
      */
     public readonly replicas!: pulumi.Output<outputs.dynamodb.TableReplica[] | undefined>;
+    /**
+     * The time of the point-in-time recovery point to restore.
+     */
+    public readonly restoreDateTime!: pulumi.Output<string | undefined>;
+    /**
+     * The name of the table to restore. Must match the name of an existing table.
+     */
+    public readonly restoreSourceName!: pulumi.Output<string | undefined>;
+    /**
+     * If set, restores table to the most recent point-in-time recovery point.
+     */
+    public readonly restoreToLatestTime!: pulumi.Output<boolean | undefined>;
     /**
      * Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS owned Customer Master Key if this argument isn't specified.
      */
@@ -199,7 +211,7 @@ export class Table extends pulumi.CustomResource {
      */
     public readonly tableClass!: pulumi.Output<string | undefined>;
     /**
-     * A map of tags to populate on the created table. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to populate on the created table. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -209,11 +221,11 @@ export class Table extends pulumi.CustomResource {
     /**
      * Defines ttl, has two properties, and can only be specified once:
      */
-    public readonly ttl!: pulumi.Output<outputs.dynamodb.TableTtl | undefined>;
+    public readonly ttl!: pulumi.Output<outputs.dynamodb.TableTtl>;
     /**
      * The number of write units for this index. Must be set if billingMode is set to PROVISIONED.
      */
-    public readonly writeCapacity!: pulumi.Output<number | undefined>;
+    public readonly writeCapacity!: pulumi.Output<number>;
 
     /**
      * Create a Table resource with the given unique name, arguments, and options.
@@ -222,7 +234,7 @@ export class Table extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args: TableArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args?: TableArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: TableArgs | TableState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
@@ -239,6 +251,9 @@ export class Table extends pulumi.CustomResource {
             inputs["rangeKey"] = state ? state.rangeKey : undefined;
             inputs["readCapacity"] = state ? state.readCapacity : undefined;
             inputs["replicas"] = state ? state.replicas : undefined;
+            inputs["restoreDateTime"] = state ? state.restoreDateTime : undefined;
+            inputs["restoreSourceName"] = state ? state.restoreSourceName : undefined;
+            inputs["restoreToLatestTime"] = state ? state.restoreToLatestTime : undefined;
             inputs["serverSideEncryption"] = state ? state.serverSideEncryption : undefined;
             inputs["streamArn"] = state ? state.streamArn : undefined;
             inputs["streamEnabled"] = state ? state.streamEnabled : undefined;
@@ -251,12 +266,6 @@ export class Table extends pulumi.CustomResource {
             inputs["writeCapacity"] = state ? state.writeCapacity : undefined;
         } else {
             const args = argsOrState as TableArgs | undefined;
-            if ((!args || args.attributes === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'attributes'");
-            }
-            if ((!args || args.hashKey === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'hashKey'");
-            }
             inputs["attributes"] = args ? args.attributes : undefined;
             inputs["billingMode"] = args ? args.billingMode : undefined;
             inputs["globalSecondaryIndexes"] = args ? args.globalSecondaryIndexes : undefined;
@@ -267,6 +276,9 @@ export class Table extends pulumi.CustomResource {
             inputs["rangeKey"] = args ? args.rangeKey : undefined;
             inputs["readCapacity"] = args ? args.readCapacity : undefined;
             inputs["replicas"] = args ? args.replicas : undefined;
+            inputs["restoreDateTime"] = args ? args.restoreDateTime : undefined;
+            inputs["restoreSourceName"] = args ? args.restoreSourceName : undefined;
+            inputs["restoreToLatestTime"] = args ? args.restoreToLatestTime : undefined;
             inputs["serverSideEncryption"] = args ? args.serverSideEncryption : undefined;
             inputs["streamEnabled"] = args ? args.streamEnabled : undefined;
             inputs["streamViewType"] = args ? args.streamViewType : undefined;
@@ -324,7 +336,7 @@ export interface TableState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Point-in-time recovery options.
+     * Enable point-in-time recovery options.
      */
     pointInTimeRecovery?: pulumi.Input<inputs.dynamodb.TablePointInTimeRecovery>;
     /**
@@ -339,6 +351,18 @@ export interface TableState {
      * Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. Detailed below.
      */
     replicas?: pulumi.Input<pulumi.Input<inputs.dynamodb.TableReplica>[]>;
+    /**
+     * The time of the point-in-time recovery point to restore.
+     */
+    restoreDateTime?: pulumi.Input<string>;
+    /**
+     * The name of the table to restore. Must match the name of an existing table.
+     */
+    restoreSourceName?: pulumi.Input<string>;
+    /**
+     * If set, restores table to the most recent point-in-time recovery point.
+     */
+    restoreToLatestTime?: pulumi.Input<boolean>;
     /**
      * Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS owned Customer Master Key if this argument isn't specified.
      */
@@ -367,7 +391,7 @@ export interface TableState {
      */
     tableClass?: pulumi.Input<string>;
     /**
-     * A map of tags to populate on the created table. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to populate on the created table. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -391,7 +415,7 @@ export interface TableArgs {
     /**
      * List of nested attribute definitions. Only required for `hashKey` and `rangeKey` attributes. Each attribute has two properties:
      */
-    attributes: pulumi.Input<pulumi.Input<inputs.dynamodb.TableAttribute>[]>;
+    attributes?: pulumi.Input<pulumi.Input<inputs.dynamodb.TableAttribute>[]>;
     /**
      * Controls how you are charged for read and write throughput and how you manage capacity. The valid values are `PROVISIONED` and `PAY_PER_REQUEST`. Defaults to `PROVISIONED`.
      */
@@ -406,7 +430,7 @@ export interface TableArgs {
      * The name of the hash key in the index; must be
      * defined as an attribute in the resource.
      */
-    hashKey: pulumi.Input<string>;
+    hashKey?: pulumi.Input<string>;
     /**
      * Describe an LSI on the table;
      * these can only be allocated *at creation* so you cannot change this
@@ -418,7 +442,7 @@ export interface TableArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Point-in-time recovery options.
+     * Enable point-in-time recovery options.
      */
     pointInTimeRecovery?: pulumi.Input<inputs.dynamodb.TablePointInTimeRecovery>;
     /**
@@ -433,6 +457,18 @@ export interface TableArgs {
      * Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. Detailed below.
      */
     replicas?: pulumi.Input<pulumi.Input<inputs.dynamodb.TableReplica>[]>;
+    /**
+     * The time of the point-in-time recovery point to restore.
+     */
+    restoreDateTime?: pulumi.Input<string>;
+    /**
+     * The name of the table to restore. Must match the name of an existing table.
+     */
+    restoreSourceName?: pulumi.Input<string>;
+    /**
+     * If set, restores table to the most recent point-in-time recovery point.
+     */
+    restoreToLatestTime?: pulumi.Input<boolean>;
     /**
      * Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS owned Customer Master Key if this argument isn't specified.
      */
@@ -450,7 +486,7 @@ export interface TableArgs {
      */
     tableClass?: pulumi.Input<string>;
     /**
-     * A map of tags to populate on the created table. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * A map of tags to populate on the created table. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

@@ -10,6 +10,8 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'RegistryScanningConfigurationRule',
+    'RegistryScanningConfigurationRuleRepositoryFilter',
     'ReplicationConfigurationReplicationConfiguration',
     'ReplicationConfigurationReplicationConfigurationRule',
     'ReplicationConfigurationReplicationConfigurationRuleDestination',
@@ -18,6 +20,90 @@ __all__ = [
     'GetRepositoryEncryptionConfigurationResult',
     'GetRepositoryImageScanningConfigurationResult',
 ]
+
+@pulumi.output_type
+class RegistryScanningConfigurationRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "repositoryFilters":
+            suggest = "repository_filters"
+        elif key == "scanFrequency":
+            suggest = "scan_frequency"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RegistryScanningConfigurationRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RegistryScanningConfigurationRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RegistryScanningConfigurationRule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 repository_filters: Sequence['outputs.RegistryScanningConfigurationRuleRepositoryFilter'],
+                 scan_frequency: str):
+        """
+        :param Sequence['RegistryScanningConfigurationRuleRepositoryFilterArgs'] repository_filters: One or more repository filter blocks, containing a `filter` (required string filtering repositories, see pattern regex [here](https://docs.aws.amazon.com/AmazonECR/latest/APIReference/API_ScanningRepositoryFilter.html)) and a `filter_type` (required string, currently only `WILDCARD` is supported).
+        :param str scan_frequency: The frequency that scans are performed at for a private registry. Can be `SCAN_ON_PUSH`, `CONTINUOUS_SCAN`, or `MANUAL`.
+        """
+        pulumi.set(__self__, "repository_filters", repository_filters)
+        pulumi.set(__self__, "scan_frequency", scan_frequency)
+
+    @property
+    @pulumi.getter(name="repositoryFilters")
+    def repository_filters(self) -> Sequence['outputs.RegistryScanningConfigurationRuleRepositoryFilter']:
+        """
+        One or more repository filter blocks, containing a `filter` (required string filtering repositories, see pattern regex [here](https://docs.aws.amazon.com/AmazonECR/latest/APIReference/API_ScanningRepositoryFilter.html)) and a `filter_type` (required string, currently only `WILDCARD` is supported).
+        """
+        return pulumi.get(self, "repository_filters")
+
+    @property
+    @pulumi.getter(name="scanFrequency")
+    def scan_frequency(self) -> str:
+        """
+        The frequency that scans are performed at for a private registry. Can be `SCAN_ON_PUSH`, `CONTINUOUS_SCAN`, or `MANUAL`.
+        """
+        return pulumi.get(self, "scan_frequency")
+
+
+@pulumi.output_type
+class RegistryScanningConfigurationRuleRepositoryFilter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "filterType":
+            suggest = "filter_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RegistryScanningConfigurationRuleRepositoryFilter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RegistryScanningConfigurationRuleRepositoryFilter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RegistryScanningConfigurationRuleRepositoryFilter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 filter: str,
+                 filter_type: str):
+        pulumi.set(__self__, "filter", filter)
+        pulumi.set(__self__, "filter_type", filter_type)
+
+    @property
+    @pulumi.getter
+    def filter(self) -> str:
+        return pulumi.get(self, "filter")
+
+    @property
+    @pulumi.getter(name="filterType")
+    def filter_type(self) -> str:
+        return pulumi.get(self, "filter_type")
+
 
 @pulumi.output_type
 class ReplicationConfigurationReplicationConfiguration(dict):

@@ -39,7 +39,7 @@ namespace Pulumi.Aws.S3.Outputs
         /// </summary>
         public readonly Outputs.BucketReplicationConfigurationRuleDestinationReplicationTime? ReplicationTime;
         /// <summary>
-        /// The class of storage used to store the object. Can be `STANDARD`, `REDUCED_REDUNDANCY`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `GLACIER`, or `DEEP_ARCHIVE`.
+        /// The [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Destination.html#AmazonS3-Type-Destination-StorageClass) used to store the object. By default, Amazon S3 uses the storage class of the source object to create the object replica.
         /// </summary>
         public readonly string? StorageClass;
 

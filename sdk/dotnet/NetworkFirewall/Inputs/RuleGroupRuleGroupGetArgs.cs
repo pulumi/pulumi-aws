@@ -24,6 +24,12 @@ namespace Pulumi.Aws.NetworkFirewall.Inputs
         [Input("rulesSource", required: true)]
         public Input<Inputs.RuleGroupRuleGroupRulesSourceGetArgs> RulesSource { get; set; } = null!;
 
+        /// <summary>
+        /// A configuration block that defines stateful rule options for the rule group. See Stateful Rule Options below for details.
+        /// </summary>
+        [Input("statefulRuleOptions")]
+        public Input<Inputs.RuleGroupRuleGroupStatefulRuleOptionsGetArgs>? StatefulRuleOptions { get; set; }
+
         public RuleGroupRuleGroupGetArgs()
         {
         }

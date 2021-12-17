@@ -20,6 +20,7 @@ class DiscovererArgs:
         The set of arguments for constructing a Discoverer resource.
         :param pulumi.Input[str] source_arn: The ARN of the event bus to discover event schemas on.
         :param pulumi.Input[str] description: The description of the discoverer. Maximum of 256 characters.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "source_arn", source_arn)
         if description is not None:
@@ -54,6 +55,9 @@ class DiscovererArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -74,6 +78,7 @@ class _DiscovererState:
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the discoverer.
         :param pulumi.Input[str] description: The description of the discoverer. Maximum of 256 characters.
         :param pulumi.Input[str] source_arn: The ARN of the event bus to discover event schemas on.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
@@ -126,6 +131,9 @@ class _DiscovererState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -183,6 +191,7 @@ class Discoverer(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The description of the discoverer. Maximum of 256 characters.
         :param pulumi.Input[str] source_arn: The ARN of the event bus to discover event schemas on.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -277,6 +286,7 @@ class Discoverer(pulumi.CustomResource):
         :param pulumi.Input[str] arn: The Amazon Resource Name (ARN) of the discoverer.
         :param pulumi.Input[str] description: The description of the discoverer. Maximum of 256 characters.
         :param pulumi.Input[str] source_arn: The ARN of the event bus to discover event schemas on.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -317,6 +327,9 @@ class Discoverer(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @property

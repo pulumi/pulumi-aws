@@ -725,7 +725,7 @@ class WebAclDefaultAction(dict):
     def __init__(__self__, *,
                  type: str):
         """
-        :param str type: Specifies how you want AWS WAF Regional to respond to requests that match the settings in a ruleE.g., `ALLOW`, `BLOCK` or `COUNT`
+        :param str type: Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. Valid values for `action` are `ALLOW`, `BLOCK` or `COUNT`. Valid values for `override_action` are `COUNT` and `NONE`.
         """
         pulumi.set(__self__, "type", type)
 
@@ -733,7 +733,7 @@ class WebAclDefaultAction(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        Specifies how you want AWS WAF Regional to respond to requests that match the settings in a ruleE.g., `ALLOW`, `BLOCK` or `COUNT`
+        Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. Valid values for `action` are `ALLOW`, `BLOCK` or `COUNT`. Valid values for `override_action` are `COUNT` and `NONE`.
         """
         return pulumi.get(self, "type")
 
@@ -828,7 +828,7 @@ class WebAclLoggingConfigurationRedactedFieldsFieldToMatch(dict):
                  type: str,
                  data: Optional[str] = None):
         """
-        :param str type: Specifies how you want AWS WAF Regional to respond to requests that match the settings in a ruleE.g., `ALLOW`, `BLOCK` or `COUNT`
+        :param str type: Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. Valid values for `action` are `ALLOW`, `BLOCK` or `COUNT`. Valid values for `override_action` are `COUNT` and `NONE`.
         :param str data: When the value of `type` is `HEADER`, enter the name of the header that you want the WAF to search, for example, `User-Agent` or `Referer`. If the value of `type` is any other value, omit `data`.
         """
         pulumi.set(__self__, "type", type)
@@ -839,7 +839,7 @@ class WebAclLoggingConfigurationRedactedFieldsFieldToMatch(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        Specifies how you want AWS WAF Regional to respond to requests that match the settings in a ruleE.g., `ALLOW`, `BLOCK` or `COUNT`
+        Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. Valid values for `action` are `ALLOW`, `BLOCK` or `COUNT`. Valid values for `override_action` are `COUNT` and `NONE`.
         """
         return pulumi.get(self, "type")
 
@@ -885,7 +885,7 @@ class WebAclRule(dict):
         :param str rule_id: ID of the associated WAF (Regional) rule (e.g. `wafregional.Rule`). WAF (Global) rules cannot be used.
         :param 'WebAclRuleActionArgs' action: Configuration block of the action that CloudFront or AWS WAF takes when a web request matches the conditions in the rule.  Not used if `type` is `GROUP`. Detailed below.
         :param 'WebAclRuleOverrideActionArgs' override_action: Configuration block of the override the action that a group requests CloudFront or AWS WAF takes when a web request matches the conditions in the rule.  Only used if `type` is `GROUP`. Detailed below.
-        :param str type: Specifies how you want AWS WAF Regional to respond to requests that match the settings in a ruleE.g., `ALLOW`, `BLOCK` or `COUNT`
+        :param str type: Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. Valid values for `action` are `ALLOW`, `BLOCK` or `COUNT`. Valid values for `override_action` are `COUNT` and `NONE`.
         """
         pulumi.set(__self__, "priority", priority)
         pulumi.set(__self__, "rule_id", rule_id)
@@ -933,7 +933,7 @@ class WebAclRule(dict):
     @pulumi.getter
     def type(self) -> Optional[str]:
         """
-        Specifies how you want AWS WAF Regional to respond to requests that match the settings in a ruleE.g., `ALLOW`, `BLOCK` or `COUNT`
+        Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. Valid values for `action` are `ALLOW`, `BLOCK` or `COUNT`. Valid values for `override_action` are `COUNT` and `NONE`.
         """
         return pulumi.get(self, "type")
 
@@ -943,7 +943,7 @@ class WebAclRuleAction(dict):
     def __init__(__self__, *,
                  type: str):
         """
-        :param str type: Specifies how you want AWS WAF Regional to respond to requests that match the settings in a ruleE.g., `ALLOW`, `BLOCK` or `COUNT`
+        :param str type: Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. Valid values for `action` are `ALLOW`, `BLOCK` or `COUNT`. Valid values for `override_action` are `COUNT` and `NONE`.
         """
         pulumi.set(__self__, "type", type)
 
@@ -951,7 +951,7 @@ class WebAclRuleAction(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        Specifies how you want AWS WAF Regional to respond to requests that match the settings in a ruleE.g., `ALLOW`, `BLOCK` or `COUNT`
+        Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. Valid values for `action` are `ALLOW`, `BLOCK` or `COUNT`. Valid values for `override_action` are `COUNT` and `NONE`.
         """
         return pulumi.get(self, "type")
 
@@ -961,7 +961,7 @@ class WebAclRuleOverrideAction(dict):
     def __init__(__self__, *,
                  type: str):
         """
-        :param str type: Specifies how you want AWS WAF Regional to respond to requests that match the settings in a ruleE.g., `ALLOW`, `BLOCK` or `COUNT`
+        :param str type: Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. Valid values for `action` are `ALLOW`, `BLOCK` or `COUNT`. Valid values for `override_action` are `COUNT` and `NONE`.
         """
         pulumi.set(__self__, "type", type)
 
@@ -969,7 +969,7 @@ class WebAclRuleOverrideAction(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        Specifies how you want AWS WAF Regional to respond to requests that match the settings in a ruleE.g., `ALLOW`, `BLOCK` or `COUNT`
+        Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. Valid values for `action` are `ALLOW`, `BLOCK` or `COUNT`. Valid values for `override_action` are `COUNT` and `NONE`.
         """
         return pulumi.get(self, "type")
 

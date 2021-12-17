@@ -52,8 +52,9 @@ type CarrierGateway struct {
 	// The ARN of the carrier gateway.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The AWS account ID of the owner of the carrier gateway.
-	OwnerId pulumi.StringOutput    `pulumi:"ownerId"`
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The ID of the VPC to associate with the carrier gateway.
@@ -95,8 +96,9 @@ type carrierGatewayState struct {
 	// The ARN of the carrier gateway.
 	Arn *string `pulumi:"arn"`
 	// The AWS account ID of the owner of the carrier gateway.
-	OwnerId *string           `pulumi:"ownerId"`
-	Tags    map[string]string `pulumi:"tags"`
+	OwnerId *string `pulumi:"ownerId"`
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The ID of the VPC to associate with the carrier gateway.
@@ -108,7 +110,8 @@ type CarrierGatewayState struct {
 	Arn pulumi.StringPtrInput
 	// The AWS account ID of the owner of the carrier gateway.
 	OwnerId pulumi.StringPtrInput
-	Tags    pulumi.StringMapInput
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// The ID of the VPC to associate with the carrier gateway.
@@ -120,6 +123,7 @@ func (CarrierGatewayState) ElementType() reflect.Type {
 }
 
 type carrierGatewayArgs struct {
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// The ID of the VPC to associate with the carrier gateway.
 	VpcId string `pulumi:"vpcId"`
@@ -127,6 +131,7 @@ type carrierGatewayArgs struct {
 
 // The set of arguments for constructing a CarrierGateway resource.
 type CarrierGatewayArgs struct {
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// The ID of the VPC to associate with the carrier gateway.
 	VpcId pulumi.StringInput

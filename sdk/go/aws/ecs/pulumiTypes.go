@@ -4598,7 +4598,7 @@ type TaskSetServiceRegistries struct {
 	ContainerPort *int `pulumi:"containerPort"`
 	// The port value used if your Service Discovery service specified an SRV record.
 	Port *int `pulumi:"port"`
-	// The ARN of the Service Registry. The currently supported service registry is Amazon Route 53 Auto Naming Service([`servicediscovery.Service` resource](https://www.terraform.io/docs/providers/aws/r/service_discovery_service.html)). For more information, see [Service](https://docs.aws.amazon.com/Route53/latest/APIReference/API_autonaming_Service.html).
+	// The ARN of the Service Registry. The currently supported service registry is Amazon Route 53 Auto Naming Service(`servicediscovery.Service` resource). For more information, see [Service](https://docs.aws.amazon.com/Route53/latest/APIReference/API_autonaming_Service.html).
 	RegistryArn string `pulumi:"registryArn"`
 }
 
@@ -4620,7 +4620,7 @@ type TaskSetServiceRegistriesArgs struct {
 	ContainerPort pulumi.IntPtrInput `pulumi:"containerPort"`
 	// The port value used if your Service Discovery service specified an SRV record.
 	Port pulumi.IntPtrInput `pulumi:"port"`
-	// The ARN of the Service Registry. The currently supported service registry is Amazon Route 53 Auto Naming Service([`servicediscovery.Service` resource](https://www.terraform.io/docs/providers/aws/r/service_discovery_service.html)). For more information, see [Service](https://docs.aws.amazon.com/Route53/latest/APIReference/API_autonaming_Service.html).
+	// The ARN of the Service Registry. The currently supported service registry is Amazon Route 53 Auto Naming Service(`servicediscovery.Service` resource). For more information, see [Service](https://docs.aws.amazon.com/Route53/latest/APIReference/API_autonaming_Service.html).
 	RegistryArn pulumi.StringInput `pulumi:"registryArn"`
 }
 
@@ -4716,7 +4716,7 @@ func (o TaskSetServiceRegistriesOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TaskSetServiceRegistries) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
 
-// The ARN of the Service Registry. The currently supported service registry is Amazon Route 53 Auto Naming Service([`servicediscovery.Service` resource](https://www.terraform.io/docs/providers/aws/r/service_discovery_service.html)). For more information, see [Service](https://docs.aws.amazon.com/Route53/latest/APIReference/API_autonaming_Service.html).
+// The ARN of the Service Registry. The currently supported service registry is Amazon Route 53 Auto Naming Service(`servicediscovery.Service` resource). For more information, see [Service](https://docs.aws.amazon.com/Route53/latest/APIReference/API_autonaming_Service.html).
 func (o TaskSetServiceRegistriesOutput) RegistryArn() pulumi.StringOutput {
 	return o.ApplyT(func(v TaskSetServiceRegistries) string { return v.RegistryArn }).(pulumi.StringOutput)
 }
@@ -4775,7 +4775,7 @@ func (o TaskSetServiceRegistriesPtrOutput) Port() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The ARN of the Service Registry. The currently supported service registry is Amazon Route 53 Auto Naming Service([`servicediscovery.Service` resource](https://www.terraform.io/docs/providers/aws/r/service_discovery_service.html)). For more information, see [Service](https://docs.aws.amazon.com/Route53/latest/APIReference/API_autonaming_Service.html).
+// The ARN of the Service Registry. The currently supported service registry is Amazon Route 53 Auto Naming Service(`servicediscovery.Service` resource). For more information, see [Service](https://docs.aws.amazon.com/Route53/latest/APIReference/API_autonaming_Service.html).
 func (o TaskSetServiceRegistriesPtrOutput) RegistryArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TaskSetServiceRegistries) *string {
 		if v == nil {

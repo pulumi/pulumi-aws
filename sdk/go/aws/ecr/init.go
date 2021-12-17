@@ -23,8 +23,12 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws:ecr/lifecyclePolicy:LifecyclePolicy":
 		r = &LifecyclePolicy{}
+	case "aws:ecr/pullThroughCacheRule:PullThroughCacheRule":
+		r = &PullThroughCacheRule{}
 	case "aws:ecr/registryPolicy:RegistryPolicy":
 		r = &RegistryPolicy{}
+	case "aws:ecr/registryScanningConfiguration:RegistryScanningConfiguration":
+		r = &RegistryScanningConfiguration{}
 	case "aws:ecr/replicationConfiguration:ReplicationConfiguration":
 		r = &ReplicationConfiguration{}
 	case "aws:ecr/repository:Repository":
@@ -51,7 +55,17 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"aws",
+		"ecr/pullThroughCacheRule",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
 		"ecr/registryPolicy",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"ecr/registryScanningConfiguration",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

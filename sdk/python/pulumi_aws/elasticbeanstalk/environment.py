@@ -48,6 +48,7 @@ class EnvironmentArgs:
                below in Option Settings
         :param pulumi.Input[str] solution_stack_name: A solution stack to base your environment
                off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A set of tags to apply to the Environment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] template_name: The name of the Elastic Beanstalk Configuration
                template to use in deployment
         :param pulumi.Input[str] tier: Elastic Beanstalk Environment tier. Valid values are `Worker`
@@ -194,6 +195,9 @@ class EnvironmentArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A set of tags to apply to the Environment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -312,6 +316,7 @@ class _EnvironmentState:
                below in Option Settings
         :param pulumi.Input[str] solution_stack_name: A solution stack to base your environment
                off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A set of tags to apply to the Environment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] template_name: The name of the Elastic Beanstalk Configuration
                template to use in deployment
@@ -590,6 +595,9 @@ class _EnvironmentState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A set of tags to apply to the Environment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -777,6 +785,7 @@ class Environment(pulumi.CustomResource):
                below in Option Settings
         :param pulumi.Input[str] solution_stack_name: A solution stack to base your environment
                off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A set of tags to apply to the Environment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] template_name: The name of the Elastic Beanstalk Configuration
                template to use in deployment
         :param pulumi.Input[str] tier: Elastic Beanstalk Environment tier. Valid values are `Worker`
@@ -992,6 +1001,7 @@ class Environment(pulumi.CustomResource):
                below in Option Settings
         :param pulumi.Input[str] solution_stack_name: A solution stack to base your environment
                off of. Example stacks can be found in the [Amazon API documentation](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/concepts.platforms.html)
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A set of tags to apply to the Environment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] template_name: The name of the Elastic Beanstalk Configuration
                template to use in deployment
@@ -1183,6 +1193,9 @@ class Environment(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        A set of tags to apply to the Environment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @property

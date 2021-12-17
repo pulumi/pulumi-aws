@@ -83,6 +83,14 @@ export class ServiceLinkedRole extends pulumi.CustomResource {
      */
     public /*out*/ readonly path!: pulumi.Output<string>;
     /**
+     * Key-value mapping of tags for the IAM role. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
+    public readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
+    /**
      * The stable and unique string identifying the role.
      */
     public /*out*/ readonly uniqueId!: pulumi.Output<string>;
@@ -107,6 +115,8 @@ export class ServiceLinkedRole extends pulumi.CustomResource {
             inputs["description"] = state ? state.description : undefined;
             inputs["name"] = state ? state.name : undefined;
             inputs["path"] = state ? state.path : undefined;
+            inputs["tags"] = state ? state.tags : undefined;
+            inputs["tagsAll"] = state ? state.tagsAll : undefined;
             inputs["uniqueId"] = state ? state.uniqueId : undefined;
         } else {
             const args = argsOrState as ServiceLinkedRoleArgs | undefined;
@@ -116,6 +126,8 @@ export class ServiceLinkedRole extends pulumi.CustomResource {
             inputs["awsServiceName"] = args ? args.awsServiceName : undefined;
             inputs["customSuffix"] = args ? args.customSuffix : undefined;
             inputs["description"] = args ? args.description : undefined;
+            inputs["tags"] = args ? args.tags : undefined;
+            inputs["tagsAll"] = args ? args.tagsAll : undefined;
             inputs["arn"] = undefined /*out*/;
             inputs["createDate"] = undefined /*out*/;
             inputs["name"] = undefined /*out*/;
@@ -162,6 +174,14 @@ export interface ServiceLinkedRoleState {
      */
     path?: pulumi.Input<string>;
     /**
+     * Key-value mapping of tags for the IAM role. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
      * The stable and unique string identifying the role.
      */
     uniqueId?: pulumi.Input<string>;
@@ -183,4 +203,12 @@ export interface ServiceLinkedRoleArgs {
      * The description of the role.
      */
     description?: pulumi.Input<string>;
+    /**
+     * Key-value mapping of tags for the IAM role. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     */
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

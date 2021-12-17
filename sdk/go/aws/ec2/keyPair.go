@@ -65,8 +65,9 @@ type KeyPair struct {
 	// The key pair ID.
 	KeyPairId pulumi.StringOutput `pulumi:"keyPairId"`
 	// The public key material.
-	PublicKey pulumi.StringOutput    `pulumi:"publicKey"`
-	Tags      pulumi.StringMapOutput `pulumi:"tags"`
+	PublicKey pulumi.StringOutput `pulumi:"publicKey"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
@@ -114,8 +115,9 @@ type keyPairState struct {
 	// The key pair ID.
 	KeyPairId *string `pulumi:"keyPairId"`
 	// The public key material.
-	PublicKey *string           `pulumi:"publicKey"`
-	Tags      map[string]string `pulumi:"tags"`
+	PublicKey *string `pulumi:"publicKey"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
@@ -133,7 +135,8 @@ type KeyPairState struct {
 	KeyPairId pulumi.StringPtrInput
 	// The public key material.
 	PublicKey pulumi.StringPtrInput
-	Tags      pulumi.StringMapInput
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
@@ -148,8 +151,9 @@ type keyPairArgs struct {
 	// Creates a unique name beginning with the specified prefix. Conflicts with `keyName`.
 	KeyNamePrefix *string `pulumi:"keyNamePrefix"`
 	// The public key material.
-	PublicKey string            `pulumi:"publicKey"`
-	Tags      map[string]string `pulumi:"tags"`
+	PublicKey string `pulumi:"publicKey"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a KeyPair resource.
@@ -160,7 +164,8 @@ type KeyPairArgs struct {
 	KeyNamePrefix pulumi.StringPtrInput
 	// The public key material.
 	PublicKey pulumi.StringInput
-	Tags      pulumi.StringMapInput
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (KeyPairArgs) ElementType() reflect.Type {

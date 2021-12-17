@@ -80,7 +80,8 @@ type Stream struct {
 	ShardLevelMetrics pulumi.StringArrayOutput `pulumi:"shardLevelMetrics"`
 	// Indicates the [capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
 	StreamModeDetails StreamStreamModeDetailsOutput `pulumi:"streamModeDetails"`
-	Tags              pulumi.StringMapOutput        `pulumi:"tags"`
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
@@ -133,7 +134,8 @@ type streamState struct {
 	ShardLevelMetrics []string `pulumi:"shardLevelMetrics"`
 	// Indicates the [capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
 	StreamModeDetails *StreamStreamModeDetails `pulumi:"streamModeDetails"`
-	Tags              map[string]string        `pulumi:"tags"`
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
@@ -158,7 +160,8 @@ type StreamState struct {
 	ShardLevelMetrics pulumi.StringArrayInput
 	// Indicates the [capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
 	StreamModeDetails StreamStreamModeDetailsPtrInput
-	Tags              pulumi.StringMapInput
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
@@ -187,7 +190,8 @@ type streamArgs struct {
 	ShardLevelMetrics []string `pulumi:"shardLevelMetrics"`
 	// Indicates the [capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
 	StreamModeDetails *StreamStreamModeDetails `pulumi:"streamModeDetails"`
-	Tags              map[string]string        `pulumi:"tags"`
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Stream resource.
@@ -211,7 +215,8 @@ type StreamArgs struct {
 	ShardLevelMetrics pulumi.StringArrayInput
 	// Indicates the [capacity mode](https://docs.aws.amazon.com/streams/latest/dev/how-do-i-size-a-stream.html) of the data stream. Detailed below.
 	StreamModeDetails StreamStreamModeDetailsPtrInput
-	Tags              pulumi.StringMapInput
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (StreamArgs) ElementType() reflect.Type {

@@ -66,6 +66,9 @@ export class ManagedPrefixList extends pulumi.CustomResource {
      * ID of the AWS account that owns this prefix list.
      */
     public /*out*/ readonly ownerId!: pulumi.Output<string>;
+    /**
+     * Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -148,6 +151,9 @@ export interface ManagedPrefixListState {
      * ID of the AWS account that owns this prefix list.
      */
     ownerId?: pulumi.Input<string>;
+    /**
+     * Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -176,5 +182,8 @@ export interface ManagedPrefixListArgs {
      * Name of this resource. The name must not start with `com.amazonaws`.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

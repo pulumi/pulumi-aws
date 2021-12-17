@@ -109,6 +109,9 @@ namespace Pulumi.Aws.Emr
         [Output("subnetIds")]
         public Output<ImmutableArray<string>> SubnetIds { get; private set; } = null!;
 
+        /// <summary>
+        /// list of tags to apply to the EMR Cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
@@ -247,6 +250,10 @@ namespace Pulumi.Aws.Emr
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// list of tags to apply to the EMR Cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
@@ -351,6 +358,10 @@ namespace Pulumi.Aws.Emr
 
         [Input("tags")]
         private InputMap<string>? _tags;
+
+        /// <summary>
+        /// list of tags to apply to the EMR Cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());

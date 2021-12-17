@@ -149,6 +149,18 @@ namespace Pulumi.Aws.Dms
         public Output<Outputs.EndpointS3Settings?> S3Settings { get; private set; } = null!;
 
         /// <summary>
+        /// Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in SecretsManagerSecret.
+        /// </summary>
+        [Output("secretsManagerAccessRoleArn")]
+        public Output<string?> SecretsManagerAccessRoleArn { get; private set; } = null!;
+
+        /// <summary>
+        /// The full ARN, partial ARN, or friendly name of the SecretsManagerSecret that contains the endpoint connection details. Supported only for `engine_name` as `oracle` and `postgres`.
+        /// </summary>
+        [Output("secretsManagerArn")]
+        public Output<string?> SecretsManagerArn { get; private set; } = null!;
+
+        /// <summary>
         /// The host name of the server.
         /// </summary>
         [Output("serverName")]
@@ -315,6 +327,18 @@ namespace Pulumi.Aws.Dms
         public Input<Inputs.EndpointS3SettingsArgs>? S3Settings { get; set; }
 
         /// <summary>
+        /// Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in SecretsManagerSecret.
+        /// </summary>
+        [Input("secretsManagerAccessRoleArn")]
+        public Input<string>? SecretsManagerAccessRoleArn { get; set; }
+
+        /// <summary>
+        /// The full ARN, partial ARN, or friendly name of the SecretsManagerSecret that contains the endpoint connection details. Supported only for `engine_name` as `oracle` and `postgres`.
+        /// </summary>
+        [Input("secretsManagerArn")]
+        public Input<string>? SecretsManagerArn { get; set; }
+
+        /// <summary>
         /// The host name of the server.
         /// </summary>
         [Input("serverName")]
@@ -446,6 +470,18 @@ namespace Pulumi.Aws.Dms
         /// </summary>
         [Input("s3Settings")]
         public Input<Inputs.EndpointS3SettingsGetArgs>? S3Settings { get; set; }
+
+        /// <summary>
+        /// Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in SecretsManagerSecret.
+        /// </summary>
+        [Input("secretsManagerAccessRoleArn")]
+        public Input<string>? SecretsManagerAccessRoleArn { get; set; }
+
+        /// <summary>
+        /// The full ARN, partial ARN, or friendly name of the SecretsManagerSecret that contains the endpoint connection details. Supported only for `engine_name` as `oracle` and `postgres`.
+        /// </summary>
+        [Input("secretsManagerArn")]
+        public Input<string>? SecretsManagerArn { get; set; }
 
         /// <summary>
         /// The host name of the server.

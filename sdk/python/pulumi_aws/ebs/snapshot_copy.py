@@ -26,7 +26,7 @@ class SnapshotCopyArgs:
         :param pulumi.Input[str] description: A description of what the snapshot is.
         :param pulumi.Input[bool] encrypted: Whether the snapshot is encrypted.
         :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags for the snapshot.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags for the snapshot. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "source_region", source_region)
         pulumi.set(__self__, "source_snapshot_id", source_snapshot_id)
@@ -103,7 +103,7 @@ class SnapshotCopyArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags for the snapshot.
+        A map of tags for the snapshot. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -141,7 +141,7 @@ class _SnapshotCopyState:
         :param pulumi.Input[str] owner_id: The AWS account ID of the snapshot owner.
         :param pulumi.Input[str] source_region: The region of the source snapshot.
         :param pulumi.Input[str] source_snapshot_id: The ARN for the snapshot to be copied.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags for the snapshot.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags for the snapshot. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[int] volume_size: The size of the drive in GiBs.
         """
@@ -286,7 +286,7 @@ class _SnapshotCopyState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags for the snapshot.
+        A map of tags for the snapshot. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -375,7 +375,7 @@ class SnapshotCopy(pulumi.CustomResource):
         :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key.
         :param pulumi.Input[str] source_region: The region of the source snapshot.
         :param pulumi.Input[str] source_snapshot_id: The ARN for the snapshot to be copied.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags for the snapshot.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags for the snapshot. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -502,7 +502,7 @@ class SnapshotCopy(pulumi.CustomResource):
         :param pulumi.Input[str] owner_id: The AWS account ID of the snapshot owner.
         :param pulumi.Input[str] source_region: The region of the source snapshot.
         :param pulumi.Input[str] source_snapshot_id: The ARN for the snapshot to be copied.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags for the snapshot.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags for the snapshot. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[int] volume_size: The size of the drive in GiBs.
         """
@@ -603,7 +603,7 @@ class SnapshotCopy(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        A map of tags for the snapshot.
+        A map of tags for the snapshot. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 

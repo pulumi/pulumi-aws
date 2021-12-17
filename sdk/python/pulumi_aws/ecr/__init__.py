@@ -10,7 +10,9 @@ from .get_credentials import *
 from .get_image import *
 from .get_repository import *
 from .lifecycle_policy import *
+from .pull_through_cache_rule import *
 from .registry_policy import *
+from .registry_scanning_configuration import *
 from .replication_configuration import *
 from .repository import *
 from .repository_policy import *

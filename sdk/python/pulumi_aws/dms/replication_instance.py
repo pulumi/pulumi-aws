@@ -30,7 +30,7 @@ class ReplicationInstanceArgs:
                  vpc_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ReplicationInstance resource.
-        :param pulumi.Input[str] replication_instance_class: The compute and memory capacity of the replication instance as specified by the replication instance class. Can be one of `dms.t2.micro | dms.t2.small | dms.t2.medium | dms.t2.large | dms.c4.large | dms.c4.xlarge | dms.c4.2xlarge | dms.c4.4xlarge`
+        :param pulumi.Input[str] replication_instance_class: The compute and memory capacity of the replication instance as specified by the replication instance class. See [AWS DMS User Guide](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.Types.html) for available instance sizes and advice on which one to choose.
         :param pulumi.Input[str] replication_instance_id: The replication instance identifier. This parameter is stored as a lowercase string.
         :param pulumi.Input[int] allocated_storage: The amount of storage (in gigabytes) to be initially allocated for the replication instance.
         :param pulumi.Input[bool] allow_major_version_upgrade: Indicates that major version upgrades are allowed.
@@ -79,7 +79,7 @@ class ReplicationInstanceArgs:
     @pulumi.getter(name="replicationInstanceClass")
     def replication_instance_class(self) -> pulumi.Input[str]:
         """
-        The compute and memory capacity of the replication instance as specified by the replication instance class. Can be one of `dms.t2.micro | dms.t2.small | dms.t2.medium | dms.t2.large | dms.c4.large | dms.c4.xlarge | dms.c4.2xlarge | dms.c4.4xlarge`
+        The compute and memory capacity of the replication instance as specified by the replication instance class. See [AWS DMS User Guide](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.Types.html) for available instance sizes and advice on which one to choose.
         """
         return pulumi.get(self, "replication_instance_class")
 
@@ -291,7 +291,7 @@ class _ReplicationInstanceState:
         :param pulumi.Input[str] preferred_maintenance_window: The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
         :param pulumi.Input[bool] publicly_accessible: Specifies the accessibility options for the replication instance. A value of true represents an instance with a public IP address. A value of false represents an instance with a private IP address.
         :param pulumi.Input[str] replication_instance_arn: The Amazon Resource Name (ARN) of the replication instance.
-        :param pulumi.Input[str] replication_instance_class: The compute and memory capacity of the replication instance as specified by the replication instance class. Can be one of `dms.t2.micro | dms.t2.small | dms.t2.medium | dms.t2.large | dms.c4.large | dms.c4.xlarge | dms.c4.2xlarge | dms.c4.4xlarge`
+        :param pulumi.Input[str] replication_instance_class: The compute and memory capacity of the replication instance as specified by the replication instance class. See [AWS DMS User Guide](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.Types.html) for available instance sizes and advice on which one to choose.
         :param pulumi.Input[str] replication_instance_id: The replication instance identifier. This parameter is stored as a lowercase string.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] replication_instance_private_ips: A list of the private IP addresses of the replication instance.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] replication_instance_public_ips: A list of the public IP addresses of the replication instance.
@@ -475,7 +475,7 @@ class _ReplicationInstanceState:
     @pulumi.getter(name="replicationInstanceClass")
     def replication_instance_class(self) -> Optional[pulumi.Input[str]]:
         """
-        The compute and memory capacity of the replication instance as specified by the replication instance class. Can be one of `dms.t2.micro | dms.t2.small | dms.t2.medium | dms.t2.large | dms.c4.large | dms.c4.xlarge | dms.c4.2xlarge | dms.c4.4xlarge`
+        The compute and memory capacity of the replication instance as specified by the replication instance class. See [AWS DMS User Guide](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.Types.html) for available instance sizes and advice on which one to choose.
         """
         return pulumi.get(self, "replication_instance_class")
 
@@ -664,7 +664,7 @@ class ReplicationInstance(pulumi.CustomResource):
         :param pulumi.Input[bool] multi_az: Specifies if the replication instance is a multi-az deployment. You cannot set the `availability_zone` parameter if the `multi_az` parameter is set to `true`.
         :param pulumi.Input[str] preferred_maintenance_window: The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
         :param pulumi.Input[bool] publicly_accessible: Specifies the accessibility options for the replication instance. A value of true represents an instance with a public IP address. A value of false represents an instance with a private IP address.
-        :param pulumi.Input[str] replication_instance_class: The compute and memory capacity of the replication instance as specified by the replication instance class. Can be one of `dms.t2.micro | dms.t2.small | dms.t2.medium | dms.t2.large | dms.c4.large | dms.c4.xlarge | dms.c4.2xlarge | dms.c4.4xlarge`
+        :param pulumi.Input[str] replication_instance_class: The compute and memory capacity of the replication instance as specified by the replication instance class. See [AWS DMS User Guide](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.Types.html) for available instance sizes and advice on which one to choose.
         :param pulumi.Input[str] replication_instance_id: The replication instance identifier. This parameter is stored as a lowercase string.
         :param pulumi.Input[str] replication_subnet_group_id: A subnet group to associate with the replication instance.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -851,7 +851,7 @@ class ReplicationInstance(pulumi.CustomResource):
         :param pulumi.Input[str] preferred_maintenance_window: The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
         :param pulumi.Input[bool] publicly_accessible: Specifies the accessibility options for the replication instance. A value of true represents an instance with a public IP address. A value of false represents an instance with a private IP address.
         :param pulumi.Input[str] replication_instance_arn: The Amazon Resource Name (ARN) of the replication instance.
-        :param pulumi.Input[str] replication_instance_class: The compute and memory capacity of the replication instance as specified by the replication instance class. Can be one of `dms.t2.micro | dms.t2.small | dms.t2.medium | dms.t2.large | dms.c4.large | dms.c4.xlarge | dms.c4.2xlarge | dms.c4.4xlarge`
+        :param pulumi.Input[str] replication_instance_class: The compute and memory capacity of the replication instance as specified by the replication instance class. See [AWS DMS User Guide](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.Types.html) for available instance sizes and advice on which one to choose.
         :param pulumi.Input[str] replication_instance_id: The replication instance identifier. This parameter is stored as a lowercase string.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] replication_instance_private_ips: A list of the private IP addresses of the replication instance.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] replication_instance_public_ips: A list of the public IP addresses of the replication instance.
@@ -977,7 +977,7 @@ class ReplicationInstance(pulumi.CustomResource):
     @pulumi.getter(name="replicationInstanceClass")
     def replication_instance_class(self) -> pulumi.Output[str]:
         """
-        The compute and memory capacity of the replication instance as specified by the replication instance class. Can be one of `dms.t2.micro | dms.t2.small | dms.t2.medium | dms.t2.large | dms.c4.large | dms.c4.xlarge | dms.c4.2xlarge | dms.c4.4xlarge`
+        The compute and memory capacity of the replication instance as specified by the replication instance class. See [AWS DMS User Guide](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.Types.html) for available instance sizes and advice on which one to choose.
         """
         return pulumi.get(self, "replication_instance_class")
 

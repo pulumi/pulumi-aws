@@ -37,7 +37,7 @@ namespace Pulumi.Aws.CloudFront.Inputs
         public Input<Inputs.CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArgs> HeadersConfig { get; set; } = null!;
 
         /// <summary>
-        /// Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Query Strings Config for more information.
+        /// Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Query String Config for more information.
         /// </summary>
         [Input("queryStringsConfig", required: true)]
         public Input<Inputs.CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArgs> QueryStringsConfig { get; set; } = null!;

@@ -185,7 +185,7 @@ namespace Pulumi.Aws.DynamoDB
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Point-in-time recovery options.
+        /// Enable point-in-time recovery options.
         /// </summary>
         [Output("pointInTimeRecovery")]
         public Output<Outputs.TablePointInTimeRecovery> PointInTimeRecovery { get; private set; } = null!;
@@ -200,13 +200,31 @@ namespace Pulumi.Aws.DynamoDB
         /// The number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
         /// </summary>
         [Output("readCapacity")]
-        public Output<int?> ReadCapacity { get; private set; } = null!;
+        public Output<int> ReadCapacity { get; private set; } = null!;
 
         /// <summary>
         /// Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. Detailed below.
         /// </summary>
         [Output("replicas")]
         public Output<ImmutableArray<Outputs.TableReplica>> Replicas { get; private set; } = null!;
+
+        /// <summary>
+        /// The time of the point-in-time recovery point to restore.
+        /// </summary>
+        [Output("restoreDateTime")]
+        public Output<string?> RestoreDateTime { get; private set; } = null!;
+
+        /// <summary>
+        /// The name of the table to restore. Must match the name of an existing table.
+        /// </summary>
+        [Output("restoreSourceName")]
+        public Output<string?> RestoreSourceName { get; private set; } = null!;
+
+        /// <summary>
+        /// If set, restores table to the most recent point-in-time recovery point.
+        /// </summary>
+        [Output("restoreToLatestTime")]
+        public Output<bool?> RestoreToLatestTime { get; private set; } = null!;
 
         /// <summary>
         /// Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS owned Customer Master Key if this argument isn't specified.
@@ -248,7 +266,7 @@ namespace Pulumi.Aws.DynamoDB
         public Output<string?> TableClass { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to populate on the created table. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to populate on the created table. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -263,13 +281,13 @@ namespace Pulumi.Aws.DynamoDB
         /// Defines ttl, has two properties, and can only be specified once:
         /// </summary>
         [Output("ttl")]
-        public Output<Outputs.TableTtl?> Ttl { get; private set; } = null!;
+        public Output<Outputs.TableTtl> Ttl { get; private set; } = null!;
 
         /// <summary>
         /// The number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
         /// </summary>
         [Output("writeCapacity")]
-        public Output<int?> WriteCapacity { get; private set; } = null!;
+        public Output<int> WriteCapacity { get; private set; } = null!;
 
 
         /// <summary>
@@ -279,7 +297,7 @@ namespace Pulumi.Aws.DynamoDB
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Table(string name, TableArgs args, CustomResourceOptions? options = null)
+        public Table(string name, TableArgs? args = null, CustomResourceOptions? options = null)
             : base("aws:dynamodb/table:Table", name, args ?? new TableArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -317,7 +335,7 @@ namespace Pulumi.Aws.DynamoDB
 
     public sealed class TableArgs : Pulumi.ResourceArgs
     {
-        [Input("attributes", required: true)]
+        [Input("attributes")]
         private InputList<Inputs.TableAttributeArgs>? _attributes;
 
         /// <summary>
@@ -353,8 +371,8 @@ namespace Pulumi.Aws.DynamoDB
         /// The name of the hash key in the index; must be
         /// defined as an attribute in the resource.
         /// </summary>
-        [Input("hashKey", required: true)]
-        public Input<string> HashKey { get; set; } = null!;
+        [Input("hashKey")]
+        public Input<string>? HashKey { get; set; }
 
         [Input("localSecondaryIndexes")]
         private InputList<Inputs.TableLocalSecondaryIndexArgs>? _localSecondaryIndexes;
@@ -377,7 +395,7 @@ namespace Pulumi.Aws.DynamoDB
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Point-in-time recovery options.
+        /// Enable point-in-time recovery options.
         /// </summary>
         [Input("pointInTimeRecovery")]
         public Input<Inputs.TablePointInTimeRecoveryArgs>? PointInTimeRecovery { get; set; }
@@ -407,6 +425,24 @@ namespace Pulumi.Aws.DynamoDB
         }
 
         /// <summary>
+        /// The time of the point-in-time recovery point to restore.
+        /// </summary>
+        [Input("restoreDateTime")]
+        public Input<string>? RestoreDateTime { get; set; }
+
+        /// <summary>
+        /// The name of the table to restore. Must match the name of an existing table.
+        /// </summary>
+        [Input("restoreSourceName")]
+        public Input<string>? RestoreSourceName { get; set; }
+
+        /// <summary>
+        /// If set, restores table to the most recent point-in-time recovery point.
+        /// </summary>
+        [Input("restoreToLatestTime")]
+        public Input<bool>? RestoreToLatestTime { get; set; }
+
+        /// <summary>
         /// Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS owned Customer Master Key if this argument isn't specified.
         /// </summary>
         [Input("serverSideEncryption")]
@@ -434,7 +470,7 @@ namespace Pulumi.Aws.DynamoDB
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to populate on the created table. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to populate on the created table. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -527,7 +563,7 @@ namespace Pulumi.Aws.DynamoDB
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Point-in-time recovery options.
+        /// Enable point-in-time recovery options.
         /// </summary>
         [Input("pointInTimeRecovery")]
         public Input<Inputs.TablePointInTimeRecoveryGetArgs>? PointInTimeRecovery { get; set; }
@@ -555,6 +591,24 @@ namespace Pulumi.Aws.DynamoDB
             get => _replicas ?? (_replicas = new InputList<Inputs.TableReplicaGetArgs>());
             set => _replicas = value;
         }
+
+        /// <summary>
+        /// The time of the point-in-time recovery point to restore.
+        /// </summary>
+        [Input("restoreDateTime")]
+        public Input<string>? RestoreDateTime { get; set; }
+
+        /// <summary>
+        /// The name of the table to restore. Must match the name of an existing table.
+        /// </summary>
+        [Input("restoreSourceName")]
+        public Input<string>? RestoreSourceName { get; set; }
+
+        /// <summary>
+        /// If set, restores table to the most recent point-in-time recovery point.
+        /// </summary>
+        [Input("restoreToLatestTime")]
+        public Input<bool>? RestoreToLatestTime { get; set; }
 
         /// <summary>
         /// Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS owned Customer Master Key if this argument isn't specified.
@@ -599,7 +653,7 @@ namespace Pulumi.Aws.DynamoDB
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to populate on the created table. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// A map of tags to populate on the created table. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {

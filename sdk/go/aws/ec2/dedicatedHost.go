@@ -62,8 +62,9 @@ type DedicatedHost struct {
 	// Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only.  Exactly one of `instanceFamily` or `instanceType` must be specified.
 	InstanceType pulumi.StringPtrOutput `pulumi:"instanceType"`
 	// The ID of the AWS account that owns the Dedicated Host.
-	OwnerId pulumi.StringOutput    `pulumi:"ownerId"`
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
+	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
@@ -113,8 +114,9 @@ type dedicatedHostState struct {
 	// Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only.  Exactly one of `instanceFamily` or `instanceType` must be specified.
 	InstanceType *string `pulumi:"instanceType"`
 	// The ID of the AWS account that owns the Dedicated Host.
-	OwnerId *string           `pulumi:"ownerId"`
-	Tags    map[string]string `pulumi:"tags"`
+	OwnerId *string `pulumi:"ownerId"`
+	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
@@ -134,7 +136,8 @@ type DedicatedHostState struct {
 	InstanceType pulumi.StringPtrInput
 	// The ID of the AWS account that owns the Dedicated Host.
 	OwnerId pulumi.StringPtrInput
-	Tags    pulumi.StringMapInput
+	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
@@ -153,8 +156,9 @@ type dedicatedHostArgs struct {
 	// Specifies the instance family to be supported by the Dedicated Hosts. If you specify an instance family, the Dedicated Hosts support multiple instance types within that instance family. Exactly one of `instanceFamily` or `instanceType` must be specified.
 	InstanceFamily *string `pulumi:"instanceFamily"`
 	// Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only.  Exactly one of `instanceFamily` or `instanceType` must be specified.
-	InstanceType *string           `pulumi:"instanceType"`
-	Tags         map[string]string `pulumi:"tags"`
+	InstanceType *string `pulumi:"instanceType"`
+	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DedicatedHost resource.
@@ -169,7 +173,8 @@ type DedicatedHostArgs struct {
 	InstanceFamily pulumi.StringPtrInput
 	// Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only.  Exactly one of `instanceFamily` or `instanceType` must be specified.
 	InstanceType pulumi.StringPtrInput
-	Tags         pulumi.StringMapInput
+	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (DedicatedHostArgs) ElementType() reflect.Type {

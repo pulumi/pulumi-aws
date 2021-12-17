@@ -56,6 +56,9 @@ class GetResourceResult:
     @property
     @pulumi.getter
     def properties(self) -> str:
+        """
+        JSON string matching the CloudFormation resource type schema with current configuration.
+        """
         return pulumi.get(self, "properties")
 
     @property

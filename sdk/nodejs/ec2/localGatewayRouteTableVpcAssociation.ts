@@ -64,6 +64,9 @@ export class LocalGatewayRouteTableVpcAssociation extends pulumi.CustomResource 
      * Identifier of EC2 Local Gateway Route Table.
      */
     public readonly localGatewayRouteTableId!: pulumi.Output<string>;
+    /**
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -122,6 +125,9 @@ export interface LocalGatewayRouteTableVpcAssociationState {
      * Identifier of EC2 Local Gateway Route Table.
      */
     localGatewayRouteTableId?: pulumi.Input<string>;
+    /**
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -141,6 +147,9 @@ export interface LocalGatewayRouteTableVpcAssociationArgs {
      * Identifier of EC2 Local Gateway Route Table.
      */
     localGatewayRouteTableId: pulumi.Input<string>;
+    /**
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Identifier of EC2 VPC.

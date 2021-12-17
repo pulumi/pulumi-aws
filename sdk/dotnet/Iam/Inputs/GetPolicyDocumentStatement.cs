@@ -70,7 +70,7 @@ namespace Pulumi.Aws.Iam.Inputs
         private List<string>? _notResources;
 
         /// <summary>
-        /// List of resource ARNs that this statement does *not* apply to. Use to apply a policy statement to all resources *except* those listed.
+        /// List of resource ARNs that this statement does *not* apply to. Use to apply a policy statement to all resources *except* those listed. Conflicts with `resources`.
         /// </summary>
         public List<string> NotResources
         {
@@ -94,7 +94,7 @@ namespace Pulumi.Aws.Iam.Inputs
         private List<string>? _resources;
 
         /// <summary>
-        /// List of resource ARNs that this statement applies to. This is required by AWS if used for an IAM policy.
+        /// List of resource ARNs that this statement applies to. This is required by AWS if used for an IAM policy. Conflicts with `not_resources`.
         /// </summary>
         public List<string> Resources
         {

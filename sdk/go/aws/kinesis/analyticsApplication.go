@@ -204,8 +204,9 @@ type AnalyticsApplication struct {
 	// To modify an application's starting position, first stop the application by setting `startApplication = false`, then update `startingPosition` and set `startApplication = true`.
 	StartApplication pulumi.BoolPtrOutput `pulumi:"startApplication"`
 	// The Status of the application.
-	Status pulumi.StringOutput    `pulumi:"status"`
-	Tags   pulumi.StringMapOutput `pulumi:"tags"`
+	Status pulumi.StringOutput `pulumi:"status"`
+	// Key-value map of tags for the Kinesis Analytics Application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The Version of the application.
@@ -267,8 +268,9 @@ type analyticsApplicationState struct {
 	// To modify an application's starting position, first stop the application by setting `startApplication = false`, then update `startingPosition` and set `startApplication = true`.
 	StartApplication *bool `pulumi:"startApplication"`
 	// The Status of the application.
-	Status *string           `pulumi:"status"`
-	Tags   map[string]string `pulumi:"tags"`
+	Status *string `pulumi:"status"`
+	// Key-value map of tags for the Kinesis Analytics Application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The Version of the application.
@@ -303,7 +305,8 @@ type AnalyticsApplicationState struct {
 	StartApplication pulumi.BoolPtrInput
 	// The Status of the application.
 	Status pulumi.StringPtrInput
-	Tags   pulumi.StringMapInput
+	// Key-value map of tags for the Kinesis Analytics Application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// The Version of the application.
@@ -333,8 +336,9 @@ type analyticsApplicationArgs struct {
 	ReferenceDataSources *AnalyticsApplicationReferenceDataSources `pulumi:"referenceDataSources"`
 	// Whether to start or stop the Kinesis Analytics Application. To start an application, an input with a defined `startingPosition` must be configured.
 	// To modify an application's starting position, first stop the application by setting `startApplication = false`, then update `startingPosition` and set `startApplication = true`.
-	StartApplication *bool             `pulumi:"startApplication"`
-	Tags             map[string]string `pulumi:"tags"`
+	StartApplication *bool `pulumi:"startApplication"`
+	// Key-value map of tags for the Kinesis Analytics Application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a AnalyticsApplication resource.
@@ -358,7 +362,8 @@ type AnalyticsApplicationArgs struct {
 	// Whether to start or stop the Kinesis Analytics Application. To start an application, an input with a defined `startingPosition` must be configured.
 	// To modify an application's starting position, first stop the application by setting `startApplication = false`, then update `startingPosition` and set `startApplication = true`.
 	StartApplication pulumi.BoolPtrInput
-	Tags             pulumi.StringMapInput
+	// Key-value map of tags for the Kinesis Analytics Application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (AnalyticsApplicationArgs) ElementType() reflect.Type {

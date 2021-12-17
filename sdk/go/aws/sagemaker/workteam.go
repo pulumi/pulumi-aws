@@ -101,9 +101,9 @@ type Workteam struct {
 	NotificationConfiguration WorkteamNotificationConfigurationPtrOutput `pulumi:"notificationConfiguration"`
 	// The subdomain for your OIDC Identity Provider.
 	Subdomain pulumi.StringOutput `pulumi:"subdomain"`
-	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The name of the Workteam (must be unique).
 	WorkforceName pulumi.StringOutput `pulumi:"workforceName"`
@@ -162,9 +162,9 @@ type workteamState struct {
 	NotificationConfiguration *WorkteamNotificationConfiguration `pulumi:"notificationConfiguration"`
 	// The subdomain for your OIDC Identity Provider.
 	Subdomain *string `pulumi:"subdomain"`
-	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The name of the Workteam (must be unique).
 	WorkforceName *string `pulumi:"workforceName"`
@@ -183,9 +183,9 @@ type WorkteamState struct {
 	NotificationConfiguration WorkteamNotificationConfigurationPtrInput
 	// The subdomain for your OIDC Identity Provider.
 	Subdomain pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// The name of the Workteam (must be unique).
 	WorkforceName pulumi.StringPtrInput
@@ -204,7 +204,7 @@ type workteamArgs struct {
 	MemberDefinitions []WorkteamMemberDefinition `pulumi:"memberDefinitions"`
 	// Configures notification of workers regarding available or expiring work items. see Notification Configuration details below.
 	NotificationConfiguration *WorkteamNotificationConfiguration `pulumi:"notificationConfiguration"`
-	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// The name of the Workteam (must be unique).
 	WorkforceName string `pulumi:"workforceName"`
@@ -220,7 +220,7 @@ type WorkteamArgs struct {
 	MemberDefinitions WorkteamMemberDefinitionArrayInput
 	// Configures notification of workers regarding available or expiring work items. see Notification Configuration details below.
 	NotificationConfiguration WorkteamNotificationConfigurationPtrInput
-	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// The name of the Workteam (must be unique).
 	WorkforceName pulumi.StringInput

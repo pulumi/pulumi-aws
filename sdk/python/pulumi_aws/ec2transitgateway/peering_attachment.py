@@ -24,6 +24,7 @@ class PeeringAttachmentArgs:
         :param pulumi.Input[str] peer_transit_gateway_id: Identifier of EC2 Transit Gateway to peer with.
         :param pulumi.Input[str] transit_gateway_id: Identifier of EC2 Transit Gateway.
         :param pulumi.Input[str] peer_account_id: Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the current provider is currently connected to.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the EC2 Transit Gateway Peering Attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "peer_region", peer_region)
         pulumi.set(__self__, "peer_transit_gateway_id", peer_transit_gateway_id)
@@ -84,6 +85,9 @@ class PeeringAttachmentArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value tags for the EC2 Transit Gateway Peering Attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -105,6 +109,7 @@ class _PeeringAttachmentState:
         :param pulumi.Input[str] peer_account_id: Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the current provider is currently connected to.
         :param pulumi.Input[str] peer_region: Region of EC2 Transit Gateway to peer with.
         :param pulumi.Input[str] peer_transit_gateway_id: Identifier of EC2 Transit Gateway to peer with.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the EC2 Transit Gateway Peering Attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] transit_gateway_id: Identifier of EC2 Transit Gateway.
         """
@@ -160,6 +165,9 @@ class _PeeringAttachmentState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value tags for the EC2 Transit Gateway Peering Attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -247,6 +255,7 @@ class PeeringAttachment(pulumi.CustomResource):
         :param pulumi.Input[str] peer_account_id: Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the current provider is currently connected to.
         :param pulumi.Input[str] peer_region: Region of EC2 Transit Gateway to peer with.
         :param pulumi.Input[str] peer_transit_gateway_id: Identifier of EC2 Transit Gateway to peer with.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the EC2 Transit Gateway Peering Attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] transit_gateway_id: Identifier of EC2 Transit Gateway.
         """
         ...
@@ -365,6 +374,7 @@ class PeeringAttachment(pulumi.CustomResource):
         :param pulumi.Input[str] peer_account_id: Account ID of EC2 Transit Gateway to peer with. Defaults to the account ID the current provider is currently connected to.
         :param pulumi.Input[str] peer_region: Region of EC2 Transit Gateway to peer with.
         :param pulumi.Input[str] peer_transit_gateway_id: Identifier of EC2 Transit Gateway to peer with.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value tags for the EC2 Transit Gateway Peering Attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] transit_gateway_id: Identifier of EC2 Transit Gateway.
         """
@@ -407,6 +417,9 @@ class PeeringAttachment(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Key-value tags for the EC2 Transit Gateway Peering Attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @property

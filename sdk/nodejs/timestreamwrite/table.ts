@@ -91,6 +91,9 @@ export class Table extends pulumi.CustomResource {
      * The name of the Timestream table.
      */
     public readonly tableName!: pulumi.Output<string>;
+    /**
+     * Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -158,6 +161,9 @@ export interface TableState {
      * The name of the Timestream table.
      */
     tableName?: pulumi.Input<string>;
+    /**
+     * Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -181,5 +187,8 @@ export interface TableArgs {
      * The name of the Timestream table.
      */
     tableName: pulumi.Input<string>;
+    /**
+     * Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

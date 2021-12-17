@@ -15,18 +15,26 @@ class ServiceLinkedRoleArgs:
     def __init__(__self__, *,
                  aws_service_name: pulumi.Input[str],
                  custom_suffix: Optional[pulumi.Input[str]] = None,
-                 description: Optional[pulumi.Input[str]] = None):
+                 description: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ServiceLinkedRole resource.
         :param pulumi.Input[str] aws_service_name: The AWS service to which this role is attached. You use a string similar to a URL but without the `http://` in front. For example: `elasticbeanstalk.amazonaws.com`. To find the full list of services that support service-linked roles, check [the docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html).
         :param pulumi.Input[str] custom_suffix: Additional string appended to the role name. Not all AWS services support custom suffixes.
         :param pulumi.Input[str] description: The description of the role.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of tags for the IAM role. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         pulumi.set(__self__, "aws_service_name", aws_service_name)
         if custom_suffix is not None:
             pulumi.set(__self__, "custom_suffix", custom_suffix)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
 
     @property
     @pulumi.getter(name="awsServiceName")
@@ -64,6 +72,30 @@ class ServiceLinkedRoleArgs:
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
 
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value mapping of tags for the IAM role. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
+
 
 @pulumi.input_type
 class _ServiceLinkedRoleState:
@@ -75,6 +107,8 @@ class _ServiceLinkedRoleState:
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  path: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  unique_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ServiceLinkedRole resources.
@@ -85,6 +119,8 @@ class _ServiceLinkedRoleState:
         :param pulumi.Input[str] description: The description of the role.
         :param pulumi.Input[str] name: The name of the role.
         :param pulumi.Input[str] path: The path of the role.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of tags for the IAM role. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] unique_id: The stable and unique string identifying the role.
         """
         if arn is not None:
@@ -101,6 +137,10 @@ class _ServiceLinkedRoleState:
             pulumi.set(__self__, "name", name)
         if path is not None:
             pulumi.set(__self__, "path", path)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if tags_all is not None:
+            pulumi.set(__self__, "tags_all", tags_all)
         if unique_id is not None:
             pulumi.set(__self__, "unique_id", unique_id)
 
@@ -189,6 +229,30 @@ class _ServiceLinkedRoleState:
         pulumi.set(self, "path", value)
 
     @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value mapping of tags for the IAM role. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
+
+    @tags_all.setter
+    def tags_all(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags_all", value)
+
+    @property
     @pulumi.getter(name="uniqueId")
     def unique_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -209,6 +273,8 @@ class ServiceLinkedRole(pulumi.CustomResource):
                  aws_service_name: Optional[pulumi.Input[str]] = None,
                  custom_suffix: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Provides an [IAM service-linked role](https://docs.aws.amazon.com/IAM/latest/UserGuide/using-service-linked-roles.html).
@@ -235,6 +301,8 @@ class ServiceLinkedRole(pulumi.CustomResource):
         :param pulumi.Input[str] aws_service_name: The AWS service to which this role is attached. You use a string similar to a URL but without the `http://` in front. For example: `elasticbeanstalk.amazonaws.com`. To find the full list of services that support service-linked roles, check [the docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html).
         :param pulumi.Input[str] custom_suffix: Additional string appended to the role name. Not all AWS services support custom suffixes.
         :param pulumi.Input[str] description: The description of the role.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of tags for the IAM role. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         ...
     @overload
@@ -280,6 +348,8 @@ class ServiceLinkedRole(pulumi.CustomResource):
                  aws_service_name: Optional[pulumi.Input[str]] = None,
                  custom_suffix: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -297,6 +367,8 @@ class ServiceLinkedRole(pulumi.CustomResource):
             __props__.__dict__["aws_service_name"] = aws_service_name
             __props__.__dict__["custom_suffix"] = custom_suffix
             __props__.__dict__["description"] = description
+            __props__.__dict__["tags"] = tags
+            __props__.__dict__["tags_all"] = tags_all
             __props__.__dict__["arn"] = None
             __props__.__dict__["create_date"] = None
             __props__.__dict__["name"] = None
@@ -319,6 +391,8 @@ class ServiceLinkedRole(pulumi.CustomResource):
             description: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             path: Optional[pulumi.Input[str]] = None,
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             unique_id: Optional[pulumi.Input[str]] = None) -> 'ServiceLinkedRole':
         """
         Get an existing ServiceLinkedRole resource's state with the given name, id, and optional extra
@@ -334,6 +408,8 @@ class ServiceLinkedRole(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description of the role.
         :param pulumi.Input[str] name: The name of the role.
         :param pulumi.Input[str] path: The path of the role.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of tags for the IAM role. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] unique_id: The stable and unique string identifying the role.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -347,6 +423,8 @@ class ServiceLinkedRole(pulumi.CustomResource):
         __props__.__dict__["description"] = description
         __props__.__dict__["name"] = name
         __props__.__dict__["path"] = path
+        __props__.__dict__["tags"] = tags
+        __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["unique_id"] = unique_id
         return ServiceLinkedRole(resource_name, opts=opts, __props__=__props__)
 
@@ -405,6 +483,22 @@ class ServiceLinkedRole(pulumi.CustomResource):
         The path of the role.
         """
         return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Key-value mapping of tags for the IAM role. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="tagsAll")
+    def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
+        """
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        """
+        return pulumi.get(self, "tags_all")
 
     @property
     @pulumi.getter(name="uniqueId")

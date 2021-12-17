@@ -66,6 +66,9 @@ export class TransitGatewayPeeringAttachmentAccepter extends pulumi.CustomResour
      * Identifier of EC2 Transit Gateway to peer with.
      */
     public /*out*/ readonly peerTransitGatewayId!: pulumi.Output<string>;
+    /**
+     * Key-value tags for the EC2 Transit Gateway Peering Attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -133,6 +136,9 @@ export interface TransitGatewayPeeringAttachmentAccepterState {
      * Identifier of EC2 Transit Gateway to peer with.
      */
     peerTransitGatewayId?: pulumi.Input<string>;
+    /**
+     * Key-value tags for the EC2 Transit Gateway Peering Attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -152,6 +158,9 @@ export interface TransitGatewayPeeringAttachmentAccepterState {
  * The set of arguments for constructing a TransitGatewayPeeringAttachmentAccepter resource.
  */
 export interface TransitGatewayPeeringAttachmentAccepterArgs {
+    /**
+     * Key-value tags for the EC2 Transit Gateway Peering Attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ID of the EC2 Transit Gateway Peering Attachment to manage.

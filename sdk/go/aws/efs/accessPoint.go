@@ -57,8 +57,9 @@ type AccessPoint struct {
 	PosixUser AccessPointPosixUserPtrOutput `pulumi:"posixUser"`
 	// Directory on the Amazon EFS file system that the access point provides access to. Detailed below.
 	RootDirectory AccessPointRootDirectoryOutput `pulumi:"rootDirectory"`
-	Tags          pulumi.StringMapOutput         `pulumi:"tags"`
-	TagsAll       pulumi.StringMapOutput         `pulumi:"tagsAll"`
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewAccessPoint registers a new resource with the given unique name, arguments, and options.
@@ -104,8 +105,9 @@ type accessPointState struct {
 	PosixUser *AccessPointPosixUser `pulumi:"posixUser"`
 	// Directory on the Amazon EFS file system that the access point provides access to. Detailed below.
 	RootDirectory *AccessPointRootDirectory `pulumi:"rootDirectory"`
-	Tags          map[string]string         `pulumi:"tags"`
-	TagsAll       map[string]string         `pulumi:"tagsAll"`
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags    map[string]string `pulumi:"tags"`
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type AccessPointState struct {
@@ -120,8 +122,9 @@ type AccessPointState struct {
 	PosixUser AccessPointPosixUserPtrInput
 	// Directory on the Amazon EFS file system that the access point provides access to. Detailed below.
 	RootDirectory AccessPointRootDirectoryPtrInput
-	Tags          pulumi.StringMapInput
-	TagsAll       pulumi.StringMapInput
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags    pulumi.StringMapInput
+	TagsAll pulumi.StringMapInput
 }
 
 func (AccessPointState) ElementType() reflect.Type {
@@ -135,7 +138,8 @@ type accessPointArgs struct {
 	PosixUser *AccessPointPosixUser `pulumi:"posixUser"`
 	// Directory on the Amazon EFS file system that the access point provides access to. Detailed below.
 	RootDirectory *AccessPointRootDirectory `pulumi:"rootDirectory"`
-	Tags          map[string]string         `pulumi:"tags"`
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a AccessPoint resource.
@@ -146,7 +150,8 @@ type AccessPointArgs struct {
 	PosixUser AccessPointPosixUserPtrInput
 	// Directory on the Amazon EFS file system that the access point provides access to. Detailed below.
 	RootDirectory AccessPointRootDirectoryPtrInput
-	Tags          pulumi.StringMapInput
+	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (AccessPointArgs) ElementType() reflect.Type {

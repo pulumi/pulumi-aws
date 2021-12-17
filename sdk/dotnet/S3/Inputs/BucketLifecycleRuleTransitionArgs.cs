@@ -25,7 +25,7 @@ namespace Pulumi.Aws.S3.Inputs
         public Input<int>? Days { get; set; }
 
         /// <summary>
-        /// Specifies the Amazon S3 storage class to which you want the object to transition. Can be `ONEZONE_IA`, `STANDARD_IA`, `INTELLIGENT_TIERING`, `GLACIER`, or `DEEP_ARCHIVE`.
+        /// Specifies the Amazon S3 [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Transition.html#AmazonS3-Type-Transition-StorageClass) to which you want the object to transition.
         /// </summary>
         [Input("storageClass", required: true)]
         public Input<string> StorageClass { get; set; } = null!;

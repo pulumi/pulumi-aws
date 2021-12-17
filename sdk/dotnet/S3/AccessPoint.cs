@@ -10,6 +10,65 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.S3
 {
     /// <summary>
+    /// Provides a resource to manage an S3 Access Point.
+    /// 
+    /// &gt; **NOTE on Access Points and Access Point Policies:** This provider provides both a standalone Access Point Policy resource and an Access Point resource with a resource policy defined in-line. You cannot use an Access Point with in-line resource policy in conjunction with an Access Point Policy resource. Doing so will cause a conflict of policies and will overwrite the access point's resource policy.
+    /// 
+    /// &gt; Advanced usage: To use a custom API endpoint for this resource, use the `s3control` endpoint provider configuration), not the `s3` endpoint provider configuration.
+    /// 
+    /// ## Example Usage
+    /// ### AWS Partition Bucket
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleBucket = new Aws.S3.Bucket("exampleBucket", new Aws.S3.BucketArgs
+    ///         {
+    ///         });
+    ///         var exampleAccessPoint = new Aws.S3.AccessPoint("exampleAccessPoint", new Aws.S3.AccessPointArgs
+    ///         {
+    ///             Bucket = exampleBucket.Id,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### S3 on Outposts Bucket
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleBucket = new Aws.S3Control.Bucket("exampleBucket", new Aws.S3Control.BucketArgs
+    ///         {
+    ///             Bucket = "example",
+    ///         });
+    ///         var exampleVpc = new Aws.Ec2.Vpc("exampleVpc", new Aws.Ec2.VpcArgs
+    ///         {
+    ///             CidrBlock = "10.0.0.0/16",
+    ///         });
+    ///         var exampleAccessPoint = new Aws.S3.AccessPoint("exampleAccessPoint", new Aws.S3.AccessPointArgs
+    ///         {
+    ///             Bucket = exampleBucket.Arn,
+    ///             VpcConfiguration = new Aws.S3.Inputs.AccessPointVpcConfigurationArgs
+    ///             {
+    ///                 VpcId = exampleVpc.Id,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// For Access Points associated with an AWS Partition S3 Bucket, this resource can be imported using the `account_id` and `name` separated by a colon (`:`), e.g.,
@@ -28,7 +87,7 @@ namespace Pulumi.Aws.S3
     public partial class AccessPoint : Pulumi.CustomResource
     {
         /// <summary>
-        /// The AWS account ID for the owner of the bucket for which you want to create an access point. Defaults to automatically determined account ID of the provider.
+        /// AWS account ID for the owner of the bucket for which you want to create an access point. Defaults to automatically determined account ID of the AWS provider.
         /// </summary>
         [Output("accountId")]
         public Output<string> AccountId { get; private set; } = null!;
@@ -46,7 +105,7 @@ namespace Pulumi.Aws.S3
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The name of an AWS Partition S3 Bucket or the Amazon Resource Name (ARN) of S3 on Outposts Bucket that you want to associate this access point with.
+        /// Name of an AWS Partition S3 Bucket or the Amazon Resource Name (ARN) of S3 on Outposts Bucket that you want to associate this access point with.
         /// </summary>
         [Output("bucket")]
         public Output<string> Bucket { get; private set; } = null!;
@@ -71,7 +130,7 @@ namespace Pulumi.Aws.S3
         public Output<bool> HasPublicAccessPolicy { get; private set; } = null!;
 
         /// <summary>
-        /// The name you want to assign to this access point.
+        /// Name you want to assign to this access point.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -83,10 +142,10 @@ namespace Pulumi.Aws.S3
         public Output<string> NetworkOrigin { get; private set; } = null!;
 
         /// <summary>
-        /// A valid JSON document that specifies the policy that you want to apply to this access point.
+        /// Valid JSON document that specifies the policy that you want to apply to this access point. Removing `policy` from your configuration or setting `policy` to null or an empty string (i.e., `policy = ""`) _will not_ delete the policy since it could have been set by `aws.s3control.AccessPointPolicy`. To remove the `policy`, set it to `"{}"` (an empty JSON document).
         /// </summary>
         [Output("policy")]
-        public Output<string?> Policy { get; private set; } = null!;
+        public Output<string> Policy { get; private set; } = null!;
 
         /// <summary>
         /// Configuration block to manage the `PublicAccessBlock` configuration that you want to apply to this Amazon S3 bucket. You can enable the configuration options in any combination. Detailed below.
@@ -147,25 +206,25 @@ namespace Pulumi.Aws.S3
     public sealed class AccessPointArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The AWS account ID for the owner of the bucket for which you want to create an access point. Defaults to automatically determined account ID of the provider.
+        /// AWS account ID for the owner of the bucket for which you want to create an access point. Defaults to automatically determined account ID of the AWS provider.
         /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
         /// <summary>
-        /// The name of an AWS Partition S3 Bucket or the Amazon Resource Name (ARN) of S3 on Outposts Bucket that you want to associate this access point with.
+        /// Name of an AWS Partition S3 Bucket or the Amazon Resource Name (ARN) of S3 on Outposts Bucket that you want to associate this access point with.
         /// </summary>
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
 
         /// <summary>
-        /// The name you want to assign to this access point.
+        /// Name you want to assign to this access point.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// A valid JSON document that specifies the policy that you want to apply to this access point.
+        /// Valid JSON document that specifies the policy that you want to apply to this access point. Removing `policy` from your configuration or setting `policy` to null or an empty string (i.e., `policy = ""`) _will not_ delete the policy since it could have been set by `aws.s3control.AccessPointPolicy`. To remove the `policy`, set it to `"{}"` (an empty JSON document).
         /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }
@@ -190,7 +249,7 @@ namespace Pulumi.Aws.S3
     public sealed class AccessPointState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The AWS account ID for the owner of the bucket for which you want to create an access point. Defaults to automatically determined account ID of the provider.
+        /// AWS account ID for the owner of the bucket for which you want to create an access point. Defaults to automatically determined account ID of the AWS provider.
         /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
@@ -208,7 +267,7 @@ namespace Pulumi.Aws.S3
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The name of an AWS Partition S3 Bucket or the Amazon Resource Name (ARN) of S3 on Outposts Bucket that you want to associate this access point with.
+        /// Name of an AWS Partition S3 Bucket or the Amazon Resource Name (ARN) of S3 on Outposts Bucket that you want to associate this access point with.
         /// </summary>
         [Input("bucket")]
         public Input<string>? Bucket { get; set; }
@@ -239,7 +298,7 @@ namespace Pulumi.Aws.S3
         public Input<bool>? HasPublicAccessPolicy { get; set; }
 
         /// <summary>
-        /// The name you want to assign to this access point.
+        /// Name you want to assign to this access point.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -251,7 +310,7 @@ namespace Pulumi.Aws.S3
         public Input<string>? NetworkOrigin { get; set; }
 
         /// <summary>
-        /// A valid JSON document that specifies the policy that you want to apply to this access point.
+        /// Valid JSON document that specifies the policy that you want to apply to this access point. Removing `policy` from your configuration or setting `policy` to null or an empty string (i.e., `policy = ""`) _will not_ delete the policy since it could have been set by `aws.s3control.AccessPointPolicy`. To remove the `policy`, set it to `"{}"` (an empty JSON document).
         /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }

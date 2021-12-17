@@ -215,6 +215,9 @@ export class Cluster extends pulumi.CustomResource {
      * Name of the subnet group to be used for the cache cluster. Changing this value will re-create the resource.
      */
     public readonly subnetGroupName!: pulumi.Output<string>;
+    /**
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
@@ -415,6 +418,9 @@ export interface ClusterState {
      * Name of the subnet group to be used for the cache cluster. Changing this value will re-create the resource.
      */
     subnetGroupName?: pulumi.Input<string>;
+    /**
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
@@ -515,5 +521,8 @@ export interface ClusterArgs {
      * Name of the subnet group to be used for the cache cluster. Changing this value will re-create the resource.
      */
     subnetGroupName?: pulumi.Input<string>;
+    /**
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

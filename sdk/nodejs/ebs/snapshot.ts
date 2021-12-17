@@ -93,7 +93,7 @@ export class Snapshot extends pulumi.CustomResource {
      */
     public /*out*/ readonly ownerId!: pulumi.Output<string>;
     /**
-     * A map of tags for the snapshot.
+     * A map of tags to assign to the snapshot. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -190,7 +190,7 @@ export interface SnapshotState {
      */
     ownerId?: pulumi.Input<string>;
     /**
-     * A map of tags for the snapshot.
+     * A map of tags to assign to the snapshot. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -216,7 +216,7 @@ export interface SnapshotArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * A map of tags for the snapshot.
+     * A map of tags to assign to the snapshot. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

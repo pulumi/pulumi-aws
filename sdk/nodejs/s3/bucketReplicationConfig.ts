@@ -99,13 +99,13 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** To avoid conflicts always add the following lifecycle object to the `aws.s3.Bucket` resource of the source bucket.
  *
- * This resource implements the same features that are provided by the `replicationConfiguration` object of the [`aws.s3.Bucket` resource](https://www.terraform.io/docs/providers/aws/r/s3_bucket.html). To avoid conflicts or unexpected apply results, a lifecycle configuration is needed on the `aws.s3.Bucket` to ignore changes to the internal `replicationConfiguration` object.  Failure to add the `lifecycle` configuration to the `aws.s3.Bucket` will result in conflicting state results.
+ * This resource implements the same features that are provided by the `replicationConfiguration` object of the `aws.s3.Bucket` resource. To avoid conflicts or unexpected apply results, a lifecycle configuration is needed on the `aws.s3.Bucket` to ignore changes to the internal `replicationConfiguration` object.  Failure to add the `lifecycle` configuration to the `aws.s3.Bucket` will result in conflicting state results.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * ```
  *
- * The `aws.s3.BucketReplicationConfig` resource provides the following features that are not available in the [`aws.s3.Bucket` resource](https://www.terraform.io/docs/providers/aws/r/s3_bucket.html):
+ * The `aws.s3.BucketReplicationConfig` resource provides the following features that are not available in the `aws.s3.Bucket` resource:
  *
  * * `replicaModifications` - Added to the `sourceSelectionCriteria` configuration object documented below
  * * `metrics` - Added to the `destination` configuration object documented below

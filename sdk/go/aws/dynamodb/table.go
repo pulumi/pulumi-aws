@@ -7,7 +7,6 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -150,14 +149,20 @@ type Table struct {
 	LocalSecondaryIndexes TableLocalSecondaryIndexArrayOutput `pulumi:"localSecondaryIndexes"`
 	// The name of the index
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Point-in-time recovery options.
+	// Enable point-in-time recovery options.
 	PointInTimeRecovery TablePointInTimeRecoveryOutput `pulumi:"pointInTimeRecovery"`
 	// The name of the range key; must be defined
 	RangeKey pulumi.StringPtrOutput `pulumi:"rangeKey"`
 	// The number of read units for this index. Must be set if billingMode is set to PROVISIONED.
-	ReadCapacity pulumi.IntPtrOutput `pulumi:"readCapacity"`
+	ReadCapacity pulumi.IntOutput `pulumi:"readCapacity"`
 	// Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. Detailed below.
 	Replicas TableReplicaArrayOutput `pulumi:"replicas"`
+	// The time of the point-in-time recovery point to restore.
+	RestoreDateTime pulumi.StringPtrOutput `pulumi:"restoreDateTime"`
+	// The name of the table to restore. Must match the name of an existing table.
+	RestoreSourceName pulumi.StringPtrOutput `pulumi:"restoreSourceName"`
+	// If set, restores table to the most recent point-in-time recovery point.
+	RestoreToLatestTime pulumi.BoolPtrOutput `pulumi:"restoreToLatestTime"`
 	// Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS owned Customer Master Key if this argument isn't specified.
 	ServerSideEncryption TableServerSideEncryptionOutput `pulumi:"serverSideEncryption"`
 	// The ARN of the Table Stream. Only available when `streamEnabled = true`
@@ -173,29 +178,23 @@ type Table struct {
 	StreamViewType pulumi.StringOutput `pulumi:"streamViewType"`
 	// The storage class of the table. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
 	TableClass pulumi.StringPtrOutput `pulumi:"tableClass"`
-	// A map of tags to populate on the created table. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to populate on the created table. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Defines ttl, has two properties, and can only be specified once:
-	Ttl TableTtlPtrOutput `pulumi:"ttl"`
+	Ttl TableTtlOutput `pulumi:"ttl"`
 	// The number of write units for this index. Must be set if billingMode is set to PROVISIONED.
-	WriteCapacity pulumi.IntPtrOutput `pulumi:"writeCapacity"`
+	WriteCapacity pulumi.IntOutput `pulumi:"writeCapacity"`
 }
 
 // NewTable registers a new resource with the given unique name, arguments, and options.
 func NewTable(ctx *pulumi.Context,
 	name string, args *TableArgs, opts ...pulumi.ResourceOption) (*Table, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &TableArgs{}
 	}
 
-	if args.Attributes == nil {
-		return nil, errors.New("invalid value for required argument 'Attributes'")
-	}
-	if args.HashKey == nil {
-		return nil, errors.New("invalid value for required argument 'HashKey'")
-	}
 	var resource Table
 	err := ctx.RegisterResource("aws:dynamodb/table:Table", name, args, &resource, opts...)
 	if err != nil {
@@ -237,7 +236,7 @@ type tableState struct {
 	LocalSecondaryIndexes []TableLocalSecondaryIndex `pulumi:"localSecondaryIndexes"`
 	// The name of the index
 	Name *string `pulumi:"name"`
-	// Point-in-time recovery options.
+	// Enable point-in-time recovery options.
 	PointInTimeRecovery *TablePointInTimeRecovery `pulumi:"pointInTimeRecovery"`
 	// The name of the range key; must be defined
 	RangeKey *string `pulumi:"rangeKey"`
@@ -245,6 +244,12 @@ type tableState struct {
 	ReadCapacity *int `pulumi:"readCapacity"`
 	// Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. Detailed below.
 	Replicas []TableReplica `pulumi:"replicas"`
+	// The time of the point-in-time recovery point to restore.
+	RestoreDateTime *string `pulumi:"restoreDateTime"`
+	// The name of the table to restore. Must match the name of an existing table.
+	RestoreSourceName *string `pulumi:"restoreSourceName"`
+	// If set, restores table to the most recent point-in-time recovery point.
+	RestoreToLatestTime *bool `pulumi:"restoreToLatestTime"`
 	// Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS owned Customer Master Key if this argument isn't specified.
 	ServerSideEncryption *TableServerSideEncryption `pulumi:"serverSideEncryption"`
 	// The ARN of the Table Stream. Only available when `streamEnabled = true`
@@ -260,7 +265,7 @@ type tableState struct {
 	StreamViewType *string `pulumi:"streamViewType"`
 	// The storage class of the table. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
 	TableClass *string `pulumi:"tableClass"`
-	// A map of tags to populate on the created table. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to populate on the created table. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -290,7 +295,7 @@ type TableState struct {
 	LocalSecondaryIndexes TableLocalSecondaryIndexArrayInput
 	// The name of the index
 	Name pulumi.StringPtrInput
-	// Point-in-time recovery options.
+	// Enable point-in-time recovery options.
 	PointInTimeRecovery TablePointInTimeRecoveryPtrInput
 	// The name of the range key; must be defined
 	RangeKey pulumi.StringPtrInput
@@ -298,6 +303,12 @@ type TableState struct {
 	ReadCapacity pulumi.IntPtrInput
 	// Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. Detailed below.
 	Replicas TableReplicaArrayInput
+	// The time of the point-in-time recovery point to restore.
+	RestoreDateTime pulumi.StringPtrInput
+	// The name of the table to restore. Must match the name of an existing table.
+	RestoreSourceName pulumi.StringPtrInput
+	// If set, restores table to the most recent point-in-time recovery point.
+	RestoreToLatestTime pulumi.BoolPtrInput
 	// Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS owned Customer Master Key if this argument isn't specified.
 	ServerSideEncryption TableServerSideEncryptionPtrInput
 	// The ARN of the Table Stream. Only available when `streamEnabled = true`
@@ -313,7 +324,7 @@ type TableState struct {
 	StreamViewType pulumi.StringPtrInput
 	// The storage class of the table. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
 	TableClass pulumi.StringPtrInput
-	// A map of tags to populate on the created table. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to populate on the created table. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider .
 	TagsAll pulumi.StringMapInput
@@ -338,14 +349,14 @@ type tableArgs struct {
 	GlobalSecondaryIndexes []TableGlobalSecondaryIndex `pulumi:"globalSecondaryIndexes"`
 	// The name of the hash key in the index; must be
 	// defined as an attribute in the resource.
-	HashKey string `pulumi:"hashKey"`
+	HashKey *string `pulumi:"hashKey"`
 	// Describe an LSI on the table;
 	// these can only be allocated *at creation* so you cannot change this
 	// definition after you have created the resource.
 	LocalSecondaryIndexes []TableLocalSecondaryIndex `pulumi:"localSecondaryIndexes"`
 	// The name of the index
 	Name *string `pulumi:"name"`
-	// Point-in-time recovery options.
+	// Enable point-in-time recovery options.
 	PointInTimeRecovery *TablePointInTimeRecovery `pulumi:"pointInTimeRecovery"`
 	// The name of the range key; must be defined
 	RangeKey *string `pulumi:"rangeKey"`
@@ -353,6 +364,12 @@ type tableArgs struct {
 	ReadCapacity *int `pulumi:"readCapacity"`
 	// Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. Detailed below.
 	Replicas []TableReplica `pulumi:"replicas"`
+	// The time of the point-in-time recovery point to restore.
+	RestoreDateTime *string `pulumi:"restoreDateTime"`
+	// The name of the table to restore. Must match the name of an existing table.
+	RestoreSourceName *string `pulumi:"restoreSourceName"`
+	// If set, restores table to the most recent point-in-time recovery point.
+	RestoreToLatestTime *bool `pulumi:"restoreToLatestTime"`
 	// Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS owned Customer Master Key if this argument isn't specified.
 	ServerSideEncryption *TableServerSideEncryption `pulumi:"serverSideEncryption"`
 	// Indicates whether Streams are to be enabled (true) or disabled (false).
@@ -361,7 +378,7 @@ type tableArgs struct {
 	StreamViewType *string `pulumi:"streamViewType"`
 	// The storage class of the table. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
 	TableClass *string `pulumi:"tableClass"`
-	// A map of tags to populate on the created table. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to populate on the created table. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Defines ttl, has two properties, and can only be specified once:
 	Ttl *TableTtl `pulumi:"ttl"`
@@ -381,14 +398,14 @@ type TableArgs struct {
 	GlobalSecondaryIndexes TableGlobalSecondaryIndexArrayInput
 	// The name of the hash key in the index; must be
 	// defined as an attribute in the resource.
-	HashKey pulumi.StringInput
+	HashKey pulumi.StringPtrInput
 	// Describe an LSI on the table;
 	// these can only be allocated *at creation* so you cannot change this
 	// definition after you have created the resource.
 	LocalSecondaryIndexes TableLocalSecondaryIndexArrayInput
 	// The name of the index
 	Name pulumi.StringPtrInput
-	// Point-in-time recovery options.
+	// Enable point-in-time recovery options.
 	PointInTimeRecovery TablePointInTimeRecoveryPtrInput
 	// The name of the range key; must be defined
 	RangeKey pulumi.StringPtrInput
@@ -396,6 +413,12 @@ type TableArgs struct {
 	ReadCapacity pulumi.IntPtrInput
 	// Configuration block(s) with [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) replication configurations. Detailed below.
 	Replicas TableReplicaArrayInput
+	// The time of the point-in-time recovery point to restore.
+	RestoreDateTime pulumi.StringPtrInput
+	// The name of the table to restore. Must match the name of an existing table.
+	RestoreSourceName pulumi.StringPtrInput
+	// If set, restores table to the most recent point-in-time recovery point.
+	RestoreToLatestTime pulumi.BoolPtrInput
 	// Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS owned Customer Master Key if this argument isn't specified.
 	ServerSideEncryption TableServerSideEncryptionPtrInput
 	// Indicates whether Streams are to be enabled (true) or disabled (false).
@@ -404,7 +427,7 @@ type TableArgs struct {
 	StreamViewType pulumi.StringPtrInput
 	// The storage class of the table. Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
 	TableClass pulumi.StringPtrInput
-	// A map of tags to populate on the created table. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to populate on the created table. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Defines ttl, has two properties, and can only be specified once:
 	Ttl TableTtlPtrInput

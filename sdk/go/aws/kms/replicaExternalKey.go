@@ -93,8 +93,9 @@ type ReplicaExternalKey struct {
 	KeyUsage pulumi.StringOutput `pulumi:"keyUsage"`
 	Policy   pulumi.StringOutput `pulumi:"policy"`
 	// The ARN of the multi-Region primary key to replicate. The primary key must be in a different AWS Region of the same AWS Partition. You can create only one replica of a given primary key in each AWS Region.
-	PrimaryKeyArn pulumi.StringOutput    `pulumi:"primaryKeyArn"`
-	Tags          pulumi.StringMapOutput `pulumi:"tags"`
+	PrimaryKeyArn pulumi.StringOutput `pulumi:"primaryKeyArn"`
+	// A map of tags to assign to the replica key. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Time at which the imported key material expires. When the key material expires, AWS KMS deletes the key material and the key becomes unusable. If not specified, key material does not expire. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
@@ -159,8 +160,9 @@ type replicaExternalKeyState struct {
 	KeyUsage *string `pulumi:"keyUsage"`
 	Policy   *string `pulumi:"policy"`
 	// The ARN of the multi-Region primary key to replicate. The primary key must be in a different AWS Region of the same AWS Partition. You can create only one replica of a given primary key in each AWS Region.
-	PrimaryKeyArn *string           `pulumi:"primaryKeyArn"`
-	Tags          map[string]string `pulumi:"tags"`
+	PrimaryKeyArn *string `pulumi:"primaryKeyArn"`
+	// A map of tags to assign to the replica key. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Time at which the imported key material expires. When the key material expires, AWS KMS deletes the key material and the key becomes unusable. If not specified, key material does not expire. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
@@ -195,7 +197,8 @@ type ReplicaExternalKeyState struct {
 	Policy   pulumi.StringPtrInput
 	// The ARN of the multi-Region primary key to replicate. The primary key must be in a different AWS Region of the same AWS Partition. You can create only one replica of a given primary key in each AWS Region.
 	PrimaryKeyArn pulumi.StringPtrInput
-	Tags          pulumi.StringMapInput
+	// A map of tags to assign to the replica key. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// Time at which the imported key material expires. When the key material expires, AWS KMS deletes the key material and the key becomes unusable. If not specified, key material does not expire. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
@@ -223,8 +226,9 @@ type replicaExternalKeyArgs struct {
 	KeyMaterialBase64 *string `pulumi:"keyMaterialBase64"`
 	Policy            *string `pulumi:"policy"`
 	// The ARN of the multi-Region primary key to replicate. The primary key must be in a different AWS Region of the same AWS Partition. You can create only one replica of a given primary key in each AWS Region.
-	PrimaryKeyArn string            `pulumi:"primaryKeyArn"`
-	Tags          map[string]string `pulumi:"tags"`
+	PrimaryKeyArn string `pulumi:"primaryKeyArn"`
+	// A map of tags to assign to the replica key. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 	// Time at which the imported key material expires. When the key material expires, AWS KMS deletes the key material and the key becomes unusable. If not specified, key material does not expire. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
 	ValidTo *string `pulumi:"validTo"`
 }
@@ -248,7 +252,8 @@ type ReplicaExternalKeyArgs struct {
 	Policy            pulumi.StringPtrInput
 	// The ARN of the multi-Region primary key to replicate. The primary key must be in a different AWS Region of the same AWS Partition. You can create only one replica of a given primary key in each AWS Region.
 	PrimaryKeyArn pulumi.StringInput
-	Tags          pulumi.StringMapInput
+	// A map of tags to assign to the replica key. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 	// Time at which the imported key material expires. When the key material expires, AWS KMS deletes the key material and the key becomes unusable. If not specified, key material does not expire. Valid values: [RFC3339 time string](https://tools.ietf.org/html/rfc3339#section-5.8) (`YYYY-MM-DDTHH:MM:SSZ`)
 	ValidTo pulumi.StringPtrInput
 }

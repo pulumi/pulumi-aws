@@ -882,8 +882,11 @@ func Provider() tfbridge.ProviderInfo {
 			"aws_cognito_user_pool_ui_customization":     {Tok: awsResource(cognitoMod, "UserPoolUICustomization")},
 
 			// Connect
-			"aws_connect_contact_flow": {Tok: awsResource(connectMod, "ContactFlow")},
-			"aws_connect_instance":     {Tok: awsResource(connectMod, "Instance")},
+			"aws_connect_contact_flow":                {Tok: awsResource(connectMod, "ContactFlow")},
+			"aws_connect_instance":                    {Tok: awsResource(connectMod, "Instance")},
+			"aws_connect_bot_association":             {Tok: awsResource(connectMod, "BotAssociation")},
+			"aws_connect_hours_of_operation":          {Tok: awsResource(connectMod, "HoursOfOperation")},
+			"aws_connect_lambda_function_association": {Tok: awsResource(connectMod, "LambdaFunctionAssociation")},
 
 			// Config
 			"aws_config_aggregate_authorization":       {Tok: awsResource(cfgMod, "AggregateAuthorization")},
@@ -1372,8 +1375,22 @@ func Provider() tfbridge.ProviderInfo {
 					},
 				},
 			},
+			"aws_ecr_pull_through_cache_rule": {Tok: awsResource(ecrMod, "PullThroughCacheRule")},
+			"aws_ecr_registry_scanning_configuration": {
+				Tok: awsResource(ecrMod, "RegistryScanningConfiguration"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"policy": {
+						Elem: &tfbridge.SchemaInfo{
+							Type:      "string",
+							AltTypes:  []tokens.Type{awsType(iamMod, "documents", "PolicyDocument")},
+							Transform: tfbridge.TransformJSONDocument,
+						},
+					},
+				},
+			},
 			// ecr public
-			"aws_ecrpublic_repository": {Tok: awsResource(ecrPublicMod, "Repository")},
+			"aws_ecrpublic_repository":        {Tok: awsResource(ecrPublicMod, "Repository")},
+			"aws_ecrpublic_repository_policy": {Tok: awsResource(ecrPublicMod, "RepositoryPolicy")},
 			// Elastic Container Service
 			"aws_ecs_cluster": {Tok: awsResource(ecsMod, "Cluster")},
 			"aws_ecs_service": {
@@ -3901,8 +3918,11 @@ func Provider() tfbridge.ProviderInfo {
 			// Cognito
 			"aws_cognito_user_pools": {Tok: awsDataSource(cognitoMod, "getUserPools")},
 			// Connect
-			"aws_connect_contact_flow": {Tok: awsDataSource(connectMod, "getContactFlow")},
-			"aws_connect_instance":     {Tok: awsDataSource(connectMod, "getInstance")},
+			"aws_connect_contact_flow":                {Tok: awsDataSource(connectMod, "getContactFlow")},
+			"aws_connect_instance":                    {Tok: awsDataSource(connectMod, "getInstance")},
+			"aws_connect_bot_association":             {Tok: awsDataSource(connectMod, "getBotAssociation")},
+			"aws_connect_hours_of_operation":          {Tok: awsDataSource(connectMod, "getHoursOfOperation")},
+			"aws_connect_lambda_function_association": {Tok: awsDataSource(connectMod, "getLambdaFunctionAssociation")},
 			// DynamoDB
 			"aws_dynamodb_table": {
 				Tok: awsDataSource(dynamodbMod, "getTable"),

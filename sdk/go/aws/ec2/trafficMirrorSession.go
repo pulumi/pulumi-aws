@@ -79,8 +79,9 @@ type TrafficMirrorSession struct {
 	// The number of bytes in each packet to mirror. These are bytes after the VXLAN header. Do not specify this parameter when you want to mirror the entire packet. To mirror a subset of the packet, set this to the length (in bytes) that you want to mirror.
 	PacketLength pulumi.IntPtrOutput `pulumi:"packetLength"`
 	// - The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.
-	SessionNumber pulumi.IntOutput       `pulumi:"sessionNumber"`
-	Tags          pulumi.StringMapOutput `pulumi:"tags"`
+	SessionNumber pulumi.IntOutput `pulumi:"sessionNumber"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// ID of the traffic mirror filter to be used
@@ -143,8 +144,9 @@ type trafficMirrorSessionState struct {
 	// The number of bytes in each packet to mirror. These are bytes after the VXLAN header. Do not specify this parameter when you want to mirror the entire packet. To mirror a subset of the packet, set this to the length (in bytes) that you want to mirror.
 	PacketLength *int `pulumi:"packetLength"`
 	// - The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.
-	SessionNumber *int              `pulumi:"sessionNumber"`
-	Tags          map[string]string `pulumi:"tags"`
+	SessionNumber *int `pulumi:"sessionNumber"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// ID of the traffic mirror filter to be used
@@ -168,7 +170,8 @@ type TrafficMirrorSessionState struct {
 	PacketLength pulumi.IntPtrInput
 	// - The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.
 	SessionNumber pulumi.IntPtrInput
-	Tags          pulumi.StringMapInput
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// ID of the traffic mirror filter to be used
@@ -191,8 +194,9 @@ type trafficMirrorSessionArgs struct {
 	// The number of bytes in each packet to mirror. These are bytes after the VXLAN header. Do not specify this parameter when you want to mirror the entire packet. To mirror a subset of the packet, set this to the length (in bytes) that you want to mirror.
 	PacketLength *int `pulumi:"packetLength"`
 	// - The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.
-	SessionNumber int               `pulumi:"sessionNumber"`
-	Tags          map[string]string `pulumi:"tags"`
+	SessionNumber int `pulumi:"sessionNumber"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 	// ID of the traffic mirror filter to be used
 	TrafficMirrorFilterId string `pulumi:"trafficMirrorFilterId"`
 	// ID of the traffic mirror target to be used
@@ -211,7 +215,8 @@ type TrafficMirrorSessionArgs struct {
 	PacketLength pulumi.IntPtrInput
 	// - The session number determines the order in which sessions are evaluated when an interface is used by multiple sessions. The first session with a matching filter is the one that mirrors the packets.
 	SessionNumber pulumi.IntInput
-	Tags          pulumi.StringMapInput
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 	// ID of the traffic mirror filter to be used
 	TrafficMirrorFilterId pulumi.StringInput
 	// ID of the traffic mirror target to be used

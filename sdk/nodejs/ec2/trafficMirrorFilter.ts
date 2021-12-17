@@ -70,6 +70,9 @@ export class TrafficMirrorFilter extends pulumi.CustomResource {
      * List of amazon network services that should be mirrored. Valid values: `amazon-dns`.
      */
     public readonly networkServices!: pulumi.Output<string[] | undefined>;
+    /**
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -125,6 +128,9 @@ export interface TrafficMirrorFilterState {
      * List of amazon network services that should be mirrored. Valid values: `amazon-dns`.
      */
     networkServices?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -144,5 +150,8 @@ export interface TrafficMirrorFilterArgs {
      * List of amazon network services that should be mirrored. Valid values: `amazon-dns`.
      */
     networkServices?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

@@ -64,6 +64,9 @@ export class EgressOnlyInternetGateway extends pulumi.CustomResource {
         return obj['__pulumiType'] === EgressOnlyInternetGateway.__pulumiType;
     }
 
+    /**
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -110,6 +113,9 @@ export class EgressOnlyInternetGateway extends pulumi.CustomResource {
  * Input properties used for looking up and filtering EgressOnlyInternetGateway resources.
  */
 export interface EgressOnlyInternetGatewayState {
+    /**
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -125,6 +131,9 @@ export interface EgressOnlyInternetGatewayState {
  * The set of arguments for constructing a EgressOnlyInternetGateway resource.
  */
 export interface EgressOnlyInternetGatewayArgs {
+    /**
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The VPC ID to create in.

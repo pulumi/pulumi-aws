@@ -59,7 +59,7 @@ class ClusterArgs:
         :param pulumi.Input[str] final_snapshot_identifier: The name of your final DB snapshot
                when this DB cluster is deleted. If omitted, no final snapshot will be
                made.
-        :param pulumi.Input[str] global_cluster_identifier: The global cluster identifier specified on [`docdb.GlobalCluster`](https://www.terraform.io/docs/providers/aws/r/docdb_global_cluster.html).
+        :param pulumi.Input[str] global_cluster_identifier: The global cluster identifier specified on `docdb.GlobalCluster`.
         :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
         :param pulumi.Input[str] master_password: Password for the master DB user. Note that this may
                show up in logs, and it will be stored in the state file. Please refer to the DocDB Naming Constraints.
@@ -292,7 +292,7 @@ class ClusterArgs:
     @pulumi.getter(name="globalClusterIdentifier")
     def global_cluster_identifier(self) -> Optional[pulumi.Input[str]]:
         """
-        The global cluster identifier specified on [`docdb.GlobalCluster`](https://www.terraform.io/docs/providers/aws/r/docdb_global_cluster.html).
+        The global cluster identifier specified on `docdb.GlobalCluster`.
         """
         return pulumi.get(self, "global_cluster_identifier")
 
@@ -494,7 +494,7 @@ class _ClusterState:
         :param pulumi.Input[str] final_snapshot_identifier: The name of your final DB snapshot
                when this DB cluster is deleted. If omitted, no final snapshot will be
                made.
-        :param pulumi.Input[str] global_cluster_identifier: The global cluster identifier specified on [`docdb.GlobalCluster`](https://www.terraform.io/docs/providers/aws/r/docdb_global_cluster.html).
+        :param pulumi.Input[str] global_cluster_identifier: The global cluster identifier specified on `docdb.GlobalCluster`.
         :param pulumi.Input[str] hosted_zone_id: The Route53 Hosted Zone ID of the endpoint
         :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
         :param pulumi.Input[str] master_password: Password for the master DB user. Note that this may
@@ -778,7 +778,7 @@ class _ClusterState:
     @pulumi.getter(name="globalClusterIdentifier")
     def global_cluster_identifier(self) -> Optional[pulumi.Input[str]]:
         """
-        The global cluster identifier specified on [`docdb.GlobalCluster`](https://www.terraform.io/docs/providers/aws/r/docdb_global_cluster.html).
+        The global cluster identifier specified on `docdb.GlobalCluster`.
         """
         return pulumi.get(self, "global_cluster_identifier")
 
@@ -1046,7 +1046,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] final_snapshot_identifier: The name of your final DB snapshot
                when this DB cluster is deleted. If omitted, no final snapshot will be
                made.
-        :param pulumi.Input[str] global_cluster_identifier: The global cluster identifier specified on [`docdb.GlobalCluster`](https://www.terraform.io/docs/providers/aws/r/docdb_global_cluster.html).
+        :param pulumi.Input[str] global_cluster_identifier: The global cluster identifier specified on `docdb.GlobalCluster`.
         :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
         :param pulumi.Input[str] master_password: Password for the master DB user. Note that this may
                show up in logs, and it will be stored in the state file. Please refer to the DocDB Naming Constraints.
@@ -1257,7 +1257,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] final_snapshot_identifier: The name of your final DB snapshot
                when this DB cluster is deleted. If omitted, no final snapshot will be
                made.
-        :param pulumi.Input[str] global_cluster_identifier: The global cluster identifier specified on [`docdb.GlobalCluster`](https://www.terraform.io/docs/providers/aws/r/docdb_global_cluster.html).
+        :param pulumi.Input[str] global_cluster_identifier: The global cluster identifier specified on `docdb.GlobalCluster`.
         :param pulumi.Input[str] hosted_zone_id: The Route53 Hosted Zone ID of the endpoint
         :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
         :param pulumi.Input[str] master_password: Password for the master DB user. Note that this may
@@ -1451,7 +1451,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="globalClusterIdentifier")
     def global_cluster_identifier(self) -> pulumi.Output[Optional[str]]:
         """
-        The global cluster identifier specified on [`docdb.GlobalCluster`](https://www.terraform.io/docs/providers/aws/r/docdb_global_cluster.html).
+        The global cluster identifier specified on `docdb.GlobalCluster`.
         """
         return pulumi.get(self, "global_cluster_identifier")
 

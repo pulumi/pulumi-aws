@@ -33,6 +33,7 @@ class FleetArgs:
         :param pulumi.Input['FleetOnDemandOptionsArgs'] on_demand_options: Nested argument containing On-Demand configurations. Defined below.
         :param pulumi.Input[bool] replace_unhealthy_instances: Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`.
         :param pulumi.Input['FleetSpotOptionsArgs'] spot_options: Nested argument containing Spot configurations. Defined below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of Fleet tags. To tag instances at launch, specify the tags in the Launch Template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[bool] terminate_instances: Whether to terminate instances for an EC2 Fleet if it is deleted successfully. Defaults to `false`.
         :param pulumi.Input[bool] terminate_instances_with_expiration: Whether running instances should be terminated when the EC2 Fleet expires. Defaults to `false`.
         :param pulumi.Input[str] type: The type of request. Indicates whether the EC2 Fleet only requests the target capacity, or also attempts to maintain it. Valid values: `maintain`, `request`. Defaults to `maintain`.
@@ -131,6 +132,9 @@ class FleetArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of Fleet tags. To tag instances at launch, specify the tags in the Launch Template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -195,6 +199,7 @@ class _FleetState:
         :param pulumi.Input['FleetOnDemandOptionsArgs'] on_demand_options: Nested argument containing On-Demand configurations. Defined below.
         :param pulumi.Input[bool] replace_unhealthy_instances: Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`.
         :param pulumi.Input['FleetSpotOptionsArgs'] spot_options: Nested argument containing Spot configurations. Defined below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of Fleet tags. To tag instances at launch, specify the tags in the Launch Template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input['FleetTargetCapacitySpecificationArgs'] target_capacity_specification: Nested argument containing target capacity configurations. Defined below.
         :param pulumi.Input[bool] terminate_instances: Whether to terminate instances for an EC2 Fleet if it is deleted successfully. Defaults to `false`.
@@ -287,6 +292,9 @@ class _FleetState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Map of Fleet tags. To tag instances at launch, specify the tags in the Launch Template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -407,6 +415,7 @@ class Fleet(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['FleetOnDemandOptionsArgs']] on_demand_options: Nested argument containing On-Demand configurations. Defined below.
         :param pulumi.Input[bool] replace_unhealthy_instances: Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`.
         :param pulumi.Input[pulumi.InputType['FleetSpotOptionsArgs']] spot_options: Nested argument containing Spot configurations. Defined below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of Fleet tags. To tag instances at launch, specify the tags in the Launch Template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[pulumi.InputType['FleetTargetCapacitySpecificationArgs']] target_capacity_specification: Nested argument containing target capacity configurations. Defined below.
         :param pulumi.Input[bool] terminate_instances: Whether to terminate instances for an EC2 Fleet if it is deleted successfully. Defaults to `false`.
         :param pulumi.Input[bool] terminate_instances_with_expiration: Whether running instances should be terminated when the EC2 Fleet expires. Defaults to `false`.
@@ -533,6 +542,7 @@ class Fleet(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['FleetOnDemandOptionsArgs']] on_demand_options: Nested argument containing On-Demand configurations. Defined below.
         :param pulumi.Input[bool] replace_unhealthy_instances: Whether EC2 Fleet should replace unhealthy instances. Defaults to `false`.
         :param pulumi.Input[pulumi.InputType['FleetSpotOptionsArgs']] spot_options: Nested argument containing Spot configurations. Defined below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Map of Fleet tags. To tag instances at launch, specify the tags in the Launch Template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[pulumi.InputType['FleetTargetCapacitySpecificationArgs']] target_capacity_specification: Nested argument containing target capacity configurations. Defined below.
         :param pulumi.Input[bool] terminate_instances: Whether to terminate instances for an EC2 Fleet if it is deleted successfully. Defaults to `false`.
@@ -599,6 +609,9 @@ class Fleet(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Map of Fleet tags. To tag instances at launch, specify the tags in the Launch Template. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @property

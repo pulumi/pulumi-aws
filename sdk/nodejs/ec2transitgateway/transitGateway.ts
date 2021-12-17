@@ -96,6 +96,9 @@ export class TransitGateway extends pulumi.CustomResource {
      * Identifier of the default propagation route table
      */
     public /*out*/ readonly propagationDefaultRouteTableId!: pulumi.Output<string>;
+    /**
+     * Key-value tags for the EC2 Transit Gateway. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -199,6 +202,9 @@ export interface TransitGatewayState {
      * Identifier of the default propagation route table
      */
     propagationDefaultRouteTableId?: pulumi.Input<string>;
+    /**
+     * Key-value tags for the EC2 Transit Gateway. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -238,6 +244,9 @@ export interface TransitGatewayArgs {
      * Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
      */
     dnsSupport?: pulumi.Input<string>;
+    /**
+     * Key-value tags for the EC2 Transit Gateway. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Whether VPN Equal Cost Multipath Protocol support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.

@@ -79,6 +79,9 @@ export class VpcAttachmentAccepter extends pulumi.CustomResource {
      * Identifiers of EC2 Subnets.
      */
     public /*out*/ readonly subnetIds!: pulumi.Output<string[]>;
+    /**
+     * Key-value tags for the EC2 Transit Gateway VPC Attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -179,6 +182,9 @@ export interface VpcAttachmentAccepterState {
      * Identifiers of EC2 Subnets.
      */
     subnetIds?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Key-value tags for the EC2 Transit Gateway VPC Attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -214,6 +220,9 @@ export interface VpcAttachmentAccepterState {
  * The set of arguments for constructing a VpcAttachmentAccepter resource.
  */
 export interface VpcAttachmentAccepterArgs {
+    /**
+     * Key-value tags for the EC2 Transit Gateway VPC Attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The ID of the EC2 Transit Gateway Attachment to manage.

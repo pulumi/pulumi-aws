@@ -13,6 +13,7 @@ __all__ = [
     'FirewallFirewallStatusSyncStateArgs',
     'FirewallFirewallStatusSyncStateAttachmentArgs',
     'FirewallPolicyFirewallPolicyArgs',
+    'FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs',
     'FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs',
     'FirewallPolicyFirewallPolicyStatelessCustomActionArgs',
     'FirewallPolicyFirewallPolicyStatelessCustomActionActionDefinitionArgs',
@@ -46,6 +47,7 @@ __all__ = [
     'RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourceArgs',
     'RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePortArgs',
     'RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlagArgs',
+    'RuleGroupRuleGroupStatefulRuleOptionsArgs',
 ]
 
 @pulumi.input_type
@@ -154,6 +156,8 @@ class FirewallPolicyFirewallPolicyArgs:
     def __init__(__self__, *,
                  stateless_default_actions: pulumi.Input[Sequence[pulumi.Input[str]]],
                  stateless_fragment_default_actions: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 stateful_default_actions: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 stateful_engine_options: Optional[pulumi.Input['FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs']] = None,
                  stateful_rule_group_references: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs']]]] = None,
                  stateless_custom_actions: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyFirewallPolicyStatelessCustomActionArgs']]]] = None,
                  stateless_rule_group_references: Optional[pulumi.Input[Sequence[pulumi.Input['FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs']]]] = None):
@@ -162,12 +166,18 @@ class FirewallPolicyFirewallPolicyArgs:
                In addition, you can specify custom actions that are compatible with your standard action choice. If you want non-matching packets to be forwarded for stateful inspection, specify `aws:forward_to_sfe`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] stateless_fragment_default_actions: Set of actions to take on a fragmented packet if it does not match any of the stateless rules in the policy. You must specify one of the standard actions including: `aws:drop`, `aws:pass`, or `aws:forward_to_sfe`.
                In addition, you can specify custom actions that are compatible with your standard action choice. If you want non-matching packets to be forwarded for stateful inspection, specify `aws:forward_to_sfe`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] stateful_default_actions: Set of actions to take on a packet if it does not match any stateful rules in the policy. This can only be specified if the policy has a `stateful_engine_options` block with a `rule_order` value of `STRICT_ORDER`. You can specify one of either or neither values of `aws:drop_strict` or `aws:drop_established`, as well as any combination of `aws:alert_strict` and `aws:alert_established`.
+        :param pulumi.Input['FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs'] stateful_engine_options: A configuration block that defines options on how the policy handles stateful rules. See Stateful Engine Options below for details.
         :param pulumi.Input[Sequence[pulumi.Input['FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs']]] stateful_rule_group_references: Set of configuration blocks containing references to the stateful rule groups that are used in the policy. See Stateful Rule Group Reference below for details.
         :param pulumi.Input[Sequence[pulumi.Input['FirewallPolicyFirewallPolicyStatelessCustomActionArgs']]] stateless_custom_actions: Set of configuration blocks describing the custom action definitions that are available for use in the firewall policy's `stateless_default_actions`. See Stateless Custom Action below for details.
         :param pulumi.Input[Sequence[pulumi.Input['FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs']]] stateless_rule_group_references: Set of configuration blocks containing references to the stateless rule groups that are used in the policy. See Stateless Rule Group Reference below for details.
         """
         pulumi.set(__self__, "stateless_default_actions", stateless_default_actions)
         pulumi.set(__self__, "stateless_fragment_default_actions", stateless_fragment_default_actions)
+        if stateful_default_actions is not None:
+            pulumi.set(__self__, "stateful_default_actions", stateful_default_actions)
+        if stateful_engine_options is not None:
+            pulumi.set(__self__, "stateful_engine_options", stateful_engine_options)
         if stateful_rule_group_references is not None:
             pulumi.set(__self__, "stateful_rule_group_references", stateful_rule_group_references)
         if stateless_custom_actions is not None:
@@ -200,6 +210,30 @@ class FirewallPolicyFirewallPolicyArgs:
     @stateless_fragment_default_actions.setter
     def stateless_fragment_default_actions(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "stateless_fragment_default_actions", value)
+
+    @property
+    @pulumi.getter(name="statefulDefaultActions")
+    def stateful_default_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Set of actions to take on a packet if it does not match any stateful rules in the policy. This can only be specified if the policy has a `stateful_engine_options` block with a `rule_order` value of `STRICT_ORDER`. You can specify one of either or neither values of `aws:drop_strict` or `aws:drop_established`, as well as any combination of `aws:alert_strict` and `aws:alert_established`.
+        """
+        return pulumi.get(self, "stateful_default_actions")
+
+    @stateful_default_actions.setter
+    def stateful_default_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "stateful_default_actions", value)
+
+    @property
+    @pulumi.getter(name="statefulEngineOptions")
+    def stateful_engine_options(self) -> Optional[pulumi.Input['FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs']]:
+        """
+        A configuration block that defines options on how the policy handles stateful rules. See Stateful Engine Options below for details.
+        """
+        return pulumi.get(self, "stateful_engine_options")
+
+    @stateful_engine_options.setter
+    def stateful_engine_options(self, value: Optional[pulumi.Input['FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs']]):
+        pulumi.set(self, "stateful_engine_options", value)
 
     @property
     @pulumi.getter(name="statefulRuleGroupReferences")
@@ -239,13 +273,39 @@ class FirewallPolicyFirewallPolicyArgs:
 
 
 @pulumi.input_type
+class FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs:
+    def __init__(__self__, *,
+                 rule_order: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] rule_order: Indicates how to manage the order of stateful rule evaluation for the policy. Default value: `DEFAULT_ACTION_ORDER`. Valid values: `DEFAULT_ACTION_ORDER`, `STRICT_ORDER`.
+        """
+        pulumi.set(__self__, "rule_order", rule_order)
+
+    @property
+    @pulumi.getter(name="ruleOrder")
+    def rule_order(self) -> pulumi.Input[str]:
+        """
+        Indicates how to manage the order of stateful rule evaluation for the policy. Default value: `DEFAULT_ACTION_ORDER`. Valid values: `DEFAULT_ACTION_ORDER`, `STRICT_ORDER`.
+        """
+        return pulumi.get(self, "rule_order")
+
+    @rule_order.setter
+    def rule_order(self, value: pulumi.Input[str]):
+        pulumi.set(self, "rule_order", value)
+
+
+@pulumi.input_type
 class FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs:
     def __init__(__self__, *,
-                 resource_arn: pulumi.Input[str]):
+                 resource_arn: pulumi.Input[str],
+                 priority: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[str] resource_arn: The Amazon Resource Name (ARN) of the stateful rule group.
+        :param pulumi.Input[int] priority: An integer setting that indicates the order in which to apply the stateful rule groups in a single policy. This argument must be specified if the policy has a `stateful_engine_options` block with a `rule_order` value of `STRICT_ORDER`. AWS Network Firewall applies each stateful rule group to a packet starting with the group that has the lowest priority setting.
         """
         pulumi.set(__self__, "resource_arn", resource_arn)
+        if priority is not None:
+            pulumi.set(__self__, "priority", priority)
 
     @property
     @pulumi.getter(name="resourceArn")
@@ -258,6 +318,18 @@ class FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs:
     @resource_arn.setter
     def resource_arn(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_arn", value)
+
+    @property
+    @pulumi.getter
+    def priority(self) -> Optional[pulumi.Input[int]]:
+        """
+        An integer setting that indicates the order in which to apply the stateful rule groups in a single policy. This argument must be specified if the policy has a `stateful_engine_options` block with a `rule_order` value of `STRICT_ORDER`. AWS Network Firewall applies each stateful rule group to a packet starting with the group that has the lowest priority setting.
+        """
+        return pulumi.get(self, "priority")
+
+    @priority.setter
+    def priority(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "priority", value)
 
 
 @pulumi.input_type
@@ -506,14 +578,18 @@ class LoggingConfigurationLoggingConfigurationLogDestinationConfigArgs:
 class RuleGroupRuleGroupArgs:
     def __init__(__self__, *,
                  rules_source: pulumi.Input['RuleGroupRuleGroupRulesSourceArgs'],
-                 rule_variables: Optional[pulumi.Input['RuleGroupRuleGroupRuleVariablesArgs']] = None):
+                 rule_variables: Optional[pulumi.Input['RuleGroupRuleGroupRuleVariablesArgs']] = None,
+                 stateful_rule_options: Optional[pulumi.Input['RuleGroupRuleGroupStatefulRuleOptionsArgs']] = None):
         """
         :param pulumi.Input['RuleGroupRuleGroupRulesSourceArgs'] rules_source: A configuration block that defines the stateful or stateless rules for the rule group. See Rules Source below for details.
         :param pulumi.Input['RuleGroupRuleGroupRuleVariablesArgs'] rule_variables: A configuration block that defines additional settings available to use in the rules defined in the rule group. Can only be specified for **stateful** rule groups. See Rule Variables below for details.
+        :param pulumi.Input['RuleGroupRuleGroupStatefulRuleOptionsArgs'] stateful_rule_options: A configuration block that defines stateful rule options for the rule group. See Stateful Rule Options below for details.
         """
         pulumi.set(__self__, "rules_source", rules_source)
         if rule_variables is not None:
             pulumi.set(__self__, "rule_variables", rule_variables)
+        if stateful_rule_options is not None:
+            pulumi.set(__self__, "stateful_rule_options", stateful_rule_options)
 
     @property
     @pulumi.getter(name="rulesSource")
@@ -538,6 +614,18 @@ class RuleGroupRuleGroupArgs:
     @rule_variables.setter
     def rule_variables(self, value: Optional[pulumi.Input['RuleGroupRuleGroupRuleVariablesArgs']]):
         pulumi.set(self, "rule_variables", value)
+
+    @property
+    @pulumi.getter(name="statefulRuleOptions")
+    def stateful_rule_options(self) -> Optional[pulumi.Input['RuleGroupRuleGroupStatefulRuleOptionsArgs']]:
+        """
+        A configuration block that defines stateful rule options for the rule group. See Stateful Rule Options below for details.
+        """
+        return pulumi.get(self, "stateful_rule_options")
+
+    @stateful_rule_options.setter
+    def stateful_rule_options(self, value: Optional[pulumi.Input['RuleGroupRuleGroupStatefulRuleOptionsArgs']]):
+        pulumi.set(self, "stateful_rule_options", value)
 
 
 @pulumi.input_type
@@ -1487,5 +1575,27 @@ class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRu
     @masks.setter
     def masks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "masks", value)
+
+
+@pulumi.input_type
+class RuleGroupRuleGroupStatefulRuleOptionsArgs:
+    def __init__(__self__, *,
+                 rule_order: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] rule_order: Indicates how to manage the order of the rule evaluation for the rule group. Default value: `DEFAULT_ACTION_ORDER`. Valid values: `DEFAULT_ACTION_ORDER`, `STRICT_ORDER`.
+        """
+        pulumi.set(__self__, "rule_order", rule_order)
+
+    @property
+    @pulumi.getter(name="ruleOrder")
+    def rule_order(self) -> pulumi.Input[str]:
+        """
+        Indicates how to manage the order of the rule evaluation for the rule group. Default value: `DEFAULT_ACTION_ORDER`. Valid values: `DEFAULT_ACTION_ORDER`, `STRICT_ORDER`.
+        """
+        return pulumi.get(self, "rule_order")
+
+    @rule_order.setter
+    def rule_order(self, value: pulumi.Input[str]):
+        pulumi.set(self, "rule_order", value)
 
 

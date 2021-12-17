@@ -133,6 +133,9 @@ export class Instance extends pulumi.CustomResource {
      * The bundle of specification information (see list below)
      */
     public readonly bundleId!: pulumi.Output<string>;
+    /**
+     * The number of vCPUs the instance has.
+     */
     public /*out*/ readonly cpuCount!: pulumi.Output<number>;
     /**
      * The timestamp when the instance was created.
@@ -148,6 +151,9 @@ export class Instance extends pulumi.CustomResource {
      * List of IPv6 addresses for the Lightsail instance.
      */
     public /*out*/ readonly ipv6Addresses!: pulumi.Output<string[]>;
+    /**
+     * A Boolean value indicating whether this instance has a static IP assigned to it.
+     */
     public /*out*/ readonly isStaticIp!: pulumi.Output<boolean>;
     /**
      * The name of your key pair. Created in the
@@ -158,21 +164,33 @@ export class Instance extends pulumi.CustomResource {
      * The name of the Lightsail Instance. Names be unique within each AWS Region in your Lightsail account.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The private IP address of the instance.
+     */
     public /*out*/ readonly privateIpAddress!: pulumi.Output<string>;
+    /**
+     * The public IP address of the instance.
+     */
     public /*out*/ readonly publicIpAddress!: pulumi.Output<string>;
+    /**
+     * The amount of RAM in GB on the instance (e.g., 1.0).
+     */
     public /*out*/ readonly ramSize!: pulumi.Output<number>;
     /**
      * A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider .
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
      * launch script to configure server with additional user data
      */
     public readonly userData!: pulumi.Output<string | undefined>;
+    /**
+     * The user name for connecting to the instance (e.g., ec2-user).
+     */
     public /*out*/ readonly username!: pulumi.Output<string>;
 
     /**
@@ -264,6 +282,9 @@ export interface InstanceState {
      * The bundle of specification information (see list below)
      */
     bundleId?: pulumi.Input<string>;
+    /**
+     * The number of vCPUs the instance has.
+     */
     cpuCount?: pulumi.Input<number>;
     /**
      * The timestamp when the instance was created.
@@ -279,6 +300,9 @@ export interface InstanceState {
      * List of IPv6 addresses for the Lightsail instance.
      */
     ipv6Addresses?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * A Boolean value indicating whether this instance has a static IP assigned to it.
+     */
     isStaticIp?: pulumi.Input<boolean>;
     /**
      * The name of your key pair. Created in the
@@ -289,21 +313,33 @@ export interface InstanceState {
      * The name of the Lightsail Instance. Names be unique within each AWS Region in your Lightsail account.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The private IP address of the instance.
+     */
     privateIpAddress?: pulumi.Input<string>;
+    /**
+     * The public IP address of the instance.
+     */
     publicIpAddress?: pulumi.Input<string>;
+    /**
+     * The amount of RAM in GB on the instance (e.g., 1.0).
+     */
     ramSize?: pulumi.Input<number>;
     /**
      * A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider .
+     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * launch script to configure server with additional user data
      */
     userData?: pulumi.Input<string>;
+    /**
+     * The user name for connecting to the instance (e.g., ec2-user).
+     */
     username?: pulumi.Input<string>;
 }
 

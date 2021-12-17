@@ -72,7 +72,7 @@ type OriginRequestPolicy struct {
 	HeadersConfig OriginRequestPolicyHeadersConfigOutput `pulumi:"headersConfig"`
 	// Unique name to identify the origin request policy.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Query Strings Config for more information.
+	// Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Query String Config for more information.
 	QueryStringsConfig OriginRequestPolicyQueryStringsConfigOutput `pulumi:"queryStringsConfig"`
 }
 
@@ -124,7 +124,7 @@ type originRequestPolicyState struct {
 	HeadersConfig *OriginRequestPolicyHeadersConfig `pulumi:"headersConfig"`
 	// Unique name to identify the origin request policy.
 	Name *string `pulumi:"name"`
-	// Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Query Strings Config for more information.
+	// Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Query String Config for more information.
 	QueryStringsConfig *OriginRequestPolicyQueryStringsConfig `pulumi:"queryStringsConfig"`
 }
 
@@ -139,7 +139,7 @@ type OriginRequestPolicyState struct {
 	HeadersConfig OriginRequestPolicyHeadersConfigPtrInput
 	// Unique name to identify the origin request policy.
 	Name pulumi.StringPtrInput
-	// Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Query Strings Config for more information.
+	// Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Query String Config for more information.
 	QueryStringsConfig OriginRequestPolicyQueryStringsConfigPtrInput
 }
 
@@ -156,7 +156,7 @@ type originRequestPolicyArgs struct {
 	HeadersConfig OriginRequestPolicyHeadersConfig `pulumi:"headersConfig"`
 	// Unique name to identify the origin request policy.
 	Name *string `pulumi:"name"`
-	// Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Query Strings Config for more information.
+	// Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Query String Config for more information.
 	QueryStringsConfig OriginRequestPolicyQueryStringsConfig `pulumi:"queryStringsConfig"`
 }
 
@@ -170,7 +170,7 @@ type OriginRequestPolicyArgs struct {
 	HeadersConfig OriginRequestPolicyHeadersConfigInput
 	// Unique name to identify the origin request policy.
 	Name pulumi.StringPtrInput
-	// Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Query Strings Config for more information.
+	// Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Query String Config for more information.
 	QueryStringsConfig OriginRequestPolicyQueryStringsConfigInput
 }
 

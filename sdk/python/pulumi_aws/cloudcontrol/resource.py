@@ -22,7 +22,7 @@ class ResourceArgs:
         The set of arguments for constructing a Resource resource.
         :param pulumi.Input[str] type_name: CloudFormation resource type name. For example, `AWS::EC2::VPC`.
         :param pulumi.Input[str] role_arn: Amazon Resource Name (ARN) of the IAM Role to assume for operations.
-        :param pulumi.Input[str] schema: JSON string of the CloudFormation resource type schema which is used for plan time validation where possible. Automatically fetched if not provided. In large scale environments with multiple resources using the same `type_name`, it is recommended to fetch the schema once via the [`cloudformation.CloudFormationType` data source](https://www.terraform.io/docs/providers/aws/d/cloudformation_type.html) and use this argument to reduce `DescribeType` API operation throttling. This value is marked sensitive only to prevent large plan differences from showing.
+        :param pulumi.Input[str] schema: JSON string of the CloudFormation resource type schema which is used for plan time validation where possible. Automatically fetched if not provided. In large scale environments with multiple resources using the same `type_name`, it is recommended to fetch the schema once via the `cloudformation.CloudFormationType` data source and use this argument to reduce `DescribeType` API operation throttling. This value is marked sensitive only to prevent large plan differences from showing.
         :param pulumi.Input[str] type_version_id: Identifier of the CloudFormation resource type version.
         """
         pulumi.set(__self__, "desired_state", desired_state)
@@ -71,7 +71,7 @@ class ResourceArgs:
     @pulumi.getter
     def schema(self) -> Optional[pulumi.Input[str]]:
         """
-        JSON string of the CloudFormation resource type schema which is used for plan time validation where possible. Automatically fetched if not provided. In large scale environments with multiple resources using the same `type_name`, it is recommended to fetch the schema once via the [`cloudformation.CloudFormationType` data source](https://www.terraform.io/docs/providers/aws/d/cloudformation_type.html) and use this argument to reduce `DescribeType` API operation throttling. This value is marked sensitive only to prevent large plan differences from showing.
+        JSON string of the CloudFormation resource type schema which is used for plan time validation where possible. Automatically fetched if not provided. In large scale environments with multiple resources using the same `type_name`, it is recommended to fetch the schema once via the `cloudformation.CloudFormationType` data source and use this argument to reduce `DescribeType` API operation throttling. This value is marked sensitive only to prevent large plan differences from showing.
         """
         return pulumi.get(self, "schema")
 
@@ -104,7 +104,7 @@ class _ResourceState:
         """
         Input properties used for looking up and filtering Resource resources.
         :param pulumi.Input[str] role_arn: Amazon Resource Name (ARN) of the IAM Role to assume for operations.
-        :param pulumi.Input[str] schema: JSON string of the CloudFormation resource type schema which is used for plan time validation where possible. Automatically fetched if not provided. In large scale environments with multiple resources using the same `type_name`, it is recommended to fetch the schema once via the [`cloudformation.CloudFormationType` data source](https://www.terraform.io/docs/providers/aws/d/cloudformation_type.html) and use this argument to reduce `DescribeType` API operation throttling. This value is marked sensitive only to prevent large plan differences from showing.
+        :param pulumi.Input[str] schema: JSON string of the CloudFormation resource type schema which is used for plan time validation where possible. Automatically fetched if not provided. In large scale environments with multiple resources using the same `type_name`, it is recommended to fetch the schema once via the `cloudformation.CloudFormationType` data source and use this argument to reduce `DescribeType` API operation throttling. This value is marked sensitive only to prevent large plan differences from showing.
         :param pulumi.Input[str] type_name: CloudFormation resource type name. For example, `AWS::EC2::VPC`.
         :param pulumi.Input[str] type_version_id: Identifier of the CloudFormation resource type version.
         """
@@ -155,7 +155,7 @@ class _ResourceState:
     @pulumi.getter
     def schema(self) -> Optional[pulumi.Input[str]]:
         """
-        JSON string of the CloudFormation resource type schema which is used for plan time validation where possible. Automatically fetched if not provided. In large scale environments with multiple resources using the same `type_name`, it is recommended to fetch the schema once via the [`cloudformation.CloudFormationType` data source](https://www.terraform.io/docs/providers/aws/d/cloudformation_type.html) and use this argument to reduce `DescribeType` API operation throttling. This value is marked sensitive only to prevent large plan differences from showing.
+        JSON string of the CloudFormation resource type schema which is used for plan time validation where possible. Automatically fetched if not provided. In large scale environments with multiple resources using the same `type_name`, it is recommended to fetch the schema once via the `cloudformation.CloudFormationType` data source and use this argument to reduce `DescribeType` API operation throttling. This value is marked sensitive only to prevent large plan differences from showing.
         """
         return pulumi.get(self, "schema")
 
@@ -223,7 +223,7 @@ class Resource(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] role_arn: Amazon Resource Name (ARN) of the IAM Role to assume for operations.
-        :param pulumi.Input[str] schema: JSON string of the CloudFormation resource type schema which is used for plan time validation where possible. Automatically fetched if not provided. In large scale environments with multiple resources using the same `type_name`, it is recommended to fetch the schema once via the [`cloudformation.CloudFormationType` data source](https://www.terraform.io/docs/providers/aws/d/cloudformation_type.html) and use this argument to reduce `DescribeType` API operation throttling. This value is marked sensitive only to prevent large plan differences from showing.
+        :param pulumi.Input[str] schema: JSON string of the CloudFormation resource type schema which is used for plan time validation where possible. Automatically fetched if not provided. In large scale environments with multiple resources using the same `type_name`, it is recommended to fetch the schema once via the `cloudformation.CloudFormationType` data source and use this argument to reduce `DescribeType` API operation throttling. This value is marked sensitive only to prevent large plan differences from showing.
         :param pulumi.Input[str] type_name: CloudFormation resource type name. For example, `AWS::EC2::VPC`.
         :param pulumi.Input[str] type_version_id: Identifier of the CloudFormation resource type version.
         """
@@ -320,7 +320,7 @@ class Resource(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] role_arn: Amazon Resource Name (ARN) of the IAM Role to assume for operations.
-        :param pulumi.Input[str] schema: JSON string of the CloudFormation resource type schema which is used for plan time validation where possible. Automatically fetched if not provided. In large scale environments with multiple resources using the same `type_name`, it is recommended to fetch the schema once via the [`cloudformation.CloudFormationType` data source](https://www.terraform.io/docs/providers/aws/d/cloudformation_type.html) and use this argument to reduce `DescribeType` API operation throttling. This value is marked sensitive only to prevent large plan differences from showing.
+        :param pulumi.Input[str] schema: JSON string of the CloudFormation resource type schema which is used for plan time validation where possible. Automatically fetched if not provided. In large scale environments with multiple resources using the same `type_name`, it is recommended to fetch the schema once via the `cloudformation.CloudFormationType` data source and use this argument to reduce `DescribeType` API operation throttling. This value is marked sensitive only to prevent large plan differences from showing.
         :param pulumi.Input[str] type_name: CloudFormation resource type name. For example, `AWS::EC2::VPC`.
         :param pulumi.Input[str] type_version_id: Identifier of the CloudFormation resource type version.
         """
@@ -358,7 +358,7 @@ class Resource(pulumi.CustomResource):
     @pulumi.getter
     def schema(self) -> pulumi.Output[str]:
         """
-        JSON string of the CloudFormation resource type schema which is used for plan time validation where possible. Automatically fetched if not provided. In large scale environments with multiple resources using the same `type_name`, it is recommended to fetch the schema once via the [`cloudformation.CloudFormationType` data source](https://www.terraform.io/docs/providers/aws/d/cloudformation_type.html) and use this argument to reduce `DescribeType` API operation throttling. This value is marked sensitive only to prevent large plan differences from showing.
+        JSON string of the CloudFormation resource type schema which is used for plan time validation where possible. Automatically fetched if not provided. In large scale environments with multiple resources using the same `type_name`, it is recommended to fetch the schema once via the `cloudformation.CloudFormationType` data source and use this argument to reduce `DescribeType` API operation throttling. This value is marked sensitive only to prevent large plan differences from showing.
         """
         return pulumi.get(self, "schema")
 

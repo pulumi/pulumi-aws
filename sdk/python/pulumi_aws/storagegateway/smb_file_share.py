@@ -52,7 +52,7 @@ class SmbFileShareArgs:
         :param pulumi.Input[str] bucket_region: The region of the S3 buck used by the file share. Required when specifying a `vpc_endpoint_dns_name`.
         :param pulumi.Input['SmbFileShareCacheAttributesArgs'] cache_attributes: Refresh cache information. see Cache Attributes for more details.
         :param pulumi.Input[str] case_sensitivity: The case of an object name in an Amazon S3 bucket. For `ClientSpecified`, the client determines the case sensitivity. For `CaseSensitive`, the gateway determines the case sensitivity. The default value is `ClientSpecified`.
-        :param pulumi.Input[str] default_storage_class: The default storage class for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`. Valid values: `S3_STANDARD`, `S3_STANDARD_IA`, `S3_ONEZONE_IA`.
+        :param pulumi.Input[str] default_storage_class: The default [storage class](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-DefaultStorageClass) for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`.
         :param pulumi.Input[str] file_share_name: The name of the file share. Must be set if an S3 prefix name is set in `location_arn`.
         :param pulumi.Input[bool] guess_mime_type_enabled: Boolean value that enables guessing of the MIME type for uploaded objects based on file extensions. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] invalid_user_lists: A list of users in the Active Directory that are not allowed to access the file share. Only valid if `authentication` is set to `ActiveDirectory`.
@@ -240,7 +240,7 @@ class SmbFileShareArgs:
     @pulumi.getter(name="defaultStorageClass")
     def default_storage_class(self) -> Optional[pulumi.Input[str]]:
         """
-        The default storage class for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`. Valid values: `S3_STANDARD`, `S3_STANDARD_IA`, `S3_ONEZONE_IA`.
+        The default [storage class](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-DefaultStorageClass) for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`.
         """
         return pulumi.get(self, "default_storage_class")
 
@@ -459,7 +459,7 @@ class _SmbFileShareState:
         :param pulumi.Input[str] bucket_region: The region of the S3 buck used by the file share. Required when specifying a `vpc_endpoint_dns_name`.
         :param pulumi.Input['SmbFileShareCacheAttributesArgs'] cache_attributes: Refresh cache information. see Cache Attributes for more details.
         :param pulumi.Input[str] case_sensitivity: The case of an object name in an Amazon S3 bucket. For `ClientSpecified`, the client determines the case sensitivity. For `CaseSensitive`, the gateway determines the case sensitivity. The default value is `ClientSpecified`.
-        :param pulumi.Input[str] default_storage_class: The default storage class for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`. Valid values: `S3_STANDARD`, `S3_STANDARD_IA`, `S3_ONEZONE_IA`.
+        :param pulumi.Input[str] default_storage_class: The default [storage class](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-DefaultStorageClass) for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`.
         :param pulumi.Input[str] file_share_name: The name of the file share. Must be set if an S3 prefix name is set in `location_arn`.
         :param pulumi.Input[str] fileshare_id: ID of the SMB File Share.
         :param pulumi.Input[str] gateway_arn: Amazon Resource Name (ARN) of the file gateway.
@@ -640,7 +640,7 @@ class _SmbFileShareState:
     @pulumi.getter(name="defaultStorageClass")
     def default_storage_class(self) -> Optional[pulumi.Input[str]]:
         """
-        The default storage class for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`. Valid values: `S3_STANDARD`, `S3_STANDARD_IA`, `S3_ONEZONE_IA`.
+        The default [storage class](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-DefaultStorageClass) for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`.
         """
         return pulumi.get(self, "default_storage_class")
 
@@ -970,7 +970,7 @@ class SmbFileShare(pulumi.CustomResource):
         :param pulumi.Input[str] bucket_region: The region of the S3 buck used by the file share. Required when specifying a `vpc_endpoint_dns_name`.
         :param pulumi.Input[pulumi.InputType['SmbFileShareCacheAttributesArgs']] cache_attributes: Refresh cache information. see Cache Attributes for more details.
         :param pulumi.Input[str] case_sensitivity: The case of an object name in an Amazon S3 bucket. For `ClientSpecified`, the client determines the case sensitivity. For `CaseSensitive`, the gateway determines the case sensitivity. The default value is `ClientSpecified`.
-        :param pulumi.Input[str] default_storage_class: The default storage class for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`. Valid values: `S3_STANDARD`, `S3_STANDARD_IA`, `S3_ONEZONE_IA`.
+        :param pulumi.Input[str] default_storage_class: The default [storage class](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-DefaultStorageClass) for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`.
         :param pulumi.Input[str] file_share_name: The name of the file share. Must be set if an S3 prefix name is set in `location_arn`.
         :param pulumi.Input[str] gateway_arn: Amazon Resource Name (ARN) of the file gateway.
         :param pulumi.Input[bool] guess_mime_type_enabled: Boolean value that enables guessing of the MIME type for uploaded objects based on file extensions. Defaults to `true`.
@@ -1177,7 +1177,7 @@ class SmbFileShare(pulumi.CustomResource):
         :param pulumi.Input[str] bucket_region: The region of the S3 buck used by the file share. Required when specifying a `vpc_endpoint_dns_name`.
         :param pulumi.Input[pulumi.InputType['SmbFileShareCacheAttributesArgs']] cache_attributes: Refresh cache information. see Cache Attributes for more details.
         :param pulumi.Input[str] case_sensitivity: The case of an object name in an Amazon S3 bucket. For `ClientSpecified`, the client determines the case sensitivity. For `CaseSensitive`, the gateway determines the case sensitivity. The default value is `ClientSpecified`.
-        :param pulumi.Input[str] default_storage_class: The default storage class for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`. Valid values: `S3_STANDARD`, `S3_STANDARD_IA`, `S3_ONEZONE_IA`.
+        :param pulumi.Input[str] default_storage_class: The default [storage class](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-DefaultStorageClass) for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`.
         :param pulumi.Input[str] file_share_name: The name of the file share. Must be set if an S3 prefix name is set in `location_arn`.
         :param pulumi.Input[str] fileshare_id: ID of the SMB File Share.
         :param pulumi.Input[str] gateway_arn: Amazon Resource Name (ARN) of the file gateway.
@@ -1302,7 +1302,7 @@ class SmbFileShare(pulumi.CustomResource):
     @pulumi.getter(name="defaultStorageClass")
     def default_storage_class(self) -> pulumi.Output[Optional[str]]:
         """
-        The default storage class for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`. Valid values: `S3_STANDARD`, `S3_STANDARD_IA`, `S3_ONEZONE_IA`.
+        The default [storage class](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-DefaultStorageClass) for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`.
         """
         return pulumi.get(self, "default_storage_class")
 

@@ -60,7 +60,7 @@ export class Resource extends pulumi.CustomResource {
      */
     public readonly roleArn!: pulumi.Output<string | undefined>;
     /**
-     * JSON string of the CloudFormation resource type schema which is used for plan time validation where possible. Automatically fetched if not provided. In large scale environments with multiple resources using the same `typeName`, it is recommended to fetch the schema once via the [`aws.cloudformation.CloudFormationType` data source](https://www.terraform.io/docs/providers/aws/d/cloudformation_type.html) and use this argument to reduce `DescribeType` API operation throttling. This value is marked sensitive only to prevent large plan differences from showing.
+     * JSON string of the CloudFormation resource type schema which is used for plan time validation where possible. Automatically fetched if not provided. In large scale environments with multiple resources using the same `typeName`, it is recommended to fetch the schema once via the `aws.cloudformation.CloudFormationType` data source and use this argument to reduce `DescribeType` API operation throttling. This value is marked sensitive only to prevent large plan differences from showing.
      */
     public readonly schema!: pulumi.Output<string>;
     /**
@@ -124,7 +124,7 @@ export interface ResourceState {
      */
     roleArn?: pulumi.Input<string>;
     /**
-     * JSON string of the CloudFormation resource type schema which is used for plan time validation where possible. Automatically fetched if not provided. In large scale environments with multiple resources using the same `typeName`, it is recommended to fetch the schema once via the [`aws.cloudformation.CloudFormationType` data source](https://www.terraform.io/docs/providers/aws/d/cloudformation_type.html) and use this argument to reduce `DescribeType` API operation throttling. This value is marked sensitive only to prevent large plan differences from showing.
+     * JSON string of the CloudFormation resource type schema which is used for plan time validation where possible. Automatically fetched if not provided. In large scale environments with multiple resources using the same `typeName`, it is recommended to fetch the schema once via the `aws.cloudformation.CloudFormationType` data source and use this argument to reduce `DescribeType` API operation throttling. This value is marked sensitive only to prevent large plan differences from showing.
      */
     schema?: pulumi.Input<string>;
     /**
@@ -147,7 +147,7 @@ export interface ResourceArgs {
      */
     roleArn?: pulumi.Input<string>;
     /**
-     * JSON string of the CloudFormation resource type schema which is used for plan time validation where possible. Automatically fetched if not provided. In large scale environments with multiple resources using the same `typeName`, it is recommended to fetch the schema once via the [`aws.cloudformation.CloudFormationType` data source](https://www.terraform.io/docs/providers/aws/d/cloudformation_type.html) and use this argument to reduce `DescribeType` API operation throttling. This value is marked sensitive only to prevent large plan differences from showing.
+     * JSON string of the CloudFormation resource type schema which is used for plan time validation where possible. Automatically fetched if not provided. In large scale environments with multiple resources using the same `typeName`, it is recommended to fetch the schema once via the `aws.cloudformation.CloudFormationType` data source and use this argument to reduce `DescribeType` API operation throttling. This value is marked sensitive only to prevent large plan differences from showing.
      */
     schema?: pulumi.Input<string>;
     /**

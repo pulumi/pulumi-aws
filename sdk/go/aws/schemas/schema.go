@@ -92,8 +92,9 @@ type Schema struct {
 	// The name of the schema. Maximum of 385 characters consisting of lower case letters, upper case letters, ., -, _, @.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The name of the registry in which this schema belongs.
-	RegistryName pulumi.StringOutput    `pulumi:"registryName"`
-	Tags         pulumi.StringMapOutput `pulumi:"tags"`
+	RegistryName pulumi.StringOutput `pulumi:"registryName"`
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The type of the schema. Valid values: `OpenApi3`.
@@ -153,8 +154,9 @@ type schemaState struct {
 	// The name of the schema. Maximum of 385 characters consisting of lower case letters, upper case letters, ., -, _, @.
 	Name *string `pulumi:"name"`
 	// The name of the registry in which this schema belongs.
-	RegistryName *string           `pulumi:"registryName"`
-	Tags         map[string]string `pulumi:"tags"`
+	RegistryName *string `pulumi:"registryName"`
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The type of the schema. Valid values: `OpenApi3`.
@@ -178,7 +180,8 @@ type SchemaState struct {
 	Name pulumi.StringPtrInput
 	// The name of the registry in which this schema belongs.
 	RegistryName pulumi.StringPtrInput
-	Tags         pulumi.StringMapInput
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// The type of the schema. Valid values: `OpenApi3`.
@@ -201,8 +204,9 @@ type schemaArgs struct {
 	// The name of the schema. Maximum of 385 characters consisting of lower case letters, upper case letters, ., -, _, @.
 	Name *string `pulumi:"name"`
 	// The name of the registry in which this schema belongs.
-	RegistryName string            `pulumi:"registryName"`
-	Tags         map[string]string `pulumi:"tags"`
+	RegistryName string `pulumi:"registryName"`
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 	// The type of the schema. Valid values: `OpenApi3`.
 	Type string `pulumi:"type"`
 }
@@ -217,7 +221,8 @@ type SchemaArgs struct {
 	Name pulumi.StringPtrInput
 	// The name of the registry in which this schema belongs.
 	RegistryName pulumi.StringInput
-	Tags         pulumi.StringMapInput
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 	// The type of the schema. Valid values: `OpenApi3`.
 	Type pulumi.StringInput
 }

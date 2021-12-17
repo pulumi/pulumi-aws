@@ -33,7 +33,7 @@ import (
 // 			DisplayName:                    pulumi.String("test-fleet"),
 // 			EnableDefaultInternetAccess:    pulumi.Bool(false),
 // 			FleetType:                      pulumi.String("ON_DEMAND"),
-// 			IdleDisconnectTimeoutInSeconds: pulumi.Int(15),
+// 			IdleDisconnectTimeoutInSeconds: pulumi.Int(60),
 // 			ImageName:                      pulumi.String("Amazon-AppStream2-Sample-Image-02-04-2019"),
 // 			InstanceType:                   pulumi.String("stream.standard.large"),
 // 			MaxUserDurationInSeconds:       pulumi.Int(600),

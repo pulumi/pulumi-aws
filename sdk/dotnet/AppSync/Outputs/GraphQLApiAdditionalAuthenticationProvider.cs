@@ -14,9 +14,13 @@ namespace Pulumi.Aws.AppSync.Outputs
     public sealed class GraphQLApiAdditionalAuthenticationProvider
     {
         /// <summary>
-        /// The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`
+        /// The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
         /// </summary>
         public readonly string AuthenticationType;
+        /// <summary>
+        /// Nested argument containing Lambda authorizer configuration. Defined below.
+        /// </summary>
+        public readonly Outputs.GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfig? LambdaAuthorizerConfig;
         /// <summary>
         /// Nested argument containing OpenID Connect configuration. Defined below.
         /// </summary>
@@ -30,11 +34,14 @@ namespace Pulumi.Aws.AppSync.Outputs
         private GraphQLApiAdditionalAuthenticationProvider(
             string authenticationType,
 
+            Outputs.GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfig? lambdaAuthorizerConfig,
+
             Outputs.GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfig? openidConnectConfig,
 
             Outputs.GraphQLApiAdditionalAuthenticationProviderUserPoolConfig? userPoolConfig)
         {
             AuthenticationType = authenticationType;
+            LambdaAuthorizerConfig = lambdaAuthorizerConfig;
             OpenidConnectConfig = openidConnectConfig;
             UserPoolConfig = userPoolConfig;
         }

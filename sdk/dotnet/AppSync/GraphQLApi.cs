@@ -31,6 +31,24 @@ namespace Pulumi.Aws.AppSync
     /// 
     /// }
     /// ```
+    /// ### AWS IAM Authentication
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.AppSync.GraphQLApi("example", new Aws.AppSync.GraphQLApiArgs
+    ///         {
+    ///             AuthenticationType = "AWS_IAM",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// ### AWS Cognito User Pool Authentication
     /// 
     /// ```csharp
@@ -50,50 +68,6 @@ namespace Pulumi.Aws.AppSync
     ///                 DefaultAction = "DENY",
     ///                 UserPoolId = aws_cognito_user_pool.Example.Id,
     ///             },
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
-    /// ### AWS IAM Authentication
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var example = new Aws.AppSync.GraphQLApi("example", new Aws.AppSync.GraphQLApiArgs
-    ///         {
-    ///             AuthenticationType = "AWS_IAM",
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
-    /// ### With Schema
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var example = new Aws.AppSync.GraphQLApi("example", new Aws.AppSync.GraphQLApiArgs
-    ///         {
-    ///             AuthenticationType = "AWS_IAM",
-    ///             Schema = @"schema {
-    /// 	query: Query
-    /// }
-    /// type Query {
-    ///   test: Int
-    /// }
-    /// 
-    /// ",
     ///         });
     ///     }
     /// 
@@ -121,6 +95,35 @@ namespace Pulumi.Aws.AppSync
     /// 
     /// }
     /// ```
+    /// ### AWS Lambda Authorizer Authentication
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.AppSync.GraphQLApi("example", new Aws.AppSync.GraphQLApiArgs
+    ///         {
+    ///             AuthenticationType = "AWS_LAMBDA",
+    ///             LambdaAuthorizerConfig = new Aws.AppSync.Inputs.GraphQLApiLambdaAuthorizerConfigArgs
+    ///             {
+    ///                 AuthorizerUri = "arn:aws:lambda:us-east-1:123456789012:function:custom_lambda_authorizer",
+    ///             },
+    ///         });
+    ///         var appsyncLambdaAuthorizer = new Aws.Lambda.Permission("appsyncLambdaAuthorizer", new Aws.Lambda.PermissionArgs
+    ///         {
+    ///             Action = "lambda:InvokeFunction",
+    ///             Function = "custom_lambda_authorizer",
+    ///             Principal = "appsync.amazonaws.com",
+    ///             SourceArn = example.Arn,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// ### With Multiple Authentication Providers
     /// 
     /// ```csharp
@@ -141,6 +144,32 @@ namespace Pulumi.Aws.AppSync
     ///                 },
     ///             },
     ///             AuthenticationType = "API_KEY",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### With Schema
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var example = new Aws.AppSync.GraphQLApi("example", new Aws.AppSync.GraphQLApiArgs
+    ///         {
+    ///             AuthenticationType = "AWS_IAM",
+    ///             Schema = @"schema {
+    /// 	query: Query
+    /// }
+    /// type Query {
+    ///   test: Int
+    /// }
+    /// 
+    /// ",
     ///         });
     ///     }
     /// 
@@ -282,10 +311,16 @@ namespace Pulumi.Aws.AppSync
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`
+        /// The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
         /// </summary>
         [Output("authenticationType")]
         public Output<string> AuthenticationType { get; private set; } = null!;
+
+        /// <summary>
+        /// Nested argument containing Lambda authorizer configuration. Defined below.
+        /// </summary>
+        [Output("lambdaAuthorizerConfig")]
+        public Output<Outputs.GraphQLApiLambdaAuthorizerConfig?> LambdaAuthorizerConfig { get; private set; } = null!;
 
         /// <summary>
         /// Nested argument containing logging configuration. Defined below.
@@ -400,10 +435,16 @@ namespace Pulumi.Aws.AppSync
         }
 
         /// <summary>
-        /// The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`
+        /// The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
         /// </summary>
         [Input("authenticationType", required: true)]
         public Input<string> AuthenticationType { get; set; } = null!;
+
+        /// <summary>
+        /// Nested argument containing Lambda authorizer configuration. Defined below.
+        /// </summary>
+        [Input("lambdaAuthorizerConfig")]
+        public Input<Inputs.GraphQLApiLambdaAuthorizerConfigArgs>? LambdaAuthorizerConfig { get; set; }
 
         /// <summary>
         /// Nested argument containing logging configuration. Defined below.
@@ -479,10 +520,16 @@ namespace Pulumi.Aws.AppSync
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`
+        /// The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
         /// </summary>
         [Input("authenticationType")]
         public Input<string>? AuthenticationType { get; set; }
+
+        /// <summary>
+        /// Nested argument containing Lambda authorizer configuration. Defined below.
+        /// </summary>
+        [Input("lambdaAuthorizerConfig")]
+        public Input<Inputs.GraphQLApiLambdaAuthorizerConfigGetArgs>? LambdaAuthorizerConfig { get; set; }
 
         /// <summary>
         /// Nested argument containing logging configuration. Defined below.

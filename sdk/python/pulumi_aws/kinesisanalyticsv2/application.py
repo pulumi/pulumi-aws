@@ -34,6 +34,7 @@ class ApplicationArgs:
         :param pulumi.Input[bool] force_stop: Whether to force stop an unresponsive Flink-based application.
         :param pulumi.Input[str] name: The name of the application.
         :param pulumi.Input[bool] start_application: Whether to start or stop the application.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "runtime_environment", runtime_environment)
         pulumi.set(__self__, "service_execution_role", service_execution_role)
@@ -151,6 +152,9 @@ class ApplicationArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -190,6 +194,7 @@ class _ApplicationState:
         :param pulumi.Input[str] service_execution_role: The ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
         :param pulumi.Input[bool] start_application: Whether to start or stop the application.
         :param pulumi.Input[str] status: The status of the application.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[int] version_id: The current application version. Kinesis Data Analytics updates the `version_id` each time the application is updated.
         """
@@ -371,6 +376,9 @@ class _ApplicationState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -636,6 +644,7 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[str] runtime_environment: The runtime environment for the application. Valid values: `SQL-1_0`, `FLINK-1_6`, `FLINK-1_8`, `FLINK-1_11`.
         :param pulumi.Input[str] service_execution_role: The ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
         :param pulumi.Input[bool] start_application: Whether to start or stop the application.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -951,6 +960,7 @@ class Application(pulumi.CustomResource):
         :param pulumi.Input[str] service_execution_role: The ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
         :param pulumi.Input[bool] start_application: Whether to start or stop the application.
         :param pulumi.Input[str] status: The status of the application.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[int] version_id: The current application version. Kinesis Data Analytics updates the `version_id` each time the application is updated.
         """
@@ -1074,6 +1084,9 @@ class Application(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        A map of tags to assign to the application. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @property

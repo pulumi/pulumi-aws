@@ -223,7 +223,8 @@ type Server struct {
 	Protocols pulumi.StringArrayOutput `pulumi:"protocols"`
 	// Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, and  `TransferSecurityPolicy-FIPS-2020-06`. Default value is: `TransferSecurityPolicy-2018-11`.
 	SecurityPolicyName pulumi.StringPtrOutput `pulumi:"securityPolicyName"`
-	Tags               pulumi.StringMapOutput `pulumi:"tags"`
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// - URL of the service endpoint used to authenticate users with an `identityProviderType` of `API_GATEWAY`.
@@ -293,8 +294,9 @@ type serverState struct {
 	// * `FTP`: Unencrypted file transfer
 	Protocols []string `pulumi:"protocols"`
 	// Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, and  `TransferSecurityPolicy-FIPS-2020-06`. Default value is: `TransferSecurityPolicy-2018-11`.
-	SecurityPolicyName *string           `pulumi:"securityPolicyName"`
-	Tags               map[string]string `pulumi:"tags"`
+	SecurityPolicyName *string `pulumi:"securityPolicyName"`
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// - URL of the service endpoint used to authenticate users with an `identityProviderType` of `API_GATEWAY`.
@@ -337,7 +339,8 @@ type ServerState struct {
 	Protocols pulumi.StringArrayInput
 	// Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, and  `TransferSecurityPolicy-FIPS-2020-06`. Default value is: `TransferSecurityPolicy-2018-11`.
 	SecurityPolicyName pulumi.StringPtrInput
-	Tags               pulumi.StringMapInput
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// - URL of the service endpoint used to authenticate users with an `identityProviderType` of `API_GATEWAY`.
@@ -377,8 +380,9 @@ type serverArgs struct {
 	// * `FTP`: Unencrypted file transfer
 	Protocols []string `pulumi:"protocols"`
 	// Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, and  `TransferSecurityPolicy-FIPS-2020-06`. Default value is: `TransferSecurityPolicy-2018-11`.
-	SecurityPolicyName *string           `pulumi:"securityPolicyName"`
-	Tags               map[string]string `pulumi:"tags"`
+	SecurityPolicyName *string `pulumi:"securityPolicyName"`
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 	// - URL of the service endpoint used to authenticate users with an `identityProviderType` of `API_GATEWAY`.
 	Url *string `pulumi:"url"`
 }
@@ -414,7 +418,8 @@ type ServerArgs struct {
 	Protocols pulumi.StringArrayInput
 	// Specifies the name of the security policy that is attached to the server. Possible values are `TransferSecurityPolicy-2018-11`, `TransferSecurityPolicy-2020-06`, and  `TransferSecurityPolicy-FIPS-2020-06`. Default value is: `TransferSecurityPolicy-2018-11`.
 	SecurityPolicyName pulumi.StringPtrInput
-	Tags               pulumi.StringMapInput
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 	// - URL of the service endpoint used to authenticate users with an `identityProviderType` of `API_GATEWAY`.
 	Url pulumi.StringPtrInput
 }

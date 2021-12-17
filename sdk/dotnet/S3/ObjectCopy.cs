@@ -280,8 +280,7 @@ namespace Pulumi.Aws.S3
         public Output<string> SourceVersionId { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the desired [Storage Class](http://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html)
-        /// for the object. Can be either `STANDARD`, `REDUCED_REDUNDANCY`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `GLACIER`, `DEEP_ARCHIVE`, or `STANDARD_IA`. Defaults to `STANDARD`.
+        /// Specifies the desired [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html#AmazonS3-CopyObject-request-header-StorageClass) for the object. Defaults to `STANDARD`.
         /// </summary>
         [Output("storageClass")]
         public Output<string> StorageClass { get; private set; } = null!;
@@ -576,8 +575,7 @@ namespace Pulumi.Aws.S3
         public Input<string>? SourceCustomerKeyMd5 { get; set; }
 
         /// <summary>
-        /// Specifies the desired [Storage Class](http://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html)
-        /// for the object. Can be either `STANDARD`, `REDUCED_REDUNDANCY`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `GLACIER`, `DEEP_ARCHIVE`, or `STANDARD_IA`. Defaults to `STANDARD`.
+        /// Specifies the desired [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html#AmazonS3-CopyObject-request-header-StorageClass) for the object. Defaults to `STANDARD`.
         /// </summary>
         [Input("storageClass")]
         public Input<string>? StorageClass { get; set; }
@@ -857,8 +855,7 @@ namespace Pulumi.Aws.S3
         public Input<string>? SourceVersionId { get; set; }
 
         /// <summary>
-        /// Specifies the desired [Storage Class](http://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html)
-        /// for the object. Can be either `STANDARD`, `REDUCED_REDUNDANCY`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `GLACIER`, `DEEP_ARCHIVE`, or `STANDARD_IA`. Defaults to `STANDARD`.
+        /// Specifies the desired [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_CopyObject.html#AmazonS3-CopyObject-request-header-StorageClass) for the object. Defaults to `STANDARD`.
         /// </summary>
         [Input("storageClass")]
         public Input<string>? StorageClass { get; set; }

@@ -21,15 +21,22 @@ namespace Pulumi.Aws.NetworkFirewall.Outputs
         /// A configuration block that defines the stateful or stateless rules for the rule group. See Rules Source below for details.
         /// </summary>
         public readonly Outputs.RuleGroupRuleGroupRulesSource RulesSource;
+        /// <summary>
+        /// A configuration block that defines stateful rule options for the rule group. See Stateful Rule Options below for details.
+        /// </summary>
+        public readonly Outputs.RuleGroupRuleGroupStatefulRuleOptions? StatefulRuleOptions;
 
         [OutputConstructor]
         private RuleGroupRuleGroup(
             Outputs.RuleGroupRuleGroupRuleVariables? ruleVariables,
 
-            Outputs.RuleGroupRuleGroupRulesSource rulesSource)
+            Outputs.RuleGroupRuleGroupRulesSource rulesSource,
+
+            Outputs.RuleGroupRuleGroupStatefulRuleOptions? statefulRuleOptions)
         {
             RuleVariables = ruleVariables;
             RulesSource = rulesSource;
+            StatefulRuleOptions = statefulRuleOptions;
         }
     }
 }

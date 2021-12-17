@@ -20,7 +20,7 @@ class SnapshotArgs:
         The set of arguments for constructing a Snapshot resource.
         :param pulumi.Input[str] volume_id: The Volume ID of which to make a snapshot.
         :param pulumi.Input[str] description: A description of what the snapshot is.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags for the snapshot.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the snapshot. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "volume_id", volume_id)
         if description is not None:
@@ -56,7 +56,7 @@ class SnapshotArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags for the snapshot.
+        A map of tags to assign to the snapshot. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -88,7 +88,7 @@ class _SnapshotState:
         :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key.
         :param pulumi.Input[str] owner_alias: Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
         :param pulumi.Input[str] owner_id: The AWS account ID of the EBS snapshot owner.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags for the snapshot.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the snapshot. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] volume_id: The Volume ID of which to make a snapshot.
         :param pulumi.Input[int] volume_size: The size of the drive in GiBs.
@@ -204,7 +204,7 @@ class _SnapshotState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags for the snapshot.
+        A map of tags to assign to the snapshot. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -291,7 +291,7 @@ class Snapshot(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: A description of what the snapshot is.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags for the snapshot.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the snapshot. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] volume_id: The Volume ID of which to make a snapshot.
         """
         ...
@@ -408,7 +408,7 @@ class Snapshot(pulumi.CustomResource):
         :param pulumi.Input[str] kms_key_id: The ARN for the KMS encryption key.
         :param pulumi.Input[str] owner_alias: Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
         :param pulumi.Input[str] owner_id: The AWS account ID of the EBS snapshot owner.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags for the snapshot.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the snapshot. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] volume_id: The Volume ID of which to make a snapshot.
         :param pulumi.Input[int] volume_size: The size of the drive in GiBs.
@@ -490,7 +490,7 @@ class Snapshot(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        A map of tags for the snapshot.
+        A map of tags to assign to the snapshot. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 

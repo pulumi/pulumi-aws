@@ -6,9 +6,11 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./repository";
+export * from "./repositoryPolicy";
 
 // Import resources to register:
 import { Repository } from "./repository";
+import { RepositoryPolicy } from "./repositoryPolicy";
 
 const _module = {
     version: utilities.getVersion(),
@@ -16,9 +18,12 @@ const _module = {
         switch (type) {
             case "aws:ecrpublic/repository:Repository":
                 return new Repository(name, <any>undefined, { urn })
+            case "aws:ecrpublic/repositoryPolicy:RepositoryPolicy":
+                return new RepositoryPolicy(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
 pulumi.runtime.registerResourceModule("aws", "ecrpublic/repository", _module)
+pulumi.runtime.registerResourceModule("aws", "ecrpublic/repositoryPolicy", _module)

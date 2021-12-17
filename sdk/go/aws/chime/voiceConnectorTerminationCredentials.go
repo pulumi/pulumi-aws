@@ -13,7 +13,7 @@ import (
 
 // Adds termination SIP credentials for the specified Amazon Chime Voice Connector.
 //
-// > **Note:** Voice Connector Termination Credentials requires a [Voice Connector Termination](https://www.terraform.io/docs/providers/aws/r/chime_voice_connector_termination.html) to be present. Use of `dependsOn` (as shown below) is recommended to avoid race conditions.
+// > **Note:** Voice Connector Termination Credentials requires a Voice Connector Termination to be present. Use of `dependsOn` (as shown below) is recommended to avoid race conditions.
 //
 // ## Example Usage
 //

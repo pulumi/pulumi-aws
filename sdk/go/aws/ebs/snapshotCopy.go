@@ -81,7 +81,7 @@ type SnapshotCopy struct {
 	SourceRegion pulumi.StringOutput `pulumi:"sourceRegion"`
 	// The ARN for the snapshot to be copied.
 	SourceSnapshotId pulumi.StringOutput `pulumi:"sourceSnapshotId"`
-	// A map of tags for the snapshot.
+	// A map of tags for the snapshot. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll  pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -145,7 +145,7 @@ type snapshotCopyState struct {
 	SourceRegion *string `pulumi:"sourceRegion"`
 	// The ARN for the snapshot to be copied.
 	SourceSnapshotId *string `pulumi:"sourceSnapshotId"`
-	// A map of tags for the snapshot.
+	// A map of tags for the snapshot. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll  map[string]string `pulumi:"tagsAll"`
@@ -175,7 +175,7 @@ type SnapshotCopyState struct {
 	SourceRegion pulumi.StringPtrInput
 	// The ARN for the snapshot to be copied.
 	SourceSnapshotId pulumi.StringPtrInput
-	// A map of tags for the snapshot.
+	// A map of tags for the snapshot. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll  pulumi.StringMapInput
@@ -199,7 +199,7 @@ type snapshotCopyArgs struct {
 	SourceRegion string `pulumi:"sourceRegion"`
 	// The ARN for the snapshot to be copied.
 	SourceSnapshotId string `pulumi:"sourceSnapshotId"`
-	// A map of tags for the snapshot.
+	// A map of tags for the snapshot. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -215,7 +215,7 @@ type SnapshotCopyArgs struct {
 	SourceRegion pulumi.StringInput
 	// The ARN for the snapshot to be copied.
 	SourceSnapshotId pulumi.StringInput
-	// A map of tags for the snapshot.
+	// A map of tags for the snapshot. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
 

@@ -117,7 +117,7 @@ export class TargetGroup extends pulumi.CustomResource {
      */
     public readonly loadBalancingAlgorithmType!: pulumi.Output<string>;
     /**
-     * Name of the Target Group.
+     * Name of the target group. If omitted, this provider will assign a random, unique name.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -268,7 +268,7 @@ export interface TargetGroupState {
      */
     loadBalancingAlgorithmType?: pulumi.Input<string>;
     /**
-     * Name of the Target Group.
+     * Name of the target group. If omitted, this provider will assign a random, unique name.
      */
     name?: pulumi.Input<string>;
     /**
@@ -346,7 +346,7 @@ export interface TargetGroupArgs {
      */
     loadBalancingAlgorithmType?: pulumi.Input<string>;
     /**
-     * Name of the Target Group.
+     * Name of the target group. If omitted, this provider will assign a random, unique name.
      */
     name?: pulumi.Input<string>;
     /**

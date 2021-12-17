@@ -138,7 +138,7 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2
         public Output<string> LoadBalancingAlgorithmType { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the Target Group.
+        /// Name of the target group. If omitted, this provider will assign a random, unique name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -292,7 +292,7 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2
         public Input<string>? LoadBalancingAlgorithmType { get; set; }
 
         /// <summary>
-        /// Name of the Target Group.
+        /// Name of the target group. If omitted, this provider will assign a random, unique name.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -419,7 +419,7 @@ namespace Pulumi.Aws.ElasticLoadBalancingV2
         public Input<string>? LoadBalancingAlgorithmType { get; set; }
 
         /// <summary>
-        /// Name of the Target Group.
+        /// Name of the target group. If omitted, this provider will assign a random, unique name.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

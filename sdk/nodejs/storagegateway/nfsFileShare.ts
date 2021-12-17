@@ -75,7 +75,7 @@ export class NfsFileShare extends pulumi.CustomResource {
      */
     public readonly clientLists!: pulumi.Output<string[]>;
     /**
-     * The default storage class for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`. Valid values: `S3_STANDARD`, `S3_STANDARD_IA`, `S3_ONEZONE_IA`.
+     * The default [storage class](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-DefaultStorageClass) for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`.
      */
     public readonly defaultStorageClass!: pulumi.Output<string | undefined>;
     /**
@@ -247,7 +247,7 @@ export interface NfsFileShareState {
      */
     clientLists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The default storage class for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`. Valid values: `S3_STANDARD`, `S3_STANDARD_IA`, `S3_ONEZONE_IA`.
+     * The default [storage class](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-DefaultStorageClass) for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`.
      */
     defaultStorageClass?: pulumi.Input<string>;
     /**
@@ -337,7 +337,7 @@ export interface NfsFileShareArgs {
      */
     clientLists: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The default storage class for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`. Valid values: `S3_STANDARD`, `S3_STANDARD_IA`, `S3_ONEZONE_IA`.
+     * The default [storage class](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-DefaultStorageClass) for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`.
      */
     defaultStorageClass?: pulumi.Input<string>;
     /**

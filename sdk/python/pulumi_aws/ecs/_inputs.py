@@ -1631,7 +1631,7 @@ class TaskSetServiceRegistriesArgs:
                  container_port: Optional[pulumi.Input[int]] = None,
                  port: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[str] registry_arn: The ARN of the Service Registry. The currently supported service registry is Amazon Route 53 Auto Naming Service([`servicediscovery.Service` resource](https://www.terraform.io/docs/providers/aws/r/service_discovery_service.html)). For more information, see [Service](https://docs.aws.amazon.com/Route53/latest/APIReference/API_autonaming_Service.html).
+        :param pulumi.Input[str] registry_arn: The ARN of the Service Registry. The currently supported service registry is Amazon Route 53 Auto Naming Service(`servicediscovery.Service` resource). For more information, see [Service](https://docs.aws.amazon.com/Route53/latest/APIReference/API_autonaming_Service.html).
         :param pulumi.Input[str] container_name: The container name value, already specified in the task definition, to be used for your service discovery service.
         :param pulumi.Input[int] container_port: The port value, already specified in the task definition, to be used for your service discovery service.
         :param pulumi.Input[int] port: The port value used if your Service Discovery service specified an SRV record.
@@ -1648,7 +1648,7 @@ class TaskSetServiceRegistriesArgs:
     @pulumi.getter(name="registryArn")
     def registry_arn(self) -> pulumi.Input[str]:
         """
-        The ARN of the Service Registry. The currently supported service registry is Amazon Route 53 Auto Naming Service([`servicediscovery.Service` resource](https://www.terraform.io/docs/providers/aws/r/service_discovery_service.html)). For more information, see [Service](https://docs.aws.amazon.com/Route53/latest/APIReference/API_autonaming_Service.html).
+        The ARN of the Service Registry. The currently supported service registry is Amazon Route 53 Auto Naming Service(`servicediscovery.Service` resource). For more information, see [Service](https://docs.aws.amazon.com/Route53/latest/APIReference/API_autonaming_Service.html).
         """
         return pulumi.get(self, "registry_arn")
 

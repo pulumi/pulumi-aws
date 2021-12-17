@@ -56,7 +56,7 @@ namespace Pulumi.Aws.S3
         /// <summary>
         /// Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `false`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:
         /// * PUT Bucket acl and PUT Object acl calls will fail if the specified ACL allows public access.
-        /// * PUT Object calls will fail if the request includes an object ACL.
+        /// * PUT Object calls fail if the request includes a public ACL.
         /// </summary>
         [Output("blockPublicAcls")]
         public Output<bool?> BlockPublicAcls { get; private set; } = null!;
@@ -137,7 +137,7 @@ namespace Pulumi.Aws.S3
         /// <summary>
         /// Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `false`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:
         /// * PUT Bucket acl and PUT Object acl calls will fail if the specified ACL allows public access.
-        /// * PUT Object calls will fail if the request includes an object ACL.
+        /// * PUT Object calls fail if the request includes a public ACL.
         /// </summary>
         [Input("blockPublicAcls")]
         public Input<bool>? BlockPublicAcls { get; set; }
@@ -179,7 +179,7 @@ namespace Pulumi.Aws.S3
         /// <summary>
         /// Whether Amazon S3 should block public ACLs for buckets in this account. Defaults to `false`. Enabling this setting does not affect existing policies or ACLs. When set to `true` causes the following behavior:
         /// * PUT Bucket acl and PUT Object acl calls will fail if the specified ACL allows public access.
-        /// * PUT Object calls will fail if the request includes an object ACL.
+        /// * PUT Object calls fail if the request includes a public ACL.
         /// </summary>
         [Input("blockPublicAcls")]
         public Input<bool>? BlockPublicAcls { get; set; }

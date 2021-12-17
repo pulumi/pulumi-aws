@@ -57,7 +57,8 @@ type TrafficMirrorFilter struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// List of amazon network services that should be mirrored. Valid values: `amazon-dns`.
 	NetworkServices pulumi.StringArrayOutput `pulumi:"networkServices"`
-	Tags            pulumi.StringMapOutput   `pulumi:"tags"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
@@ -96,8 +97,9 @@ type trafficMirrorFilterState struct {
 	// A description of the filter.
 	Description *string `pulumi:"description"`
 	// List of amazon network services that should be mirrored. Valid values: `amazon-dns`.
-	NetworkServices []string          `pulumi:"networkServices"`
-	Tags            map[string]string `pulumi:"tags"`
+	NetworkServices []string `pulumi:"networkServices"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
@@ -109,7 +111,8 @@ type TrafficMirrorFilterState struct {
 	Description pulumi.StringPtrInput
 	// List of amazon network services that should be mirrored. Valid values: `amazon-dns`.
 	NetworkServices pulumi.StringArrayInput
-	Tags            pulumi.StringMapInput
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
@@ -122,8 +125,9 @@ type trafficMirrorFilterArgs struct {
 	// A description of the filter.
 	Description *string `pulumi:"description"`
 	// List of amazon network services that should be mirrored. Valid values: `amazon-dns`.
-	NetworkServices []string          `pulumi:"networkServices"`
-	Tags            map[string]string `pulumi:"tags"`
+	NetworkServices []string `pulumi:"networkServices"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a TrafficMirrorFilter resource.
@@ -132,7 +136,8 @@ type TrafficMirrorFilterArgs struct {
 	Description pulumi.StringPtrInput
 	// List of amazon network services that should be mirrored. Valid values: `amazon-dns`.
 	NetworkServices pulumi.StringArrayInput
-	Tags            pulumi.StringMapInput
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (TrafficMirrorFilterArgs) ElementType() reflect.Type {

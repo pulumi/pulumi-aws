@@ -130,6 +130,9 @@ namespace Pulumi.Aws.LightSail
         [Output("bundleId")]
         public Output<string> BundleId { get; private set; } = null!;
 
+        /// <summary>
+        /// The number of vCPUs the instance has.
+        /// </summary>
         [Output("cpuCount")]
         public Output<int> CpuCount { get; private set; } = null!;
 
@@ -151,6 +154,9 @@ namespace Pulumi.Aws.LightSail
         [Output("ipv6Addresses")]
         public Output<ImmutableArray<string>> Ipv6Addresses { get; private set; } = null!;
 
+        /// <summary>
+        /// A Boolean value indicating whether this instance has a static IP assigned to it.
+        /// </summary>
         [Output("isStaticIp")]
         public Output<bool> IsStaticIp { get; private set; } = null!;
 
@@ -167,12 +173,21 @@ namespace Pulumi.Aws.LightSail
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The private IP address of the instance.
+        /// </summary>
         [Output("privateIpAddress")]
         public Output<string> PrivateIpAddress { get; private set; } = null!;
 
+        /// <summary>
+        /// The public IP address of the instance.
+        /// </summary>
         [Output("publicIpAddress")]
         public Output<string> PublicIpAddress { get; private set; } = null!;
 
+        /// <summary>
+        /// The amount of RAM in GB on the instance (e.g., 1.0).
+        /// </summary>
         [Output("ramSize")]
         public Output<double> RamSize { get; private set; } = null!;
 
@@ -183,7 +198,7 @@ namespace Pulumi.Aws.LightSail
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -194,6 +209,9 @@ namespace Pulumi.Aws.LightSail
         [Output("userData")]
         public Output<string?> UserData { get; private set; } = null!;
 
+        /// <summary>
+        /// The user name for connecting to the instance (e.g., ec2-user).
+        /// </summary>
         [Output("username")]
         public Output<string> Username { get; private set; } = null!;
 
@@ -325,6 +343,9 @@ namespace Pulumi.Aws.LightSail
         [Input("bundleId")]
         public Input<string>? BundleId { get; set; }
 
+        /// <summary>
+        /// The number of vCPUs the instance has.
+        /// </summary>
         [Input("cpuCount")]
         public Input<int>? CpuCount { get; set; }
 
@@ -352,6 +373,9 @@ namespace Pulumi.Aws.LightSail
             set => _ipv6Addresses = value;
         }
 
+        /// <summary>
+        /// A Boolean value indicating whether this instance has a static IP assigned to it.
+        /// </summary>
         [Input("isStaticIp")]
         public Input<bool>? IsStaticIp { get; set; }
 
@@ -368,12 +392,21 @@ namespace Pulumi.Aws.LightSail
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The private IP address of the instance.
+        /// </summary>
         [Input("privateIpAddress")]
         public Input<string>? PrivateIpAddress { get; set; }
 
+        /// <summary>
+        /// The public IP address of the instance.
+        /// </summary>
         [Input("publicIpAddress")]
         public Input<string>? PublicIpAddress { get; set; }
 
+        /// <summary>
+        /// The amount of RAM in GB on the instance (e.g., 1.0).
+        /// </summary>
         [Input("ramSize")]
         public Input<double>? RamSize { get; set; }
 
@@ -393,7 +426,7 @@ namespace Pulumi.Aws.LightSail
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider .
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -407,6 +440,9 @@ namespace Pulumi.Aws.LightSail
         [Input("userData")]
         public Input<string>? UserData { get; set; }
 
+        /// <summary>
+        /// The user name for connecting to the instance (e.g., ec2-user).
+        /// </summary>
         [Input("username")]
         public Input<string>? Username { get; set; }
 

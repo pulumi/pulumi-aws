@@ -24,7 +24,7 @@ class EndpointArgs:
         :param pulumi.Input[str] endpoint_config_name: The name of the endpoint configuration to use.
         :param pulumi.Input['EndpointDeploymentConfigArgs'] deployment_config: The deployment configuration for an endpoint, which contains the desired deployment strategy and rollback configurations. See Deployment Config.
         :param pulumi.Input[str] name: The name of the endpoint.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "endpoint_config_name", endpoint_config_name)
         if deployment_config is not None:
@@ -74,7 +74,7 @@ class EndpointArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -98,7 +98,7 @@ class _EndpointState:
         :param pulumi.Input['EndpointDeploymentConfigArgs'] deployment_config: The deployment configuration for an endpoint, which contains the desired deployment strategy and rollback configurations. See Deployment Config.
         :param pulumi.Input[str] endpoint_config_name: The name of the endpoint configuration to use.
         :param pulumi.Input[str] name: The name of the endpoint.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         """
         if arn is not None:
@@ -166,7 +166,7 @@ class _EndpointState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -228,7 +228,7 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['EndpointDeploymentConfigArgs']] deployment_config: The deployment configuration for an endpoint, which contains the desired deployment strategy and rollback configurations. See Deployment Config.
         :param pulumi.Input[str] endpoint_config_name: The name of the endpoint configuration to use.
         :param pulumi.Input[str] name: The name of the endpoint.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -328,7 +328,7 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['EndpointDeploymentConfigArgs']] deployment_config: The deployment configuration for an endpoint, which contains the desired deployment strategy and rollback configurations. See Deployment Config.
         :param pulumi.Input[str] endpoint_config_name: The name of the endpoint configuration to use.
         :param pulumi.Input[str] name: The name of the endpoint.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -379,7 +379,7 @@ class Endpoint(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        A map of tags to assign to the resource. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 

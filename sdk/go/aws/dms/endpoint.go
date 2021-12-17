@@ -90,6 +90,10 @@ type Endpoint struct {
 	Port pulumi.IntPtrOutput `pulumi:"port"`
 	// Configuration block with S3 settings. Detailed below.
 	S3Settings EndpointS3SettingsPtrOutput `pulumi:"s3Settings"`
+	// Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in SecretsManagerSecret.
+	SecretsManagerAccessRoleArn pulumi.StringPtrOutput `pulumi:"secretsManagerAccessRoleArn"`
+	// The full ARN, partial ARN, or friendly name of the SecretsManagerSecret that contains the endpoint connection details. Supported only for `engineName` as `oracle` and `postgres`.
+	SecretsManagerArn pulumi.StringPtrOutput `pulumi:"secretsManagerArn"`
 	// The host name of the server.
 	ServerName pulumi.StringPtrOutput `pulumi:"serverName"`
 	// The Amazon Resource Name (ARN) used by the service access IAM role for dynamodb endpoints.
@@ -172,6 +176,10 @@ type endpointState struct {
 	Port *int `pulumi:"port"`
 	// Configuration block with S3 settings. Detailed below.
 	S3Settings *EndpointS3Settings `pulumi:"s3Settings"`
+	// Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in SecretsManagerSecret.
+	SecretsManagerAccessRoleArn *string `pulumi:"secretsManagerAccessRoleArn"`
+	// The full ARN, partial ARN, or friendly name of the SecretsManagerSecret that contains the endpoint connection details. Supported only for `engineName` as `oracle` and `postgres`.
+	SecretsManagerArn *string `pulumi:"secretsManagerArn"`
 	// The host name of the server.
 	ServerName *string `pulumi:"serverName"`
 	// The Amazon Resource Name (ARN) used by the service access IAM role for dynamodb endpoints.
@@ -217,6 +225,10 @@ type EndpointState struct {
 	Port pulumi.IntPtrInput
 	// Configuration block with S3 settings. Detailed below.
 	S3Settings EndpointS3SettingsPtrInput
+	// Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in SecretsManagerSecret.
+	SecretsManagerAccessRoleArn pulumi.StringPtrInput
+	// The full ARN, partial ARN, or friendly name of the SecretsManagerSecret that contains the endpoint connection details. Supported only for `engineName` as `oracle` and `postgres`.
+	SecretsManagerArn pulumi.StringPtrInput
 	// The host name of the server.
 	ServerName pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) used by the service access IAM role for dynamodb endpoints.
@@ -264,6 +276,10 @@ type endpointArgs struct {
 	Port *int `pulumi:"port"`
 	// Configuration block with S3 settings. Detailed below.
 	S3Settings *EndpointS3Settings `pulumi:"s3Settings"`
+	// Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in SecretsManagerSecret.
+	SecretsManagerAccessRoleArn *string `pulumi:"secretsManagerAccessRoleArn"`
+	// The full ARN, partial ARN, or friendly name of the SecretsManagerSecret that contains the endpoint connection details. Supported only for `engineName` as `oracle` and `postgres`.
+	SecretsManagerArn *string `pulumi:"secretsManagerArn"`
 	// The host name of the server.
 	ServerName *string `pulumi:"serverName"`
 	// The Amazon Resource Name (ARN) used by the service access IAM role for dynamodb endpoints.
@@ -306,6 +322,10 @@ type EndpointArgs struct {
 	Port pulumi.IntPtrInput
 	// Configuration block with S3 settings. Detailed below.
 	S3Settings EndpointS3SettingsPtrInput
+	// Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in SecretsManagerSecret.
+	SecretsManagerAccessRoleArn pulumi.StringPtrInput
+	// The full ARN, partial ARN, or friendly name of the SecretsManagerSecret that contains the endpoint connection details. Supported only for `engineName` as `oracle` and `postgres`.
+	SecretsManagerArn pulumi.StringPtrInput
 	// The host name of the server.
 	ServerName pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) used by the service access IAM role for dynamodb endpoints.

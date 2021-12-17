@@ -14,8 +14,10 @@ __all__ = [
     'DataSourceHttpConfigArgs',
     'DataSourceLambdaConfigArgs',
     'GraphQLApiAdditionalAuthenticationProviderArgs',
+    'GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigArgs',
     'GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigArgs',
     'GraphQLApiAdditionalAuthenticationProviderUserPoolConfigArgs',
+    'GraphQLApiLambdaAuthorizerConfigArgs',
     'GraphQLApiLogConfigArgs',
     'GraphQLApiOpenidConnectConfigArgs',
     'GraphQLApiUserPoolConfigArgs',
@@ -163,14 +165,18 @@ class DataSourceLambdaConfigArgs:
 class GraphQLApiAdditionalAuthenticationProviderArgs:
     def __init__(__self__, *,
                  authentication_type: pulumi.Input[str],
+                 lambda_authorizer_config: Optional[pulumi.Input['GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigArgs']] = None,
                  openid_connect_config: Optional[pulumi.Input['GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigArgs']] = None,
                  user_pool_config: Optional[pulumi.Input['GraphQLApiAdditionalAuthenticationProviderUserPoolConfigArgs']] = None):
         """
-        :param pulumi.Input[str] authentication_type: The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`
+        :param pulumi.Input[str] authentication_type: The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
+        :param pulumi.Input['GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigArgs'] lambda_authorizer_config: Nested argument containing Lambda authorizer configuration. Defined below.
         :param pulumi.Input['GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigArgs'] openid_connect_config: Nested argument containing OpenID Connect configuration. Defined below.
         :param pulumi.Input['GraphQLApiAdditionalAuthenticationProviderUserPoolConfigArgs'] user_pool_config: The Amazon Cognito User Pool configuration. Defined below.
         """
         pulumi.set(__self__, "authentication_type", authentication_type)
+        if lambda_authorizer_config is not None:
+            pulumi.set(__self__, "lambda_authorizer_config", lambda_authorizer_config)
         if openid_connect_config is not None:
             pulumi.set(__self__, "openid_connect_config", openid_connect_config)
         if user_pool_config is not None:
@@ -180,13 +186,25 @@ class GraphQLApiAdditionalAuthenticationProviderArgs:
     @pulumi.getter(name="authenticationType")
     def authentication_type(self) -> pulumi.Input[str]:
         """
-        The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`
+        The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
         """
         return pulumi.get(self, "authentication_type")
 
     @authentication_type.setter
     def authentication_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "authentication_type", value)
+
+    @property
+    @pulumi.getter(name="lambdaAuthorizerConfig")
+    def lambda_authorizer_config(self) -> Optional[pulumi.Input['GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigArgs']]:
+        """
+        Nested argument containing Lambda authorizer configuration. Defined below.
+        """
+        return pulumi.get(self, "lambda_authorizer_config")
+
+    @lambda_authorizer_config.setter
+    def lambda_authorizer_config(self, value: Optional[pulumi.Input['GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigArgs']]):
+        pulumi.set(self, "lambda_authorizer_config", value)
 
     @property
     @pulumi.getter(name="openidConnectConfig")
@@ -211,6 +229,60 @@ class GraphQLApiAdditionalAuthenticationProviderArgs:
     @user_pool_config.setter
     def user_pool_config(self, value: Optional[pulumi.Input['GraphQLApiAdditionalAuthenticationProviderUserPoolConfigArgs']]):
         pulumi.set(self, "user_pool_config", value)
+
+
+@pulumi.input_type
+class GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigArgs:
+    def __init__(__self__, *,
+                 authorizer_uri: pulumi.Input[str],
+                 authorizer_result_ttl_in_seconds: Optional[pulumi.Input[int]] = None,
+                 identity_validation_expression: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] authorizer_uri: The ARN of the Lambda function to be called for authorization. Note: This Lambda function must have a resource-based policy assigned to it, to allow `lambda:InvokeFunction` from service principal `appsync.amazonaws.com`.
+        :param pulumi.Input[int] authorizer_result_ttl_in_seconds: The number of seconds a response should be cached for. The default is 5 minutes (300 seconds). The Lambda function can override this by returning a `ttlOverride` key in its response. A value of 0 disables caching of responses. Minimum value of 0. Maximum value of 3600.
+        :param pulumi.Input[str] identity_validation_expression: A regular expression for validation of tokens before the Lambda function is called.
+        """
+        pulumi.set(__self__, "authorizer_uri", authorizer_uri)
+        if authorizer_result_ttl_in_seconds is not None:
+            pulumi.set(__self__, "authorizer_result_ttl_in_seconds", authorizer_result_ttl_in_seconds)
+        if identity_validation_expression is not None:
+            pulumi.set(__self__, "identity_validation_expression", identity_validation_expression)
+
+    @property
+    @pulumi.getter(name="authorizerUri")
+    def authorizer_uri(self) -> pulumi.Input[str]:
+        """
+        The ARN of the Lambda function to be called for authorization. Note: This Lambda function must have a resource-based policy assigned to it, to allow `lambda:InvokeFunction` from service principal `appsync.amazonaws.com`.
+        """
+        return pulumi.get(self, "authorizer_uri")
+
+    @authorizer_uri.setter
+    def authorizer_uri(self, value: pulumi.Input[str]):
+        pulumi.set(self, "authorizer_uri", value)
+
+    @property
+    @pulumi.getter(name="authorizerResultTtlInSeconds")
+    def authorizer_result_ttl_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of seconds a response should be cached for. The default is 5 minutes (300 seconds). The Lambda function can override this by returning a `ttlOverride` key in its response. A value of 0 disables caching of responses. Minimum value of 0. Maximum value of 3600.
+        """
+        return pulumi.get(self, "authorizer_result_ttl_in_seconds")
+
+    @authorizer_result_ttl_in_seconds.setter
+    def authorizer_result_ttl_in_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "authorizer_result_ttl_in_seconds", value)
+
+    @property
+    @pulumi.getter(name="identityValidationExpression")
+    def identity_validation_expression(self) -> Optional[pulumi.Input[str]]:
+        """
+        A regular expression for validation of tokens before the Lambda function is called.
+        """
+        return pulumi.get(self, "identity_validation_expression")
+
+    @identity_validation_expression.setter
+    def identity_validation_expression(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "identity_validation_expression", value)
 
 
 @pulumi.input_type
@@ -335,6 +407,60 @@ class GraphQLApiAdditionalAuthenticationProviderUserPoolConfigArgs:
     @aws_region.setter
     def aws_region(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "aws_region", value)
+
+
+@pulumi.input_type
+class GraphQLApiLambdaAuthorizerConfigArgs:
+    def __init__(__self__, *,
+                 authorizer_uri: pulumi.Input[str],
+                 authorizer_result_ttl_in_seconds: Optional[pulumi.Input[int]] = None,
+                 identity_validation_expression: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] authorizer_uri: The ARN of the Lambda function to be called for authorization. Note: This Lambda function must have a resource-based policy assigned to it, to allow `lambda:InvokeFunction` from service principal `appsync.amazonaws.com`.
+        :param pulumi.Input[int] authorizer_result_ttl_in_seconds: The number of seconds a response should be cached for. The default is 5 minutes (300 seconds). The Lambda function can override this by returning a `ttlOverride` key in its response. A value of 0 disables caching of responses. Minimum value of 0. Maximum value of 3600.
+        :param pulumi.Input[str] identity_validation_expression: A regular expression for validation of tokens before the Lambda function is called.
+        """
+        pulumi.set(__self__, "authorizer_uri", authorizer_uri)
+        if authorizer_result_ttl_in_seconds is not None:
+            pulumi.set(__self__, "authorizer_result_ttl_in_seconds", authorizer_result_ttl_in_seconds)
+        if identity_validation_expression is not None:
+            pulumi.set(__self__, "identity_validation_expression", identity_validation_expression)
+
+    @property
+    @pulumi.getter(name="authorizerUri")
+    def authorizer_uri(self) -> pulumi.Input[str]:
+        """
+        The ARN of the Lambda function to be called for authorization. Note: This Lambda function must have a resource-based policy assigned to it, to allow `lambda:InvokeFunction` from service principal `appsync.amazonaws.com`.
+        """
+        return pulumi.get(self, "authorizer_uri")
+
+    @authorizer_uri.setter
+    def authorizer_uri(self, value: pulumi.Input[str]):
+        pulumi.set(self, "authorizer_uri", value)
+
+    @property
+    @pulumi.getter(name="authorizerResultTtlInSeconds")
+    def authorizer_result_ttl_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of seconds a response should be cached for. The default is 5 minutes (300 seconds). The Lambda function can override this by returning a `ttlOverride` key in its response. A value of 0 disables caching of responses. Minimum value of 0. Maximum value of 3600.
+        """
+        return pulumi.get(self, "authorizer_result_ttl_in_seconds")
+
+    @authorizer_result_ttl_in_seconds.setter
+    def authorizer_result_ttl_in_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "authorizer_result_ttl_in_seconds", value)
+
+    @property
+    @pulumi.getter(name="identityValidationExpression")
+    def identity_validation_expression(self) -> Optional[pulumi.Input[str]]:
+        """
+        A regular expression for validation of tokens before the Lambda function is called.
+        """
+        return pulumi.get(self, "identity_validation_expression")
+
+    @identity_validation_expression.setter
+    def identity_validation_expression(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "identity_validation_expression", value)
 
 
 @pulumi.input_type

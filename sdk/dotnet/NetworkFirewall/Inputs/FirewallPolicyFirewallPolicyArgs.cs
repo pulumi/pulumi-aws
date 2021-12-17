@@ -12,6 +12,24 @@ namespace Pulumi.Aws.NetworkFirewall.Inputs
 
     public sealed class FirewallPolicyFirewallPolicyArgs : Pulumi.ResourceArgs
     {
+        [Input("statefulDefaultActions")]
+        private InputList<string>? _statefulDefaultActions;
+
+        /// <summary>
+        /// Set of actions to take on a packet if it does not match any stateful rules in the policy. This can only be specified if the policy has a `stateful_engine_options` block with a `rule_order` value of `STRICT_ORDER`. You can specify one of either or neither values of `aws:drop_strict` or `aws:drop_established`, as well as any combination of `aws:alert_strict` and `aws:alert_established`.
+        /// </summary>
+        public InputList<string> StatefulDefaultActions
+        {
+            get => _statefulDefaultActions ?? (_statefulDefaultActions = new InputList<string>());
+            set => _statefulDefaultActions = value;
+        }
+
+        /// <summary>
+        /// A configuration block that defines options on how the policy handles stateful rules. See Stateful Engine Options below for details.
+        /// </summary>
+        [Input("statefulEngineOptions")]
+        public Input<Inputs.FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs>? StatefulEngineOptions { get; set; }
+
         [Input("statefulRuleGroupReferences")]
         private InputList<Inputs.FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs>? _statefulRuleGroupReferences;
 

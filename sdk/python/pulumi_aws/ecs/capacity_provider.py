@@ -22,6 +22,7 @@ class CapacityProviderArgs:
         The set of arguments for constructing a CapacityProvider resource.
         :param pulumi.Input['CapacityProviderAutoScalingGroupProviderArgs'] auto_scaling_group_provider: Configuration block for the provider for the ECS auto scaling group. Detailed below.
         :param pulumi.Input[str] name: Name of the capacity provider.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "auto_scaling_group_provider", auto_scaling_group_provider)
         if name is not None:
@@ -56,6 +57,9 @@ class CapacityProviderArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -76,6 +80,7 @@ class _CapacityProviderState:
         :param pulumi.Input[str] arn: ARN that identifies the capacity provider.
         :param pulumi.Input['CapacityProviderAutoScalingGroupProviderArgs'] auto_scaling_group_provider: Configuration block for the provider for the ECS auto scaling group. Detailed below.
         :param pulumi.Input[str] name: Name of the capacity provider.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -127,6 +132,9 @@ class _CapacityProviderState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -193,6 +201,7 @@ class CapacityProvider(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['CapacityProviderAutoScalingGroupProviderArgs']] auto_scaling_group_provider: Configuration block for the provider for the ECS auto scaling group. Detailed below.
         :param pulumi.Input[str] name: Name of the capacity provider.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -299,6 +308,7 @@ class CapacityProvider(pulumi.CustomResource):
         :param pulumi.Input[str] arn: ARN that identifies the capacity provider.
         :param pulumi.Input[pulumi.InputType['CapacityProviderAutoScalingGroupProviderArgs']] auto_scaling_group_provider: Configuration block for the provider for the ECS auto scaling group. Detailed below.
         :param pulumi.Input[str] name: Name of the capacity provider.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -338,6 +348,9 @@ class CapacityProvider(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @property

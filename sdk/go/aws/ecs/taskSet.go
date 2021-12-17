@@ -48,9 +48,9 @@ type TaskSet struct {
 	StabilityStatus pulumi.StringOutput `pulumi:"stabilityStatus"`
 	// The status of the task set.
 	Status pulumi.StringOutput `pulumi:"status"`
-	// A map of tags to assign to the file system. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
+	// A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
 	TaskDefinition pulumi.StringOutput `pulumi:"taskDefinition"`
@@ -126,9 +126,9 @@ type taskSetState struct {
 	StabilityStatus *string `pulumi:"stabilityStatus"`
 	// The status of the task set.
 	Status *string `pulumi:"status"`
-	// A map of tags to assign to the file system. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
+	// A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
 	TaskDefinition *string `pulumi:"taskDefinition"`
@@ -167,9 +167,9 @@ type TaskSetState struct {
 	StabilityStatus pulumi.StringPtrInput
 	// The status of the task set.
 	Status pulumi.StringPtrInput
-	// A map of tags to assign to the file system. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
+	// A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
 	TaskDefinition pulumi.StringPtrInput
@@ -206,9 +206,9 @@ type taskSetArgs struct {
 	Service string `pulumi:"service"`
 	// The service discovery registries for the service. The maximum number of `serviceRegistries` blocks is `1`. Detailed below.
 	ServiceRegistries *TaskSetServiceRegistries `pulumi:"serviceRegistries"`
-	// A map of tags to assign to the file system. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
+	// A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
 	TaskDefinition  string `pulumi:"taskDefinition"`
@@ -240,9 +240,9 @@ type TaskSetArgs struct {
 	Service pulumi.StringInput
 	// The service discovery registries for the service. The maximum number of `serviceRegistries` blocks is `1`. Detailed below.
 	ServiceRegistries TaskSetServiceRegistriesPtrInput
-	// A map of tags to assign to the file system. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
+	// A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// The family and revision (`family:revision`) or full ARN of the task definition that you want to run in your service.
 	TaskDefinition  pulumi.StringInput

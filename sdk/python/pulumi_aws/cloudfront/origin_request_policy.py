@@ -24,7 +24,7 @@ class OriginRequestPolicyArgs:
         The set of arguments for constructing a OriginRequestPolicy resource.
         :param pulumi.Input['OriginRequestPolicyCookiesConfigArgs'] cookies_config: Object that determines whether any cookies in viewer requests (and if so, which cookies) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.
         :param pulumi.Input['OriginRequestPolicyHeadersConfigArgs'] headers_config: Object that determines whether any HTTP headers (and if so, which headers) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.
-        :param pulumi.Input['OriginRequestPolicyQueryStringsConfigArgs'] query_strings_config: Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Query Strings Config for more information.
+        :param pulumi.Input['OriginRequestPolicyQueryStringsConfigArgs'] query_strings_config: Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Query String Config for more information.
         :param pulumi.Input[str] comment: Comment to describe the origin request policy.
         :param pulumi.Input[str] name: Unique name to identify the origin request policy.
         """
@@ -64,7 +64,7 @@ class OriginRequestPolicyArgs:
     @pulumi.getter(name="queryStringsConfig")
     def query_strings_config(self) -> pulumi.Input['OriginRequestPolicyQueryStringsConfigArgs']:
         """
-        Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Query Strings Config for more information.
+        Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Query String Config for more information.
         """
         return pulumi.get(self, "query_strings_config")
 
@@ -113,7 +113,7 @@ class _OriginRequestPolicyState:
         :param pulumi.Input[str] etag: The current version of the origin request policy.
         :param pulumi.Input['OriginRequestPolicyHeadersConfigArgs'] headers_config: Object that determines whether any HTTP headers (and if so, which headers) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.
         :param pulumi.Input[str] name: Unique name to identify the origin request policy.
-        :param pulumi.Input['OriginRequestPolicyQueryStringsConfigArgs'] query_strings_config: Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Query Strings Config for more information.
+        :param pulumi.Input['OriginRequestPolicyQueryStringsConfigArgs'] query_strings_config: Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Query String Config for more information.
         """
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
@@ -192,7 +192,7 @@ class _OriginRequestPolicyState:
     @pulumi.getter(name="queryStringsConfig")
     def query_strings_config(self) -> Optional[pulumi.Input['OriginRequestPolicyQueryStringsConfigArgs']]:
         """
-        Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Query Strings Config for more information.
+        Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Query String Config for more information.
         """
         return pulumi.get(self, "query_strings_config")
 
@@ -249,7 +249,7 @@ class OriginRequestPolicy(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['OriginRequestPolicyCookiesConfigArgs']] cookies_config: Object that determines whether any cookies in viewer requests (and if so, which cookies) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.
         :param pulumi.Input[pulumi.InputType['OriginRequestPolicyHeadersConfigArgs']] headers_config: Object that determines whether any HTTP headers (and if so, which headers) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.
         :param pulumi.Input[str] name: Unique name to identify the origin request policy.
-        :param pulumi.Input[pulumi.InputType['OriginRequestPolicyQueryStringsConfigArgs']] query_strings_config: Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Query Strings Config for more information.
+        :param pulumi.Input[pulumi.InputType['OriginRequestPolicyQueryStringsConfigArgs']] query_strings_config: Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Query String Config for more information.
         """
         ...
     @overload
@@ -360,7 +360,7 @@ class OriginRequestPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] etag: The current version of the origin request policy.
         :param pulumi.Input[pulumi.InputType['OriginRequestPolicyHeadersConfigArgs']] headers_config: Object that determines whether any HTTP headers (and if so, which headers) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.
         :param pulumi.Input[str] name: Unique name to identify the origin request policy.
-        :param pulumi.Input[pulumi.InputType['OriginRequestPolicyQueryStringsConfigArgs']] query_strings_config: Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Query Strings Config for more information.
+        :param pulumi.Input[pulumi.InputType['OriginRequestPolicyQueryStringsConfigArgs']] query_strings_config: Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Query String Config for more information.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -418,7 +418,7 @@ class OriginRequestPolicy(pulumi.CustomResource):
     @pulumi.getter(name="queryStringsConfig")
     def query_strings_config(self) -> pulumi.Output['outputs.OriginRequestPolicyQueryStringsConfig']:
         """
-        Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Query Strings Config for more information.
+        Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Query String Config for more information.
         """
         return pulumi.get(self, "query_strings_config")
 

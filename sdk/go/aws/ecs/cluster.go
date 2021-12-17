@@ -107,8 +107,9 @@ type Cluster struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Detailed below.
 	Settings ClusterSettingArrayOutput `pulumi:"settings"`
-	Tags     pulumi.StringMapOutput    `pulumi:"tags"`
-	TagsAll  pulumi.StringMapOutput    `pulumi:"tagsAll"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewCluster registers a new resource with the given unique name, arguments, and options.
@@ -151,9 +152,10 @@ type clusterState struct {
 	// Name of the setting to manage. Valid values: `containerInsights`.
 	Name *string `pulumi:"name"`
 	// Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Detailed below.
-	Settings []ClusterSetting  `pulumi:"settings"`
-	Tags     map[string]string `pulumi:"tags"`
-	TagsAll  map[string]string `pulumi:"tagsAll"`
+	Settings []ClusterSetting `pulumi:"settings"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags    map[string]string `pulumi:"tags"`
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type ClusterState struct {
@@ -169,8 +171,9 @@ type ClusterState struct {
 	Name pulumi.StringPtrInput
 	// Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Detailed below.
 	Settings ClusterSettingArrayInput
-	Tags     pulumi.StringMapInput
-	TagsAll  pulumi.StringMapInput
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags    pulumi.StringMapInput
+	TagsAll pulumi.StringMapInput
 }
 
 func (ClusterState) ElementType() reflect.Type {
@@ -187,8 +190,9 @@ type clusterArgs struct {
 	// Name of the setting to manage. Valid values: `containerInsights`.
 	Name *string `pulumi:"name"`
 	// Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Detailed below.
-	Settings []ClusterSetting  `pulumi:"settings"`
-	Tags     map[string]string `pulumi:"tags"`
+	Settings []ClusterSetting `pulumi:"settings"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Cluster resource.
@@ -203,7 +207,8 @@ type ClusterArgs struct {
 	Name pulumi.StringPtrInput
 	// Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Detailed below.
 	Settings ClusterSettingArrayInput
-	Tags     pulumi.StringMapInput
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (ClusterArgs) ElementType() reflect.Type {

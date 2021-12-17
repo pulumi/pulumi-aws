@@ -159,15 +159,21 @@ class _InstanceState:
                instance (see list below)
         :param pulumi.Input[str] blueprint_id: The ID for a virtual private server image. A list of available blueprint IDs can be obtained using the AWS CLI command: `aws lightsail get-blueprints`
         :param pulumi.Input[str] bundle_id: The bundle of specification information (see list below)
+        :param pulumi.Input[int] cpu_count: The number of vCPUs the instance has.
         :param pulumi.Input[str] created_at: The timestamp when the instance was created.
         :param pulumi.Input[str] ipv6_address: (**Deprecated**) The first IPv6 address of the Lightsail instance. Use `ipv6_addresses` attribute instead.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ipv6_addresses: List of IPv6 addresses for the Lightsail instance.
+        :param pulumi.Input[bool] is_static_ip: A Boolean value indicating whether this instance has a static IP assigned to it.
         :param pulumi.Input[str] key_pair_name: The name of your key pair. Created in the
                Lightsail console (cannot use `ec2.KeyPair` at this time)
         :param pulumi.Input[str] name: The name of the Lightsail Instance. Names be unique within each AWS Region in your Lightsail account.
+        :param pulumi.Input[str] private_ip_address: The private IP address of the instance.
+        :param pulumi.Input[str] public_ip_address: The public IP address of the instance.
+        :param pulumi.Input[float] ram_size: The amount of RAM in GB on the instance (e.g., 1.0).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] user_data: launch script to configure server with additional user data
+        :param pulumi.Input[str] username: The user name for connecting to the instance (e.g., ec2-user).
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -261,6 +267,9 @@ class _InstanceState:
     @property
     @pulumi.getter(name="cpuCount")
     def cpu_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of vCPUs the instance has.
+        """
         return pulumi.get(self, "cpu_count")
 
     @cpu_count.setter
@@ -306,6 +315,9 @@ class _InstanceState:
     @property
     @pulumi.getter(name="isStaticIp")
     def is_static_ip(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A Boolean value indicating whether this instance has a static IP assigned to it.
+        """
         return pulumi.get(self, "is_static_ip")
 
     @is_static_ip.setter
@@ -340,6 +352,9 @@ class _InstanceState:
     @property
     @pulumi.getter(name="privateIpAddress")
     def private_ip_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        The private IP address of the instance.
+        """
         return pulumi.get(self, "private_ip_address")
 
     @private_ip_address.setter
@@ -349,6 +364,9 @@ class _InstanceState:
     @property
     @pulumi.getter(name="publicIpAddress")
     def public_ip_address(self) -> Optional[pulumi.Input[str]]:
+        """
+        The public IP address of the instance.
+        """
         return pulumi.get(self, "public_ip_address")
 
     @public_ip_address.setter
@@ -358,6 +376,9 @@ class _InstanceState:
     @property
     @pulumi.getter(name="ramSize")
     def ram_size(self) -> Optional[pulumi.Input[float]]:
+        """
+        The amount of RAM in GB on the instance (e.g., 1.0).
+        """
         return pulumi.get(self, "ram_size")
 
     @ram_size.setter
@@ -380,7 +401,7 @@ class _InstanceState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider .
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -403,6 +424,9 @@ class _InstanceState:
     @property
     @pulumi.getter
     def username(self) -> Optional[pulumi.Input[str]]:
+        """
+        The user name for connecting to the instance (e.g., ec2-user).
+        """
         return pulumi.get(self, "username")
 
     @username.setter
@@ -705,15 +729,21 @@ class Instance(pulumi.CustomResource):
                instance (see list below)
         :param pulumi.Input[str] blueprint_id: The ID for a virtual private server image. A list of available blueprint IDs can be obtained using the AWS CLI command: `aws lightsail get-blueprints`
         :param pulumi.Input[str] bundle_id: The bundle of specification information (see list below)
+        :param pulumi.Input[int] cpu_count: The number of vCPUs the instance has.
         :param pulumi.Input[str] created_at: The timestamp when the instance was created.
         :param pulumi.Input[str] ipv6_address: (**Deprecated**) The first IPv6 address of the Lightsail instance. Use `ipv6_addresses` attribute instead.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] ipv6_addresses: List of IPv6 addresses for the Lightsail instance.
+        :param pulumi.Input[bool] is_static_ip: A Boolean value indicating whether this instance has a static IP assigned to it.
         :param pulumi.Input[str] key_pair_name: The name of your key pair. Created in the
                Lightsail console (cannot use `ec2.KeyPair` at this time)
         :param pulumi.Input[str] name: The name of the Lightsail Instance. Names be unique within each AWS Region in your Lightsail account.
+        :param pulumi.Input[str] private_ip_address: The private IP address of the instance.
+        :param pulumi.Input[str] public_ip_address: The public IP address of the instance.
+        :param pulumi.Input[float] ram_size: The amount of RAM in GB on the instance (e.g., 1.0).
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider .
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] user_data: launch script to configure server with additional user data
+        :param pulumi.Input[str] username: The user name for connecting to the instance (e.g., ec2-user).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -775,6 +805,9 @@ class Instance(pulumi.CustomResource):
     @property
     @pulumi.getter(name="cpuCount")
     def cpu_count(self) -> pulumi.Output[int]:
+        """
+        The number of vCPUs the instance has.
+        """
         return pulumi.get(self, "cpu_count")
 
     @property
@@ -804,6 +837,9 @@ class Instance(pulumi.CustomResource):
     @property
     @pulumi.getter(name="isStaticIp")
     def is_static_ip(self) -> pulumi.Output[bool]:
+        """
+        A Boolean value indicating whether this instance has a static IP assigned to it.
+        """
         return pulumi.get(self, "is_static_ip")
 
     @property
@@ -826,16 +862,25 @@ class Instance(pulumi.CustomResource):
     @property
     @pulumi.getter(name="privateIpAddress")
     def private_ip_address(self) -> pulumi.Output[str]:
+        """
+        The private IP address of the instance.
+        """
         return pulumi.get(self, "private_ip_address")
 
     @property
     @pulumi.getter(name="publicIpAddress")
     def public_ip_address(self) -> pulumi.Output[str]:
+        """
+        The public IP address of the instance.
+        """
         return pulumi.get(self, "public_ip_address")
 
     @property
     @pulumi.getter(name="ramSize")
     def ram_size(self) -> pulumi.Output[float]:
+        """
+        The amount of RAM in GB on the instance (e.g., 1.0).
+        """
         return pulumi.get(self, "ram_size")
 
     @property
@@ -850,7 +895,7 @@ class Instance(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider .
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -865,5 +910,8 @@ class Instance(pulumi.CustomResource):
     @property
     @pulumi.getter
     def username(self) -> pulumi.Output[str]:
+        """
+        The user name for connecting to the instance (e.g., ec2-user).
+        """
         return pulumi.get(self, "username")
 

@@ -633,7 +633,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly masterInstanceGroup!: pulumi.Output<outputs.emr.ClusterMasterInstanceGroup>;
     /**
-     * Public DNS name of the master EC2 instance.
+     * The DNS name of the master node. If the cluster is on a private subnet, this is the private DNS name. On a public subnet, this is the public DNS name.
      */
     public /*out*/ readonly masterPublicDns!: pulumi.Output<string>;
     /**
@@ -853,7 +853,7 @@ export interface ClusterState {
      */
     masterInstanceGroup?: pulumi.Input<inputs.emr.ClusterMasterInstanceGroup>;
     /**
-     * Public DNS name of the master EC2 instance.
+     * The DNS name of the master node. If the cluster is on a private subnet, this is the private DNS name. On a public subnet, this is the public DNS name.
      */
     masterPublicDns?: pulumi.Input<string>;
     /**

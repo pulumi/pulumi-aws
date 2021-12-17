@@ -92,8 +92,9 @@ type PeeringAttachment struct {
 	// Region of EC2 Transit Gateway to peer with.
 	PeerRegion pulumi.StringOutput `pulumi:"peerRegion"`
 	// Identifier of EC2 Transit Gateway to peer with.
-	PeerTransitGatewayId pulumi.StringOutput    `pulumi:"peerTransitGatewayId"`
-	Tags                 pulumi.StringMapOutput `pulumi:"tags"`
+	PeerTransitGatewayId pulumi.StringOutput `pulumi:"peerTransitGatewayId"`
+	// Key-value tags for the EC2 Transit Gateway Peering Attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Identifier of EC2 Transit Gateway.
@@ -143,8 +144,9 @@ type peeringAttachmentState struct {
 	// Region of EC2 Transit Gateway to peer with.
 	PeerRegion *string `pulumi:"peerRegion"`
 	// Identifier of EC2 Transit Gateway to peer with.
-	PeerTransitGatewayId *string           `pulumi:"peerTransitGatewayId"`
-	Tags                 map[string]string `pulumi:"tags"`
+	PeerTransitGatewayId *string `pulumi:"peerTransitGatewayId"`
+	// Key-value tags for the EC2 Transit Gateway Peering Attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Identifier of EC2 Transit Gateway.
@@ -158,7 +160,8 @@ type PeeringAttachmentState struct {
 	PeerRegion pulumi.StringPtrInput
 	// Identifier of EC2 Transit Gateway to peer with.
 	PeerTransitGatewayId pulumi.StringPtrInput
-	Tags                 pulumi.StringMapInput
+	// Key-value tags for the EC2 Transit Gateway Peering Attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// Identifier of EC2 Transit Gateway.
@@ -175,8 +178,9 @@ type peeringAttachmentArgs struct {
 	// Region of EC2 Transit Gateway to peer with.
 	PeerRegion string `pulumi:"peerRegion"`
 	// Identifier of EC2 Transit Gateway to peer with.
-	PeerTransitGatewayId string            `pulumi:"peerTransitGatewayId"`
-	Tags                 map[string]string `pulumi:"tags"`
+	PeerTransitGatewayId string `pulumi:"peerTransitGatewayId"`
+	// Key-value tags for the EC2 Transit Gateway Peering Attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 	// Identifier of EC2 Transit Gateway.
 	TransitGatewayId string `pulumi:"transitGatewayId"`
 }
@@ -189,7 +193,8 @@ type PeeringAttachmentArgs struct {
 	PeerRegion pulumi.StringInput
 	// Identifier of EC2 Transit Gateway to peer with.
 	PeerTransitGatewayId pulumi.StringInput
-	Tags                 pulumi.StringMapInput
+	// Key-value tags for the EC2 Transit Gateway Peering Attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 	// Identifier of EC2 Transit Gateway.
 	TransitGatewayId pulumi.StringInput
 }

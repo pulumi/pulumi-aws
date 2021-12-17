@@ -33,9 +33,9 @@ type StudioLifecycleConfig struct {
 	StudioLifecycleConfigContent pulumi.StringOutput `pulumi:"studioLifecycleConfigContent"`
 	// The name of the Studio Lifecycle Configuration to create.
 	StudioLifecycleConfigName pulumi.StringOutput `pulumi:"studioLifecycleConfigName"`
-	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -85,9 +85,9 @@ type studioLifecycleConfigState struct {
 	StudioLifecycleConfigContent *string `pulumi:"studioLifecycleConfigContent"`
 	// The name of the Studio Lifecycle Configuration to create.
 	StudioLifecycleConfigName *string `pulumi:"studioLifecycleConfigName"`
-	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
@@ -100,9 +100,9 @@ type StudioLifecycleConfigState struct {
 	StudioLifecycleConfigContent pulumi.StringPtrInput
 	// The name of the Studio Lifecycle Configuration to create.
 	StudioLifecycleConfigName pulumi.StringPtrInput
-	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -117,7 +117,7 @@ type studioLifecycleConfigArgs struct {
 	StudioLifecycleConfigContent string `pulumi:"studioLifecycleConfigContent"`
 	// The name of the Studio Lifecycle Configuration to create.
 	StudioLifecycleConfigName string `pulumi:"studioLifecycleConfigName"`
-	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -129,7 +129,7 @@ type StudioLifecycleConfigArgs struct {
 	StudioLifecycleConfigContent pulumi.StringInput
 	// The name of the Studio Lifecycle Configuration to create.
 	StudioLifecycleConfigName pulumi.StringInput
-	// A map of tags to assign to the resource. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
 

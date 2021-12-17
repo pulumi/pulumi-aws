@@ -64,8 +64,9 @@ type TransitGateway struct {
 	// Identifier of the AWS account that owns the EC2 Transit Gateway
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
 	// Identifier of the default propagation route table
-	PropagationDefaultRouteTableId pulumi.StringOutput    `pulumi:"propagationDefaultRouteTableId"`
-	Tags                           pulumi.StringMapOutput `pulumi:"tags"`
+	PropagationDefaultRouteTableId pulumi.StringOutput `pulumi:"propagationDefaultRouteTableId"`
+	// Key-value tags for the EC2 Transit Gateway. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Whether VPN Equal Cost Multipath Protocol support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
@@ -120,8 +121,9 @@ type transitGatewayState struct {
 	// Identifier of the AWS account that owns the EC2 Transit Gateway
 	OwnerId *string `pulumi:"ownerId"`
 	// Identifier of the default propagation route table
-	PropagationDefaultRouteTableId *string           `pulumi:"propagationDefaultRouteTableId"`
-	Tags                           map[string]string `pulumi:"tags"`
+	PropagationDefaultRouteTableId *string `pulumi:"propagationDefaultRouteTableId"`
+	// Key-value tags for the EC2 Transit Gateway. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Whether VPN Equal Cost Multipath Protocol support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
@@ -149,7 +151,8 @@ type TransitGatewayState struct {
 	OwnerId pulumi.StringPtrInput
 	// Identifier of the default propagation route table
 	PropagationDefaultRouteTableId pulumi.StringPtrInput
-	Tags                           pulumi.StringMapInput
+	// Key-value tags for the EC2 Transit Gateway. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// Whether VPN Equal Cost Multipath Protocol support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
@@ -172,8 +175,9 @@ type transitGatewayArgs struct {
 	// Description of the EC2 Transit Gateway.
 	Description *string `pulumi:"description"`
 	// Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
-	DnsSupport *string           `pulumi:"dnsSupport"`
-	Tags       map[string]string `pulumi:"tags"`
+	DnsSupport *string `pulumi:"dnsSupport"`
+	// Key-value tags for the EC2 Transit Gateway. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 	// Whether VPN Equal Cost Multipath Protocol support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
 	VpnEcmpSupport *string `pulumi:"vpnEcmpSupport"`
 }
@@ -192,7 +196,8 @@ type TransitGatewayArgs struct {
 	Description pulumi.StringPtrInput
 	// Whether DNS support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
 	DnsSupport pulumi.StringPtrInput
-	Tags       pulumi.StringMapInput
+	// Key-value tags for the EC2 Transit Gateway. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 	// Whether VPN Equal Cost Multipath Protocol support is enabled. Valid values: `disable`, `enable`. Default value: `enable`.
 	VpnEcmpSupport pulumi.StringPtrInput
 }

@@ -51,7 +51,7 @@ type Graph struct {
 	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
 	// ARN of the Detective Graph.
 	GraphArn pulumi.StringOutput `pulumi:"graphArn"`
-	// A map of tags to assign to the instance. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
@@ -89,7 +89,7 @@ type graphState struct {
 	CreatedTime *string `pulumi:"createdTime"`
 	// ARN of the Detective Graph.
 	GraphArn *string `pulumi:"graphArn"`
-	// A map of tags to assign to the instance. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
@@ -99,7 +99,7 @@ type GraphState struct {
 	CreatedTime pulumi.StringPtrInput
 	// ARN of the Detective Graph.
 	GraphArn pulumi.StringPtrInput
-	// A map of tags to assign to the instance. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 }
@@ -109,14 +109,14 @@ func (GraphState) ElementType() reflect.Type {
 }
 
 type graphArgs struct {
-	// A map of tags to assign to the instance. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 // The set of arguments for constructing a Graph resource.
 type GraphArgs struct {
-	// A map of tags to assign to the instance. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 }

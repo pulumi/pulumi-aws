@@ -74,8 +74,9 @@ type Key struct {
 	// Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
 	MultiRegion pulumi.BoolOutput `pulumi:"multiRegion"`
 	// A valid policy JSON document. Although this is a key policy, not an IAM policy, an `iam.getPolicyDocument`, in the form that designates a principal, can be used.
-	Policy pulumi.StringOutput    `pulumi:"policy"`
-	Tags   pulumi.StringMapOutput `pulumi:"tags"`
+	Policy pulumi.StringOutput `pulumi:"policy"`
+	// A map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
@@ -137,8 +138,9 @@ type keyState struct {
 	// Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
 	MultiRegion *bool `pulumi:"multiRegion"`
 	// A valid policy JSON document. Although this is a key policy, not an IAM policy, an `iam.getPolicyDocument`, in the form that designates a principal, can be used.
-	Policy *string           `pulumi:"policy"`
-	Tags   map[string]string `pulumi:"tags"`
+	Policy *string `pulumi:"policy"`
+	// A map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
@@ -173,7 +175,8 @@ type KeyState struct {
 	MultiRegion pulumi.BoolPtrInput
 	// A valid policy JSON document. Although this is a key policy, not an IAM policy, an `iam.getPolicyDocument`, in the form that designates a principal, can be used.
 	Policy pulumi.StringPtrInput
-	Tags   pulumi.StringMapInput
+	// A map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
@@ -207,8 +210,9 @@ type keyArgs struct {
 	// Indicates whether the KMS key is a multi-Region (`true`) or regional (`false`) key. Defaults to `false`.
 	MultiRegion *bool `pulumi:"multiRegion"`
 	// A valid policy JSON document. Although this is a key policy, not an IAM policy, an `iam.getPolicyDocument`, in the form that designates a principal, can be used.
-	Policy *string           `pulumi:"policy"`
-	Tags   map[string]string `pulumi:"tags"`
+	Policy *string `pulumi:"policy"`
+	// A map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Key resource.
@@ -238,7 +242,8 @@ type KeyArgs struct {
 	MultiRegion pulumi.BoolPtrInput
 	// A valid policy JSON document. Although this is a key policy, not an IAM policy, an `iam.getPolicyDocument`, in the form that designates a principal, can be used.
 	Policy pulumi.StringPtrInput
-	Tags   pulumi.StringMapInput
+	// A map of tags to assign to the object. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (KeyArgs) ElementType() reflect.Type {
