@@ -168,7 +168,7 @@ import {RoutingRule} from "./index";
  * ```
  * ### Using replication configuration
  *
- * > **NOTE:** See the [`aws.s3.BucketReplicationConfig` resource](https://www.terraform.io/docs/providers/aws/r/s3_bucket_replication_configuration.html) to support bi-directional replication configuration and additional features.
+ * > **NOTE:** See the `aws.s3.BucketReplicationConfig` resource to support bi-directional replication configuration and additional features.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";

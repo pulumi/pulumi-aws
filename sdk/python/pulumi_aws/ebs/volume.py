@@ -33,6 +33,7 @@ class VolumeArgs:
         :param pulumi.Input[str] outpost_arn: The Amazon Resource Name (ARN) of the Outpost.
         :param pulumi.Input[int] size: The size of the drive in GiBs.
         :param pulumi.Input[str] snapshot_id: A snapshot to base the EBS volume off of.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[int] throughput: The throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
         :param pulumi.Input[str] type: The type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
         """
@@ -154,6 +155,9 @@ class VolumeArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -211,6 +215,7 @@ class _VolumeState:
         :param pulumi.Input[str] outpost_arn: The Amazon Resource Name (ARN) of the Outpost.
         :param pulumi.Input[int] size: The size of the drive in GiBs.
         :param pulumi.Input[str] snapshot_id: A snapshot to base the EBS volume off of.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[int] throughput: The throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
         :param pulumi.Input[str] type: The type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
@@ -350,6 +355,9 @@ class _VolumeState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -446,6 +454,7 @@ class Volume(pulumi.CustomResource):
         :param pulumi.Input[str] outpost_arn: The Amazon Resource Name (ARN) of the Outpost.
         :param pulumi.Input[int] size: The size of the drive in GiBs.
         :param pulumi.Input[str] snapshot_id: A snapshot to base the EBS volume off of.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[int] throughput: The throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
         :param pulumi.Input[str] type: The type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
         """
@@ -573,6 +582,7 @@ class Volume(pulumi.CustomResource):
         :param pulumi.Input[str] outpost_arn: The Amazon Resource Name (ARN) of the Outpost.
         :param pulumi.Input[int] size: The size of the drive in GiBs.
         :param pulumi.Input[str] snapshot_id: A snapshot to base the EBS volume off of.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[int] throughput: The throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
         :param pulumi.Input[str] type: The type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
@@ -668,6 +678,9 @@ class Volume(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @property

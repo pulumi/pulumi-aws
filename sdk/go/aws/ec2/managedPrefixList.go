@@ -32,7 +32,8 @@ type ManagedPrefixList struct {
 	// Name of this resource. The name must not start with `com.amazonaws`.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// ID of the AWS account that owns this prefix list.
-	OwnerId pulumi.StringOutput    `pulumi:"ownerId"`
+	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
+	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Latest version of this prefix list.
@@ -85,7 +86,8 @@ type managedPrefixListState struct {
 	// Name of this resource. The name must not start with `com.amazonaws`.
 	Name *string `pulumi:"name"`
 	// ID of the AWS account that owns this prefix list.
-	OwnerId *string           `pulumi:"ownerId"`
+	OwnerId *string `pulumi:"ownerId"`
+	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Latest version of this prefix list.
@@ -105,6 +107,7 @@ type ManagedPrefixListState struct {
 	Name pulumi.StringPtrInput
 	// ID of the AWS account that owns this prefix list.
 	OwnerId pulumi.StringPtrInput
+	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 	// Latest version of this prefix list.
@@ -123,7 +126,8 @@ type managedPrefixListArgs struct {
 	// Maximum number of entries that this prefix list can contain.
 	MaxEntries int `pulumi:"maxEntries"`
 	// Name of this resource. The name must not start with `com.amazonaws`.
-	Name *string           `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -137,6 +141,7 @@ type ManagedPrefixListArgs struct {
 	MaxEntries pulumi.IntInput
 	// Name of this resource. The name must not start with `com.amazonaws`.
 	Name pulumi.StringPtrInput
+	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
 

@@ -68,8 +68,9 @@ type Volume struct {
 	// The size of the drive in GiBs.
 	Size pulumi.IntOutput `pulumi:"size"`
 	// A snapshot to base the EBS volume off of.
-	SnapshotId pulumi.StringOutput    `pulumi:"snapshotId"`
-	Tags       pulumi.StringMapOutput `pulumi:"tags"`
+	SnapshotId pulumi.StringOutput `pulumi:"snapshotId"`
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
@@ -126,8 +127,9 @@ type volumeState struct {
 	// The size of the drive in GiBs.
 	Size *int `pulumi:"size"`
 	// A snapshot to base the EBS volume off of.
-	SnapshotId *string           `pulumi:"snapshotId"`
-	Tags       map[string]string `pulumi:"tags"`
+	SnapshotId *string `pulumi:"snapshotId"`
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
@@ -154,7 +156,8 @@ type VolumeState struct {
 	Size pulumi.IntPtrInput
 	// A snapshot to base the EBS volume off of.
 	SnapshotId pulumi.StringPtrInput
-	Tags       pulumi.StringMapInput
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// The throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
@@ -182,8 +185,9 @@ type volumeArgs struct {
 	// The size of the drive in GiBs.
 	Size *int `pulumi:"size"`
 	// A snapshot to base the EBS volume off of.
-	SnapshotId *string           `pulumi:"snapshotId"`
-	Tags       map[string]string `pulumi:"tags"`
+	SnapshotId *string `pulumi:"snapshotId"`
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 	// The throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
 	Throughput *int `pulumi:"throughput"`
 	// The type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).
@@ -207,7 +211,8 @@ type VolumeArgs struct {
 	Size pulumi.IntPtrInput
 	// A snapshot to base the EBS volume off of.
 	SnapshotId pulumi.StringPtrInput
-	Tags       pulumi.StringMapInput
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 	// The throughput that the volume supports, in MiB/s. Only valid for `type` of `gp3`.
 	Throughput pulumi.IntPtrInput
 	// The type of EBS volume. Can be `standard`, `gp2`, `gp3`, `io1`, `io2`, `sc1` or `st1` (Default: `gp2`).

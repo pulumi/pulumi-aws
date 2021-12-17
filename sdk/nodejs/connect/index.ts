@@ -5,27 +5,45 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./botAssociation";
 export * from "./contactFlow";
+export * from "./getBotAssociation";
 export * from "./getContactFlow";
+export * from "./getHoursOfOperation";
 export * from "./getInstance";
+export * from "./getLambdaFunctionAssociation";
+export * from "./hoursOfOperation";
 export * from "./instance";
+export * from "./lambdaFunctionAssociation";
 
 // Import resources to register:
+import { BotAssociation } from "./botAssociation";
 import { ContactFlow } from "./contactFlow";
+import { HoursOfOperation } from "./hoursOfOperation";
 import { Instance } from "./instance";
+import { LambdaFunctionAssociation } from "./lambdaFunctionAssociation";
 
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws:connect/botAssociation:BotAssociation":
+                return new BotAssociation(name, <any>undefined, { urn })
             case "aws:connect/contactFlow:ContactFlow":
                 return new ContactFlow(name, <any>undefined, { urn })
+            case "aws:connect/hoursOfOperation:HoursOfOperation":
+                return new HoursOfOperation(name, <any>undefined, { urn })
             case "aws:connect/instance:Instance":
                 return new Instance(name, <any>undefined, { urn })
+            case "aws:connect/lambdaFunctionAssociation:LambdaFunctionAssociation":
+                return new LambdaFunctionAssociation(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
+pulumi.runtime.registerResourceModule("aws", "connect/botAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "connect/contactFlow", _module)
+pulumi.runtime.registerResourceModule("aws", "connect/hoursOfOperation", _module)
 pulumi.runtime.registerResourceModule("aws", "connect/instance", _module)
+pulumi.runtime.registerResourceModule("aws", "connect/lambdaFunctionAssociation", _module)

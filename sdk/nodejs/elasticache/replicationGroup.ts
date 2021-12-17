@@ -312,6 +312,9 @@ export class ReplicationGroup extends pulumi.CustomResource {
      * The name of the cache subnet group to be used for the replication group.
      */
     public readonly subnetGroupName!: pulumi.Output<string>;
+    /**
+     * A map of tags to assign to the resource. Adding tags to this resource will add or overwrite any existing tags on the clusters in the replication group and not to the group itself. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -574,6 +577,9 @@ export interface ReplicationGroupState {
      * The name of the cache subnet group to be used for the replication group.
      */
     subnetGroupName?: pulumi.Input<string>;
+    /**
+     * A map of tags to assign to the resource. Adding tags to this resource will add or overwrite any existing tags on the clusters in the replication group and not to the group itself. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -705,6 +711,9 @@ export interface ReplicationGroupArgs {
      * The name of the cache subnet group to be used for the replication group.
      */
     subnetGroupName?: pulumi.Input<string>;
+    /**
+     * A map of tags to assign to the resource. Adding tags to this resource will add or overwrite any existing tags on the clusters in the replication group and not to the group itself. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Whether to enable encryption in transit.

@@ -140,7 +140,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     public readonly finalSnapshotIdentifier!: pulumi.Output<string | undefined>;
     /**
-     * The global cluster identifier specified on [`aws.docdb.GlobalCluster`](https://www.terraform.io/docs/providers/aws/r/docdb_global_cluster.html).
+     * The global cluster identifier specified on `aws.docdb.GlobalCluster`.
      */
     public readonly globalClusterIdentifier!: pulumi.Output<string | undefined>;
     /**
@@ -363,7 +363,7 @@ export interface ClusterState {
      */
     finalSnapshotIdentifier?: pulumi.Input<string>;
     /**
-     * The global cluster identifier specified on [`aws.docdb.GlobalCluster`](https://www.terraform.io/docs/providers/aws/r/docdb_global_cluster.html).
+     * The global cluster identifier specified on `aws.docdb.GlobalCluster`.
      */
     globalClusterIdentifier?: pulumi.Input<string>;
     /**
@@ -490,7 +490,7 @@ export interface ClusterArgs {
      */
     finalSnapshotIdentifier?: pulumi.Input<string>;
     /**
-     * The global cluster identifier specified on [`aws.docdb.GlobalCluster`](https://www.terraform.io/docs/providers/aws/r/docdb_global_cluster.html).
+     * The global cluster identifier specified on `aws.docdb.GlobalCluster`.
      */
     globalClusterIdentifier?: pulumi.Input<string>;
     /**

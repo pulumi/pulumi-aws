@@ -76,7 +76,7 @@ export class SecretPolicy extends pulumi.CustomResource {
      */
     public readonly blockPublicPolicy!: pulumi.Output<boolean | undefined>;
     /**
-     * A valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html).
+     * Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Unlike `aws.secretsmanager.Secret`, where `policy` can be set to `"{}"` to delete the policy, `"{}"` is not a valid policy since `policy` is required.
      */
     public readonly policy!: pulumi.Output<string>;
     /**
@@ -128,7 +128,7 @@ export interface SecretPolicyState {
      */
     blockPublicPolicy?: pulumi.Input<boolean>;
     /**
-     * A valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html).
+     * Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Unlike `aws.secretsmanager.Secret`, where `policy` can be set to `"{}"` to delete the policy, `"{}"` is not a valid policy since `policy` is required.
      */
     policy?: pulumi.Input<string>;
     /**
@@ -146,7 +146,7 @@ export interface SecretPolicyArgs {
      */
     blockPublicPolicy?: pulumi.Input<boolean>;
     /**
-     * A valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html).
+     * Valid JSON document representing a [resource policy](https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access_resource-based-policies.html). Unlike `aws.secretsmanager.Secret`, where `policy` can be set to `"{}"` to delete the policy, `"{}"` is not a valid policy since `policy` is required.
      */
     policy: pulumi.Input<string>;
     /**

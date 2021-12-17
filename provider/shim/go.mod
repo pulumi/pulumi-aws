@@ -7,4 +7,4 @@ require (
 	github.com/hashicorp/terraform-provider-aws v1.60.1-0.20211105002759-77bad27d9f23
 )
 
-replace github.com/hashicorp/terraform-provider-aws => github.com/pulumi/terraform-provider-aws v1.38.1-0.20211210122906-c542a1192341
+replace github.com/hashicorp/terraform-provider-aws => github.com/pulumi/terraform-provider-aws v1.38.1-0.20211217115701-188c8b7e4115

@@ -521,7 +521,7 @@ class _ClusterState:
         :param pulumi.Input[str] log_uri: S3 bucket to write the log files of the job flow. If a value is not provided, logs are not created.
         :param pulumi.Input['ClusterMasterInstanceFleetArgs'] master_instance_fleet: Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the master node type. Cannot be specified if any `master_instance_group` configuration blocks are set. Detailed below.
         :param pulumi.Input['ClusterMasterInstanceGroupArgs'] master_instance_group: Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [master node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-master).
-        :param pulumi.Input[str] master_public_dns: Public DNS name of the master EC2 instance.
+        :param pulumi.Input[str] master_public_dns: The DNS name of the master node. If the cluster is on a private subnet, this is the private DNS name. On a public subnet, this is the public DNS name.
         :param pulumi.Input[str] name: Name of the step.
         :param pulumi.Input[str] release_label: Release label for the Amazon EMR release.
         :param pulumi.Input[str] scale_down_behavior: Way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an `instance group` is resized.
@@ -837,7 +837,7 @@ class _ClusterState:
     @pulumi.getter(name="masterPublicDns")
     def master_public_dns(self) -> Optional[pulumi.Input[str]]:
         """
-        Public DNS name of the master EC2 instance.
+        The DNS name of the master node. If the cluster is on a private subnet, this is the private DNS name. On a public subnet, this is the public DNS name.
         """
         return pulumi.get(self, "master_public_dns")
 
@@ -2231,7 +2231,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[str] log_uri: S3 bucket to write the log files of the job flow. If a value is not provided, logs are not created.
         :param pulumi.Input[pulumi.InputType['ClusterMasterInstanceFleetArgs']] master_instance_fleet: Configuration block to use an [Instance Fleet](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-fleet.html) for the master node type. Cannot be specified if any `master_instance_group` configuration blocks are set. Detailed below.
         :param pulumi.Input[pulumi.InputType['ClusterMasterInstanceGroupArgs']] master_instance_group: Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [master node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-master).
-        :param pulumi.Input[str] master_public_dns: Public DNS name of the master EC2 instance.
+        :param pulumi.Input[str] master_public_dns: The DNS name of the master node. If the cluster is on a private subnet, this is the private DNS name. On a public subnet, this is the public DNS name.
         :param pulumi.Input[str] name: Name of the step.
         :param pulumi.Input[str] release_label: Release label for the Amazon EMR release.
         :param pulumi.Input[str] scale_down_behavior: Way that individual Amazon EC2 instances terminate when an automatic scale-in activity occurs or an `instance group` is resized.
@@ -2440,7 +2440,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="masterPublicDns")
     def master_public_dns(self) -> pulumi.Output[str]:
         """
-        Public DNS name of the master EC2 instance.
+        The DNS name of the master node. If the cluster is on a private subnet, this is the private DNS name. On a public subnet, this is the public DNS name.
         """
         return pulumi.get(self, "master_public_dns")
 

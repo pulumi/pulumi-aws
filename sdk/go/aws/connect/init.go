@@ -21,10 +21,16 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws:connect/botAssociation:BotAssociation":
+		r = &BotAssociation{}
 	case "aws:connect/contactFlow:ContactFlow":
 		r = &ContactFlow{}
+	case "aws:connect/hoursOfOperation:HoursOfOperation":
+		r = &HoursOfOperation{}
 	case "aws:connect/instance:Instance":
 		r = &Instance{}
+	case "aws:connect/lambdaFunctionAssociation:LambdaFunctionAssociation":
+		r = &LambdaFunctionAssociation{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -40,12 +46,27 @@ func init() {
 	}
 	pulumi.RegisterResourceModule(
 		"aws",
+		"connect/botAssociation",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
 		"connect/contactFlow",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
 		"aws",
+		"connect/hoursOfOperation",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
 		"connect/instance",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"connect/lambdaFunctionAssociation",
 		&module{version},
 	)
 }

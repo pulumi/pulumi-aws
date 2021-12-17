@@ -11,6 +11,53 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Manages the Security Hub Organization Configuration.
+//
+// > **NOTE:** This resource requires an `securityhub.OrganizationAdminAccount` to be configured (not necessarily with this provider). More information about managing Security Hub in an organization can be found in the [Managing administrator and member accounts](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-accounts.html) documentation
+//
+// > **NOTE:** This is an advanced resource. This provider will automatically assume management of the Security Hub Organization Configuration without import and perform no actions on removal from the configuration.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/organizations"
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/securityhub"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleOrganization, err := organizations.NewOrganization(ctx, "exampleOrganization", &organizations.OrganizationArgs{
+// 			AwsServiceAccessPrincipals: pulumi.StringArray{
+// 				pulumi.String("securityhub.amazonaws.com"),
+// 			},
+// 			FeatureSet: pulumi.String("ALL"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = securityhub.NewOrganizationAdminAccount(ctx, "exampleOrganizationAdminAccount", &securityhub.OrganizationAdminAccountArgs{
+// 			AdminAccountId: pulumi.String("123456789012"),
+// 		}, pulumi.DependsOn([]pulumi.Resource{
+// 			exampleOrganization,
+// 		}))
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = securityhub.NewOrganizationConfiguration(ctx, "exampleOrganizationConfiguration", &securityhub.OrganizationConfigurationArgs{
+// 			AutoEnable: pulumi.Bool(true),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Import
 //
 // An existing Security Hub enabled account can be imported using the AWS account ID, e.g.,

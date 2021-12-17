@@ -120,7 +120,7 @@ namespace Pulumi.Aws.StorageGateway
         public Output<string?> CaseSensitivity { get; private set; } = null!;
 
         /// <summary>
-        /// The default storage class for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`. Valid values: `S3_STANDARD`, `S3_STANDARD_IA`, `S3_ONEZONE_IA`.
+        /// The default [storage class](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-DefaultStorageClass) for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`.
         /// </summary>
         [Output("defaultStorageClass")]
         public Output<string?> DefaultStorageClass { get; private set; } = null!;
@@ -340,7 +340,7 @@ namespace Pulumi.Aws.StorageGateway
         public Input<string>? CaseSensitivity { get; set; }
 
         /// <summary>
-        /// The default storage class for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`. Valid values: `S3_STANDARD`, `S3_STANDARD_IA`, `S3_ONEZONE_IA`.
+        /// The default [storage class](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-DefaultStorageClass) for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`.
         /// </summary>
         [Input("defaultStorageClass")]
         public Input<string>? DefaultStorageClass { get; set; }
@@ -527,7 +527,7 @@ namespace Pulumi.Aws.StorageGateway
         public Input<string>? CaseSensitivity { get; set; }
 
         /// <summary>
-        /// The default storage class for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`. Valid values: `S3_STANDARD`, `S3_STANDARD_IA`, `S3_ONEZONE_IA`.
+        /// The default [storage class](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-DefaultStorageClass) for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`.
         /// </summary>
         [Input("defaultStorageClass")]
         public Input<string>? DefaultStorageClass { get; set; }

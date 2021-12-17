@@ -101,7 +101,8 @@ type FileSystem struct {
 	ProvisionedThroughputInMibps pulumi.Float64PtrOutput `pulumi:"provisionedThroughputInMibps"`
 	// The latest known metered size (in bytes) of data stored in the file system, the value is not the exact size that the file system was at any point in time. See Size In Bytes.
 	SizeInBytes FileSystemSizeInByteArrayOutput `pulumi:"sizeInBytes"`
-	Tags        pulumi.StringMapOutput          `pulumi:"tags"`
+	// A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Throughput mode for the file system. Defaults to `bursting`. Valid values: `bursting`, `provisioned`. When using `provisioned`, also set `provisionedThroughputInMibps`.
@@ -166,7 +167,8 @@ type fileSystemState struct {
 	ProvisionedThroughputInMibps *float64 `pulumi:"provisionedThroughputInMibps"`
 	// The latest known metered size (in bytes) of data stored in the file system, the value is not the exact size that the file system was at any point in time. See Size In Bytes.
 	SizeInBytes []FileSystemSizeInByte `pulumi:"sizeInBytes"`
-	Tags        map[string]string      `pulumi:"tags"`
+	// A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Throughput mode for the file system. Defaults to `bursting`. Valid values: `bursting`, `provisioned`. When using `provisioned`, also set `provisionedThroughputInMibps`.
@@ -203,7 +205,8 @@ type FileSystemState struct {
 	ProvisionedThroughputInMibps pulumi.Float64PtrInput
 	// The latest known metered size (in bytes) of data stored in the file system, the value is not the exact size that the file system was at any point in time. See Size In Bytes.
 	SizeInBytes FileSystemSizeInByteArrayInput
-	Tags        pulumi.StringMapInput
+	// A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// Throughput mode for the file system. Defaults to `bursting`. Valid values: `bursting`, `provisioned`. When using `provisioned`, also set `provisionedThroughputInMibps`.
@@ -231,8 +234,9 @@ type fileSystemArgs struct {
 	// The file system performance mode. Can be either `"generalPurpose"` or `"maxIO"` (Default: `"generalPurpose"`).
 	PerformanceMode *string `pulumi:"performanceMode"`
 	// The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughputMode` set to `provisioned`.
-	ProvisionedThroughputInMibps *float64          `pulumi:"provisionedThroughputInMibps"`
-	Tags                         map[string]string `pulumi:"tags"`
+	ProvisionedThroughputInMibps *float64 `pulumi:"provisionedThroughputInMibps"`
+	// A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 	// Throughput mode for the file system. Defaults to `bursting`. Valid values: `bursting`, `provisioned`. When using `provisioned`, also set `provisionedThroughputInMibps`.
 	ThroughputMode *string `pulumi:"throughputMode"`
 }
@@ -256,7 +260,8 @@ type FileSystemArgs struct {
 	PerformanceMode pulumi.StringPtrInput
 	// The throughput, measured in MiB/s, that you want to provision for the file system. Only applicable with `throughputMode` set to `provisioned`.
 	ProvisionedThroughputInMibps pulumi.Float64PtrInput
-	Tags                         pulumi.StringMapInput
+	// A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 	// Throughput mode for the file system. Defaults to `bursting`. Valid values: `bursting`, `provisioned`. When using `provisioned`, also set `provisionedThroughputInMibps`.
 	ThroughputMode pulumi.StringPtrInput
 }

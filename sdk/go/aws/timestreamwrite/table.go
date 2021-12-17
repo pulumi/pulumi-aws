@@ -85,8 +85,9 @@ type Table struct {
 	// The retention duration for the memory store and magnetic store. See Retention Properties below for more details. If not provided, `magneticStoreRetentionPeriodInDays` default to 73000 and `memoryStoreRetentionPeriodInHours` defaults to 6.
 	RetentionProperties TableRetentionPropertiesOutput `pulumi:"retentionProperties"`
 	// The name of the Timestream table.
-	TableName pulumi.StringOutput    `pulumi:"tableName"`
-	Tags      pulumi.StringMapOutput `pulumi:"tags"`
+	TableName pulumi.StringOutput `pulumi:"tableName"`
+	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
@@ -133,8 +134,9 @@ type tableState struct {
 	// The retention duration for the memory store and magnetic store. See Retention Properties below for more details. If not provided, `magneticStoreRetentionPeriodInDays` default to 73000 and `memoryStoreRetentionPeriodInHours` defaults to 6.
 	RetentionProperties *TableRetentionProperties `pulumi:"retentionProperties"`
 	// The name of the Timestream table.
-	TableName *string           `pulumi:"tableName"`
-	Tags      map[string]string `pulumi:"tags"`
+	TableName *string `pulumi:"tableName"`
+	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
@@ -148,7 +150,8 @@ type TableState struct {
 	RetentionProperties TableRetentionPropertiesPtrInput
 	// The name of the Timestream table.
 	TableName pulumi.StringPtrInput
-	Tags      pulumi.StringMapInput
+	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
@@ -163,8 +166,9 @@ type tableArgs struct {
 	// The retention duration for the memory store and magnetic store. See Retention Properties below for more details. If not provided, `magneticStoreRetentionPeriodInDays` default to 73000 and `memoryStoreRetentionPeriodInHours` defaults to 6.
 	RetentionProperties *TableRetentionProperties `pulumi:"retentionProperties"`
 	// The name of the Timestream table.
-	TableName string            `pulumi:"tableName"`
-	Tags      map[string]string `pulumi:"tags"`
+	TableName string `pulumi:"tableName"`
+	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Table resource.
@@ -175,7 +179,8 @@ type TableArgs struct {
 	RetentionProperties TableRetentionPropertiesPtrInput
 	// The name of the Timestream table.
 	TableName pulumi.StringInput
-	Tags      pulumi.StringMapInput
+	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (TableArgs) ElementType() reflect.Type {

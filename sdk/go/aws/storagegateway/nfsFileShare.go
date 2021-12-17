@@ -59,7 +59,7 @@ type NfsFileShare struct {
 	CacheAttributes NfsFileShareCacheAttributesPtrOutput `pulumi:"cacheAttributes"`
 	// The list of clients that are allowed to access the file gateway. The list must contain either valid IP addresses or valid CIDR blocks. Set to `["0.0.0.0/0"]` to not limit access. Minimum 1 item. Maximum 100 items.
 	ClientLists pulumi.StringArrayOutput `pulumi:"clientLists"`
-	// The default storage class for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`. Valid values: `S3_STANDARD`, `S3_STANDARD_IA`, `S3_ONEZONE_IA`.
+	// The default [storage class](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-DefaultStorageClass) for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`.
 	DefaultStorageClass pulumi.StringPtrOutput `pulumi:"defaultStorageClass"`
 	// The name of the file share. Must be set if an S3 prefix name is set in `locationArn`.
 	FileShareName pulumi.StringOutput `pulumi:"fileShareName"`
@@ -146,7 +146,7 @@ type nfsFileShareState struct {
 	CacheAttributes *NfsFileShareCacheAttributes `pulumi:"cacheAttributes"`
 	// The list of clients that are allowed to access the file gateway. The list must contain either valid IP addresses or valid CIDR blocks. Set to `["0.0.0.0/0"]` to not limit access. Minimum 1 item. Maximum 100 items.
 	ClientLists []string `pulumi:"clientLists"`
-	// The default storage class for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`. Valid values: `S3_STANDARD`, `S3_STANDARD_IA`, `S3_ONEZONE_IA`.
+	// The default [storage class](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-DefaultStorageClass) for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`.
 	DefaultStorageClass *string `pulumi:"defaultStorageClass"`
 	// The name of the file share. Must be set if an S3 prefix name is set in `locationArn`.
 	FileShareName *string `pulumi:"fileShareName"`
@@ -193,7 +193,7 @@ type NfsFileShareState struct {
 	CacheAttributes NfsFileShareCacheAttributesPtrInput
 	// The list of clients that are allowed to access the file gateway. The list must contain either valid IP addresses or valid CIDR blocks. Set to `["0.0.0.0/0"]` to not limit access. Minimum 1 item. Maximum 100 items.
 	ClientLists pulumi.StringArrayInput
-	// The default storage class for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`. Valid values: `S3_STANDARD`, `S3_STANDARD_IA`, `S3_ONEZONE_IA`.
+	// The default [storage class](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-DefaultStorageClass) for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`.
 	DefaultStorageClass pulumi.StringPtrInput
 	// The name of the file share. Must be set if an S3 prefix name is set in `locationArn`.
 	FileShareName pulumi.StringPtrInput
@@ -242,7 +242,7 @@ type nfsFileShareArgs struct {
 	CacheAttributes *NfsFileShareCacheAttributes `pulumi:"cacheAttributes"`
 	// The list of clients that are allowed to access the file gateway. The list must contain either valid IP addresses or valid CIDR blocks. Set to `["0.0.0.0/0"]` to not limit access. Minimum 1 item. Maximum 100 items.
 	ClientLists []string `pulumi:"clientLists"`
-	// The default storage class for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`. Valid values: `S3_STANDARD`, `S3_STANDARD_IA`, `S3_ONEZONE_IA`.
+	// The default [storage class](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-DefaultStorageClass) for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`.
 	DefaultStorageClass *string `pulumi:"defaultStorageClass"`
 	// The name of the file share. Must be set if an S3 prefix name is set in `locationArn`.
 	FileShareName *string `pulumi:"fileShareName"`
@@ -282,7 +282,7 @@ type NfsFileShareArgs struct {
 	CacheAttributes NfsFileShareCacheAttributesPtrInput
 	// The list of clients that are allowed to access the file gateway. The list must contain either valid IP addresses or valid CIDR blocks. Set to `["0.0.0.0/0"]` to not limit access. Minimum 1 item. Maximum 100 items.
 	ClientLists pulumi.StringArrayInput
-	// The default storage class for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`. Valid values: `S3_STANDARD`, `S3_STANDARD_IA`, `S3_ONEZONE_IA`.
+	// The default [storage class](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-DefaultStorageClass) for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`.
 	DefaultStorageClass pulumi.StringPtrInput
 	// The name of the file share. Must be set if an S3 prefix name is set in `locationArn`.
 	FileShareName pulumi.StringPtrInput

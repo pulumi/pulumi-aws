@@ -4614,9 +4614,13 @@ export namespace appsync {
 
     export interface GraphQLApiAdditionalAuthenticationProvider {
         /**
-         * The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`
+         * The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
          */
         authenticationType: pulumi.Input<string>;
+        /**
+         * Nested argument containing Lambda authorizer configuration. Defined below.
+         */
+        lambdaAuthorizerConfig?: pulumi.Input<inputs.appsync.GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfig>;
         /**
          * Nested argument containing OpenID Connect configuration. Defined below.
          */
@@ -4625,6 +4629,21 @@ export namespace appsync {
          * The Amazon Cognito User Pool configuration. Defined below.
          */
         userPoolConfig?: pulumi.Input<inputs.appsync.GraphQLApiAdditionalAuthenticationProviderUserPoolConfig>;
+    }
+
+    export interface GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfig {
+        /**
+         * The number of seconds a response should be cached for. The default is 5 minutes (300 seconds). The Lambda function can override this by returning a `ttlOverride` key in its response. A value of 0 disables caching of responses. Minimum value of 0. Maximum value of 3600.
+         */
+        authorizerResultTtlInSeconds?: pulumi.Input<number>;
+        /**
+         * The ARN of the Lambda function to be called for authorization. Note: This Lambda function must have a resource-based policy assigned to it, to allow `lambda:InvokeFunction` from service principal `appsync.amazonaws.com`.
+         */
+        authorizerUri: pulumi.Input<string>;
+        /**
+         * A regular expression for validation of tokens before the Lambda function is called.
+         */
+        identityValidationExpression?: pulumi.Input<string>;
     }
 
     export interface GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfig {
@@ -4659,6 +4678,21 @@ export namespace appsync {
          * The user pool ID.
          */
         userPoolId: pulumi.Input<string>;
+    }
+
+    export interface GraphQLApiLambdaAuthorizerConfig {
+        /**
+         * The number of seconds a response should be cached for. The default is 5 minutes (300 seconds). The Lambda function can override this by returning a `ttlOverride` key in its response. A value of 0 disables caching of responses. Minimum value of 0. Maximum value of 3600.
+         */
+        authorizerResultTtlInSeconds?: pulumi.Input<number>;
+        /**
+         * The ARN of the Lambda function to be called for authorization. Note: This Lambda function must have a resource-based policy assigned to it, to allow `lambda:InvokeFunction` from service principal `appsync.amazonaws.com`.
+         */
+        authorizerUri: pulumi.Input<string>;
+        /**
+         * A regular expression for validation of tokens before the Lambda function is called.
+         */
+        identityValidationExpression?: pulumi.Input<string>;
     }
 
     export interface GraphQLApiLogConfig {
@@ -6026,7 +6060,7 @@ export namespace cloudfront {
          */
         headersConfig: pulumi.Input<inputs.cloudfront.CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig>;
         /**
-         * Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Query Strings Config for more information.
+         * Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Query String Config for more information.
          */
         queryStringsConfig: pulumi.Input<inputs.cloudfront.CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig>;
     }
@@ -8973,6 +9007,78 @@ export namespace cognito {
 }
 
 export namespace config {
+}
+
+export namespace connect {
+    export interface BotAssociationLexBot {
+        /**
+         * The Region that the Amazon Lex (V1) bot was created in. Defaults to current region.
+         */
+        lexRegion?: pulumi.Input<string>;
+        /**
+         * The name of the Amazon Lex (V1) bot.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface GetBotAssociationLexBotArgs {
+        /**
+         * The Region that the Amazon Lex (V1) bot was created in.
+         */
+        lexRegion?: pulumi.Input<string>;
+        /**
+         * The name of the Amazon Lex (V1) bot.
+         */
+        name: pulumi.Input<string>;
+    }
+
+    export interface GetBotAssociationLexBot {
+        /**
+         * The Region that the Amazon Lex (V1) bot was created in.
+         */
+        lexRegion?: string;
+        /**
+         * The name of the Amazon Lex (V1) bot.
+         */
+        name: string;
+    }
+
+    export interface HoursOfOperationConfig {
+        /**
+         * Specifies the day that the hours of operation applies to.
+         */
+        day: pulumi.Input<string>;
+        /**
+         * A end time block specifies the time that your contact center closes. The `endTime` is documented below.
+         */
+        endTime: pulumi.Input<inputs.connect.HoursOfOperationConfigEndTime>;
+        /**
+         * A start time block specifies the time that your contact center opens. The `startTime` is documented below.
+         */
+        startTime: pulumi.Input<inputs.connect.HoursOfOperationConfigStartTime>;
+    }
+
+    export interface HoursOfOperationConfigEndTime {
+        /**
+         * Specifies the hour of closing.
+         */
+        hours: pulumi.Input<number>;
+        /**
+         * Specifies the minute of closing.
+         */
+        minutes: pulumi.Input<number>;
+    }
+
+    export interface HoursOfOperationConfigStartTime {
+        /**
+         * Specifies the hour of opening.
+         */
+        hours: pulumi.Input<number>;
+        /**
+         * Specifies the minute of opening.
+         */
+        minutes: pulumi.Input<number>;
+    }
 }
 
 export namespace datasync {
@@ -12783,6 +12889,22 @@ export namespace ec2transitgateway {
 }
 
 export namespace ecr {
+    export interface RegistryScanningConfigurationRule {
+        /**
+         * One or more repository filter blocks, containing a `filter` (required string filtering repositories, see pattern regex [here](https://docs.aws.amazon.com/AmazonECR/latest/APIReference/API_ScanningRepositoryFilter.html)) and a `filterType` (required string, currently only `WILDCARD` is supported).
+         */
+        repositoryFilters: pulumi.Input<pulumi.Input<inputs.ecr.RegistryScanningConfigurationRuleRepositoryFilter>[]>;
+        /**
+         * The frequency that scans are performed at for a private registry. Can be `SCAN_ON_PUSH`, `CONTINUOUS_SCAN`, or `MANUAL`.
+         */
+        scanFrequency: pulumi.Input<string>;
+    }
+
+    export interface RegistryScanningConfigurationRuleRepositoryFilter {
+        filter: pulumi.Input<string>;
+        filterType: pulumi.Input<string>;
+    }
+
     export interface ReplicationConfigurationReplicationConfiguration {
         /**
          * The replication rules for a replication configuration. See Rule.
@@ -13313,7 +13435,7 @@ export namespace ecs {
          */
         port?: pulumi.Input<number>;
         /**
-         * The ARN of the Service Registry. The currently supported service registry is Amazon Route 53 Auto Naming Service([`aws.servicediscovery.Service` resource](https://www.terraform.io/docs/providers/aws/r/service_discovery_service.html)). For more information, see [Service](https://docs.aws.amazon.com/Route53/latest/APIReference/API_autonaming_Service.html).
+         * The ARN of the Service Registry. The currently supported service registry is Amazon Route 53 Auto Naming Service(`aws.servicediscovery.Service` resource). For more information, see [Service](https://docs.aws.amazon.com/Route53/latest/APIReference/API_autonaming_Service.html).
          */
         registryArn: pulumi.Input<string>;
     }
@@ -15677,7 +15799,14 @@ export namespace fsx {
          * The name of the domain group whose members are granted administrative privileges for the SVM. The group that you specify must already exist in your domain. Defaults to `Domain Admins`.
          */
         fileSystemAdministratorsGroup?: pulumi.Input<string>;
+        /**
+         * @deprecated use 'organizational_unit_distinguished_name' instead
+         */
         organizationalUnitDistinguidshedName?: pulumi.Input<string>;
+        /**
+         * The fully qualified distinguished name of the organizational unit within your self-managed AD directory that the Windows File Server instance will join. For example, `OU=FSx,DC=yourdomain,DC=corp,DC=com`. Only accepts OU as the direct parent of the SVM. If none is provided, the SVM is created in the default location of your self-managed AD directory. To learn more, see [RFC 2253](https://tools.ietf.org/html/rfc2253).
+         */
+        organizationalUnitDistinguishedName?: pulumi.Input<string>;
         /**
          * The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
          */
@@ -16916,7 +17045,7 @@ export namespace iam {
          */
         notPrincipals?: inputs.iam.GetPolicyDocumentStatementNotPrincipal[];
         /**
-         * List of resource ARNs that this statement does *not* apply to. Use to apply a policy statement to all resources *except* those listed.
+         * List of resource ARNs that this statement does *not* apply to. Use to apply a policy statement to all resources *except* those listed. Conflicts with `resources`.
          */
         notResources?: string[];
         /**
@@ -16924,7 +17053,7 @@ export namespace iam {
          */
         principals?: inputs.iam.GetPolicyDocumentStatementPrincipal[];
         /**
-         * List of resource ARNs that this statement applies to. This is required by AWS if used for an IAM policy.
+         * List of resource ARNs that this statement applies to. This is required by AWS if used for an IAM policy. Conflicts with `notResources`.
          */
         resources?: string[];
         /**
@@ -16955,7 +17084,7 @@ export namespace iam {
          */
         notPrincipals?: pulumi.Input<pulumi.Input<inputs.iam.GetPolicyDocumentStatementNotPrincipalArgs>[]>;
         /**
-         * List of resource ARNs that this statement does *not* apply to. Use to apply a policy statement to all resources *except* those listed.
+         * List of resource ARNs that this statement does *not* apply to. Use to apply a policy statement to all resources *except* those listed. Conflicts with `resources`.
          */
         notResources?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -16963,7 +17092,7 @@ export namespace iam {
          */
         principals?: pulumi.Input<pulumi.Input<inputs.iam.GetPolicyDocumentStatementPrincipalArgs>[]>;
         /**
-         * List of resource ARNs that this statement applies to. This is required by AWS if used for an IAM policy.
+         * List of resource ARNs that this statement applies to. This is required by AWS if used for an IAM policy. Conflicts with `notResources`.
          */
         resources?: pulumi.Input<pulumi.Input<string>[]>;
         /**
@@ -21889,6 +22018,14 @@ export namespace networkfirewall {
 
     export interface FirewallPolicyFirewallPolicy {
         /**
+         * Set of actions to take on a packet if it does not match any stateful rules in the policy. This can only be specified if the policy has a `statefulEngineOptions` block with a `ruleOrder` value of `STRICT_ORDER`. You can specify one of either or neither values of `aws:drop_strict` or `aws:drop_established`, as well as any combination of `aws:alert_strict` and `aws:alert_established`.
+         */
+        statefulDefaultActions?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A configuration block that defines options on how the policy handles stateful rules. See Stateful Engine Options below for details.
+         */
+        statefulEngineOptions?: pulumi.Input<inputs.networkfirewall.FirewallPolicyFirewallPolicyStatefulEngineOptions>;
+        /**
          * Set of configuration blocks containing references to the stateful rule groups that are used in the policy. See Stateful Rule Group Reference below for details.
          */
         statefulRuleGroupReferences?: pulumi.Input<pulumi.Input<inputs.networkfirewall.FirewallPolicyFirewallPolicyStatefulRuleGroupReference>[]>;
@@ -21912,7 +22049,18 @@ export namespace networkfirewall {
         statelessRuleGroupReferences?: pulumi.Input<pulumi.Input<inputs.networkfirewall.FirewallPolicyFirewallPolicyStatelessRuleGroupReference>[]>;
     }
 
+    export interface FirewallPolicyFirewallPolicyStatefulEngineOptions {
+        /**
+         * Indicates how to manage the order of stateful rule evaluation for the policy. Default value: `DEFAULT_ACTION_ORDER`. Valid values: `DEFAULT_ACTION_ORDER`, `STRICT_ORDER`.
+         */
+        ruleOrder: pulumi.Input<string>;
+    }
+
     export interface FirewallPolicyFirewallPolicyStatefulRuleGroupReference {
+        /**
+         * An integer setting that indicates the order in which to apply the stateful rule groups in a single policy. This argument must be specified if the policy has a `statefulEngineOptions` block with a `ruleOrder` value of `STRICT_ORDER`. AWS Network Firewall applies each stateful rule group to a packet starting with the group that has the lowest priority setting.
+         */
+        priority?: pulumi.Input<number>;
         /**
          * The Amazon Resource Name (ARN) of the stateful rule group.
          */
@@ -22003,6 +22151,10 @@ export namespace networkfirewall {
          * A configuration block that defines the stateful or stateless rules for the rule group. See Rules Source below for details.
          */
         rulesSource: pulumi.Input<inputs.networkfirewall.RuleGroupRuleGroupRulesSource>;
+        /**
+         * A configuration block that defines stateful rule options for the rule group. See Stateful Rule Options below for details.
+         */
+        statefulRuleOptions?: pulumi.Input<inputs.networkfirewall.RuleGroupRuleGroupStatefulRuleOptions>;
     }
 
     export interface RuleGroupRuleGroupRuleVariables {
@@ -22281,6 +22433,12 @@ export namespace networkfirewall {
         masks?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
+    export interface RuleGroupRuleGroupStatefulRuleOptions {
+        /**
+         * Indicates how to manage the order of the rule evaluation for the rule group. Default value: `DEFAULT_ACTION_ORDER`. Valid values: `DEFAULT_ACTION_ORDER`, `STRICT_ORDER`.
+         */
+        ruleOrder: pulumi.Input<string>;
+    }
 }
 
 export namespace opsworks {
@@ -24084,7 +24242,7 @@ export namespace s3 {
          */
         days?: pulumi.Input<number>;
         /**
-         * Specifies the Amazon S3 storage class to which you want the noncurrent object versions to transition. Can be `ONEZONE_IA`, `STANDARD_IA`, `INTELLIGENT_TIERING`, `GLACIER`, or `DEEP_ARCHIVE`.
+         * Specifies the Amazon S3 [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Transition.html#AmazonS3-Type-Transition-StorageClass) to which you want the object to transition.
          */
         storageClass: pulumi.Input<string>;
     }
@@ -24099,7 +24257,7 @@ export namespace s3 {
          */
         days?: pulumi.Input<number>;
         /**
-         * Specifies the Amazon S3 storage class to which you want the object to transition. Can be `ONEZONE_IA`, `STANDARD_IA`, `INTELLIGENT_TIERING`, `GLACIER`, or `DEEP_ARCHIVE`.
+         * Specifies the Amazon S3 [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Transition.html#AmazonS3-Type-Transition-StorageClass) to which you want the object to transition.
          */
         storageClass: pulumi.Input<string>;
     }
@@ -24230,7 +24388,7 @@ export namespace s3 {
 
     export interface BucketOwnershipControlsRule {
         /**
-         * Object ownership. Valid values: `BucketOwnerPreferred` or `ObjectWriter`
+         * Object ownership. Valid values: `BucketOwnerPreferred`, `ObjectWriter` or `BucketOwnerEnforced`
          */
         objectOwnership: pulumi.Input<string>;
     }
@@ -24307,7 +24465,7 @@ export namespace s3 {
          */
         replicationTime?: pulumi.Input<inputs.s3.BucketReplicationConfigRuleDestinationReplicationTime>;
         /**
-         * The class of storage used to store the object. Can be `STANDARD`, `REDUCED_REDUNDANCY`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `GLACIER`, or `DEEP_ARCHIVE`. By default, Amazon S3 uses the storage class of the source object to create the object replica.
+         * The [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Destination.html#AmazonS3-Type-Destination-StorageClass) used to store the object. By default, Amazon S3 uses the storage class of the source object to create the object replica.
          */
         storageClass?: pulumi.Input<string>;
     }
@@ -24504,7 +24662,7 @@ export namespace s3 {
          */
         replicationTime?: pulumi.Input<inputs.s3.BucketReplicationConfigurationRuleDestinationReplicationTime>;
         /**
-         * The class of storage used to store the object. Can be `STANDARD`, `REDUCED_REDUNDANCY`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `GLACIER`, or `DEEP_ARCHIVE`.
+         * The [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Destination.html#AmazonS3-Type-Destination-StorageClass) used to store the object. By default, Amazon S3 uses the storage class of the source object to create the object replica.
          */
         storageClass?: pulumi.Input<string>;
     }
@@ -28840,7 +28998,7 @@ export namespace wafregional {
 
     export interface WebAclDefaultAction {
         /**
-         * Specifies how you want AWS WAF Regional to respond to requests that match the settings in a ruleE.g., `ALLOW`, `BLOCK` or `COUNT`
+         * Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. Valid values for `action` are `ALLOW`, `BLOCK` or `COUNT`. Valid values for `overrideAction` are `COUNT` and `NONE`.
          */
         type: pulumi.Input<string>;
     }
@@ -28869,7 +29027,7 @@ export namespace wafregional {
          */
         data?: pulumi.Input<string>;
         /**
-         * Specifies how you want AWS WAF Regional to respond to requests that match the settings in a ruleE.g., `ALLOW`, `BLOCK` or `COUNT`
+         * Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. Valid values for `action` are `ALLOW`, `BLOCK` or `COUNT`. Valid values for `overrideAction` are `COUNT` and `NONE`.
          */
         type: pulumi.Input<string>;
     }
@@ -28893,21 +29051,21 @@ export namespace wafregional {
          */
         ruleId: pulumi.Input<string>;
         /**
-         * Specifies how you want AWS WAF Regional to respond to requests that match the settings in a ruleE.g., `ALLOW`, `BLOCK` or `COUNT`
+         * Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. Valid values for `action` are `ALLOW`, `BLOCK` or `COUNT`. Valid values for `overrideAction` are `COUNT` and `NONE`.
          */
         type?: pulumi.Input<string>;
     }
 
     export interface WebAclRuleAction {
         /**
-         * Specifies how you want AWS WAF Regional to respond to requests that match the settings in a ruleE.g., `ALLOW`, `BLOCK` or `COUNT`
+         * Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. Valid values for `action` are `ALLOW`, `BLOCK` or `COUNT`. Valid values for `overrideAction` are `COUNT` and `NONE`.
          */
         type: pulumi.Input<string>;
     }
 
     export interface WebAclRuleOverrideAction {
         /**
-         * Specifies how you want AWS WAF Regional to respond to requests that match the settings in a ruleE.g., `ALLOW`, `BLOCK` or `COUNT`
+         * Specifies how you want AWS WAF Regional to respond to requests that match the settings in a rule. Valid values for `action` are `ALLOW`, `BLOCK` or `COUNT`. Valid values for `overrideAction` are `COUNT` and `NONE`.
          */
         type: pulumi.Input<string>;
     }

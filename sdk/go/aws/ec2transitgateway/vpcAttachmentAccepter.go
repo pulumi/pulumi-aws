@@ -63,7 +63,8 @@ type VpcAttachmentAccepter struct {
 	Ipv6Support pulumi.StringOutput `pulumi:"ipv6Support"`
 	// Identifiers of EC2 Subnets.
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
-	Tags      pulumi.StringMapOutput   `pulumi:"tags"`
+	// Key-value tags for the EC2 Transit Gateway VPC Attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The ID of the EC2 Transit Gateway Attachment to manage.
@@ -119,8 +120,9 @@ type vpcAttachmentAccepterState struct {
 	// Whether IPv6 support is enabled. Valid values: `disable`, `enable`.
 	Ipv6Support *string `pulumi:"ipv6Support"`
 	// Identifiers of EC2 Subnets.
-	SubnetIds []string          `pulumi:"subnetIds"`
-	Tags      map[string]string `pulumi:"tags"`
+	SubnetIds []string `pulumi:"subnetIds"`
+	// Key-value tags for the EC2 Transit Gateway VPC Attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The ID of the EC2 Transit Gateway Attachment to manage.
@@ -146,7 +148,8 @@ type VpcAttachmentAccepterState struct {
 	Ipv6Support pulumi.StringPtrInput
 	// Identifiers of EC2 Subnets.
 	SubnetIds pulumi.StringArrayInput
-	Tags      pulumi.StringMapInput
+	// Key-value tags for the EC2 Transit Gateway VPC Attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// The ID of the EC2 Transit Gateway Attachment to manage.
@@ -168,6 +171,7 @@ func (VpcAttachmentAccepterState) ElementType() reflect.Type {
 }
 
 type vpcAttachmentAccepterArgs struct {
+	// Key-value tags for the EC2 Transit Gateway VPC Attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// The ID of the EC2 Transit Gateway Attachment to manage.
 	TransitGatewayAttachmentId string `pulumi:"transitGatewayAttachmentId"`
@@ -179,6 +183,7 @@ type vpcAttachmentAccepterArgs struct {
 
 // The set of arguments for constructing a VpcAttachmentAccepter resource.
 type VpcAttachmentAccepterArgs struct {
+	// Key-value tags for the EC2 Transit Gateway VPC Attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// The ID of the EC2 Transit Gateway Attachment to manage.
 	TransitGatewayAttachmentId pulumi.StringInput

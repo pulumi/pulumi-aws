@@ -87,6 +87,9 @@ export class DedicatedHost extends pulumi.CustomResource {
      * The ID of the AWS account that owns the Dedicated Host.
      */
     public /*out*/ readonly ownerId!: pulumi.Output<string>;
+    /**
+     * Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -169,6 +172,9 @@ export interface DedicatedHostState {
      * The ID of the AWS account that owns the Dedicated Host.
      */
     ownerId?: pulumi.Input<string>;
+    /**
+     * Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -200,5 +206,8 @@ export interface DedicatedHostArgs {
      * Specifies the instance type to be supported by the Dedicated Hosts. If you specify an instance type, the Dedicated Hosts support instances of the specified instance type only.  Exactly one of `instanceFamily` or `instanceType` must be specified.
      */
     instanceType?: pulumi.Input<string>;
+    /**
+     * Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

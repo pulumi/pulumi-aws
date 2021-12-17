@@ -61,7 +61,8 @@ type Application struct {
 	// Short description of the application
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The name of the application, must be unique within your account
-	Name pulumi.StringOutput    `pulumi:"name"`
+	Name pulumi.StringOutput `pulumi:"name"`
+	// Key-value map of tags for the Elastic Beanstalk Application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -102,7 +103,8 @@ type applicationState struct {
 	// Short description of the application
 	Description *string `pulumi:"description"`
 	// The name of the application, must be unique within your account
-	Name *string           `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// Key-value map of tags for the Elastic Beanstalk Application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -116,6 +118,7 @@ type ApplicationState struct {
 	Description pulumi.StringPtrInput
 	// The name of the application, must be unique within your account
 	Name pulumi.StringPtrInput
+	// Key-value map of tags for the Elastic Beanstalk Application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
@@ -130,7 +133,8 @@ type applicationArgs struct {
 	// Short description of the application
 	Description *string `pulumi:"description"`
 	// The name of the application, must be unique within your account
-	Name *string           `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// Key-value map of tags for the Elastic Beanstalk Application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -141,6 +145,7 @@ type ApplicationArgs struct {
 	Description pulumi.StringPtrInput
 	// The name of the application, must be unique within your account
 	Name pulumi.StringPtrInput
+	// Key-value map of tags for the Elastic Beanstalk Application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
 

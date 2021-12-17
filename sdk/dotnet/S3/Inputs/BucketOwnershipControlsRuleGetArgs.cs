@@ -13,7 +13,7 @@ namespace Pulumi.Aws.S3.Inputs
     public sealed class BucketOwnershipControlsRuleGetArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Object ownership. Valid values: `BucketOwnerPreferred` or `ObjectWriter`
+        /// Object ownership. Valid values: `BucketOwnerPreferred`, `ObjectWriter` or `BucketOwnerEnforced`
         /// </summary>
         [Input("objectOwnership", required: true)]
         public Input<string> ObjectOwnership { get; set; } = null!;

@@ -106,6 +106,9 @@ export class CapacityReservation extends pulumi.CustomResource {
      * The ID of the AWS account that owns the Capacity Reservation.
      */
     public /*out*/ readonly ownerId!: pulumi.Output<string>;
+    /**
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -230,6 +233,9 @@ export interface CapacityReservationState {
      * The ID of the AWS account that owns the Capacity Reservation.
      */
     ownerId?: pulumi.Input<string>;
+    /**
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -282,6 +288,9 @@ export interface CapacityReservationArgs {
      * The Amazon Resource Name (ARN) of the Outpost on which to create the Capacity Reservation.
      */
     outpostArn?: pulumi.Input<string>;
+    /**
+     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.

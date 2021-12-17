@@ -58,8 +58,9 @@ type IdentityProviderConfig struct {
 	// Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster. Detailed below.
 	Oidc IdentityProviderConfigOidcOutput `pulumi:"oidc"`
 	// Status of the EKS Identity Provider Configuration.
-	Status pulumi.StringOutput    `pulumi:"status"`
-	Tags   pulumi.StringMapOutput `pulumi:"tags"`
+	Status pulumi.StringOutput `pulumi:"status"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
@@ -106,8 +107,9 @@ type identityProviderConfigState struct {
 	// Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster. Detailed below.
 	Oidc *IdentityProviderConfigOidc `pulumi:"oidc"`
 	// Status of the EKS Identity Provider Configuration.
-	Status *string           `pulumi:"status"`
-	Tags   map[string]string `pulumi:"tags"`
+	Status *string `pulumi:"status"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
@@ -121,7 +123,8 @@ type IdentityProviderConfigState struct {
 	Oidc IdentityProviderConfigOidcPtrInput
 	// Status of the EKS Identity Provider Configuration.
 	Status pulumi.StringPtrInput
-	Tags   pulumi.StringMapInput
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
@@ -135,7 +138,8 @@ type identityProviderConfigArgs struct {
 	ClusterName string `pulumi:"clusterName"`
 	// Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster. Detailed below.
 	Oidc IdentityProviderConfigOidc `pulumi:"oidc"`
-	Tags map[string]string          `pulumi:"tags"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a IdentityProviderConfig resource.
@@ -144,6 +148,7 @@ type IdentityProviderConfigArgs struct {
 	ClusterName pulumi.StringInput
 	// Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster. Detailed below.
 	Oidc IdentityProviderConfigOidcInput
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
 

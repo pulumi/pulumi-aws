@@ -113,9 +113,9 @@ type OntapStorageVirtualMachine struct {
 	// Describes the SVM's subtype, e.g. `DEFAULT`
 	Subtype          pulumi.StringOutput    `pulumi:"subtype"`
 	SvmAdminPassword pulumi.StringPtrOutput `pulumi:"svmAdminPassword"`
-	// A map of tags to assign to the storage virtual machine. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the storage virtual machine. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The SVM's UUID (universally unique identifier).
 	Uuid pulumi.StringOutput `pulumi:"uuid"`
@@ -168,9 +168,9 @@ type ontapStorageVirtualMachineState struct {
 	// Describes the SVM's subtype, e.g. `DEFAULT`
 	Subtype          *string `pulumi:"subtype"`
 	SvmAdminPassword *string `pulumi:"svmAdminPassword"`
-	// A map of tags to assign to the storage virtual machine. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the storage virtual machine. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The SVM's UUID (universally unique identifier).
 	Uuid *string `pulumi:"uuid"`
@@ -192,9 +192,9 @@ type OntapStorageVirtualMachineState struct {
 	// Describes the SVM's subtype, e.g. `DEFAULT`
 	Subtype          pulumi.StringPtrInput
 	SvmAdminPassword pulumi.StringPtrInput
-	// A map of tags to assign to the storage virtual machine. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the storage virtual machine. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// The SVM's UUID (universally unique identifier).
 	Uuid pulumi.StringPtrInput
@@ -214,7 +214,7 @@ type ontapStorageVirtualMachineArgs struct {
 	// Specifies the root volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. All volumes created under this SVM will inherit the root security style unless the security style is specified on the volume. Default value is `UNIX`.
 	RootVolumeSecurityStyle *string `pulumi:"rootVolumeSecurityStyle"`
 	SvmAdminPassword        *string `pulumi:"svmAdminPassword"`
-	// A map of tags to assign to the storage virtual machine. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the storage virtual machine. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -229,7 +229,7 @@ type OntapStorageVirtualMachineArgs struct {
 	// Specifies the root volume security style, Valid values are `UNIX`, `NTFS`, and `MIXED`. All volumes created under this SVM will inherit the root security style unless the security style is specified on the volume. Default value is `UNIX`.
 	RootVolumeSecurityStyle pulumi.StringPtrInput
 	SvmAdminPassword        pulumi.StringPtrInput
-	// A map of tags to assign to the storage virtual machine. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level.
+	// A map of tags to assign to the storage virtual machine. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
 

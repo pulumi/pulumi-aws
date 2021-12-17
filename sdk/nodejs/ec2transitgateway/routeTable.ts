@@ -64,6 +64,9 @@ export class RouteTable extends pulumi.CustomResource {
      * Boolean whether this is the default propagation route table for the EC2 Transit Gateway.
      */
     public /*out*/ readonly defaultPropagationRouteTable!: pulumi.Output<boolean>;
+    /**
+     * Key-value tags for the EC2 Transit Gateway Route Table. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -128,6 +131,9 @@ export interface RouteTableState {
      * Boolean whether this is the default propagation route table for the EC2 Transit Gateway.
      */
     defaultPropagationRouteTable?: pulumi.Input<boolean>;
+    /**
+     * Key-value tags for the EC2 Transit Gateway Route Table. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -143,6 +149,9 @@ export interface RouteTableState {
  * The set of arguments for constructing a RouteTable resource.
  */
 export interface RouteTableArgs {
+    /**
+     * Key-value tags for the EC2 Transit Gateway Route Table. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Identifier of EC2 Transit Gateway.

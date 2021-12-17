@@ -76,8 +76,9 @@ type Studio struct {
 	ServiceRole pulumi.StringOutput `pulumi:"serviceRole"`
 	// A list of subnet IDs to associate with the Amazon EMR Studio. A Studio can have a maximum of 5 subnets. The subnets must belong to the VPC specified by `vpcId`. Studio users can create a Workspace in any of the specified subnets.
 	SubnetIds pulumi.StringArrayOutput `pulumi:"subnetIds"`
-	Tags      pulumi.StringMapOutput   `pulumi:"tags"`
-	TagsAll   pulumi.StringMapOutput   `pulumi:"tagsAll"`
+	// list of tags to apply to the EMR Cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The unique access URL of the Amazon EMR Studio.
 	Url pulumi.StringOutput `pulumi:"url"`
 	// - The IAM user role that users and groups assume when logged in to an Amazon EMR Studio. Only specify a User Role when you use Amazon Web Services SSO authentication. The permissions attached to the User Role can be scoped down for each user or group using session policies.
@@ -156,9 +157,10 @@ type studioState struct {
 	// The IAM role that the Amazon EMR Studio assumes. The service role provides a way for Amazon EMR Studio to interoperate with other Amazon Web Services services.
 	ServiceRole *string `pulumi:"serviceRole"`
 	// A list of subnet IDs to associate with the Amazon EMR Studio. A Studio can have a maximum of 5 subnets. The subnets must belong to the VPC specified by `vpcId`. Studio users can create a Workspace in any of the specified subnets.
-	SubnetIds []string          `pulumi:"subnetIds"`
-	Tags      map[string]string `pulumi:"tags"`
-	TagsAll   map[string]string `pulumi:"tagsAll"`
+	SubnetIds []string `pulumi:"subnetIds"`
+	// list of tags to apply to the EMR Cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags    map[string]string `pulumi:"tags"`
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The unique access URL of the Amazon EMR Studio.
 	Url *string `pulumi:"url"`
 	// - The IAM user role that users and groups assume when logged in to an Amazon EMR Studio. Only specify a User Role when you use Amazon Web Services SSO authentication. The permissions attached to the User Role can be scoped down for each user or group using session policies.
@@ -189,8 +191,9 @@ type StudioState struct {
 	ServiceRole pulumi.StringPtrInput
 	// A list of subnet IDs to associate with the Amazon EMR Studio. A Studio can have a maximum of 5 subnets. The subnets must belong to the VPC specified by `vpcId`. Studio users can create a Workspace in any of the specified subnets.
 	SubnetIds pulumi.StringArrayInput
-	Tags      pulumi.StringMapInput
-	TagsAll   pulumi.StringMapInput
+	// list of tags to apply to the EMR Cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags    pulumi.StringMapInput
+	TagsAll pulumi.StringMapInput
 	// The unique access URL of the Amazon EMR Studio.
 	Url pulumi.StringPtrInput
 	// - The IAM user role that users and groups assume when logged in to an Amazon EMR Studio. Only specify a User Role when you use Amazon Web Services SSO authentication. The permissions attached to the User Role can be scoped down for each user or group using session policies.
@@ -223,9 +226,10 @@ type studioArgs struct {
 	// The IAM role that the Amazon EMR Studio assumes. The service role provides a way for Amazon EMR Studio to interoperate with other Amazon Web Services services.
 	ServiceRole string `pulumi:"serviceRole"`
 	// A list of subnet IDs to associate with the Amazon EMR Studio. A Studio can have a maximum of 5 subnets. The subnets must belong to the VPC specified by `vpcId`. Studio users can create a Workspace in any of the specified subnets.
-	SubnetIds []string          `pulumi:"subnetIds"`
-	Tags      map[string]string `pulumi:"tags"`
-	TagsAll   map[string]string `pulumi:"tagsAll"`
+	SubnetIds []string `pulumi:"subnetIds"`
+	// list of tags to apply to the EMR Cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags    map[string]string `pulumi:"tags"`
+	TagsAll map[string]string `pulumi:"tagsAll"`
 	// - The IAM user role that users and groups assume when logged in to an Amazon EMR Studio. Only specify a User Role when you use Amazon Web Services SSO authentication. The permissions attached to the User Role can be scoped down for each user or group using session policies.
 	UserRole *string `pulumi:"userRole"`
 	// The ID of the Amazon Virtual Private Cloud (Amazon VPC) to associate with the Studio.
@@ -254,8 +258,9 @@ type StudioArgs struct {
 	ServiceRole pulumi.StringInput
 	// A list of subnet IDs to associate with the Amazon EMR Studio. A Studio can have a maximum of 5 subnets. The subnets must belong to the VPC specified by `vpcId`. Studio users can create a Workspace in any of the specified subnets.
 	SubnetIds pulumi.StringArrayInput
-	Tags      pulumi.StringMapInput
-	TagsAll   pulumi.StringMapInput
+	// list of tags to apply to the EMR Cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags    pulumi.StringMapInput
+	TagsAll pulumi.StringMapInput
 	// - The IAM user role that users and groups assume when logged in to an Amazon EMR Studio. Only specify a User Role when you use Amazon Web Services SSO authentication. The permissions attached to the User Role can be scoped down for each user or group using session policies.
 	UserRole pulumi.StringPtrInput
 	// The ID of the Amazon Virtual Private Cloud (Amazon VPC) to associate with the Studio.

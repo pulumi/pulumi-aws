@@ -75,7 +75,8 @@ type CapacityProvider struct {
 	// Configuration block for the provider for the ECS auto scaling group. Detailed below.
 	AutoScalingGroupProvider CapacityProviderAutoScalingGroupProviderOutput `pulumi:"autoScalingGroupProvider"`
 	// Name of the capacity provider.
-	Name    pulumi.StringOutput    `pulumi:"name"`
+	Name pulumi.StringOutput `pulumi:"name"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
@@ -117,7 +118,8 @@ type capacityProviderState struct {
 	// Configuration block for the provider for the ECS auto scaling group. Detailed below.
 	AutoScalingGroupProvider *CapacityProviderAutoScalingGroupProvider `pulumi:"autoScalingGroupProvider"`
 	// Name of the capacity provider.
-	Name    *string           `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
@@ -128,7 +130,8 @@ type CapacityProviderState struct {
 	// Configuration block for the provider for the ECS auto scaling group. Detailed below.
 	AutoScalingGroupProvider CapacityProviderAutoScalingGroupProviderPtrInput
 	// Name of the capacity provider.
-	Name    pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
 }
@@ -141,7 +144,8 @@ type capacityProviderArgs struct {
 	// Configuration block for the provider for the ECS auto scaling group. Detailed below.
 	AutoScalingGroupProvider CapacityProviderAutoScalingGroupProvider `pulumi:"autoScalingGroupProvider"`
 	// Name of the capacity provider.
-	Name *string           `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -151,6 +155,7 @@ type CapacityProviderArgs struct {
 	AutoScalingGroupProvider CapacityProviderAutoScalingGroupProviderInput
 	// Name of the capacity provider.
 	Name pulumi.StringPtrInput
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
 

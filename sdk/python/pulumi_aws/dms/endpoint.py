@@ -29,6 +29,8 @@ class EndpointArgs:
                  password: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
                  s3_settings: Optional[pulumi.Input['EndpointS3SettingsArgs']] = None,
+                 secrets_manager_access_role_arn: Optional[pulumi.Input[str]] = None,
+                 secrets_manager_arn: Optional[pulumi.Input[str]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
                  service_access_role: Optional[pulumi.Input[str]] = None,
                  ssl_mode: Optional[pulumi.Input[str]] = None,
@@ -50,6 +52,8 @@ class EndpointArgs:
         :param pulumi.Input[str] password: The password to be used to login to the endpoint database.
         :param pulumi.Input[int] port: The port used by the endpoint database.
         :param pulumi.Input['EndpointS3SettingsArgs'] s3_settings: Configuration block with S3 settings. Detailed below.
+        :param pulumi.Input[str] secrets_manager_access_role_arn: Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in SecretsManagerSecret.
+        :param pulumi.Input[str] secrets_manager_arn: The full ARN, partial ARN, or friendly name of the SecretsManagerSecret that contains the endpoint connection details. Supported only for `engine_name` as `oracle` and `postgres`.
         :param pulumi.Input[str] server_name: The host name of the server.
         :param pulumi.Input[str] service_access_role: The Amazon Resource Name (ARN) used by the service access IAM role for dynamodb endpoints.
         :param pulumi.Input[str] ssl_mode: The SSL mode to use for the connection. Can be one of `none | require | verify-ca | verify-full`
@@ -81,6 +85,10 @@ class EndpointArgs:
             pulumi.set(__self__, "port", port)
         if s3_settings is not None:
             pulumi.set(__self__, "s3_settings", s3_settings)
+        if secrets_manager_access_role_arn is not None:
+            pulumi.set(__self__, "secrets_manager_access_role_arn", secrets_manager_access_role_arn)
+        if secrets_manager_arn is not None:
+            pulumi.set(__self__, "secrets_manager_arn", secrets_manager_arn)
         if server_name is not None:
             pulumi.set(__self__, "server_name", server_name)
         if service_access_role is not None:
@@ -261,6 +269,30 @@ class EndpointArgs:
         pulumi.set(self, "s3_settings", value)
 
     @property
+    @pulumi.getter(name="secretsManagerAccessRoleArn")
+    def secrets_manager_access_role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in SecretsManagerSecret.
+        """
+        return pulumi.get(self, "secrets_manager_access_role_arn")
+
+    @secrets_manager_access_role_arn.setter
+    def secrets_manager_access_role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secrets_manager_access_role_arn", value)
+
+    @property
+    @pulumi.getter(name="secretsManagerArn")
+    def secrets_manager_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The full ARN, partial ARN, or friendly name of the SecretsManagerSecret that contains the endpoint connection details. Supported only for `engine_name` as `oracle` and `postgres`.
+        """
+        return pulumi.get(self, "secrets_manager_arn")
+
+    @secrets_manager_arn.setter
+    def secrets_manager_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secrets_manager_arn", value)
+
+    @property
     @pulumi.getter(name="serverName")
     def server_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -339,6 +371,8 @@ class _EndpointState:
                  password: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
                  s3_settings: Optional[pulumi.Input['EndpointS3SettingsArgs']] = None,
+                 secrets_manager_access_role_arn: Optional[pulumi.Input[str]] = None,
+                 secrets_manager_arn: Optional[pulumi.Input[str]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
                  service_access_role: Optional[pulumi.Input[str]] = None,
                  ssl_mode: Optional[pulumi.Input[str]] = None,
@@ -362,6 +396,8 @@ class _EndpointState:
         :param pulumi.Input[str] password: The password to be used to login to the endpoint database.
         :param pulumi.Input[int] port: The port used by the endpoint database.
         :param pulumi.Input['EndpointS3SettingsArgs'] s3_settings: Configuration block with S3 settings. Detailed below.
+        :param pulumi.Input[str] secrets_manager_access_role_arn: Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in SecretsManagerSecret.
+        :param pulumi.Input[str] secrets_manager_arn: The full ARN, partial ARN, or friendly name of the SecretsManagerSecret that contains the endpoint connection details. Supported only for `engine_name` as `oracle` and `postgres`.
         :param pulumi.Input[str] server_name: The host name of the server.
         :param pulumi.Input[str] service_access_role: The Amazon Resource Name (ARN) used by the service access IAM role for dynamodb endpoints.
         :param pulumi.Input[str] ssl_mode: The SSL mode to use for the connection. Can be one of `none | require | verify-ca | verify-full`
@@ -399,6 +435,10 @@ class _EndpointState:
             pulumi.set(__self__, "port", port)
         if s3_settings is not None:
             pulumi.set(__self__, "s3_settings", s3_settings)
+        if secrets_manager_access_role_arn is not None:
+            pulumi.set(__self__, "secrets_manager_access_role_arn", secrets_manager_access_role_arn)
+        if secrets_manager_arn is not None:
+            pulumi.set(__self__, "secrets_manager_arn", secrets_manager_arn)
         if server_name is not None:
             pulumi.set(__self__, "server_name", server_name)
         if service_access_role is not None:
@@ -593,6 +633,30 @@ class _EndpointState:
         pulumi.set(self, "s3_settings", value)
 
     @property
+    @pulumi.getter(name="secretsManagerAccessRoleArn")
+    def secrets_manager_access_role_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in SecretsManagerSecret.
+        """
+        return pulumi.get(self, "secrets_manager_access_role_arn")
+
+    @secrets_manager_access_role_arn.setter
+    def secrets_manager_access_role_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secrets_manager_access_role_arn", value)
+
+    @property
+    @pulumi.getter(name="secretsManagerArn")
+    def secrets_manager_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The full ARN, partial ARN, or friendly name of the SecretsManagerSecret that contains the endpoint connection details. Supported only for `engine_name` as `oracle` and `postgres`.
+        """
+        return pulumi.get(self, "secrets_manager_arn")
+
+    @secrets_manager_arn.setter
+    def secrets_manager_arn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "secrets_manager_arn", value)
+
+    @property
     @pulumi.getter(name="serverName")
     def server_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -684,6 +748,8 @@ class Endpoint(pulumi.CustomResource):
                  password: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
                  s3_settings: Optional[pulumi.Input[pulumi.InputType['EndpointS3SettingsArgs']]] = None,
+                 secrets_manager_access_role_arn: Optional[pulumi.Input[str]] = None,
+                 secrets_manager_arn: Optional[pulumi.Input[str]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
                  service_access_role: Optional[pulumi.Input[str]] = None,
                  ssl_mode: Optional[pulumi.Input[str]] = None,
@@ -742,6 +808,8 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[str] password: The password to be used to login to the endpoint database.
         :param pulumi.Input[int] port: The port used by the endpoint database.
         :param pulumi.Input[pulumi.InputType['EndpointS3SettingsArgs']] s3_settings: Configuration block with S3 settings. Detailed below.
+        :param pulumi.Input[str] secrets_manager_access_role_arn: Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in SecretsManagerSecret.
+        :param pulumi.Input[str] secrets_manager_arn: The full ARN, partial ARN, or friendly name of the SecretsManagerSecret that contains the endpoint connection details. Supported only for `engine_name` as `oracle` and `postgres`.
         :param pulumi.Input[str] server_name: The host name of the server.
         :param pulumi.Input[str] service_access_role: The Amazon Resource Name (ARN) used by the service access IAM role for dynamodb endpoints.
         :param pulumi.Input[str] ssl_mode: The SSL mode to use for the connection. Can be one of `none | require | verify-ca | verify-full`
@@ -819,6 +887,8 @@ class Endpoint(pulumi.CustomResource):
                  password: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
                  s3_settings: Optional[pulumi.Input[pulumi.InputType['EndpointS3SettingsArgs']]] = None,
+                 secrets_manager_access_role_arn: Optional[pulumi.Input[str]] = None,
+                 secrets_manager_arn: Optional[pulumi.Input[str]] = None,
                  server_name: Optional[pulumi.Input[str]] = None,
                  service_access_role: Optional[pulumi.Input[str]] = None,
                  ssl_mode: Optional[pulumi.Input[str]] = None,
@@ -856,6 +926,8 @@ class Endpoint(pulumi.CustomResource):
             __props__.__dict__["password"] = password
             __props__.__dict__["port"] = port
             __props__.__dict__["s3_settings"] = s3_settings
+            __props__.__dict__["secrets_manager_access_role_arn"] = secrets_manager_access_role_arn
+            __props__.__dict__["secrets_manager_arn"] = secrets_manager_arn
             __props__.__dict__["server_name"] = server_name
             __props__.__dict__["service_access_role"] = service_access_role
             __props__.__dict__["ssl_mode"] = ssl_mode
@@ -888,6 +960,8 @@ class Endpoint(pulumi.CustomResource):
             password: Optional[pulumi.Input[str]] = None,
             port: Optional[pulumi.Input[int]] = None,
             s3_settings: Optional[pulumi.Input[pulumi.InputType['EndpointS3SettingsArgs']]] = None,
+            secrets_manager_access_role_arn: Optional[pulumi.Input[str]] = None,
+            secrets_manager_arn: Optional[pulumi.Input[str]] = None,
             server_name: Optional[pulumi.Input[str]] = None,
             service_access_role: Optional[pulumi.Input[str]] = None,
             ssl_mode: Optional[pulumi.Input[str]] = None,
@@ -916,6 +990,8 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[str] password: The password to be used to login to the endpoint database.
         :param pulumi.Input[int] port: The port used by the endpoint database.
         :param pulumi.Input[pulumi.InputType['EndpointS3SettingsArgs']] s3_settings: Configuration block with S3 settings. Detailed below.
+        :param pulumi.Input[str] secrets_manager_access_role_arn: Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in SecretsManagerSecret.
+        :param pulumi.Input[str] secrets_manager_arn: The full ARN, partial ARN, or friendly name of the SecretsManagerSecret that contains the endpoint connection details. Supported only for `engine_name` as `oracle` and `postgres`.
         :param pulumi.Input[str] server_name: The host name of the server.
         :param pulumi.Input[str] service_access_role: The Amazon Resource Name (ARN) used by the service access IAM role for dynamodb endpoints.
         :param pulumi.Input[str] ssl_mode: The SSL mode to use for the connection. Can be one of `none | require | verify-ca | verify-full`
@@ -942,6 +1018,8 @@ class Endpoint(pulumi.CustomResource):
         __props__.__dict__["password"] = password
         __props__.__dict__["port"] = port
         __props__.__dict__["s3_settings"] = s3_settings
+        __props__.__dict__["secrets_manager_access_role_arn"] = secrets_manager_access_role_arn
+        __props__.__dict__["secrets_manager_arn"] = secrets_manager_arn
         __props__.__dict__["server_name"] = server_name
         __props__.__dict__["service_access_role"] = service_access_role
         __props__.__dict__["ssl_mode"] = ssl_mode
@@ -1069,6 +1147,22 @@ class Endpoint(pulumi.CustomResource):
         Configuration block with S3 settings. Detailed below.
         """
         return pulumi.get(self, "s3_settings")
+
+    @property
+    @pulumi.getter(name="secretsManagerAccessRoleArn")
+    def secrets_manager_access_role_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        Amazon Resource Name (ARN) of the IAM role that specifies AWS DMS as the trusted entity and has the required permissions to access the value in SecretsManagerSecret.
+        """
+        return pulumi.get(self, "secrets_manager_access_role_arn")
+
+    @property
+    @pulumi.getter(name="secretsManagerArn")
+    def secrets_manager_arn(self) -> pulumi.Output[Optional[str]]:
+        """
+        The full ARN, partial ARN, or friendly name of the SecretsManagerSecret that contains the endpoint connection details. Supported only for `engine_name` as `oracle` and `postgres`.
+        """
+        return pulumi.get(self, "secrets_manager_arn")
 
     @property
     @pulumi.getter(name="serverName")

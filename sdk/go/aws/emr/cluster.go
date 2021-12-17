@@ -514,7 +514,7 @@ type Cluster struct {
 	MasterInstanceFleet ClusterMasterInstanceFleetOutput `pulumi:"masterInstanceFleet"`
 	// Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [master node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-master).
 	MasterInstanceGroup ClusterMasterInstanceGroupOutput `pulumi:"masterInstanceGroup"`
-	// Public DNS name of the master EC2 instance.
+	// The DNS name of the master node. If the cluster is on a private subnet, this is the private DNS name. On a public subnet, this is the public DNS name.
 	MasterPublicDns pulumi.StringOutput `pulumi:"masterPublicDns"`
 	// Name of the step.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -613,7 +613,7 @@ type clusterState struct {
 	MasterInstanceFleet *ClusterMasterInstanceFleet `pulumi:"masterInstanceFleet"`
 	// Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [master node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-master).
 	MasterInstanceGroup *ClusterMasterInstanceGroup `pulumi:"masterInstanceGroup"`
-	// Public DNS name of the master EC2 instance.
+	// The DNS name of the master node. If the cluster is on a private subnet, this is the private DNS name. On a public subnet, this is the public DNS name.
 	MasterPublicDns *string `pulumi:"masterPublicDns"`
 	// Name of the step.
 	Name *string `pulumi:"name"`
@@ -678,7 +678,7 @@ type ClusterState struct {
 	MasterInstanceFleet ClusterMasterInstanceFleetPtrInput
 	// Configuration block to use an [Instance Group](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-instance-group-configuration.html#emr-plan-instance-groups) for the [master node type](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-master-core-task-nodes.html#emr-plan-master).
 	MasterInstanceGroup ClusterMasterInstanceGroupPtrInput
-	// Public DNS name of the master EC2 instance.
+	// The DNS name of the master node. If the cluster is on a private subnet, this is the private DNS name. On a public subnet, this is the public DNS name.
 	MasterPublicDns pulumi.StringPtrInput
 	// Name of the step.
 	Name pulumi.StringPtrInput

@@ -16,8 +16,6 @@ namespace Pulumi.Aws.S3
     /// ### Basic Usage
     /// 
     /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Text.Json;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
     /// 
@@ -25,46 +23,48 @@ namespace Pulumi.Aws.S3
     /// {
     ///     public MyStack()
     ///     {
-    ///         var bucket = new Aws.S3.Bucket("bucket", new Aws.S3.BucketArgs
+    ///         var example = new Aws.S3.Bucket("example", new Aws.S3.BucketArgs
     ///         {
     ///         });
-    ///         var bucketPolicy = new Aws.S3.BucketPolicy("bucketPolicy", new Aws.S3.BucketPolicyArgs
+    ///         var allowAccessFromAnotherAccountPolicyDocument = Output.Tuple(example.Arn, example.Arn).Apply(values =&gt;
     ///         {
-    ///             Bucket = bucket.Id,
-    ///             Policy = Output.Tuple(bucket.Arn, bucket.Arn).Apply(values =&gt;
+    ///             var exampleArn = values.Item1;
+    ///             var exampleArn1 = values.Item2;
+    ///             return Aws.Iam.GetPolicyDocument.InvokeAsync(new Aws.Iam.GetPolicyDocumentArgs
     ///             {
-    ///                 var bucketArn = values.Item1;
-    ///                 var bucketArn1 = values.Item2;
-    ///                 return JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///                 Statements = 
     ///                 {
-    ///                     { "Version", "2012-10-17" },
-    ///                     { "Id", "MYBUCKETPOLICY" },
-    ///                     { "Statement", new[]
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
+    ///                     {
+    ///                         Principals = 
     ///                         {
-    ///                             new Dictionary&lt;string, object?&gt;
+    ///                             new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalArgs
     ///                             {
-    ///                                 { "Sid", "IPAllow" },
-    ///                                 { "Effect", "Deny" },
-    ///                                 { "Principal", "*" },
-    ///                                 { "Action", "s3:*" },
-    ///                                 { "Resource", new[]
-    ///                                     {
-    ///                                         bucketArn,
-    ///                                         $"{bucketArn1}/*",
-    ///                                     }
-    ///                                  },
-    ///                                 { "Condition", new Dictionary&lt;string, object?&gt;
+    ///                                 Type = "AWS",
+    ///                                 Identifiers = 
     ///                                 {
-    ///                                     { "NotIpAddress", new Dictionary&lt;string, object?&gt;
-    ///                                     {
-    ///                                         { "aws:SourceIp", "8.8.8.8/32" },
-    ///                                     } },
-    ///                                 } },
+    ///                                     "123456789012",
+    ///                                 },
     ///                             },
-    ///                         }
-    ///                      },
-    ///                 });
-    ///             }),
+    ///                         },
+    ///                         Actions = 
+    ///                         {
+    ///                             "s3:GetObject",
+    ///                             "s3:ListBucket",
+    ///                         },
+    ///                         Resources = 
+    ///                         {
+    ///                             exampleArn,
+    ///                             $"{exampleArn1}/*",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             });
+    ///         });
+    ///         var allowAccessFromAnotherAccountBucketPolicy = new Aws.S3.BucketPolicy("allowAccessFromAnotherAccountBucketPolicy", new Aws.S3.BucketPolicyArgs
+    ///         {
+    ///             Bucket = example.Id,
+    ///             Policy = allowAccessFromAnotherAccountPolicyDocument.Apply(allowAccessFromAnotherAccountPolicyDocument =&gt; allowAccessFromAnotherAccountPolicyDocument.Json),
     ///         });
     ///     }
     /// 
@@ -89,7 +89,7 @@ namespace Pulumi.Aws.S3
         public Output<string> Bucket { get; private set; } = null!;
 
         /// <summary>
-        /// The text of the policy. Note: Bucket policies are limited to 20 KB in size.
+        /// The text of the policy. Although this is a bucket policy rather than an IAM policy, the `aws.iam.getPolicyDocument` data source may be used, so long as it specifies a principal. Note: Bucket policies are limited to 20 KB in size.
         /// </summary>
         [Output("policy")]
         public Output<string> Policy { get; private set; } = null!;
@@ -147,7 +147,7 @@ namespace Pulumi.Aws.S3
         public Input<string> Bucket { get; set; } = null!;
 
         /// <summary>
-        /// The text of the policy. Note: Bucket policies are limited to 20 KB in size.
+        /// The text of the policy. Although this is a bucket policy rather than an IAM policy, the `aws.iam.getPolicyDocument` data source may be used, so long as it specifies a principal. Note: Bucket policies are limited to 20 KB in size.
         /// </summary>
         [Input("policy", required: true)]
         public Input<string> Policy { get; set; } = null!;
@@ -166,7 +166,7 @@ namespace Pulumi.Aws.S3
         public Input<string>? Bucket { get; set; }
 
         /// <summary>
-        /// The text of the policy. Note: Bucket policies are limited to 20 KB in size.
+        /// The text of the policy. Although this is a bucket policy rather than an IAM policy, the `aws.iam.getPolicyDocument` data source may be used, so long as it specifies a principal. Note: Bucket policies are limited to 20 KB in size.
         /// </summary>
         [Input("policy")]
         public Input<string>? Policy { get; set; }

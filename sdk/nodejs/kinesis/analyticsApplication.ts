@@ -195,6 +195,9 @@ export class AnalyticsApplication extends pulumi.CustomResource {
      * The Status of the application.
      */
     public /*out*/ readonly status!: pulumi.Output<string>;
+    /**
+     * Key-value map of tags for the Kinesis Analytics Application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -313,6 +316,9 @@ export interface AnalyticsApplicationState {
      * The Status of the application.
      */
     status?: pulumi.Input<string>;
+    /**
+     * Key-value map of tags for the Kinesis Analytics Application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -363,5 +369,8 @@ export interface AnalyticsApplicationArgs {
      * To modify an application's starting position, first stop the application by setting `startApplication = false`, then update `startingPosition` and set `startApplication = true`.
      */
     startApplication?: pulumi.Input<boolean>;
+    /**
+     * Key-value map of tags for the Kinesis Analytics Application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

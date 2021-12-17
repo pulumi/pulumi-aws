@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Ecs.Outputs
         /// </summary>
         public readonly int? Port;
         /// <summary>
-        /// The ARN of the Service Registry. The currently supported service registry is Amazon Route 53 Auto Naming Service([`aws.servicediscovery.Service` resource](https://www.terraform.io/docs/providers/aws/r/service_discovery_service.html)). For more information, see [Service](https://docs.aws.amazon.com/Route53/latest/APIReference/API_autonaming_Service.html).
+        /// The ARN of the Service Registry. The currently supported service registry is Amazon Route 53 Auto Naming Service(`aws.servicediscovery.Service` resource). For more information, see [Service](https://docs.aws.amazon.com/Route53/latest/APIReference/API_autonaming_Service.html).
         /// </summary>
         public readonly string RegistryArn;
 

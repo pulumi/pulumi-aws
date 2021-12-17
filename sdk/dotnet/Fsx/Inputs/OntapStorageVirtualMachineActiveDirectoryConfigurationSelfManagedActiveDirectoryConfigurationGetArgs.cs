@@ -40,6 +40,12 @@ namespace Pulumi.Aws.Fsx.Inputs
         public Input<string>? OrganizationalUnitDistinguidshedName { get; set; }
 
         /// <summary>
+        /// The fully qualified distinguished name of the organizational unit within your self-managed AD directory that the Windows File Server instance will join. For example, `OU=FSx,DC=yourdomain,DC=corp,DC=com`. Only accepts OU as the direct parent of the SVM. If none is provided, the SVM is created in the default location of your self-managed AD directory. To learn more, see [RFC 2253](https://tools.ietf.org/html/rfc2253).
+        /// </summary>
+        [Input("organizationalUnitDistinguishedName")]
+        public Input<string>? OrganizationalUnitDistinguishedName { get; set; }
+
+        /// <summary>
         /// The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
         /// </summary>
         [Input("password", required: true)]

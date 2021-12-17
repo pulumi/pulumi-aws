@@ -74,9 +74,9 @@ class GetPolicyDocumentStatementArgs:
         :param str effect: Whether this statement allows or denies the given actions. Valid values are `Allow` and `Deny`. Defaults to `Allow`.
         :param Sequence[str] not_actions: List of actions that this statement does *not* apply to. Use to apply a policy statement to all actions *except* those listed.
         :param Sequence['GetPolicyDocumentStatementNotPrincipalArgs'] not_principals: Like `principals` except these are principals that the statement does *not* apply to.
-        :param Sequence[str] not_resources: List of resource ARNs that this statement does *not* apply to. Use to apply a policy statement to all resources *except* those listed.
+        :param Sequence[str] not_resources: List of resource ARNs that this statement does *not* apply to. Use to apply a policy statement to all resources *except* those listed. Conflicts with `resources`.
         :param Sequence['GetPolicyDocumentStatementPrincipalArgs'] principals: Configuration block for principals. Detailed below.
-        :param Sequence[str] resources: List of resource ARNs that this statement applies to. This is required by AWS if used for an IAM policy.
+        :param Sequence[str] resources: List of resource ARNs that this statement applies to. This is required by AWS if used for an IAM policy. Conflicts with `not_resources`.
         :param str sid: Sid (statement ID) is an identifier for a policy statement.
         """
         if actions is not None:
@@ -162,7 +162,7 @@ class GetPolicyDocumentStatementArgs:
     @pulumi.getter(name="notResources")
     def not_resources(self) -> Optional[Sequence[str]]:
         """
-        List of resource ARNs that this statement does *not* apply to. Use to apply a policy statement to all resources *except* those listed.
+        List of resource ARNs that this statement does *not* apply to. Use to apply a policy statement to all resources *except* those listed. Conflicts with `resources`.
         """
         return pulumi.get(self, "not_resources")
 
@@ -186,7 +186,7 @@ class GetPolicyDocumentStatementArgs:
     @pulumi.getter
     def resources(self) -> Optional[Sequence[str]]:
         """
-        List of resource ARNs that this statement applies to. This is required by AWS if used for an IAM policy.
+        List of resource ARNs that this statement applies to. This is required by AWS if used for an IAM policy. Conflicts with `not_resources`.
         """
         return pulumi.get(self, "resources")
 

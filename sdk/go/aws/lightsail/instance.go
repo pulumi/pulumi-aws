@@ -116,7 +116,8 @@ type Instance struct {
 	BlueprintId pulumi.StringOutput `pulumi:"blueprintId"`
 	// The bundle of specification information (see list below)
 	BundleId pulumi.StringOutput `pulumi:"bundleId"`
-	CpuCount pulumi.IntOutput    `pulumi:"cpuCount"`
+	// The number of vCPUs the instance has.
+	CpuCount pulumi.IntOutput `pulumi:"cpuCount"`
 	// The timestamp when the instance was created.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// (**Deprecated**) The first IPv6 address of the Lightsail instance. Use `ipv6Addresses` attribute instead.
@@ -125,22 +126,27 @@ type Instance struct {
 	Ipv6Address pulumi.StringOutput `pulumi:"ipv6Address"`
 	// List of IPv6 addresses for the Lightsail instance.
 	Ipv6Addresses pulumi.StringArrayOutput `pulumi:"ipv6Addresses"`
-	IsStaticIp    pulumi.BoolOutput        `pulumi:"isStaticIp"`
+	// A Boolean value indicating whether this instance has a static IP assigned to it.
+	IsStaticIp pulumi.BoolOutput `pulumi:"isStaticIp"`
 	// The name of your key pair. Created in the
 	// Lightsail console (cannot use `ec2.KeyPair` at this time)
 	KeyPairName pulumi.StringPtrOutput `pulumi:"keyPairName"`
 	// The name of the Lightsail Instance. Names be unique within each AWS Region in your Lightsail account.
-	Name             pulumi.StringOutput  `pulumi:"name"`
-	PrivateIpAddress pulumi.StringOutput  `pulumi:"privateIpAddress"`
-	PublicIpAddress  pulumi.StringOutput  `pulumi:"publicIpAddress"`
-	RamSize          pulumi.Float64Output `pulumi:"ramSize"`
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The private IP address of the instance.
+	PrivateIpAddress pulumi.StringOutput `pulumi:"privateIpAddress"`
+	// The public IP address of the instance.
+	PublicIpAddress pulumi.StringOutput `pulumi:"publicIpAddress"`
+	// The amount of RAM in GB on the instance (e.g., 1.0).
+	RamSize pulumi.Float64Output `pulumi:"ramSize"`
 	// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// launch script to configure server with additional user data
 	UserData pulumi.StringPtrOutput `pulumi:"userData"`
-	Username pulumi.StringOutput    `pulumi:"username"`
+	// The user name for connecting to the instance (e.g., ec2-user).
+	Username pulumi.StringOutput `pulumi:"username"`
 }
 
 // NewInstance registers a new resource with the given unique name, arguments, and options.
@@ -190,7 +196,8 @@ type instanceState struct {
 	BlueprintId *string `pulumi:"blueprintId"`
 	// The bundle of specification information (see list below)
 	BundleId *string `pulumi:"bundleId"`
-	CpuCount *int    `pulumi:"cpuCount"`
+	// The number of vCPUs the instance has.
+	CpuCount *int `pulumi:"cpuCount"`
 	// The timestamp when the instance was created.
 	CreatedAt *string `pulumi:"createdAt"`
 	// (**Deprecated**) The first IPv6 address of the Lightsail instance. Use `ipv6Addresses` attribute instead.
@@ -199,21 +206,26 @@ type instanceState struct {
 	Ipv6Address *string `pulumi:"ipv6Address"`
 	// List of IPv6 addresses for the Lightsail instance.
 	Ipv6Addresses []string `pulumi:"ipv6Addresses"`
-	IsStaticIp    *bool    `pulumi:"isStaticIp"`
+	// A Boolean value indicating whether this instance has a static IP assigned to it.
+	IsStaticIp *bool `pulumi:"isStaticIp"`
 	// The name of your key pair. Created in the
 	// Lightsail console (cannot use `ec2.KeyPair` at this time)
 	KeyPairName *string `pulumi:"keyPairName"`
 	// The name of the Lightsail Instance. Names be unique within each AWS Region in your Lightsail account.
-	Name             *string  `pulumi:"name"`
-	PrivateIpAddress *string  `pulumi:"privateIpAddress"`
-	PublicIpAddress  *string  `pulumi:"publicIpAddress"`
-	RamSize          *float64 `pulumi:"ramSize"`
+	Name *string `pulumi:"name"`
+	// The private IP address of the instance.
+	PrivateIpAddress *string `pulumi:"privateIpAddress"`
+	// The public IP address of the instance.
+	PublicIpAddress *string `pulumi:"publicIpAddress"`
+	// The amount of RAM in GB on the instance (e.g., 1.0).
+	RamSize *float64 `pulumi:"ramSize"`
 	// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// launch script to configure server with additional user data
 	UserData *string `pulumi:"userData"`
+	// The user name for connecting to the instance (e.g., ec2-user).
 	Username *string `pulumi:"username"`
 }
 
@@ -227,6 +239,7 @@ type InstanceState struct {
 	BlueprintId pulumi.StringPtrInput
 	// The bundle of specification information (see list below)
 	BundleId pulumi.StringPtrInput
+	// The number of vCPUs the instance has.
 	CpuCount pulumi.IntPtrInput
 	// The timestamp when the instance was created.
 	CreatedAt pulumi.StringPtrInput
@@ -236,21 +249,26 @@ type InstanceState struct {
 	Ipv6Address pulumi.StringPtrInput
 	// List of IPv6 addresses for the Lightsail instance.
 	Ipv6Addresses pulumi.StringArrayInput
-	IsStaticIp    pulumi.BoolPtrInput
+	// A Boolean value indicating whether this instance has a static IP assigned to it.
+	IsStaticIp pulumi.BoolPtrInput
 	// The name of your key pair. Created in the
 	// Lightsail console (cannot use `ec2.KeyPair` at this time)
 	KeyPairName pulumi.StringPtrInput
 	// The name of the Lightsail Instance. Names be unique within each AWS Region in your Lightsail account.
-	Name             pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// The private IP address of the instance.
 	PrivateIpAddress pulumi.StringPtrInput
-	PublicIpAddress  pulumi.StringPtrInput
-	RamSize          pulumi.Float64PtrInput
+	// The public IP address of the instance.
+	PublicIpAddress pulumi.StringPtrInput
+	// The amount of RAM in GB on the instance (e.g., 1.0).
+	RamSize pulumi.Float64PtrInput
 	// A map of tags to assign to the resource. To create a key-only tag, use an empty string as the value. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider .
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// launch script to configure server with additional user data
 	UserData pulumi.StringPtrInput
+	// The user name for connecting to the instance (e.g., ec2-user).
 	Username pulumi.StringPtrInput
 }
 

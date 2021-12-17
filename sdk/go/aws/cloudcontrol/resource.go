@@ -58,7 +58,7 @@ type Resource struct {
 	Properties   pulumi.StringOutput `pulumi:"properties"`
 	// Amazon Resource Name (ARN) of the IAM Role to assume for operations.
 	RoleArn pulumi.StringPtrOutput `pulumi:"roleArn"`
-	// JSON string of the CloudFormation resource type schema which is used for plan time validation where possible. Automatically fetched if not provided. In large scale environments with multiple resources using the same `typeName`, it is recommended to fetch the schema once via the [`cloudformation.CloudFormationType` data source](https://www.terraform.io/docs/providers/aws/d/cloudformation_type.html) and use this argument to reduce `DescribeType` API operation throttling. This value is marked sensitive only to prevent large plan differences from showing.
+	// JSON string of the CloudFormation resource type schema which is used for plan time validation where possible. Automatically fetched if not provided. In large scale environments with multiple resources using the same `typeName`, it is recommended to fetch the schema once via the `cloudformation.CloudFormationType` data source and use this argument to reduce `DescribeType` API operation throttling. This value is marked sensitive only to prevent large plan differences from showing.
 	Schema pulumi.StringOutput `pulumi:"schema"`
 	// CloudFormation resource type name. For example, `AWS::EC2::VPC`.
 	TypeName pulumi.StringOutput `pulumi:"typeName"`
@@ -105,7 +105,7 @@ type resourceState struct {
 	Properties   *string `pulumi:"properties"`
 	// Amazon Resource Name (ARN) of the IAM Role to assume for operations.
 	RoleArn *string `pulumi:"roleArn"`
-	// JSON string of the CloudFormation resource type schema which is used for plan time validation where possible. Automatically fetched if not provided. In large scale environments with multiple resources using the same `typeName`, it is recommended to fetch the schema once via the [`cloudformation.CloudFormationType` data source](https://www.terraform.io/docs/providers/aws/d/cloudformation_type.html) and use this argument to reduce `DescribeType` API operation throttling. This value is marked sensitive only to prevent large plan differences from showing.
+	// JSON string of the CloudFormation resource type schema which is used for plan time validation where possible. Automatically fetched if not provided. In large scale environments with multiple resources using the same `typeName`, it is recommended to fetch the schema once via the `cloudformation.CloudFormationType` data source and use this argument to reduce `DescribeType` API operation throttling. This value is marked sensitive only to prevent large plan differences from showing.
 	Schema *string `pulumi:"schema"`
 	// CloudFormation resource type name. For example, `AWS::EC2::VPC`.
 	TypeName *string `pulumi:"typeName"`
@@ -118,7 +118,7 @@ type ResourceState struct {
 	Properties   pulumi.StringPtrInput
 	// Amazon Resource Name (ARN) of the IAM Role to assume for operations.
 	RoleArn pulumi.StringPtrInput
-	// JSON string of the CloudFormation resource type schema which is used for plan time validation where possible. Automatically fetched if not provided. In large scale environments with multiple resources using the same `typeName`, it is recommended to fetch the schema once via the [`cloudformation.CloudFormationType` data source](https://www.terraform.io/docs/providers/aws/d/cloudformation_type.html) and use this argument to reduce `DescribeType` API operation throttling. This value is marked sensitive only to prevent large plan differences from showing.
+	// JSON string of the CloudFormation resource type schema which is used for plan time validation where possible. Automatically fetched if not provided. In large scale environments with multiple resources using the same `typeName`, it is recommended to fetch the schema once via the `cloudformation.CloudFormationType` data source and use this argument to reduce `DescribeType` API operation throttling. This value is marked sensitive only to prevent large plan differences from showing.
 	Schema pulumi.StringPtrInput
 	// CloudFormation resource type name. For example, `AWS::EC2::VPC`.
 	TypeName pulumi.StringPtrInput
@@ -134,7 +134,7 @@ type resourceArgs struct {
 	DesiredState string `pulumi:"desiredState"`
 	// Amazon Resource Name (ARN) of the IAM Role to assume for operations.
 	RoleArn *string `pulumi:"roleArn"`
-	// JSON string of the CloudFormation resource type schema which is used for plan time validation where possible. Automatically fetched if not provided. In large scale environments with multiple resources using the same `typeName`, it is recommended to fetch the schema once via the [`cloudformation.CloudFormationType` data source](https://www.terraform.io/docs/providers/aws/d/cloudformation_type.html) and use this argument to reduce `DescribeType` API operation throttling. This value is marked sensitive only to prevent large plan differences from showing.
+	// JSON string of the CloudFormation resource type schema which is used for plan time validation where possible. Automatically fetched if not provided. In large scale environments with multiple resources using the same `typeName`, it is recommended to fetch the schema once via the `cloudformation.CloudFormationType` data source and use this argument to reduce `DescribeType` API operation throttling. This value is marked sensitive only to prevent large plan differences from showing.
 	Schema *string `pulumi:"schema"`
 	// CloudFormation resource type name. For example, `AWS::EC2::VPC`.
 	TypeName string `pulumi:"typeName"`
@@ -147,7 +147,7 @@ type ResourceArgs struct {
 	DesiredState pulumi.StringInput
 	// Amazon Resource Name (ARN) of the IAM Role to assume for operations.
 	RoleArn pulumi.StringPtrInput
-	// JSON string of the CloudFormation resource type schema which is used for plan time validation where possible. Automatically fetched if not provided. In large scale environments with multiple resources using the same `typeName`, it is recommended to fetch the schema once via the [`cloudformation.CloudFormationType` data source](https://www.terraform.io/docs/providers/aws/d/cloudformation_type.html) and use this argument to reduce `DescribeType` API operation throttling. This value is marked sensitive only to prevent large plan differences from showing.
+	// JSON string of the CloudFormation resource type schema which is used for plan time validation where possible. Automatically fetched if not provided. In large scale environments with multiple resources using the same `typeName`, it is recommended to fetch the schema once via the `cloudformation.CloudFormationType` data source and use this argument to reduce `DescribeType` API operation throttling. This value is marked sensitive only to prevent large plan differences from showing.
 	Schema pulumi.StringPtrInput
 	// CloudFormation resource type name. For example, `AWS::EC2::VPC`.
 	TypeName pulumi.StringInput

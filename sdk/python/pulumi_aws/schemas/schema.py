@@ -26,6 +26,7 @@ class SchemaArgs:
         :param pulumi.Input[str] type: The type of the schema. Valid values: `OpenApi3`.
         :param pulumi.Input[str] description: The description of the schema. Maximum of 256 characters.
         :param pulumi.Input[str] name: The name of the schema. Maximum of 385 characters consisting of lower case letters, upper case letters, ., -, _, @.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "content", content)
         pulumi.set(__self__, "registry_name", registry_name)
@@ -100,6 +101,9 @@ class SchemaArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -129,6 +133,7 @@ class _SchemaState:
         :param pulumi.Input[str] last_modified: The last modified date of the schema.
         :param pulumi.Input[str] name: The name of the schema. Maximum of 385 characters consisting of lower case letters, upper case letters, ., -, _, @.
         :param pulumi.Input[str] registry_name: The name of the registry in which this schema belongs.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] type: The type of the schema. Valid values: `OpenApi3`.
         :param pulumi.Input[str] version: The version of the schema.
@@ -232,6 +237,9 @@ class _SchemaState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -352,6 +360,7 @@ class Schema(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description of the schema. Maximum of 256 characters.
         :param pulumi.Input[str] name: The name of the schema. Maximum of 385 characters consisting of lower case letters, upper case letters, ., -, _, @.
         :param pulumi.Input[str] registry_name: The name of the registry in which this schema belongs.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[str] type: The type of the schema. Valid values: `OpenApi3`.
         """
         ...
@@ -491,6 +500,7 @@ class Schema(pulumi.CustomResource):
         :param pulumi.Input[str] last_modified: The last modified date of the schema.
         :param pulumi.Input[str] name: The name of the schema. Maximum of 385 characters consisting of lower case letters, upper case letters, ., -, _, @.
         :param pulumi.Input[str] registry_name: The name of the registry in which this schema belongs.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] type: The type of the schema. Valid values: `OpenApi3`.
         :param pulumi.Input[str] version: The version of the schema.
@@ -564,6 +574,9 @@ class Schema(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @property

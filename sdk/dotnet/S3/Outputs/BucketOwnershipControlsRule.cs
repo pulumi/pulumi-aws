@@ -14,7 +14,7 @@ namespace Pulumi.Aws.S3.Outputs
     public sealed class BucketOwnershipControlsRule
     {
         /// <summary>
-        /// Object ownership. Valid values: `BucketOwnerPreferred` or `ObjectWriter`
+        /// Object ownership. Valid values: `BucketOwnerPreferred`, `ObjectWriter` or `BucketOwnerEnforced`
         /// </summary>
         public readonly string ObjectOwnership;
 

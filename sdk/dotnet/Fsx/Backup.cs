@@ -12,7 +12,7 @@ namespace Pulumi.Aws.Fsx
     /// <summary>
     /// Provides a FSx Backup resource.
     /// 
-    /// ## Example Usage
+    /// ## Lustre Example
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -41,6 +41,62 @@ namespace Pulumi.Aws.Fsx
     /// }
     /// ```
     /// 
+    /// ## Windows Example
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleWindowsFileSystem = new Aws.Fsx.WindowsFileSystem("exampleWindowsFileSystem", new Aws.Fsx.WindowsFileSystemArgs
+    ///         {
+    ///             ActiveDirectoryId = aws_directory_service_directory.Eample.Id,
+    ///             SkipFinalBackup = true,
+    ///             StorageCapacity = 32,
+    ///             SubnetIds = 
+    ///             {
+    ///                 aws_subnet.Example1.Id,
+    ///             },
+    ///             ThroughputCapacity = 8,
+    ///         });
+    ///         var exampleBackup = new Aws.Fsx.Backup("exampleBackup", new Aws.Fsx.BackupArgs
+    ///         {
+    ///             FileSystemId = exampleWindowsFileSystem.Id,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ## ONTAP Example
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleOntapVolume = new Aws.Fsx.OntapVolume("exampleOntapVolume", new Aws.Fsx.OntapVolumeArgs
+    ///         {
+    ///             JunctionPath = "/example",
+    ///             SizeInMegabytes = 1024,
+    ///             StorageEfficiencyEnabled = true,
+    ///             StorageVirtualMachineId = aws_fsx_ontap_storage_virtual_machine.Test.Id,
+    ///         });
+    ///         var exampleBackup = new Aws.Fsx.Backup("exampleBackup", new Aws.Fsx.BackupArgs
+    ///         {
+    ///             VolumeId = exampleOntapVolume.Id,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// FSx Backups can be imported using the `id`, e.g.,
@@ -59,10 +115,10 @@ namespace Pulumi.Aws.Fsx
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the file system to back up.
+        /// The ID of the file system to back up. Required if backing up Lustre or Windows file systems.
         /// </summary>
         [Output("fileSystemId")]
-        public Output<string> FileSystemId { get; private set; } = null!;
+        public Output<string?> FileSystemId { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the AWS Key Management Service (AWS KMS) key used to encrypt the backup of the Amazon FSx file system's data at rest.
@@ -77,13 +133,13 @@ namespace Pulumi.Aws.Fsx
         public Output<string> OwnerId { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the file system. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copy_tags_to_backups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
+        /// A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copy_tags_to_backups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -94,6 +150,12 @@ namespace Pulumi.Aws.Fsx
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of the volume to back up. Required if backing up a ONTAP Volume.
+        /// </summary>
+        [Output("volumeId")]
+        public Output<string?> VolumeId { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Backup resource with the given unique name, arguments, and options.
@@ -102,7 +164,7 @@ namespace Pulumi.Aws.Fsx
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Backup(string name, BackupArgs args, CustomResourceOptions? options = null)
+        public Backup(string name, BackupArgs? args = null, CustomResourceOptions? options = null)
             : base("aws:fsx/backup:Backup", name, args ?? new BackupArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -141,22 +203,28 @@ namespace Pulumi.Aws.Fsx
     public sealed class BackupArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the file system to back up.
+        /// The ID of the file system to back up. Required if backing up Lustre or Windows file systems.
         /// </summary>
-        [Input("fileSystemId", required: true)]
-        public Input<string> FileSystemId { get; set; } = null!;
+        [Input("fileSystemId")]
+        public Input<string>? FileSystemId { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the file system. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copy_tags_to_backups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
+        /// A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copy_tags_to_backups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
         /// </summary>
         public InputMap<string> Tags
         {
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        /// <summary>
+        /// The ID of the volume to back up. Required if backing up a ONTAP Volume.
+        /// </summary>
+        [Input("volumeId")]
+        public Input<string>? VolumeId { get; set; }
 
         public BackupArgs()
         {
@@ -172,7 +240,7 @@ namespace Pulumi.Aws.Fsx
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The ID of the file system to back up.
+        /// The ID of the file system to back up. Required if backing up Lustre or Windows file systems.
         /// </summary>
         [Input("fileSystemId")]
         public Input<string>? FileSystemId { get; set; }
@@ -193,7 +261,7 @@ namespace Pulumi.Aws.Fsx
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the file system. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copy_tags_to_backups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
+        /// A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copy_tags_to_backups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -205,7 +273,7 @@ namespace Pulumi.Aws.Fsx
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+        /// A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -218,6 +286,12 @@ namespace Pulumi.Aws.Fsx
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
+
+        /// <summary>
+        /// The ID of the volume to back up. Required if backing up a ONTAP Volume.
+        /// </summary>
+        [Input("volumeId")]
+        public Input<string>? VolumeId { get; set; }
 
         public BackupState()
         {

@@ -36,33 +36,6 @@ import (
 // 	})
 // }
 // ```
-// ### AWS Cognito User Pool Authentication
-//
-// ```go
-// package main
-//
-// import (
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/appsync"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := appsync.NewGraphQLApi(ctx, "example", &appsync.GraphQLApiArgs{
-// 			AuthenticationType: pulumi.String("AMAZON_COGNITO_USER_POOLS"),
-// 			UserPoolConfig: &appsync.GraphQLApiUserPoolConfigArgs{
-// 				AwsRegion:     pulumi.Any(data.Aws_region.Current.Name),
-// 				DefaultAction: pulumi.String("DENY"),
-// 				UserPoolId:    pulumi.Any(aws_cognito_user_pool.Example.Id),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-// ```
 // ### AWS IAM Authentication
 //
 // ```go
@@ -85,14 +58,12 @@ import (
 // 	})
 // }
 // ```
-// ### With Schema
+// ### AWS Cognito User Pool Authentication
 //
 // ```go
 // package main
 //
 // import (
-// 	"fmt"
-//
 // 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/appsync"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 // )
@@ -100,8 +71,12 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := appsync.NewGraphQLApi(ctx, "example", &appsync.GraphQLApiArgs{
-// 			AuthenticationType: pulumi.String("AWS_IAM"),
-// 			Schema: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v", "schema {\n", "	query: Query\n", "}\n", "type Query {\n", "  test: Int\n", "}\n", "\n")),
+// 			AuthenticationType: pulumi.String("AMAZON_COGNITO_USER_POOLS"),
+// 			UserPoolConfig: &appsync.GraphQLApiUserPoolConfigArgs{
+// 				AwsRegion:     pulumi.Any(data.Aws_region.Current.Name),
+// 				DefaultAction: pulumi.String("DENY"),
+// 				UserPoolId:    pulumi.Any(aws_cognito_user_pool.Example.Id),
+// 			},
 // 		})
 // 		if err != nil {
 // 			return err
@@ -135,6 +110,41 @@ import (
 // 	})
 // }
 // ```
+// ### AWS Lambda Authorizer Authentication
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/appsync"
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/lambda"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		example, err := appsync.NewGraphQLApi(ctx, "example", &appsync.GraphQLApiArgs{
+// 			AuthenticationType: pulumi.String("AWS_LAMBDA"),
+// 			LambdaAuthorizerConfig: &appsync.GraphQLApiLambdaAuthorizerConfigArgs{
+// 				AuthorizerUri: pulumi.String("arn:aws:lambda:us-east-1:123456789012:function:custom_lambda_authorizer"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = lambda.NewPermission(ctx, "appsyncLambdaAuthorizer", &lambda.PermissionArgs{
+// 			Action:    pulumi.String("lambda:InvokeFunction"),
+// 			Function:  pulumi.Any("custom_lambda_authorizer"),
+// 			Principal: pulumi.String("appsync.amazonaws.com"),
+// 			SourceArn: example.Arn,
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 // ### With Multiple Authentication Providers
 //
 // ```go
@@ -154,6 +164,31 @@ import (
 // 				},
 // 			},
 // 			AuthenticationType: pulumi.String("API_KEY"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### With Schema
+//
+// ```go
+// package main
+//
+// import (
+// 	"fmt"
+//
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/appsync"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := appsync.NewGraphQLApi(ctx, "example", &appsync.GraphQLApiArgs{
+// 			AuthenticationType: pulumi.String("AWS_IAM"),
+// 			Schema: pulumi.String(fmt.Sprintf("%v%v%v%v%v%v%v", "schema {\n", "	query: Query\n", "}\n", "type Query {\n", "  test: Int\n", "}\n", "\n")),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -286,8 +321,10 @@ type GraphQLApi struct {
 	AdditionalAuthenticationProviders GraphQLApiAdditionalAuthenticationProviderArrayOutput `pulumi:"additionalAuthenticationProviders"`
 	// The ARN
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`
+	// The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
 	AuthenticationType pulumi.StringOutput `pulumi:"authenticationType"`
+	// Nested argument containing Lambda authorizer configuration. Defined below.
+	LambdaAuthorizerConfig GraphQLApiLambdaAuthorizerConfigPtrOutput `pulumi:"lambdaAuthorizerConfig"`
 	// Nested argument containing logging configuration. Defined below.
 	LogConfig GraphQLApiLogConfigPtrOutput `pulumi:"logConfig"`
 	// A user-supplied name for the GraphqlApi.
@@ -344,8 +381,10 @@ type graphQLApiState struct {
 	AdditionalAuthenticationProviders []GraphQLApiAdditionalAuthenticationProvider `pulumi:"additionalAuthenticationProviders"`
 	// The ARN
 	Arn *string `pulumi:"arn"`
-	// The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`
+	// The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
 	AuthenticationType *string `pulumi:"authenticationType"`
+	// Nested argument containing Lambda authorizer configuration. Defined below.
+	LambdaAuthorizerConfig *GraphQLApiLambdaAuthorizerConfig `pulumi:"lambdaAuthorizerConfig"`
 	// Nested argument containing logging configuration. Defined below.
 	LogConfig *GraphQLApiLogConfig `pulumi:"logConfig"`
 	// A user-supplied name for the GraphqlApi.
@@ -371,8 +410,10 @@ type GraphQLApiState struct {
 	AdditionalAuthenticationProviders GraphQLApiAdditionalAuthenticationProviderArrayInput
 	// The ARN
 	Arn pulumi.StringPtrInput
-	// The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`
+	// The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
 	AuthenticationType pulumi.StringPtrInput
+	// Nested argument containing Lambda authorizer configuration. Defined below.
+	LambdaAuthorizerConfig GraphQLApiLambdaAuthorizerConfigPtrInput
 	// Nested argument containing logging configuration. Defined below.
 	LogConfig GraphQLApiLogConfigPtrInput
 	// A user-supplied name for the GraphqlApi.
@@ -400,8 +441,10 @@ func (GraphQLApiState) ElementType() reflect.Type {
 type graphQLApiArgs struct {
 	// One or more additional authentication providers for the GraphqlApi. Defined below.
 	AdditionalAuthenticationProviders []GraphQLApiAdditionalAuthenticationProvider `pulumi:"additionalAuthenticationProviders"`
-	// The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`
+	// The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
 	AuthenticationType string `pulumi:"authenticationType"`
+	// Nested argument containing Lambda authorizer configuration. Defined below.
+	LambdaAuthorizerConfig *GraphQLApiLambdaAuthorizerConfig `pulumi:"lambdaAuthorizerConfig"`
 	// Nested argument containing logging configuration. Defined below.
 	LogConfig *GraphQLApiLogConfig `pulumi:"logConfig"`
 	// A user-supplied name for the GraphqlApi.
@@ -422,8 +465,10 @@ type graphQLApiArgs struct {
 type GraphQLApiArgs struct {
 	// One or more additional authentication providers for the GraphqlApi. Defined below.
 	AdditionalAuthenticationProviders GraphQLApiAdditionalAuthenticationProviderArrayInput
-	// The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`
+	// The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
 	AuthenticationType pulumi.StringInput
+	// Nested argument containing Lambda authorizer configuration. Defined below.
+	LambdaAuthorizerConfig GraphQLApiLambdaAuthorizerConfigPtrInput
 	// Nested argument containing logging configuration. Defined below.
 	LogConfig GraphQLApiLogConfigPtrInput
 	// A user-supplied name for the GraphqlApi.

@@ -10,6 +10,49 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.SecurityHub
 {
     /// <summary>
+    /// Manages the Security Hub Organization Configuration.
+    /// 
+    /// &gt; **NOTE:** This resource requires an `aws.securityhub.OrganizationAdminAccount` to be configured (not necessarily with this provider). More information about managing Security Hub in an organization can be found in the [Managing administrator and member accounts](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-accounts.html) documentation
+    /// 
+    /// &gt; **NOTE:** This is an advanced resource. This provider will automatically assume management of the Security Hub Organization Configuration without import and perform no actions on removal from the configuration.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleOrganization = new Aws.Organizations.Organization("exampleOrganization", new Aws.Organizations.OrganizationArgs
+    ///         {
+    ///             AwsServiceAccessPrincipals = 
+    ///             {
+    ///                 "securityhub.amazonaws.com",
+    ///             },
+    ///             FeatureSet = "ALL",
+    ///         });
+    ///         var exampleOrganizationAdminAccount = new Aws.SecurityHub.OrganizationAdminAccount("exampleOrganizationAdminAccount", new Aws.SecurityHub.OrganizationAdminAccountArgs
+    ///         {
+    ///             AdminAccountId = "123456789012",
+    ///         }, new CustomResourceOptions
+    ///         {
+    ///             DependsOn = 
+    ///             {
+    ///                 exampleOrganization,
+    ///             },
+    ///         });
+    ///         var exampleOrganizationConfiguration = new Aws.SecurityHub.OrganizationConfiguration("exampleOrganizationConfiguration", new Aws.SecurityHub.OrganizationConfigurationArgs
+    ///         {
+    ///             AutoEnable = true,
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// An existing Security Hub enabled account can be imported using the AWS account ID, e.g.,

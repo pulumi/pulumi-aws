@@ -72,7 +72,7 @@ func LookupCertificate(ctx *pulumi.Context, args *LookupCertificateArgs, opts ..
 type LookupCertificateArgs struct {
 	// The domain of the certificate to look up. If no certificate is found with this name, an error will be returned.
 	Domain string `pulumi:"domain"`
-	// A list of key algorithms to filter certificates. By default, ACM does not return all certificate types when searching. Valid values are `RSA_1024`, `RSA_2048`, `RSA_4096`, `EC_prime256v1`, `EC_secp384r1`, and `EC_secp521r1`.
+	// A list of key algorithms to filter certificates. By default, ACM does not return all certificate types when searching. See the [ACM API Reference](https://docs.aws.amazon.com/acm/latest/APIReference/API_CertificateDetail.html#ACM-Type-CertificateDetail-KeyAlgorithm) for supported key algorithms.
 	KeyTypes []string `pulumi:"keyTypes"`
 	// If set to true, it sorts the certificates matched by previous criteria by the NotBefore field, returning only the most recent one. If set to false, it returns an error if more than one certificate is found. Defaults to false.
 	MostRecent *bool `pulumi:"mostRecent"`
@@ -116,7 +116,7 @@ func LookupCertificateOutput(ctx *pulumi.Context, args LookupCertificateOutputAr
 type LookupCertificateOutputArgs struct {
 	// The domain of the certificate to look up. If no certificate is found with this name, an error will be returned.
 	Domain pulumi.StringInput `pulumi:"domain"`
-	// A list of key algorithms to filter certificates. By default, ACM does not return all certificate types when searching. Valid values are `RSA_1024`, `RSA_2048`, `RSA_4096`, `EC_prime256v1`, `EC_secp384r1`, and `EC_secp521r1`.
+	// A list of key algorithms to filter certificates. By default, ACM does not return all certificate types when searching. See the [ACM API Reference](https://docs.aws.amazon.com/acm/latest/APIReference/API_CertificateDetail.html#ACM-Type-CertificateDetail-KeyAlgorithm) for supported key algorithms.
 	KeyTypes pulumi.StringArrayInput `pulumi:"keyTypes"`
 	// If set to true, it sorts the certificates matched by previous criteria by the NotBefore field, returning only the most recent one. If set to false, it returns an error if more than one certificate is found. Defaults to false.
 	MostRecent pulumi.BoolPtrInput `pulumi:"mostRecent"`

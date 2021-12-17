@@ -190,7 +190,7 @@ namespace Pulumi.Aws.Dms
         public Output<string> ReplicationInstanceArn { get; private set; } = null!;
 
         /// <summary>
-        /// The compute and memory capacity of the replication instance as specified by the replication instance class. Can be one of `dms.t2.micro | dms.t2.small | dms.t2.medium | dms.t2.large | dms.c4.large | dms.c4.xlarge | dms.c4.2xlarge | dms.c4.4xlarge`
+        /// The compute and memory capacity of the replication instance as specified by the replication instance class. See [AWS DMS User Guide](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.Types.html) for available instance sizes and advice on which one to choose.
         /// </summary>
         [Output("replicationInstanceClass")]
         public Output<string> ReplicationInstanceClass { get; private set; } = null!;
@@ -344,7 +344,7 @@ namespace Pulumi.Aws.Dms
         public Input<bool>? PubliclyAccessible { get; set; }
 
         /// <summary>
-        /// The compute and memory capacity of the replication instance as specified by the replication instance class. Can be one of `dms.t2.micro | dms.t2.small | dms.t2.medium | dms.t2.large | dms.c4.large | dms.c4.xlarge | dms.c4.2xlarge | dms.c4.4xlarge`
+        /// The compute and memory capacity of the replication instance as specified by the replication instance class. See [AWS DMS User Guide](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.Types.html) for available instance sizes and advice on which one to choose.
         /// </summary>
         [Input("replicationInstanceClass", required: true)]
         public Input<string> ReplicationInstanceClass { get; set; } = null!;
@@ -459,7 +459,7 @@ namespace Pulumi.Aws.Dms
         public Input<string>? ReplicationInstanceArn { get; set; }
 
         /// <summary>
-        /// The compute and memory capacity of the replication instance as specified by the replication instance class. Can be one of `dms.t2.micro | dms.t2.small | dms.t2.medium | dms.t2.large | dms.c4.large | dms.c4.xlarge | dms.c4.2xlarge | dms.c4.4xlarge`
+        /// The compute and memory capacity of the replication instance as specified by the replication instance class. See [AWS DMS User Guide](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.Types.html) for available instance sizes and advice on which one to choose.
         /// </summary>
         [Input("replicationInstanceClass")]
         public Input<string>? ReplicationInstanceClass { get; set; }

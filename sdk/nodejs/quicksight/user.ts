@@ -15,6 +15,7 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.quicksight.User("example", {
  *     email: "author@example.com",
+ *     iamArn: "arn:aws:iam::123456789012:user/Example",
  *     identityType: "IAM",
  *     sessionName: "an-author",
  *     userRole: "AUTHOR",
@@ -70,7 +71,7 @@ export class User extends pulumi.CustomResource {
      */
     public readonly iamArn!: pulumi.Output<string | undefined>;
     /**
-     * Amazon QuickSight supports several ways of managing the identity of users. This parameter accepts either  `IAM` or `QUICKSIGHT`.
+     * Amazon QuickSight supports several ways of managing the identity of users. This parameter accepts either  `IAM` or `QUICKSIGHT`. If `IAM` is specified, the `iamArn` must also be specified.
      */
     public readonly identityType!: pulumi.Output<string>;
     /**
@@ -161,7 +162,7 @@ export interface UserState {
      */
     iamArn?: pulumi.Input<string>;
     /**
-     * Amazon QuickSight supports several ways of managing the identity of users. This parameter accepts either  `IAM` or `QUICKSIGHT`.
+     * Amazon QuickSight supports several ways of managing the identity of users. This parameter accepts either  `IAM` or `QUICKSIGHT`. If `IAM` is specified, the `iamArn` must also be specified.
      */
     identityType?: pulumi.Input<string>;
     /**
@@ -199,7 +200,7 @@ export interface UserArgs {
      */
     iamArn?: pulumi.Input<string>;
     /**
-     * Amazon QuickSight supports several ways of managing the identity of users. This parameter accepts either  `IAM` or `QUICKSIGHT`.
+     * Amazon QuickSight supports several ways of managing the identity of users. This parameter accepts either  `IAM` or `QUICKSIGHT`. If `IAM` is specified, the `iamArn` must also be specified.
      */
     identityType: pulumi.Input<string>;
     /**

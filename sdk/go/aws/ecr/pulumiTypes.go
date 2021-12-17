@@ -10,6 +10,214 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type RegistryScanningConfigurationRule struct {
+	// One or more repository filter blocks, containing a `filter` (required string filtering repositories, see pattern regex [here](https://docs.aws.amazon.com/AmazonECR/latest/APIReference/API_ScanningRepositoryFilter.html)) and a `filterType` (required string, currently only `WILDCARD` is supported).
+	RepositoryFilters []RegistryScanningConfigurationRuleRepositoryFilter `pulumi:"repositoryFilters"`
+	// The frequency that scans are performed at for a private registry. Can be `SCAN_ON_PUSH`, `CONTINUOUS_SCAN`, or `MANUAL`.
+	ScanFrequency string `pulumi:"scanFrequency"`
+}
+
+// RegistryScanningConfigurationRuleInput is an input type that accepts RegistryScanningConfigurationRuleArgs and RegistryScanningConfigurationRuleOutput values.
+// You can construct a concrete instance of `RegistryScanningConfigurationRuleInput` via:
+//
+//          RegistryScanningConfigurationRuleArgs{...}
+type RegistryScanningConfigurationRuleInput interface {
+	pulumi.Input
+
+	ToRegistryScanningConfigurationRuleOutput() RegistryScanningConfigurationRuleOutput
+	ToRegistryScanningConfigurationRuleOutputWithContext(context.Context) RegistryScanningConfigurationRuleOutput
+}
+
+type RegistryScanningConfigurationRuleArgs struct {
+	// One or more repository filter blocks, containing a `filter` (required string filtering repositories, see pattern regex [here](https://docs.aws.amazon.com/AmazonECR/latest/APIReference/API_ScanningRepositoryFilter.html)) and a `filterType` (required string, currently only `WILDCARD` is supported).
+	RepositoryFilters RegistryScanningConfigurationRuleRepositoryFilterArrayInput `pulumi:"repositoryFilters"`
+	// The frequency that scans are performed at for a private registry. Can be `SCAN_ON_PUSH`, `CONTINUOUS_SCAN`, or `MANUAL`.
+	ScanFrequency pulumi.StringInput `pulumi:"scanFrequency"`
+}
+
+func (RegistryScanningConfigurationRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryScanningConfigurationRule)(nil)).Elem()
+}
+
+func (i RegistryScanningConfigurationRuleArgs) ToRegistryScanningConfigurationRuleOutput() RegistryScanningConfigurationRuleOutput {
+	return i.ToRegistryScanningConfigurationRuleOutputWithContext(context.Background())
+}
+
+func (i RegistryScanningConfigurationRuleArgs) ToRegistryScanningConfigurationRuleOutputWithContext(ctx context.Context) RegistryScanningConfigurationRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryScanningConfigurationRuleOutput)
+}
+
+// RegistryScanningConfigurationRuleArrayInput is an input type that accepts RegistryScanningConfigurationRuleArray and RegistryScanningConfigurationRuleArrayOutput values.
+// You can construct a concrete instance of `RegistryScanningConfigurationRuleArrayInput` via:
+//
+//          RegistryScanningConfigurationRuleArray{ RegistryScanningConfigurationRuleArgs{...} }
+type RegistryScanningConfigurationRuleArrayInput interface {
+	pulumi.Input
+
+	ToRegistryScanningConfigurationRuleArrayOutput() RegistryScanningConfigurationRuleArrayOutput
+	ToRegistryScanningConfigurationRuleArrayOutputWithContext(context.Context) RegistryScanningConfigurationRuleArrayOutput
+}
+
+type RegistryScanningConfigurationRuleArray []RegistryScanningConfigurationRuleInput
+
+func (RegistryScanningConfigurationRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RegistryScanningConfigurationRule)(nil)).Elem()
+}
+
+func (i RegistryScanningConfigurationRuleArray) ToRegistryScanningConfigurationRuleArrayOutput() RegistryScanningConfigurationRuleArrayOutput {
+	return i.ToRegistryScanningConfigurationRuleArrayOutputWithContext(context.Background())
+}
+
+func (i RegistryScanningConfigurationRuleArray) ToRegistryScanningConfigurationRuleArrayOutputWithContext(ctx context.Context) RegistryScanningConfigurationRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryScanningConfigurationRuleArrayOutput)
+}
+
+type RegistryScanningConfigurationRuleOutput struct{ *pulumi.OutputState }
+
+func (RegistryScanningConfigurationRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryScanningConfigurationRule)(nil)).Elem()
+}
+
+func (o RegistryScanningConfigurationRuleOutput) ToRegistryScanningConfigurationRuleOutput() RegistryScanningConfigurationRuleOutput {
+	return o
+}
+
+func (o RegistryScanningConfigurationRuleOutput) ToRegistryScanningConfigurationRuleOutputWithContext(ctx context.Context) RegistryScanningConfigurationRuleOutput {
+	return o
+}
+
+// One or more repository filter blocks, containing a `filter` (required string filtering repositories, see pattern regex [here](https://docs.aws.amazon.com/AmazonECR/latest/APIReference/API_ScanningRepositoryFilter.html)) and a `filterType` (required string, currently only `WILDCARD` is supported).
+func (o RegistryScanningConfigurationRuleOutput) RepositoryFilters() RegistryScanningConfigurationRuleRepositoryFilterArrayOutput {
+	return o.ApplyT(func(v RegistryScanningConfigurationRule) []RegistryScanningConfigurationRuleRepositoryFilter {
+		return v.RepositoryFilters
+	}).(RegistryScanningConfigurationRuleRepositoryFilterArrayOutput)
+}
+
+// The frequency that scans are performed at for a private registry. Can be `SCAN_ON_PUSH`, `CONTINUOUS_SCAN`, or `MANUAL`.
+func (o RegistryScanningConfigurationRuleOutput) ScanFrequency() pulumi.StringOutput {
+	return o.ApplyT(func(v RegistryScanningConfigurationRule) string { return v.ScanFrequency }).(pulumi.StringOutput)
+}
+
+type RegistryScanningConfigurationRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (RegistryScanningConfigurationRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RegistryScanningConfigurationRule)(nil)).Elem()
+}
+
+func (o RegistryScanningConfigurationRuleArrayOutput) ToRegistryScanningConfigurationRuleArrayOutput() RegistryScanningConfigurationRuleArrayOutput {
+	return o
+}
+
+func (o RegistryScanningConfigurationRuleArrayOutput) ToRegistryScanningConfigurationRuleArrayOutputWithContext(ctx context.Context) RegistryScanningConfigurationRuleArrayOutput {
+	return o
+}
+
+func (o RegistryScanningConfigurationRuleArrayOutput) Index(i pulumi.IntInput) RegistryScanningConfigurationRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RegistryScanningConfigurationRule {
+		return vs[0].([]RegistryScanningConfigurationRule)[vs[1].(int)]
+	}).(RegistryScanningConfigurationRuleOutput)
+}
+
+type RegistryScanningConfigurationRuleRepositoryFilter struct {
+	Filter     string `pulumi:"filter"`
+	FilterType string `pulumi:"filterType"`
+}
+
+// RegistryScanningConfigurationRuleRepositoryFilterInput is an input type that accepts RegistryScanningConfigurationRuleRepositoryFilterArgs and RegistryScanningConfigurationRuleRepositoryFilterOutput values.
+// You can construct a concrete instance of `RegistryScanningConfigurationRuleRepositoryFilterInput` via:
+//
+//          RegistryScanningConfigurationRuleRepositoryFilterArgs{...}
+type RegistryScanningConfigurationRuleRepositoryFilterInput interface {
+	pulumi.Input
+
+	ToRegistryScanningConfigurationRuleRepositoryFilterOutput() RegistryScanningConfigurationRuleRepositoryFilterOutput
+	ToRegistryScanningConfigurationRuleRepositoryFilterOutputWithContext(context.Context) RegistryScanningConfigurationRuleRepositoryFilterOutput
+}
+
+type RegistryScanningConfigurationRuleRepositoryFilterArgs struct {
+	Filter     pulumi.StringInput `pulumi:"filter"`
+	FilterType pulumi.StringInput `pulumi:"filterType"`
+}
+
+func (RegistryScanningConfigurationRuleRepositoryFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryScanningConfigurationRuleRepositoryFilter)(nil)).Elem()
+}
+
+func (i RegistryScanningConfigurationRuleRepositoryFilterArgs) ToRegistryScanningConfigurationRuleRepositoryFilterOutput() RegistryScanningConfigurationRuleRepositoryFilterOutput {
+	return i.ToRegistryScanningConfigurationRuleRepositoryFilterOutputWithContext(context.Background())
+}
+
+func (i RegistryScanningConfigurationRuleRepositoryFilterArgs) ToRegistryScanningConfigurationRuleRepositoryFilterOutputWithContext(ctx context.Context) RegistryScanningConfigurationRuleRepositoryFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryScanningConfigurationRuleRepositoryFilterOutput)
+}
+
+// RegistryScanningConfigurationRuleRepositoryFilterArrayInput is an input type that accepts RegistryScanningConfigurationRuleRepositoryFilterArray and RegistryScanningConfigurationRuleRepositoryFilterArrayOutput values.
+// You can construct a concrete instance of `RegistryScanningConfigurationRuleRepositoryFilterArrayInput` via:
+//
+//          RegistryScanningConfigurationRuleRepositoryFilterArray{ RegistryScanningConfigurationRuleRepositoryFilterArgs{...} }
+type RegistryScanningConfigurationRuleRepositoryFilterArrayInput interface {
+	pulumi.Input
+
+	ToRegistryScanningConfigurationRuleRepositoryFilterArrayOutput() RegistryScanningConfigurationRuleRepositoryFilterArrayOutput
+	ToRegistryScanningConfigurationRuleRepositoryFilterArrayOutputWithContext(context.Context) RegistryScanningConfigurationRuleRepositoryFilterArrayOutput
+}
+
+type RegistryScanningConfigurationRuleRepositoryFilterArray []RegistryScanningConfigurationRuleRepositoryFilterInput
+
+func (RegistryScanningConfigurationRuleRepositoryFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RegistryScanningConfigurationRuleRepositoryFilter)(nil)).Elem()
+}
+
+func (i RegistryScanningConfigurationRuleRepositoryFilterArray) ToRegistryScanningConfigurationRuleRepositoryFilterArrayOutput() RegistryScanningConfigurationRuleRepositoryFilterArrayOutput {
+	return i.ToRegistryScanningConfigurationRuleRepositoryFilterArrayOutputWithContext(context.Background())
+}
+
+func (i RegistryScanningConfigurationRuleRepositoryFilterArray) ToRegistryScanningConfigurationRuleRepositoryFilterArrayOutputWithContext(ctx context.Context) RegistryScanningConfigurationRuleRepositoryFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryScanningConfigurationRuleRepositoryFilterArrayOutput)
+}
+
+type RegistryScanningConfigurationRuleRepositoryFilterOutput struct{ *pulumi.OutputState }
+
+func (RegistryScanningConfigurationRuleRepositoryFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryScanningConfigurationRuleRepositoryFilter)(nil)).Elem()
+}
+
+func (o RegistryScanningConfigurationRuleRepositoryFilterOutput) ToRegistryScanningConfigurationRuleRepositoryFilterOutput() RegistryScanningConfigurationRuleRepositoryFilterOutput {
+	return o
+}
+
+func (o RegistryScanningConfigurationRuleRepositoryFilterOutput) ToRegistryScanningConfigurationRuleRepositoryFilterOutputWithContext(ctx context.Context) RegistryScanningConfigurationRuleRepositoryFilterOutput {
+	return o
+}
+
+func (o RegistryScanningConfigurationRuleRepositoryFilterOutput) Filter() pulumi.StringOutput {
+	return o.ApplyT(func(v RegistryScanningConfigurationRuleRepositoryFilter) string { return v.Filter }).(pulumi.StringOutput)
+}
+
+func (o RegistryScanningConfigurationRuleRepositoryFilterOutput) FilterType() pulumi.StringOutput {
+	return o.ApplyT(func(v RegistryScanningConfigurationRuleRepositoryFilter) string { return v.FilterType }).(pulumi.StringOutput)
+}
+
+type RegistryScanningConfigurationRuleRepositoryFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (RegistryScanningConfigurationRuleRepositoryFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RegistryScanningConfigurationRuleRepositoryFilter)(nil)).Elem()
+}
+
+func (o RegistryScanningConfigurationRuleRepositoryFilterArrayOutput) ToRegistryScanningConfigurationRuleRepositoryFilterArrayOutput() RegistryScanningConfigurationRuleRepositoryFilterArrayOutput {
+	return o
+}
+
+func (o RegistryScanningConfigurationRuleRepositoryFilterArrayOutput) ToRegistryScanningConfigurationRuleRepositoryFilterArrayOutputWithContext(ctx context.Context) RegistryScanningConfigurationRuleRepositoryFilterArrayOutput {
+	return o
+}
+
+func (o RegistryScanningConfigurationRuleRepositoryFilterArrayOutput) Index(i pulumi.IntInput) RegistryScanningConfigurationRuleRepositoryFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RegistryScanningConfigurationRuleRepositoryFilter {
+		return vs[0].([]RegistryScanningConfigurationRuleRepositoryFilter)[vs[1].(int)]
+	}).(RegistryScanningConfigurationRuleRepositoryFilterOutput)
+}
+
 type ReplicationConfigurationReplicationConfiguration struct {
 	// The replication rules for a replication configuration. See Rule.
 	Rule ReplicationConfigurationReplicationConfigurationRule `pulumi:"rule"`
@@ -841,6 +1049,10 @@ func (o GetRepositoryImageScanningConfigurationArrayOutput) Index(i pulumi.IntIn
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryScanningConfigurationRuleInput)(nil)).Elem(), RegistryScanningConfigurationRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryScanningConfigurationRuleArrayInput)(nil)).Elem(), RegistryScanningConfigurationRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryScanningConfigurationRuleRepositoryFilterInput)(nil)).Elem(), RegistryScanningConfigurationRuleRepositoryFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryScanningConfigurationRuleRepositoryFilterArrayInput)(nil)).Elem(), RegistryScanningConfigurationRuleRepositoryFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigurationReplicationConfigurationInput)(nil)).Elem(), ReplicationConfigurationReplicationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigurationReplicationConfigurationPtrInput)(nil)).Elem(), ReplicationConfigurationReplicationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigurationReplicationConfigurationRuleInput)(nil)).Elem(), ReplicationConfigurationReplicationConfigurationRuleArgs{})
@@ -855,6 +1067,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryEncryptionConfigurationArrayInput)(nil)).Elem(), GetRepositoryEncryptionConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryImageScanningConfigurationInput)(nil)).Elem(), GetRepositoryImageScanningConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryImageScanningConfigurationArrayInput)(nil)).Elem(), GetRepositoryImageScanningConfigurationArray{})
+	pulumi.RegisterOutputType(RegistryScanningConfigurationRuleOutput{})
+	pulumi.RegisterOutputType(RegistryScanningConfigurationRuleArrayOutput{})
+	pulumi.RegisterOutputType(RegistryScanningConfigurationRuleRepositoryFilterOutput{})
+	pulumi.RegisterOutputType(RegistryScanningConfigurationRuleRepositoryFilterArrayOutput{})
 	pulumi.RegisterOutputType(ReplicationConfigurationReplicationConfigurationOutput{})
 	pulumi.RegisterOutputType(ReplicationConfigurationReplicationConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ReplicationConfigurationReplicationConfigurationRuleOutput{})

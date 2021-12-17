@@ -68,7 +68,8 @@ type VideoStream struct {
 	MediaType pulumi.StringPtrOutput `pulumi:"mediaType"`
 	// A name to identify the stream. This is unique to the
 	// AWS account and region the Stream is created in.
-	Name pulumi.StringOutput    `pulumi:"name"`
+	Name pulumi.StringOutput `pulumi:"name"`
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
@@ -119,7 +120,8 @@ type videoStreamState struct {
 	MediaType *string `pulumi:"mediaType"`
 	// A name to identify the stream. This is unique to the
 	// AWS account and region the Stream is created in.
-	Name *string           `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -143,6 +145,7 @@ type VideoStreamState struct {
 	// A name to identify the stream. This is unique to the
 	// AWS account and region the Stream is created in.
 	Name pulumi.StringPtrInput
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
@@ -165,7 +168,8 @@ type videoStreamArgs struct {
 	MediaType *string `pulumi:"mediaType"`
 	// A name to identify the stream. This is unique to the
 	// AWS account and region the Stream is created in.
-	Name *string           `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
@@ -182,6 +186,7 @@ type VideoStreamArgs struct {
 	// A name to identify the stream. This is unique to the
 	// AWS account and region the Stream is created in.
 	Name pulumi.StringPtrInput
+	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
 

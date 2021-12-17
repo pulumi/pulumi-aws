@@ -65,8 +65,9 @@ type TrafficMirrorTarget struct {
 	// The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the target.
 	NetworkLoadBalancerArn pulumi.StringPtrOutput `pulumi:"networkLoadBalancerArn"`
 	// The ID of the AWS account that owns the traffic mirror target.
-	OwnerId pulumi.StringOutput    `pulumi:"ownerId"`
-	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
@@ -109,8 +110,9 @@ type trafficMirrorTargetState struct {
 	// The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the target.
 	NetworkLoadBalancerArn *string `pulumi:"networkLoadBalancerArn"`
 	// The ID of the AWS account that owns the traffic mirror target.
-	OwnerId *string           `pulumi:"ownerId"`
-	Tags    map[string]string `pulumi:"tags"`
+	OwnerId *string `pulumi:"ownerId"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
@@ -126,7 +128,8 @@ type TrafficMirrorTargetState struct {
 	NetworkLoadBalancerArn pulumi.StringPtrInput
 	// The ID of the AWS account that owns the traffic mirror target.
 	OwnerId pulumi.StringPtrInput
-	Tags    pulumi.StringMapInput
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
@@ -141,8 +144,9 @@ type trafficMirrorTargetArgs struct {
 	// The network interface ID that is associated with the target.
 	NetworkInterfaceId *string `pulumi:"networkInterfaceId"`
 	// The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the target.
-	NetworkLoadBalancerArn *string           `pulumi:"networkLoadBalancerArn"`
-	Tags                   map[string]string `pulumi:"tags"`
+	NetworkLoadBalancerArn *string `pulumi:"networkLoadBalancerArn"`
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a TrafficMirrorTarget resource.
@@ -153,7 +157,8 @@ type TrafficMirrorTargetArgs struct {
 	NetworkInterfaceId pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the Network Load Balancer that is associated with the target.
 	NetworkLoadBalancerArn pulumi.StringPtrInput
-	Tags                   pulumi.StringMapInput
+	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (TrafficMirrorTargetArgs) ElementType() reflect.Type {

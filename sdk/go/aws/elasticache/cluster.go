@@ -176,9 +176,10 @@ type Cluster struct {
 	// Daily time range (in UTC) during which ElastiCache will begin taking a daily snapshot of your cache cluster. Example: 05:00-09:00
 	SnapshotWindow pulumi.StringOutput `pulumi:"snapshotWindow"`
 	// Name of the subnet group to be used for the cache cluster. Changing this value will re-create the resource.
-	SubnetGroupName pulumi.StringOutput    `pulumi:"subnetGroupName"`
-	Tags            pulumi.StringMapOutput `pulumi:"tags"`
-	TagsAll         pulumi.StringMapOutput `pulumi:"tagsAll"`
+	SubnetGroupName pulumi.StringOutput `pulumi:"subnetGroupName"`
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewCluster registers a new resource with the given unique name, arguments, and options.
@@ -267,9 +268,10 @@ type clusterState struct {
 	// Daily time range (in UTC) during which ElastiCache will begin taking a daily snapshot of your cache cluster. Example: 05:00-09:00
 	SnapshotWindow *string `pulumi:"snapshotWindow"`
 	// Name of the subnet group to be used for the cache cluster. Changing this value will re-create the resource.
-	SubnetGroupName *string           `pulumi:"subnetGroupName"`
-	Tags            map[string]string `pulumi:"tags"`
-	TagsAll         map[string]string `pulumi:"tagsAll"`
+	SubnetGroupName *string `pulumi:"subnetGroupName"`
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags    map[string]string `pulumi:"tags"`
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type ClusterState struct {
@@ -331,8 +333,9 @@ type ClusterState struct {
 	SnapshotWindow pulumi.StringPtrInput
 	// Name of the subnet group to be used for the cache cluster. Changing this value will re-create the resource.
 	SubnetGroupName pulumi.StringPtrInput
-	Tags            pulumi.StringMapInput
-	TagsAll         pulumi.StringMapInput
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags    pulumi.StringMapInput
+	TagsAll pulumi.StringMapInput
 }
 
 func (ClusterState) ElementType() reflect.Type {
@@ -387,8 +390,9 @@ type clusterArgs struct {
 	// Daily time range (in UTC) during which ElastiCache will begin taking a daily snapshot of your cache cluster. Example: 05:00-09:00
 	SnapshotWindow *string `pulumi:"snapshotWindow"`
 	// Name of the subnet group to be used for the cache cluster. Changing this value will re-create the resource.
-	SubnetGroupName *string           `pulumi:"subnetGroupName"`
-	Tags            map[string]string `pulumi:"tags"`
+	SubnetGroupName *string `pulumi:"subnetGroupName"`
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Cluster resource.
@@ -441,7 +445,8 @@ type ClusterArgs struct {
 	SnapshotWindow pulumi.StringPtrInput
 	// Name of the subnet group to be used for the cache cluster. Changing this value will re-create the resource.
 	SubnetGroupName pulumi.StringPtrInput
-	Tags            pulumi.StringMapInput
+	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (ClusterArgs) ElementType() reflect.Type {

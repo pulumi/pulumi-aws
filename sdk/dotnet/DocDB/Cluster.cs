@@ -160,7 +160,7 @@ namespace Pulumi.Aws.DocDB
         public Output<string?> FinalSnapshotIdentifier { get; private set; } = null!;
 
         /// <summary>
-        /// The global cluster identifier specified on [`aws.docdb.GlobalCluster`](https://www.terraform.io/docs/providers/aws/r/docdb_global_cluster.html).
+        /// The global cluster identifier specified on `aws.docdb.GlobalCluster`.
         /// </summary>
         [Output("globalClusterIdentifier")]
         public Output<string?> GlobalClusterIdentifier { get; private set; } = null!;
@@ -401,7 +401,7 @@ namespace Pulumi.Aws.DocDB
         public Input<string>? FinalSnapshotIdentifier { get; set; }
 
         /// <summary>
-        /// The global cluster identifier specified on [`aws.docdb.GlobalCluster`](https://www.terraform.io/docs/providers/aws/r/docdb_global_cluster.html).
+        /// The global cluster identifier specified on `aws.docdb.GlobalCluster`.
         /// </summary>
         [Input("globalClusterIdentifier")]
         public Input<string>? GlobalClusterIdentifier { get; set; }
@@ -615,7 +615,7 @@ namespace Pulumi.Aws.DocDB
         public Input<string>? FinalSnapshotIdentifier { get; set; }
 
         /// <summary>
-        /// The global cluster identifier specified on [`aws.docdb.GlobalCluster`](https://www.terraform.io/docs/providers/aws/r/docdb_global_cluster.html).
+        /// The global cluster identifier specified on `aws.docdb.GlobalCluster`.
         /// </summary>
         [Input("globalClusterIdentifier")]
         public Input<string>? GlobalClusterIdentifier { get; set; }

@@ -145,6 +145,9 @@ namespace Pulumi.Aws.CloudControl
         /// </summary>
         public readonly string Id;
         public readonly string Identifier;
+        /// <summary>
+        /// JSON string matching the CloudFormation resource type schema with current configuration.
+        /// </summary>
         public readonly string Properties;
         public readonly string? RoleArn;
         public readonly string TypeName;

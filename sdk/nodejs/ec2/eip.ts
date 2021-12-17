@@ -199,6 +199,9 @@ export class Eip extends pulumi.CustomResource {
      * EC2 IPv4 address pool identifier or `amazon`. This option is only available for VPC EIPs.
      */
     public readonly publicIpv4Pool!: pulumi.Output<string>;
+    /**
+     * Map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -338,6 +341,9 @@ export interface EipState {
      * EC2 IPv4 address pool identifier or `amazon`. This option is only available for VPC EIPs.
      */
     publicIpv4Pool?: pulumi.Input<string>;
+    /**
+     * Map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -381,6 +387,9 @@ export interface EipArgs {
      * EC2 IPv4 address pool identifier or `amazon`. This option is only available for VPC EIPs.
      */
     publicIpv4Pool?: pulumi.Input<string>;
+    /**
+     * Map of tags to assign to the resource. Tags can only be applied to EIPs in a VPC. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * Boolean if the EIP is in a VPC or not.

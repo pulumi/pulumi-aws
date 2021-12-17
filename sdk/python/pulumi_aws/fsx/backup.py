@@ -13,40 +13,57 @@ __all__ = ['BackupArgs', 'Backup']
 @pulumi.input_type
 class BackupArgs:
     def __init__(__self__, *,
-                 file_system_id: pulumi.Input[str],
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 file_system_id: Optional[pulumi.Input[str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 volume_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Backup resource.
-        :param pulumi.Input[str] file_system_id: The ID of the file system to back up.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the file system. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copy_tags_to_backups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
+        :param pulumi.Input[str] file_system_id: The ID of the file system to back up. Required if backing up Lustre or Windows file systems.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copy_tags_to_backups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
+        :param pulumi.Input[str] volume_id: The ID of the volume to back up. Required if backing up a ONTAP Volume.
         """
-        pulumi.set(__self__, "file_system_id", file_system_id)
+        if file_system_id is not None:
+            pulumi.set(__self__, "file_system_id", file_system_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if volume_id is not None:
+            pulumi.set(__self__, "volume_id", volume_id)
 
     @property
     @pulumi.getter(name="fileSystemId")
-    def file_system_id(self) -> pulumi.Input[str]:
+    def file_system_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the file system to back up.
+        The ID of the file system to back up. Required if backing up Lustre or Windows file systems.
         """
         return pulumi.get(self, "file_system_id")
 
     @file_system_id.setter
-    def file_system_id(self, value: pulumi.Input[str]):
+    def file_system_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "file_system_id", value)
 
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags to assign to the file system. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copy_tags_to_backups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
+        A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copy_tags_to_backups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="volumeId")
+    def volume_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the volume to back up. Required if backing up a ONTAP Volume.
+        """
+        return pulumi.get(self, "volume_id")
+
+    @volume_id.setter
+    def volume_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "volume_id", value)
 
 
 @pulumi.input_type
@@ -58,16 +75,18 @@ class _BackupState:
                  owner_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 type: Optional[pulumi.Input[str]] = None):
+                 type: Optional[pulumi.Input[str]] = None,
+                 volume_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Backup resources.
         :param pulumi.Input[str] arn: Amazon Resource Name of the backup.
-        :param pulumi.Input[str] file_system_id: The ID of the file system to back up.
+        :param pulumi.Input[str] file_system_id: The ID of the file system to back up. Required if backing up Lustre or Windows file systems.
         :param pulumi.Input[str] kms_key_id: The ID of the AWS Key Management Service (AWS KMS) key used to encrypt the backup of the Amazon FSx file system's data at rest.
         :param pulumi.Input[str] owner_id: AWS account identifier that created the file system.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the file system. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copy_tags_to_backups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copy_tags_to_backups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] type: The type of the file system backup.
+        :param pulumi.Input[str] volume_id: The ID of the volume to back up. Required if backing up a ONTAP Volume.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -83,6 +102,8 @@ class _BackupState:
             pulumi.set(__self__, "tags_all", tags_all)
         if type is not None:
             pulumi.set(__self__, "type", type)
+        if volume_id is not None:
+            pulumi.set(__self__, "volume_id", volume_id)
 
     @property
     @pulumi.getter
@@ -100,7 +121,7 @@ class _BackupState:
     @pulumi.getter(name="fileSystemId")
     def file_system_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The ID of the file system to back up.
+        The ID of the file system to back up. Required if backing up Lustre or Windows file systems.
         """
         return pulumi.get(self, "file_system_id")
 
@@ -136,7 +157,7 @@ class _BackupState:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags to assign to the file system. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copy_tags_to_backups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
+        A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copy_tags_to_backups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
         """
         return pulumi.get(self, "tags")
 
@@ -148,7 +169,7 @@ class _BackupState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -168,6 +189,18 @@ class _BackupState:
     def type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "type", value)
 
+    @property
+    @pulumi.getter(name="volumeId")
+    def volume_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the volume to back up. Required if backing up a ONTAP Volume.
+        """
+        return pulumi.get(self, "volume_id")
+
+    @volume_id.setter
+    def volume_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "volume_id", value)
+
 
 class Backup(pulumi.CustomResource):
     @overload
@@ -176,11 +209,12 @@ class Backup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  file_system_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 volume_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Provides a FSx Backup resource.
 
-        ## Example Usage
+        ## Lustre Example
 
         ```python
         import pulumi
@@ -192,6 +226,35 @@ class Backup(pulumi.CustomResource):
             deployment_type="PERSISTENT_1",
             per_unit_storage_throughput=50)
         example_backup = aws.fsx.Backup("exampleBackup", file_system_id=example_lustre_file_system.id)
+        ```
+
+        ## Windows Example
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_windows_file_system = aws.fsx.WindowsFileSystem("exampleWindowsFileSystem",
+            active_directory_id=aws_directory_service_directory["eample"]["id"],
+            skip_final_backup=True,
+            storage_capacity=32,
+            subnet_ids=[aws_subnet["example1"]["id"]],
+            throughput_capacity=8)
+        example_backup = aws.fsx.Backup("exampleBackup", file_system_id=example_windows_file_system.id)
+        ```
+
+        ## ONTAP Example
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_ontap_volume = aws.fsx.OntapVolume("exampleOntapVolume",
+            junction_path="/example",
+            size_in_megabytes=1024,
+            storage_efficiency_enabled=True,
+            storage_virtual_machine_id=aws_fsx_ontap_storage_virtual_machine["test"]["id"])
+        example_backup = aws.fsx.Backup("exampleBackup", volume_id=example_ontap_volume.id)
         ```
 
         ## Import
@@ -204,19 +267,20 @@ class Backup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] file_system_id: The ID of the file system to back up.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the file system. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copy_tags_to_backups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
+        :param pulumi.Input[str] file_system_id: The ID of the file system to back up. Required if backing up Lustre or Windows file systems.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copy_tags_to_backups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
+        :param pulumi.Input[str] volume_id: The ID of the volume to back up. Required if backing up a ONTAP Volume.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: BackupArgs,
+                 args: Optional[BackupArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a FSx Backup resource.
 
-        ## Example Usage
+        ## Lustre Example
 
         ```python
         import pulumi
@@ -228,6 +292,35 @@ class Backup(pulumi.CustomResource):
             deployment_type="PERSISTENT_1",
             per_unit_storage_throughput=50)
         example_backup = aws.fsx.Backup("exampleBackup", file_system_id=example_lustre_file_system.id)
+        ```
+
+        ## Windows Example
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_windows_file_system = aws.fsx.WindowsFileSystem("exampleWindowsFileSystem",
+            active_directory_id=aws_directory_service_directory["eample"]["id"],
+            skip_final_backup=True,
+            storage_capacity=32,
+            subnet_ids=[aws_subnet["example1"]["id"]],
+            throughput_capacity=8)
+        example_backup = aws.fsx.Backup("exampleBackup", file_system_id=example_windows_file_system.id)
+        ```
+
+        ## ONTAP Example
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_ontap_volume = aws.fsx.OntapVolume("exampleOntapVolume",
+            junction_path="/example",
+            size_in_megabytes=1024,
+            storage_efficiency_enabled=True,
+            storage_virtual_machine_id=aws_fsx_ontap_storage_virtual_machine["test"]["id"])
+        example_backup = aws.fsx.Backup("exampleBackup", volume_id=example_ontap_volume.id)
         ```
 
         ## Import
@@ -255,6 +348,7 @@ class Backup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  file_system_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 volume_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -267,10 +361,9 @@ class Backup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = BackupArgs.__new__(BackupArgs)
 
-            if file_system_id is None and not opts.urn:
-                raise TypeError("Missing required property 'file_system_id'")
             __props__.__dict__["file_system_id"] = file_system_id
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["volume_id"] = volume_id
             __props__.__dict__["arn"] = None
             __props__.__dict__["kms_key_id"] = None
             __props__.__dict__["owner_id"] = None
@@ -292,7 +385,8 @@ class Backup(pulumi.CustomResource):
             owner_id: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-            type: Optional[pulumi.Input[str]] = None) -> 'Backup':
+            type: Optional[pulumi.Input[str]] = None,
+            volume_id: Optional[pulumi.Input[str]] = None) -> 'Backup':
         """
         Get an existing Backup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -301,12 +395,13 @@ class Backup(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] arn: Amazon Resource Name of the backup.
-        :param pulumi.Input[str] file_system_id: The ID of the file system to back up.
+        :param pulumi.Input[str] file_system_id: The ID of the file system to back up. Required if backing up Lustre or Windows file systems.
         :param pulumi.Input[str] kms_key_id: The ID of the AWS Key Management Service (AWS KMS) key used to encrypt the backup of the Amazon FSx file system's data at rest.
         :param pulumi.Input[str] owner_id: AWS account identifier that created the file system.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the file system. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copy_tags_to_backups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copy_tags_to_backups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[str] type: The type of the file system backup.
+        :param pulumi.Input[str] volume_id: The ID of the volume to back up. Required if backing up a ONTAP Volume.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -319,6 +414,7 @@ class Backup(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["type"] = type
+        __props__.__dict__["volume_id"] = volume_id
         return Backup(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -331,9 +427,9 @@ class Backup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="fileSystemId")
-    def file_system_id(self) -> pulumi.Output[str]:
+    def file_system_id(self) -> pulumi.Output[Optional[str]]:
         """
-        The ID of the file system to back up.
+        The ID of the file system to back up. Required if backing up Lustre or Windows file systems.
         """
         return pulumi.get(self, "file_system_id")
 
@@ -357,7 +453,7 @@ class Backup(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Mapping[str, str]]:
         """
-        A map of tags to assign to the file system. If configured with a provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copy_tags_to_backups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
+        A map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copy_tags_to_backups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
         """
         return pulumi.get(self, "tags")
 
@@ -365,7 +461,7 @@ class Backup(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider [`default_tags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -376,4 +472,12 @@ class Backup(pulumi.CustomResource):
         The type of the file system backup.
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="volumeId")
+    def volume_id(self) -> pulumi.Output[Optional[str]]:
+        """
+        The ID of the volume to back up. Required if backing up a ONTAP Volume.
+        """
+        return pulumi.get(self, "volume_id")
 

@@ -127,7 +127,7 @@ type TargetGroup struct {
 	LambdaMultiValueHeadersEnabled pulumi.BoolPtrOutput `pulumi:"lambdaMultiValueHeadersEnabled"`
 	// Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `roundRobin` or `leastOutstandingRequests`. The default is `roundRobin`.
 	LoadBalancingAlgorithmType pulumi.StringOutput `pulumi:"loadBalancingAlgorithmType"`
-	// Name of the Target Group.
+	// Name of the target group. If omitted, this provider will assign a random, unique name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`. Cannot be longer than 6 characters.
 	NamePrefix pulumi.StringPtrOutput `pulumi:"namePrefix"`
@@ -198,7 +198,7 @@ type targetGroupState struct {
 	LambdaMultiValueHeadersEnabled *bool `pulumi:"lambdaMultiValueHeadersEnabled"`
 	// Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `roundRobin` or `leastOutstandingRequests`. The default is `roundRobin`.
 	LoadBalancingAlgorithmType *string `pulumi:"loadBalancingAlgorithmType"`
-	// Name of the Target Group.
+	// Name of the target group. If omitted, this provider will assign a random, unique name.
 	Name *string `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`. Cannot be longer than 6 characters.
 	NamePrefix *string `pulumi:"namePrefix"`
@@ -241,7 +241,7 @@ type TargetGroupState struct {
 	LambdaMultiValueHeadersEnabled pulumi.BoolPtrInput
 	// Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `roundRobin` or `leastOutstandingRequests`. The default is `roundRobin`.
 	LoadBalancingAlgorithmType pulumi.StringPtrInput
-	// Name of the Target Group.
+	// Name of the target group. If omitted, this provider will assign a random, unique name.
 	Name pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`. Cannot be longer than 6 characters.
 	NamePrefix pulumi.StringPtrInput
@@ -284,7 +284,7 @@ type targetGroupArgs struct {
 	LambdaMultiValueHeadersEnabled *bool `pulumi:"lambdaMultiValueHeadersEnabled"`
 	// Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `roundRobin` or `leastOutstandingRequests`. The default is `roundRobin`.
 	LoadBalancingAlgorithmType *string `pulumi:"loadBalancingAlgorithmType"`
-	// Name of the Target Group.
+	// Name of the target group. If omitted, this provider will assign a random, unique name.
 	Name *string `pulumi:"name"`
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`. Cannot be longer than 6 characters.
 	NamePrefix *string `pulumi:"namePrefix"`
@@ -322,7 +322,7 @@ type TargetGroupArgs struct {
 	LambdaMultiValueHeadersEnabled pulumi.BoolPtrInput
 	// Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `roundRobin` or `leastOutstandingRequests`. The default is `roundRobin`.
 	LoadBalancingAlgorithmType pulumi.StringPtrInput
-	// Name of the Target Group.
+	// Name of the target group. If omitted, this provider will assign a random, unique name.
 	Name pulumi.StringPtrInput
 	// Creates a unique name beginning with the specified prefix. Conflicts with `name`. Cannot be longer than 6 characters.
 	NamePrefix pulumi.StringPtrInput

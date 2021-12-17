@@ -80,8 +80,9 @@ type Database struct {
 	// The ARN (not Alias ARN) of the KMS key to be used to encrypt the data stored in the database. If the KMS key is not specified, the database will be encrypted with a Timestream managed KMS key located in your account. Refer to [AWS managed KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk) for more info.
 	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
 	// The total number of tables found within the Timestream database.
-	TableCount pulumi.IntOutput       `pulumi:"tableCount"`
-	Tags       pulumi.StringMapOutput `pulumi:"tags"`
+	TableCount pulumi.IntOutput `pulumi:"tableCount"`
+	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
@@ -125,8 +126,9 @@ type databaseState struct {
 	// The ARN (not Alias ARN) of the KMS key to be used to encrypt the data stored in the database. If the KMS key is not specified, the database will be encrypted with a Timestream managed KMS key located in your account. Refer to [AWS managed KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk) for more info.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// The total number of tables found within the Timestream database.
-	TableCount *int              `pulumi:"tableCount"`
-	Tags       map[string]string `pulumi:"tags"`
+	TableCount *int `pulumi:"tableCount"`
+	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
@@ -140,7 +142,8 @@ type DatabaseState struct {
 	KmsKeyId pulumi.StringPtrInput
 	// The total number of tables found within the Timestream database.
 	TableCount pulumi.IntPtrInput
-	Tags       pulumi.StringMapInput
+	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
@@ -153,8 +156,9 @@ type databaseArgs struct {
 	// The name of the Timestream database. Minimum length of 3. Maximum length of 64.
 	DatabaseName string `pulumi:"databaseName"`
 	// The ARN (not Alias ARN) of the KMS key to be used to encrypt the data stored in the database. If the KMS key is not specified, the database will be encrypted with a Timestream managed KMS key located in your account. Refer to [AWS managed KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk) for more info.
-	KmsKeyId *string           `pulumi:"kmsKeyId"`
-	Tags     map[string]string `pulumi:"tags"`
+	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Database resource.
@@ -163,7 +167,8 @@ type DatabaseArgs struct {
 	DatabaseName pulumi.StringInput
 	// The ARN (not Alias ARN) of the KMS key to be used to encrypt the data stored in the database. If the KMS key is not specified, the database will be encrypted with a Timestream managed KMS key located in your account. Refer to [AWS managed KMS keys](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk) for more info.
 	KmsKeyId pulumi.StringPtrInput
-	Tags     pulumi.StringMapInput
+	// Map of tags to assign to this resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (DatabaseArgs) ElementType() reflect.Type {

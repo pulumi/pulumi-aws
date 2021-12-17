@@ -65,6 +65,26 @@ class OrganizationConfiguration(pulumi.CustomResource):
                  auto_enable: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
+        Manages the Security Hub Organization Configuration.
+
+        > **NOTE:** This resource requires an `securityhub.OrganizationAdminAccount` to be configured (not necessarily with this provider). More information about managing Security Hub in an organization can be found in the [Managing administrator and member accounts](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-accounts.html) documentation
+
+        > **NOTE:** This is an advanced resource. This provider will automatically assume management of the Security Hub Organization Configuration without import and perform no actions on removal from the configuration.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_organization = aws.organizations.Organization("exampleOrganization",
+            aws_service_access_principals=["securityhub.amazonaws.com"],
+            feature_set="ALL")
+        example_organization_admin_account = aws.securityhub.OrganizationAdminAccount("exampleOrganizationAdminAccount", admin_account_id="123456789012",
+        opts=pulumi.ResourceOptions(depends_on=[example_organization]))
+        example_organization_configuration = aws.securityhub.OrganizationConfiguration("exampleOrganizationConfiguration", auto_enable=True)
+        ```
+
         ## Import
 
         An existing Security Hub enabled account can be imported using the AWS account ID, e.g.,
@@ -84,6 +104,26 @@ class OrganizationConfiguration(pulumi.CustomResource):
                  args: OrganizationConfigurationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Manages the Security Hub Organization Configuration.
+
+        > **NOTE:** This resource requires an `securityhub.OrganizationAdminAccount` to be configured (not necessarily with this provider). More information about managing Security Hub in an organization can be found in the [Managing administrator and member accounts](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-accounts.html) documentation
+
+        > **NOTE:** This is an advanced resource. This provider will automatically assume management of the Security Hub Organization Configuration without import and perform no actions on removal from the configuration.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example_organization = aws.organizations.Organization("exampleOrganization",
+            aws_service_access_principals=["securityhub.amazonaws.com"],
+            feature_set="ALL")
+        example_organization_admin_account = aws.securityhub.OrganizationAdminAccount("exampleOrganizationAdminAccount", admin_account_id="123456789012",
+        opts=pulumi.ResourceOptions(depends_on=[example_organization]))
+        example_organization_configuration = aws.securityhub.OrganizationConfiguration("exampleOrganizationConfiguration", auto_enable=True)
+        ```
+
         ## Import
 
         An existing Security Hub enabled account can be imported using the AWS account ID, e.g.,

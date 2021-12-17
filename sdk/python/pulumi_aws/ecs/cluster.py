@@ -28,6 +28,7 @@ class ClusterArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ClusterDefaultCapacityProviderStrategyArgs']]] default_capacity_provider_strategies: Configuration block for capacity provider strategy to use by default for the cluster. Can be one or more. Detailed below.
         :param pulumi.Input[str] name: Name of the setting to manage. Valid values: `containerInsights`.
         :param pulumi.Input[Sequence[pulumi.Input['ClusterSettingArgs']]] settings: Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Detailed below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if capacity_providers is not None:
             pulumi.set(__self__, "capacity_providers", capacity_providers)
@@ -105,6 +106,9 @@ class ClusterArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -131,6 +135,7 @@ class _ClusterState:
         :param pulumi.Input[Sequence[pulumi.Input['ClusterDefaultCapacityProviderStrategyArgs']]] default_capacity_provider_strategies: Configuration block for capacity provider strategy to use by default for the cluster. Can be one or more. Detailed below.
         :param pulumi.Input[str] name: Name of the setting to manage. Valid values: `containerInsights`.
         :param pulumi.Input[Sequence[pulumi.Input['ClusterSettingArgs']]] settings: Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Detailed below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -224,6 +229,9 @@ class _ClusterState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -304,6 +312,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterDefaultCapacityProviderStrategyArgs']]]] default_capacity_provider_strategies: Configuration block for capacity provider strategy to use by default for the cluster. Can be one or more. Detailed below.
         :param pulumi.Input[str] name: Name of the setting to manage. Valid values: `containerInsights`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterSettingArgs']]]] settings: Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Detailed below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -428,6 +437,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterDefaultCapacityProviderStrategyArgs']]]] default_capacity_provider_strategies: Configuration block for capacity provider strategy to use by default for the cluster. Can be one or more. Detailed below.
         :param pulumi.Input[str] name: Name of the setting to manage. Valid values: `containerInsights`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ClusterSettingArgs']]]] settings: Configuration block(s) with cluster settings. For example, this can be used to enable CloudWatch Container Insights for a cluster. Detailed below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -494,6 +504,9 @@ class Cluster(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @property

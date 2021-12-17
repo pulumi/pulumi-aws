@@ -24,6 +24,7 @@ class AccessPointArgs:
         :param pulumi.Input[str] file_system_id: ID of the file system for which the access point is intended.
         :param pulumi.Input['AccessPointPosixUserArgs'] posix_user: Operating system user and group applied to all file system requests made using the access point. Detailed below.
         :param pulumi.Input['AccessPointRootDirectoryArgs'] root_directory: Directory on the Amazon EFS file system that the access point provides access to. Detailed below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "file_system_id", file_system_id)
         if posix_user is not None:
@@ -72,6 +73,9 @@ class AccessPointArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -97,6 +101,7 @@ class _AccessPointState:
         :param pulumi.Input[str] file_system_id: ID of the file system for which the access point is intended.
         :param pulumi.Input['AccessPointPosixUserArgs'] posix_user: Operating system user and group applied to all file system requests made using the access point. Detailed below.
         :param pulumi.Input['AccessPointRootDirectoryArgs'] root_directory: Directory on the Amazon EFS file system that the access point provides access to. Detailed below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -187,6 +192,9 @@ class _AccessPointState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -238,6 +246,7 @@ class AccessPoint(pulumi.CustomResource):
         :param pulumi.Input[str] file_system_id: ID of the file system for which the access point is intended.
         :param pulumi.Input[pulumi.InputType['AccessPointPosixUserArgs']] posix_user: Operating system user and group applied to all file system requests made using the access point. Detailed below.
         :param pulumi.Input[pulumi.InputType['AccessPointRootDirectoryArgs']] root_directory: Directory on the Amazon EFS file system that the access point provides access to. Detailed below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -336,6 +345,7 @@ class AccessPoint(pulumi.CustomResource):
         :param pulumi.Input[str] file_system_id: ID of the file system for which the access point is intended.
         :param pulumi.Input[pulumi.InputType['AccessPointPosixUserArgs']] posix_user: Operating system user and group applied to all file system requests made using the access point. Detailed below.
         :param pulumi.Input[pulumi.InputType['AccessPointRootDirectoryArgs']] root_directory: Directory on the Amazon EFS file system that the access point provides access to. Detailed below.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -399,6 +409,9 @@ class AccessPoint(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @property

@@ -109,7 +109,7 @@ export class SmbFileShare extends pulumi.CustomResource {
      */
     public readonly caseSensitivity!: pulumi.Output<string | undefined>;
     /**
-     * The default storage class for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`. Valid values: `S3_STANDARD`, `S3_STANDARD_IA`, `S3_ONEZONE_IA`.
+     * The default [storage class](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-DefaultStorageClass) for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`.
      */
     public readonly defaultStorageClass!: pulumi.Output<string | undefined>;
     /**
@@ -320,7 +320,7 @@ export interface SmbFileShareState {
      */
     caseSensitivity?: pulumi.Input<string>;
     /**
-     * The default storage class for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`. Valid values: `S3_STANDARD`, `S3_STANDARD_IA`, `S3_ONEZONE_IA`.
+     * The default [storage class](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-DefaultStorageClass) for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`.
      */
     defaultStorageClass?: pulumi.Input<string>;
     /**
@@ -438,7 +438,7 @@ export interface SmbFileShareArgs {
      */
     caseSensitivity?: pulumi.Input<string>;
     /**
-     * The default storage class for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`. Valid values: `S3_STANDARD`, `S3_STANDARD_IA`, `S3_ONEZONE_IA`.
+     * The default [storage class](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-DefaultStorageClass) for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`.
      */
     defaultStorageClass?: pulumi.Input<string>;
     /**

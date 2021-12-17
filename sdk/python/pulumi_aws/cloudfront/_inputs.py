@@ -89,7 +89,7 @@ class CachePolicyParametersInCacheKeyAndForwardedToOriginArgs:
         """
         :param pulumi.Input['CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArgs'] cookies_config: Object that determines whether any cookies in viewer requests (and if so, which cookies) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.
         :param pulumi.Input['CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArgs'] headers_config: Object that determines whether any HTTP headers (and if so, which headers) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.
-        :param pulumi.Input['CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArgs'] query_strings_config: Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Query Strings Config for more information.
+        :param pulumi.Input['CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArgs'] query_strings_config: Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Query String Config for more information.
         :param pulumi.Input[bool] enable_accept_encoding_brotli: A flag that can affect whether the Accept-Encoding HTTP header is included in the cache key and included in requests that CloudFront sends to the origin.
         :param pulumi.Input[bool] enable_accept_encoding_gzip: A flag that can affect whether the Accept-Encoding HTTP header is included in the cache key and included in requests that CloudFront sends to the origin.
         """
@@ -129,7 +129,7 @@ class CachePolicyParametersInCacheKeyAndForwardedToOriginArgs:
     @pulumi.getter(name="queryStringsConfig")
     def query_strings_config(self) -> pulumi.Input['CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArgs']:
         """
-        Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Query Strings Config for more information.
+        Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Query String Config for more information.
         """
         return pulumi.get(self, "query_strings_config")
 

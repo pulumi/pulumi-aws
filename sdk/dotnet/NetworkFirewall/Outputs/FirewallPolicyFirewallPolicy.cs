@@ -14,6 +14,14 @@ namespace Pulumi.Aws.NetworkFirewall.Outputs
     public sealed class FirewallPolicyFirewallPolicy
     {
         /// <summary>
+        /// Set of actions to take on a packet if it does not match any stateful rules in the policy. This can only be specified if the policy has a `stateful_engine_options` block with a `rule_order` value of `STRICT_ORDER`. You can specify one of either or neither values of `aws:drop_strict` or `aws:drop_established`, as well as any combination of `aws:alert_strict` and `aws:alert_established`.
+        /// </summary>
+        public readonly ImmutableArray<string> StatefulDefaultActions;
+        /// <summary>
+        /// A configuration block that defines options on how the policy handles stateful rules. See Stateful Engine Options below for details.
+        /// </summary>
+        public readonly Outputs.FirewallPolicyFirewallPolicyStatefulEngineOptions? StatefulEngineOptions;
+        /// <summary>
         /// Set of configuration blocks containing references to the stateful rule groups that are used in the policy. See Stateful Rule Group Reference below for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.FirewallPolicyFirewallPolicyStatefulRuleGroupReference> StatefulRuleGroupReferences;
@@ -38,6 +46,10 @@ namespace Pulumi.Aws.NetworkFirewall.Outputs
 
         [OutputConstructor]
         private FirewallPolicyFirewallPolicy(
+            ImmutableArray<string> statefulDefaultActions,
+
+            Outputs.FirewallPolicyFirewallPolicyStatefulEngineOptions? statefulEngineOptions,
+
             ImmutableArray<Outputs.FirewallPolicyFirewallPolicyStatefulRuleGroupReference> statefulRuleGroupReferences,
 
             ImmutableArray<Outputs.FirewallPolicyFirewallPolicyStatelessCustomAction> statelessCustomActions,
@@ -48,6 +60,8 @@ namespace Pulumi.Aws.NetworkFirewall.Outputs
 
             ImmutableArray<Outputs.FirewallPolicyFirewallPolicyStatelessRuleGroupReference> statelessRuleGroupReferences)
         {
+            StatefulDefaultActions = statefulDefaultActions;
+            StatefulEngineOptions = statefulEngineOptions;
             StatefulRuleGroupReferences = statefulRuleGroupReferences;
             StatelessCustomActions = statelessCustomActions;
             StatelessDefaultActions = statelessDefaultActions;

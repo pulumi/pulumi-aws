@@ -2166,7 +2166,7 @@ func (o BucketLifecycleRuleNoncurrentVersionExpirationPtrOutput) Days() pulumi.I
 type BucketLifecycleRuleNoncurrentVersionTransition struct {
 	// Specifies the number of days noncurrent object versions transition.
 	Days *int `pulumi:"days"`
-	// Specifies the Amazon S3 storage class to which you want the noncurrent object versions to transition. Can be `ONEZONE_IA`, `STANDARD_IA`, `INTELLIGENT_TIERING`, `GLACIER`, or `DEEP_ARCHIVE`.
+	// Specifies the Amazon S3 [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Transition.html#AmazonS3-Type-Transition-StorageClass) to which you want the object to transition.
 	StorageClass string `pulumi:"storageClass"`
 }
 
@@ -2184,7 +2184,7 @@ type BucketLifecycleRuleNoncurrentVersionTransitionInput interface {
 type BucketLifecycleRuleNoncurrentVersionTransitionArgs struct {
 	// Specifies the number of days noncurrent object versions transition.
 	Days pulumi.IntPtrInput `pulumi:"days"`
-	// Specifies the Amazon S3 storage class to which you want the noncurrent object versions to transition. Can be `ONEZONE_IA`, `STANDARD_IA`, `INTELLIGENT_TIERING`, `GLACIER`, or `DEEP_ARCHIVE`.
+	// Specifies the Amazon S3 [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Transition.html#AmazonS3-Type-Transition-StorageClass) to which you want the object to transition.
 	StorageClass pulumi.StringInput `pulumi:"storageClass"`
 }
 
@@ -2244,7 +2244,7 @@ func (o BucketLifecycleRuleNoncurrentVersionTransitionOutput) Days() pulumi.IntP
 	return o.ApplyT(func(v BucketLifecycleRuleNoncurrentVersionTransition) *int { return v.Days }).(pulumi.IntPtrOutput)
 }
 
-// Specifies the Amazon S3 storage class to which you want the noncurrent object versions to transition. Can be `ONEZONE_IA`, `STANDARD_IA`, `INTELLIGENT_TIERING`, `GLACIER`, or `DEEP_ARCHIVE`.
+// Specifies the Amazon S3 [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Transition.html#AmazonS3-Type-Transition-StorageClass) to which you want the object to transition.
 func (o BucketLifecycleRuleNoncurrentVersionTransitionOutput) StorageClass() pulumi.StringOutput {
 	return o.ApplyT(func(v BucketLifecycleRuleNoncurrentVersionTransition) string { return v.StorageClass }).(pulumi.StringOutput)
 }
@@ -2274,7 +2274,7 @@ type BucketLifecycleRuleTransition struct {
 	Date *string `pulumi:"date"`
 	// Specifies the number of days after object creation when the specific rule action takes effect.
 	Days *int `pulumi:"days"`
-	// Specifies the Amazon S3 storage class to which you want the object to transition. Can be `ONEZONE_IA`, `STANDARD_IA`, `INTELLIGENT_TIERING`, `GLACIER`, or `DEEP_ARCHIVE`.
+	// Specifies the Amazon S3 [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Transition.html#AmazonS3-Type-Transition-StorageClass) to which you want the object to transition.
 	StorageClass string `pulumi:"storageClass"`
 }
 
@@ -2294,7 +2294,7 @@ type BucketLifecycleRuleTransitionArgs struct {
 	Date pulumi.StringPtrInput `pulumi:"date"`
 	// Specifies the number of days after object creation when the specific rule action takes effect.
 	Days pulumi.IntPtrInput `pulumi:"days"`
-	// Specifies the Amazon S3 storage class to which you want the object to transition. Can be `ONEZONE_IA`, `STANDARD_IA`, `INTELLIGENT_TIERING`, `GLACIER`, or `DEEP_ARCHIVE`.
+	// Specifies the Amazon S3 [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Transition.html#AmazonS3-Type-Transition-StorageClass) to which you want the object to transition.
 	StorageClass pulumi.StringInput `pulumi:"storageClass"`
 }
 
@@ -2359,7 +2359,7 @@ func (o BucketLifecycleRuleTransitionOutput) Days() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v BucketLifecycleRuleTransition) *int { return v.Days }).(pulumi.IntPtrOutput)
 }
 
-// Specifies the Amazon S3 storage class to which you want the object to transition. Can be `ONEZONE_IA`, `STANDARD_IA`, `INTELLIGENT_TIERING`, `GLACIER`, or `DEEP_ARCHIVE`.
+// Specifies the Amazon S3 [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Transition.html#AmazonS3-Type-Transition-StorageClass) to which you want the object to transition.
 func (o BucketLifecycleRuleTransitionOutput) StorageClass() pulumi.StringOutput {
 	return o.ApplyT(func(v BucketLifecycleRuleTransition) string { return v.StorageClass }).(pulumi.StringOutput)
 }
@@ -3516,7 +3516,7 @@ func (o BucketObjectLockConfigurationRuleDefaultRetentionPtrOutput) Years() pulu
 }
 
 type BucketOwnershipControlsRule struct {
-	// Object ownership. Valid values: `BucketOwnerPreferred` or `ObjectWriter`
+	// Object ownership. Valid values: `BucketOwnerPreferred`, `ObjectWriter` or `BucketOwnerEnforced`
 	ObjectOwnership string `pulumi:"objectOwnership"`
 }
 
@@ -3532,7 +3532,7 @@ type BucketOwnershipControlsRuleInput interface {
 }
 
 type BucketOwnershipControlsRuleArgs struct {
-	// Object ownership. Valid values: `BucketOwnerPreferred` or `ObjectWriter`
+	// Object ownership. Valid values: `BucketOwnerPreferred`, `ObjectWriter` or `BucketOwnerEnforced`
 	ObjectOwnership pulumi.StringInput `pulumi:"objectOwnership"`
 }
 
@@ -3613,7 +3613,7 @@ func (o BucketOwnershipControlsRuleOutput) ToBucketOwnershipControlsRulePtrOutpu
 	}).(BucketOwnershipControlsRulePtrOutput)
 }
 
-// Object ownership. Valid values: `BucketOwnerPreferred` or `ObjectWriter`
+// Object ownership. Valid values: `BucketOwnerPreferred`, `ObjectWriter` or `BucketOwnerEnforced`
 func (o BucketOwnershipControlsRuleOutput) ObjectOwnership() pulumi.StringOutput {
 	return o.ApplyT(func(v BucketOwnershipControlsRule) string { return v.ObjectOwnership }).(pulumi.StringOutput)
 }
@@ -3642,7 +3642,7 @@ func (o BucketOwnershipControlsRulePtrOutput) Elem() BucketOwnershipControlsRule
 	}).(BucketOwnershipControlsRuleOutput)
 }
 
-// Object ownership. Valid values: `BucketOwnerPreferred` or `ObjectWriter`
+// Object ownership. Valid values: `BucketOwnerPreferred`, `ObjectWriter` or `BucketOwnerEnforced`
 func (o BucketOwnershipControlsRulePtrOutput) ObjectOwnership() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketOwnershipControlsRule) *string {
 		if v == nil {
@@ -3977,7 +3977,7 @@ type BucketReplicationConfigRuleDestination struct {
 	Metrics *BucketReplicationConfigRuleDestinationMetrics `pulumi:"metrics"`
 	// A configuration block that specifies S3 Replication Time Control (S3 RTC), including whether S3 RTC is enabled and the time when all objects and operations on objects must be replicated documented below. Replication Time Control must be used in conjunction with `metrics`.
 	ReplicationTime *BucketReplicationConfigRuleDestinationReplicationTime `pulumi:"replicationTime"`
-	// The class of storage used to store the object. Can be `STANDARD`, `REDUCED_REDUNDANCY`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `GLACIER`, or `DEEP_ARCHIVE`. By default, Amazon S3 uses the storage class of the source object to create the object replica.
+	// The [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Destination.html#AmazonS3-Type-Destination-StorageClass) used to store the object. By default, Amazon S3 uses the storage class of the source object to create the object replica.
 	StorageClass *string `pulumi:"storageClass"`
 }
 
@@ -4005,7 +4005,7 @@ type BucketReplicationConfigRuleDestinationArgs struct {
 	Metrics BucketReplicationConfigRuleDestinationMetricsPtrInput `pulumi:"metrics"`
 	// A configuration block that specifies S3 Replication Time Control (S3 RTC), including whether S3 RTC is enabled and the time when all objects and operations on objects must be replicated documented below. Replication Time Control must be used in conjunction with `metrics`.
 	ReplicationTime BucketReplicationConfigRuleDestinationReplicationTimePtrInput `pulumi:"replicationTime"`
-	// The class of storage used to store the object. Can be `STANDARD`, `REDUCED_REDUNDANCY`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `GLACIER`, or `DEEP_ARCHIVE`. By default, Amazon S3 uses the storage class of the source object to create the object replica.
+	// The [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Destination.html#AmazonS3-Type-Destination-StorageClass) used to store the object. By default, Amazon S3 uses the storage class of the source object to create the object replica.
 	StorageClass pulumi.StringPtrInput `pulumi:"storageClass"`
 }
 
@@ -4073,7 +4073,7 @@ func (o BucketReplicationConfigRuleDestinationOutput) ReplicationTime() BucketRe
 	}).(BucketReplicationConfigRuleDestinationReplicationTimePtrOutput)
 }
 
-// The class of storage used to store the object. Can be `STANDARD`, `REDUCED_REDUNDANCY`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `GLACIER`, or `DEEP_ARCHIVE`. By default, Amazon S3 uses the storage class of the source object to create the object replica.
+// The [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Destination.html#AmazonS3-Type-Destination-StorageClass) used to store the object. By default, Amazon S3 uses the storage class of the source object to create the object replica.
 func (o BucketReplicationConfigRuleDestinationOutput) StorageClass() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketReplicationConfigRuleDestination) *string { return v.StorageClass }).(pulumi.StringPtrOutput)
 }
@@ -6336,7 +6336,7 @@ type BucketReplicationConfigurationRuleDestination struct {
 	ReplicaKmsKeyId *string `pulumi:"replicaKmsKeyId"`
 	// Enables S3 Replication Time Control (S3 RTC) (documented below).
 	ReplicationTime *BucketReplicationConfigurationRuleDestinationReplicationTime `pulumi:"replicationTime"`
-	// The class of storage used to store the object. Can be `STANDARD`, `REDUCED_REDUNDANCY`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `GLACIER`, or `DEEP_ARCHIVE`.
+	// The [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Destination.html#AmazonS3-Type-Destination-StorageClass) used to store the object. By default, Amazon S3 uses the storage class of the source object to create the object replica.
 	StorageClass *string `pulumi:"storageClass"`
 }
 
@@ -6365,7 +6365,7 @@ type BucketReplicationConfigurationRuleDestinationArgs struct {
 	ReplicaKmsKeyId pulumi.StringPtrInput `pulumi:"replicaKmsKeyId"`
 	// Enables S3 Replication Time Control (S3 RTC) (documented below).
 	ReplicationTime BucketReplicationConfigurationRuleDestinationReplicationTimePtrInput `pulumi:"replicationTime"`
-	// The class of storage used to store the object. Can be `STANDARD`, `REDUCED_REDUNDANCY`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `GLACIER`, or `DEEP_ARCHIVE`.
+	// The [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Destination.html#AmazonS3-Type-Destination-StorageClass) used to store the object. By default, Amazon S3 uses the storage class of the source object to create the object replica.
 	StorageClass pulumi.StringPtrInput `pulumi:"storageClass"`
 }
 
@@ -6432,7 +6432,7 @@ func (o BucketReplicationConfigurationRuleDestinationOutput) ReplicationTime() B
 	}).(BucketReplicationConfigurationRuleDestinationReplicationTimePtrOutput)
 }
 
-// The class of storage used to store the object. Can be `STANDARD`, `REDUCED_REDUNDANCY`, `STANDARD_IA`, `ONEZONE_IA`, `INTELLIGENT_TIERING`, `GLACIER`, or `DEEP_ARCHIVE`.
+// The [storage class](https://docs.aws.amazon.com/AmazonS3/latest/API/API_Destination.html#AmazonS3-Type-Destination-StorageClass) used to store the object. By default, Amazon S3 uses the storage class of the source object to create the object replica.
 func (o BucketReplicationConfigurationRuleDestinationOutput) StorageClass() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketReplicationConfigurationRuleDestination) *string { return v.StorageClass }).(pulumi.StringPtrOutput)
 }

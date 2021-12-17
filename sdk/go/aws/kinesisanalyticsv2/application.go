@@ -312,8 +312,9 @@ type Application struct {
 	// Whether to start or stop the application.
 	StartApplication pulumi.BoolPtrOutput `pulumi:"startApplication"`
 	// The status of the application.
-	Status pulumi.StringOutput    `pulumi:"status"`
-	Tags   pulumi.StringMapOutput `pulumi:"tags"`
+	Status pulumi.StringOutput `pulumi:"status"`
+	// A map of tags to assign to the application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The current application version. Kinesis Data Analytics updates the `versionId` each time the application is updated.
@@ -378,8 +379,9 @@ type applicationState struct {
 	// Whether to start or stop the application.
 	StartApplication *bool `pulumi:"startApplication"`
 	// The status of the application.
-	Status *string           `pulumi:"status"`
-	Tags   map[string]string `pulumi:"tags"`
+	Status *string `pulumi:"status"`
+	// A map of tags to assign to the application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The current application version. Kinesis Data Analytics updates the `versionId` each time the application is updated.
@@ -411,7 +413,8 @@ type ApplicationState struct {
 	StartApplication pulumi.BoolPtrInput
 	// The status of the application.
 	Status pulumi.StringPtrInput
-	Tags   pulumi.StringMapInput
+	// A map of tags to assign to the application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// The current application version. Kinesis Data Analytics updates the `versionId` each time the application is updated.
@@ -438,8 +441,9 @@ type applicationArgs struct {
 	// The ARN of the IAM role used by the application to access Kinesis data streams, Kinesis Data Firehose delivery streams, Amazon S3 objects, and other external resources.
 	ServiceExecutionRole string `pulumi:"serviceExecutionRole"`
 	// Whether to start or stop the application.
-	StartApplication *bool             `pulumi:"startApplication"`
-	Tags             map[string]string `pulumi:"tags"`
+	StartApplication *bool `pulumi:"startApplication"`
+	// A map of tags to assign to the application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Application resource.
@@ -460,7 +464,8 @@ type ApplicationArgs struct {
 	ServiceExecutionRole pulumi.StringInput
 	// Whether to start or stop the application.
 	StartApplication pulumi.BoolPtrInput
-	Tags             pulumi.StringMapInput
+	// A map of tags to assign to the application. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags pulumi.StringMapInput
 }
 
 func (ApplicationArgs) ElementType() reflect.Type {

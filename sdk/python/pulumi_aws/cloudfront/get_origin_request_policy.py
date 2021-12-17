@@ -90,7 +90,7 @@ class GetOriginRequestPolicyResult:
     @pulumi.getter(name="queryStringsConfigs")
     def query_strings_configs(self) -> Sequence['outputs.GetOriginRequestPolicyQueryStringsConfigResult']:
         """
-        Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Query Strings Config for more information.
+        Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Query String Config for more information.
         """
         return pulumi.get(self, "query_strings_configs")
 

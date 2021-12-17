@@ -820,7 +820,7 @@ namespace Pulumi.Aws.Emr
         public Output<Outputs.ClusterMasterInstanceGroup> MasterInstanceGroup { get; private set; } = null!;
 
         /// <summary>
-        /// Public DNS name of the master EC2 instance.
+        /// The DNS name of the master node. If the cluster is on a private subnet, this is the private DNS name. On a public subnet, this is the public DNS name.
         /// </summary>
         [Output("masterPublicDns")]
         public Output<string> MasterPublicDns { get; private set; } = null!;
@@ -1263,7 +1263,7 @@ namespace Pulumi.Aws.Emr
         public Input<Inputs.ClusterMasterInstanceGroupGetArgs>? MasterInstanceGroup { get; set; }
 
         /// <summary>
-        /// Public DNS name of the master EC2 instance.
+        /// The DNS name of the master node. If the cluster is on a private subnet, this is the private DNS name. On a public subnet, this is the public DNS name.
         /// </summary>
         [Input("masterPublicDns")]
         public Input<string>? MasterPublicDns { get; set; }

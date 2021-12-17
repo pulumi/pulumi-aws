@@ -95,7 +95,7 @@ type SmbFileShare struct {
 	CacheAttributes SmbFileShareCacheAttributesPtrOutput `pulumi:"cacheAttributes"`
 	// The case of an object name in an Amazon S3 bucket. For `ClientSpecified`, the client determines the case sensitivity. For `CaseSensitive`, the gateway determines the case sensitivity. The default value is `ClientSpecified`.
 	CaseSensitivity pulumi.StringPtrOutput `pulumi:"caseSensitivity"`
-	// The default storage class for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`. Valid values: `S3_STANDARD`, `S3_STANDARD_IA`, `S3_ONEZONE_IA`.
+	// The default [storage class](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-DefaultStorageClass) for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`.
 	DefaultStorageClass pulumi.StringPtrOutput `pulumi:"defaultStorageClass"`
 	// The name of the file share. Must be set if an S3 prefix name is set in `locationArn`.
 	FileShareName pulumi.StringOutput `pulumi:"fileShareName"`
@@ -193,7 +193,7 @@ type smbFileShareState struct {
 	CacheAttributes *SmbFileShareCacheAttributes `pulumi:"cacheAttributes"`
 	// The case of an object name in an Amazon S3 bucket. For `ClientSpecified`, the client determines the case sensitivity. For `CaseSensitive`, the gateway determines the case sensitivity. The default value is `ClientSpecified`.
 	CaseSensitivity *string `pulumi:"caseSensitivity"`
-	// The default storage class for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`. Valid values: `S3_STANDARD`, `S3_STANDARD_IA`, `S3_ONEZONE_IA`.
+	// The default [storage class](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-DefaultStorageClass) for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`.
 	DefaultStorageClass *string `pulumi:"defaultStorageClass"`
 	// The name of the file share. Must be set if an S3 prefix name is set in `locationArn`.
 	FileShareName *string `pulumi:"fileShareName"`
@@ -254,7 +254,7 @@ type SmbFileShareState struct {
 	CacheAttributes SmbFileShareCacheAttributesPtrInput
 	// The case of an object name in an Amazon S3 bucket. For `ClientSpecified`, the client determines the case sensitivity. For `CaseSensitive`, the gateway determines the case sensitivity. The default value is `ClientSpecified`.
 	CaseSensitivity pulumi.StringPtrInput
-	// The default storage class for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`. Valid values: `S3_STANDARD`, `S3_STANDARD_IA`, `S3_ONEZONE_IA`.
+	// The default [storage class](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-DefaultStorageClass) for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`.
 	DefaultStorageClass pulumi.StringPtrInput
 	// The name of the file share. Must be set if an S3 prefix name is set in `locationArn`.
 	FileShareName pulumi.StringPtrInput
@@ -317,7 +317,7 @@ type smbFileShareArgs struct {
 	CacheAttributes *SmbFileShareCacheAttributes `pulumi:"cacheAttributes"`
 	// The case of an object name in an Amazon S3 bucket. For `ClientSpecified`, the client determines the case sensitivity. For `CaseSensitive`, the gateway determines the case sensitivity. The default value is `ClientSpecified`.
 	CaseSensitivity *string `pulumi:"caseSensitivity"`
-	// The default storage class for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`. Valid values: `S3_STANDARD`, `S3_STANDARD_IA`, `S3_ONEZONE_IA`.
+	// The default [storage class](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-DefaultStorageClass) for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`.
 	DefaultStorageClass *string `pulumi:"defaultStorageClass"`
 	// The name of the file share. Must be set if an S3 prefix name is set in `locationArn`.
 	FileShareName *string `pulumi:"fileShareName"`
@@ -371,7 +371,7 @@ type SmbFileShareArgs struct {
 	CacheAttributes SmbFileShareCacheAttributesPtrInput
 	// The case of an object name in an Amazon S3 bucket. For `ClientSpecified`, the client determines the case sensitivity. For `CaseSensitive`, the gateway determines the case sensitivity. The default value is `ClientSpecified`.
 	CaseSensitivity pulumi.StringPtrInput
-	// The default storage class for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`. Valid values: `S3_STANDARD`, `S3_STANDARD_IA`, `S3_ONEZONE_IA`.
+	// The default [storage class](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-DefaultStorageClass) for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`.
 	DefaultStorageClass pulumi.StringPtrInput
 	// The name of the file share. Must be set if an S3 prefix name is set in `locationArn`.
 	FileShareName pulumi.StringPtrInput

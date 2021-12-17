@@ -17,6 +17,7 @@ class GraphQLApiArgs:
     def __init__(__self__, *,
                  authentication_type: pulumi.Input[str],
                  additional_authentication_providers: Optional[pulumi.Input[Sequence[pulumi.Input['GraphQLApiAdditionalAuthenticationProviderArgs']]]] = None,
+                 lambda_authorizer_config: Optional[pulumi.Input['GraphQLApiLambdaAuthorizerConfigArgs']] = None,
                  log_config: Optional[pulumi.Input['GraphQLApiLogConfigArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  openid_connect_config: Optional[pulumi.Input['GraphQLApiOpenidConnectConfigArgs']] = None,
@@ -26,8 +27,9 @@ class GraphQLApiArgs:
                  xray_enabled: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a GraphQLApi resource.
-        :param pulumi.Input[str] authentication_type: The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`
+        :param pulumi.Input[str] authentication_type: The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
         :param pulumi.Input[Sequence[pulumi.Input['GraphQLApiAdditionalAuthenticationProviderArgs']]] additional_authentication_providers: One or more additional authentication providers for the GraphqlApi. Defined below.
+        :param pulumi.Input['GraphQLApiLambdaAuthorizerConfigArgs'] lambda_authorizer_config: Nested argument containing Lambda authorizer configuration. Defined below.
         :param pulumi.Input['GraphQLApiLogConfigArgs'] log_config: Nested argument containing logging configuration. Defined below.
         :param pulumi.Input[str] name: A user-supplied name for the GraphqlApi.
         :param pulumi.Input['GraphQLApiOpenidConnectConfigArgs'] openid_connect_config: Nested argument containing OpenID Connect configuration. Defined below.
@@ -39,6 +41,8 @@ class GraphQLApiArgs:
         pulumi.set(__self__, "authentication_type", authentication_type)
         if additional_authentication_providers is not None:
             pulumi.set(__self__, "additional_authentication_providers", additional_authentication_providers)
+        if lambda_authorizer_config is not None:
+            pulumi.set(__self__, "lambda_authorizer_config", lambda_authorizer_config)
         if log_config is not None:
             pulumi.set(__self__, "log_config", log_config)
         if name is not None:
@@ -58,7 +62,7 @@ class GraphQLApiArgs:
     @pulumi.getter(name="authenticationType")
     def authentication_type(self) -> pulumi.Input[str]:
         """
-        The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`
+        The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
         """
         return pulumi.get(self, "authentication_type")
 
@@ -77,6 +81,18 @@ class GraphQLApiArgs:
     @additional_authentication_providers.setter
     def additional_authentication_providers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GraphQLApiAdditionalAuthenticationProviderArgs']]]]):
         pulumi.set(self, "additional_authentication_providers", value)
+
+    @property
+    @pulumi.getter(name="lambdaAuthorizerConfig")
+    def lambda_authorizer_config(self) -> Optional[pulumi.Input['GraphQLApiLambdaAuthorizerConfigArgs']]:
+        """
+        Nested argument containing Lambda authorizer configuration. Defined below.
+        """
+        return pulumi.get(self, "lambda_authorizer_config")
+
+    @lambda_authorizer_config.setter
+    def lambda_authorizer_config(self, value: Optional[pulumi.Input['GraphQLApiLambdaAuthorizerConfigArgs']]):
+        pulumi.set(self, "lambda_authorizer_config", value)
 
     @property
     @pulumi.getter(name="logConfig")
@@ -169,6 +185,7 @@ class _GraphQLApiState:
                  additional_authentication_providers: Optional[pulumi.Input[Sequence[pulumi.Input['GraphQLApiAdditionalAuthenticationProviderArgs']]]] = None,
                  arn: Optional[pulumi.Input[str]] = None,
                  authentication_type: Optional[pulumi.Input[str]] = None,
+                 lambda_authorizer_config: Optional[pulumi.Input['GraphQLApiLambdaAuthorizerConfigArgs']] = None,
                  log_config: Optional[pulumi.Input['GraphQLApiLogConfigArgs']] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  openid_connect_config: Optional[pulumi.Input['GraphQLApiOpenidConnectConfigArgs']] = None,
@@ -182,7 +199,8 @@ class _GraphQLApiState:
         Input properties used for looking up and filtering GraphQLApi resources.
         :param pulumi.Input[Sequence[pulumi.Input['GraphQLApiAdditionalAuthenticationProviderArgs']]] additional_authentication_providers: One or more additional authentication providers for the GraphqlApi. Defined below.
         :param pulumi.Input[str] arn: The ARN
-        :param pulumi.Input[str] authentication_type: The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`
+        :param pulumi.Input[str] authentication_type: The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
+        :param pulumi.Input['GraphQLApiLambdaAuthorizerConfigArgs'] lambda_authorizer_config: Nested argument containing Lambda authorizer configuration. Defined below.
         :param pulumi.Input['GraphQLApiLogConfigArgs'] log_config: Nested argument containing logging configuration. Defined below.
         :param pulumi.Input[str] name: A user-supplied name for the GraphqlApi.
         :param pulumi.Input['GraphQLApiOpenidConnectConfigArgs'] openid_connect_config: Nested argument containing OpenID Connect configuration. Defined below.
@@ -199,6 +217,8 @@ class _GraphQLApiState:
             pulumi.set(__self__, "arn", arn)
         if authentication_type is not None:
             pulumi.set(__self__, "authentication_type", authentication_type)
+        if lambda_authorizer_config is not None:
+            pulumi.set(__self__, "lambda_authorizer_config", lambda_authorizer_config)
         if log_config is not None:
             pulumi.set(__self__, "log_config", log_config)
         if name is not None:
@@ -246,13 +266,25 @@ class _GraphQLApiState:
     @pulumi.getter(name="authenticationType")
     def authentication_type(self) -> Optional[pulumi.Input[str]]:
         """
-        The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`
+        The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
         """
         return pulumi.get(self, "authentication_type")
 
     @authentication_type.setter
     def authentication_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "authentication_type", value)
+
+    @property
+    @pulumi.getter(name="lambdaAuthorizerConfig")
+    def lambda_authorizer_config(self) -> Optional[pulumi.Input['GraphQLApiLambdaAuthorizerConfigArgs']]:
+        """
+        Nested argument containing Lambda authorizer configuration. Defined below.
+        """
+        return pulumi.get(self, "lambda_authorizer_config")
+
+    @lambda_authorizer_config.setter
+    def lambda_authorizer_config(self, value: Optional[pulumi.Input['GraphQLApiLambdaAuthorizerConfigArgs']]):
+        pulumi.set(self, "lambda_authorizer_config", value)
 
     @property
     @pulumi.getter(name="logConfig")
@@ -370,6 +402,7 @@ class GraphQLApi(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  additional_authentication_providers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GraphQLApiAdditionalAuthenticationProviderArgs']]]]] = None,
                  authentication_type: Optional[pulumi.Input[str]] = None,
+                 lambda_authorizer_config: Optional[pulumi.Input[pulumi.InputType['GraphQLApiLambdaAuthorizerConfigArgs']]] = None,
                  log_config: Optional[pulumi.Input[pulumi.InputType['GraphQLApiLogConfigArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  openid_connect_config: Optional[pulumi.Input[pulumi.InputType['GraphQLApiOpenidConnectConfigArgs']]] = None,
@@ -390,6 +423,14 @@ class GraphQLApi(pulumi.CustomResource):
 
         example = aws.appsync.GraphQLApi("example", authentication_type="API_KEY")
         ```
+        ### AWS IAM Authentication
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.appsync.GraphQLApi("example", authentication_type="AWS_IAM")
+        ```
         ### AWS Cognito User Pool Authentication
 
         ```python
@@ -404,13 +445,46 @@ class GraphQLApi(pulumi.CustomResource):
                 user_pool_id=aws_cognito_user_pool["example"]["id"],
             ))
         ```
-        ### AWS IAM Authentication
+        ### OpenID Connect Authentication
 
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.appsync.GraphQLApi("example", authentication_type="AWS_IAM")
+        example = aws.appsync.GraphQLApi("example",
+            authentication_type="OPENID_CONNECT",
+            openid_connect_config=aws.appsync.GraphQLApiOpenidConnectConfigArgs(
+                issuer="https://example.com",
+            ))
+        ```
+        ### AWS Lambda Authorizer Authentication
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.appsync.GraphQLApi("example",
+            authentication_type="AWS_LAMBDA",
+            lambda_authorizer_config=aws.appsync.GraphQLApiLambdaAuthorizerConfigArgs(
+                authorizer_uri="arn:aws:lambda:us-east-1:123456789012:function:custom_lambda_authorizer",
+            ))
+        appsync_lambda_authorizer = aws.lambda_.Permission("appsyncLambdaAuthorizer",
+            action="lambda:InvokeFunction",
+            function="custom_lambda_authorizer",
+            principal="appsync.amazonaws.com",
+            source_arn=example.arn)
+        ```
+        ### With Multiple Authentication Providers
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.appsync.GraphQLApi("example",
+            additional_authentication_providers=[aws.appsync.GraphQLApiAdditionalAuthenticationProviderArgs(
+                authentication_type="AWS_IAM",
+            )],
+            authentication_type="API_KEY")
         ```
         ### With Schema
 
@@ -428,30 +502,6 @@ class GraphQLApi(pulumi.CustomResource):
         }
 
         \"\"\")
-        ```
-        ### OpenID Connect Authentication
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.appsync.GraphQLApi("example",
-            authentication_type="OPENID_CONNECT",
-            openid_connect_config=aws.appsync.GraphQLApiOpenidConnectConfigArgs(
-                issuer="https://example.com",
-            ))
-        ```
-        ### With Multiple Authentication Providers
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.appsync.GraphQLApi("example",
-            additional_authentication_providers=[aws.appsync.GraphQLApiAdditionalAuthenticationProviderArgs(
-                authentication_type="AWS_IAM",
-            )],
-            authentication_type="API_KEY")
         ```
         ### Enabling Logging
 
@@ -533,7 +583,8 @@ class GraphQLApi(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GraphQLApiAdditionalAuthenticationProviderArgs']]]] additional_authentication_providers: One or more additional authentication providers for the GraphqlApi. Defined below.
-        :param pulumi.Input[str] authentication_type: The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`
+        :param pulumi.Input[str] authentication_type: The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
+        :param pulumi.Input[pulumi.InputType['GraphQLApiLambdaAuthorizerConfigArgs']] lambda_authorizer_config: Nested argument containing Lambda authorizer configuration. Defined below.
         :param pulumi.Input[pulumi.InputType['GraphQLApiLogConfigArgs']] log_config: Nested argument containing logging configuration. Defined below.
         :param pulumi.Input[str] name: A user-supplied name for the GraphqlApi.
         :param pulumi.Input[pulumi.InputType['GraphQLApiOpenidConnectConfigArgs']] openid_connect_config: Nested argument containing OpenID Connect configuration. Defined below.
@@ -560,6 +611,14 @@ class GraphQLApi(pulumi.CustomResource):
 
         example = aws.appsync.GraphQLApi("example", authentication_type="API_KEY")
         ```
+        ### AWS IAM Authentication
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.appsync.GraphQLApi("example", authentication_type="AWS_IAM")
+        ```
         ### AWS Cognito User Pool Authentication
 
         ```python
@@ -574,13 +633,46 @@ class GraphQLApi(pulumi.CustomResource):
                 user_pool_id=aws_cognito_user_pool["example"]["id"],
             ))
         ```
-        ### AWS IAM Authentication
+        ### OpenID Connect Authentication
 
         ```python
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.appsync.GraphQLApi("example", authentication_type="AWS_IAM")
+        example = aws.appsync.GraphQLApi("example",
+            authentication_type="OPENID_CONNECT",
+            openid_connect_config=aws.appsync.GraphQLApiOpenidConnectConfigArgs(
+                issuer="https://example.com",
+            ))
+        ```
+        ### AWS Lambda Authorizer Authentication
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.appsync.GraphQLApi("example",
+            authentication_type="AWS_LAMBDA",
+            lambda_authorizer_config=aws.appsync.GraphQLApiLambdaAuthorizerConfigArgs(
+                authorizer_uri="arn:aws:lambda:us-east-1:123456789012:function:custom_lambda_authorizer",
+            ))
+        appsync_lambda_authorizer = aws.lambda_.Permission("appsyncLambdaAuthorizer",
+            action="lambda:InvokeFunction",
+            function="custom_lambda_authorizer",
+            principal="appsync.amazonaws.com",
+            source_arn=example.arn)
+        ```
+        ### With Multiple Authentication Providers
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.appsync.GraphQLApi("example",
+            additional_authentication_providers=[aws.appsync.GraphQLApiAdditionalAuthenticationProviderArgs(
+                authentication_type="AWS_IAM",
+            )],
+            authentication_type="API_KEY")
         ```
         ### With Schema
 
@@ -598,30 +690,6 @@ class GraphQLApi(pulumi.CustomResource):
         }
 
         \"\"\")
-        ```
-        ### OpenID Connect Authentication
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.appsync.GraphQLApi("example",
-            authentication_type="OPENID_CONNECT",
-            openid_connect_config=aws.appsync.GraphQLApiOpenidConnectConfigArgs(
-                issuer="https://example.com",
-            ))
-        ```
-        ### With Multiple Authentication Providers
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-        example = aws.appsync.GraphQLApi("example",
-            additional_authentication_providers=[aws.appsync.GraphQLApiAdditionalAuthenticationProviderArgs(
-                authentication_type="AWS_IAM",
-            )],
-            authentication_type="API_KEY")
         ```
         ### Enabling Logging
 
@@ -717,6 +785,7 @@ class GraphQLApi(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  additional_authentication_providers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GraphQLApiAdditionalAuthenticationProviderArgs']]]]] = None,
                  authentication_type: Optional[pulumi.Input[str]] = None,
+                 lambda_authorizer_config: Optional[pulumi.Input[pulumi.InputType['GraphQLApiLambdaAuthorizerConfigArgs']]] = None,
                  log_config: Optional[pulumi.Input[pulumi.InputType['GraphQLApiLogConfigArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  openid_connect_config: Optional[pulumi.Input[pulumi.InputType['GraphQLApiOpenidConnectConfigArgs']]] = None,
@@ -740,6 +809,7 @@ class GraphQLApi(pulumi.CustomResource):
             if authentication_type is None and not opts.urn:
                 raise TypeError("Missing required property 'authentication_type'")
             __props__.__dict__["authentication_type"] = authentication_type
+            __props__.__dict__["lambda_authorizer_config"] = lambda_authorizer_config
             __props__.__dict__["log_config"] = log_config
             __props__.__dict__["name"] = name
             __props__.__dict__["openid_connect_config"] = openid_connect_config
@@ -763,6 +833,7 @@ class GraphQLApi(pulumi.CustomResource):
             additional_authentication_providers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GraphQLApiAdditionalAuthenticationProviderArgs']]]]] = None,
             arn: Optional[pulumi.Input[str]] = None,
             authentication_type: Optional[pulumi.Input[str]] = None,
+            lambda_authorizer_config: Optional[pulumi.Input[pulumi.InputType['GraphQLApiLambdaAuthorizerConfigArgs']]] = None,
             log_config: Optional[pulumi.Input[pulumi.InputType['GraphQLApiLogConfigArgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             openid_connect_config: Optional[pulumi.Input[pulumi.InputType['GraphQLApiOpenidConnectConfigArgs']]] = None,
@@ -781,7 +852,8 @@ class GraphQLApi(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['GraphQLApiAdditionalAuthenticationProviderArgs']]]] additional_authentication_providers: One or more additional authentication providers for the GraphqlApi. Defined below.
         :param pulumi.Input[str] arn: The ARN
-        :param pulumi.Input[str] authentication_type: The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`
+        :param pulumi.Input[str] authentication_type: The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
+        :param pulumi.Input[pulumi.InputType['GraphQLApiLambdaAuthorizerConfigArgs']] lambda_authorizer_config: Nested argument containing Lambda authorizer configuration. Defined below.
         :param pulumi.Input[pulumi.InputType['GraphQLApiLogConfigArgs']] log_config: Nested argument containing logging configuration. Defined below.
         :param pulumi.Input[str] name: A user-supplied name for the GraphqlApi.
         :param pulumi.Input[pulumi.InputType['GraphQLApiOpenidConnectConfigArgs']] openid_connect_config: Nested argument containing OpenID Connect configuration. Defined below.
@@ -799,6 +871,7 @@ class GraphQLApi(pulumi.CustomResource):
         __props__.__dict__["additional_authentication_providers"] = additional_authentication_providers
         __props__.__dict__["arn"] = arn
         __props__.__dict__["authentication_type"] = authentication_type
+        __props__.__dict__["lambda_authorizer_config"] = lambda_authorizer_config
         __props__.__dict__["log_config"] = log_config
         __props__.__dict__["name"] = name
         __props__.__dict__["openid_connect_config"] = openid_connect_config
@@ -830,9 +903,17 @@ class GraphQLApi(pulumi.CustomResource):
     @pulumi.getter(name="authenticationType")
     def authentication_type(self) -> pulumi.Output[str]:
         """
-        The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`
+        The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
         """
         return pulumi.get(self, "authentication_type")
+
+    @property
+    @pulumi.getter(name="lambdaAuthorizerConfig")
+    def lambda_authorizer_config(self) -> pulumi.Output[Optional['outputs.GraphQLApiLambdaAuthorizerConfig']]:
+        """
+        Nested argument containing Lambda authorizer configuration. Defined below.
+        """
+        return pulumi.get(self, "lambda_authorizer_config")
 
     @property
     @pulumi.getter(name="logConfig")

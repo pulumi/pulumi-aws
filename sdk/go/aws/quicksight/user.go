@@ -27,6 +27,7 @@ import (
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := quicksight.NewUser(ctx, "example", &quicksight.UserArgs{
 // 			Email:        pulumi.String("author@example.com"),
+// 			IamArn:       pulumi.String("arn:aws:iam::123456789012:user/Example"),
 // 			IdentityType: pulumi.String("IAM"),
 // 			SessionName:  pulumi.String("an-author"),
 // 			UserRole:     pulumi.String("AUTHOR"),
@@ -53,7 +54,7 @@ type User struct {
 	Email pulumi.StringOutput `pulumi:"email"`
 	// The ARN of the IAM user or role that you are registering with Amazon QuickSight.
 	IamArn pulumi.StringPtrOutput `pulumi:"iamArn"`
-	// Amazon QuickSight supports several ways of managing the identity of users. This parameter accepts either  `IAM` or `QUICKSIGHT`.
+	// Amazon QuickSight supports several ways of managing the identity of users. This parameter accepts either  `IAM` or `QUICKSIGHT`. If `IAM` is specified, the `iamArn` must also be specified.
 	IdentityType pulumi.StringOutput `pulumi:"identityType"`
 	// The namespace. Currently, you should set this to `default`.
 	Namespace pulumi.StringPtrOutput `pulumi:"namespace"`
@@ -111,7 +112,7 @@ type userState struct {
 	Email *string `pulumi:"email"`
 	// The ARN of the IAM user or role that you are registering with Amazon QuickSight.
 	IamArn *string `pulumi:"iamArn"`
-	// Amazon QuickSight supports several ways of managing the identity of users. This parameter accepts either  `IAM` or `QUICKSIGHT`.
+	// Amazon QuickSight supports several ways of managing the identity of users. This parameter accepts either  `IAM` or `QUICKSIGHT`. If `IAM` is specified, the `iamArn` must also be specified.
 	IdentityType *string `pulumi:"identityType"`
 	// The namespace. Currently, you should set this to `default`.
 	Namespace *string `pulumi:"namespace"`
@@ -132,7 +133,7 @@ type UserState struct {
 	Email pulumi.StringPtrInput
 	// The ARN of the IAM user or role that you are registering with Amazon QuickSight.
 	IamArn pulumi.StringPtrInput
-	// Amazon QuickSight supports several ways of managing the identity of users. This parameter accepts either  `IAM` or `QUICKSIGHT`.
+	// Amazon QuickSight supports several ways of managing the identity of users. This parameter accepts either  `IAM` or `QUICKSIGHT`. If `IAM` is specified, the `iamArn` must also be specified.
 	IdentityType pulumi.StringPtrInput
 	// The namespace. Currently, you should set this to `default`.
 	Namespace pulumi.StringPtrInput
@@ -155,7 +156,7 @@ type userArgs struct {
 	Email string `pulumi:"email"`
 	// The ARN of the IAM user or role that you are registering with Amazon QuickSight.
 	IamArn *string `pulumi:"iamArn"`
-	// Amazon QuickSight supports several ways of managing the identity of users. This parameter accepts either  `IAM` or `QUICKSIGHT`.
+	// Amazon QuickSight supports several ways of managing the identity of users. This parameter accepts either  `IAM` or `QUICKSIGHT`. If `IAM` is specified, the `iamArn` must also be specified.
 	IdentityType string `pulumi:"identityType"`
 	// The namespace. Currently, you should set this to `default`.
 	Namespace *string `pulumi:"namespace"`
@@ -175,7 +176,7 @@ type UserArgs struct {
 	Email pulumi.StringInput
 	// The ARN of the IAM user or role that you are registering with Amazon QuickSight.
 	IamArn pulumi.StringPtrInput
-	// Amazon QuickSight supports several ways of managing the identity of users. This parameter accepts either  `IAM` or `QUICKSIGHT`.
+	// Amazon QuickSight supports several ways of managing the identity of users. This parameter accepts either  `IAM` or `QUICKSIGHT`. If `IAM` is specified, the `iamArn` must also be specified.
 	IdentityType pulumi.StringInput
 	// The namespace. Currently, you should set this to `default`.
 	Namespace pulumi.StringPtrInput

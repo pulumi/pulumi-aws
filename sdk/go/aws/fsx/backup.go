@@ -7,13 +7,12 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Provides a FSx Backup resource.
 //
-// ## Example Usage
+// ## Lustre Example
 //
 // ```go
 // package main
@@ -47,6 +46,73 @@ import (
 // }
 // ```
 //
+// ## Windows Example
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/fsx"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleWindowsFileSystem, err := fsx.NewWindowsFileSystem(ctx, "exampleWindowsFileSystem", &fsx.WindowsFileSystemArgs{
+// 			ActiveDirectoryId: pulumi.Any(aws_directory_service_directory.Eample.Id),
+// 			SkipFinalBackup:   pulumi.Bool(true),
+// 			StorageCapacity:   pulumi.Int(32),
+// 			SubnetIds: pulumi.StringArray{
+// 				pulumi.Any(aws_subnet.Example1.Id),
+// 			},
+// 			ThroughputCapacity: pulumi.Int(8),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = fsx.NewBackup(ctx, "exampleBackup", &fsx.BackupArgs{
+// 			FileSystemId: exampleWindowsFileSystem.ID(),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
+// ## ONTAP Example
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/fsx"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleOntapVolume, err := fsx.NewOntapVolume(ctx, "exampleOntapVolume", &fsx.OntapVolumeArgs{
+// 			JunctionPath:             pulumi.String("/example"),
+// 			SizeInMegabytes:          pulumi.Int(1024),
+// 			StorageEfficiencyEnabled: pulumi.Bool(true),
+// 			StorageVirtualMachineId:  pulumi.Any(aws_fsx_ontap_storage_virtual_machine.Test.Id),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = fsx.NewBackup(ctx, "exampleBackup", &fsx.BackupArgs{
+// 			VolumeId: exampleOntapVolume.ID(),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Import
 //
 // FSx Backups can be imported using the `id`, e.g.,
@@ -59,30 +125,29 @@ type Backup struct {
 
 	// Amazon Resource Name of the backup.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The ID of the file system to back up.
-	FileSystemId pulumi.StringOutput `pulumi:"fileSystemId"`
+	// The ID of the file system to back up. Required if backing up Lustre or Windows file systems.
+	FileSystemId pulumi.StringPtrOutput `pulumi:"fileSystemId"`
 	// The ID of the AWS Key Management Service (AWS KMS) key used to encrypt the backup of the Amazon FSx file system's data at rest.
 	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
 	// AWS account identifier that created the file system.
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
-	// A map of tags to assign to the file system. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
+	// A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// The type of the file system backup.
 	Type pulumi.StringOutput `pulumi:"type"`
+	// The ID of the volume to back up. Required if backing up a ONTAP Volume.
+	VolumeId pulumi.StringPtrOutput `pulumi:"volumeId"`
 }
 
 // NewBackup registers a new resource with the given unique name, arguments, and options.
 func NewBackup(ctx *pulumi.Context,
 	name string, args *BackupArgs, opts ...pulumi.ResourceOption) (*Backup, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &BackupArgs{}
 	}
 
-	if args.FileSystemId == nil {
-		return nil, errors.New("invalid value for required argument 'FileSystemId'")
-	}
 	var resource Backup
 	err := ctx.RegisterResource("aws:fsx/backup:Backup", name, args, &resource, opts...)
 	if err != nil {
@@ -107,35 +172,39 @@ func GetBackup(ctx *pulumi.Context,
 type backupState struct {
 	// Amazon Resource Name of the backup.
 	Arn *string `pulumi:"arn"`
-	// The ID of the file system to back up.
+	// The ID of the file system to back up. Required if backing up Lustre or Windows file systems.
 	FileSystemId *string `pulumi:"fileSystemId"`
 	// The ID of the AWS Key Management Service (AWS KMS) key used to encrypt the backup of the Amazon FSx file system's data at rest.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// AWS account identifier that created the file system.
 	OwnerId *string `pulumi:"ownerId"`
-	// A map of tags to assign to the file system. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
+	// A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// The type of the file system backup.
 	Type *string `pulumi:"type"`
+	// The ID of the volume to back up. Required if backing up a ONTAP Volume.
+	VolumeId *string `pulumi:"volumeId"`
 }
 
 type BackupState struct {
 	// Amazon Resource Name of the backup.
 	Arn pulumi.StringPtrInput
-	// The ID of the file system to back up.
+	// The ID of the file system to back up. Required if backing up Lustre or Windows file systems.
 	FileSystemId pulumi.StringPtrInput
 	// The ID of the AWS Key Management Service (AWS KMS) key used to encrypt the backup of the Amazon FSx file system's data at rest.
 	KmsKeyId pulumi.StringPtrInput
 	// AWS account identifier that created the file system.
 	OwnerId pulumi.StringPtrInput
-	// A map of tags to assign to the file system. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
+	// A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block).
+	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// The type of the file system backup.
 	Type pulumi.StringPtrInput
+	// The ID of the volume to back up. Required if backing up a ONTAP Volume.
+	VolumeId pulumi.StringPtrInput
 }
 
 func (BackupState) ElementType() reflect.Type {
@@ -143,18 +212,22 @@ func (BackupState) ElementType() reflect.Type {
 }
 
 type backupArgs struct {
-	// The ID of the file system to back up.
-	FileSystemId string `pulumi:"fileSystemId"`
-	// A map of tags to assign to the file system. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
+	// The ID of the file system to back up. Required if backing up Lustre or Windows file systems.
+	FileSystemId *string `pulumi:"fileSystemId"`
+	// A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
 	Tags map[string]string `pulumi:"tags"`
+	// The ID of the volume to back up. Required if backing up a ONTAP Volume.
+	VolumeId *string `pulumi:"volumeId"`
 }
 
 // The set of arguments for constructing a Backup resource.
 type BackupArgs struct {
-	// The ID of the file system to back up.
-	FileSystemId pulumi.StringInput
-	// A map of tags to assign to the file system. If configured with a provider [`defaultTags` configuration block](https://www.terraform.io/docs/providers/aws/index.html#default_tags-configuration-block) present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
+	// The ID of the file system to back up. Required if backing up Lustre or Windows file systems.
+	FileSystemId pulumi.StringPtrInput
+	// A map of tags to assign to the file system. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level. If you have set `copyTagsToBackups` to true, and you specify one or more tags, no existing file system tags are copied from the file system to the backup.
 	Tags pulumi.StringMapInput
+	// The ID of the volume to back up. Required if backing up a ONTAP Volume.
+	VolumeId pulumi.StringPtrInput
 }
 
 func (BackupArgs) ElementType() reflect.Type {

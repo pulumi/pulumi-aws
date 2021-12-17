@@ -25,6 +25,7 @@ namespace Pulumi.Aws.Quicksight
     ///         var example = new Aws.Quicksight.User("example", new Aws.Quicksight.UserArgs
     ///         {
     ///             Email = "author@example.com",
+    ///             IamArn = "arn:aws:iam::123456789012:user/Example",
     ///             IdentityType = "IAM",
     ///             SessionName = "an-author",
     ///             UserRole = "AUTHOR",
@@ -66,7 +67,7 @@ namespace Pulumi.Aws.Quicksight
         public Output<string?> IamArn { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon QuickSight supports several ways of managing the identity of users. This parameter accepts either  `IAM` or `QUICKSIGHT`.
+        /// Amazon QuickSight supports several ways of managing the identity of users. This parameter accepts either  `IAM` or `QUICKSIGHT`. If `IAM` is specified, the `iam_arn` must also be specified.
         /// </summary>
         [Output("identityType")]
         public Output<string> IdentityType { get; private set; } = null!;
@@ -160,7 +161,7 @@ namespace Pulumi.Aws.Quicksight
         public Input<string>? IamArn { get; set; }
 
         /// <summary>
-        /// Amazon QuickSight supports several ways of managing the identity of users. This parameter accepts either  `IAM` or `QUICKSIGHT`.
+        /// Amazon QuickSight supports several ways of managing the identity of users. This parameter accepts either  `IAM` or `QUICKSIGHT`. If `IAM` is specified, the `iam_arn` must also be specified.
         /// </summary>
         [Input("identityType", required: true)]
         public Input<string> IdentityType { get; set; } = null!;
@@ -221,7 +222,7 @@ namespace Pulumi.Aws.Quicksight
         public Input<string>? IamArn { get; set; }
 
         /// <summary>
-        /// Amazon QuickSight supports several ways of managing the identity of users. This parameter accepts either  `IAM` or `QUICKSIGHT`.
+        /// Amazon QuickSight supports several ways of managing the identity of users. This parameter accepts either  `IAM` or `QUICKSIGHT`. If `IAM` is specified, the `iam_arn` must also be specified.
         /// </summary>
         [Input("identityType")]
         public Input<string>? IdentityType { get; set; }

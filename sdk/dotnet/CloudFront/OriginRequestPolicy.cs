@@ -98,7 +98,7 @@ namespace Pulumi.Aws.CloudFront
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Query Strings Config for more information.
+        /// Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Query String Config for more information.
         /// </summary>
         [Output("queryStringsConfig")]
         public Output<Outputs.OriginRequestPolicyQueryStringsConfig> QueryStringsConfig { get; private set; } = null!;
@@ -174,7 +174,7 @@ namespace Pulumi.Aws.CloudFront
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Query Strings Config for more information.
+        /// Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Query String Config for more information.
         /// </summary>
         [Input("queryStringsConfig", required: true)]
         public Input<Inputs.OriginRequestPolicyQueryStringsConfigArgs> QueryStringsConfig { get; set; } = null!;
@@ -217,7 +217,7 @@ namespace Pulumi.Aws.CloudFront
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Query Strings Config for more information.
+        /// Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the origin request key and automatically included in requests that CloudFront sends to the origin. See Query String Config for more information.
         /// </summary>
         [Input("queryStringsConfig")]
         public Input<Inputs.OriginRequestPolicyQueryStringsConfigGetArgs>? QueryStringsConfig { get; set; }

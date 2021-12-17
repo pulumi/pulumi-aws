@@ -39,7 +39,7 @@ class TargetGroupArgs:
         :param pulumi.Input['TargetGroupHealthCheckArgs'] health_check: Health Check configuration block. Detailed below.
         :param pulumi.Input[bool] lambda_multi_value_headers_enabled: Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`. Default is `false`.
         :param pulumi.Input[str] load_balancing_algorithm_type: Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin` or `least_outstanding_requests`. The default is `round_robin`.
-        :param pulumi.Input[str] name: Name of the Target Group.
+        :param pulumi.Input[str] name: Name of the target group. If omitted, this provider will assign a random, unique name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`. Cannot be longer than 6 characters.
         :param pulumi.Input[int] port: Port to use to connect with the target. Valid values are either ports 1-65535, or `traffic-port`. Defaults to `traffic-port`.
         :param pulumi.Input[str] preserve_client_ip: Whether client IP preservation is enabled. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#client-ip-preservation) for more information.
@@ -151,7 +151,7 @@ class TargetGroupArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the Target Group.
+        Name of the target group. If omitted, this provider will assign a random, unique name.
         """
         return pulumi.get(self, "name")
 
@@ -324,7 +324,7 @@ class _TargetGroupState:
         :param pulumi.Input['TargetGroupHealthCheckArgs'] health_check: Health Check configuration block. Detailed below.
         :param pulumi.Input[bool] lambda_multi_value_headers_enabled: Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`. Default is `false`.
         :param pulumi.Input[str] load_balancing_algorithm_type: Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin` or `least_outstanding_requests`. The default is `round_robin`.
-        :param pulumi.Input[str] name: Name of the Target Group.
+        :param pulumi.Input[str] name: Name of the target group. If omitted, this provider will assign a random, unique name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`. Cannot be longer than 6 characters.
         :param pulumi.Input[int] port: Port to use to connect with the target. Valid values are either ports 1-65535, or `traffic-port`. Defaults to `traffic-port`.
         :param pulumi.Input[str] preserve_client_ip: Whether client IP preservation is enabled. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#client-ip-preservation) for more information.
@@ -467,7 +467,7 @@ class _TargetGroupState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Name of the Target Group.
+        Name of the target group. If omitted, this provider will assign a random, unique name.
         """
         return pulumi.get(self, "name")
 
@@ -698,7 +698,7 @@ class TargetGroup(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['TargetGroupHealthCheckArgs']] health_check: Health Check configuration block. Detailed below.
         :param pulumi.Input[bool] lambda_multi_value_headers_enabled: Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`. Default is `false`.
         :param pulumi.Input[str] load_balancing_algorithm_type: Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin` or `least_outstanding_requests`. The default is `round_robin`.
-        :param pulumi.Input[str] name: Name of the Target Group.
+        :param pulumi.Input[str] name: Name of the target group. If omitted, this provider will assign a random, unique name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`. Cannot be longer than 6 characters.
         :param pulumi.Input[int] port: Port to use to connect with the target. Valid values are either ports 1-65535, or `traffic-port`. Defaults to `traffic-port`.
         :param pulumi.Input[str] preserve_client_ip: Whether client IP preservation is enabled. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#client-ip-preservation) for more information.
@@ -875,7 +875,7 @@ class TargetGroup(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['TargetGroupHealthCheckArgs']] health_check: Health Check configuration block. Detailed below.
         :param pulumi.Input[bool] lambda_multi_value_headers_enabled: Whether the request and response headers exchanged between the load balancer and the Lambda function include arrays of values or strings. Only applies when `target_type` is `lambda`. Default is `false`.
         :param pulumi.Input[str] load_balancing_algorithm_type: Determines how the load balancer selects targets when routing requests. Only applicable for Application Load Balancer Target Groups. The value is `round_robin` or `least_outstanding_requests`. The default is `round_robin`.
-        :param pulumi.Input[str] name: Name of the Target Group.
+        :param pulumi.Input[str] name: Name of the target group. If omitted, this provider will assign a random, unique name.
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`. Cannot be longer than 6 characters.
         :param pulumi.Input[int] port: Port to use to connect with the target. Valid values are either ports 1-65535, or `traffic-port`. Defaults to `traffic-port`.
         :param pulumi.Input[str] preserve_client_ip: Whether client IP preservation is enabled. See [doc](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#client-ip-preservation) for more information.
@@ -975,7 +975,7 @@ class TargetGroup(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Name of the Target Group.
+        Name of the target group. If omitted, this provider will assign a random, unique name.
         """
         return pulumi.get(self, "name")
 

@@ -28,6 +28,7 @@ class ApplicationVersionArgs:
         :param pulumi.Input[str] description: Short description of the Application Version.
         :param pulumi.Input[bool] force_delete: On delete, force an Application Version to be deleted when it may be in use by multiple Elastic Beanstalk Environments.
         :param pulumi.Input[str] name: Unique name for the this Application Version.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of tags for the Elastic Beanstalk Application Version. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "application", application)
         pulumi.set(__self__, "bucket", bucket)
@@ -116,6 +117,9 @@ class ApplicationVersionArgs:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value map of tags for the Elastic Beanstalk Application Version. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -144,6 +148,7 @@ class _ApplicationVersionState:
         :param pulumi.Input[bool] force_delete: On delete, force an Application Version to be deleted when it may be in use by multiple Elastic Beanstalk Environments.
         :param pulumi.Input[str] key: S3 object that is the Application Version source bundle.
         :param pulumi.Input[str] name: Unique name for the this Application Version.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of tags for the Elastic Beanstalk Application Version. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         if application is not None:
             pulumi.set(__self__, "application", application)
@@ -251,6 +256,9 @@ class _ApplicationVersionState:
     @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Key-value map of tags for the Elastic Beanstalk Application Version. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @tags.setter
@@ -320,6 +328,7 @@ class ApplicationVersion(pulumi.CustomResource):
         :param pulumi.Input[bool] force_delete: On delete, force an Application Version to be deleted when it may be in use by multiple Elastic Beanstalk Environments.
         :param pulumi.Input[str] key: S3 object that is the Application Version source bundle.
         :param pulumi.Input[str] name: Unique name for the this Application Version.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of tags for the Elastic Beanstalk Application Version. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -441,6 +450,7 @@ class ApplicationVersion(pulumi.CustomResource):
         :param pulumi.Input[bool] force_delete: On delete, force an Application Version to be deleted when it may be in use by multiple Elastic Beanstalk Environments.
         :param pulumi.Input[str] key: S3 object that is the Application Version source bundle.
         :param pulumi.Input[str] name: Unique name for the this Application Version.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of tags for the Elastic Beanstalk Application Version. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -516,6 +526,9 @@ class ApplicationVersion(pulumi.CustomResource):
     @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
+        """
+        Key-value map of tags for the Elastic Beanstalk Application Version. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        """
         return pulumi.get(self, "tags")
 
     @property

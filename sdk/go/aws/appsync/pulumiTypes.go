@@ -616,8 +616,10 @@ func (o DataSourceLambdaConfigPtrOutput) FunctionArn() pulumi.StringPtrOutput {
 }
 
 type GraphQLApiAdditionalAuthenticationProvider struct {
-	// The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`
+	// The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
 	AuthenticationType string `pulumi:"authenticationType"`
+	// Nested argument containing Lambda authorizer configuration. Defined below.
+	LambdaAuthorizerConfig *GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfig `pulumi:"lambdaAuthorizerConfig"`
 	// Nested argument containing OpenID Connect configuration. Defined below.
 	OpenidConnectConfig *GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfig `pulumi:"openidConnectConfig"`
 	// The Amazon Cognito User Pool configuration. Defined below.
@@ -636,8 +638,10 @@ type GraphQLApiAdditionalAuthenticationProviderInput interface {
 }
 
 type GraphQLApiAdditionalAuthenticationProviderArgs struct {
-	// The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`
+	// The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
 	AuthenticationType pulumi.StringInput `pulumi:"authenticationType"`
+	// Nested argument containing Lambda authorizer configuration. Defined below.
+	LambdaAuthorizerConfig GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigPtrInput `pulumi:"lambdaAuthorizerConfig"`
 	// Nested argument containing OpenID Connect configuration. Defined below.
 	OpenidConnectConfig GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigPtrInput `pulumi:"openidConnectConfig"`
 	// The Amazon Cognito User Pool configuration. Defined below.
@@ -695,9 +699,16 @@ func (o GraphQLApiAdditionalAuthenticationProviderOutput) ToGraphQLApiAdditional
 	return o
 }
 
-// The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`
+// The authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
 func (o GraphQLApiAdditionalAuthenticationProviderOutput) AuthenticationType() pulumi.StringOutput {
 	return o.ApplyT(func(v GraphQLApiAdditionalAuthenticationProvider) string { return v.AuthenticationType }).(pulumi.StringOutput)
+}
+
+// Nested argument containing Lambda authorizer configuration. Defined below.
+func (o GraphQLApiAdditionalAuthenticationProviderOutput) LambdaAuthorizerConfig() GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigPtrOutput {
+	return o.ApplyT(func(v GraphQLApiAdditionalAuthenticationProvider) *GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfig {
+		return v.LambdaAuthorizerConfig
+	}).(GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigPtrOutput)
 }
 
 // Nested argument containing OpenID Connect configuration. Defined below.
@@ -732,6 +743,187 @@ func (o GraphQLApiAdditionalAuthenticationProviderArrayOutput) Index(i pulumi.In
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GraphQLApiAdditionalAuthenticationProvider {
 		return vs[0].([]GraphQLApiAdditionalAuthenticationProvider)[vs[1].(int)]
 	}).(GraphQLApiAdditionalAuthenticationProviderOutput)
+}
+
+type GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfig struct {
+	// The number of seconds a response should be cached for. The default is 5 minutes (300 seconds). The Lambda function can override this by returning a `ttlOverride` key in its response. A value of 0 disables caching of responses. Minimum value of 0. Maximum value of 3600.
+	AuthorizerResultTtlInSeconds *int `pulumi:"authorizerResultTtlInSeconds"`
+	// The ARN of the Lambda function to be called for authorization. Note: This Lambda function must have a resource-based policy assigned to it, to allow `lambda:InvokeFunction` from service principal `appsync.amazonaws.com`.
+	AuthorizerUri string `pulumi:"authorizerUri"`
+	// A regular expression for validation of tokens before the Lambda function is called.
+	IdentityValidationExpression *string `pulumi:"identityValidationExpression"`
+}
+
+// GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigInput is an input type that accepts GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigArgs and GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigOutput values.
+// You can construct a concrete instance of `GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigInput` via:
+//
+//          GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigArgs{...}
+type GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigInput interface {
+	pulumi.Input
+
+	ToGraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigOutput() GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigOutput
+	ToGraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigOutputWithContext(context.Context) GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigOutput
+}
+
+type GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigArgs struct {
+	// The number of seconds a response should be cached for. The default is 5 minutes (300 seconds). The Lambda function can override this by returning a `ttlOverride` key in its response. A value of 0 disables caching of responses. Minimum value of 0. Maximum value of 3600.
+	AuthorizerResultTtlInSeconds pulumi.IntPtrInput `pulumi:"authorizerResultTtlInSeconds"`
+	// The ARN of the Lambda function to be called for authorization. Note: This Lambda function must have a resource-based policy assigned to it, to allow `lambda:InvokeFunction` from service principal `appsync.amazonaws.com`.
+	AuthorizerUri pulumi.StringInput `pulumi:"authorizerUri"`
+	// A regular expression for validation of tokens before the Lambda function is called.
+	IdentityValidationExpression pulumi.StringPtrInput `pulumi:"identityValidationExpression"`
+}
+
+func (GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfig)(nil)).Elem()
+}
+
+func (i GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigArgs) ToGraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigOutput() GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigOutput {
+	return i.ToGraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigOutputWithContext(context.Background())
+}
+
+func (i GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigArgs) ToGraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigOutputWithContext(ctx context.Context) GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigOutput)
+}
+
+func (i GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigArgs) ToGraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigPtrOutput() GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigPtrOutput {
+	return i.ToGraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigPtrOutputWithContext(context.Background())
+}
+
+func (i GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigArgs) ToGraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigPtrOutputWithContext(ctx context.Context) GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigOutput).ToGraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigPtrOutputWithContext(ctx)
+}
+
+// GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigPtrInput is an input type that accepts GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigArgs, GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigPtr and GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigPtrOutput values.
+// You can construct a concrete instance of `GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigPtrInput` via:
+//
+//          GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigPtrInput interface {
+	pulumi.Input
+
+	ToGraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigPtrOutput() GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigPtrOutput
+	ToGraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigPtrOutputWithContext(context.Context) GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigPtrOutput
+}
+
+type graphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigPtrType GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigArgs
+
+func GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigPtr(v *GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigArgs) GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigPtrInput {
+	return (*graphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigPtrType)(v)
+}
+
+func (*graphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfig)(nil)).Elem()
+}
+
+func (i *graphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigPtrType) ToGraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigPtrOutput() GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigPtrOutput {
+	return i.ToGraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *graphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigPtrType) ToGraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigPtrOutputWithContext(ctx context.Context) GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigPtrOutput)
+}
+
+type GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigOutput struct{ *pulumi.OutputState }
+
+func (GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfig)(nil)).Elem()
+}
+
+func (o GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigOutput) ToGraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigOutput() GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigOutput {
+	return o
+}
+
+func (o GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigOutput) ToGraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigOutputWithContext(ctx context.Context) GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigOutput {
+	return o
+}
+
+func (o GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigOutput) ToGraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigPtrOutput() GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigPtrOutput {
+	return o.ToGraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigPtrOutputWithContext(context.Background())
+}
+
+func (o GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigOutput) ToGraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigPtrOutputWithContext(ctx context.Context) GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfig) *GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfig {
+		return &v
+	}).(GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigPtrOutput)
+}
+
+// The number of seconds a response should be cached for. The default is 5 minutes (300 seconds). The Lambda function can override this by returning a `ttlOverride` key in its response. A value of 0 disables caching of responses. Minimum value of 0. Maximum value of 3600.
+func (o GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigOutput) AuthorizerResultTtlInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfig) *int {
+		return v.AuthorizerResultTtlInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// The ARN of the Lambda function to be called for authorization. Note: This Lambda function must have a resource-based policy assigned to it, to allow `lambda:InvokeFunction` from service principal `appsync.amazonaws.com`.
+func (o GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigOutput) AuthorizerUri() pulumi.StringOutput {
+	return o.ApplyT(func(v GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfig) string {
+		return v.AuthorizerUri
+	}).(pulumi.StringOutput)
+}
+
+// A regular expression for validation of tokens before the Lambda function is called.
+func (o GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigOutput) IdentityValidationExpression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfig) *string {
+		return v.IdentityValidationExpression
+	}).(pulumi.StringPtrOutput)
+}
+
+type GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfig)(nil)).Elem()
+}
+
+func (o GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigPtrOutput) ToGraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigPtrOutput() GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigPtrOutput {
+	return o
+}
+
+func (o GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigPtrOutput) ToGraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigPtrOutputWithContext(ctx context.Context) GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigPtrOutput {
+	return o
+}
+
+func (o GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigPtrOutput) Elem() GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigOutput {
+	return o.ApplyT(func(v *GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfig) GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfig {
+		if v != nil {
+			return *v
+		}
+		var ret GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfig
+		return ret
+	}).(GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigOutput)
+}
+
+// The number of seconds a response should be cached for. The default is 5 minutes (300 seconds). The Lambda function can override this by returning a `ttlOverride` key in its response. A value of 0 disables caching of responses. Minimum value of 0. Maximum value of 3600.
+func (o GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigPtrOutput) AuthorizerResultTtlInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.AuthorizerResultTtlInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// The ARN of the Lambda function to be called for authorization. Note: This Lambda function must have a resource-based policy assigned to it, to allow `lambda:InvokeFunction` from service principal `appsync.amazonaws.com`.
+func (o GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigPtrOutput) AuthorizerUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AuthorizerUri
+	}).(pulumi.StringPtrOutput)
+}
+
+// A regular expression for validation of tokens before the Lambda function is called.
+func (o GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigPtrOutput) IdentityValidationExpression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityValidationExpression
+	}).(pulumi.StringPtrOutput)
 }
 
 type GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfig struct {
@@ -1100,6 +1292,181 @@ func (o GraphQLApiAdditionalAuthenticationProviderUserPoolConfigPtrOutput) UserP
 			return nil
 		}
 		return &v.UserPoolId
+	}).(pulumi.StringPtrOutput)
+}
+
+type GraphQLApiLambdaAuthorizerConfig struct {
+	// The number of seconds a response should be cached for. The default is 5 minutes (300 seconds). The Lambda function can override this by returning a `ttlOverride` key in its response. A value of 0 disables caching of responses. Minimum value of 0. Maximum value of 3600.
+	AuthorizerResultTtlInSeconds *int `pulumi:"authorizerResultTtlInSeconds"`
+	// The ARN of the Lambda function to be called for authorization. Note: This Lambda function must have a resource-based policy assigned to it, to allow `lambda:InvokeFunction` from service principal `appsync.amazonaws.com`.
+	AuthorizerUri string `pulumi:"authorizerUri"`
+	// A regular expression for validation of tokens before the Lambda function is called.
+	IdentityValidationExpression *string `pulumi:"identityValidationExpression"`
+}
+
+// GraphQLApiLambdaAuthorizerConfigInput is an input type that accepts GraphQLApiLambdaAuthorizerConfigArgs and GraphQLApiLambdaAuthorizerConfigOutput values.
+// You can construct a concrete instance of `GraphQLApiLambdaAuthorizerConfigInput` via:
+//
+//          GraphQLApiLambdaAuthorizerConfigArgs{...}
+type GraphQLApiLambdaAuthorizerConfigInput interface {
+	pulumi.Input
+
+	ToGraphQLApiLambdaAuthorizerConfigOutput() GraphQLApiLambdaAuthorizerConfigOutput
+	ToGraphQLApiLambdaAuthorizerConfigOutputWithContext(context.Context) GraphQLApiLambdaAuthorizerConfigOutput
+}
+
+type GraphQLApiLambdaAuthorizerConfigArgs struct {
+	// The number of seconds a response should be cached for. The default is 5 minutes (300 seconds). The Lambda function can override this by returning a `ttlOverride` key in its response. A value of 0 disables caching of responses. Minimum value of 0. Maximum value of 3600.
+	AuthorizerResultTtlInSeconds pulumi.IntPtrInput `pulumi:"authorizerResultTtlInSeconds"`
+	// The ARN of the Lambda function to be called for authorization. Note: This Lambda function must have a resource-based policy assigned to it, to allow `lambda:InvokeFunction` from service principal `appsync.amazonaws.com`.
+	AuthorizerUri pulumi.StringInput `pulumi:"authorizerUri"`
+	// A regular expression for validation of tokens before the Lambda function is called.
+	IdentityValidationExpression pulumi.StringPtrInput `pulumi:"identityValidationExpression"`
+}
+
+func (GraphQLApiLambdaAuthorizerConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GraphQLApiLambdaAuthorizerConfig)(nil)).Elem()
+}
+
+func (i GraphQLApiLambdaAuthorizerConfigArgs) ToGraphQLApiLambdaAuthorizerConfigOutput() GraphQLApiLambdaAuthorizerConfigOutput {
+	return i.ToGraphQLApiLambdaAuthorizerConfigOutputWithContext(context.Background())
+}
+
+func (i GraphQLApiLambdaAuthorizerConfigArgs) ToGraphQLApiLambdaAuthorizerConfigOutputWithContext(ctx context.Context) GraphQLApiLambdaAuthorizerConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GraphQLApiLambdaAuthorizerConfigOutput)
+}
+
+func (i GraphQLApiLambdaAuthorizerConfigArgs) ToGraphQLApiLambdaAuthorizerConfigPtrOutput() GraphQLApiLambdaAuthorizerConfigPtrOutput {
+	return i.ToGraphQLApiLambdaAuthorizerConfigPtrOutputWithContext(context.Background())
+}
+
+func (i GraphQLApiLambdaAuthorizerConfigArgs) ToGraphQLApiLambdaAuthorizerConfigPtrOutputWithContext(ctx context.Context) GraphQLApiLambdaAuthorizerConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GraphQLApiLambdaAuthorizerConfigOutput).ToGraphQLApiLambdaAuthorizerConfigPtrOutputWithContext(ctx)
+}
+
+// GraphQLApiLambdaAuthorizerConfigPtrInput is an input type that accepts GraphQLApiLambdaAuthorizerConfigArgs, GraphQLApiLambdaAuthorizerConfigPtr and GraphQLApiLambdaAuthorizerConfigPtrOutput values.
+// You can construct a concrete instance of `GraphQLApiLambdaAuthorizerConfigPtrInput` via:
+//
+//          GraphQLApiLambdaAuthorizerConfigArgs{...}
+//
+//  or:
+//
+//          nil
+type GraphQLApiLambdaAuthorizerConfigPtrInput interface {
+	pulumi.Input
+
+	ToGraphQLApiLambdaAuthorizerConfigPtrOutput() GraphQLApiLambdaAuthorizerConfigPtrOutput
+	ToGraphQLApiLambdaAuthorizerConfigPtrOutputWithContext(context.Context) GraphQLApiLambdaAuthorizerConfigPtrOutput
+}
+
+type graphQLApiLambdaAuthorizerConfigPtrType GraphQLApiLambdaAuthorizerConfigArgs
+
+func GraphQLApiLambdaAuthorizerConfigPtr(v *GraphQLApiLambdaAuthorizerConfigArgs) GraphQLApiLambdaAuthorizerConfigPtrInput {
+	return (*graphQLApiLambdaAuthorizerConfigPtrType)(v)
+}
+
+func (*graphQLApiLambdaAuthorizerConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GraphQLApiLambdaAuthorizerConfig)(nil)).Elem()
+}
+
+func (i *graphQLApiLambdaAuthorizerConfigPtrType) ToGraphQLApiLambdaAuthorizerConfigPtrOutput() GraphQLApiLambdaAuthorizerConfigPtrOutput {
+	return i.ToGraphQLApiLambdaAuthorizerConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *graphQLApiLambdaAuthorizerConfigPtrType) ToGraphQLApiLambdaAuthorizerConfigPtrOutputWithContext(ctx context.Context) GraphQLApiLambdaAuthorizerConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GraphQLApiLambdaAuthorizerConfigPtrOutput)
+}
+
+type GraphQLApiLambdaAuthorizerConfigOutput struct{ *pulumi.OutputState }
+
+func (GraphQLApiLambdaAuthorizerConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GraphQLApiLambdaAuthorizerConfig)(nil)).Elem()
+}
+
+func (o GraphQLApiLambdaAuthorizerConfigOutput) ToGraphQLApiLambdaAuthorizerConfigOutput() GraphQLApiLambdaAuthorizerConfigOutput {
+	return o
+}
+
+func (o GraphQLApiLambdaAuthorizerConfigOutput) ToGraphQLApiLambdaAuthorizerConfigOutputWithContext(ctx context.Context) GraphQLApiLambdaAuthorizerConfigOutput {
+	return o
+}
+
+func (o GraphQLApiLambdaAuthorizerConfigOutput) ToGraphQLApiLambdaAuthorizerConfigPtrOutput() GraphQLApiLambdaAuthorizerConfigPtrOutput {
+	return o.ToGraphQLApiLambdaAuthorizerConfigPtrOutputWithContext(context.Background())
+}
+
+func (o GraphQLApiLambdaAuthorizerConfigOutput) ToGraphQLApiLambdaAuthorizerConfigPtrOutputWithContext(ctx context.Context) GraphQLApiLambdaAuthorizerConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GraphQLApiLambdaAuthorizerConfig) *GraphQLApiLambdaAuthorizerConfig {
+		return &v
+	}).(GraphQLApiLambdaAuthorizerConfigPtrOutput)
+}
+
+// The number of seconds a response should be cached for. The default is 5 minutes (300 seconds). The Lambda function can override this by returning a `ttlOverride` key in its response. A value of 0 disables caching of responses. Minimum value of 0. Maximum value of 3600.
+func (o GraphQLApiLambdaAuthorizerConfigOutput) AuthorizerResultTtlInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GraphQLApiLambdaAuthorizerConfig) *int { return v.AuthorizerResultTtlInSeconds }).(pulumi.IntPtrOutput)
+}
+
+// The ARN of the Lambda function to be called for authorization. Note: This Lambda function must have a resource-based policy assigned to it, to allow `lambda:InvokeFunction` from service principal `appsync.amazonaws.com`.
+func (o GraphQLApiLambdaAuthorizerConfigOutput) AuthorizerUri() pulumi.StringOutput {
+	return o.ApplyT(func(v GraphQLApiLambdaAuthorizerConfig) string { return v.AuthorizerUri }).(pulumi.StringOutput)
+}
+
+// A regular expression for validation of tokens before the Lambda function is called.
+func (o GraphQLApiLambdaAuthorizerConfigOutput) IdentityValidationExpression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GraphQLApiLambdaAuthorizerConfig) *string { return v.IdentityValidationExpression }).(pulumi.StringPtrOutput)
+}
+
+type GraphQLApiLambdaAuthorizerConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (GraphQLApiLambdaAuthorizerConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GraphQLApiLambdaAuthorizerConfig)(nil)).Elem()
+}
+
+func (o GraphQLApiLambdaAuthorizerConfigPtrOutput) ToGraphQLApiLambdaAuthorizerConfigPtrOutput() GraphQLApiLambdaAuthorizerConfigPtrOutput {
+	return o
+}
+
+func (o GraphQLApiLambdaAuthorizerConfigPtrOutput) ToGraphQLApiLambdaAuthorizerConfigPtrOutputWithContext(ctx context.Context) GraphQLApiLambdaAuthorizerConfigPtrOutput {
+	return o
+}
+
+func (o GraphQLApiLambdaAuthorizerConfigPtrOutput) Elem() GraphQLApiLambdaAuthorizerConfigOutput {
+	return o.ApplyT(func(v *GraphQLApiLambdaAuthorizerConfig) GraphQLApiLambdaAuthorizerConfig {
+		if v != nil {
+			return *v
+		}
+		var ret GraphQLApiLambdaAuthorizerConfig
+		return ret
+	}).(GraphQLApiLambdaAuthorizerConfigOutput)
+}
+
+// The number of seconds a response should be cached for. The default is 5 minutes (300 seconds). The Lambda function can override this by returning a `ttlOverride` key in its response. A value of 0 disables caching of responses. Minimum value of 0. Maximum value of 3600.
+func (o GraphQLApiLambdaAuthorizerConfigPtrOutput) AuthorizerResultTtlInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GraphQLApiLambdaAuthorizerConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.AuthorizerResultTtlInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// The ARN of the Lambda function to be called for authorization. Note: This Lambda function must have a resource-based policy assigned to it, to allow `lambda:InvokeFunction` from service principal `appsync.amazonaws.com`.
+func (o GraphQLApiLambdaAuthorizerConfigPtrOutput) AuthorizerUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GraphQLApiLambdaAuthorizerConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AuthorizerUri
+	}).(pulumi.StringPtrOutput)
+}
+
+// A regular expression for validation of tokens before the Lambda function is called.
+func (o GraphQLApiLambdaAuthorizerConfigPtrOutput) IdentityValidationExpression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GraphQLApiLambdaAuthorizerConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IdentityValidationExpression
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1970,10 +2337,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceLambdaConfigPtrInput)(nil)).Elem(), DataSourceLambdaConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GraphQLApiAdditionalAuthenticationProviderInput)(nil)).Elem(), GraphQLApiAdditionalAuthenticationProviderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GraphQLApiAdditionalAuthenticationProviderArrayInput)(nil)).Elem(), GraphQLApiAdditionalAuthenticationProviderArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigInput)(nil)).Elem(), GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigPtrInput)(nil)).Elem(), GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigInput)(nil)).Elem(), GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigPtrInput)(nil)).Elem(), GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GraphQLApiAdditionalAuthenticationProviderUserPoolConfigInput)(nil)).Elem(), GraphQLApiAdditionalAuthenticationProviderUserPoolConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GraphQLApiAdditionalAuthenticationProviderUserPoolConfigPtrInput)(nil)).Elem(), GraphQLApiAdditionalAuthenticationProviderUserPoolConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GraphQLApiLambdaAuthorizerConfigInput)(nil)).Elem(), GraphQLApiLambdaAuthorizerConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GraphQLApiLambdaAuthorizerConfigPtrInput)(nil)).Elem(), GraphQLApiLambdaAuthorizerConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GraphQLApiLogConfigInput)(nil)).Elem(), GraphQLApiLogConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GraphQLApiLogConfigPtrInput)(nil)).Elem(), GraphQLApiLogConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GraphQLApiOpenidConnectConfigInput)(nil)).Elem(), GraphQLApiOpenidConnectConfigArgs{})
@@ -1994,10 +2365,14 @@ func init() {
 	pulumi.RegisterOutputType(DataSourceLambdaConfigPtrOutput{})
 	pulumi.RegisterOutputType(GraphQLApiAdditionalAuthenticationProviderOutput{})
 	pulumi.RegisterOutputType(GraphQLApiAdditionalAuthenticationProviderArrayOutput{})
+	pulumi.RegisterOutputType(GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigOutput{})
+	pulumi.RegisterOutputType(GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigPtrOutput{})
 	pulumi.RegisterOutputType(GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigOutput{})
 	pulumi.RegisterOutputType(GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigPtrOutput{})
 	pulumi.RegisterOutputType(GraphQLApiAdditionalAuthenticationProviderUserPoolConfigOutput{})
 	pulumi.RegisterOutputType(GraphQLApiAdditionalAuthenticationProviderUserPoolConfigPtrOutput{})
+	pulumi.RegisterOutputType(GraphQLApiLambdaAuthorizerConfigOutput{})
+	pulumi.RegisterOutputType(GraphQLApiLambdaAuthorizerConfigPtrOutput{})
 	pulumi.RegisterOutputType(GraphQLApiLogConfigOutput{})
 	pulumi.RegisterOutputType(GraphQLApiLogConfigPtrOutput{})
 	pulumi.RegisterOutputType(GraphQLApiOpenidConnectConfigOutput{})

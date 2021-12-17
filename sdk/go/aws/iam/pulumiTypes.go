@@ -251,11 +251,11 @@ type GetPolicyDocumentStatement struct {
 	NotActions []string `pulumi:"notActions"`
 	// Like `principals` except these are principals that the statement does *not* apply to.
 	NotPrincipals []GetPolicyDocumentStatementNotPrincipal `pulumi:"notPrincipals"`
-	// List of resource ARNs that this statement does *not* apply to. Use to apply a policy statement to all resources *except* those listed.
+	// List of resource ARNs that this statement does *not* apply to. Use to apply a policy statement to all resources *except* those listed. Conflicts with `resources`.
 	NotResources []string `pulumi:"notResources"`
 	// Configuration block for principals. Detailed below.
 	Principals []GetPolicyDocumentStatementPrincipal `pulumi:"principals"`
-	// List of resource ARNs that this statement applies to. This is required by AWS if used for an IAM policy.
+	// List of resource ARNs that this statement applies to. This is required by AWS if used for an IAM policy. Conflicts with `notResources`.
 	Resources []string `pulumi:"resources"`
 	// Sid (statement ID) is an identifier for a policy statement.
 	Sid *string `pulumi:"sid"`
@@ -283,11 +283,11 @@ type GetPolicyDocumentStatementArgs struct {
 	NotActions pulumi.StringArrayInput `pulumi:"notActions"`
 	// Like `principals` except these are principals that the statement does *not* apply to.
 	NotPrincipals GetPolicyDocumentStatementNotPrincipalArrayInput `pulumi:"notPrincipals"`
-	// List of resource ARNs that this statement does *not* apply to. Use to apply a policy statement to all resources *except* those listed.
+	// List of resource ARNs that this statement does *not* apply to. Use to apply a policy statement to all resources *except* those listed. Conflicts with `resources`.
 	NotResources pulumi.StringArrayInput `pulumi:"notResources"`
 	// Configuration block for principals. Detailed below.
 	Principals GetPolicyDocumentStatementPrincipalArrayInput `pulumi:"principals"`
-	// List of resource ARNs that this statement applies to. This is required by AWS if used for an IAM policy.
+	// List of resource ARNs that this statement applies to. This is required by AWS if used for an IAM policy. Conflicts with `notResources`.
 	Resources pulumi.StringArrayInput `pulumi:"resources"`
 	// Sid (statement ID) is an identifier for a policy statement.
 	Sid pulumi.StringPtrInput `pulumi:"sid"`
@@ -369,7 +369,7 @@ func (o GetPolicyDocumentStatementOutput) NotPrincipals() GetPolicyDocumentState
 	return o.ApplyT(func(v GetPolicyDocumentStatement) []GetPolicyDocumentStatementNotPrincipal { return v.NotPrincipals }).(GetPolicyDocumentStatementNotPrincipalArrayOutput)
 }
 
-// List of resource ARNs that this statement does *not* apply to. Use to apply a policy statement to all resources *except* those listed.
+// List of resource ARNs that this statement does *not* apply to. Use to apply a policy statement to all resources *except* those listed. Conflicts with `resources`.
 func (o GetPolicyDocumentStatementOutput) NotResources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetPolicyDocumentStatement) []string { return v.NotResources }).(pulumi.StringArrayOutput)
 }
@@ -379,7 +379,7 @@ func (o GetPolicyDocumentStatementOutput) Principals() GetPolicyDocumentStatemen
 	return o.ApplyT(func(v GetPolicyDocumentStatement) []GetPolicyDocumentStatementPrincipal { return v.Principals }).(GetPolicyDocumentStatementPrincipalArrayOutput)
 }
 
-// List of resource ARNs that this statement applies to. This is required by AWS if used for an IAM policy.
+// List of resource ARNs that this statement applies to. This is required by AWS if used for an IAM policy. Conflicts with `notResources`.
 func (o GetPolicyDocumentStatementOutput) Resources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetPolicyDocumentStatement) []string { return v.Resources }).(pulumi.StringArrayOutput)
 }
