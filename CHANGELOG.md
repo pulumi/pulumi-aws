@@ -2,7 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Add support for db.t4g, db.m6g and db.r6g RDS instances
 
 ---
 
