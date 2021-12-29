@@ -76,6 +76,12 @@ namespace Pulumi.Aws.Rds
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        public static InstanceType T4G_Micro { get; } = new InstanceType("db.t4g.micro");
+        public static InstanceType T4G_Small { get; } = new InstanceType("db.t4g.small");
+        public static InstanceType T4G_Medium { get; } = new InstanceType("db.t4g.medium");
+        public static InstanceType T4G_Large { get; } = new InstanceType("db.t4g.large");
+        public static InstanceType T4G_XLarge { get; } = new InstanceType("db.t4g.xlarge");
+        public static InstanceType T4G_2XLarge { get; } = new InstanceType("db.t4g.2xlarge");
         public static InstanceType T3_Micro { get; } = new InstanceType("db.t3.micro");
         public static InstanceType T3_Small { get; } = new InstanceType("db.t3.small");
         public static InstanceType T3_Medium { get; } = new InstanceType("db.t3.medium");
@@ -111,6 +117,13 @@ namespace Pulumi.Aws.Rds
         public static InstanceType M5_4XLarge { get; } = new InstanceType("db.m5.4xlarge");
         public static InstanceType M5_12XLarge { get; } = new InstanceType("db.m5.12xlarge");
         public static InstanceType M5_24XLarge { get; } = new InstanceType("db.m5.24xlarge");
+        public static InstanceType M6G_Large { get; } = new InstanceType("db.m6g.large");
+        public static InstanceType M6G_XLarge { get; } = new InstanceType("db.m6g.xlarge");
+        public static InstanceType M6G_2XLarge { get; } = new InstanceType("db.m6g.2xlarge");
+        public static InstanceType M6G_4XLarge { get; } = new InstanceType("db.m6g.4xlarge");
+        public static InstanceType M6G_8XLarge { get; } = new InstanceType("db.m6g.8xlarge");
+        public static InstanceType M6G_12XLarge { get; } = new InstanceType("db.m6g.12xlarge");
+        public static InstanceType M6G_16XLarge { get; } = new InstanceType("db.m6g.16xlarge");
         public static InstanceType R3_Large { get; } = new InstanceType("db.r3.large");
         public static InstanceType R3_XLarge { get; } = new InstanceType("db.r3.xlarge");
         public static InstanceType R3_2XLarge { get; } = new InstanceType("db.r3.2xlarge");
@@ -128,6 +141,13 @@ namespace Pulumi.Aws.Rds
         public static InstanceType R5_4XLarge { get; } = new InstanceType("db.r5.4xlarge");
         public static InstanceType R5_12XLarge { get; } = new InstanceType("db.r5.12xlarge");
         public static InstanceType R5_24XLarge { get; } = new InstanceType("db.r5.24xlarge");
+        public static InstanceType R6G_Large { get; } = new InstanceType("db.r6g.large");
+        public static InstanceType R6G_XLarge { get; } = new InstanceType("db.r6g.xlarge");
+        public static InstanceType R6G_2XLarge { get; } = new InstanceType("db.r6g.2xlarge");
+        public static InstanceType R6G_4XLarge { get; } = new InstanceType("db.r6g.4xlarge");
+        public static InstanceType R6G_8XLarge { get; } = new InstanceType("db.r6g.8xlarge");
+        public static InstanceType R6G_12XLarge { get; } = new InstanceType("db.r6g.12xlarge");
+        public static InstanceType R6G_16XLarge { get; } = new InstanceType("db.r6g.16xlarge");
         public static InstanceType X1_16XLarge { get; } = new InstanceType("db.x1.16xlarge");
         public static InstanceType X1_32XLarge { get; } = new InstanceType("db.x1.32xlarge");
         public static InstanceType X1E_XLarge { get; } = new InstanceType("db.x1e.xlarge");
