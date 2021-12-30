@@ -167,7 +167,7 @@ type UserStackAssociationInput interface {
 }
 
 func (*UserStackAssociation) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserStackAssociation)(nil))
+	return reflect.TypeOf((**UserStackAssociation)(nil)).Elem()
 }
 
 func (i *UserStackAssociation) ToUserStackAssociationOutput() UserStackAssociationOutput {
@@ -176,35 +176,6 @@ func (i *UserStackAssociation) ToUserStackAssociationOutput() UserStackAssociati
 
 func (i *UserStackAssociation) ToUserStackAssociationOutputWithContext(ctx context.Context) UserStackAssociationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UserStackAssociationOutput)
-}
-
-func (i *UserStackAssociation) ToUserStackAssociationPtrOutput() UserStackAssociationPtrOutput {
-	return i.ToUserStackAssociationPtrOutputWithContext(context.Background())
-}
-
-func (i *UserStackAssociation) ToUserStackAssociationPtrOutputWithContext(ctx context.Context) UserStackAssociationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserStackAssociationPtrOutput)
-}
-
-type UserStackAssociationPtrInput interface {
-	pulumi.Input
-
-	ToUserStackAssociationPtrOutput() UserStackAssociationPtrOutput
-	ToUserStackAssociationPtrOutputWithContext(ctx context.Context) UserStackAssociationPtrOutput
-}
-
-type userStackAssociationPtrType UserStackAssociationArgs
-
-func (*userStackAssociationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**UserStackAssociation)(nil))
-}
-
-func (i *userStackAssociationPtrType) ToUserStackAssociationPtrOutput() UserStackAssociationPtrOutput {
-	return i.ToUserStackAssociationPtrOutputWithContext(context.Background())
-}
-
-func (i *userStackAssociationPtrType) ToUserStackAssociationPtrOutputWithContext(ctx context.Context) UserStackAssociationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserStackAssociationPtrOutput)
 }
 
 // UserStackAssociationArrayInput is an input type that accepts UserStackAssociationArray and UserStackAssociationArrayOutput values.
@@ -260,7 +231,7 @@ func (i UserStackAssociationMap) ToUserStackAssociationMapOutputWithContext(ctx 
 type UserStackAssociationOutput struct{ *pulumi.OutputState }
 
 func (UserStackAssociationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserStackAssociation)(nil))
+	return reflect.TypeOf((**UserStackAssociation)(nil)).Elem()
 }
 
 func (o UserStackAssociationOutput) ToUserStackAssociationOutput() UserStackAssociationOutput {
@@ -271,44 +242,10 @@ func (o UserStackAssociationOutput) ToUserStackAssociationOutputWithContext(ctx 
 	return o
 }
 
-func (o UserStackAssociationOutput) ToUserStackAssociationPtrOutput() UserStackAssociationPtrOutput {
-	return o.ToUserStackAssociationPtrOutputWithContext(context.Background())
-}
-
-func (o UserStackAssociationOutput) ToUserStackAssociationPtrOutputWithContext(ctx context.Context) UserStackAssociationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserStackAssociation) *UserStackAssociation {
-		return &v
-	}).(UserStackAssociationPtrOutput)
-}
-
-type UserStackAssociationPtrOutput struct{ *pulumi.OutputState }
-
-func (UserStackAssociationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**UserStackAssociation)(nil))
-}
-
-func (o UserStackAssociationPtrOutput) ToUserStackAssociationPtrOutput() UserStackAssociationPtrOutput {
-	return o
-}
-
-func (o UserStackAssociationPtrOutput) ToUserStackAssociationPtrOutputWithContext(ctx context.Context) UserStackAssociationPtrOutput {
-	return o
-}
-
-func (o UserStackAssociationPtrOutput) Elem() UserStackAssociationOutput {
-	return o.ApplyT(func(v *UserStackAssociation) UserStackAssociation {
-		if v != nil {
-			return *v
-		}
-		var ret UserStackAssociation
-		return ret
-	}).(UserStackAssociationOutput)
-}
-
 type UserStackAssociationArrayOutput struct{ *pulumi.OutputState }
 
 func (UserStackAssociationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]UserStackAssociation)(nil))
+	return reflect.TypeOf((*[]*UserStackAssociation)(nil)).Elem()
 }
 
 func (o UserStackAssociationArrayOutput) ToUserStackAssociationArrayOutput() UserStackAssociationArrayOutput {
@@ -320,15 +257,15 @@ func (o UserStackAssociationArrayOutput) ToUserStackAssociationArrayOutputWithCo
 }
 
 func (o UserStackAssociationArrayOutput) Index(i pulumi.IntInput) UserStackAssociationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserStackAssociation {
-		return vs[0].([]UserStackAssociation)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *UserStackAssociation {
+		return vs[0].([]*UserStackAssociation)[vs[1].(int)]
 	}).(UserStackAssociationOutput)
 }
 
 type UserStackAssociationMapOutput struct{ *pulumi.OutputState }
 
 func (UserStackAssociationMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]UserStackAssociation)(nil))
+	return reflect.TypeOf((*map[string]*UserStackAssociation)(nil)).Elem()
 }
 
 func (o UserStackAssociationMapOutput) ToUserStackAssociationMapOutput() UserStackAssociationMapOutput {
@@ -340,18 +277,16 @@ func (o UserStackAssociationMapOutput) ToUserStackAssociationMapOutputWithContex
 }
 
 func (o UserStackAssociationMapOutput) MapIndex(k pulumi.StringInput) UserStackAssociationOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) UserStackAssociation {
-		return vs[0].(map[string]UserStackAssociation)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *UserStackAssociation {
+		return vs[0].(map[string]*UserStackAssociation)[vs[1].(string)]
 	}).(UserStackAssociationOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserStackAssociationInput)(nil)).Elem(), &UserStackAssociation{})
-	pulumi.RegisterInputType(reflect.TypeOf((*UserStackAssociationPtrInput)(nil)).Elem(), &UserStackAssociation{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserStackAssociationArrayInput)(nil)).Elem(), UserStackAssociationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserStackAssociationMapInput)(nil)).Elem(), UserStackAssociationMap{})
 	pulumi.RegisterOutputType(UserStackAssociationOutput{})
-	pulumi.RegisterOutputType(UserStackAssociationPtrOutput{})
 	pulumi.RegisterOutputType(UserStackAssociationArrayOutput{})
 	pulumi.RegisterOutputType(UserStackAssociationMapOutput{})
 }

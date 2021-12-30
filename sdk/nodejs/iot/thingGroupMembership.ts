@@ -78,13 +78,13 @@ export class ThingGroupMembership extends pulumi.CustomResource {
      */
     constructor(name: string, args: ThingGroupMembershipArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ThingGroupMembershipArgs | ThingGroupMembershipState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ThingGroupMembershipState | undefined;
-            inputs["overrideDynamicGroup"] = state ? state.overrideDynamicGroup : undefined;
-            inputs["thingGroupName"] = state ? state.thingGroupName : undefined;
-            inputs["thingName"] = state ? state.thingName : undefined;
+            resourceInputs["overrideDynamicGroup"] = state ? state.overrideDynamicGroup : undefined;
+            resourceInputs["thingGroupName"] = state ? state.thingGroupName : undefined;
+            resourceInputs["thingName"] = state ? state.thingName : undefined;
         } else {
             const args = argsOrState as ThingGroupMembershipArgs | undefined;
             if ((!args || args.thingGroupName === undefined) && !opts.urn) {
@@ -93,14 +93,14 @@ export class ThingGroupMembership extends pulumi.CustomResource {
             if ((!args || args.thingName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'thingName'");
             }
-            inputs["overrideDynamicGroup"] = args ? args.overrideDynamicGroup : undefined;
-            inputs["thingGroupName"] = args ? args.thingGroupName : undefined;
-            inputs["thingName"] = args ? args.thingName : undefined;
+            resourceInputs["overrideDynamicGroup"] = args ? args.overrideDynamicGroup : undefined;
+            resourceInputs["thingGroupName"] = args ? args.thingGroupName : undefined;
+            resourceInputs["thingName"] = args ? args.thingName : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(ThingGroupMembership.__pulumiType, name, inputs, opts);
+        super(ThingGroupMembership.__pulumiType, name, resourceInputs, opts);
     }
 }
 

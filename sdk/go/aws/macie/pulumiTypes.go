@@ -43,47 +43,6 @@ func (i FindingsFilterFindingCriteriaArgs) ToFindingsFilterFindingCriteriaOutput
 	return pulumi.ToOutputWithContext(ctx, i).(FindingsFilterFindingCriteriaOutput)
 }
 
-func (i FindingsFilterFindingCriteriaArgs) ToFindingsFilterFindingCriteriaPtrOutput() FindingsFilterFindingCriteriaPtrOutput {
-	return i.ToFindingsFilterFindingCriteriaPtrOutputWithContext(context.Background())
-}
-
-func (i FindingsFilterFindingCriteriaArgs) ToFindingsFilterFindingCriteriaPtrOutputWithContext(ctx context.Context) FindingsFilterFindingCriteriaPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FindingsFilterFindingCriteriaOutput).ToFindingsFilterFindingCriteriaPtrOutputWithContext(ctx)
-}
-
-// FindingsFilterFindingCriteriaPtrInput is an input type that accepts FindingsFilterFindingCriteriaArgs, FindingsFilterFindingCriteriaPtr and FindingsFilterFindingCriteriaPtrOutput values.
-// You can construct a concrete instance of `FindingsFilterFindingCriteriaPtrInput` via:
-//
-//          FindingsFilterFindingCriteriaArgs{...}
-//
-//  or:
-//
-//          nil
-type FindingsFilterFindingCriteriaPtrInput interface {
-	pulumi.Input
-
-	ToFindingsFilterFindingCriteriaPtrOutput() FindingsFilterFindingCriteriaPtrOutput
-	ToFindingsFilterFindingCriteriaPtrOutputWithContext(context.Context) FindingsFilterFindingCriteriaPtrOutput
-}
-
-type findingsFilterFindingCriteriaPtrType FindingsFilterFindingCriteriaArgs
-
-func FindingsFilterFindingCriteriaPtr(v *FindingsFilterFindingCriteriaArgs) FindingsFilterFindingCriteriaPtrInput {
-	return (*findingsFilterFindingCriteriaPtrType)(v)
-}
-
-func (*findingsFilterFindingCriteriaPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FindingsFilterFindingCriteria)(nil)).Elem()
-}
-
-func (i *findingsFilterFindingCriteriaPtrType) ToFindingsFilterFindingCriteriaPtrOutput() FindingsFilterFindingCriteriaPtrOutput {
-	return i.ToFindingsFilterFindingCriteriaPtrOutputWithContext(context.Background())
-}
-
-func (i *findingsFilterFindingCriteriaPtrType) ToFindingsFilterFindingCriteriaPtrOutputWithContext(ctx context.Context) FindingsFilterFindingCriteriaPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FindingsFilterFindingCriteriaPtrOutput)
-}
-
 type FindingsFilterFindingCriteriaOutput struct{ *pulumi.OutputState }
 
 func (FindingsFilterFindingCriteriaOutput) ElementType() reflect.Type {
@@ -98,53 +57,9 @@ func (o FindingsFilterFindingCriteriaOutput) ToFindingsFilterFindingCriteriaOutp
 	return o
 }
 
-func (o FindingsFilterFindingCriteriaOutput) ToFindingsFilterFindingCriteriaPtrOutput() FindingsFilterFindingCriteriaPtrOutput {
-	return o.ToFindingsFilterFindingCriteriaPtrOutputWithContext(context.Background())
-}
-
-func (o FindingsFilterFindingCriteriaOutput) ToFindingsFilterFindingCriteriaPtrOutputWithContext(ctx context.Context) FindingsFilterFindingCriteriaPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FindingsFilterFindingCriteria) *FindingsFilterFindingCriteria {
-		return &v
-	}).(FindingsFilterFindingCriteriaPtrOutput)
-}
-
 // A condition that specifies the property, operator, and one or more values to use to filter the results.  (documented below)
 func (o FindingsFilterFindingCriteriaOutput) Criterions() FindingsFilterFindingCriteriaCriterionArrayOutput {
 	return o.ApplyT(func(v FindingsFilterFindingCriteria) []FindingsFilterFindingCriteriaCriterion { return v.Criterions }).(FindingsFilterFindingCriteriaCriterionArrayOutput)
-}
-
-type FindingsFilterFindingCriteriaPtrOutput struct{ *pulumi.OutputState }
-
-func (FindingsFilterFindingCriteriaPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FindingsFilterFindingCriteria)(nil)).Elem()
-}
-
-func (o FindingsFilterFindingCriteriaPtrOutput) ToFindingsFilterFindingCriteriaPtrOutput() FindingsFilterFindingCriteriaPtrOutput {
-	return o
-}
-
-func (o FindingsFilterFindingCriteriaPtrOutput) ToFindingsFilterFindingCriteriaPtrOutputWithContext(ctx context.Context) FindingsFilterFindingCriteriaPtrOutput {
-	return o
-}
-
-func (o FindingsFilterFindingCriteriaPtrOutput) Elem() FindingsFilterFindingCriteriaOutput {
-	return o.ApplyT(func(v *FindingsFilterFindingCriteria) FindingsFilterFindingCriteria {
-		if v != nil {
-			return *v
-		}
-		var ret FindingsFilterFindingCriteria
-		return ret
-	}).(FindingsFilterFindingCriteriaOutput)
-}
-
-// A condition that specifies the property, operator, and one or more values to use to filter the results.  (documented below)
-func (o FindingsFilterFindingCriteriaPtrOutput) Criterions() FindingsFilterFindingCriteriaCriterionArrayOutput {
-	return o.ApplyT(func(v *FindingsFilterFindingCriteria) []FindingsFilterFindingCriteriaCriterion {
-		if v == nil {
-			return nil
-		}
-		return v.Criterions
-	}).(FindingsFilterFindingCriteriaCriterionArrayOutput)
 }
 
 type FindingsFilterFindingCriteriaCriterion struct {
@@ -473,13 +388,11 @@ func (o S3BucketAssociationClassificationTypePtrOutput) OneTime() pulumi.StringP
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FindingsFilterFindingCriteriaInput)(nil)).Elem(), FindingsFilterFindingCriteriaArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FindingsFilterFindingCriteriaPtrInput)(nil)).Elem(), FindingsFilterFindingCriteriaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FindingsFilterFindingCriteriaCriterionInput)(nil)).Elem(), FindingsFilterFindingCriteriaCriterionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FindingsFilterFindingCriteriaCriterionArrayInput)(nil)).Elem(), FindingsFilterFindingCriteriaCriterionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*S3BucketAssociationClassificationTypeInput)(nil)).Elem(), S3BucketAssociationClassificationTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*S3BucketAssociationClassificationTypePtrInput)(nil)).Elem(), S3BucketAssociationClassificationTypeArgs{})
 	pulumi.RegisterOutputType(FindingsFilterFindingCriteriaOutput{})
-	pulumi.RegisterOutputType(FindingsFilterFindingCriteriaPtrOutput{})
 	pulumi.RegisterOutputType(FindingsFilterFindingCriteriaCriterionOutput{})
 	pulumi.RegisterOutputType(FindingsFilterFindingCriteriaCriterionArrayOutput{})
 	pulumi.RegisterOutputType(S3BucketAssociationClassificationTypeOutput{})

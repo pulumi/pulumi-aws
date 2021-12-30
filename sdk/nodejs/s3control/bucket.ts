@@ -95,17 +95,17 @@ export class Bucket extends pulumi.CustomResource {
      */
     constructor(name: string, args: BucketArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: BucketArgs | BucketState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BucketState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["bucket"] = state ? state.bucket : undefined;
-            inputs["creationDate"] = state ? state.creationDate : undefined;
-            inputs["outpostId"] = state ? state.outpostId : undefined;
-            inputs["publicAccessBlockEnabled"] = state ? state.publicAccessBlockEnabled : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["bucket"] = state ? state.bucket : undefined;
+            resourceInputs["creationDate"] = state ? state.creationDate : undefined;
+            resourceInputs["outpostId"] = state ? state.outpostId : undefined;
+            resourceInputs["publicAccessBlockEnabled"] = state ? state.publicAccessBlockEnabled : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as BucketArgs | undefined;
             if ((!args || args.bucket === undefined) && !opts.urn) {
@@ -114,18 +114,18 @@ export class Bucket extends pulumi.CustomResource {
             if ((!args || args.outpostId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'outpostId'");
             }
-            inputs["bucket"] = args ? args.bucket : undefined;
-            inputs["outpostId"] = args ? args.outpostId : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["creationDate"] = undefined /*out*/;
-            inputs["publicAccessBlockEnabled"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["bucket"] = args ? args.bucket : undefined;
+            resourceInputs["outpostId"] = args ? args.outpostId : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["creationDate"] = undefined /*out*/;
+            resourceInputs["publicAccessBlockEnabled"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Bucket.__pulumiType, name, inputs, opts);
+        super(Bucket.__pulumiType, name, resourceInputs, opts);
     }
 }
 

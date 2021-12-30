@@ -139,7 +139,7 @@ type SizeConstraintSetInput interface {
 }
 
 func (*SizeConstraintSet) ElementType() reflect.Type {
-	return reflect.TypeOf((*SizeConstraintSet)(nil))
+	return reflect.TypeOf((**SizeConstraintSet)(nil)).Elem()
 }
 
 func (i *SizeConstraintSet) ToSizeConstraintSetOutput() SizeConstraintSetOutput {
@@ -148,35 +148,6 @@ func (i *SizeConstraintSet) ToSizeConstraintSetOutput() SizeConstraintSetOutput 
 
 func (i *SizeConstraintSet) ToSizeConstraintSetOutputWithContext(ctx context.Context) SizeConstraintSetOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SizeConstraintSetOutput)
-}
-
-func (i *SizeConstraintSet) ToSizeConstraintSetPtrOutput() SizeConstraintSetPtrOutput {
-	return i.ToSizeConstraintSetPtrOutputWithContext(context.Background())
-}
-
-func (i *SizeConstraintSet) ToSizeConstraintSetPtrOutputWithContext(ctx context.Context) SizeConstraintSetPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SizeConstraintSetPtrOutput)
-}
-
-type SizeConstraintSetPtrInput interface {
-	pulumi.Input
-
-	ToSizeConstraintSetPtrOutput() SizeConstraintSetPtrOutput
-	ToSizeConstraintSetPtrOutputWithContext(ctx context.Context) SizeConstraintSetPtrOutput
-}
-
-type sizeConstraintSetPtrType SizeConstraintSetArgs
-
-func (*sizeConstraintSetPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SizeConstraintSet)(nil))
-}
-
-func (i *sizeConstraintSetPtrType) ToSizeConstraintSetPtrOutput() SizeConstraintSetPtrOutput {
-	return i.ToSizeConstraintSetPtrOutputWithContext(context.Background())
-}
-
-func (i *sizeConstraintSetPtrType) ToSizeConstraintSetPtrOutputWithContext(ctx context.Context) SizeConstraintSetPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SizeConstraintSetPtrOutput)
 }
 
 // SizeConstraintSetArrayInput is an input type that accepts SizeConstraintSetArray and SizeConstraintSetArrayOutput values.
@@ -232,7 +203,7 @@ func (i SizeConstraintSetMap) ToSizeConstraintSetMapOutputWithContext(ctx contex
 type SizeConstraintSetOutput struct{ *pulumi.OutputState }
 
 func (SizeConstraintSetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SizeConstraintSet)(nil))
+	return reflect.TypeOf((**SizeConstraintSet)(nil)).Elem()
 }
 
 func (o SizeConstraintSetOutput) ToSizeConstraintSetOutput() SizeConstraintSetOutput {
@@ -243,44 +214,10 @@ func (o SizeConstraintSetOutput) ToSizeConstraintSetOutputWithContext(ctx contex
 	return o
 }
 
-func (o SizeConstraintSetOutput) ToSizeConstraintSetPtrOutput() SizeConstraintSetPtrOutput {
-	return o.ToSizeConstraintSetPtrOutputWithContext(context.Background())
-}
-
-func (o SizeConstraintSetOutput) ToSizeConstraintSetPtrOutputWithContext(ctx context.Context) SizeConstraintSetPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SizeConstraintSet) *SizeConstraintSet {
-		return &v
-	}).(SizeConstraintSetPtrOutput)
-}
-
-type SizeConstraintSetPtrOutput struct{ *pulumi.OutputState }
-
-func (SizeConstraintSetPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SizeConstraintSet)(nil))
-}
-
-func (o SizeConstraintSetPtrOutput) ToSizeConstraintSetPtrOutput() SizeConstraintSetPtrOutput {
-	return o
-}
-
-func (o SizeConstraintSetPtrOutput) ToSizeConstraintSetPtrOutputWithContext(ctx context.Context) SizeConstraintSetPtrOutput {
-	return o
-}
-
-func (o SizeConstraintSetPtrOutput) Elem() SizeConstraintSetOutput {
-	return o.ApplyT(func(v *SizeConstraintSet) SizeConstraintSet {
-		if v != nil {
-			return *v
-		}
-		var ret SizeConstraintSet
-		return ret
-	}).(SizeConstraintSetOutput)
-}
-
 type SizeConstraintSetArrayOutput struct{ *pulumi.OutputState }
 
 func (SizeConstraintSetArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SizeConstraintSet)(nil))
+	return reflect.TypeOf((*[]*SizeConstraintSet)(nil)).Elem()
 }
 
 func (o SizeConstraintSetArrayOutput) ToSizeConstraintSetArrayOutput() SizeConstraintSetArrayOutput {
@@ -292,15 +229,15 @@ func (o SizeConstraintSetArrayOutput) ToSizeConstraintSetArrayOutputWithContext(
 }
 
 func (o SizeConstraintSetArrayOutput) Index(i pulumi.IntInput) SizeConstraintSetOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SizeConstraintSet {
-		return vs[0].([]SizeConstraintSet)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SizeConstraintSet {
+		return vs[0].([]*SizeConstraintSet)[vs[1].(int)]
 	}).(SizeConstraintSetOutput)
 }
 
 type SizeConstraintSetMapOutput struct{ *pulumi.OutputState }
 
 func (SizeConstraintSetMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]SizeConstraintSet)(nil))
+	return reflect.TypeOf((*map[string]*SizeConstraintSet)(nil)).Elem()
 }
 
 func (o SizeConstraintSetMapOutput) ToSizeConstraintSetMapOutput() SizeConstraintSetMapOutput {
@@ -312,18 +249,16 @@ func (o SizeConstraintSetMapOutput) ToSizeConstraintSetMapOutputWithContext(ctx 
 }
 
 func (o SizeConstraintSetMapOutput) MapIndex(k pulumi.StringInput) SizeConstraintSetOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SizeConstraintSet {
-		return vs[0].(map[string]SizeConstraintSet)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *SizeConstraintSet {
+		return vs[0].(map[string]*SizeConstraintSet)[vs[1].(string)]
 	}).(SizeConstraintSetOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SizeConstraintSetInput)(nil)).Elem(), &SizeConstraintSet{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SizeConstraintSetPtrInput)(nil)).Elem(), &SizeConstraintSet{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SizeConstraintSetArrayInput)(nil)).Elem(), SizeConstraintSetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SizeConstraintSetMapInput)(nil)).Elem(), SizeConstraintSetMap{})
 	pulumi.RegisterOutputType(SizeConstraintSetOutput{})
-	pulumi.RegisterOutputType(SizeConstraintSetPtrOutput{})
 	pulumi.RegisterOutputType(SizeConstraintSetArrayOutput{})
 	pulumi.RegisterOutputType(SizeConstraintSetMapOutput{})
 }

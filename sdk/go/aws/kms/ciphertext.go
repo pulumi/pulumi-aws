@@ -152,7 +152,7 @@ type CiphertextInput interface {
 }
 
 func (*Ciphertext) ElementType() reflect.Type {
-	return reflect.TypeOf((*Ciphertext)(nil))
+	return reflect.TypeOf((**Ciphertext)(nil)).Elem()
 }
 
 func (i *Ciphertext) ToCiphertextOutput() CiphertextOutput {
@@ -161,35 +161,6 @@ func (i *Ciphertext) ToCiphertextOutput() CiphertextOutput {
 
 func (i *Ciphertext) ToCiphertextOutputWithContext(ctx context.Context) CiphertextOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CiphertextOutput)
-}
-
-func (i *Ciphertext) ToCiphertextPtrOutput() CiphertextPtrOutput {
-	return i.ToCiphertextPtrOutputWithContext(context.Background())
-}
-
-func (i *Ciphertext) ToCiphertextPtrOutputWithContext(ctx context.Context) CiphertextPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CiphertextPtrOutput)
-}
-
-type CiphertextPtrInput interface {
-	pulumi.Input
-
-	ToCiphertextPtrOutput() CiphertextPtrOutput
-	ToCiphertextPtrOutputWithContext(ctx context.Context) CiphertextPtrOutput
-}
-
-type ciphertextPtrType CiphertextArgs
-
-func (*ciphertextPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Ciphertext)(nil))
-}
-
-func (i *ciphertextPtrType) ToCiphertextPtrOutput() CiphertextPtrOutput {
-	return i.ToCiphertextPtrOutputWithContext(context.Background())
-}
-
-func (i *ciphertextPtrType) ToCiphertextPtrOutputWithContext(ctx context.Context) CiphertextPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CiphertextPtrOutput)
 }
 
 // CiphertextArrayInput is an input type that accepts CiphertextArray and CiphertextArrayOutput values.
@@ -245,7 +216,7 @@ func (i CiphertextMap) ToCiphertextMapOutputWithContext(ctx context.Context) Cip
 type CiphertextOutput struct{ *pulumi.OutputState }
 
 func (CiphertextOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Ciphertext)(nil))
+	return reflect.TypeOf((**Ciphertext)(nil)).Elem()
 }
 
 func (o CiphertextOutput) ToCiphertextOutput() CiphertextOutput {
@@ -256,44 +227,10 @@ func (o CiphertextOutput) ToCiphertextOutputWithContext(ctx context.Context) Cip
 	return o
 }
 
-func (o CiphertextOutput) ToCiphertextPtrOutput() CiphertextPtrOutput {
-	return o.ToCiphertextPtrOutputWithContext(context.Background())
-}
-
-func (o CiphertextOutput) ToCiphertextPtrOutputWithContext(ctx context.Context) CiphertextPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Ciphertext) *Ciphertext {
-		return &v
-	}).(CiphertextPtrOutput)
-}
-
-type CiphertextPtrOutput struct{ *pulumi.OutputState }
-
-func (CiphertextPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Ciphertext)(nil))
-}
-
-func (o CiphertextPtrOutput) ToCiphertextPtrOutput() CiphertextPtrOutput {
-	return o
-}
-
-func (o CiphertextPtrOutput) ToCiphertextPtrOutputWithContext(ctx context.Context) CiphertextPtrOutput {
-	return o
-}
-
-func (o CiphertextPtrOutput) Elem() CiphertextOutput {
-	return o.ApplyT(func(v *Ciphertext) Ciphertext {
-		if v != nil {
-			return *v
-		}
-		var ret Ciphertext
-		return ret
-	}).(CiphertextOutput)
-}
-
 type CiphertextArrayOutput struct{ *pulumi.OutputState }
 
 func (CiphertextArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Ciphertext)(nil))
+	return reflect.TypeOf((*[]*Ciphertext)(nil)).Elem()
 }
 
 func (o CiphertextArrayOutput) ToCiphertextArrayOutput() CiphertextArrayOutput {
@@ -305,15 +242,15 @@ func (o CiphertextArrayOutput) ToCiphertextArrayOutputWithContext(ctx context.Co
 }
 
 func (o CiphertextArrayOutput) Index(i pulumi.IntInput) CiphertextOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Ciphertext {
-		return vs[0].([]Ciphertext)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Ciphertext {
+		return vs[0].([]*Ciphertext)[vs[1].(int)]
 	}).(CiphertextOutput)
 }
 
 type CiphertextMapOutput struct{ *pulumi.OutputState }
 
 func (CiphertextMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Ciphertext)(nil))
+	return reflect.TypeOf((*map[string]*Ciphertext)(nil)).Elem()
 }
 
 func (o CiphertextMapOutput) ToCiphertextMapOutput() CiphertextMapOutput {
@@ -325,18 +262,16 @@ func (o CiphertextMapOutput) ToCiphertextMapOutputWithContext(ctx context.Contex
 }
 
 func (o CiphertextMapOutput) MapIndex(k pulumi.StringInput) CiphertextOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Ciphertext {
-		return vs[0].(map[string]Ciphertext)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Ciphertext {
+		return vs[0].(map[string]*Ciphertext)[vs[1].(string)]
 	}).(CiphertextOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CiphertextInput)(nil)).Elem(), &Ciphertext{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CiphertextPtrInput)(nil)).Elem(), &Ciphertext{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CiphertextArrayInput)(nil)).Elem(), CiphertextArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CiphertextMapInput)(nil)).Elem(), CiphertextMap{})
 	pulumi.RegisterOutputType(CiphertextOutput{})
-	pulumi.RegisterOutputType(CiphertextPtrOutput{})
 	pulumi.RegisterOutputType(CiphertextArrayOutput{})
 	pulumi.RegisterOutputType(CiphertextMapOutput{})
 }

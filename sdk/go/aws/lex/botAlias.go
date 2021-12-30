@@ -189,7 +189,7 @@ type BotAliasInput interface {
 }
 
 func (*BotAlias) ElementType() reflect.Type {
-	return reflect.TypeOf((*BotAlias)(nil))
+	return reflect.TypeOf((**BotAlias)(nil)).Elem()
 }
 
 func (i *BotAlias) ToBotAliasOutput() BotAliasOutput {
@@ -198,35 +198,6 @@ func (i *BotAlias) ToBotAliasOutput() BotAliasOutput {
 
 func (i *BotAlias) ToBotAliasOutputWithContext(ctx context.Context) BotAliasOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BotAliasOutput)
-}
-
-func (i *BotAlias) ToBotAliasPtrOutput() BotAliasPtrOutput {
-	return i.ToBotAliasPtrOutputWithContext(context.Background())
-}
-
-func (i *BotAlias) ToBotAliasPtrOutputWithContext(ctx context.Context) BotAliasPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BotAliasPtrOutput)
-}
-
-type BotAliasPtrInput interface {
-	pulumi.Input
-
-	ToBotAliasPtrOutput() BotAliasPtrOutput
-	ToBotAliasPtrOutputWithContext(ctx context.Context) BotAliasPtrOutput
-}
-
-type botAliasPtrType BotAliasArgs
-
-func (*botAliasPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BotAlias)(nil))
-}
-
-func (i *botAliasPtrType) ToBotAliasPtrOutput() BotAliasPtrOutput {
-	return i.ToBotAliasPtrOutputWithContext(context.Background())
-}
-
-func (i *botAliasPtrType) ToBotAliasPtrOutputWithContext(ctx context.Context) BotAliasPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BotAliasPtrOutput)
 }
 
 // BotAliasArrayInput is an input type that accepts BotAliasArray and BotAliasArrayOutput values.
@@ -282,7 +253,7 @@ func (i BotAliasMap) ToBotAliasMapOutputWithContext(ctx context.Context) BotAlia
 type BotAliasOutput struct{ *pulumi.OutputState }
 
 func (BotAliasOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BotAlias)(nil))
+	return reflect.TypeOf((**BotAlias)(nil)).Elem()
 }
 
 func (o BotAliasOutput) ToBotAliasOutput() BotAliasOutput {
@@ -293,44 +264,10 @@ func (o BotAliasOutput) ToBotAliasOutputWithContext(ctx context.Context) BotAlia
 	return o
 }
 
-func (o BotAliasOutput) ToBotAliasPtrOutput() BotAliasPtrOutput {
-	return o.ToBotAliasPtrOutputWithContext(context.Background())
-}
-
-func (o BotAliasOutput) ToBotAliasPtrOutputWithContext(ctx context.Context) BotAliasPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BotAlias) *BotAlias {
-		return &v
-	}).(BotAliasPtrOutput)
-}
-
-type BotAliasPtrOutput struct{ *pulumi.OutputState }
-
-func (BotAliasPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**BotAlias)(nil))
-}
-
-func (o BotAliasPtrOutput) ToBotAliasPtrOutput() BotAliasPtrOutput {
-	return o
-}
-
-func (o BotAliasPtrOutput) ToBotAliasPtrOutputWithContext(ctx context.Context) BotAliasPtrOutput {
-	return o
-}
-
-func (o BotAliasPtrOutput) Elem() BotAliasOutput {
-	return o.ApplyT(func(v *BotAlias) BotAlias {
-		if v != nil {
-			return *v
-		}
-		var ret BotAlias
-		return ret
-	}).(BotAliasOutput)
-}
-
 type BotAliasArrayOutput struct{ *pulumi.OutputState }
 
 func (BotAliasArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]BotAlias)(nil))
+	return reflect.TypeOf((*[]*BotAlias)(nil)).Elem()
 }
 
 func (o BotAliasArrayOutput) ToBotAliasArrayOutput() BotAliasArrayOutput {
@@ -342,15 +279,15 @@ func (o BotAliasArrayOutput) ToBotAliasArrayOutputWithContext(ctx context.Contex
 }
 
 func (o BotAliasArrayOutput) Index(i pulumi.IntInput) BotAliasOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BotAlias {
-		return vs[0].([]BotAlias)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BotAlias {
+		return vs[0].([]*BotAlias)[vs[1].(int)]
 	}).(BotAliasOutput)
 }
 
 type BotAliasMapOutput struct{ *pulumi.OutputState }
 
 func (BotAliasMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]BotAlias)(nil))
+	return reflect.TypeOf((*map[string]*BotAlias)(nil)).Elem()
 }
 
 func (o BotAliasMapOutput) ToBotAliasMapOutput() BotAliasMapOutput {
@@ -362,18 +299,16 @@ func (o BotAliasMapOutput) ToBotAliasMapOutputWithContext(ctx context.Context) B
 }
 
 func (o BotAliasMapOutput) MapIndex(k pulumi.StringInput) BotAliasOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) BotAlias {
-		return vs[0].(map[string]BotAlias)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *BotAlias {
+		return vs[0].(map[string]*BotAlias)[vs[1].(string)]
 	}).(BotAliasOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BotAliasInput)(nil)).Elem(), &BotAlias{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BotAliasPtrInput)(nil)).Elem(), &BotAlias{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotAliasArrayInput)(nil)).Elem(), BotAliasArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotAliasMapInput)(nil)).Elem(), BotAliasMap{})
 	pulumi.RegisterOutputType(BotAliasOutput{})
-	pulumi.RegisterOutputType(BotAliasPtrOutput{})
 	pulumi.RegisterOutputType(BotAliasArrayOutput{})
 	pulumi.RegisterOutputType(BotAliasMapOutput{})
 }

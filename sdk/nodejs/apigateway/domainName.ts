@@ -274,58 +274,58 @@ export class DomainName extends pulumi.CustomResource {
      */
     constructor(name: string, args: DomainNameArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DomainNameArgs | DomainNameState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DomainNameState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["certificateArn"] = state ? state.certificateArn : undefined;
-            inputs["certificateBody"] = state ? state.certificateBody : undefined;
-            inputs["certificateChain"] = state ? state.certificateChain : undefined;
-            inputs["certificateName"] = state ? state.certificateName : undefined;
-            inputs["certificatePrivateKey"] = state ? state.certificatePrivateKey : undefined;
-            inputs["certificateUploadDate"] = state ? state.certificateUploadDate : undefined;
-            inputs["cloudfrontDomainName"] = state ? state.cloudfrontDomainName : undefined;
-            inputs["cloudfrontZoneId"] = state ? state.cloudfrontZoneId : undefined;
-            inputs["domainName"] = state ? state.domainName : undefined;
-            inputs["endpointConfiguration"] = state ? state.endpointConfiguration : undefined;
-            inputs["mutualTlsAuthentication"] = state ? state.mutualTlsAuthentication : undefined;
-            inputs["regionalCertificateArn"] = state ? state.regionalCertificateArn : undefined;
-            inputs["regionalCertificateName"] = state ? state.regionalCertificateName : undefined;
-            inputs["regionalDomainName"] = state ? state.regionalDomainName : undefined;
-            inputs["regionalZoneId"] = state ? state.regionalZoneId : undefined;
-            inputs["securityPolicy"] = state ? state.securityPolicy : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["certificateArn"] = state ? state.certificateArn : undefined;
+            resourceInputs["certificateBody"] = state ? state.certificateBody : undefined;
+            resourceInputs["certificateChain"] = state ? state.certificateChain : undefined;
+            resourceInputs["certificateName"] = state ? state.certificateName : undefined;
+            resourceInputs["certificatePrivateKey"] = state ? state.certificatePrivateKey : undefined;
+            resourceInputs["certificateUploadDate"] = state ? state.certificateUploadDate : undefined;
+            resourceInputs["cloudfrontDomainName"] = state ? state.cloudfrontDomainName : undefined;
+            resourceInputs["cloudfrontZoneId"] = state ? state.cloudfrontZoneId : undefined;
+            resourceInputs["domainName"] = state ? state.domainName : undefined;
+            resourceInputs["endpointConfiguration"] = state ? state.endpointConfiguration : undefined;
+            resourceInputs["mutualTlsAuthentication"] = state ? state.mutualTlsAuthentication : undefined;
+            resourceInputs["regionalCertificateArn"] = state ? state.regionalCertificateArn : undefined;
+            resourceInputs["regionalCertificateName"] = state ? state.regionalCertificateName : undefined;
+            resourceInputs["regionalDomainName"] = state ? state.regionalDomainName : undefined;
+            resourceInputs["regionalZoneId"] = state ? state.regionalZoneId : undefined;
+            resourceInputs["securityPolicy"] = state ? state.securityPolicy : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as DomainNameArgs | undefined;
             if ((!args || args.domainName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'domainName'");
             }
-            inputs["certificateArn"] = args ? args.certificateArn : undefined;
-            inputs["certificateBody"] = args ? args.certificateBody : undefined;
-            inputs["certificateChain"] = args ? args.certificateChain : undefined;
-            inputs["certificateName"] = args ? args.certificateName : undefined;
-            inputs["certificatePrivateKey"] = args ? args.certificatePrivateKey : undefined;
-            inputs["domainName"] = args ? args.domainName : undefined;
-            inputs["endpointConfiguration"] = args ? args.endpointConfiguration : undefined;
-            inputs["mutualTlsAuthentication"] = args ? args.mutualTlsAuthentication : undefined;
-            inputs["regionalCertificateArn"] = args ? args.regionalCertificateArn : undefined;
-            inputs["regionalCertificateName"] = args ? args.regionalCertificateName : undefined;
-            inputs["securityPolicy"] = args ? args.securityPolicy : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["certificateUploadDate"] = undefined /*out*/;
-            inputs["cloudfrontDomainName"] = undefined /*out*/;
-            inputs["cloudfrontZoneId"] = undefined /*out*/;
-            inputs["regionalDomainName"] = undefined /*out*/;
-            inputs["regionalZoneId"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["certificateArn"] = args ? args.certificateArn : undefined;
+            resourceInputs["certificateBody"] = args ? args.certificateBody : undefined;
+            resourceInputs["certificateChain"] = args ? args.certificateChain : undefined;
+            resourceInputs["certificateName"] = args ? args.certificateName : undefined;
+            resourceInputs["certificatePrivateKey"] = args ? args.certificatePrivateKey : undefined;
+            resourceInputs["domainName"] = args ? args.domainName : undefined;
+            resourceInputs["endpointConfiguration"] = args ? args.endpointConfiguration : undefined;
+            resourceInputs["mutualTlsAuthentication"] = args ? args.mutualTlsAuthentication : undefined;
+            resourceInputs["regionalCertificateArn"] = args ? args.regionalCertificateArn : undefined;
+            resourceInputs["regionalCertificateName"] = args ? args.regionalCertificateName : undefined;
+            resourceInputs["securityPolicy"] = args ? args.securityPolicy : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["certificateUploadDate"] = undefined /*out*/;
+            resourceInputs["cloudfrontDomainName"] = undefined /*out*/;
+            resourceInputs["cloudfrontZoneId"] = undefined /*out*/;
+            resourceInputs["regionalDomainName"] = undefined /*out*/;
+            resourceInputs["regionalZoneId"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(DomainName.__pulumiType, name, inputs, opts);
+        super(DomainName.__pulumiType, name, resourceInputs, opts);
     }
 }
 

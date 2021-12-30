@@ -102,18 +102,18 @@ export class Constraint extends pulumi.CustomResource {
      */
     constructor(name: string, args: ConstraintArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ConstraintArgs | ConstraintState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ConstraintState | undefined;
-            inputs["acceptLanguage"] = state ? state.acceptLanguage : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["owner"] = state ? state.owner : undefined;
-            inputs["parameters"] = state ? state.parameters : undefined;
-            inputs["portfolioId"] = state ? state.portfolioId : undefined;
-            inputs["productId"] = state ? state.productId : undefined;
-            inputs["status"] = state ? state.status : undefined;
-            inputs["type"] = state ? state.type : undefined;
+            resourceInputs["acceptLanguage"] = state ? state.acceptLanguage : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["owner"] = state ? state.owner : undefined;
+            resourceInputs["parameters"] = state ? state.parameters : undefined;
+            resourceInputs["portfolioId"] = state ? state.portfolioId : undefined;
+            resourceInputs["productId"] = state ? state.productId : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as ConstraintArgs | undefined;
             if ((!args || args.parameters === undefined) && !opts.urn) {
@@ -128,19 +128,19 @@ export class Constraint extends pulumi.CustomResource {
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            inputs["acceptLanguage"] = args ? args.acceptLanguage : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["parameters"] = args ? args.parameters : undefined;
-            inputs["portfolioId"] = args ? args.portfolioId : undefined;
-            inputs["productId"] = args ? args.productId : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["owner"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
+            resourceInputs["acceptLanguage"] = args ? args.acceptLanguage : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["parameters"] = args ? args.parameters : undefined;
+            resourceInputs["portfolioId"] = args ? args.portfolioId : undefined;
+            resourceInputs["productId"] = args ? args.productId : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["owner"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Constraint.__pulumiType, name, inputs, opts);
+        super(Constraint.__pulumiType, name, resourceInputs, opts);
     }
 }
 

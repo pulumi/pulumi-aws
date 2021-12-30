@@ -134,7 +134,7 @@ type ResourceAssociationInput interface {
 }
 
 func (*ResourceAssociation) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceAssociation)(nil))
+	return reflect.TypeOf((**ResourceAssociation)(nil)).Elem()
 }
 
 func (i *ResourceAssociation) ToResourceAssociationOutput() ResourceAssociationOutput {
@@ -143,35 +143,6 @@ func (i *ResourceAssociation) ToResourceAssociationOutput() ResourceAssociationO
 
 func (i *ResourceAssociation) ToResourceAssociationOutputWithContext(ctx context.Context) ResourceAssociationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceAssociationOutput)
-}
-
-func (i *ResourceAssociation) ToResourceAssociationPtrOutput() ResourceAssociationPtrOutput {
-	return i.ToResourceAssociationPtrOutputWithContext(context.Background())
-}
-
-func (i *ResourceAssociation) ToResourceAssociationPtrOutputWithContext(ctx context.Context) ResourceAssociationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourceAssociationPtrOutput)
-}
-
-type ResourceAssociationPtrInput interface {
-	pulumi.Input
-
-	ToResourceAssociationPtrOutput() ResourceAssociationPtrOutput
-	ToResourceAssociationPtrOutputWithContext(ctx context.Context) ResourceAssociationPtrOutput
-}
-
-type resourceAssociationPtrType ResourceAssociationArgs
-
-func (*resourceAssociationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ResourceAssociation)(nil))
-}
-
-func (i *resourceAssociationPtrType) ToResourceAssociationPtrOutput() ResourceAssociationPtrOutput {
-	return i.ToResourceAssociationPtrOutputWithContext(context.Background())
-}
-
-func (i *resourceAssociationPtrType) ToResourceAssociationPtrOutputWithContext(ctx context.Context) ResourceAssociationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourceAssociationPtrOutput)
 }
 
 // ResourceAssociationArrayInput is an input type that accepts ResourceAssociationArray and ResourceAssociationArrayOutput values.
@@ -227,7 +198,7 @@ func (i ResourceAssociationMap) ToResourceAssociationMapOutputWithContext(ctx co
 type ResourceAssociationOutput struct{ *pulumi.OutputState }
 
 func (ResourceAssociationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceAssociation)(nil))
+	return reflect.TypeOf((**ResourceAssociation)(nil)).Elem()
 }
 
 func (o ResourceAssociationOutput) ToResourceAssociationOutput() ResourceAssociationOutput {
@@ -238,44 +209,10 @@ func (o ResourceAssociationOutput) ToResourceAssociationOutputWithContext(ctx co
 	return o
 }
 
-func (o ResourceAssociationOutput) ToResourceAssociationPtrOutput() ResourceAssociationPtrOutput {
-	return o.ToResourceAssociationPtrOutputWithContext(context.Background())
-}
-
-func (o ResourceAssociationOutput) ToResourceAssociationPtrOutputWithContext(ctx context.Context) ResourceAssociationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceAssociation) *ResourceAssociation {
-		return &v
-	}).(ResourceAssociationPtrOutput)
-}
-
-type ResourceAssociationPtrOutput struct{ *pulumi.OutputState }
-
-func (ResourceAssociationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ResourceAssociation)(nil))
-}
-
-func (o ResourceAssociationPtrOutput) ToResourceAssociationPtrOutput() ResourceAssociationPtrOutput {
-	return o
-}
-
-func (o ResourceAssociationPtrOutput) ToResourceAssociationPtrOutputWithContext(ctx context.Context) ResourceAssociationPtrOutput {
-	return o
-}
-
-func (o ResourceAssociationPtrOutput) Elem() ResourceAssociationOutput {
-	return o.ApplyT(func(v *ResourceAssociation) ResourceAssociation {
-		if v != nil {
-			return *v
-		}
-		var ret ResourceAssociation
-		return ret
-	}).(ResourceAssociationOutput)
-}
-
 type ResourceAssociationArrayOutput struct{ *pulumi.OutputState }
 
 func (ResourceAssociationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ResourceAssociation)(nil))
+	return reflect.TypeOf((*[]*ResourceAssociation)(nil)).Elem()
 }
 
 func (o ResourceAssociationArrayOutput) ToResourceAssociationArrayOutput() ResourceAssociationArrayOutput {
@@ -287,15 +224,15 @@ func (o ResourceAssociationArrayOutput) ToResourceAssociationArrayOutputWithCont
 }
 
 func (o ResourceAssociationArrayOutput) Index(i pulumi.IntInput) ResourceAssociationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ResourceAssociation {
-		return vs[0].([]ResourceAssociation)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ResourceAssociation {
+		return vs[0].([]*ResourceAssociation)[vs[1].(int)]
 	}).(ResourceAssociationOutput)
 }
 
 type ResourceAssociationMapOutput struct{ *pulumi.OutputState }
 
 func (ResourceAssociationMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ResourceAssociation)(nil))
+	return reflect.TypeOf((*map[string]*ResourceAssociation)(nil)).Elem()
 }
 
 func (o ResourceAssociationMapOutput) ToResourceAssociationMapOutput() ResourceAssociationMapOutput {
@@ -307,18 +244,16 @@ func (o ResourceAssociationMapOutput) ToResourceAssociationMapOutputWithContext(
 }
 
 func (o ResourceAssociationMapOutput) MapIndex(k pulumi.StringInput) ResourceAssociationOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ResourceAssociation {
-		return vs[0].(map[string]ResourceAssociation)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ResourceAssociation {
+		return vs[0].(map[string]*ResourceAssociation)[vs[1].(string)]
 	}).(ResourceAssociationOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceAssociationInput)(nil)).Elem(), &ResourceAssociation{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ResourceAssociationPtrInput)(nil)).Elem(), &ResourceAssociation{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceAssociationArrayInput)(nil)).Elem(), ResourceAssociationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceAssociationMapInput)(nil)).Elem(), ResourceAssociationMap{})
 	pulumi.RegisterOutputType(ResourceAssociationOutput{})
-	pulumi.RegisterOutputType(ResourceAssociationPtrOutput{})
 	pulumi.RegisterOutputType(ResourceAssociationArrayOutput{})
 	pulumi.RegisterOutputType(ResourceAssociationMapOutput{})
 }

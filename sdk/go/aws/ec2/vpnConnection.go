@@ -745,7 +745,7 @@ type VpnConnectionInput interface {
 }
 
 func (*VpnConnection) ElementType() reflect.Type {
-	return reflect.TypeOf((*VpnConnection)(nil))
+	return reflect.TypeOf((**VpnConnection)(nil)).Elem()
 }
 
 func (i *VpnConnection) ToVpnConnectionOutput() VpnConnectionOutput {
@@ -754,35 +754,6 @@ func (i *VpnConnection) ToVpnConnectionOutput() VpnConnectionOutput {
 
 func (i *VpnConnection) ToVpnConnectionOutputWithContext(ctx context.Context) VpnConnectionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VpnConnectionOutput)
-}
-
-func (i *VpnConnection) ToVpnConnectionPtrOutput() VpnConnectionPtrOutput {
-	return i.ToVpnConnectionPtrOutputWithContext(context.Background())
-}
-
-func (i *VpnConnection) ToVpnConnectionPtrOutputWithContext(ctx context.Context) VpnConnectionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VpnConnectionPtrOutput)
-}
-
-type VpnConnectionPtrInput interface {
-	pulumi.Input
-
-	ToVpnConnectionPtrOutput() VpnConnectionPtrOutput
-	ToVpnConnectionPtrOutputWithContext(ctx context.Context) VpnConnectionPtrOutput
-}
-
-type vpnConnectionPtrType VpnConnectionArgs
-
-func (*vpnConnectionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VpnConnection)(nil))
-}
-
-func (i *vpnConnectionPtrType) ToVpnConnectionPtrOutput() VpnConnectionPtrOutput {
-	return i.ToVpnConnectionPtrOutputWithContext(context.Background())
-}
-
-func (i *vpnConnectionPtrType) ToVpnConnectionPtrOutputWithContext(ctx context.Context) VpnConnectionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VpnConnectionPtrOutput)
 }
 
 // VpnConnectionArrayInput is an input type that accepts VpnConnectionArray and VpnConnectionArrayOutput values.
@@ -838,7 +809,7 @@ func (i VpnConnectionMap) ToVpnConnectionMapOutputWithContext(ctx context.Contex
 type VpnConnectionOutput struct{ *pulumi.OutputState }
 
 func (VpnConnectionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VpnConnection)(nil))
+	return reflect.TypeOf((**VpnConnection)(nil)).Elem()
 }
 
 func (o VpnConnectionOutput) ToVpnConnectionOutput() VpnConnectionOutput {
@@ -849,44 +820,10 @@ func (o VpnConnectionOutput) ToVpnConnectionOutputWithContext(ctx context.Contex
 	return o
 }
 
-func (o VpnConnectionOutput) ToVpnConnectionPtrOutput() VpnConnectionPtrOutput {
-	return o.ToVpnConnectionPtrOutputWithContext(context.Background())
-}
-
-func (o VpnConnectionOutput) ToVpnConnectionPtrOutputWithContext(ctx context.Context) VpnConnectionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpnConnection) *VpnConnection {
-		return &v
-	}).(VpnConnectionPtrOutput)
-}
-
-type VpnConnectionPtrOutput struct{ *pulumi.OutputState }
-
-func (VpnConnectionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VpnConnection)(nil))
-}
-
-func (o VpnConnectionPtrOutput) ToVpnConnectionPtrOutput() VpnConnectionPtrOutput {
-	return o
-}
-
-func (o VpnConnectionPtrOutput) ToVpnConnectionPtrOutputWithContext(ctx context.Context) VpnConnectionPtrOutput {
-	return o
-}
-
-func (o VpnConnectionPtrOutput) Elem() VpnConnectionOutput {
-	return o.ApplyT(func(v *VpnConnection) VpnConnection {
-		if v != nil {
-			return *v
-		}
-		var ret VpnConnection
-		return ret
-	}).(VpnConnectionOutput)
-}
-
 type VpnConnectionArrayOutput struct{ *pulumi.OutputState }
 
 func (VpnConnectionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VpnConnection)(nil))
+	return reflect.TypeOf((*[]*VpnConnection)(nil)).Elem()
 }
 
 func (o VpnConnectionArrayOutput) ToVpnConnectionArrayOutput() VpnConnectionArrayOutput {
@@ -898,15 +835,15 @@ func (o VpnConnectionArrayOutput) ToVpnConnectionArrayOutputWithContext(ctx cont
 }
 
 func (o VpnConnectionArrayOutput) Index(i pulumi.IntInput) VpnConnectionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VpnConnection {
-		return vs[0].([]VpnConnection)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VpnConnection {
+		return vs[0].([]*VpnConnection)[vs[1].(int)]
 	}).(VpnConnectionOutput)
 }
 
 type VpnConnectionMapOutput struct{ *pulumi.OutputState }
 
 func (VpnConnectionMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]VpnConnection)(nil))
+	return reflect.TypeOf((*map[string]*VpnConnection)(nil)).Elem()
 }
 
 func (o VpnConnectionMapOutput) ToVpnConnectionMapOutput() VpnConnectionMapOutput {
@@ -918,18 +855,16 @@ func (o VpnConnectionMapOutput) ToVpnConnectionMapOutputWithContext(ctx context.
 }
 
 func (o VpnConnectionMapOutput) MapIndex(k pulumi.StringInput) VpnConnectionOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) VpnConnection {
-		return vs[0].(map[string]VpnConnection)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *VpnConnection {
+		return vs[0].(map[string]*VpnConnection)[vs[1].(string)]
 	}).(VpnConnectionOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionInput)(nil)).Elem(), &VpnConnection{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionPtrInput)(nil)).Elem(), &VpnConnection{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionArrayInput)(nil)).Elem(), VpnConnectionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionMapInput)(nil)).Elem(), VpnConnectionMap{})
 	pulumi.RegisterOutputType(VpnConnectionOutput{})
-	pulumi.RegisterOutputType(VpnConnectionPtrOutput{})
 	pulumi.RegisterOutputType(VpnConnectionArrayOutput{})
 	pulumi.RegisterOutputType(VpnConnectionMapOutput{})
 }

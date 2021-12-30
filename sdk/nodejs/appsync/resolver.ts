@@ -176,20 +176,20 @@ export class Resolver extends pulumi.CustomResource {
      */
     constructor(name: string, args: ResolverArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ResolverArgs | ResolverState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ResolverState | undefined;
-            inputs["apiId"] = state ? state.apiId : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["cachingConfig"] = state ? state.cachingConfig : undefined;
-            inputs["dataSource"] = state ? state.dataSource : undefined;
-            inputs["field"] = state ? state.field : undefined;
-            inputs["kind"] = state ? state.kind : undefined;
-            inputs["pipelineConfig"] = state ? state.pipelineConfig : undefined;
-            inputs["requestTemplate"] = state ? state.requestTemplate : undefined;
-            inputs["responseTemplate"] = state ? state.responseTemplate : undefined;
-            inputs["type"] = state ? state.type : undefined;
+            resourceInputs["apiId"] = state ? state.apiId : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["cachingConfig"] = state ? state.cachingConfig : undefined;
+            resourceInputs["dataSource"] = state ? state.dataSource : undefined;
+            resourceInputs["field"] = state ? state.field : undefined;
+            resourceInputs["kind"] = state ? state.kind : undefined;
+            resourceInputs["pipelineConfig"] = state ? state.pipelineConfig : undefined;
+            resourceInputs["requestTemplate"] = state ? state.requestTemplate : undefined;
+            resourceInputs["responseTemplate"] = state ? state.responseTemplate : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as ResolverArgs | undefined;
             if ((!args || args.apiId === undefined) && !opts.urn) {
@@ -201,21 +201,21 @@ export class Resolver extends pulumi.CustomResource {
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            inputs["apiId"] = args ? args.apiId : undefined;
-            inputs["cachingConfig"] = args ? args.cachingConfig : undefined;
-            inputs["dataSource"] = args ? args.dataSource : undefined;
-            inputs["field"] = args ? args.field : undefined;
-            inputs["kind"] = args ? args.kind : undefined;
-            inputs["pipelineConfig"] = args ? args.pipelineConfig : undefined;
-            inputs["requestTemplate"] = args ? args.requestTemplate : undefined;
-            inputs["responseTemplate"] = args ? args.responseTemplate : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["apiId"] = args ? args.apiId : undefined;
+            resourceInputs["cachingConfig"] = args ? args.cachingConfig : undefined;
+            resourceInputs["dataSource"] = args ? args.dataSource : undefined;
+            resourceInputs["field"] = args ? args.field : undefined;
+            resourceInputs["kind"] = args ? args.kind : undefined;
+            resourceInputs["pipelineConfig"] = args ? args.pipelineConfig : undefined;
+            resourceInputs["requestTemplate"] = args ? args.requestTemplate : undefined;
+            resourceInputs["responseTemplate"] = args ? args.responseTemplate : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Resolver.__pulumiType, name, inputs, opts);
+        super(Resolver.__pulumiType, name, resourceInputs, opts);
     }
 }
 

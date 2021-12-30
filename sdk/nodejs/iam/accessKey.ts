@@ -124,38 +124,38 @@ export class AccessKey extends pulumi.CustomResource {
      */
     constructor(name: string, args: AccessKeyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AccessKeyArgs | AccessKeyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AccessKeyState | undefined;
-            inputs["createDate"] = state ? state.createDate : undefined;
-            inputs["encryptedSecret"] = state ? state.encryptedSecret : undefined;
-            inputs["encryptedSesSmtpPasswordV4"] = state ? state.encryptedSesSmtpPasswordV4 : undefined;
-            inputs["keyFingerprint"] = state ? state.keyFingerprint : undefined;
-            inputs["pgpKey"] = state ? state.pgpKey : undefined;
-            inputs["secret"] = state ? state.secret : undefined;
-            inputs["sesSmtpPasswordV4"] = state ? state.sesSmtpPasswordV4 : undefined;
-            inputs["status"] = state ? state.status : undefined;
-            inputs["user"] = state ? state.user : undefined;
+            resourceInputs["createDate"] = state ? state.createDate : undefined;
+            resourceInputs["encryptedSecret"] = state ? state.encryptedSecret : undefined;
+            resourceInputs["encryptedSesSmtpPasswordV4"] = state ? state.encryptedSesSmtpPasswordV4 : undefined;
+            resourceInputs["keyFingerprint"] = state ? state.keyFingerprint : undefined;
+            resourceInputs["pgpKey"] = state ? state.pgpKey : undefined;
+            resourceInputs["secret"] = state ? state.secret : undefined;
+            resourceInputs["sesSmtpPasswordV4"] = state ? state.sesSmtpPasswordV4 : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["user"] = state ? state.user : undefined;
         } else {
             const args = argsOrState as AccessKeyArgs | undefined;
             if ((!args || args.user === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'user'");
             }
-            inputs["pgpKey"] = args ? args.pgpKey : undefined;
-            inputs["status"] = args ? args.status : undefined;
-            inputs["user"] = args ? args.user : undefined;
-            inputs["createDate"] = undefined /*out*/;
-            inputs["encryptedSecret"] = undefined /*out*/;
-            inputs["encryptedSesSmtpPasswordV4"] = undefined /*out*/;
-            inputs["keyFingerprint"] = undefined /*out*/;
-            inputs["secret"] = undefined /*out*/;
-            inputs["sesSmtpPasswordV4"] = undefined /*out*/;
+            resourceInputs["pgpKey"] = args ? args.pgpKey : undefined;
+            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["user"] = args ? args.user : undefined;
+            resourceInputs["createDate"] = undefined /*out*/;
+            resourceInputs["encryptedSecret"] = undefined /*out*/;
+            resourceInputs["encryptedSesSmtpPasswordV4"] = undefined /*out*/;
+            resourceInputs["keyFingerprint"] = undefined /*out*/;
+            resourceInputs["secret"] = undefined /*out*/;
+            resourceInputs["sesSmtpPasswordV4"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(AccessKey.__pulumiType, name, inputs, opts);
+        super(AccessKey.__pulumiType, name, resourceInputs, opts);
     }
 }
 

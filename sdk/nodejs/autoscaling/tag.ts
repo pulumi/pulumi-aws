@@ -60,12 +60,12 @@ export class Tag extends pulumi.CustomResource {
      */
     constructor(name: string, args: TagArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: TagArgs | TagState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TagState | undefined;
-            inputs["autoscalingGroupName"] = state ? state.autoscalingGroupName : undefined;
-            inputs["tag"] = state ? state.tag : undefined;
+            resourceInputs["autoscalingGroupName"] = state ? state.autoscalingGroupName : undefined;
+            resourceInputs["tag"] = state ? state.tag : undefined;
         } else {
             const args = argsOrState as TagArgs | undefined;
             if ((!args || args.autoscalingGroupName === undefined) && !opts.urn) {
@@ -74,13 +74,13 @@ export class Tag extends pulumi.CustomResource {
             if ((!args || args.tag === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'tag'");
             }
-            inputs["autoscalingGroupName"] = args ? args.autoscalingGroupName : undefined;
-            inputs["tag"] = args ? args.tag : undefined;
+            resourceInputs["autoscalingGroupName"] = args ? args.autoscalingGroupName : undefined;
+            resourceInputs["tag"] = args ? args.tag : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Tag.__pulumiType, name, inputs, opts);
+        super(Tag.__pulumiType, name, resourceInputs, opts);
     }
 }
 

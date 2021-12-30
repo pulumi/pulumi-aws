@@ -121,40 +121,40 @@ export class Activation extends pulumi.CustomResource {
      */
     constructor(name: string, args: ActivationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ActivationArgs | ActivationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ActivationState | undefined;
-            inputs["activationCode"] = state ? state.activationCode : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["expirationDate"] = state ? state.expirationDate : undefined;
-            inputs["expired"] = state ? state.expired : undefined;
-            inputs["iamRole"] = state ? state.iamRole : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["registrationCount"] = state ? state.registrationCount : undefined;
-            inputs["registrationLimit"] = state ? state.registrationLimit : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["activationCode"] = state ? state.activationCode : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["expirationDate"] = state ? state.expirationDate : undefined;
+            resourceInputs["expired"] = state ? state.expired : undefined;
+            resourceInputs["iamRole"] = state ? state.iamRole : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["registrationCount"] = state ? state.registrationCount : undefined;
+            resourceInputs["registrationLimit"] = state ? state.registrationLimit : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as ActivationArgs | undefined;
             if ((!args || args.iamRole === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'iamRole'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["expirationDate"] = args ? args.expirationDate : undefined;
-            inputs["iamRole"] = args ? args.iamRole : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["registrationLimit"] = args ? args.registrationLimit : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["activationCode"] = undefined /*out*/;
-            inputs["expired"] = undefined /*out*/;
-            inputs["registrationCount"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["expirationDate"] = args ? args.expirationDate : undefined;
+            resourceInputs["iamRole"] = args ? args.iamRole : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["registrationLimit"] = args ? args.registrationLimit : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["activationCode"] = undefined /*out*/;
+            resourceInputs["expired"] = undefined /*out*/;
+            resourceInputs["registrationCount"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Activation.__pulumiType, name, inputs, opts);
+        super(Activation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

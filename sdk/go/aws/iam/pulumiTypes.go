@@ -127,65 +127,6 @@ type GetGroupUser struct {
 	UserName string `pulumi:"userName"`
 }
 
-// GetGroupUserInput is an input type that accepts GetGroupUserArgs and GetGroupUserOutput values.
-// You can construct a concrete instance of `GetGroupUserInput` via:
-//
-//          GetGroupUserArgs{...}
-type GetGroupUserInput interface {
-	pulumi.Input
-
-	ToGetGroupUserOutput() GetGroupUserOutput
-	ToGetGroupUserOutputWithContext(context.Context) GetGroupUserOutput
-}
-
-type GetGroupUserArgs struct {
-	// The Amazon Resource Name (ARN) specifying the iam user.
-	Arn pulumi.StringInput `pulumi:"arn"`
-	// The path to the iam user.
-	Path pulumi.StringInput `pulumi:"path"`
-	// The stable and unique string identifying the iam user.
-	UserId pulumi.StringInput `pulumi:"userId"`
-	// The name of the iam user.
-	UserName pulumi.StringInput `pulumi:"userName"`
-}
-
-func (GetGroupUserArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetGroupUser)(nil)).Elem()
-}
-
-func (i GetGroupUserArgs) ToGetGroupUserOutput() GetGroupUserOutput {
-	return i.ToGetGroupUserOutputWithContext(context.Background())
-}
-
-func (i GetGroupUserArgs) ToGetGroupUserOutputWithContext(ctx context.Context) GetGroupUserOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetGroupUserOutput)
-}
-
-// GetGroupUserArrayInput is an input type that accepts GetGroupUserArray and GetGroupUserArrayOutput values.
-// You can construct a concrete instance of `GetGroupUserArrayInput` via:
-//
-//          GetGroupUserArray{ GetGroupUserArgs{...} }
-type GetGroupUserArrayInput interface {
-	pulumi.Input
-
-	ToGetGroupUserArrayOutput() GetGroupUserArrayOutput
-	ToGetGroupUserArrayOutputWithContext(context.Context) GetGroupUserArrayOutput
-}
-
-type GetGroupUserArray []GetGroupUserInput
-
-func (GetGroupUserArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetGroupUser)(nil)).Elem()
-}
-
-func (i GetGroupUserArray) ToGetGroupUserArrayOutput() GetGroupUserArrayOutput {
-	return i.ToGetGroupUserArrayOutputWithContext(context.Background())
-}
-
-func (i GetGroupUserArray) ToGetGroupUserArrayOutputWithContext(ctx context.Context) GetGroupUserArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetGroupUserArrayOutput)
-}
-
 type GetGroupUserOutput struct{ *pulumi.OutputState }
 
 func (GetGroupUserOutput) ElementType() reflect.Type {
@@ -739,8 +680,6 @@ func (o GetPolicyDocumentStatementPrincipalArrayOutput) Index(i pulumi.IntInput)
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RoleInlinePolicyInput)(nil)).Elem(), RoleInlinePolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RoleInlinePolicyArrayInput)(nil)).Elem(), RoleInlinePolicyArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetGroupUserInput)(nil)).Elem(), GetGroupUserArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetGroupUserArrayInput)(nil)).Elem(), GetGroupUserArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPolicyDocumentStatementInput)(nil)).Elem(), GetPolicyDocumentStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPolicyDocumentStatementArrayInput)(nil)).Elem(), GetPolicyDocumentStatementArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPolicyDocumentStatementConditionInput)(nil)).Elem(), GetPolicyDocumentStatementConditionArgs{})

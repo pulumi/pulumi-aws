@@ -167,7 +167,7 @@ type StudioSessionMappingInput interface {
 }
 
 func (*StudioSessionMapping) ElementType() reflect.Type {
-	return reflect.TypeOf((*StudioSessionMapping)(nil))
+	return reflect.TypeOf((**StudioSessionMapping)(nil)).Elem()
 }
 
 func (i *StudioSessionMapping) ToStudioSessionMappingOutput() StudioSessionMappingOutput {
@@ -176,35 +176,6 @@ func (i *StudioSessionMapping) ToStudioSessionMappingOutput() StudioSessionMappi
 
 func (i *StudioSessionMapping) ToStudioSessionMappingOutputWithContext(ctx context.Context) StudioSessionMappingOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StudioSessionMappingOutput)
-}
-
-func (i *StudioSessionMapping) ToStudioSessionMappingPtrOutput() StudioSessionMappingPtrOutput {
-	return i.ToStudioSessionMappingPtrOutputWithContext(context.Background())
-}
-
-func (i *StudioSessionMapping) ToStudioSessionMappingPtrOutputWithContext(ctx context.Context) StudioSessionMappingPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StudioSessionMappingPtrOutput)
-}
-
-type StudioSessionMappingPtrInput interface {
-	pulumi.Input
-
-	ToStudioSessionMappingPtrOutput() StudioSessionMappingPtrOutput
-	ToStudioSessionMappingPtrOutputWithContext(ctx context.Context) StudioSessionMappingPtrOutput
-}
-
-type studioSessionMappingPtrType StudioSessionMappingArgs
-
-func (*studioSessionMappingPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**StudioSessionMapping)(nil))
-}
-
-func (i *studioSessionMappingPtrType) ToStudioSessionMappingPtrOutput() StudioSessionMappingPtrOutput {
-	return i.ToStudioSessionMappingPtrOutputWithContext(context.Background())
-}
-
-func (i *studioSessionMappingPtrType) ToStudioSessionMappingPtrOutputWithContext(ctx context.Context) StudioSessionMappingPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StudioSessionMappingPtrOutput)
 }
 
 // StudioSessionMappingArrayInput is an input type that accepts StudioSessionMappingArray and StudioSessionMappingArrayOutput values.
@@ -260,7 +231,7 @@ func (i StudioSessionMappingMap) ToStudioSessionMappingMapOutputWithContext(ctx 
 type StudioSessionMappingOutput struct{ *pulumi.OutputState }
 
 func (StudioSessionMappingOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StudioSessionMapping)(nil))
+	return reflect.TypeOf((**StudioSessionMapping)(nil)).Elem()
 }
 
 func (o StudioSessionMappingOutput) ToStudioSessionMappingOutput() StudioSessionMappingOutput {
@@ -271,44 +242,10 @@ func (o StudioSessionMappingOutput) ToStudioSessionMappingOutputWithContext(ctx 
 	return o
 }
 
-func (o StudioSessionMappingOutput) ToStudioSessionMappingPtrOutput() StudioSessionMappingPtrOutput {
-	return o.ToStudioSessionMappingPtrOutputWithContext(context.Background())
-}
-
-func (o StudioSessionMappingOutput) ToStudioSessionMappingPtrOutputWithContext(ctx context.Context) StudioSessionMappingPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StudioSessionMapping) *StudioSessionMapping {
-		return &v
-	}).(StudioSessionMappingPtrOutput)
-}
-
-type StudioSessionMappingPtrOutput struct{ *pulumi.OutputState }
-
-func (StudioSessionMappingPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**StudioSessionMapping)(nil))
-}
-
-func (o StudioSessionMappingPtrOutput) ToStudioSessionMappingPtrOutput() StudioSessionMappingPtrOutput {
-	return o
-}
-
-func (o StudioSessionMappingPtrOutput) ToStudioSessionMappingPtrOutputWithContext(ctx context.Context) StudioSessionMappingPtrOutput {
-	return o
-}
-
-func (o StudioSessionMappingPtrOutput) Elem() StudioSessionMappingOutput {
-	return o.ApplyT(func(v *StudioSessionMapping) StudioSessionMapping {
-		if v != nil {
-			return *v
-		}
-		var ret StudioSessionMapping
-		return ret
-	}).(StudioSessionMappingOutput)
-}
-
 type StudioSessionMappingArrayOutput struct{ *pulumi.OutputState }
 
 func (StudioSessionMappingArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]StudioSessionMapping)(nil))
+	return reflect.TypeOf((*[]*StudioSessionMapping)(nil)).Elem()
 }
 
 func (o StudioSessionMappingArrayOutput) ToStudioSessionMappingArrayOutput() StudioSessionMappingArrayOutput {
@@ -320,15 +257,15 @@ func (o StudioSessionMappingArrayOutput) ToStudioSessionMappingArrayOutputWithCo
 }
 
 func (o StudioSessionMappingArrayOutput) Index(i pulumi.IntInput) StudioSessionMappingOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StudioSessionMapping {
-		return vs[0].([]StudioSessionMapping)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *StudioSessionMapping {
+		return vs[0].([]*StudioSessionMapping)[vs[1].(int)]
 	}).(StudioSessionMappingOutput)
 }
 
 type StudioSessionMappingMapOutput struct{ *pulumi.OutputState }
 
 func (StudioSessionMappingMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]StudioSessionMapping)(nil))
+	return reflect.TypeOf((*map[string]*StudioSessionMapping)(nil)).Elem()
 }
 
 func (o StudioSessionMappingMapOutput) ToStudioSessionMappingMapOutput() StudioSessionMappingMapOutput {
@@ -340,18 +277,16 @@ func (o StudioSessionMappingMapOutput) ToStudioSessionMappingMapOutputWithContex
 }
 
 func (o StudioSessionMappingMapOutput) MapIndex(k pulumi.StringInput) StudioSessionMappingOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) StudioSessionMapping {
-		return vs[0].(map[string]StudioSessionMapping)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *StudioSessionMapping {
+		return vs[0].(map[string]*StudioSessionMapping)[vs[1].(string)]
 	}).(StudioSessionMappingOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StudioSessionMappingInput)(nil)).Elem(), &StudioSessionMapping{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StudioSessionMappingPtrInput)(nil)).Elem(), &StudioSessionMapping{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StudioSessionMappingArrayInput)(nil)).Elem(), StudioSessionMappingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StudioSessionMappingMapInput)(nil)).Elem(), StudioSessionMappingMap{})
 	pulumi.RegisterOutputType(StudioSessionMappingOutput{})
-	pulumi.RegisterOutputType(StudioSessionMappingPtrOutput{})
 	pulumi.RegisterOutputType(StudioSessionMappingArrayOutput{})
 	pulumi.RegisterOutputType(StudioSessionMappingMapOutput{})
 }

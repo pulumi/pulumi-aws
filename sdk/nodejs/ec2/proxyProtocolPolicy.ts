@@ -87,12 +87,12 @@ export class ProxyProtocolPolicy extends pulumi.CustomResource {
      */
     constructor(name: string, args: ProxyProtocolPolicyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ProxyProtocolPolicyArgs | ProxyProtocolPolicyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProxyProtocolPolicyState | undefined;
-            inputs["instancePorts"] = state ? state.instancePorts : undefined;
-            inputs["loadBalancer"] = state ? state.loadBalancer : undefined;
+            resourceInputs["instancePorts"] = state ? state.instancePorts : undefined;
+            resourceInputs["loadBalancer"] = state ? state.loadBalancer : undefined;
         } else {
             const args = argsOrState as ProxyProtocolPolicyArgs | undefined;
             if ((!args || args.instancePorts === undefined) && !opts.urn) {
@@ -101,13 +101,13 @@ export class ProxyProtocolPolicy extends pulumi.CustomResource {
             if ((!args || args.loadBalancer === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'loadBalancer'");
             }
-            inputs["instancePorts"] = args ? args.instancePorts : undefined;
-            inputs["loadBalancer"] = args ? args.loadBalancer : undefined;
+            resourceInputs["instancePorts"] = args ? args.instancePorts : undefined;
+            resourceInputs["loadBalancer"] = args ? args.loadBalancer : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(ProxyProtocolPolicy.__pulumiType, name, inputs, opts);
+        super(ProxyProtocolPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

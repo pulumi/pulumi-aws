@@ -78,29 +78,29 @@ export class SmsPreferences extends pulumi.CustomResource {
      */
     constructor(name: string, args?: SmsPreferencesArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SmsPreferencesArgs | SmsPreferencesState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SmsPreferencesState | undefined;
-            inputs["defaultSenderId"] = state ? state.defaultSenderId : undefined;
-            inputs["defaultSmsType"] = state ? state.defaultSmsType : undefined;
-            inputs["deliveryStatusIamRoleArn"] = state ? state.deliveryStatusIamRoleArn : undefined;
-            inputs["deliveryStatusSuccessSamplingRate"] = state ? state.deliveryStatusSuccessSamplingRate : undefined;
-            inputs["monthlySpendLimit"] = state ? state.monthlySpendLimit : undefined;
-            inputs["usageReportS3Bucket"] = state ? state.usageReportS3Bucket : undefined;
+            resourceInputs["defaultSenderId"] = state ? state.defaultSenderId : undefined;
+            resourceInputs["defaultSmsType"] = state ? state.defaultSmsType : undefined;
+            resourceInputs["deliveryStatusIamRoleArn"] = state ? state.deliveryStatusIamRoleArn : undefined;
+            resourceInputs["deliveryStatusSuccessSamplingRate"] = state ? state.deliveryStatusSuccessSamplingRate : undefined;
+            resourceInputs["monthlySpendLimit"] = state ? state.monthlySpendLimit : undefined;
+            resourceInputs["usageReportS3Bucket"] = state ? state.usageReportS3Bucket : undefined;
         } else {
             const args = argsOrState as SmsPreferencesArgs | undefined;
-            inputs["defaultSenderId"] = args ? args.defaultSenderId : undefined;
-            inputs["defaultSmsType"] = args ? args.defaultSmsType : undefined;
-            inputs["deliveryStatusIamRoleArn"] = args ? args.deliveryStatusIamRoleArn : undefined;
-            inputs["deliveryStatusSuccessSamplingRate"] = args ? args.deliveryStatusSuccessSamplingRate : undefined;
-            inputs["monthlySpendLimit"] = args ? args.monthlySpendLimit : undefined;
-            inputs["usageReportS3Bucket"] = args ? args.usageReportS3Bucket : undefined;
+            resourceInputs["defaultSenderId"] = args ? args.defaultSenderId : undefined;
+            resourceInputs["defaultSmsType"] = args ? args.defaultSmsType : undefined;
+            resourceInputs["deliveryStatusIamRoleArn"] = args ? args.deliveryStatusIamRoleArn : undefined;
+            resourceInputs["deliveryStatusSuccessSamplingRate"] = args ? args.deliveryStatusSuccessSamplingRate : undefined;
+            resourceInputs["monthlySpendLimit"] = args ? args.monthlySpendLimit : undefined;
+            resourceInputs["usageReportS3Bucket"] = args ? args.usageReportS3Bucket : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(SmsPreferences.__pulumiType, name, inputs, opts);
+        super(SmsPreferences.__pulumiType, name, resourceInputs, opts);
     }
 }
 

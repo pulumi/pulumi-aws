@@ -136,18 +136,18 @@ export class Inventory extends pulumi.CustomResource {
      */
     constructor(name: string, args: InventoryArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: InventoryArgs | InventoryState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as InventoryState | undefined;
-            inputs["bucket"] = state ? state.bucket : undefined;
-            inputs["destination"] = state ? state.destination : undefined;
-            inputs["enabled"] = state ? state.enabled : undefined;
-            inputs["filter"] = state ? state.filter : undefined;
-            inputs["includedObjectVersions"] = state ? state.includedObjectVersions : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["optionalFields"] = state ? state.optionalFields : undefined;
-            inputs["schedule"] = state ? state.schedule : undefined;
+            resourceInputs["bucket"] = state ? state.bucket : undefined;
+            resourceInputs["destination"] = state ? state.destination : undefined;
+            resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["filter"] = state ? state.filter : undefined;
+            resourceInputs["includedObjectVersions"] = state ? state.includedObjectVersions : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["optionalFields"] = state ? state.optionalFields : undefined;
+            resourceInputs["schedule"] = state ? state.schedule : undefined;
         } else {
             const args = argsOrState as InventoryArgs | undefined;
             if ((!args || args.bucket === undefined) && !opts.urn) {
@@ -162,19 +162,19 @@ export class Inventory extends pulumi.CustomResource {
             if ((!args || args.schedule === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'schedule'");
             }
-            inputs["bucket"] = args ? args.bucket : undefined;
-            inputs["destination"] = args ? args.destination : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["filter"] = args ? args.filter : undefined;
-            inputs["includedObjectVersions"] = args ? args.includedObjectVersions : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["optionalFields"] = args ? args.optionalFields : undefined;
-            inputs["schedule"] = args ? args.schedule : undefined;
+            resourceInputs["bucket"] = args ? args.bucket : undefined;
+            resourceInputs["destination"] = args ? args.destination : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["filter"] = args ? args.filter : undefined;
+            resourceInputs["includedObjectVersions"] = args ? args.includedObjectVersions : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["optionalFields"] = args ? args.optionalFields : undefined;
+            resourceInputs["schedule"] = args ? args.schedule : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Inventory.__pulumiType, name, inputs, opts);
+        super(Inventory.__pulumiType, name, resourceInputs, opts);
     }
 }
 

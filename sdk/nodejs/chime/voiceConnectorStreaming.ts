@@ -85,14 +85,14 @@ export class VoiceConnectorStreaming extends pulumi.CustomResource {
      */
     constructor(name: string, args: VoiceConnectorStreamingArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VoiceConnectorStreamingArgs | VoiceConnectorStreamingState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VoiceConnectorStreamingState | undefined;
-            inputs["dataRetention"] = state ? state.dataRetention : undefined;
-            inputs["disabled"] = state ? state.disabled : undefined;
-            inputs["streamingNotificationTargets"] = state ? state.streamingNotificationTargets : undefined;
-            inputs["voiceConnectorId"] = state ? state.voiceConnectorId : undefined;
+            resourceInputs["dataRetention"] = state ? state.dataRetention : undefined;
+            resourceInputs["disabled"] = state ? state.disabled : undefined;
+            resourceInputs["streamingNotificationTargets"] = state ? state.streamingNotificationTargets : undefined;
+            resourceInputs["voiceConnectorId"] = state ? state.voiceConnectorId : undefined;
         } else {
             const args = argsOrState as VoiceConnectorStreamingArgs | undefined;
             if ((!args || args.dataRetention === undefined) && !opts.urn) {
@@ -101,15 +101,15 @@ export class VoiceConnectorStreaming extends pulumi.CustomResource {
             if ((!args || args.voiceConnectorId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'voiceConnectorId'");
             }
-            inputs["dataRetention"] = args ? args.dataRetention : undefined;
-            inputs["disabled"] = args ? args.disabled : undefined;
-            inputs["streamingNotificationTargets"] = args ? args.streamingNotificationTargets : undefined;
-            inputs["voiceConnectorId"] = args ? args.voiceConnectorId : undefined;
+            resourceInputs["dataRetention"] = args ? args.dataRetention : undefined;
+            resourceInputs["disabled"] = args ? args.disabled : undefined;
+            resourceInputs["streamingNotificationTargets"] = args ? args.streamingNotificationTargets : undefined;
+            resourceInputs["voiceConnectorId"] = args ? args.voiceConnectorId : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(VoiceConnectorStreaming.__pulumiType, name, inputs, opts);
+        super(VoiceConnectorStreaming.__pulumiType, name, resourceInputs, opts);
     }
 }
 

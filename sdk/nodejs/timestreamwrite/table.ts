@@ -109,16 +109,16 @@ export class Table extends pulumi.CustomResource {
      */
     constructor(name: string, args: TableArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: TableArgs | TableState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TableState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["databaseName"] = state ? state.databaseName : undefined;
-            inputs["retentionProperties"] = state ? state.retentionProperties : undefined;
-            inputs["tableName"] = state ? state.tableName : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["databaseName"] = state ? state.databaseName : undefined;
+            resourceInputs["retentionProperties"] = state ? state.retentionProperties : undefined;
+            resourceInputs["tableName"] = state ? state.tableName : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as TableArgs | undefined;
             if ((!args || args.databaseName === undefined) && !opts.urn) {
@@ -127,17 +127,17 @@ export class Table extends pulumi.CustomResource {
             if ((!args || args.tableName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'tableName'");
             }
-            inputs["databaseName"] = args ? args.databaseName : undefined;
-            inputs["retentionProperties"] = args ? args.retentionProperties : undefined;
-            inputs["tableName"] = args ? args.tableName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
+            resourceInputs["retentionProperties"] = args ? args.retentionProperties : undefined;
+            resourceInputs["tableName"] = args ? args.tableName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Table.__pulumiType, name, inputs, opts);
+        super(Table.__pulumiType, name, resourceInputs, opts);
     }
 }
 

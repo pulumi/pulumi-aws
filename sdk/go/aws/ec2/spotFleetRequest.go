@@ -625,7 +625,7 @@ type SpotFleetRequestInput interface {
 }
 
 func (*SpotFleetRequest) ElementType() reflect.Type {
-	return reflect.TypeOf((*SpotFleetRequest)(nil))
+	return reflect.TypeOf((**SpotFleetRequest)(nil)).Elem()
 }
 
 func (i *SpotFleetRequest) ToSpotFleetRequestOutput() SpotFleetRequestOutput {
@@ -634,35 +634,6 @@ func (i *SpotFleetRequest) ToSpotFleetRequestOutput() SpotFleetRequestOutput {
 
 func (i *SpotFleetRequest) ToSpotFleetRequestOutputWithContext(ctx context.Context) SpotFleetRequestOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetRequestOutput)
-}
-
-func (i *SpotFleetRequest) ToSpotFleetRequestPtrOutput() SpotFleetRequestPtrOutput {
-	return i.ToSpotFleetRequestPtrOutputWithContext(context.Background())
-}
-
-func (i *SpotFleetRequest) ToSpotFleetRequestPtrOutputWithContext(ctx context.Context) SpotFleetRequestPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetRequestPtrOutput)
-}
-
-type SpotFleetRequestPtrInput interface {
-	pulumi.Input
-
-	ToSpotFleetRequestPtrOutput() SpotFleetRequestPtrOutput
-	ToSpotFleetRequestPtrOutputWithContext(ctx context.Context) SpotFleetRequestPtrOutput
-}
-
-type spotFleetRequestPtrType SpotFleetRequestArgs
-
-func (*spotFleetRequestPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SpotFleetRequest)(nil))
-}
-
-func (i *spotFleetRequestPtrType) ToSpotFleetRequestPtrOutput() SpotFleetRequestPtrOutput {
-	return i.ToSpotFleetRequestPtrOutputWithContext(context.Background())
-}
-
-func (i *spotFleetRequestPtrType) ToSpotFleetRequestPtrOutputWithContext(ctx context.Context) SpotFleetRequestPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SpotFleetRequestPtrOutput)
 }
 
 // SpotFleetRequestArrayInput is an input type that accepts SpotFleetRequestArray and SpotFleetRequestArrayOutput values.
@@ -718,7 +689,7 @@ func (i SpotFleetRequestMap) ToSpotFleetRequestMapOutputWithContext(ctx context.
 type SpotFleetRequestOutput struct{ *pulumi.OutputState }
 
 func (SpotFleetRequestOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SpotFleetRequest)(nil))
+	return reflect.TypeOf((**SpotFleetRequest)(nil)).Elem()
 }
 
 func (o SpotFleetRequestOutput) ToSpotFleetRequestOutput() SpotFleetRequestOutput {
@@ -729,44 +700,10 @@ func (o SpotFleetRequestOutput) ToSpotFleetRequestOutputWithContext(ctx context.
 	return o
 }
 
-func (o SpotFleetRequestOutput) ToSpotFleetRequestPtrOutput() SpotFleetRequestPtrOutput {
-	return o.ToSpotFleetRequestPtrOutputWithContext(context.Background())
-}
-
-func (o SpotFleetRequestOutput) ToSpotFleetRequestPtrOutputWithContext(ctx context.Context) SpotFleetRequestPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpotFleetRequest) *SpotFleetRequest {
-		return &v
-	}).(SpotFleetRequestPtrOutput)
-}
-
-type SpotFleetRequestPtrOutput struct{ *pulumi.OutputState }
-
-func (SpotFleetRequestPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SpotFleetRequest)(nil))
-}
-
-func (o SpotFleetRequestPtrOutput) ToSpotFleetRequestPtrOutput() SpotFleetRequestPtrOutput {
-	return o
-}
-
-func (o SpotFleetRequestPtrOutput) ToSpotFleetRequestPtrOutputWithContext(ctx context.Context) SpotFleetRequestPtrOutput {
-	return o
-}
-
-func (o SpotFleetRequestPtrOutput) Elem() SpotFleetRequestOutput {
-	return o.ApplyT(func(v *SpotFleetRequest) SpotFleetRequest {
-		if v != nil {
-			return *v
-		}
-		var ret SpotFleetRequest
-		return ret
-	}).(SpotFleetRequestOutput)
-}
-
 type SpotFleetRequestArrayOutput struct{ *pulumi.OutputState }
 
 func (SpotFleetRequestArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SpotFleetRequest)(nil))
+	return reflect.TypeOf((*[]*SpotFleetRequest)(nil)).Elem()
 }
 
 func (o SpotFleetRequestArrayOutput) ToSpotFleetRequestArrayOutput() SpotFleetRequestArrayOutput {
@@ -778,15 +715,15 @@ func (o SpotFleetRequestArrayOutput) ToSpotFleetRequestArrayOutputWithContext(ct
 }
 
 func (o SpotFleetRequestArrayOutput) Index(i pulumi.IntInput) SpotFleetRequestOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SpotFleetRequest {
-		return vs[0].([]SpotFleetRequest)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SpotFleetRequest {
+		return vs[0].([]*SpotFleetRequest)[vs[1].(int)]
 	}).(SpotFleetRequestOutput)
 }
 
 type SpotFleetRequestMapOutput struct{ *pulumi.OutputState }
 
 func (SpotFleetRequestMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]SpotFleetRequest)(nil))
+	return reflect.TypeOf((*map[string]*SpotFleetRequest)(nil)).Elem()
 }
 
 func (o SpotFleetRequestMapOutput) ToSpotFleetRequestMapOutput() SpotFleetRequestMapOutput {
@@ -798,18 +735,16 @@ func (o SpotFleetRequestMapOutput) ToSpotFleetRequestMapOutputWithContext(ctx co
 }
 
 func (o SpotFleetRequestMapOutput) MapIndex(k pulumi.StringInput) SpotFleetRequestOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SpotFleetRequest {
-		return vs[0].(map[string]SpotFleetRequest)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *SpotFleetRequest {
+		return vs[0].(map[string]*SpotFleetRequest)[vs[1].(string)]
 	}).(SpotFleetRequestOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetRequestInput)(nil)).Elem(), &SpotFleetRequest{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetRequestPtrInput)(nil)).Elem(), &SpotFleetRequest{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetRequestArrayInput)(nil)).Elem(), SpotFleetRequestArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotFleetRequestMapInput)(nil)).Elem(), SpotFleetRequestMap{})
 	pulumi.RegisterOutputType(SpotFleetRequestOutput{})
-	pulumi.RegisterOutputType(SpotFleetRequestPtrOutput{})
 	pulumi.RegisterOutputType(SpotFleetRequestArrayOutput{})
 	pulumi.RegisterOutputType(SpotFleetRequestMapOutput{})
 }

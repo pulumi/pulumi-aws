@@ -146,25 +146,25 @@ export class OntapVolume extends pulumi.CustomResource {
      */
     constructor(name: string, args: OntapVolumeArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: OntapVolumeArgs | OntapVolumeState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OntapVolumeState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["fileSystemId"] = state ? state.fileSystemId : undefined;
-            inputs["flexcacheEndpointType"] = state ? state.flexcacheEndpointType : undefined;
-            inputs["junctionPath"] = state ? state.junctionPath : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["ontapVolumeType"] = state ? state.ontapVolumeType : undefined;
-            inputs["securityStyle"] = state ? state.securityStyle : undefined;
-            inputs["sizeInMegabytes"] = state ? state.sizeInMegabytes : undefined;
-            inputs["storageEfficiencyEnabled"] = state ? state.storageEfficiencyEnabled : undefined;
-            inputs["storageVirtualMachineId"] = state ? state.storageVirtualMachineId : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["tieringPolicy"] = state ? state.tieringPolicy : undefined;
-            inputs["uuid"] = state ? state.uuid : undefined;
-            inputs["volumeType"] = state ? state.volumeType : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["fileSystemId"] = state ? state.fileSystemId : undefined;
+            resourceInputs["flexcacheEndpointType"] = state ? state.flexcacheEndpointType : undefined;
+            resourceInputs["junctionPath"] = state ? state.junctionPath : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["ontapVolumeType"] = state ? state.ontapVolumeType : undefined;
+            resourceInputs["securityStyle"] = state ? state.securityStyle : undefined;
+            resourceInputs["sizeInMegabytes"] = state ? state.sizeInMegabytes : undefined;
+            resourceInputs["storageEfficiencyEnabled"] = state ? state.storageEfficiencyEnabled : undefined;
+            resourceInputs["storageVirtualMachineId"] = state ? state.storageVirtualMachineId : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["tieringPolicy"] = state ? state.tieringPolicy : undefined;
+            resourceInputs["uuid"] = state ? state.uuid : undefined;
+            resourceInputs["volumeType"] = state ? state.volumeType : undefined;
         } else {
             const args = argsOrState as OntapVolumeArgs | undefined;
             if ((!args || args.junctionPath === undefined) && !opts.urn) {
@@ -179,26 +179,26 @@ export class OntapVolume extends pulumi.CustomResource {
             if ((!args || args.storageVirtualMachineId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageVirtualMachineId'");
             }
-            inputs["junctionPath"] = args ? args.junctionPath : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["securityStyle"] = args ? args.securityStyle : undefined;
-            inputs["sizeInMegabytes"] = args ? args.sizeInMegabytes : undefined;
-            inputs["storageEfficiencyEnabled"] = args ? args.storageEfficiencyEnabled : undefined;
-            inputs["storageVirtualMachineId"] = args ? args.storageVirtualMachineId : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["tieringPolicy"] = args ? args.tieringPolicy : undefined;
-            inputs["volumeType"] = args ? args.volumeType : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["fileSystemId"] = undefined /*out*/;
-            inputs["flexcacheEndpointType"] = undefined /*out*/;
-            inputs["ontapVolumeType"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
-            inputs["uuid"] = undefined /*out*/;
+            resourceInputs["junctionPath"] = args ? args.junctionPath : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["securityStyle"] = args ? args.securityStyle : undefined;
+            resourceInputs["sizeInMegabytes"] = args ? args.sizeInMegabytes : undefined;
+            resourceInputs["storageEfficiencyEnabled"] = args ? args.storageEfficiencyEnabled : undefined;
+            resourceInputs["storageVirtualMachineId"] = args ? args.storageVirtualMachineId : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tieringPolicy"] = args ? args.tieringPolicy : undefined;
+            resourceInputs["volumeType"] = args ? args.volumeType : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["fileSystemId"] = undefined /*out*/;
+            resourceInputs["flexcacheEndpointType"] = undefined /*out*/;
+            resourceInputs["ontapVolumeType"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["uuid"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(OntapVolume.__pulumiType, name, inputs, opts);
+        super(OntapVolume.__pulumiType, name, resourceInputs, opts);
     }
 }
 

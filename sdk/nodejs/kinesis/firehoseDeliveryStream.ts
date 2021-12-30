@@ -432,50 +432,50 @@ export class FirehoseDeliveryStream extends pulumi.CustomResource {
      */
     constructor(name: string, args: FirehoseDeliveryStreamArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: FirehoseDeliveryStreamArgs | FirehoseDeliveryStreamState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FirehoseDeliveryStreamState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["destination"] = state ? state.destination : undefined;
-            inputs["destinationId"] = state ? state.destinationId : undefined;
-            inputs["elasticsearchConfiguration"] = state ? state.elasticsearchConfiguration : undefined;
-            inputs["extendedS3Configuration"] = state ? state.extendedS3Configuration : undefined;
-            inputs["httpEndpointConfiguration"] = state ? state.httpEndpointConfiguration : undefined;
-            inputs["kinesisSourceConfiguration"] = state ? state.kinesisSourceConfiguration : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["redshiftConfiguration"] = state ? state.redshiftConfiguration : undefined;
-            inputs["s3Configuration"] = state ? state.s3Configuration : undefined;
-            inputs["serverSideEncryption"] = state ? state.serverSideEncryption : undefined;
-            inputs["splunkConfiguration"] = state ? state.splunkConfiguration : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["versionId"] = state ? state.versionId : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["destination"] = state ? state.destination : undefined;
+            resourceInputs["destinationId"] = state ? state.destinationId : undefined;
+            resourceInputs["elasticsearchConfiguration"] = state ? state.elasticsearchConfiguration : undefined;
+            resourceInputs["extendedS3Configuration"] = state ? state.extendedS3Configuration : undefined;
+            resourceInputs["httpEndpointConfiguration"] = state ? state.httpEndpointConfiguration : undefined;
+            resourceInputs["kinesisSourceConfiguration"] = state ? state.kinesisSourceConfiguration : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["redshiftConfiguration"] = state ? state.redshiftConfiguration : undefined;
+            resourceInputs["s3Configuration"] = state ? state.s3Configuration : undefined;
+            resourceInputs["serverSideEncryption"] = state ? state.serverSideEncryption : undefined;
+            resourceInputs["splunkConfiguration"] = state ? state.splunkConfiguration : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["versionId"] = state ? state.versionId : undefined;
         } else {
             const args = argsOrState as FirehoseDeliveryStreamArgs | undefined;
             if ((!args || args.destination === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'destination'");
             }
-            inputs["arn"] = args ? args.arn : undefined;
-            inputs["destination"] = args ? args.destination : undefined;
-            inputs["destinationId"] = args ? args.destinationId : undefined;
-            inputs["elasticsearchConfiguration"] = args ? args.elasticsearchConfiguration : undefined;
-            inputs["extendedS3Configuration"] = args ? args.extendedS3Configuration : undefined;
-            inputs["httpEndpointConfiguration"] = args ? args.httpEndpointConfiguration : undefined;
-            inputs["kinesisSourceConfiguration"] = args ? args.kinesisSourceConfiguration : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["redshiftConfiguration"] = args ? args.redshiftConfiguration : undefined;
-            inputs["s3Configuration"] = args ? args.s3Configuration : undefined;
-            inputs["serverSideEncryption"] = args ? args.serverSideEncryption : undefined;
-            inputs["splunkConfiguration"] = args ? args.splunkConfiguration : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["versionId"] = args ? args.versionId : undefined;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["arn"] = args ? args.arn : undefined;
+            resourceInputs["destination"] = args ? args.destination : undefined;
+            resourceInputs["destinationId"] = args ? args.destinationId : undefined;
+            resourceInputs["elasticsearchConfiguration"] = args ? args.elasticsearchConfiguration : undefined;
+            resourceInputs["extendedS3Configuration"] = args ? args.extendedS3Configuration : undefined;
+            resourceInputs["httpEndpointConfiguration"] = args ? args.httpEndpointConfiguration : undefined;
+            resourceInputs["kinesisSourceConfiguration"] = args ? args.kinesisSourceConfiguration : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["redshiftConfiguration"] = args ? args.redshiftConfiguration : undefined;
+            resourceInputs["s3Configuration"] = args ? args.s3Configuration : undefined;
+            resourceInputs["serverSideEncryption"] = args ? args.serverSideEncryption : undefined;
+            resourceInputs["splunkConfiguration"] = args ? args.splunkConfiguration : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["versionId"] = args ? args.versionId : undefined;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(FirehoseDeliveryStream.__pulumiType, name, inputs, opts);
+        super(FirehoseDeliveryStream.__pulumiType, name, resourceInputs, opts);
     }
 }
 

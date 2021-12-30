@@ -138,7 +138,7 @@ type AlertManagerDefinitionInput interface {
 }
 
 func (*AlertManagerDefinition) ElementType() reflect.Type {
-	return reflect.TypeOf((*AlertManagerDefinition)(nil))
+	return reflect.TypeOf((**AlertManagerDefinition)(nil)).Elem()
 }
 
 func (i *AlertManagerDefinition) ToAlertManagerDefinitionOutput() AlertManagerDefinitionOutput {
@@ -147,35 +147,6 @@ func (i *AlertManagerDefinition) ToAlertManagerDefinitionOutput() AlertManagerDe
 
 func (i *AlertManagerDefinition) ToAlertManagerDefinitionOutputWithContext(ctx context.Context) AlertManagerDefinitionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AlertManagerDefinitionOutput)
-}
-
-func (i *AlertManagerDefinition) ToAlertManagerDefinitionPtrOutput() AlertManagerDefinitionPtrOutput {
-	return i.ToAlertManagerDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (i *AlertManagerDefinition) ToAlertManagerDefinitionPtrOutputWithContext(ctx context.Context) AlertManagerDefinitionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AlertManagerDefinitionPtrOutput)
-}
-
-type AlertManagerDefinitionPtrInput interface {
-	pulumi.Input
-
-	ToAlertManagerDefinitionPtrOutput() AlertManagerDefinitionPtrOutput
-	ToAlertManagerDefinitionPtrOutputWithContext(ctx context.Context) AlertManagerDefinitionPtrOutput
-}
-
-type alertManagerDefinitionPtrType AlertManagerDefinitionArgs
-
-func (*alertManagerDefinitionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AlertManagerDefinition)(nil))
-}
-
-func (i *alertManagerDefinitionPtrType) ToAlertManagerDefinitionPtrOutput() AlertManagerDefinitionPtrOutput {
-	return i.ToAlertManagerDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (i *alertManagerDefinitionPtrType) ToAlertManagerDefinitionPtrOutputWithContext(ctx context.Context) AlertManagerDefinitionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AlertManagerDefinitionPtrOutput)
 }
 
 // AlertManagerDefinitionArrayInput is an input type that accepts AlertManagerDefinitionArray and AlertManagerDefinitionArrayOutput values.
@@ -231,7 +202,7 @@ func (i AlertManagerDefinitionMap) ToAlertManagerDefinitionMapOutputWithContext(
 type AlertManagerDefinitionOutput struct{ *pulumi.OutputState }
 
 func (AlertManagerDefinitionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AlertManagerDefinition)(nil))
+	return reflect.TypeOf((**AlertManagerDefinition)(nil)).Elem()
 }
 
 func (o AlertManagerDefinitionOutput) ToAlertManagerDefinitionOutput() AlertManagerDefinitionOutput {
@@ -242,44 +213,10 @@ func (o AlertManagerDefinitionOutput) ToAlertManagerDefinitionOutputWithContext(
 	return o
 }
 
-func (o AlertManagerDefinitionOutput) ToAlertManagerDefinitionPtrOutput() AlertManagerDefinitionPtrOutput {
-	return o.ToAlertManagerDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (o AlertManagerDefinitionOutput) ToAlertManagerDefinitionPtrOutputWithContext(ctx context.Context) AlertManagerDefinitionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlertManagerDefinition) *AlertManagerDefinition {
-		return &v
-	}).(AlertManagerDefinitionPtrOutput)
-}
-
-type AlertManagerDefinitionPtrOutput struct{ *pulumi.OutputState }
-
-func (AlertManagerDefinitionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AlertManagerDefinition)(nil))
-}
-
-func (o AlertManagerDefinitionPtrOutput) ToAlertManagerDefinitionPtrOutput() AlertManagerDefinitionPtrOutput {
-	return o
-}
-
-func (o AlertManagerDefinitionPtrOutput) ToAlertManagerDefinitionPtrOutputWithContext(ctx context.Context) AlertManagerDefinitionPtrOutput {
-	return o
-}
-
-func (o AlertManagerDefinitionPtrOutput) Elem() AlertManagerDefinitionOutput {
-	return o.ApplyT(func(v *AlertManagerDefinition) AlertManagerDefinition {
-		if v != nil {
-			return *v
-		}
-		var ret AlertManagerDefinition
-		return ret
-	}).(AlertManagerDefinitionOutput)
-}
-
 type AlertManagerDefinitionArrayOutput struct{ *pulumi.OutputState }
 
 func (AlertManagerDefinitionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AlertManagerDefinition)(nil))
+	return reflect.TypeOf((*[]*AlertManagerDefinition)(nil)).Elem()
 }
 
 func (o AlertManagerDefinitionArrayOutput) ToAlertManagerDefinitionArrayOutput() AlertManagerDefinitionArrayOutput {
@@ -291,15 +228,15 @@ func (o AlertManagerDefinitionArrayOutput) ToAlertManagerDefinitionArrayOutputWi
 }
 
 func (o AlertManagerDefinitionArrayOutput) Index(i pulumi.IntInput) AlertManagerDefinitionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AlertManagerDefinition {
-		return vs[0].([]AlertManagerDefinition)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AlertManagerDefinition {
+		return vs[0].([]*AlertManagerDefinition)[vs[1].(int)]
 	}).(AlertManagerDefinitionOutput)
 }
 
 type AlertManagerDefinitionMapOutput struct{ *pulumi.OutputState }
 
 func (AlertManagerDefinitionMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]AlertManagerDefinition)(nil))
+	return reflect.TypeOf((*map[string]*AlertManagerDefinition)(nil)).Elem()
 }
 
 func (o AlertManagerDefinitionMapOutput) ToAlertManagerDefinitionMapOutput() AlertManagerDefinitionMapOutput {
@@ -311,18 +248,16 @@ func (o AlertManagerDefinitionMapOutput) ToAlertManagerDefinitionMapOutputWithCo
 }
 
 func (o AlertManagerDefinitionMapOutput) MapIndex(k pulumi.StringInput) AlertManagerDefinitionOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) AlertManagerDefinition {
-		return vs[0].(map[string]AlertManagerDefinition)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *AlertManagerDefinition {
+		return vs[0].(map[string]*AlertManagerDefinition)[vs[1].(string)]
 	}).(AlertManagerDefinitionOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertManagerDefinitionInput)(nil)).Elem(), &AlertManagerDefinition{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AlertManagerDefinitionPtrInput)(nil)).Elem(), &AlertManagerDefinition{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertManagerDefinitionArrayInput)(nil)).Elem(), AlertManagerDefinitionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlertManagerDefinitionMapInput)(nil)).Elem(), AlertManagerDefinitionMap{})
 	pulumi.RegisterOutputType(AlertManagerDefinitionOutput{})
-	pulumi.RegisterOutputType(AlertManagerDefinitionPtrOutput{})
 	pulumi.RegisterOutputType(AlertManagerDefinitionArrayOutput{})
 	pulumi.RegisterOutputType(AlertManagerDefinitionMapOutput{})
 }

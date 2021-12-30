@@ -160,22 +160,22 @@ export class Service extends pulumi.CustomResource {
      */
     constructor(name: string, args: ServiceArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ServiceArgs | ServiceState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServiceState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["autoScalingConfigurationArn"] = state ? state.autoScalingConfigurationArn : undefined;
-            inputs["encryptionConfiguration"] = state ? state.encryptionConfiguration : undefined;
-            inputs["healthCheckConfiguration"] = state ? state.healthCheckConfiguration : undefined;
-            inputs["instanceConfiguration"] = state ? state.instanceConfiguration : undefined;
-            inputs["serviceId"] = state ? state.serviceId : undefined;
-            inputs["serviceName"] = state ? state.serviceName : undefined;
-            inputs["serviceUrl"] = state ? state.serviceUrl : undefined;
-            inputs["sourceConfiguration"] = state ? state.sourceConfiguration : undefined;
-            inputs["status"] = state ? state.status : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["autoScalingConfigurationArn"] = state ? state.autoScalingConfigurationArn : undefined;
+            resourceInputs["encryptionConfiguration"] = state ? state.encryptionConfiguration : undefined;
+            resourceInputs["healthCheckConfiguration"] = state ? state.healthCheckConfiguration : undefined;
+            resourceInputs["instanceConfiguration"] = state ? state.instanceConfiguration : undefined;
+            resourceInputs["serviceId"] = state ? state.serviceId : undefined;
+            resourceInputs["serviceName"] = state ? state.serviceName : undefined;
+            resourceInputs["serviceUrl"] = state ? state.serviceUrl : undefined;
+            resourceInputs["sourceConfiguration"] = state ? state.sourceConfiguration : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as ServiceArgs | undefined;
             if ((!args || args.serviceName === undefined) && !opts.urn) {
@@ -184,23 +184,23 @@ export class Service extends pulumi.CustomResource {
             if ((!args || args.sourceConfiguration === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sourceConfiguration'");
             }
-            inputs["autoScalingConfigurationArn"] = args ? args.autoScalingConfigurationArn : undefined;
-            inputs["encryptionConfiguration"] = args ? args.encryptionConfiguration : undefined;
-            inputs["healthCheckConfiguration"] = args ? args.healthCheckConfiguration : undefined;
-            inputs["instanceConfiguration"] = args ? args.instanceConfiguration : undefined;
-            inputs["serviceName"] = args ? args.serviceName : undefined;
-            inputs["sourceConfiguration"] = args ? args.sourceConfiguration : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["serviceId"] = undefined /*out*/;
-            inputs["serviceUrl"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["autoScalingConfigurationArn"] = args ? args.autoScalingConfigurationArn : undefined;
+            resourceInputs["encryptionConfiguration"] = args ? args.encryptionConfiguration : undefined;
+            resourceInputs["healthCheckConfiguration"] = args ? args.healthCheckConfiguration : undefined;
+            resourceInputs["instanceConfiguration"] = args ? args.instanceConfiguration : undefined;
+            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
+            resourceInputs["sourceConfiguration"] = args ? args.sourceConfiguration : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["serviceId"] = undefined /*out*/;
+            resourceInputs["serviceUrl"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Service.__pulumiType, name, inputs, opts);
+        super(Service.__pulumiType, name, resourceInputs, opts);
     }
 }
 

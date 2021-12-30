@@ -131,19 +131,19 @@ export class HoursOfOperation extends pulumi.CustomResource {
      */
     constructor(name: string, args: HoursOfOperationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: HoursOfOperationArgs | HoursOfOperationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as HoursOfOperationState | undefined;
-            inputs["configs"] = state ? state.configs : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["hoursOfOperationArn"] = state ? state.hoursOfOperationArn : undefined;
-            inputs["hoursOfOperationId"] = state ? state.hoursOfOperationId : undefined;
-            inputs["instanceId"] = state ? state.instanceId : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["timeZone"] = state ? state.timeZone : undefined;
+            resourceInputs["configs"] = state ? state.configs : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["hoursOfOperationArn"] = state ? state.hoursOfOperationArn : undefined;
+            resourceInputs["hoursOfOperationId"] = state ? state.hoursOfOperationId : undefined;
+            resourceInputs["instanceId"] = state ? state.instanceId : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["timeZone"] = state ? state.timeZone : undefined;
         } else {
             const args = argsOrState as HoursOfOperationArgs | undefined;
             if ((!args || args.configs === undefined) && !opts.urn) {
@@ -155,20 +155,20 @@ export class HoursOfOperation extends pulumi.CustomResource {
             if ((!args || args.timeZone === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'timeZone'");
             }
-            inputs["configs"] = args ? args.configs : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["instanceId"] = args ? args.instanceId : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
-            inputs["timeZone"] = args ? args.timeZone : undefined;
-            inputs["hoursOfOperationArn"] = undefined /*out*/;
-            inputs["hoursOfOperationId"] = undefined /*out*/;
+            resourceInputs["configs"] = args ? args.configs : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["instanceId"] = args ? args.instanceId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
+            resourceInputs["timeZone"] = args ? args.timeZone : undefined;
+            resourceInputs["hoursOfOperationArn"] = undefined /*out*/;
+            resourceInputs["hoursOfOperationId"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(HoursOfOperation.__pulumiType, name, inputs, opts);
+        super(HoursOfOperation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

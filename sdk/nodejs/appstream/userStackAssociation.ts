@@ -87,14 +87,14 @@ export class UserStackAssociation extends pulumi.CustomResource {
      */
     constructor(name: string, args: UserStackAssociationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: UserStackAssociationArgs | UserStackAssociationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as UserStackAssociationState | undefined;
-            inputs["authenticationType"] = state ? state.authenticationType : undefined;
-            inputs["sendEmailNotification"] = state ? state.sendEmailNotification : undefined;
-            inputs["stackName"] = state ? state.stackName : undefined;
-            inputs["userName"] = state ? state.userName : undefined;
+            resourceInputs["authenticationType"] = state ? state.authenticationType : undefined;
+            resourceInputs["sendEmailNotification"] = state ? state.sendEmailNotification : undefined;
+            resourceInputs["stackName"] = state ? state.stackName : undefined;
+            resourceInputs["userName"] = state ? state.userName : undefined;
         } else {
             const args = argsOrState as UserStackAssociationArgs | undefined;
             if ((!args || args.authenticationType === undefined) && !opts.urn) {
@@ -106,15 +106,15 @@ export class UserStackAssociation extends pulumi.CustomResource {
             if ((!args || args.userName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'userName'");
             }
-            inputs["authenticationType"] = args ? args.authenticationType : undefined;
-            inputs["sendEmailNotification"] = args ? args.sendEmailNotification : undefined;
-            inputs["stackName"] = args ? args.stackName : undefined;
-            inputs["userName"] = args ? args.userName : undefined;
+            resourceInputs["authenticationType"] = args ? args.authenticationType : undefined;
+            resourceInputs["sendEmailNotification"] = args ? args.sendEmailNotification : undefined;
+            resourceInputs["stackName"] = args ? args.stackName : undefined;
+            resourceInputs["userName"] = args ? args.userName : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(UserStackAssociation.__pulumiType, name, inputs, opts);
+        super(UserStackAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

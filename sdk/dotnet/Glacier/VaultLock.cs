@@ -30,11 +30,11 @@ namespace Pulumi.Aws.Glacier
     ///         var exampleVault = new Aws.Glacier.Vault("exampleVault", new Aws.Glacier.VaultArgs
     ///         {
     ///         });
-    ///         var examplePolicyDocument = exampleVault.Arn.Apply(arn =&gt; Aws.Iam.GetPolicyDocument.InvokeAsync(new Aws.Iam.GetPolicyDocumentArgs
+    ///         var examplePolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new Aws.Iam.GetPolicyDocumentInvokeArgs
     ///         {
     ///             Statements = 
     ///             {
-    ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
+    ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///                 {
     ///                     Actions = 
     ///                     {
@@ -43,11 +43,11 @@ namespace Pulumi.Aws.Glacier
     ///                     Effect = "Deny",
     ///                     Resources = 
     ///                     {
-    ///                         arn,
+    ///                         exampleVault.Arn,
     ///                     },
     ///                     Conditions = 
     ///                     {
-    ///                         new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionArgs
+    ///                         new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
     ///                         {
     ///                             Test = "NumericLessThanEquals",
     ///                             Variable = "glacier:ArchiveAgeinDays",
@@ -59,7 +59,7 @@ namespace Pulumi.Aws.Glacier
     ///                     },
     ///                 },
     ///             },
-    ///         }));
+    ///         });
     ///         var exampleVaultLock = new Aws.Glacier.VaultLock("exampleVaultLock", new Aws.Glacier.VaultLockArgs
     ///         {
     ///             CompleteLock = false,

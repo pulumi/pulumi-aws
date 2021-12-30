@@ -186,7 +186,7 @@ type VaultInput interface {
 }
 
 func (*Vault) ElementType() reflect.Type {
-	return reflect.TypeOf((*Vault)(nil))
+	return reflect.TypeOf((**Vault)(nil)).Elem()
 }
 
 func (i *Vault) ToVaultOutput() VaultOutput {
@@ -195,35 +195,6 @@ func (i *Vault) ToVaultOutput() VaultOutput {
 
 func (i *Vault) ToVaultOutputWithContext(ctx context.Context) VaultOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VaultOutput)
-}
-
-func (i *Vault) ToVaultPtrOutput() VaultPtrOutput {
-	return i.ToVaultPtrOutputWithContext(context.Background())
-}
-
-func (i *Vault) ToVaultPtrOutputWithContext(ctx context.Context) VaultPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VaultPtrOutput)
-}
-
-type VaultPtrInput interface {
-	pulumi.Input
-
-	ToVaultPtrOutput() VaultPtrOutput
-	ToVaultPtrOutputWithContext(ctx context.Context) VaultPtrOutput
-}
-
-type vaultPtrType VaultArgs
-
-func (*vaultPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Vault)(nil))
-}
-
-func (i *vaultPtrType) ToVaultPtrOutput() VaultPtrOutput {
-	return i.ToVaultPtrOutputWithContext(context.Background())
-}
-
-func (i *vaultPtrType) ToVaultPtrOutputWithContext(ctx context.Context) VaultPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VaultPtrOutput)
 }
 
 // VaultArrayInput is an input type that accepts VaultArray and VaultArrayOutput values.
@@ -279,7 +250,7 @@ func (i VaultMap) ToVaultMapOutputWithContext(ctx context.Context) VaultMapOutpu
 type VaultOutput struct{ *pulumi.OutputState }
 
 func (VaultOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Vault)(nil))
+	return reflect.TypeOf((**Vault)(nil)).Elem()
 }
 
 func (o VaultOutput) ToVaultOutput() VaultOutput {
@@ -290,44 +261,10 @@ func (o VaultOutput) ToVaultOutputWithContext(ctx context.Context) VaultOutput {
 	return o
 }
 
-func (o VaultOutput) ToVaultPtrOutput() VaultPtrOutput {
-	return o.ToVaultPtrOutputWithContext(context.Background())
-}
-
-func (o VaultOutput) ToVaultPtrOutputWithContext(ctx context.Context) VaultPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Vault) *Vault {
-		return &v
-	}).(VaultPtrOutput)
-}
-
-type VaultPtrOutput struct{ *pulumi.OutputState }
-
-func (VaultPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Vault)(nil))
-}
-
-func (o VaultPtrOutput) ToVaultPtrOutput() VaultPtrOutput {
-	return o
-}
-
-func (o VaultPtrOutput) ToVaultPtrOutputWithContext(ctx context.Context) VaultPtrOutput {
-	return o
-}
-
-func (o VaultPtrOutput) Elem() VaultOutput {
-	return o.ApplyT(func(v *Vault) Vault {
-		if v != nil {
-			return *v
-		}
-		var ret Vault
-		return ret
-	}).(VaultOutput)
-}
-
 type VaultArrayOutput struct{ *pulumi.OutputState }
 
 func (VaultArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Vault)(nil))
+	return reflect.TypeOf((*[]*Vault)(nil)).Elem()
 }
 
 func (o VaultArrayOutput) ToVaultArrayOutput() VaultArrayOutput {
@@ -339,15 +276,15 @@ func (o VaultArrayOutput) ToVaultArrayOutputWithContext(ctx context.Context) Vau
 }
 
 func (o VaultArrayOutput) Index(i pulumi.IntInput) VaultOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Vault {
-		return vs[0].([]Vault)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Vault {
+		return vs[0].([]*Vault)[vs[1].(int)]
 	}).(VaultOutput)
 }
 
 type VaultMapOutput struct{ *pulumi.OutputState }
 
 func (VaultMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Vault)(nil))
+	return reflect.TypeOf((*map[string]*Vault)(nil)).Elem()
 }
 
 func (o VaultMapOutput) ToVaultMapOutput() VaultMapOutput {
@@ -359,18 +296,16 @@ func (o VaultMapOutput) ToVaultMapOutputWithContext(ctx context.Context) VaultMa
 }
 
 func (o VaultMapOutput) MapIndex(k pulumi.StringInput) VaultOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Vault {
-		return vs[0].(map[string]Vault)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Vault {
+		return vs[0].(map[string]*Vault)[vs[1].(string)]
 	}).(VaultOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VaultInput)(nil)).Elem(), &Vault{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VaultPtrInput)(nil)).Elem(), &Vault{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VaultArrayInput)(nil)).Elem(), VaultArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VaultMapInput)(nil)).Elem(), VaultMap{})
 	pulumi.RegisterOutputType(VaultOutput{})
-	pulumi.RegisterOutputType(VaultPtrOutput{})
 	pulumi.RegisterOutputType(VaultArrayOutput{})
 	pulumi.RegisterOutputType(VaultMapOutput{})
 }

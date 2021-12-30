@@ -203,7 +203,7 @@ type CachePolicyInput interface {
 }
 
 func (*CachePolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*CachePolicy)(nil))
+	return reflect.TypeOf((**CachePolicy)(nil)).Elem()
 }
 
 func (i *CachePolicy) ToCachePolicyOutput() CachePolicyOutput {
@@ -212,35 +212,6 @@ func (i *CachePolicy) ToCachePolicyOutput() CachePolicyOutput {
 
 func (i *CachePolicy) ToCachePolicyOutputWithContext(ctx context.Context) CachePolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CachePolicyOutput)
-}
-
-func (i *CachePolicy) ToCachePolicyPtrOutput() CachePolicyPtrOutput {
-	return i.ToCachePolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *CachePolicy) ToCachePolicyPtrOutputWithContext(ctx context.Context) CachePolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CachePolicyPtrOutput)
-}
-
-type CachePolicyPtrInput interface {
-	pulumi.Input
-
-	ToCachePolicyPtrOutput() CachePolicyPtrOutput
-	ToCachePolicyPtrOutputWithContext(ctx context.Context) CachePolicyPtrOutput
-}
-
-type cachePolicyPtrType CachePolicyArgs
-
-func (*cachePolicyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CachePolicy)(nil))
-}
-
-func (i *cachePolicyPtrType) ToCachePolicyPtrOutput() CachePolicyPtrOutput {
-	return i.ToCachePolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *cachePolicyPtrType) ToCachePolicyPtrOutputWithContext(ctx context.Context) CachePolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CachePolicyPtrOutput)
 }
 
 // CachePolicyArrayInput is an input type that accepts CachePolicyArray and CachePolicyArrayOutput values.
@@ -296,7 +267,7 @@ func (i CachePolicyMap) ToCachePolicyMapOutputWithContext(ctx context.Context) C
 type CachePolicyOutput struct{ *pulumi.OutputState }
 
 func (CachePolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CachePolicy)(nil))
+	return reflect.TypeOf((**CachePolicy)(nil)).Elem()
 }
 
 func (o CachePolicyOutput) ToCachePolicyOutput() CachePolicyOutput {
@@ -307,44 +278,10 @@ func (o CachePolicyOutput) ToCachePolicyOutputWithContext(ctx context.Context) C
 	return o
 }
 
-func (o CachePolicyOutput) ToCachePolicyPtrOutput() CachePolicyPtrOutput {
-	return o.ToCachePolicyPtrOutputWithContext(context.Background())
-}
-
-func (o CachePolicyOutput) ToCachePolicyPtrOutputWithContext(ctx context.Context) CachePolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CachePolicy) *CachePolicy {
-		return &v
-	}).(CachePolicyPtrOutput)
-}
-
-type CachePolicyPtrOutput struct{ *pulumi.OutputState }
-
-func (CachePolicyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CachePolicy)(nil))
-}
-
-func (o CachePolicyPtrOutput) ToCachePolicyPtrOutput() CachePolicyPtrOutput {
-	return o
-}
-
-func (o CachePolicyPtrOutput) ToCachePolicyPtrOutputWithContext(ctx context.Context) CachePolicyPtrOutput {
-	return o
-}
-
-func (o CachePolicyPtrOutput) Elem() CachePolicyOutput {
-	return o.ApplyT(func(v *CachePolicy) CachePolicy {
-		if v != nil {
-			return *v
-		}
-		var ret CachePolicy
-		return ret
-	}).(CachePolicyOutput)
-}
-
 type CachePolicyArrayOutput struct{ *pulumi.OutputState }
 
 func (CachePolicyArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CachePolicy)(nil))
+	return reflect.TypeOf((*[]*CachePolicy)(nil)).Elem()
 }
 
 func (o CachePolicyArrayOutput) ToCachePolicyArrayOutput() CachePolicyArrayOutput {
@@ -356,15 +293,15 @@ func (o CachePolicyArrayOutput) ToCachePolicyArrayOutputWithContext(ctx context.
 }
 
 func (o CachePolicyArrayOutput) Index(i pulumi.IntInput) CachePolicyOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CachePolicy {
-		return vs[0].([]CachePolicy)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *CachePolicy {
+		return vs[0].([]*CachePolicy)[vs[1].(int)]
 	}).(CachePolicyOutput)
 }
 
 type CachePolicyMapOutput struct{ *pulumi.OutputState }
 
 func (CachePolicyMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]CachePolicy)(nil))
+	return reflect.TypeOf((*map[string]*CachePolicy)(nil)).Elem()
 }
 
 func (o CachePolicyMapOutput) ToCachePolicyMapOutput() CachePolicyMapOutput {
@@ -376,18 +313,16 @@ func (o CachePolicyMapOutput) ToCachePolicyMapOutputWithContext(ctx context.Cont
 }
 
 func (o CachePolicyMapOutput) MapIndex(k pulumi.StringInput) CachePolicyOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) CachePolicy {
-		return vs[0].(map[string]CachePolicy)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *CachePolicy {
+		return vs[0].(map[string]*CachePolicy)[vs[1].(string)]
 	}).(CachePolicyOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CachePolicyInput)(nil)).Elem(), &CachePolicy{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CachePolicyPtrInput)(nil)).Elem(), &CachePolicy{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CachePolicyArrayInput)(nil)).Elem(), CachePolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CachePolicyMapInput)(nil)).Elem(), CachePolicyMap{})
 	pulumi.RegisterOutputType(CachePolicyOutput{})
-	pulumi.RegisterOutputType(CachePolicyPtrOutput{})
 	pulumi.RegisterOutputType(CachePolicyArrayOutput{})
 	pulumi.RegisterOutputType(CachePolicyMapOutput{})
 }

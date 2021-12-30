@@ -117,42 +117,42 @@ export class ProvisioningArtifact extends pulumi.CustomResource {
      */
     constructor(name: string, args: ProvisioningArtifactArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ProvisioningArtifactArgs | ProvisioningArtifactState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProvisioningArtifactState | undefined;
-            inputs["acceptLanguage"] = state ? state.acceptLanguage : undefined;
-            inputs["active"] = state ? state.active : undefined;
-            inputs["createdTime"] = state ? state.createdTime : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["disableTemplateValidation"] = state ? state.disableTemplateValidation : undefined;
-            inputs["guidance"] = state ? state.guidance : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["productId"] = state ? state.productId : undefined;
-            inputs["templatePhysicalId"] = state ? state.templatePhysicalId : undefined;
-            inputs["templateUrl"] = state ? state.templateUrl : undefined;
-            inputs["type"] = state ? state.type : undefined;
+            resourceInputs["acceptLanguage"] = state ? state.acceptLanguage : undefined;
+            resourceInputs["active"] = state ? state.active : undefined;
+            resourceInputs["createdTime"] = state ? state.createdTime : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["disableTemplateValidation"] = state ? state.disableTemplateValidation : undefined;
+            resourceInputs["guidance"] = state ? state.guidance : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["productId"] = state ? state.productId : undefined;
+            resourceInputs["templatePhysicalId"] = state ? state.templatePhysicalId : undefined;
+            resourceInputs["templateUrl"] = state ? state.templateUrl : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as ProvisioningArtifactArgs | undefined;
             if ((!args || args.productId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'productId'");
             }
-            inputs["acceptLanguage"] = args ? args.acceptLanguage : undefined;
-            inputs["active"] = args ? args.active : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["disableTemplateValidation"] = args ? args.disableTemplateValidation : undefined;
-            inputs["guidance"] = args ? args.guidance : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["productId"] = args ? args.productId : undefined;
-            inputs["templatePhysicalId"] = args ? args.templatePhysicalId : undefined;
-            inputs["templateUrl"] = args ? args.templateUrl : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["createdTime"] = undefined /*out*/;
+            resourceInputs["acceptLanguage"] = args ? args.acceptLanguage : undefined;
+            resourceInputs["active"] = args ? args.active : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["disableTemplateValidation"] = args ? args.disableTemplateValidation : undefined;
+            resourceInputs["guidance"] = args ? args.guidance : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["productId"] = args ? args.productId : undefined;
+            resourceInputs["templatePhysicalId"] = args ? args.templatePhysicalId : undefined;
+            resourceInputs["templateUrl"] = args ? args.templateUrl : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["createdTime"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(ProvisioningArtifact.__pulumiType, name, inputs, opts);
+        super(ProvisioningArtifact.__pulumiType, name, resourceInputs, opts);
     }
 }
 

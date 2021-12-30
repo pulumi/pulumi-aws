@@ -73,12 +73,12 @@ export class ApprovalRuleTemplateAssociation extends pulumi.CustomResource {
      */
     constructor(name: string, args: ApprovalRuleTemplateAssociationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ApprovalRuleTemplateAssociationArgs | ApprovalRuleTemplateAssociationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ApprovalRuleTemplateAssociationState | undefined;
-            inputs["approvalRuleTemplateName"] = state ? state.approvalRuleTemplateName : undefined;
-            inputs["repositoryName"] = state ? state.repositoryName : undefined;
+            resourceInputs["approvalRuleTemplateName"] = state ? state.approvalRuleTemplateName : undefined;
+            resourceInputs["repositoryName"] = state ? state.repositoryName : undefined;
         } else {
             const args = argsOrState as ApprovalRuleTemplateAssociationArgs | undefined;
             if ((!args || args.approvalRuleTemplateName === undefined) && !opts.urn) {
@@ -87,13 +87,13 @@ export class ApprovalRuleTemplateAssociation extends pulumi.CustomResource {
             if ((!args || args.repositoryName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'repositoryName'");
             }
-            inputs["approvalRuleTemplateName"] = args ? args.approvalRuleTemplateName : undefined;
-            inputs["repositoryName"] = args ? args.repositoryName : undefined;
+            resourceInputs["approvalRuleTemplateName"] = args ? args.approvalRuleTemplateName : undefined;
+            resourceInputs["repositoryName"] = args ? args.repositoryName : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(ApprovalRuleTemplateAssociation.__pulumiType, name, inputs, opts);
+        super(ApprovalRuleTemplateAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

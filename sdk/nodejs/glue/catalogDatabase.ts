@@ -93,31 +93,31 @@ export class CatalogDatabase extends pulumi.CustomResource {
      */
     constructor(name: string, args?: CatalogDatabaseArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: CatalogDatabaseArgs | CatalogDatabaseState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CatalogDatabaseState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["catalogId"] = state ? state.catalogId : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["locationUri"] = state ? state.locationUri : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["parameters"] = state ? state.parameters : undefined;
-            inputs["targetDatabase"] = state ? state.targetDatabase : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["catalogId"] = state ? state.catalogId : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["locationUri"] = state ? state.locationUri : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["parameters"] = state ? state.parameters : undefined;
+            resourceInputs["targetDatabase"] = state ? state.targetDatabase : undefined;
         } else {
             const args = argsOrState as CatalogDatabaseArgs | undefined;
-            inputs["catalogId"] = args ? args.catalogId : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["locationUri"] = args ? args.locationUri : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["parameters"] = args ? args.parameters : undefined;
-            inputs["targetDatabase"] = args ? args.targetDatabase : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["catalogId"] = args ? args.catalogId : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["locationUri"] = args ? args.locationUri : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["parameters"] = args ? args.parameters : undefined;
+            resourceInputs["targetDatabase"] = args ? args.targetDatabase : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(CatalogDatabase.__pulumiType, name, inputs, opts);
+        super(CatalogDatabase.__pulumiType, name, resourceInputs, opts);
     }
 }
 

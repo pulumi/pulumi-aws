@@ -105,29 +105,29 @@ export class ConfgurationSet extends pulumi.CustomResource {
     /** @deprecated aws.ses.ConfgurationSet has been deprecated in favor of aws.ses.ConfigurationSet */
     constructor(name: string, argsOrState?: ConfgurationSetArgs | ConfgurationSetState, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("ConfgurationSet is deprecated: aws.ses.ConfgurationSet has been deprecated in favor of aws.ses.ConfigurationSet")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ConfgurationSetState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["deliveryOptions"] = state ? state.deliveryOptions : undefined;
-            inputs["lastFreshStart"] = state ? state.lastFreshStart : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["reputationMetricsEnabled"] = state ? state.reputationMetricsEnabled : undefined;
-            inputs["sendingEnabled"] = state ? state.sendingEnabled : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["deliveryOptions"] = state ? state.deliveryOptions : undefined;
+            resourceInputs["lastFreshStart"] = state ? state.lastFreshStart : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["reputationMetricsEnabled"] = state ? state.reputationMetricsEnabled : undefined;
+            resourceInputs["sendingEnabled"] = state ? state.sendingEnabled : undefined;
         } else {
             const args = argsOrState as ConfgurationSetArgs | undefined;
-            inputs["deliveryOptions"] = args ? args.deliveryOptions : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["reputationMetricsEnabled"] = args ? args.reputationMetricsEnabled : undefined;
-            inputs["sendingEnabled"] = args ? args.sendingEnabled : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["lastFreshStart"] = undefined /*out*/;
+            resourceInputs["deliveryOptions"] = args ? args.deliveryOptions : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["reputationMetricsEnabled"] = args ? args.reputationMetricsEnabled : undefined;
+            resourceInputs["sendingEnabled"] = args ? args.sendingEnabled : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["lastFreshStart"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(ConfgurationSet.__pulumiType, name, inputs, opts);
+        super(ConfgurationSet.__pulumiType, name, resourceInputs, opts);
     }
 }
 

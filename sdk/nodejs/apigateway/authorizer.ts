@@ -156,38 +156,38 @@ export class Authorizer extends pulumi.CustomResource {
      */
     constructor(name: string, args: AuthorizerArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AuthorizerArgs | AuthorizerState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AuthorizerState | undefined;
-            inputs["authorizerCredentials"] = state ? state.authorizerCredentials : undefined;
-            inputs["authorizerResultTtlInSeconds"] = state ? state.authorizerResultTtlInSeconds : undefined;
-            inputs["authorizerUri"] = state ? state.authorizerUri : undefined;
-            inputs["identitySource"] = state ? state.identitySource : undefined;
-            inputs["identityValidationExpression"] = state ? state.identityValidationExpression : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["providerArns"] = state ? state.providerArns : undefined;
-            inputs["restApi"] = state ? state.restApi : undefined;
-            inputs["type"] = state ? state.type : undefined;
+            resourceInputs["authorizerCredentials"] = state ? state.authorizerCredentials : undefined;
+            resourceInputs["authorizerResultTtlInSeconds"] = state ? state.authorizerResultTtlInSeconds : undefined;
+            resourceInputs["authorizerUri"] = state ? state.authorizerUri : undefined;
+            resourceInputs["identitySource"] = state ? state.identitySource : undefined;
+            resourceInputs["identityValidationExpression"] = state ? state.identityValidationExpression : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["providerArns"] = state ? state.providerArns : undefined;
+            resourceInputs["restApi"] = state ? state.restApi : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as AuthorizerArgs | undefined;
             if ((!args || args.restApi === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'restApi'");
             }
-            inputs["authorizerCredentials"] = args ? args.authorizerCredentials : undefined;
-            inputs["authorizerResultTtlInSeconds"] = args ? args.authorizerResultTtlInSeconds : undefined;
-            inputs["authorizerUri"] = args ? args.authorizerUri : undefined;
-            inputs["identitySource"] = args ? args.identitySource : undefined;
-            inputs["identityValidationExpression"] = args ? args.identityValidationExpression : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["providerArns"] = args ? args.providerArns : undefined;
-            inputs["restApi"] = args ? args.restApi : undefined;
-            inputs["type"] = args ? args.type : undefined;
+            resourceInputs["authorizerCredentials"] = args ? args.authorizerCredentials : undefined;
+            resourceInputs["authorizerResultTtlInSeconds"] = args ? args.authorizerResultTtlInSeconds : undefined;
+            resourceInputs["authorizerUri"] = args ? args.authorizerUri : undefined;
+            resourceInputs["identitySource"] = args ? args.identitySource : undefined;
+            resourceInputs["identityValidationExpression"] = args ? args.identityValidationExpression : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["providerArns"] = args ? args.providerArns : undefined;
+            resourceInputs["restApi"] = args ? args.restApi : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Authorizer.__pulumiType, name, inputs, opts);
+        super(Authorizer.__pulumiType, name, resourceInputs, opts);
     }
 }
 

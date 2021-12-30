@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.sns.Topic("test", {});
- * const snsTopicPolicy = test.arn.apply(arn => aws.iam.getPolicyDocument({
+ * const snsTopicPolicy = test.arn.apply(arn => aws.iam.getPolicyDocumentOutput({
  *     policyId: "__default_policy_ID",
  *     statements: [{
  *         actions: [
@@ -108,13 +108,13 @@ export class TopicPolicy extends pulumi.CustomResource {
      */
     constructor(name: string, args: TopicPolicyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: TopicPolicyArgs | TopicPolicyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TopicPolicyState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["owner"] = state ? state.owner : undefined;
-            inputs["policy"] = state ? state.policy : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["owner"] = state ? state.owner : undefined;
+            resourceInputs["policy"] = state ? state.policy : undefined;
         } else {
             const args = argsOrState as TopicPolicyArgs | undefined;
             if ((!args || args.arn === undefined) && !opts.urn) {
@@ -123,14 +123,14 @@ export class TopicPolicy extends pulumi.CustomResource {
             if ((!args || args.policy === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policy'");
             }
-            inputs["arn"] = args ? args.arn : undefined;
-            inputs["policy"] = args ? args.policy : undefined;
-            inputs["owner"] = undefined /*out*/;
+            resourceInputs["arn"] = args ? args.arn : undefined;
+            resourceInputs["policy"] = args ? args.policy : undefined;
+            resourceInputs["owner"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(TopicPolicy.__pulumiType, name, inputs, opts);
+        super(TopicPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

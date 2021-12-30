@@ -215,7 +215,7 @@ type SigningProfileInput interface {
 }
 
 func (*SigningProfile) ElementType() reflect.Type {
-	return reflect.TypeOf((*SigningProfile)(nil))
+	return reflect.TypeOf((**SigningProfile)(nil)).Elem()
 }
 
 func (i *SigningProfile) ToSigningProfileOutput() SigningProfileOutput {
@@ -224,35 +224,6 @@ func (i *SigningProfile) ToSigningProfileOutput() SigningProfileOutput {
 
 func (i *SigningProfile) ToSigningProfileOutputWithContext(ctx context.Context) SigningProfileOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SigningProfileOutput)
-}
-
-func (i *SigningProfile) ToSigningProfilePtrOutput() SigningProfilePtrOutput {
-	return i.ToSigningProfilePtrOutputWithContext(context.Background())
-}
-
-func (i *SigningProfile) ToSigningProfilePtrOutputWithContext(ctx context.Context) SigningProfilePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SigningProfilePtrOutput)
-}
-
-type SigningProfilePtrInput interface {
-	pulumi.Input
-
-	ToSigningProfilePtrOutput() SigningProfilePtrOutput
-	ToSigningProfilePtrOutputWithContext(ctx context.Context) SigningProfilePtrOutput
-}
-
-type signingProfilePtrType SigningProfileArgs
-
-func (*signingProfilePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SigningProfile)(nil))
-}
-
-func (i *signingProfilePtrType) ToSigningProfilePtrOutput() SigningProfilePtrOutput {
-	return i.ToSigningProfilePtrOutputWithContext(context.Background())
-}
-
-func (i *signingProfilePtrType) ToSigningProfilePtrOutputWithContext(ctx context.Context) SigningProfilePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SigningProfilePtrOutput)
 }
 
 // SigningProfileArrayInput is an input type that accepts SigningProfileArray and SigningProfileArrayOutput values.
@@ -308,7 +279,7 @@ func (i SigningProfileMap) ToSigningProfileMapOutputWithContext(ctx context.Cont
 type SigningProfileOutput struct{ *pulumi.OutputState }
 
 func (SigningProfileOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SigningProfile)(nil))
+	return reflect.TypeOf((**SigningProfile)(nil)).Elem()
 }
 
 func (o SigningProfileOutput) ToSigningProfileOutput() SigningProfileOutput {
@@ -319,44 +290,10 @@ func (o SigningProfileOutput) ToSigningProfileOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o SigningProfileOutput) ToSigningProfilePtrOutput() SigningProfilePtrOutput {
-	return o.ToSigningProfilePtrOutputWithContext(context.Background())
-}
-
-func (o SigningProfileOutput) ToSigningProfilePtrOutputWithContext(ctx context.Context) SigningProfilePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SigningProfile) *SigningProfile {
-		return &v
-	}).(SigningProfilePtrOutput)
-}
-
-type SigningProfilePtrOutput struct{ *pulumi.OutputState }
-
-func (SigningProfilePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SigningProfile)(nil))
-}
-
-func (o SigningProfilePtrOutput) ToSigningProfilePtrOutput() SigningProfilePtrOutput {
-	return o
-}
-
-func (o SigningProfilePtrOutput) ToSigningProfilePtrOutputWithContext(ctx context.Context) SigningProfilePtrOutput {
-	return o
-}
-
-func (o SigningProfilePtrOutput) Elem() SigningProfileOutput {
-	return o.ApplyT(func(v *SigningProfile) SigningProfile {
-		if v != nil {
-			return *v
-		}
-		var ret SigningProfile
-		return ret
-	}).(SigningProfileOutput)
-}
-
 type SigningProfileArrayOutput struct{ *pulumi.OutputState }
 
 func (SigningProfileArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SigningProfile)(nil))
+	return reflect.TypeOf((*[]*SigningProfile)(nil)).Elem()
 }
 
 func (o SigningProfileArrayOutput) ToSigningProfileArrayOutput() SigningProfileArrayOutput {
@@ -368,15 +305,15 @@ func (o SigningProfileArrayOutput) ToSigningProfileArrayOutputWithContext(ctx co
 }
 
 func (o SigningProfileArrayOutput) Index(i pulumi.IntInput) SigningProfileOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SigningProfile {
-		return vs[0].([]SigningProfile)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SigningProfile {
+		return vs[0].([]*SigningProfile)[vs[1].(int)]
 	}).(SigningProfileOutput)
 }
 
 type SigningProfileMapOutput struct{ *pulumi.OutputState }
 
 func (SigningProfileMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]SigningProfile)(nil))
+	return reflect.TypeOf((*map[string]*SigningProfile)(nil)).Elem()
 }
 
 func (o SigningProfileMapOutput) ToSigningProfileMapOutput() SigningProfileMapOutput {
@@ -388,18 +325,16 @@ func (o SigningProfileMapOutput) ToSigningProfileMapOutputWithContext(ctx contex
 }
 
 func (o SigningProfileMapOutput) MapIndex(k pulumi.StringInput) SigningProfileOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SigningProfile {
-		return vs[0].(map[string]SigningProfile)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *SigningProfile {
+		return vs[0].(map[string]*SigningProfile)[vs[1].(string)]
 	}).(SigningProfileOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SigningProfileInput)(nil)).Elem(), &SigningProfile{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SigningProfilePtrInput)(nil)).Elem(), &SigningProfile{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SigningProfileArrayInput)(nil)).Elem(), SigningProfileArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SigningProfileMapInput)(nil)).Elem(), SigningProfileMap{})
 	pulumi.RegisterOutputType(SigningProfileOutput{})
-	pulumi.RegisterOutputType(SigningProfilePtrOutput{})
 	pulumi.RegisterOutputType(SigningProfileArrayOutput{})
 	pulumi.RegisterOutputType(SigningProfileMapOutput{})
 }

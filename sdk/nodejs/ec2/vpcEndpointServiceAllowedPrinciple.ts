@@ -74,12 +74,12 @@ export class VpcEndpointServiceAllowedPrinciple extends pulumi.CustomResource {
      */
     constructor(name: string, args: VpcEndpointServiceAllowedPrincipleArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VpcEndpointServiceAllowedPrincipleArgs | VpcEndpointServiceAllowedPrincipleState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VpcEndpointServiceAllowedPrincipleState | undefined;
-            inputs["principalArn"] = state ? state.principalArn : undefined;
-            inputs["vpcEndpointServiceId"] = state ? state.vpcEndpointServiceId : undefined;
+            resourceInputs["principalArn"] = state ? state.principalArn : undefined;
+            resourceInputs["vpcEndpointServiceId"] = state ? state.vpcEndpointServiceId : undefined;
         } else {
             const args = argsOrState as VpcEndpointServiceAllowedPrincipleArgs | undefined;
             if ((!args || args.principalArn === undefined) && !opts.urn) {
@@ -88,13 +88,13 @@ export class VpcEndpointServiceAllowedPrinciple extends pulumi.CustomResource {
             if ((!args || args.vpcEndpointServiceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpcEndpointServiceId'");
             }
-            inputs["principalArn"] = args ? args.principalArn : undefined;
-            inputs["vpcEndpointServiceId"] = args ? args.vpcEndpointServiceId : undefined;
+            resourceInputs["principalArn"] = args ? args.principalArn : undefined;
+            resourceInputs["vpcEndpointServiceId"] = args ? args.vpcEndpointServiceId : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(VpcEndpointServiceAllowedPrinciple.__pulumiType, name, inputs, opts);
+        super(VpcEndpointServiceAllowedPrinciple.__pulumiType, name, resourceInputs, opts);
     }
 }
 

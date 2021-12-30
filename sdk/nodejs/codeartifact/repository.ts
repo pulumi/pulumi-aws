@@ -147,20 +147,20 @@ export class Repository extends pulumi.CustomResource {
      */
     constructor(name: string, args: RepositoryArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RepositoryArgs | RepositoryState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RepositoryState | undefined;
-            inputs["administratorAccount"] = state ? state.administratorAccount : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["domain"] = state ? state.domain : undefined;
-            inputs["domainOwner"] = state ? state.domainOwner : undefined;
-            inputs["externalConnections"] = state ? state.externalConnections : undefined;
-            inputs["repository"] = state ? state.repository : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["upstreams"] = state ? state.upstreams : undefined;
+            resourceInputs["administratorAccount"] = state ? state.administratorAccount : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["domain"] = state ? state.domain : undefined;
+            resourceInputs["domainOwner"] = state ? state.domainOwner : undefined;
+            resourceInputs["externalConnections"] = state ? state.externalConnections : undefined;
+            resourceInputs["repository"] = state ? state.repository : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["upstreams"] = state ? state.upstreams : undefined;
         } else {
             const args = argsOrState as RepositoryArgs | undefined;
             if ((!args || args.domain === undefined) && !opts.urn) {
@@ -169,21 +169,21 @@ export class Repository extends pulumi.CustomResource {
             if ((!args || args.repository === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'repository'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["domain"] = args ? args.domain : undefined;
-            inputs["domainOwner"] = args ? args.domainOwner : undefined;
-            inputs["externalConnections"] = args ? args.externalConnections : undefined;
-            inputs["repository"] = args ? args.repository : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["upstreams"] = args ? args.upstreams : undefined;
-            inputs["administratorAccount"] = undefined /*out*/;
-            inputs["arn"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["domain"] = args ? args.domain : undefined;
+            resourceInputs["domainOwner"] = args ? args.domainOwner : undefined;
+            resourceInputs["externalConnections"] = args ? args.externalConnections : undefined;
+            resourceInputs["repository"] = args ? args.repository : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["upstreams"] = args ? args.upstreams : undefined;
+            resourceInputs["administratorAccount"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Repository.__pulumiType, name, inputs, opts);
+        super(Repository.__pulumiType, name, resourceInputs, opts);
     }
 }
 

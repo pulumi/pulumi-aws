@@ -94,32 +94,32 @@ export class Endpoint extends pulumi.CustomResource {
      */
     constructor(name: string, args: EndpointArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: EndpointArgs | EndpointState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EndpointState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["deploymentConfig"] = state ? state.deploymentConfig : undefined;
-            inputs["endpointConfigName"] = state ? state.endpointConfigName : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["deploymentConfig"] = state ? state.deploymentConfig : undefined;
+            resourceInputs["endpointConfigName"] = state ? state.endpointConfigName : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as EndpointArgs | undefined;
             if ((!args || args.endpointConfigName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'endpointConfigName'");
             }
-            inputs["deploymentConfig"] = args ? args.deploymentConfig : undefined;
-            inputs["endpointConfigName"] = args ? args.endpointConfigName : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["deploymentConfig"] = args ? args.deploymentConfig : undefined;
+            resourceInputs["endpointConfigName"] = args ? args.endpointConfigName : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Endpoint.__pulumiType, name, inputs, opts);
+        super(Endpoint.__pulumiType, name, resourceInputs, opts);
     }
 }
 

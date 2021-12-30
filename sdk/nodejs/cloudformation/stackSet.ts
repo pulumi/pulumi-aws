@@ -56,13 +56,13 @@ import * as utilities from "../utilities";
  * }
  * `,
  * });
- * const aWSCloudFormationStackSetAdministrationRoleExecutionPolicyPolicyDocument = example.executionRoleName.apply(executionRoleName => aws.iam.getPolicyDocument({
+ * const aWSCloudFormationStackSetAdministrationRoleExecutionPolicyPolicyDocument = aws.iam.getPolicyDocumentOutput({
  *     statements: [{
  *         actions: ["sts:AssumeRole"],
  *         effect: "Allow",
- *         resources: [`arn:aws:iam::*:role/${executionRoleName}`],
+ *         resources: [pulumi.interpolate`arn:aws:iam::*:role/${example.executionRoleName}`],
  *     }],
- * }));
+ * });
  * const aWSCloudFormationStackSetAdministrationRoleExecutionPolicyRolePolicy = new aws.iam.RolePolicy("aWSCloudFormationStackSetAdministrationRoleExecutionPolicyRolePolicy", {
  *     policy: aWSCloudFormationStackSetAdministrationRoleExecutionPolicyPolicyDocument.apply(aWSCloudFormationStackSetAdministrationRoleExecutionPolicyPolicyDocument => aWSCloudFormationStackSetAdministrationRoleExecutionPolicyPolicyDocument.json),
  *     role: aWSCloudFormationStackSetAdministrationRole.name,
@@ -171,45 +171,45 @@ export class StackSet extends pulumi.CustomResource {
      */
     constructor(name: string, args?: StackSetArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: StackSetArgs | StackSetState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as StackSetState | undefined;
-            inputs["administrationRoleArn"] = state ? state.administrationRoleArn : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["autoDeployment"] = state ? state.autoDeployment : undefined;
-            inputs["capabilities"] = state ? state.capabilities : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["executionRoleName"] = state ? state.executionRoleName : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["parameters"] = state ? state.parameters : undefined;
-            inputs["permissionModel"] = state ? state.permissionModel : undefined;
-            inputs["stackSetId"] = state ? state.stackSetId : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["templateBody"] = state ? state.templateBody : undefined;
-            inputs["templateUrl"] = state ? state.templateUrl : undefined;
+            resourceInputs["administrationRoleArn"] = state ? state.administrationRoleArn : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["autoDeployment"] = state ? state.autoDeployment : undefined;
+            resourceInputs["capabilities"] = state ? state.capabilities : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["executionRoleName"] = state ? state.executionRoleName : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["parameters"] = state ? state.parameters : undefined;
+            resourceInputs["permissionModel"] = state ? state.permissionModel : undefined;
+            resourceInputs["stackSetId"] = state ? state.stackSetId : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["templateBody"] = state ? state.templateBody : undefined;
+            resourceInputs["templateUrl"] = state ? state.templateUrl : undefined;
         } else {
             const args = argsOrState as StackSetArgs | undefined;
-            inputs["administrationRoleArn"] = args ? args.administrationRoleArn : undefined;
-            inputs["autoDeployment"] = args ? args.autoDeployment : undefined;
-            inputs["capabilities"] = args ? args.capabilities : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["executionRoleName"] = args ? args.executionRoleName : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["parameters"] = args ? args.parameters : undefined;
-            inputs["permissionModel"] = args ? args.permissionModel : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["templateBody"] = args ? args.templateBody : undefined;
-            inputs["templateUrl"] = args ? args.templateUrl : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["stackSetId"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["administrationRoleArn"] = args ? args.administrationRoleArn : undefined;
+            resourceInputs["autoDeployment"] = args ? args.autoDeployment : undefined;
+            resourceInputs["capabilities"] = args ? args.capabilities : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["executionRoleName"] = args ? args.executionRoleName : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["parameters"] = args ? args.parameters : undefined;
+            resourceInputs["permissionModel"] = args ? args.permissionModel : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["templateBody"] = args ? args.templateBody : undefined;
+            resourceInputs["templateUrl"] = args ? args.templateUrl : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["stackSetId"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(StackSet.__pulumiType, name, inputs, opts);
+        super(StackSet.__pulumiType, name, resourceInputs, opts);
     }
 }
 

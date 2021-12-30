@@ -152,47 +152,47 @@ export class Stack extends pulumi.CustomResource {
      */
     constructor(name: string, args?: StackArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: StackArgs | StackState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as StackState | undefined;
-            inputs["capabilities"] = state ? state.capabilities : undefined;
-            inputs["disableRollback"] = state ? state.disableRollback : undefined;
-            inputs["iamRoleArn"] = state ? state.iamRoleArn : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["notificationArns"] = state ? state.notificationArns : undefined;
-            inputs["onFailure"] = state ? state.onFailure : undefined;
-            inputs["outputs"] = state ? state.outputs : undefined;
-            inputs["parameters"] = state ? state.parameters : undefined;
-            inputs["policyBody"] = state ? state.policyBody : undefined;
-            inputs["policyUrl"] = state ? state.policyUrl : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["templateBody"] = state ? state.templateBody : undefined;
-            inputs["templateUrl"] = state ? state.templateUrl : undefined;
-            inputs["timeoutInMinutes"] = state ? state.timeoutInMinutes : undefined;
+            resourceInputs["capabilities"] = state ? state.capabilities : undefined;
+            resourceInputs["disableRollback"] = state ? state.disableRollback : undefined;
+            resourceInputs["iamRoleArn"] = state ? state.iamRoleArn : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["notificationArns"] = state ? state.notificationArns : undefined;
+            resourceInputs["onFailure"] = state ? state.onFailure : undefined;
+            resourceInputs["outputs"] = state ? state.outputs : undefined;
+            resourceInputs["parameters"] = state ? state.parameters : undefined;
+            resourceInputs["policyBody"] = state ? state.policyBody : undefined;
+            resourceInputs["policyUrl"] = state ? state.policyUrl : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["templateBody"] = state ? state.templateBody : undefined;
+            resourceInputs["templateUrl"] = state ? state.templateUrl : undefined;
+            resourceInputs["timeoutInMinutes"] = state ? state.timeoutInMinutes : undefined;
         } else {
             const args = argsOrState as StackArgs | undefined;
-            inputs["capabilities"] = args ? args.capabilities : undefined;
-            inputs["disableRollback"] = args ? args.disableRollback : undefined;
-            inputs["iamRoleArn"] = args ? args.iamRoleArn : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["notificationArns"] = args ? args.notificationArns : undefined;
-            inputs["onFailure"] = args ? args.onFailure : undefined;
-            inputs["parameters"] = args ? args.parameters : undefined;
-            inputs["policyBody"] = args ? args.policyBody : undefined;
-            inputs["policyUrl"] = args ? args.policyUrl : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["templateBody"] = args ? args.templateBody : undefined;
-            inputs["templateUrl"] = args ? args.templateUrl : undefined;
-            inputs["timeoutInMinutes"] = args ? args.timeoutInMinutes : undefined;
-            inputs["outputs"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["capabilities"] = args ? args.capabilities : undefined;
+            resourceInputs["disableRollback"] = args ? args.disableRollback : undefined;
+            resourceInputs["iamRoleArn"] = args ? args.iamRoleArn : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["notificationArns"] = args ? args.notificationArns : undefined;
+            resourceInputs["onFailure"] = args ? args.onFailure : undefined;
+            resourceInputs["parameters"] = args ? args.parameters : undefined;
+            resourceInputs["policyBody"] = args ? args.policyBody : undefined;
+            resourceInputs["policyUrl"] = args ? args.policyUrl : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["templateBody"] = args ? args.templateBody : undefined;
+            resourceInputs["templateUrl"] = args ? args.templateUrl : undefined;
+            resourceInputs["timeoutInMinutes"] = args ? args.timeoutInMinutes : undefined;
+            resourceInputs["outputs"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Stack.__pulumiType, name, inputs, opts);
+        super(Stack.__pulumiType, name, resourceInputs, opts);
     }
 }
 

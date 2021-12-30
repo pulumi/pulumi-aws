@@ -47,47 +47,6 @@ func (i ClassificationJobS3JobDefinitionArgs) ToClassificationJobS3JobDefinition
 	return pulumi.ToOutputWithContext(ctx, i).(ClassificationJobS3JobDefinitionOutput)
 }
 
-func (i ClassificationJobS3JobDefinitionArgs) ToClassificationJobS3JobDefinitionPtrOutput() ClassificationJobS3JobDefinitionPtrOutput {
-	return i.ToClassificationJobS3JobDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (i ClassificationJobS3JobDefinitionArgs) ToClassificationJobS3JobDefinitionPtrOutputWithContext(ctx context.Context) ClassificationJobS3JobDefinitionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClassificationJobS3JobDefinitionOutput).ToClassificationJobS3JobDefinitionPtrOutputWithContext(ctx)
-}
-
-// ClassificationJobS3JobDefinitionPtrInput is an input type that accepts ClassificationJobS3JobDefinitionArgs, ClassificationJobS3JobDefinitionPtr and ClassificationJobS3JobDefinitionPtrOutput values.
-// You can construct a concrete instance of `ClassificationJobS3JobDefinitionPtrInput` via:
-//
-//          ClassificationJobS3JobDefinitionArgs{...}
-//
-//  or:
-//
-//          nil
-type ClassificationJobS3JobDefinitionPtrInput interface {
-	pulumi.Input
-
-	ToClassificationJobS3JobDefinitionPtrOutput() ClassificationJobS3JobDefinitionPtrOutput
-	ToClassificationJobS3JobDefinitionPtrOutputWithContext(context.Context) ClassificationJobS3JobDefinitionPtrOutput
-}
-
-type classificationJobS3JobDefinitionPtrType ClassificationJobS3JobDefinitionArgs
-
-func ClassificationJobS3JobDefinitionPtr(v *ClassificationJobS3JobDefinitionArgs) ClassificationJobS3JobDefinitionPtrInput {
-	return (*classificationJobS3JobDefinitionPtrType)(v)
-}
-
-func (*classificationJobS3JobDefinitionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ClassificationJobS3JobDefinition)(nil)).Elem()
-}
-
-func (i *classificationJobS3JobDefinitionPtrType) ToClassificationJobS3JobDefinitionPtrOutput() ClassificationJobS3JobDefinitionPtrOutput {
-	return i.ToClassificationJobS3JobDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (i *classificationJobS3JobDefinitionPtrType) ToClassificationJobS3JobDefinitionPtrOutputWithContext(ctx context.Context) ClassificationJobS3JobDefinitionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClassificationJobS3JobDefinitionPtrOutput)
-}
-
 type ClassificationJobS3JobDefinitionOutput struct{ *pulumi.OutputState }
 
 func (ClassificationJobS3JobDefinitionOutput) ElementType() reflect.Type {
@@ -102,16 +61,6 @@ func (o ClassificationJobS3JobDefinitionOutput) ToClassificationJobS3JobDefiniti
 	return o
 }
 
-func (o ClassificationJobS3JobDefinitionOutput) ToClassificationJobS3JobDefinitionPtrOutput() ClassificationJobS3JobDefinitionPtrOutput {
-	return o.ToClassificationJobS3JobDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (o ClassificationJobS3JobDefinitionOutput) ToClassificationJobS3JobDefinitionPtrOutputWithContext(ctx context.Context) ClassificationJobS3JobDefinitionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClassificationJobS3JobDefinition) *ClassificationJobS3JobDefinition {
-		return &v
-	}).(ClassificationJobS3JobDefinitionPtrOutput)
-}
-
 // An array of objects, one for each AWS account that owns buckets to analyze. Each object specifies the account ID for an account and one or more buckets to analyze for the account. (documented below)
 func (o ClassificationJobS3JobDefinitionOutput) BucketDefinitions() ClassificationJobS3JobDefinitionBucketDefinitionArrayOutput {
 	return o.ApplyT(func(v ClassificationJobS3JobDefinition) []ClassificationJobS3JobDefinitionBucketDefinition {
@@ -122,50 +71,6 @@ func (o ClassificationJobS3JobDefinitionOutput) BucketDefinitions() Classificati
 // The property- and tag-based conditions that determine which objects to include or exclude from the analysis. (documented below)
 func (o ClassificationJobS3JobDefinitionOutput) Scoping() ClassificationJobS3JobDefinitionScopingPtrOutput {
 	return o.ApplyT(func(v ClassificationJobS3JobDefinition) *ClassificationJobS3JobDefinitionScoping { return v.Scoping }).(ClassificationJobS3JobDefinitionScopingPtrOutput)
-}
-
-type ClassificationJobS3JobDefinitionPtrOutput struct{ *pulumi.OutputState }
-
-func (ClassificationJobS3JobDefinitionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ClassificationJobS3JobDefinition)(nil)).Elem()
-}
-
-func (o ClassificationJobS3JobDefinitionPtrOutput) ToClassificationJobS3JobDefinitionPtrOutput() ClassificationJobS3JobDefinitionPtrOutput {
-	return o
-}
-
-func (o ClassificationJobS3JobDefinitionPtrOutput) ToClassificationJobS3JobDefinitionPtrOutputWithContext(ctx context.Context) ClassificationJobS3JobDefinitionPtrOutput {
-	return o
-}
-
-func (o ClassificationJobS3JobDefinitionPtrOutput) Elem() ClassificationJobS3JobDefinitionOutput {
-	return o.ApplyT(func(v *ClassificationJobS3JobDefinition) ClassificationJobS3JobDefinition {
-		if v != nil {
-			return *v
-		}
-		var ret ClassificationJobS3JobDefinition
-		return ret
-	}).(ClassificationJobS3JobDefinitionOutput)
-}
-
-// An array of objects, one for each AWS account that owns buckets to analyze. Each object specifies the account ID for an account and one or more buckets to analyze for the account. (documented below)
-func (o ClassificationJobS3JobDefinitionPtrOutput) BucketDefinitions() ClassificationJobS3JobDefinitionBucketDefinitionArrayOutput {
-	return o.ApplyT(func(v *ClassificationJobS3JobDefinition) []ClassificationJobS3JobDefinitionBucketDefinition {
-		if v == nil {
-			return nil
-		}
-		return v.BucketDefinitions
-	}).(ClassificationJobS3JobDefinitionBucketDefinitionArrayOutput)
-}
-
-// The property- and tag-based conditions that determine which objects to include or exclude from the analysis. (documented below)
-func (o ClassificationJobS3JobDefinitionPtrOutput) Scoping() ClassificationJobS3JobDefinitionScopingPtrOutput {
-	return o.ApplyT(func(v *ClassificationJobS3JobDefinition) *ClassificationJobS3JobDefinitionScoping {
-		if v == nil {
-			return nil
-		}
-		return v.Scoping
-	}).(ClassificationJobS3JobDefinitionScopingPtrOutput)
 }
 
 type ClassificationJobS3JobDefinitionBucketDefinition struct {
@@ -2061,60 +1966,6 @@ type ClassificationJobUserPausedDetail struct {
 	JobPausedAt                         *string `pulumi:"jobPausedAt"`
 }
 
-// ClassificationJobUserPausedDetailInput is an input type that accepts ClassificationJobUserPausedDetailArgs and ClassificationJobUserPausedDetailOutput values.
-// You can construct a concrete instance of `ClassificationJobUserPausedDetailInput` via:
-//
-//          ClassificationJobUserPausedDetailArgs{...}
-type ClassificationJobUserPausedDetailInput interface {
-	pulumi.Input
-
-	ToClassificationJobUserPausedDetailOutput() ClassificationJobUserPausedDetailOutput
-	ToClassificationJobUserPausedDetailOutputWithContext(context.Context) ClassificationJobUserPausedDetailOutput
-}
-
-type ClassificationJobUserPausedDetailArgs struct {
-	JobExpiresAt                        pulumi.StringPtrInput `pulumi:"jobExpiresAt"`
-	JobImminentExpirationHealthEventArn pulumi.StringPtrInput `pulumi:"jobImminentExpirationHealthEventArn"`
-	JobPausedAt                         pulumi.StringPtrInput `pulumi:"jobPausedAt"`
-}
-
-func (ClassificationJobUserPausedDetailArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClassificationJobUserPausedDetail)(nil)).Elem()
-}
-
-func (i ClassificationJobUserPausedDetailArgs) ToClassificationJobUserPausedDetailOutput() ClassificationJobUserPausedDetailOutput {
-	return i.ToClassificationJobUserPausedDetailOutputWithContext(context.Background())
-}
-
-func (i ClassificationJobUserPausedDetailArgs) ToClassificationJobUserPausedDetailOutputWithContext(ctx context.Context) ClassificationJobUserPausedDetailOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClassificationJobUserPausedDetailOutput)
-}
-
-// ClassificationJobUserPausedDetailArrayInput is an input type that accepts ClassificationJobUserPausedDetailArray and ClassificationJobUserPausedDetailArrayOutput values.
-// You can construct a concrete instance of `ClassificationJobUserPausedDetailArrayInput` via:
-//
-//          ClassificationJobUserPausedDetailArray{ ClassificationJobUserPausedDetailArgs{...} }
-type ClassificationJobUserPausedDetailArrayInput interface {
-	pulumi.Input
-
-	ToClassificationJobUserPausedDetailArrayOutput() ClassificationJobUserPausedDetailArrayOutput
-	ToClassificationJobUserPausedDetailArrayOutputWithContext(context.Context) ClassificationJobUserPausedDetailArrayOutput
-}
-
-type ClassificationJobUserPausedDetailArray []ClassificationJobUserPausedDetailInput
-
-func (ClassificationJobUserPausedDetailArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ClassificationJobUserPausedDetail)(nil)).Elem()
-}
-
-func (i ClassificationJobUserPausedDetailArray) ToClassificationJobUserPausedDetailArrayOutput() ClassificationJobUserPausedDetailArrayOutput {
-	return i.ToClassificationJobUserPausedDetailArrayOutputWithContext(context.Background())
-}
-
-func (i ClassificationJobUserPausedDetailArray) ToClassificationJobUserPausedDetailArrayOutputWithContext(ctx context.Context) ClassificationJobUserPausedDetailArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClassificationJobUserPausedDetailArrayOutput)
-}
-
 type ClassificationJobUserPausedDetailOutput struct{ *pulumi.OutputState }
 
 func (ClassificationJobUserPausedDetailOutput) ElementType() reflect.Type {
@@ -2163,7 +2014,6 @@ func (o ClassificationJobUserPausedDetailArrayOutput) Index(i pulumi.IntInput) C
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClassificationJobS3JobDefinitionInput)(nil)).Elem(), ClassificationJobS3JobDefinitionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ClassificationJobS3JobDefinitionPtrInput)(nil)).Elem(), ClassificationJobS3JobDefinitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClassificationJobS3JobDefinitionBucketDefinitionInput)(nil)).Elem(), ClassificationJobS3JobDefinitionBucketDefinitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClassificationJobS3JobDefinitionBucketDefinitionArrayInput)(nil)).Elem(), ClassificationJobS3JobDefinitionBucketDefinitionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClassificationJobS3JobDefinitionScopingInput)(nil)).Elem(), ClassificationJobS3JobDefinitionScopingArgs{})
@@ -2190,10 +2040,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermTagValueArrayInput)(nil)).Elem(), ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermTagValueArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClassificationJobScheduleFrequencyInput)(nil)).Elem(), ClassificationJobScheduleFrequencyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClassificationJobScheduleFrequencyPtrInput)(nil)).Elem(), ClassificationJobScheduleFrequencyArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ClassificationJobUserPausedDetailInput)(nil)).Elem(), ClassificationJobUserPausedDetailArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ClassificationJobUserPausedDetailArrayInput)(nil)).Elem(), ClassificationJobUserPausedDetailArray{})
 	pulumi.RegisterOutputType(ClassificationJobS3JobDefinitionOutput{})
-	pulumi.RegisterOutputType(ClassificationJobS3JobDefinitionPtrOutput{})
 	pulumi.RegisterOutputType(ClassificationJobS3JobDefinitionBucketDefinitionOutput{})
 	pulumi.RegisterOutputType(ClassificationJobS3JobDefinitionBucketDefinitionArrayOutput{})
 	pulumi.RegisterOutputType(ClassificationJobS3JobDefinitionScopingOutput{})

@@ -38,7 +38,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = sns.NewTopicPolicy(ctx, "_default", &sns.TopicPolicyArgs{
+// 		_, err = sns.NewTopicPolicy(ctx, "default", &sns.TopicPolicyArgs{
 // 			Arn: notif.Arn,
 // 			Policy: notifAccess.ApplyT(func(notifAccess iam.GetPolicyDocumentResult) (string, error) {
 // 				return notifAccess.Json, nil
@@ -232,7 +232,7 @@ type NotificationRuleInput interface {
 }
 
 func (*NotificationRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*NotificationRule)(nil))
+	return reflect.TypeOf((**NotificationRule)(nil)).Elem()
 }
 
 func (i *NotificationRule) ToNotificationRuleOutput() NotificationRuleOutput {
@@ -241,35 +241,6 @@ func (i *NotificationRule) ToNotificationRuleOutput() NotificationRuleOutput {
 
 func (i *NotificationRule) ToNotificationRuleOutputWithContext(ctx context.Context) NotificationRuleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NotificationRuleOutput)
-}
-
-func (i *NotificationRule) ToNotificationRulePtrOutput() NotificationRulePtrOutput {
-	return i.ToNotificationRulePtrOutputWithContext(context.Background())
-}
-
-func (i *NotificationRule) ToNotificationRulePtrOutputWithContext(ctx context.Context) NotificationRulePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NotificationRulePtrOutput)
-}
-
-type NotificationRulePtrInput interface {
-	pulumi.Input
-
-	ToNotificationRulePtrOutput() NotificationRulePtrOutput
-	ToNotificationRulePtrOutputWithContext(ctx context.Context) NotificationRulePtrOutput
-}
-
-type notificationRulePtrType NotificationRuleArgs
-
-func (*notificationRulePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**NotificationRule)(nil))
-}
-
-func (i *notificationRulePtrType) ToNotificationRulePtrOutput() NotificationRulePtrOutput {
-	return i.ToNotificationRulePtrOutputWithContext(context.Background())
-}
-
-func (i *notificationRulePtrType) ToNotificationRulePtrOutputWithContext(ctx context.Context) NotificationRulePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NotificationRulePtrOutput)
 }
 
 // NotificationRuleArrayInput is an input type that accepts NotificationRuleArray and NotificationRuleArrayOutput values.
@@ -325,7 +296,7 @@ func (i NotificationRuleMap) ToNotificationRuleMapOutputWithContext(ctx context.
 type NotificationRuleOutput struct{ *pulumi.OutputState }
 
 func (NotificationRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NotificationRule)(nil))
+	return reflect.TypeOf((**NotificationRule)(nil)).Elem()
 }
 
 func (o NotificationRuleOutput) ToNotificationRuleOutput() NotificationRuleOutput {
@@ -336,44 +307,10 @@ func (o NotificationRuleOutput) ToNotificationRuleOutputWithContext(ctx context.
 	return o
 }
 
-func (o NotificationRuleOutput) ToNotificationRulePtrOutput() NotificationRulePtrOutput {
-	return o.ToNotificationRulePtrOutputWithContext(context.Background())
-}
-
-func (o NotificationRuleOutput) ToNotificationRulePtrOutputWithContext(ctx context.Context) NotificationRulePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v NotificationRule) *NotificationRule {
-		return &v
-	}).(NotificationRulePtrOutput)
-}
-
-type NotificationRulePtrOutput struct{ *pulumi.OutputState }
-
-func (NotificationRulePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**NotificationRule)(nil))
-}
-
-func (o NotificationRulePtrOutput) ToNotificationRulePtrOutput() NotificationRulePtrOutput {
-	return o
-}
-
-func (o NotificationRulePtrOutput) ToNotificationRulePtrOutputWithContext(ctx context.Context) NotificationRulePtrOutput {
-	return o
-}
-
-func (o NotificationRulePtrOutput) Elem() NotificationRuleOutput {
-	return o.ApplyT(func(v *NotificationRule) NotificationRule {
-		if v != nil {
-			return *v
-		}
-		var ret NotificationRule
-		return ret
-	}).(NotificationRuleOutput)
-}
-
 type NotificationRuleArrayOutput struct{ *pulumi.OutputState }
 
 func (NotificationRuleArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]NotificationRule)(nil))
+	return reflect.TypeOf((*[]*NotificationRule)(nil)).Elem()
 }
 
 func (o NotificationRuleArrayOutput) ToNotificationRuleArrayOutput() NotificationRuleArrayOutput {
@@ -385,15 +322,15 @@ func (o NotificationRuleArrayOutput) ToNotificationRuleArrayOutputWithContext(ct
 }
 
 func (o NotificationRuleArrayOutput) Index(i pulumi.IntInput) NotificationRuleOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NotificationRule {
-		return vs[0].([]NotificationRule)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NotificationRule {
+		return vs[0].([]*NotificationRule)[vs[1].(int)]
 	}).(NotificationRuleOutput)
 }
 
 type NotificationRuleMapOutput struct{ *pulumi.OutputState }
 
 func (NotificationRuleMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]NotificationRule)(nil))
+	return reflect.TypeOf((*map[string]*NotificationRule)(nil)).Elem()
 }
 
 func (o NotificationRuleMapOutput) ToNotificationRuleMapOutput() NotificationRuleMapOutput {
@@ -405,18 +342,16 @@ func (o NotificationRuleMapOutput) ToNotificationRuleMapOutputWithContext(ctx co
 }
 
 func (o NotificationRuleMapOutput) MapIndex(k pulumi.StringInput) NotificationRuleOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) NotificationRule {
-		return vs[0].(map[string]NotificationRule)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *NotificationRule {
+		return vs[0].(map[string]*NotificationRule)[vs[1].(string)]
 	}).(NotificationRuleOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NotificationRuleInput)(nil)).Elem(), &NotificationRule{})
-	pulumi.RegisterInputType(reflect.TypeOf((*NotificationRulePtrInput)(nil)).Elem(), &NotificationRule{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NotificationRuleArrayInput)(nil)).Elem(), NotificationRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NotificationRuleMapInput)(nil)).Elem(), NotificationRuleMap{})
 	pulumi.RegisterOutputType(NotificationRuleOutput{})
-	pulumi.RegisterOutputType(NotificationRulePtrOutput{})
 	pulumi.RegisterOutputType(NotificationRuleArrayOutput{})
 	pulumi.RegisterOutputType(NotificationRuleMapOutput{})
 }

@@ -208,7 +208,7 @@ type CloudFormationTypeInput interface {
 }
 
 func (*CloudFormationType) ElementType() reflect.Type {
-	return reflect.TypeOf((*CloudFormationType)(nil))
+	return reflect.TypeOf((**CloudFormationType)(nil)).Elem()
 }
 
 func (i *CloudFormationType) ToCloudFormationTypeOutput() CloudFormationTypeOutput {
@@ -217,35 +217,6 @@ func (i *CloudFormationType) ToCloudFormationTypeOutput() CloudFormationTypeOutp
 
 func (i *CloudFormationType) ToCloudFormationTypeOutputWithContext(ctx context.Context) CloudFormationTypeOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CloudFormationTypeOutput)
-}
-
-func (i *CloudFormationType) ToCloudFormationTypePtrOutput() CloudFormationTypePtrOutput {
-	return i.ToCloudFormationTypePtrOutputWithContext(context.Background())
-}
-
-func (i *CloudFormationType) ToCloudFormationTypePtrOutputWithContext(ctx context.Context) CloudFormationTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CloudFormationTypePtrOutput)
-}
-
-type CloudFormationTypePtrInput interface {
-	pulumi.Input
-
-	ToCloudFormationTypePtrOutput() CloudFormationTypePtrOutput
-	ToCloudFormationTypePtrOutputWithContext(ctx context.Context) CloudFormationTypePtrOutput
-}
-
-type cloudFormationTypePtrType CloudFormationTypeArgs
-
-func (*cloudFormationTypePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CloudFormationType)(nil))
-}
-
-func (i *cloudFormationTypePtrType) ToCloudFormationTypePtrOutput() CloudFormationTypePtrOutput {
-	return i.ToCloudFormationTypePtrOutputWithContext(context.Background())
-}
-
-func (i *cloudFormationTypePtrType) ToCloudFormationTypePtrOutputWithContext(ctx context.Context) CloudFormationTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CloudFormationTypePtrOutput)
 }
 
 // CloudFormationTypeArrayInput is an input type that accepts CloudFormationTypeArray and CloudFormationTypeArrayOutput values.
@@ -301,7 +272,7 @@ func (i CloudFormationTypeMap) ToCloudFormationTypeMapOutputWithContext(ctx cont
 type CloudFormationTypeOutput struct{ *pulumi.OutputState }
 
 func (CloudFormationTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CloudFormationType)(nil))
+	return reflect.TypeOf((**CloudFormationType)(nil)).Elem()
 }
 
 func (o CloudFormationTypeOutput) ToCloudFormationTypeOutput() CloudFormationTypeOutput {
@@ -312,44 +283,10 @@ func (o CloudFormationTypeOutput) ToCloudFormationTypeOutputWithContext(ctx cont
 	return o
 }
 
-func (o CloudFormationTypeOutput) ToCloudFormationTypePtrOutput() CloudFormationTypePtrOutput {
-	return o.ToCloudFormationTypePtrOutputWithContext(context.Background())
-}
-
-func (o CloudFormationTypeOutput) ToCloudFormationTypePtrOutputWithContext(ctx context.Context) CloudFormationTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CloudFormationType) *CloudFormationType {
-		return &v
-	}).(CloudFormationTypePtrOutput)
-}
-
-type CloudFormationTypePtrOutput struct{ *pulumi.OutputState }
-
-func (CloudFormationTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CloudFormationType)(nil))
-}
-
-func (o CloudFormationTypePtrOutput) ToCloudFormationTypePtrOutput() CloudFormationTypePtrOutput {
-	return o
-}
-
-func (o CloudFormationTypePtrOutput) ToCloudFormationTypePtrOutputWithContext(ctx context.Context) CloudFormationTypePtrOutput {
-	return o
-}
-
-func (o CloudFormationTypePtrOutput) Elem() CloudFormationTypeOutput {
-	return o.ApplyT(func(v *CloudFormationType) CloudFormationType {
-		if v != nil {
-			return *v
-		}
-		var ret CloudFormationType
-		return ret
-	}).(CloudFormationTypeOutput)
-}
-
 type CloudFormationTypeArrayOutput struct{ *pulumi.OutputState }
 
 func (CloudFormationTypeArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CloudFormationType)(nil))
+	return reflect.TypeOf((*[]*CloudFormationType)(nil)).Elem()
 }
 
 func (o CloudFormationTypeArrayOutput) ToCloudFormationTypeArrayOutput() CloudFormationTypeArrayOutput {
@@ -361,15 +298,15 @@ func (o CloudFormationTypeArrayOutput) ToCloudFormationTypeArrayOutputWithContex
 }
 
 func (o CloudFormationTypeArrayOutput) Index(i pulumi.IntInput) CloudFormationTypeOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CloudFormationType {
-		return vs[0].([]CloudFormationType)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *CloudFormationType {
+		return vs[0].([]*CloudFormationType)[vs[1].(int)]
 	}).(CloudFormationTypeOutput)
 }
 
 type CloudFormationTypeMapOutput struct{ *pulumi.OutputState }
 
 func (CloudFormationTypeMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]CloudFormationType)(nil))
+	return reflect.TypeOf((*map[string]*CloudFormationType)(nil)).Elem()
 }
 
 func (o CloudFormationTypeMapOutput) ToCloudFormationTypeMapOutput() CloudFormationTypeMapOutput {
@@ -381,18 +318,16 @@ func (o CloudFormationTypeMapOutput) ToCloudFormationTypeMapOutputWithContext(ct
 }
 
 func (o CloudFormationTypeMapOutput) MapIndex(k pulumi.StringInput) CloudFormationTypeOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) CloudFormationType {
-		return vs[0].(map[string]CloudFormationType)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *CloudFormationType {
+		return vs[0].(map[string]*CloudFormationType)[vs[1].(string)]
 	}).(CloudFormationTypeOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CloudFormationTypeInput)(nil)).Elem(), &CloudFormationType{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CloudFormationTypePtrInput)(nil)).Elem(), &CloudFormationType{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CloudFormationTypeArrayInput)(nil)).Elem(), CloudFormationTypeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CloudFormationTypeMapInput)(nil)).Elem(), CloudFormationTypeMap{})
 	pulumi.RegisterOutputType(CloudFormationTypeOutput{})
-	pulumi.RegisterOutputType(CloudFormationTypePtrOutput{})
 	pulumi.RegisterOutputType(CloudFormationTypeArrayOutput{})
 	pulumi.RegisterOutputType(CloudFormationTypeMapOutput{})
 }

@@ -311,31 +311,31 @@ export class LaunchConfiguration extends pulumi.CustomResource {
      */
     constructor(name: string, args: LaunchConfigurationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: LaunchConfigurationArgs | LaunchConfigurationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LaunchConfigurationState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["associatePublicIpAddress"] = state ? state.associatePublicIpAddress : undefined;
-            inputs["ebsBlockDevices"] = state ? state.ebsBlockDevices : undefined;
-            inputs["ebsOptimized"] = state ? state.ebsOptimized : undefined;
-            inputs["enableMonitoring"] = state ? state.enableMonitoring : undefined;
-            inputs["ephemeralBlockDevices"] = state ? state.ephemeralBlockDevices : undefined;
-            inputs["iamInstanceProfile"] = state ? state.iamInstanceProfile : undefined;
-            inputs["imageId"] = state ? state.imageId : undefined;
-            inputs["instanceType"] = state ? state.instanceType : undefined;
-            inputs["keyName"] = state ? state.keyName : undefined;
-            inputs["metadataOptions"] = state ? state.metadataOptions : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["namePrefix"] = state ? state.namePrefix : undefined;
-            inputs["placementTenancy"] = state ? state.placementTenancy : undefined;
-            inputs["rootBlockDevice"] = state ? state.rootBlockDevice : undefined;
-            inputs["securityGroups"] = state ? state.securityGroups : undefined;
-            inputs["spotPrice"] = state ? state.spotPrice : undefined;
-            inputs["userData"] = state ? state.userData : undefined;
-            inputs["userDataBase64"] = state ? state.userDataBase64 : undefined;
-            inputs["vpcClassicLinkId"] = state ? state.vpcClassicLinkId : undefined;
-            inputs["vpcClassicLinkSecurityGroups"] = state ? state.vpcClassicLinkSecurityGroups : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["associatePublicIpAddress"] = state ? state.associatePublicIpAddress : undefined;
+            resourceInputs["ebsBlockDevices"] = state ? state.ebsBlockDevices : undefined;
+            resourceInputs["ebsOptimized"] = state ? state.ebsOptimized : undefined;
+            resourceInputs["enableMonitoring"] = state ? state.enableMonitoring : undefined;
+            resourceInputs["ephemeralBlockDevices"] = state ? state.ephemeralBlockDevices : undefined;
+            resourceInputs["iamInstanceProfile"] = state ? state.iamInstanceProfile : undefined;
+            resourceInputs["imageId"] = state ? state.imageId : undefined;
+            resourceInputs["instanceType"] = state ? state.instanceType : undefined;
+            resourceInputs["keyName"] = state ? state.keyName : undefined;
+            resourceInputs["metadataOptions"] = state ? state.metadataOptions : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
+            resourceInputs["placementTenancy"] = state ? state.placementTenancy : undefined;
+            resourceInputs["rootBlockDevice"] = state ? state.rootBlockDevice : undefined;
+            resourceInputs["securityGroups"] = state ? state.securityGroups : undefined;
+            resourceInputs["spotPrice"] = state ? state.spotPrice : undefined;
+            resourceInputs["userData"] = state ? state.userData : undefined;
+            resourceInputs["userDataBase64"] = state ? state.userDataBase64 : undefined;
+            resourceInputs["vpcClassicLinkId"] = state ? state.vpcClassicLinkId : undefined;
+            resourceInputs["vpcClassicLinkSecurityGroups"] = state ? state.vpcClassicLinkSecurityGroups : undefined;
         } else {
             const args = argsOrState as LaunchConfigurationArgs | undefined;
             if ((!args || args.imageId === undefined) && !opts.urn) {
@@ -344,32 +344,32 @@ export class LaunchConfiguration extends pulumi.CustomResource {
             if ((!args || args.instanceType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'instanceType'");
             }
-            inputs["associatePublicIpAddress"] = args ? args.associatePublicIpAddress : undefined;
-            inputs["ebsBlockDevices"] = args ? args.ebsBlockDevices : undefined;
-            inputs["ebsOptimized"] = args ? args.ebsOptimized : undefined;
-            inputs["enableMonitoring"] = args ? args.enableMonitoring : undefined;
-            inputs["ephemeralBlockDevices"] = args ? args.ephemeralBlockDevices : undefined;
-            inputs["iamInstanceProfile"] = args ? args.iamInstanceProfile : undefined;
-            inputs["imageId"] = args ? args.imageId : undefined;
-            inputs["instanceType"] = args ? args.instanceType : undefined;
-            inputs["keyName"] = args ? args.keyName : undefined;
-            inputs["metadataOptions"] = args ? args.metadataOptions : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["namePrefix"] = args ? args.namePrefix : undefined;
-            inputs["placementTenancy"] = args ? args.placementTenancy : undefined;
-            inputs["rootBlockDevice"] = args ? args.rootBlockDevice : undefined;
-            inputs["securityGroups"] = args ? args.securityGroups : undefined;
-            inputs["spotPrice"] = args ? args.spotPrice : undefined;
-            inputs["userData"] = args ? args.userData : undefined;
-            inputs["userDataBase64"] = args ? args.userDataBase64 : undefined;
-            inputs["vpcClassicLinkId"] = args ? args.vpcClassicLinkId : undefined;
-            inputs["vpcClassicLinkSecurityGroups"] = args ? args.vpcClassicLinkSecurityGroups : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["associatePublicIpAddress"] = args ? args.associatePublicIpAddress : undefined;
+            resourceInputs["ebsBlockDevices"] = args ? args.ebsBlockDevices : undefined;
+            resourceInputs["ebsOptimized"] = args ? args.ebsOptimized : undefined;
+            resourceInputs["enableMonitoring"] = args ? args.enableMonitoring : undefined;
+            resourceInputs["ephemeralBlockDevices"] = args ? args.ephemeralBlockDevices : undefined;
+            resourceInputs["iamInstanceProfile"] = args ? args.iamInstanceProfile : undefined;
+            resourceInputs["imageId"] = args ? args.imageId : undefined;
+            resourceInputs["instanceType"] = args ? args.instanceType : undefined;
+            resourceInputs["keyName"] = args ? args.keyName : undefined;
+            resourceInputs["metadataOptions"] = args ? args.metadataOptions : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
+            resourceInputs["placementTenancy"] = args ? args.placementTenancy : undefined;
+            resourceInputs["rootBlockDevice"] = args ? args.rootBlockDevice : undefined;
+            resourceInputs["securityGroups"] = args ? args.securityGroups : undefined;
+            resourceInputs["spotPrice"] = args ? args.spotPrice : undefined;
+            resourceInputs["userData"] = args ? args.userData : undefined;
+            resourceInputs["userDataBase64"] = args ? args.userDataBase64 : undefined;
+            resourceInputs["vpcClassicLinkId"] = args ? args.vpcClassicLinkId : undefined;
+            resourceInputs["vpcClassicLinkSecurityGroups"] = args ? args.vpcClassicLinkSecurityGroups : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(LaunchConfiguration.__pulumiType, name, inputs, opts);
+        super(LaunchConfiguration.__pulumiType, name, resourceInputs, opts);
     }
 }
 

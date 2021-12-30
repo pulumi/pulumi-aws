@@ -17,61 +17,6 @@ type ThingGroupMetadata struct {
 	RootToParentGroups []ThingGroupMetadataRootToParentGroup `pulumi:"rootToParentGroups"`
 }
 
-// ThingGroupMetadataInput is an input type that accepts ThingGroupMetadataArgs and ThingGroupMetadataOutput values.
-// You can construct a concrete instance of `ThingGroupMetadataInput` via:
-//
-//          ThingGroupMetadataArgs{...}
-type ThingGroupMetadataInput interface {
-	pulumi.Input
-
-	ToThingGroupMetadataOutput() ThingGroupMetadataOutput
-	ToThingGroupMetadataOutputWithContext(context.Context) ThingGroupMetadataOutput
-}
-
-type ThingGroupMetadataArgs struct {
-	CreationDate pulumi.StringPtrInput `pulumi:"creationDate"`
-	// The name of the parent Thing Group.
-	ParentGroupName    pulumi.StringPtrInput                         `pulumi:"parentGroupName"`
-	RootToParentGroups ThingGroupMetadataRootToParentGroupArrayInput `pulumi:"rootToParentGroups"`
-}
-
-func (ThingGroupMetadataArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ThingGroupMetadata)(nil)).Elem()
-}
-
-func (i ThingGroupMetadataArgs) ToThingGroupMetadataOutput() ThingGroupMetadataOutput {
-	return i.ToThingGroupMetadataOutputWithContext(context.Background())
-}
-
-func (i ThingGroupMetadataArgs) ToThingGroupMetadataOutputWithContext(ctx context.Context) ThingGroupMetadataOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ThingGroupMetadataOutput)
-}
-
-// ThingGroupMetadataArrayInput is an input type that accepts ThingGroupMetadataArray and ThingGroupMetadataArrayOutput values.
-// You can construct a concrete instance of `ThingGroupMetadataArrayInput` via:
-//
-//          ThingGroupMetadataArray{ ThingGroupMetadataArgs{...} }
-type ThingGroupMetadataArrayInput interface {
-	pulumi.Input
-
-	ToThingGroupMetadataArrayOutput() ThingGroupMetadataArrayOutput
-	ToThingGroupMetadataArrayOutputWithContext(context.Context) ThingGroupMetadataArrayOutput
-}
-
-type ThingGroupMetadataArray []ThingGroupMetadataInput
-
-func (ThingGroupMetadataArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ThingGroupMetadata)(nil)).Elem()
-}
-
-func (i ThingGroupMetadataArray) ToThingGroupMetadataArrayOutput() ThingGroupMetadataArrayOutput {
-	return i.ToThingGroupMetadataArrayOutputWithContext(context.Background())
-}
-
-func (i ThingGroupMetadataArray) ToThingGroupMetadataArrayOutputWithContext(ctx context.Context) ThingGroupMetadataArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ThingGroupMetadataArrayOutput)
-}
-
 type ThingGroupMetadataOutput struct{ *pulumi.OutputState }
 
 func (ThingGroupMetadataOutput) ElementType() reflect.Type {
@@ -122,59 +67,6 @@ func (o ThingGroupMetadataArrayOutput) Index(i pulumi.IntInput) ThingGroupMetada
 type ThingGroupMetadataRootToParentGroup struct {
 	GroupArn  *string `pulumi:"groupArn"`
 	GroupName *string `pulumi:"groupName"`
-}
-
-// ThingGroupMetadataRootToParentGroupInput is an input type that accepts ThingGroupMetadataRootToParentGroupArgs and ThingGroupMetadataRootToParentGroupOutput values.
-// You can construct a concrete instance of `ThingGroupMetadataRootToParentGroupInput` via:
-//
-//          ThingGroupMetadataRootToParentGroupArgs{...}
-type ThingGroupMetadataRootToParentGroupInput interface {
-	pulumi.Input
-
-	ToThingGroupMetadataRootToParentGroupOutput() ThingGroupMetadataRootToParentGroupOutput
-	ToThingGroupMetadataRootToParentGroupOutputWithContext(context.Context) ThingGroupMetadataRootToParentGroupOutput
-}
-
-type ThingGroupMetadataRootToParentGroupArgs struct {
-	GroupArn  pulumi.StringPtrInput `pulumi:"groupArn"`
-	GroupName pulumi.StringPtrInput `pulumi:"groupName"`
-}
-
-func (ThingGroupMetadataRootToParentGroupArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ThingGroupMetadataRootToParentGroup)(nil)).Elem()
-}
-
-func (i ThingGroupMetadataRootToParentGroupArgs) ToThingGroupMetadataRootToParentGroupOutput() ThingGroupMetadataRootToParentGroupOutput {
-	return i.ToThingGroupMetadataRootToParentGroupOutputWithContext(context.Background())
-}
-
-func (i ThingGroupMetadataRootToParentGroupArgs) ToThingGroupMetadataRootToParentGroupOutputWithContext(ctx context.Context) ThingGroupMetadataRootToParentGroupOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ThingGroupMetadataRootToParentGroupOutput)
-}
-
-// ThingGroupMetadataRootToParentGroupArrayInput is an input type that accepts ThingGroupMetadataRootToParentGroupArray and ThingGroupMetadataRootToParentGroupArrayOutput values.
-// You can construct a concrete instance of `ThingGroupMetadataRootToParentGroupArrayInput` via:
-//
-//          ThingGroupMetadataRootToParentGroupArray{ ThingGroupMetadataRootToParentGroupArgs{...} }
-type ThingGroupMetadataRootToParentGroupArrayInput interface {
-	pulumi.Input
-
-	ToThingGroupMetadataRootToParentGroupArrayOutput() ThingGroupMetadataRootToParentGroupArrayOutput
-	ToThingGroupMetadataRootToParentGroupArrayOutputWithContext(context.Context) ThingGroupMetadataRootToParentGroupArrayOutput
-}
-
-type ThingGroupMetadataRootToParentGroupArray []ThingGroupMetadataRootToParentGroupInput
-
-func (ThingGroupMetadataRootToParentGroupArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ThingGroupMetadataRootToParentGroup)(nil)).Elem()
-}
-
-func (i ThingGroupMetadataRootToParentGroupArray) ToThingGroupMetadataRootToParentGroupArrayOutput() ThingGroupMetadataRootToParentGroupArrayOutput {
-	return i.ToThingGroupMetadataRootToParentGroupArrayOutputWithContext(context.Background())
-}
-
-func (i ThingGroupMetadataRootToParentGroupArray) ToThingGroupMetadataRootToParentGroupArrayOutputWithContext(ctx context.Context) ThingGroupMetadataRootToParentGroupArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ThingGroupMetadataRootToParentGroupArrayOutput)
 }
 
 type ThingGroupMetadataRootToParentGroupOutput struct{ *pulumi.OutputState }
@@ -6658,10 +6550,6 @@ func (o TopicRuleStepFunctionArrayOutput) Index(i pulumi.IntInput) TopicRuleStep
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ThingGroupMetadataInput)(nil)).Elem(), ThingGroupMetadataArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ThingGroupMetadataArrayInput)(nil)).Elem(), ThingGroupMetadataArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ThingGroupMetadataRootToParentGroupInput)(nil)).Elem(), ThingGroupMetadataRootToParentGroupArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ThingGroupMetadataRootToParentGroupArrayInput)(nil)).Elem(), ThingGroupMetadataRootToParentGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ThingGroupPropertiesInput)(nil)).Elem(), ThingGroupPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ThingGroupPropertiesPtrInput)(nil)).Elem(), ThingGroupPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ThingGroupPropertiesAttributePayloadInput)(nil)).Elem(), ThingGroupPropertiesAttributePayloadArgs{})

@@ -130,15 +130,15 @@ export class RealtimeLogConfig extends pulumi.CustomResource {
      */
     constructor(name: string, args: RealtimeLogConfigArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RealtimeLogConfigArgs | RealtimeLogConfigState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RealtimeLogConfigState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["endpoint"] = state ? state.endpoint : undefined;
-            inputs["fields"] = state ? state.fields : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["samplingRate"] = state ? state.samplingRate : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["endpoint"] = state ? state.endpoint : undefined;
+            resourceInputs["fields"] = state ? state.fields : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["samplingRate"] = state ? state.samplingRate : undefined;
         } else {
             const args = argsOrState as RealtimeLogConfigArgs | undefined;
             if ((!args || args.endpoint === undefined) && !opts.urn) {
@@ -150,16 +150,16 @@ export class RealtimeLogConfig extends pulumi.CustomResource {
             if ((!args || args.samplingRate === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'samplingRate'");
             }
-            inputs["endpoint"] = args ? args.endpoint : undefined;
-            inputs["fields"] = args ? args.fields : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["samplingRate"] = args ? args.samplingRate : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["endpoint"] = args ? args.endpoint : undefined;
+            resourceInputs["fields"] = args ? args.fields : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["samplingRate"] = args ? args.samplingRate : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(RealtimeLogConfig.__pulumiType, name, inputs, opts);
+        super(RealtimeLogConfig.__pulumiType, name, resourceInputs, opts);
     }
 }
 

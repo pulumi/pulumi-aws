@@ -120,23 +120,23 @@ export class Schema extends pulumi.CustomResource {
      */
     constructor(name: string, args: SchemaArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SchemaArgs | SchemaState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SchemaState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["compatibility"] = state ? state.compatibility : undefined;
-            inputs["dataFormat"] = state ? state.dataFormat : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["latestSchemaVersion"] = state ? state.latestSchemaVersion : undefined;
-            inputs["nextSchemaVersion"] = state ? state.nextSchemaVersion : undefined;
-            inputs["registryArn"] = state ? state.registryArn : undefined;
-            inputs["registryName"] = state ? state.registryName : undefined;
-            inputs["schemaCheckpoint"] = state ? state.schemaCheckpoint : undefined;
-            inputs["schemaDefinition"] = state ? state.schemaDefinition : undefined;
-            inputs["schemaName"] = state ? state.schemaName : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["compatibility"] = state ? state.compatibility : undefined;
+            resourceInputs["dataFormat"] = state ? state.dataFormat : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["latestSchemaVersion"] = state ? state.latestSchemaVersion : undefined;
+            resourceInputs["nextSchemaVersion"] = state ? state.nextSchemaVersion : undefined;
+            resourceInputs["registryArn"] = state ? state.registryArn : undefined;
+            resourceInputs["registryName"] = state ? state.registryName : undefined;
+            resourceInputs["schemaCheckpoint"] = state ? state.schemaCheckpoint : undefined;
+            resourceInputs["schemaDefinition"] = state ? state.schemaDefinition : undefined;
+            resourceInputs["schemaName"] = state ? state.schemaName : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as SchemaArgs | undefined;
             if ((!args || args.compatibility === undefined) && !opts.urn) {
@@ -151,24 +151,24 @@ export class Schema extends pulumi.CustomResource {
             if ((!args || args.schemaName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'schemaName'");
             }
-            inputs["compatibility"] = args ? args.compatibility : undefined;
-            inputs["dataFormat"] = args ? args.dataFormat : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["registryArn"] = args ? args.registryArn : undefined;
-            inputs["schemaDefinition"] = args ? args.schemaDefinition : undefined;
-            inputs["schemaName"] = args ? args.schemaName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["latestSchemaVersion"] = undefined /*out*/;
-            inputs["nextSchemaVersion"] = undefined /*out*/;
-            inputs["registryName"] = undefined /*out*/;
-            inputs["schemaCheckpoint"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["compatibility"] = args ? args.compatibility : undefined;
+            resourceInputs["dataFormat"] = args ? args.dataFormat : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["registryArn"] = args ? args.registryArn : undefined;
+            resourceInputs["schemaDefinition"] = args ? args.schemaDefinition : undefined;
+            resourceInputs["schemaName"] = args ? args.schemaName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["latestSchemaVersion"] = undefined /*out*/;
+            resourceInputs["nextSchemaVersion"] = undefined /*out*/;
+            resourceInputs["registryName"] = undefined /*out*/;
+            resourceInputs["schemaCheckpoint"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Schema.__pulumiType, name, inputs, opts);
+        super(Schema.__pulumiType, name, resourceInputs, opts);
     }
 }
 

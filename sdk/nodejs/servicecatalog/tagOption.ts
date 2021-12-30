@@ -79,14 +79,14 @@ export class TagOption extends pulumi.CustomResource {
      */
     constructor(name: string, args: TagOptionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: TagOptionArgs | TagOptionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TagOptionState | undefined;
-            inputs["active"] = state ? state.active : undefined;
-            inputs["key"] = state ? state.key : undefined;
-            inputs["owner"] = state ? state.owner : undefined;
-            inputs["value"] = state ? state.value : undefined;
+            resourceInputs["active"] = state ? state.active : undefined;
+            resourceInputs["key"] = state ? state.key : undefined;
+            resourceInputs["owner"] = state ? state.owner : undefined;
+            resourceInputs["value"] = state ? state.value : undefined;
         } else {
             const args = argsOrState as TagOptionArgs | undefined;
             if ((!args || args.key === undefined) && !opts.urn) {
@@ -95,15 +95,15 @@ export class TagOption extends pulumi.CustomResource {
             if ((!args || args.value === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'value'");
             }
-            inputs["active"] = args ? args.active : undefined;
-            inputs["key"] = args ? args.key : undefined;
-            inputs["value"] = args ? args.value : undefined;
-            inputs["owner"] = undefined /*out*/;
+            resourceInputs["active"] = args ? args.active : undefined;
+            resourceInputs["key"] = args ? args.key : undefined;
+            resourceInputs["value"] = args ? args.value : undefined;
+            resourceInputs["owner"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(TagOption.__pulumiType, name, inputs, opts);
+        super(TagOption.__pulumiType, name, resourceInputs, opts);
     }
 }
 

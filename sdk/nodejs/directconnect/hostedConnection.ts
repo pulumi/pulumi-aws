@@ -119,25 +119,25 @@ export class HostedConnection extends pulumi.CustomResource {
      */
     constructor(name: string, args: HostedConnectionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: HostedConnectionArgs | HostedConnectionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as HostedConnectionState | undefined;
-            inputs["awsDevice"] = state ? state.awsDevice : undefined;
-            inputs["bandwidth"] = state ? state.bandwidth : undefined;
-            inputs["connectionId"] = state ? state.connectionId : undefined;
-            inputs["hasLogicalRedundancy"] = state ? state.hasLogicalRedundancy : undefined;
-            inputs["jumboFrameCapable"] = state ? state.jumboFrameCapable : undefined;
-            inputs["lagId"] = state ? state.lagId : undefined;
-            inputs["loaIssueTime"] = state ? state.loaIssueTime : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["ownerAccountId"] = state ? state.ownerAccountId : undefined;
-            inputs["partnerName"] = state ? state.partnerName : undefined;
-            inputs["providerName"] = state ? state.providerName : undefined;
-            inputs["region"] = state ? state.region : undefined;
-            inputs["state"] = state ? state.state : undefined;
-            inputs["vlan"] = state ? state.vlan : undefined;
+            resourceInputs["awsDevice"] = state ? state.awsDevice : undefined;
+            resourceInputs["bandwidth"] = state ? state.bandwidth : undefined;
+            resourceInputs["connectionId"] = state ? state.connectionId : undefined;
+            resourceInputs["hasLogicalRedundancy"] = state ? state.hasLogicalRedundancy : undefined;
+            resourceInputs["jumboFrameCapable"] = state ? state.jumboFrameCapable : undefined;
+            resourceInputs["lagId"] = state ? state.lagId : undefined;
+            resourceInputs["loaIssueTime"] = state ? state.loaIssueTime : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["ownerAccountId"] = state ? state.ownerAccountId : undefined;
+            resourceInputs["partnerName"] = state ? state.partnerName : undefined;
+            resourceInputs["providerName"] = state ? state.providerName : undefined;
+            resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["state"] = state ? state.state : undefined;
+            resourceInputs["vlan"] = state ? state.vlan : undefined;
         } else {
             const args = argsOrState as HostedConnectionArgs | undefined;
             if ((!args || args.bandwidth === undefined) && !opts.urn) {
@@ -152,26 +152,26 @@ export class HostedConnection extends pulumi.CustomResource {
             if ((!args || args.vlan === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vlan'");
             }
-            inputs["bandwidth"] = args ? args.bandwidth : undefined;
-            inputs["connectionId"] = args ? args.connectionId : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["ownerAccountId"] = args ? args.ownerAccountId : undefined;
-            inputs["vlan"] = args ? args.vlan : undefined;
-            inputs["awsDevice"] = undefined /*out*/;
-            inputs["hasLogicalRedundancy"] = undefined /*out*/;
-            inputs["jumboFrameCapable"] = undefined /*out*/;
-            inputs["lagId"] = undefined /*out*/;
-            inputs["loaIssueTime"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["partnerName"] = undefined /*out*/;
-            inputs["providerName"] = undefined /*out*/;
-            inputs["region"] = undefined /*out*/;
-            inputs["state"] = undefined /*out*/;
+            resourceInputs["bandwidth"] = args ? args.bandwidth : undefined;
+            resourceInputs["connectionId"] = args ? args.connectionId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["ownerAccountId"] = args ? args.ownerAccountId : undefined;
+            resourceInputs["vlan"] = args ? args.vlan : undefined;
+            resourceInputs["awsDevice"] = undefined /*out*/;
+            resourceInputs["hasLogicalRedundancy"] = undefined /*out*/;
+            resourceInputs["jumboFrameCapable"] = undefined /*out*/;
+            resourceInputs["lagId"] = undefined /*out*/;
+            resourceInputs["loaIssueTime"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["partnerName"] = undefined /*out*/;
+            resourceInputs["providerName"] = undefined /*out*/;
+            resourceInputs["region"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(HostedConnection.__pulumiType, name, inputs, opts);
+        super(HostedConnection.__pulumiType, name, resourceInputs, opts);
     }
 }
 

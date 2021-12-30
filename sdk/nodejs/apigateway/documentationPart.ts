@@ -84,13 +84,13 @@ export class DocumentationPart extends pulumi.CustomResource {
      */
     constructor(name: string, args: DocumentationPartArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DocumentationPartArgs | DocumentationPartState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DocumentationPartState | undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["properties"] = state ? state.properties : undefined;
-            inputs["restApiId"] = state ? state.restApiId : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["properties"] = state ? state.properties : undefined;
+            resourceInputs["restApiId"] = state ? state.restApiId : undefined;
         } else {
             const args = argsOrState as DocumentationPartArgs | undefined;
             if ((!args || args.location === undefined) && !opts.urn) {
@@ -102,14 +102,14 @@ export class DocumentationPart extends pulumi.CustomResource {
             if ((!args || args.restApiId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'restApiId'");
             }
-            inputs["location"] = args ? args.location : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["restApiId"] = args ? args.restApiId : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
+            resourceInputs["restApiId"] = args ? args.restApiId : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(DocumentationPart.__pulumiType, name, inputs, opts);
+        super(DocumentationPart.__pulumiType, name, resourceInputs, opts);
     }
 }
 

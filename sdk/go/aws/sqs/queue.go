@@ -404,7 +404,7 @@ type QueueInput interface {
 }
 
 func (*Queue) ElementType() reflect.Type {
-	return reflect.TypeOf((*Queue)(nil))
+	return reflect.TypeOf((**Queue)(nil)).Elem()
 }
 
 func (i *Queue) ToQueueOutput() QueueOutput {
@@ -413,35 +413,6 @@ func (i *Queue) ToQueueOutput() QueueOutput {
 
 func (i *Queue) ToQueueOutputWithContext(ctx context.Context) QueueOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(QueueOutput)
-}
-
-func (i *Queue) ToQueuePtrOutput() QueuePtrOutput {
-	return i.ToQueuePtrOutputWithContext(context.Background())
-}
-
-func (i *Queue) ToQueuePtrOutputWithContext(ctx context.Context) QueuePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(QueuePtrOutput)
-}
-
-type QueuePtrInput interface {
-	pulumi.Input
-
-	ToQueuePtrOutput() QueuePtrOutput
-	ToQueuePtrOutputWithContext(ctx context.Context) QueuePtrOutput
-}
-
-type queuePtrType QueueArgs
-
-func (*queuePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Queue)(nil))
-}
-
-func (i *queuePtrType) ToQueuePtrOutput() QueuePtrOutput {
-	return i.ToQueuePtrOutputWithContext(context.Background())
-}
-
-func (i *queuePtrType) ToQueuePtrOutputWithContext(ctx context.Context) QueuePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(QueuePtrOutput)
 }
 
 // QueueArrayInput is an input type that accepts QueueArray and QueueArrayOutput values.
@@ -497,7 +468,7 @@ func (i QueueMap) ToQueueMapOutputWithContext(ctx context.Context) QueueMapOutpu
 type QueueOutput struct{ *pulumi.OutputState }
 
 func (QueueOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Queue)(nil))
+	return reflect.TypeOf((**Queue)(nil)).Elem()
 }
 
 func (o QueueOutput) ToQueueOutput() QueueOutput {
@@ -508,44 +479,10 @@ func (o QueueOutput) ToQueueOutputWithContext(ctx context.Context) QueueOutput {
 	return o
 }
 
-func (o QueueOutput) ToQueuePtrOutput() QueuePtrOutput {
-	return o.ToQueuePtrOutputWithContext(context.Background())
-}
-
-func (o QueueOutput) ToQueuePtrOutputWithContext(ctx context.Context) QueuePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Queue) *Queue {
-		return &v
-	}).(QueuePtrOutput)
-}
-
-type QueuePtrOutput struct{ *pulumi.OutputState }
-
-func (QueuePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Queue)(nil))
-}
-
-func (o QueuePtrOutput) ToQueuePtrOutput() QueuePtrOutput {
-	return o
-}
-
-func (o QueuePtrOutput) ToQueuePtrOutputWithContext(ctx context.Context) QueuePtrOutput {
-	return o
-}
-
-func (o QueuePtrOutput) Elem() QueueOutput {
-	return o.ApplyT(func(v *Queue) Queue {
-		if v != nil {
-			return *v
-		}
-		var ret Queue
-		return ret
-	}).(QueueOutput)
-}
-
 type QueueArrayOutput struct{ *pulumi.OutputState }
 
 func (QueueArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Queue)(nil))
+	return reflect.TypeOf((*[]*Queue)(nil)).Elem()
 }
 
 func (o QueueArrayOutput) ToQueueArrayOutput() QueueArrayOutput {
@@ -557,15 +494,15 @@ func (o QueueArrayOutput) ToQueueArrayOutputWithContext(ctx context.Context) Que
 }
 
 func (o QueueArrayOutput) Index(i pulumi.IntInput) QueueOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Queue {
-		return vs[0].([]Queue)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Queue {
+		return vs[0].([]*Queue)[vs[1].(int)]
 	}).(QueueOutput)
 }
 
 type QueueMapOutput struct{ *pulumi.OutputState }
 
 func (QueueMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Queue)(nil))
+	return reflect.TypeOf((*map[string]*Queue)(nil)).Elem()
 }
 
 func (o QueueMapOutput) ToQueueMapOutput() QueueMapOutput {
@@ -577,18 +514,16 @@ func (o QueueMapOutput) ToQueueMapOutputWithContext(ctx context.Context) QueueMa
 }
 
 func (o QueueMapOutput) MapIndex(k pulumi.StringInput) QueueOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Queue {
-		return vs[0].(map[string]Queue)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Queue {
+		return vs[0].(map[string]*Queue)[vs[1].(string)]
 	}).(QueueOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*QueueInput)(nil)).Elem(), &Queue{})
-	pulumi.RegisterInputType(reflect.TypeOf((*QueuePtrInput)(nil)).Elem(), &Queue{})
 	pulumi.RegisterInputType(reflect.TypeOf((*QueueArrayInput)(nil)).Elem(), QueueArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*QueueMapInput)(nil)).Elem(), QueueMap{})
 	pulumi.RegisterOutputType(QueueOutput{})
-	pulumi.RegisterOutputType(QueuePtrOutput{})
 	pulumi.RegisterOutputType(QueueArrayOutput{})
 	pulumi.RegisterOutputType(QueueMapOutput{})
 }

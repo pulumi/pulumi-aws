@@ -3804,47 +3804,6 @@ func (i DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs) ToDataCa
 	return pulumi.ToOutputWithContext(ctx, i).(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput)
 }
 
-func (i DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs) ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput() DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput {
-	return i.ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutputWithContext(context.Background())
-}
-
-func (i DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs) ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutputWithContext(ctx context.Context) DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput).ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutputWithContext(ctx)
-}
-
-// DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrInput is an input type that accepts DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs, DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtr and DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput values.
-// You can construct a concrete instance of `DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrInput` via:
-//
-//          DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs{...}
-//
-//  or:
-//
-//          nil
-type DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrInput interface {
-	pulumi.Input
-
-	ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput() DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput
-	ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutputWithContext(context.Context) DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput
-}
-
-type dataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrType DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs
-
-func DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtr(v *DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs) DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrInput {
-	return (*dataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrType)(v)
-}
-
-func (*dataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataCatalogEncryptionSettingsDataCatalogEncryptionSettings)(nil)).Elem()
-}
-
-func (i *dataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrType) ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput() DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput {
-	return i.ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutputWithContext(context.Background())
-}
-
-func (i *dataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrType) ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutputWithContext(ctx context.Context) DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput)
-}
-
 type DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput struct{ *pulumi.OutputState }
 
 func (DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput) ElementType() reflect.Type {
@@ -3859,16 +3818,6 @@ func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput) ToData
 	return o
 }
 
-func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput) ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput() DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput {
-	return o.ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutputWithContext(context.Background())
-}
-
-func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput) ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutputWithContext(ctx context.Context) DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataCatalogEncryptionSettingsDataCatalogEncryptionSettings) *DataCatalogEncryptionSettingsDataCatalogEncryptionSettings {
-		return &v
-	}).(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput)
-}
-
 // When connection password protection is enabled, the Data Catalog uses a customer-provided key to encrypt the password as part of CreateConnection or UpdateConnection and store it in the ENCRYPTED_PASSWORD field in the connection properties. You can enable catalog encryption or only password encryption. see Connection Password Encryption.
 func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput) ConnectionPasswordEncryption() DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionOutput {
 	return o.ApplyT(func(v DataCatalogEncryptionSettingsDataCatalogEncryptionSettings) DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryption {
@@ -3881,50 +3830,6 @@ func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput) Encryp
 	return o.ApplyT(func(v DataCatalogEncryptionSettingsDataCatalogEncryptionSettings) DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRest {
 		return v.EncryptionAtRest
 	}).(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestOutput)
-}
-
-type DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput struct{ *pulumi.OutputState }
-
-func (DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataCatalogEncryptionSettingsDataCatalogEncryptionSettings)(nil)).Elem()
-}
-
-func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput) ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput() DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput {
-	return o
-}
-
-func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput) ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutputWithContext(ctx context.Context) DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput {
-	return o
-}
-
-func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput) Elem() DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput {
-	return o.ApplyT(func(v *DataCatalogEncryptionSettingsDataCatalogEncryptionSettings) DataCatalogEncryptionSettingsDataCatalogEncryptionSettings {
-		if v != nil {
-			return *v
-		}
-		var ret DataCatalogEncryptionSettingsDataCatalogEncryptionSettings
-		return ret
-	}).(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput)
-}
-
-// When connection password protection is enabled, the Data Catalog uses a customer-provided key to encrypt the password as part of CreateConnection or UpdateConnection and store it in the ENCRYPTED_PASSWORD field in the connection properties. You can enable catalog encryption or only password encryption. see Connection Password Encryption.
-func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput) ConnectionPasswordEncryption() DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput {
-	return o.ApplyT(func(v *DataCatalogEncryptionSettingsDataCatalogEncryptionSettings) *DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryption {
-		if v == nil {
-			return nil
-		}
-		return &v.ConnectionPasswordEncryption
-	}).(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput)
-}
-
-// Specifies the encryption-at-rest configuration for the Data Catalog. see Encryption At Rest.
-func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput) EncryptionAtRest() DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrOutput {
-	return o.ApplyT(func(v *DataCatalogEncryptionSettingsDataCatalogEncryptionSettings) *DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRest {
-		if v == nil {
-			return nil
-		}
-		return &v.EncryptionAtRest
-	}).(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrOutput)
 }
 
 type DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryption struct {
@@ -3964,47 +3869,6 @@ func (i DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPass
 	return pulumi.ToOutputWithContext(ctx, i).(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionOutput)
 }
 
-func (i DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs) ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput() DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput {
-	return i.ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutputWithContext(context.Background())
-}
-
-func (i DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs) ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutputWithContext(ctx context.Context) DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionOutput).ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutputWithContext(ctx)
-}
-
-// DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrInput is an input type that accepts DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs, DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtr and DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput values.
-// You can construct a concrete instance of `DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrInput` via:
-//
-//          DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs{...}
-//
-//  or:
-//
-//          nil
-type DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrInput interface {
-	pulumi.Input
-
-	ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput() DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput
-	ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutputWithContext(context.Context) DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput
-}
-
-type dataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrType DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs
-
-func DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtr(v *DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs) DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrInput {
-	return (*dataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrType)(v)
-}
-
-func (*dataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryption)(nil)).Elem()
-}
-
-func (i *dataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrType) ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput() DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput {
-	return i.ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutputWithContext(context.Background())
-}
-
-func (i *dataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrType) ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutputWithContext(ctx context.Context) DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput)
-}
-
 type DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionOutput struct{ *pulumi.OutputState }
 
 func (DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionOutput) ElementType() reflect.Type {
@@ -4019,16 +3883,6 @@ func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPass
 	return o
 }
 
-func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionOutput) ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput() DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput {
-	return o.ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutputWithContext(context.Background())
-}
-
-func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionOutput) ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutputWithContext(ctx context.Context) DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryption) *DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryption {
-		return &v
-	}).(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput)
-}
-
 // A KMS key ARN that is used to encrypt the connection password. If connection password protection is enabled, the caller of CreateConnection and UpdateConnection needs at least `kms:Encrypt` permission on the specified AWS KMS key, to encrypt passwords before storing them in the Data Catalog.
 func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionOutput) AwsKmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryption) *string {
@@ -4041,50 +3895,6 @@ func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPass
 	return o.ApplyT(func(v DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryption) bool {
 		return v.ReturnConnectionPasswordEncrypted
 	}).(pulumi.BoolOutput)
-}
-
-type DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput struct{ *pulumi.OutputState }
-
-func (DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryption)(nil)).Elem()
-}
-
-func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput) ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput() DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput {
-	return o
-}
-
-func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput) ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutputWithContext(ctx context.Context) DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput {
-	return o
-}
-
-func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput) Elem() DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionOutput {
-	return o.ApplyT(func(v *DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryption) DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryption {
-		if v != nil {
-			return *v
-		}
-		var ret DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryption
-		return ret
-	}).(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionOutput)
-}
-
-// A KMS key ARN that is used to encrypt the connection password. If connection password protection is enabled, the caller of CreateConnection and UpdateConnection needs at least `kms:Encrypt` permission on the specified AWS KMS key, to encrypt passwords before storing them in the Data Catalog.
-func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput) AwsKmsKeyId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryption) *string {
-		if v == nil {
-			return nil
-		}
-		return v.AwsKmsKeyId
-	}).(pulumi.StringPtrOutput)
-}
-
-// When set to `true`, passwords remain encrypted in the responses of GetConnection and GetConnections. This encryption takes effect independently of the catalog encryption.
-func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput) ReturnConnectionPasswordEncrypted() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryption) *bool {
-		if v == nil {
-			return nil
-		}
-		return &v.ReturnConnectionPasswordEncrypted
-	}).(pulumi.BoolPtrOutput)
 }
 
 type DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRest struct {
@@ -4124,47 +3934,6 @@ func (i DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRe
 	return pulumi.ToOutputWithContext(ctx, i).(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestOutput)
 }
 
-func (i DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs) ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrOutput() DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrOutput {
-	return i.ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrOutputWithContext(context.Background())
-}
-
-func (i DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs) ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrOutputWithContext(ctx context.Context) DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestOutput).ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrOutputWithContext(ctx)
-}
-
-// DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrInput is an input type that accepts DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs, DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtr and DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrOutput values.
-// You can construct a concrete instance of `DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrInput` via:
-//
-//          DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs{...}
-//
-//  or:
-//
-//          nil
-type DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrInput interface {
-	pulumi.Input
-
-	ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrOutput() DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrOutput
-	ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrOutputWithContext(context.Context) DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrOutput
-}
-
-type dataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrType DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs
-
-func DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtr(v *DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs) DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrInput {
-	return (*dataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrType)(v)
-}
-
-func (*dataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRest)(nil)).Elem()
-}
-
-func (i *dataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrType) ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrOutput() DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrOutput {
-	return i.ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrOutputWithContext(context.Background())
-}
-
-func (i *dataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrType) ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrOutputWithContext(ctx context.Context) DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrOutput)
-}
-
 type DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestOutput struct{ *pulumi.OutputState }
 
 func (DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestOutput) ElementType() reflect.Type {
@@ -4179,16 +3948,6 @@ func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRe
 	return o
 }
 
-func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestOutput) ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrOutput() DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrOutput {
-	return o.ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrOutputWithContext(context.Background())
-}
-
-func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestOutput) ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrOutputWithContext(ctx context.Context) DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRest) *DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRest {
-		return &v
-	}).(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrOutput)
-}
-
 // The encryption-at-rest mode for encrypting Data Catalog data. Valid values are `DISABLED` and `SSE-KMS`.
 func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestOutput) CatalogEncryptionMode() pulumi.StringOutput {
 	return o.ApplyT(func(v DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRest) string {
@@ -4199,50 +3958,6 @@ func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRe
 // The ARN of the AWS KMS key to use for encryption at rest.
 func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestOutput) SseAwsKmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRest) *string {
-		return v.SseAwsKmsKeyId
-	}).(pulumi.StringPtrOutput)
-}
-
-type DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrOutput struct{ *pulumi.OutputState }
-
-func (DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRest)(nil)).Elem()
-}
-
-func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrOutput) ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrOutput() DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrOutput {
-	return o
-}
-
-func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrOutput) ToDataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrOutputWithContext(ctx context.Context) DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrOutput {
-	return o
-}
-
-func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrOutput) Elem() DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestOutput {
-	return o.ApplyT(func(v *DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRest) DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRest {
-		if v != nil {
-			return *v
-		}
-		var ret DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRest
-		return ret
-	}).(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestOutput)
-}
-
-// The encryption-at-rest mode for encrypting Data Catalog data. Valid values are `DISABLED` and `SSE-KMS`.
-func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrOutput) CatalogEncryptionMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRest) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.CatalogEncryptionMode
-	}).(pulumi.StringPtrOutput)
-}
-
-// The ARN of the AWS KMS key to use for encryption at rest.
-func (o DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrOutput) SseAwsKmsKeyId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRest) *string {
-		if v == nil {
-			return nil
-		}
 		return v.SseAwsKmsKeyId
 	}).(pulumi.StringPtrOutput)
 }
@@ -4288,47 +4003,6 @@ func (i JobCommandArgs) ToJobCommandOutputWithContext(ctx context.Context) JobCo
 	return pulumi.ToOutputWithContext(ctx, i).(JobCommandOutput)
 }
 
-func (i JobCommandArgs) ToJobCommandPtrOutput() JobCommandPtrOutput {
-	return i.ToJobCommandPtrOutputWithContext(context.Background())
-}
-
-func (i JobCommandArgs) ToJobCommandPtrOutputWithContext(ctx context.Context) JobCommandPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobCommandOutput).ToJobCommandPtrOutputWithContext(ctx)
-}
-
-// JobCommandPtrInput is an input type that accepts JobCommandArgs, JobCommandPtr and JobCommandPtrOutput values.
-// You can construct a concrete instance of `JobCommandPtrInput` via:
-//
-//          JobCommandArgs{...}
-//
-//  or:
-//
-//          nil
-type JobCommandPtrInput interface {
-	pulumi.Input
-
-	ToJobCommandPtrOutput() JobCommandPtrOutput
-	ToJobCommandPtrOutputWithContext(context.Context) JobCommandPtrOutput
-}
-
-type jobCommandPtrType JobCommandArgs
-
-func JobCommandPtr(v *JobCommandArgs) JobCommandPtrInput {
-	return (*jobCommandPtrType)(v)
-}
-
-func (*jobCommandPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**JobCommand)(nil)).Elem()
-}
-
-func (i *jobCommandPtrType) ToJobCommandPtrOutput() JobCommandPtrOutput {
-	return i.ToJobCommandPtrOutputWithContext(context.Background())
-}
-
-func (i *jobCommandPtrType) ToJobCommandPtrOutputWithContext(ctx context.Context) JobCommandPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(JobCommandPtrOutput)
-}
-
 type JobCommandOutput struct{ *pulumi.OutputState }
 
 func (JobCommandOutput) ElementType() reflect.Type {
@@ -4341,16 +4015,6 @@ func (o JobCommandOutput) ToJobCommandOutput() JobCommandOutput {
 
 func (o JobCommandOutput) ToJobCommandOutputWithContext(ctx context.Context) JobCommandOutput {
 	return o
-}
-
-func (o JobCommandOutput) ToJobCommandPtrOutput() JobCommandPtrOutput {
-	return o.ToJobCommandPtrOutputWithContext(context.Background())
-}
-
-func (o JobCommandOutput) ToJobCommandPtrOutputWithContext(ctx context.Context) JobCommandPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobCommand) *JobCommand {
-		return &v
-	}).(JobCommandPtrOutput)
 }
 
 // The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, `maxCapacity` needs to be set if `pythonshell` is chosen.
@@ -4366,60 +4030,6 @@ func (o JobCommandOutput) PythonVersion() pulumi.StringPtrOutput {
 // Specifies the S3 path to a script that executes a job.
 func (o JobCommandOutput) ScriptLocation() pulumi.StringOutput {
 	return o.ApplyT(func(v JobCommand) string { return v.ScriptLocation }).(pulumi.StringOutput)
-}
-
-type JobCommandPtrOutput struct{ *pulumi.OutputState }
-
-func (JobCommandPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**JobCommand)(nil)).Elem()
-}
-
-func (o JobCommandPtrOutput) ToJobCommandPtrOutput() JobCommandPtrOutput {
-	return o
-}
-
-func (o JobCommandPtrOutput) ToJobCommandPtrOutputWithContext(ctx context.Context) JobCommandPtrOutput {
-	return o
-}
-
-func (o JobCommandPtrOutput) Elem() JobCommandOutput {
-	return o.ApplyT(func(v *JobCommand) JobCommand {
-		if v != nil {
-			return *v
-		}
-		var ret JobCommand
-		return ret
-	}).(JobCommandOutput)
-}
-
-// The name of the job command. Defaults to `glueetl`. Use `pythonshell` for Python Shell Job Type, `maxCapacity` needs to be set if `pythonshell` is chosen.
-func (o JobCommandPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *JobCommand) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Python version being used to execute a Python shell job. Allowed values are 2 or 3.
-func (o JobCommandPtrOutput) PythonVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *JobCommand) *string {
-		if v == nil {
-			return nil
-		}
-		return v.PythonVersion
-	}).(pulumi.StringPtrOutput)
-}
-
-// Specifies the S3 path to a script that executes a job.
-func (o JobCommandPtrOutput) ScriptLocation() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *JobCommand) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ScriptLocation
-	}).(pulumi.StringPtrOutput)
 }
 
 type JobExecutionProperty struct {
@@ -4857,47 +4467,6 @@ func (i MLTransformParametersArgs) ToMLTransformParametersOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(MLTransformParametersOutput)
 }
 
-func (i MLTransformParametersArgs) ToMLTransformParametersPtrOutput() MLTransformParametersPtrOutput {
-	return i.ToMLTransformParametersPtrOutputWithContext(context.Background())
-}
-
-func (i MLTransformParametersArgs) ToMLTransformParametersPtrOutputWithContext(ctx context.Context) MLTransformParametersPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MLTransformParametersOutput).ToMLTransformParametersPtrOutputWithContext(ctx)
-}
-
-// MLTransformParametersPtrInput is an input type that accepts MLTransformParametersArgs, MLTransformParametersPtr and MLTransformParametersPtrOutput values.
-// You can construct a concrete instance of `MLTransformParametersPtrInput` via:
-//
-//          MLTransformParametersArgs{...}
-//
-//  or:
-//
-//          nil
-type MLTransformParametersPtrInput interface {
-	pulumi.Input
-
-	ToMLTransformParametersPtrOutput() MLTransformParametersPtrOutput
-	ToMLTransformParametersPtrOutputWithContext(context.Context) MLTransformParametersPtrOutput
-}
-
-type mltransformParametersPtrType MLTransformParametersArgs
-
-func MLTransformParametersPtr(v *MLTransformParametersArgs) MLTransformParametersPtrInput {
-	return (*mltransformParametersPtrType)(v)
-}
-
-func (*mltransformParametersPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**MLTransformParameters)(nil)).Elem()
-}
-
-func (i *mltransformParametersPtrType) ToMLTransformParametersPtrOutput() MLTransformParametersPtrOutput {
-	return i.ToMLTransformParametersPtrOutputWithContext(context.Background())
-}
-
-func (i *mltransformParametersPtrType) ToMLTransformParametersPtrOutputWithContext(ctx context.Context) MLTransformParametersPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MLTransformParametersPtrOutput)
-}
-
 type MLTransformParametersOutput struct{ *pulumi.OutputState }
 
 func (MLTransformParametersOutput) ElementType() reflect.Type {
@@ -4912,16 +4481,6 @@ func (o MLTransformParametersOutput) ToMLTransformParametersOutputWithContext(ct
 	return o
 }
 
-func (o MLTransformParametersOutput) ToMLTransformParametersPtrOutput() MLTransformParametersPtrOutput {
-	return o.ToMLTransformParametersPtrOutputWithContext(context.Background())
-}
-
-func (o MLTransformParametersOutput) ToMLTransformParametersPtrOutputWithContext(ctx context.Context) MLTransformParametersPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MLTransformParameters) *MLTransformParameters {
-		return &v
-	}).(MLTransformParametersPtrOutput)
-}
-
 // The parameters for the find matches algorithm. see Find Matches Parameters.
 func (o MLTransformParametersOutput) FindMatchesParameters() MLTransformParametersFindMatchesParametersOutput {
 	return o.ApplyT(func(v MLTransformParameters) MLTransformParametersFindMatchesParameters {
@@ -4932,50 +4491,6 @@ func (o MLTransformParametersOutput) FindMatchesParameters() MLTransformParamete
 // The type of machine learning transform. For information about the types of machine learning transforms, see [Creating Machine Learning Transforms](http://docs.aws.amazon.com/glue/latest/dg/add-job-machine-learning-transform.html).
 func (o MLTransformParametersOutput) TransformType() pulumi.StringOutput {
 	return o.ApplyT(func(v MLTransformParameters) string { return v.TransformType }).(pulumi.StringOutput)
-}
-
-type MLTransformParametersPtrOutput struct{ *pulumi.OutputState }
-
-func (MLTransformParametersPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**MLTransformParameters)(nil)).Elem()
-}
-
-func (o MLTransformParametersPtrOutput) ToMLTransformParametersPtrOutput() MLTransformParametersPtrOutput {
-	return o
-}
-
-func (o MLTransformParametersPtrOutput) ToMLTransformParametersPtrOutputWithContext(ctx context.Context) MLTransformParametersPtrOutput {
-	return o
-}
-
-func (o MLTransformParametersPtrOutput) Elem() MLTransformParametersOutput {
-	return o.ApplyT(func(v *MLTransformParameters) MLTransformParameters {
-		if v != nil {
-			return *v
-		}
-		var ret MLTransformParameters
-		return ret
-	}).(MLTransformParametersOutput)
-}
-
-// The parameters for the find matches algorithm. see Find Matches Parameters.
-func (o MLTransformParametersPtrOutput) FindMatchesParameters() MLTransformParametersFindMatchesParametersPtrOutput {
-	return o.ApplyT(func(v *MLTransformParameters) *MLTransformParametersFindMatchesParameters {
-		if v == nil {
-			return nil
-		}
-		return &v.FindMatchesParameters
-	}).(MLTransformParametersFindMatchesParametersPtrOutput)
-}
-
-// The type of machine learning transform. For information about the types of machine learning transforms, see [Creating Machine Learning Transforms](http://docs.aws.amazon.com/glue/latest/dg/add-job-machine-learning-transform.html).
-func (o MLTransformParametersPtrOutput) TransformType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MLTransformParameters) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.TransformType
-	}).(pulumi.StringPtrOutput)
 }
 
 type MLTransformParametersFindMatchesParameters struct {
@@ -5023,47 +4538,6 @@ func (i MLTransformParametersFindMatchesParametersArgs) ToMLTransformParametersF
 	return pulumi.ToOutputWithContext(ctx, i).(MLTransformParametersFindMatchesParametersOutput)
 }
 
-func (i MLTransformParametersFindMatchesParametersArgs) ToMLTransformParametersFindMatchesParametersPtrOutput() MLTransformParametersFindMatchesParametersPtrOutput {
-	return i.ToMLTransformParametersFindMatchesParametersPtrOutputWithContext(context.Background())
-}
-
-func (i MLTransformParametersFindMatchesParametersArgs) ToMLTransformParametersFindMatchesParametersPtrOutputWithContext(ctx context.Context) MLTransformParametersFindMatchesParametersPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MLTransformParametersFindMatchesParametersOutput).ToMLTransformParametersFindMatchesParametersPtrOutputWithContext(ctx)
-}
-
-// MLTransformParametersFindMatchesParametersPtrInput is an input type that accepts MLTransformParametersFindMatchesParametersArgs, MLTransformParametersFindMatchesParametersPtr and MLTransformParametersFindMatchesParametersPtrOutput values.
-// You can construct a concrete instance of `MLTransformParametersFindMatchesParametersPtrInput` via:
-//
-//          MLTransformParametersFindMatchesParametersArgs{...}
-//
-//  or:
-//
-//          nil
-type MLTransformParametersFindMatchesParametersPtrInput interface {
-	pulumi.Input
-
-	ToMLTransformParametersFindMatchesParametersPtrOutput() MLTransformParametersFindMatchesParametersPtrOutput
-	ToMLTransformParametersFindMatchesParametersPtrOutputWithContext(context.Context) MLTransformParametersFindMatchesParametersPtrOutput
-}
-
-type mltransformParametersFindMatchesParametersPtrType MLTransformParametersFindMatchesParametersArgs
-
-func MLTransformParametersFindMatchesParametersPtr(v *MLTransformParametersFindMatchesParametersArgs) MLTransformParametersFindMatchesParametersPtrInput {
-	return (*mltransformParametersFindMatchesParametersPtrType)(v)
-}
-
-func (*mltransformParametersFindMatchesParametersPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**MLTransformParametersFindMatchesParameters)(nil)).Elem()
-}
-
-func (i *mltransformParametersFindMatchesParametersPtrType) ToMLTransformParametersFindMatchesParametersPtrOutput() MLTransformParametersFindMatchesParametersPtrOutput {
-	return i.ToMLTransformParametersFindMatchesParametersPtrOutputWithContext(context.Background())
-}
-
-func (i *mltransformParametersFindMatchesParametersPtrType) ToMLTransformParametersFindMatchesParametersPtrOutputWithContext(ctx context.Context) MLTransformParametersFindMatchesParametersPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MLTransformParametersFindMatchesParametersPtrOutput)
-}
-
 type MLTransformParametersFindMatchesParametersOutput struct{ *pulumi.OutputState }
 
 func (MLTransformParametersFindMatchesParametersOutput) ElementType() reflect.Type {
@@ -5076,16 +4550,6 @@ func (o MLTransformParametersFindMatchesParametersOutput) ToMLTransformParameter
 
 func (o MLTransformParametersFindMatchesParametersOutput) ToMLTransformParametersFindMatchesParametersOutputWithContext(ctx context.Context) MLTransformParametersFindMatchesParametersOutput {
 	return o
-}
-
-func (o MLTransformParametersFindMatchesParametersOutput) ToMLTransformParametersFindMatchesParametersPtrOutput() MLTransformParametersFindMatchesParametersPtrOutput {
-	return o.ToMLTransformParametersFindMatchesParametersPtrOutputWithContext(context.Background())
-}
-
-func (o MLTransformParametersFindMatchesParametersOutput) ToMLTransformParametersFindMatchesParametersPtrOutputWithContext(ctx context.Context) MLTransformParametersFindMatchesParametersPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MLTransformParametersFindMatchesParameters) *MLTransformParametersFindMatchesParameters {
-		return &v
-	}).(MLTransformParametersFindMatchesParametersPtrOutput)
 }
 
 // The value that is selected when tuning your transform for a balance between accuracy and cost.
@@ -5108,130 +4572,11 @@ func (o MLTransformParametersFindMatchesParametersOutput) PrimaryKeyColumnName()
 	return o.ApplyT(func(v MLTransformParametersFindMatchesParameters) *string { return v.PrimaryKeyColumnName }).(pulumi.StringPtrOutput)
 }
 
-type MLTransformParametersFindMatchesParametersPtrOutput struct{ *pulumi.OutputState }
-
-func (MLTransformParametersFindMatchesParametersPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**MLTransformParametersFindMatchesParameters)(nil)).Elem()
-}
-
-func (o MLTransformParametersFindMatchesParametersPtrOutput) ToMLTransformParametersFindMatchesParametersPtrOutput() MLTransformParametersFindMatchesParametersPtrOutput {
-	return o
-}
-
-func (o MLTransformParametersFindMatchesParametersPtrOutput) ToMLTransformParametersFindMatchesParametersPtrOutputWithContext(ctx context.Context) MLTransformParametersFindMatchesParametersPtrOutput {
-	return o
-}
-
-func (o MLTransformParametersFindMatchesParametersPtrOutput) Elem() MLTransformParametersFindMatchesParametersOutput {
-	return o.ApplyT(func(v *MLTransformParametersFindMatchesParameters) MLTransformParametersFindMatchesParameters {
-		if v != nil {
-			return *v
-		}
-		var ret MLTransformParametersFindMatchesParameters
-		return ret
-	}).(MLTransformParametersFindMatchesParametersOutput)
-}
-
-// The value that is selected when tuning your transform for a balance between accuracy and cost.
-func (o MLTransformParametersFindMatchesParametersPtrOutput) AccuracyCostTradeOff() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *MLTransformParametersFindMatchesParameters) *float64 {
-		if v == nil {
-			return nil
-		}
-		return v.AccuracyCostTradeOff
-	}).(pulumi.Float64PtrOutput)
-}
-
-// The value to switch on or off to force the output to match the provided labels from users.
-func (o MLTransformParametersFindMatchesParametersPtrOutput) EnforceProvidedLabels() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *MLTransformParametersFindMatchesParameters) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.EnforceProvidedLabels
-	}).(pulumi.BoolPtrOutput)
-}
-
-// The value selected when tuning your transform for a balance between precision and recall.
-func (o MLTransformParametersFindMatchesParametersPtrOutput) PrecisionRecallTradeOff() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *MLTransformParametersFindMatchesParameters) *float64 {
-		if v == nil {
-			return nil
-		}
-		return v.PrecisionRecallTradeOff
-	}).(pulumi.Float64PtrOutput)
-}
-
-// The name of a column that uniquely identifies rows in the source table.
-func (o MLTransformParametersFindMatchesParametersPtrOutput) PrimaryKeyColumnName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MLTransformParametersFindMatchesParameters) *string {
-		if v == nil {
-			return nil
-		}
-		return v.PrimaryKeyColumnName
-	}).(pulumi.StringPtrOutput)
-}
-
 type MLTransformSchema struct {
 	// The type of data in the column.
 	DataType *string `pulumi:"dataType"`
 	// The name you assign to this ML Transform. It must be unique in your account.
 	Name *string `pulumi:"name"`
-}
-
-// MLTransformSchemaInput is an input type that accepts MLTransformSchemaArgs and MLTransformSchemaOutput values.
-// You can construct a concrete instance of `MLTransformSchemaInput` via:
-//
-//          MLTransformSchemaArgs{...}
-type MLTransformSchemaInput interface {
-	pulumi.Input
-
-	ToMLTransformSchemaOutput() MLTransformSchemaOutput
-	ToMLTransformSchemaOutputWithContext(context.Context) MLTransformSchemaOutput
-}
-
-type MLTransformSchemaArgs struct {
-	// The type of data in the column.
-	DataType pulumi.StringPtrInput `pulumi:"dataType"`
-	// The name you assign to this ML Transform. It must be unique in your account.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-}
-
-func (MLTransformSchemaArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*MLTransformSchema)(nil)).Elem()
-}
-
-func (i MLTransformSchemaArgs) ToMLTransformSchemaOutput() MLTransformSchemaOutput {
-	return i.ToMLTransformSchemaOutputWithContext(context.Background())
-}
-
-func (i MLTransformSchemaArgs) ToMLTransformSchemaOutputWithContext(ctx context.Context) MLTransformSchemaOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MLTransformSchemaOutput)
-}
-
-// MLTransformSchemaArrayInput is an input type that accepts MLTransformSchemaArray and MLTransformSchemaArrayOutput values.
-// You can construct a concrete instance of `MLTransformSchemaArrayInput` via:
-//
-//          MLTransformSchemaArray{ MLTransformSchemaArgs{...} }
-type MLTransformSchemaArrayInput interface {
-	pulumi.Input
-
-	ToMLTransformSchemaArrayOutput() MLTransformSchemaArrayOutput
-	ToMLTransformSchemaArrayOutputWithContext(context.Context) MLTransformSchemaArrayOutput
-}
-
-type MLTransformSchemaArray []MLTransformSchemaInput
-
-func (MLTransformSchemaArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]MLTransformSchema)(nil)).Elem()
-}
-
-func (i MLTransformSchemaArray) ToMLTransformSchemaArrayOutput() MLTransformSchemaArrayOutput {
-	return i.ToMLTransformSchemaArrayOutputWithContext(context.Background())
-}
-
-func (i MLTransformSchemaArray) ToMLTransformSchemaArrayOutputWithContext(ctx context.Context) MLTransformSchemaArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MLTransformSchemaArrayOutput)
 }
 
 type MLTransformSchemaOutput struct{ *pulumi.OutputState }
@@ -5317,47 +4662,6 @@ func (i PartitionIndexPartitionIndexArgs) ToPartitionIndexPartitionIndexOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(PartitionIndexPartitionIndexOutput)
 }
 
-func (i PartitionIndexPartitionIndexArgs) ToPartitionIndexPartitionIndexPtrOutput() PartitionIndexPartitionIndexPtrOutput {
-	return i.ToPartitionIndexPartitionIndexPtrOutputWithContext(context.Background())
-}
-
-func (i PartitionIndexPartitionIndexArgs) ToPartitionIndexPartitionIndexPtrOutputWithContext(ctx context.Context) PartitionIndexPartitionIndexPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PartitionIndexPartitionIndexOutput).ToPartitionIndexPartitionIndexPtrOutputWithContext(ctx)
-}
-
-// PartitionIndexPartitionIndexPtrInput is an input type that accepts PartitionIndexPartitionIndexArgs, PartitionIndexPartitionIndexPtr and PartitionIndexPartitionIndexPtrOutput values.
-// You can construct a concrete instance of `PartitionIndexPartitionIndexPtrInput` via:
-//
-//          PartitionIndexPartitionIndexArgs{...}
-//
-//  or:
-//
-//          nil
-type PartitionIndexPartitionIndexPtrInput interface {
-	pulumi.Input
-
-	ToPartitionIndexPartitionIndexPtrOutput() PartitionIndexPartitionIndexPtrOutput
-	ToPartitionIndexPartitionIndexPtrOutputWithContext(context.Context) PartitionIndexPartitionIndexPtrOutput
-}
-
-type partitionIndexPartitionIndexPtrType PartitionIndexPartitionIndexArgs
-
-func PartitionIndexPartitionIndexPtr(v *PartitionIndexPartitionIndexArgs) PartitionIndexPartitionIndexPtrInput {
-	return (*partitionIndexPartitionIndexPtrType)(v)
-}
-
-func (*partitionIndexPartitionIndexPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PartitionIndexPartitionIndex)(nil)).Elem()
-}
-
-func (i *partitionIndexPartitionIndexPtrType) ToPartitionIndexPartitionIndexPtrOutput() PartitionIndexPartitionIndexPtrOutput {
-	return i.ToPartitionIndexPartitionIndexPtrOutputWithContext(context.Background())
-}
-
-func (i *partitionIndexPartitionIndexPtrType) ToPartitionIndexPartitionIndexPtrOutputWithContext(ctx context.Context) PartitionIndexPartitionIndexPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PartitionIndexPartitionIndexPtrOutput)
-}
-
 type PartitionIndexPartitionIndexOutput struct{ *pulumi.OutputState }
 
 func (PartitionIndexPartitionIndexOutput) ElementType() reflect.Type {
@@ -5372,16 +4676,6 @@ func (o PartitionIndexPartitionIndexOutput) ToPartitionIndexPartitionIndexOutput
 	return o
 }
 
-func (o PartitionIndexPartitionIndexOutput) ToPartitionIndexPartitionIndexPtrOutput() PartitionIndexPartitionIndexPtrOutput {
-	return o.ToPartitionIndexPartitionIndexPtrOutputWithContext(context.Background())
-}
-
-func (o PartitionIndexPartitionIndexOutput) ToPartitionIndexPartitionIndexPtrOutputWithContext(ctx context.Context) PartitionIndexPartitionIndexPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PartitionIndexPartitionIndex) *PartitionIndexPartitionIndex {
-		return &v
-	}).(PartitionIndexPartitionIndexPtrOutput)
-}
-
 // Name of the partition index.
 func (o PartitionIndexPartitionIndexOutput) IndexName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PartitionIndexPartitionIndex) *string { return v.IndexName }).(pulumi.StringPtrOutput)
@@ -5394,59 +4688,6 @@ func (o PartitionIndexPartitionIndexOutput) IndexStatus() pulumi.StringPtrOutput
 // Keys for the partition index.
 func (o PartitionIndexPartitionIndexOutput) Keys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v PartitionIndexPartitionIndex) []string { return v.Keys }).(pulumi.StringArrayOutput)
-}
-
-type PartitionIndexPartitionIndexPtrOutput struct{ *pulumi.OutputState }
-
-func (PartitionIndexPartitionIndexPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PartitionIndexPartitionIndex)(nil)).Elem()
-}
-
-func (o PartitionIndexPartitionIndexPtrOutput) ToPartitionIndexPartitionIndexPtrOutput() PartitionIndexPartitionIndexPtrOutput {
-	return o
-}
-
-func (o PartitionIndexPartitionIndexPtrOutput) ToPartitionIndexPartitionIndexPtrOutputWithContext(ctx context.Context) PartitionIndexPartitionIndexPtrOutput {
-	return o
-}
-
-func (o PartitionIndexPartitionIndexPtrOutput) Elem() PartitionIndexPartitionIndexOutput {
-	return o.ApplyT(func(v *PartitionIndexPartitionIndex) PartitionIndexPartitionIndex {
-		if v != nil {
-			return *v
-		}
-		var ret PartitionIndexPartitionIndex
-		return ret
-	}).(PartitionIndexPartitionIndexOutput)
-}
-
-// Name of the partition index.
-func (o PartitionIndexPartitionIndexPtrOutput) IndexName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PartitionIndexPartitionIndex) *string {
-		if v == nil {
-			return nil
-		}
-		return v.IndexName
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o PartitionIndexPartitionIndexPtrOutput) IndexStatus() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PartitionIndexPartitionIndex) *string {
-		if v == nil {
-			return nil
-		}
-		return v.IndexStatus
-	}).(pulumi.StringPtrOutput)
-}
-
-// Keys for the partition index.
-func (o PartitionIndexPartitionIndexPtrOutput) Keys() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *PartitionIndexPartitionIndex) []string {
-		if v == nil {
-			return nil
-		}
-		return v.Keys
-	}).(pulumi.StringArrayOutput)
 }
 
 type PartitionStorageDescriptor struct {
@@ -6403,47 +5644,6 @@ func (i SecurityConfigurationEncryptionConfigurationArgs) ToSecurityConfiguratio
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigurationEncryptionConfigurationOutput)
 }
 
-func (i SecurityConfigurationEncryptionConfigurationArgs) ToSecurityConfigurationEncryptionConfigurationPtrOutput() SecurityConfigurationEncryptionConfigurationPtrOutput {
-	return i.ToSecurityConfigurationEncryptionConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i SecurityConfigurationEncryptionConfigurationArgs) ToSecurityConfigurationEncryptionConfigurationPtrOutputWithContext(ctx context.Context) SecurityConfigurationEncryptionConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigurationEncryptionConfigurationOutput).ToSecurityConfigurationEncryptionConfigurationPtrOutputWithContext(ctx)
-}
-
-// SecurityConfigurationEncryptionConfigurationPtrInput is an input type that accepts SecurityConfigurationEncryptionConfigurationArgs, SecurityConfigurationEncryptionConfigurationPtr and SecurityConfigurationEncryptionConfigurationPtrOutput values.
-// You can construct a concrete instance of `SecurityConfigurationEncryptionConfigurationPtrInput` via:
-//
-//          SecurityConfigurationEncryptionConfigurationArgs{...}
-//
-//  or:
-//
-//          nil
-type SecurityConfigurationEncryptionConfigurationPtrInput interface {
-	pulumi.Input
-
-	ToSecurityConfigurationEncryptionConfigurationPtrOutput() SecurityConfigurationEncryptionConfigurationPtrOutput
-	ToSecurityConfigurationEncryptionConfigurationPtrOutputWithContext(context.Context) SecurityConfigurationEncryptionConfigurationPtrOutput
-}
-
-type securityConfigurationEncryptionConfigurationPtrType SecurityConfigurationEncryptionConfigurationArgs
-
-func SecurityConfigurationEncryptionConfigurationPtr(v *SecurityConfigurationEncryptionConfigurationArgs) SecurityConfigurationEncryptionConfigurationPtrInput {
-	return (*securityConfigurationEncryptionConfigurationPtrType)(v)
-}
-
-func (*securityConfigurationEncryptionConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SecurityConfigurationEncryptionConfiguration)(nil)).Elem()
-}
-
-func (i *securityConfigurationEncryptionConfigurationPtrType) ToSecurityConfigurationEncryptionConfigurationPtrOutput() SecurityConfigurationEncryptionConfigurationPtrOutput {
-	return i.ToSecurityConfigurationEncryptionConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i *securityConfigurationEncryptionConfigurationPtrType) ToSecurityConfigurationEncryptionConfigurationPtrOutputWithContext(ctx context.Context) SecurityConfigurationEncryptionConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigurationEncryptionConfigurationPtrOutput)
-}
-
 type SecurityConfigurationEncryptionConfigurationOutput struct{ *pulumi.OutputState }
 
 func (SecurityConfigurationEncryptionConfigurationOutput) ElementType() reflect.Type {
@@ -6456,16 +5656,6 @@ func (o SecurityConfigurationEncryptionConfigurationOutput) ToSecurityConfigurat
 
 func (o SecurityConfigurationEncryptionConfigurationOutput) ToSecurityConfigurationEncryptionConfigurationOutputWithContext(ctx context.Context) SecurityConfigurationEncryptionConfigurationOutput {
 	return o
-}
-
-func (o SecurityConfigurationEncryptionConfigurationOutput) ToSecurityConfigurationEncryptionConfigurationPtrOutput() SecurityConfigurationEncryptionConfigurationPtrOutput {
-	return o.ToSecurityConfigurationEncryptionConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (o SecurityConfigurationEncryptionConfigurationOutput) ToSecurityConfigurationEncryptionConfigurationPtrOutputWithContext(ctx context.Context) SecurityConfigurationEncryptionConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecurityConfigurationEncryptionConfiguration) *SecurityConfigurationEncryptionConfiguration {
-		return &v
-	}).(SecurityConfigurationEncryptionConfigurationPtrOutput)
 }
 
 func (o SecurityConfigurationEncryptionConfigurationOutput) CloudwatchEncryption() SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionOutput {
@@ -6485,58 +5675,6 @@ func (o SecurityConfigurationEncryptionConfigurationOutput) S3Encryption() Secur
 	return o.ApplyT(func(v SecurityConfigurationEncryptionConfiguration) SecurityConfigurationEncryptionConfigurationS3Encryption {
 		return v.S3Encryption
 	}).(SecurityConfigurationEncryptionConfigurationS3EncryptionOutput)
-}
-
-type SecurityConfigurationEncryptionConfigurationPtrOutput struct{ *pulumi.OutputState }
-
-func (SecurityConfigurationEncryptionConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SecurityConfigurationEncryptionConfiguration)(nil)).Elem()
-}
-
-func (o SecurityConfigurationEncryptionConfigurationPtrOutput) ToSecurityConfigurationEncryptionConfigurationPtrOutput() SecurityConfigurationEncryptionConfigurationPtrOutput {
-	return o
-}
-
-func (o SecurityConfigurationEncryptionConfigurationPtrOutput) ToSecurityConfigurationEncryptionConfigurationPtrOutputWithContext(ctx context.Context) SecurityConfigurationEncryptionConfigurationPtrOutput {
-	return o
-}
-
-func (o SecurityConfigurationEncryptionConfigurationPtrOutput) Elem() SecurityConfigurationEncryptionConfigurationOutput {
-	return o.ApplyT(func(v *SecurityConfigurationEncryptionConfiguration) SecurityConfigurationEncryptionConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret SecurityConfigurationEncryptionConfiguration
-		return ret
-	}).(SecurityConfigurationEncryptionConfigurationOutput)
-}
-
-func (o SecurityConfigurationEncryptionConfigurationPtrOutput) CloudwatchEncryption() SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionPtrOutput {
-	return o.ApplyT(func(v *SecurityConfigurationEncryptionConfiguration) *SecurityConfigurationEncryptionConfigurationCloudwatchEncryption {
-		if v == nil {
-			return nil
-		}
-		return &v.CloudwatchEncryption
-	}).(SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionPtrOutput)
-}
-
-func (o SecurityConfigurationEncryptionConfigurationPtrOutput) JobBookmarksEncryption() SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionPtrOutput {
-	return o.ApplyT(func(v *SecurityConfigurationEncryptionConfiguration) *SecurityConfigurationEncryptionConfigurationJobBookmarksEncryption {
-		if v == nil {
-			return nil
-		}
-		return &v.JobBookmarksEncryption
-	}).(SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionPtrOutput)
-}
-
-// A ` s3Encryption  ` block as described below, which contains encryption configuration for S3 data.
-func (o SecurityConfigurationEncryptionConfigurationPtrOutput) S3Encryption() SecurityConfigurationEncryptionConfigurationS3EncryptionPtrOutput {
-	return o.ApplyT(func(v *SecurityConfigurationEncryptionConfiguration) *SecurityConfigurationEncryptionConfigurationS3Encryption {
-		if v == nil {
-			return nil
-		}
-		return &v.S3Encryption
-	}).(SecurityConfigurationEncryptionConfigurationS3EncryptionPtrOutput)
 }
 
 type SecurityConfigurationEncryptionConfigurationCloudwatchEncryption struct {
@@ -6576,47 +5714,6 @@ func (i SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionArgs) To
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionOutput)
 }
 
-func (i SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionArgs) ToSecurityConfigurationEncryptionConfigurationCloudwatchEncryptionPtrOutput() SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionPtrOutput {
-	return i.ToSecurityConfigurationEncryptionConfigurationCloudwatchEncryptionPtrOutputWithContext(context.Background())
-}
-
-func (i SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionArgs) ToSecurityConfigurationEncryptionConfigurationCloudwatchEncryptionPtrOutputWithContext(ctx context.Context) SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionOutput).ToSecurityConfigurationEncryptionConfigurationCloudwatchEncryptionPtrOutputWithContext(ctx)
-}
-
-// SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionPtrInput is an input type that accepts SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionArgs, SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionPtr and SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionPtrOutput values.
-// You can construct a concrete instance of `SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionPtrInput` via:
-//
-//          SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionArgs{...}
-//
-//  or:
-//
-//          nil
-type SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionPtrInput interface {
-	pulumi.Input
-
-	ToSecurityConfigurationEncryptionConfigurationCloudwatchEncryptionPtrOutput() SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionPtrOutput
-	ToSecurityConfigurationEncryptionConfigurationCloudwatchEncryptionPtrOutputWithContext(context.Context) SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionPtrOutput
-}
-
-type securityConfigurationEncryptionConfigurationCloudwatchEncryptionPtrType SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionArgs
-
-func SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionPtr(v *SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionArgs) SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionPtrInput {
-	return (*securityConfigurationEncryptionConfigurationCloudwatchEncryptionPtrType)(v)
-}
-
-func (*securityConfigurationEncryptionConfigurationCloudwatchEncryptionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SecurityConfigurationEncryptionConfigurationCloudwatchEncryption)(nil)).Elem()
-}
-
-func (i *securityConfigurationEncryptionConfigurationCloudwatchEncryptionPtrType) ToSecurityConfigurationEncryptionConfigurationCloudwatchEncryptionPtrOutput() SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionPtrOutput {
-	return i.ToSecurityConfigurationEncryptionConfigurationCloudwatchEncryptionPtrOutputWithContext(context.Background())
-}
-
-func (i *securityConfigurationEncryptionConfigurationCloudwatchEncryptionPtrType) ToSecurityConfigurationEncryptionConfigurationCloudwatchEncryptionPtrOutputWithContext(ctx context.Context) SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionPtrOutput)
-}
-
 type SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionOutput struct{ *pulumi.OutputState }
 
 func (SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionOutput) ElementType() reflect.Type {
@@ -6631,16 +5728,6 @@ func (o SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionOutput) 
 	return o
 }
 
-func (o SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionOutput) ToSecurityConfigurationEncryptionConfigurationCloudwatchEncryptionPtrOutput() SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionPtrOutput {
-	return o.ToSecurityConfigurationEncryptionConfigurationCloudwatchEncryptionPtrOutputWithContext(context.Background())
-}
-
-func (o SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionOutput) ToSecurityConfigurationEncryptionConfigurationCloudwatchEncryptionPtrOutputWithContext(ctx context.Context) SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecurityConfigurationEncryptionConfigurationCloudwatchEncryption) *SecurityConfigurationEncryptionConfigurationCloudwatchEncryption {
-		return &v
-	}).(SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionPtrOutput)
-}
-
 // Encryption mode to use for CloudWatch data. Valid values: `DISABLED`, `SSE-KMS`. Default value: `DISABLED`.
 func (o SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionOutput) CloudwatchEncryptionMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecurityConfigurationEncryptionConfigurationCloudwatchEncryption) *string {
@@ -6651,50 +5738,6 @@ func (o SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionOutput) 
 // Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
 func (o SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecurityConfigurationEncryptionConfigurationCloudwatchEncryption) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
-}
-
-type SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionPtrOutput struct{ *pulumi.OutputState }
-
-func (SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SecurityConfigurationEncryptionConfigurationCloudwatchEncryption)(nil)).Elem()
-}
-
-func (o SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionPtrOutput) ToSecurityConfigurationEncryptionConfigurationCloudwatchEncryptionPtrOutput() SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionPtrOutput {
-	return o
-}
-
-func (o SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionPtrOutput) ToSecurityConfigurationEncryptionConfigurationCloudwatchEncryptionPtrOutputWithContext(ctx context.Context) SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionPtrOutput {
-	return o
-}
-
-func (o SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionPtrOutput) Elem() SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionOutput {
-	return o.ApplyT(func(v *SecurityConfigurationEncryptionConfigurationCloudwatchEncryption) SecurityConfigurationEncryptionConfigurationCloudwatchEncryption {
-		if v != nil {
-			return *v
-		}
-		var ret SecurityConfigurationEncryptionConfigurationCloudwatchEncryption
-		return ret
-	}).(SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionOutput)
-}
-
-// Encryption mode to use for CloudWatch data. Valid values: `DISABLED`, `SSE-KMS`. Default value: `DISABLED`.
-func (o SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionPtrOutput) CloudwatchEncryptionMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SecurityConfigurationEncryptionConfigurationCloudwatchEncryption) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CloudwatchEncryptionMode
-	}).(pulumi.StringPtrOutput)
-}
-
-// Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
-func (o SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SecurityConfigurationEncryptionConfigurationCloudwatchEncryption) *string {
-		if v == nil {
-			return nil
-		}
-		return v.KmsKeyArn
-	}).(pulumi.StringPtrOutput)
 }
 
 type SecurityConfigurationEncryptionConfigurationJobBookmarksEncryption struct {
@@ -6734,47 +5777,6 @@ func (i SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionArgs) 
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionOutput)
 }
 
-func (i SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionArgs) ToSecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionPtrOutput() SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionPtrOutput {
-	return i.ToSecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionPtrOutputWithContext(context.Background())
-}
-
-func (i SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionArgs) ToSecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionPtrOutputWithContext(ctx context.Context) SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionOutput).ToSecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionPtrOutputWithContext(ctx)
-}
-
-// SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionPtrInput is an input type that accepts SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionArgs, SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionPtr and SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionPtrOutput values.
-// You can construct a concrete instance of `SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionPtrInput` via:
-//
-//          SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionArgs{...}
-//
-//  or:
-//
-//          nil
-type SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionPtrInput interface {
-	pulumi.Input
-
-	ToSecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionPtrOutput() SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionPtrOutput
-	ToSecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionPtrOutputWithContext(context.Context) SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionPtrOutput
-}
-
-type securityConfigurationEncryptionConfigurationJobBookmarksEncryptionPtrType SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionArgs
-
-func SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionPtr(v *SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionArgs) SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionPtrInput {
-	return (*securityConfigurationEncryptionConfigurationJobBookmarksEncryptionPtrType)(v)
-}
-
-func (*securityConfigurationEncryptionConfigurationJobBookmarksEncryptionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SecurityConfigurationEncryptionConfigurationJobBookmarksEncryption)(nil)).Elem()
-}
-
-func (i *securityConfigurationEncryptionConfigurationJobBookmarksEncryptionPtrType) ToSecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionPtrOutput() SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionPtrOutput {
-	return i.ToSecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionPtrOutputWithContext(context.Background())
-}
-
-func (i *securityConfigurationEncryptionConfigurationJobBookmarksEncryptionPtrType) ToSecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionPtrOutputWithContext(ctx context.Context) SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionPtrOutput)
-}
-
 type SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionOutput struct{ *pulumi.OutputState }
 
 func (SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionOutput) ElementType() reflect.Type {
@@ -6789,16 +5791,6 @@ func (o SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionOutput
 	return o
 }
 
-func (o SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionOutput) ToSecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionPtrOutput() SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionPtrOutput {
-	return o.ToSecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionPtrOutputWithContext(context.Background())
-}
-
-func (o SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionOutput) ToSecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionPtrOutputWithContext(ctx context.Context) SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecurityConfigurationEncryptionConfigurationJobBookmarksEncryption) *SecurityConfigurationEncryptionConfigurationJobBookmarksEncryption {
-		return &v
-	}).(SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionPtrOutput)
-}
-
 // Encryption mode to use for job bookmarks data. Valid values: `CSE-KMS`, `DISABLED`. Default value: `DISABLED`.
 func (o SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionOutput) JobBookmarksEncryptionMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecurityConfigurationEncryptionConfigurationJobBookmarksEncryption) *string {
@@ -6809,50 +5801,6 @@ func (o SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionOutput
 // Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
 func (o SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecurityConfigurationEncryptionConfigurationJobBookmarksEncryption) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
-}
-
-type SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionPtrOutput struct{ *pulumi.OutputState }
-
-func (SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SecurityConfigurationEncryptionConfigurationJobBookmarksEncryption)(nil)).Elem()
-}
-
-func (o SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionPtrOutput) ToSecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionPtrOutput() SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionPtrOutput {
-	return o
-}
-
-func (o SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionPtrOutput) ToSecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionPtrOutputWithContext(ctx context.Context) SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionPtrOutput {
-	return o
-}
-
-func (o SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionPtrOutput) Elem() SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionOutput {
-	return o.ApplyT(func(v *SecurityConfigurationEncryptionConfigurationJobBookmarksEncryption) SecurityConfigurationEncryptionConfigurationJobBookmarksEncryption {
-		if v != nil {
-			return *v
-		}
-		var ret SecurityConfigurationEncryptionConfigurationJobBookmarksEncryption
-		return ret
-	}).(SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionOutput)
-}
-
-// Encryption mode to use for job bookmarks data. Valid values: `CSE-KMS`, `DISABLED`. Default value: `DISABLED`.
-func (o SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionPtrOutput) JobBookmarksEncryptionMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SecurityConfigurationEncryptionConfigurationJobBookmarksEncryption) *string {
-		if v == nil {
-			return nil
-		}
-		return v.JobBookmarksEncryptionMode
-	}).(pulumi.StringPtrOutput)
-}
-
-// Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
-func (o SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SecurityConfigurationEncryptionConfigurationJobBookmarksEncryption) *string {
-		if v == nil {
-			return nil
-		}
-		return v.KmsKeyArn
-	}).(pulumi.StringPtrOutput)
 }
 
 type SecurityConfigurationEncryptionConfigurationS3Encryption struct {
@@ -6892,47 +5840,6 @@ func (i SecurityConfigurationEncryptionConfigurationS3EncryptionArgs) ToSecurity
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigurationEncryptionConfigurationS3EncryptionOutput)
 }
 
-func (i SecurityConfigurationEncryptionConfigurationS3EncryptionArgs) ToSecurityConfigurationEncryptionConfigurationS3EncryptionPtrOutput() SecurityConfigurationEncryptionConfigurationS3EncryptionPtrOutput {
-	return i.ToSecurityConfigurationEncryptionConfigurationS3EncryptionPtrOutputWithContext(context.Background())
-}
-
-func (i SecurityConfigurationEncryptionConfigurationS3EncryptionArgs) ToSecurityConfigurationEncryptionConfigurationS3EncryptionPtrOutputWithContext(ctx context.Context) SecurityConfigurationEncryptionConfigurationS3EncryptionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigurationEncryptionConfigurationS3EncryptionOutput).ToSecurityConfigurationEncryptionConfigurationS3EncryptionPtrOutputWithContext(ctx)
-}
-
-// SecurityConfigurationEncryptionConfigurationS3EncryptionPtrInput is an input type that accepts SecurityConfigurationEncryptionConfigurationS3EncryptionArgs, SecurityConfigurationEncryptionConfigurationS3EncryptionPtr and SecurityConfigurationEncryptionConfigurationS3EncryptionPtrOutput values.
-// You can construct a concrete instance of `SecurityConfigurationEncryptionConfigurationS3EncryptionPtrInput` via:
-//
-//          SecurityConfigurationEncryptionConfigurationS3EncryptionArgs{...}
-//
-//  or:
-//
-//          nil
-type SecurityConfigurationEncryptionConfigurationS3EncryptionPtrInput interface {
-	pulumi.Input
-
-	ToSecurityConfigurationEncryptionConfigurationS3EncryptionPtrOutput() SecurityConfigurationEncryptionConfigurationS3EncryptionPtrOutput
-	ToSecurityConfigurationEncryptionConfigurationS3EncryptionPtrOutputWithContext(context.Context) SecurityConfigurationEncryptionConfigurationS3EncryptionPtrOutput
-}
-
-type securityConfigurationEncryptionConfigurationS3EncryptionPtrType SecurityConfigurationEncryptionConfigurationS3EncryptionArgs
-
-func SecurityConfigurationEncryptionConfigurationS3EncryptionPtr(v *SecurityConfigurationEncryptionConfigurationS3EncryptionArgs) SecurityConfigurationEncryptionConfigurationS3EncryptionPtrInput {
-	return (*securityConfigurationEncryptionConfigurationS3EncryptionPtrType)(v)
-}
-
-func (*securityConfigurationEncryptionConfigurationS3EncryptionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SecurityConfigurationEncryptionConfigurationS3Encryption)(nil)).Elem()
-}
-
-func (i *securityConfigurationEncryptionConfigurationS3EncryptionPtrType) ToSecurityConfigurationEncryptionConfigurationS3EncryptionPtrOutput() SecurityConfigurationEncryptionConfigurationS3EncryptionPtrOutput {
-	return i.ToSecurityConfigurationEncryptionConfigurationS3EncryptionPtrOutputWithContext(context.Background())
-}
-
-func (i *securityConfigurationEncryptionConfigurationS3EncryptionPtrType) ToSecurityConfigurationEncryptionConfigurationS3EncryptionPtrOutputWithContext(ctx context.Context) SecurityConfigurationEncryptionConfigurationS3EncryptionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SecurityConfigurationEncryptionConfigurationS3EncryptionPtrOutput)
-}
-
 type SecurityConfigurationEncryptionConfigurationS3EncryptionOutput struct{ *pulumi.OutputState }
 
 func (SecurityConfigurationEncryptionConfigurationS3EncryptionOutput) ElementType() reflect.Type {
@@ -6947,16 +5854,6 @@ func (o SecurityConfigurationEncryptionConfigurationS3EncryptionOutput) ToSecuri
 	return o
 }
 
-func (o SecurityConfigurationEncryptionConfigurationS3EncryptionOutput) ToSecurityConfigurationEncryptionConfigurationS3EncryptionPtrOutput() SecurityConfigurationEncryptionConfigurationS3EncryptionPtrOutput {
-	return o.ToSecurityConfigurationEncryptionConfigurationS3EncryptionPtrOutputWithContext(context.Background())
-}
-
-func (o SecurityConfigurationEncryptionConfigurationS3EncryptionOutput) ToSecurityConfigurationEncryptionConfigurationS3EncryptionPtrOutputWithContext(ctx context.Context) SecurityConfigurationEncryptionConfigurationS3EncryptionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecurityConfigurationEncryptionConfigurationS3Encryption) *SecurityConfigurationEncryptionConfigurationS3Encryption {
-		return &v
-	}).(SecurityConfigurationEncryptionConfigurationS3EncryptionPtrOutput)
-}
-
 // Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
 func (o SecurityConfigurationEncryptionConfigurationS3EncryptionOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecurityConfigurationEncryptionConfigurationS3Encryption) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
@@ -6965,50 +5862,6 @@ func (o SecurityConfigurationEncryptionConfigurationS3EncryptionOutput) KmsKeyAr
 // Encryption mode to use for S3 data. Valid values: `DISABLED`, `SSE-KMS`, `SSE-S3`. Default value: `DISABLED`.
 func (o SecurityConfigurationEncryptionConfigurationS3EncryptionOutput) S3EncryptionMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecurityConfigurationEncryptionConfigurationS3Encryption) *string { return v.S3EncryptionMode }).(pulumi.StringPtrOutput)
-}
-
-type SecurityConfigurationEncryptionConfigurationS3EncryptionPtrOutput struct{ *pulumi.OutputState }
-
-func (SecurityConfigurationEncryptionConfigurationS3EncryptionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SecurityConfigurationEncryptionConfigurationS3Encryption)(nil)).Elem()
-}
-
-func (o SecurityConfigurationEncryptionConfigurationS3EncryptionPtrOutput) ToSecurityConfigurationEncryptionConfigurationS3EncryptionPtrOutput() SecurityConfigurationEncryptionConfigurationS3EncryptionPtrOutput {
-	return o
-}
-
-func (o SecurityConfigurationEncryptionConfigurationS3EncryptionPtrOutput) ToSecurityConfigurationEncryptionConfigurationS3EncryptionPtrOutputWithContext(ctx context.Context) SecurityConfigurationEncryptionConfigurationS3EncryptionPtrOutput {
-	return o
-}
-
-func (o SecurityConfigurationEncryptionConfigurationS3EncryptionPtrOutput) Elem() SecurityConfigurationEncryptionConfigurationS3EncryptionOutput {
-	return o.ApplyT(func(v *SecurityConfigurationEncryptionConfigurationS3Encryption) SecurityConfigurationEncryptionConfigurationS3Encryption {
-		if v != nil {
-			return *v
-		}
-		var ret SecurityConfigurationEncryptionConfigurationS3Encryption
-		return ret
-	}).(SecurityConfigurationEncryptionConfigurationS3EncryptionOutput)
-}
-
-// Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
-func (o SecurityConfigurationEncryptionConfigurationS3EncryptionPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SecurityConfigurationEncryptionConfigurationS3Encryption) *string {
-		if v == nil {
-			return nil
-		}
-		return v.KmsKeyArn
-	}).(pulumi.StringPtrOutput)
-}
-
-// Encryption mode to use for S3 data. Valid values: `DISABLED`, `SSE-KMS`, `SSE-S3`. Default value: `DISABLED`.
-func (o SecurityConfigurationEncryptionConfigurationS3EncryptionPtrOutput) S3EncryptionMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SecurityConfigurationEncryptionConfigurationS3Encryption) *string {
-		if v == nil {
-			return nil
-		}
-		return v.S3EncryptionMode
-	}).(pulumi.StringPtrOutput)
 }
 
 type TriggerAction struct {
@@ -7691,60 +6544,6 @@ type GetConnectionPhysicalConnectionRequirement struct {
 	SubnetId             string   `pulumi:"subnetId"`
 }
 
-// GetConnectionPhysicalConnectionRequirementInput is an input type that accepts GetConnectionPhysicalConnectionRequirementArgs and GetConnectionPhysicalConnectionRequirementOutput values.
-// You can construct a concrete instance of `GetConnectionPhysicalConnectionRequirementInput` via:
-//
-//          GetConnectionPhysicalConnectionRequirementArgs{...}
-type GetConnectionPhysicalConnectionRequirementInput interface {
-	pulumi.Input
-
-	ToGetConnectionPhysicalConnectionRequirementOutput() GetConnectionPhysicalConnectionRequirementOutput
-	ToGetConnectionPhysicalConnectionRequirementOutputWithContext(context.Context) GetConnectionPhysicalConnectionRequirementOutput
-}
-
-type GetConnectionPhysicalConnectionRequirementArgs struct {
-	AvailabilityZone     pulumi.StringInput      `pulumi:"availabilityZone"`
-	SecurityGroupIdLists pulumi.StringArrayInput `pulumi:"securityGroupIdLists"`
-	SubnetId             pulumi.StringInput      `pulumi:"subnetId"`
-}
-
-func (GetConnectionPhysicalConnectionRequirementArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetConnectionPhysicalConnectionRequirement)(nil)).Elem()
-}
-
-func (i GetConnectionPhysicalConnectionRequirementArgs) ToGetConnectionPhysicalConnectionRequirementOutput() GetConnectionPhysicalConnectionRequirementOutput {
-	return i.ToGetConnectionPhysicalConnectionRequirementOutputWithContext(context.Background())
-}
-
-func (i GetConnectionPhysicalConnectionRequirementArgs) ToGetConnectionPhysicalConnectionRequirementOutputWithContext(ctx context.Context) GetConnectionPhysicalConnectionRequirementOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetConnectionPhysicalConnectionRequirementOutput)
-}
-
-// GetConnectionPhysicalConnectionRequirementArrayInput is an input type that accepts GetConnectionPhysicalConnectionRequirementArray and GetConnectionPhysicalConnectionRequirementArrayOutput values.
-// You can construct a concrete instance of `GetConnectionPhysicalConnectionRequirementArrayInput` via:
-//
-//          GetConnectionPhysicalConnectionRequirementArray{ GetConnectionPhysicalConnectionRequirementArgs{...} }
-type GetConnectionPhysicalConnectionRequirementArrayInput interface {
-	pulumi.Input
-
-	ToGetConnectionPhysicalConnectionRequirementArrayOutput() GetConnectionPhysicalConnectionRequirementArrayOutput
-	ToGetConnectionPhysicalConnectionRequirementArrayOutputWithContext(context.Context) GetConnectionPhysicalConnectionRequirementArrayOutput
-}
-
-type GetConnectionPhysicalConnectionRequirementArray []GetConnectionPhysicalConnectionRequirementInput
-
-func (GetConnectionPhysicalConnectionRequirementArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetConnectionPhysicalConnectionRequirement)(nil)).Elem()
-}
-
-func (i GetConnectionPhysicalConnectionRequirementArray) ToGetConnectionPhysicalConnectionRequirementArrayOutput() GetConnectionPhysicalConnectionRequirementArrayOutput {
-	return i.ToGetConnectionPhysicalConnectionRequirementArrayOutputWithContext(context.Background())
-}
-
-func (i GetConnectionPhysicalConnectionRequirementArray) ToGetConnectionPhysicalConnectionRequirementArrayOutputWithContext(ctx context.Context) GetConnectionPhysicalConnectionRequirementArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetConnectionPhysicalConnectionRequirementArrayOutput)
-}
-
 type GetConnectionPhysicalConnectionRequirementOutput struct{ *pulumi.OutputState }
 
 func (GetConnectionPhysicalConnectionRequirementOutput) ElementType() reflect.Type {
@@ -7796,61 +6595,6 @@ type GetDataCatalogEncryptionSettingsDataCatalogEncryptionSetting struct {
 	ConnectionPasswordEncryptions []GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryption `pulumi:"connectionPasswordEncryptions"`
 	// Specifies the encryption-at-rest configuration for the Data Catalog. see Encryption At Rest.
 	EncryptionAtRests []GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRest `pulumi:"encryptionAtRests"`
-}
-
-// GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingInput is an input type that accepts GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingArgs and GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingOutput values.
-// You can construct a concrete instance of `GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingInput` via:
-//
-//          GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingArgs{...}
-type GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingInput interface {
-	pulumi.Input
-
-	ToGetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingOutput() GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingOutput
-	ToGetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingOutputWithContext(context.Context) GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingOutput
-}
-
-type GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingArgs struct {
-	// When connection password protection is enabled, the Data Catalog uses a customer-provided key to encrypt the password as part of CreateConnection or UpdateConnection and store it in the ENCRYPTED_PASSWORD field in the connection properties. You can enable catalog encryption or only password encryption. see Connection Password Encryption.
-	ConnectionPasswordEncryptions GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionArrayInput `pulumi:"connectionPasswordEncryptions"`
-	// Specifies the encryption-at-rest configuration for the Data Catalog. see Encryption At Rest.
-	EncryptionAtRests GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestArrayInput `pulumi:"encryptionAtRests"`
-}
-
-func (GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetDataCatalogEncryptionSettingsDataCatalogEncryptionSetting)(nil)).Elem()
-}
-
-func (i GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingArgs) ToGetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingOutput() GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingOutput {
-	return i.ToGetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingOutputWithContext(context.Background())
-}
-
-func (i GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingArgs) ToGetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingOutputWithContext(ctx context.Context) GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingOutput)
-}
-
-// GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingArrayInput is an input type that accepts GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingArray and GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingArrayOutput values.
-// You can construct a concrete instance of `GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingArrayInput` via:
-//
-//          GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingArray{ GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingArgs{...} }
-type GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingArrayInput interface {
-	pulumi.Input
-
-	ToGetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingArrayOutput() GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingArrayOutput
-	ToGetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingArrayOutputWithContext(context.Context) GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingArrayOutput
-}
-
-type GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingArray []GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingInput
-
-func (GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetDataCatalogEncryptionSettingsDataCatalogEncryptionSetting)(nil)).Elem()
-}
-
-func (i GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingArray) ToGetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingArrayOutput() GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingArrayOutput {
-	return i.ToGetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingArrayOutputWithContext(context.Background())
-}
-
-func (i GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingArray) ToGetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingArrayOutputWithContext(ctx context.Context) GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingArrayOutput)
 }
 
 type GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingOutput struct{ *pulumi.OutputState }
@@ -7908,61 +6652,6 @@ type GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPassw
 	ReturnConnectionPasswordEncrypted bool `pulumi:"returnConnectionPasswordEncrypted"`
 }
 
-// GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionInput is an input type that accepts GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionArgs and GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionOutput values.
-// You can construct a concrete instance of `GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionInput` via:
-//
-//          GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionArgs{...}
-type GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionInput interface {
-	pulumi.Input
-
-	ToGetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionOutput() GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionOutput
-	ToGetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionOutputWithContext(context.Context) GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionOutput
-}
-
-type GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionArgs struct {
-	// A KMS key ARN that is used to encrypt the connection password.
-	AwsKmsKeyId pulumi.StringInput `pulumi:"awsKmsKeyId"`
-	// When set to `true`, passwords remain encrypted in the responses of GetConnection and GetConnections. This encryption takes effect independently of the catalog encryption.
-	ReturnConnectionPasswordEncrypted pulumi.BoolInput `pulumi:"returnConnectionPasswordEncrypted"`
-}
-
-func (GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryption)(nil)).Elem()
-}
-
-func (i GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionArgs) ToGetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionOutput() GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionOutput {
-	return i.ToGetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionOutputWithContext(context.Background())
-}
-
-func (i GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionArgs) ToGetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionOutputWithContext(ctx context.Context) GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionOutput)
-}
-
-// GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionArrayInput is an input type that accepts GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionArray and GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionArrayOutput values.
-// You can construct a concrete instance of `GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionArrayInput` via:
-//
-//          GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionArray{ GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionArgs{...} }
-type GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionArrayInput interface {
-	pulumi.Input
-
-	ToGetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionArrayOutput() GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionArrayOutput
-	ToGetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionArrayOutputWithContext(context.Context) GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionArrayOutput
-}
-
-type GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionArray []GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionInput
-
-func (GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryption)(nil)).Elem()
-}
-
-func (i GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionArray) ToGetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionArrayOutput() GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionArrayOutput {
-	return i.ToGetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionArrayOutputWithContext(context.Background())
-}
-
-func (i GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionArray) ToGetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionArrayOutputWithContext(ctx context.Context) GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionArrayOutput)
-}
-
 type GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionOutput struct{ *pulumi.OutputState }
 
 func (GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionOutput) ElementType() reflect.Type {
@@ -8016,61 +6705,6 @@ type GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRes
 	CatalogEncryptionMode string `pulumi:"catalogEncryptionMode"`
 	// The ARN of the AWS KMS key to use for encryption at rest.
 	SseAwsKmsKeyId string `pulumi:"sseAwsKmsKeyId"`
-}
-
-// GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestInput is an input type that accepts GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestArgs and GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestOutput values.
-// You can construct a concrete instance of `GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestInput` via:
-//
-//          GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestArgs{...}
-type GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestInput interface {
-	pulumi.Input
-
-	ToGetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestOutput() GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestOutput
-	ToGetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestOutputWithContext(context.Context) GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestOutput
-}
-
-type GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestArgs struct {
-	// The encryption-at-rest mode for encrypting Data Catalog data.
-	CatalogEncryptionMode pulumi.StringInput `pulumi:"catalogEncryptionMode"`
-	// The ARN of the AWS KMS key to use for encryption at rest.
-	SseAwsKmsKeyId pulumi.StringInput `pulumi:"sseAwsKmsKeyId"`
-}
-
-func (GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRest)(nil)).Elem()
-}
-
-func (i GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestArgs) ToGetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestOutput() GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestOutput {
-	return i.ToGetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestOutputWithContext(context.Background())
-}
-
-func (i GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestArgs) ToGetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestOutputWithContext(ctx context.Context) GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestOutput)
-}
-
-// GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestArrayInput is an input type that accepts GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestArray and GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestArrayOutput values.
-// You can construct a concrete instance of `GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestArrayInput` via:
-//
-//          GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestArray{ GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestArgs{...} }
-type GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestArrayInput interface {
-	pulumi.Input
-
-	ToGetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestArrayOutput() GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestArrayOutput
-	ToGetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestArrayOutputWithContext(context.Context) GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestArrayOutput
-}
-
-type GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestArray []GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestInput
-
-func (GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRest)(nil)).Elem()
-}
-
-func (i GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestArray) ToGetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestArrayOutput() GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestArrayOutput {
-	return i.ToGetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestArrayOutputWithContext(context.Background())
-}
-
-func (i GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestArray) ToGetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestArrayOutputWithContext(ctx context.Context) GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestArrayOutput)
 }
 
 type GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestOutput struct{ *pulumi.OutputState }
@@ -8525,13 +7159,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerSchemaChangePolicyInput)(nil)).Elem(), CrawlerSchemaChangePolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerSchemaChangePolicyPtrInput)(nil)).Elem(), CrawlerSchemaChangePolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsInput)(nil)).Elem(), DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrInput)(nil)).Elem(), DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionInput)(nil)).Elem(), DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrInput)(nil)).Elem(), DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestInput)(nil)).Elem(), DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrInput)(nil)).Elem(), DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobCommandInput)(nil)).Elem(), JobCommandArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*JobCommandPtrInput)(nil)).Elem(), JobCommandArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobExecutionPropertyInput)(nil)).Elem(), JobExecutionPropertyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobExecutionPropertyPtrInput)(nil)).Elem(), JobExecutionPropertyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobNotificationPropertyInput)(nil)).Elem(), JobNotificationPropertyArgs{})
@@ -8539,13 +7169,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MLTransformInputRecordTableInput)(nil)).Elem(), MLTransformInputRecordTableArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MLTransformInputRecordTableArrayInput)(nil)).Elem(), MLTransformInputRecordTableArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MLTransformParametersInput)(nil)).Elem(), MLTransformParametersArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MLTransformParametersPtrInput)(nil)).Elem(), MLTransformParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MLTransformParametersFindMatchesParametersInput)(nil)).Elem(), MLTransformParametersFindMatchesParametersArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MLTransformParametersFindMatchesParametersPtrInput)(nil)).Elem(), MLTransformParametersFindMatchesParametersArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MLTransformSchemaInput)(nil)).Elem(), MLTransformSchemaArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MLTransformSchemaArrayInput)(nil)).Elem(), MLTransformSchemaArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PartitionIndexPartitionIndexInput)(nil)).Elem(), PartitionIndexPartitionIndexArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PartitionIndexPartitionIndexPtrInput)(nil)).Elem(), PartitionIndexPartitionIndexArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PartitionStorageDescriptorInput)(nil)).Elem(), PartitionStorageDescriptorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PartitionStorageDescriptorPtrInput)(nil)).Elem(), PartitionStorageDescriptorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PartitionStorageDescriptorColumnInput)(nil)).Elem(), PartitionStorageDescriptorColumnArgs{})
@@ -8557,13 +7182,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PartitionStorageDescriptorSortColumnInput)(nil)).Elem(), PartitionStorageDescriptorSortColumnArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PartitionStorageDescriptorSortColumnArrayInput)(nil)).Elem(), PartitionStorageDescriptorSortColumnArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityConfigurationEncryptionConfigurationInput)(nil)).Elem(), SecurityConfigurationEncryptionConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SecurityConfigurationEncryptionConfigurationPtrInput)(nil)).Elem(), SecurityConfigurationEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionInput)(nil)).Elem(), SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionPtrInput)(nil)).Elem(), SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionInput)(nil)).Elem(), SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionPtrInput)(nil)).Elem(), SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityConfigurationEncryptionConfigurationS3EncryptionInput)(nil)).Elem(), SecurityConfigurationEncryptionConfigurationS3EncryptionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SecurityConfigurationEncryptionConfigurationS3EncryptionPtrInput)(nil)).Elem(), SecurityConfigurationEncryptionConfigurationS3EncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TriggerActionInput)(nil)).Elem(), TriggerActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TriggerActionArrayInput)(nil)).Elem(), TriggerActionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TriggerActionNotificationPropertyInput)(nil)).Elem(), TriggerActionNotificationPropertyArgs{})
@@ -8574,14 +7195,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TriggerPredicateConditionArrayInput)(nil)).Elem(), TriggerPredicateConditionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserDefinedFunctionResourceUriInput)(nil)).Elem(), UserDefinedFunctionResourceUriArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserDefinedFunctionResourceUriArrayInput)(nil)).Elem(), UserDefinedFunctionResourceUriArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetConnectionPhysicalConnectionRequirementInput)(nil)).Elem(), GetConnectionPhysicalConnectionRequirementArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetConnectionPhysicalConnectionRequirementArrayInput)(nil)).Elem(), GetConnectionPhysicalConnectionRequirementArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingInput)(nil)).Elem(), GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingArrayInput)(nil)).Elem(), GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionInput)(nil)).Elem(), GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionArrayInput)(nil)).Elem(), GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingConnectionPasswordEncryptionArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestInput)(nil)).Elem(), GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestArrayInput)(nil)).Elem(), GetDataCatalogEncryptionSettingsDataCatalogEncryptionSettingEncryptionAtRestArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetScriptDagEdgeInput)(nil)).Elem(), GetScriptDagEdgeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetScriptDagEdgeArrayInput)(nil)).Elem(), GetScriptDagEdgeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetScriptDagNodeInput)(nil)).Elem(), GetScriptDagNodeArgs{})
@@ -8637,13 +7250,9 @@ func init() {
 	pulumi.RegisterOutputType(CrawlerSchemaChangePolicyOutput{})
 	pulumi.RegisterOutputType(CrawlerSchemaChangePolicyPtrOutput{})
 	pulumi.RegisterOutputType(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsOutput{})
-	pulumi.RegisterOutputType(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsPtrOutput{})
 	pulumi.RegisterOutputType(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionOutput{})
-	pulumi.RegisterOutputType(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsConnectionPasswordEncryptionPtrOutput{})
 	pulumi.RegisterOutputType(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestOutput{})
-	pulumi.RegisterOutputType(DataCatalogEncryptionSettingsDataCatalogEncryptionSettingsEncryptionAtRestPtrOutput{})
 	pulumi.RegisterOutputType(JobCommandOutput{})
-	pulumi.RegisterOutputType(JobCommandPtrOutput{})
 	pulumi.RegisterOutputType(JobExecutionPropertyOutput{})
 	pulumi.RegisterOutputType(JobExecutionPropertyPtrOutput{})
 	pulumi.RegisterOutputType(JobNotificationPropertyOutput{})
@@ -8651,13 +7260,10 @@ func init() {
 	pulumi.RegisterOutputType(MLTransformInputRecordTableOutput{})
 	pulumi.RegisterOutputType(MLTransformInputRecordTableArrayOutput{})
 	pulumi.RegisterOutputType(MLTransformParametersOutput{})
-	pulumi.RegisterOutputType(MLTransformParametersPtrOutput{})
 	pulumi.RegisterOutputType(MLTransformParametersFindMatchesParametersOutput{})
-	pulumi.RegisterOutputType(MLTransformParametersFindMatchesParametersPtrOutput{})
 	pulumi.RegisterOutputType(MLTransformSchemaOutput{})
 	pulumi.RegisterOutputType(MLTransformSchemaArrayOutput{})
 	pulumi.RegisterOutputType(PartitionIndexPartitionIndexOutput{})
-	pulumi.RegisterOutputType(PartitionIndexPartitionIndexPtrOutput{})
 	pulumi.RegisterOutputType(PartitionStorageDescriptorOutput{})
 	pulumi.RegisterOutputType(PartitionStorageDescriptorPtrOutput{})
 	pulumi.RegisterOutputType(PartitionStorageDescriptorColumnOutput{})
@@ -8669,13 +7275,9 @@ func init() {
 	pulumi.RegisterOutputType(PartitionStorageDescriptorSortColumnOutput{})
 	pulumi.RegisterOutputType(PartitionStorageDescriptorSortColumnArrayOutput{})
 	pulumi.RegisterOutputType(SecurityConfigurationEncryptionConfigurationOutput{})
-	pulumi.RegisterOutputType(SecurityConfigurationEncryptionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionOutput{})
-	pulumi.RegisterOutputType(SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionPtrOutput{})
 	pulumi.RegisterOutputType(SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionOutput{})
-	pulumi.RegisterOutputType(SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionPtrOutput{})
 	pulumi.RegisterOutputType(SecurityConfigurationEncryptionConfigurationS3EncryptionOutput{})
-	pulumi.RegisterOutputType(SecurityConfigurationEncryptionConfigurationS3EncryptionPtrOutput{})
 	pulumi.RegisterOutputType(TriggerActionOutput{})
 	pulumi.RegisterOutputType(TriggerActionArrayOutput{})
 	pulumi.RegisterOutputType(TriggerActionNotificationPropertyOutput{})

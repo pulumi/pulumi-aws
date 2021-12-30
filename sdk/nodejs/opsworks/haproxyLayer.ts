@@ -159,39 +159,39 @@ export class HaproxyLayer extends pulumi.CustomResource {
      */
     constructor(name: string, args: HaproxyLayerArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: HaproxyLayerArgs | HaproxyLayerState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as HaproxyLayerState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["autoAssignElasticIps"] = state ? state.autoAssignElasticIps : undefined;
-            inputs["autoAssignPublicIps"] = state ? state.autoAssignPublicIps : undefined;
-            inputs["autoHealing"] = state ? state.autoHealing : undefined;
-            inputs["customConfigureRecipes"] = state ? state.customConfigureRecipes : undefined;
-            inputs["customDeployRecipes"] = state ? state.customDeployRecipes : undefined;
-            inputs["customInstanceProfileArn"] = state ? state.customInstanceProfileArn : undefined;
-            inputs["customJson"] = state ? state.customJson : undefined;
-            inputs["customSecurityGroupIds"] = state ? state.customSecurityGroupIds : undefined;
-            inputs["customSetupRecipes"] = state ? state.customSetupRecipes : undefined;
-            inputs["customShutdownRecipes"] = state ? state.customShutdownRecipes : undefined;
-            inputs["customUndeployRecipes"] = state ? state.customUndeployRecipes : undefined;
-            inputs["drainElbOnShutdown"] = state ? state.drainElbOnShutdown : undefined;
-            inputs["ebsVolumes"] = state ? state.ebsVolumes : undefined;
-            inputs["elasticLoadBalancer"] = state ? state.elasticLoadBalancer : undefined;
-            inputs["healthcheckMethod"] = state ? state.healthcheckMethod : undefined;
-            inputs["healthcheckUrl"] = state ? state.healthcheckUrl : undefined;
-            inputs["installUpdatesOnBoot"] = state ? state.installUpdatesOnBoot : undefined;
-            inputs["instanceShutdownTimeout"] = state ? state.instanceShutdownTimeout : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["stackId"] = state ? state.stackId : undefined;
-            inputs["statsEnabled"] = state ? state.statsEnabled : undefined;
-            inputs["statsPassword"] = state ? state.statsPassword : undefined;
-            inputs["statsUrl"] = state ? state.statsUrl : undefined;
-            inputs["statsUser"] = state ? state.statsUser : undefined;
-            inputs["systemPackages"] = state ? state.systemPackages : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["useEbsOptimizedInstances"] = state ? state.useEbsOptimizedInstances : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["autoAssignElasticIps"] = state ? state.autoAssignElasticIps : undefined;
+            resourceInputs["autoAssignPublicIps"] = state ? state.autoAssignPublicIps : undefined;
+            resourceInputs["autoHealing"] = state ? state.autoHealing : undefined;
+            resourceInputs["customConfigureRecipes"] = state ? state.customConfigureRecipes : undefined;
+            resourceInputs["customDeployRecipes"] = state ? state.customDeployRecipes : undefined;
+            resourceInputs["customInstanceProfileArn"] = state ? state.customInstanceProfileArn : undefined;
+            resourceInputs["customJson"] = state ? state.customJson : undefined;
+            resourceInputs["customSecurityGroupIds"] = state ? state.customSecurityGroupIds : undefined;
+            resourceInputs["customSetupRecipes"] = state ? state.customSetupRecipes : undefined;
+            resourceInputs["customShutdownRecipes"] = state ? state.customShutdownRecipes : undefined;
+            resourceInputs["customUndeployRecipes"] = state ? state.customUndeployRecipes : undefined;
+            resourceInputs["drainElbOnShutdown"] = state ? state.drainElbOnShutdown : undefined;
+            resourceInputs["ebsVolumes"] = state ? state.ebsVolumes : undefined;
+            resourceInputs["elasticLoadBalancer"] = state ? state.elasticLoadBalancer : undefined;
+            resourceInputs["healthcheckMethod"] = state ? state.healthcheckMethod : undefined;
+            resourceInputs["healthcheckUrl"] = state ? state.healthcheckUrl : undefined;
+            resourceInputs["installUpdatesOnBoot"] = state ? state.installUpdatesOnBoot : undefined;
+            resourceInputs["instanceShutdownTimeout"] = state ? state.instanceShutdownTimeout : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["stackId"] = state ? state.stackId : undefined;
+            resourceInputs["statsEnabled"] = state ? state.statsEnabled : undefined;
+            resourceInputs["statsPassword"] = state ? state.statsPassword : undefined;
+            resourceInputs["statsUrl"] = state ? state.statsUrl : undefined;
+            resourceInputs["statsUser"] = state ? state.statsUser : undefined;
+            resourceInputs["systemPackages"] = state ? state.systemPackages : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["useEbsOptimizedInstances"] = state ? state.useEbsOptimizedInstances : undefined;
         } else {
             const args = argsOrState as HaproxyLayerArgs | undefined;
             if ((!args || args.stackId === undefined) && !opts.urn) {
@@ -200,40 +200,40 @@ export class HaproxyLayer extends pulumi.CustomResource {
             if ((!args || args.statsPassword === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'statsPassword'");
             }
-            inputs["autoAssignElasticIps"] = args ? args.autoAssignElasticIps : undefined;
-            inputs["autoAssignPublicIps"] = args ? args.autoAssignPublicIps : undefined;
-            inputs["autoHealing"] = args ? args.autoHealing : undefined;
-            inputs["customConfigureRecipes"] = args ? args.customConfigureRecipes : undefined;
-            inputs["customDeployRecipes"] = args ? args.customDeployRecipes : undefined;
-            inputs["customInstanceProfileArn"] = args ? args.customInstanceProfileArn : undefined;
-            inputs["customJson"] = args ? args.customJson : undefined;
-            inputs["customSecurityGroupIds"] = args ? args.customSecurityGroupIds : undefined;
-            inputs["customSetupRecipes"] = args ? args.customSetupRecipes : undefined;
-            inputs["customShutdownRecipes"] = args ? args.customShutdownRecipes : undefined;
-            inputs["customUndeployRecipes"] = args ? args.customUndeployRecipes : undefined;
-            inputs["drainElbOnShutdown"] = args ? args.drainElbOnShutdown : undefined;
-            inputs["ebsVolumes"] = args ? args.ebsVolumes : undefined;
-            inputs["elasticLoadBalancer"] = args ? args.elasticLoadBalancer : undefined;
-            inputs["healthcheckMethod"] = args ? args.healthcheckMethod : undefined;
-            inputs["healthcheckUrl"] = args ? args.healthcheckUrl : undefined;
-            inputs["installUpdatesOnBoot"] = args ? args.installUpdatesOnBoot : undefined;
-            inputs["instanceShutdownTimeout"] = args ? args.instanceShutdownTimeout : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["stackId"] = args ? args.stackId : undefined;
-            inputs["statsEnabled"] = args ? args.statsEnabled : undefined;
-            inputs["statsPassword"] = args ? args.statsPassword : undefined;
-            inputs["statsUrl"] = args ? args.statsUrl : undefined;
-            inputs["statsUser"] = args ? args.statsUser : undefined;
-            inputs["systemPackages"] = args ? args.systemPackages : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["useEbsOptimizedInstances"] = args ? args.useEbsOptimizedInstances : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["autoAssignElasticIps"] = args ? args.autoAssignElasticIps : undefined;
+            resourceInputs["autoAssignPublicIps"] = args ? args.autoAssignPublicIps : undefined;
+            resourceInputs["autoHealing"] = args ? args.autoHealing : undefined;
+            resourceInputs["customConfigureRecipes"] = args ? args.customConfigureRecipes : undefined;
+            resourceInputs["customDeployRecipes"] = args ? args.customDeployRecipes : undefined;
+            resourceInputs["customInstanceProfileArn"] = args ? args.customInstanceProfileArn : undefined;
+            resourceInputs["customJson"] = args ? args.customJson : undefined;
+            resourceInputs["customSecurityGroupIds"] = args ? args.customSecurityGroupIds : undefined;
+            resourceInputs["customSetupRecipes"] = args ? args.customSetupRecipes : undefined;
+            resourceInputs["customShutdownRecipes"] = args ? args.customShutdownRecipes : undefined;
+            resourceInputs["customUndeployRecipes"] = args ? args.customUndeployRecipes : undefined;
+            resourceInputs["drainElbOnShutdown"] = args ? args.drainElbOnShutdown : undefined;
+            resourceInputs["ebsVolumes"] = args ? args.ebsVolumes : undefined;
+            resourceInputs["elasticLoadBalancer"] = args ? args.elasticLoadBalancer : undefined;
+            resourceInputs["healthcheckMethod"] = args ? args.healthcheckMethod : undefined;
+            resourceInputs["healthcheckUrl"] = args ? args.healthcheckUrl : undefined;
+            resourceInputs["installUpdatesOnBoot"] = args ? args.installUpdatesOnBoot : undefined;
+            resourceInputs["instanceShutdownTimeout"] = args ? args.instanceShutdownTimeout : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["stackId"] = args ? args.stackId : undefined;
+            resourceInputs["statsEnabled"] = args ? args.statsEnabled : undefined;
+            resourceInputs["statsPassword"] = args ? args.statsPassword : undefined;
+            resourceInputs["statsUrl"] = args ? args.statsUrl : undefined;
+            resourceInputs["statsUser"] = args ? args.statsUser : undefined;
+            resourceInputs["systemPackages"] = args ? args.systemPackages : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["useEbsOptimizedInstances"] = args ? args.useEbsOptimizedInstances : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(HaproxyLayer.__pulumiType, name, inputs, opts);
+        super(HaproxyLayer.__pulumiType, name, resourceInputs, opts);
     }
 }
 

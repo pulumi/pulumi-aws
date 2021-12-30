@@ -157,7 +157,7 @@ type RoleAliasInput interface {
 }
 
 func (*RoleAlias) ElementType() reflect.Type {
-	return reflect.TypeOf((*RoleAlias)(nil))
+	return reflect.TypeOf((**RoleAlias)(nil)).Elem()
 }
 
 func (i *RoleAlias) ToRoleAliasOutput() RoleAliasOutput {
@@ -166,35 +166,6 @@ func (i *RoleAlias) ToRoleAliasOutput() RoleAliasOutput {
 
 func (i *RoleAlias) ToRoleAliasOutputWithContext(ctx context.Context) RoleAliasOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RoleAliasOutput)
-}
-
-func (i *RoleAlias) ToRoleAliasPtrOutput() RoleAliasPtrOutput {
-	return i.ToRoleAliasPtrOutputWithContext(context.Background())
-}
-
-func (i *RoleAlias) ToRoleAliasPtrOutputWithContext(ctx context.Context) RoleAliasPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RoleAliasPtrOutput)
-}
-
-type RoleAliasPtrInput interface {
-	pulumi.Input
-
-	ToRoleAliasPtrOutput() RoleAliasPtrOutput
-	ToRoleAliasPtrOutputWithContext(ctx context.Context) RoleAliasPtrOutput
-}
-
-type roleAliasPtrType RoleAliasArgs
-
-func (*roleAliasPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RoleAlias)(nil))
-}
-
-func (i *roleAliasPtrType) ToRoleAliasPtrOutput() RoleAliasPtrOutput {
-	return i.ToRoleAliasPtrOutputWithContext(context.Background())
-}
-
-func (i *roleAliasPtrType) ToRoleAliasPtrOutputWithContext(ctx context.Context) RoleAliasPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RoleAliasPtrOutput)
 }
 
 // RoleAliasArrayInput is an input type that accepts RoleAliasArray and RoleAliasArrayOutput values.
@@ -250,7 +221,7 @@ func (i RoleAliasMap) ToRoleAliasMapOutputWithContext(ctx context.Context) RoleA
 type RoleAliasOutput struct{ *pulumi.OutputState }
 
 func (RoleAliasOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RoleAlias)(nil))
+	return reflect.TypeOf((**RoleAlias)(nil)).Elem()
 }
 
 func (o RoleAliasOutput) ToRoleAliasOutput() RoleAliasOutput {
@@ -261,44 +232,10 @@ func (o RoleAliasOutput) ToRoleAliasOutputWithContext(ctx context.Context) RoleA
 	return o
 }
 
-func (o RoleAliasOutput) ToRoleAliasPtrOutput() RoleAliasPtrOutput {
-	return o.ToRoleAliasPtrOutputWithContext(context.Background())
-}
-
-func (o RoleAliasOutput) ToRoleAliasPtrOutputWithContext(ctx context.Context) RoleAliasPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RoleAlias) *RoleAlias {
-		return &v
-	}).(RoleAliasPtrOutput)
-}
-
-type RoleAliasPtrOutput struct{ *pulumi.OutputState }
-
-func (RoleAliasPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RoleAlias)(nil))
-}
-
-func (o RoleAliasPtrOutput) ToRoleAliasPtrOutput() RoleAliasPtrOutput {
-	return o
-}
-
-func (o RoleAliasPtrOutput) ToRoleAliasPtrOutputWithContext(ctx context.Context) RoleAliasPtrOutput {
-	return o
-}
-
-func (o RoleAliasPtrOutput) Elem() RoleAliasOutput {
-	return o.ApplyT(func(v *RoleAlias) RoleAlias {
-		if v != nil {
-			return *v
-		}
-		var ret RoleAlias
-		return ret
-	}).(RoleAliasOutput)
-}
-
 type RoleAliasArrayOutput struct{ *pulumi.OutputState }
 
 func (RoleAliasArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RoleAlias)(nil))
+	return reflect.TypeOf((*[]*RoleAlias)(nil)).Elem()
 }
 
 func (o RoleAliasArrayOutput) ToRoleAliasArrayOutput() RoleAliasArrayOutput {
@@ -310,15 +247,15 @@ func (o RoleAliasArrayOutput) ToRoleAliasArrayOutputWithContext(ctx context.Cont
 }
 
 func (o RoleAliasArrayOutput) Index(i pulumi.IntInput) RoleAliasOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RoleAlias {
-		return vs[0].([]RoleAlias)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RoleAlias {
+		return vs[0].([]*RoleAlias)[vs[1].(int)]
 	}).(RoleAliasOutput)
 }
 
 type RoleAliasMapOutput struct{ *pulumi.OutputState }
 
 func (RoleAliasMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]RoleAlias)(nil))
+	return reflect.TypeOf((*map[string]*RoleAlias)(nil)).Elem()
 }
 
 func (o RoleAliasMapOutput) ToRoleAliasMapOutput() RoleAliasMapOutput {
@@ -330,18 +267,16 @@ func (o RoleAliasMapOutput) ToRoleAliasMapOutputWithContext(ctx context.Context)
 }
 
 func (o RoleAliasMapOutput) MapIndex(k pulumi.StringInput) RoleAliasOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) RoleAlias {
-		return vs[0].(map[string]RoleAlias)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *RoleAlias {
+		return vs[0].(map[string]*RoleAlias)[vs[1].(string)]
 	}).(RoleAliasOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RoleAliasInput)(nil)).Elem(), &RoleAlias{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RoleAliasPtrInput)(nil)).Elem(), &RoleAlias{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RoleAliasArrayInput)(nil)).Elem(), RoleAliasArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RoleAliasMapInput)(nil)).Elem(), RoleAliasMap{})
 	pulumi.RegisterOutputType(RoleAliasOutput{})
-	pulumi.RegisterOutputType(RoleAliasPtrOutput{})
 	pulumi.RegisterOutputType(RoleAliasArrayOutput{})
 	pulumi.RegisterOutputType(RoleAliasMapOutput{})
 }

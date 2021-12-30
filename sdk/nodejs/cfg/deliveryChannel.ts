@@ -126,32 +126,32 @@ export class DeliveryChannel extends pulumi.CustomResource {
      */
     constructor(name: string, args: DeliveryChannelArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DeliveryChannelArgs | DeliveryChannelState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DeliveryChannelState | undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["s3BucketName"] = state ? state.s3BucketName : undefined;
-            inputs["s3KeyPrefix"] = state ? state.s3KeyPrefix : undefined;
-            inputs["s3KmsKeyArn"] = state ? state.s3KmsKeyArn : undefined;
-            inputs["snapshotDeliveryProperties"] = state ? state.snapshotDeliveryProperties : undefined;
-            inputs["snsTopicArn"] = state ? state.snsTopicArn : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["s3BucketName"] = state ? state.s3BucketName : undefined;
+            resourceInputs["s3KeyPrefix"] = state ? state.s3KeyPrefix : undefined;
+            resourceInputs["s3KmsKeyArn"] = state ? state.s3KmsKeyArn : undefined;
+            resourceInputs["snapshotDeliveryProperties"] = state ? state.snapshotDeliveryProperties : undefined;
+            resourceInputs["snsTopicArn"] = state ? state.snsTopicArn : undefined;
         } else {
             const args = argsOrState as DeliveryChannelArgs | undefined;
             if ((!args || args.s3BucketName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 's3BucketName'");
             }
-            inputs["name"] = args ? args.name : undefined;
-            inputs["s3BucketName"] = args ? args.s3BucketName : undefined;
-            inputs["s3KeyPrefix"] = args ? args.s3KeyPrefix : undefined;
-            inputs["s3KmsKeyArn"] = args ? args.s3KmsKeyArn : undefined;
-            inputs["snapshotDeliveryProperties"] = args ? args.snapshotDeliveryProperties : undefined;
-            inputs["snsTopicArn"] = args ? args.snsTopicArn : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["s3BucketName"] = args ? args.s3BucketName : undefined;
+            resourceInputs["s3KeyPrefix"] = args ? args.s3KeyPrefix : undefined;
+            resourceInputs["s3KmsKeyArn"] = args ? args.s3KmsKeyArn : undefined;
+            resourceInputs["snapshotDeliveryProperties"] = args ? args.snapshotDeliveryProperties : undefined;
+            resourceInputs["snsTopicArn"] = args ? args.snsTopicArn : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(DeliveryChannel.__pulumiType, name, inputs, opts);
+        super(DeliveryChannel.__pulumiType, name, resourceInputs, opts);
     }
 }
 

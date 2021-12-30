@@ -208,49 +208,49 @@ export class RestApi extends pulumi.CustomResource {
      */
     constructor(name: string, args?: RestApiArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RestApiArgs | RestApiState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RestApiState | undefined;
-            inputs["apiKeySource"] = state ? state.apiKeySource : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["binaryMediaTypes"] = state ? state.binaryMediaTypes : undefined;
-            inputs["body"] = state ? state.body : undefined;
-            inputs["createdDate"] = state ? state.createdDate : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["disableExecuteApiEndpoint"] = state ? state.disableExecuteApiEndpoint : undefined;
-            inputs["endpointConfiguration"] = state ? state.endpointConfiguration : undefined;
-            inputs["executionArn"] = state ? state.executionArn : undefined;
-            inputs["minimumCompressionSize"] = state ? state.minimumCompressionSize : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["parameters"] = state ? state.parameters : undefined;
-            inputs["policy"] = state ? state.policy : undefined;
-            inputs["rootResourceId"] = state ? state.rootResourceId : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["apiKeySource"] = state ? state.apiKeySource : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["binaryMediaTypes"] = state ? state.binaryMediaTypes : undefined;
+            resourceInputs["body"] = state ? state.body : undefined;
+            resourceInputs["createdDate"] = state ? state.createdDate : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["disableExecuteApiEndpoint"] = state ? state.disableExecuteApiEndpoint : undefined;
+            resourceInputs["endpointConfiguration"] = state ? state.endpointConfiguration : undefined;
+            resourceInputs["executionArn"] = state ? state.executionArn : undefined;
+            resourceInputs["minimumCompressionSize"] = state ? state.minimumCompressionSize : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["parameters"] = state ? state.parameters : undefined;
+            resourceInputs["policy"] = state ? state.policy : undefined;
+            resourceInputs["rootResourceId"] = state ? state.rootResourceId : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as RestApiArgs | undefined;
-            inputs["apiKeySource"] = args ? args.apiKeySource : undefined;
-            inputs["binaryMediaTypes"] = args ? args.binaryMediaTypes : undefined;
-            inputs["body"] = args ? args.body : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["disableExecuteApiEndpoint"] = args ? args.disableExecuteApiEndpoint : undefined;
-            inputs["endpointConfiguration"] = args ? args.endpointConfiguration : undefined;
-            inputs["minimumCompressionSize"] = args ? args.minimumCompressionSize : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["parameters"] = args ? args.parameters : undefined;
-            inputs["policy"] = args ? args.policy : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["createdDate"] = undefined /*out*/;
-            inputs["executionArn"] = undefined /*out*/;
-            inputs["rootResourceId"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["apiKeySource"] = args ? args.apiKeySource : undefined;
+            resourceInputs["binaryMediaTypes"] = args ? args.binaryMediaTypes : undefined;
+            resourceInputs["body"] = args ? args.body : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["disableExecuteApiEndpoint"] = args ? args.disableExecuteApiEndpoint : undefined;
+            resourceInputs["endpointConfiguration"] = args ? args.endpointConfiguration : undefined;
+            resourceInputs["minimumCompressionSize"] = args ? args.minimumCompressionSize : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["parameters"] = args ? args.parameters : undefined;
+            resourceInputs["policy"] = args ? args.policy : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["createdDate"] = undefined /*out*/;
+            resourceInputs["executionArn"] = undefined /*out*/;
+            resourceInputs["rootResourceId"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(RestApi.__pulumiType, name, inputs, opts);
+        super(RestApi.__pulumiType, name, resourceInputs, opts);
     }
 }
 

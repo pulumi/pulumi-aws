@@ -178,29 +178,29 @@ export class Job extends pulumi.CustomResource {
      */
     constructor(name: string, args: JobArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: JobArgs | JobState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as JobState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["command"] = state ? state.command : undefined;
-            inputs["connections"] = state ? state.connections : undefined;
-            inputs["defaultArguments"] = state ? state.defaultArguments : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["executionProperty"] = state ? state.executionProperty : undefined;
-            inputs["glueVersion"] = state ? state.glueVersion : undefined;
-            inputs["maxCapacity"] = state ? state.maxCapacity : undefined;
-            inputs["maxRetries"] = state ? state.maxRetries : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["nonOverridableArguments"] = state ? state.nonOverridableArguments : undefined;
-            inputs["notificationProperty"] = state ? state.notificationProperty : undefined;
-            inputs["numberOfWorkers"] = state ? state.numberOfWorkers : undefined;
-            inputs["roleArn"] = state ? state.roleArn : undefined;
-            inputs["securityConfiguration"] = state ? state.securityConfiguration : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["timeout"] = state ? state.timeout : undefined;
-            inputs["workerType"] = state ? state.workerType : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["command"] = state ? state.command : undefined;
+            resourceInputs["connections"] = state ? state.connections : undefined;
+            resourceInputs["defaultArguments"] = state ? state.defaultArguments : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["executionProperty"] = state ? state.executionProperty : undefined;
+            resourceInputs["glueVersion"] = state ? state.glueVersion : undefined;
+            resourceInputs["maxCapacity"] = state ? state.maxCapacity : undefined;
+            resourceInputs["maxRetries"] = state ? state.maxRetries : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["nonOverridableArguments"] = state ? state.nonOverridableArguments : undefined;
+            resourceInputs["notificationProperty"] = state ? state.notificationProperty : undefined;
+            resourceInputs["numberOfWorkers"] = state ? state.numberOfWorkers : undefined;
+            resourceInputs["roleArn"] = state ? state.roleArn : undefined;
+            resourceInputs["securityConfiguration"] = state ? state.securityConfiguration : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["timeout"] = state ? state.timeout : undefined;
+            resourceInputs["workerType"] = state ? state.workerType : undefined;
         } else {
             const args = argsOrState as JobArgs | undefined;
             if ((!args || args.command === undefined) && !opts.urn) {
@@ -209,30 +209,30 @@ export class Job extends pulumi.CustomResource {
             if ((!args || args.roleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            inputs["command"] = args ? args.command : undefined;
-            inputs["connections"] = args ? args.connections : undefined;
-            inputs["defaultArguments"] = args ? args.defaultArguments : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["executionProperty"] = args ? args.executionProperty : undefined;
-            inputs["glueVersion"] = args ? args.glueVersion : undefined;
-            inputs["maxCapacity"] = args ? args.maxCapacity : undefined;
-            inputs["maxRetries"] = args ? args.maxRetries : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["nonOverridableArguments"] = args ? args.nonOverridableArguments : undefined;
-            inputs["notificationProperty"] = args ? args.notificationProperty : undefined;
-            inputs["numberOfWorkers"] = args ? args.numberOfWorkers : undefined;
-            inputs["roleArn"] = args ? args.roleArn : undefined;
-            inputs["securityConfiguration"] = args ? args.securityConfiguration : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["timeout"] = args ? args.timeout : undefined;
-            inputs["workerType"] = args ? args.workerType : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["command"] = args ? args.command : undefined;
+            resourceInputs["connections"] = args ? args.connections : undefined;
+            resourceInputs["defaultArguments"] = args ? args.defaultArguments : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["executionProperty"] = args ? args.executionProperty : undefined;
+            resourceInputs["glueVersion"] = args ? args.glueVersion : undefined;
+            resourceInputs["maxCapacity"] = args ? args.maxCapacity : undefined;
+            resourceInputs["maxRetries"] = args ? args.maxRetries : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["nonOverridableArguments"] = args ? args.nonOverridableArguments : undefined;
+            resourceInputs["notificationProperty"] = args ? args.notificationProperty : undefined;
+            resourceInputs["numberOfWorkers"] = args ? args.numberOfWorkers : undefined;
+            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["securityConfiguration"] = args ? args.securityConfiguration : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["timeout"] = args ? args.timeout : undefined;
+            resourceInputs["workerType"] = args ? args.workerType : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Job.__pulumiType, name, inputs, opts);
+        super(Job.__pulumiType, name, resourceInputs, opts);
     }
 }
 

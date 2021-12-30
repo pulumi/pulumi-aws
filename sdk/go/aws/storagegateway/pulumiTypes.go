@@ -160,59 +160,6 @@ type GatewayGatewayNetworkInterface struct {
 	Ipv4Address *string `pulumi:"ipv4Address"`
 }
 
-// GatewayGatewayNetworkInterfaceInput is an input type that accepts GatewayGatewayNetworkInterfaceArgs and GatewayGatewayNetworkInterfaceOutput values.
-// You can construct a concrete instance of `GatewayGatewayNetworkInterfaceInput` via:
-//
-//          GatewayGatewayNetworkInterfaceArgs{...}
-type GatewayGatewayNetworkInterfaceInput interface {
-	pulumi.Input
-
-	ToGatewayGatewayNetworkInterfaceOutput() GatewayGatewayNetworkInterfaceOutput
-	ToGatewayGatewayNetworkInterfaceOutputWithContext(context.Context) GatewayGatewayNetworkInterfaceOutput
-}
-
-type GatewayGatewayNetworkInterfaceArgs struct {
-	// The Internet Protocol version 4 (IPv4) address of the interface.
-	Ipv4Address pulumi.StringPtrInput `pulumi:"ipv4Address"`
-}
-
-func (GatewayGatewayNetworkInterfaceArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GatewayGatewayNetworkInterface)(nil)).Elem()
-}
-
-func (i GatewayGatewayNetworkInterfaceArgs) ToGatewayGatewayNetworkInterfaceOutput() GatewayGatewayNetworkInterfaceOutput {
-	return i.ToGatewayGatewayNetworkInterfaceOutputWithContext(context.Background())
-}
-
-func (i GatewayGatewayNetworkInterfaceArgs) ToGatewayGatewayNetworkInterfaceOutputWithContext(ctx context.Context) GatewayGatewayNetworkInterfaceOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GatewayGatewayNetworkInterfaceOutput)
-}
-
-// GatewayGatewayNetworkInterfaceArrayInput is an input type that accepts GatewayGatewayNetworkInterfaceArray and GatewayGatewayNetworkInterfaceArrayOutput values.
-// You can construct a concrete instance of `GatewayGatewayNetworkInterfaceArrayInput` via:
-//
-//          GatewayGatewayNetworkInterfaceArray{ GatewayGatewayNetworkInterfaceArgs{...} }
-type GatewayGatewayNetworkInterfaceArrayInput interface {
-	pulumi.Input
-
-	ToGatewayGatewayNetworkInterfaceArrayOutput() GatewayGatewayNetworkInterfaceArrayOutput
-	ToGatewayGatewayNetworkInterfaceArrayOutputWithContext(context.Context) GatewayGatewayNetworkInterfaceArrayOutput
-}
-
-type GatewayGatewayNetworkInterfaceArray []GatewayGatewayNetworkInterfaceInput
-
-func (GatewayGatewayNetworkInterfaceArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GatewayGatewayNetworkInterface)(nil)).Elem()
-}
-
-func (i GatewayGatewayNetworkInterfaceArray) ToGatewayGatewayNetworkInterfaceArrayOutput() GatewayGatewayNetworkInterfaceArrayOutput {
-	return i.ToGatewayGatewayNetworkInterfaceArrayOutputWithContext(context.Background())
-}
-
-func (i GatewayGatewayNetworkInterfaceArray) ToGatewayGatewayNetworkInterfaceArrayOutputWithContext(ctx context.Context) GatewayGatewayNetworkInterfaceArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GatewayGatewayNetworkInterfaceArrayOutput)
-}
-
 type GatewayGatewayNetworkInterfaceOutput struct{ *pulumi.OutputState }
 
 func (GatewayGatewayNetworkInterfaceOutput) ElementType() reflect.Type {
@@ -994,8 +941,6 @@ func (o SmbFileShareCacheAttributesPtrOutput) CacheStaleTimeoutInSeconds() pulum
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemAssociationCacheAttributesInput)(nil)).Elem(), FileSystemAssociationCacheAttributesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemAssociationCacheAttributesPtrInput)(nil)).Elem(), FileSystemAssociationCacheAttributesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GatewayGatewayNetworkInterfaceInput)(nil)).Elem(), GatewayGatewayNetworkInterfaceArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GatewayGatewayNetworkInterfaceArrayInput)(nil)).Elem(), GatewayGatewayNetworkInterfaceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewaySmbActiveDirectorySettingsInput)(nil)).Elem(), GatewaySmbActiveDirectorySettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewaySmbActiveDirectorySettingsPtrInput)(nil)).Elem(), GatewaySmbActiveDirectorySettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NfsFileShareCacheAttributesInput)(nil)).Elem(), NfsFileShareCacheAttributesArgs{})

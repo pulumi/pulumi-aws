@@ -287,20 +287,20 @@ export class Listener extends pulumi.CustomResource {
     /** @deprecated aws.elasticloadbalancingv2.Listener has been deprecated in favor of aws.lb.Listener */
     constructor(name: string, argsOrState?: ListenerArgs | ListenerState, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Listener is deprecated: aws.elasticloadbalancingv2.Listener has been deprecated in favor of aws.lb.Listener")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ListenerState | undefined;
-            inputs["alpnPolicy"] = state ? state.alpnPolicy : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["certificateArn"] = state ? state.certificateArn : undefined;
-            inputs["defaultActions"] = state ? state.defaultActions : undefined;
-            inputs["loadBalancerArn"] = state ? state.loadBalancerArn : undefined;
-            inputs["port"] = state ? state.port : undefined;
-            inputs["protocol"] = state ? state.protocol : undefined;
-            inputs["sslPolicy"] = state ? state.sslPolicy : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["alpnPolicy"] = state ? state.alpnPolicy : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["certificateArn"] = state ? state.certificateArn : undefined;
+            resourceInputs["defaultActions"] = state ? state.defaultActions : undefined;
+            resourceInputs["loadBalancerArn"] = state ? state.loadBalancerArn : undefined;
+            resourceInputs["port"] = state ? state.port : undefined;
+            resourceInputs["protocol"] = state ? state.protocol : undefined;
+            resourceInputs["sslPolicy"] = state ? state.sslPolicy : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as ListenerArgs | undefined;
             if ((!args || args.defaultActions === undefined) && !opts.urn) {
@@ -309,21 +309,21 @@ export class Listener extends pulumi.CustomResource {
             if ((!args || args.loadBalancerArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'loadBalancerArn'");
             }
-            inputs["alpnPolicy"] = args ? args.alpnPolicy : undefined;
-            inputs["certificateArn"] = args ? args.certificateArn : undefined;
-            inputs["defaultActions"] = args ? args.defaultActions : undefined;
-            inputs["loadBalancerArn"] = args ? args.loadBalancerArn : undefined;
-            inputs["port"] = args ? args.port : undefined;
-            inputs["protocol"] = args ? args.protocol : undefined;
-            inputs["sslPolicy"] = args ? args.sslPolicy : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["alpnPolicy"] = args ? args.alpnPolicy : undefined;
+            resourceInputs["certificateArn"] = args ? args.certificateArn : undefined;
+            resourceInputs["defaultActions"] = args ? args.defaultActions : undefined;
+            resourceInputs["loadBalancerArn"] = args ? args.loadBalancerArn : undefined;
+            resourceInputs["port"] = args ? args.port : undefined;
+            resourceInputs["protocol"] = args ? args.protocol : undefined;
+            resourceInputs["sslPolicy"] = args ? args.sslPolicy : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Listener.__pulumiType, name, inputs, opts);
+        super(Listener.__pulumiType, name, resourceInputs, opts);
     }
 }
 

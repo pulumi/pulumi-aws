@@ -55,7 +55,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = iam.NewPolicyAttachment(ctx, "test_attach", &iam.PolicyAttachmentArgs{
+// 		_, err = iam.NewPolicyAttachment(ctx, "test-attach", &iam.PolicyAttachmentArgs{
 // 			Users: pulumi.AnyArray{
 // 				user.Name,
 // 			},
@@ -189,7 +189,7 @@ type PolicyAttachmentInput interface {
 }
 
 func (*PolicyAttachment) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicyAttachment)(nil))
+	return reflect.TypeOf((**PolicyAttachment)(nil)).Elem()
 }
 
 func (i *PolicyAttachment) ToPolicyAttachmentOutput() PolicyAttachmentOutput {
@@ -198,35 +198,6 @@ func (i *PolicyAttachment) ToPolicyAttachmentOutput() PolicyAttachmentOutput {
 
 func (i *PolicyAttachment) ToPolicyAttachmentOutputWithContext(ctx context.Context) PolicyAttachmentOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PolicyAttachmentOutput)
-}
-
-func (i *PolicyAttachment) ToPolicyAttachmentPtrOutput() PolicyAttachmentPtrOutput {
-	return i.ToPolicyAttachmentPtrOutputWithContext(context.Background())
-}
-
-func (i *PolicyAttachment) ToPolicyAttachmentPtrOutputWithContext(ctx context.Context) PolicyAttachmentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PolicyAttachmentPtrOutput)
-}
-
-type PolicyAttachmentPtrInput interface {
-	pulumi.Input
-
-	ToPolicyAttachmentPtrOutput() PolicyAttachmentPtrOutput
-	ToPolicyAttachmentPtrOutputWithContext(ctx context.Context) PolicyAttachmentPtrOutput
-}
-
-type policyAttachmentPtrType PolicyAttachmentArgs
-
-func (*policyAttachmentPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PolicyAttachment)(nil))
-}
-
-func (i *policyAttachmentPtrType) ToPolicyAttachmentPtrOutput() PolicyAttachmentPtrOutput {
-	return i.ToPolicyAttachmentPtrOutputWithContext(context.Background())
-}
-
-func (i *policyAttachmentPtrType) ToPolicyAttachmentPtrOutputWithContext(ctx context.Context) PolicyAttachmentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PolicyAttachmentPtrOutput)
 }
 
 // PolicyAttachmentArrayInput is an input type that accepts PolicyAttachmentArray and PolicyAttachmentArrayOutput values.
@@ -282,7 +253,7 @@ func (i PolicyAttachmentMap) ToPolicyAttachmentMapOutputWithContext(ctx context.
 type PolicyAttachmentOutput struct{ *pulumi.OutputState }
 
 func (PolicyAttachmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PolicyAttachment)(nil))
+	return reflect.TypeOf((**PolicyAttachment)(nil)).Elem()
 }
 
 func (o PolicyAttachmentOutput) ToPolicyAttachmentOutput() PolicyAttachmentOutput {
@@ -293,44 +264,10 @@ func (o PolicyAttachmentOutput) ToPolicyAttachmentOutputWithContext(ctx context.
 	return o
 }
 
-func (o PolicyAttachmentOutput) ToPolicyAttachmentPtrOutput() PolicyAttachmentPtrOutput {
-	return o.ToPolicyAttachmentPtrOutputWithContext(context.Background())
-}
-
-func (o PolicyAttachmentOutput) ToPolicyAttachmentPtrOutputWithContext(ctx context.Context) PolicyAttachmentPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyAttachment) *PolicyAttachment {
-		return &v
-	}).(PolicyAttachmentPtrOutput)
-}
-
-type PolicyAttachmentPtrOutput struct{ *pulumi.OutputState }
-
-func (PolicyAttachmentPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PolicyAttachment)(nil))
-}
-
-func (o PolicyAttachmentPtrOutput) ToPolicyAttachmentPtrOutput() PolicyAttachmentPtrOutput {
-	return o
-}
-
-func (o PolicyAttachmentPtrOutput) ToPolicyAttachmentPtrOutputWithContext(ctx context.Context) PolicyAttachmentPtrOutput {
-	return o
-}
-
-func (o PolicyAttachmentPtrOutput) Elem() PolicyAttachmentOutput {
-	return o.ApplyT(func(v *PolicyAttachment) PolicyAttachment {
-		if v != nil {
-			return *v
-		}
-		var ret PolicyAttachment
-		return ret
-	}).(PolicyAttachmentOutput)
-}
-
 type PolicyAttachmentArrayOutput struct{ *pulumi.OutputState }
 
 func (PolicyAttachmentArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PolicyAttachment)(nil))
+	return reflect.TypeOf((*[]*PolicyAttachment)(nil)).Elem()
 }
 
 func (o PolicyAttachmentArrayOutput) ToPolicyAttachmentArrayOutput() PolicyAttachmentArrayOutput {
@@ -342,15 +279,15 @@ func (o PolicyAttachmentArrayOutput) ToPolicyAttachmentArrayOutputWithContext(ct
 }
 
 func (o PolicyAttachmentArrayOutput) Index(i pulumi.IntInput) PolicyAttachmentOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PolicyAttachment {
-		return vs[0].([]PolicyAttachment)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PolicyAttachment {
+		return vs[0].([]*PolicyAttachment)[vs[1].(int)]
 	}).(PolicyAttachmentOutput)
 }
 
 type PolicyAttachmentMapOutput struct{ *pulumi.OutputState }
 
 func (PolicyAttachmentMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]PolicyAttachment)(nil))
+	return reflect.TypeOf((*map[string]*PolicyAttachment)(nil)).Elem()
 }
 
 func (o PolicyAttachmentMapOutput) ToPolicyAttachmentMapOutput() PolicyAttachmentMapOutput {
@@ -362,18 +299,16 @@ func (o PolicyAttachmentMapOutput) ToPolicyAttachmentMapOutputWithContext(ctx co
 }
 
 func (o PolicyAttachmentMapOutput) MapIndex(k pulumi.StringInput) PolicyAttachmentOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) PolicyAttachment {
-		return vs[0].(map[string]PolicyAttachment)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *PolicyAttachment {
+		return vs[0].(map[string]*PolicyAttachment)[vs[1].(string)]
 	}).(PolicyAttachmentOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyAttachmentInput)(nil)).Elem(), &PolicyAttachment{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PolicyAttachmentPtrInput)(nil)).Elem(), &PolicyAttachment{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyAttachmentArrayInput)(nil)).Elem(), PolicyAttachmentArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyAttachmentMapInput)(nil)).Elem(), PolicyAttachmentMap{})
 	pulumi.RegisterOutputType(PolicyAttachmentOutput{})
-	pulumi.RegisterOutputType(PolicyAttachmentPtrOutput{})
 	pulumi.RegisterOutputType(PolicyAttachmentArrayOutput{})
 	pulumi.RegisterOutputType(PolicyAttachmentMapOutput{})
 }

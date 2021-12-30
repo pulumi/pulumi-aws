@@ -51,47 +51,6 @@ func (i CapacityProviderAutoScalingGroupProviderArgs) ToCapacityProviderAutoScal
 	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderAutoScalingGroupProviderOutput)
 }
 
-func (i CapacityProviderAutoScalingGroupProviderArgs) ToCapacityProviderAutoScalingGroupProviderPtrOutput() CapacityProviderAutoScalingGroupProviderPtrOutput {
-	return i.ToCapacityProviderAutoScalingGroupProviderPtrOutputWithContext(context.Background())
-}
-
-func (i CapacityProviderAutoScalingGroupProviderArgs) ToCapacityProviderAutoScalingGroupProviderPtrOutputWithContext(ctx context.Context) CapacityProviderAutoScalingGroupProviderPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderAutoScalingGroupProviderOutput).ToCapacityProviderAutoScalingGroupProviderPtrOutputWithContext(ctx)
-}
-
-// CapacityProviderAutoScalingGroupProviderPtrInput is an input type that accepts CapacityProviderAutoScalingGroupProviderArgs, CapacityProviderAutoScalingGroupProviderPtr and CapacityProviderAutoScalingGroupProviderPtrOutput values.
-// You can construct a concrete instance of `CapacityProviderAutoScalingGroupProviderPtrInput` via:
-//
-//          CapacityProviderAutoScalingGroupProviderArgs{...}
-//
-//  or:
-//
-//          nil
-type CapacityProviderAutoScalingGroupProviderPtrInput interface {
-	pulumi.Input
-
-	ToCapacityProviderAutoScalingGroupProviderPtrOutput() CapacityProviderAutoScalingGroupProviderPtrOutput
-	ToCapacityProviderAutoScalingGroupProviderPtrOutputWithContext(context.Context) CapacityProviderAutoScalingGroupProviderPtrOutput
-}
-
-type capacityProviderAutoScalingGroupProviderPtrType CapacityProviderAutoScalingGroupProviderArgs
-
-func CapacityProviderAutoScalingGroupProviderPtr(v *CapacityProviderAutoScalingGroupProviderArgs) CapacityProviderAutoScalingGroupProviderPtrInput {
-	return (*capacityProviderAutoScalingGroupProviderPtrType)(v)
-}
-
-func (*capacityProviderAutoScalingGroupProviderPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CapacityProviderAutoScalingGroupProvider)(nil)).Elem()
-}
-
-func (i *capacityProviderAutoScalingGroupProviderPtrType) ToCapacityProviderAutoScalingGroupProviderPtrOutput() CapacityProviderAutoScalingGroupProviderPtrOutput {
-	return i.ToCapacityProviderAutoScalingGroupProviderPtrOutputWithContext(context.Background())
-}
-
-func (i *capacityProviderAutoScalingGroupProviderPtrType) ToCapacityProviderAutoScalingGroupProviderPtrOutputWithContext(ctx context.Context) CapacityProviderAutoScalingGroupProviderPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CapacityProviderAutoScalingGroupProviderPtrOutput)
-}
-
 type CapacityProviderAutoScalingGroupProviderOutput struct{ *pulumi.OutputState }
 
 func (CapacityProviderAutoScalingGroupProviderOutput) ElementType() reflect.Type {
@@ -104,16 +63,6 @@ func (o CapacityProviderAutoScalingGroupProviderOutput) ToCapacityProviderAutoSc
 
 func (o CapacityProviderAutoScalingGroupProviderOutput) ToCapacityProviderAutoScalingGroupProviderOutputWithContext(ctx context.Context) CapacityProviderAutoScalingGroupProviderOutput {
 	return o
-}
-
-func (o CapacityProviderAutoScalingGroupProviderOutput) ToCapacityProviderAutoScalingGroupProviderPtrOutput() CapacityProviderAutoScalingGroupProviderPtrOutput {
-	return o.ToCapacityProviderAutoScalingGroupProviderPtrOutputWithContext(context.Background())
-}
-
-func (o CapacityProviderAutoScalingGroupProviderOutput) ToCapacityProviderAutoScalingGroupProviderPtrOutputWithContext(ctx context.Context) CapacityProviderAutoScalingGroupProviderPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CapacityProviderAutoScalingGroupProvider) *CapacityProviderAutoScalingGroupProvider {
-		return &v
-	}).(CapacityProviderAutoScalingGroupProviderPtrOutput)
 }
 
 // - ARN of the associated auto scaling group.
@@ -131,60 +80,6 @@ func (o CapacityProviderAutoScalingGroupProviderOutput) ManagedScaling() Capacit
 // - Enables or disables container-aware termination of instances in the auto scaling group when scale-in happens. Valid values are `ENABLED` and `DISABLED`.
 func (o CapacityProviderAutoScalingGroupProviderOutput) ManagedTerminationProtection() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CapacityProviderAutoScalingGroupProvider) *string { return v.ManagedTerminationProtection }).(pulumi.StringPtrOutput)
-}
-
-type CapacityProviderAutoScalingGroupProviderPtrOutput struct{ *pulumi.OutputState }
-
-func (CapacityProviderAutoScalingGroupProviderPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CapacityProviderAutoScalingGroupProvider)(nil)).Elem()
-}
-
-func (o CapacityProviderAutoScalingGroupProviderPtrOutput) ToCapacityProviderAutoScalingGroupProviderPtrOutput() CapacityProviderAutoScalingGroupProviderPtrOutput {
-	return o
-}
-
-func (o CapacityProviderAutoScalingGroupProviderPtrOutput) ToCapacityProviderAutoScalingGroupProviderPtrOutputWithContext(ctx context.Context) CapacityProviderAutoScalingGroupProviderPtrOutput {
-	return o
-}
-
-func (o CapacityProviderAutoScalingGroupProviderPtrOutput) Elem() CapacityProviderAutoScalingGroupProviderOutput {
-	return o.ApplyT(func(v *CapacityProviderAutoScalingGroupProvider) CapacityProviderAutoScalingGroupProvider {
-		if v != nil {
-			return *v
-		}
-		var ret CapacityProviderAutoScalingGroupProvider
-		return ret
-	}).(CapacityProviderAutoScalingGroupProviderOutput)
-}
-
-// - ARN of the associated auto scaling group.
-func (o CapacityProviderAutoScalingGroupProviderPtrOutput) AutoScalingGroupArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CapacityProviderAutoScalingGroupProvider) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.AutoScalingGroupArn
-	}).(pulumi.StringPtrOutput)
-}
-
-// - Configuration block defining the parameters of the auto scaling. Detailed below.
-func (o CapacityProviderAutoScalingGroupProviderPtrOutput) ManagedScaling() CapacityProviderAutoScalingGroupProviderManagedScalingPtrOutput {
-	return o.ApplyT(func(v *CapacityProviderAutoScalingGroupProvider) *CapacityProviderAutoScalingGroupProviderManagedScaling {
-		if v == nil {
-			return nil
-		}
-		return v.ManagedScaling
-	}).(CapacityProviderAutoScalingGroupProviderManagedScalingPtrOutput)
-}
-
-// - Enables or disables container-aware termination of instances in the auto scaling group when scale-in happens. Valid values are `ENABLED` and `DISABLED`.
-func (o CapacityProviderAutoScalingGroupProviderPtrOutput) ManagedTerminationProtection() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CapacityProviderAutoScalingGroupProvider) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ManagedTerminationProtection
-	}).(pulumi.StringPtrOutput)
 }
 
 type CapacityProviderAutoScalingGroupProviderManagedScaling struct {
@@ -4790,59 +4685,6 @@ type GetClusterSetting struct {
 	Value string `pulumi:"value"`
 }
 
-// GetClusterSettingInput is an input type that accepts GetClusterSettingArgs and GetClusterSettingOutput values.
-// You can construct a concrete instance of `GetClusterSettingInput` via:
-//
-//          GetClusterSettingArgs{...}
-type GetClusterSettingInput interface {
-	pulumi.Input
-
-	ToGetClusterSettingOutput() GetClusterSettingOutput
-	ToGetClusterSettingOutputWithContext(context.Context) GetClusterSettingOutput
-}
-
-type GetClusterSettingArgs struct {
-	Name  pulumi.StringInput `pulumi:"name"`
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (GetClusterSettingArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetClusterSetting)(nil)).Elem()
-}
-
-func (i GetClusterSettingArgs) ToGetClusterSettingOutput() GetClusterSettingOutput {
-	return i.ToGetClusterSettingOutputWithContext(context.Background())
-}
-
-func (i GetClusterSettingArgs) ToGetClusterSettingOutputWithContext(ctx context.Context) GetClusterSettingOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetClusterSettingOutput)
-}
-
-// GetClusterSettingArrayInput is an input type that accepts GetClusterSettingArray and GetClusterSettingArrayOutput values.
-// You can construct a concrete instance of `GetClusterSettingArrayInput` via:
-//
-//          GetClusterSettingArray{ GetClusterSettingArgs{...} }
-type GetClusterSettingArrayInput interface {
-	pulumi.Input
-
-	ToGetClusterSettingArrayOutput() GetClusterSettingArrayOutput
-	ToGetClusterSettingArrayOutputWithContext(context.Context) GetClusterSettingArrayOutput
-}
-
-type GetClusterSettingArray []GetClusterSettingInput
-
-func (GetClusterSettingArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetClusterSetting)(nil)).Elem()
-}
-
-func (i GetClusterSettingArray) ToGetClusterSettingArrayOutput() GetClusterSettingArrayOutput {
-	return i.ToGetClusterSettingArrayOutputWithContext(context.Background())
-}
-
-func (i GetClusterSettingArray) ToGetClusterSettingArrayOutputWithContext(ctx context.Context) GetClusterSettingArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetClusterSettingArrayOutput)
-}
-
 type GetClusterSettingOutput struct{ *pulumi.OutputState }
 
 func (GetClusterSettingOutput) ElementType() reflect.Type {
@@ -4887,7 +4729,6 @@ func (o GetClusterSettingArrayOutput) Index(i pulumi.IntInput) GetClusterSetting
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderAutoScalingGroupProviderInput)(nil)).Elem(), CapacityProviderAutoScalingGroupProviderArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderAutoScalingGroupProviderPtrInput)(nil)).Elem(), CapacityProviderAutoScalingGroupProviderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderAutoScalingGroupProviderManagedScalingInput)(nil)).Elem(), CapacityProviderAutoScalingGroupProviderManagedScalingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityProviderAutoScalingGroupProviderManagedScalingPtrInput)(nil)).Elem(), CapacityProviderAutoScalingGroupProviderManagedScalingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterConfigurationInput)(nil)).Elem(), ClusterConfigurationArgs{})
@@ -4948,10 +4789,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskSetScalePtrInput)(nil)).Elem(), TaskSetScaleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskSetServiceRegistriesInput)(nil)).Elem(), TaskSetServiceRegistriesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskSetServiceRegistriesPtrInput)(nil)).Elem(), TaskSetServiceRegistriesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterSettingInput)(nil)).Elem(), GetClusterSettingArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterSettingArrayInput)(nil)).Elem(), GetClusterSettingArray{})
 	pulumi.RegisterOutputType(CapacityProviderAutoScalingGroupProviderOutput{})
-	pulumi.RegisterOutputType(CapacityProviderAutoScalingGroupProviderPtrOutput{})
 	pulumi.RegisterOutputType(CapacityProviderAutoScalingGroupProviderManagedScalingOutput{})
 	pulumi.RegisterOutputType(CapacityProviderAutoScalingGroupProviderManagedScalingPtrOutput{})
 	pulumi.RegisterOutputType(ClusterConfigurationOutput{})

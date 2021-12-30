@@ -139,13 +139,13 @@ export class IdentityPoolRoleAttachment extends pulumi.CustomResource {
      */
     constructor(name: string, args: IdentityPoolRoleAttachmentArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: IdentityPoolRoleAttachmentArgs | IdentityPoolRoleAttachmentState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IdentityPoolRoleAttachmentState | undefined;
-            inputs["identityPoolId"] = state ? state.identityPoolId : undefined;
-            inputs["roleMappings"] = state ? state.roleMappings : undefined;
-            inputs["roles"] = state ? state.roles : undefined;
+            resourceInputs["identityPoolId"] = state ? state.identityPoolId : undefined;
+            resourceInputs["roleMappings"] = state ? state.roleMappings : undefined;
+            resourceInputs["roles"] = state ? state.roles : undefined;
         } else {
             const args = argsOrState as IdentityPoolRoleAttachmentArgs | undefined;
             if ((!args || args.identityPoolId === undefined) && !opts.urn) {
@@ -154,14 +154,14 @@ export class IdentityPoolRoleAttachment extends pulumi.CustomResource {
             if ((!args || args.roles === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roles'");
             }
-            inputs["identityPoolId"] = args ? args.identityPoolId : undefined;
-            inputs["roleMappings"] = args ? args.roleMappings : undefined;
-            inputs["roles"] = args ? args.roles : undefined;
+            resourceInputs["identityPoolId"] = args ? args.identityPoolId : undefined;
+            resourceInputs["roleMappings"] = args ? args.roleMappings : undefined;
+            resourceInputs["roles"] = args ? args.roles : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(IdentityPoolRoleAttachment.__pulumiType, name, inputs, opts);
+        super(IdentityPoolRoleAttachment.__pulumiType, name, resourceInputs, opts);
     }
 }
 

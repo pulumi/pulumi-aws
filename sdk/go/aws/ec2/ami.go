@@ -358,7 +358,7 @@ type AmiInput interface {
 }
 
 func (*Ami) ElementType() reflect.Type {
-	return reflect.TypeOf((*Ami)(nil))
+	return reflect.TypeOf((**Ami)(nil)).Elem()
 }
 
 func (i *Ami) ToAmiOutput() AmiOutput {
@@ -367,35 +367,6 @@ func (i *Ami) ToAmiOutput() AmiOutput {
 
 func (i *Ami) ToAmiOutputWithContext(ctx context.Context) AmiOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AmiOutput)
-}
-
-func (i *Ami) ToAmiPtrOutput() AmiPtrOutput {
-	return i.ToAmiPtrOutputWithContext(context.Background())
-}
-
-func (i *Ami) ToAmiPtrOutputWithContext(ctx context.Context) AmiPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AmiPtrOutput)
-}
-
-type AmiPtrInput interface {
-	pulumi.Input
-
-	ToAmiPtrOutput() AmiPtrOutput
-	ToAmiPtrOutputWithContext(ctx context.Context) AmiPtrOutput
-}
-
-type amiPtrType AmiArgs
-
-func (*amiPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Ami)(nil))
-}
-
-func (i *amiPtrType) ToAmiPtrOutput() AmiPtrOutput {
-	return i.ToAmiPtrOutputWithContext(context.Background())
-}
-
-func (i *amiPtrType) ToAmiPtrOutputWithContext(ctx context.Context) AmiPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AmiPtrOutput)
 }
 
 // AmiArrayInput is an input type that accepts AmiArray and AmiArrayOutput values.
@@ -451,7 +422,7 @@ func (i AmiMap) ToAmiMapOutputWithContext(ctx context.Context) AmiMapOutput {
 type AmiOutput struct{ *pulumi.OutputState }
 
 func (AmiOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Ami)(nil))
+	return reflect.TypeOf((**Ami)(nil)).Elem()
 }
 
 func (o AmiOutput) ToAmiOutput() AmiOutput {
@@ -462,44 +433,10 @@ func (o AmiOutput) ToAmiOutputWithContext(ctx context.Context) AmiOutput {
 	return o
 }
 
-func (o AmiOutput) ToAmiPtrOutput() AmiPtrOutput {
-	return o.ToAmiPtrOutputWithContext(context.Background())
-}
-
-func (o AmiOutput) ToAmiPtrOutputWithContext(ctx context.Context) AmiPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Ami) *Ami {
-		return &v
-	}).(AmiPtrOutput)
-}
-
-type AmiPtrOutput struct{ *pulumi.OutputState }
-
-func (AmiPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Ami)(nil))
-}
-
-func (o AmiPtrOutput) ToAmiPtrOutput() AmiPtrOutput {
-	return o
-}
-
-func (o AmiPtrOutput) ToAmiPtrOutputWithContext(ctx context.Context) AmiPtrOutput {
-	return o
-}
-
-func (o AmiPtrOutput) Elem() AmiOutput {
-	return o.ApplyT(func(v *Ami) Ami {
-		if v != nil {
-			return *v
-		}
-		var ret Ami
-		return ret
-	}).(AmiOutput)
-}
-
 type AmiArrayOutput struct{ *pulumi.OutputState }
 
 func (AmiArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Ami)(nil))
+	return reflect.TypeOf((*[]*Ami)(nil)).Elem()
 }
 
 func (o AmiArrayOutput) ToAmiArrayOutput() AmiArrayOutput {
@@ -511,15 +448,15 @@ func (o AmiArrayOutput) ToAmiArrayOutputWithContext(ctx context.Context) AmiArra
 }
 
 func (o AmiArrayOutput) Index(i pulumi.IntInput) AmiOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Ami {
-		return vs[0].([]Ami)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Ami {
+		return vs[0].([]*Ami)[vs[1].(int)]
 	}).(AmiOutput)
 }
 
 type AmiMapOutput struct{ *pulumi.OutputState }
 
 func (AmiMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Ami)(nil))
+	return reflect.TypeOf((*map[string]*Ami)(nil)).Elem()
 }
 
 func (o AmiMapOutput) ToAmiMapOutput() AmiMapOutput {
@@ -531,18 +468,16 @@ func (o AmiMapOutput) ToAmiMapOutputWithContext(ctx context.Context) AmiMapOutpu
 }
 
 func (o AmiMapOutput) MapIndex(k pulumi.StringInput) AmiOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Ami {
-		return vs[0].(map[string]Ami)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Ami {
+		return vs[0].(map[string]*Ami)[vs[1].(string)]
 	}).(AmiOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AmiInput)(nil)).Elem(), &Ami{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AmiPtrInput)(nil)).Elem(), &Ami{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AmiArrayInput)(nil)).Elem(), AmiArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AmiMapInput)(nil)).Elem(), AmiMap{})
 	pulumi.RegisterOutputType(AmiOutput{})
-	pulumi.RegisterOutputType(AmiPtrOutput{})
 	pulumi.RegisterOutputType(AmiArrayOutput{})
 	pulumi.RegisterOutputType(AmiMapOutput{})
 }

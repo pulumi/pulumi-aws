@@ -31,7 +31,7 @@ namespace Pulumi.Aws.StorageGateway
     ///             VolumeId = aws_ebs_volume.Test.Id,
     ///             InstanceId = aws_instance.Test.Id,
     ///         });
-    ///         var testLocalDisk = testVolumeAttachment.DeviceName.Apply(deviceName =&gt; Aws.StorageGateway.GetLocalDisk.InvokeAsync(new Aws.StorageGateway.GetLocalDiskArgs
+    ///         var testLocalDisk = testVolumeAttachment.DeviceName.Apply(deviceName =&gt; Aws.StorageGateway.GetLocalDisk.Invoke(new Aws.StorageGateway.GetLocalDiskInvokeArgs
     ///         {
     ///             DiskNode = deviceName,
     ///             GatewayArn = aws_storagegateway_gateway.Test.Arn,

@@ -73,14 +73,14 @@ export class UserProfile extends pulumi.CustomResource {
      */
     constructor(name: string, args: UserProfileArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: UserProfileArgs | UserProfileState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as UserProfileState | undefined;
-            inputs["allowSelfManagement"] = state ? state.allowSelfManagement : undefined;
-            inputs["sshPublicKey"] = state ? state.sshPublicKey : undefined;
-            inputs["sshUsername"] = state ? state.sshUsername : undefined;
-            inputs["userArn"] = state ? state.userArn : undefined;
+            resourceInputs["allowSelfManagement"] = state ? state.allowSelfManagement : undefined;
+            resourceInputs["sshPublicKey"] = state ? state.sshPublicKey : undefined;
+            resourceInputs["sshUsername"] = state ? state.sshUsername : undefined;
+            resourceInputs["userArn"] = state ? state.userArn : undefined;
         } else {
             const args = argsOrState as UserProfileArgs | undefined;
             if ((!args || args.sshUsername === undefined) && !opts.urn) {
@@ -89,15 +89,15 @@ export class UserProfile extends pulumi.CustomResource {
             if ((!args || args.userArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'userArn'");
             }
-            inputs["allowSelfManagement"] = args ? args.allowSelfManagement : undefined;
-            inputs["sshPublicKey"] = args ? args.sshPublicKey : undefined;
-            inputs["sshUsername"] = args ? args.sshUsername : undefined;
-            inputs["userArn"] = args ? args.userArn : undefined;
+            resourceInputs["allowSelfManagement"] = args ? args.allowSelfManagement : undefined;
+            resourceInputs["sshPublicKey"] = args ? args.sshPublicKey : undefined;
+            resourceInputs["sshUsername"] = args ? args.sshUsername : undefined;
+            resourceInputs["userArn"] = args ? args.userArn : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(UserProfile.__pulumiType, name, inputs, opts);
+        super(UserProfile.__pulumiType, name, resourceInputs, opts);
     }
 }
 

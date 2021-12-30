@@ -121,24 +121,24 @@ export class Member extends pulumi.CustomResource {
      */
     constructor(name: string, args: MemberArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: MemberArgs | MemberState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MemberState | undefined;
-            inputs["accountId"] = state ? state.accountId : undefined;
-            inputs["administratorAccountId"] = state ? state.administratorAccountId : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["email"] = state ? state.email : undefined;
-            inputs["invitationDisableEmailNotification"] = state ? state.invitationDisableEmailNotification : undefined;
-            inputs["invitationMessage"] = state ? state.invitationMessage : undefined;
-            inputs["invite"] = state ? state.invite : undefined;
-            inputs["invitedAt"] = state ? state.invitedAt : undefined;
-            inputs["masterAccountId"] = state ? state.masterAccountId : undefined;
-            inputs["relationshipStatus"] = state ? state.relationshipStatus : undefined;
-            inputs["status"] = state ? state.status : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["updatedAt"] = state ? state.updatedAt : undefined;
+            resourceInputs["accountId"] = state ? state.accountId : undefined;
+            resourceInputs["administratorAccountId"] = state ? state.administratorAccountId : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["email"] = state ? state.email : undefined;
+            resourceInputs["invitationDisableEmailNotification"] = state ? state.invitationDisableEmailNotification : undefined;
+            resourceInputs["invitationMessage"] = state ? state.invitationMessage : undefined;
+            resourceInputs["invite"] = state ? state.invite : undefined;
+            resourceInputs["invitedAt"] = state ? state.invitedAt : undefined;
+            resourceInputs["masterAccountId"] = state ? state.masterAccountId : undefined;
+            resourceInputs["relationshipStatus"] = state ? state.relationshipStatus : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["updatedAt"] = state ? state.updatedAt : undefined;
         } else {
             const args = argsOrState as MemberArgs | undefined;
             if ((!args || args.accountId === undefined) && !opts.urn) {
@@ -147,25 +147,25 @@ export class Member extends pulumi.CustomResource {
             if ((!args || args.email === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'email'");
             }
-            inputs["accountId"] = args ? args.accountId : undefined;
-            inputs["email"] = args ? args.email : undefined;
-            inputs["invitationDisableEmailNotification"] = args ? args.invitationDisableEmailNotification : undefined;
-            inputs["invitationMessage"] = args ? args.invitationMessage : undefined;
-            inputs["invite"] = args ? args.invite : undefined;
-            inputs["status"] = args ? args.status : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["administratorAccountId"] = undefined /*out*/;
-            inputs["arn"] = undefined /*out*/;
-            inputs["invitedAt"] = undefined /*out*/;
-            inputs["masterAccountId"] = undefined /*out*/;
-            inputs["relationshipStatus"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
-            inputs["updatedAt"] = undefined /*out*/;
+            resourceInputs["accountId"] = args ? args.accountId : undefined;
+            resourceInputs["email"] = args ? args.email : undefined;
+            resourceInputs["invitationDisableEmailNotification"] = args ? args.invitationDisableEmailNotification : undefined;
+            resourceInputs["invitationMessage"] = args ? args.invitationMessage : undefined;
+            resourceInputs["invite"] = args ? args.invite : undefined;
+            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["administratorAccountId"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["invitedAt"] = undefined /*out*/;
+            resourceInputs["masterAccountId"] = undefined /*out*/;
+            resourceInputs["relationshipStatus"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["updatedAt"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Member.__pulumiType, name, inputs, opts);
+        super(Member.__pulumiType, name, resourceInputs, opts);
     }
 }
 

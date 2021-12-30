@@ -359,47 +359,6 @@ func (i PolicySecurityServicePolicyDataArgs) ToPolicySecurityServicePolicyDataOu
 	return pulumi.ToOutputWithContext(ctx, i).(PolicySecurityServicePolicyDataOutput)
 }
 
-func (i PolicySecurityServicePolicyDataArgs) ToPolicySecurityServicePolicyDataPtrOutput() PolicySecurityServicePolicyDataPtrOutput {
-	return i.ToPolicySecurityServicePolicyDataPtrOutputWithContext(context.Background())
-}
-
-func (i PolicySecurityServicePolicyDataArgs) ToPolicySecurityServicePolicyDataPtrOutputWithContext(ctx context.Context) PolicySecurityServicePolicyDataPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PolicySecurityServicePolicyDataOutput).ToPolicySecurityServicePolicyDataPtrOutputWithContext(ctx)
-}
-
-// PolicySecurityServicePolicyDataPtrInput is an input type that accepts PolicySecurityServicePolicyDataArgs, PolicySecurityServicePolicyDataPtr and PolicySecurityServicePolicyDataPtrOutput values.
-// You can construct a concrete instance of `PolicySecurityServicePolicyDataPtrInput` via:
-//
-//          PolicySecurityServicePolicyDataArgs{...}
-//
-//  or:
-//
-//          nil
-type PolicySecurityServicePolicyDataPtrInput interface {
-	pulumi.Input
-
-	ToPolicySecurityServicePolicyDataPtrOutput() PolicySecurityServicePolicyDataPtrOutput
-	ToPolicySecurityServicePolicyDataPtrOutputWithContext(context.Context) PolicySecurityServicePolicyDataPtrOutput
-}
-
-type policySecurityServicePolicyDataPtrType PolicySecurityServicePolicyDataArgs
-
-func PolicySecurityServicePolicyDataPtr(v *PolicySecurityServicePolicyDataArgs) PolicySecurityServicePolicyDataPtrInput {
-	return (*policySecurityServicePolicyDataPtrType)(v)
-}
-
-func (*policySecurityServicePolicyDataPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PolicySecurityServicePolicyData)(nil)).Elem()
-}
-
-func (i *policySecurityServicePolicyDataPtrType) ToPolicySecurityServicePolicyDataPtrOutput() PolicySecurityServicePolicyDataPtrOutput {
-	return i.ToPolicySecurityServicePolicyDataPtrOutputWithContext(context.Background())
-}
-
-func (i *policySecurityServicePolicyDataPtrType) ToPolicySecurityServicePolicyDataPtrOutputWithContext(ctx context.Context) PolicySecurityServicePolicyDataPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PolicySecurityServicePolicyDataPtrOutput)
-}
-
 type PolicySecurityServicePolicyDataOutput struct{ *pulumi.OutputState }
 
 func (PolicySecurityServicePolicyDataOutput) ElementType() reflect.Type {
@@ -414,16 +373,6 @@ func (o PolicySecurityServicePolicyDataOutput) ToPolicySecurityServicePolicyData
 	return o
 }
 
-func (o PolicySecurityServicePolicyDataOutput) ToPolicySecurityServicePolicyDataPtrOutput() PolicySecurityServicePolicyDataPtrOutput {
-	return o.ToPolicySecurityServicePolicyDataPtrOutputWithContext(context.Background())
-}
-
-func (o PolicySecurityServicePolicyDataOutput) ToPolicySecurityServicePolicyDataPtrOutputWithContext(ctx context.Context) PolicySecurityServicePolicyDataPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicySecurityServicePolicyData) *PolicySecurityServicePolicyData {
-		return &v
-	}).(PolicySecurityServicePolicyDataPtrOutput)
-}
-
 // Details about the service that are specific to the service type, in JSON format. For service type `SHIELD_ADVANCED`, this is an empty string. Examples depending on `type` can be found in the [AWS Firewall Manager SecurityServicePolicyData API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_SecurityServicePolicyData.html).
 func (o PolicySecurityServicePolicyDataOutput) ManagedServiceData() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PolicySecurityServicePolicyData) *string { return v.ManagedServiceData }).(pulumi.StringPtrOutput)
@@ -434,61 +383,15 @@ func (o PolicySecurityServicePolicyDataOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v PolicySecurityServicePolicyData) string { return v.Type }).(pulumi.StringOutput)
 }
 
-type PolicySecurityServicePolicyDataPtrOutput struct{ *pulumi.OutputState }
-
-func (PolicySecurityServicePolicyDataPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PolicySecurityServicePolicyData)(nil)).Elem()
-}
-
-func (o PolicySecurityServicePolicyDataPtrOutput) ToPolicySecurityServicePolicyDataPtrOutput() PolicySecurityServicePolicyDataPtrOutput {
-	return o
-}
-
-func (o PolicySecurityServicePolicyDataPtrOutput) ToPolicySecurityServicePolicyDataPtrOutputWithContext(ctx context.Context) PolicySecurityServicePolicyDataPtrOutput {
-	return o
-}
-
-func (o PolicySecurityServicePolicyDataPtrOutput) Elem() PolicySecurityServicePolicyDataOutput {
-	return o.ApplyT(func(v *PolicySecurityServicePolicyData) PolicySecurityServicePolicyData {
-		if v != nil {
-			return *v
-		}
-		var ret PolicySecurityServicePolicyData
-		return ret
-	}).(PolicySecurityServicePolicyDataOutput)
-}
-
-// Details about the service that are specific to the service type, in JSON format. For service type `SHIELD_ADVANCED`, this is an empty string. Examples depending on `type` can be found in the [AWS Firewall Manager SecurityServicePolicyData API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_SecurityServicePolicyData.html).
-func (o PolicySecurityServicePolicyDataPtrOutput) ManagedServiceData() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PolicySecurityServicePolicyData) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ManagedServiceData
-	}).(pulumi.StringPtrOutput)
-}
-
-// The service that the policy is using to protect the resources. For the current list of supported types, please refer to the [AWS Firewall Manager SecurityServicePolicyData API Type Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_SecurityServicePolicyData.html#fms-Type-SecurityServicePolicyData-Type).
-func (o PolicySecurityServicePolicyDataPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PolicySecurityServicePolicyData) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Type
-	}).(pulumi.StringPtrOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyExcludeMapInput)(nil)).Elem(), PolicyExcludeMapArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyExcludeMapPtrInput)(nil)).Elem(), PolicyExcludeMapArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyIncludeMapInput)(nil)).Elem(), PolicyIncludeMapArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyIncludeMapPtrInput)(nil)).Elem(), PolicyIncludeMapArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicySecurityServicePolicyDataInput)(nil)).Elem(), PolicySecurityServicePolicyDataArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PolicySecurityServicePolicyDataPtrInput)(nil)).Elem(), PolicySecurityServicePolicyDataArgs{})
 	pulumi.RegisterOutputType(PolicyExcludeMapOutput{})
 	pulumi.RegisterOutputType(PolicyExcludeMapPtrOutput{})
 	pulumi.RegisterOutputType(PolicyIncludeMapOutput{})
 	pulumi.RegisterOutputType(PolicyIncludeMapPtrOutput{})
 	pulumi.RegisterOutputType(PolicySecurityServicePolicyDataOutput{})
-	pulumi.RegisterOutputType(PolicySecurityServicePolicyDataPtrOutput{})
 }

@@ -35,7 +35,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ec2.NewDefaultVpc(ctx, "_default", &ec2.DefaultVpcArgs{
+// 		_, err := ec2.NewDefaultVpc(ctx, "default", &ec2.DefaultVpcArgs{
 // 			Tags: pulumi.StringMap{
 // 				"Name": pulumi.String("Default VPC"),
 // 			},
@@ -277,7 +277,7 @@ type DefaultVpcInput interface {
 }
 
 func (*DefaultVpc) ElementType() reflect.Type {
-	return reflect.TypeOf((*DefaultVpc)(nil))
+	return reflect.TypeOf((**DefaultVpc)(nil)).Elem()
 }
 
 func (i *DefaultVpc) ToDefaultVpcOutput() DefaultVpcOutput {
@@ -286,35 +286,6 @@ func (i *DefaultVpc) ToDefaultVpcOutput() DefaultVpcOutput {
 
 func (i *DefaultVpc) ToDefaultVpcOutputWithContext(ctx context.Context) DefaultVpcOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DefaultVpcOutput)
-}
-
-func (i *DefaultVpc) ToDefaultVpcPtrOutput() DefaultVpcPtrOutput {
-	return i.ToDefaultVpcPtrOutputWithContext(context.Background())
-}
-
-func (i *DefaultVpc) ToDefaultVpcPtrOutputWithContext(ctx context.Context) DefaultVpcPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DefaultVpcPtrOutput)
-}
-
-type DefaultVpcPtrInput interface {
-	pulumi.Input
-
-	ToDefaultVpcPtrOutput() DefaultVpcPtrOutput
-	ToDefaultVpcPtrOutputWithContext(ctx context.Context) DefaultVpcPtrOutput
-}
-
-type defaultVpcPtrType DefaultVpcArgs
-
-func (*defaultVpcPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DefaultVpc)(nil))
-}
-
-func (i *defaultVpcPtrType) ToDefaultVpcPtrOutput() DefaultVpcPtrOutput {
-	return i.ToDefaultVpcPtrOutputWithContext(context.Background())
-}
-
-func (i *defaultVpcPtrType) ToDefaultVpcPtrOutputWithContext(ctx context.Context) DefaultVpcPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DefaultVpcPtrOutput)
 }
 
 // DefaultVpcArrayInput is an input type that accepts DefaultVpcArray and DefaultVpcArrayOutput values.
@@ -370,7 +341,7 @@ func (i DefaultVpcMap) ToDefaultVpcMapOutputWithContext(ctx context.Context) Def
 type DefaultVpcOutput struct{ *pulumi.OutputState }
 
 func (DefaultVpcOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DefaultVpc)(nil))
+	return reflect.TypeOf((**DefaultVpc)(nil)).Elem()
 }
 
 func (o DefaultVpcOutput) ToDefaultVpcOutput() DefaultVpcOutput {
@@ -381,44 +352,10 @@ func (o DefaultVpcOutput) ToDefaultVpcOutputWithContext(ctx context.Context) Def
 	return o
 }
 
-func (o DefaultVpcOutput) ToDefaultVpcPtrOutput() DefaultVpcPtrOutput {
-	return o.ToDefaultVpcPtrOutputWithContext(context.Background())
-}
-
-func (o DefaultVpcOutput) ToDefaultVpcPtrOutputWithContext(ctx context.Context) DefaultVpcPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DefaultVpc) *DefaultVpc {
-		return &v
-	}).(DefaultVpcPtrOutput)
-}
-
-type DefaultVpcPtrOutput struct{ *pulumi.OutputState }
-
-func (DefaultVpcPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DefaultVpc)(nil))
-}
-
-func (o DefaultVpcPtrOutput) ToDefaultVpcPtrOutput() DefaultVpcPtrOutput {
-	return o
-}
-
-func (o DefaultVpcPtrOutput) ToDefaultVpcPtrOutputWithContext(ctx context.Context) DefaultVpcPtrOutput {
-	return o
-}
-
-func (o DefaultVpcPtrOutput) Elem() DefaultVpcOutput {
-	return o.ApplyT(func(v *DefaultVpc) DefaultVpc {
-		if v != nil {
-			return *v
-		}
-		var ret DefaultVpc
-		return ret
-	}).(DefaultVpcOutput)
-}
-
 type DefaultVpcArrayOutput struct{ *pulumi.OutputState }
 
 func (DefaultVpcArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DefaultVpc)(nil))
+	return reflect.TypeOf((*[]*DefaultVpc)(nil)).Elem()
 }
 
 func (o DefaultVpcArrayOutput) ToDefaultVpcArrayOutput() DefaultVpcArrayOutput {
@@ -430,15 +367,15 @@ func (o DefaultVpcArrayOutput) ToDefaultVpcArrayOutputWithContext(ctx context.Co
 }
 
 func (o DefaultVpcArrayOutput) Index(i pulumi.IntInput) DefaultVpcOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DefaultVpc {
-		return vs[0].([]DefaultVpc)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DefaultVpc {
+		return vs[0].([]*DefaultVpc)[vs[1].(int)]
 	}).(DefaultVpcOutput)
 }
 
 type DefaultVpcMapOutput struct{ *pulumi.OutputState }
 
 func (DefaultVpcMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]DefaultVpc)(nil))
+	return reflect.TypeOf((*map[string]*DefaultVpc)(nil)).Elem()
 }
 
 func (o DefaultVpcMapOutput) ToDefaultVpcMapOutput() DefaultVpcMapOutput {
@@ -450,18 +387,16 @@ func (o DefaultVpcMapOutput) ToDefaultVpcMapOutputWithContext(ctx context.Contex
 }
 
 func (o DefaultVpcMapOutput) MapIndex(k pulumi.StringInput) DefaultVpcOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DefaultVpc {
-		return vs[0].(map[string]DefaultVpc)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *DefaultVpc {
+		return vs[0].(map[string]*DefaultVpc)[vs[1].(string)]
 	}).(DefaultVpcOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DefaultVpcInput)(nil)).Elem(), &DefaultVpc{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DefaultVpcPtrInput)(nil)).Elem(), &DefaultVpc{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DefaultVpcArrayInput)(nil)).Elem(), DefaultVpcArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DefaultVpcMapInput)(nil)).Elem(), DefaultVpcMap{})
 	pulumi.RegisterOutputType(DefaultVpcOutput{})
-	pulumi.RegisterOutputType(DefaultVpcPtrOutput{})
 	pulumi.RegisterOutputType(DefaultVpcArrayOutput{})
 	pulumi.RegisterOutputType(DefaultVpcMapOutput{})
 }

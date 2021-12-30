@@ -78,15 +78,15 @@ export class NetworkInterfaceAttachment extends pulumi.CustomResource {
      */
     constructor(name: string, args: NetworkInterfaceAttachmentArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: NetworkInterfaceAttachmentArgs | NetworkInterfaceAttachmentState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NetworkInterfaceAttachmentState | undefined;
-            inputs["attachmentId"] = state ? state.attachmentId : undefined;
-            inputs["deviceIndex"] = state ? state.deviceIndex : undefined;
-            inputs["instanceId"] = state ? state.instanceId : undefined;
-            inputs["networkInterfaceId"] = state ? state.networkInterfaceId : undefined;
-            inputs["status"] = state ? state.status : undefined;
+            resourceInputs["attachmentId"] = state ? state.attachmentId : undefined;
+            resourceInputs["deviceIndex"] = state ? state.deviceIndex : undefined;
+            resourceInputs["instanceId"] = state ? state.instanceId : undefined;
+            resourceInputs["networkInterfaceId"] = state ? state.networkInterfaceId : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
         } else {
             const args = argsOrState as NetworkInterfaceAttachmentArgs | undefined;
             if ((!args || args.deviceIndex === undefined) && !opts.urn) {
@@ -98,16 +98,16 @@ export class NetworkInterfaceAttachment extends pulumi.CustomResource {
             if ((!args || args.networkInterfaceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'networkInterfaceId'");
             }
-            inputs["deviceIndex"] = args ? args.deviceIndex : undefined;
-            inputs["instanceId"] = args ? args.instanceId : undefined;
-            inputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
-            inputs["attachmentId"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
+            resourceInputs["deviceIndex"] = args ? args.deviceIndex : undefined;
+            resourceInputs["instanceId"] = args ? args.instanceId : undefined;
+            resourceInputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
+            resourceInputs["attachmentId"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(NetworkInterfaceAttachment.__pulumiType, name, inputs, opts);
+        super(NetworkInterfaceAttachment.__pulumiType, name, resourceInputs, opts);
     }
 }
 

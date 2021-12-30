@@ -144,7 +144,7 @@ type ResolverFirewallConfigInput interface {
 }
 
 func (*ResolverFirewallConfig) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResolverFirewallConfig)(nil))
+	return reflect.TypeOf((**ResolverFirewallConfig)(nil)).Elem()
 }
 
 func (i *ResolverFirewallConfig) ToResolverFirewallConfigOutput() ResolverFirewallConfigOutput {
@@ -153,35 +153,6 @@ func (i *ResolverFirewallConfig) ToResolverFirewallConfigOutput() ResolverFirewa
 
 func (i *ResolverFirewallConfig) ToResolverFirewallConfigOutputWithContext(ctx context.Context) ResolverFirewallConfigOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverFirewallConfigOutput)
-}
-
-func (i *ResolverFirewallConfig) ToResolverFirewallConfigPtrOutput() ResolverFirewallConfigPtrOutput {
-	return i.ToResolverFirewallConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *ResolverFirewallConfig) ToResolverFirewallConfigPtrOutputWithContext(ctx context.Context) ResolverFirewallConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResolverFirewallConfigPtrOutput)
-}
-
-type ResolverFirewallConfigPtrInput interface {
-	pulumi.Input
-
-	ToResolverFirewallConfigPtrOutput() ResolverFirewallConfigPtrOutput
-	ToResolverFirewallConfigPtrOutputWithContext(ctx context.Context) ResolverFirewallConfigPtrOutput
-}
-
-type resolverFirewallConfigPtrType ResolverFirewallConfigArgs
-
-func (*resolverFirewallConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ResolverFirewallConfig)(nil))
-}
-
-func (i *resolverFirewallConfigPtrType) ToResolverFirewallConfigPtrOutput() ResolverFirewallConfigPtrOutput {
-	return i.ToResolverFirewallConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *resolverFirewallConfigPtrType) ToResolverFirewallConfigPtrOutputWithContext(ctx context.Context) ResolverFirewallConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResolverFirewallConfigPtrOutput)
 }
 
 // ResolverFirewallConfigArrayInput is an input type that accepts ResolverFirewallConfigArray and ResolverFirewallConfigArrayOutput values.
@@ -237,7 +208,7 @@ func (i ResolverFirewallConfigMap) ToResolverFirewallConfigMapOutputWithContext(
 type ResolverFirewallConfigOutput struct{ *pulumi.OutputState }
 
 func (ResolverFirewallConfigOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResolverFirewallConfig)(nil))
+	return reflect.TypeOf((**ResolverFirewallConfig)(nil)).Elem()
 }
 
 func (o ResolverFirewallConfigOutput) ToResolverFirewallConfigOutput() ResolverFirewallConfigOutput {
@@ -248,44 +219,10 @@ func (o ResolverFirewallConfigOutput) ToResolverFirewallConfigOutputWithContext(
 	return o
 }
 
-func (o ResolverFirewallConfigOutput) ToResolverFirewallConfigPtrOutput() ResolverFirewallConfigPtrOutput {
-	return o.ToResolverFirewallConfigPtrOutputWithContext(context.Background())
-}
-
-func (o ResolverFirewallConfigOutput) ToResolverFirewallConfigPtrOutputWithContext(ctx context.Context) ResolverFirewallConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResolverFirewallConfig) *ResolverFirewallConfig {
-		return &v
-	}).(ResolverFirewallConfigPtrOutput)
-}
-
-type ResolverFirewallConfigPtrOutput struct{ *pulumi.OutputState }
-
-func (ResolverFirewallConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ResolverFirewallConfig)(nil))
-}
-
-func (o ResolverFirewallConfigPtrOutput) ToResolverFirewallConfigPtrOutput() ResolverFirewallConfigPtrOutput {
-	return o
-}
-
-func (o ResolverFirewallConfigPtrOutput) ToResolverFirewallConfigPtrOutputWithContext(ctx context.Context) ResolverFirewallConfigPtrOutput {
-	return o
-}
-
-func (o ResolverFirewallConfigPtrOutput) Elem() ResolverFirewallConfigOutput {
-	return o.ApplyT(func(v *ResolverFirewallConfig) ResolverFirewallConfig {
-		if v != nil {
-			return *v
-		}
-		var ret ResolverFirewallConfig
-		return ret
-	}).(ResolverFirewallConfigOutput)
-}
-
 type ResolverFirewallConfigArrayOutput struct{ *pulumi.OutputState }
 
 func (ResolverFirewallConfigArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ResolverFirewallConfig)(nil))
+	return reflect.TypeOf((*[]*ResolverFirewallConfig)(nil)).Elem()
 }
 
 func (o ResolverFirewallConfigArrayOutput) ToResolverFirewallConfigArrayOutput() ResolverFirewallConfigArrayOutput {
@@ -297,15 +234,15 @@ func (o ResolverFirewallConfigArrayOutput) ToResolverFirewallConfigArrayOutputWi
 }
 
 func (o ResolverFirewallConfigArrayOutput) Index(i pulumi.IntInput) ResolverFirewallConfigOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ResolverFirewallConfig {
-		return vs[0].([]ResolverFirewallConfig)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ResolverFirewallConfig {
+		return vs[0].([]*ResolverFirewallConfig)[vs[1].(int)]
 	}).(ResolverFirewallConfigOutput)
 }
 
 type ResolverFirewallConfigMapOutput struct{ *pulumi.OutputState }
 
 func (ResolverFirewallConfigMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ResolverFirewallConfig)(nil))
+	return reflect.TypeOf((*map[string]*ResolverFirewallConfig)(nil)).Elem()
 }
 
 func (o ResolverFirewallConfigMapOutput) ToResolverFirewallConfigMapOutput() ResolverFirewallConfigMapOutput {
@@ -317,18 +254,16 @@ func (o ResolverFirewallConfigMapOutput) ToResolverFirewallConfigMapOutputWithCo
 }
 
 func (o ResolverFirewallConfigMapOutput) MapIndex(k pulumi.StringInput) ResolverFirewallConfigOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ResolverFirewallConfig {
-		return vs[0].(map[string]ResolverFirewallConfig)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ResolverFirewallConfig {
+		return vs[0].(map[string]*ResolverFirewallConfig)[vs[1].(string)]
 	}).(ResolverFirewallConfigOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ResolverFirewallConfigInput)(nil)).Elem(), &ResolverFirewallConfig{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ResolverFirewallConfigPtrInput)(nil)).Elem(), &ResolverFirewallConfig{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResolverFirewallConfigArrayInput)(nil)).Elem(), ResolverFirewallConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResolverFirewallConfigMapInput)(nil)).Elem(), ResolverFirewallConfigMap{})
 	pulumi.RegisterOutputType(ResolverFirewallConfigOutput{})
-	pulumi.RegisterOutputType(ResolverFirewallConfigPtrOutput{})
 	pulumi.RegisterOutputType(ResolverFirewallConfigArrayOutput{})
 	pulumi.RegisterOutputType(ResolverFirewallConfigMapOutput{})
 }

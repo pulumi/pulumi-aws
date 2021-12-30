@@ -142,7 +142,7 @@ type ResolverRuleAssociationInput interface {
 }
 
 func (*ResolverRuleAssociation) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResolverRuleAssociation)(nil))
+	return reflect.TypeOf((**ResolverRuleAssociation)(nil)).Elem()
 }
 
 func (i *ResolverRuleAssociation) ToResolverRuleAssociationOutput() ResolverRuleAssociationOutput {
@@ -151,35 +151,6 @@ func (i *ResolverRuleAssociation) ToResolverRuleAssociationOutput() ResolverRule
 
 func (i *ResolverRuleAssociation) ToResolverRuleAssociationOutputWithContext(ctx context.Context) ResolverRuleAssociationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverRuleAssociationOutput)
-}
-
-func (i *ResolverRuleAssociation) ToResolverRuleAssociationPtrOutput() ResolverRuleAssociationPtrOutput {
-	return i.ToResolverRuleAssociationPtrOutputWithContext(context.Background())
-}
-
-func (i *ResolverRuleAssociation) ToResolverRuleAssociationPtrOutputWithContext(ctx context.Context) ResolverRuleAssociationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResolverRuleAssociationPtrOutput)
-}
-
-type ResolverRuleAssociationPtrInput interface {
-	pulumi.Input
-
-	ToResolverRuleAssociationPtrOutput() ResolverRuleAssociationPtrOutput
-	ToResolverRuleAssociationPtrOutputWithContext(ctx context.Context) ResolverRuleAssociationPtrOutput
-}
-
-type resolverRuleAssociationPtrType ResolverRuleAssociationArgs
-
-func (*resolverRuleAssociationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ResolverRuleAssociation)(nil))
-}
-
-func (i *resolverRuleAssociationPtrType) ToResolverRuleAssociationPtrOutput() ResolverRuleAssociationPtrOutput {
-	return i.ToResolverRuleAssociationPtrOutputWithContext(context.Background())
-}
-
-func (i *resolverRuleAssociationPtrType) ToResolverRuleAssociationPtrOutputWithContext(ctx context.Context) ResolverRuleAssociationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResolverRuleAssociationPtrOutput)
 }
 
 // ResolverRuleAssociationArrayInput is an input type that accepts ResolverRuleAssociationArray and ResolverRuleAssociationArrayOutput values.
@@ -235,7 +206,7 @@ func (i ResolverRuleAssociationMap) ToResolverRuleAssociationMapOutputWithContex
 type ResolverRuleAssociationOutput struct{ *pulumi.OutputState }
 
 func (ResolverRuleAssociationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResolverRuleAssociation)(nil))
+	return reflect.TypeOf((**ResolverRuleAssociation)(nil)).Elem()
 }
 
 func (o ResolverRuleAssociationOutput) ToResolverRuleAssociationOutput() ResolverRuleAssociationOutput {
@@ -246,44 +217,10 @@ func (o ResolverRuleAssociationOutput) ToResolverRuleAssociationOutputWithContex
 	return o
 }
 
-func (o ResolverRuleAssociationOutput) ToResolverRuleAssociationPtrOutput() ResolverRuleAssociationPtrOutput {
-	return o.ToResolverRuleAssociationPtrOutputWithContext(context.Background())
-}
-
-func (o ResolverRuleAssociationOutput) ToResolverRuleAssociationPtrOutputWithContext(ctx context.Context) ResolverRuleAssociationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResolverRuleAssociation) *ResolverRuleAssociation {
-		return &v
-	}).(ResolverRuleAssociationPtrOutput)
-}
-
-type ResolverRuleAssociationPtrOutput struct{ *pulumi.OutputState }
-
-func (ResolverRuleAssociationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ResolverRuleAssociation)(nil))
-}
-
-func (o ResolverRuleAssociationPtrOutput) ToResolverRuleAssociationPtrOutput() ResolverRuleAssociationPtrOutput {
-	return o
-}
-
-func (o ResolverRuleAssociationPtrOutput) ToResolverRuleAssociationPtrOutputWithContext(ctx context.Context) ResolverRuleAssociationPtrOutput {
-	return o
-}
-
-func (o ResolverRuleAssociationPtrOutput) Elem() ResolverRuleAssociationOutput {
-	return o.ApplyT(func(v *ResolverRuleAssociation) ResolverRuleAssociation {
-		if v != nil {
-			return *v
-		}
-		var ret ResolverRuleAssociation
-		return ret
-	}).(ResolverRuleAssociationOutput)
-}
-
 type ResolverRuleAssociationArrayOutput struct{ *pulumi.OutputState }
 
 func (ResolverRuleAssociationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ResolverRuleAssociation)(nil))
+	return reflect.TypeOf((*[]*ResolverRuleAssociation)(nil)).Elem()
 }
 
 func (o ResolverRuleAssociationArrayOutput) ToResolverRuleAssociationArrayOutput() ResolverRuleAssociationArrayOutput {
@@ -295,15 +232,15 @@ func (o ResolverRuleAssociationArrayOutput) ToResolverRuleAssociationArrayOutput
 }
 
 func (o ResolverRuleAssociationArrayOutput) Index(i pulumi.IntInput) ResolverRuleAssociationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ResolverRuleAssociation {
-		return vs[0].([]ResolverRuleAssociation)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ResolverRuleAssociation {
+		return vs[0].([]*ResolverRuleAssociation)[vs[1].(int)]
 	}).(ResolverRuleAssociationOutput)
 }
 
 type ResolverRuleAssociationMapOutput struct{ *pulumi.OutputState }
 
 func (ResolverRuleAssociationMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ResolverRuleAssociation)(nil))
+	return reflect.TypeOf((*map[string]*ResolverRuleAssociation)(nil)).Elem()
 }
 
 func (o ResolverRuleAssociationMapOutput) ToResolverRuleAssociationMapOutput() ResolverRuleAssociationMapOutput {
@@ -315,18 +252,16 @@ func (o ResolverRuleAssociationMapOutput) ToResolverRuleAssociationMapOutputWith
 }
 
 func (o ResolverRuleAssociationMapOutput) MapIndex(k pulumi.StringInput) ResolverRuleAssociationOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ResolverRuleAssociation {
-		return vs[0].(map[string]ResolverRuleAssociation)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ResolverRuleAssociation {
+		return vs[0].(map[string]*ResolverRuleAssociation)[vs[1].(string)]
 	}).(ResolverRuleAssociationOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ResolverRuleAssociationInput)(nil)).Elem(), &ResolverRuleAssociation{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ResolverRuleAssociationPtrInput)(nil)).Elem(), &ResolverRuleAssociation{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResolverRuleAssociationArrayInput)(nil)).Elem(), ResolverRuleAssociationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResolverRuleAssociationMapInput)(nil)).Elem(), ResolverRuleAssociationMap{})
 	pulumi.RegisterOutputType(ResolverRuleAssociationOutput{})
-	pulumi.RegisterOutputType(ResolverRuleAssociationPtrOutput{})
 	pulumi.RegisterOutputType(ResolverRuleAssociationArrayOutput{})
 	pulumi.RegisterOutputType(ResolverRuleAssociationMapOutput{})
 }

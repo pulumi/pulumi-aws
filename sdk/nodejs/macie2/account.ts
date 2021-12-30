@@ -85,27 +85,27 @@ export class Account extends pulumi.CustomResource {
      */
     constructor(name: string, args?: AccountArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AccountArgs | AccountState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AccountState | undefined;
-            inputs["createdAt"] = state ? state.createdAt : undefined;
-            inputs["findingPublishingFrequency"] = state ? state.findingPublishingFrequency : undefined;
-            inputs["serviceRole"] = state ? state.serviceRole : undefined;
-            inputs["status"] = state ? state.status : undefined;
-            inputs["updatedAt"] = state ? state.updatedAt : undefined;
+            resourceInputs["createdAt"] = state ? state.createdAt : undefined;
+            resourceInputs["findingPublishingFrequency"] = state ? state.findingPublishingFrequency : undefined;
+            resourceInputs["serviceRole"] = state ? state.serviceRole : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["updatedAt"] = state ? state.updatedAt : undefined;
         } else {
             const args = argsOrState as AccountArgs | undefined;
-            inputs["findingPublishingFrequency"] = args ? args.findingPublishingFrequency : undefined;
-            inputs["status"] = args ? args.status : undefined;
-            inputs["createdAt"] = undefined /*out*/;
-            inputs["serviceRole"] = undefined /*out*/;
-            inputs["updatedAt"] = undefined /*out*/;
+            resourceInputs["findingPublishingFrequency"] = args ? args.findingPublishingFrequency : undefined;
+            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["serviceRole"] = undefined /*out*/;
+            resourceInputs["updatedAt"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Account.__pulumiType, name, inputs, opts);
+        super(Account.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -183,7 +183,7 @@ type DatabaseInput interface {
 }
 
 func (*Database) ElementType() reflect.Type {
-	return reflect.TypeOf((*Database)(nil))
+	return reflect.TypeOf((**Database)(nil)).Elem()
 }
 
 func (i *Database) ToDatabaseOutput() DatabaseOutput {
@@ -192,35 +192,6 @@ func (i *Database) ToDatabaseOutput() DatabaseOutput {
 
 func (i *Database) ToDatabaseOutputWithContext(ctx context.Context) DatabaseOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DatabaseOutput)
-}
-
-func (i *Database) ToDatabasePtrOutput() DatabasePtrOutput {
-	return i.ToDatabasePtrOutputWithContext(context.Background())
-}
-
-func (i *Database) ToDatabasePtrOutputWithContext(ctx context.Context) DatabasePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatabasePtrOutput)
-}
-
-type DatabasePtrInput interface {
-	pulumi.Input
-
-	ToDatabasePtrOutput() DatabasePtrOutput
-	ToDatabasePtrOutputWithContext(ctx context.Context) DatabasePtrOutput
-}
-
-type databasePtrType DatabaseArgs
-
-func (*databasePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Database)(nil))
-}
-
-func (i *databasePtrType) ToDatabasePtrOutput() DatabasePtrOutput {
-	return i.ToDatabasePtrOutputWithContext(context.Background())
-}
-
-func (i *databasePtrType) ToDatabasePtrOutputWithContext(ctx context.Context) DatabasePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DatabasePtrOutput)
 }
 
 // DatabaseArrayInput is an input type that accepts DatabaseArray and DatabaseArrayOutput values.
@@ -276,7 +247,7 @@ func (i DatabaseMap) ToDatabaseMapOutputWithContext(ctx context.Context) Databas
 type DatabaseOutput struct{ *pulumi.OutputState }
 
 func (DatabaseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Database)(nil))
+	return reflect.TypeOf((**Database)(nil)).Elem()
 }
 
 func (o DatabaseOutput) ToDatabaseOutput() DatabaseOutput {
@@ -287,44 +258,10 @@ func (o DatabaseOutput) ToDatabaseOutputWithContext(ctx context.Context) Databas
 	return o
 }
 
-func (o DatabaseOutput) ToDatabasePtrOutput() DatabasePtrOutput {
-	return o.ToDatabasePtrOutputWithContext(context.Background())
-}
-
-func (o DatabaseOutput) ToDatabasePtrOutputWithContext(ctx context.Context) DatabasePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Database) *Database {
-		return &v
-	}).(DatabasePtrOutput)
-}
-
-type DatabasePtrOutput struct{ *pulumi.OutputState }
-
-func (DatabasePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Database)(nil))
-}
-
-func (o DatabasePtrOutput) ToDatabasePtrOutput() DatabasePtrOutput {
-	return o
-}
-
-func (o DatabasePtrOutput) ToDatabasePtrOutputWithContext(ctx context.Context) DatabasePtrOutput {
-	return o
-}
-
-func (o DatabasePtrOutput) Elem() DatabaseOutput {
-	return o.ApplyT(func(v *Database) Database {
-		if v != nil {
-			return *v
-		}
-		var ret Database
-		return ret
-	}).(DatabaseOutput)
-}
-
 type DatabaseArrayOutput struct{ *pulumi.OutputState }
 
 func (DatabaseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Database)(nil))
+	return reflect.TypeOf((*[]*Database)(nil)).Elem()
 }
 
 func (o DatabaseArrayOutput) ToDatabaseArrayOutput() DatabaseArrayOutput {
@@ -336,15 +273,15 @@ func (o DatabaseArrayOutput) ToDatabaseArrayOutputWithContext(ctx context.Contex
 }
 
 func (o DatabaseArrayOutput) Index(i pulumi.IntInput) DatabaseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Database {
-		return vs[0].([]Database)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Database {
+		return vs[0].([]*Database)[vs[1].(int)]
 	}).(DatabaseOutput)
 }
 
 type DatabaseMapOutput struct{ *pulumi.OutputState }
 
 func (DatabaseMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Database)(nil))
+	return reflect.TypeOf((*map[string]*Database)(nil)).Elem()
 }
 
 func (o DatabaseMapOutput) ToDatabaseMapOutput() DatabaseMapOutput {
@@ -356,18 +293,16 @@ func (o DatabaseMapOutput) ToDatabaseMapOutputWithContext(ctx context.Context) D
 }
 
 func (o DatabaseMapOutput) MapIndex(k pulumi.StringInput) DatabaseOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Database {
-		return vs[0].(map[string]Database)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Database {
+		return vs[0].(map[string]*Database)[vs[1].(string)]
 	}).(DatabaseOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseInput)(nil)).Elem(), &Database{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DatabasePtrInput)(nil)).Elem(), &Database{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseArrayInput)(nil)).Elem(), DatabaseArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseMapInput)(nil)).Elem(), DatabaseMap{})
 	pulumi.RegisterOutputType(DatabaseOutput{})
-	pulumi.RegisterOutputType(DatabasePtrOutput{})
 	pulumi.RegisterOutputType(DatabaseArrayOutput{})
 	pulumi.RegisterOutputType(DatabaseMapOutput{})
 }

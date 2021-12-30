@@ -126,40 +126,40 @@ export class Model extends pulumi.CustomResource {
      */
     constructor(name: string, args: ModelArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ModelArgs | ModelState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ModelState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["containers"] = state ? state.containers : undefined;
-            inputs["enableNetworkIsolation"] = state ? state.enableNetworkIsolation : undefined;
-            inputs["executionRoleArn"] = state ? state.executionRoleArn : undefined;
-            inputs["inferenceExecutionConfig"] = state ? state.inferenceExecutionConfig : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["primaryContainer"] = state ? state.primaryContainer : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["vpcConfig"] = state ? state.vpcConfig : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["containers"] = state ? state.containers : undefined;
+            resourceInputs["enableNetworkIsolation"] = state ? state.enableNetworkIsolation : undefined;
+            resourceInputs["executionRoleArn"] = state ? state.executionRoleArn : undefined;
+            resourceInputs["inferenceExecutionConfig"] = state ? state.inferenceExecutionConfig : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["primaryContainer"] = state ? state.primaryContainer : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["vpcConfig"] = state ? state.vpcConfig : undefined;
         } else {
             const args = argsOrState as ModelArgs | undefined;
             if ((!args || args.executionRoleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'executionRoleArn'");
             }
-            inputs["containers"] = args ? args.containers : undefined;
-            inputs["enableNetworkIsolation"] = args ? args.enableNetworkIsolation : undefined;
-            inputs["executionRoleArn"] = args ? args.executionRoleArn : undefined;
-            inputs["inferenceExecutionConfig"] = args ? args.inferenceExecutionConfig : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["primaryContainer"] = args ? args.primaryContainer : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["vpcConfig"] = args ? args.vpcConfig : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["containers"] = args ? args.containers : undefined;
+            resourceInputs["enableNetworkIsolation"] = args ? args.enableNetworkIsolation : undefined;
+            resourceInputs["executionRoleArn"] = args ? args.executionRoleArn : undefined;
+            resourceInputs["inferenceExecutionConfig"] = args ? args.inferenceExecutionConfig : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["primaryContainer"] = args ? args.primaryContainer : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["vpcConfig"] = args ? args.vpcConfig : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Model.__pulumiType, name, inputs, opts);
+        super(Model.__pulumiType, name, resourceInputs, opts);
     }
 }
 

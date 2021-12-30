@@ -107,36 +107,36 @@ export class EndpointConfiguration extends pulumi.CustomResource {
      */
     constructor(name: string, args: EndpointConfigurationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: EndpointConfigurationArgs | EndpointConfigurationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EndpointConfigurationState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["asyncInferenceConfig"] = state ? state.asyncInferenceConfig : undefined;
-            inputs["dataCaptureConfig"] = state ? state.dataCaptureConfig : undefined;
-            inputs["kmsKeyArn"] = state ? state.kmsKeyArn : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["productionVariants"] = state ? state.productionVariants : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["asyncInferenceConfig"] = state ? state.asyncInferenceConfig : undefined;
+            resourceInputs["dataCaptureConfig"] = state ? state.dataCaptureConfig : undefined;
+            resourceInputs["kmsKeyArn"] = state ? state.kmsKeyArn : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["productionVariants"] = state ? state.productionVariants : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as EndpointConfigurationArgs | undefined;
             if ((!args || args.productionVariants === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'productionVariants'");
             }
-            inputs["asyncInferenceConfig"] = args ? args.asyncInferenceConfig : undefined;
-            inputs["dataCaptureConfig"] = args ? args.dataCaptureConfig : undefined;
-            inputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["productionVariants"] = args ? args.productionVariants : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["asyncInferenceConfig"] = args ? args.asyncInferenceConfig : undefined;
+            resourceInputs["dataCaptureConfig"] = args ? args.dataCaptureConfig : undefined;
+            resourceInputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["productionVariants"] = args ? args.productionVariants : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(EndpointConfiguration.__pulumiType, name, inputs, opts);
+        super(EndpointConfiguration.__pulumiType, name, resourceInputs, opts);
     }
 }
 

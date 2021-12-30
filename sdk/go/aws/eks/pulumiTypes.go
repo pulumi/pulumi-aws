@@ -15,75 +15,6 @@ type ClusterCertificateAuthority struct {
 	Data *string `pulumi:"data"`
 }
 
-// ClusterCertificateAuthorityInput is an input type that accepts ClusterCertificateAuthorityArgs and ClusterCertificateAuthorityOutput values.
-// You can construct a concrete instance of `ClusterCertificateAuthorityInput` via:
-//
-//          ClusterCertificateAuthorityArgs{...}
-type ClusterCertificateAuthorityInput interface {
-	pulumi.Input
-
-	ToClusterCertificateAuthorityOutput() ClusterCertificateAuthorityOutput
-	ToClusterCertificateAuthorityOutputWithContext(context.Context) ClusterCertificateAuthorityOutput
-}
-
-type ClusterCertificateAuthorityArgs struct {
-	// Base64 encoded certificate data required to communicate with your cluster. Add this to the `certificate-authority-data` section of the `kubeconfig` file for your cluster.
-	Data pulumi.StringPtrInput `pulumi:"data"`
-}
-
-func (ClusterCertificateAuthorityArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterCertificateAuthority)(nil)).Elem()
-}
-
-func (i ClusterCertificateAuthorityArgs) ToClusterCertificateAuthorityOutput() ClusterCertificateAuthorityOutput {
-	return i.ToClusterCertificateAuthorityOutputWithContext(context.Background())
-}
-
-func (i ClusterCertificateAuthorityArgs) ToClusterCertificateAuthorityOutputWithContext(ctx context.Context) ClusterCertificateAuthorityOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterCertificateAuthorityOutput)
-}
-
-func (i ClusterCertificateAuthorityArgs) ToClusterCertificateAuthorityPtrOutput() ClusterCertificateAuthorityPtrOutput {
-	return i.ToClusterCertificateAuthorityPtrOutputWithContext(context.Background())
-}
-
-func (i ClusterCertificateAuthorityArgs) ToClusterCertificateAuthorityPtrOutputWithContext(ctx context.Context) ClusterCertificateAuthorityPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterCertificateAuthorityOutput).ToClusterCertificateAuthorityPtrOutputWithContext(ctx)
-}
-
-// ClusterCertificateAuthorityPtrInput is an input type that accepts ClusterCertificateAuthorityArgs, ClusterCertificateAuthorityPtr and ClusterCertificateAuthorityPtrOutput values.
-// You can construct a concrete instance of `ClusterCertificateAuthorityPtrInput` via:
-//
-//          ClusterCertificateAuthorityArgs{...}
-//
-//  or:
-//
-//          nil
-type ClusterCertificateAuthorityPtrInput interface {
-	pulumi.Input
-
-	ToClusterCertificateAuthorityPtrOutput() ClusterCertificateAuthorityPtrOutput
-	ToClusterCertificateAuthorityPtrOutputWithContext(context.Context) ClusterCertificateAuthorityPtrOutput
-}
-
-type clusterCertificateAuthorityPtrType ClusterCertificateAuthorityArgs
-
-func ClusterCertificateAuthorityPtr(v *ClusterCertificateAuthorityArgs) ClusterCertificateAuthorityPtrInput {
-	return (*clusterCertificateAuthorityPtrType)(v)
-}
-
-func (*clusterCertificateAuthorityPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ClusterCertificateAuthority)(nil)).Elem()
-}
-
-func (i *clusterCertificateAuthorityPtrType) ToClusterCertificateAuthorityPtrOutput() ClusterCertificateAuthorityPtrOutput {
-	return i.ToClusterCertificateAuthorityPtrOutputWithContext(context.Background())
-}
-
-func (i *clusterCertificateAuthorityPtrType) ToClusterCertificateAuthorityPtrOutputWithContext(ctx context.Context) ClusterCertificateAuthorityPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterCertificateAuthorityPtrOutput)
-}
-
 type ClusterCertificateAuthorityOutput struct{ *pulumi.OutputState }
 
 func (ClusterCertificateAuthorityOutput) ElementType() reflect.Type {
@@ -98,53 +29,9 @@ func (o ClusterCertificateAuthorityOutput) ToClusterCertificateAuthorityOutputWi
 	return o
 }
 
-func (o ClusterCertificateAuthorityOutput) ToClusterCertificateAuthorityPtrOutput() ClusterCertificateAuthorityPtrOutput {
-	return o.ToClusterCertificateAuthorityPtrOutputWithContext(context.Background())
-}
-
-func (o ClusterCertificateAuthorityOutput) ToClusterCertificateAuthorityPtrOutputWithContext(ctx context.Context) ClusterCertificateAuthorityPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterCertificateAuthority) *ClusterCertificateAuthority {
-		return &v
-	}).(ClusterCertificateAuthorityPtrOutput)
-}
-
 // Base64 encoded certificate data required to communicate with your cluster. Add this to the `certificate-authority-data` section of the `kubeconfig` file for your cluster.
 func (o ClusterCertificateAuthorityOutput) Data() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterCertificateAuthority) *string { return v.Data }).(pulumi.StringPtrOutput)
-}
-
-type ClusterCertificateAuthorityPtrOutput struct{ *pulumi.OutputState }
-
-func (ClusterCertificateAuthorityPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ClusterCertificateAuthority)(nil)).Elem()
-}
-
-func (o ClusterCertificateAuthorityPtrOutput) ToClusterCertificateAuthorityPtrOutput() ClusterCertificateAuthorityPtrOutput {
-	return o
-}
-
-func (o ClusterCertificateAuthorityPtrOutput) ToClusterCertificateAuthorityPtrOutputWithContext(ctx context.Context) ClusterCertificateAuthorityPtrOutput {
-	return o
-}
-
-func (o ClusterCertificateAuthorityPtrOutput) Elem() ClusterCertificateAuthorityOutput {
-	return o.ApplyT(func(v *ClusterCertificateAuthority) ClusterCertificateAuthority {
-		if v != nil {
-			return *v
-		}
-		var ret ClusterCertificateAuthority
-		return ret
-	}).(ClusterCertificateAuthorityOutput)
-}
-
-// Base64 encoded certificate data required to communicate with your cluster. Add this to the `certificate-authority-data` section of the `kubeconfig` file for your cluster.
-func (o ClusterCertificateAuthorityPtrOutput) Data() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClusterCertificateAuthority) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Data
-	}).(pulumi.StringPtrOutput)
 }
 
 type ClusterEncryptionConfig struct {
@@ -445,59 +332,6 @@ type ClusterIdentity struct {
 	Oidcs []ClusterIdentityOidc `pulumi:"oidcs"`
 }
 
-// ClusterIdentityInput is an input type that accepts ClusterIdentityArgs and ClusterIdentityOutput values.
-// You can construct a concrete instance of `ClusterIdentityInput` via:
-//
-//          ClusterIdentityArgs{...}
-type ClusterIdentityInput interface {
-	pulumi.Input
-
-	ToClusterIdentityOutput() ClusterIdentityOutput
-	ToClusterIdentityOutputWithContext(context.Context) ClusterIdentityOutput
-}
-
-type ClusterIdentityArgs struct {
-	// Nested block containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster. Detailed below.
-	Oidcs ClusterIdentityOidcArrayInput `pulumi:"oidcs"`
-}
-
-func (ClusterIdentityArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterIdentity)(nil)).Elem()
-}
-
-func (i ClusterIdentityArgs) ToClusterIdentityOutput() ClusterIdentityOutput {
-	return i.ToClusterIdentityOutputWithContext(context.Background())
-}
-
-func (i ClusterIdentityArgs) ToClusterIdentityOutputWithContext(ctx context.Context) ClusterIdentityOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterIdentityOutput)
-}
-
-// ClusterIdentityArrayInput is an input type that accepts ClusterIdentityArray and ClusterIdentityArrayOutput values.
-// You can construct a concrete instance of `ClusterIdentityArrayInput` via:
-//
-//          ClusterIdentityArray{ ClusterIdentityArgs{...} }
-type ClusterIdentityArrayInput interface {
-	pulumi.Input
-
-	ToClusterIdentityArrayOutput() ClusterIdentityArrayOutput
-	ToClusterIdentityArrayOutputWithContext(context.Context) ClusterIdentityArrayOutput
-}
-
-type ClusterIdentityArray []ClusterIdentityInput
-
-func (ClusterIdentityArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ClusterIdentity)(nil)).Elem()
-}
-
-func (i ClusterIdentityArray) ToClusterIdentityArrayOutput() ClusterIdentityArrayOutput {
-	return i.ToClusterIdentityArrayOutputWithContext(context.Background())
-}
-
-func (i ClusterIdentityArray) ToClusterIdentityArrayOutputWithContext(ctx context.Context) ClusterIdentityArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterIdentityArrayOutput)
-}
-
 type ClusterIdentityOutput struct{ *pulumi.OutputState }
 
 func (ClusterIdentityOutput) ElementType() reflect.Type {
@@ -540,59 +374,6 @@ func (o ClusterIdentityArrayOutput) Index(i pulumi.IntInput) ClusterIdentityOutp
 type ClusterIdentityOidc struct {
 	// Issuer URL for the OpenID Connect identity provider.
 	Issuer *string `pulumi:"issuer"`
-}
-
-// ClusterIdentityOidcInput is an input type that accepts ClusterIdentityOidcArgs and ClusterIdentityOidcOutput values.
-// You can construct a concrete instance of `ClusterIdentityOidcInput` via:
-//
-//          ClusterIdentityOidcArgs{...}
-type ClusterIdentityOidcInput interface {
-	pulumi.Input
-
-	ToClusterIdentityOidcOutput() ClusterIdentityOidcOutput
-	ToClusterIdentityOidcOutputWithContext(context.Context) ClusterIdentityOidcOutput
-}
-
-type ClusterIdentityOidcArgs struct {
-	// Issuer URL for the OpenID Connect identity provider.
-	Issuer pulumi.StringPtrInput `pulumi:"issuer"`
-}
-
-func (ClusterIdentityOidcArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterIdentityOidc)(nil)).Elem()
-}
-
-func (i ClusterIdentityOidcArgs) ToClusterIdentityOidcOutput() ClusterIdentityOidcOutput {
-	return i.ToClusterIdentityOidcOutputWithContext(context.Background())
-}
-
-func (i ClusterIdentityOidcArgs) ToClusterIdentityOidcOutputWithContext(ctx context.Context) ClusterIdentityOidcOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterIdentityOidcOutput)
-}
-
-// ClusterIdentityOidcArrayInput is an input type that accepts ClusterIdentityOidcArray and ClusterIdentityOidcArrayOutput values.
-// You can construct a concrete instance of `ClusterIdentityOidcArrayInput` via:
-//
-//          ClusterIdentityOidcArray{ ClusterIdentityOidcArgs{...} }
-type ClusterIdentityOidcArrayInput interface {
-	pulumi.Input
-
-	ToClusterIdentityOidcArrayOutput() ClusterIdentityOidcArrayOutput
-	ToClusterIdentityOidcArrayOutputWithContext(context.Context) ClusterIdentityOidcArrayOutput
-}
-
-type ClusterIdentityOidcArray []ClusterIdentityOidcInput
-
-func (ClusterIdentityOidcArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ClusterIdentityOidc)(nil)).Elem()
-}
-
-func (i ClusterIdentityOidcArray) ToClusterIdentityOidcArrayOutput() ClusterIdentityOidcArrayOutput {
-	return i.ToClusterIdentityOidcArrayOutputWithContext(context.Background())
-}
-
-func (i ClusterIdentityOidcArray) ToClusterIdentityOidcArrayOutputWithContext(ctx context.Context) ClusterIdentityOidcArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterIdentityOidcArrayOutput)
 }
 
 type ClusterIdentityOidcOutput struct{ *pulumi.OutputState }
@@ -828,47 +609,6 @@ func (i ClusterVpcConfigArgs) ToClusterVpcConfigOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterVpcConfigOutput)
 }
 
-func (i ClusterVpcConfigArgs) ToClusterVpcConfigPtrOutput() ClusterVpcConfigPtrOutput {
-	return i.ToClusterVpcConfigPtrOutputWithContext(context.Background())
-}
-
-func (i ClusterVpcConfigArgs) ToClusterVpcConfigPtrOutputWithContext(ctx context.Context) ClusterVpcConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterVpcConfigOutput).ToClusterVpcConfigPtrOutputWithContext(ctx)
-}
-
-// ClusterVpcConfigPtrInput is an input type that accepts ClusterVpcConfigArgs, ClusterVpcConfigPtr and ClusterVpcConfigPtrOutput values.
-// You can construct a concrete instance of `ClusterVpcConfigPtrInput` via:
-//
-//          ClusterVpcConfigArgs{...}
-//
-//  or:
-//
-//          nil
-type ClusterVpcConfigPtrInput interface {
-	pulumi.Input
-
-	ToClusterVpcConfigPtrOutput() ClusterVpcConfigPtrOutput
-	ToClusterVpcConfigPtrOutputWithContext(context.Context) ClusterVpcConfigPtrOutput
-}
-
-type clusterVpcConfigPtrType ClusterVpcConfigArgs
-
-func ClusterVpcConfigPtr(v *ClusterVpcConfigArgs) ClusterVpcConfigPtrInput {
-	return (*clusterVpcConfigPtrType)(v)
-}
-
-func (*clusterVpcConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ClusterVpcConfig)(nil)).Elem()
-}
-
-func (i *clusterVpcConfigPtrType) ToClusterVpcConfigPtrOutput() ClusterVpcConfigPtrOutput {
-	return i.ToClusterVpcConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *clusterVpcConfigPtrType) ToClusterVpcConfigPtrOutputWithContext(ctx context.Context) ClusterVpcConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterVpcConfigPtrOutput)
-}
-
 type ClusterVpcConfigOutput struct{ *pulumi.OutputState }
 
 func (ClusterVpcConfigOutput) ElementType() reflect.Type {
@@ -881,16 +621,6 @@ func (o ClusterVpcConfigOutput) ToClusterVpcConfigOutput() ClusterVpcConfigOutpu
 
 func (o ClusterVpcConfigOutput) ToClusterVpcConfigOutputWithContext(ctx context.Context) ClusterVpcConfigOutput {
 	return o
-}
-
-func (o ClusterVpcConfigOutput) ToClusterVpcConfigPtrOutput() ClusterVpcConfigPtrOutput {
-	return o.ToClusterVpcConfigPtrOutputWithContext(context.Background())
-}
-
-func (o ClusterVpcConfigOutput) ToClusterVpcConfigPtrOutputWithContext(ctx context.Context) ClusterVpcConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterVpcConfig) *ClusterVpcConfig {
-		return &v
-	}).(ClusterVpcConfigPtrOutput)
 }
 
 // Cluster security group that was created by Amazon EKS for the cluster. Managed node groups use this security group for control-plane-to-data-plane communication.
@@ -926,100 +656,6 @@ func (o ClusterVpcConfigOutput) SubnetIds() pulumi.StringArrayOutput {
 // ID of the VPC associated with your cluster.
 func (o ClusterVpcConfigOutput) VpcId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterVpcConfig) *string { return v.VpcId }).(pulumi.StringPtrOutput)
-}
-
-type ClusterVpcConfigPtrOutput struct{ *pulumi.OutputState }
-
-func (ClusterVpcConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ClusterVpcConfig)(nil)).Elem()
-}
-
-func (o ClusterVpcConfigPtrOutput) ToClusterVpcConfigPtrOutput() ClusterVpcConfigPtrOutput {
-	return o
-}
-
-func (o ClusterVpcConfigPtrOutput) ToClusterVpcConfigPtrOutputWithContext(ctx context.Context) ClusterVpcConfigPtrOutput {
-	return o
-}
-
-func (o ClusterVpcConfigPtrOutput) Elem() ClusterVpcConfigOutput {
-	return o.ApplyT(func(v *ClusterVpcConfig) ClusterVpcConfig {
-		if v != nil {
-			return *v
-		}
-		var ret ClusterVpcConfig
-		return ret
-	}).(ClusterVpcConfigOutput)
-}
-
-// Cluster security group that was created by Amazon EKS for the cluster. Managed node groups use this security group for control-plane-to-data-plane communication.
-func (o ClusterVpcConfigPtrOutput) ClusterSecurityGroupId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClusterVpcConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ClusterSecurityGroupId
-	}).(pulumi.StringPtrOutput)
-}
-
-// Whether the Amazon EKS private API server endpoint is enabled. Default is `false`.
-func (o ClusterVpcConfigPtrOutput) EndpointPrivateAccess() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ClusterVpcConfig) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.EndpointPrivateAccess
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Whether the Amazon EKS public API server endpoint is enabled. Default is `true`.
-func (o ClusterVpcConfigPtrOutput) EndpointPublicAccess() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ClusterVpcConfig) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.EndpointPublicAccess
-	}).(pulumi.BoolPtrOutput)
-}
-
-// List of CIDR blocks. Indicates which CIDR blocks can access the Amazon EKS public API server endpoint when enabled. EKS defaults this to a list with `0.0.0.0/0`. This provider will only perform drift detection of its value when present in a configuration.
-func (o ClusterVpcConfigPtrOutput) PublicAccessCidrs() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *ClusterVpcConfig) []string {
-		if v == nil {
-			return nil
-		}
-		return v.PublicAccessCidrs
-	}).(pulumi.StringArrayOutput)
-}
-
-// List of security group IDs for the cross-account elastic network interfaces that Amazon EKS creates to use to allow communication between your worker nodes and the Kubernetes control plane.
-func (o ClusterVpcConfigPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *ClusterVpcConfig) []string {
-		if v == nil {
-			return nil
-		}
-		return v.SecurityGroupIds
-	}).(pulumi.StringArrayOutput)
-}
-
-// List of subnet IDs. Must be in at least two different availability zones. Amazon EKS creates cross-account elastic network interfaces in these subnets to allow communication between your worker nodes and the Kubernetes control plane.
-func (o ClusterVpcConfigPtrOutput) SubnetIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *ClusterVpcConfig) []string {
-		if v == nil {
-			return nil
-		}
-		return v.SubnetIds
-	}).(pulumi.StringArrayOutput)
-}
-
-// ID of the VPC associated with your cluster.
-func (o ClusterVpcConfigPtrOutput) VpcId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClusterVpcConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return v.VpcId
-	}).(pulumi.StringPtrOutput)
 }
 
 type FargateProfileSelector struct {
@@ -1189,47 +825,6 @@ func (i IdentityProviderConfigOidcArgs) ToIdentityProviderConfigOidcOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(IdentityProviderConfigOidcOutput)
 }
 
-func (i IdentityProviderConfigOidcArgs) ToIdentityProviderConfigOidcPtrOutput() IdentityProviderConfigOidcPtrOutput {
-	return i.ToIdentityProviderConfigOidcPtrOutputWithContext(context.Background())
-}
-
-func (i IdentityProviderConfigOidcArgs) ToIdentityProviderConfigOidcPtrOutputWithContext(ctx context.Context) IdentityProviderConfigOidcPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IdentityProviderConfigOidcOutput).ToIdentityProviderConfigOidcPtrOutputWithContext(ctx)
-}
-
-// IdentityProviderConfigOidcPtrInput is an input type that accepts IdentityProviderConfigOidcArgs, IdentityProviderConfigOidcPtr and IdentityProviderConfigOidcPtrOutput values.
-// You can construct a concrete instance of `IdentityProviderConfigOidcPtrInput` via:
-//
-//          IdentityProviderConfigOidcArgs{...}
-//
-//  or:
-//
-//          nil
-type IdentityProviderConfigOidcPtrInput interface {
-	pulumi.Input
-
-	ToIdentityProviderConfigOidcPtrOutput() IdentityProviderConfigOidcPtrOutput
-	ToIdentityProviderConfigOidcPtrOutputWithContext(context.Context) IdentityProviderConfigOidcPtrOutput
-}
-
-type identityProviderConfigOidcPtrType IdentityProviderConfigOidcArgs
-
-func IdentityProviderConfigOidcPtr(v *IdentityProviderConfigOidcArgs) IdentityProviderConfigOidcPtrInput {
-	return (*identityProviderConfigOidcPtrType)(v)
-}
-
-func (*identityProviderConfigOidcPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**IdentityProviderConfigOidc)(nil)).Elem()
-}
-
-func (i *identityProviderConfigOidcPtrType) ToIdentityProviderConfigOidcPtrOutput() IdentityProviderConfigOidcPtrOutput {
-	return i.ToIdentityProviderConfigOidcPtrOutputWithContext(context.Background())
-}
-
-func (i *identityProviderConfigOidcPtrType) ToIdentityProviderConfigOidcPtrOutputWithContext(ctx context.Context) IdentityProviderConfigOidcPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IdentityProviderConfigOidcPtrOutput)
-}
-
 type IdentityProviderConfigOidcOutput struct{ *pulumi.OutputState }
 
 func (IdentityProviderConfigOidcOutput) ElementType() reflect.Type {
@@ -1242,16 +837,6 @@ func (o IdentityProviderConfigOidcOutput) ToIdentityProviderConfigOidcOutput() I
 
 func (o IdentityProviderConfigOidcOutput) ToIdentityProviderConfigOidcOutputWithContext(ctx context.Context) IdentityProviderConfigOidcOutput {
 	return o
-}
-
-func (o IdentityProviderConfigOidcOutput) ToIdentityProviderConfigOidcPtrOutput() IdentityProviderConfigOidcPtrOutput {
-	return o.ToIdentityProviderConfigOidcPtrOutputWithContext(context.Background())
-}
-
-func (o IdentityProviderConfigOidcOutput) ToIdentityProviderConfigOidcPtrOutputWithContext(ctx context.Context) IdentityProviderConfigOidcPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentityProviderConfigOidc) *IdentityProviderConfigOidc {
-		return &v
-	}).(IdentityProviderConfigOidcPtrOutput)
 }
 
 // Client ID for the OpenID Connect identity provider.
@@ -1292,110 +877,6 @@ func (o IdentityProviderConfigOidcOutput) UsernameClaim() pulumi.StringPtrOutput
 // A prefix that is prepended to username claims.
 func (o IdentityProviderConfigOidcOutput) UsernamePrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IdentityProviderConfigOidc) *string { return v.UsernamePrefix }).(pulumi.StringPtrOutput)
-}
-
-type IdentityProviderConfigOidcPtrOutput struct{ *pulumi.OutputState }
-
-func (IdentityProviderConfigOidcPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**IdentityProviderConfigOidc)(nil)).Elem()
-}
-
-func (o IdentityProviderConfigOidcPtrOutput) ToIdentityProviderConfigOidcPtrOutput() IdentityProviderConfigOidcPtrOutput {
-	return o
-}
-
-func (o IdentityProviderConfigOidcPtrOutput) ToIdentityProviderConfigOidcPtrOutputWithContext(ctx context.Context) IdentityProviderConfigOidcPtrOutput {
-	return o
-}
-
-func (o IdentityProviderConfigOidcPtrOutput) Elem() IdentityProviderConfigOidcOutput {
-	return o.ApplyT(func(v *IdentityProviderConfigOidc) IdentityProviderConfigOidc {
-		if v != nil {
-			return *v
-		}
-		var ret IdentityProviderConfigOidc
-		return ret
-	}).(IdentityProviderConfigOidcOutput)
-}
-
-// Client ID for the OpenID Connect identity provider.
-func (o IdentityProviderConfigOidcPtrOutput) ClientId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *IdentityProviderConfigOidc) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ClientId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The JWT claim that the provider will use to return groups.
-func (o IdentityProviderConfigOidcPtrOutput) GroupsClaim() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *IdentityProviderConfigOidc) *string {
-		if v == nil {
-			return nil
-		}
-		return v.GroupsClaim
-	}).(pulumi.StringPtrOutput)
-}
-
-// A prefix that is prepended to group claims e.g., `oidc:`.
-func (o IdentityProviderConfigOidcPtrOutput) GroupsPrefix() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *IdentityProviderConfigOidc) *string {
-		if v == nil {
-			return nil
-		}
-		return v.GroupsPrefix
-	}).(pulumi.StringPtrOutput)
-}
-
-// The name of the identity provider config.
-func (o IdentityProviderConfigOidcPtrOutput) IdentityProviderConfigName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *IdentityProviderConfigOidc) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.IdentityProviderConfigName
-	}).(pulumi.StringPtrOutput)
-}
-
-// Issuer URL for the OpenID Connect identity provider.
-func (o IdentityProviderConfigOidcPtrOutput) IssuerUrl() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *IdentityProviderConfigOidc) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.IssuerUrl
-	}).(pulumi.StringPtrOutput)
-}
-
-// The key value pairs that describe required claims in the identity token.
-func (o IdentityProviderConfigOidcPtrOutput) RequiredClaims() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *IdentityProviderConfigOidc) map[string]string {
-		if v == nil {
-			return nil
-		}
-		return v.RequiredClaims
-	}).(pulumi.StringMapOutput)
-}
-
-// The JWT claim that the provider will use as the username.
-func (o IdentityProviderConfigOidcPtrOutput) UsernameClaim() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *IdentityProviderConfigOidc) *string {
-		if v == nil {
-			return nil
-		}
-		return v.UsernameClaim
-	}).(pulumi.StringPtrOutput)
-}
-
-// A prefix that is prepended to username claims.
-func (o IdentityProviderConfigOidcPtrOutput) UsernamePrefix() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *IdentityProviderConfigOidc) *string {
-		if v == nil {
-			return nil
-		}
-		return v.UsernamePrefix
-	}).(pulumi.StringPtrOutput)
 }
 
 type NodeGroupLaunchTemplate struct {
@@ -1736,61 +1217,6 @@ type NodeGroupResource struct {
 	RemoteAccessSecurityGroupId *string `pulumi:"remoteAccessSecurityGroupId"`
 }
 
-// NodeGroupResourceInput is an input type that accepts NodeGroupResourceArgs and NodeGroupResourceOutput values.
-// You can construct a concrete instance of `NodeGroupResourceInput` via:
-//
-//          NodeGroupResourceArgs{...}
-type NodeGroupResourceInput interface {
-	pulumi.Input
-
-	ToNodeGroupResourceOutput() NodeGroupResourceOutput
-	ToNodeGroupResourceOutputWithContext(context.Context) NodeGroupResourceOutput
-}
-
-type NodeGroupResourceArgs struct {
-	// List of objects containing information about AutoScaling Groups.
-	AutoscalingGroups NodeGroupResourceAutoscalingGroupArrayInput `pulumi:"autoscalingGroups"`
-	// Identifier of the remote access EC2 Security Group.
-	RemoteAccessSecurityGroupId pulumi.StringPtrInput `pulumi:"remoteAccessSecurityGroupId"`
-}
-
-func (NodeGroupResourceArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*NodeGroupResource)(nil)).Elem()
-}
-
-func (i NodeGroupResourceArgs) ToNodeGroupResourceOutput() NodeGroupResourceOutput {
-	return i.ToNodeGroupResourceOutputWithContext(context.Background())
-}
-
-func (i NodeGroupResourceArgs) ToNodeGroupResourceOutputWithContext(ctx context.Context) NodeGroupResourceOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NodeGroupResourceOutput)
-}
-
-// NodeGroupResourceArrayInput is an input type that accepts NodeGroupResourceArray and NodeGroupResourceArrayOutput values.
-// You can construct a concrete instance of `NodeGroupResourceArrayInput` via:
-//
-//          NodeGroupResourceArray{ NodeGroupResourceArgs{...} }
-type NodeGroupResourceArrayInput interface {
-	pulumi.Input
-
-	ToNodeGroupResourceArrayOutput() NodeGroupResourceArrayOutput
-	ToNodeGroupResourceArrayOutputWithContext(context.Context) NodeGroupResourceArrayOutput
-}
-
-type NodeGroupResourceArray []NodeGroupResourceInput
-
-func (NodeGroupResourceArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]NodeGroupResource)(nil)).Elem()
-}
-
-func (i NodeGroupResourceArray) ToNodeGroupResourceArrayOutput() NodeGroupResourceArrayOutput {
-	return i.ToNodeGroupResourceArrayOutputWithContext(context.Background())
-}
-
-func (i NodeGroupResourceArray) ToNodeGroupResourceArrayOutputWithContext(ctx context.Context) NodeGroupResourceArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NodeGroupResourceArrayOutput)
-}
-
 type NodeGroupResourceOutput struct{ *pulumi.OutputState }
 
 func (NodeGroupResourceOutput) ElementType() reflect.Type {
@@ -1838,59 +1264,6 @@ func (o NodeGroupResourceArrayOutput) Index(i pulumi.IntInput) NodeGroupResource
 type NodeGroupResourceAutoscalingGroup struct {
 	// Name of the EC2 Launch Template. Conflicts with `id`.
 	Name *string `pulumi:"name"`
-}
-
-// NodeGroupResourceAutoscalingGroupInput is an input type that accepts NodeGroupResourceAutoscalingGroupArgs and NodeGroupResourceAutoscalingGroupOutput values.
-// You can construct a concrete instance of `NodeGroupResourceAutoscalingGroupInput` via:
-//
-//          NodeGroupResourceAutoscalingGroupArgs{...}
-type NodeGroupResourceAutoscalingGroupInput interface {
-	pulumi.Input
-
-	ToNodeGroupResourceAutoscalingGroupOutput() NodeGroupResourceAutoscalingGroupOutput
-	ToNodeGroupResourceAutoscalingGroupOutputWithContext(context.Context) NodeGroupResourceAutoscalingGroupOutput
-}
-
-type NodeGroupResourceAutoscalingGroupArgs struct {
-	// Name of the EC2 Launch Template. Conflicts with `id`.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-}
-
-func (NodeGroupResourceAutoscalingGroupArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*NodeGroupResourceAutoscalingGroup)(nil)).Elem()
-}
-
-func (i NodeGroupResourceAutoscalingGroupArgs) ToNodeGroupResourceAutoscalingGroupOutput() NodeGroupResourceAutoscalingGroupOutput {
-	return i.ToNodeGroupResourceAutoscalingGroupOutputWithContext(context.Background())
-}
-
-func (i NodeGroupResourceAutoscalingGroupArgs) ToNodeGroupResourceAutoscalingGroupOutputWithContext(ctx context.Context) NodeGroupResourceAutoscalingGroupOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NodeGroupResourceAutoscalingGroupOutput)
-}
-
-// NodeGroupResourceAutoscalingGroupArrayInput is an input type that accepts NodeGroupResourceAutoscalingGroupArray and NodeGroupResourceAutoscalingGroupArrayOutput values.
-// You can construct a concrete instance of `NodeGroupResourceAutoscalingGroupArrayInput` via:
-//
-//          NodeGroupResourceAutoscalingGroupArray{ NodeGroupResourceAutoscalingGroupArgs{...} }
-type NodeGroupResourceAutoscalingGroupArrayInput interface {
-	pulumi.Input
-
-	ToNodeGroupResourceAutoscalingGroupArrayOutput() NodeGroupResourceAutoscalingGroupArrayOutput
-	ToNodeGroupResourceAutoscalingGroupArrayOutputWithContext(context.Context) NodeGroupResourceAutoscalingGroupArrayOutput
-}
-
-type NodeGroupResourceAutoscalingGroupArray []NodeGroupResourceAutoscalingGroupInput
-
-func (NodeGroupResourceAutoscalingGroupArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]NodeGroupResourceAutoscalingGroup)(nil)).Elem()
-}
-
-func (i NodeGroupResourceAutoscalingGroupArray) ToNodeGroupResourceAutoscalingGroupArrayOutput() NodeGroupResourceAutoscalingGroupArrayOutput {
-	return i.ToNodeGroupResourceAutoscalingGroupArrayOutputWithContext(context.Background())
-}
-
-func (i NodeGroupResourceAutoscalingGroupArray) ToNodeGroupResourceAutoscalingGroupArrayOutputWithContext(ctx context.Context) NodeGroupResourceAutoscalingGroupArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NodeGroupResourceAutoscalingGroupArrayOutput)
 }
 
 type NodeGroupResourceAutoscalingGroupOutput struct{ *pulumi.OutputState }
@@ -1973,47 +1346,6 @@ func (i NodeGroupScalingConfigArgs) ToNodeGroupScalingConfigOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(NodeGroupScalingConfigOutput)
 }
 
-func (i NodeGroupScalingConfigArgs) ToNodeGroupScalingConfigPtrOutput() NodeGroupScalingConfigPtrOutput {
-	return i.ToNodeGroupScalingConfigPtrOutputWithContext(context.Background())
-}
-
-func (i NodeGroupScalingConfigArgs) ToNodeGroupScalingConfigPtrOutputWithContext(ctx context.Context) NodeGroupScalingConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NodeGroupScalingConfigOutput).ToNodeGroupScalingConfigPtrOutputWithContext(ctx)
-}
-
-// NodeGroupScalingConfigPtrInput is an input type that accepts NodeGroupScalingConfigArgs, NodeGroupScalingConfigPtr and NodeGroupScalingConfigPtrOutput values.
-// You can construct a concrete instance of `NodeGroupScalingConfigPtrInput` via:
-//
-//          NodeGroupScalingConfigArgs{...}
-//
-//  or:
-//
-//          nil
-type NodeGroupScalingConfigPtrInput interface {
-	pulumi.Input
-
-	ToNodeGroupScalingConfigPtrOutput() NodeGroupScalingConfigPtrOutput
-	ToNodeGroupScalingConfigPtrOutputWithContext(context.Context) NodeGroupScalingConfigPtrOutput
-}
-
-type nodeGroupScalingConfigPtrType NodeGroupScalingConfigArgs
-
-func NodeGroupScalingConfigPtr(v *NodeGroupScalingConfigArgs) NodeGroupScalingConfigPtrInput {
-	return (*nodeGroupScalingConfigPtrType)(v)
-}
-
-func (*nodeGroupScalingConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**NodeGroupScalingConfig)(nil)).Elem()
-}
-
-func (i *nodeGroupScalingConfigPtrType) ToNodeGroupScalingConfigPtrOutput() NodeGroupScalingConfigPtrOutput {
-	return i.ToNodeGroupScalingConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *nodeGroupScalingConfigPtrType) ToNodeGroupScalingConfigPtrOutputWithContext(ctx context.Context) NodeGroupScalingConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NodeGroupScalingConfigPtrOutput)
-}
-
 type NodeGroupScalingConfigOutput struct{ *pulumi.OutputState }
 
 func (NodeGroupScalingConfigOutput) ElementType() reflect.Type {
@@ -2026,16 +1358,6 @@ func (o NodeGroupScalingConfigOutput) ToNodeGroupScalingConfigOutput() NodeGroup
 
 func (o NodeGroupScalingConfigOutput) ToNodeGroupScalingConfigOutputWithContext(ctx context.Context) NodeGroupScalingConfigOutput {
 	return o
-}
-
-func (o NodeGroupScalingConfigOutput) ToNodeGroupScalingConfigPtrOutput() NodeGroupScalingConfigPtrOutput {
-	return o.ToNodeGroupScalingConfigPtrOutputWithContext(context.Background())
-}
-
-func (o NodeGroupScalingConfigOutput) ToNodeGroupScalingConfigPtrOutputWithContext(ctx context.Context) NodeGroupScalingConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v NodeGroupScalingConfig) *NodeGroupScalingConfig {
-		return &v
-	}).(NodeGroupScalingConfigPtrOutput)
 }
 
 // Desired number of worker nodes.
@@ -2051,60 +1373,6 @@ func (o NodeGroupScalingConfigOutput) MaxSize() pulumi.IntOutput {
 // Minimum number of worker nodes.
 func (o NodeGroupScalingConfigOutput) MinSize() pulumi.IntOutput {
 	return o.ApplyT(func(v NodeGroupScalingConfig) int { return v.MinSize }).(pulumi.IntOutput)
-}
-
-type NodeGroupScalingConfigPtrOutput struct{ *pulumi.OutputState }
-
-func (NodeGroupScalingConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**NodeGroupScalingConfig)(nil)).Elem()
-}
-
-func (o NodeGroupScalingConfigPtrOutput) ToNodeGroupScalingConfigPtrOutput() NodeGroupScalingConfigPtrOutput {
-	return o
-}
-
-func (o NodeGroupScalingConfigPtrOutput) ToNodeGroupScalingConfigPtrOutputWithContext(ctx context.Context) NodeGroupScalingConfigPtrOutput {
-	return o
-}
-
-func (o NodeGroupScalingConfigPtrOutput) Elem() NodeGroupScalingConfigOutput {
-	return o.ApplyT(func(v *NodeGroupScalingConfig) NodeGroupScalingConfig {
-		if v != nil {
-			return *v
-		}
-		var ret NodeGroupScalingConfig
-		return ret
-	}).(NodeGroupScalingConfigOutput)
-}
-
-// Desired number of worker nodes.
-func (o NodeGroupScalingConfigPtrOutput) DesiredSize() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *NodeGroupScalingConfig) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.DesiredSize
-	}).(pulumi.IntPtrOutput)
-}
-
-// Maximum number of worker nodes.
-func (o NodeGroupScalingConfigPtrOutput) MaxSize() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *NodeGroupScalingConfig) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.MaxSize
-	}).(pulumi.IntPtrOutput)
-}
-
-// Minimum number of worker nodes.
-func (o NodeGroupScalingConfigPtrOutput) MinSize() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *NodeGroupScalingConfig) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.MinSize
-	}).(pulumi.IntPtrOutput)
 }
 
 type NodeGroupTaint struct {
@@ -2383,34 +1651,6 @@ type GetClusterCertificateAuthority struct {
 	Data string `pulumi:"data"`
 }
 
-// GetClusterCertificateAuthorityInput is an input type that accepts GetClusterCertificateAuthorityArgs and GetClusterCertificateAuthorityOutput values.
-// You can construct a concrete instance of `GetClusterCertificateAuthorityInput` via:
-//
-//          GetClusterCertificateAuthorityArgs{...}
-type GetClusterCertificateAuthorityInput interface {
-	pulumi.Input
-
-	ToGetClusterCertificateAuthorityOutput() GetClusterCertificateAuthorityOutput
-	ToGetClusterCertificateAuthorityOutputWithContext(context.Context) GetClusterCertificateAuthorityOutput
-}
-
-type GetClusterCertificateAuthorityArgs struct {
-	// The base64 encoded certificate data required to communicate with your cluster. Add this to the `certificate-authority-data` section of the `kubeconfig` file for your cluster.
-	Data pulumi.StringInput `pulumi:"data"`
-}
-
-func (GetClusterCertificateAuthorityArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetClusterCertificateAuthority)(nil)).Elem()
-}
-
-func (i GetClusterCertificateAuthorityArgs) ToGetClusterCertificateAuthorityOutput() GetClusterCertificateAuthorityOutput {
-	return i.ToGetClusterCertificateAuthorityOutputWithContext(context.Background())
-}
-
-func (i GetClusterCertificateAuthorityArgs) ToGetClusterCertificateAuthorityOutputWithContext(ctx context.Context) GetClusterCertificateAuthorityOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetClusterCertificateAuthorityOutput)
-}
-
 type GetClusterCertificateAuthorityOutput struct{ *pulumi.OutputState }
 
 func (GetClusterCertificateAuthorityOutput) ElementType() reflect.Type {
@@ -2433,59 +1673,6 @@ func (o GetClusterCertificateAuthorityOutput) Data() pulumi.StringOutput {
 type GetClusterIdentity struct {
 	// Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster.
 	Oidcs []GetClusterIdentityOidc `pulumi:"oidcs"`
-}
-
-// GetClusterIdentityInput is an input type that accepts GetClusterIdentityArgs and GetClusterIdentityOutput values.
-// You can construct a concrete instance of `GetClusterIdentityInput` via:
-//
-//          GetClusterIdentityArgs{...}
-type GetClusterIdentityInput interface {
-	pulumi.Input
-
-	ToGetClusterIdentityOutput() GetClusterIdentityOutput
-	ToGetClusterIdentityOutputWithContext(context.Context) GetClusterIdentityOutput
-}
-
-type GetClusterIdentityArgs struct {
-	// Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster.
-	Oidcs GetClusterIdentityOidcArrayInput `pulumi:"oidcs"`
-}
-
-func (GetClusterIdentityArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetClusterIdentity)(nil)).Elem()
-}
-
-func (i GetClusterIdentityArgs) ToGetClusterIdentityOutput() GetClusterIdentityOutput {
-	return i.ToGetClusterIdentityOutputWithContext(context.Background())
-}
-
-func (i GetClusterIdentityArgs) ToGetClusterIdentityOutputWithContext(ctx context.Context) GetClusterIdentityOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetClusterIdentityOutput)
-}
-
-// GetClusterIdentityArrayInput is an input type that accepts GetClusterIdentityArray and GetClusterIdentityArrayOutput values.
-// You can construct a concrete instance of `GetClusterIdentityArrayInput` via:
-//
-//          GetClusterIdentityArray{ GetClusterIdentityArgs{...} }
-type GetClusterIdentityArrayInput interface {
-	pulumi.Input
-
-	ToGetClusterIdentityArrayOutput() GetClusterIdentityArrayOutput
-	ToGetClusterIdentityArrayOutputWithContext(context.Context) GetClusterIdentityArrayOutput
-}
-
-type GetClusterIdentityArray []GetClusterIdentityInput
-
-func (GetClusterIdentityArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetClusterIdentity)(nil)).Elem()
-}
-
-func (i GetClusterIdentityArray) ToGetClusterIdentityArrayOutput() GetClusterIdentityArrayOutput {
-	return i.ToGetClusterIdentityArrayOutputWithContext(context.Background())
-}
-
-func (i GetClusterIdentityArray) ToGetClusterIdentityArrayOutputWithContext(ctx context.Context) GetClusterIdentityArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetClusterIdentityArrayOutput)
 }
 
 type GetClusterIdentityOutput struct{ *pulumi.OutputState }
@@ -2532,59 +1719,6 @@ type GetClusterIdentityOidc struct {
 	Issuer string `pulumi:"issuer"`
 }
 
-// GetClusterIdentityOidcInput is an input type that accepts GetClusterIdentityOidcArgs and GetClusterIdentityOidcOutput values.
-// You can construct a concrete instance of `GetClusterIdentityOidcInput` via:
-//
-//          GetClusterIdentityOidcArgs{...}
-type GetClusterIdentityOidcInput interface {
-	pulumi.Input
-
-	ToGetClusterIdentityOidcOutput() GetClusterIdentityOidcOutput
-	ToGetClusterIdentityOidcOutputWithContext(context.Context) GetClusterIdentityOidcOutput
-}
-
-type GetClusterIdentityOidcArgs struct {
-	// Issuer URL for the OpenID Connect identity provider.
-	Issuer pulumi.StringInput `pulumi:"issuer"`
-}
-
-func (GetClusterIdentityOidcArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetClusterIdentityOidc)(nil)).Elem()
-}
-
-func (i GetClusterIdentityOidcArgs) ToGetClusterIdentityOidcOutput() GetClusterIdentityOidcOutput {
-	return i.ToGetClusterIdentityOidcOutputWithContext(context.Background())
-}
-
-func (i GetClusterIdentityOidcArgs) ToGetClusterIdentityOidcOutputWithContext(ctx context.Context) GetClusterIdentityOidcOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetClusterIdentityOidcOutput)
-}
-
-// GetClusterIdentityOidcArrayInput is an input type that accepts GetClusterIdentityOidcArray and GetClusterIdentityOidcArrayOutput values.
-// You can construct a concrete instance of `GetClusterIdentityOidcArrayInput` via:
-//
-//          GetClusterIdentityOidcArray{ GetClusterIdentityOidcArgs{...} }
-type GetClusterIdentityOidcArrayInput interface {
-	pulumi.Input
-
-	ToGetClusterIdentityOidcArrayOutput() GetClusterIdentityOidcArrayOutput
-	ToGetClusterIdentityOidcArrayOutputWithContext(context.Context) GetClusterIdentityOidcArrayOutput
-}
-
-type GetClusterIdentityOidcArray []GetClusterIdentityOidcInput
-
-func (GetClusterIdentityOidcArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetClusterIdentityOidc)(nil)).Elem()
-}
-
-func (i GetClusterIdentityOidcArray) ToGetClusterIdentityOidcArrayOutput() GetClusterIdentityOidcArrayOutput {
-	return i.ToGetClusterIdentityOidcArrayOutputWithContext(context.Background())
-}
-
-func (i GetClusterIdentityOidcArray) ToGetClusterIdentityOidcArrayOutputWithContext(ctx context.Context) GetClusterIdentityOidcArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetClusterIdentityOidcArrayOutput)
-}
-
 type GetClusterIdentityOidcOutput struct{ *pulumi.OutputState }
 
 func (GetClusterIdentityOidcOutput) ElementType() reflect.Type {
@@ -2627,59 +1761,6 @@ func (o GetClusterIdentityOidcArrayOutput) Index(i pulumi.IntInput) GetClusterId
 type GetClusterKubernetesNetworkConfig struct {
 	// The CIDR block to assign Kubernetes service IP addresses from.
 	ServiceIpv4Cidr string `pulumi:"serviceIpv4Cidr"`
-}
-
-// GetClusterKubernetesNetworkConfigInput is an input type that accepts GetClusterKubernetesNetworkConfigArgs and GetClusterKubernetesNetworkConfigOutput values.
-// You can construct a concrete instance of `GetClusterKubernetesNetworkConfigInput` via:
-//
-//          GetClusterKubernetesNetworkConfigArgs{...}
-type GetClusterKubernetesNetworkConfigInput interface {
-	pulumi.Input
-
-	ToGetClusterKubernetesNetworkConfigOutput() GetClusterKubernetesNetworkConfigOutput
-	ToGetClusterKubernetesNetworkConfigOutputWithContext(context.Context) GetClusterKubernetesNetworkConfigOutput
-}
-
-type GetClusterKubernetesNetworkConfigArgs struct {
-	// The CIDR block to assign Kubernetes service IP addresses from.
-	ServiceIpv4Cidr pulumi.StringInput `pulumi:"serviceIpv4Cidr"`
-}
-
-func (GetClusterKubernetesNetworkConfigArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetClusterKubernetesNetworkConfig)(nil)).Elem()
-}
-
-func (i GetClusterKubernetesNetworkConfigArgs) ToGetClusterKubernetesNetworkConfigOutput() GetClusterKubernetesNetworkConfigOutput {
-	return i.ToGetClusterKubernetesNetworkConfigOutputWithContext(context.Background())
-}
-
-func (i GetClusterKubernetesNetworkConfigArgs) ToGetClusterKubernetesNetworkConfigOutputWithContext(ctx context.Context) GetClusterKubernetesNetworkConfigOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetClusterKubernetesNetworkConfigOutput)
-}
-
-// GetClusterKubernetesNetworkConfigArrayInput is an input type that accepts GetClusterKubernetesNetworkConfigArray and GetClusterKubernetesNetworkConfigArrayOutput values.
-// You can construct a concrete instance of `GetClusterKubernetesNetworkConfigArrayInput` via:
-//
-//          GetClusterKubernetesNetworkConfigArray{ GetClusterKubernetesNetworkConfigArgs{...} }
-type GetClusterKubernetesNetworkConfigArrayInput interface {
-	pulumi.Input
-
-	ToGetClusterKubernetesNetworkConfigArrayOutput() GetClusterKubernetesNetworkConfigArrayOutput
-	ToGetClusterKubernetesNetworkConfigArrayOutputWithContext(context.Context) GetClusterKubernetesNetworkConfigArrayOutput
-}
-
-type GetClusterKubernetesNetworkConfigArray []GetClusterKubernetesNetworkConfigInput
-
-func (GetClusterKubernetesNetworkConfigArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetClusterKubernetesNetworkConfig)(nil)).Elem()
-}
-
-func (i GetClusterKubernetesNetworkConfigArray) ToGetClusterKubernetesNetworkConfigArrayOutput() GetClusterKubernetesNetworkConfigArrayOutput {
-	return i.ToGetClusterKubernetesNetworkConfigArrayOutputWithContext(context.Background())
-}
-
-func (i GetClusterKubernetesNetworkConfigArray) ToGetClusterKubernetesNetworkConfigArrayOutputWithContext(ctx context.Context) GetClusterKubernetesNetworkConfigArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetClusterKubernetesNetworkConfigArrayOutput)
 }
 
 type GetClusterKubernetesNetworkConfigOutput struct{ *pulumi.OutputState }
@@ -2738,46 +1819,6 @@ type GetClusterVpcConfig struct {
 	VpcId string `pulumi:"vpcId"`
 }
 
-// GetClusterVpcConfigInput is an input type that accepts GetClusterVpcConfigArgs and GetClusterVpcConfigOutput values.
-// You can construct a concrete instance of `GetClusterVpcConfigInput` via:
-//
-//          GetClusterVpcConfigArgs{...}
-type GetClusterVpcConfigInput interface {
-	pulumi.Input
-
-	ToGetClusterVpcConfigOutput() GetClusterVpcConfigOutput
-	ToGetClusterVpcConfigOutputWithContext(context.Context) GetClusterVpcConfigOutput
-}
-
-type GetClusterVpcConfigArgs struct {
-	// The cluster security group that was created by Amazon EKS for the cluster.
-	ClusterSecurityGroupId pulumi.StringInput `pulumi:"clusterSecurityGroupId"`
-	// Indicates whether or not the Amazon EKS private API server endpoint is enabled.
-	EndpointPrivateAccess pulumi.BoolInput `pulumi:"endpointPrivateAccess"`
-	// Indicates whether or not the Amazon EKS public API server endpoint is enabled.
-	EndpointPublicAccess pulumi.BoolInput `pulumi:"endpointPublicAccess"`
-	// List of CIDR blocks. Indicates which CIDR blocks can access the Amazon EKS public API server endpoint.
-	PublicAccessCidrs pulumi.StringArrayInput `pulumi:"publicAccessCidrs"`
-	// List of security group IDs
-	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
-	// List of subnet IDs
-	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
-	// The VPC associated with your cluster.
-	VpcId pulumi.StringInput `pulumi:"vpcId"`
-}
-
-func (GetClusterVpcConfigArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetClusterVpcConfig)(nil)).Elem()
-}
-
-func (i GetClusterVpcConfigArgs) ToGetClusterVpcConfigOutput() GetClusterVpcConfigOutput {
-	return i.ToGetClusterVpcConfigOutputWithContext(context.Background())
-}
-
-func (i GetClusterVpcConfigArgs) ToGetClusterVpcConfigOutputWithContext(ctx context.Context) GetClusterVpcConfigOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetClusterVpcConfigOutput)
-}
-
 type GetClusterVpcConfigOutput struct{ *pulumi.OutputState }
 
 func (GetClusterVpcConfigOutput) ElementType() reflect.Type {
@@ -2834,61 +1875,6 @@ type GetNodeGroupRemoteAccess struct {
 	SourceSecurityGroupIds []string `pulumi:"sourceSecurityGroupIds"`
 }
 
-// GetNodeGroupRemoteAccessInput is an input type that accepts GetNodeGroupRemoteAccessArgs and GetNodeGroupRemoteAccessOutput values.
-// You can construct a concrete instance of `GetNodeGroupRemoteAccessInput` via:
-//
-//          GetNodeGroupRemoteAccessArgs{...}
-type GetNodeGroupRemoteAccessInput interface {
-	pulumi.Input
-
-	ToGetNodeGroupRemoteAccessOutput() GetNodeGroupRemoteAccessOutput
-	ToGetNodeGroupRemoteAccessOutputWithContext(context.Context) GetNodeGroupRemoteAccessOutput
-}
-
-type GetNodeGroupRemoteAccessArgs struct {
-	// EC2 Key Pair name that provides access for SSH communication with the worker nodes in the EKS Node Group.
-	Ec2SshKey pulumi.StringInput `pulumi:"ec2SshKey"`
-	// Set of EC2 Security Group IDs to allow SSH access (port 22) from on the worker nodes.
-	SourceSecurityGroupIds pulumi.StringArrayInput `pulumi:"sourceSecurityGroupIds"`
-}
-
-func (GetNodeGroupRemoteAccessArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetNodeGroupRemoteAccess)(nil)).Elem()
-}
-
-func (i GetNodeGroupRemoteAccessArgs) ToGetNodeGroupRemoteAccessOutput() GetNodeGroupRemoteAccessOutput {
-	return i.ToGetNodeGroupRemoteAccessOutputWithContext(context.Background())
-}
-
-func (i GetNodeGroupRemoteAccessArgs) ToGetNodeGroupRemoteAccessOutputWithContext(ctx context.Context) GetNodeGroupRemoteAccessOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetNodeGroupRemoteAccessOutput)
-}
-
-// GetNodeGroupRemoteAccessArrayInput is an input type that accepts GetNodeGroupRemoteAccessArray and GetNodeGroupRemoteAccessArrayOutput values.
-// You can construct a concrete instance of `GetNodeGroupRemoteAccessArrayInput` via:
-//
-//          GetNodeGroupRemoteAccessArray{ GetNodeGroupRemoteAccessArgs{...} }
-type GetNodeGroupRemoteAccessArrayInput interface {
-	pulumi.Input
-
-	ToGetNodeGroupRemoteAccessArrayOutput() GetNodeGroupRemoteAccessArrayOutput
-	ToGetNodeGroupRemoteAccessArrayOutputWithContext(context.Context) GetNodeGroupRemoteAccessArrayOutput
-}
-
-type GetNodeGroupRemoteAccessArray []GetNodeGroupRemoteAccessInput
-
-func (GetNodeGroupRemoteAccessArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetNodeGroupRemoteAccess)(nil)).Elem()
-}
-
-func (i GetNodeGroupRemoteAccessArray) ToGetNodeGroupRemoteAccessArrayOutput() GetNodeGroupRemoteAccessArrayOutput {
-	return i.ToGetNodeGroupRemoteAccessArrayOutputWithContext(context.Background())
-}
-
-func (i GetNodeGroupRemoteAccessArray) ToGetNodeGroupRemoteAccessArrayOutputWithContext(ctx context.Context) GetNodeGroupRemoteAccessArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetNodeGroupRemoteAccessArrayOutput)
-}
-
 type GetNodeGroupRemoteAccessOutput struct{ *pulumi.OutputState }
 
 func (GetNodeGroupRemoteAccessOutput) ElementType() reflect.Type {
@@ -2940,61 +1926,6 @@ type GetNodeGroupResource struct {
 	RemoteAccessSecurityGroupId string `pulumi:"remoteAccessSecurityGroupId"`
 }
 
-// GetNodeGroupResourceInput is an input type that accepts GetNodeGroupResourceArgs and GetNodeGroupResourceOutput values.
-// You can construct a concrete instance of `GetNodeGroupResourceInput` via:
-//
-//          GetNodeGroupResourceArgs{...}
-type GetNodeGroupResourceInput interface {
-	pulumi.Input
-
-	ToGetNodeGroupResourceOutput() GetNodeGroupResourceOutput
-	ToGetNodeGroupResourceOutputWithContext(context.Context) GetNodeGroupResourceOutput
-}
-
-type GetNodeGroupResourceArgs struct {
-	// List of objects containing information about AutoScaling Groups.
-	AutoscalingGroups GetNodeGroupResourceAutoscalingGroupArrayInput `pulumi:"autoscalingGroups"`
-	// Identifier of the remote access EC2 Security Group.
-	RemoteAccessSecurityGroupId pulumi.StringInput `pulumi:"remoteAccessSecurityGroupId"`
-}
-
-func (GetNodeGroupResourceArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetNodeGroupResource)(nil)).Elem()
-}
-
-func (i GetNodeGroupResourceArgs) ToGetNodeGroupResourceOutput() GetNodeGroupResourceOutput {
-	return i.ToGetNodeGroupResourceOutputWithContext(context.Background())
-}
-
-func (i GetNodeGroupResourceArgs) ToGetNodeGroupResourceOutputWithContext(ctx context.Context) GetNodeGroupResourceOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetNodeGroupResourceOutput)
-}
-
-// GetNodeGroupResourceArrayInput is an input type that accepts GetNodeGroupResourceArray and GetNodeGroupResourceArrayOutput values.
-// You can construct a concrete instance of `GetNodeGroupResourceArrayInput` via:
-//
-//          GetNodeGroupResourceArray{ GetNodeGroupResourceArgs{...} }
-type GetNodeGroupResourceArrayInput interface {
-	pulumi.Input
-
-	ToGetNodeGroupResourceArrayOutput() GetNodeGroupResourceArrayOutput
-	ToGetNodeGroupResourceArrayOutputWithContext(context.Context) GetNodeGroupResourceArrayOutput
-}
-
-type GetNodeGroupResourceArray []GetNodeGroupResourceInput
-
-func (GetNodeGroupResourceArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetNodeGroupResource)(nil)).Elem()
-}
-
-func (i GetNodeGroupResourceArray) ToGetNodeGroupResourceArrayOutput() GetNodeGroupResourceArrayOutput {
-	return i.ToGetNodeGroupResourceArrayOutputWithContext(context.Background())
-}
-
-func (i GetNodeGroupResourceArray) ToGetNodeGroupResourceArrayOutputWithContext(ctx context.Context) GetNodeGroupResourceArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetNodeGroupResourceArrayOutput)
-}
-
 type GetNodeGroupResourceOutput struct{ *pulumi.OutputState }
 
 func (GetNodeGroupResourceOutput) ElementType() reflect.Type {
@@ -3044,59 +1975,6 @@ type GetNodeGroupResourceAutoscalingGroup struct {
 	Name string `pulumi:"name"`
 }
 
-// GetNodeGroupResourceAutoscalingGroupInput is an input type that accepts GetNodeGroupResourceAutoscalingGroupArgs and GetNodeGroupResourceAutoscalingGroupOutput values.
-// You can construct a concrete instance of `GetNodeGroupResourceAutoscalingGroupInput` via:
-//
-//          GetNodeGroupResourceAutoscalingGroupArgs{...}
-type GetNodeGroupResourceAutoscalingGroupInput interface {
-	pulumi.Input
-
-	ToGetNodeGroupResourceAutoscalingGroupOutput() GetNodeGroupResourceAutoscalingGroupOutput
-	ToGetNodeGroupResourceAutoscalingGroupOutputWithContext(context.Context) GetNodeGroupResourceAutoscalingGroupOutput
-}
-
-type GetNodeGroupResourceAutoscalingGroupArgs struct {
-	// Name of the AutoScaling Group.
-	Name pulumi.StringInput `pulumi:"name"`
-}
-
-func (GetNodeGroupResourceAutoscalingGroupArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetNodeGroupResourceAutoscalingGroup)(nil)).Elem()
-}
-
-func (i GetNodeGroupResourceAutoscalingGroupArgs) ToGetNodeGroupResourceAutoscalingGroupOutput() GetNodeGroupResourceAutoscalingGroupOutput {
-	return i.ToGetNodeGroupResourceAutoscalingGroupOutputWithContext(context.Background())
-}
-
-func (i GetNodeGroupResourceAutoscalingGroupArgs) ToGetNodeGroupResourceAutoscalingGroupOutputWithContext(ctx context.Context) GetNodeGroupResourceAutoscalingGroupOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetNodeGroupResourceAutoscalingGroupOutput)
-}
-
-// GetNodeGroupResourceAutoscalingGroupArrayInput is an input type that accepts GetNodeGroupResourceAutoscalingGroupArray and GetNodeGroupResourceAutoscalingGroupArrayOutput values.
-// You can construct a concrete instance of `GetNodeGroupResourceAutoscalingGroupArrayInput` via:
-//
-//          GetNodeGroupResourceAutoscalingGroupArray{ GetNodeGroupResourceAutoscalingGroupArgs{...} }
-type GetNodeGroupResourceAutoscalingGroupArrayInput interface {
-	pulumi.Input
-
-	ToGetNodeGroupResourceAutoscalingGroupArrayOutput() GetNodeGroupResourceAutoscalingGroupArrayOutput
-	ToGetNodeGroupResourceAutoscalingGroupArrayOutputWithContext(context.Context) GetNodeGroupResourceAutoscalingGroupArrayOutput
-}
-
-type GetNodeGroupResourceAutoscalingGroupArray []GetNodeGroupResourceAutoscalingGroupInput
-
-func (GetNodeGroupResourceAutoscalingGroupArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetNodeGroupResourceAutoscalingGroup)(nil)).Elem()
-}
-
-func (i GetNodeGroupResourceAutoscalingGroupArray) ToGetNodeGroupResourceAutoscalingGroupArrayOutput() GetNodeGroupResourceAutoscalingGroupArrayOutput {
-	return i.ToGetNodeGroupResourceAutoscalingGroupArrayOutputWithContext(context.Background())
-}
-
-func (i GetNodeGroupResourceAutoscalingGroupArray) ToGetNodeGroupResourceAutoscalingGroupArrayOutputWithContext(ctx context.Context) GetNodeGroupResourceAutoscalingGroupArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetNodeGroupResourceAutoscalingGroupArrayOutput)
-}
-
 type GetNodeGroupResourceAutoscalingGroupOutput struct{ *pulumi.OutputState }
 
 func (GetNodeGroupResourceAutoscalingGroupOutput) ElementType() reflect.Type {
@@ -3143,63 +2021,6 @@ type GetNodeGroupScalingConfig struct {
 	MaxSize int `pulumi:"maxSize"`
 	// Minimum number of worker nodes.
 	MinSize int `pulumi:"minSize"`
-}
-
-// GetNodeGroupScalingConfigInput is an input type that accepts GetNodeGroupScalingConfigArgs and GetNodeGroupScalingConfigOutput values.
-// You can construct a concrete instance of `GetNodeGroupScalingConfigInput` via:
-//
-//          GetNodeGroupScalingConfigArgs{...}
-type GetNodeGroupScalingConfigInput interface {
-	pulumi.Input
-
-	ToGetNodeGroupScalingConfigOutput() GetNodeGroupScalingConfigOutput
-	ToGetNodeGroupScalingConfigOutputWithContext(context.Context) GetNodeGroupScalingConfigOutput
-}
-
-type GetNodeGroupScalingConfigArgs struct {
-	// Desired number of worker nodes.
-	DesiredSize pulumi.IntInput `pulumi:"desiredSize"`
-	// Maximum number of worker nodes.
-	MaxSize pulumi.IntInput `pulumi:"maxSize"`
-	// Minimum number of worker nodes.
-	MinSize pulumi.IntInput `pulumi:"minSize"`
-}
-
-func (GetNodeGroupScalingConfigArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetNodeGroupScalingConfig)(nil)).Elem()
-}
-
-func (i GetNodeGroupScalingConfigArgs) ToGetNodeGroupScalingConfigOutput() GetNodeGroupScalingConfigOutput {
-	return i.ToGetNodeGroupScalingConfigOutputWithContext(context.Background())
-}
-
-func (i GetNodeGroupScalingConfigArgs) ToGetNodeGroupScalingConfigOutputWithContext(ctx context.Context) GetNodeGroupScalingConfigOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetNodeGroupScalingConfigOutput)
-}
-
-// GetNodeGroupScalingConfigArrayInput is an input type that accepts GetNodeGroupScalingConfigArray and GetNodeGroupScalingConfigArrayOutput values.
-// You can construct a concrete instance of `GetNodeGroupScalingConfigArrayInput` via:
-//
-//          GetNodeGroupScalingConfigArray{ GetNodeGroupScalingConfigArgs{...} }
-type GetNodeGroupScalingConfigArrayInput interface {
-	pulumi.Input
-
-	ToGetNodeGroupScalingConfigArrayOutput() GetNodeGroupScalingConfigArrayOutput
-	ToGetNodeGroupScalingConfigArrayOutputWithContext(context.Context) GetNodeGroupScalingConfigArrayOutput
-}
-
-type GetNodeGroupScalingConfigArray []GetNodeGroupScalingConfigInput
-
-func (GetNodeGroupScalingConfigArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetNodeGroupScalingConfig)(nil)).Elem()
-}
-
-func (i GetNodeGroupScalingConfigArray) ToGetNodeGroupScalingConfigArrayOutput() GetNodeGroupScalingConfigArrayOutput {
-	return i.ToGetNodeGroupScalingConfigArrayOutputWithContext(context.Background())
-}
-
-func (i GetNodeGroupScalingConfigArray) ToGetNodeGroupScalingConfigArrayOutputWithContext(ctx context.Context) GetNodeGroupScalingConfigArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetNodeGroupScalingConfigArrayOutput)
 }
 
 type GetNodeGroupScalingConfigOutput struct{ *pulumi.OutputState }
@@ -3252,56 +2073,26 @@ func (o GetNodeGroupScalingConfigArrayOutput) Index(i pulumi.IntInput) GetNodeGr
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCertificateAuthorityInput)(nil)).Elem(), ClusterCertificateAuthorityArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCertificateAuthorityPtrInput)(nil)).Elem(), ClusterCertificateAuthorityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterEncryptionConfigInput)(nil)).Elem(), ClusterEncryptionConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterEncryptionConfigPtrInput)(nil)).Elem(), ClusterEncryptionConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterEncryptionConfigProviderInput)(nil)).Elem(), ClusterEncryptionConfigProviderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterEncryptionConfigProviderPtrInput)(nil)).Elem(), ClusterEncryptionConfigProviderArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ClusterIdentityInput)(nil)).Elem(), ClusterIdentityArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ClusterIdentityArrayInput)(nil)).Elem(), ClusterIdentityArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ClusterIdentityOidcInput)(nil)).Elem(), ClusterIdentityOidcArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ClusterIdentityOidcArrayInput)(nil)).Elem(), ClusterIdentityOidcArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterKubernetesNetworkConfigInput)(nil)).Elem(), ClusterKubernetesNetworkConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterKubernetesNetworkConfigPtrInput)(nil)).Elem(), ClusterKubernetesNetworkConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterVpcConfigInput)(nil)).Elem(), ClusterVpcConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ClusterVpcConfigPtrInput)(nil)).Elem(), ClusterVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FargateProfileSelectorInput)(nil)).Elem(), FargateProfileSelectorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FargateProfileSelectorArrayInput)(nil)).Elem(), FargateProfileSelectorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IdentityProviderConfigOidcInput)(nil)).Elem(), IdentityProviderConfigOidcArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*IdentityProviderConfigOidcPtrInput)(nil)).Elem(), IdentityProviderConfigOidcArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NodeGroupLaunchTemplateInput)(nil)).Elem(), NodeGroupLaunchTemplateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NodeGroupLaunchTemplatePtrInput)(nil)).Elem(), NodeGroupLaunchTemplateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NodeGroupRemoteAccessInput)(nil)).Elem(), NodeGroupRemoteAccessArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NodeGroupRemoteAccessPtrInput)(nil)).Elem(), NodeGroupRemoteAccessArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*NodeGroupResourceInput)(nil)).Elem(), NodeGroupResourceArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*NodeGroupResourceArrayInput)(nil)).Elem(), NodeGroupResourceArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*NodeGroupResourceAutoscalingGroupInput)(nil)).Elem(), NodeGroupResourceAutoscalingGroupArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*NodeGroupResourceAutoscalingGroupArrayInput)(nil)).Elem(), NodeGroupResourceAutoscalingGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NodeGroupScalingConfigInput)(nil)).Elem(), NodeGroupScalingConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*NodeGroupScalingConfigPtrInput)(nil)).Elem(), NodeGroupScalingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NodeGroupTaintInput)(nil)).Elem(), NodeGroupTaintArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NodeGroupTaintArrayInput)(nil)).Elem(), NodeGroupTaintArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NodeGroupUpdateConfigInput)(nil)).Elem(), NodeGroupUpdateConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NodeGroupUpdateConfigPtrInput)(nil)).Elem(), NodeGroupUpdateConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterCertificateAuthorityInput)(nil)).Elem(), GetClusterCertificateAuthorityArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterIdentityInput)(nil)).Elem(), GetClusterIdentityArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterIdentityArrayInput)(nil)).Elem(), GetClusterIdentityArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterIdentityOidcInput)(nil)).Elem(), GetClusterIdentityOidcArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterIdentityOidcArrayInput)(nil)).Elem(), GetClusterIdentityOidcArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterKubernetesNetworkConfigInput)(nil)).Elem(), GetClusterKubernetesNetworkConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterKubernetesNetworkConfigArrayInput)(nil)).Elem(), GetClusterKubernetesNetworkConfigArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterVpcConfigInput)(nil)).Elem(), GetClusterVpcConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetNodeGroupRemoteAccessInput)(nil)).Elem(), GetNodeGroupRemoteAccessArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetNodeGroupRemoteAccessArrayInput)(nil)).Elem(), GetNodeGroupRemoteAccessArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetNodeGroupResourceInput)(nil)).Elem(), GetNodeGroupResourceArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetNodeGroupResourceArrayInput)(nil)).Elem(), GetNodeGroupResourceArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetNodeGroupResourceAutoscalingGroupInput)(nil)).Elem(), GetNodeGroupResourceAutoscalingGroupArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetNodeGroupResourceAutoscalingGroupArrayInput)(nil)).Elem(), GetNodeGroupResourceAutoscalingGroupArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetNodeGroupScalingConfigInput)(nil)).Elem(), GetNodeGroupScalingConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetNodeGroupScalingConfigArrayInput)(nil)).Elem(), GetNodeGroupScalingConfigArray{})
 	pulumi.RegisterOutputType(ClusterCertificateAuthorityOutput{})
-	pulumi.RegisterOutputType(ClusterCertificateAuthorityPtrOutput{})
 	pulumi.RegisterOutputType(ClusterEncryptionConfigOutput{})
 	pulumi.RegisterOutputType(ClusterEncryptionConfigPtrOutput{})
 	pulumi.RegisterOutputType(ClusterEncryptionConfigProviderOutput{})
@@ -3313,11 +2104,9 @@ func init() {
 	pulumi.RegisterOutputType(ClusterKubernetesNetworkConfigOutput{})
 	pulumi.RegisterOutputType(ClusterKubernetesNetworkConfigPtrOutput{})
 	pulumi.RegisterOutputType(ClusterVpcConfigOutput{})
-	pulumi.RegisterOutputType(ClusterVpcConfigPtrOutput{})
 	pulumi.RegisterOutputType(FargateProfileSelectorOutput{})
 	pulumi.RegisterOutputType(FargateProfileSelectorArrayOutput{})
 	pulumi.RegisterOutputType(IdentityProviderConfigOidcOutput{})
-	pulumi.RegisterOutputType(IdentityProviderConfigOidcPtrOutput{})
 	pulumi.RegisterOutputType(NodeGroupLaunchTemplateOutput{})
 	pulumi.RegisterOutputType(NodeGroupLaunchTemplatePtrOutput{})
 	pulumi.RegisterOutputType(NodeGroupRemoteAccessOutput{})
@@ -3327,7 +2116,6 @@ func init() {
 	pulumi.RegisterOutputType(NodeGroupResourceAutoscalingGroupOutput{})
 	pulumi.RegisterOutputType(NodeGroupResourceAutoscalingGroupArrayOutput{})
 	pulumi.RegisterOutputType(NodeGroupScalingConfigOutput{})
-	pulumi.RegisterOutputType(NodeGroupScalingConfigPtrOutput{})
 	pulumi.RegisterOutputType(NodeGroupTaintOutput{})
 	pulumi.RegisterOutputType(NodeGroupTaintArrayOutput{})
 	pulumi.RegisterOutputType(NodeGroupUpdateConfigOutput{})

@@ -174,7 +174,7 @@ type TapePoolInput interface {
 }
 
 func (*TapePool) ElementType() reflect.Type {
-	return reflect.TypeOf((*TapePool)(nil))
+	return reflect.TypeOf((**TapePool)(nil)).Elem()
 }
 
 func (i *TapePool) ToTapePoolOutput() TapePoolOutput {
@@ -183,35 +183,6 @@ func (i *TapePool) ToTapePoolOutput() TapePoolOutput {
 
 func (i *TapePool) ToTapePoolOutputWithContext(ctx context.Context) TapePoolOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TapePoolOutput)
-}
-
-func (i *TapePool) ToTapePoolPtrOutput() TapePoolPtrOutput {
-	return i.ToTapePoolPtrOutputWithContext(context.Background())
-}
-
-func (i *TapePool) ToTapePoolPtrOutputWithContext(ctx context.Context) TapePoolPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TapePoolPtrOutput)
-}
-
-type TapePoolPtrInput interface {
-	pulumi.Input
-
-	ToTapePoolPtrOutput() TapePoolPtrOutput
-	ToTapePoolPtrOutputWithContext(ctx context.Context) TapePoolPtrOutput
-}
-
-type tapePoolPtrType TapePoolArgs
-
-func (*tapePoolPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TapePool)(nil))
-}
-
-func (i *tapePoolPtrType) ToTapePoolPtrOutput() TapePoolPtrOutput {
-	return i.ToTapePoolPtrOutputWithContext(context.Background())
-}
-
-func (i *tapePoolPtrType) ToTapePoolPtrOutputWithContext(ctx context.Context) TapePoolPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TapePoolPtrOutput)
 }
 
 // TapePoolArrayInput is an input type that accepts TapePoolArray and TapePoolArrayOutput values.
@@ -267,7 +238,7 @@ func (i TapePoolMap) ToTapePoolMapOutputWithContext(ctx context.Context) TapePoo
 type TapePoolOutput struct{ *pulumi.OutputState }
 
 func (TapePoolOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TapePool)(nil))
+	return reflect.TypeOf((**TapePool)(nil)).Elem()
 }
 
 func (o TapePoolOutput) ToTapePoolOutput() TapePoolOutput {
@@ -278,44 +249,10 @@ func (o TapePoolOutput) ToTapePoolOutputWithContext(ctx context.Context) TapePoo
 	return o
 }
 
-func (o TapePoolOutput) ToTapePoolPtrOutput() TapePoolPtrOutput {
-	return o.ToTapePoolPtrOutputWithContext(context.Background())
-}
-
-func (o TapePoolOutput) ToTapePoolPtrOutputWithContext(ctx context.Context) TapePoolPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TapePool) *TapePool {
-		return &v
-	}).(TapePoolPtrOutput)
-}
-
-type TapePoolPtrOutput struct{ *pulumi.OutputState }
-
-func (TapePoolPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TapePool)(nil))
-}
-
-func (o TapePoolPtrOutput) ToTapePoolPtrOutput() TapePoolPtrOutput {
-	return o
-}
-
-func (o TapePoolPtrOutput) ToTapePoolPtrOutputWithContext(ctx context.Context) TapePoolPtrOutput {
-	return o
-}
-
-func (o TapePoolPtrOutput) Elem() TapePoolOutput {
-	return o.ApplyT(func(v *TapePool) TapePool {
-		if v != nil {
-			return *v
-		}
-		var ret TapePool
-		return ret
-	}).(TapePoolOutput)
-}
-
 type TapePoolArrayOutput struct{ *pulumi.OutputState }
 
 func (TapePoolArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TapePool)(nil))
+	return reflect.TypeOf((*[]*TapePool)(nil)).Elem()
 }
 
 func (o TapePoolArrayOutput) ToTapePoolArrayOutput() TapePoolArrayOutput {
@@ -327,15 +264,15 @@ func (o TapePoolArrayOutput) ToTapePoolArrayOutputWithContext(ctx context.Contex
 }
 
 func (o TapePoolArrayOutput) Index(i pulumi.IntInput) TapePoolOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TapePool {
-		return vs[0].([]TapePool)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TapePool {
+		return vs[0].([]*TapePool)[vs[1].(int)]
 	}).(TapePoolOutput)
 }
 
 type TapePoolMapOutput struct{ *pulumi.OutputState }
 
 func (TapePoolMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]TapePool)(nil))
+	return reflect.TypeOf((*map[string]*TapePool)(nil)).Elem()
 }
 
 func (o TapePoolMapOutput) ToTapePoolMapOutput() TapePoolMapOutput {
@@ -347,18 +284,16 @@ func (o TapePoolMapOutput) ToTapePoolMapOutputWithContext(ctx context.Context) T
 }
 
 func (o TapePoolMapOutput) MapIndex(k pulumi.StringInput) TapePoolOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) TapePool {
-		return vs[0].(map[string]TapePool)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *TapePool {
+		return vs[0].(map[string]*TapePool)[vs[1].(string)]
 	}).(TapePoolOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TapePoolInput)(nil)).Elem(), &TapePool{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TapePoolPtrInput)(nil)).Elem(), &TapePool{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TapePoolArrayInput)(nil)).Elem(), TapePoolArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TapePoolMapInput)(nil)).Elem(), TapePoolMap{})
 	pulumi.RegisterOutputType(TapePoolOutput{})
-	pulumi.RegisterOutputType(TapePoolPtrOutput{})
 	pulumi.RegisterOutputType(TapePoolArrayOutput{})
 	pulumi.RegisterOutputType(TapePoolMapOutput{})
 }

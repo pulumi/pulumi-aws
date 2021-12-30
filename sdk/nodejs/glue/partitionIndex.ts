@@ -154,14 +154,14 @@ export class PartitionIndex extends pulumi.CustomResource {
      */
     constructor(name: string, args: PartitionIndexArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PartitionIndexArgs | PartitionIndexState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PartitionIndexState | undefined;
-            inputs["catalogId"] = state ? state.catalogId : undefined;
-            inputs["databaseName"] = state ? state.databaseName : undefined;
-            inputs["partitionIndex"] = state ? state.partitionIndex : undefined;
-            inputs["tableName"] = state ? state.tableName : undefined;
+            resourceInputs["catalogId"] = state ? state.catalogId : undefined;
+            resourceInputs["databaseName"] = state ? state.databaseName : undefined;
+            resourceInputs["partitionIndex"] = state ? state.partitionIndex : undefined;
+            resourceInputs["tableName"] = state ? state.tableName : undefined;
         } else {
             const args = argsOrState as PartitionIndexArgs | undefined;
             if ((!args || args.databaseName === undefined) && !opts.urn) {
@@ -173,15 +173,15 @@ export class PartitionIndex extends pulumi.CustomResource {
             if ((!args || args.tableName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'tableName'");
             }
-            inputs["catalogId"] = args ? args.catalogId : undefined;
-            inputs["databaseName"] = args ? args.databaseName : undefined;
-            inputs["partitionIndex"] = args ? args.partitionIndex : undefined;
-            inputs["tableName"] = args ? args.tableName : undefined;
+            resourceInputs["catalogId"] = args ? args.catalogId : undefined;
+            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
+            resourceInputs["partitionIndex"] = args ? args.partitionIndex : undefined;
+            resourceInputs["tableName"] = args ? args.tableName : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(PartitionIndex.__pulumiType, name, inputs, opts);
+        super(PartitionIndex.__pulumiType, name, resourceInputs, opts);
     }
 }
 

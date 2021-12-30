@@ -47,47 +47,6 @@ func (i DirectoryConfigServiceAccountCredentialsArgs) ToDirectoryConfigServiceAc
 	return pulumi.ToOutputWithContext(ctx, i).(DirectoryConfigServiceAccountCredentialsOutput)
 }
 
-func (i DirectoryConfigServiceAccountCredentialsArgs) ToDirectoryConfigServiceAccountCredentialsPtrOutput() DirectoryConfigServiceAccountCredentialsPtrOutput {
-	return i.ToDirectoryConfigServiceAccountCredentialsPtrOutputWithContext(context.Background())
-}
-
-func (i DirectoryConfigServiceAccountCredentialsArgs) ToDirectoryConfigServiceAccountCredentialsPtrOutputWithContext(ctx context.Context) DirectoryConfigServiceAccountCredentialsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DirectoryConfigServiceAccountCredentialsOutput).ToDirectoryConfigServiceAccountCredentialsPtrOutputWithContext(ctx)
-}
-
-// DirectoryConfigServiceAccountCredentialsPtrInput is an input type that accepts DirectoryConfigServiceAccountCredentialsArgs, DirectoryConfigServiceAccountCredentialsPtr and DirectoryConfigServiceAccountCredentialsPtrOutput values.
-// You can construct a concrete instance of `DirectoryConfigServiceAccountCredentialsPtrInput` via:
-//
-//          DirectoryConfigServiceAccountCredentialsArgs{...}
-//
-//  or:
-//
-//          nil
-type DirectoryConfigServiceAccountCredentialsPtrInput interface {
-	pulumi.Input
-
-	ToDirectoryConfigServiceAccountCredentialsPtrOutput() DirectoryConfigServiceAccountCredentialsPtrOutput
-	ToDirectoryConfigServiceAccountCredentialsPtrOutputWithContext(context.Context) DirectoryConfigServiceAccountCredentialsPtrOutput
-}
-
-type directoryConfigServiceAccountCredentialsPtrType DirectoryConfigServiceAccountCredentialsArgs
-
-func DirectoryConfigServiceAccountCredentialsPtr(v *DirectoryConfigServiceAccountCredentialsArgs) DirectoryConfigServiceAccountCredentialsPtrInput {
-	return (*directoryConfigServiceAccountCredentialsPtrType)(v)
-}
-
-func (*directoryConfigServiceAccountCredentialsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DirectoryConfigServiceAccountCredentials)(nil)).Elem()
-}
-
-func (i *directoryConfigServiceAccountCredentialsPtrType) ToDirectoryConfigServiceAccountCredentialsPtrOutput() DirectoryConfigServiceAccountCredentialsPtrOutput {
-	return i.ToDirectoryConfigServiceAccountCredentialsPtrOutputWithContext(context.Background())
-}
-
-func (i *directoryConfigServiceAccountCredentialsPtrType) ToDirectoryConfigServiceAccountCredentialsPtrOutputWithContext(ctx context.Context) DirectoryConfigServiceAccountCredentialsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DirectoryConfigServiceAccountCredentialsPtrOutput)
-}
-
 type DirectoryConfigServiceAccountCredentialsOutput struct{ *pulumi.OutputState }
 
 func (DirectoryConfigServiceAccountCredentialsOutput) ElementType() reflect.Type {
@@ -102,16 +61,6 @@ func (o DirectoryConfigServiceAccountCredentialsOutput) ToDirectoryConfigService
 	return o
 }
 
-func (o DirectoryConfigServiceAccountCredentialsOutput) ToDirectoryConfigServiceAccountCredentialsPtrOutput() DirectoryConfigServiceAccountCredentialsPtrOutput {
-	return o.ToDirectoryConfigServiceAccountCredentialsPtrOutputWithContext(context.Background())
-}
-
-func (o DirectoryConfigServiceAccountCredentialsOutput) ToDirectoryConfigServiceAccountCredentialsPtrOutputWithContext(ctx context.Context) DirectoryConfigServiceAccountCredentialsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DirectoryConfigServiceAccountCredentials) *DirectoryConfigServiceAccountCredentials {
-		return &v
-	}).(DirectoryConfigServiceAccountCredentialsPtrOutput)
-}
-
 // User name of the account. This account must have the following privileges: create computer objects, join computers to the domain, and change/reset the password on descendant computer objects for the organizational units specified.
 func (o DirectoryConfigServiceAccountCredentialsOutput) AccountName() pulumi.StringOutput {
 	return o.ApplyT(func(v DirectoryConfigServiceAccountCredentials) string { return v.AccountName }).(pulumi.StringOutput)
@@ -120,50 +69,6 @@ func (o DirectoryConfigServiceAccountCredentialsOutput) AccountName() pulumi.Str
 // Password for the account.
 func (o DirectoryConfigServiceAccountCredentialsOutput) AccountPassword() pulumi.StringOutput {
 	return o.ApplyT(func(v DirectoryConfigServiceAccountCredentials) string { return v.AccountPassword }).(pulumi.StringOutput)
-}
-
-type DirectoryConfigServiceAccountCredentialsPtrOutput struct{ *pulumi.OutputState }
-
-func (DirectoryConfigServiceAccountCredentialsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DirectoryConfigServiceAccountCredentials)(nil)).Elem()
-}
-
-func (o DirectoryConfigServiceAccountCredentialsPtrOutput) ToDirectoryConfigServiceAccountCredentialsPtrOutput() DirectoryConfigServiceAccountCredentialsPtrOutput {
-	return o
-}
-
-func (o DirectoryConfigServiceAccountCredentialsPtrOutput) ToDirectoryConfigServiceAccountCredentialsPtrOutputWithContext(ctx context.Context) DirectoryConfigServiceAccountCredentialsPtrOutput {
-	return o
-}
-
-func (o DirectoryConfigServiceAccountCredentialsPtrOutput) Elem() DirectoryConfigServiceAccountCredentialsOutput {
-	return o.ApplyT(func(v *DirectoryConfigServiceAccountCredentials) DirectoryConfigServiceAccountCredentials {
-		if v != nil {
-			return *v
-		}
-		var ret DirectoryConfigServiceAccountCredentials
-		return ret
-	}).(DirectoryConfigServiceAccountCredentialsOutput)
-}
-
-// User name of the account. This account must have the following privileges: create computer objects, join computers to the domain, and change/reset the password on descendant computer objects for the organizational units specified.
-func (o DirectoryConfigServiceAccountCredentialsPtrOutput) AccountName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DirectoryConfigServiceAccountCredentials) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.AccountName
-	}).(pulumi.StringPtrOutput)
-}
-
-// Password for the account.
-func (o DirectoryConfigServiceAccountCredentialsPtrOutput) AccountPassword() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DirectoryConfigServiceAccountCredentials) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.AccountPassword
-	}).(pulumi.StringPtrOutput)
 }
 
 type FleetComputeCapacity struct {
@@ -211,47 +116,6 @@ func (i FleetComputeCapacityArgs) ToFleetComputeCapacityOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(FleetComputeCapacityOutput)
 }
 
-func (i FleetComputeCapacityArgs) ToFleetComputeCapacityPtrOutput() FleetComputeCapacityPtrOutput {
-	return i.ToFleetComputeCapacityPtrOutputWithContext(context.Background())
-}
-
-func (i FleetComputeCapacityArgs) ToFleetComputeCapacityPtrOutputWithContext(ctx context.Context) FleetComputeCapacityPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FleetComputeCapacityOutput).ToFleetComputeCapacityPtrOutputWithContext(ctx)
-}
-
-// FleetComputeCapacityPtrInput is an input type that accepts FleetComputeCapacityArgs, FleetComputeCapacityPtr and FleetComputeCapacityPtrOutput values.
-// You can construct a concrete instance of `FleetComputeCapacityPtrInput` via:
-//
-//          FleetComputeCapacityArgs{...}
-//
-//  or:
-//
-//          nil
-type FleetComputeCapacityPtrInput interface {
-	pulumi.Input
-
-	ToFleetComputeCapacityPtrOutput() FleetComputeCapacityPtrOutput
-	ToFleetComputeCapacityPtrOutputWithContext(context.Context) FleetComputeCapacityPtrOutput
-}
-
-type fleetComputeCapacityPtrType FleetComputeCapacityArgs
-
-func FleetComputeCapacityPtr(v *FleetComputeCapacityArgs) FleetComputeCapacityPtrInput {
-	return (*fleetComputeCapacityPtrType)(v)
-}
-
-func (*fleetComputeCapacityPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FleetComputeCapacity)(nil)).Elem()
-}
-
-func (i *fleetComputeCapacityPtrType) ToFleetComputeCapacityPtrOutput() FleetComputeCapacityPtrOutput {
-	return i.ToFleetComputeCapacityPtrOutputWithContext(context.Background())
-}
-
-func (i *fleetComputeCapacityPtrType) ToFleetComputeCapacityPtrOutputWithContext(ctx context.Context) FleetComputeCapacityPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FleetComputeCapacityPtrOutput)
-}
-
 type FleetComputeCapacityOutput struct{ *pulumi.OutputState }
 
 func (FleetComputeCapacityOutput) ElementType() reflect.Type {
@@ -264,16 +128,6 @@ func (o FleetComputeCapacityOutput) ToFleetComputeCapacityOutput() FleetComputeC
 
 func (o FleetComputeCapacityOutput) ToFleetComputeCapacityOutputWithContext(ctx context.Context) FleetComputeCapacityOutput {
 	return o
-}
-
-func (o FleetComputeCapacityOutput) ToFleetComputeCapacityPtrOutput() FleetComputeCapacityPtrOutput {
-	return o.ToFleetComputeCapacityPtrOutputWithContext(context.Background())
-}
-
-func (o FleetComputeCapacityOutput) ToFleetComputeCapacityPtrOutputWithContext(ctx context.Context) FleetComputeCapacityPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FleetComputeCapacity) *FleetComputeCapacity {
-		return &v
-	}).(FleetComputeCapacityPtrOutput)
 }
 
 // Number of currently available instances that can be used to stream sessions.
@@ -294,70 +148,6 @@ func (o FleetComputeCapacityOutput) InUse() pulumi.IntPtrOutput {
 // Total number of simultaneous streaming instances that are running.
 func (o FleetComputeCapacityOutput) Running() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FleetComputeCapacity) *int { return v.Running }).(pulumi.IntPtrOutput)
-}
-
-type FleetComputeCapacityPtrOutput struct{ *pulumi.OutputState }
-
-func (FleetComputeCapacityPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FleetComputeCapacity)(nil)).Elem()
-}
-
-func (o FleetComputeCapacityPtrOutput) ToFleetComputeCapacityPtrOutput() FleetComputeCapacityPtrOutput {
-	return o
-}
-
-func (o FleetComputeCapacityPtrOutput) ToFleetComputeCapacityPtrOutputWithContext(ctx context.Context) FleetComputeCapacityPtrOutput {
-	return o
-}
-
-func (o FleetComputeCapacityPtrOutput) Elem() FleetComputeCapacityOutput {
-	return o.ApplyT(func(v *FleetComputeCapacity) FleetComputeCapacity {
-		if v != nil {
-			return *v
-		}
-		var ret FleetComputeCapacity
-		return ret
-	}).(FleetComputeCapacityOutput)
-}
-
-// Number of currently available instances that can be used to stream sessions.
-func (o FleetComputeCapacityPtrOutput) Available() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *FleetComputeCapacity) *int {
-		if v == nil {
-			return nil
-		}
-		return v.Available
-	}).(pulumi.IntPtrOutput)
-}
-
-// Desired number of streaming instances.
-func (o FleetComputeCapacityPtrOutput) DesiredInstances() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *FleetComputeCapacity) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.DesiredInstances
-	}).(pulumi.IntPtrOutput)
-}
-
-// Number of instances in use for streaming.
-func (o FleetComputeCapacityPtrOutput) InUse() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *FleetComputeCapacity) *int {
-		if v == nil {
-			return nil
-		}
-		return v.InUse
-	}).(pulumi.IntPtrOutput)
-}
-
-// Total number of simultaneous streaming instances that are running.
-func (o FleetComputeCapacityPtrOutput) Running() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *FleetComputeCapacity) *int {
-		if v == nil {
-			return nil
-		}
-		return v.Running
-	}).(pulumi.IntPtrOutput)
 }
 
 type FleetDomainJoinInfo struct {
@@ -1561,9 +1351,7 @@ func (o StackUserSettingArrayOutput) Index(i pulumi.IntInput) StackUserSettingOu
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryConfigServiceAccountCredentialsInput)(nil)).Elem(), DirectoryConfigServiceAccountCredentialsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryConfigServiceAccountCredentialsPtrInput)(nil)).Elem(), DirectoryConfigServiceAccountCredentialsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetComputeCapacityInput)(nil)).Elem(), FleetComputeCapacityArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FleetComputeCapacityPtrInput)(nil)).Elem(), FleetComputeCapacityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetDomainJoinInfoInput)(nil)).Elem(), FleetDomainJoinInfoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetDomainJoinInfoPtrInput)(nil)).Elem(), FleetDomainJoinInfoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetVpcConfigInput)(nil)).Elem(), FleetVpcConfigArgs{})
@@ -1583,9 +1371,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StackUserSettingInput)(nil)).Elem(), StackUserSettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StackUserSettingArrayInput)(nil)).Elem(), StackUserSettingArray{})
 	pulumi.RegisterOutputType(DirectoryConfigServiceAccountCredentialsOutput{})
-	pulumi.RegisterOutputType(DirectoryConfigServiceAccountCredentialsPtrOutput{})
 	pulumi.RegisterOutputType(FleetComputeCapacityOutput{})
-	pulumi.RegisterOutputType(FleetComputeCapacityPtrOutput{})
 	pulumi.RegisterOutputType(FleetDomainJoinInfoOutput{})
 	pulumi.RegisterOutputType(FleetDomainJoinInfoPtrOutput{})
 	pulumi.RegisterOutputType(FleetVpcConfigOutput{})

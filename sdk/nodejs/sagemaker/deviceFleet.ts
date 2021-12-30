@@ -103,19 +103,19 @@ export class DeviceFleet extends pulumi.CustomResource {
      */
     constructor(name: string, args: DeviceFleetArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DeviceFleetArgs | DeviceFleetState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DeviceFleetState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["deviceFleetName"] = state ? state.deviceFleetName : undefined;
-            inputs["enableIotRoleAlias"] = state ? state.enableIotRoleAlias : undefined;
-            inputs["iotRoleAlias"] = state ? state.iotRoleAlias : undefined;
-            inputs["outputConfig"] = state ? state.outputConfig : undefined;
-            inputs["roleArn"] = state ? state.roleArn : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["deviceFleetName"] = state ? state.deviceFleetName : undefined;
+            resourceInputs["enableIotRoleAlias"] = state ? state.enableIotRoleAlias : undefined;
+            resourceInputs["iotRoleAlias"] = state ? state.iotRoleAlias : undefined;
+            resourceInputs["outputConfig"] = state ? state.outputConfig : undefined;
+            resourceInputs["roleArn"] = state ? state.roleArn : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as DeviceFleetArgs | undefined;
             if ((!args || args.deviceFleetName === undefined) && !opts.urn) {
@@ -127,20 +127,20 @@ export class DeviceFleet extends pulumi.CustomResource {
             if ((!args || args.roleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["deviceFleetName"] = args ? args.deviceFleetName : undefined;
-            inputs["enableIotRoleAlias"] = args ? args.enableIotRoleAlias : undefined;
-            inputs["outputConfig"] = args ? args.outputConfig : undefined;
-            inputs["roleArn"] = args ? args.roleArn : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["iotRoleAlias"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["deviceFleetName"] = args ? args.deviceFleetName : undefined;
+            resourceInputs["enableIotRoleAlias"] = args ? args.enableIotRoleAlias : undefined;
+            resourceInputs["outputConfig"] = args ? args.outputConfig : undefined;
+            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["iotRoleAlias"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(DeviceFleet.__pulumiType, name, inputs, opts);
+        super(DeviceFleet.__pulumiType, name, resourceInputs, opts);
     }
 }
 

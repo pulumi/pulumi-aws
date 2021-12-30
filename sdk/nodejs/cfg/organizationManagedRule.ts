@@ -116,42 +116,42 @@ export class OrganizationManagedRule extends pulumi.CustomResource {
      */
     constructor(name: string, args: OrganizationManagedRuleArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: OrganizationManagedRuleArgs | OrganizationManagedRuleState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OrganizationManagedRuleState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["excludedAccounts"] = state ? state.excludedAccounts : undefined;
-            inputs["inputParameters"] = state ? state.inputParameters : undefined;
-            inputs["maximumExecutionFrequency"] = state ? state.maximumExecutionFrequency : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["resourceIdScope"] = state ? state.resourceIdScope : undefined;
-            inputs["resourceTypesScopes"] = state ? state.resourceTypesScopes : undefined;
-            inputs["ruleIdentifier"] = state ? state.ruleIdentifier : undefined;
-            inputs["tagKeyScope"] = state ? state.tagKeyScope : undefined;
-            inputs["tagValueScope"] = state ? state.tagValueScope : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["excludedAccounts"] = state ? state.excludedAccounts : undefined;
+            resourceInputs["inputParameters"] = state ? state.inputParameters : undefined;
+            resourceInputs["maximumExecutionFrequency"] = state ? state.maximumExecutionFrequency : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["resourceIdScope"] = state ? state.resourceIdScope : undefined;
+            resourceInputs["resourceTypesScopes"] = state ? state.resourceTypesScopes : undefined;
+            resourceInputs["ruleIdentifier"] = state ? state.ruleIdentifier : undefined;
+            resourceInputs["tagKeyScope"] = state ? state.tagKeyScope : undefined;
+            resourceInputs["tagValueScope"] = state ? state.tagValueScope : undefined;
         } else {
             const args = argsOrState as OrganizationManagedRuleArgs | undefined;
             if ((!args || args.ruleIdentifier === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'ruleIdentifier'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["excludedAccounts"] = args ? args.excludedAccounts : undefined;
-            inputs["inputParameters"] = args ? args.inputParameters : undefined;
-            inputs["maximumExecutionFrequency"] = args ? args.maximumExecutionFrequency : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["resourceIdScope"] = args ? args.resourceIdScope : undefined;
-            inputs["resourceTypesScopes"] = args ? args.resourceTypesScopes : undefined;
-            inputs["ruleIdentifier"] = args ? args.ruleIdentifier : undefined;
-            inputs["tagKeyScope"] = args ? args.tagKeyScope : undefined;
-            inputs["tagValueScope"] = args ? args.tagValueScope : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["excludedAccounts"] = args ? args.excludedAccounts : undefined;
+            resourceInputs["inputParameters"] = args ? args.inputParameters : undefined;
+            resourceInputs["maximumExecutionFrequency"] = args ? args.maximumExecutionFrequency : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["resourceIdScope"] = args ? args.resourceIdScope : undefined;
+            resourceInputs["resourceTypesScopes"] = args ? args.resourceTypesScopes : undefined;
+            resourceInputs["ruleIdentifier"] = args ? args.ruleIdentifier : undefined;
+            resourceInputs["tagKeyScope"] = args ? args.tagKeyScope : undefined;
+            resourceInputs["tagValueScope"] = args ? args.tagValueScope : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(OrganizationManagedRule.__pulumiType, name, inputs, opts);
+        super(OrganizationManagedRule.__pulumiType, name, resourceInputs, opts);
     }
 }
 

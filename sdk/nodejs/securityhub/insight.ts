@@ -174,14 +174,14 @@ export class Insight extends pulumi.CustomResource {
      */
     constructor(name: string, args: InsightArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: InsightArgs | InsightState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as InsightState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["filters"] = state ? state.filters : undefined;
-            inputs["groupByAttribute"] = state ? state.groupByAttribute : undefined;
-            inputs["name"] = state ? state.name : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["filters"] = state ? state.filters : undefined;
+            resourceInputs["groupByAttribute"] = state ? state.groupByAttribute : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as InsightArgs | undefined;
             if ((!args || args.filters === undefined) && !opts.urn) {
@@ -190,15 +190,15 @@ export class Insight extends pulumi.CustomResource {
             if ((!args || args.groupByAttribute === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'groupByAttribute'");
             }
-            inputs["filters"] = args ? args.filters : undefined;
-            inputs["groupByAttribute"] = args ? args.groupByAttribute : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["filters"] = args ? args.filters : undefined;
+            resourceInputs["groupByAttribute"] = args ? args.groupByAttribute : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Insight.__pulumiType, name, inputs, opts);
+        super(Insight.__pulumiType, name, resourceInputs, opts);
     }
 }
 

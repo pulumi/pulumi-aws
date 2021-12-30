@@ -114,36 +114,36 @@ export class ResourceShareAccepter extends pulumi.CustomResource {
      */
     constructor(name: string, args: ResourceShareAccepterArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ResourceShareAccepterArgs | ResourceShareAccepterState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ResourceShareAccepterState | undefined;
-            inputs["invitationArn"] = state ? state.invitationArn : undefined;
-            inputs["receiverAccountId"] = state ? state.receiverAccountId : undefined;
-            inputs["resources"] = state ? state.resources : undefined;
-            inputs["senderAccountId"] = state ? state.senderAccountId : undefined;
-            inputs["shareArn"] = state ? state.shareArn : undefined;
-            inputs["shareId"] = state ? state.shareId : undefined;
-            inputs["shareName"] = state ? state.shareName : undefined;
-            inputs["status"] = state ? state.status : undefined;
+            resourceInputs["invitationArn"] = state ? state.invitationArn : undefined;
+            resourceInputs["receiverAccountId"] = state ? state.receiverAccountId : undefined;
+            resourceInputs["resources"] = state ? state.resources : undefined;
+            resourceInputs["senderAccountId"] = state ? state.senderAccountId : undefined;
+            resourceInputs["shareArn"] = state ? state.shareArn : undefined;
+            resourceInputs["shareId"] = state ? state.shareId : undefined;
+            resourceInputs["shareName"] = state ? state.shareName : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
         } else {
             const args = argsOrState as ResourceShareAccepterArgs | undefined;
             if ((!args || args.shareArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'shareArn'");
             }
-            inputs["shareArn"] = args ? args.shareArn : undefined;
-            inputs["invitationArn"] = undefined /*out*/;
-            inputs["receiverAccountId"] = undefined /*out*/;
-            inputs["resources"] = undefined /*out*/;
-            inputs["senderAccountId"] = undefined /*out*/;
-            inputs["shareId"] = undefined /*out*/;
-            inputs["shareName"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
+            resourceInputs["shareArn"] = args ? args.shareArn : undefined;
+            resourceInputs["invitationArn"] = undefined /*out*/;
+            resourceInputs["receiverAccountId"] = undefined /*out*/;
+            resourceInputs["resources"] = undefined /*out*/;
+            resourceInputs["senderAccountId"] = undefined /*out*/;
+            resourceInputs["shareId"] = undefined /*out*/;
+            resourceInputs["shareName"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(ResourceShareAccepter.__pulumiType, name, inputs, opts);
+        super(ResourceShareAccepter.__pulumiType, name, resourceInputs, opts);
     }
 }
 

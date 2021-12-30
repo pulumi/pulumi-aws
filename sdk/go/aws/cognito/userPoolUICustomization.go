@@ -252,7 +252,7 @@ type UserPoolUICustomizationInput interface {
 }
 
 func (*UserPoolUICustomization) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserPoolUICustomization)(nil))
+	return reflect.TypeOf((**UserPoolUICustomization)(nil)).Elem()
 }
 
 func (i *UserPoolUICustomization) ToUserPoolUICustomizationOutput() UserPoolUICustomizationOutput {
@@ -261,35 +261,6 @@ func (i *UserPoolUICustomization) ToUserPoolUICustomizationOutput() UserPoolUICu
 
 func (i *UserPoolUICustomization) ToUserPoolUICustomizationOutputWithContext(ctx context.Context) UserPoolUICustomizationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UserPoolUICustomizationOutput)
-}
-
-func (i *UserPoolUICustomization) ToUserPoolUICustomizationPtrOutput() UserPoolUICustomizationPtrOutput {
-	return i.ToUserPoolUICustomizationPtrOutputWithContext(context.Background())
-}
-
-func (i *UserPoolUICustomization) ToUserPoolUICustomizationPtrOutputWithContext(ctx context.Context) UserPoolUICustomizationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserPoolUICustomizationPtrOutput)
-}
-
-type UserPoolUICustomizationPtrInput interface {
-	pulumi.Input
-
-	ToUserPoolUICustomizationPtrOutput() UserPoolUICustomizationPtrOutput
-	ToUserPoolUICustomizationPtrOutputWithContext(ctx context.Context) UserPoolUICustomizationPtrOutput
-}
-
-type userPoolUICustomizationPtrType UserPoolUICustomizationArgs
-
-func (*userPoolUICustomizationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**UserPoolUICustomization)(nil))
-}
-
-func (i *userPoolUICustomizationPtrType) ToUserPoolUICustomizationPtrOutput() UserPoolUICustomizationPtrOutput {
-	return i.ToUserPoolUICustomizationPtrOutputWithContext(context.Background())
-}
-
-func (i *userPoolUICustomizationPtrType) ToUserPoolUICustomizationPtrOutputWithContext(ctx context.Context) UserPoolUICustomizationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserPoolUICustomizationPtrOutput)
 }
 
 // UserPoolUICustomizationArrayInput is an input type that accepts UserPoolUICustomizationArray and UserPoolUICustomizationArrayOutput values.
@@ -345,7 +316,7 @@ func (i UserPoolUICustomizationMap) ToUserPoolUICustomizationMapOutputWithContex
 type UserPoolUICustomizationOutput struct{ *pulumi.OutputState }
 
 func (UserPoolUICustomizationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserPoolUICustomization)(nil))
+	return reflect.TypeOf((**UserPoolUICustomization)(nil)).Elem()
 }
 
 func (o UserPoolUICustomizationOutput) ToUserPoolUICustomizationOutput() UserPoolUICustomizationOutput {
@@ -356,44 +327,10 @@ func (o UserPoolUICustomizationOutput) ToUserPoolUICustomizationOutputWithContex
 	return o
 }
 
-func (o UserPoolUICustomizationOutput) ToUserPoolUICustomizationPtrOutput() UserPoolUICustomizationPtrOutput {
-	return o.ToUserPoolUICustomizationPtrOutputWithContext(context.Background())
-}
-
-func (o UserPoolUICustomizationOutput) ToUserPoolUICustomizationPtrOutputWithContext(ctx context.Context) UserPoolUICustomizationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserPoolUICustomization) *UserPoolUICustomization {
-		return &v
-	}).(UserPoolUICustomizationPtrOutput)
-}
-
-type UserPoolUICustomizationPtrOutput struct{ *pulumi.OutputState }
-
-func (UserPoolUICustomizationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**UserPoolUICustomization)(nil))
-}
-
-func (o UserPoolUICustomizationPtrOutput) ToUserPoolUICustomizationPtrOutput() UserPoolUICustomizationPtrOutput {
-	return o
-}
-
-func (o UserPoolUICustomizationPtrOutput) ToUserPoolUICustomizationPtrOutputWithContext(ctx context.Context) UserPoolUICustomizationPtrOutput {
-	return o
-}
-
-func (o UserPoolUICustomizationPtrOutput) Elem() UserPoolUICustomizationOutput {
-	return o.ApplyT(func(v *UserPoolUICustomization) UserPoolUICustomization {
-		if v != nil {
-			return *v
-		}
-		var ret UserPoolUICustomization
-		return ret
-	}).(UserPoolUICustomizationOutput)
-}
-
 type UserPoolUICustomizationArrayOutput struct{ *pulumi.OutputState }
 
 func (UserPoolUICustomizationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]UserPoolUICustomization)(nil))
+	return reflect.TypeOf((*[]*UserPoolUICustomization)(nil)).Elem()
 }
 
 func (o UserPoolUICustomizationArrayOutput) ToUserPoolUICustomizationArrayOutput() UserPoolUICustomizationArrayOutput {
@@ -405,15 +342,15 @@ func (o UserPoolUICustomizationArrayOutput) ToUserPoolUICustomizationArrayOutput
 }
 
 func (o UserPoolUICustomizationArrayOutput) Index(i pulumi.IntInput) UserPoolUICustomizationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserPoolUICustomization {
-		return vs[0].([]UserPoolUICustomization)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *UserPoolUICustomization {
+		return vs[0].([]*UserPoolUICustomization)[vs[1].(int)]
 	}).(UserPoolUICustomizationOutput)
 }
 
 type UserPoolUICustomizationMapOutput struct{ *pulumi.OutputState }
 
 func (UserPoolUICustomizationMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]UserPoolUICustomization)(nil))
+	return reflect.TypeOf((*map[string]*UserPoolUICustomization)(nil)).Elem()
 }
 
 func (o UserPoolUICustomizationMapOutput) ToUserPoolUICustomizationMapOutput() UserPoolUICustomizationMapOutput {
@@ -425,18 +362,16 @@ func (o UserPoolUICustomizationMapOutput) ToUserPoolUICustomizationMapOutputWith
 }
 
 func (o UserPoolUICustomizationMapOutput) MapIndex(k pulumi.StringInput) UserPoolUICustomizationOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) UserPoolUICustomization {
-		return vs[0].(map[string]UserPoolUICustomization)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *UserPoolUICustomization {
+		return vs[0].(map[string]*UserPoolUICustomization)[vs[1].(string)]
 	}).(UserPoolUICustomizationOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolUICustomizationInput)(nil)).Elem(), &UserPoolUICustomization{})
-	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolUICustomizationPtrInput)(nil)).Elem(), &UserPoolUICustomization{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolUICustomizationArrayInput)(nil)).Elem(), UserPoolUICustomizationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolUICustomizationMapInput)(nil)).Elem(), UserPoolUICustomizationMap{})
 	pulumi.RegisterOutputType(UserPoolUICustomizationOutput{})
-	pulumi.RegisterOutputType(UserPoolUICustomizationPtrOutput{})
 	pulumi.RegisterOutputType(UserPoolUICustomizationArrayOutput{})
 	pulumi.RegisterOutputType(UserPoolUICustomizationMapOutput{})
 }

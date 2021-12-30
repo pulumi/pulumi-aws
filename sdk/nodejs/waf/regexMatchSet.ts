@@ -86,23 +86,23 @@ export class RegexMatchSet extends pulumi.CustomResource {
      */
     constructor(name: string, args?: RegexMatchSetArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RegexMatchSetArgs | RegexMatchSetState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RegexMatchSetState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["regexMatchTuples"] = state ? state.regexMatchTuples : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["regexMatchTuples"] = state ? state.regexMatchTuples : undefined;
         } else {
             const args = argsOrState as RegexMatchSetArgs | undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["regexMatchTuples"] = args ? args.regexMatchTuples : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["regexMatchTuples"] = args ? args.regexMatchTuples : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(RegexMatchSet.__pulumiType, name, inputs, opts);
+        super(RegexMatchSet.__pulumiType, name, resourceInputs, opts);
     }
 }
 

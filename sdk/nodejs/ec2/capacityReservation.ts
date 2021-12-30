@@ -125,25 +125,25 @@ export class CapacityReservation extends pulumi.CustomResource {
      */
     constructor(name: string, args: CapacityReservationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: CapacityReservationArgs | CapacityReservationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CapacityReservationState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["availabilityZone"] = state ? state.availabilityZone : undefined;
-            inputs["ebsOptimized"] = state ? state.ebsOptimized : undefined;
-            inputs["endDate"] = state ? state.endDate : undefined;
-            inputs["endDateType"] = state ? state.endDateType : undefined;
-            inputs["ephemeralStorage"] = state ? state.ephemeralStorage : undefined;
-            inputs["instanceCount"] = state ? state.instanceCount : undefined;
-            inputs["instanceMatchCriteria"] = state ? state.instanceMatchCriteria : undefined;
-            inputs["instancePlatform"] = state ? state.instancePlatform : undefined;
-            inputs["instanceType"] = state ? state.instanceType : undefined;
-            inputs["outpostArn"] = state ? state.outpostArn : undefined;
-            inputs["ownerId"] = state ? state.ownerId : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["tenancy"] = state ? state.tenancy : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["availabilityZone"] = state ? state.availabilityZone : undefined;
+            resourceInputs["ebsOptimized"] = state ? state.ebsOptimized : undefined;
+            resourceInputs["endDate"] = state ? state.endDate : undefined;
+            resourceInputs["endDateType"] = state ? state.endDateType : undefined;
+            resourceInputs["ephemeralStorage"] = state ? state.ephemeralStorage : undefined;
+            resourceInputs["instanceCount"] = state ? state.instanceCount : undefined;
+            resourceInputs["instanceMatchCriteria"] = state ? state.instanceMatchCriteria : undefined;
+            resourceInputs["instancePlatform"] = state ? state.instancePlatform : undefined;
+            resourceInputs["instanceType"] = state ? state.instanceType : undefined;
+            resourceInputs["outpostArn"] = state ? state.outpostArn : undefined;
+            resourceInputs["ownerId"] = state ? state.ownerId : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["tenancy"] = state ? state.tenancy : undefined;
         } else {
             const args = argsOrState as CapacityReservationArgs | undefined;
             if ((!args || args.availabilityZone === undefined) && !opts.urn) {
@@ -158,26 +158,26 @@ export class CapacityReservation extends pulumi.CustomResource {
             if ((!args || args.instanceType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'instanceType'");
             }
-            inputs["availabilityZone"] = args ? args.availabilityZone : undefined;
-            inputs["ebsOptimized"] = args ? args.ebsOptimized : undefined;
-            inputs["endDate"] = args ? args.endDate : undefined;
-            inputs["endDateType"] = args ? args.endDateType : undefined;
-            inputs["ephemeralStorage"] = args ? args.ephemeralStorage : undefined;
-            inputs["instanceCount"] = args ? args.instanceCount : undefined;
-            inputs["instanceMatchCriteria"] = args ? args.instanceMatchCriteria : undefined;
-            inputs["instancePlatform"] = args ? args.instancePlatform : undefined;
-            inputs["instanceType"] = args ? args.instanceType : undefined;
-            inputs["outpostArn"] = args ? args.outpostArn : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["tenancy"] = args ? args.tenancy : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["ownerId"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
+            resourceInputs["ebsOptimized"] = args ? args.ebsOptimized : undefined;
+            resourceInputs["endDate"] = args ? args.endDate : undefined;
+            resourceInputs["endDateType"] = args ? args.endDateType : undefined;
+            resourceInputs["ephemeralStorage"] = args ? args.ephemeralStorage : undefined;
+            resourceInputs["instanceCount"] = args ? args.instanceCount : undefined;
+            resourceInputs["instanceMatchCriteria"] = args ? args.instanceMatchCriteria : undefined;
+            resourceInputs["instancePlatform"] = args ? args.instancePlatform : undefined;
+            resourceInputs["instanceType"] = args ? args.instanceType : undefined;
+            resourceInputs["outpostArn"] = args ? args.outpostArn : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tenancy"] = args ? args.tenancy : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["ownerId"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(CapacityReservation.__pulumiType, name, inputs, opts);
+        super(CapacityReservation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

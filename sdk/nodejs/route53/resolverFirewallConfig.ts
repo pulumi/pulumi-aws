@@ -82,26 +82,26 @@ export class ResolverFirewallConfig extends pulumi.CustomResource {
      */
     constructor(name: string, args: ResolverFirewallConfigArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ResolverFirewallConfigArgs | ResolverFirewallConfigState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ResolverFirewallConfigState | undefined;
-            inputs["firewallFailOpen"] = state ? state.firewallFailOpen : undefined;
-            inputs["ownerId"] = state ? state.ownerId : undefined;
-            inputs["resourceId"] = state ? state.resourceId : undefined;
+            resourceInputs["firewallFailOpen"] = state ? state.firewallFailOpen : undefined;
+            resourceInputs["ownerId"] = state ? state.ownerId : undefined;
+            resourceInputs["resourceId"] = state ? state.resourceId : undefined;
         } else {
             const args = argsOrState as ResolverFirewallConfigArgs | undefined;
             if ((!args || args.resourceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceId'");
             }
-            inputs["firewallFailOpen"] = args ? args.firewallFailOpen : undefined;
-            inputs["resourceId"] = args ? args.resourceId : undefined;
-            inputs["ownerId"] = undefined /*out*/;
+            resourceInputs["firewallFailOpen"] = args ? args.firewallFailOpen : undefined;
+            resourceInputs["resourceId"] = args ? args.resourceId : undefined;
+            resourceInputs["ownerId"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(ResolverFirewallConfig.__pulumiType, name, inputs, opts);
+        super(ResolverFirewallConfig.__pulumiType, name, resourceInputs, opts);
     }
 }
 

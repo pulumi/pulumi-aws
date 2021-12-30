@@ -102,13 +102,13 @@ export class LoadBalancerBackendServerPolicy extends pulumi.CustomResource {
      */
     constructor(name: string, args: LoadBalancerBackendServerPolicyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: LoadBalancerBackendServerPolicyArgs | LoadBalancerBackendServerPolicyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LoadBalancerBackendServerPolicyState | undefined;
-            inputs["instancePort"] = state ? state.instancePort : undefined;
-            inputs["loadBalancerName"] = state ? state.loadBalancerName : undefined;
-            inputs["policyNames"] = state ? state.policyNames : undefined;
+            resourceInputs["instancePort"] = state ? state.instancePort : undefined;
+            resourceInputs["loadBalancerName"] = state ? state.loadBalancerName : undefined;
+            resourceInputs["policyNames"] = state ? state.policyNames : undefined;
         } else {
             const args = argsOrState as LoadBalancerBackendServerPolicyArgs | undefined;
             if ((!args || args.instancePort === undefined) && !opts.urn) {
@@ -117,16 +117,16 @@ export class LoadBalancerBackendServerPolicy extends pulumi.CustomResource {
             if ((!args || args.loadBalancerName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'loadBalancerName'");
             }
-            inputs["instancePort"] = args ? args.instancePort : undefined;
-            inputs["loadBalancerName"] = args ? args.loadBalancerName : undefined;
-            inputs["policyNames"] = args ? args.policyNames : undefined;
+            resourceInputs["instancePort"] = args ? args.instancePort : undefined;
+            resourceInputs["loadBalancerName"] = args ? args.loadBalancerName : undefined;
+            resourceInputs["policyNames"] = args ? args.policyNames : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "aws:elasticloadbalancing/loadBalancerBackendServerPolicy:LoadBalancerBackendServerPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(LoadBalancerBackendServerPolicy.__pulumiType, name, inputs, opts);
+        super(LoadBalancerBackendServerPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

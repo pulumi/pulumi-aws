@@ -300,7 +300,7 @@ type StaticWebLayerInput interface {
 }
 
 func (*StaticWebLayer) ElementType() reflect.Type {
-	return reflect.TypeOf((*StaticWebLayer)(nil))
+	return reflect.TypeOf((**StaticWebLayer)(nil)).Elem()
 }
 
 func (i *StaticWebLayer) ToStaticWebLayerOutput() StaticWebLayerOutput {
@@ -309,35 +309,6 @@ func (i *StaticWebLayer) ToStaticWebLayerOutput() StaticWebLayerOutput {
 
 func (i *StaticWebLayer) ToStaticWebLayerOutputWithContext(ctx context.Context) StaticWebLayerOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StaticWebLayerOutput)
-}
-
-func (i *StaticWebLayer) ToStaticWebLayerPtrOutput() StaticWebLayerPtrOutput {
-	return i.ToStaticWebLayerPtrOutputWithContext(context.Background())
-}
-
-func (i *StaticWebLayer) ToStaticWebLayerPtrOutputWithContext(ctx context.Context) StaticWebLayerPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StaticWebLayerPtrOutput)
-}
-
-type StaticWebLayerPtrInput interface {
-	pulumi.Input
-
-	ToStaticWebLayerPtrOutput() StaticWebLayerPtrOutput
-	ToStaticWebLayerPtrOutputWithContext(ctx context.Context) StaticWebLayerPtrOutput
-}
-
-type staticWebLayerPtrType StaticWebLayerArgs
-
-func (*staticWebLayerPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**StaticWebLayer)(nil))
-}
-
-func (i *staticWebLayerPtrType) ToStaticWebLayerPtrOutput() StaticWebLayerPtrOutput {
-	return i.ToStaticWebLayerPtrOutputWithContext(context.Background())
-}
-
-func (i *staticWebLayerPtrType) ToStaticWebLayerPtrOutputWithContext(ctx context.Context) StaticWebLayerPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StaticWebLayerPtrOutput)
 }
 
 // StaticWebLayerArrayInput is an input type that accepts StaticWebLayerArray and StaticWebLayerArrayOutput values.
@@ -393,7 +364,7 @@ func (i StaticWebLayerMap) ToStaticWebLayerMapOutputWithContext(ctx context.Cont
 type StaticWebLayerOutput struct{ *pulumi.OutputState }
 
 func (StaticWebLayerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StaticWebLayer)(nil))
+	return reflect.TypeOf((**StaticWebLayer)(nil)).Elem()
 }
 
 func (o StaticWebLayerOutput) ToStaticWebLayerOutput() StaticWebLayerOutput {
@@ -404,44 +375,10 @@ func (o StaticWebLayerOutput) ToStaticWebLayerOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o StaticWebLayerOutput) ToStaticWebLayerPtrOutput() StaticWebLayerPtrOutput {
-	return o.ToStaticWebLayerPtrOutputWithContext(context.Background())
-}
-
-func (o StaticWebLayerOutput) ToStaticWebLayerPtrOutputWithContext(ctx context.Context) StaticWebLayerPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StaticWebLayer) *StaticWebLayer {
-		return &v
-	}).(StaticWebLayerPtrOutput)
-}
-
-type StaticWebLayerPtrOutput struct{ *pulumi.OutputState }
-
-func (StaticWebLayerPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**StaticWebLayer)(nil))
-}
-
-func (o StaticWebLayerPtrOutput) ToStaticWebLayerPtrOutput() StaticWebLayerPtrOutput {
-	return o
-}
-
-func (o StaticWebLayerPtrOutput) ToStaticWebLayerPtrOutputWithContext(ctx context.Context) StaticWebLayerPtrOutput {
-	return o
-}
-
-func (o StaticWebLayerPtrOutput) Elem() StaticWebLayerOutput {
-	return o.ApplyT(func(v *StaticWebLayer) StaticWebLayer {
-		if v != nil {
-			return *v
-		}
-		var ret StaticWebLayer
-		return ret
-	}).(StaticWebLayerOutput)
-}
-
 type StaticWebLayerArrayOutput struct{ *pulumi.OutputState }
 
 func (StaticWebLayerArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]StaticWebLayer)(nil))
+	return reflect.TypeOf((*[]*StaticWebLayer)(nil)).Elem()
 }
 
 func (o StaticWebLayerArrayOutput) ToStaticWebLayerArrayOutput() StaticWebLayerArrayOutput {
@@ -453,15 +390,15 @@ func (o StaticWebLayerArrayOutput) ToStaticWebLayerArrayOutputWithContext(ctx co
 }
 
 func (o StaticWebLayerArrayOutput) Index(i pulumi.IntInput) StaticWebLayerOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StaticWebLayer {
-		return vs[0].([]StaticWebLayer)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *StaticWebLayer {
+		return vs[0].([]*StaticWebLayer)[vs[1].(int)]
 	}).(StaticWebLayerOutput)
 }
 
 type StaticWebLayerMapOutput struct{ *pulumi.OutputState }
 
 func (StaticWebLayerMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]StaticWebLayer)(nil))
+	return reflect.TypeOf((*map[string]*StaticWebLayer)(nil)).Elem()
 }
 
 func (o StaticWebLayerMapOutput) ToStaticWebLayerMapOutput() StaticWebLayerMapOutput {
@@ -473,18 +410,16 @@ func (o StaticWebLayerMapOutput) ToStaticWebLayerMapOutputWithContext(ctx contex
 }
 
 func (o StaticWebLayerMapOutput) MapIndex(k pulumi.StringInput) StaticWebLayerOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) StaticWebLayer {
-		return vs[0].(map[string]StaticWebLayer)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *StaticWebLayer {
+		return vs[0].(map[string]*StaticWebLayer)[vs[1].(string)]
 	}).(StaticWebLayerOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StaticWebLayerInput)(nil)).Elem(), &StaticWebLayer{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StaticWebLayerPtrInput)(nil)).Elem(), &StaticWebLayer{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StaticWebLayerArrayInput)(nil)).Elem(), StaticWebLayerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StaticWebLayerMapInput)(nil)).Elem(), StaticWebLayerMap{})
 	pulumi.RegisterOutputType(StaticWebLayerOutput{})
-	pulumi.RegisterOutputType(StaticWebLayerPtrOutput{})
 	pulumi.RegisterOutputType(StaticWebLayerArrayOutput{})
 	pulumi.RegisterOutputType(StaticWebLayerMapOutput{})
 }

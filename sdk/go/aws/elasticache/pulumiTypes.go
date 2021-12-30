@@ -19,63 +19,6 @@ type ClusterCacheNode struct {
 	Port *int `pulumi:"port"`
 }
 
-// ClusterCacheNodeInput is an input type that accepts ClusterCacheNodeArgs and ClusterCacheNodeOutput values.
-// You can construct a concrete instance of `ClusterCacheNodeInput` via:
-//
-//          ClusterCacheNodeArgs{...}
-type ClusterCacheNodeInput interface {
-	pulumi.Input
-
-	ToClusterCacheNodeOutput() ClusterCacheNodeOutput
-	ToClusterCacheNodeOutputWithContext(context.Context) ClusterCacheNodeOutput
-}
-
-type ClusterCacheNodeArgs struct {
-	Address pulumi.StringPtrInput `pulumi:"address"`
-	// Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferredAvailabilityZones` instead. Default: System chosen Availability Zone. Changing this value will re-create the resource.
-	AvailabilityZone pulumi.StringPtrInput `pulumi:"availabilityZone"`
-	Id               pulumi.StringPtrInput `pulumi:"id"`
-	// The port number on which each of the cache nodes will accept connections. For Memcached the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replicationGroupId`. Changing this value will re-create the resource.
-	Port pulumi.IntPtrInput `pulumi:"port"`
-}
-
-func (ClusterCacheNodeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterCacheNode)(nil)).Elem()
-}
-
-func (i ClusterCacheNodeArgs) ToClusterCacheNodeOutput() ClusterCacheNodeOutput {
-	return i.ToClusterCacheNodeOutputWithContext(context.Background())
-}
-
-func (i ClusterCacheNodeArgs) ToClusterCacheNodeOutputWithContext(ctx context.Context) ClusterCacheNodeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterCacheNodeOutput)
-}
-
-// ClusterCacheNodeArrayInput is an input type that accepts ClusterCacheNodeArray and ClusterCacheNodeArrayOutput values.
-// You can construct a concrete instance of `ClusterCacheNodeArrayInput` via:
-//
-//          ClusterCacheNodeArray{ ClusterCacheNodeArgs{...} }
-type ClusterCacheNodeArrayInput interface {
-	pulumi.Input
-
-	ToClusterCacheNodeArrayOutput() ClusterCacheNodeArrayOutput
-	ToClusterCacheNodeArrayOutputWithContext(context.Context) ClusterCacheNodeArrayOutput
-}
-
-type ClusterCacheNodeArray []ClusterCacheNodeInput
-
-func (ClusterCacheNodeArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ClusterCacheNode)(nil)).Elem()
-}
-
-func (i ClusterCacheNodeArray) ToClusterCacheNodeArrayOutput() ClusterCacheNodeArrayOutput {
-	return i.ToClusterCacheNodeArrayOutputWithContext(context.Background())
-}
-
-func (i ClusterCacheNodeArray) ToClusterCacheNodeArrayOutputWithContext(ctx context.Context) ClusterCacheNodeArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterCacheNodeArrayOutput)
-}
-
 type ClusterCacheNodeOutput struct{ *pulumi.OutputState }
 
 func (ClusterCacheNodeOutput) ElementType() reflect.Type {
@@ -400,64 +343,6 @@ type GetClusterCacheNode struct {
 	Port int `pulumi:"port"`
 }
 
-// GetClusterCacheNodeInput is an input type that accepts GetClusterCacheNodeArgs and GetClusterCacheNodeOutput values.
-// You can construct a concrete instance of `GetClusterCacheNodeInput` via:
-//
-//          GetClusterCacheNodeArgs{...}
-type GetClusterCacheNodeInput interface {
-	pulumi.Input
-
-	ToGetClusterCacheNodeOutput() GetClusterCacheNodeOutput
-	ToGetClusterCacheNodeOutputWithContext(context.Context) GetClusterCacheNodeOutput
-}
-
-type GetClusterCacheNodeArgs struct {
-	Address pulumi.StringInput `pulumi:"address"`
-	// The Availability Zone for the cache cluster.
-	AvailabilityZone pulumi.StringInput `pulumi:"availabilityZone"`
-	Id               pulumi.StringInput `pulumi:"id"`
-	// The port number on which each of the cache nodes will
-	// accept connections.
-	Port pulumi.IntInput `pulumi:"port"`
-}
-
-func (GetClusterCacheNodeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetClusterCacheNode)(nil)).Elem()
-}
-
-func (i GetClusterCacheNodeArgs) ToGetClusterCacheNodeOutput() GetClusterCacheNodeOutput {
-	return i.ToGetClusterCacheNodeOutputWithContext(context.Background())
-}
-
-func (i GetClusterCacheNodeArgs) ToGetClusterCacheNodeOutputWithContext(ctx context.Context) GetClusterCacheNodeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetClusterCacheNodeOutput)
-}
-
-// GetClusterCacheNodeArrayInput is an input type that accepts GetClusterCacheNodeArray and GetClusterCacheNodeArrayOutput values.
-// You can construct a concrete instance of `GetClusterCacheNodeArrayInput` via:
-//
-//          GetClusterCacheNodeArray{ GetClusterCacheNodeArgs{...} }
-type GetClusterCacheNodeArrayInput interface {
-	pulumi.Input
-
-	ToGetClusterCacheNodeArrayOutput() GetClusterCacheNodeArrayOutput
-	ToGetClusterCacheNodeArrayOutputWithContext(context.Context) GetClusterCacheNodeArrayOutput
-}
-
-type GetClusterCacheNodeArray []GetClusterCacheNodeInput
-
-func (GetClusterCacheNodeArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetClusterCacheNode)(nil)).Elem()
-}
-
-func (i GetClusterCacheNodeArray) ToGetClusterCacheNodeArrayOutput() GetClusterCacheNodeArrayOutput {
-	return i.ToGetClusterCacheNodeArrayOutputWithContext(context.Background())
-}
-
-func (i GetClusterCacheNodeArray) ToGetClusterCacheNodeArrayOutputWithContext(ctx context.Context) GetClusterCacheNodeArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetClusterCacheNodeArrayOutput)
-}
-
 type GetClusterCacheNodeOutput struct{ *pulumi.OutputState }
 
 func (GetClusterCacheNodeOutput) ElementType() reflect.Type {
@@ -512,14 +397,10 @@ func (o GetClusterCacheNodeArrayOutput) Index(i pulumi.IntInput) GetClusterCache
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCacheNodeInput)(nil)).Elem(), ClusterCacheNodeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCacheNodeArrayInput)(nil)).Elem(), ClusterCacheNodeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ParameterGroupParameterInput)(nil)).Elem(), ParameterGroupParameterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ParameterGroupParameterArrayInput)(nil)).Elem(), ParameterGroupParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationGroupClusterModeInput)(nil)).Elem(), ReplicationGroupClusterModeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationGroupClusterModePtrInput)(nil)).Elem(), ReplicationGroupClusterModeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterCacheNodeInput)(nil)).Elem(), GetClusterCacheNodeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterCacheNodeArrayInput)(nil)).Elem(), GetClusterCacheNodeArray{})
 	pulumi.RegisterOutputType(ClusterCacheNodeOutput{})
 	pulumi.RegisterOutputType(ClusterCacheNodeArrayOutput{})
 	pulumi.RegisterOutputType(ParameterGroupParameterOutput{})

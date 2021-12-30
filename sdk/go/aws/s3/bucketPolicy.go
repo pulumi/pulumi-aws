@@ -33,6 +33,30 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
+// 		allowAccessFromAnotherAccountPolicyDocument := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+// 			Statements: iam.GetPolicyDocumentStatementArray{
+// 				&iam.GetPolicyDocumentStatementArgs{
+// 					Principals: iam.GetPolicyDocumentStatementPrincipalArray{
+// 						&iam.GetPolicyDocumentStatementPrincipalArgs{
+// 							Type: pulumi.String("AWS"),
+// 							Identifiers: pulumi.StringArray{
+// 								pulumi.String("123456789012"),
+// 							},
+// 						},
+// 					},
+// 					Actions: pulumi.StringArray{
+// 						pulumi.String("s3:GetObject"),
+// 						pulumi.String("s3:ListBucket"),
+// 					},
+// 					Resources: pulumi.StringArray{
+// 						example.Arn,
+// 						example.Arn.ApplyT(func(arn string) (string, error) {
+// 							return fmt.Sprintf("%v%v", arn, "/*"), nil
+// 						}).(pulumi.StringOutput),
+// 					},
+// 				},
+// 			},
+// 		}, nil)
 // 		_, err = s3.NewBucketPolicy(ctx, "allowAccessFromAnotherAccountBucketPolicy", &s3.BucketPolicyArgs{
 // 			Bucket: example.ID(),
 // 			Policy: allowAccessFromAnotherAccountPolicyDocument.ApplyT(func(allowAccessFromAnotherAccountPolicyDocument iam.GetPolicyDocumentResult) (string, error) {
@@ -142,7 +166,7 @@ type BucketPolicyInput interface {
 }
 
 func (*BucketPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*BucketPolicy)(nil))
+	return reflect.TypeOf((**BucketPolicy)(nil)).Elem()
 }
 
 func (i *BucketPolicy) ToBucketPolicyOutput() BucketPolicyOutput {
@@ -151,35 +175,6 @@ func (i *BucketPolicy) ToBucketPolicyOutput() BucketPolicyOutput {
 
 func (i *BucketPolicy) ToBucketPolicyOutputWithContext(ctx context.Context) BucketPolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BucketPolicyOutput)
-}
-
-func (i *BucketPolicy) ToBucketPolicyPtrOutput() BucketPolicyPtrOutput {
-	return i.ToBucketPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *BucketPolicy) ToBucketPolicyPtrOutputWithContext(ctx context.Context) BucketPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketPolicyPtrOutput)
-}
-
-type BucketPolicyPtrInput interface {
-	pulumi.Input
-
-	ToBucketPolicyPtrOutput() BucketPolicyPtrOutput
-	ToBucketPolicyPtrOutputWithContext(ctx context.Context) BucketPolicyPtrOutput
-}
-
-type bucketPolicyPtrType BucketPolicyArgs
-
-func (*bucketPolicyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BucketPolicy)(nil))
-}
-
-func (i *bucketPolicyPtrType) ToBucketPolicyPtrOutput() BucketPolicyPtrOutput {
-	return i.ToBucketPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *bucketPolicyPtrType) ToBucketPolicyPtrOutputWithContext(ctx context.Context) BucketPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketPolicyPtrOutput)
 }
 
 // BucketPolicyArrayInput is an input type that accepts BucketPolicyArray and BucketPolicyArrayOutput values.
@@ -235,7 +230,7 @@ func (i BucketPolicyMap) ToBucketPolicyMapOutputWithContext(ctx context.Context)
 type BucketPolicyOutput struct{ *pulumi.OutputState }
 
 func (BucketPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BucketPolicy)(nil))
+	return reflect.TypeOf((**BucketPolicy)(nil)).Elem()
 }
 
 func (o BucketPolicyOutput) ToBucketPolicyOutput() BucketPolicyOutput {
@@ -246,44 +241,10 @@ func (o BucketPolicyOutput) ToBucketPolicyOutputWithContext(ctx context.Context)
 	return o
 }
 
-func (o BucketPolicyOutput) ToBucketPolicyPtrOutput() BucketPolicyPtrOutput {
-	return o.ToBucketPolicyPtrOutputWithContext(context.Background())
-}
-
-func (o BucketPolicyOutput) ToBucketPolicyPtrOutputWithContext(ctx context.Context) BucketPolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketPolicy) *BucketPolicy {
-		return &v
-	}).(BucketPolicyPtrOutput)
-}
-
-type BucketPolicyPtrOutput struct{ *pulumi.OutputState }
-
-func (BucketPolicyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**BucketPolicy)(nil))
-}
-
-func (o BucketPolicyPtrOutput) ToBucketPolicyPtrOutput() BucketPolicyPtrOutput {
-	return o
-}
-
-func (o BucketPolicyPtrOutput) ToBucketPolicyPtrOutputWithContext(ctx context.Context) BucketPolicyPtrOutput {
-	return o
-}
-
-func (o BucketPolicyPtrOutput) Elem() BucketPolicyOutput {
-	return o.ApplyT(func(v *BucketPolicy) BucketPolicy {
-		if v != nil {
-			return *v
-		}
-		var ret BucketPolicy
-		return ret
-	}).(BucketPolicyOutput)
-}
-
 type BucketPolicyArrayOutput struct{ *pulumi.OutputState }
 
 func (BucketPolicyArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]BucketPolicy)(nil))
+	return reflect.TypeOf((*[]*BucketPolicy)(nil)).Elem()
 }
 
 func (o BucketPolicyArrayOutput) ToBucketPolicyArrayOutput() BucketPolicyArrayOutput {
@@ -295,15 +256,15 @@ func (o BucketPolicyArrayOutput) ToBucketPolicyArrayOutputWithContext(ctx contex
 }
 
 func (o BucketPolicyArrayOutput) Index(i pulumi.IntInput) BucketPolicyOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BucketPolicy {
-		return vs[0].([]BucketPolicy)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BucketPolicy {
+		return vs[0].([]*BucketPolicy)[vs[1].(int)]
 	}).(BucketPolicyOutput)
 }
 
 type BucketPolicyMapOutput struct{ *pulumi.OutputState }
 
 func (BucketPolicyMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]BucketPolicy)(nil))
+	return reflect.TypeOf((*map[string]*BucketPolicy)(nil)).Elem()
 }
 
 func (o BucketPolicyMapOutput) ToBucketPolicyMapOutput() BucketPolicyMapOutput {
@@ -315,18 +276,16 @@ func (o BucketPolicyMapOutput) ToBucketPolicyMapOutputWithContext(ctx context.Co
 }
 
 func (o BucketPolicyMapOutput) MapIndex(k pulumi.StringInput) BucketPolicyOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) BucketPolicy {
-		return vs[0].(map[string]BucketPolicy)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *BucketPolicy {
+		return vs[0].(map[string]*BucketPolicy)[vs[1].(string)]
 	}).(BucketPolicyOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketPolicyInput)(nil)).Elem(), &BucketPolicy{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BucketPolicyPtrInput)(nil)).Elem(), &BucketPolicy{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketPolicyArrayInput)(nil)).Elem(), BucketPolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketPolicyMapInput)(nil)).Elem(), BucketPolicyMap{})
 	pulumi.RegisterOutputType(BucketPolicyOutput{})
-	pulumi.RegisterOutputType(BucketPolicyPtrOutput{})
 	pulumi.RegisterOutputType(BucketPolicyArrayOutput{})
 	pulumi.RegisterOutputType(BucketPolicyMapOutput{})
 }

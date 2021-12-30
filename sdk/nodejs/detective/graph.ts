@@ -79,25 +79,25 @@ export class Graph extends pulumi.CustomResource {
      */
     constructor(name: string, args?: GraphArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: GraphArgs | GraphState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GraphState | undefined;
-            inputs["createdTime"] = state ? state.createdTime : undefined;
-            inputs["graphArn"] = state ? state.graphArn : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["createdTime"] = state ? state.createdTime : undefined;
+            resourceInputs["graphArn"] = state ? state.graphArn : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as GraphArgs | undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
-            inputs["createdTime"] = undefined /*out*/;
-            inputs["graphArn"] = undefined /*out*/;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
+            resourceInputs["createdTime"] = undefined /*out*/;
+            resourceInputs["graphArn"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Graph.__pulumiType, name, inputs, opts);
+        super(Graph.__pulumiType, name, resourceInputs, opts);
     }
 }
 

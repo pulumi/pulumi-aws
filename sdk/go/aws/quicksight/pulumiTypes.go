@@ -435,47 +435,6 @@ func (i DataSourceParametersArgs) ToDataSourceParametersOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(DataSourceParametersOutput)
 }
 
-func (i DataSourceParametersArgs) ToDataSourceParametersPtrOutput() DataSourceParametersPtrOutput {
-	return i.ToDataSourceParametersPtrOutputWithContext(context.Background())
-}
-
-func (i DataSourceParametersArgs) ToDataSourceParametersPtrOutputWithContext(ctx context.Context) DataSourceParametersPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSourceParametersOutput).ToDataSourceParametersPtrOutputWithContext(ctx)
-}
-
-// DataSourceParametersPtrInput is an input type that accepts DataSourceParametersArgs, DataSourceParametersPtr and DataSourceParametersPtrOutput values.
-// You can construct a concrete instance of `DataSourceParametersPtrInput` via:
-//
-//          DataSourceParametersArgs{...}
-//
-//  or:
-//
-//          nil
-type DataSourceParametersPtrInput interface {
-	pulumi.Input
-
-	ToDataSourceParametersPtrOutput() DataSourceParametersPtrOutput
-	ToDataSourceParametersPtrOutputWithContext(context.Context) DataSourceParametersPtrOutput
-}
-
-type dataSourceParametersPtrType DataSourceParametersArgs
-
-func DataSourceParametersPtr(v *DataSourceParametersArgs) DataSourceParametersPtrInput {
-	return (*dataSourceParametersPtrType)(v)
-}
-
-func (*dataSourceParametersPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataSourceParameters)(nil)).Elem()
-}
-
-func (i *dataSourceParametersPtrType) ToDataSourceParametersPtrOutput() DataSourceParametersPtrOutput {
-	return i.ToDataSourceParametersPtrOutputWithContext(context.Background())
-}
-
-func (i *dataSourceParametersPtrType) ToDataSourceParametersPtrOutputWithContext(ctx context.Context) DataSourceParametersPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DataSourceParametersPtrOutput)
-}
-
 type DataSourceParametersOutput struct{ *pulumi.OutputState }
 
 func (DataSourceParametersOutput) ElementType() reflect.Type {
@@ -488,16 +447,6 @@ func (o DataSourceParametersOutput) ToDataSourceParametersOutput() DataSourcePar
 
 func (o DataSourceParametersOutput) ToDataSourceParametersOutputWithContext(ctx context.Context) DataSourceParametersOutput {
 	return o
-}
-
-func (o DataSourceParametersOutput) ToDataSourceParametersPtrOutput() DataSourceParametersPtrOutput {
-	return o.ToDataSourceParametersPtrOutputWithContext(context.Background())
-}
-
-func (o DataSourceParametersOutput) ToDataSourceParametersPtrOutputWithContext(ctx context.Context) DataSourceParametersPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DataSourceParameters) *DataSourceParameters {
-		return &v
-	}).(DataSourceParametersPtrOutput)
 }
 
 // Parameters for connecting to Amazon Elasticsearch.
@@ -598,230 +547,6 @@ func (o DataSourceParametersOutput) Teradata() DataSourceParametersTeradataPtrOu
 // Parameters for connecting to Twitter.
 func (o DataSourceParametersOutput) Twitter() DataSourceParametersTwitterPtrOutput {
 	return o.ApplyT(func(v DataSourceParameters) *DataSourceParametersTwitter { return v.Twitter }).(DataSourceParametersTwitterPtrOutput)
-}
-
-type DataSourceParametersPtrOutput struct{ *pulumi.OutputState }
-
-func (DataSourceParametersPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DataSourceParameters)(nil)).Elem()
-}
-
-func (o DataSourceParametersPtrOutput) ToDataSourceParametersPtrOutput() DataSourceParametersPtrOutput {
-	return o
-}
-
-func (o DataSourceParametersPtrOutput) ToDataSourceParametersPtrOutputWithContext(ctx context.Context) DataSourceParametersPtrOutput {
-	return o
-}
-
-func (o DataSourceParametersPtrOutput) Elem() DataSourceParametersOutput {
-	return o.ApplyT(func(v *DataSourceParameters) DataSourceParameters {
-		if v != nil {
-			return *v
-		}
-		var ret DataSourceParameters
-		return ret
-	}).(DataSourceParametersOutput)
-}
-
-// Parameters for connecting to Amazon Elasticsearch.
-func (o DataSourceParametersPtrOutput) AmazonElasticsearch() DataSourceParametersAmazonElasticsearchPtrOutput {
-	return o.ApplyT(func(v *DataSourceParameters) *DataSourceParametersAmazonElasticsearch {
-		if v == nil {
-			return nil
-		}
-		return v.AmazonElasticsearch
-	}).(DataSourceParametersAmazonElasticsearchPtrOutput)
-}
-
-// Parameters for connecting to Athena.
-func (o DataSourceParametersPtrOutput) Athena() DataSourceParametersAthenaPtrOutput {
-	return o.ApplyT(func(v *DataSourceParameters) *DataSourceParametersAthena {
-		if v == nil {
-			return nil
-		}
-		return v.Athena
-	}).(DataSourceParametersAthenaPtrOutput)
-}
-
-// Parameters for connecting to Aurora MySQL.
-func (o DataSourceParametersPtrOutput) Aurora() DataSourceParametersAuroraPtrOutput {
-	return o.ApplyT(func(v *DataSourceParameters) *DataSourceParametersAurora {
-		if v == nil {
-			return nil
-		}
-		return v.Aurora
-	}).(DataSourceParametersAuroraPtrOutput)
-}
-
-// Parameters for connecting to Aurora Postgresql.
-func (o DataSourceParametersPtrOutput) AuroraPostgresql() DataSourceParametersAuroraPostgresqlPtrOutput {
-	return o.ApplyT(func(v *DataSourceParameters) *DataSourceParametersAuroraPostgresql {
-		if v == nil {
-			return nil
-		}
-		return v.AuroraPostgresql
-	}).(DataSourceParametersAuroraPostgresqlPtrOutput)
-}
-
-// Parameters for connecting to AWS IOT Analytics.
-func (o DataSourceParametersPtrOutput) AwsIotAnalytics() DataSourceParametersAwsIotAnalyticsPtrOutput {
-	return o.ApplyT(func(v *DataSourceParameters) *DataSourceParametersAwsIotAnalytics {
-		if v == nil {
-			return nil
-		}
-		return v.AwsIotAnalytics
-	}).(DataSourceParametersAwsIotAnalyticsPtrOutput)
-}
-
-// Parameters for connecting to Jira.
-func (o DataSourceParametersPtrOutput) Jira() DataSourceParametersJiraPtrOutput {
-	return o.ApplyT(func(v *DataSourceParameters) *DataSourceParametersJira {
-		if v == nil {
-			return nil
-		}
-		return v.Jira
-	}).(DataSourceParametersJiraPtrOutput)
-}
-
-// Parameters for connecting to MariaDB.
-func (o DataSourceParametersPtrOutput) MariaDb() DataSourceParametersMariaDbPtrOutput {
-	return o.ApplyT(func(v *DataSourceParameters) *DataSourceParametersMariaDb {
-		if v == nil {
-			return nil
-		}
-		return v.MariaDb
-	}).(DataSourceParametersMariaDbPtrOutput)
-}
-
-// Parameters for connecting to MySQL.
-func (o DataSourceParametersPtrOutput) Mysql() DataSourceParametersMysqlPtrOutput {
-	return o.ApplyT(func(v *DataSourceParameters) *DataSourceParametersMysql {
-		if v == nil {
-			return nil
-		}
-		return v.Mysql
-	}).(DataSourceParametersMysqlPtrOutput)
-}
-
-// Parameters for connecting to Oracle.
-func (o DataSourceParametersPtrOutput) Oracle() DataSourceParametersOraclePtrOutput {
-	return o.ApplyT(func(v *DataSourceParameters) *DataSourceParametersOracle {
-		if v == nil {
-			return nil
-		}
-		return v.Oracle
-	}).(DataSourceParametersOraclePtrOutput)
-}
-
-// Parameters for connecting to Postgresql.
-func (o DataSourceParametersPtrOutput) Postgresql() DataSourceParametersPostgresqlPtrOutput {
-	return o.ApplyT(func(v *DataSourceParameters) *DataSourceParametersPostgresql {
-		if v == nil {
-			return nil
-		}
-		return v.Postgresql
-	}).(DataSourceParametersPostgresqlPtrOutput)
-}
-
-// Parameters for connecting to Presto.
-func (o DataSourceParametersPtrOutput) Presto() DataSourceParametersPrestoPtrOutput {
-	return o.ApplyT(func(v *DataSourceParameters) *DataSourceParametersPresto {
-		if v == nil {
-			return nil
-		}
-		return v.Presto
-	}).(DataSourceParametersPrestoPtrOutput)
-}
-
-// Parameters for connecting to RDS.
-func (o DataSourceParametersPtrOutput) Rds() DataSourceParametersRdsPtrOutput {
-	return o.ApplyT(func(v *DataSourceParameters) *DataSourceParametersRds {
-		if v == nil {
-			return nil
-		}
-		return v.Rds
-	}).(DataSourceParametersRdsPtrOutput)
-}
-
-// Parameters for connecting to Redshift.
-func (o DataSourceParametersPtrOutput) Redshift() DataSourceParametersRedshiftPtrOutput {
-	return o.ApplyT(func(v *DataSourceParameters) *DataSourceParametersRedshift {
-		if v == nil {
-			return nil
-		}
-		return v.Redshift
-	}).(DataSourceParametersRedshiftPtrOutput)
-}
-
-// Parameters for connecting to S3.
-func (o DataSourceParametersPtrOutput) S3() DataSourceParametersS3PtrOutput {
-	return o.ApplyT(func(v *DataSourceParameters) *DataSourceParametersS3 {
-		if v == nil {
-			return nil
-		}
-		return v.S3
-	}).(DataSourceParametersS3PtrOutput)
-}
-
-// Parameters for connecting to ServiceNow.
-func (o DataSourceParametersPtrOutput) ServiceNow() DataSourceParametersServiceNowPtrOutput {
-	return o.ApplyT(func(v *DataSourceParameters) *DataSourceParametersServiceNow {
-		if v == nil {
-			return nil
-		}
-		return v.ServiceNow
-	}).(DataSourceParametersServiceNowPtrOutput)
-}
-
-// Parameters for connecting to Snowflake.
-func (o DataSourceParametersPtrOutput) Snowflake() DataSourceParametersSnowflakePtrOutput {
-	return o.ApplyT(func(v *DataSourceParameters) *DataSourceParametersSnowflake {
-		if v == nil {
-			return nil
-		}
-		return v.Snowflake
-	}).(DataSourceParametersSnowflakePtrOutput)
-}
-
-// Parameters for connecting to Spark.
-func (o DataSourceParametersPtrOutput) Spark() DataSourceParametersSparkPtrOutput {
-	return o.ApplyT(func(v *DataSourceParameters) *DataSourceParametersSpark {
-		if v == nil {
-			return nil
-		}
-		return v.Spark
-	}).(DataSourceParametersSparkPtrOutput)
-}
-
-// Parameters for connecting to SQL Server.
-func (o DataSourceParametersPtrOutput) SqlServer() DataSourceParametersSqlServerPtrOutput {
-	return o.ApplyT(func(v *DataSourceParameters) *DataSourceParametersSqlServer {
-		if v == nil {
-			return nil
-		}
-		return v.SqlServer
-	}).(DataSourceParametersSqlServerPtrOutput)
-}
-
-// Parameters for connecting to Teradata.
-func (o DataSourceParametersPtrOutput) Teradata() DataSourceParametersTeradataPtrOutput {
-	return o.ApplyT(func(v *DataSourceParameters) *DataSourceParametersTeradata {
-		if v == nil {
-			return nil
-		}
-		return v.Teradata
-	}).(DataSourceParametersTeradataPtrOutput)
-}
-
-// Parameters for connecting to Twitter.
-func (o DataSourceParametersPtrOutput) Twitter() DataSourceParametersTwitterPtrOutput {
-	return o.ApplyT(func(v *DataSourceParameters) *DataSourceParametersTwitter {
-		if v == nil {
-			return nil
-		}
-		return v.Twitter
-	}).(DataSourceParametersTwitterPtrOutput)
 }
 
 type DataSourceParametersAmazonElasticsearch struct {
@@ -4602,7 +4327,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceCredentialsCredentialPairInput)(nil)).Elem(), DataSourceCredentialsCredentialPairArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceCredentialsCredentialPairPtrInput)(nil)).Elem(), DataSourceCredentialsCredentialPairArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceParametersInput)(nil)).Elem(), DataSourceParametersArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceParametersPtrInput)(nil)).Elem(), DataSourceParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceParametersAmazonElasticsearchInput)(nil)).Elem(), DataSourceParametersAmazonElasticsearchArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceParametersAmazonElasticsearchPtrInput)(nil)).Elem(), DataSourceParametersAmazonElasticsearchArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceParametersAthenaInput)(nil)).Elem(), DataSourceParametersAthenaArgs{})
@@ -4656,7 +4380,6 @@ func init() {
 	pulumi.RegisterOutputType(DataSourceCredentialsCredentialPairOutput{})
 	pulumi.RegisterOutputType(DataSourceCredentialsCredentialPairPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceParametersOutput{})
-	pulumi.RegisterOutputType(DataSourceParametersPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceParametersAmazonElasticsearchOutput{})
 	pulumi.RegisterOutputType(DataSourceParametersAmazonElasticsearchPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceParametersAthenaOutput{})

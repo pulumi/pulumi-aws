@@ -47,47 +47,6 @@ func (i ScalingPlanApplicationSourceArgs) ToScalingPlanApplicationSourceOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ScalingPlanApplicationSourceOutput)
 }
 
-func (i ScalingPlanApplicationSourceArgs) ToScalingPlanApplicationSourcePtrOutput() ScalingPlanApplicationSourcePtrOutput {
-	return i.ToScalingPlanApplicationSourcePtrOutputWithContext(context.Background())
-}
-
-func (i ScalingPlanApplicationSourceArgs) ToScalingPlanApplicationSourcePtrOutputWithContext(ctx context.Context) ScalingPlanApplicationSourcePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ScalingPlanApplicationSourceOutput).ToScalingPlanApplicationSourcePtrOutputWithContext(ctx)
-}
-
-// ScalingPlanApplicationSourcePtrInput is an input type that accepts ScalingPlanApplicationSourceArgs, ScalingPlanApplicationSourcePtr and ScalingPlanApplicationSourcePtrOutput values.
-// You can construct a concrete instance of `ScalingPlanApplicationSourcePtrInput` via:
-//
-//          ScalingPlanApplicationSourceArgs{...}
-//
-//  or:
-//
-//          nil
-type ScalingPlanApplicationSourcePtrInput interface {
-	pulumi.Input
-
-	ToScalingPlanApplicationSourcePtrOutput() ScalingPlanApplicationSourcePtrOutput
-	ToScalingPlanApplicationSourcePtrOutputWithContext(context.Context) ScalingPlanApplicationSourcePtrOutput
-}
-
-type scalingPlanApplicationSourcePtrType ScalingPlanApplicationSourceArgs
-
-func ScalingPlanApplicationSourcePtr(v *ScalingPlanApplicationSourceArgs) ScalingPlanApplicationSourcePtrInput {
-	return (*scalingPlanApplicationSourcePtrType)(v)
-}
-
-func (*scalingPlanApplicationSourcePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ScalingPlanApplicationSource)(nil)).Elem()
-}
-
-func (i *scalingPlanApplicationSourcePtrType) ToScalingPlanApplicationSourcePtrOutput() ScalingPlanApplicationSourcePtrOutput {
-	return i.ToScalingPlanApplicationSourcePtrOutputWithContext(context.Background())
-}
-
-func (i *scalingPlanApplicationSourcePtrType) ToScalingPlanApplicationSourcePtrOutputWithContext(ctx context.Context) ScalingPlanApplicationSourcePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ScalingPlanApplicationSourcePtrOutput)
-}
-
 type ScalingPlanApplicationSourceOutput struct{ *pulumi.OutputState }
 
 func (ScalingPlanApplicationSourceOutput) ElementType() reflect.Type {
@@ -102,16 +61,6 @@ func (o ScalingPlanApplicationSourceOutput) ToScalingPlanApplicationSourceOutput
 	return o
 }
 
-func (o ScalingPlanApplicationSourceOutput) ToScalingPlanApplicationSourcePtrOutput() ScalingPlanApplicationSourcePtrOutput {
-	return o.ToScalingPlanApplicationSourcePtrOutputWithContext(context.Background())
-}
-
-func (o ScalingPlanApplicationSourceOutput) ToScalingPlanApplicationSourcePtrOutputWithContext(ctx context.Context) ScalingPlanApplicationSourcePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScalingPlanApplicationSource) *ScalingPlanApplicationSource {
-		return &v
-	}).(ScalingPlanApplicationSourcePtrOutput)
-}
-
 // The Amazon Resource Name (ARN) of a AWS CloudFormation stack.
 func (o ScalingPlanApplicationSourceOutput) CloudformationStackArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ScalingPlanApplicationSource) *string { return v.CloudformationStackArn }).(pulumi.StringPtrOutput)
@@ -120,50 +69,6 @@ func (o ScalingPlanApplicationSourceOutput) CloudformationStackArn() pulumi.Stri
 // A set of tags.
 func (o ScalingPlanApplicationSourceOutput) TagFilters() ScalingPlanApplicationSourceTagFilterArrayOutput {
 	return o.ApplyT(func(v ScalingPlanApplicationSource) []ScalingPlanApplicationSourceTagFilter { return v.TagFilters }).(ScalingPlanApplicationSourceTagFilterArrayOutput)
-}
-
-type ScalingPlanApplicationSourcePtrOutput struct{ *pulumi.OutputState }
-
-func (ScalingPlanApplicationSourcePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ScalingPlanApplicationSource)(nil)).Elem()
-}
-
-func (o ScalingPlanApplicationSourcePtrOutput) ToScalingPlanApplicationSourcePtrOutput() ScalingPlanApplicationSourcePtrOutput {
-	return o
-}
-
-func (o ScalingPlanApplicationSourcePtrOutput) ToScalingPlanApplicationSourcePtrOutputWithContext(ctx context.Context) ScalingPlanApplicationSourcePtrOutput {
-	return o
-}
-
-func (o ScalingPlanApplicationSourcePtrOutput) Elem() ScalingPlanApplicationSourceOutput {
-	return o.ApplyT(func(v *ScalingPlanApplicationSource) ScalingPlanApplicationSource {
-		if v != nil {
-			return *v
-		}
-		var ret ScalingPlanApplicationSource
-		return ret
-	}).(ScalingPlanApplicationSourceOutput)
-}
-
-// The Amazon Resource Name (ARN) of a AWS CloudFormation stack.
-func (o ScalingPlanApplicationSourcePtrOutput) CloudformationStackArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ScalingPlanApplicationSource) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CloudformationStackArn
-	}).(pulumi.StringPtrOutput)
-}
-
-// A set of tags.
-func (o ScalingPlanApplicationSourcePtrOutput) TagFilters() ScalingPlanApplicationSourceTagFilterArrayOutput {
-	return o.ApplyT(func(v *ScalingPlanApplicationSource) []ScalingPlanApplicationSourceTagFilter {
-		if v == nil {
-			return nil
-		}
-		return v.TagFilters
-	}).(ScalingPlanApplicationSourceTagFilterArrayOutput)
 }
 
 type ScalingPlanApplicationSourceTagFilter struct {
@@ -1434,7 +1339,6 @@ func (o ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalin
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ScalingPlanApplicationSourceInput)(nil)).Elem(), ScalingPlanApplicationSourceArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ScalingPlanApplicationSourcePtrInput)(nil)).Elem(), ScalingPlanApplicationSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScalingPlanApplicationSourceTagFilterInput)(nil)).Elem(), ScalingPlanApplicationSourceTagFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScalingPlanApplicationSourceTagFilterArrayInput)(nil)).Elem(), ScalingPlanApplicationSourceTagFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScalingPlanScalingInstructionInput)(nil)).Elem(), ScalingPlanScalingInstructionArgs{})
@@ -1450,7 +1354,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationInput)(nil)).Elem(), ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationPtrInput)(nil)).Elem(), ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationArgs{})
 	pulumi.RegisterOutputType(ScalingPlanApplicationSourceOutput{})
-	pulumi.RegisterOutputType(ScalingPlanApplicationSourcePtrOutput{})
 	pulumi.RegisterOutputType(ScalingPlanApplicationSourceTagFilterOutput{})
 	pulumi.RegisterOutputType(ScalingPlanApplicationSourceTagFilterArrayOutput{})
 	pulumi.RegisterOutputType(ScalingPlanScalingInstructionOutput{})

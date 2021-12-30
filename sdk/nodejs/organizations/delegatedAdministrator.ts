@@ -101,19 +101,19 @@ export class DelegatedAdministrator extends pulumi.CustomResource {
      */
     constructor(name: string, args: DelegatedAdministratorArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DelegatedAdministratorArgs | DelegatedAdministratorState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DelegatedAdministratorState | undefined;
-            inputs["accountId"] = state ? state.accountId : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["delegationEnabledDate"] = state ? state.delegationEnabledDate : undefined;
-            inputs["email"] = state ? state.email : undefined;
-            inputs["joinedMethod"] = state ? state.joinedMethod : undefined;
-            inputs["joinedTimestamp"] = state ? state.joinedTimestamp : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["servicePrincipal"] = state ? state.servicePrincipal : undefined;
-            inputs["status"] = state ? state.status : undefined;
+            resourceInputs["accountId"] = state ? state.accountId : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["delegationEnabledDate"] = state ? state.delegationEnabledDate : undefined;
+            resourceInputs["email"] = state ? state.email : undefined;
+            resourceInputs["joinedMethod"] = state ? state.joinedMethod : undefined;
+            resourceInputs["joinedTimestamp"] = state ? state.joinedTimestamp : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["servicePrincipal"] = state ? state.servicePrincipal : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
         } else {
             const args = argsOrState as DelegatedAdministratorArgs | undefined;
             if ((!args || args.accountId === undefined) && !opts.urn) {
@@ -122,20 +122,20 @@ export class DelegatedAdministrator extends pulumi.CustomResource {
             if ((!args || args.servicePrincipal === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'servicePrincipal'");
             }
-            inputs["accountId"] = args ? args.accountId : undefined;
-            inputs["servicePrincipal"] = args ? args.servicePrincipal : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["delegationEnabledDate"] = undefined /*out*/;
-            inputs["email"] = undefined /*out*/;
-            inputs["joinedMethod"] = undefined /*out*/;
-            inputs["joinedTimestamp"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
+            resourceInputs["accountId"] = args ? args.accountId : undefined;
+            resourceInputs["servicePrincipal"] = args ? args.servicePrincipal : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["delegationEnabledDate"] = undefined /*out*/;
+            resourceInputs["email"] = undefined /*out*/;
+            resourceInputs["joinedMethod"] = undefined /*out*/;
+            resourceInputs["joinedTimestamp"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(DelegatedAdministrator.__pulumiType, name, inputs, opts);
+        super(DelegatedAdministrator.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -227,69 +227,69 @@ export class Service extends pulumi.CustomResource {
      */
     constructor(name: string, args?: ServiceArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ServiceArgs | ServiceState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServiceState | undefined;
-            inputs["capacityProviderStrategies"] = state ? state.capacityProviderStrategies : undefined;
-            inputs["cluster"] = state ? state.cluster : undefined;
-            inputs["deploymentCircuitBreaker"] = state ? state.deploymentCircuitBreaker : undefined;
-            inputs["deploymentController"] = state ? state.deploymentController : undefined;
-            inputs["deploymentMaximumPercent"] = state ? state.deploymentMaximumPercent : undefined;
-            inputs["deploymentMinimumHealthyPercent"] = state ? state.deploymentMinimumHealthyPercent : undefined;
-            inputs["desiredCount"] = state ? state.desiredCount : undefined;
-            inputs["enableEcsManagedTags"] = state ? state.enableEcsManagedTags : undefined;
-            inputs["enableExecuteCommand"] = state ? state.enableExecuteCommand : undefined;
-            inputs["forceNewDeployment"] = state ? state.forceNewDeployment : undefined;
-            inputs["healthCheckGracePeriodSeconds"] = state ? state.healthCheckGracePeriodSeconds : undefined;
-            inputs["iamRole"] = state ? state.iamRole : undefined;
-            inputs["launchType"] = state ? state.launchType : undefined;
-            inputs["loadBalancers"] = state ? state.loadBalancers : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["networkConfiguration"] = state ? state.networkConfiguration : undefined;
-            inputs["orderedPlacementStrategies"] = state ? state.orderedPlacementStrategies : undefined;
-            inputs["placementConstraints"] = state ? state.placementConstraints : undefined;
-            inputs["platformVersion"] = state ? state.platformVersion : undefined;
-            inputs["propagateTags"] = state ? state.propagateTags : undefined;
-            inputs["schedulingStrategy"] = state ? state.schedulingStrategy : undefined;
-            inputs["serviceRegistries"] = state ? state.serviceRegistries : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["taskDefinition"] = state ? state.taskDefinition : undefined;
-            inputs["waitForSteadyState"] = state ? state.waitForSteadyState : undefined;
+            resourceInputs["capacityProviderStrategies"] = state ? state.capacityProviderStrategies : undefined;
+            resourceInputs["cluster"] = state ? state.cluster : undefined;
+            resourceInputs["deploymentCircuitBreaker"] = state ? state.deploymentCircuitBreaker : undefined;
+            resourceInputs["deploymentController"] = state ? state.deploymentController : undefined;
+            resourceInputs["deploymentMaximumPercent"] = state ? state.deploymentMaximumPercent : undefined;
+            resourceInputs["deploymentMinimumHealthyPercent"] = state ? state.deploymentMinimumHealthyPercent : undefined;
+            resourceInputs["desiredCount"] = state ? state.desiredCount : undefined;
+            resourceInputs["enableEcsManagedTags"] = state ? state.enableEcsManagedTags : undefined;
+            resourceInputs["enableExecuteCommand"] = state ? state.enableExecuteCommand : undefined;
+            resourceInputs["forceNewDeployment"] = state ? state.forceNewDeployment : undefined;
+            resourceInputs["healthCheckGracePeriodSeconds"] = state ? state.healthCheckGracePeriodSeconds : undefined;
+            resourceInputs["iamRole"] = state ? state.iamRole : undefined;
+            resourceInputs["launchType"] = state ? state.launchType : undefined;
+            resourceInputs["loadBalancers"] = state ? state.loadBalancers : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["networkConfiguration"] = state ? state.networkConfiguration : undefined;
+            resourceInputs["orderedPlacementStrategies"] = state ? state.orderedPlacementStrategies : undefined;
+            resourceInputs["placementConstraints"] = state ? state.placementConstraints : undefined;
+            resourceInputs["platformVersion"] = state ? state.platformVersion : undefined;
+            resourceInputs["propagateTags"] = state ? state.propagateTags : undefined;
+            resourceInputs["schedulingStrategy"] = state ? state.schedulingStrategy : undefined;
+            resourceInputs["serviceRegistries"] = state ? state.serviceRegistries : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["taskDefinition"] = state ? state.taskDefinition : undefined;
+            resourceInputs["waitForSteadyState"] = state ? state.waitForSteadyState : undefined;
         } else {
             const args = argsOrState as ServiceArgs | undefined;
-            inputs["capacityProviderStrategies"] = args ? args.capacityProviderStrategies : undefined;
-            inputs["cluster"] = args ? args.cluster : undefined;
-            inputs["deploymentCircuitBreaker"] = args ? args.deploymentCircuitBreaker : undefined;
-            inputs["deploymentController"] = args ? args.deploymentController : undefined;
-            inputs["deploymentMaximumPercent"] = args ? args.deploymentMaximumPercent : undefined;
-            inputs["deploymentMinimumHealthyPercent"] = args ? args.deploymentMinimumHealthyPercent : undefined;
-            inputs["desiredCount"] = args ? args.desiredCount : undefined;
-            inputs["enableEcsManagedTags"] = args ? args.enableEcsManagedTags : undefined;
-            inputs["enableExecuteCommand"] = args ? args.enableExecuteCommand : undefined;
-            inputs["forceNewDeployment"] = args ? args.forceNewDeployment : undefined;
-            inputs["healthCheckGracePeriodSeconds"] = args ? args.healthCheckGracePeriodSeconds : undefined;
-            inputs["iamRole"] = args ? args.iamRole : undefined;
-            inputs["launchType"] = args ? args.launchType : undefined;
-            inputs["loadBalancers"] = args ? args.loadBalancers : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["networkConfiguration"] = args ? args.networkConfiguration : undefined;
-            inputs["orderedPlacementStrategies"] = args ? args.orderedPlacementStrategies : undefined;
-            inputs["placementConstraints"] = args ? args.placementConstraints : undefined;
-            inputs["platformVersion"] = args ? args.platformVersion : undefined;
-            inputs["propagateTags"] = args ? args.propagateTags : undefined;
-            inputs["schedulingStrategy"] = args ? args.schedulingStrategy : undefined;
-            inputs["serviceRegistries"] = args ? args.serviceRegistries : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["taskDefinition"] = args ? args.taskDefinition : undefined;
-            inputs["waitForSteadyState"] = args ? args.waitForSteadyState : undefined;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["capacityProviderStrategies"] = args ? args.capacityProviderStrategies : undefined;
+            resourceInputs["cluster"] = args ? args.cluster : undefined;
+            resourceInputs["deploymentCircuitBreaker"] = args ? args.deploymentCircuitBreaker : undefined;
+            resourceInputs["deploymentController"] = args ? args.deploymentController : undefined;
+            resourceInputs["deploymentMaximumPercent"] = args ? args.deploymentMaximumPercent : undefined;
+            resourceInputs["deploymentMinimumHealthyPercent"] = args ? args.deploymentMinimumHealthyPercent : undefined;
+            resourceInputs["desiredCount"] = args ? args.desiredCount : undefined;
+            resourceInputs["enableEcsManagedTags"] = args ? args.enableEcsManagedTags : undefined;
+            resourceInputs["enableExecuteCommand"] = args ? args.enableExecuteCommand : undefined;
+            resourceInputs["forceNewDeployment"] = args ? args.forceNewDeployment : undefined;
+            resourceInputs["healthCheckGracePeriodSeconds"] = args ? args.healthCheckGracePeriodSeconds : undefined;
+            resourceInputs["iamRole"] = args ? args.iamRole : undefined;
+            resourceInputs["launchType"] = args ? args.launchType : undefined;
+            resourceInputs["loadBalancers"] = args ? args.loadBalancers : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["networkConfiguration"] = args ? args.networkConfiguration : undefined;
+            resourceInputs["orderedPlacementStrategies"] = args ? args.orderedPlacementStrategies : undefined;
+            resourceInputs["placementConstraints"] = args ? args.placementConstraints : undefined;
+            resourceInputs["platformVersion"] = args ? args.platformVersion : undefined;
+            resourceInputs["propagateTags"] = args ? args.propagateTags : undefined;
+            resourceInputs["schedulingStrategy"] = args ? args.schedulingStrategy : undefined;
+            resourceInputs["serviceRegistries"] = args ? args.serviceRegistries : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["taskDefinition"] = args ? args.taskDefinition : undefined;
+            resourceInputs["waitForSteadyState"] = args ? args.waitForSteadyState : undefined;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Service.__pulumiType, name, inputs, opts);
+        super(Service.__pulumiType, name, resourceInputs, opts);
     }
 }
 

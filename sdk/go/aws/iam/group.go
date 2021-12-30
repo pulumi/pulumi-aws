@@ -136,7 +136,7 @@ type GroupInput interface {
 }
 
 func (*Group) ElementType() reflect.Type {
-	return reflect.TypeOf((*Group)(nil))
+	return reflect.TypeOf((**Group)(nil)).Elem()
 }
 
 func (i *Group) ToGroupOutput() GroupOutput {
@@ -145,35 +145,6 @@ func (i *Group) ToGroupOutput() GroupOutput {
 
 func (i *Group) ToGroupOutputWithContext(ctx context.Context) GroupOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GroupOutput)
-}
-
-func (i *Group) ToGroupPtrOutput() GroupPtrOutput {
-	return i.ToGroupPtrOutputWithContext(context.Background())
-}
-
-func (i *Group) ToGroupPtrOutputWithContext(ctx context.Context) GroupPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GroupPtrOutput)
-}
-
-type GroupPtrInput interface {
-	pulumi.Input
-
-	ToGroupPtrOutput() GroupPtrOutput
-	ToGroupPtrOutputWithContext(ctx context.Context) GroupPtrOutput
-}
-
-type groupPtrType GroupArgs
-
-func (*groupPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Group)(nil))
-}
-
-func (i *groupPtrType) ToGroupPtrOutput() GroupPtrOutput {
-	return i.ToGroupPtrOutputWithContext(context.Background())
-}
-
-func (i *groupPtrType) ToGroupPtrOutputWithContext(ctx context.Context) GroupPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GroupPtrOutput)
 }
 
 // GroupArrayInput is an input type that accepts GroupArray and GroupArrayOutput values.
@@ -229,7 +200,7 @@ func (i GroupMap) ToGroupMapOutputWithContext(ctx context.Context) GroupMapOutpu
 type GroupOutput struct{ *pulumi.OutputState }
 
 func (GroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Group)(nil))
+	return reflect.TypeOf((**Group)(nil)).Elem()
 }
 
 func (o GroupOutput) ToGroupOutput() GroupOutput {
@@ -240,44 +211,10 @@ func (o GroupOutput) ToGroupOutputWithContext(ctx context.Context) GroupOutput {
 	return o
 }
 
-func (o GroupOutput) ToGroupPtrOutput() GroupPtrOutput {
-	return o.ToGroupPtrOutputWithContext(context.Background())
-}
-
-func (o GroupOutput) ToGroupPtrOutputWithContext(ctx context.Context) GroupPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Group) *Group {
-		return &v
-	}).(GroupPtrOutput)
-}
-
-type GroupPtrOutput struct{ *pulumi.OutputState }
-
-func (GroupPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Group)(nil))
-}
-
-func (o GroupPtrOutput) ToGroupPtrOutput() GroupPtrOutput {
-	return o
-}
-
-func (o GroupPtrOutput) ToGroupPtrOutputWithContext(ctx context.Context) GroupPtrOutput {
-	return o
-}
-
-func (o GroupPtrOutput) Elem() GroupOutput {
-	return o.ApplyT(func(v *Group) Group {
-		if v != nil {
-			return *v
-		}
-		var ret Group
-		return ret
-	}).(GroupOutput)
-}
-
 type GroupArrayOutput struct{ *pulumi.OutputState }
 
 func (GroupArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Group)(nil))
+	return reflect.TypeOf((*[]*Group)(nil)).Elem()
 }
 
 func (o GroupArrayOutput) ToGroupArrayOutput() GroupArrayOutput {
@@ -289,15 +226,15 @@ func (o GroupArrayOutput) ToGroupArrayOutputWithContext(ctx context.Context) Gro
 }
 
 func (o GroupArrayOutput) Index(i pulumi.IntInput) GroupOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Group {
-		return vs[0].([]Group)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Group {
+		return vs[0].([]*Group)[vs[1].(int)]
 	}).(GroupOutput)
 }
 
 type GroupMapOutput struct{ *pulumi.OutputState }
 
 func (GroupMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Group)(nil))
+	return reflect.TypeOf((*map[string]*Group)(nil)).Elem()
 }
 
 func (o GroupMapOutput) ToGroupMapOutput() GroupMapOutput {
@@ -309,18 +246,16 @@ func (o GroupMapOutput) ToGroupMapOutputWithContext(ctx context.Context) GroupMa
 }
 
 func (o GroupMapOutput) MapIndex(k pulumi.StringInput) GroupOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Group {
-		return vs[0].(map[string]Group)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Group {
+		return vs[0].(map[string]*Group)[vs[1].(string)]
 	}).(GroupOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupInput)(nil)).Elem(), &Group{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GroupPtrInput)(nil)).Elem(), &Group{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupArrayInput)(nil)).Elem(), GroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupMapInput)(nil)).Elem(), GroupMap{})
 	pulumi.RegisterOutputType(GroupOutput{})
-	pulumi.RegisterOutputType(GroupPtrOutput{})
 	pulumi.RegisterOutputType(GroupArrayOutput{})
 	pulumi.RegisterOutputType(GroupMapOutput{})
 }

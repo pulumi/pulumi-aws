@@ -71,26 +71,26 @@ export class Resource extends pulumi.CustomResource {
      */
     constructor(name: string, args: ResourceArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ResourceArgs | ResourceState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ResourceState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["lastModified"] = state ? state.lastModified : undefined;
-            inputs["roleArn"] = state ? state.roleArn : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["lastModified"] = state ? state.lastModified : undefined;
+            resourceInputs["roleArn"] = state ? state.roleArn : undefined;
         } else {
             const args = argsOrState as ResourceArgs | undefined;
             if ((!args || args.arn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'arn'");
             }
-            inputs["arn"] = args ? args.arn : undefined;
-            inputs["roleArn"] = args ? args.roleArn : undefined;
-            inputs["lastModified"] = undefined /*out*/;
+            resourceInputs["arn"] = args ? args.arn : undefined;
+            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["lastModified"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Resource.__pulumiType, name, inputs, opts);
+        super(Resource.__pulumiType, name, resourceInputs, opts);
     }
 }
 

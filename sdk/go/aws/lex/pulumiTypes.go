@@ -55,47 +55,6 @@ func (i BotAbortStatementArgs) ToBotAbortStatementOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(BotAbortStatementOutput)
 }
 
-func (i BotAbortStatementArgs) ToBotAbortStatementPtrOutput() BotAbortStatementPtrOutput {
-	return i.ToBotAbortStatementPtrOutputWithContext(context.Background())
-}
-
-func (i BotAbortStatementArgs) ToBotAbortStatementPtrOutputWithContext(ctx context.Context) BotAbortStatementPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BotAbortStatementOutput).ToBotAbortStatementPtrOutputWithContext(ctx)
-}
-
-// BotAbortStatementPtrInput is an input type that accepts BotAbortStatementArgs, BotAbortStatementPtr and BotAbortStatementPtrOutput values.
-// You can construct a concrete instance of `BotAbortStatementPtrInput` via:
-//
-//          BotAbortStatementArgs{...}
-//
-//  or:
-//
-//          nil
-type BotAbortStatementPtrInput interface {
-	pulumi.Input
-
-	ToBotAbortStatementPtrOutput() BotAbortStatementPtrOutput
-	ToBotAbortStatementPtrOutputWithContext(context.Context) BotAbortStatementPtrOutput
-}
-
-type botAbortStatementPtrType BotAbortStatementArgs
-
-func BotAbortStatementPtr(v *BotAbortStatementArgs) BotAbortStatementPtrInput {
-	return (*botAbortStatementPtrType)(v)
-}
-
-func (*botAbortStatementPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BotAbortStatement)(nil)).Elem()
-}
-
-func (i *botAbortStatementPtrType) ToBotAbortStatementPtrOutput() BotAbortStatementPtrOutput {
-	return i.ToBotAbortStatementPtrOutputWithContext(context.Background())
-}
-
-func (i *botAbortStatementPtrType) ToBotAbortStatementPtrOutputWithContext(ctx context.Context) BotAbortStatementPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BotAbortStatementPtrOutput)
-}
-
 type BotAbortStatementOutput struct{ *pulumi.OutputState }
 
 func (BotAbortStatementOutput) ElementType() reflect.Type {
@@ -110,16 +69,6 @@ func (o BotAbortStatementOutput) ToBotAbortStatementOutputWithContext(ctx contex
 	return o
 }
 
-func (o BotAbortStatementOutput) ToBotAbortStatementPtrOutput() BotAbortStatementPtrOutput {
-	return o.ToBotAbortStatementPtrOutputWithContext(context.Background())
-}
-
-func (o BotAbortStatementOutput) ToBotAbortStatementPtrOutputWithContext(ctx context.Context) BotAbortStatementPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BotAbortStatement) *BotAbortStatement {
-		return &v
-	}).(BotAbortStatementPtrOutput)
-}
-
 // A set of messages, each of which provides a message string and its type. You
 // can specify the message string in plain text or in Speech Synthesis Markup Language (SSML). Attributes
 // are documented under message.
@@ -132,54 +81,6 @@ func (o BotAbortStatementOutput) Messages() BotAbortStatementMessageArrayOutput 
 // [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
 func (o BotAbortStatementOutput) ResponseCard() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BotAbortStatement) *string { return v.ResponseCard }).(pulumi.StringPtrOutput)
-}
-
-type BotAbortStatementPtrOutput struct{ *pulumi.OutputState }
-
-func (BotAbortStatementPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**BotAbortStatement)(nil)).Elem()
-}
-
-func (o BotAbortStatementPtrOutput) ToBotAbortStatementPtrOutput() BotAbortStatementPtrOutput {
-	return o
-}
-
-func (o BotAbortStatementPtrOutput) ToBotAbortStatementPtrOutputWithContext(ctx context.Context) BotAbortStatementPtrOutput {
-	return o
-}
-
-func (o BotAbortStatementPtrOutput) Elem() BotAbortStatementOutput {
-	return o.ApplyT(func(v *BotAbortStatement) BotAbortStatement {
-		if v != nil {
-			return *v
-		}
-		var ret BotAbortStatement
-		return ret
-	}).(BotAbortStatementOutput)
-}
-
-// A set of messages, each of which provides a message string and its type. You
-// can specify the message string in plain text or in Speech Synthesis Markup Language (SSML). Attributes
-// are documented under message.
-func (o BotAbortStatementPtrOutput) Messages() BotAbortStatementMessageArrayOutput {
-	return o.ApplyT(func(v *BotAbortStatement) []BotAbortStatementMessage {
-		if v == nil {
-			return nil
-		}
-		return v.Messages
-	}).(BotAbortStatementMessageArrayOutput)
-}
-
-// The response card. Amazon Lex will substitute session attributes and
-// slot values into the response card. For more information, see
-// [Example: Using a Response Card](https://docs.aws.amazon.com/lex/latest/dg/ex-resp-card.html).
-func (o BotAbortStatementPtrOutput) ResponseCard() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *BotAbortStatement) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ResponseCard
-	}).(pulumi.StringPtrOutput)
 }
 
 type BotAbortStatementMessage struct {
@@ -2573,47 +2474,6 @@ func (i IntentFulfillmentActivityArgs) ToIntentFulfillmentActivityOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(IntentFulfillmentActivityOutput)
 }
 
-func (i IntentFulfillmentActivityArgs) ToIntentFulfillmentActivityPtrOutput() IntentFulfillmentActivityPtrOutput {
-	return i.ToIntentFulfillmentActivityPtrOutputWithContext(context.Background())
-}
-
-func (i IntentFulfillmentActivityArgs) ToIntentFulfillmentActivityPtrOutputWithContext(ctx context.Context) IntentFulfillmentActivityPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IntentFulfillmentActivityOutput).ToIntentFulfillmentActivityPtrOutputWithContext(ctx)
-}
-
-// IntentFulfillmentActivityPtrInput is an input type that accepts IntentFulfillmentActivityArgs, IntentFulfillmentActivityPtr and IntentFulfillmentActivityPtrOutput values.
-// You can construct a concrete instance of `IntentFulfillmentActivityPtrInput` via:
-//
-//          IntentFulfillmentActivityArgs{...}
-//
-//  or:
-//
-//          nil
-type IntentFulfillmentActivityPtrInput interface {
-	pulumi.Input
-
-	ToIntentFulfillmentActivityPtrOutput() IntentFulfillmentActivityPtrOutput
-	ToIntentFulfillmentActivityPtrOutputWithContext(context.Context) IntentFulfillmentActivityPtrOutput
-}
-
-type intentFulfillmentActivityPtrType IntentFulfillmentActivityArgs
-
-func IntentFulfillmentActivityPtr(v *IntentFulfillmentActivityArgs) IntentFulfillmentActivityPtrInput {
-	return (*intentFulfillmentActivityPtrType)(v)
-}
-
-func (*intentFulfillmentActivityPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**IntentFulfillmentActivity)(nil)).Elem()
-}
-
-func (i *intentFulfillmentActivityPtrType) ToIntentFulfillmentActivityPtrOutput() IntentFulfillmentActivityPtrOutput {
-	return i.ToIntentFulfillmentActivityPtrOutputWithContext(context.Background())
-}
-
-func (i *intentFulfillmentActivityPtrType) ToIntentFulfillmentActivityPtrOutputWithContext(ctx context.Context) IntentFulfillmentActivityPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IntentFulfillmentActivityPtrOutput)
-}
-
 type IntentFulfillmentActivityOutput struct{ *pulumi.OutputState }
 
 func (IntentFulfillmentActivityOutput) ElementType() reflect.Type {
@@ -2628,16 +2488,6 @@ func (o IntentFulfillmentActivityOutput) ToIntentFulfillmentActivityOutputWithCo
 	return o
 }
 
-func (o IntentFulfillmentActivityOutput) ToIntentFulfillmentActivityPtrOutput() IntentFulfillmentActivityPtrOutput {
-	return o.ToIntentFulfillmentActivityPtrOutputWithContext(context.Background())
-}
-
-func (o IntentFulfillmentActivityOutput) ToIntentFulfillmentActivityPtrOutputWithContext(ctx context.Context) IntentFulfillmentActivityPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntentFulfillmentActivity) *IntentFulfillmentActivity {
-		return &v
-	}).(IntentFulfillmentActivityPtrOutput)
-}
-
 // A description of the Lambda function that is run to fulfill the intent.
 // Required if type is CodeHook. Attributes are documented under code_hook.
 func (o IntentFulfillmentActivityOutput) CodeHook() IntentFulfillmentActivityCodeHookPtrOutput {
@@ -2648,52 +2498,6 @@ func (o IntentFulfillmentActivityOutput) CodeHook() IntentFulfillmentActivityCod
 // returning the slot data to the client application.
 func (o IntentFulfillmentActivityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v IntentFulfillmentActivity) string { return v.Type }).(pulumi.StringOutput)
-}
-
-type IntentFulfillmentActivityPtrOutput struct{ *pulumi.OutputState }
-
-func (IntentFulfillmentActivityPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**IntentFulfillmentActivity)(nil)).Elem()
-}
-
-func (o IntentFulfillmentActivityPtrOutput) ToIntentFulfillmentActivityPtrOutput() IntentFulfillmentActivityPtrOutput {
-	return o
-}
-
-func (o IntentFulfillmentActivityPtrOutput) ToIntentFulfillmentActivityPtrOutputWithContext(ctx context.Context) IntentFulfillmentActivityPtrOutput {
-	return o
-}
-
-func (o IntentFulfillmentActivityPtrOutput) Elem() IntentFulfillmentActivityOutput {
-	return o.ApplyT(func(v *IntentFulfillmentActivity) IntentFulfillmentActivity {
-		if v != nil {
-			return *v
-		}
-		var ret IntentFulfillmentActivity
-		return ret
-	}).(IntentFulfillmentActivityOutput)
-}
-
-// A description of the Lambda function that is run to fulfill the intent.
-// Required if type is CodeHook. Attributes are documented under code_hook.
-func (o IntentFulfillmentActivityPtrOutput) CodeHook() IntentFulfillmentActivityCodeHookPtrOutput {
-	return o.ApplyT(func(v *IntentFulfillmentActivity) *IntentFulfillmentActivityCodeHook {
-		if v == nil {
-			return nil
-		}
-		return v.CodeHook
-	}).(IntentFulfillmentActivityCodeHookPtrOutput)
-}
-
-// How the intent should be fulfilled, either by running a Lambda function or by
-// returning the slot data to the client application.
-func (o IntentFulfillmentActivityPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *IntentFulfillmentActivity) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Type
-	}).(pulumi.StringPtrOutput)
 }
 
 type IntentFulfillmentActivityCodeHook struct {
@@ -3766,59 +3570,6 @@ type GetSlotTypeEnumerationValue struct {
 	Value    string   `pulumi:"value"`
 }
 
-// GetSlotTypeEnumerationValueInput is an input type that accepts GetSlotTypeEnumerationValueArgs and GetSlotTypeEnumerationValueOutput values.
-// You can construct a concrete instance of `GetSlotTypeEnumerationValueInput` via:
-//
-//          GetSlotTypeEnumerationValueArgs{...}
-type GetSlotTypeEnumerationValueInput interface {
-	pulumi.Input
-
-	ToGetSlotTypeEnumerationValueOutput() GetSlotTypeEnumerationValueOutput
-	ToGetSlotTypeEnumerationValueOutputWithContext(context.Context) GetSlotTypeEnumerationValueOutput
-}
-
-type GetSlotTypeEnumerationValueArgs struct {
-	Synonyms pulumi.StringArrayInput `pulumi:"synonyms"`
-	Value    pulumi.StringInput      `pulumi:"value"`
-}
-
-func (GetSlotTypeEnumerationValueArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetSlotTypeEnumerationValue)(nil)).Elem()
-}
-
-func (i GetSlotTypeEnumerationValueArgs) ToGetSlotTypeEnumerationValueOutput() GetSlotTypeEnumerationValueOutput {
-	return i.ToGetSlotTypeEnumerationValueOutputWithContext(context.Background())
-}
-
-func (i GetSlotTypeEnumerationValueArgs) ToGetSlotTypeEnumerationValueOutputWithContext(ctx context.Context) GetSlotTypeEnumerationValueOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetSlotTypeEnumerationValueOutput)
-}
-
-// GetSlotTypeEnumerationValueArrayInput is an input type that accepts GetSlotTypeEnumerationValueArray and GetSlotTypeEnumerationValueArrayOutput values.
-// You can construct a concrete instance of `GetSlotTypeEnumerationValueArrayInput` via:
-//
-//          GetSlotTypeEnumerationValueArray{ GetSlotTypeEnumerationValueArgs{...} }
-type GetSlotTypeEnumerationValueArrayInput interface {
-	pulumi.Input
-
-	ToGetSlotTypeEnumerationValueArrayOutput() GetSlotTypeEnumerationValueArrayOutput
-	ToGetSlotTypeEnumerationValueArrayOutputWithContext(context.Context) GetSlotTypeEnumerationValueArrayOutput
-}
-
-type GetSlotTypeEnumerationValueArray []GetSlotTypeEnumerationValueInput
-
-func (GetSlotTypeEnumerationValueArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetSlotTypeEnumerationValue)(nil)).Elem()
-}
-
-func (i GetSlotTypeEnumerationValueArray) ToGetSlotTypeEnumerationValueArrayOutput() GetSlotTypeEnumerationValueArrayOutput {
-	return i.ToGetSlotTypeEnumerationValueArrayOutputWithContext(context.Background())
-}
-
-func (i GetSlotTypeEnumerationValueArray) ToGetSlotTypeEnumerationValueArrayOutputWithContext(ctx context.Context) GetSlotTypeEnumerationValueArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetSlotTypeEnumerationValueArrayOutput)
-}
-
 type GetSlotTypeEnumerationValueOutput struct{ *pulumi.OutputState }
 
 func (GetSlotTypeEnumerationValueOutput) ElementType() reflect.Type {
@@ -3863,7 +3614,6 @@ func (o GetSlotTypeEnumerationValueArrayOutput) Index(i pulumi.IntInput) GetSlot
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BotAbortStatementInput)(nil)).Elem(), BotAbortStatementArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BotAbortStatementPtrInput)(nil)).Elem(), BotAbortStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotAbortStatementMessageInput)(nil)).Elem(), BotAbortStatementMessageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotAbortStatementMessageArrayInput)(nil)).Elem(), BotAbortStatementMessageArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BotAliasConversationLogsInput)(nil)).Elem(), BotAliasConversationLogsArgs{})
@@ -3897,7 +3647,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IntentFollowUpPromptRejectionStatementMessageInput)(nil)).Elem(), IntentFollowUpPromptRejectionStatementMessageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntentFollowUpPromptRejectionStatementMessageArrayInput)(nil)).Elem(), IntentFollowUpPromptRejectionStatementMessageArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntentFulfillmentActivityInput)(nil)).Elem(), IntentFulfillmentActivityArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*IntentFulfillmentActivityPtrInput)(nil)).Elem(), IntentFulfillmentActivityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntentFulfillmentActivityCodeHookInput)(nil)).Elem(), IntentFulfillmentActivityCodeHookArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntentFulfillmentActivityCodeHookPtrInput)(nil)).Elem(), IntentFulfillmentActivityCodeHookArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntentRejectionStatementInput)(nil)).Elem(), IntentRejectionStatementArgs{})
@@ -3912,10 +3661,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IntentSlotValueElicitationPromptMessageArrayInput)(nil)).Elem(), IntentSlotValueElicitationPromptMessageArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SlotTypeEnumerationValueInput)(nil)).Elem(), SlotTypeEnumerationValueArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SlotTypeEnumerationValueArrayInput)(nil)).Elem(), SlotTypeEnumerationValueArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetSlotTypeEnumerationValueInput)(nil)).Elem(), GetSlotTypeEnumerationValueArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetSlotTypeEnumerationValueArrayInput)(nil)).Elem(), GetSlotTypeEnumerationValueArray{})
 	pulumi.RegisterOutputType(BotAbortStatementOutput{})
-	pulumi.RegisterOutputType(BotAbortStatementPtrOutput{})
 	pulumi.RegisterOutputType(BotAbortStatementMessageOutput{})
 	pulumi.RegisterOutputType(BotAbortStatementMessageArrayOutput{})
 	pulumi.RegisterOutputType(BotAliasConversationLogsOutput{})
@@ -3949,7 +3695,6 @@ func init() {
 	pulumi.RegisterOutputType(IntentFollowUpPromptRejectionStatementMessageOutput{})
 	pulumi.RegisterOutputType(IntentFollowUpPromptRejectionStatementMessageArrayOutput{})
 	pulumi.RegisterOutputType(IntentFulfillmentActivityOutput{})
-	pulumi.RegisterOutputType(IntentFulfillmentActivityPtrOutput{})
 	pulumi.RegisterOutputType(IntentFulfillmentActivityCodeHookOutput{})
 	pulumi.RegisterOutputType(IntentFulfillmentActivityCodeHookPtrOutput{})
 	pulumi.RegisterOutputType(IntentRejectionStatementOutput{})

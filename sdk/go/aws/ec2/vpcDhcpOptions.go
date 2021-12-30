@@ -231,7 +231,7 @@ type VpcDhcpOptionsInput interface {
 }
 
 func (*VpcDhcpOptions) ElementType() reflect.Type {
-	return reflect.TypeOf((*VpcDhcpOptions)(nil))
+	return reflect.TypeOf((**VpcDhcpOptions)(nil)).Elem()
 }
 
 func (i *VpcDhcpOptions) ToVpcDhcpOptionsOutput() VpcDhcpOptionsOutput {
@@ -240,35 +240,6 @@ func (i *VpcDhcpOptions) ToVpcDhcpOptionsOutput() VpcDhcpOptionsOutput {
 
 func (i *VpcDhcpOptions) ToVpcDhcpOptionsOutputWithContext(ctx context.Context) VpcDhcpOptionsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VpcDhcpOptionsOutput)
-}
-
-func (i *VpcDhcpOptions) ToVpcDhcpOptionsPtrOutput() VpcDhcpOptionsPtrOutput {
-	return i.ToVpcDhcpOptionsPtrOutputWithContext(context.Background())
-}
-
-func (i *VpcDhcpOptions) ToVpcDhcpOptionsPtrOutputWithContext(ctx context.Context) VpcDhcpOptionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VpcDhcpOptionsPtrOutput)
-}
-
-type VpcDhcpOptionsPtrInput interface {
-	pulumi.Input
-
-	ToVpcDhcpOptionsPtrOutput() VpcDhcpOptionsPtrOutput
-	ToVpcDhcpOptionsPtrOutputWithContext(ctx context.Context) VpcDhcpOptionsPtrOutput
-}
-
-type vpcDhcpOptionsPtrType VpcDhcpOptionsArgs
-
-func (*vpcDhcpOptionsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VpcDhcpOptions)(nil))
-}
-
-func (i *vpcDhcpOptionsPtrType) ToVpcDhcpOptionsPtrOutput() VpcDhcpOptionsPtrOutput {
-	return i.ToVpcDhcpOptionsPtrOutputWithContext(context.Background())
-}
-
-func (i *vpcDhcpOptionsPtrType) ToVpcDhcpOptionsPtrOutputWithContext(ctx context.Context) VpcDhcpOptionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VpcDhcpOptionsPtrOutput)
 }
 
 // VpcDhcpOptionsArrayInput is an input type that accepts VpcDhcpOptionsArray and VpcDhcpOptionsArrayOutput values.
@@ -324,7 +295,7 @@ func (i VpcDhcpOptionsMap) ToVpcDhcpOptionsMapOutputWithContext(ctx context.Cont
 type VpcDhcpOptionsOutput struct{ *pulumi.OutputState }
 
 func (VpcDhcpOptionsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VpcDhcpOptions)(nil))
+	return reflect.TypeOf((**VpcDhcpOptions)(nil)).Elem()
 }
 
 func (o VpcDhcpOptionsOutput) ToVpcDhcpOptionsOutput() VpcDhcpOptionsOutput {
@@ -335,44 +306,10 @@ func (o VpcDhcpOptionsOutput) ToVpcDhcpOptionsOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o VpcDhcpOptionsOutput) ToVpcDhcpOptionsPtrOutput() VpcDhcpOptionsPtrOutput {
-	return o.ToVpcDhcpOptionsPtrOutputWithContext(context.Background())
-}
-
-func (o VpcDhcpOptionsOutput) ToVpcDhcpOptionsPtrOutputWithContext(ctx context.Context) VpcDhcpOptionsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpcDhcpOptions) *VpcDhcpOptions {
-		return &v
-	}).(VpcDhcpOptionsPtrOutput)
-}
-
-type VpcDhcpOptionsPtrOutput struct{ *pulumi.OutputState }
-
-func (VpcDhcpOptionsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VpcDhcpOptions)(nil))
-}
-
-func (o VpcDhcpOptionsPtrOutput) ToVpcDhcpOptionsPtrOutput() VpcDhcpOptionsPtrOutput {
-	return o
-}
-
-func (o VpcDhcpOptionsPtrOutput) ToVpcDhcpOptionsPtrOutputWithContext(ctx context.Context) VpcDhcpOptionsPtrOutput {
-	return o
-}
-
-func (o VpcDhcpOptionsPtrOutput) Elem() VpcDhcpOptionsOutput {
-	return o.ApplyT(func(v *VpcDhcpOptions) VpcDhcpOptions {
-		if v != nil {
-			return *v
-		}
-		var ret VpcDhcpOptions
-		return ret
-	}).(VpcDhcpOptionsOutput)
-}
-
 type VpcDhcpOptionsArrayOutput struct{ *pulumi.OutputState }
 
 func (VpcDhcpOptionsArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VpcDhcpOptions)(nil))
+	return reflect.TypeOf((*[]*VpcDhcpOptions)(nil)).Elem()
 }
 
 func (o VpcDhcpOptionsArrayOutput) ToVpcDhcpOptionsArrayOutput() VpcDhcpOptionsArrayOutput {
@@ -384,15 +321,15 @@ func (o VpcDhcpOptionsArrayOutput) ToVpcDhcpOptionsArrayOutputWithContext(ctx co
 }
 
 func (o VpcDhcpOptionsArrayOutput) Index(i pulumi.IntInput) VpcDhcpOptionsOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VpcDhcpOptions {
-		return vs[0].([]VpcDhcpOptions)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VpcDhcpOptions {
+		return vs[0].([]*VpcDhcpOptions)[vs[1].(int)]
 	}).(VpcDhcpOptionsOutput)
 }
 
 type VpcDhcpOptionsMapOutput struct{ *pulumi.OutputState }
 
 func (VpcDhcpOptionsMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]VpcDhcpOptions)(nil))
+	return reflect.TypeOf((*map[string]*VpcDhcpOptions)(nil)).Elem()
 }
 
 func (o VpcDhcpOptionsMapOutput) ToVpcDhcpOptionsMapOutput() VpcDhcpOptionsMapOutput {
@@ -404,18 +341,16 @@ func (o VpcDhcpOptionsMapOutput) ToVpcDhcpOptionsMapOutputWithContext(ctx contex
 }
 
 func (o VpcDhcpOptionsMapOutput) MapIndex(k pulumi.StringInput) VpcDhcpOptionsOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) VpcDhcpOptions {
-		return vs[0].(map[string]VpcDhcpOptions)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *VpcDhcpOptions {
+		return vs[0].(map[string]*VpcDhcpOptions)[vs[1].(string)]
 	}).(VpcDhcpOptionsOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcDhcpOptionsInput)(nil)).Elem(), &VpcDhcpOptions{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VpcDhcpOptionsPtrInput)(nil)).Elem(), &VpcDhcpOptions{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcDhcpOptionsArrayInput)(nil)).Elem(), VpcDhcpOptionsArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcDhcpOptionsMapInput)(nil)).Elem(), VpcDhcpOptionsMap{})
 	pulumi.RegisterOutputType(VpcDhcpOptionsOutput{})
-	pulumi.RegisterOutputType(VpcDhcpOptionsPtrOutput{})
 	pulumi.RegisterOutputType(VpcDhcpOptionsArrayOutput{})
 	pulumi.RegisterOutputType(VpcDhcpOptionsMapOutput{})
 }

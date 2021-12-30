@@ -383,7 +383,7 @@ type StageInput interface {
 }
 
 func (*Stage) ElementType() reflect.Type {
-	return reflect.TypeOf((*Stage)(nil))
+	return reflect.TypeOf((**Stage)(nil)).Elem()
 }
 
 func (i *Stage) ToStageOutput() StageOutput {
@@ -392,35 +392,6 @@ func (i *Stage) ToStageOutput() StageOutput {
 
 func (i *Stage) ToStageOutputWithContext(ctx context.Context) StageOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StageOutput)
-}
-
-func (i *Stage) ToStagePtrOutput() StagePtrOutput {
-	return i.ToStagePtrOutputWithContext(context.Background())
-}
-
-func (i *Stage) ToStagePtrOutputWithContext(ctx context.Context) StagePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StagePtrOutput)
-}
-
-type StagePtrInput interface {
-	pulumi.Input
-
-	ToStagePtrOutput() StagePtrOutput
-	ToStagePtrOutputWithContext(ctx context.Context) StagePtrOutput
-}
-
-type stagePtrType StageArgs
-
-func (*stagePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Stage)(nil))
-}
-
-func (i *stagePtrType) ToStagePtrOutput() StagePtrOutput {
-	return i.ToStagePtrOutputWithContext(context.Background())
-}
-
-func (i *stagePtrType) ToStagePtrOutputWithContext(ctx context.Context) StagePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StagePtrOutput)
 }
 
 // StageArrayInput is an input type that accepts StageArray and StageArrayOutput values.
@@ -476,7 +447,7 @@ func (i StageMap) ToStageMapOutputWithContext(ctx context.Context) StageMapOutpu
 type StageOutput struct{ *pulumi.OutputState }
 
 func (StageOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Stage)(nil))
+	return reflect.TypeOf((**Stage)(nil)).Elem()
 }
 
 func (o StageOutput) ToStageOutput() StageOutput {
@@ -487,44 +458,10 @@ func (o StageOutput) ToStageOutputWithContext(ctx context.Context) StageOutput {
 	return o
 }
 
-func (o StageOutput) ToStagePtrOutput() StagePtrOutput {
-	return o.ToStagePtrOutputWithContext(context.Background())
-}
-
-func (o StageOutput) ToStagePtrOutputWithContext(ctx context.Context) StagePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Stage) *Stage {
-		return &v
-	}).(StagePtrOutput)
-}
-
-type StagePtrOutput struct{ *pulumi.OutputState }
-
-func (StagePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Stage)(nil))
-}
-
-func (o StagePtrOutput) ToStagePtrOutput() StagePtrOutput {
-	return o
-}
-
-func (o StagePtrOutput) ToStagePtrOutputWithContext(ctx context.Context) StagePtrOutput {
-	return o
-}
-
-func (o StagePtrOutput) Elem() StageOutput {
-	return o.ApplyT(func(v *Stage) Stage {
-		if v != nil {
-			return *v
-		}
-		var ret Stage
-		return ret
-	}).(StageOutput)
-}
-
 type StageArrayOutput struct{ *pulumi.OutputState }
 
 func (StageArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Stage)(nil))
+	return reflect.TypeOf((*[]*Stage)(nil)).Elem()
 }
 
 func (o StageArrayOutput) ToStageArrayOutput() StageArrayOutput {
@@ -536,15 +473,15 @@ func (o StageArrayOutput) ToStageArrayOutputWithContext(ctx context.Context) Sta
 }
 
 func (o StageArrayOutput) Index(i pulumi.IntInput) StageOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Stage {
-		return vs[0].([]Stage)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Stage {
+		return vs[0].([]*Stage)[vs[1].(int)]
 	}).(StageOutput)
 }
 
 type StageMapOutput struct{ *pulumi.OutputState }
 
 func (StageMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Stage)(nil))
+	return reflect.TypeOf((*map[string]*Stage)(nil)).Elem()
 }
 
 func (o StageMapOutput) ToStageMapOutput() StageMapOutput {
@@ -556,18 +493,16 @@ func (o StageMapOutput) ToStageMapOutputWithContext(ctx context.Context) StageMa
 }
 
 func (o StageMapOutput) MapIndex(k pulumi.StringInput) StageOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Stage {
-		return vs[0].(map[string]Stage)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Stage {
+		return vs[0].(map[string]*Stage)[vs[1].(string)]
 	}).(StageOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StageInput)(nil)).Elem(), &Stage{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StagePtrInput)(nil)).Elem(), &Stage{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StageArrayInput)(nil)).Elem(), StageArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StageMapInput)(nil)).Elem(), StageMap{})
 	pulumi.RegisterOutputType(StageOutput{})
-	pulumi.RegisterOutputType(StagePtrOutput{})
 	pulumi.RegisterOutputType(StageArrayOutput{})
 	pulumi.RegisterOutputType(StageMapOutput{})
 }

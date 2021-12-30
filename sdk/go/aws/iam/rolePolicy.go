@@ -205,7 +205,7 @@ type RolePolicyInput interface {
 }
 
 func (*RolePolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*RolePolicy)(nil))
+	return reflect.TypeOf((**RolePolicy)(nil)).Elem()
 }
 
 func (i *RolePolicy) ToRolePolicyOutput() RolePolicyOutput {
@@ -214,35 +214,6 @@ func (i *RolePolicy) ToRolePolicyOutput() RolePolicyOutput {
 
 func (i *RolePolicy) ToRolePolicyOutputWithContext(ctx context.Context) RolePolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RolePolicyOutput)
-}
-
-func (i *RolePolicy) ToRolePolicyPtrOutput() RolePolicyPtrOutput {
-	return i.ToRolePolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *RolePolicy) ToRolePolicyPtrOutputWithContext(ctx context.Context) RolePolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RolePolicyPtrOutput)
-}
-
-type RolePolicyPtrInput interface {
-	pulumi.Input
-
-	ToRolePolicyPtrOutput() RolePolicyPtrOutput
-	ToRolePolicyPtrOutputWithContext(ctx context.Context) RolePolicyPtrOutput
-}
-
-type rolePolicyPtrType RolePolicyArgs
-
-func (*rolePolicyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RolePolicy)(nil))
-}
-
-func (i *rolePolicyPtrType) ToRolePolicyPtrOutput() RolePolicyPtrOutput {
-	return i.ToRolePolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *rolePolicyPtrType) ToRolePolicyPtrOutputWithContext(ctx context.Context) RolePolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RolePolicyPtrOutput)
 }
 
 // RolePolicyArrayInput is an input type that accepts RolePolicyArray and RolePolicyArrayOutput values.
@@ -298,7 +269,7 @@ func (i RolePolicyMap) ToRolePolicyMapOutputWithContext(ctx context.Context) Rol
 type RolePolicyOutput struct{ *pulumi.OutputState }
 
 func (RolePolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RolePolicy)(nil))
+	return reflect.TypeOf((**RolePolicy)(nil)).Elem()
 }
 
 func (o RolePolicyOutput) ToRolePolicyOutput() RolePolicyOutput {
@@ -309,44 +280,10 @@ func (o RolePolicyOutput) ToRolePolicyOutputWithContext(ctx context.Context) Rol
 	return o
 }
 
-func (o RolePolicyOutput) ToRolePolicyPtrOutput() RolePolicyPtrOutput {
-	return o.ToRolePolicyPtrOutputWithContext(context.Background())
-}
-
-func (o RolePolicyOutput) ToRolePolicyPtrOutputWithContext(ctx context.Context) RolePolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RolePolicy) *RolePolicy {
-		return &v
-	}).(RolePolicyPtrOutput)
-}
-
-type RolePolicyPtrOutput struct{ *pulumi.OutputState }
-
-func (RolePolicyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RolePolicy)(nil))
-}
-
-func (o RolePolicyPtrOutput) ToRolePolicyPtrOutput() RolePolicyPtrOutput {
-	return o
-}
-
-func (o RolePolicyPtrOutput) ToRolePolicyPtrOutputWithContext(ctx context.Context) RolePolicyPtrOutput {
-	return o
-}
-
-func (o RolePolicyPtrOutput) Elem() RolePolicyOutput {
-	return o.ApplyT(func(v *RolePolicy) RolePolicy {
-		if v != nil {
-			return *v
-		}
-		var ret RolePolicy
-		return ret
-	}).(RolePolicyOutput)
-}
-
 type RolePolicyArrayOutput struct{ *pulumi.OutputState }
 
 func (RolePolicyArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RolePolicy)(nil))
+	return reflect.TypeOf((*[]*RolePolicy)(nil)).Elem()
 }
 
 func (o RolePolicyArrayOutput) ToRolePolicyArrayOutput() RolePolicyArrayOutput {
@@ -358,15 +295,15 @@ func (o RolePolicyArrayOutput) ToRolePolicyArrayOutputWithContext(ctx context.Co
 }
 
 func (o RolePolicyArrayOutput) Index(i pulumi.IntInput) RolePolicyOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RolePolicy {
-		return vs[0].([]RolePolicy)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RolePolicy {
+		return vs[0].([]*RolePolicy)[vs[1].(int)]
 	}).(RolePolicyOutput)
 }
 
 type RolePolicyMapOutput struct{ *pulumi.OutputState }
 
 func (RolePolicyMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]RolePolicy)(nil))
+	return reflect.TypeOf((*map[string]*RolePolicy)(nil)).Elem()
 }
 
 func (o RolePolicyMapOutput) ToRolePolicyMapOutput() RolePolicyMapOutput {
@@ -378,18 +315,16 @@ func (o RolePolicyMapOutput) ToRolePolicyMapOutputWithContext(ctx context.Contex
 }
 
 func (o RolePolicyMapOutput) MapIndex(k pulumi.StringInput) RolePolicyOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) RolePolicy {
-		return vs[0].(map[string]RolePolicy)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *RolePolicy {
+		return vs[0].(map[string]*RolePolicy)[vs[1].(string)]
 	}).(RolePolicyOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RolePolicyInput)(nil)).Elem(), &RolePolicy{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RolePolicyPtrInput)(nil)).Elem(), &RolePolicy{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RolePolicyArrayInput)(nil)).Elem(), RolePolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RolePolicyMapInput)(nil)).Elem(), RolePolicyMap{})
 	pulumi.RegisterOutputType(RolePolicyOutput{})
-	pulumi.RegisterOutputType(RolePolicyPtrOutput{})
 	pulumi.RegisterOutputType(RolePolicyArrayOutput{})
 	pulumi.RegisterOutputType(RolePolicyMapOutput{})
 }

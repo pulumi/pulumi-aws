@@ -180,50 +180,50 @@ export class CatalogTable extends pulumi.CustomResource {
      */
     constructor(name: string, args: CatalogTableArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: CatalogTableArgs | CatalogTableState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CatalogTableState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["catalogId"] = state ? state.catalogId : undefined;
-            inputs["databaseName"] = state ? state.databaseName : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["owner"] = state ? state.owner : undefined;
-            inputs["parameters"] = state ? state.parameters : undefined;
-            inputs["partitionIndices"] = state ? state.partitionIndices : undefined;
-            inputs["partitionKeys"] = state ? state.partitionKeys : undefined;
-            inputs["retention"] = state ? state.retention : undefined;
-            inputs["storageDescriptor"] = state ? state.storageDescriptor : undefined;
-            inputs["tableType"] = state ? state.tableType : undefined;
-            inputs["targetTable"] = state ? state.targetTable : undefined;
-            inputs["viewExpandedText"] = state ? state.viewExpandedText : undefined;
-            inputs["viewOriginalText"] = state ? state.viewOriginalText : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["catalogId"] = state ? state.catalogId : undefined;
+            resourceInputs["databaseName"] = state ? state.databaseName : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["owner"] = state ? state.owner : undefined;
+            resourceInputs["parameters"] = state ? state.parameters : undefined;
+            resourceInputs["partitionIndices"] = state ? state.partitionIndices : undefined;
+            resourceInputs["partitionKeys"] = state ? state.partitionKeys : undefined;
+            resourceInputs["retention"] = state ? state.retention : undefined;
+            resourceInputs["storageDescriptor"] = state ? state.storageDescriptor : undefined;
+            resourceInputs["tableType"] = state ? state.tableType : undefined;
+            resourceInputs["targetTable"] = state ? state.targetTable : undefined;
+            resourceInputs["viewExpandedText"] = state ? state.viewExpandedText : undefined;
+            resourceInputs["viewOriginalText"] = state ? state.viewOriginalText : undefined;
         } else {
             const args = argsOrState as CatalogTableArgs | undefined;
             if ((!args || args.databaseName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            inputs["catalogId"] = args ? args.catalogId : undefined;
-            inputs["databaseName"] = args ? args.databaseName : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["owner"] = args ? args.owner : undefined;
-            inputs["parameters"] = args ? args.parameters : undefined;
-            inputs["partitionIndices"] = args ? args.partitionIndices : undefined;
-            inputs["partitionKeys"] = args ? args.partitionKeys : undefined;
-            inputs["retention"] = args ? args.retention : undefined;
-            inputs["storageDescriptor"] = args ? args.storageDescriptor : undefined;
-            inputs["tableType"] = args ? args.tableType : undefined;
-            inputs["targetTable"] = args ? args.targetTable : undefined;
-            inputs["viewExpandedText"] = args ? args.viewExpandedText : undefined;
-            inputs["viewOriginalText"] = args ? args.viewOriginalText : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["catalogId"] = args ? args.catalogId : undefined;
+            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["owner"] = args ? args.owner : undefined;
+            resourceInputs["parameters"] = args ? args.parameters : undefined;
+            resourceInputs["partitionIndices"] = args ? args.partitionIndices : undefined;
+            resourceInputs["partitionKeys"] = args ? args.partitionKeys : undefined;
+            resourceInputs["retention"] = args ? args.retention : undefined;
+            resourceInputs["storageDescriptor"] = args ? args.storageDescriptor : undefined;
+            resourceInputs["tableType"] = args ? args.tableType : undefined;
+            resourceInputs["targetTable"] = args ? args.targetTable : undefined;
+            resourceInputs["viewExpandedText"] = args ? args.viewExpandedText : undefined;
+            resourceInputs["viewOriginalText"] = args ? args.viewOriginalText : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(CatalogTable.__pulumiType, name, inputs, opts);
+        super(CatalogTable.__pulumiType, name, resourceInputs, opts);
     }
 }
 

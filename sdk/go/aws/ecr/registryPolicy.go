@@ -157,7 +157,7 @@ type RegistryPolicyInput interface {
 }
 
 func (*RegistryPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*RegistryPolicy)(nil))
+	return reflect.TypeOf((**RegistryPolicy)(nil)).Elem()
 }
 
 func (i *RegistryPolicy) ToRegistryPolicyOutput() RegistryPolicyOutput {
@@ -166,35 +166,6 @@ func (i *RegistryPolicy) ToRegistryPolicyOutput() RegistryPolicyOutput {
 
 func (i *RegistryPolicy) ToRegistryPolicyOutputWithContext(ctx context.Context) RegistryPolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RegistryPolicyOutput)
-}
-
-func (i *RegistryPolicy) ToRegistryPolicyPtrOutput() RegistryPolicyPtrOutput {
-	return i.ToRegistryPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *RegistryPolicy) ToRegistryPolicyPtrOutputWithContext(ctx context.Context) RegistryPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RegistryPolicyPtrOutput)
-}
-
-type RegistryPolicyPtrInput interface {
-	pulumi.Input
-
-	ToRegistryPolicyPtrOutput() RegistryPolicyPtrOutput
-	ToRegistryPolicyPtrOutputWithContext(ctx context.Context) RegistryPolicyPtrOutput
-}
-
-type registryPolicyPtrType RegistryPolicyArgs
-
-func (*registryPolicyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RegistryPolicy)(nil))
-}
-
-func (i *registryPolicyPtrType) ToRegistryPolicyPtrOutput() RegistryPolicyPtrOutput {
-	return i.ToRegistryPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *registryPolicyPtrType) ToRegistryPolicyPtrOutputWithContext(ctx context.Context) RegistryPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RegistryPolicyPtrOutput)
 }
 
 // RegistryPolicyArrayInput is an input type that accepts RegistryPolicyArray and RegistryPolicyArrayOutput values.
@@ -250,7 +221,7 @@ func (i RegistryPolicyMap) ToRegistryPolicyMapOutputWithContext(ctx context.Cont
 type RegistryPolicyOutput struct{ *pulumi.OutputState }
 
 func (RegistryPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RegistryPolicy)(nil))
+	return reflect.TypeOf((**RegistryPolicy)(nil)).Elem()
 }
 
 func (o RegistryPolicyOutput) ToRegistryPolicyOutput() RegistryPolicyOutput {
@@ -261,44 +232,10 @@ func (o RegistryPolicyOutput) ToRegistryPolicyOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o RegistryPolicyOutput) ToRegistryPolicyPtrOutput() RegistryPolicyPtrOutput {
-	return o.ToRegistryPolicyPtrOutputWithContext(context.Background())
-}
-
-func (o RegistryPolicyOutput) ToRegistryPolicyPtrOutputWithContext(ctx context.Context) RegistryPolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegistryPolicy) *RegistryPolicy {
-		return &v
-	}).(RegistryPolicyPtrOutput)
-}
-
-type RegistryPolicyPtrOutput struct{ *pulumi.OutputState }
-
-func (RegistryPolicyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RegistryPolicy)(nil))
-}
-
-func (o RegistryPolicyPtrOutput) ToRegistryPolicyPtrOutput() RegistryPolicyPtrOutput {
-	return o
-}
-
-func (o RegistryPolicyPtrOutput) ToRegistryPolicyPtrOutputWithContext(ctx context.Context) RegistryPolicyPtrOutput {
-	return o
-}
-
-func (o RegistryPolicyPtrOutput) Elem() RegistryPolicyOutput {
-	return o.ApplyT(func(v *RegistryPolicy) RegistryPolicy {
-		if v != nil {
-			return *v
-		}
-		var ret RegistryPolicy
-		return ret
-	}).(RegistryPolicyOutput)
-}
-
 type RegistryPolicyArrayOutput struct{ *pulumi.OutputState }
 
 func (RegistryPolicyArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RegistryPolicy)(nil))
+	return reflect.TypeOf((*[]*RegistryPolicy)(nil)).Elem()
 }
 
 func (o RegistryPolicyArrayOutput) ToRegistryPolicyArrayOutput() RegistryPolicyArrayOutput {
@@ -310,15 +247,15 @@ func (o RegistryPolicyArrayOutput) ToRegistryPolicyArrayOutputWithContext(ctx co
 }
 
 func (o RegistryPolicyArrayOutput) Index(i pulumi.IntInput) RegistryPolicyOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RegistryPolicy {
-		return vs[0].([]RegistryPolicy)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RegistryPolicy {
+		return vs[0].([]*RegistryPolicy)[vs[1].(int)]
 	}).(RegistryPolicyOutput)
 }
 
 type RegistryPolicyMapOutput struct{ *pulumi.OutputState }
 
 func (RegistryPolicyMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]RegistryPolicy)(nil))
+	return reflect.TypeOf((*map[string]*RegistryPolicy)(nil)).Elem()
 }
 
 func (o RegistryPolicyMapOutput) ToRegistryPolicyMapOutput() RegistryPolicyMapOutput {
@@ -330,18 +267,16 @@ func (o RegistryPolicyMapOutput) ToRegistryPolicyMapOutputWithContext(ctx contex
 }
 
 func (o RegistryPolicyMapOutput) MapIndex(k pulumi.StringInput) RegistryPolicyOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) RegistryPolicy {
-		return vs[0].(map[string]RegistryPolicy)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *RegistryPolicy {
+		return vs[0].(map[string]*RegistryPolicy)[vs[1].(string)]
 	}).(RegistryPolicyOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryPolicyInput)(nil)).Elem(), &RegistryPolicy{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RegistryPolicyPtrInput)(nil)).Elem(), &RegistryPolicy{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryPolicyArrayInput)(nil)).Elem(), RegistryPolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryPolicyMapInput)(nil)).Elem(), RegistryPolicyMap{})
 	pulumi.RegisterOutputType(RegistryPolicyOutput{})
-	pulumi.RegisterOutputType(RegistryPolicyPtrOutput{})
 	pulumi.RegisterOutputType(RegistryPolicyArrayOutput{})
 	pulumi.RegisterOutputType(RegistryPolicyMapOutput{})
 }

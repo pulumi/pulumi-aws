@@ -102,13 +102,13 @@ export class FileSystemPolicy extends pulumi.CustomResource {
      */
     constructor(name: string, args: FileSystemPolicyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: FileSystemPolicyArgs | FileSystemPolicyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FileSystemPolicyState | undefined;
-            inputs["bypassPolicyLockoutSafetyCheck"] = state ? state.bypassPolicyLockoutSafetyCheck : undefined;
-            inputs["fileSystemId"] = state ? state.fileSystemId : undefined;
-            inputs["policy"] = state ? state.policy : undefined;
+            resourceInputs["bypassPolicyLockoutSafetyCheck"] = state ? state.bypassPolicyLockoutSafetyCheck : undefined;
+            resourceInputs["fileSystemId"] = state ? state.fileSystemId : undefined;
+            resourceInputs["policy"] = state ? state.policy : undefined;
         } else {
             const args = argsOrState as FileSystemPolicyArgs | undefined;
             if ((!args || args.fileSystemId === undefined) && !opts.urn) {
@@ -117,14 +117,14 @@ export class FileSystemPolicy extends pulumi.CustomResource {
             if ((!args || args.policy === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policy'");
             }
-            inputs["bypassPolicyLockoutSafetyCheck"] = args ? args.bypassPolicyLockoutSafetyCheck : undefined;
-            inputs["fileSystemId"] = args ? args.fileSystemId : undefined;
-            inputs["policy"] = args ? args.policy : undefined;
+            resourceInputs["bypassPolicyLockoutSafetyCheck"] = args ? args.bypassPolicyLockoutSafetyCheck : undefined;
+            resourceInputs["fileSystemId"] = args ? args.fileSystemId : undefined;
+            resourceInputs["policy"] = args ? args.policy : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(FileSystemPolicy.__pulumiType, name, inputs, opts);
+        super(FileSystemPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

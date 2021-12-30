@@ -198,48 +198,48 @@ export class FlowLog extends pulumi.CustomResource {
      */
     constructor(name: string, args: FlowLogArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: FlowLogArgs | FlowLogState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FlowLogState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["destinationOptions"] = state ? state.destinationOptions : undefined;
-            inputs["eniId"] = state ? state.eniId : undefined;
-            inputs["iamRoleArn"] = state ? state.iamRoleArn : undefined;
-            inputs["logDestination"] = state ? state.logDestination : undefined;
-            inputs["logDestinationType"] = state ? state.logDestinationType : undefined;
-            inputs["logFormat"] = state ? state.logFormat : undefined;
-            inputs["logGroupName"] = state ? state.logGroupName : undefined;
-            inputs["maxAggregationInterval"] = state ? state.maxAggregationInterval : undefined;
-            inputs["subnetId"] = state ? state.subnetId : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["trafficType"] = state ? state.trafficType : undefined;
-            inputs["vpcId"] = state ? state.vpcId : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["destinationOptions"] = state ? state.destinationOptions : undefined;
+            resourceInputs["eniId"] = state ? state.eniId : undefined;
+            resourceInputs["iamRoleArn"] = state ? state.iamRoleArn : undefined;
+            resourceInputs["logDestination"] = state ? state.logDestination : undefined;
+            resourceInputs["logDestinationType"] = state ? state.logDestinationType : undefined;
+            resourceInputs["logFormat"] = state ? state.logFormat : undefined;
+            resourceInputs["logGroupName"] = state ? state.logGroupName : undefined;
+            resourceInputs["maxAggregationInterval"] = state ? state.maxAggregationInterval : undefined;
+            resourceInputs["subnetId"] = state ? state.subnetId : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["trafficType"] = state ? state.trafficType : undefined;
+            resourceInputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
             const args = argsOrState as FlowLogArgs | undefined;
             if ((!args || args.trafficType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'trafficType'");
             }
-            inputs["destinationOptions"] = args ? args.destinationOptions : undefined;
-            inputs["eniId"] = args ? args.eniId : undefined;
-            inputs["iamRoleArn"] = args ? args.iamRoleArn : undefined;
-            inputs["logDestination"] = args ? args.logDestination : undefined;
-            inputs["logDestinationType"] = args ? args.logDestinationType : undefined;
-            inputs["logFormat"] = args ? args.logFormat : undefined;
-            inputs["logGroupName"] = args ? args.logGroupName : undefined;
-            inputs["maxAggregationInterval"] = args ? args.maxAggregationInterval : undefined;
-            inputs["subnetId"] = args ? args.subnetId : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["trafficType"] = args ? args.trafficType : undefined;
-            inputs["vpcId"] = args ? args.vpcId : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["destinationOptions"] = args ? args.destinationOptions : undefined;
+            resourceInputs["eniId"] = args ? args.eniId : undefined;
+            resourceInputs["iamRoleArn"] = args ? args.iamRoleArn : undefined;
+            resourceInputs["logDestination"] = args ? args.logDestination : undefined;
+            resourceInputs["logDestinationType"] = args ? args.logDestinationType : undefined;
+            resourceInputs["logFormat"] = args ? args.logFormat : undefined;
+            resourceInputs["logGroupName"] = args ? args.logGroupName : undefined;
+            resourceInputs["maxAggregationInterval"] = args ? args.maxAggregationInterval : undefined;
+            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["trafficType"] = args ? args.trafficType : undefined;
+            resourceInputs["vpcId"] = args ? args.vpcId : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(FlowLog.__pulumiType, name, inputs, opts);
+        super(FlowLog.__pulumiType, name, resourceInputs, opts);
     }
 }
 

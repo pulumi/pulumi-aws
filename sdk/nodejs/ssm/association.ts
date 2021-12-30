@@ -153,45 +153,45 @@ export class Association extends pulumi.CustomResource {
      */
     constructor(name: string, args?: AssociationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AssociationArgs | AssociationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AssociationState | undefined;
-            inputs["applyOnlyAtCronInterval"] = state ? state.applyOnlyAtCronInterval : undefined;
-            inputs["associationId"] = state ? state.associationId : undefined;
-            inputs["associationName"] = state ? state.associationName : undefined;
-            inputs["automationTargetParameterName"] = state ? state.automationTargetParameterName : undefined;
-            inputs["complianceSeverity"] = state ? state.complianceSeverity : undefined;
-            inputs["documentVersion"] = state ? state.documentVersion : undefined;
-            inputs["instanceId"] = state ? state.instanceId : undefined;
-            inputs["maxConcurrency"] = state ? state.maxConcurrency : undefined;
-            inputs["maxErrors"] = state ? state.maxErrors : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["outputLocation"] = state ? state.outputLocation : undefined;
-            inputs["parameters"] = state ? state.parameters : undefined;
-            inputs["scheduleExpression"] = state ? state.scheduleExpression : undefined;
-            inputs["targets"] = state ? state.targets : undefined;
+            resourceInputs["applyOnlyAtCronInterval"] = state ? state.applyOnlyAtCronInterval : undefined;
+            resourceInputs["associationId"] = state ? state.associationId : undefined;
+            resourceInputs["associationName"] = state ? state.associationName : undefined;
+            resourceInputs["automationTargetParameterName"] = state ? state.automationTargetParameterName : undefined;
+            resourceInputs["complianceSeverity"] = state ? state.complianceSeverity : undefined;
+            resourceInputs["documentVersion"] = state ? state.documentVersion : undefined;
+            resourceInputs["instanceId"] = state ? state.instanceId : undefined;
+            resourceInputs["maxConcurrency"] = state ? state.maxConcurrency : undefined;
+            resourceInputs["maxErrors"] = state ? state.maxErrors : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["outputLocation"] = state ? state.outputLocation : undefined;
+            resourceInputs["parameters"] = state ? state.parameters : undefined;
+            resourceInputs["scheduleExpression"] = state ? state.scheduleExpression : undefined;
+            resourceInputs["targets"] = state ? state.targets : undefined;
         } else {
             const args = argsOrState as AssociationArgs | undefined;
-            inputs["applyOnlyAtCronInterval"] = args ? args.applyOnlyAtCronInterval : undefined;
-            inputs["associationName"] = args ? args.associationName : undefined;
-            inputs["automationTargetParameterName"] = args ? args.automationTargetParameterName : undefined;
-            inputs["complianceSeverity"] = args ? args.complianceSeverity : undefined;
-            inputs["documentVersion"] = args ? args.documentVersion : undefined;
-            inputs["instanceId"] = args ? args.instanceId : undefined;
-            inputs["maxConcurrency"] = args ? args.maxConcurrency : undefined;
-            inputs["maxErrors"] = args ? args.maxErrors : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["outputLocation"] = args ? args.outputLocation : undefined;
-            inputs["parameters"] = args ? args.parameters : undefined;
-            inputs["scheduleExpression"] = args ? args.scheduleExpression : undefined;
-            inputs["targets"] = args ? args.targets : undefined;
-            inputs["associationId"] = undefined /*out*/;
+            resourceInputs["applyOnlyAtCronInterval"] = args ? args.applyOnlyAtCronInterval : undefined;
+            resourceInputs["associationName"] = args ? args.associationName : undefined;
+            resourceInputs["automationTargetParameterName"] = args ? args.automationTargetParameterName : undefined;
+            resourceInputs["complianceSeverity"] = args ? args.complianceSeverity : undefined;
+            resourceInputs["documentVersion"] = args ? args.documentVersion : undefined;
+            resourceInputs["instanceId"] = args ? args.instanceId : undefined;
+            resourceInputs["maxConcurrency"] = args ? args.maxConcurrency : undefined;
+            resourceInputs["maxErrors"] = args ? args.maxErrors : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["outputLocation"] = args ? args.outputLocation : undefined;
+            resourceInputs["parameters"] = args ? args.parameters : undefined;
+            resourceInputs["scheduleExpression"] = args ? args.scheduleExpression : undefined;
+            resourceInputs["targets"] = args ? args.targets : undefined;
+            resourceInputs["associationId"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Association.__pulumiType, name, inputs, opts);
+        super(Association.__pulumiType, name, resourceInputs, opts);
     }
 }
 

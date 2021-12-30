@@ -110,21 +110,21 @@ export class InstanceGroup extends pulumi.CustomResource {
      */
     constructor(name: string, args: InstanceGroupArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: InstanceGroupArgs | InstanceGroupState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as InstanceGroupState | undefined;
-            inputs["autoscalingPolicy"] = state ? state.autoscalingPolicy : undefined;
-            inputs["bidPrice"] = state ? state.bidPrice : undefined;
-            inputs["clusterId"] = state ? state.clusterId : undefined;
-            inputs["configurationsJson"] = state ? state.configurationsJson : undefined;
-            inputs["ebsConfigs"] = state ? state.ebsConfigs : undefined;
-            inputs["ebsOptimized"] = state ? state.ebsOptimized : undefined;
-            inputs["instanceCount"] = state ? state.instanceCount : undefined;
-            inputs["instanceType"] = state ? state.instanceType : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["runningInstanceCount"] = state ? state.runningInstanceCount : undefined;
-            inputs["status"] = state ? state.status : undefined;
+            resourceInputs["autoscalingPolicy"] = state ? state.autoscalingPolicy : undefined;
+            resourceInputs["bidPrice"] = state ? state.bidPrice : undefined;
+            resourceInputs["clusterId"] = state ? state.clusterId : undefined;
+            resourceInputs["configurationsJson"] = state ? state.configurationsJson : undefined;
+            resourceInputs["ebsConfigs"] = state ? state.ebsConfigs : undefined;
+            resourceInputs["ebsOptimized"] = state ? state.ebsOptimized : undefined;
+            resourceInputs["instanceCount"] = state ? state.instanceCount : undefined;
+            resourceInputs["instanceType"] = state ? state.instanceType : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["runningInstanceCount"] = state ? state.runningInstanceCount : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
         } else {
             const args = argsOrState as InstanceGroupArgs | undefined;
             if ((!args || args.clusterId === undefined) && !opts.urn) {
@@ -133,22 +133,22 @@ export class InstanceGroup extends pulumi.CustomResource {
             if ((!args || args.instanceType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'instanceType'");
             }
-            inputs["autoscalingPolicy"] = args ? args.autoscalingPolicy : undefined;
-            inputs["bidPrice"] = args ? args.bidPrice : undefined;
-            inputs["clusterId"] = args ? args.clusterId : undefined;
-            inputs["configurationsJson"] = args ? args.configurationsJson : undefined;
-            inputs["ebsConfigs"] = args ? args.ebsConfigs : undefined;
-            inputs["ebsOptimized"] = args ? args.ebsOptimized : undefined;
-            inputs["instanceCount"] = args ? args.instanceCount : undefined;
-            inputs["instanceType"] = args ? args.instanceType : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["runningInstanceCount"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
+            resourceInputs["autoscalingPolicy"] = args ? args.autoscalingPolicy : undefined;
+            resourceInputs["bidPrice"] = args ? args.bidPrice : undefined;
+            resourceInputs["clusterId"] = args ? args.clusterId : undefined;
+            resourceInputs["configurationsJson"] = args ? args.configurationsJson : undefined;
+            resourceInputs["ebsConfigs"] = args ? args.ebsConfigs : undefined;
+            resourceInputs["ebsOptimized"] = args ? args.ebsOptimized : undefined;
+            resourceInputs["instanceCount"] = args ? args.instanceCount : undefined;
+            resourceInputs["instanceType"] = args ? args.instanceType : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["runningInstanceCount"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(InstanceGroup.__pulumiType, name, inputs, opts);
+        super(InstanceGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

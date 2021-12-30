@@ -132,42 +132,42 @@ export class IdentityPool extends pulumi.CustomResource {
      */
     constructor(name: string, args: IdentityPoolArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: IdentityPoolArgs | IdentityPoolState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IdentityPoolState | undefined;
-            inputs["allowClassicFlow"] = state ? state.allowClassicFlow : undefined;
-            inputs["allowUnauthenticatedIdentities"] = state ? state.allowUnauthenticatedIdentities : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["cognitoIdentityProviders"] = state ? state.cognitoIdentityProviders : undefined;
-            inputs["developerProviderName"] = state ? state.developerProviderName : undefined;
-            inputs["identityPoolName"] = state ? state.identityPoolName : undefined;
-            inputs["openidConnectProviderArns"] = state ? state.openidConnectProviderArns : undefined;
-            inputs["samlProviderArns"] = state ? state.samlProviderArns : undefined;
-            inputs["supportedLoginProviders"] = state ? state.supportedLoginProviders : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["allowClassicFlow"] = state ? state.allowClassicFlow : undefined;
+            resourceInputs["allowUnauthenticatedIdentities"] = state ? state.allowUnauthenticatedIdentities : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["cognitoIdentityProviders"] = state ? state.cognitoIdentityProviders : undefined;
+            resourceInputs["developerProviderName"] = state ? state.developerProviderName : undefined;
+            resourceInputs["identityPoolName"] = state ? state.identityPoolName : undefined;
+            resourceInputs["openidConnectProviderArns"] = state ? state.openidConnectProviderArns : undefined;
+            resourceInputs["samlProviderArns"] = state ? state.samlProviderArns : undefined;
+            resourceInputs["supportedLoginProviders"] = state ? state.supportedLoginProviders : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as IdentityPoolArgs | undefined;
             if ((!args || args.identityPoolName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'identityPoolName'");
             }
-            inputs["allowClassicFlow"] = args ? args.allowClassicFlow : undefined;
-            inputs["allowUnauthenticatedIdentities"] = args ? args.allowUnauthenticatedIdentities : undefined;
-            inputs["cognitoIdentityProviders"] = args ? args.cognitoIdentityProviders : undefined;
-            inputs["developerProviderName"] = args ? args.developerProviderName : undefined;
-            inputs["identityPoolName"] = args ? args.identityPoolName : undefined;
-            inputs["openidConnectProviderArns"] = args ? args.openidConnectProviderArns : undefined;
-            inputs["samlProviderArns"] = args ? args.samlProviderArns : undefined;
-            inputs["supportedLoginProviders"] = args ? args.supportedLoginProviders : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["allowClassicFlow"] = args ? args.allowClassicFlow : undefined;
+            resourceInputs["allowUnauthenticatedIdentities"] = args ? args.allowUnauthenticatedIdentities : undefined;
+            resourceInputs["cognitoIdentityProviders"] = args ? args.cognitoIdentityProviders : undefined;
+            resourceInputs["developerProviderName"] = args ? args.developerProviderName : undefined;
+            resourceInputs["identityPoolName"] = args ? args.identityPoolName : undefined;
+            resourceInputs["openidConnectProviderArns"] = args ? args.openidConnectProviderArns : undefined;
+            resourceInputs["samlProviderArns"] = args ? args.samlProviderArns : undefined;
+            resourceInputs["supportedLoginProviders"] = args ? args.supportedLoginProviders : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(IdentityPool.__pulumiType, name, inputs, opts);
+        super(IdentityPool.__pulumiType, name, resourceInputs, opts);
     }
 }
 

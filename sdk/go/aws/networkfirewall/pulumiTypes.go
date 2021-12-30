@@ -15,59 +15,6 @@ type FirewallFirewallStatus struct {
 	SyncStates []FirewallFirewallStatusSyncState `pulumi:"syncStates"`
 }
 
-// FirewallFirewallStatusInput is an input type that accepts FirewallFirewallStatusArgs and FirewallFirewallStatusOutput values.
-// You can construct a concrete instance of `FirewallFirewallStatusInput` via:
-//
-//          FirewallFirewallStatusArgs{...}
-type FirewallFirewallStatusInput interface {
-	pulumi.Input
-
-	ToFirewallFirewallStatusOutput() FirewallFirewallStatusOutput
-	ToFirewallFirewallStatusOutputWithContext(context.Context) FirewallFirewallStatusOutput
-}
-
-type FirewallFirewallStatusArgs struct {
-	// Set of subnets configured for use by the firewall.
-	SyncStates FirewallFirewallStatusSyncStateArrayInput `pulumi:"syncStates"`
-}
-
-func (FirewallFirewallStatusArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FirewallFirewallStatus)(nil)).Elem()
-}
-
-func (i FirewallFirewallStatusArgs) ToFirewallFirewallStatusOutput() FirewallFirewallStatusOutput {
-	return i.ToFirewallFirewallStatusOutputWithContext(context.Background())
-}
-
-func (i FirewallFirewallStatusArgs) ToFirewallFirewallStatusOutputWithContext(ctx context.Context) FirewallFirewallStatusOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FirewallFirewallStatusOutput)
-}
-
-// FirewallFirewallStatusArrayInput is an input type that accepts FirewallFirewallStatusArray and FirewallFirewallStatusArrayOutput values.
-// You can construct a concrete instance of `FirewallFirewallStatusArrayInput` via:
-//
-//          FirewallFirewallStatusArray{ FirewallFirewallStatusArgs{...} }
-type FirewallFirewallStatusArrayInput interface {
-	pulumi.Input
-
-	ToFirewallFirewallStatusArrayOutput() FirewallFirewallStatusArrayOutput
-	ToFirewallFirewallStatusArrayOutputWithContext(context.Context) FirewallFirewallStatusArrayOutput
-}
-
-type FirewallFirewallStatusArray []FirewallFirewallStatusInput
-
-func (FirewallFirewallStatusArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FirewallFirewallStatus)(nil)).Elem()
-}
-
-func (i FirewallFirewallStatusArray) ToFirewallFirewallStatusArrayOutput() FirewallFirewallStatusArrayOutput {
-	return i.ToFirewallFirewallStatusArrayOutputWithContext(context.Background())
-}
-
-func (i FirewallFirewallStatusArray) ToFirewallFirewallStatusArrayOutputWithContext(ctx context.Context) FirewallFirewallStatusArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FirewallFirewallStatusArrayOutput)
-}
-
 type FirewallFirewallStatusOutput struct{ *pulumi.OutputState }
 
 func (FirewallFirewallStatusOutput) ElementType() reflect.Type {
@@ -112,61 +59,6 @@ type FirewallFirewallStatusSyncState struct {
 	Attachments []FirewallFirewallStatusSyncStateAttachment `pulumi:"attachments"`
 	// The Availability Zone where the subnet is configured.
 	AvailabilityZone *string `pulumi:"availabilityZone"`
-}
-
-// FirewallFirewallStatusSyncStateInput is an input type that accepts FirewallFirewallStatusSyncStateArgs and FirewallFirewallStatusSyncStateOutput values.
-// You can construct a concrete instance of `FirewallFirewallStatusSyncStateInput` via:
-//
-//          FirewallFirewallStatusSyncStateArgs{...}
-type FirewallFirewallStatusSyncStateInput interface {
-	pulumi.Input
-
-	ToFirewallFirewallStatusSyncStateOutput() FirewallFirewallStatusSyncStateOutput
-	ToFirewallFirewallStatusSyncStateOutputWithContext(context.Context) FirewallFirewallStatusSyncStateOutput
-}
-
-type FirewallFirewallStatusSyncStateArgs struct {
-	// Nested list describing the attachment status of the firewall's association with a single VPC subnet.
-	Attachments FirewallFirewallStatusSyncStateAttachmentArrayInput `pulumi:"attachments"`
-	// The Availability Zone where the subnet is configured.
-	AvailabilityZone pulumi.StringPtrInput `pulumi:"availabilityZone"`
-}
-
-func (FirewallFirewallStatusSyncStateArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FirewallFirewallStatusSyncState)(nil)).Elem()
-}
-
-func (i FirewallFirewallStatusSyncStateArgs) ToFirewallFirewallStatusSyncStateOutput() FirewallFirewallStatusSyncStateOutput {
-	return i.ToFirewallFirewallStatusSyncStateOutputWithContext(context.Background())
-}
-
-func (i FirewallFirewallStatusSyncStateArgs) ToFirewallFirewallStatusSyncStateOutputWithContext(ctx context.Context) FirewallFirewallStatusSyncStateOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FirewallFirewallStatusSyncStateOutput)
-}
-
-// FirewallFirewallStatusSyncStateArrayInput is an input type that accepts FirewallFirewallStatusSyncStateArray and FirewallFirewallStatusSyncStateArrayOutput values.
-// You can construct a concrete instance of `FirewallFirewallStatusSyncStateArrayInput` via:
-//
-//          FirewallFirewallStatusSyncStateArray{ FirewallFirewallStatusSyncStateArgs{...} }
-type FirewallFirewallStatusSyncStateArrayInput interface {
-	pulumi.Input
-
-	ToFirewallFirewallStatusSyncStateArrayOutput() FirewallFirewallStatusSyncStateArrayOutput
-	ToFirewallFirewallStatusSyncStateArrayOutputWithContext(context.Context) FirewallFirewallStatusSyncStateArrayOutput
-}
-
-type FirewallFirewallStatusSyncStateArray []FirewallFirewallStatusSyncStateInput
-
-func (FirewallFirewallStatusSyncStateArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FirewallFirewallStatusSyncState)(nil)).Elem()
-}
-
-func (i FirewallFirewallStatusSyncStateArray) ToFirewallFirewallStatusSyncStateArrayOutput() FirewallFirewallStatusSyncStateArrayOutput {
-	return i.ToFirewallFirewallStatusSyncStateArrayOutputWithContext(context.Background())
-}
-
-func (i FirewallFirewallStatusSyncStateArray) ToFirewallFirewallStatusSyncStateArrayOutputWithContext(ctx context.Context) FirewallFirewallStatusSyncStateArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FirewallFirewallStatusSyncStateArrayOutput)
 }
 
 type FirewallFirewallStatusSyncStateOutput struct{ *pulumi.OutputState }
@@ -220,61 +112,6 @@ type FirewallFirewallStatusSyncStateAttachment struct {
 	EndpointId *string `pulumi:"endpointId"`
 	// The unique identifier for the subnet.
 	SubnetId *string `pulumi:"subnetId"`
-}
-
-// FirewallFirewallStatusSyncStateAttachmentInput is an input type that accepts FirewallFirewallStatusSyncStateAttachmentArgs and FirewallFirewallStatusSyncStateAttachmentOutput values.
-// You can construct a concrete instance of `FirewallFirewallStatusSyncStateAttachmentInput` via:
-//
-//          FirewallFirewallStatusSyncStateAttachmentArgs{...}
-type FirewallFirewallStatusSyncStateAttachmentInput interface {
-	pulumi.Input
-
-	ToFirewallFirewallStatusSyncStateAttachmentOutput() FirewallFirewallStatusSyncStateAttachmentOutput
-	ToFirewallFirewallStatusSyncStateAttachmentOutputWithContext(context.Context) FirewallFirewallStatusSyncStateAttachmentOutput
-}
-
-type FirewallFirewallStatusSyncStateAttachmentArgs struct {
-	// The identifier of the firewall endpoint that AWS Network Firewall has instantiated in the subnet. You use this to identify the firewall endpoint in the VPC route tables, when you redirect the VPC traffic through the endpoint.
-	EndpointId pulumi.StringPtrInput `pulumi:"endpointId"`
-	// The unique identifier for the subnet.
-	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
-}
-
-func (FirewallFirewallStatusSyncStateAttachmentArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FirewallFirewallStatusSyncStateAttachment)(nil)).Elem()
-}
-
-func (i FirewallFirewallStatusSyncStateAttachmentArgs) ToFirewallFirewallStatusSyncStateAttachmentOutput() FirewallFirewallStatusSyncStateAttachmentOutput {
-	return i.ToFirewallFirewallStatusSyncStateAttachmentOutputWithContext(context.Background())
-}
-
-func (i FirewallFirewallStatusSyncStateAttachmentArgs) ToFirewallFirewallStatusSyncStateAttachmentOutputWithContext(ctx context.Context) FirewallFirewallStatusSyncStateAttachmentOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FirewallFirewallStatusSyncStateAttachmentOutput)
-}
-
-// FirewallFirewallStatusSyncStateAttachmentArrayInput is an input type that accepts FirewallFirewallStatusSyncStateAttachmentArray and FirewallFirewallStatusSyncStateAttachmentArrayOutput values.
-// You can construct a concrete instance of `FirewallFirewallStatusSyncStateAttachmentArrayInput` via:
-//
-//          FirewallFirewallStatusSyncStateAttachmentArray{ FirewallFirewallStatusSyncStateAttachmentArgs{...} }
-type FirewallFirewallStatusSyncStateAttachmentArrayInput interface {
-	pulumi.Input
-
-	ToFirewallFirewallStatusSyncStateAttachmentArrayOutput() FirewallFirewallStatusSyncStateAttachmentArrayOutput
-	ToFirewallFirewallStatusSyncStateAttachmentArrayOutputWithContext(context.Context) FirewallFirewallStatusSyncStateAttachmentArrayOutput
-}
-
-type FirewallFirewallStatusSyncStateAttachmentArray []FirewallFirewallStatusSyncStateAttachmentInput
-
-func (FirewallFirewallStatusSyncStateAttachmentArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FirewallFirewallStatusSyncStateAttachment)(nil)).Elem()
-}
-
-func (i FirewallFirewallStatusSyncStateAttachmentArray) ToFirewallFirewallStatusSyncStateAttachmentArrayOutput() FirewallFirewallStatusSyncStateAttachmentArrayOutput {
-	return i.ToFirewallFirewallStatusSyncStateAttachmentArrayOutputWithContext(context.Background())
-}
-
-func (i FirewallFirewallStatusSyncStateAttachmentArray) ToFirewallFirewallStatusSyncStateAttachmentArrayOutputWithContext(ctx context.Context) FirewallFirewallStatusSyncStateAttachmentArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FirewallFirewallStatusSyncStateAttachmentArrayOutput)
 }
 
 type FirewallFirewallStatusSyncStateAttachmentOutput struct{ *pulumi.OutputState }
@@ -382,47 +219,6 @@ func (i FirewallPolicyFirewallPolicyArgs) ToFirewallPolicyFirewallPolicyOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyFirewallPolicyOutput)
 }
 
-func (i FirewallPolicyFirewallPolicyArgs) ToFirewallPolicyFirewallPolicyPtrOutput() FirewallPolicyFirewallPolicyPtrOutput {
-	return i.ToFirewallPolicyFirewallPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i FirewallPolicyFirewallPolicyArgs) ToFirewallPolicyFirewallPolicyPtrOutputWithContext(ctx context.Context) FirewallPolicyFirewallPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyFirewallPolicyOutput).ToFirewallPolicyFirewallPolicyPtrOutputWithContext(ctx)
-}
-
-// FirewallPolicyFirewallPolicyPtrInput is an input type that accepts FirewallPolicyFirewallPolicyArgs, FirewallPolicyFirewallPolicyPtr and FirewallPolicyFirewallPolicyPtrOutput values.
-// You can construct a concrete instance of `FirewallPolicyFirewallPolicyPtrInput` via:
-//
-//          FirewallPolicyFirewallPolicyArgs{...}
-//
-//  or:
-//
-//          nil
-type FirewallPolicyFirewallPolicyPtrInput interface {
-	pulumi.Input
-
-	ToFirewallPolicyFirewallPolicyPtrOutput() FirewallPolicyFirewallPolicyPtrOutput
-	ToFirewallPolicyFirewallPolicyPtrOutputWithContext(context.Context) FirewallPolicyFirewallPolicyPtrOutput
-}
-
-type firewallPolicyFirewallPolicyPtrType FirewallPolicyFirewallPolicyArgs
-
-func FirewallPolicyFirewallPolicyPtr(v *FirewallPolicyFirewallPolicyArgs) FirewallPolicyFirewallPolicyPtrInput {
-	return (*firewallPolicyFirewallPolicyPtrType)(v)
-}
-
-func (*firewallPolicyFirewallPolicyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FirewallPolicyFirewallPolicy)(nil)).Elem()
-}
-
-func (i *firewallPolicyFirewallPolicyPtrType) ToFirewallPolicyFirewallPolicyPtrOutput() FirewallPolicyFirewallPolicyPtrOutput {
-	return i.ToFirewallPolicyFirewallPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *firewallPolicyFirewallPolicyPtrType) ToFirewallPolicyFirewallPolicyPtrOutputWithContext(ctx context.Context) FirewallPolicyFirewallPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FirewallPolicyFirewallPolicyPtrOutput)
-}
-
 type FirewallPolicyFirewallPolicyOutput struct{ *pulumi.OutputState }
 
 func (FirewallPolicyFirewallPolicyOutput) ElementType() reflect.Type {
@@ -435,16 +231,6 @@ func (o FirewallPolicyFirewallPolicyOutput) ToFirewallPolicyFirewallPolicyOutput
 
 func (o FirewallPolicyFirewallPolicyOutput) ToFirewallPolicyFirewallPolicyOutputWithContext(ctx context.Context) FirewallPolicyFirewallPolicyOutput {
 	return o
-}
-
-func (o FirewallPolicyFirewallPolicyOutput) ToFirewallPolicyFirewallPolicyPtrOutput() FirewallPolicyFirewallPolicyPtrOutput {
-	return o.ToFirewallPolicyFirewallPolicyPtrOutputWithContext(context.Background())
-}
-
-func (o FirewallPolicyFirewallPolicyOutput) ToFirewallPolicyFirewallPolicyPtrOutputWithContext(ctx context.Context) FirewallPolicyFirewallPolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FirewallPolicyFirewallPolicy) *FirewallPolicyFirewallPolicy {
-		return &v
-	}).(FirewallPolicyFirewallPolicyPtrOutput)
 }
 
 // Set of actions to take on a packet if it does not match any stateful rules in the policy. This can only be specified if the policy has a `statefulEngineOptions` block with a `ruleOrder` value of `STRICT_ORDER`. You can specify one of either or neither values of `aws:drop_strict` or `aws:drop_established`, as well as any combination of `aws:alert_strict` and `aws:alert_established`.
@@ -488,102 +274,6 @@ func (o FirewallPolicyFirewallPolicyOutput) StatelessFragmentDefaultActions() pu
 // Set of configuration blocks containing references to the stateless rule groups that are used in the policy. See Stateless Rule Group Reference below for details.
 func (o FirewallPolicyFirewallPolicyOutput) StatelessRuleGroupReferences() FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArrayOutput {
 	return o.ApplyT(func(v FirewallPolicyFirewallPolicy) []FirewallPolicyFirewallPolicyStatelessRuleGroupReference {
-		return v.StatelessRuleGroupReferences
-	}).(FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArrayOutput)
-}
-
-type FirewallPolicyFirewallPolicyPtrOutput struct{ *pulumi.OutputState }
-
-func (FirewallPolicyFirewallPolicyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FirewallPolicyFirewallPolicy)(nil)).Elem()
-}
-
-func (o FirewallPolicyFirewallPolicyPtrOutput) ToFirewallPolicyFirewallPolicyPtrOutput() FirewallPolicyFirewallPolicyPtrOutput {
-	return o
-}
-
-func (o FirewallPolicyFirewallPolicyPtrOutput) ToFirewallPolicyFirewallPolicyPtrOutputWithContext(ctx context.Context) FirewallPolicyFirewallPolicyPtrOutput {
-	return o
-}
-
-func (o FirewallPolicyFirewallPolicyPtrOutput) Elem() FirewallPolicyFirewallPolicyOutput {
-	return o.ApplyT(func(v *FirewallPolicyFirewallPolicy) FirewallPolicyFirewallPolicy {
-		if v != nil {
-			return *v
-		}
-		var ret FirewallPolicyFirewallPolicy
-		return ret
-	}).(FirewallPolicyFirewallPolicyOutput)
-}
-
-// Set of actions to take on a packet if it does not match any stateful rules in the policy. This can only be specified if the policy has a `statefulEngineOptions` block with a `ruleOrder` value of `STRICT_ORDER`. You can specify one of either or neither values of `aws:drop_strict` or `aws:drop_established`, as well as any combination of `aws:alert_strict` and `aws:alert_established`.
-func (o FirewallPolicyFirewallPolicyPtrOutput) StatefulDefaultActions() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *FirewallPolicyFirewallPolicy) []string {
-		if v == nil {
-			return nil
-		}
-		return v.StatefulDefaultActions
-	}).(pulumi.StringArrayOutput)
-}
-
-// A configuration block that defines options on how the policy handles stateful rules. See Stateful Engine Options below for details.
-func (o FirewallPolicyFirewallPolicyPtrOutput) StatefulEngineOptions() FirewallPolicyFirewallPolicyStatefulEngineOptionsPtrOutput {
-	return o.ApplyT(func(v *FirewallPolicyFirewallPolicy) *FirewallPolicyFirewallPolicyStatefulEngineOptions {
-		if v == nil {
-			return nil
-		}
-		return v.StatefulEngineOptions
-	}).(FirewallPolicyFirewallPolicyStatefulEngineOptionsPtrOutput)
-}
-
-// Set of configuration blocks containing references to the stateful rule groups that are used in the policy. See Stateful Rule Group Reference below for details.
-func (o FirewallPolicyFirewallPolicyPtrOutput) StatefulRuleGroupReferences() FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArrayOutput {
-	return o.ApplyT(func(v *FirewallPolicyFirewallPolicy) []FirewallPolicyFirewallPolicyStatefulRuleGroupReference {
-		if v == nil {
-			return nil
-		}
-		return v.StatefulRuleGroupReferences
-	}).(FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArrayOutput)
-}
-
-// Set of configuration blocks describing the custom action definitions that are available for use in the firewall policy's `statelessDefaultActions`. See Stateless Custom Action below for details.
-func (o FirewallPolicyFirewallPolicyPtrOutput) StatelessCustomActions() FirewallPolicyFirewallPolicyStatelessCustomActionArrayOutput {
-	return o.ApplyT(func(v *FirewallPolicyFirewallPolicy) []FirewallPolicyFirewallPolicyStatelessCustomAction {
-		if v == nil {
-			return nil
-		}
-		return v.StatelessCustomActions
-	}).(FirewallPolicyFirewallPolicyStatelessCustomActionArrayOutput)
-}
-
-// Set of actions to take on a packet if it does not match any of the stateless rules in the policy. You must specify one of the standard actions including: `aws:drop`, `aws:pass`, or `aws:forward_to_sfe`.
-// In addition, you can specify custom actions that are compatible with your standard action choice. If you want non-matching packets to be forwarded for stateful inspection, specify `aws:forward_to_sfe`.
-func (o FirewallPolicyFirewallPolicyPtrOutput) StatelessDefaultActions() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *FirewallPolicyFirewallPolicy) []string {
-		if v == nil {
-			return nil
-		}
-		return v.StatelessDefaultActions
-	}).(pulumi.StringArrayOutput)
-}
-
-// Set of actions to take on a fragmented packet if it does not match any of the stateless rules in the policy. You must specify one of the standard actions including: `aws:drop`, `aws:pass`, or `aws:forward_to_sfe`.
-// In addition, you can specify custom actions that are compatible with your standard action choice. If you want non-matching packets to be forwarded for stateful inspection, specify `aws:forward_to_sfe`.
-func (o FirewallPolicyFirewallPolicyPtrOutput) StatelessFragmentDefaultActions() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *FirewallPolicyFirewallPolicy) []string {
-		if v == nil {
-			return nil
-		}
-		return v.StatelessFragmentDefaultActions
-	}).(pulumi.StringArrayOutput)
-}
-
-// Set of configuration blocks containing references to the stateless rule groups that are used in the policy. See Stateless Rule Group Reference below for details.
-func (o FirewallPolicyFirewallPolicyPtrOutput) StatelessRuleGroupReferences() FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArrayOutput {
-	return o.ApplyT(func(v *FirewallPolicyFirewallPolicy) []FirewallPolicyFirewallPolicyStatelessRuleGroupReference {
-		if v == nil {
-			return nil
-		}
 		return v.StatelessRuleGroupReferences
 	}).(FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArrayOutput)
 }
@@ -1382,47 +1072,6 @@ func (i LoggingConfigurationLoggingConfigurationArgs) ToLoggingConfigurationLogg
 	return pulumi.ToOutputWithContext(ctx, i).(LoggingConfigurationLoggingConfigurationOutput)
 }
 
-func (i LoggingConfigurationLoggingConfigurationArgs) ToLoggingConfigurationLoggingConfigurationPtrOutput() LoggingConfigurationLoggingConfigurationPtrOutput {
-	return i.ToLoggingConfigurationLoggingConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i LoggingConfigurationLoggingConfigurationArgs) ToLoggingConfigurationLoggingConfigurationPtrOutputWithContext(ctx context.Context) LoggingConfigurationLoggingConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LoggingConfigurationLoggingConfigurationOutput).ToLoggingConfigurationLoggingConfigurationPtrOutputWithContext(ctx)
-}
-
-// LoggingConfigurationLoggingConfigurationPtrInput is an input type that accepts LoggingConfigurationLoggingConfigurationArgs, LoggingConfigurationLoggingConfigurationPtr and LoggingConfigurationLoggingConfigurationPtrOutput values.
-// You can construct a concrete instance of `LoggingConfigurationLoggingConfigurationPtrInput` via:
-//
-//          LoggingConfigurationLoggingConfigurationArgs{...}
-//
-//  or:
-//
-//          nil
-type LoggingConfigurationLoggingConfigurationPtrInput interface {
-	pulumi.Input
-
-	ToLoggingConfigurationLoggingConfigurationPtrOutput() LoggingConfigurationLoggingConfigurationPtrOutput
-	ToLoggingConfigurationLoggingConfigurationPtrOutputWithContext(context.Context) LoggingConfigurationLoggingConfigurationPtrOutput
-}
-
-type loggingConfigurationLoggingConfigurationPtrType LoggingConfigurationLoggingConfigurationArgs
-
-func LoggingConfigurationLoggingConfigurationPtr(v *LoggingConfigurationLoggingConfigurationArgs) LoggingConfigurationLoggingConfigurationPtrInput {
-	return (*loggingConfigurationLoggingConfigurationPtrType)(v)
-}
-
-func (*loggingConfigurationLoggingConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LoggingConfigurationLoggingConfiguration)(nil)).Elem()
-}
-
-func (i *loggingConfigurationLoggingConfigurationPtrType) ToLoggingConfigurationLoggingConfigurationPtrOutput() LoggingConfigurationLoggingConfigurationPtrOutput {
-	return i.ToLoggingConfigurationLoggingConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i *loggingConfigurationLoggingConfigurationPtrType) ToLoggingConfigurationLoggingConfigurationPtrOutputWithContext(ctx context.Context) LoggingConfigurationLoggingConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LoggingConfigurationLoggingConfigurationPtrOutput)
-}
-
 type LoggingConfigurationLoggingConfigurationOutput struct{ *pulumi.OutputState }
 
 func (LoggingConfigurationLoggingConfigurationOutput) ElementType() reflect.Type {
@@ -1437,53 +1086,9 @@ func (o LoggingConfigurationLoggingConfigurationOutput) ToLoggingConfigurationLo
 	return o
 }
 
-func (o LoggingConfigurationLoggingConfigurationOutput) ToLoggingConfigurationLoggingConfigurationPtrOutput() LoggingConfigurationLoggingConfigurationPtrOutput {
-	return o.ToLoggingConfigurationLoggingConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (o LoggingConfigurationLoggingConfigurationOutput) ToLoggingConfigurationLoggingConfigurationPtrOutputWithContext(ctx context.Context) LoggingConfigurationLoggingConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LoggingConfigurationLoggingConfiguration) *LoggingConfigurationLoggingConfiguration {
-		return &v
-	}).(LoggingConfigurationLoggingConfigurationPtrOutput)
-}
-
 // Set of configuration blocks describing the logging details for a firewall. See Log Destination Config below for details. At most, only two blocks can be specified; one for `FLOW` logs and one for `ALERT` logs.
 func (o LoggingConfigurationLoggingConfigurationOutput) LogDestinationConfigs() LoggingConfigurationLoggingConfigurationLogDestinationConfigArrayOutput {
 	return o.ApplyT(func(v LoggingConfigurationLoggingConfiguration) []LoggingConfigurationLoggingConfigurationLogDestinationConfig {
-		return v.LogDestinationConfigs
-	}).(LoggingConfigurationLoggingConfigurationLogDestinationConfigArrayOutput)
-}
-
-type LoggingConfigurationLoggingConfigurationPtrOutput struct{ *pulumi.OutputState }
-
-func (LoggingConfigurationLoggingConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LoggingConfigurationLoggingConfiguration)(nil)).Elem()
-}
-
-func (o LoggingConfigurationLoggingConfigurationPtrOutput) ToLoggingConfigurationLoggingConfigurationPtrOutput() LoggingConfigurationLoggingConfigurationPtrOutput {
-	return o
-}
-
-func (o LoggingConfigurationLoggingConfigurationPtrOutput) ToLoggingConfigurationLoggingConfigurationPtrOutputWithContext(ctx context.Context) LoggingConfigurationLoggingConfigurationPtrOutput {
-	return o
-}
-
-func (o LoggingConfigurationLoggingConfigurationPtrOutput) Elem() LoggingConfigurationLoggingConfigurationOutput {
-	return o.ApplyT(func(v *LoggingConfigurationLoggingConfiguration) LoggingConfigurationLoggingConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret LoggingConfigurationLoggingConfiguration
-		return ret
-	}).(LoggingConfigurationLoggingConfigurationOutput)
-}
-
-// Set of configuration blocks describing the logging details for a firewall. See Log Destination Config below for details. At most, only two blocks can be specified; one for `FLOW` logs and one for `ALERT` logs.
-func (o LoggingConfigurationLoggingConfigurationPtrOutput) LogDestinationConfigs() LoggingConfigurationLoggingConfigurationLogDestinationConfigArrayOutput {
-	return o.ApplyT(func(v *LoggingConfigurationLoggingConfiguration) []LoggingConfigurationLoggingConfigurationLogDestinationConfig {
-		if v == nil {
-			return nil
-		}
 		return v.LogDestinationConfigs
 	}).(LoggingConfigurationLoggingConfigurationLogDestinationConfigArrayOutput)
 }
@@ -4398,14 +4003,7 @@ func (o RuleGroupRuleGroupStatefulRuleOptionsPtrOutput) RuleOrder() pulumi.Strin
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*FirewallFirewallStatusInput)(nil)).Elem(), FirewallFirewallStatusArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FirewallFirewallStatusArrayInput)(nil)).Elem(), FirewallFirewallStatusArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FirewallFirewallStatusSyncStateInput)(nil)).Elem(), FirewallFirewallStatusSyncStateArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FirewallFirewallStatusSyncStateArrayInput)(nil)).Elem(), FirewallFirewallStatusSyncStateArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FirewallFirewallStatusSyncStateAttachmentInput)(nil)).Elem(), FirewallFirewallStatusSyncStateAttachmentArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FirewallFirewallStatusSyncStateAttachmentArrayInput)(nil)).Elem(), FirewallFirewallStatusSyncStateAttachmentArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyFirewallPolicyInput)(nil)).Elem(), FirewallPolicyFirewallPolicyArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyFirewallPolicyPtrInput)(nil)).Elem(), FirewallPolicyFirewallPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyFirewallPolicyStatefulEngineOptionsInput)(nil)).Elem(), FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyFirewallPolicyStatefulEngineOptionsPtrInput)(nil)).Elem(), FirewallPolicyFirewallPolicyStatefulEngineOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceInput)(nil)).Elem(), FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs{})
@@ -4421,7 +4019,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallSubnetMappingInput)(nil)).Elem(), FirewallSubnetMappingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallSubnetMappingArrayInput)(nil)).Elem(), FirewallSubnetMappingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LoggingConfigurationLoggingConfigurationInput)(nil)).Elem(), LoggingConfigurationLoggingConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LoggingConfigurationLoggingConfigurationPtrInput)(nil)).Elem(), LoggingConfigurationLoggingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LoggingConfigurationLoggingConfigurationLogDestinationConfigInput)(nil)).Elem(), LoggingConfigurationLoggingConfigurationLogDestinationConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LoggingConfigurationLoggingConfigurationLogDestinationConfigArrayInput)(nil)).Elem(), LoggingConfigurationLoggingConfigurationLogDestinationConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupRuleGroupInput)(nil)).Elem(), RuleGroupRuleGroupArgs{})
@@ -4474,7 +4071,6 @@ func init() {
 	pulumi.RegisterOutputType(FirewallFirewallStatusSyncStateAttachmentOutput{})
 	pulumi.RegisterOutputType(FirewallFirewallStatusSyncStateAttachmentArrayOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyFirewallPolicyOutput{})
-	pulumi.RegisterOutputType(FirewallPolicyFirewallPolicyPtrOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyFirewallPolicyStatefulEngineOptionsOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyFirewallPolicyStatefulEngineOptionsPtrOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOutput{})
@@ -4490,7 +4086,6 @@ func init() {
 	pulumi.RegisterOutputType(FirewallSubnetMappingOutput{})
 	pulumi.RegisterOutputType(FirewallSubnetMappingArrayOutput{})
 	pulumi.RegisterOutputType(LoggingConfigurationLoggingConfigurationOutput{})
-	pulumi.RegisterOutputType(LoggingConfigurationLoggingConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(LoggingConfigurationLoggingConfigurationLogDestinationConfigOutput{})
 	pulumi.RegisterOutputType(LoggingConfigurationLoggingConfigurationLogDestinationConfigArrayOutput{})
 	pulumi.RegisterOutputType(RuleGroupRuleGroupOutput{})

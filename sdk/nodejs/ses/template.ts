@@ -87,27 +87,27 @@ export class Template extends pulumi.CustomResource {
      */
     constructor(name: string, args?: TemplateArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: TemplateArgs | TemplateState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TemplateState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["html"] = state ? state.html : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["subject"] = state ? state.subject : undefined;
-            inputs["text"] = state ? state.text : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["html"] = state ? state.html : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["subject"] = state ? state.subject : undefined;
+            resourceInputs["text"] = state ? state.text : undefined;
         } else {
             const args = argsOrState as TemplateArgs | undefined;
-            inputs["html"] = args ? args.html : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["subject"] = args ? args.subject : undefined;
-            inputs["text"] = args ? args.text : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["html"] = args ? args.html : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["subject"] = args ? args.subject : undefined;
+            resourceInputs["text"] = args ? args.text : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Template.__pulumiType, name, inputs, opts);
+        super(Template.__pulumiType, name, resourceInputs, opts);
     }
 }
 

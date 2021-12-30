@@ -63,22 +63,22 @@ export class OrganizationsAccess extends pulumi.CustomResource {
      */
     constructor(name: string, args: OrganizationsAccessArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: OrganizationsAccessArgs | OrganizationsAccessState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OrganizationsAccessState | undefined;
-            inputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["enabled"] = state ? state.enabled : undefined;
         } else {
             const args = argsOrState as OrganizationsAccessArgs | undefined;
             if ((!args || args.enabled === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'enabled'");
             }
-            inputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(OrganizationsAccess.__pulumiType, name, inputs, opts);
+        super(OrganizationsAccess.__pulumiType, name, resourceInputs, opts);
     }
 }
 

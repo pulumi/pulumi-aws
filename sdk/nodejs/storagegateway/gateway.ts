@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  *     volumeId: aws_ebs_volume.test.id,
  *     instanceId: aws_instance.test.id,
  * });
- * const testLocalDisk = testVolumeAttachment.deviceName.apply(deviceName => aws.storagegateway.getLocalDisk({
+ * const testLocalDisk = testVolumeAttachment.deviceName.apply(deviceName => aws.storagegateway.getLocalDiskOutput({
  *     diskNode: deviceName,
  *     gatewayArn: aws_storagegateway_gateway.test.arn,
  * }));
@@ -244,33 +244,33 @@ export class Gateway extends pulumi.CustomResource {
      */
     constructor(name: string, args: GatewayArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: GatewayArgs | GatewayState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GatewayState | undefined;
-            inputs["activationKey"] = state ? state.activationKey : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["averageDownloadRateLimitInBitsPerSec"] = state ? state.averageDownloadRateLimitInBitsPerSec : undefined;
-            inputs["averageUploadRateLimitInBitsPerSec"] = state ? state.averageUploadRateLimitInBitsPerSec : undefined;
-            inputs["cloudwatchLogGroupArn"] = state ? state.cloudwatchLogGroupArn : undefined;
-            inputs["ec2InstanceId"] = state ? state.ec2InstanceId : undefined;
-            inputs["endpointType"] = state ? state.endpointType : undefined;
-            inputs["gatewayId"] = state ? state.gatewayId : undefined;
-            inputs["gatewayIpAddress"] = state ? state.gatewayIpAddress : undefined;
-            inputs["gatewayName"] = state ? state.gatewayName : undefined;
-            inputs["gatewayNetworkInterfaces"] = state ? state.gatewayNetworkInterfaces : undefined;
-            inputs["gatewayTimezone"] = state ? state.gatewayTimezone : undefined;
-            inputs["gatewayType"] = state ? state.gatewayType : undefined;
-            inputs["gatewayVpcEndpoint"] = state ? state.gatewayVpcEndpoint : undefined;
-            inputs["hostEnvironment"] = state ? state.hostEnvironment : undefined;
-            inputs["mediumChangerType"] = state ? state.mediumChangerType : undefined;
-            inputs["smbActiveDirectorySettings"] = state ? state.smbActiveDirectorySettings : undefined;
-            inputs["smbFileShareVisibility"] = state ? state.smbFileShareVisibility : undefined;
-            inputs["smbGuestPassword"] = state ? state.smbGuestPassword : undefined;
-            inputs["smbSecurityStrategy"] = state ? state.smbSecurityStrategy : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["tapeDriveType"] = state ? state.tapeDriveType : undefined;
+            resourceInputs["activationKey"] = state ? state.activationKey : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["averageDownloadRateLimitInBitsPerSec"] = state ? state.averageDownloadRateLimitInBitsPerSec : undefined;
+            resourceInputs["averageUploadRateLimitInBitsPerSec"] = state ? state.averageUploadRateLimitInBitsPerSec : undefined;
+            resourceInputs["cloudwatchLogGroupArn"] = state ? state.cloudwatchLogGroupArn : undefined;
+            resourceInputs["ec2InstanceId"] = state ? state.ec2InstanceId : undefined;
+            resourceInputs["endpointType"] = state ? state.endpointType : undefined;
+            resourceInputs["gatewayId"] = state ? state.gatewayId : undefined;
+            resourceInputs["gatewayIpAddress"] = state ? state.gatewayIpAddress : undefined;
+            resourceInputs["gatewayName"] = state ? state.gatewayName : undefined;
+            resourceInputs["gatewayNetworkInterfaces"] = state ? state.gatewayNetworkInterfaces : undefined;
+            resourceInputs["gatewayTimezone"] = state ? state.gatewayTimezone : undefined;
+            resourceInputs["gatewayType"] = state ? state.gatewayType : undefined;
+            resourceInputs["gatewayVpcEndpoint"] = state ? state.gatewayVpcEndpoint : undefined;
+            resourceInputs["hostEnvironment"] = state ? state.hostEnvironment : undefined;
+            resourceInputs["mediumChangerType"] = state ? state.mediumChangerType : undefined;
+            resourceInputs["smbActiveDirectorySettings"] = state ? state.smbActiveDirectorySettings : undefined;
+            resourceInputs["smbFileShareVisibility"] = state ? state.smbFileShareVisibility : undefined;
+            resourceInputs["smbGuestPassword"] = state ? state.smbGuestPassword : undefined;
+            resourceInputs["smbSecurityStrategy"] = state ? state.smbSecurityStrategy : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["tapeDriveType"] = state ? state.tapeDriveType : undefined;
         } else {
             const args = argsOrState as GatewayArgs | undefined;
             if ((!args || args.gatewayName === undefined) && !opts.urn) {
@@ -279,34 +279,34 @@ export class Gateway extends pulumi.CustomResource {
             if ((!args || args.gatewayTimezone === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'gatewayTimezone'");
             }
-            inputs["activationKey"] = args ? args.activationKey : undefined;
-            inputs["averageDownloadRateLimitInBitsPerSec"] = args ? args.averageDownloadRateLimitInBitsPerSec : undefined;
-            inputs["averageUploadRateLimitInBitsPerSec"] = args ? args.averageUploadRateLimitInBitsPerSec : undefined;
-            inputs["cloudwatchLogGroupArn"] = args ? args.cloudwatchLogGroupArn : undefined;
-            inputs["gatewayIpAddress"] = args ? args.gatewayIpAddress : undefined;
-            inputs["gatewayName"] = args ? args.gatewayName : undefined;
-            inputs["gatewayTimezone"] = args ? args.gatewayTimezone : undefined;
-            inputs["gatewayType"] = args ? args.gatewayType : undefined;
-            inputs["gatewayVpcEndpoint"] = args ? args.gatewayVpcEndpoint : undefined;
-            inputs["mediumChangerType"] = args ? args.mediumChangerType : undefined;
-            inputs["smbActiveDirectorySettings"] = args ? args.smbActiveDirectorySettings : undefined;
-            inputs["smbFileShareVisibility"] = args ? args.smbFileShareVisibility : undefined;
-            inputs["smbGuestPassword"] = args ? args.smbGuestPassword : undefined;
-            inputs["smbSecurityStrategy"] = args ? args.smbSecurityStrategy : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["tapeDriveType"] = args ? args.tapeDriveType : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["ec2InstanceId"] = undefined /*out*/;
-            inputs["endpointType"] = undefined /*out*/;
-            inputs["gatewayId"] = undefined /*out*/;
-            inputs["gatewayNetworkInterfaces"] = undefined /*out*/;
-            inputs["hostEnvironment"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["activationKey"] = args ? args.activationKey : undefined;
+            resourceInputs["averageDownloadRateLimitInBitsPerSec"] = args ? args.averageDownloadRateLimitInBitsPerSec : undefined;
+            resourceInputs["averageUploadRateLimitInBitsPerSec"] = args ? args.averageUploadRateLimitInBitsPerSec : undefined;
+            resourceInputs["cloudwatchLogGroupArn"] = args ? args.cloudwatchLogGroupArn : undefined;
+            resourceInputs["gatewayIpAddress"] = args ? args.gatewayIpAddress : undefined;
+            resourceInputs["gatewayName"] = args ? args.gatewayName : undefined;
+            resourceInputs["gatewayTimezone"] = args ? args.gatewayTimezone : undefined;
+            resourceInputs["gatewayType"] = args ? args.gatewayType : undefined;
+            resourceInputs["gatewayVpcEndpoint"] = args ? args.gatewayVpcEndpoint : undefined;
+            resourceInputs["mediumChangerType"] = args ? args.mediumChangerType : undefined;
+            resourceInputs["smbActiveDirectorySettings"] = args ? args.smbActiveDirectorySettings : undefined;
+            resourceInputs["smbFileShareVisibility"] = args ? args.smbFileShareVisibility : undefined;
+            resourceInputs["smbGuestPassword"] = args ? args.smbGuestPassword : undefined;
+            resourceInputs["smbSecurityStrategy"] = args ? args.smbSecurityStrategy : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tapeDriveType"] = args ? args.tapeDriveType : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["ec2InstanceId"] = undefined /*out*/;
+            resourceInputs["endpointType"] = undefined /*out*/;
+            resourceInputs["gatewayId"] = undefined /*out*/;
+            resourceInputs["gatewayNetworkInterfaces"] = undefined /*out*/;
+            resourceInputs["hostEnvironment"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Gateway.__pulumiType, name, inputs, opts);
+        super(Gateway.__pulumiType, name, resourceInputs, opts);
     }
 }
 

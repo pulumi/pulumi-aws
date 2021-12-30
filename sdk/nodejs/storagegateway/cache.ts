@@ -75,12 +75,12 @@ export class Cache extends pulumi.CustomResource {
      */
     constructor(name: string, args: CacheArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: CacheArgs | CacheState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CacheState | undefined;
-            inputs["diskId"] = state ? state.diskId : undefined;
-            inputs["gatewayArn"] = state ? state.gatewayArn : undefined;
+            resourceInputs["diskId"] = state ? state.diskId : undefined;
+            resourceInputs["gatewayArn"] = state ? state.gatewayArn : undefined;
         } else {
             const args = argsOrState as CacheArgs | undefined;
             if ((!args || args.diskId === undefined) && !opts.urn) {
@@ -89,13 +89,13 @@ export class Cache extends pulumi.CustomResource {
             if ((!args || args.gatewayArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'gatewayArn'");
             }
-            inputs["diskId"] = args ? args.diskId : undefined;
-            inputs["gatewayArn"] = args ? args.gatewayArn : undefined;
+            resourceInputs["diskId"] = args ? args.diskId : undefined;
+            resourceInputs["gatewayArn"] = args ? args.gatewayArn : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Cache.__pulumiType, name, inputs, opts);
+        super(Cache.__pulumiType, name, resourceInputs, opts);
     }
 }
 

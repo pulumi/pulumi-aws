@@ -55,47 +55,6 @@ func (i EventConnectionAuthParametersArgs) ToEventConnectionAuthParametersOutput
 	return pulumi.ToOutputWithContext(ctx, i).(EventConnectionAuthParametersOutput)
 }
 
-func (i EventConnectionAuthParametersArgs) ToEventConnectionAuthParametersPtrOutput() EventConnectionAuthParametersPtrOutput {
-	return i.ToEventConnectionAuthParametersPtrOutputWithContext(context.Background())
-}
-
-func (i EventConnectionAuthParametersArgs) ToEventConnectionAuthParametersPtrOutputWithContext(ctx context.Context) EventConnectionAuthParametersPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EventConnectionAuthParametersOutput).ToEventConnectionAuthParametersPtrOutputWithContext(ctx)
-}
-
-// EventConnectionAuthParametersPtrInput is an input type that accepts EventConnectionAuthParametersArgs, EventConnectionAuthParametersPtr and EventConnectionAuthParametersPtrOutput values.
-// You can construct a concrete instance of `EventConnectionAuthParametersPtrInput` via:
-//
-//          EventConnectionAuthParametersArgs{...}
-//
-//  or:
-//
-//          nil
-type EventConnectionAuthParametersPtrInput interface {
-	pulumi.Input
-
-	ToEventConnectionAuthParametersPtrOutput() EventConnectionAuthParametersPtrOutput
-	ToEventConnectionAuthParametersPtrOutputWithContext(context.Context) EventConnectionAuthParametersPtrOutput
-}
-
-type eventConnectionAuthParametersPtrType EventConnectionAuthParametersArgs
-
-func EventConnectionAuthParametersPtr(v *EventConnectionAuthParametersArgs) EventConnectionAuthParametersPtrInput {
-	return (*eventConnectionAuthParametersPtrType)(v)
-}
-
-func (*eventConnectionAuthParametersPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EventConnectionAuthParameters)(nil)).Elem()
-}
-
-func (i *eventConnectionAuthParametersPtrType) ToEventConnectionAuthParametersPtrOutput() EventConnectionAuthParametersPtrOutput {
-	return i.ToEventConnectionAuthParametersPtrOutputWithContext(context.Background())
-}
-
-func (i *eventConnectionAuthParametersPtrType) ToEventConnectionAuthParametersPtrOutputWithContext(ctx context.Context) EventConnectionAuthParametersPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EventConnectionAuthParametersPtrOutput)
-}
-
 type EventConnectionAuthParametersOutput struct{ *pulumi.OutputState }
 
 func (EventConnectionAuthParametersOutput) ElementType() reflect.Type {
@@ -108,16 +67,6 @@ func (o EventConnectionAuthParametersOutput) ToEventConnectionAuthParametersOutp
 
 func (o EventConnectionAuthParametersOutput) ToEventConnectionAuthParametersOutputWithContext(ctx context.Context) EventConnectionAuthParametersOutput {
 	return o
-}
-
-func (o EventConnectionAuthParametersOutput) ToEventConnectionAuthParametersPtrOutput() EventConnectionAuthParametersPtrOutput {
-	return o.ToEventConnectionAuthParametersPtrOutputWithContext(context.Background())
-}
-
-func (o EventConnectionAuthParametersOutput) ToEventConnectionAuthParametersPtrOutputWithContext(ctx context.Context) EventConnectionAuthParametersPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventConnectionAuthParameters) *EventConnectionAuthParameters {
-		return &v
-	}).(EventConnectionAuthParametersPtrOutput)
 }
 
 // Parameters used for API_KEY authorization. An API key to include in the header for each authentication request. A maximum of 1 are allowed. Conflicts with `basic` and `oauth`. Documented below.
@@ -140,70 +89,6 @@ func (o EventConnectionAuthParametersOutput) InvocationHttpParameters() EventCon
 // Parameters used for OAUTH_CLIENT_CREDENTIALS authorization. A maximum of 1 are allowed. Conflicts with `basic` and `apiKey`. Documented below.
 func (o EventConnectionAuthParametersOutput) Oauth() EventConnectionAuthParametersOauthPtrOutput {
 	return o.ApplyT(func(v EventConnectionAuthParameters) *EventConnectionAuthParametersOauth { return v.Oauth }).(EventConnectionAuthParametersOauthPtrOutput)
-}
-
-type EventConnectionAuthParametersPtrOutput struct{ *pulumi.OutputState }
-
-func (EventConnectionAuthParametersPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EventConnectionAuthParameters)(nil)).Elem()
-}
-
-func (o EventConnectionAuthParametersPtrOutput) ToEventConnectionAuthParametersPtrOutput() EventConnectionAuthParametersPtrOutput {
-	return o
-}
-
-func (o EventConnectionAuthParametersPtrOutput) ToEventConnectionAuthParametersPtrOutputWithContext(ctx context.Context) EventConnectionAuthParametersPtrOutput {
-	return o
-}
-
-func (o EventConnectionAuthParametersPtrOutput) Elem() EventConnectionAuthParametersOutput {
-	return o.ApplyT(func(v *EventConnectionAuthParameters) EventConnectionAuthParameters {
-		if v != nil {
-			return *v
-		}
-		var ret EventConnectionAuthParameters
-		return ret
-	}).(EventConnectionAuthParametersOutput)
-}
-
-// Parameters used for API_KEY authorization. An API key to include in the header for each authentication request. A maximum of 1 are allowed. Conflicts with `basic` and `oauth`. Documented below.
-func (o EventConnectionAuthParametersPtrOutput) ApiKey() EventConnectionAuthParametersApiKeyPtrOutput {
-	return o.ApplyT(func(v *EventConnectionAuthParameters) *EventConnectionAuthParametersApiKey {
-		if v == nil {
-			return nil
-		}
-		return v.ApiKey
-	}).(EventConnectionAuthParametersApiKeyPtrOutput)
-}
-
-// Parameters used for BASIC authorization. A maximum of 1 are allowed. Conflicts with `apiKey` and `oauth`. Documented below.
-func (o EventConnectionAuthParametersPtrOutput) Basic() EventConnectionAuthParametersBasicPtrOutput {
-	return o.ApplyT(func(v *EventConnectionAuthParameters) *EventConnectionAuthParametersBasic {
-		if v == nil {
-			return nil
-		}
-		return v.Basic
-	}).(EventConnectionAuthParametersBasicPtrOutput)
-}
-
-// Invocation Http Parameters are additional credentials used to sign each Invocation of the ApiDestination created from this Connection. If the ApiDestination Rule Target has additional HttpParameters, the values will be merged together, with the Connection Invocation Http Parameters taking precedence. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
-func (o EventConnectionAuthParametersPtrOutput) InvocationHttpParameters() EventConnectionAuthParametersInvocationHttpParametersPtrOutput {
-	return o.ApplyT(func(v *EventConnectionAuthParameters) *EventConnectionAuthParametersInvocationHttpParameters {
-		if v == nil {
-			return nil
-		}
-		return v.InvocationHttpParameters
-	}).(EventConnectionAuthParametersInvocationHttpParametersPtrOutput)
-}
-
-// Parameters used for OAUTH_CLIENT_CREDENTIALS authorization. A maximum of 1 are allowed. Conflicts with `basic` and `apiKey`. Documented below.
-func (o EventConnectionAuthParametersPtrOutput) Oauth() EventConnectionAuthParametersOauthPtrOutput {
-	return o.ApplyT(func(v *EventConnectionAuthParameters) *EventConnectionAuthParametersOauth {
-		if v == nil {
-			return nil
-		}
-		return v.Oauth
-	}).(EventConnectionAuthParametersOauthPtrOutput)
 }
 
 type EventConnectionAuthParametersApiKey struct {
@@ -4202,47 +4087,6 @@ func (i LogMetricFilterMetricTransformationArgs) ToLogMetricFilterMetricTransfor
 	return pulumi.ToOutputWithContext(ctx, i).(LogMetricFilterMetricTransformationOutput)
 }
 
-func (i LogMetricFilterMetricTransformationArgs) ToLogMetricFilterMetricTransformationPtrOutput() LogMetricFilterMetricTransformationPtrOutput {
-	return i.ToLogMetricFilterMetricTransformationPtrOutputWithContext(context.Background())
-}
-
-func (i LogMetricFilterMetricTransformationArgs) ToLogMetricFilterMetricTransformationPtrOutputWithContext(ctx context.Context) LogMetricFilterMetricTransformationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LogMetricFilterMetricTransformationOutput).ToLogMetricFilterMetricTransformationPtrOutputWithContext(ctx)
-}
-
-// LogMetricFilterMetricTransformationPtrInput is an input type that accepts LogMetricFilterMetricTransformationArgs, LogMetricFilterMetricTransformationPtr and LogMetricFilterMetricTransformationPtrOutput values.
-// You can construct a concrete instance of `LogMetricFilterMetricTransformationPtrInput` via:
-//
-//          LogMetricFilterMetricTransformationArgs{...}
-//
-//  or:
-//
-//          nil
-type LogMetricFilterMetricTransformationPtrInput interface {
-	pulumi.Input
-
-	ToLogMetricFilterMetricTransformationPtrOutput() LogMetricFilterMetricTransformationPtrOutput
-	ToLogMetricFilterMetricTransformationPtrOutputWithContext(context.Context) LogMetricFilterMetricTransformationPtrOutput
-}
-
-type logMetricFilterMetricTransformationPtrType LogMetricFilterMetricTransformationArgs
-
-func LogMetricFilterMetricTransformationPtr(v *LogMetricFilterMetricTransformationArgs) LogMetricFilterMetricTransformationPtrInput {
-	return (*logMetricFilterMetricTransformationPtrType)(v)
-}
-
-func (*logMetricFilterMetricTransformationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LogMetricFilterMetricTransformation)(nil)).Elem()
-}
-
-func (i *logMetricFilterMetricTransformationPtrType) ToLogMetricFilterMetricTransformationPtrOutput() LogMetricFilterMetricTransformationPtrOutput {
-	return i.ToLogMetricFilterMetricTransformationPtrOutputWithContext(context.Background())
-}
-
-func (i *logMetricFilterMetricTransformationPtrType) ToLogMetricFilterMetricTransformationPtrOutputWithContext(ctx context.Context) LogMetricFilterMetricTransformationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LogMetricFilterMetricTransformationPtrOutput)
-}
-
 type LogMetricFilterMetricTransformationOutput struct{ *pulumi.OutputState }
 
 func (LogMetricFilterMetricTransformationOutput) ElementType() reflect.Type {
@@ -4255,16 +4099,6 @@ func (o LogMetricFilterMetricTransformationOutput) ToLogMetricFilterMetricTransf
 
 func (o LogMetricFilterMetricTransformationOutput) ToLogMetricFilterMetricTransformationOutputWithContext(ctx context.Context) LogMetricFilterMetricTransformationOutput {
 	return o
-}
-
-func (o LogMetricFilterMetricTransformationOutput) ToLogMetricFilterMetricTransformationPtrOutput() LogMetricFilterMetricTransformationPtrOutput {
-	return o.ToLogMetricFilterMetricTransformationPtrOutputWithContext(context.Background())
-}
-
-func (o LogMetricFilterMetricTransformationOutput) ToLogMetricFilterMetricTransformationPtrOutputWithContext(ctx context.Context) LogMetricFilterMetricTransformationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LogMetricFilterMetricTransformation) *LogMetricFilterMetricTransformation {
-		return &v
-	}).(LogMetricFilterMetricTransformationPtrOutput)
 }
 
 // The value to emit when a filter pattern does not match a log event. Conflicts with `dimensions`.
@@ -4295,90 +4129,6 @@ func (o LogMetricFilterMetricTransformationOutput) Unit() pulumi.StringPtrOutput
 // What to publish to the metric. For example, if you're counting the occurrences of a particular term like "Error", the value will be "1" for each occurrence. If you're counting the bytes transferred the published value will be the value in the log event.
 func (o LogMetricFilterMetricTransformationOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v LogMetricFilterMetricTransformation) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type LogMetricFilterMetricTransformationPtrOutput struct{ *pulumi.OutputState }
-
-func (LogMetricFilterMetricTransformationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LogMetricFilterMetricTransformation)(nil)).Elem()
-}
-
-func (o LogMetricFilterMetricTransformationPtrOutput) ToLogMetricFilterMetricTransformationPtrOutput() LogMetricFilterMetricTransformationPtrOutput {
-	return o
-}
-
-func (o LogMetricFilterMetricTransformationPtrOutput) ToLogMetricFilterMetricTransformationPtrOutputWithContext(ctx context.Context) LogMetricFilterMetricTransformationPtrOutput {
-	return o
-}
-
-func (o LogMetricFilterMetricTransformationPtrOutput) Elem() LogMetricFilterMetricTransformationOutput {
-	return o.ApplyT(func(v *LogMetricFilterMetricTransformation) LogMetricFilterMetricTransformation {
-		if v != nil {
-			return *v
-		}
-		var ret LogMetricFilterMetricTransformation
-		return ret
-	}).(LogMetricFilterMetricTransformationOutput)
-}
-
-// The value to emit when a filter pattern does not match a log event. Conflicts with `dimensions`.
-func (o LogMetricFilterMetricTransformationPtrOutput) DefaultValue() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LogMetricFilterMetricTransformation) *string {
-		if v == nil {
-			return nil
-		}
-		return v.DefaultValue
-	}).(pulumi.StringPtrOutput)
-}
-
-// Map of fields to use as dimensions for the metric. Up to 3 dimensions are allowed. Conflicts with `defaultValue`.
-func (o LogMetricFilterMetricTransformationPtrOutput) Dimensions() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *LogMetricFilterMetricTransformation) map[string]string {
-		if v == nil {
-			return nil
-		}
-		return v.Dimensions
-	}).(pulumi.StringMapOutput)
-}
-
-// The name of the CloudWatch metric to which the monitored log information should be published (e.g., `ErrorCount`)
-func (o LogMetricFilterMetricTransformationPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LogMetricFilterMetricTransformation) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// The destination namespace of the CloudWatch metric.
-func (o LogMetricFilterMetricTransformationPtrOutput) Namespace() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LogMetricFilterMetricTransformation) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Namespace
-	}).(pulumi.StringPtrOutput)
-}
-
-// The unit to assign to the metric. If you omit this, the unit is set as `None`.
-func (o LogMetricFilterMetricTransformationPtrOutput) Unit() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LogMetricFilterMetricTransformation) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Unit
-	}).(pulumi.StringPtrOutput)
-}
-
-// What to publish to the metric. For example, if you're counting the occurrences of a particular term like "Error", the value will be "1" for each occurrence. If you're counting the bytes transferred the published value will be the value in the log event.
-func (o LogMetricFilterMetricTransformationPtrOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LogMetricFilterMetricTransformation) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Value
-	}).(pulumi.StringPtrOutput)
 }
 
 type MetricAlarmMetricQuery struct {
@@ -4963,7 +4713,6 @@ func (o MetricStreamIncludeFilterArrayOutput) Index(i pulumi.IntInput) MetricStr
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EventConnectionAuthParametersInput)(nil)).Elem(), EventConnectionAuthParametersArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EventConnectionAuthParametersPtrInput)(nil)).Elem(), EventConnectionAuthParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventConnectionAuthParametersApiKeyInput)(nil)).Elem(), EventConnectionAuthParametersApiKeyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventConnectionAuthParametersApiKeyPtrInput)(nil)).Elem(), EventConnectionAuthParametersApiKeyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventConnectionAuthParametersBasicInput)(nil)).Elem(), EventConnectionAuthParametersBasicArgs{})
@@ -5015,7 +4764,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EventTargetSqsTargetInput)(nil)).Elem(), EventTargetSqsTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventTargetSqsTargetPtrInput)(nil)).Elem(), EventTargetSqsTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LogMetricFilterMetricTransformationInput)(nil)).Elem(), LogMetricFilterMetricTransformationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LogMetricFilterMetricTransformationPtrInput)(nil)).Elem(), LogMetricFilterMetricTransformationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricAlarmMetricQueryInput)(nil)).Elem(), MetricAlarmMetricQueryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricAlarmMetricQueryArrayInput)(nil)).Elem(), MetricAlarmMetricQueryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricAlarmMetricQueryMetricInput)(nil)).Elem(), MetricAlarmMetricQueryMetricArgs{})
@@ -5025,7 +4773,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricStreamIncludeFilterInput)(nil)).Elem(), MetricStreamIncludeFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricStreamIncludeFilterArrayInput)(nil)).Elem(), MetricStreamIncludeFilterArray{})
 	pulumi.RegisterOutputType(EventConnectionAuthParametersOutput{})
-	pulumi.RegisterOutputType(EventConnectionAuthParametersPtrOutput{})
 	pulumi.RegisterOutputType(EventConnectionAuthParametersApiKeyOutput{})
 	pulumi.RegisterOutputType(EventConnectionAuthParametersApiKeyPtrOutput{})
 	pulumi.RegisterOutputType(EventConnectionAuthParametersBasicOutput{})
@@ -5077,7 +4824,6 @@ func init() {
 	pulumi.RegisterOutputType(EventTargetSqsTargetOutput{})
 	pulumi.RegisterOutputType(EventTargetSqsTargetPtrOutput{})
 	pulumi.RegisterOutputType(LogMetricFilterMetricTransformationOutput{})
-	pulumi.RegisterOutputType(LogMetricFilterMetricTransformationPtrOutput{})
 	pulumi.RegisterOutputType(MetricAlarmMetricQueryOutput{})
 	pulumi.RegisterOutputType(MetricAlarmMetricQueryArrayOutput{})
 	pulumi.RegisterOutputType(MetricAlarmMetricQueryMetricOutput{})

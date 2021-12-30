@@ -63,13 +63,13 @@ export class ManagedPrefixListEntry extends pulumi.CustomResource {
      */
     constructor(name: string, args: ManagedPrefixListEntryArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ManagedPrefixListEntryArgs | ManagedPrefixListEntryState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ManagedPrefixListEntryState | undefined;
-            inputs["cidr"] = state ? state.cidr : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["prefixListId"] = state ? state.prefixListId : undefined;
+            resourceInputs["cidr"] = state ? state.cidr : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["prefixListId"] = state ? state.prefixListId : undefined;
         } else {
             const args = argsOrState as ManagedPrefixListEntryArgs | undefined;
             if ((!args || args.cidr === undefined) && !opts.urn) {
@@ -78,14 +78,14 @@ export class ManagedPrefixListEntry extends pulumi.CustomResource {
             if ((!args || args.prefixListId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'prefixListId'");
             }
-            inputs["cidr"] = args ? args.cidr : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["prefixListId"] = args ? args.prefixListId : undefined;
+            resourceInputs["cidr"] = args ? args.cidr : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["prefixListId"] = args ? args.prefixListId : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(ManagedPrefixListEntry.__pulumiType, name, inputs, opts);
+        super(ManagedPrefixListEntry.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -357,7 +357,7 @@ type RailsAppLayerInput interface {
 }
 
 func (*RailsAppLayer) ElementType() reflect.Type {
-	return reflect.TypeOf((*RailsAppLayer)(nil))
+	return reflect.TypeOf((**RailsAppLayer)(nil)).Elem()
 }
 
 func (i *RailsAppLayer) ToRailsAppLayerOutput() RailsAppLayerOutput {
@@ -366,35 +366,6 @@ func (i *RailsAppLayer) ToRailsAppLayerOutput() RailsAppLayerOutput {
 
 func (i *RailsAppLayer) ToRailsAppLayerOutputWithContext(ctx context.Context) RailsAppLayerOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RailsAppLayerOutput)
-}
-
-func (i *RailsAppLayer) ToRailsAppLayerPtrOutput() RailsAppLayerPtrOutput {
-	return i.ToRailsAppLayerPtrOutputWithContext(context.Background())
-}
-
-func (i *RailsAppLayer) ToRailsAppLayerPtrOutputWithContext(ctx context.Context) RailsAppLayerPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RailsAppLayerPtrOutput)
-}
-
-type RailsAppLayerPtrInput interface {
-	pulumi.Input
-
-	ToRailsAppLayerPtrOutput() RailsAppLayerPtrOutput
-	ToRailsAppLayerPtrOutputWithContext(ctx context.Context) RailsAppLayerPtrOutput
-}
-
-type railsAppLayerPtrType RailsAppLayerArgs
-
-func (*railsAppLayerPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RailsAppLayer)(nil))
-}
-
-func (i *railsAppLayerPtrType) ToRailsAppLayerPtrOutput() RailsAppLayerPtrOutput {
-	return i.ToRailsAppLayerPtrOutputWithContext(context.Background())
-}
-
-func (i *railsAppLayerPtrType) ToRailsAppLayerPtrOutputWithContext(ctx context.Context) RailsAppLayerPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RailsAppLayerPtrOutput)
 }
 
 // RailsAppLayerArrayInput is an input type that accepts RailsAppLayerArray and RailsAppLayerArrayOutput values.
@@ -450,7 +421,7 @@ func (i RailsAppLayerMap) ToRailsAppLayerMapOutputWithContext(ctx context.Contex
 type RailsAppLayerOutput struct{ *pulumi.OutputState }
 
 func (RailsAppLayerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RailsAppLayer)(nil))
+	return reflect.TypeOf((**RailsAppLayer)(nil)).Elem()
 }
 
 func (o RailsAppLayerOutput) ToRailsAppLayerOutput() RailsAppLayerOutput {
@@ -461,44 +432,10 @@ func (o RailsAppLayerOutput) ToRailsAppLayerOutputWithContext(ctx context.Contex
 	return o
 }
 
-func (o RailsAppLayerOutput) ToRailsAppLayerPtrOutput() RailsAppLayerPtrOutput {
-	return o.ToRailsAppLayerPtrOutputWithContext(context.Background())
-}
-
-func (o RailsAppLayerOutput) ToRailsAppLayerPtrOutputWithContext(ctx context.Context) RailsAppLayerPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RailsAppLayer) *RailsAppLayer {
-		return &v
-	}).(RailsAppLayerPtrOutput)
-}
-
-type RailsAppLayerPtrOutput struct{ *pulumi.OutputState }
-
-func (RailsAppLayerPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RailsAppLayer)(nil))
-}
-
-func (o RailsAppLayerPtrOutput) ToRailsAppLayerPtrOutput() RailsAppLayerPtrOutput {
-	return o
-}
-
-func (o RailsAppLayerPtrOutput) ToRailsAppLayerPtrOutputWithContext(ctx context.Context) RailsAppLayerPtrOutput {
-	return o
-}
-
-func (o RailsAppLayerPtrOutput) Elem() RailsAppLayerOutput {
-	return o.ApplyT(func(v *RailsAppLayer) RailsAppLayer {
-		if v != nil {
-			return *v
-		}
-		var ret RailsAppLayer
-		return ret
-	}).(RailsAppLayerOutput)
-}
-
 type RailsAppLayerArrayOutput struct{ *pulumi.OutputState }
 
 func (RailsAppLayerArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RailsAppLayer)(nil))
+	return reflect.TypeOf((*[]*RailsAppLayer)(nil)).Elem()
 }
 
 func (o RailsAppLayerArrayOutput) ToRailsAppLayerArrayOutput() RailsAppLayerArrayOutput {
@@ -510,15 +447,15 @@ func (o RailsAppLayerArrayOutput) ToRailsAppLayerArrayOutputWithContext(ctx cont
 }
 
 func (o RailsAppLayerArrayOutput) Index(i pulumi.IntInput) RailsAppLayerOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RailsAppLayer {
-		return vs[0].([]RailsAppLayer)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RailsAppLayer {
+		return vs[0].([]*RailsAppLayer)[vs[1].(int)]
 	}).(RailsAppLayerOutput)
 }
 
 type RailsAppLayerMapOutput struct{ *pulumi.OutputState }
 
 func (RailsAppLayerMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]RailsAppLayer)(nil))
+	return reflect.TypeOf((*map[string]*RailsAppLayer)(nil)).Elem()
 }
 
 func (o RailsAppLayerMapOutput) ToRailsAppLayerMapOutput() RailsAppLayerMapOutput {
@@ -530,18 +467,16 @@ func (o RailsAppLayerMapOutput) ToRailsAppLayerMapOutputWithContext(ctx context.
 }
 
 func (o RailsAppLayerMapOutput) MapIndex(k pulumi.StringInput) RailsAppLayerOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) RailsAppLayer {
-		return vs[0].(map[string]RailsAppLayer)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *RailsAppLayer {
+		return vs[0].(map[string]*RailsAppLayer)[vs[1].(string)]
 	}).(RailsAppLayerOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RailsAppLayerInput)(nil)).Elem(), &RailsAppLayer{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RailsAppLayerPtrInput)(nil)).Elem(), &RailsAppLayer{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RailsAppLayerArrayInput)(nil)).Elem(), RailsAppLayerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RailsAppLayerMapInput)(nil)).Elem(), RailsAppLayerMap{})
 	pulumi.RegisterOutputType(RailsAppLayerOutput{})
-	pulumi.RegisterOutputType(RailsAppLayerPtrOutput{})
 	pulumi.RegisterOutputType(RailsAppLayerArrayOutput{})
 	pulumi.RegisterOutputType(RailsAppLayerMapOutput{})
 }

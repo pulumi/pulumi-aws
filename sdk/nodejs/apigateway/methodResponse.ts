@@ -113,16 +113,16 @@ export class MethodResponse extends pulumi.CustomResource {
      */
     constructor(name: string, args: MethodResponseArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: MethodResponseArgs | MethodResponseState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MethodResponseState | undefined;
-            inputs["httpMethod"] = state ? state.httpMethod : undefined;
-            inputs["resourceId"] = state ? state.resourceId : undefined;
-            inputs["responseModels"] = state ? state.responseModels : undefined;
-            inputs["responseParameters"] = state ? state.responseParameters : undefined;
-            inputs["restApi"] = state ? state.restApi : undefined;
-            inputs["statusCode"] = state ? state.statusCode : undefined;
+            resourceInputs["httpMethod"] = state ? state.httpMethod : undefined;
+            resourceInputs["resourceId"] = state ? state.resourceId : undefined;
+            resourceInputs["responseModels"] = state ? state.responseModels : undefined;
+            resourceInputs["responseParameters"] = state ? state.responseParameters : undefined;
+            resourceInputs["restApi"] = state ? state.restApi : undefined;
+            resourceInputs["statusCode"] = state ? state.statusCode : undefined;
         } else {
             const args = argsOrState as MethodResponseArgs | undefined;
             if ((!args || args.httpMethod === undefined) && !opts.urn) {
@@ -137,17 +137,17 @@ export class MethodResponse extends pulumi.CustomResource {
             if ((!args || args.statusCode === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'statusCode'");
             }
-            inputs["httpMethod"] = args ? args.httpMethod : undefined;
-            inputs["resourceId"] = args ? args.resourceId : undefined;
-            inputs["responseModels"] = args ? args.responseModels : undefined;
-            inputs["responseParameters"] = args ? args.responseParameters : undefined;
-            inputs["restApi"] = args ? args.restApi : undefined;
-            inputs["statusCode"] = args ? args.statusCode : undefined;
+            resourceInputs["httpMethod"] = args ? args.httpMethod : undefined;
+            resourceInputs["resourceId"] = args ? args.resourceId : undefined;
+            resourceInputs["responseModels"] = args ? args.responseModels : undefined;
+            resourceInputs["responseParameters"] = args ? args.responseParameters : undefined;
+            resourceInputs["restApi"] = args ? args.restApi : undefined;
+            resourceInputs["statusCode"] = args ? args.statusCode : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(MethodResponse.__pulumiType, name, inputs, opts);
+        super(MethodResponse.__pulumiType, name, resourceInputs, opts);
     }
 }
 

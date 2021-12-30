@@ -86,28 +86,28 @@ export class KeyGroup extends pulumi.CustomResource {
      */
     constructor(name: string, args: KeyGroupArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: KeyGroupArgs | KeyGroupState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as KeyGroupState | undefined;
-            inputs["comment"] = state ? state.comment : undefined;
-            inputs["etag"] = state ? state.etag : undefined;
-            inputs["items"] = state ? state.items : undefined;
-            inputs["name"] = state ? state.name : undefined;
+            resourceInputs["comment"] = state ? state.comment : undefined;
+            resourceInputs["etag"] = state ? state.etag : undefined;
+            resourceInputs["items"] = state ? state.items : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as KeyGroupArgs | undefined;
             if ((!args || args.items === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'items'");
             }
-            inputs["comment"] = args ? args.comment : undefined;
-            inputs["items"] = args ? args.items : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["etag"] = undefined /*out*/;
+            resourceInputs["comment"] = args ? args.comment : undefined;
+            resourceInputs["items"] = args ? args.items : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["etag"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(KeyGroup.__pulumiType, name, inputs, opts);
+        super(KeyGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

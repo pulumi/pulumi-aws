@@ -187,7 +187,7 @@ type InstanceProfileInput interface {
 }
 
 func (*InstanceProfile) ElementType() reflect.Type {
-	return reflect.TypeOf((*InstanceProfile)(nil))
+	return reflect.TypeOf((**InstanceProfile)(nil)).Elem()
 }
 
 func (i *InstanceProfile) ToInstanceProfileOutput() InstanceProfileOutput {
@@ -196,35 +196,6 @@ func (i *InstanceProfile) ToInstanceProfileOutput() InstanceProfileOutput {
 
 func (i *InstanceProfile) ToInstanceProfileOutputWithContext(ctx context.Context) InstanceProfileOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(InstanceProfileOutput)
-}
-
-func (i *InstanceProfile) ToInstanceProfilePtrOutput() InstanceProfilePtrOutput {
-	return i.ToInstanceProfilePtrOutputWithContext(context.Background())
-}
-
-func (i *InstanceProfile) ToInstanceProfilePtrOutputWithContext(ctx context.Context) InstanceProfilePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InstanceProfilePtrOutput)
-}
-
-type InstanceProfilePtrInput interface {
-	pulumi.Input
-
-	ToInstanceProfilePtrOutput() InstanceProfilePtrOutput
-	ToInstanceProfilePtrOutputWithContext(ctx context.Context) InstanceProfilePtrOutput
-}
-
-type instanceProfilePtrType InstanceProfileArgs
-
-func (*instanceProfilePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**InstanceProfile)(nil))
-}
-
-func (i *instanceProfilePtrType) ToInstanceProfilePtrOutput() InstanceProfilePtrOutput {
-	return i.ToInstanceProfilePtrOutputWithContext(context.Background())
-}
-
-func (i *instanceProfilePtrType) ToInstanceProfilePtrOutputWithContext(ctx context.Context) InstanceProfilePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InstanceProfilePtrOutput)
 }
 
 // InstanceProfileArrayInput is an input type that accepts InstanceProfileArray and InstanceProfileArrayOutput values.
@@ -280,7 +251,7 @@ func (i InstanceProfileMap) ToInstanceProfileMapOutputWithContext(ctx context.Co
 type InstanceProfileOutput struct{ *pulumi.OutputState }
 
 func (InstanceProfileOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*InstanceProfile)(nil))
+	return reflect.TypeOf((**InstanceProfile)(nil)).Elem()
 }
 
 func (o InstanceProfileOutput) ToInstanceProfileOutput() InstanceProfileOutput {
@@ -291,44 +262,10 @@ func (o InstanceProfileOutput) ToInstanceProfileOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o InstanceProfileOutput) ToInstanceProfilePtrOutput() InstanceProfilePtrOutput {
-	return o.ToInstanceProfilePtrOutputWithContext(context.Background())
-}
-
-func (o InstanceProfileOutput) ToInstanceProfilePtrOutputWithContext(ctx context.Context) InstanceProfilePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v InstanceProfile) *InstanceProfile {
-		return &v
-	}).(InstanceProfilePtrOutput)
-}
-
-type InstanceProfilePtrOutput struct{ *pulumi.OutputState }
-
-func (InstanceProfilePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**InstanceProfile)(nil))
-}
-
-func (o InstanceProfilePtrOutput) ToInstanceProfilePtrOutput() InstanceProfilePtrOutput {
-	return o
-}
-
-func (o InstanceProfilePtrOutput) ToInstanceProfilePtrOutputWithContext(ctx context.Context) InstanceProfilePtrOutput {
-	return o
-}
-
-func (o InstanceProfilePtrOutput) Elem() InstanceProfileOutput {
-	return o.ApplyT(func(v *InstanceProfile) InstanceProfile {
-		if v != nil {
-			return *v
-		}
-		var ret InstanceProfile
-		return ret
-	}).(InstanceProfileOutput)
-}
-
 type InstanceProfileArrayOutput struct{ *pulumi.OutputState }
 
 func (InstanceProfileArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]InstanceProfile)(nil))
+	return reflect.TypeOf((*[]*InstanceProfile)(nil)).Elem()
 }
 
 func (o InstanceProfileArrayOutput) ToInstanceProfileArrayOutput() InstanceProfileArrayOutput {
@@ -340,15 +277,15 @@ func (o InstanceProfileArrayOutput) ToInstanceProfileArrayOutputWithContext(ctx 
 }
 
 func (o InstanceProfileArrayOutput) Index(i pulumi.IntInput) InstanceProfileOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) InstanceProfile {
-		return vs[0].([]InstanceProfile)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *InstanceProfile {
+		return vs[0].([]*InstanceProfile)[vs[1].(int)]
 	}).(InstanceProfileOutput)
 }
 
 type InstanceProfileMapOutput struct{ *pulumi.OutputState }
 
 func (InstanceProfileMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]InstanceProfile)(nil))
+	return reflect.TypeOf((*map[string]*InstanceProfile)(nil)).Elem()
 }
 
 func (o InstanceProfileMapOutput) ToInstanceProfileMapOutput() InstanceProfileMapOutput {
@@ -360,18 +297,16 @@ func (o InstanceProfileMapOutput) ToInstanceProfileMapOutputWithContext(ctx cont
 }
 
 func (o InstanceProfileMapOutput) MapIndex(k pulumi.StringInput) InstanceProfileOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) InstanceProfile {
-		return vs[0].(map[string]InstanceProfile)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *InstanceProfile {
+		return vs[0].(map[string]*InstanceProfile)[vs[1].(string)]
 	}).(InstanceProfileOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceProfileInput)(nil)).Elem(), &InstanceProfile{})
-	pulumi.RegisterInputType(reflect.TypeOf((*InstanceProfilePtrInput)(nil)).Elem(), &InstanceProfile{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceProfileArrayInput)(nil)).Elem(), InstanceProfileArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceProfileMapInput)(nil)).Elem(), InstanceProfileMap{})
 	pulumi.RegisterOutputType(InstanceProfileOutput{})
-	pulumi.RegisterOutputType(InstanceProfilePtrOutput{})
 	pulumi.RegisterOutputType(InstanceProfileArrayOutput{})
 	pulumi.RegisterOutputType(InstanceProfileMapOutput{})
 }

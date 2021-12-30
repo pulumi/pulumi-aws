@@ -273,7 +273,7 @@ type TransitVirtualInterfaceInput interface {
 }
 
 func (*TransitVirtualInterface) ElementType() reflect.Type {
-	return reflect.TypeOf((*TransitVirtualInterface)(nil))
+	return reflect.TypeOf((**TransitVirtualInterface)(nil)).Elem()
 }
 
 func (i *TransitVirtualInterface) ToTransitVirtualInterfaceOutput() TransitVirtualInterfaceOutput {
@@ -282,35 +282,6 @@ func (i *TransitVirtualInterface) ToTransitVirtualInterfaceOutput() TransitVirtu
 
 func (i *TransitVirtualInterface) ToTransitVirtualInterfaceOutputWithContext(ctx context.Context) TransitVirtualInterfaceOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TransitVirtualInterfaceOutput)
-}
-
-func (i *TransitVirtualInterface) ToTransitVirtualInterfacePtrOutput() TransitVirtualInterfacePtrOutput {
-	return i.ToTransitVirtualInterfacePtrOutputWithContext(context.Background())
-}
-
-func (i *TransitVirtualInterface) ToTransitVirtualInterfacePtrOutputWithContext(ctx context.Context) TransitVirtualInterfacePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TransitVirtualInterfacePtrOutput)
-}
-
-type TransitVirtualInterfacePtrInput interface {
-	pulumi.Input
-
-	ToTransitVirtualInterfacePtrOutput() TransitVirtualInterfacePtrOutput
-	ToTransitVirtualInterfacePtrOutputWithContext(ctx context.Context) TransitVirtualInterfacePtrOutput
-}
-
-type transitVirtualInterfacePtrType TransitVirtualInterfaceArgs
-
-func (*transitVirtualInterfacePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TransitVirtualInterface)(nil))
-}
-
-func (i *transitVirtualInterfacePtrType) ToTransitVirtualInterfacePtrOutput() TransitVirtualInterfacePtrOutput {
-	return i.ToTransitVirtualInterfacePtrOutputWithContext(context.Background())
-}
-
-func (i *transitVirtualInterfacePtrType) ToTransitVirtualInterfacePtrOutputWithContext(ctx context.Context) TransitVirtualInterfacePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TransitVirtualInterfacePtrOutput)
 }
 
 // TransitVirtualInterfaceArrayInput is an input type that accepts TransitVirtualInterfaceArray and TransitVirtualInterfaceArrayOutput values.
@@ -366,7 +337,7 @@ func (i TransitVirtualInterfaceMap) ToTransitVirtualInterfaceMapOutputWithContex
 type TransitVirtualInterfaceOutput struct{ *pulumi.OutputState }
 
 func (TransitVirtualInterfaceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TransitVirtualInterface)(nil))
+	return reflect.TypeOf((**TransitVirtualInterface)(nil)).Elem()
 }
 
 func (o TransitVirtualInterfaceOutput) ToTransitVirtualInterfaceOutput() TransitVirtualInterfaceOutput {
@@ -377,44 +348,10 @@ func (o TransitVirtualInterfaceOutput) ToTransitVirtualInterfaceOutputWithContex
 	return o
 }
 
-func (o TransitVirtualInterfaceOutput) ToTransitVirtualInterfacePtrOutput() TransitVirtualInterfacePtrOutput {
-	return o.ToTransitVirtualInterfacePtrOutputWithContext(context.Background())
-}
-
-func (o TransitVirtualInterfaceOutput) ToTransitVirtualInterfacePtrOutputWithContext(ctx context.Context) TransitVirtualInterfacePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransitVirtualInterface) *TransitVirtualInterface {
-		return &v
-	}).(TransitVirtualInterfacePtrOutput)
-}
-
-type TransitVirtualInterfacePtrOutput struct{ *pulumi.OutputState }
-
-func (TransitVirtualInterfacePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TransitVirtualInterface)(nil))
-}
-
-func (o TransitVirtualInterfacePtrOutput) ToTransitVirtualInterfacePtrOutput() TransitVirtualInterfacePtrOutput {
-	return o
-}
-
-func (o TransitVirtualInterfacePtrOutput) ToTransitVirtualInterfacePtrOutputWithContext(ctx context.Context) TransitVirtualInterfacePtrOutput {
-	return o
-}
-
-func (o TransitVirtualInterfacePtrOutput) Elem() TransitVirtualInterfaceOutput {
-	return o.ApplyT(func(v *TransitVirtualInterface) TransitVirtualInterface {
-		if v != nil {
-			return *v
-		}
-		var ret TransitVirtualInterface
-		return ret
-	}).(TransitVirtualInterfaceOutput)
-}
-
 type TransitVirtualInterfaceArrayOutput struct{ *pulumi.OutputState }
 
 func (TransitVirtualInterfaceArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TransitVirtualInterface)(nil))
+	return reflect.TypeOf((*[]*TransitVirtualInterface)(nil)).Elem()
 }
 
 func (o TransitVirtualInterfaceArrayOutput) ToTransitVirtualInterfaceArrayOutput() TransitVirtualInterfaceArrayOutput {
@@ -426,15 +363,15 @@ func (o TransitVirtualInterfaceArrayOutput) ToTransitVirtualInterfaceArrayOutput
 }
 
 func (o TransitVirtualInterfaceArrayOutput) Index(i pulumi.IntInput) TransitVirtualInterfaceOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TransitVirtualInterface {
-		return vs[0].([]TransitVirtualInterface)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TransitVirtualInterface {
+		return vs[0].([]*TransitVirtualInterface)[vs[1].(int)]
 	}).(TransitVirtualInterfaceOutput)
 }
 
 type TransitVirtualInterfaceMapOutput struct{ *pulumi.OutputState }
 
 func (TransitVirtualInterfaceMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]TransitVirtualInterface)(nil))
+	return reflect.TypeOf((*map[string]*TransitVirtualInterface)(nil)).Elem()
 }
 
 func (o TransitVirtualInterfaceMapOutput) ToTransitVirtualInterfaceMapOutput() TransitVirtualInterfaceMapOutput {
@@ -446,18 +383,16 @@ func (o TransitVirtualInterfaceMapOutput) ToTransitVirtualInterfaceMapOutputWith
 }
 
 func (o TransitVirtualInterfaceMapOutput) MapIndex(k pulumi.StringInput) TransitVirtualInterfaceOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) TransitVirtualInterface {
-		return vs[0].(map[string]TransitVirtualInterface)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *TransitVirtualInterface {
+		return vs[0].(map[string]*TransitVirtualInterface)[vs[1].(string)]
 	}).(TransitVirtualInterfaceOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TransitVirtualInterfaceInput)(nil)).Elem(), &TransitVirtualInterface{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TransitVirtualInterfacePtrInput)(nil)).Elem(), &TransitVirtualInterface{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TransitVirtualInterfaceArrayInput)(nil)).Elem(), TransitVirtualInterfaceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TransitVirtualInterfaceMapInput)(nil)).Elem(), TransitVirtualInterfaceMap{})
 	pulumi.RegisterOutputType(TransitVirtualInterfaceOutput{})
-	pulumi.RegisterOutputType(TransitVirtualInterfacePtrOutput{})
 	pulumi.RegisterOutputType(TransitVirtualInterfaceArrayOutput{})
 	pulumi.RegisterOutputType(TransitVirtualInterfaceMapOutput{})
 }

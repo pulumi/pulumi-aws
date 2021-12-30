@@ -84,14 +84,14 @@ export class ApiMapping extends pulumi.CustomResource {
      */
     constructor(name: string, args: ApiMappingArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ApiMappingArgs | ApiMappingState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ApiMappingState | undefined;
-            inputs["apiId"] = state ? state.apiId : undefined;
-            inputs["apiMappingKey"] = state ? state.apiMappingKey : undefined;
-            inputs["domainName"] = state ? state.domainName : undefined;
-            inputs["stage"] = state ? state.stage : undefined;
+            resourceInputs["apiId"] = state ? state.apiId : undefined;
+            resourceInputs["apiMappingKey"] = state ? state.apiMappingKey : undefined;
+            resourceInputs["domainName"] = state ? state.domainName : undefined;
+            resourceInputs["stage"] = state ? state.stage : undefined;
         } else {
             const args = argsOrState as ApiMappingArgs | undefined;
             if ((!args || args.apiId === undefined) && !opts.urn) {
@@ -103,15 +103,15 @@ export class ApiMapping extends pulumi.CustomResource {
             if ((!args || args.stage === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'stage'");
             }
-            inputs["apiId"] = args ? args.apiId : undefined;
-            inputs["apiMappingKey"] = args ? args.apiMappingKey : undefined;
-            inputs["domainName"] = args ? args.domainName : undefined;
-            inputs["stage"] = args ? args.stage : undefined;
+            resourceInputs["apiId"] = args ? args.apiId : undefined;
+            resourceInputs["apiMappingKey"] = args ? args.apiMappingKey : undefined;
+            resourceInputs["domainName"] = args ? args.domainName : undefined;
+            resourceInputs["stage"] = args ? args.stage : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(ApiMapping.__pulumiType, name, inputs, opts);
+        super(ApiMapping.__pulumiType, name, resourceInputs, opts);
     }
 }
 

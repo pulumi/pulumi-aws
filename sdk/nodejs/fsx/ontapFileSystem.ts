@@ -176,33 +176,33 @@ export class OntapFileSystem extends pulumi.CustomResource {
      */
     constructor(name: string, args: OntapFileSystemArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: OntapFileSystemArgs | OntapFileSystemState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OntapFileSystemState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["automaticBackupRetentionDays"] = state ? state.automaticBackupRetentionDays : undefined;
-            inputs["dailyAutomaticBackupStartTime"] = state ? state.dailyAutomaticBackupStartTime : undefined;
-            inputs["deploymentType"] = state ? state.deploymentType : undefined;
-            inputs["diskIopsConfiguration"] = state ? state.diskIopsConfiguration : undefined;
-            inputs["dnsName"] = state ? state.dnsName : undefined;
-            inputs["endpointIpAddressRange"] = state ? state.endpointIpAddressRange : undefined;
-            inputs["endpoints"] = state ? state.endpoints : undefined;
-            inputs["fsxAdminPassword"] = state ? state.fsxAdminPassword : undefined;
-            inputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
-            inputs["networkInterfaceIds"] = state ? state.networkInterfaceIds : undefined;
-            inputs["ownerId"] = state ? state.ownerId : undefined;
-            inputs["preferredSubnetId"] = state ? state.preferredSubnetId : undefined;
-            inputs["routeTableIds"] = state ? state.routeTableIds : undefined;
-            inputs["securityGroupIds"] = state ? state.securityGroupIds : undefined;
-            inputs["storageCapacity"] = state ? state.storageCapacity : undefined;
-            inputs["storageType"] = state ? state.storageType : undefined;
-            inputs["subnetIds"] = state ? state.subnetIds : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["throughputCapacity"] = state ? state.throughputCapacity : undefined;
-            inputs["vpcId"] = state ? state.vpcId : undefined;
-            inputs["weeklyMaintenanceStartTime"] = state ? state.weeklyMaintenanceStartTime : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["automaticBackupRetentionDays"] = state ? state.automaticBackupRetentionDays : undefined;
+            resourceInputs["dailyAutomaticBackupStartTime"] = state ? state.dailyAutomaticBackupStartTime : undefined;
+            resourceInputs["deploymentType"] = state ? state.deploymentType : undefined;
+            resourceInputs["diskIopsConfiguration"] = state ? state.diskIopsConfiguration : undefined;
+            resourceInputs["dnsName"] = state ? state.dnsName : undefined;
+            resourceInputs["endpointIpAddressRange"] = state ? state.endpointIpAddressRange : undefined;
+            resourceInputs["endpoints"] = state ? state.endpoints : undefined;
+            resourceInputs["fsxAdminPassword"] = state ? state.fsxAdminPassword : undefined;
+            resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
+            resourceInputs["networkInterfaceIds"] = state ? state.networkInterfaceIds : undefined;
+            resourceInputs["ownerId"] = state ? state.ownerId : undefined;
+            resourceInputs["preferredSubnetId"] = state ? state.preferredSubnetId : undefined;
+            resourceInputs["routeTableIds"] = state ? state.routeTableIds : undefined;
+            resourceInputs["securityGroupIds"] = state ? state.securityGroupIds : undefined;
+            resourceInputs["storageCapacity"] = state ? state.storageCapacity : undefined;
+            resourceInputs["storageType"] = state ? state.storageType : undefined;
+            resourceInputs["subnetIds"] = state ? state.subnetIds : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["throughputCapacity"] = state ? state.throughputCapacity : undefined;
+            resourceInputs["vpcId"] = state ? state.vpcId : undefined;
+            resourceInputs["weeklyMaintenanceStartTime"] = state ? state.weeklyMaintenanceStartTime : undefined;
         } else {
             const args = argsOrState as OntapFileSystemArgs | undefined;
             if ((!args || args.deploymentType === undefined) && !opts.urn) {
@@ -217,34 +217,34 @@ export class OntapFileSystem extends pulumi.CustomResource {
             if ((!args || args.throughputCapacity === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'throughputCapacity'");
             }
-            inputs["automaticBackupRetentionDays"] = args ? args.automaticBackupRetentionDays : undefined;
-            inputs["dailyAutomaticBackupStartTime"] = args ? args.dailyAutomaticBackupStartTime : undefined;
-            inputs["deploymentType"] = args ? args.deploymentType : undefined;
-            inputs["diskIopsConfiguration"] = args ? args.diskIopsConfiguration : undefined;
-            inputs["endpointIpAddressRange"] = args ? args.endpointIpAddressRange : undefined;
-            inputs["fsxAdminPassword"] = args ? args.fsxAdminPassword : undefined;
-            inputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            inputs["preferredSubnetId"] = args ? args.preferredSubnetId : undefined;
-            inputs["routeTableIds"] = args ? args.routeTableIds : undefined;
-            inputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
-            inputs["storageCapacity"] = args ? args.storageCapacity : undefined;
-            inputs["storageType"] = args ? args.storageType : undefined;
-            inputs["subnetIds"] = args ? args.subnetIds : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["throughputCapacity"] = args ? args.throughputCapacity : undefined;
-            inputs["weeklyMaintenanceStartTime"] = args ? args.weeklyMaintenanceStartTime : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["dnsName"] = undefined /*out*/;
-            inputs["endpoints"] = undefined /*out*/;
-            inputs["networkInterfaceIds"] = undefined /*out*/;
-            inputs["ownerId"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
-            inputs["vpcId"] = undefined /*out*/;
+            resourceInputs["automaticBackupRetentionDays"] = args ? args.automaticBackupRetentionDays : undefined;
+            resourceInputs["dailyAutomaticBackupStartTime"] = args ? args.dailyAutomaticBackupStartTime : undefined;
+            resourceInputs["deploymentType"] = args ? args.deploymentType : undefined;
+            resourceInputs["diskIopsConfiguration"] = args ? args.diskIopsConfiguration : undefined;
+            resourceInputs["endpointIpAddressRange"] = args ? args.endpointIpAddressRange : undefined;
+            resourceInputs["fsxAdminPassword"] = args ? args.fsxAdminPassword : undefined;
+            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
+            resourceInputs["preferredSubnetId"] = args ? args.preferredSubnetId : undefined;
+            resourceInputs["routeTableIds"] = args ? args.routeTableIds : undefined;
+            resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
+            resourceInputs["storageCapacity"] = args ? args.storageCapacity : undefined;
+            resourceInputs["storageType"] = args ? args.storageType : undefined;
+            resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["throughputCapacity"] = args ? args.throughputCapacity : undefined;
+            resourceInputs["weeklyMaintenanceStartTime"] = args ? args.weeklyMaintenanceStartTime : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["dnsName"] = undefined /*out*/;
+            resourceInputs["endpoints"] = undefined /*out*/;
+            resourceInputs["networkInterfaceIds"] = undefined /*out*/;
+            resourceInputs["ownerId"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["vpcId"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(OntapFileSystem.__pulumiType, name, inputs, opts);
+        super(OntapFileSystem.__pulumiType, name, resourceInputs, opts);
     }
 }
 

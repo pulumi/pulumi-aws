@@ -85,19 +85,19 @@ export class ManagedPrefixList extends pulumi.CustomResource {
      */
     constructor(name: string, args: ManagedPrefixListArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ManagedPrefixListArgs | ManagedPrefixListState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ManagedPrefixListState | undefined;
-            inputs["addressFamily"] = state ? state.addressFamily : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["entries"] = state ? state.entries : undefined;
-            inputs["maxEntries"] = state ? state.maxEntries : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["ownerId"] = state ? state.ownerId : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["version"] = state ? state.version : undefined;
+            resourceInputs["addressFamily"] = state ? state.addressFamily : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["entries"] = state ? state.entries : undefined;
+            resourceInputs["maxEntries"] = state ? state.maxEntries : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["ownerId"] = state ? state.ownerId : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as ManagedPrefixListArgs | undefined;
             if ((!args || args.addressFamily === undefined) && !opts.urn) {
@@ -106,20 +106,20 @@ export class ManagedPrefixList extends pulumi.CustomResource {
             if ((!args || args.maxEntries === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'maxEntries'");
             }
-            inputs["addressFamily"] = args ? args.addressFamily : undefined;
-            inputs["entries"] = args ? args.entries : undefined;
-            inputs["maxEntries"] = args ? args.maxEntries : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["ownerId"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
-            inputs["version"] = undefined /*out*/;
+            resourceInputs["addressFamily"] = args ? args.addressFamily : undefined;
+            resourceInputs["entries"] = args ? args.entries : undefined;
+            resourceInputs["maxEntries"] = args ? args.maxEntries : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["ownerId"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["version"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(ManagedPrefixList.__pulumiType, name, inputs, opts);
+        super(ManagedPrefixList.__pulumiType, name, resourceInputs, opts);
     }
 }
 

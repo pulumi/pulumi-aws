@@ -124,29 +124,29 @@ export class ConfigurationAggregator extends pulumi.CustomResource {
      */
     constructor(name: string, args?: ConfigurationAggregatorArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ConfigurationAggregatorArgs | ConfigurationAggregatorState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ConfigurationAggregatorState | undefined;
-            inputs["accountAggregationSource"] = state ? state.accountAggregationSource : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["organizationAggregationSource"] = state ? state.organizationAggregationSource : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["accountAggregationSource"] = state ? state.accountAggregationSource : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["organizationAggregationSource"] = state ? state.organizationAggregationSource : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as ConfigurationAggregatorArgs | undefined;
-            inputs["accountAggregationSource"] = args ? args.accountAggregationSource : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["organizationAggregationSource"] = args ? args.organizationAggregationSource : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["accountAggregationSource"] = args ? args.accountAggregationSource : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["organizationAggregationSource"] = args ? args.organizationAggregationSource : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(ConfigurationAggregator.__pulumiType, name, inputs, opts);
+        super(ConfigurationAggregator.__pulumiType, name, resourceInputs, opts);
     }
 }
 

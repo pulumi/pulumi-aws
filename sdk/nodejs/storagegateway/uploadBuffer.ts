@@ -99,26 +99,26 @@ export class UploadBuffer extends pulumi.CustomResource {
      */
     constructor(name: string, args: UploadBufferArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: UploadBufferArgs | UploadBufferState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as UploadBufferState | undefined;
-            inputs["diskId"] = state ? state.diskId : undefined;
-            inputs["diskPath"] = state ? state.diskPath : undefined;
-            inputs["gatewayArn"] = state ? state.gatewayArn : undefined;
+            resourceInputs["diskId"] = state ? state.diskId : undefined;
+            resourceInputs["diskPath"] = state ? state.diskPath : undefined;
+            resourceInputs["gatewayArn"] = state ? state.gatewayArn : undefined;
         } else {
             const args = argsOrState as UploadBufferArgs | undefined;
             if ((!args || args.gatewayArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'gatewayArn'");
             }
-            inputs["diskId"] = args ? args.diskId : undefined;
-            inputs["diskPath"] = args ? args.diskPath : undefined;
-            inputs["gatewayArn"] = args ? args.gatewayArn : undefined;
+            resourceInputs["diskId"] = args ? args.diskId : undefined;
+            resourceInputs["diskPath"] = args ? args.diskPath : undefined;
+            resourceInputs["gatewayArn"] = args ? args.gatewayArn : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(UploadBuffer.__pulumiType, name, inputs, opts);
+        super(UploadBuffer.__pulumiType, name, resourceInputs, opts);
     }
 }
 

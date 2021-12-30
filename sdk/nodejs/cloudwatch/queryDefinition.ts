@@ -87,28 +87,28 @@ export class QueryDefinition extends pulumi.CustomResource {
      */
     constructor(name: string, args: QueryDefinitionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: QueryDefinitionArgs | QueryDefinitionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as QueryDefinitionState | undefined;
-            inputs["logGroupNames"] = state ? state.logGroupNames : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["queryDefinitionId"] = state ? state.queryDefinitionId : undefined;
-            inputs["queryString"] = state ? state.queryString : undefined;
+            resourceInputs["logGroupNames"] = state ? state.logGroupNames : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["queryDefinitionId"] = state ? state.queryDefinitionId : undefined;
+            resourceInputs["queryString"] = state ? state.queryString : undefined;
         } else {
             const args = argsOrState as QueryDefinitionArgs | undefined;
             if ((!args || args.queryString === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'queryString'");
             }
-            inputs["logGroupNames"] = args ? args.logGroupNames : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["queryString"] = args ? args.queryString : undefined;
-            inputs["queryDefinitionId"] = undefined /*out*/;
+            resourceInputs["logGroupNames"] = args ? args.logGroupNames : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["queryString"] = args ? args.queryString : undefined;
+            resourceInputs["queryDefinitionId"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(QueryDefinition.__pulumiType, name, inputs, opts);
+        super(QueryDefinition.__pulumiType, name, resourceInputs, opts);
     }
 }
 

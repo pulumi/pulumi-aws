@@ -99,31 +99,31 @@ export class ConfigurationSet extends pulumi.CustomResource {
      */
     constructor(name: string, args?: ConfigurationSetArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ConfigurationSetArgs | ConfigurationSetState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ConfigurationSetState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["deliveryOptions"] = state ? state.deliveryOptions : undefined;
-            inputs["lastFreshStart"] = state ? state.lastFreshStart : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["reputationMetricsEnabled"] = state ? state.reputationMetricsEnabled : undefined;
-            inputs["sendingEnabled"] = state ? state.sendingEnabled : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["deliveryOptions"] = state ? state.deliveryOptions : undefined;
+            resourceInputs["lastFreshStart"] = state ? state.lastFreshStart : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["reputationMetricsEnabled"] = state ? state.reputationMetricsEnabled : undefined;
+            resourceInputs["sendingEnabled"] = state ? state.sendingEnabled : undefined;
         } else {
             const args = argsOrState as ConfigurationSetArgs | undefined;
-            inputs["deliveryOptions"] = args ? args.deliveryOptions : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["reputationMetricsEnabled"] = args ? args.reputationMetricsEnabled : undefined;
-            inputs["sendingEnabled"] = args ? args.sendingEnabled : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["lastFreshStart"] = undefined /*out*/;
+            resourceInputs["deliveryOptions"] = args ? args.deliveryOptions : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["reputationMetricsEnabled"] = args ? args.reputationMetricsEnabled : undefined;
+            resourceInputs["sendingEnabled"] = args ? args.sendingEnabled : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["lastFreshStart"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "aws:ses/confgurationSet:ConfgurationSet" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ConfigurationSet.__pulumiType, name, inputs, opts);
+        super(ConfigurationSet.__pulumiType, name, resourceInputs, opts);
     }
 }
 

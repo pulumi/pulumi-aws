@@ -91,15 +91,15 @@ export class Webhook extends pulumi.CustomResource {
      */
     constructor(name: string, args: WebhookArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: WebhookArgs | WebhookState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WebhookState | undefined;
-            inputs["appId"] = state ? state.appId : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["branchName"] = state ? state.branchName : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["url"] = state ? state.url : undefined;
+            resourceInputs["appId"] = state ? state.appId : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["branchName"] = state ? state.branchName : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["url"] = state ? state.url : undefined;
         } else {
             const args = argsOrState as WebhookArgs | undefined;
             if ((!args || args.appId === undefined) && !opts.urn) {
@@ -108,16 +108,16 @@ export class Webhook extends pulumi.CustomResource {
             if ((!args || args.branchName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'branchName'");
             }
-            inputs["appId"] = args ? args.appId : undefined;
-            inputs["branchName"] = args ? args.branchName : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["url"] = undefined /*out*/;
+            resourceInputs["appId"] = args ? args.appId : undefined;
+            resourceInputs["branchName"] = args ? args.branchName : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["url"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Webhook.__pulumiType, name, inputs, opts);
+        super(Webhook.__pulumiType, name, resourceInputs, opts);
     }
 }
 

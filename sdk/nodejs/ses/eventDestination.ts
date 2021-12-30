@@ -145,18 +145,18 @@ export class EventDestination extends pulumi.CustomResource {
      */
     constructor(name: string, args: EventDestinationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: EventDestinationArgs | EventDestinationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EventDestinationState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["cloudwatchDestinations"] = state ? state.cloudwatchDestinations : undefined;
-            inputs["configurationSetName"] = state ? state.configurationSetName : undefined;
-            inputs["enabled"] = state ? state.enabled : undefined;
-            inputs["kinesisDestination"] = state ? state.kinesisDestination : undefined;
-            inputs["matchingTypes"] = state ? state.matchingTypes : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["snsDestination"] = state ? state.snsDestination : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["cloudwatchDestinations"] = state ? state.cloudwatchDestinations : undefined;
+            resourceInputs["configurationSetName"] = state ? state.configurationSetName : undefined;
+            resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["kinesisDestination"] = state ? state.kinesisDestination : undefined;
+            resourceInputs["matchingTypes"] = state ? state.matchingTypes : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["snsDestination"] = state ? state.snsDestination : undefined;
         } else {
             const args = argsOrState as EventDestinationArgs | undefined;
             if ((!args || args.configurationSetName === undefined) && !opts.urn) {
@@ -165,19 +165,19 @@ export class EventDestination extends pulumi.CustomResource {
             if ((!args || args.matchingTypes === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'matchingTypes'");
             }
-            inputs["cloudwatchDestinations"] = args ? args.cloudwatchDestinations : undefined;
-            inputs["configurationSetName"] = args ? args.configurationSetName : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["kinesisDestination"] = args ? args.kinesisDestination : undefined;
-            inputs["matchingTypes"] = args ? args.matchingTypes : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["snsDestination"] = args ? args.snsDestination : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["cloudwatchDestinations"] = args ? args.cloudwatchDestinations : undefined;
+            resourceInputs["configurationSetName"] = args ? args.configurationSetName : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["kinesisDestination"] = args ? args.kinesisDestination : undefined;
+            resourceInputs["matchingTypes"] = args ? args.matchingTypes : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["snsDestination"] = args ? args.snsDestination : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(EventDestination.__pulumiType, name, inputs, opts);
+        super(EventDestination.__pulumiType, name, resourceInputs, opts);
     }
 }
 

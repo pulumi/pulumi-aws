@@ -89,28 +89,28 @@ export class ObjectLambdaAccessPoint extends pulumi.CustomResource {
      */
     constructor(name: string, args: ObjectLambdaAccessPointArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ObjectLambdaAccessPointArgs | ObjectLambdaAccessPointState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ObjectLambdaAccessPointState | undefined;
-            inputs["accountId"] = state ? state.accountId : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["configuration"] = state ? state.configuration : undefined;
-            inputs["name"] = state ? state.name : undefined;
+            resourceInputs["accountId"] = state ? state.accountId : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["configuration"] = state ? state.configuration : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as ObjectLambdaAccessPointArgs | undefined;
             if ((!args || args.configuration === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'configuration'");
             }
-            inputs["accountId"] = args ? args.accountId : undefined;
-            inputs["configuration"] = args ? args.configuration : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["accountId"] = args ? args.accountId : undefined;
+            resourceInputs["configuration"] = args ? args.configuration : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(ObjectLambdaAccessPoint.__pulumiType, name, inputs, opts);
+        super(ObjectLambdaAccessPoint.__pulumiType, name, resourceInputs, opts);
     }
 }
 

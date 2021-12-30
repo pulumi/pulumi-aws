@@ -172,7 +172,7 @@ type ResourceSetInput interface {
 }
 
 func (*ResourceSet) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceSet)(nil))
+	return reflect.TypeOf((**ResourceSet)(nil)).Elem()
 }
 
 func (i *ResourceSet) ToResourceSetOutput() ResourceSetOutput {
@@ -181,35 +181,6 @@ func (i *ResourceSet) ToResourceSetOutput() ResourceSetOutput {
 
 func (i *ResourceSet) ToResourceSetOutputWithContext(ctx context.Context) ResourceSetOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceSetOutput)
-}
-
-func (i *ResourceSet) ToResourceSetPtrOutput() ResourceSetPtrOutput {
-	return i.ToResourceSetPtrOutputWithContext(context.Background())
-}
-
-func (i *ResourceSet) ToResourceSetPtrOutputWithContext(ctx context.Context) ResourceSetPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourceSetPtrOutput)
-}
-
-type ResourceSetPtrInput interface {
-	pulumi.Input
-
-	ToResourceSetPtrOutput() ResourceSetPtrOutput
-	ToResourceSetPtrOutputWithContext(ctx context.Context) ResourceSetPtrOutput
-}
-
-type resourceSetPtrType ResourceSetArgs
-
-func (*resourceSetPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ResourceSet)(nil))
-}
-
-func (i *resourceSetPtrType) ToResourceSetPtrOutput() ResourceSetPtrOutput {
-	return i.ToResourceSetPtrOutputWithContext(context.Background())
-}
-
-func (i *resourceSetPtrType) ToResourceSetPtrOutputWithContext(ctx context.Context) ResourceSetPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourceSetPtrOutput)
 }
 
 // ResourceSetArrayInput is an input type that accepts ResourceSetArray and ResourceSetArrayOutput values.
@@ -265,7 +236,7 @@ func (i ResourceSetMap) ToResourceSetMapOutputWithContext(ctx context.Context) R
 type ResourceSetOutput struct{ *pulumi.OutputState }
 
 func (ResourceSetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceSet)(nil))
+	return reflect.TypeOf((**ResourceSet)(nil)).Elem()
 }
 
 func (o ResourceSetOutput) ToResourceSetOutput() ResourceSetOutput {
@@ -276,44 +247,10 @@ func (o ResourceSetOutput) ToResourceSetOutputWithContext(ctx context.Context) R
 	return o
 }
 
-func (o ResourceSetOutput) ToResourceSetPtrOutput() ResourceSetPtrOutput {
-	return o.ToResourceSetPtrOutputWithContext(context.Background())
-}
-
-func (o ResourceSetOutput) ToResourceSetPtrOutputWithContext(ctx context.Context) ResourceSetPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceSet) *ResourceSet {
-		return &v
-	}).(ResourceSetPtrOutput)
-}
-
-type ResourceSetPtrOutput struct{ *pulumi.OutputState }
-
-func (ResourceSetPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ResourceSet)(nil))
-}
-
-func (o ResourceSetPtrOutput) ToResourceSetPtrOutput() ResourceSetPtrOutput {
-	return o
-}
-
-func (o ResourceSetPtrOutput) ToResourceSetPtrOutputWithContext(ctx context.Context) ResourceSetPtrOutput {
-	return o
-}
-
-func (o ResourceSetPtrOutput) Elem() ResourceSetOutput {
-	return o.ApplyT(func(v *ResourceSet) ResourceSet {
-		if v != nil {
-			return *v
-		}
-		var ret ResourceSet
-		return ret
-	}).(ResourceSetOutput)
-}
-
 type ResourceSetArrayOutput struct{ *pulumi.OutputState }
 
 func (ResourceSetArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ResourceSet)(nil))
+	return reflect.TypeOf((*[]*ResourceSet)(nil)).Elem()
 }
 
 func (o ResourceSetArrayOutput) ToResourceSetArrayOutput() ResourceSetArrayOutput {
@@ -325,15 +262,15 @@ func (o ResourceSetArrayOutput) ToResourceSetArrayOutputWithContext(ctx context.
 }
 
 func (o ResourceSetArrayOutput) Index(i pulumi.IntInput) ResourceSetOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ResourceSet {
-		return vs[0].([]ResourceSet)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ResourceSet {
+		return vs[0].([]*ResourceSet)[vs[1].(int)]
 	}).(ResourceSetOutput)
 }
 
 type ResourceSetMapOutput struct{ *pulumi.OutputState }
 
 func (ResourceSetMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ResourceSet)(nil))
+	return reflect.TypeOf((*map[string]*ResourceSet)(nil)).Elem()
 }
 
 func (o ResourceSetMapOutput) ToResourceSetMapOutput() ResourceSetMapOutput {
@@ -345,18 +282,16 @@ func (o ResourceSetMapOutput) ToResourceSetMapOutputWithContext(ctx context.Cont
 }
 
 func (o ResourceSetMapOutput) MapIndex(k pulumi.StringInput) ResourceSetOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ResourceSet {
-		return vs[0].(map[string]ResourceSet)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ResourceSet {
+		return vs[0].(map[string]*ResourceSet)[vs[1].(string)]
 	}).(ResourceSetOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceSetInput)(nil)).Elem(), &ResourceSet{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ResourceSetPtrInput)(nil)).Elem(), &ResourceSet{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceSetArrayInput)(nil)).Elem(), ResourceSetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceSetMapInput)(nil)).Elem(), ResourceSetMap{})
 	pulumi.RegisterOutputType(ResourceSetOutput{})
-	pulumi.RegisterOutputType(ResourceSetPtrOutput{})
 	pulumi.RegisterOutputType(ResourceSetArrayOutput{})
 	pulumi.RegisterOutputType(ResourceSetMapOutput{})
 }

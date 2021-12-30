@@ -103,21 +103,21 @@ export class ReplicationConfiguration extends pulumi.CustomResource {
      */
     constructor(name: string, args?: ReplicationConfigurationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ReplicationConfigurationArgs | ReplicationConfigurationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ReplicationConfigurationState | undefined;
-            inputs["registryId"] = state ? state.registryId : undefined;
-            inputs["replicationConfiguration"] = state ? state.replicationConfiguration : undefined;
+            resourceInputs["registryId"] = state ? state.registryId : undefined;
+            resourceInputs["replicationConfiguration"] = state ? state.replicationConfiguration : undefined;
         } else {
             const args = argsOrState as ReplicationConfigurationArgs | undefined;
-            inputs["replicationConfiguration"] = args ? args.replicationConfiguration : undefined;
-            inputs["registryId"] = undefined /*out*/;
+            resourceInputs["replicationConfiguration"] = args ? args.replicationConfiguration : undefined;
+            resourceInputs["registryId"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(ReplicationConfiguration.__pulumiType, name, inputs, opts);
+        super(ReplicationConfiguration.__pulumiType, name, resourceInputs, opts);
     }
 }
 

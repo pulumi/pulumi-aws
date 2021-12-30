@@ -125,23 +125,23 @@ export class Firewall extends pulumi.CustomResource {
      */
     constructor(name: string, args: FirewallArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: FirewallArgs | FirewallState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FirewallState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["deleteProtection"] = state ? state.deleteProtection : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["firewallPolicyArn"] = state ? state.firewallPolicyArn : undefined;
-            inputs["firewallPolicyChangeProtection"] = state ? state.firewallPolicyChangeProtection : undefined;
-            inputs["firewallStatuses"] = state ? state.firewallStatuses : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["subnetChangeProtection"] = state ? state.subnetChangeProtection : undefined;
-            inputs["subnetMappings"] = state ? state.subnetMappings : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["updateToken"] = state ? state.updateToken : undefined;
-            inputs["vpcId"] = state ? state.vpcId : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["deleteProtection"] = state ? state.deleteProtection : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["firewallPolicyArn"] = state ? state.firewallPolicyArn : undefined;
+            resourceInputs["firewallPolicyChangeProtection"] = state ? state.firewallPolicyChangeProtection : undefined;
+            resourceInputs["firewallStatuses"] = state ? state.firewallStatuses : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["subnetChangeProtection"] = state ? state.subnetChangeProtection : undefined;
+            resourceInputs["subnetMappings"] = state ? state.subnetMappings : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["updateToken"] = state ? state.updateToken : undefined;
+            resourceInputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
             const args = argsOrState as FirewallArgs | undefined;
             if ((!args || args.firewallPolicyArn === undefined) && !opts.urn) {
@@ -153,24 +153,24 @@ export class Firewall extends pulumi.CustomResource {
             if ((!args || args.vpcId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpcId'");
             }
-            inputs["deleteProtection"] = args ? args.deleteProtection : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["firewallPolicyArn"] = args ? args.firewallPolicyArn : undefined;
-            inputs["firewallPolicyChangeProtection"] = args ? args.firewallPolicyChangeProtection : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["subnetChangeProtection"] = args ? args.subnetChangeProtection : undefined;
-            inputs["subnetMappings"] = args ? args.subnetMappings : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["vpcId"] = args ? args.vpcId : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["firewallStatuses"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
-            inputs["updateToken"] = undefined /*out*/;
+            resourceInputs["deleteProtection"] = args ? args.deleteProtection : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["firewallPolicyArn"] = args ? args.firewallPolicyArn : undefined;
+            resourceInputs["firewallPolicyChangeProtection"] = args ? args.firewallPolicyChangeProtection : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["subnetChangeProtection"] = args ? args.subnetChangeProtection : undefined;
+            resourceInputs["subnetMappings"] = args ? args.subnetMappings : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["vpcId"] = args ? args.vpcId : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["firewallStatuses"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["updateToken"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Firewall.__pulumiType, name, inputs, opts);
+        super(Firewall.__pulumiType, name, resourceInputs, opts);
     }
 }
 

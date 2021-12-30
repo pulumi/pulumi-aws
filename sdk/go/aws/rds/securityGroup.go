@@ -28,7 +28,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := rds.NewSecurityGroup(ctx, "_default", &rds.SecurityGroupArgs{
+// 		_, err := rds.NewSecurityGroup(ctx, "default", &rds.SecurityGroupArgs{
 // 			Ingress: rds.SecurityGroupIngressArray{
 // 				&rds.SecurityGroupIngressArgs{
 // 					Cidr: pulumi.String("10.0.0.0/24"),
@@ -77,7 +77,7 @@ func NewSecurityGroup(ctx *pulumi.Context,
 	if args.Ingress == nil {
 		return nil, errors.New("invalid value for required argument 'Ingress'")
 	}
-	if args.Description == nil {
+	if isZero(args.Description) {
 		args.Description = pulumi.StringPtr("Managed by Pulumi")
 	}
 	var resource SecurityGroup
@@ -170,7 +170,7 @@ type SecurityGroupInput interface {
 }
 
 func (*SecurityGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*SecurityGroup)(nil))
+	return reflect.TypeOf((**SecurityGroup)(nil)).Elem()
 }
 
 func (i *SecurityGroup) ToSecurityGroupOutput() SecurityGroupOutput {
@@ -179,35 +179,6 @@ func (i *SecurityGroup) ToSecurityGroupOutput() SecurityGroupOutput {
 
 func (i *SecurityGroup) ToSecurityGroupOutputWithContext(ctx context.Context) SecurityGroupOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SecurityGroupOutput)
-}
-
-func (i *SecurityGroup) ToSecurityGroupPtrOutput() SecurityGroupPtrOutput {
-	return i.ToSecurityGroupPtrOutputWithContext(context.Background())
-}
-
-func (i *SecurityGroup) ToSecurityGroupPtrOutputWithContext(ctx context.Context) SecurityGroupPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SecurityGroupPtrOutput)
-}
-
-type SecurityGroupPtrInput interface {
-	pulumi.Input
-
-	ToSecurityGroupPtrOutput() SecurityGroupPtrOutput
-	ToSecurityGroupPtrOutputWithContext(ctx context.Context) SecurityGroupPtrOutput
-}
-
-type securityGroupPtrType SecurityGroupArgs
-
-func (*securityGroupPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SecurityGroup)(nil))
-}
-
-func (i *securityGroupPtrType) ToSecurityGroupPtrOutput() SecurityGroupPtrOutput {
-	return i.ToSecurityGroupPtrOutputWithContext(context.Background())
-}
-
-func (i *securityGroupPtrType) ToSecurityGroupPtrOutputWithContext(ctx context.Context) SecurityGroupPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SecurityGroupPtrOutput)
 }
 
 // SecurityGroupArrayInput is an input type that accepts SecurityGroupArray and SecurityGroupArrayOutput values.
@@ -263,7 +234,7 @@ func (i SecurityGroupMap) ToSecurityGroupMapOutputWithContext(ctx context.Contex
 type SecurityGroupOutput struct{ *pulumi.OutputState }
 
 func (SecurityGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SecurityGroup)(nil))
+	return reflect.TypeOf((**SecurityGroup)(nil)).Elem()
 }
 
 func (o SecurityGroupOutput) ToSecurityGroupOutput() SecurityGroupOutput {
@@ -274,44 +245,10 @@ func (o SecurityGroupOutput) ToSecurityGroupOutputWithContext(ctx context.Contex
 	return o
 }
 
-func (o SecurityGroupOutput) ToSecurityGroupPtrOutput() SecurityGroupPtrOutput {
-	return o.ToSecurityGroupPtrOutputWithContext(context.Background())
-}
-
-func (o SecurityGroupOutput) ToSecurityGroupPtrOutputWithContext(ctx context.Context) SecurityGroupPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SecurityGroup) *SecurityGroup {
-		return &v
-	}).(SecurityGroupPtrOutput)
-}
-
-type SecurityGroupPtrOutput struct{ *pulumi.OutputState }
-
-func (SecurityGroupPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SecurityGroup)(nil))
-}
-
-func (o SecurityGroupPtrOutput) ToSecurityGroupPtrOutput() SecurityGroupPtrOutput {
-	return o
-}
-
-func (o SecurityGroupPtrOutput) ToSecurityGroupPtrOutputWithContext(ctx context.Context) SecurityGroupPtrOutput {
-	return o
-}
-
-func (o SecurityGroupPtrOutput) Elem() SecurityGroupOutput {
-	return o.ApplyT(func(v *SecurityGroup) SecurityGroup {
-		if v != nil {
-			return *v
-		}
-		var ret SecurityGroup
-		return ret
-	}).(SecurityGroupOutput)
-}
-
 type SecurityGroupArrayOutput struct{ *pulumi.OutputState }
 
 func (SecurityGroupArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SecurityGroup)(nil))
+	return reflect.TypeOf((*[]*SecurityGroup)(nil)).Elem()
 }
 
 func (o SecurityGroupArrayOutput) ToSecurityGroupArrayOutput() SecurityGroupArrayOutput {
@@ -323,15 +260,15 @@ func (o SecurityGroupArrayOutput) ToSecurityGroupArrayOutputWithContext(ctx cont
 }
 
 func (o SecurityGroupArrayOutput) Index(i pulumi.IntInput) SecurityGroupOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SecurityGroup {
-		return vs[0].([]SecurityGroup)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SecurityGroup {
+		return vs[0].([]*SecurityGroup)[vs[1].(int)]
 	}).(SecurityGroupOutput)
 }
 
 type SecurityGroupMapOutput struct{ *pulumi.OutputState }
 
 func (SecurityGroupMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]SecurityGroup)(nil))
+	return reflect.TypeOf((*map[string]*SecurityGroup)(nil)).Elem()
 }
 
 func (o SecurityGroupMapOutput) ToSecurityGroupMapOutput() SecurityGroupMapOutput {
@@ -343,18 +280,16 @@ func (o SecurityGroupMapOutput) ToSecurityGroupMapOutputWithContext(ctx context.
 }
 
 func (o SecurityGroupMapOutput) MapIndex(k pulumi.StringInput) SecurityGroupOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SecurityGroup {
-		return vs[0].(map[string]SecurityGroup)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *SecurityGroup {
+		return vs[0].(map[string]*SecurityGroup)[vs[1].(string)]
 	}).(SecurityGroupOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityGroupInput)(nil)).Elem(), &SecurityGroup{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SecurityGroupPtrInput)(nil)).Elem(), &SecurityGroup{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityGroupArrayInput)(nil)).Elem(), SecurityGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityGroupMapInput)(nil)).Elem(), SecurityGroupMap{})
 	pulumi.RegisterOutputType(SecurityGroupOutput{})
-	pulumi.RegisterOutputType(SecurityGroupPtrOutput{})
 	pulumi.RegisterOutputType(SecurityGroupArrayOutput{})
 	pulumi.RegisterOutputType(SecurityGroupMapOutput{})
 }

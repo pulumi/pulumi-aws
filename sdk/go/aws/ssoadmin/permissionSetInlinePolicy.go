@@ -124,7 +124,7 @@ type PermissionSetInlinePolicyInput interface {
 }
 
 func (*PermissionSetInlinePolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*PermissionSetInlinePolicy)(nil))
+	return reflect.TypeOf((**PermissionSetInlinePolicy)(nil)).Elem()
 }
 
 func (i *PermissionSetInlinePolicy) ToPermissionSetInlinePolicyOutput() PermissionSetInlinePolicyOutput {
@@ -133,35 +133,6 @@ func (i *PermissionSetInlinePolicy) ToPermissionSetInlinePolicyOutput() Permissi
 
 func (i *PermissionSetInlinePolicy) ToPermissionSetInlinePolicyOutputWithContext(ctx context.Context) PermissionSetInlinePolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PermissionSetInlinePolicyOutput)
-}
-
-func (i *PermissionSetInlinePolicy) ToPermissionSetInlinePolicyPtrOutput() PermissionSetInlinePolicyPtrOutput {
-	return i.ToPermissionSetInlinePolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *PermissionSetInlinePolicy) ToPermissionSetInlinePolicyPtrOutputWithContext(ctx context.Context) PermissionSetInlinePolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PermissionSetInlinePolicyPtrOutput)
-}
-
-type PermissionSetInlinePolicyPtrInput interface {
-	pulumi.Input
-
-	ToPermissionSetInlinePolicyPtrOutput() PermissionSetInlinePolicyPtrOutput
-	ToPermissionSetInlinePolicyPtrOutputWithContext(ctx context.Context) PermissionSetInlinePolicyPtrOutput
-}
-
-type permissionSetInlinePolicyPtrType PermissionSetInlinePolicyArgs
-
-func (*permissionSetInlinePolicyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PermissionSetInlinePolicy)(nil))
-}
-
-func (i *permissionSetInlinePolicyPtrType) ToPermissionSetInlinePolicyPtrOutput() PermissionSetInlinePolicyPtrOutput {
-	return i.ToPermissionSetInlinePolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *permissionSetInlinePolicyPtrType) ToPermissionSetInlinePolicyPtrOutputWithContext(ctx context.Context) PermissionSetInlinePolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PermissionSetInlinePolicyPtrOutput)
 }
 
 // PermissionSetInlinePolicyArrayInput is an input type that accepts PermissionSetInlinePolicyArray and PermissionSetInlinePolicyArrayOutput values.
@@ -217,7 +188,7 @@ func (i PermissionSetInlinePolicyMap) ToPermissionSetInlinePolicyMapOutputWithCo
 type PermissionSetInlinePolicyOutput struct{ *pulumi.OutputState }
 
 func (PermissionSetInlinePolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PermissionSetInlinePolicy)(nil))
+	return reflect.TypeOf((**PermissionSetInlinePolicy)(nil)).Elem()
 }
 
 func (o PermissionSetInlinePolicyOutput) ToPermissionSetInlinePolicyOutput() PermissionSetInlinePolicyOutput {
@@ -228,44 +199,10 @@ func (o PermissionSetInlinePolicyOutput) ToPermissionSetInlinePolicyOutputWithCo
 	return o
 }
 
-func (o PermissionSetInlinePolicyOutput) ToPermissionSetInlinePolicyPtrOutput() PermissionSetInlinePolicyPtrOutput {
-	return o.ToPermissionSetInlinePolicyPtrOutputWithContext(context.Background())
-}
-
-func (o PermissionSetInlinePolicyOutput) ToPermissionSetInlinePolicyPtrOutputWithContext(ctx context.Context) PermissionSetInlinePolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PermissionSetInlinePolicy) *PermissionSetInlinePolicy {
-		return &v
-	}).(PermissionSetInlinePolicyPtrOutput)
-}
-
-type PermissionSetInlinePolicyPtrOutput struct{ *pulumi.OutputState }
-
-func (PermissionSetInlinePolicyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PermissionSetInlinePolicy)(nil))
-}
-
-func (o PermissionSetInlinePolicyPtrOutput) ToPermissionSetInlinePolicyPtrOutput() PermissionSetInlinePolicyPtrOutput {
-	return o
-}
-
-func (o PermissionSetInlinePolicyPtrOutput) ToPermissionSetInlinePolicyPtrOutputWithContext(ctx context.Context) PermissionSetInlinePolicyPtrOutput {
-	return o
-}
-
-func (o PermissionSetInlinePolicyPtrOutput) Elem() PermissionSetInlinePolicyOutput {
-	return o.ApplyT(func(v *PermissionSetInlinePolicy) PermissionSetInlinePolicy {
-		if v != nil {
-			return *v
-		}
-		var ret PermissionSetInlinePolicy
-		return ret
-	}).(PermissionSetInlinePolicyOutput)
-}
-
 type PermissionSetInlinePolicyArrayOutput struct{ *pulumi.OutputState }
 
 func (PermissionSetInlinePolicyArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PermissionSetInlinePolicy)(nil))
+	return reflect.TypeOf((*[]*PermissionSetInlinePolicy)(nil)).Elem()
 }
 
 func (o PermissionSetInlinePolicyArrayOutput) ToPermissionSetInlinePolicyArrayOutput() PermissionSetInlinePolicyArrayOutput {
@@ -277,15 +214,15 @@ func (o PermissionSetInlinePolicyArrayOutput) ToPermissionSetInlinePolicyArrayOu
 }
 
 func (o PermissionSetInlinePolicyArrayOutput) Index(i pulumi.IntInput) PermissionSetInlinePolicyOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PermissionSetInlinePolicy {
-		return vs[0].([]PermissionSetInlinePolicy)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PermissionSetInlinePolicy {
+		return vs[0].([]*PermissionSetInlinePolicy)[vs[1].(int)]
 	}).(PermissionSetInlinePolicyOutput)
 }
 
 type PermissionSetInlinePolicyMapOutput struct{ *pulumi.OutputState }
 
 func (PermissionSetInlinePolicyMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]PermissionSetInlinePolicy)(nil))
+	return reflect.TypeOf((*map[string]*PermissionSetInlinePolicy)(nil)).Elem()
 }
 
 func (o PermissionSetInlinePolicyMapOutput) ToPermissionSetInlinePolicyMapOutput() PermissionSetInlinePolicyMapOutput {
@@ -297,18 +234,16 @@ func (o PermissionSetInlinePolicyMapOutput) ToPermissionSetInlinePolicyMapOutput
 }
 
 func (o PermissionSetInlinePolicyMapOutput) MapIndex(k pulumi.StringInput) PermissionSetInlinePolicyOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) PermissionSetInlinePolicy {
-		return vs[0].(map[string]PermissionSetInlinePolicy)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *PermissionSetInlinePolicy {
+		return vs[0].(map[string]*PermissionSetInlinePolicy)[vs[1].(string)]
 	}).(PermissionSetInlinePolicyOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PermissionSetInlinePolicyInput)(nil)).Elem(), &PermissionSetInlinePolicy{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PermissionSetInlinePolicyPtrInput)(nil)).Elem(), &PermissionSetInlinePolicy{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PermissionSetInlinePolicyArrayInput)(nil)).Elem(), PermissionSetInlinePolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PermissionSetInlinePolicyMapInput)(nil)).Elem(), PermissionSetInlinePolicyMap{})
 	pulumi.RegisterOutputType(PermissionSetInlinePolicyOutput{})
-	pulumi.RegisterOutputType(PermissionSetInlinePolicyPtrOutput{})
 	pulumi.RegisterOutputType(PermissionSetInlinePolicyArrayOutput{})
 	pulumi.RegisterOutputType(PermissionSetInlinePolicyMapOutput{})
 }

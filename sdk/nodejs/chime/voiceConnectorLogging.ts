@@ -74,24 +74,24 @@ export class VoiceConnectorLogging extends pulumi.CustomResource {
      */
     constructor(name: string, args: VoiceConnectorLoggingArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VoiceConnectorLoggingArgs | VoiceConnectorLoggingState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VoiceConnectorLoggingState | undefined;
-            inputs["enableSipLogs"] = state ? state.enableSipLogs : undefined;
-            inputs["voiceConnectorId"] = state ? state.voiceConnectorId : undefined;
+            resourceInputs["enableSipLogs"] = state ? state.enableSipLogs : undefined;
+            resourceInputs["voiceConnectorId"] = state ? state.voiceConnectorId : undefined;
         } else {
             const args = argsOrState as VoiceConnectorLoggingArgs | undefined;
             if ((!args || args.voiceConnectorId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'voiceConnectorId'");
             }
-            inputs["enableSipLogs"] = args ? args.enableSipLogs : undefined;
-            inputs["voiceConnectorId"] = args ? args.voiceConnectorId : undefined;
+            resourceInputs["enableSipLogs"] = args ? args.enableSipLogs : undefined;
+            resourceInputs["voiceConnectorId"] = args ? args.voiceConnectorId : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(VoiceConnectorLogging.__pulumiType, name, inputs, opts);
+        super(VoiceConnectorLogging.__pulumiType, name, resourceInputs, opts);
     }
 }
 

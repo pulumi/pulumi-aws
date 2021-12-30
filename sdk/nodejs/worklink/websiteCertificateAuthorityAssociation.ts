@@ -81,14 +81,14 @@ export class WebsiteCertificateAuthorityAssociation extends pulumi.CustomResourc
      */
     constructor(name: string, args: WebsiteCertificateAuthorityAssociationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: WebsiteCertificateAuthorityAssociationArgs | WebsiteCertificateAuthorityAssociationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WebsiteCertificateAuthorityAssociationState | undefined;
-            inputs["certificate"] = state ? state.certificate : undefined;
-            inputs["displayName"] = state ? state.displayName : undefined;
-            inputs["fleetArn"] = state ? state.fleetArn : undefined;
-            inputs["websiteCaId"] = state ? state.websiteCaId : undefined;
+            resourceInputs["certificate"] = state ? state.certificate : undefined;
+            resourceInputs["displayName"] = state ? state.displayName : undefined;
+            resourceInputs["fleetArn"] = state ? state.fleetArn : undefined;
+            resourceInputs["websiteCaId"] = state ? state.websiteCaId : undefined;
         } else {
             const args = argsOrState as WebsiteCertificateAuthorityAssociationArgs | undefined;
             if ((!args || args.certificate === undefined) && !opts.urn) {
@@ -97,15 +97,15 @@ export class WebsiteCertificateAuthorityAssociation extends pulumi.CustomResourc
             if ((!args || args.fleetArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'fleetArn'");
             }
-            inputs["certificate"] = args ? args.certificate : undefined;
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["fleetArn"] = args ? args.fleetArn : undefined;
-            inputs["websiteCaId"] = undefined /*out*/;
+            resourceInputs["certificate"] = args ? args.certificate : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["fleetArn"] = args ? args.fleetArn : undefined;
+            resourceInputs["websiteCaId"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(WebsiteCertificateAuthorityAssociation.__pulumiType, name, inputs, opts);
+        super(WebsiteCertificateAuthorityAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

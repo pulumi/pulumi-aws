@@ -95,26 +95,26 @@ export class BucketMetric extends pulumi.CustomResource {
      */
     constructor(name: string, args: BucketMetricArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: BucketMetricArgs | BucketMetricState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BucketMetricState | undefined;
-            inputs["bucket"] = state ? state.bucket : undefined;
-            inputs["filter"] = state ? state.filter : undefined;
-            inputs["name"] = state ? state.name : undefined;
+            resourceInputs["bucket"] = state ? state.bucket : undefined;
+            resourceInputs["filter"] = state ? state.filter : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as BucketMetricArgs | undefined;
             if ((!args || args.bucket === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'bucket'");
             }
-            inputs["bucket"] = args ? args.bucket : undefined;
-            inputs["filter"] = args ? args.filter : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            resourceInputs["bucket"] = args ? args.bucket : undefined;
+            resourceInputs["filter"] = args ? args.filter : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(BucketMetric.__pulumiType, name, inputs, opts);
+        super(BucketMetric.__pulumiType, name, resourceInputs, opts);
     }
 }
 

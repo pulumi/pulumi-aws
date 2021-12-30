@@ -109,39 +109,39 @@ export class CustomDataIdentifier extends pulumi.CustomResource {
      */
     constructor(name: string, args?: CustomDataIdentifierArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: CustomDataIdentifierArgs | CustomDataIdentifierState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CustomDataIdentifierState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["createdAt"] = state ? state.createdAt : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["ignoreWords"] = state ? state.ignoreWords : undefined;
-            inputs["keywords"] = state ? state.keywords : undefined;
-            inputs["maximumMatchDistance"] = state ? state.maximumMatchDistance : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["namePrefix"] = state ? state.namePrefix : undefined;
-            inputs["regex"] = state ? state.regex : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["createdAt"] = state ? state.createdAt : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["ignoreWords"] = state ? state.ignoreWords : undefined;
+            resourceInputs["keywords"] = state ? state.keywords : undefined;
+            resourceInputs["maximumMatchDistance"] = state ? state.maximumMatchDistance : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
+            resourceInputs["regex"] = state ? state.regex : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as CustomDataIdentifierArgs | undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["ignoreWords"] = args ? args.ignoreWords : undefined;
-            inputs["keywords"] = args ? args.keywords : undefined;
-            inputs["maximumMatchDistance"] = args ? args.maximumMatchDistance : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["namePrefix"] = args ? args.namePrefix : undefined;
-            inputs["regex"] = args ? args.regex : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["createdAt"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["ignoreWords"] = args ? args.ignoreWords : undefined;
+            resourceInputs["keywords"] = args ? args.keywords : undefined;
+            resourceInputs["maximumMatchDistance"] = args ? args.maximumMatchDistance : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
+            resourceInputs["regex"] = args ? args.regex : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(CustomDataIdentifier.__pulumiType, name, inputs, opts);
+        super(CustomDataIdentifier.__pulumiType, name, resourceInputs, opts);
     }
 }
 

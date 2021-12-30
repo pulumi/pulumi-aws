@@ -287,7 +287,7 @@ type FileSystemAssociationInput interface {
 }
 
 func (*FileSystemAssociation) ElementType() reflect.Type {
-	return reflect.TypeOf((*FileSystemAssociation)(nil))
+	return reflect.TypeOf((**FileSystemAssociation)(nil)).Elem()
 }
 
 func (i *FileSystemAssociation) ToFileSystemAssociationOutput() FileSystemAssociationOutput {
@@ -296,35 +296,6 @@ func (i *FileSystemAssociation) ToFileSystemAssociationOutput() FileSystemAssoci
 
 func (i *FileSystemAssociation) ToFileSystemAssociationOutputWithContext(ctx context.Context) FileSystemAssociationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FileSystemAssociationOutput)
-}
-
-func (i *FileSystemAssociation) ToFileSystemAssociationPtrOutput() FileSystemAssociationPtrOutput {
-	return i.ToFileSystemAssociationPtrOutputWithContext(context.Background())
-}
-
-func (i *FileSystemAssociation) ToFileSystemAssociationPtrOutputWithContext(ctx context.Context) FileSystemAssociationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FileSystemAssociationPtrOutput)
-}
-
-type FileSystemAssociationPtrInput interface {
-	pulumi.Input
-
-	ToFileSystemAssociationPtrOutput() FileSystemAssociationPtrOutput
-	ToFileSystemAssociationPtrOutputWithContext(ctx context.Context) FileSystemAssociationPtrOutput
-}
-
-type fileSystemAssociationPtrType FileSystemAssociationArgs
-
-func (*fileSystemAssociationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FileSystemAssociation)(nil))
-}
-
-func (i *fileSystemAssociationPtrType) ToFileSystemAssociationPtrOutput() FileSystemAssociationPtrOutput {
-	return i.ToFileSystemAssociationPtrOutputWithContext(context.Background())
-}
-
-func (i *fileSystemAssociationPtrType) ToFileSystemAssociationPtrOutputWithContext(ctx context.Context) FileSystemAssociationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FileSystemAssociationPtrOutput)
 }
 
 // FileSystemAssociationArrayInput is an input type that accepts FileSystemAssociationArray and FileSystemAssociationArrayOutput values.
@@ -380,7 +351,7 @@ func (i FileSystemAssociationMap) ToFileSystemAssociationMapOutputWithContext(ct
 type FileSystemAssociationOutput struct{ *pulumi.OutputState }
 
 func (FileSystemAssociationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FileSystemAssociation)(nil))
+	return reflect.TypeOf((**FileSystemAssociation)(nil)).Elem()
 }
 
 func (o FileSystemAssociationOutput) ToFileSystemAssociationOutput() FileSystemAssociationOutput {
@@ -391,44 +362,10 @@ func (o FileSystemAssociationOutput) ToFileSystemAssociationOutputWithContext(ct
 	return o
 }
 
-func (o FileSystemAssociationOutput) ToFileSystemAssociationPtrOutput() FileSystemAssociationPtrOutput {
-	return o.ToFileSystemAssociationPtrOutputWithContext(context.Background())
-}
-
-func (o FileSystemAssociationOutput) ToFileSystemAssociationPtrOutputWithContext(ctx context.Context) FileSystemAssociationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FileSystemAssociation) *FileSystemAssociation {
-		return &v
-	}).(FileSystemAssociationPtrOutput)
-}
-
-type FileSystemAssociationPtrOutput struct{ *pulumi.OutputState }
-
-func (FileSystemAssociationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FileSystemAssociation)(nil))
-}
-
-func (o FileSystemAssociationPtrOutput) ToFileSystemAssociationPtrOutput() FileSystemAssociationPtrOutput {
-	return o
-}
-
-func (o FileSystemAssociationPtrOutput) ToFileSystemAssociationPtrOutputWithContext(ctx context.Context) FileSystemAssociationPtrOutput {
-	return o
-}
-
-func (o FileSystemAssociationPtrOutput) Elem() FileSystemAssociationOutput {
-	return o.ApplyT(func(v *FileSystemAssociation) FileSystemAssociation {
-		if v != nil {
-			return *v
-		}
-		var ret FileSystemAssociation
-		return ret
-	}).(FileSystemAssociationOutput)
-}
-
 type FileSystemAssociationArrayOutput struct{ *pulumi.OutputState }
 
 func (FileSystemAssociationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FileSystemAssociation)(nil))
+	return reflect.TypeOf((*[]*FileSystemAssociation)(nil)).Elem()
 }
 
 func (o FileSystemAssociationArrayOutput) ToFileSystemAssociationArrayOutput() FileSystemAssociationArrayOutput {
@@ -440,15 +377,15 @@ func (o FileSystemAssociationArrayOutput) ToFileSystemAssociationArrayOutputWith
 }
 
 func (o FileSystemAssociationArrayOutput) Index(i pulumi.IntInput) FileSystemAssociationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FileSystemAssociation {
-		return vs[0].([]FileSystemAssociation)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FileSystemAssociation {
+		return vs[0].([]*FileSystemAssociation)[vs[1].(int)]
 	}).(FileSystemAssociationOutput)
 }
 
 type FileSystemAssociationMapOutput struct{ *pulumi.OutputState }
 
 func (FileSystemAssociationMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]FileSystemAssociation)(nil))
+	return reflect.TypeOf((*map[string]*FileSystemAssociation)(nil)).Elem()
 }
 
 func (o FileSystemAssociationMapOutput) ToFileSystemAssociationMapOutput() FileSystemAssociationMapOutput {
@@ -460,18 +397,16 @@ func (o FileSystemAssociationMapOutput) ToFileSystemAssociationMapOutputWithCont
 }
 
 func (o FileSystemAssociationMapOutput) MapIndex(k pulumi.StringInput) FileSystemAssociationOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) FileSystemAssociation {
-		return vs[0].(map[string]FileSystemAssociation)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *FileSystemAssociation {
+		return vs[0].(map[string]*FileSystemAssociation)[vs[1].(string)]
 	}).(FileSystemAssociationOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemAssociationInput)(nil)).Elem(), &FileSystemAssociation{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemAssociationPtrInput)(nil)).Elem(), &FileSystemAssociation{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemAssociationArrayInput)(nil)).Elem(), FileSystemAssociationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemAssociationMapInput)(nil)).Elem(), FileSystemAssociationMap{})
 	pulumi.RegisterOutputType(FileSystemAssociationOutput{})
-	pulumi.RegisterOutputType(FileSystemAssociationPtrOutput{})
 	pulumi.RegisterOutputType(FileSystemAssociationArrayOutput{})
 	pulumi.RegisterOutputType(FileSystemAssociationMapOutput{})
 }

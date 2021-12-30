@@ -17,7 +17,7 @@ import {PolicyDocument} from "../iam";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.s3.Bucket("example", {});
- * const allowAccessFromAnotherAccountPolicyDocument = pulumi.all([example.arn, example.arn]).apply(([exampleArn, exampleArn1]) => aws.iam.getPolicyDocument({
+ * const allowAccessFromAnotherAccountPolicyDocument = aws.iam.getPolicyDocumentOutput({
  *     statements: [{
  *         principals: [{
  *             type: "AWS",
@@ -28,11 +28,11 @@ import {PolicyDocument} from "../iam";
  *             "s3:ListBucket",
  *         ],
  *         resources: [
- *             exampleArn,
- *             `${exampleArn1}/*`,
+ *             example.arn,
+ *             pulumi.interpolate`${example.arn}/*`,
  *         ],
  *     }],
- * }));
+ * });
  * const allowAccessFromAnotherAccountBucketPolicy = new aws.s3.BucketPolicy("allowAccessFromAnotherAccountBucketPolicy", {
  *     bucket: example.id,
  *     policy: allowAccessFromAnotherAccountPolicyDocument.apply(allowAccessFromAnotherAccountPolicyDocument => allowAccessFromAnotherAccountPolicyDocument.json),
@@ -93,12 +93,12 @@ export class BucketPolicy extends pulumi.CustomResource {
      */
     constructor(name: string, args: BucketPolicyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: BucketPolicyArgs | BucketPolicyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BucketPolicyState | undefined;
-            inputs["bucket"] = state ? state.bucket : undefined;
-            inputs["policy"] = state ? state.policy : undefined;
+            resourceInputs["bucket"] = state ? state.bucket : undefined;
+            resourceInputs["policy"] = state ? state.policy : undefined;
         } else {
             const args = argsOrState as BucketPolicyArgs | undefined;
             if ((!args || args.bucket === undefined) && !opts.urn) {
@@ -107,13 +107,13 @@ export class BucketPolicy extends pulumi.CustomResource {
             if ((!args || args.policy === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policy'");
             }
-            inputs["bucket"] = args ? args.bucket : undefined;
-            inputs["policy"] = args ? args.policy : undefined;
+            resourceInputs["bucket"] = args ? args.bucket : undefined;
+            resourceInputs["policy"] = args ? args.policy : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(BucketPolicy.__pulumiType, name, inputs, opts);
+        super(BucketPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

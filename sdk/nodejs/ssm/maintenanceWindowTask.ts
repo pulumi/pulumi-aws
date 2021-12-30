@@ -189,21 +189,21 @@ export class MaintenanceWindowTask extends pulumi.CustomResource {
      */
     constructor(name: string, args: MaintenanceWindowTaskArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: MaintenanceWindowTaskArgs | MaintenanceWindowTaskState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MaintenanceWindowTaskState | undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["maxConcurrency"] = state ? state.maxConcurrency : undefined;
-            inputs["maxErrors"] = state ? state.maxErrors : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["priority"] = state ? state.priority : undefined;
-            inputs["serviceRoleArn"] = state ? state.serviceRoleArn : undefined;
-            inputs["targets"] = state ? state.targets : undefined;
-            inputs["taskArn"] = state ? state.taskArn : undefined;
-            inputs["taskInvocationParameters"] = state ? state.taskInvocationParameters : undefined;
-            inputs["taskType"] = state ? state.taskType : undefined;
-            inputs["windowId"] = state ? state.windowId : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["maxConcurrency"] = state ? state.maxConcurrency : undefined;
+            resourceInputs["maxErrors"] = state ? state.maxErrors : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["priority"] = state ? state.priority : undefined;
+            resourceInputs["serviceRoleArn"] = state ? state.serviceRoleArn : undefined;
+            resourceInputs["targets"] = state ? state.targets : undefined;
+            resourceInputs["taskArn"] = state ? state.taskArn : undefined;
+            resourceInputs["taskInvocationParameters"] = state ? state.taskInvocationParameters : undefined;
+            resourceInputs["taskType"] = state ? state.taskType : undefined;
+            resourceInputs["windowId"] = state ? state.windowId : undefined;
         } else {
             const args = argsOrState as MaintenanceWindowTaskArgs | undefined;
             if ((!args || args.maxConcurrency === undefined) && !opts.urn) {
@@ -221,22 +221,22 @@ export class MaintenanceWindowTask extends pulumi.CustomResource {
             if ((!args || args.windowId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'windowId'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["maxConcurrency"] = args ? args.maxConcurrency : undefined;
-            inputs["maxErrors"] = args ? args.maxErrors : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["priority"] = args ? args.priority : undefined;
-            inputs["serviceRoleArn"] = args ? args.serviceRoleArn : undefined;
-            inputs["targets"] = args ? args.targets : undefined;
-            inputs["taskArn"] = args ? args.taskArn : undefined;
-            inputs["taskInvocationParameters"] = args ? args.taskInvocationParameters : undefined;
-            inputs["taskType"] = args ? args.taskType : undefined;
-            inputs["windowId"] = args ? args.windowId : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["maxConcurrency"] = args ? args.maxConcurrency : undefined;
+            resourceInputs["maxErrors"] = args ? args.maxErrors : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["priority"] = args ? args.priority : undefined;
+            resourceInputs["serviceRoleArn"] = args ? args.serviceRoleArn : undefined;
+            resourceInputs["targets"] = args ? args.targets : undefined;
+            resourceInputs["taskArn"] = args ? args.taskArn : undefined;
+            resourceInputs["taskInvocationParameters"] = args ? args.taskInvocationParameters : undefined;
+            resourceInputs["taskType"] = args ? args.taskType : undefined;
+            resourceInputs["windowId"] = args ? args.windowId : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(MaintenanceWindowTask.__pulumiType, name, inputs, opts);
+        super(MaintenanceWindowTask.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -59,11 +59,11 @@ namespace Pulumi.Aws.Organizations
         ///         {
         ///             var example = values.Item1;
         ///             var arn = values.Item2;
-        ///             return Aws.Iam.GetPolicyDocument.InvokeAsync(new Aws.Iam.GetPolicyDocumentArgs
+        ///             return Aws.Iam.GetPolicyDocument.Invoke(new Aws.Iam.GetPolicyDocumentInvokeArgs
         ///             {
         ///                 Statements = 
         ///                 {
-        ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
+        ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
         ///                     {
         ///                         Effect = "Allow",
         ///                         Actions = 
@@ -73,7 +73,7 @@ namespace Pulumi.Aws.Organizations
         ///                         },
         ///                         Conditions = 
         ///                         {
-        ///                             new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionArgs
+        ///                             new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
         ///                             {
         ///                                 Test = "StringEquals",
         ///                                 Variable = "aws:PrincipalOrgID",
@@ -85,7 +85,7 @@ namespace Pulumi.Aws.Organizations
         ///                         },
         ///                         Principals = 
         ///                         {
-        ///                             new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalArgs
+        ///                             new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
         ///                             {
         ///                                 Type = "AWS",
         ///                                 Identifiers = 

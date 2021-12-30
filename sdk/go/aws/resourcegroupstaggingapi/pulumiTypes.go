@@ -19,63 +19,6 @@ type GetResourcesResourceTagMappingList struct {
 	Tags map[string]string `pulumi:"tags"`
 }
 
-// GetResourcesResourceTagMappingListInput is an input type that accepts GetResourcesResourceTagMappingListArgs and GetResourcesResourceTagMappingListOutput values.
-// You can construct a concrete instance of `GetResourcesResourceTagMappingListInput` via:
-//
-//          GetResourcesResourceTagMappingListArgs{...}
-type GetResourcesResourceTagMappingListInput interface {
-	pulumi.Input
-
-	ToGetResourcesResourceTagMappingListOutput() GetResourcesResourceTagMappingListOutput
-	ToGetResourcesResourceTagMappingListOutputWithContext(context.Context) GetResourcesResourceTagMappingListOutput
-}
-
-type GetResourcesResourceTagMappingListArgs struct {
-	// List of objects with information that shows whether a resource is compliant with the effective tag policy, including details on any noncompliant tag keys.
-	ComplianceDetails GetResourcesResourceTagMappingListComplianceDetailArrayInput `pulumi:"complianceDetails"`
-	// ARN of the resource.
-	ResourceArn pulumi.StringInput `pulumi:"resourceArn"`
-	// Map of tags assigned to the resource.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-}
-
-func (GetResourcesResourceTagMappingListArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetResourcesResourceTagMappingList)(nil)).Elem()
-}
-
-func (i GetResourcesResourceTagMappingListArgs) ToGetResourcesResourceTagMappingListOutput() GetResourcesResourceTagMappingListOutput {
-	return i.ToGetResourcesResourceTagMappingListOutputWithContext(context.Background())
-}
-
-func (i GetResourcesResourceTagMappingListArgs) ToGetResourcesResourceTagMappingListOutputWithContext(ctx context.Context) GetResourcesResourceTagMappingListOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetResourcesResourceTagMappingListOutput)
-}
-
-// GetResourcesResourceTagMappingListArrayInput is an input type that accepts GetResourcesResourceTagMappingListArray and GetResourcesResourceTagMappingListArrayOutput values.
-// You can construct a concrete instance of `GetResourcesResourceTagMappingListArrayInput` via:
-//
-//          GetResourcesResourceTagMappingListArray{ GetResourcesResourceTagMappingListArgs{...} }
-type GetResourcesResourceTagMappingListArrayInput interface {
-	pulumi.Input
-
-	ToGetResourcesResourceTagMappingListArrayOutput() GetResourcesResourceTagMappingListArrayOutput
-	ToGetResourcesResourceTagMappingListArrayOutputWithContext(context.Context) GetResourcesResourceTagMappingListArrayOutput
-}
-
-type GetResourcesResourceTagMappingListArray []GetResourcesResourceTagMappingListInput
-
-func (GetResourcesResourceTagMappingListArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetResourcesResourceTagMappingList)(nil)).Elem()
-}
-
-func (i GetResourcesResourceTagMappingListArray) ToGetResourcesResourceTagMappingListArrayOutput() GetResourcesResourceTagMappingListArrayOutput {
-	return i.ToGetResourcesResourceTagMappingListArrayOutputWithContext(context.Background())
-}
-
-func (i GetResourcesResourceTagMappingListArray) ToGetResourcesResourceTagMappingListArrayOutputWithContext(ctx context.Context) GetResourcesResourceTagMappingListArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetResourcesResourceTagMappingListArrayOutput)
-}
-
 type GetResourcesResourceTagMappingListOutput struct{ *pulumi.OutputState }
 
 func (GetResourcesResourceTagMappingListOutput) ElementType() reflect.Type {
@@ -134,63 +77,6 @@ type GetResourcesResourceTagMappingListComplianceDetail struct {
 	ComplianceStatus           bool     `pulumi:"complianceStatus"`
 	KeysWithNoncompliantValues []string `pulumi:"keysWithNoncompliantValues"`
 	NonCompliantKeys           []string `pulumi:"nonCompliantKeys"`
-}
-
-// GetResourcesResourceTagMappingListComplianceDetailInput is an input type that accepts GetResourcesResourceTagMappingListComplianceDetailArgs and GetResourcesResourceTagMappingListComplianceDetailOutput values.
-// You can construct a concrete instance of `GetResourcesResourceTagMappingListComplianceDetailInput` via:
-//
-//          GetResourcesResourceTagMappingListComplianceDetailArgs{...}
-type GetResourcesResourceTagMappingListComplianceDetailInput interface {
-	pulumi.Input
-
-	ToGetResourcesResourceTagMappingListComplianceDetailOutput() GetResourcesResourceTagMappingListComplianceDetailOutput
-	ToGetResourcesResourceTagMappingListComplianceDetailOutputWithContext(context.Context) GetResourcesResourceTagMappingListComplianceDetailOutput
-}
-
-type GetResourcesResourceTagMappingListComplianceDetailArgs struct {
-	// Whether the resource is compliant.
-	// * ` keysWithNoncompliantValues  ` - Set of tag keys with non-compliant tag values.
-	// * ` nonCompliantKeys  ` - Set of non-compliant tag keys.
-	ComplianceStatus           pulumi.BoolInput        `pulumi:"complianceStatus"`
-	KeysWithNoncompliantValues pulumi.StringArrayInput `pulumi:"keysWithNoncompliantValues"`
-	NonCompliantKeys           pulumi.StringArrayInput `pulumi:"nonCompliantKeys"`
-}
-
-func (GetResourcesResourceTagMappingListComplianceDetailArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetResourcesResourceTagMappingListComplianceDetail)(nil)).Elem()
-}
-
-func (i GetResourcesResourceTagMappingListComplianceDetailArgs) ToGetResourcesResourceTagMappingListComplianceDetailOutput() GetResourcesResourceTagMappingListComplianceDetailOutput {
-	return i.ToGetResourcesResourceTagMappingListComplianceDetailOutputWithContext(context.Background())
-}
-
-func (i GetResourcesResourceTagMappingListComplianceDetailArgs) ToGetResourcesResourceTagMappingListComplianceDetailOutputWithContext(ctx context.Context) GetResourcesResourceTagMappingListComplianceDetailOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetResourcesResourceTagMappingListComplianceDetailOutput)
-}
-
-// GetResourcesResourceTagMappingListComplianceDetailArrayInput is an input type that accepts GetResourcesResourceTagMappingListComplianceDetailArray and GetResourcesResourceTagMappingListComplianceDetailArrayOutput values.
-// You can construct a concrete instance of `GetResourcesResourceTagMappingListComplianceDetailArrayInput` via:
-//
-//          GetResourcesResourceTagMappingListComplianceDetailArray{ GetResourcesResourceTagMappingListComplianceDetailArgs{...} }
-type GetResourcesResourceTagMappingListComplianceDetailArrayInput interface {
-	pulumi.Input
-
-	ToGetResourcesResourceTagMappingListComplianceDetailArrayOutput() GetResourcesResourceTagMappingListComplianceDetailArrayOutput
-	ToGetResourcesResourceTagMappingListComplianceDetailArrayOutputWithContext(context.Context) GetResourcesResourceTagMappingListComplianceDetailArrayOutput
-}
-
-type GetResourcesResourceTagMappingListComplianceDetailArray []GetResourcesResourceTagMappingListComplianceDetailInput
-
-func (GetResourcesResourceTagMappingListComplianceDetailArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetResourcesResourceTagMappingListComplianceDetail)(nil)).Elem()
-}
-
-func (i GetResourcesResourceTagMappingListComplianceDetailArray) ToGetResourcesResourceTagMappingListComplianceDetailArrayOutput() GetResourcesResourceTagMappingListComplianceDetailArrayOutput {
-	return i.ToGetResourcesResourceTagMappingListComplianceDetailArrayOutputWithContext(context.Background())
-}
-
-func (i GetResourcesResourceTagMappingListComplianceDetailArray) ToGetResourcesResourceTagMappingListComplianceDetailArrayOutputWithContext(ctx context.Context) GetResourcesResourceTagMappingListComplianceDetailArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetResourcesResourceTagMappingListComplianceDetailArrayOutput)
 }
 
 type GetResourcesResourceTagMappingListComplianceDetailOutput struct{ *pulumi.OutputState }
@@ -351,10 +237,6 @@ func (o GetResourcesTagFilterArrayOutput) Index(i pulumi.IntInput) GetResourcesT
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*GetResourcesResourceTagMappingListInput)(nil)).Elem(), GetResourcesResourceTagMappingListArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetResourcesResourceTagMappingListArrayInput)(nil)).Elem(), GetResourcesResourceTagMappingListArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetResourcesResourceTagMappingListComplianceDetailInput)(nil)).Elem(), GetResourcesResourceTagMappingListComplianceDetailArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetResourcesResourceTagMappingListComplianceDetailArrayInput)(nil)).Elem(), GetResourcesResourceTagMappingListComplianceDetailArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetResourcesTagFilterInput)(nil)).Elem(), GetResourcesTagFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetResourcesTagFilterArrayInput)(nil)).Elem(), GetResourcesTagFilterArray{})
 	pulumi.RegisterOutputType(GetResourcesResourceTagMappingListOutput{})

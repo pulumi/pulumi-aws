@@ -283,7 +283,7 @@ type WebhookInput interface {
 }
 
 func (*Webhook) ElementType() reflect.Type {
-	return reflect.TypeOf((*Webhook)(nil))
+	return reflect.TypeOf((**Webhook)(nil)).Elem()
 }
 
 func (i *Webhook) ToWebhookOutput() WebhookOutput {
@@ -292,35 +292,6 @@ func (i *Webhook) ToWebhookOutput() WebhookOutput {
 
 func (i *Webhook) ToWebhookOutputWithContext(ctx context.Context) WebhookOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WebhookOutput)
-}
-
-func (i *Webhook) ToWebhookPtrOutput() WebhookPtrOutput {
-	return i.ToWebhookPtrOutputWithContext(context.Background())
-}
-
-func (i *Webhook) ToWebhookPtrOutputWithContext(ctx context.Context) WebhookPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebhookPtrOutput)
-}
-
-type WebhookPtrInput interface {
-	pulumi.Input
-
-	ToWebhookPtrOutput() WebhookPtrOutput
-	ToWebhookPtrOutputWithContext(ctx context.Context) WebhookPtrOutput
-}
-
-type webhookPtrType WebhookArgs
-
-func (*webhookPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Webhook)(nil))
-}
-
-func (i *webhookPtrType) ToWebhookPtrOutput() WebhookPtrOutput {
-	return i.ToWebhookPtrOutputWithContext(context.Background())
-}
-
-func (i *webhookPtrType) ToWebhookPtrOutputWithContext(ctx context.Context) WebhookPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebhookPtrOutput)
 }
 
 // WebhookArrayInput is an input type that accepts WebhookArray and WebhookArrayOutput values.
@@ -376,7 +347,7 @@ func (i WebhookMap) ToWebhookMapOutputWithContext(ctx context.Context) WebhookMa
 type WebhookOutput struct{ *pulumi.OutputState }
 
 func (WebhookOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Webhook)(nil))
+	return reflect.TypeOf((**Webhook)(nil)).Elem()
 }
 
 func (o WebhookOutput) ToWebhookOutput() WebhookOutput {
@@ -387,44 +358,10 @@ func (o WebhookOutput) ToWebhookOutputWithContext(ctx context.Context) WebhookOu
 	return o
 }
 
-func (o WebhookOutput) ToWebhookPtrOutput() WebhookPtrOutput {
-	return o.ToWebhookPtrOutputWithContext(context.Background())
-}
-
-func (o WebhookOutput) ToWebhookPtrOutputWithContext(ctx context.Context) WebhookPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Webhook) *Webhook {
-		return &v
-	}).(WebhookPtrOutput)
-}
-
-type WebhookPtrOutput struct{ *pulumi.OutputState }
-
-func (WebhookPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Webhook)(nil))
-}
-
-func (o WebhookPtrOutput) ToWebhookPtrOutput() WebhookPtrOutput {
-	return o
-}
-
-func (o WebhookPtrOutput) ToWebhookPtrOutputWithContext(ctx context.Context) WebhookPtrOutput {
-	return o
-}
-
-func (o WebhookPtrOutput) Elem() WebhookOutput {
-	return o.ApplyT(func(v *Webhook) Webhook {
-		if v != nil {
-			return *v
-		}
-		var ret Webhook
-		return ret
-	}).(WebhookOutput)
-}
-
 type WebhookArrayOutput struct{ *pulumi.OutputState }
 
 func (WebhookArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Webhook)(nil))
+	return reflect.TypeOf((*[]*Webhook)(nil)).Elem()
 }
 
 func (o WebhookArrayOutput) ToWebhookArrayOutput() WebhookArrayOutput {
@@ -436,15 +373,15 @@ func (o WebhookArrayOutput) ToWebhookArrayOutputWithContext(ctx context.Context)
 }
 
 func (o WebhookArrayOutput) Index(i pulumi.IntInput) WebhookOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Webhook {
-		return vs[0].([]Webhook)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Webhook {
+		return vs[0].([]*Webhook)[vs[1].(int)]
 	}).(WebhookOutput)
 }
 
 type WebhookMapOutput struct{ *pulumi.OutputState }
 
 func (WebhookMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Webhook)(nil))
+	return reflect.TypeOf((*map[string]*Webhook)(nil)).Elem()
 }
 
 func (o WebhookMapOutput) ToWebhookMapOutput() WebhookMapOutput {
@@ -456,18 +393,16 @@ func (o WebhookMapOutput) ToWebhookMapOutputWithContext(ctx context.Context) Web
 }
 
 func (o WebhookMapOutput) MapIndex(k pulumi.StringInput) WebhookOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Webhook {
-		return vs[0].(map[string]Webhook)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Webhook {
+		return vs[0].(map[string]*Webhook)[vs[1].(string)]
 	}).(WebhookOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WebhookInput)(nil)).Elem(), &Webhook{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebhookPtrInput)(nil)).Elem(), &Webhook{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebhookArrayInput)(nil)).Elem(), WebhookArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebhookMapInput)(nil)).Elem(), WebhookMap{})
 	pulumi.RegisterOutputType(WebhookOutput{})
-	pulumi.RegisterOutputType(WebhookPtrOutput{})
 	pulumi.RegisterOutputType(WebhookArrayOutput{})
 	pulumi.RegisterOutputType(WebhookMapOutput{})
 }

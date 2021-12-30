@@ -120,15 +120,15 @@ export class BucketIntelligentTieringConfiguration extends pulumi.CustomResource
      */
     constructor(name: string, args: BucketIntelligentTieringConfigurationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: BucketIntelligentTieringConfigurationArgs | BucketIntelligentTieringConfigurationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BucketIntelligentTieringConfigurationState | undefined;
-            inputs["bucket"] = state ? state.bucket : undefined;
-            inputs["filter"] = state ? state.filter : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["status"] = state ? state.status : undefined;
-            inputs["tierings"] = state ? state.tierings : undefined;
+            resourceInputs["bucket"] = state ? state.bucket : undefined;
+            resourceInputs["filter"] = state ? state.filter : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["tierings"] = state ? state.tierings : undefined;
         } else {
             const args = argsOrState as BucketIntelligentTieringConfigurationArgs | undefined;
             if ((!args || args.bucket === undefined) && !opts.urn) {
@@ -137,16 +137,16 @@ export class BucketIntelligentTieringConfiguration extends pulumi.CustomResource
             if ((!args || args.tierings === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'tierings'");
             }
-            inputs["bucket"] = args ? args.bucket : undefined;
-            inputs["filter"] = args ? args.filter : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["status"] = args ? args.status : undefined;
-            inputs["tierings"] = args ? args.tierings : undefined;
+            resourceInputs["bucket"] = args ? args.bucket : undefined;
+            resourceInputs["filter"] = args ? args.filter : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["tierings"] = args ? args.tierings : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(BucketIntelligentTieringConfiguration.__pulumiType, name, inputs, opts);
+        super(BucketIntelligentTieringConfiguration.__pulumiType, name, resourceInputs, opts);
     }
 }
 

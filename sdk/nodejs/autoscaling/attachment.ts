@@ -102,26 +102,26 @@ export class Attachment extends pulumi.CustomResource {
      */
     constructor(name: string, args: AttachmentArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AttachmentArgs | AttachmentState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AttachmentState | undefined;
-            inputs["albTargetGroupArn"] = state ? state.albTargetGroupArn : undefined;
-            inputs["autoscalingGroupName"] = state ? state.autoscalingGroupName : undefined;
-            inputs["elb"] = state ? state.elb : undefined;
+            resourceInputs["albTargetGroupArn"] = state ? state.albTargetGroupArn : undefined;
+            resourceInputs["autoscalingGroupName"] = state ? state.autoscalingGroupName : undefined;
+            resourceInputs["elb"] = state ? state.elb : undefined;
         } else {
             const args = argsOrState as AttachmentArgs | undefined;
             if ((!args || args.autoscalingGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'autoscalingGroupName'");
             }
-            inputs["albTargetGroupArn"] = args ? args.albTargetGroupArn : undefined;
-            inputs["autoscalingGroupName"] = args ? args.autoscalingGroupName : undefined;
-            inputs["elb"] = args ? args.elb : undefined;
+            resourceInputs["albTargetGroupArn"] = args ? args.albTargetGroupArn : undefined;
+            resourceInputs["autoscalingGroupName"] = args ? args.autoscalingGroupName : undefined;
+            resourceInputs["elb"] = args ? args.elb : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Attachment.__pulumiType, name, inputs, opts);
+        super(Attachment.__pulumiType, name, resourceInputs, opts);
     }
 }
 

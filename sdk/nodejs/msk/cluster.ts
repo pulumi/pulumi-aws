@@ -239,30 +239,30 @@ export class Cluster extends pulumi.CustomResource {
      */
     constructor(name: string, args: ClusterArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ClusterArgs | ClusterState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ClusterState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["bootstrapBrokers"] = state ? state.bootstrapBrokers : undefined;
-            inputs["bootstrapBrokersSaslIam"] = state ? state.bootstrapBrokersSaslIam : undefined;
-            inputs["bootstrapBrokersSaslScram"] = state ? state.bootstrapBrokersSaslScram : undefined;
-            inputs["bootstrapBrokersTls"] = state ? state.bootstrapBrokersTls : undefined;
-            inputs["brokerNodeGroupInfo"] = state ? state.brokerNodeGroupInfo : undefined;
-            inputs["clientAuthentication"] = state ? state.clientAuthentication : undefined;
-            inputs["clusterName"] = state ? state.clusterName : undefined;
-            inputs["configurationInfo"] = state ? state.configurationInfo : undefined;
-            inputs["currentVersion"] = state ? state.currentVersion : undefined;
-            inputs["encryptionInfo"] = state ? state.encryptionInfo : undefined;
-            inputs["enhancedMonitoring"] = state ? state.enhancedMonitoring : undefined;
-            inputs["kafkaVersion"] = state ? state.kafkaVersion : undefined;
-            inputs["loggingInfo"] = state ? state.loggingInfo : undefined;
-            inputs["numberOfBrokerNodes"] = state ? state.numberOfBrokerNodes : undefined;
-            inputs["openMonitoring"] = state ? state.openMonitoring : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["zookeeperConnectString"] = state ? state.zookeeperConnectString : undefined;
-            inputs["zookeeperConnectStringTls"] = state ? state.zookeeperConnectStringTls : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["bootstrapBrokers"] = state ? state.bootstrapBrokers : undefined;
+            resourceInputs["bootstrapBrokersSaslIam"] = state ? state.bootstrapBrokersSaslIam : undefined;
+            resourceInputs["bootstrapBrokersSaslScram"] = state ? state.bootstrapBrokersSaslScram : undefined;
+            resourceInputs["bootstrapBrokersTls"] = state ? state.bootstrapBrokersTls : undefined;
+            resourceInputs["brokerNodeGroupInfo"] = state ? state.brokerNodeGroupInfo : undefined;
+            resourceInputs["clientAuthentication"] = state ? state.clientAuthentication : undefined;
+            resourceInputs["clusterName"] = state ? state.clusterName : undefined;
+            resourceInputs["configurationInfo"] = state ? state.configurationInfo : undefined;
+            resourceInputs["currentVersion"] = state ? state.currentVersion : undefined;
+            resourceInputs["encryptionInfo"] = state ? state.encryptionInfo : undefined;
+            resourceInputs["enhancedMonitoring"] = state ? state.enhancedMonitoring : undefined;
+            resourceInputs["kafkaVersion"] = state ? state.kafkaVersion : undefined;
+            resourceInputs["loggingInfo"] = state ? state.loggingInfo : undefined;
+            resourceInputs["numberOfBrokerNodes"] = state ? state.numberOfBrokerNodes : undefined;
+            resourceInputs["openMonitoring"] = state ? state.openMonitoring : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["zookeeperConnectString"] = state ? state.zookeeperConnectString : undefined;
+            resourceInputs["zookeeperConnectStringTls"] = state ? state.zookeeperConnectStringTls : undefined;
         } else {
             const args = argsOrState as ClusterArgs | undefined;
             if ((!args || args.brokerNodeGroupInfo === undefined) && !opts.urn) {
@@ -274,31 +274,31 @@ export class Cluster extends pulumi.CustomResource {
             if ((!args || args.numberOfBrokerNodes === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'numberOfBrokerNodes'");
             }
-            inputs["brokerNodeGroupInfo"] = args ? args.brokerNodeGroupInfo : undefined;
-            inputs["clientAuthentication"] = args ? args.clientAuthentication : undefined;
-            inputs["clusterName"] = args ? args.clusterName : undefined;
-            inputs["configurationInfo"] = args ? args.configurationInfo : undefined;
-            inputs["encryptionInfo"] = args ? args.encryptionInfo : undefined;
-            inputs["enhancedMonitoring"] = args ? args.enhancedMonitoring : undefined;
-            inputs["kafkaVersion"] = args ? args.kafkaVersion : undefined;
-            inputs["loggingInfo"] = args ? args.loggingInfo : undefined;
-            inputs["numberOfBrokerNodes"] = args ? args.numberOfBrokerNodes : undefined;
-            inputs["openMonitoring"] = args ? args.openMonitoring : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["bootstrapBrokers"] = undefined /*out*/;
-            inputs["bootstrapBrokersSaslIam"] = undefined /*out*/;
-            inputs["bootstrapBrokersSaslScram"] = undefined /*out*/;
-            inputs["bootstrapBrokersTls"] = undefined /*out*/;
-            inputs["currentVersion"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
-            inputs["zookeeperConnectString"] = undefined /*out*/;
-            inputs["zookeeperConnectStringTls"] = undefined /*out*/;
+            resourceInputs["brokerNodeGroupInfo"] = args ? args.brokerNodeGroupInfo : undefined;
+            resourceInputs["clientAuthentication"] = args ? args.clientAuthentication : undefined;
+            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
+            resourceInputs["configurationInfo"] = args ? args.configurationInfo : undefined;
+            resourceInputs["encryptionInfo"] = args ? args.encryptionInfo : undefined;
+            resourceInputs["enhancedMonitoring"] = args ? args.enhancedMonitoring : undefined;
+            resourceInputs["kafkaVersion"] = args ? args.kafkaVersion : undefined;
+            resourceInputs["loggingInfo"] = args ? args.loggingInfo : undefined;
+            resourceInputs["numberOfBrokerNodes"] = args ? args.numberOfBrokerNodes : undefined;
+            resourceInputs["openMonitoring"] = args ? args.openMonitoring : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["bootstrapBrokers"] = undefined /*out*/;
+            resourceInputs["bootstrapBrokersSaslIam"] = undefined /*out*/;
+            resourceInputs["bootstrapBrokersSaslScram"] = undefined /*out*/;
+            resourceInputs["bootstrapBrokersTls"] = undefined /*out*/;
+            resourceInputs["currentVersion"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["zookeeperConnectString"] = undefined /*out*/;
+            resourceInputs["zookeeperConnectStringTls"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Cluster.__pulumiType, name, inputs, opts);
+        super(Cluster.__pulumiType, name, resourceInputs, opts);
     }
 }
 

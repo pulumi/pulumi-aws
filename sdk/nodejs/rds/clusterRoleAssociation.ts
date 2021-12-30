@@ -81,13 +81,13 @@ export class ClusterRoleAssociation extends pulumi.CustomResource {
      */
     constructor(name: string, args: ClusterRoleAssociationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ClusterRoleAssociationArgs | ClusterRoleAssociationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ClusterRoleAssociationState | undefined;
-            inputs["dbClusterIdentifier"] = state ? state.dbClusterIdentifier : undefined;
-            inputs["featureName"] = state ? state.featureName : undefined;
-            inputs["roleArn"] = state ? state.roleArn : undefined;
+            resourceInputs["dbClusterIdentifier"] = state ? state.dbClusterIdentifier : undefined;
+            resourceInputs["featureName"] = state ? state.featureName : undefined;
+            resourceInputs["roleArn"] = state ? state.roleArn : undefined;
         } else {
             const args = argsOrState as ClusterRoleAssociationArgs | undefined;
             if ((!args || args.dbClusterIdentifier === undefined) && !opts.urn) {
@@ -99,14 +99,14 @@ export class ClusterRoleAssociation extends pulumi.CustomResource {
             if ((!args || args.roleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            inputs["dbClusterIdentifier"] = args ? args.dbClusterIdentifier : undefined;
-            inputs["featureName"] = args ? args.featureName : undefined;
-            inputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["dbClusterIdentifier"] = args ? args.dbClusterIdentifier : undefined;
+            resourceInputs["featureName"] = args ? args.featureName : undefined;
+            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(ClusterRoleAssociation.__pulumiType, name, inputs, opts);
+        super(ClusterRoleAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -238,7 +238,7 @@ type SafetyRuleInput interface {
 }
 
 func (*SafetyRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*SafetyRule)(nil))
+	return reflect.TypeOf((**SafetyRule)(nil)).Elem()
 }
 
 func (i *SafetyRule) ToSafetyRuleOutput() SafetyRuleOutput {
@@ -247,35 +247,6 @@ func (i *SafetyRule) ToSafetyRuleOutput() SafetyRuleOutput {
 
 func (i *SafetyRule) ToSafetyRuleOutputWithContext(ctx context.Context) SafetyRuleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SafetyRuleOutput)
-}
-
-func (i *SafetyRule) ToSafetyRulePtrOutput() SafetyRulePtrOutput {
-	return i.ToSafetyRulePtrOutputWithContext(context.Background())
-}
-
-func (i *SafetyRule) ToSafetyRulePtrOutputWithContext(ctx context.Context) SafetyRulePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SafetyRulePtrOutput)
-}
-
-type SafetyRulePtrInput interface {
-	pulumi.Input
-
-	ToSafetyRulePtrOutput() SafetyRulePtrOutput
-	ToSafetyRulePtrOutputWithContext(ctx context.Context) SafetyRulePtrOutput
-}
-
-type safetyRulePtrType SafetyRuleArgs
-
-func (*safetyRulePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SafetyRule)(nil))
-}
-
-func (i *safetyRulePtrType) ToSafetyRulePtrOutput() SafetyRulePtrOutput {
-	return i.ToSafetyRulePtrOutputWithContext(context.Background())
-}
-
-func (i *safetyRulePtrType) ToSafetyRulePtrOutputWithContext(ctx context.Context) SafetyRulePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SafetyRulePtrOutput)
 }
 
 // SafetyRuleArrayInput is an input type that accepts SafetyRuleArray and SafetyRuleArrayOutput values.
@@ -331,7 +302,7 @@ func (i SafetyRuleMap) ToSafetyRuleMapOutputWithContext(ctx context.Context) Saf
 type SafetyRuleOutput struct{ *pulumi.OutputState }
 
 func (SafetyRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SafetyRule)(nil))
+	return reflect.TypeOf((**SafetyRule)(nil)).Elem()
 }
 
 func (o SafetyRuleOutput) ToSafetyRuleOutput() SafetyRuleOutput {
@@ -342,44 +313,10 @@ func (o SafetyRuleOutput) ToSafetyRuleOutputWithContext(ctx context.Context) Saf
 	return o
 }
 
-func (o SafetyRuleOutput) ToSafetyRulePtrOutput() SafetyRulePtrOutput {
-	return o.ToSafetyRulePtrOutputWithContext(context.Background())
-}
-
-func (o SafetyRuleOutput) ToSafetyRulePtrOutputWithContext(ctx context.Context) SafetyRulePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SafetyRule) *SafetyRule {
-		return &v
-	}).(SafetyRulePtrOutput)
-}
-
-type SafetyRulePtrOutput struct{ *pulumi.OutputState }
-
-func (SafetyRulePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SafetyRule)(nil))
-}
-
-func (o SafetyRulePtrOutput) ToSafetyRulePtrOutput() SafetyRulePtrOutput {
-	return o
-}
-
-func (o SafetyRulePtrOutput) ToSafetyRulePtrOutputWithContext(ctx context.Context) SafetyRulePtrOutput {
-	return o
-}
-
-func (o SafetyRulePtrOutput) Elem() SafetyRuleOutput {
-	return o.ApplyT(func(v *SafetyRule) SafetyRule {
-		if v != nil {
-			return *v
-		}
-		var ret SafetyRule
-		return ret
-	}).(SafetyRuleOutput)
-}
-
 type SafetyRuleArrayOutput struct{ *pulumi.OutputState }
 
 func (SafetyRuleArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SafetyRule)(nil))
+	return reflect.TypeOf((*[]*SafetyRule)(nil)).Elem()
 }
 
 func (o SafetyRuleArrayOutput) ToSafetyRuleArrayOutput() SafetyRuleArrayOutput {
@@ -391,15 +328,15 @@ func (o SafetyRuleArrayOutput) ToSafetyRuleArrayOutputWithContext(ctx context.Co
 }
 
 func (o SafetyRuleArrayOutput) Index(i pulumi.IntInput) SafetyRuleOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SafetyRule {
-		return vs[0].([]SafetyRule)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SafetyRule {
+		return vs[0].([]*SafetyRule)[vs[1].(int)]
 	}).(SafetyRuleOutput)
 }
 
 type SafetyRuleMapOutput struct{ *pulumi.OutputState }
 
 func (SafetyRuleMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]SafetyRule)(nil))
+	return reflect.TypeOf((*map[string]*SafetyRule)(nil)).Elem()
 }
 
 func (o SafetyRuleMapOutput) ToSafetyRuleMapOutput() SafetyRuleMapOutput {
@@ -411,18 +348,16 @@ func (o SafetyRuleMapOutput) ToSafetyRuleMapOutputWithContext(ctx context.Contex
 }
 
 func (o SafetyRuleMapOutput) MapIndex(k pulumi.StringInput) SafetyRuleOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SafetyRule {
-		return vs[0].(map[string]SafetyRule)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *SafetyRule {
+		return vs[0].(map[string]*SafetyRule)[vs[1].(string)]
 	}).(SafetyRuleOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SafetyRuleInput)(nil)).Elem(), &SafetyRule{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SafetyRulePtrInput)(nil)).Elem(), &SafetyRule{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SafetyRuleArrayInput)(nil)).Elem(), SafetyRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SafetyRuleMapInput)(nil)).Elem(), SafetyRuleMap{})
 	pulumi.RegisterOutputType(SafetyRuleOutput{})
-	pulumi.RegisterOutputType(SafetyRulePtrOutput{})
 	pulumi.RegisterOutputType(SafetyRuleArrayOutput{})
 	pulumi.RegisterOutputType(SafetyRuleMapOutput{})
 }

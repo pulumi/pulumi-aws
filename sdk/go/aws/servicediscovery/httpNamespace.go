@@ -144,7 +144,7 @@ type HttpNamespaceInput interface {
 }
 
 func (*HttpNamespace) ElementType() reflect.Type {
-	return reflect.TypeOf((*HttpNamespace)(nil))
+	return reflect.TypeOf((**HttpNamespace)(nil)).Elem()
 }
 
 func (i *HttpNamespace) ToHttpNamespaceOutput() HttpNamespaceOutput {
@@ -153,35 +153,6 @@ func (i *HttpNamespace) ToHttpNamespaceOutput() HttpNamespaceOutput {
 
 func (i *HttpNamespace) ToHttpNamespaceOutputWithContext(ctx context.Context) HttpNamespaceOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(HttpNamespaceOutput)
-}
-
-func (i *HttpNamespace) ToHttpNamespacePtrOutput() HttpNamespacePtrOutput {
-	return i.ToHttpNamespacePtrOutputWithContext(context.Background())
-}
-
-func (i *HttpNamespace) ToHttpNamespacePtrOutputWithContext(ctx context.Context) HttpNamespacePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HttpNamespacePtrOutput)
-}
-
-type HttpNamespacePtrInput interface {
-	pulumi.Input
-
-	ToHttpNamespacePtrOutput() HttpNamespacePtrOutput
-	ToHttpNamespacePtrOutputWithContext(ctx context.Context) HttpNamespacePtrOutput
-}
-
-type httpNamespacePtrType HttpNamespaceArgs
-
-func (*httpNamespacePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**HttpNamespace)(nil))
-}
-
-func (i *httpNamespacePtrType) ToHttpNamespacePtrOutput() HttpNamespacePtrOutput {
-	return i.ToHttpNamespacePtrOutputWithContext(context.Background())
-}
-
-func (i *httpNamespacePtrType) ToHttpNamespacePtrOutputWithContext(ctx context.Context) HttpNamespacePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HttpNamespacePtrOutput)
 }
 
 // HttpNamespaceArrayInput is an input type that accepts HttpNamespaceArray and HttpNamespaceArrayOutput values.
@@ -237,7 +208,7 @@ func (i HttpNamespaceMap) ToHttpNamespaceMapOutputWithContext(ctx context.Contex
 type HttpNamespaceOutput struct{ *pulumi.OutputState }
 
 func (HttpNamespaceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HttpNamespace)(nil))
+	return reflect.TypeOf((**HttpNamespace)(nil)).Elem()
 }
 
 func (o HttpNamespaceOutput) ToHttpNamespaceOutput() HttpNamespaceOutput {
@@ -248,44 +219,10 @@ func (o HttpNamespaceOutput) ToHttpNamespaceOutputWithContext(ctx context.Contex
 	return o
 }
 
-func (o HttpNamespaceOutput) ToHttpNamespacePtrOutput() HttpNamespacePtrOutput {
-	return o.ToHttpNamespacePtrOutputWithContext(context.Background())
-}
-
-func (o HttpNamespaceOutput) ToHttpNamespacePtrOutputWithContext(ctx context.Context) HttpNamespacePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v HttpNamespace) *HttpNamespace {
-		return &v
-	}).(HttpNamespacePtrOutput)
-}
-
-type HttpNamespacePtrOutput struct{ *pulumi.OutputState }
-
-func (HttpNamespacePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**HttpNamespace)(nil))
-}
-
-func (o HttpNamespacePtrOutput) ToHttpNamespacePtrOutput() HttpNamespacePtrOutput {
-	return o
-}
-
-func (o HttpNamespacePtrOutput) ToHttpNamespacePtrOutputWithContext(ctx context.Context) HttpNamespacePtrOutput {
-	return o
-}
-
-func (o HttpNamespacePtrOutput) Elem() HttpNamespaceOutput {
-	return o.ApplyT(func(v *HttpNamespace) HttpNamespace {
-		if v != nil {
-			return *v
-		}
-		var ret HttpNamespace
-		return ret
-	}).(HttpNamespaceOutput)
-}
-
 type HttpNamespaceArrayOutput struct{ *pulumi.OutputState }
 
 func (HttpNamespaceArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]HttpNamespace)(nil))
+	return reflect.TypeOf((*[]*HttpNamespace)(nil)).Elem()
 }
 
 func (o HttpNamespaceArrayOutput) ToHttpNamespaceArrayOutput() HttpNamespaceArrayOutput {
@@ -297,15 +234,15 @@ func (o HttpNamespaceArrayOutput) ToHttpNamespaceArrayOutputWithContext(ctx cont
 }
 
 func (o HttpNamespaceArrayOutput) Index(i pulumi.IntInput) HttpNamespaceOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HttpNamespace {
-		return vs[0].([]HttpNamespace)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *HttpNamespace {
+		return vs[0].([]*HttpNamespace)[vs[1].(int)]
 	}).(HttpNamespaceOutput)
 }
 
 type HttpNamespaceMapOutput struct{ *pulumi.OutputState }
 
 func (HttpNamespaceMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]HttpNamespace)(nil))
+	return reflect.TypeOf((*map[string]*HttpNamespace)(nil)).Elem()
 }
 
 func (o HttpNamespaceMapOutput) ToHttpNamespaceMapOutput() HttpNamespaceMapOutput {
@@ -317,18 +254,16 @@ func (o HttpNamespaceMapOutput) ToHttpNamespaceMapOutputWithContext(ctx context.
 }
 
 func (o HttpNamespaceMapOutput) MapIndex(k pulumi.StringInput) HttpNamespaceOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) HttpNamespace {
-		return vs[0].(map[string]HttpNamespace)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *HttpNamespace {
+		return vs[0].(map[string]*HttpNamespace)[vs[1].(string)]
 	}).(HttpNamespaceOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*HttpNamespaceInput)(nil)).Elem(), &HttpNamespace{})
-	pulumi.RegisterInputType(reflect.TypeOf((*HttpNamespacePtrInput)(nil)).Elem(), &HttpNamespace{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HttpNamespaceArrayInput)(nil)).Elem(), HttpNamespaceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HttpNamespaceMapInput)(nil)).Elem(), HttpNamespaceMap{})
 	pulumi.RegisterOutputType(HttpNamespaceOutput{})
-	pulumi.RegisterOutputType(HttpNamespacePtrOutput{})
 	pulumi.RegisterOutputType(HttpNamespaceArrayOutput{})
 	pulumi.RegisterOutputType(HttpNamespaceMapOutput{})
 }

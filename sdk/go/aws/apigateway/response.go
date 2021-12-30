@@ -175,7 +175,7 @@ type ResponseInput interface {
 }
 
 func (*Response) ElementType() reflect.Type {
-	return reflect.TypeOf((*Response)(nil))
+	return reflect.TypeOf((**Response)(nil)).Elem()
 }
 
 func (i *Response) ToResponseOutput() ResponseOutput {
@@ -184,35 +184,6 @@ func (i *Response) ToResponseOutput() ResponseOutput {
 
 func (i *Response) ToResponseOutputWithContext(ctx context.Context) ResponseOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ResponseOutput)
-}
-
-func (i *Response) ToResponsePtrOutput() ResponsePtrOutput {
-	return i.ToResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *Response) ToResponsePtrOutputWithContext(ctx context.Context) ResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResponsePtrOutput)
-}
-
-type ResponsePtrInput interface {
-	pulumi.Input
-
-	ToResponsePtrOutput() ResponsePtrOutput
-	ToResponsePtrOutputWithContext(ctx context.Context) ResponsePtrOutput
-}
-
-type responsePtrType ResponseArgs
-
-func (*responsePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Response)(nil))
-}
-
-func (i *responsePtrType) ToResponsePtrOutput() ResponsePtrOutput {
-	return i.ToResponsePtrOutputWithContext(context.Background())
-}
-
-func (i *responsePtrType) ToResponsePtrOutputWithContext(ctx context.Context) ResponsePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResponsePtrOutput)
 }
 
 // ResponseArrayInput is an input type that accepts ResponseArray and ResponseArrayOutput values.
@@ -268,7 +239,7 @@ func (i ResponseMap) ToResponseMapOutputWithContext(ctx context.Context) Respons
 type ResponseOutput struct{ *pulumi.OutputState }
 
 func (ResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Response)(nil))
+	return reflect.TypeOf((**Response)(nil)).Elem()
 }
 
 func (o ResponseOutput) ToResponseOutput() ResponseOutput {
@@ -279,44 +250,10 @@ func (o ResponseOutput) ToResponseOutputWithContext(ctx context.Context) Respons
 	return o
 }
 
-func (o ResponseOutput) ToResponsePtrOutput() ResponsePtrOutput {
-	return o.ToResponsePtrOutputWithContext(context.Background())
-}
-
-func (o ResponseOutput) ToResponsePtrOutputWithContext(ctx context.Context) ResponsePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Response) *Response {
-		return &v
-	}).(ResponsePtrOutput)
-}
-
-type ResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (ResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Response)(nil))
-}
-
-func (o ResponsePtrOutput) ToResponsePtrOutput() ResponsePtrOutput {
-	return o
-}
-
-func (o ResponsePtrOutput) ToResponsePtrOutputWithContext(ctx context.Context) ResponsePtrOutput {
-	return o
-}
-
-func (o ResponsePtrOutput) Elem() ResponseOutput {
-	return o.ApplyT(func(v *Response) Response {
-		if v != nil {
-			return *v
-		}
-		var ret Response
-		return ret
-	}).(ResponseOutput)
-}
-
 type ResponseArrayOutput struct{ *pulumi.OutputState }
 
 func (ResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Response)(nil))
+	return reflect.TypeOf((*[]*Response)(nil)).Elem()
 }
 
 func (o ResponseArrayOutput) ToResponseArrayOutput() ResponseArrayOutput {
@@ -328,15 +265,15 @@ func (o ResponseArrayOutput) ToResponseArrayOutputWithContext(ctx context.Contex
 }
 
 func (o ResponseArrayOutput) Index(i pulumi.IntInput) ResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Response {
-		return vs[0].([]Response)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Response {
+		return vs[0].([]*Response)[vs[1].(int)]
 	}).(ResponseOutput)
 }
 
 type ResponseMapOutput struct{ *pulumi.OutputState }
 
 func (ResponseMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Response)(nil))
+	return reflect.TypeOf((*map[string]*Response)(nil)).Elem()
 }
 
 func (o ResponseMapOutput) ToResponseMapOutput() ResponseMapOutput {
@@ -348,18 +285,16 @@ func (o ResponseMapOutput) ToResponseMapOutputWithContext(ctx context.Context) R
 }
 
 func (o ResponseMapOutput) MapIndex(k pulumi.StringInput) ResponseOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Response {
-		return vs[0].(map[string]Response)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Response {
+		return vs[0].(map[string]*Response)[vs[1].(string)]
 	}).(ResponseOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ResponseInput)(nil)).Elem(), &Response{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ResponsePtrInput)(nil)).Elem(), &Response{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResponseArrayInput)(nil)).Elem(), ResponseArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResponseMapInput)(nil)).Elem(), ResponseMap{})
 	pulumi.RegisterOutputType(ResponseOutput{})
-	pulumi.RegisterOutputType(ResponsePtrOutput{})
 	pulumi.RegisterOutputType(ResponseArrayOutput{})
 	pulumi.RegisterOutputType(ResponseMapOutput{})
 }

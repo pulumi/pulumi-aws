@@ -179,24 +179,24 @@ export class Domain extends pulumi.CustomResource {
      */
     constructor(name: string, args: DomainArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DomainArgs | DomainState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DomainState | undefined;
-            inputs["appNetworkAccessType"] = state ? state.appNetworkAccessType : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["authMode"] = state ? state.authMode : undefined;
-            inputs["defaultUserSettings"] = state ? state.defaultUserSettings : undefined;
-            inputs["domainName"] = state ? state.domainName : undefined;
-            inputs["homeEfsFileSystemId"] = state ? state.homeEfsFileSystemId : undefined;
-            inputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
-            inputs["retentionPolicy"] = state ? state.retentionPolicy : undefined;
-            inputs["singleSignOnManagedApplicationInstanceId"] = state ? state.singleSignOnManagedApplicationInstanceId : undefined;
-            inputs["subnetIds"] = state ? state.subnetIds : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["url"] = state ? state.url : undefined;
-            inputs["vpcId"] = state ? state.vpcId : undefined;
+            resourceInputs["appNetworkAccessType"] = state ? state.appNetworkAccessType : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["authMode"] = state ? state.authMode : undefined;
+            resourceInputs["defaultUserSettings"] = state ? state.defaultUserSettings : undefined;
+            resourceInputs["domainName"] = state ? state.domainName : undefined;
+            resourceInputs["homeEfsFileSystemId"] = state ? state.homeEfsFileSystemId : undefined;
+            resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
+            resourceInputs["retentionPolicy"] = state ? state.retentionPolicy : undefined;
+            resourceInputs["singleSignOnManagedApplicationInstanceId"] = state ? state.singleSignOnManagedApplicationInstanceId : undefined;
+            resourceInputs["subnetIds"] = state ? state.subnetIds : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["url"] = state ? state.url : undefined;
+            resourceInputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
             const args = argsOrState as DomainArgs | undefined;
             if ((!args || args.authMode === undefined) && !opts.urn) {
@@ -214,25 +214,25 @@ export class Domain extends pulumi.CustomResource {
             if ((!args || args.vpcId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpcId'");
             }
-            inputs["appNetworkAccessType"] = args ? args.appNetworkAccessType : undefined;
-            inputs["authMode"] = args ? args.authMode : undefined;
-            inputs["defaultUserSettings"] = args ? args.defaultUserSettings : undefined;
-            inputs["domainName"] = args ? args.domainName : undefined;
-            inputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            inputs["retentionPolicy"] = args ? args.retentionPolicy : undefined;
-            inputs["subnetIds"] = args ? args.subnetIds : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["vpcId"] = args ? args.vpcId : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["homeEfsFileSystemId"] = undefined /*out*/;
-            inputs["singleSignOnManagedApplicationInstanceId"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
-            inputs["url"] = undefined /*out*/;
+            resourceInputs["appNetworkAccessType"] = args ? args.appNetworkAccessType : undefined;
+            resourceInputs["authMode"] = args ? args.authMode : undefined;
+            resourceInputs["defaultUserSettings"] = args ? args.defaultUserSettings : undefined;
+            resourceInputs["domainName"] = args ? args.domainName : undefined;
+            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
+            resourceInputs["retentionPolicy"] = args ? args.retentionPolicy : undefined;
+            resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["vpcId"] = args ? args.vpcId : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["homeEfsFileSystemId"] = undefined /*out*/;
+            resourceInputs["singleSignOnManagedApplicationInstanceId"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["url"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Domain.__pulumiType, name, inputs, opts);
+        super(Domain.__pulumiType, name, resourceInputs, opts);
     }
 }
 

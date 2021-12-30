@@ -46,6 +46,46 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
+// 		bucketPol := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+// 			Statements: iam.GetPolicyDocumentStatementArray{
+// 				&iam.GetPolicyDocumentStatementArgs{
+// 					Sid: pulumi.String("Allow PutObject"),
+// 					Actions: pulumi.StringArray{
+// 						pulumi.String("s3:PutObject"),
+// 					},
+// 					Resources: pulumi.StringArray{
+// 						gdBucket.Arn.ApplyT(func(arn string) (string, error) {
+// 							return fmt.Sprintf("%v%v", arn, "/*"), nil
+// 						}).(pulumi.StringOutput),
+// 					},
+// 					Principals: iam.GetPolicyDocumentStatementPrincipalArray{
+// 						&iam.GetPolicyDocumentStatementPrincipalArgs{
+// 							Type: pulumi.String("Service"),
+// 							Identifiers: pulumi.StringArray{
+// 								pulumi.String("guardduty.amazonaws.com"),
+// 							},
+// 						},
+// 					},
+// 				},
+// 				&iam.GetPolicyDocumentStatementArgs{
+// 					Sid: pulumi.String("Allow GetBucketLocation"),
+// 					Actions: pulumi.StringArray{
+// 						pulumi.String("s3:GetBucketLocation"),
+// 					},
+// 					Resources: pulumi.StringArray{
+// 						gdBucket.Arn,
+// 					},
+// 					Principals: iam.GetPolicyDocumentStatementPrincipalArray{
+// 						&iam.GetPolicyDocumentStatementPrincipalArgs{
+// 							Type: pulumi.String("Service"),
+// 							Identifiers: pulumi.StringArray{
+// 								pulumi.String("guardduty.amazonaws.com"),
+// 							},
+// 						},
+// 					},
+// 				},
+// 			},
+// 		}, nil)
 // 		kmsPol, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 // 			Statements: []iam.GetPolicyDocumentStatement{
 // 				iam.GetPolicyDocumentStatement{
@@ -245,7 +285,7 @@ type PublishingDestinationInput interface {
 }
 
 func (*PublishingDestination) ElementType() reflect.Type {
-	return reflect.TypeOf((*PublishingDestination)(nil))
+	return reflect.TypeOf((**PublishingDestination)(nil)).Elem()
 }
 
 func (i *PublishingDestination) ToPublishingDestinationOutput() PublishingDestinationOutput {
@@ -254,35 +294,6 @@ func (i *PublishingDestination) ToPublishingDestinationOutput() PublishingDestin
 
 func (i *PublishingDestination) ToPublishingDestinationOutputWithContext(ctx context.Context) PublishingDestinationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PublishingDestinationOutput)
-}
-
-func (i *PublishingDestination) ToPublishingDestinationPtrOutput() PublishingDestinationPtrOutput {
-	return i.ToPublishingDestinationPtrOutputWithContext(context.Background())
-}
-
-func (i *PublishingDestination) ToPublishingDestinationPtrOutputWithContext(ctx context.Context) PublishingDestinationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PublishingDestinationPtrOutput)
-}
-
-type PublishingDestinationPtrInput interface {
-	pulumi.Input
-
-	ToPublishingDestinationPtrOutput() PublishingDestinationPtrOutput
-	ToPublishingDestinationPtrOutputWithContext(ctx context.Context) PublishingDestinationPtrOutput
-}
-
-type publishingDestinationPtrType PublishingDestinationArgs
-
-func (*publishingDestinationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PublishingDestination)(nil))
-}
-
-func (i *publishingDestinationPtrType) ToPublishingDestinationPtrOutput() PublishingDestinationPtrOutput {
-	return i.ToPublishingDestinationPtrOutputWithContext(context.Background())
-}
-
-func (i *publishingDestinationPtrType) ToPublishingDestinationPtrOutputWithContext(ctx context.Context) PublishingDestinationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PublishingDestinationPtrOutput)
 }
 
 // PublishingDestinationArrayInput is an input type that accepts PublishingDestinationArray and PublishingDestinationArrayOutput values.
@@ -338,7 +349,7 @@ func (i PublishingDestinationMap) ToPublishingDestinationMapOutputWithContext(ct
 type PublishingDestinationOutput struct{ *pulumi.OutputState }
 
 func (PublishingDestinationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PublishingDestination)(nil))
+	return reflect.TypeOf((**PublishingDestination)(nil)).Elem()
 }
 
 func (o PublishingDestinationOutput) ToPublishingDestinationOutput() PublishingDestinationOutput {
@@ -349,44 +360,10 @@ func (o PublishingDestinationOutput) ToPublishingDestinationOutputWithContext(ct
 	return o
 }
 
-func (o PublishingDestinationOutput) ToPublishingDestinationPtrOutput() PublishingDestinationPtrOutput {
-	return o.ToPublishingDestinationPtrOutputWithContext(context.Background())
-}
-
-func (o PublishingDestinationOutput) ToPublishingDestinationPtrOutputWithContext(ctx context.Context) PublishingDestinationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PublishingDestination) *PublishingDestination {
-		return &v
-	}).(PublishingDestinationPtrOutput)
-}
-
-type PublishingDestinationPtrOutput struct{ *pulumi.OutputState }
-
-func (PublishingDestinationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PublishingDestination)(nil))
-}
-
-func (o PublishingDestinationPtrOutput) ToPublishingDestinationPtrOutput() PublishingDestinationPtrOutput {
-	return o
-}
-
-func (o PublishingDestinationPtrOutput) ToPublishingDestinationPtrOutputWithContext(ctx context.Context) PublishingDestinationPtrOutput {
-	return o
-}
-
-func (o PublishingDestinationPtrOutput) Elem() PublishingDestinationOutput {
-	return o.ApplyT(func(v *PublishingDestination) PublishingDestination {
-		if v != nil {
-			return *v
-		}
-		var ret PublishingDestination
-		return ret
-	}).(PublishingDestinationOutput)
-}
-
 type PublishingDestinationArrayOutput struct{ *pulumi.OutputState }
 
 func (PublishingDestinationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PublishingDestination)(nil))
+	return reflect.TypeOf((*[]*PublishingDestination)(nil)).Elem()
 }
 
 func (o PublishingDestinationArrayOutput) ToPublishingDestinationArrayOutput() PublishingDestinationArrayOutput {
@@ -398,15 +375,15 @@ func (o PublishingDestinationArrayOutput) ToPublishingDestinationArrayOutputWith
 }
 
 func (o PublishingDestinationArrayOutput) Index(i pulumi.IntInput) PublishingDestinationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PublishingDestination {
-		return vs[0].([]PublishingDestination)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PublishingDestination {
+		return vs[0].([]*PublishingDestination)[vs[1].(int)]
 	}).(PublishingDestinationOutput)
 }
 
 type PublishingDestinationMapOutput struct{ *pulumi.OutputState }
 
 func (PublishingDestinationMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]PublishingDestination)(nil))
+	return reflect.TypeOf((*map[string]*PublishingDestination)(nil)).Elem()
 }
 
 func (o PublishingDestinationMapOutput) ToPublishingDestinationMapOutput() PublishingDestinationMapOutput {
@@ -418,18 +395,16 @@ func (o PublishingDestinationMapOutput) ToPublishingDestinationMapOutputWithCont
 }
 
 func (o PublishingDestinationMapOutput) MapIndex(k pulumi.StringInput) PublishingDestinationOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) PublishingDestination {
-		return vs[0].(map[string]PublishingDestination)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *PublishingDestination {
+		return vs[0].(map[string]*PublishingDestination)[vs[1].(string)]
 	}).(PublishingDestinationOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PublishingDestinationInput)(nil)).Elem(), &PublishingDestination{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PublishingDestinationPtrInput)(nil)).Elem(), &PublishingDestination{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PublishingDestinationArrayInput)(nil)).Elem(), PublishingDestinationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PublishingDestinationMapInput)(nil)).Elem(), PublishingDestinationMap{})
 	pulumi.RegisterOutputType(PublishingDestinationOutput{})
-	pulumi.RegisterOutputType(PublishingDestinationPtrOutput{})
 	pulumi.RegisterOutputType(PublishingDestinationArrayOutput{})
 	pulumi.RegisterOutputType(PublishingDestinationMapOutput{})
 }

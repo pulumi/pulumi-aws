@@ -172,7 +172,7 @@ type ModelInput interface {
 }
 
 func (*Model) ElementType() reflect.Type {
-	return reflect.TypeOf((*Model)(nil))
+	return reflect.TypeOf((**Model)(nil)).Elem()
 }
 
 func (i *Model) ToModelOutput() ModelOutput {
@@ -181,35 +181,6 @@ func (i *Model) ToModelOutput() ModelOutput {
 
 func (i *Model) ToModelOutputWithContext(ctx context.Context) ModelOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ModelOutput)
-}
-
-func (i *Model) ToModelPtrOutput() ModelPtrOutput {
-	return i.ToModelPtrOutputWithContext(context.Background())
-}
-
-func (i *Model) ToModelPtrOutputWithContext(ctx context.Context) ModelPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ModelPtrOutput)
-}
-
-type ModelPtrInput interface {
-	pulumi.Input
-
-	ToModelPtrOutput() ModelPtrOutput
-	ToModelPtrOutputWithContext(ctx context.Context) ModelPtrOutput
-}
-
-type modelPtrType ModelArgs
-
-func (*modelPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Model)(nil))
-}
-
-func (i *modelPtrType) ToModelPtrOutput() ModelPtrOutput {
-	return i.ToModelPtrOutputWithContext(context.Background())
-}
-
-func (i *modelPtrType) ToModelPtrOutputWithContext(ctx context.Context) ModelPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ModelPtrOutput)
 }
 
 // ModelArrayInput is an input type that accepts ModelArray and ModelArrayOutput values.
@@ -265,7 +236,7 @@ func (i ModelMap) ToModelMapOutputWithContext(ctx context.Context) ModelMapOutpu
 type ModelOutput struct{ *pulumi.OutputState }
 
 func (ModelOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Model)(nil))
+	return reflect.TypeOf((**Model)(nil)).Elem()
 }
 
 func (o ModelOutput) ToModelOutput() ModelOutput {
@@ -276,44 +247,10 @@ func (o ModelOutput) ToModelOutputWithContext(ctx context.Context) ModelOutput {
 	return o
 }
 
-func (o ModelOutput) ToModelPtrOutput() ModelPtrOutput {
-	return o.ToModelPtrOutputWithContext(context.Background())
-}
-
-func (o ModelOutput) ToModelPtrOutputWithContext(ctx context.Context) ModelPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Model) *Model {
-		return &v
-	}).(ModelPtrOutput)
-}
-
-type ModelPtrOutput struct{ *pulumi.OutputState }
-
-func (ModelPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Model)(nil))
-}
-
-func (o ModelPtrOutput) ToModelPtrOutput() ModelPtrOutput {
-	return o
-}
-
-func (o ModelPtrOutput) ToModelPtrOutputWithContext(ctx context.Context) ModelPtrOutput {
-	return o
-}
-
-func (o ModelPtrOutput) Elem() ModelOutput {
-	return o.ApplyT(func(v *Model) Model {
-		if v != nil {
-			return *v
-		}
-		var ret Model
-		return ret
-	}).(ModelOutput)
-}
-
 type ModelArrayOutput struct{ *pulumi.OutputState }
 
 func (ModelArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Model)(nil))
+	return reflect.TypeOf((*[]*Model)(nil)).Elem()
 }
 
 func (o ModelArrayOutput) ToModelArrayOutput() ModelArrayOutput {
@@ -325,15 +262,15 @@ func (o ModelArrayOutput) ToModelArrayOutputWithContext(ctx context.Context) Mod
 }
 
 func (o ModelArrayOutput) Index(i pulumi.IntInput) ModelOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Model {
-		return vs[0].([]Model)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Model {
+		return vs[0].([]*Model)[vs[1].(int)]
 	}).(ModelOutput)
 }
 
 type ModelMapOutput struct{ *pulumi.OutputState }
 
 func (ModelMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Model)(nil))
+	return reflect.TypeOf((*map[string]*Model)(nil)).Elem()
 }
 
 func (o ModelMapOutput) ToModelMapOutput() ModelMapOutput {
@@ -345,18 +282,16 @@ func (o ModelMapOutput) ToModelMapOutputWithContext(ctx context.Context) ModelMa
 }
 
 func (o ModelMapOutput) MapIndex(k pulumi.StringInput) ModelOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Model {
-		return vs[0].(map[string]Model)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Model {
+		return vs[0].(map[string]*Model)[vs[1].(string)]
 	}).(ModelOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelInput)(nil)).Elem(), &Model{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ModelPtrInput)(nil)).Elem(), &Model{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelArrayInput)(nil)).Elem(), ModelArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelMapInput)(nil)).Elem(), ModelMap{})
 	pulumi.RegisterOutputType(ModelOutput{})
-	pulumi.RegisterOutputType(ModelPtrOutput{})
 	pulumi.RegisterOutputType(ModelArrayOutput{})
 	pulumi.RegisterOutputType(ModelMapOutput{})
 }

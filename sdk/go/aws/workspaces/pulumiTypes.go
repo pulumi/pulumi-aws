@@ -1030,59 +1030,6 @@ type GetBundleComputeType struct {
 	Name string `pulumi:"name"`
 }
 
-// GetBundleComputeTypeInput is an input type that accepts GetBundleComputeTypeArgs and GetBundleComputeTypeOutput values.
-// You can construct a concrete instance of `GetBundleComputeTypeInput` via:
-//
-//          GetBundleComputeTypeArgs{...}
-type GetBundleComputeTypeInput interface {
-	pulumi.Input
-
-	ToGetBundleComputeTypeOutput() GetBundleComputeTypeOutput
-	ToGetBundleComputeTypeOutputWithContext(context.Context) GetBundleComputeTypeOutput
-}
-
-type GetBundleComputeTypeArgs struct {
-	// The name of the bundle. You cannot combine this parameter with `bundleId`.
-	Name pulumi.StringInput `pulumi:"name"`
-}
-
-func (GetBundleComputeTypeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetBundleComputeType)(nil)).Elem()
-}
-
-func (i GetBundleComputeTypeArgs) ToGetBundleComputeTypeOutput() GetBundleComputeTypeOutput {
-	return i.ToGetBundleComputeTypeOutputWithContext(context.Background())
-}
-
-func (i GetBundleComputeTypeArgs) ToGetBundleComputeTypeOutputWithContext(ctx context.Context) GetBundleComputeTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetBundleComputeTypeOutput)
-}
-
-// GetBundleComputeTypeArrayInput is an input type that accepts GetBundleComputeTypeArray and GetBundleComputeTypeArrayOutput values.
-// You can construct a concrete instance of `GetBundleComputeTypeArrayInput` via:
-//
-//          GetBundleComputeTypeArray{ GetBundleComputeTypeArgs{...} }
-type GetBundleComputeTypeArrayInput interface {
-	pulumi.Input
-
-	ToGetBundleComputeTypeArrayOutput() GetBundleComputeTypeArrayOutput
-	ToGetBundleComputeTypeArrayOutputWithContext(context.Context) GetBundleComputeTypeArrayOutput
-}
-
-type GetBundleComputeTypeArray []GetBundleComputeTypeInput
-
-func (GetBundleComputeTypeArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetBundleComputeType)(nil)).Elem()
-}
-
-func (i GetBundleComputeTypeArray) ToGetBundleComputeTypeArrayOutput() GetBundleComputeTypeArrayOutput {
-	return i.ToGetBundleComputeTypeArrayOutputWithContext(context.Background())
-}
-
-func (i GetBundleComputeTypeArray) ToGetBundleComputeTypeArrayOutputWithContext(ctx context.Context) GetBundleComputeTypeArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetBundleComputeTypeArrayOutput)
-}
-
 type GetBundleComputeTypeOutput struct{ *pulumi.OutputState }
 
 func (GetBundleComputeTypeOutput) ElementType() reflect.Type {
@@ -1127,59 +1074,6 @@ type GetBundleRootStorage struct {
 	Capacity string `pulumi:"capacity"`
 }
 
-// GetBundleRootStorageInput is an input type that accepts GetBundleRootStorageArgs and GetBundleRootStorageOutput values.
-// You can construct a concrete instance of `GetBundleRootStorageInput` via:
-//
-//          GetBundleRootStorageArgs{...}
-type GetBundleRootStorageInput interface {
-	pulumi.Input
-
-	ToGetBundleRootStorageOutput() GetBundleRootStorageOutput
-	ToGetBundleRootStorageOutputWithContext(context.Context) GetBundleRootStorageOutput
-}
-
-type GetBundleRootStorageArgs struct {
-	// The size of the user storage.
-	Capacity pulumi.StringInput `pulumi:"capacity"`
-}
-
-func (GetBundleRootStorageArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetBundleRootStorage)(nil)).Elem()
-}
-
-func (i GetBundleRootStorageArgs) ToGetBundleRootStorageOutput() GetBundleRootStorageOutput {
-	return i.ToGetBundleRootStorageOutputWithContext(context.Background())
-}
-
-func (i GetBundleRootStorageArgs) ToGetBundleRootStorageOutputWithContext(ctx context.Context) GetBundleRootStorageOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetBundleRootStorageOutput)
-}
-
-// GetBundleRootStorageArrayInput is an input type that accepts GetBundleRootStorageArray and GetBundleRootStorageArrayOutput values.
-// You can construct a concrete instance of `GetBundleRootStorageArrayInput` via:
-//
-//          GetBundleRootStorageArray{ GetBundleRootStorageArgs{...} }
-type GetBundleRootStorageArrayInput interface {
-	pulumi.Input
-
-	ToGetBundleRootStorageArrayOutput() GetBundleRootStorageArrayOutput
-	ToGetBundleRootStorageArrayOutputWithContext(context.Context) GetBundleRootStorageArrayOutput
-}
-
-type GetBundleRootStorageArray []GetBundleRootStorageInput
-
-func (GetBundleRootStorageArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetBundleRootStorage)(nil)).Elem()
-}
-
-func (i GetBundleRootStorageArray) ToGetBundleRootStorageArrayOutput() GetBundleRootStorageArrayOutput {
-	return i.ToGetBundleRootStorageArrayOutputWithContext(context.Background())
-}
-
-func (i GetBundleRootStorageArray) ToGetBundleRootStorageArrayOutputWithContext(ctx context.Context) GetBundleRootStorageArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetBundleRootStorageArrayOutput)
-}
-
 type GetBundleRootStorageOutput struct{ *pulumi.OutputState }
 
 func (GetBundleRootStorageOutput) ElementType() reflect.Type {
@@ -1222,59 +1116,6 @@ func (o GetBundleRootStorageArrayOutput) Index(i pulumi.IntInput) GetBundleRootS
 type GetBundleUserStorage struct {
 	// The size of the user storage.
 	Capacity string `pulumi:"capacity"`
-}
-
-// GetBundleUserStorageInput is an input type that accepts GetBundleUserStorageArgs and GetBundleUserStorageOutput values.
-// You can construct a concrete instance of `GetBundleUserStorageInput` via:
-//
-//          GetBundleUserStorageArgs{...}
-type GetBundleUserStorageInput interface {
-	pulumi.Input
-
-	ToGetBundleUserStorageOutput() GetBundleUserStorageOutput
-	ToGetBundleUserStorageOutputWithContext(context.Context) GetBundleUserStorageOutput
-}
-
-type GetBundleUserStorageArgs struct {
-	// The size of the user storage.
-	Capacity pulumi.StringInput `pulumi:"capacity"`
-}
-
-func (GetBundleUserStorageArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetBundleUserStorage)(nil)).Elem()
-}
-
-func (i GetBundleUserStorageArgs) ToGetBundleUserStorageOutput() GetBundleUserStorageOutput {
-	return i.ToGetBundleUserStorageOutputWithContext(context.Background())
-}
-
-func (i GetBundleUserStorageArgs) ToGetBundleUserStorageOutputWithContext(ctx context.Context) GetBundleUserStorageOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetBundleUserStorageOutput)
-}
-
-// GetBundleUserStorageArrayInput is an input type that accepts GetBundleUserStorageArray and GetBundleUserStorageArrayOutput values.
-// You can construct a concrete instance of `GetBundleUserStorageArrayInput` via:
-//
-//          GetBundleUserStorageArray{ GetBundleUserStorageArgs{...} }
-type GetBundleUserStorageArrayInput interface {
-	pulumi.Input
-
-	ToGetBundleUserStorageArrayOutput() GetBundleUserStorageArrayOutput
-	ToGetBundleUserStorageArrayOutputWithContext(context.Context) GetBundleUserStorageArrayOutput
-}
-
-type GetBundleUserStorageArray []GetBundleUserStorageInput
-
-func (GetBundleUserStorageArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetBundleUserStorage)(nil)).Elem()
-}
-
-func (i GetBundleUserStorageArray) ToGetBundleUserStorageArrayOutput() GetBundleUserStorageArrayOutput {
-	return i.ToGetBundleUserStorageArrayOutputWithContext(context.Background())
-}
-
-func (i GetBundleUserStorageArray) ToGetBundleUserStorageArrayOutputWithContext(ctx context.Context) GetBundleUserStorageArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetBundleUserStorageArrayOutput)
 }
 
 type GetBundleUserStorageOutput struct{ *pulumi.OutputState }
@@ -1327,67 +1168,6 @@ type GetDirectorySelfServicePermission struct {
 	RestartWorkspace bool `pulumi:"restartWorkspace"`
 	// Whether WorkSpaces directory users can switch the running mode of their workspace.
 	SwitchRunningMode bool `pulumi:"switchRunningMode"`
-}
-
-// GetDirectorySelfServicePermissionInput is an input type that accepts GetDirectorySelfServicePermissionArgs and GetDirectorySelfServicePermissionOutput values.
-// You can construct a concrete instance of `GetDirectorySelfServicePermissionInput` via:
-//
-//          GetDirectorySelfServicePermissionArgs{...}
-type GetDirectorySelfServicePermissionInput interface {
-	pulumi.Input
-
-	ToGetDirectorySelfServicePermissionOutput() GetDirectorySelfServicePermissionOutput
-	ToGetDirectorySelfServicePermissionOutputWithContext(context.Context) GetDirectorySelfServicePermissionOutput
-}
-
-type GetDirectorySelfServicePermissionArgs struct {
-	// Whether WorkSpaces directory users can change the compute type (bundle) for their workspace.
-	ChangeComputeType pulumi.BoolInput `pulumi:"changeComputeType"`
-	// Whether WorkSpaces directory users can increase the volume size of the drives on their workspace.
-	IncreaseVolumeSize pulumi.BoolInput `pulumi:"increaseVolumeSize"`
-	// Whether WorkSpaces directory users can rebuild the operating system of a workspace to its original state.
-	RebuildWorkspace pulumi.BoolInput `pulumi:"rebuildWorkspace"`
-	// Whether WorkSpaces directory users can restart their workspace.
-	RestartWorkspace pulumi.BoolInput `pulumi:"restartWorkspace"`
-	// Whether WorkSpaces directory users can switch the running mode of their workspace.
-	SwitchRunningMode pulumi.BoolInput `pulumi:"switchRunningMode"`
-}
-
-func (GetDirectorySelfServicePermissionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetDirectorySelfServicePermission)(nil)).Elem()
-}
-
-func (i GetDirectorySelfServicePermissionArgs) ToGetDirectorySelfServicePermissionOutput() GetDirectorySelfServicePermissionOutput {
-	return i.ToGetDirectorySelfServicePermissionOutputWithContext(context.Background())
-}
-
-func (i GetDirectorySelfServicePermissionArgs) ToGetDirectorySelfServicePermissionOutputWithContext(ctx context.Context) GetDirectorySelfServicePermissionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDirectorySelfServicePermissionOutput)
-}
-
-// GetDirectorySelfServicePermissionArrayInput is an input type that accepts GetDirectorySelfServicePermissionArray and GetDirectorySelfServicePermissionArrayOutput values.
-// You can construct a concrete instance of `GetDirectorySelfServicePermissionArrayInput` via:
-//
-//          GetDirectorySelfServicePermissionArray{ GetDirectorySelfServicePermissionArgs{...} }
-type GetDirectorySelfServicePermissionArrayInput interface {
-	pulumi.Input
-
-	ToGetDirectorySelfServicePermissionArrayOutput() GetDirectorySelfServicePermissionArrayOutput
-	ToGetDirectorySelfServicePermissionArrayOutputWithContext(context.Context) GetDirectorySelfServicePermissionArrayOutput
-}
-
-type GetDirectorySelfServicePermissionArray []GetDirectorySelfServicePermissionInput
-
-func (GetDirectorySelfServicePermissionArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetDirectorySelfServicePermission)(nil)).Elem()
-}
-
-func (i GetDirectorySelfServicePermissionArray) ToGetDirectorySelfServicePermissionArrayOutput() GetDirectorySelfServicePermissionArrayOutput {
-	return i.ToGetDirectorySelfServicePermissionArrayOutputWithContext(context.Background())
-}
-
-func (i GetDirectorySelfServicePermissionArray) ToGetDirectorySelfServicePermissionArrayOutputWithContext(ctx context.Context) GetDirectorySelfServicePermissionArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDirectorySelfServicePermissionArrayOutput)
 }
 
 type GetDirectorySelfServicePermissionOutput struct{ *pulumi.OutputState }
@@ -1466,73 +1246,6 @@ type GetDirectoryWorkspaceAccessProperty struct {
 	DeviceTypeWindows string `pulumi:"deviceTypeWindows"`
 	// (Optional) Indicates whether users can use zero client devices to access their WorkSpaces.
 	DeviceTypeZeroclient string `pulumi:"deviceTypeZeroclient"`
-}
-
-// GetDirectoryWorkspaceAccessPropertyInput is an input type that accepts GetDirectoryWorkspaceAccessPropertyArgs and GetDirectoryWorkspaceAccessPropertyOutput values.
-// You can construct a concrete instance of `GetDirectoryWorkspaceAccessPropertyInput` via:
-//
-//          GetDirectoryWorkspaceAccessPropertyArgs{...}
-type GetDirectoryWorkspaceAccessPropertyInput interface {
-	pulumi.Input
-
-	ToGetDirectoryWorkspaceAccessPropertyOutput() GetDirectoryWorkspaceAccessPropertyOutput
-	ToGetDirectoryWorkspaceAccessPropertyOutputWithContext(context.Context) GetDirectoryWorkspaceAccessPropertyOutput
-}
-
-type GetDirectoryWorkspaceAccessPropertyArgs struct {
-	// (Optional) Indicates whether users can use Android devices to access their WorkSpaces.
-	DeviceTypeAndroid pulumi.StringInput `pulumi:"deviceTypeAndroid"`
-	// (Optional) Indicates whether users can use Chromebooks to access their WorkSpaces.
-	DeviceTypeChromeos pulumi.StringInput `pulumi:"deviceTypeChromeos"`
-	// (Optional) Indicates whether users can use iOS devices to access their WorkSpaces.
-	DeviceTypeIos pulumi.StringInput `pulumi:"deviceTypeIos"`
-	// (Optional) Indicates whether users can use Linux clients to access their WorkSpaces.
-	DeviceTypeLinux pulumi.StringInput `pulumi:"deviceTypeLinux"`
-	// (Optional) Indicates whether users can use macOS clients to access their WorkSpaces.
-	DeviceTypeOsx pulumi.StringInput `pulumi:"deviceTypeOsx"`
-	// (Optional) Indicates whether users can access their WorkSpaces through a web browser.
-	DeviceTypeWeb pulumi.StringInput `pulumi:"deviceTypeWeb"`
-	// (Optional) Indicates whether users can use Windows clients to access their WorkSpaces.
-	DeviceTypeWindows pulumi.StringInput `pulumi:"deviceTypeWindows"`
-	// (Optional) Indicates whether users can use zero client devices to access their WorkSpaces.
-	DeviceTypeZeroclient pulumi.StringInput `pulumi:"deviceTypeZeroclient"`
-}
-
-func (GetDirectoryWorkspaceAccessPropertyArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetDirectoryWorkspaceAccessProperty)(nil)).Elem()
-}
-
-func (i GetDirectoryWorkspaceAccessPropertyArgs) ToGetDirectoryWorkspaceAccessPropertyOutput() GetDirectoryWorkspaceAccessPropertyOutput {
-	return i.ToGetDirectoryWorkspaceAccessPropertyOutputWithContext(context.Background())
-}
-
-func (i GetDirectoryWorkspaceAccessPropertyArgs) ToGetDirectoryWorkspaceAccessPropertyOutputWithContext(ctx context.Context) GetDirectoryWorkspaceAccessPropertyOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDirectoryWorkspaceAccessPropertyOutput)
-}
-
-// GetDirectoryWorkspaceAccessPropertyArrayInput is an input type that accepts GetDirectoryWorkspaceAccessPropertyArray and GetDirectoryWorkspaceAccessPropertyArrayOutput values.
-// You can construct a concrete instance of `GetDirectoryWorkspaceAccessPropertyArrayInput` via:
-//
-//          GetDirectoryWorkspaceAccessPropertyArray{ GetDirectoryWorkspaceAccessPropertyArgs{...} }
-type GetDirectoryWorkspaceAccessPropertyArrayInput interface {
-	pulumi.Input
-
-	ToGetDirectoryWorkspaceAccessPropertyArrayOutput() GetDirectoryWorkspaceAccessPropertyArrayOutput
-	ToGetDirectoryWorkspaceAccessPropertyArrayOutputWithContext(context.Context) GetDirectoryWorkspaceAccessPropertyArrayOutput
-}
-
-type GetDirectoryWorkspaceAccessPropertyArray []GetDirectoryWorkspaceAccessPropertyInput
-
-func (GetDirectoryWorkspaceAccessPropertyArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetDirectoryWorkspaceAccessProperty)(nil)).Elem()
-}
-
-func (i GetDirectoryWorkspaceAccessPropertyArray) ToGetDirectoryWorkspaceAccessPropertyArrayOutput() GetDirectoryWorkspaceAccessPropertyArrayOutput {
-	return i.ToGetDirectoryWorkspaceAccessPropertyArrayOutputWithContext(context.Background())
-}
-
-func (i GetDirectoryWorkspaceAccessPropertyArray) ToGetDirectoryWorkspaceAccessPropertyArrayOutputWithContext(ctx context.Context) GetDirectoryWorkspaceAccessPropertyArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDirectoryWorkspaceAccessPropertyArrayOutput)
 }
 
 type GetDirectoryWorkspaceAccessPropertyOutput struct{ *pulumi.OutputState }
@@ -1622,67 +1335,6 @@ type GetDirectoryWorkspaceCreationProperty struct {
 	UserEnabledAsLocalAdministrator bool `pulumi:"userEnabledAsLocalAdministrator"`
 }
 
-// GetDirectoryWorkspaceCreationPropertyInput is an input type that accepts GetDirectoryWorkspaceCreationPropertyArgs and GetDirectoryWorkspaceCreationPropertyOutput values.
-// You can construct a concrete instance of `GetDirectoryWorkspaceCreationPropertyInput` via:
-//
-//          GetDirectoryWorkspaceCreationPropertyArgs{...}
-type GetDirectoryWorkspaceCreationPropertyInput interface {
-	pulumi.Input
-
-	ToGetDirectoryWorkspaceCreationPropertyOutput() GetDirectoryWorkspaceCreationPropertyOutput
-	ToGetDirectoryWorkspaceCreationPropertyOutputWithContext(context.Context) GetDirectoryWorkspaceCreationPropertyOutput
-}
-
-type GetDirectoryWorkspaceCreationPropertyArgs struct {
-	// The identifier of your custom security group. Should relate to the same VPC, where workspaces reside in.
-	CustomSecurityGroupId pulumi.StringInput `pulumi:"customSecurityGroupId"`
-	// The default organizational unit (OU) for your WorkSpace directories.
-	DefaultOu pulumi.StringInput `pulumi:"defaultOu"`
-	// Indicates whether internet access is enabled for your WorkSpaces.
-	EnableInternetAccess pulumi.BoolInput `pulumi:"enableInternetAccess"`
-	// Indicates whether maintenance mode is enabled for your WorkSpaces. For more information, see [WorkSpace Maintenance](https://docs.aws.amazon.com/workspaces/latest/adminguide/workspace-maintenance.html).
-	EnableMaintenanceMode pulumi.BoolInput `pulumi:"enableMaintenanceMode"`
-	// Indicates whether users are local administrators of their WorkSpaces.
-	UserEnabledAsLocalAdministrator pulumi.BoolInput `pulumi:"userEnabledAsLocalAdministrator"`
-}
-
-func (GetDirectoryWorkspaceCreationPropertyArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetDirectoryWorkspaceCreationProperty)(nil)).Elem()
-}
-
-func (i GetDirectoryWorkspaceCreationPropertyArgs) ToGetDirectoryWorkspaceCreationPropertyOutput() GetDirectoryWorkspaceCreationPropertyOutput {
-	return i.ToGetDirectoryWorkspaceCreationPropertyOutputWithContext(context.Background())
-}
-
-func (i GetDirectoryWorkspaceCreationPropertyArgs) ToGetDirectoryWorkspaceCreationPropertyOutputWithContext(ctx context.Context) GetDirectoryWorkspaceCreationPropertyOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDirectoryWorkspaceCreationPropertyOutput)
-}
-
-// GetDirectoryWorkspaceCreationPropertyArrayInput is an input type that accepts GetDirectoryWorkspaceCreationPropertyArray and GetDirectoryWorkspaceCreationPropertyArrayOutput values.
-// You can construct a concrete instance of `GetDirectoryWorkspaceCreationPropertyArrayInput` via:
-//
-//          GetDirectoryWorkspaceCreationPropertyArray{ GetDirectoryWorkspaceCreationPropertyArgs{...} }
-type GetDirectoryWorkspaceCreationPropertyArrayInput interface {
-	pulumi.Input
-
-	ToGetDirectoryWorkspaceCreationPropertyArrayOutput() GetDirectoryWorkspaceCreationPropertyArrayOutput
-	ToGetDirectoryWorkspaceCreationPropertyArrayOutputWithContext(context.Context) GetDirectoryWorkspaceCreationPropertyArrayOutput
-}
-
-type GetDirectoryWorkspaceCreationPropertyArray []GetDirectoryWorkspaceCreationPropertyInput
-
-func (GetDirectoryWorkspaceCreationPropertyArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetDirectoryWorkspaceCreationProperty)(nil)).Elem()
-}
-
-func (i GetDirectoryWorkspaceCreationPropertyArray) ToGetDirectoryWorkspaceCreationPropertyArrayOutput() GetDirectoryWorkspaceCreationPropertyArrayOutput {
-	return i.ToGetDirectoryWorkspaceCreationPropertyArrayOutputWithContext(context.Background())
-}
-
-func (i GetDirectoryWorkspaceCreationPropertyArray) ToGetDirectoryWorkspaceCreationPropertyArrayOutputWithContext(ctx context.Context) GetDirectoryWorkspaceCreationPropertyArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDirectoryWorkspaceCreationPropertyArrayOutput)
-}
-
 type GetDirectoryWorkspaceCreationPropertyOutput struct{ *pulumi.OutputState }
 
 func (GetDirectoryWorkspaceCreationPropertyOutput) ElementType() reflect.Type {
@@ -1755,67 +1407,6 @@ type GetWorkspaceWorkspaceProperty struct {
 	UserVolumeSizeGib int `pulumi:"userVolumeSizeGib"`
 }
 
-// GetWorkspaceWorkspacePropertyInput is an input type that accepts GetWorkspaceWorkspacePropertyArgs and GetWorkspaceWorkspacePropertyOutput values.
-// You can construct a concrete instance of `GetWorkspaceWorkspacePropertyInput` via:
-//
-//          GetWorkspaceWorkspacePropertyArgs{...}
-type GetWorkspaceWorkspacePropertyInput interface {
-	pulumi.Input
-
-	ToGetWorkspaceWorkspacePropertyOutput() GetWorkspaceWorkspacePropertyOutput
-	ToGetWorkspaceWorkspacePropertyOutputWithContext(context.Context) GetWorkspaceWorkspacePropertyOutput
-}
-
-type GetWorkspaceWorkspacePropertyArgs struct {
-	// The compute type. For more information, see [Amazon WorkSpaces Bundles](http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles). Valid values are `VALUE`, `STANDARD`, `PERFORMANCE`, `POWER`, `GRAPHICS`, `POWERPRO` and `GRAPHICSPRO`.
-	ComputeTypeName pulumi.StringInput `pulumi:"computeTypeName"`
-	// The size of the root volume.
-	RootVolumeSizeGib pulumi.IntInput `pulumi:"rootVolumeSizeGib"`
-	// The running mode. For more information, see [Manage the WorkSpace Running Mode](https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html). Valid values are `AUTO_STOP` and `ALWAYS_ON`.
-	RunningMode pulumi.StringInput `pulumi:"runningMode"`
-	// The time after a user logs off when WorkSpaces are automatically stopped. Configured in 60-minute intervals.
-	RunningModeAutoStopTimeoutInMinutes pulumi.IntInput `pulumi:"runningModeAutoStopTimeoutInMinutes"`
-	// The size of the user storage.
-	UserVolumeSizeGib pulumi.IntInput `pulumi:"userVolumeSizeGib"`
-}
-
-func (GetWorkspaceWorkspacePropertyArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetWorkspaceWorkspaceProperty)(nil)).Elem()
-}
-
-func (i GetWorkspaceWorkspacePropertyArgs) ToGetWorkspaceWorkspacePropertyOutput() GetWorkspaceWorkspacePropertyOutput {
-	return i.ToGetWorkspaceWorkspacePropertyOutputWithContext(context.Background())
-}
-
-func (i GetWorkspaceWorkspacePropertyArgs) ToGetWorkspaceWorkspacePropertyOutputWithContext(ctx context.Context) GetWorkspaceWorkspacePropertyOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetWorkspaceWorkspacePropertyOutput)
-}
-
-// GetWorkspaceWorkspacePropertyArrayInput is an input type that accepts GetWorkspaceWorkspacePropertyArray and GetWorkspaceWorkspacePropertyArrayOutput values.
-// You can construct a concrete instance of `GetWorkspaceWorkspacePropertyArrayInput` via:
-//
-//          GetWorkspaceWorkspacePropertyArray{ GetWorkspaceWorkspacePropertyArgs{...} }
-type GetWorkspaceWorkspacePropertyArrayInput interface {
-	pulumi.Input
-
-	ToGetWorkspaceWorkspacePropertyArrayOutput() GetWorkspaceWorkspacePropertyArrayOutput
-	ToGetWorkspaceWorkspacePropertyArrayOutputWithContext(context.Context) GetWorkspaceWorkspacePropertyArrayOutput
-}
-
-type GetWorkspaceWorkspacePropertyArray []GetWorkspaceWorkspacePropertyInput
-
-func (GetWorkspaceWorkspacePropertyArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetWorkspaceWorkspaceProperty)(nil)).Elem()
-}
-
-func (i GetWorkspaceWorkspacePropertyArray) ToGetWorkspaceWorkspacePropertyArrayOutput() GetWorkspaceWorkspacePropertyArrayOutput {
-	return i.ToGetWorkspaceWorkspacePropertyArrayOutputWithContext(context.Background())
-}
-
-func (i GetWorkspaceWorkspacePropertyArray) ToGetWorkspaceWorkspacePropertyArrayOutputWithContext(ctx context.Context) GetWorkspaceWorkspacePropertyArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetWorkspaceWorkspacePropertyArrayOutput)
-}
-
 type GetWorkspaceWorkspacePropertyOutput struct{ *pulumi.OutputState }
 
 func (GetWorkspaceWorkspacePropertyOutput) ElementType() reflect.Type {
@@ -1886,20 +1477,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IpGroupRuleArrayInput)(nil)).Elem(), IpGroupRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceWorkspacePropertiesInput)(nil)).Elem(), WorkspaceWorkspacePropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceWorkspacePropertiesPtrInput)(nil)).Elem(), WorkspaceWorkspacePropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetBundleComputeTypeInput)(nil)).Elem(), GetBundleComputeTypeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetBundleComputeTypeArrayInput)(nil)).Elem(), GetBundleComputeTypeArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetBundleRootStorageInput)(nil)).Elem(), GetBundleRootStorageArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetBundleRootStorageArrayInput)(nil)).Elem(), GetBundleRootStorageArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetBundleUserStorageInput)(nil)).Elem(), GetBundleUserStorageArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetBundleUserStorageArrayInput)(nil)).Elem(), GetBundleUserStorageArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetDirectorySelfServicePermissionInput)(nil)).Elem(), GetDirectorySelfServicePermissionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetDirectorySelfServicePermissionArrayInput)(nil)).Elem(), GetDirectorySelfServicePermissionArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetDirectoryWorkspaceAccessPropertyInput)(nil)).Elem(), GetDirectoryWorkspaceAccessPropertyArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetDirectoryWorkspaceAccessPropertyArrayInput)(nil)).Elem(), GetDirectoryWorkspaceAccessPropertyArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetDirectoryWorkspaceCreationPropertyInput)(nil)).Elem(), GetDirectoryWorkspaceCreationPropertyArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetDirectoryWorkspaceCreationPropertyArrayInput)(nil)).Elem(), GetDirectoryWorkspaceCreationPropertyArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetWorkspaceWorkspacePropertyInput)(nil)).Elem(), GetWorkspaceWorkspacePropertyArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetWorkspaceWorkspacePropertyArrayInput)(nil)).Elem(), GetWorkspaceWorkspacePropertyArray{})
 	pulumi.RegisterOutputType(DirectorySelfServicePermissionsOutput{})
 	pulumi.RegisterOutputType(DirectorySelfServicePermissionsPtrOutput{})
 	pulumi.RegisterOutputType(DirectoryWorkspaceAccessPropertiesOutput{})

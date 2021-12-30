@@ -98,17 +98,17 @@ export class EfsLocation extends pulumi.CustomResource {
      */
     constructor(name: string, args: EfsLocationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: EfsLocationArgs | EfsLocationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EfsLocationState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["ec2Config"] = state ? state.ec2Config : undefined;
-            inputs["efsFileSystemArn"] = state ? state.efsFileSystemArn : undefined;
-            inputs["subdirectory"] = state ? state.subdirectory : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["uri"] = state ? state.uri : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["ec2Config"] = state ? state.ec2Config : undefined;
+            resourceInputs["efsFileSystemArn"] = state ? state.efsFileSystemArn : undefined;
+            resourceInputs["subdirectory"] = state ? state.subdirectory : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["uri"] = state ? state.uri : undefined;
         } else {
             const args = argsOrState as EfsLocationArgs | undefined;
             if ((!args || args.ec2Config === undefined) && !opts.urn) {
@@ -117,18 +117,18 @@ export class EfsLocation extends pulumi.CustomResource {
             if ((!args || args.efsFileSystemArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'efsFileSystemArn'");
             }
-            inputs["ec2Config"] = args ? args.ec2Config : undefined;
-            inputs["efsFileSystemArn"] = args ? args.efsFileSystemArn : undefined;
-            inputs["subdirectory"] = args ? args.subdirectory : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
-            inputs["uri"] = undefined /*out*/;
+            resourceInputs["ec2Config"] = args ? args.ec2Config : undefined;
+            resourceInputs["efsFileSystemArn"] = args ? args.efsFileSystemArn : undefined;
+            resourceInputs["subdirectory"] = args ? args.subdirectory : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["uri"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(EfsLocation.__pulumiType, name, inputs, opts);
+        super(EfsLocation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

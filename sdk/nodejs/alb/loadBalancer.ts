@@ -238,67 +238,67 @@ export class LoadBalancer extends pulumi.CustomResource {
      */
     constructor(name: string, args?: LoadBalancerArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: LoadBalancerArgs | LoadBalancerState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LoadBalancerState | undefined;
-            inputs["accessLogs"] = state ? state.accessLogs : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["arnSuffix"] = state ? state.arnSuffix : undefined;
-            inputs["customerOwnedIpv4Pool"] = state ? state.customerOwnedIpv4Pool : undefined;
-            inputs["desyncMitigationMode"] = state ? state.desyncMitigationMode : undefined;
-            inputs["dnsName"] = state ? state.dnsName : undefined;
-            inputs["dropInvalidHeaderFields"] = state ? state.dropInvalidHeaderFields : undefined;
-            inputs["enableCrossZoneLoadBalancing"] = state ? state.enableCrossZoneLoadBalancing : undefined;
-            inputs["enableDeletionProtection"] = state ? state.enableDeletionProtection : undefined;
-            inputs["enableHttp2"] = state ? state.enableHttp2 : undefined;
-            inputs["enableWafFailOpen"] = state ? state.enableWafFailOpen : undefined;
-            inputs["idleTimeout"] = state ? state.idleTimeout : undefined;
-            inputs["internal"] = state ? state.internal : undefined;
-            inputs["ipAddressType"] = state ? state.ipAddressType : undefined;
-            inputs["loadBalancerType"] = state ? state.loadBalancerType : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["namePrefix"] = state ? state.namePrefix : undefined;
-            inputs["securityGroups"] = state ? state.securityGroups : undefined;
-            inputs["subnetMappings"] = state ? state.subnetMappings : undefined;
-            inputs["subnets"] = state ? state.subnets : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["vpcId"] = state ? state.vpcId : undefined;
-            inputs["zoneId"] = state ? state.zoneId : undefined;
+            resourceInputs["accessLogs"] = state ? state.accessLogs : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["arnSuffix"] = state ? state.arnSuffix : undefined;
+            resourceInputs["customerOwnedIpv4Pool"] = state ? state.customerOwnedIpv4Pool : undefined;
+            resourceInputs["desyncMitigationMode"] = state ? state.desyncMitigationMode : undefined;
+            resourceInputs["dnsName"] = state ? state.dnsName : undefined;
+            resourceInputs["dropInvalidHeaderFields"] = state ? state.dropInvalidHeaderFields : undefined;
+            resourceInputs["enableCrossZoneLoadBalancing"] = state ? state.enableCrossZoneLoadBalancing : undefined;
+            resourceInputs["enableDeletionProtection"] = state ? state.enableDeletionProtection : undefined;
+            resourceInputs["enableHttp2"] = state ? state.enableHttp2 : undefined;
+            resourceInputs["enableWafFailOpen"] = state ? state.enableWafFailOpen : undefined;
+            resourceInputs["idleTimeout"] = state ? state.idleTimeout : undefined;
+            resourceInputs["internal"] = state ? state.internal : undefined;
+            resourceInputs["ipAddressType"] = state ? state.ipAddressType : undefined;
+            resourceInputs["loadBalancerType"] = state ? state.loadBalancerType : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
+            resourceInputs["securityGroups"] = state ? state.securityGroups : undefined;
+            resourceInputs["subnetMappings"] = state ? state.subnetMappings : undefined;
+            resourceInputs["subnets"] = state ? state.subnets : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["vpcId"] = state ? state.vpcId : undefined;
+            resourceInputs["zoneId"] = state ? state.zoneId : undefined;
         } else {
             const args = argsOrState as LoadBalancerArgs | undefined;
-            inputs["accessLogs"] = args ? args.accessLogs : undefined;
-            inputs["customerOwnedIpv4Pool"] = args ? args.customerOwnedIpv4Pool : undefined;
-            inputs["desyncMitigationMode"] = args ? args.desyncMitigationMode : undefined;
-            inputs["dropInvalidHeaderFields"] = args ? args.dropInvalidHeaderFields : undefined;
-            inputs["enableCrossZoneLoadBalancing"] = args ? args.enableCrossZoneLoadBalancing : undefined;
-            inputs["enableDeletionProtection"] = args ? args.enableDeletionProtection : undefined;
-            inputs["enableHttp2"] = args ? args.enableHttp2 : undefined;
-            inputs["enableWafFailOpen"] = args ? args.enableWafFailOpen : undefined;
-            inputs["idleTimeout"] = args ? args.idleTimeout : undefined;
-            inputs["internal"] = args ? args.internal : undefined;
-            inputs["ipAddressType"] = args ? args.ipAddressType : undefined;
-            inputs["loadBalancerType"] = args ? args.loadBalancerType : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["namePrefix"] = args ? args.namePrefix : undefined;
-            inputs["securityGroups"] = args ? args.securityGroups : undefined;
-            inputs["subnetMappings"] = args ? args.subnetMappings : undefined;
-            inputs["subnets"] = args ? args.subnets : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["arnSuffix"] = undefined /*out*/;
-            inputs["dnsName"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
-            inputs["vpcId"] = undefined /*out*/;
-            inputs["zoneId"] = undefined /*out*/;
+            resourceInputs["accessLogs"] = args ? args.accessLogs : undefined;
+            resourceInputs["customerOwnedIpv4Pool"] = args ? args.customerOwnedIpv4Pool : undefined;
+            resourceInputs["desyncMitigationMode"] = args ? args.desyncMitigationMode : undefined;
+            resourceInputs["dropInvalidHeaderFields"] = args ? args.dropInvalidHeaderFields : undefined;
+            resourceInputs["enableCrossZoneLoadBalancing"] = args ? args.enableCrossZoneLoadBalancing : undefined;
+            resourceInputs["enableDeletionProtection"] = args ? args.enableDeletionProtection : undefined;
+            resourceInputs["enableHttp2"] = args ? args.enableHttp2 : undefined;
+            resourceInputs["enableWafFailOpen"] = args ? args.enableWafFailOpen : undefined;
+            resourceInputs["idleTimeout"] = args ? args.idleTimeout : undefined;
+            resourceInputs["internal"] = args ? args.internal : undefined;
+            resourceInputs["ipAddressType"] = args ? args.ipAddressType : undefined;
+            resourceInputs["loadBalancerType"] = args ? args.loadBalancerType : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
+            resourceInputs["securityGroups"] = args ? args.securityGroups : undefined;
+            resourceInputs["subnetMappings"] = args ? args.subnetMappings : undefined;
+            resourceInputs["subnets"] = args ? args.subnets : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["arnSuffix"] = undefined /*out*/;
+            resourceInputs["dnsName"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["vpcId"] = undefined /*out*/;
+            resourceInputs["zoneId"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "aws:applicationloadbalancing/loadBalancer:LoadBalancer" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(LoadBalancer.__pulumiType, name, inputs, opts);
+        super(LoadBalancer.__pulumiType, name, resourceInputs, opts);
     }
 }
 

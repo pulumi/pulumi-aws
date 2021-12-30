@@ -3762,47 +3762,6 @@ func (i TagTagArgs) ToTagTagOutputWithContext(ctx context.Context) TagTagOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(TagTagOutput)
 }
 
-func (i TagTagArgs) ToTagTagPtrOutput() TagTagPtrOutput {
-	return i.ToTagTagPtrOutputWithContext(context.Background())
-}
-
-func (i TagTagArgs) ToTagTagPtrOutputWithContext(ctx context.Context) TagTagPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TagTagOutput).ToTagTagPtrOutputWithContext(ctx)
-}
-
-// TagTagPtrInput is an input type that accepts TagTagArgs, TagTagPtr and TagTagPtrOutput values.
-// You can construct a concrete instance of `TagTagPtrInput` via:
-//
-//          TagTagArgs{...}
-//
-//  or:
-//
-//          nil
-type TagTagPtrInput interface {
-	pulumi.Input
-
-	ToTagTagPtrOutput() TagTagPtrOutput
-	ToTagTagPtrOutputWithContext(context.Context) TagTagPtrOutput
-}
-
-type tagTagPtrType TagTagArgs
-
-func TagTagPtr(v *TagTagArgs) TagTagPtrInput {
-	return (*tagTagPtrType)(v)
-}
-
-func (*tagTagPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TagTag)(nil)).Elem()
-}
-
-func (i *tagTagPtrType) ToTagTagPtrOutput() TagTagPtrOutput {
-	return i.ToTagTagPtrOutputWithContext(context.Background())
-}
-
-func (i *tagTagPtrType) ToTagTagPtrOutputWithContext(ctx context.Context) TagTagPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TagTagPtrOutput)
-}
-
 type TagTagOutput struct{ *pulumi.OutputState }
 
 func (TagTagOutput) ElementType() reflect.Type {
@@ -3815,16 +3774,6 @@ func (o TagTagOutput) ToTagTagOutput() TagTagOutput {
 
 func (o TagTagOutput) ToTagTagOutputWithContext(ctx context.Context) TagTagOutput {
 	return o
-}
-
-func (o TagTagOutput) ToTagTagPtrOutput() TagTagPtrOutput {
-	return o.ToTagTagPtrOutputWithContext(context.Background())
-}
-
-func (o TagTagOutput) ToTagTagPtrOutputWithContext(ctx context.Context) TagTagPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TagTag) *TagTag {
-		return &v
-	}).(TagTagPtrOutput)
 }
 
 // Tag name.
@@ -3840,60 +3789,6 @@ func (o TagTagOutput) PropagateAtLaunch() pulumi.BoolOutput {
 // Tag value.
 func (o TagTagOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v TagTag) string { return v.Value }).(pulumi.StringOutput)
-}
-
-type TagTagPtrOutput struct{ *pulumi.OutputState }
-
-func (TagTagPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TagTag)(nil)).Elem()
-}
-
-func (o TagTagPtrOutput) ToTagTagPtrOutput() TagTagPtrOutput {
-	return o
-}
-
-func (o TagTagPtrOutput) ToTagTagPtrOutputWithContext(ctx context.Context) TagTagPtrOutput {
-	return o
-}
-
-func (o TagTagPtrOutput) Elem() TagTagOutput {
-	return o.ApplyT(func(v *TagTag) TagTag {
-		if v != nil {
-			return *v
-		}
-		var ret TagTag
-		return ret
-	}).(TagTagOutput)
-}
-
-// Tag name.
-func (o TagTagPtrOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TagTag) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Key
-	}).(pulumi.StringPtrOutput)
-}
-
-// Whether to propagate the tags to instances launched by the ASG.
-func (o TagTagPtrOutput) PropagateAtLaunch() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *TagTag) *bool {
-		if v == nil {
-			return nil
-		}
-		return &v.PropagateAtLaunch
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Tag value.
-func (o TagTagPtrOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TagTag) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Value
-	}).(pulumi.StringPtrOutput)
 }
 
 type GetAmiIdsFilter struct {
@@ -4010,62 +3905,6 @@ type GetGroupLaunchTemplate struct {
 	Version string `pulumi:"version"`
 }
 
-// GetGroupLaunchTemplateInput is an input type that accepts GetGroupLaunchTemplateArgs and GetGroupLaunchTemplateOutput values.
-// You can construct a concrete instance of `GetGroupLaunchTemplateInput` via:
-//
-//          GetGroupLaunchTemplateArgs{...}
-type GetGroupLaunchTemplateInput interface {
-	pulumi.Input
-
-	ToGetGroupLaunchTemplateOutput() GetGroupLaunchTemplateOutput
-	ToGetGroupLaunchTemplateOutputWithContext(context.Context) GetGroupLaunchTemplateOutput
-}
-
-type GetGroupLaunchTemplateArgs struct {
-	// Name of the Auto Scaling Group.
-	Id pulumi.StringInput `pulumi:"id"`
-	// Specify the exact name of the desired autoscaling group.
-	Name    pulumi.StringInput `pulumi:"name"`
-	Version pulumi.StringInput `pulumi:"version"`
-}
-
-func (GetGroupLaunchTemplateArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetGroupLaunchTemplate)(nil)).Elem()
-}
-
-func (i GetGroupLaunchTemplateArgs) ToGetGroupLaunchTemplateOutput() GetGroupLaunchTemplateOutput {
-	return i.ToGetGroupLaunchTemplateOutputWithContext(context.Background())
-}
-
-func (i GetGroupLaunchTemplateArgs) ToGetGroupLaunchTemplateOutputWithContext(ctx context.Context) GetGroupLaunchTemplateOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetGroupLaunchTemplateOutput)
-}
-
-// GetGroupLaunchTemplateArrayInput is an input type that accepts GetGroupLaunchTemplateArray and GetGroupLaunchTemplateArrayOutput values.
-// You can construct a concrete instance of `GetGroupLaunchTemplateArrayInput` via:
-//
-//          GetGroupLaunchTemplateArray{ GetGroupLaunchTemplateArgs{...} }
-type GetGroupLaunchTemplateArrayInput interface {
-	pulumi.Input
-
-	ToGetGroupLaunchTemplateArrayOutput() GetGroupLaunchTemplateArrayOutput
-	ToGetGroupLaunchTemplateArrayOutputWithContext(context.Context) GetGroupLaunchTemplateArrayOutput
-}
-
-type GetGroupLaunchTemplateArray []GetGroupLaunchTemplateInput
-
-func (GetGroupLaunchTemplateArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetGroupLaunchTemplate)(nil)).Elem()
-}
-
-func (i GetGroupLaunchTemplateArray) ToGetGroupLaunchTemplateArrayOutput() GetGroupLaunchTemplateArrayOutput {
-	return i.ToGetGroupLaunchTemplateArrayOutputWithContext(context.Background())
-}
-
-func (i GetGroupLaunchTemplateArray) ToGetGroupLaunchTemplateArrayOutputWithContext(ctx context.Context) GetGroupLaunchTemplateArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetGroupLaunchTemplateArrayOutput)
-}
-
 type GetGroupLaunchTemplateOutput struct{ *pulumi.OutputState }
 
 func (GetGroupLaunchTemplateOutput) ElementType() reflect.Type {
@@ -4160,11 +3999,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyTargetTrackingConfigurationPredefinedMetricSpecificationInput)(nil)).Elem(), PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyTargetTrackingConfigurationPredefinedMetricSpecificationPtrInput)(nil)).Elem(), PolicyTargetTrackingConfigurationPredefinedMetricSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TagTagInput)(nil)).Elem(), TagTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TagTagPtrInput)(nil)).Elem(), TagTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAmiIdsFilterInput)(nil)).Elem(), GetAmiIdsFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAmiIdsFilterArrayInput)(nil)).Elem(), GetAmiIdsFilterArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetGroupLaunchTemplateInput)(nil)).Elem(), GetGroupLaunchTemplateArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetGroupLaunchTemplateArrayInput)(nil)).Elem(), GetGroupLaunchTemplateArray{})
 	pulumi.RegisterOutputType(GroupInitialLifecycleHookOutput{})
 	pulumi.RegisterOutputType(GroupInitialLifecycleHookArrayOutput{})
 	pulumi.RegisterOutputType(GroupInstanceRefreshOutput{})
@@ -4210,7 +4046,6 @@ func init() {
 	pulumi.RegisterOutputType(PolicyTargetTrackingConfigurationPredefinedMetricSpecificationOutput{})
 	pulumi.RegisterOutputType(PolicyTargetTrackingConfigurationPredefinedMetricSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(TagTagOutput{})
-	pulumi.RegisterOutputType(TagTagPtrOutput{})
 	pulumi.RegisterOutputType(GetAmiIdsFilterOutput{})
 	pulumi.RegisterOutputType(GetAmiIdsFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetGroupLaunchTemplateOutput{})

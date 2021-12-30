@@ -282,27 +282,27 @@ export class Integration extends pulumi.CustomResource {
      */
     constructor(name: string, args: IntegrationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: IntegrationArgs | IntegrationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IntegrationState | undefined;
-            inputs["cacheKeyParameters"] = state ? state.cacheKeyParameters : undefined;
-            inputs["cacheNamespace"] = state ? state.cacheNamespace : undefined;
-            inputs["connectionId"] = state ? state.connectionId : undefined;
-            inputs["connectionType"] = state ? state.connectionType : undefined;
-            inputs["contentHandling"] = state ? state.contentHandling : undefined;
-            inputs["credentials"] = state ? state.credentials : undefined;
-            inputs["httpMethod"] = state ? state.httpMethod : undefined;
-            inputs["integrationHttpMethod"] = state ? state.integrationHttpMethod : undefined;
-            inputs["passthroughBehavior"] = state ? state.passthroughBehavior : undefined;
-            inputs["requestParameters"] = state ? state.requestParameters : undefined;
-            inputs["requestTemplates"] = state ? state.requestTemplates : undefined;
-            inputs["resourceId"] = state ? state.resourceId : undefined;
-            inputs["restApi"] = state ? state.restApi : undefined;
-            inputs["timeoutMilliseconds"] = state ? state.timeoutMilliseconds : undefined;
-            inputs["tlsConfig"] = state ? state.tlsConfig : undefined;
-            inputs["type"] = state ? state.type : undefined;
-            inputs["uri"] = state ? state.uri : undefined;
+            resourceInputs["cacheKeyParameters"] = state ? state.cacheKeyParameters : undefined;
+            resourceInputs["cacheNamespace"] = state ? state.cacheNamespace : undefined;
+            resourceInputs["connectionId"] = state ? state.connectionId : undefined;
+            resourceInputs["connectionType"] = state ? state.connectionType : undefined;
+            resourceInputs["contentHandling"] = state ? state.contentHandling : undefined;
+            resourceInputs["credentials"] = state ? state.credentials : undefined;
+            resourceInputs["httpMethod"] = state ? state.httpMethod : undefined;
+            resourceInputs["integrationHttpMethod"] = state ? state.integrationHttpMethod : undefined;
+            resourceInputs["passthroughBehavior"] = state ? state.passthroughBehavior : undefined;
+            resourceInputs["requestParameters"] = state ? state.requestParameters : undefined;
+            resourceInputs["requestTemplates"] = state ? state.requestTemplates : undefined;
+            resourceInputs["resourceId"] = state ? state.resourceId : undefined;
+            resourceInputs["restApi"] = state ? state.restApi : undefined;
+            resourceInputs["timeoutMilliseconds"] = state ? state.timeoutMilliseconds : undefined;
+            resourceInputs["tlsConfig"] = state ? state.tlsConfig : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["uri"] = state ? state.uri : undefined;
         } else {
             const args = argsOrState as IntegrationArgs | undefined;
             if ((!args || args.httpMethod === undefined) && !opts.urn) {
@@ -317,28 +317,28 @@ export class Integration extends pulumi.CustomResource {
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            inputs["cacheKeyParameters"] = args ? args.cacheKeyParameters : undefined;
-            inputs["cacheNamespace"] = args ? args.cacheNamespace : undefined;
-            inputs["connectionId"] = args ? args.connectionId : undefined;
-            inputs["connectionType"] = args ? args.connectionType : undefined;
-            inputs["contentHandling"] = args ? args.contentHandling : undefined;
-            inputs["credentials"] = args ? args.credentials : undefined;
-            inputs["httpMethod"] = args ? args.httpMethod : undefined;
-            inputs["integrationHttpMethod"] = args ? args.integrationHttpMethod : undefined;
-            inputs["passthroughBehavior"] = args ? args.passthroughBehavior : undefined;
-            inputs["requestParameters"] = args ? args.requestParameters : undefined;
-            inputs["requestTemplates"] = args ? args.requestTemplates : undefined;
-            inputs["resourceId"] = args ? args.resourceId : undefined;
-            inputs["restApi"] = args ? args.restApi : undefined;
-            inputs["timeoutMilliseconds"] = args ? args.timeoutMilliseconds : undefined;
-            inputs["tlsConfig"] = args ? args.tlsConfig : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["uri"] = args ? args.uri : undefined;
+            resourceInputs["cacheKeyParameters"] = args ? args.cacheKeyParameters : undefined;
+            resourceInputs["cacheNamespace"] = args ? args.cacheNamespace : undefined;
+            resourceInputs["connectionId"] = args ? args.connectionId : undefined;
+            resourceInputs["connectionType"] = args ? args.connectionType : undefined;
+            resourceInputs["contentHandling"] = args ? args.contentHandling : undefined;
+            resourceInputs["credentials"] = args ? args.credentials : undefined;
+            resourceInputs["httpMethod"] = args ? args.httpMethod : undefined;
+            resourceInputs["integrationHttpMethod"] = args ? args.integrationHttpMethod : undefined;
+            resourceInputs["passthroughBehavior"] = args ? args.passthroughBehavior : undefined;
+            resourceInputs["requestParameters"] = args ? args.requestParameters : undefined;
+            resourceInputs["requestTemplates"] = args ? args.requestTemplates : undefined;
+            resourceInputs["resourceId"] = args ? args.resourceId : undefined;
+            resourceInputs["restApi"] = args ? args.restApi : undefined;
+            resourceInputs["timeoutMilliseconds"] = args ? args.timeoutMilliseconds : undefined;
+            resourceInputs["tlsConfig"] = args ? args.tlsConfig : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["uri"] = args ? args.uri : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Integration.__pulumiType, name, inputs, opts);
+        super(Integration.__pulumiType, name, resourceInputs, opts);
     }
 }
 

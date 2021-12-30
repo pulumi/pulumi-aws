@@ -188,20 +188,20 @@ export class VpcPeeringConnection extends pulumi.CustomResource {
      */
     constructor(name: string, args: VpcPeeringConnectionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VpcPeeringConnectionArgs | VpcPeeringConnectionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VpcPeeringConnectionState | undefined;
-            inputs["acceptStatus"] = state ? state.acceptStatus : undefined;
-            inputs["accepter"] = state ? state.accepter : undefined;
-            inputs["autoAccept"] = state ? state.autoAccept : undefined;
-            inputs["peerOwnerId"] = state ? state.peerOwnerId : undefined;
-            inputs["peerRegion"] = state ? state.peerRegion : undefined;
-            inputs["peerVpcId"] = state ? state.peerVpcId : undefined;
-            inputs["requester"] = state ? state.requester : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["vpcId"] = state ? state.vpcId : undefined;
+            resourceInputs["acceptStatus"] = state ? state.acceptStatus : undefined;
+            resourceInputs["accepter"] = state ? state.accepter : undefined;
+            resourceInputs["autoAccept"] = state ? state.autoAccept : undefined;
+            resourceInputs["peerOwnerId"] = state ? state.peerOwnerId : undefined;
+            resourceInputs["peerRegion"] = state ? state.peerRegion : undefined;
+            resourceInputs["peerVpcId"] = state ? state.peerVpcId : undefined;
+            resourceInputs["requester"] = state ? state.requester : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
             const args = argsOrState as VpcPeeringConnectionArgs | undefined;
             if ((!args || args.peerVpcId === undefined) && !opts.urn) {
@@ -210,21 +210,21 @@ export class VpcPeeringConnection extends pulumi.CustomResource {
             if ((!args || args.vpcId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpcId'");
             }
-            inputs["accepter"] = args ? args.accepter : undefined;
-            inputs["autoAccept"] = args ? args.autoAccept : undefined;
-            inputs["peerOwnerId"] = args ? args.peerOwnerId : undefined;
-            inputs["peerRegion"] = args ? args.peerRegion : undefined;
-            inputs["peerVpcId"] = args ? args.peerVpcId : undefined;
-            inputs["requester"] = args ? args.requester : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["vpcId"] = args ? args.vpcId : undefined;
-            inputs["acceptStatus"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["accepter"] = args ? args.accepter : undefined;
+            resourceInputs["autoAccept"] = args ? args.autoAccept : undefined;
+            resourceInputs["peerOwnerId"] = args ? args.peerOwnerId : undefined;
+            resourceInputs["peerRegion"] = args ? args.peerRegion : undefined;
+            resourceInputs["peerVpcId"] = args ? args.peerVpcId : undefined;
+            resourceInputs["requester"] = args ? args.requester : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["vpcId"] = args ? args.vpcId : undefined;
+            resourceInputs["acceptStatus"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(VpcPeeringConnection.__pulumiType, name, inputs, opts);
+        super(VpcPeeringConnection.__pulumiType, name, resourceInputs, opts);
     }
 }
 

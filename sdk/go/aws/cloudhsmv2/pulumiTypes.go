@@ -18,62 +18,6 @@ type ClusterClusterCertificate struct {
 	ManufacturerHardwareCertificate *string `pulumi:"manufacturerHardwareCertificate"`
 }
 
-// ClusterClusterCertificateInput is an input type that accepts ClusterClusterCertificateArgs and ClusterClusterCertificateOutput values.
-// You can construct a concrete instance of `ClusterClusterCertificateInput` via:
-//
-//          ClusterClusterCertificateArgs{...}
-type ClusterClusterCertificateInput interface {
-	pulumi.Input
-
-	ToClusterClusterCertificateOutput() ClusterClusterCertificateOutput
-	ToClusterClusterCertificateOutputWithContext(context.Context) ClusterClusterCertificateOutput
-}
-
-type ClusterClusterCertificateArgs struct {
-	AwsHardwareCertificate          pulumi.StringPtrInput `pulumi:"awsHardwareCertificate"`
-	ClusterCertificate              pulumi.StringPtrInput `pulumi:"clusterCertificate"`
-	ClusterCsr                      pulumi.StringPtrInput `pulumi:"clusterCsr"`
-	HsmCertificate                  pulumi.StringPtrInput `pulumi:"hsmCertificate"`
-	ManufacturerHardwareCertificate pulumi.StringPtrInput `pulumi:"manufacturerHardwareCertificate"`
-}
-
-func (ClusterClusterCertificateArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterClusterCertificate)(nil)).Elem()
-}
-
-func (i ClusterClusterCertificateArgs) ToClusterClusterCertificateOutput() ClusterClusterCertificateOutput {
-	return i.ToClusterClusterCertificateOutputWithContext(context.Background())
-}
-
-func (i ClusterClusterCertificateArgs) ToClusterClusterCertificateOutputWithContext(ctx context.Context) ClusterClusterCertificateOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterClusterCertificateOutput)
-}
-
-// ClusterClusterCertificateArrayInput is an input type that accepts ClusterClusterCertificateArray and ClusterClusterCertificateArrayOutput values.
-// You can construct a concrete instance of `ClusterClusterCertificateArrayInput` via:
-//
-//          ClusterClusterCertificateArray{ ClusterClusterCertificateArgs{...} }
-type ClusterClusterCertificateArrayInput interface {
-	pulumi.Input
-
-	ToClusterClusterCertificateArrayOutput() ClusterClusterCertificateArrayOutput
-	ToClusterClusterCertificateArrayOutputWithContext(context.Context) ClusterClusterCertificateArrayOutput
-}
-
-type ClusterClusterCertificateArray []ClusterClusterCertificateInput
-
-func (ClusterClusterCertificateArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ClusterClusterCertificate)(nil)).Elem()
-}
-
-func (i ClusterClusterCertificateArray) ToClusterClusterCertificateArrayOutput() ClusterClusterCertificateArrayOutput {
-	return i.ToClusterClusterCertificateArrayOutputWithContext(context.Background())
-}
-
-func (i ClusterClusterCertificateArray) ToClusterClusterCertificateArrayOutputWithContext(ctx context.Context) ClusterClusterCertificateArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterClusterCertificateArrayOutput)
-}
-
 type ClusterClusterCertificateOutput struct{ *pulumi.OutputState }
 
 func (ClusterClusterCertificateOutput) ElementType() reflect.Type {
@@ -136,37 +80,6 @@ type GetClusterClusterCertificates struct {
 	ManufacturerHardwareCertificate string `pulumi:"manufacturerHardwareCertificate"`
 }
 
-// GetClusterClusterCertificatesInput is an input type that accepts GetClusterClusterCertificatesArgs and GetClusterClusterCertificatesOutput values.
-// You can construct a concrete instance of `GetClusterClusterCertificatesInput` via:
-//
-//          GetClusterClusterCertificatesArgs{...}
-type GetClusterClusterCertificatesInput interface {
-	pulumi.Input
-
-	ToGetClusterClusterCertificatesOutput() GetClusterClusterCertificatesOutput
-	ToGetClusterClusterCertificatesOutputWithContext(context.Context) GetClusterClusterCertificatesOutput
-}
-
-type GetClusterClusterCertificatesArgs struct {
-	AwsHardwareCertificate          pulumi.StringInput `pulumi:"awsHardwareCertificate"`
-	ClusterCertificate              pulumi.StringInput `pulumi:"clusterCertificate"`
-	ClusterCsr                      pulumi.StringInput `pulumi:"clusterCsr"`
-	HsmCertificate                  pulumi.StringInput `pulumi:"hsmCertificate"`
-	ManufacturerHardwareCertificate pulumi.StringInput `pulumi:"manufacturerHardwareCertificate"`
-}
-
-func (GetClusterClusterCertificatesArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetClusterClusterCertificates)(nil)).Elem()
-}
-
-func (i GetClusterClusterCertificatesArgs) ToGetClusterClusterCertificatesOutput() GetClusterClusterCertificatesOutput {
-	return i.ToGetClusterClusterCertificatesOutputWithContext(context.Background())
-}
-
-func (i GetClusterClusterCertificatesArgs) ToGetClusterClusterCertificatesOutputWithContext(ctx context.Context) GetClusterClusterCertificatesOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetClusterClusterCertificatesOutput)
-}
-
 type GetClusterClusterCertificatesOutput struct{ *pulumi.OutputState }
 
 func (GetClusterClusterCertificatesOutput) ElementType() reflect.Type {
@@ -202,9 +115,6 @@ func (o GetClusterClusterCertificatesOutput) ManufacturerHardwareCertificate() p
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ClusterClusterCertificateInput)(nil)).Elem(), ClusterClusterCertificateArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ClusterClusterCertificateArrayInput)(nil)).Elem(), ClusterClusterCertificateArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetClusterClusterCertificatesInput)(nil)).Elem(), GetClusterClusterCertificatesArgs{})
 	pulumi.RegisterOutputType(ClusterClusterCertificateOutput{})
 	pulumi.RegisterOutputType(ClusterClusterCertificateArrayOutput{})
 	pulumi.RegisterOutputType(GetClusterClusterCertificatesOutput{})

@@ -762,61 +762,6 @@ type GlobalClusterGlobalClusterMember struct {
 	IsWriter *bool `pulumi:"isWriter"`
 }
 
-// GlobalClusterGlobalClusterMemberInput is an input type that accepts GlobalClusterGlobalClusterMemberArgs and GlobalClusterGlobalClusterMemberOutput values.
-// You can construct a concrete instance of `GlobalClusterGlobalClusterMemberInput` via:
-//
-//          GlobalClusterGlobalClusterMemberArgs{...}
-type GlobalClusterGlobalClusterMemberInput interface {
-	pulumi.Input
-
-	ToGlobalClusterGlobalClusterMemberOutput() GlobalClusterGlobalClusterMemberOutput
-	ToGlobalClusterGlobalClusterMemberOutputWithContext(context.Context) GlobalClusterGlobalClusterMemberOutput
-}
-
-type GlobalClusterGlobalClusterMemberArgs struct {
-	// Amazon Resource Name (ARN) of member DB Cluster
-	DbClusterArn pulumi.StringPtrInput `pulumi:"dbClusterArn"`
-	// Whether the member is the primary DB Cluster
-	IsWriter pulumi.BoolPtrInput `pulumi:"isWriter"`
-}
-
-func (GlobalClusterGlobalClusterMemberArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GlobalClusterGlobalClusterMember)(nil)).Elem()
-}
-
-func (i GlobalClusterGlobalClusterMemberArgs) ToGlobalClusterGlobalClusterMemberOutput() GlobalClusterGlobalClusterMemberOutput {
-	return i.ToGlobalClusterGlobalClusterMemberOutputWithContext(context.Background())
-}
-
-func (i GlobalClusterGlobalClusterMemberArgs) ToGlobalClusterGlobalClusterMemberOutputWithContext(ctx context.Context) GlobalClusterGlobalClusterMemberOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GlobalClusterGlobalClusterMemberOutput)
-}
-
-// GlobalClusterGlobalClusterMemberArrayInput is an input type that accepts GlobalClusterGlobalClusterMemberArray and GlobalClusterGlobalClusterMemberArrayOutput values.
-// You can construct a concrete instance of `GlobalClusterGlobalClusterMemberArrayInput` via:
-//
-//          GlobalClusterGlobalClusterMemberArray{ GlobalClusterGlobalClusterMemberArgs{...} }
-type GlobalClusterGlobalClusterMemberArrayInput interface {
-	pulumi.Input
-
-	ToGlobalClusterGlobalClusterMemberArrayOutput() GlobalClusterGlobalClusterMemberArrayOutput
-	ToGlobalClusterGlobalClusterMemberArrayOutputWithContext(context.Context) GlobalClusterGlobalClusterMemberArrayOutput
-}
-
-type GlobalClusterGlobalClusterMemberArray []GlobalClusterGlobalClusterMemberInput
-
-func (GlobalClusterGlobalClusterMemberArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GlobalClusterGlobalClusterMember)(nil)).Elem()
-}
-
-func (i GlobalClusterGlobalClusterMemberArray) ToGlobalClusterGlobalClusterMemberArrayOutput() GlobalClusterGlobalClusterMemberArrayOutput {
-	return i.ToGlobalClusterGlobalClusterMemberArrayOutputWithContext(context.Background())
-}
-
-func (i GlobalClusterGlobalClusterMemberArray) ToGlobalClusterGlobalClusterMemberArrayOutputWithContext(ctx context.Context) GlobalClusterGlobalClusterMemberArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GlobalClusterGlobalClusterMemberArrayOutput)
-}
-
 type GlobalClusterGlobalClusterMemberOutput struct{ *pulumi.OutputState }
 
 func (GlobalClusterGlobalClusterMemberOutput) ElementType() reflect.Type {
@@ -2108,61 +2053,6 @@ type GetProxyAuth struct {
 	SecretArn   string `pulumi:"secretArn"`
 }
 
-// GetProxyAuthInput is an input type that accepts GetProxyAuthArgs and GetProxyAuthOutput values.
-// You can construct a concrete instance of `GetProxyAuthInput` via:
-//
-//          GetProxyAuthArgs{...}
-type GetProxyAuthInput interface {
-	pulumi.Input
-
-	ToGetProxyAuthOutput() GetProxyAuthOutput
-	ToGetProxyAuthOutputWithContext(context.Context) GetProxyAuthOutput
-}
-
-type GetProxyAuthArgs struct {
-	AuthScheme  pulumi.StringInput `pulumi:"authScheme"`
-	Description pulumi.StringInput `pulumi:"description"`
-	IamAuth     pulumi.StringInput `pulumi:"iamAuth"`
-	SecretArn   pulumi.StringInput `pulumi:"secretArn"`
-}
-
-func (GetProxyAuthArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetProxyAuth)(nil)).Elem()
-}
-
-func (i GetProxyAuthArgs) ToGetProxyAuthOutput() GetProxyAuthOutput {
-	return i.ToGetProxyAuthOutputWithContext(context.Background())
-}
-
-func (i GetProxyAuthArgs) ToGetProxyAuthOutputWithContext(ctx context.Context) GetProxyAuthOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetProxyAuthOutput)
-}
-
-// GetProxyAuthArrayInput is an input type that accepts GetProxyAuthArray and GetProxyAuthArrayOutput values.
-// You can construct a concrete instance of `GetProxyAuthArrayInput` via:
-//
-//          GetProxyAuthArray{ GetProxyAuthArgs{...} }
-type GetProxyAuthArrayInput interface {
-	pulumi.Input
-
-	ToGetProxyAuthArrayOutput() GetProxyAuthArrayOutput
-	ToGetProxyAuthArrayOutputWithContext(context.Context) GetProxyAuthArrayOutput
-}
-
-type GetProxyAuthArray []GetProxyAuthInput
-
-func (GetProxyAuthArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetProxyAuth)(nil)).Elem()
-}
-
-func (i GetProxyAuthArray) ToGetProxyAuthArrayOutput() GetProxyAuthArrayOutput {
-	return i.ToGetProxyAuthArrayOutputWithContext(context.Background())
-}
-
-func (i GetProxyAuthArray) ToGetProxyAuthArrayOutputWithContext(ctx context.Context) GetProxyAuthArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetProxyAuthArrayOutput)
-}
-
 type GetProxyAuthOutput struct{ *pulumi.OutputState }
 
 func (GetProxyAuthOutput) ElementType() reflect.Type {
@@ -2222,8 +2112,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterS3ImportPtrInput)(nil)).Elem(), ClusterS3ImportArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterScalingConfigurationInput)(nil)).Elem(), ClusterScalingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterScalingConfigurationPtrInput)(nil)).Elem(), ClusterScalingConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GlobalClusterGlobalClusterMemberInput)(nil)).Elem(), GlobalClusterGlobalClusterMemberArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GlobalClusterGlobalClusterMemberArrayInput)(nil)).Elem(), GlobalClusterGlobalClusterMemberArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceRestoreToPointInTimeInput)(nil)).Elem(), InstanceRestoreToPointInTimeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceRestoreToPointInTimePtrInput)(nil)).Elem(), InstanceRestoreToPointInTimeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceS3ImportInput)(nil)).Elem(), InstanceS3ImportArgs{})
@@ -2240,8 +2128,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProxyDefaultTargetGroupConnectionPoolConfigPtrInput)(nil)).Elem(), ProxyDefaultTargetGroupConnectionPoolConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityGroupIngressInput)(nil)).Elem(), SecurityGroupIngressArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityGroupIngressArrayInput)(nil)).Elem(), SecurityGroupIngressArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetProxyAuthInput)(nil)).Elem(), GetProxyAuthArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetProxyAuthArrayInput)(nil)).Elem(), GetProxyAuthArray{})
 	pulumi.RegisterOutputType(ClusterParameterGroupParameterOutput{})
 	pulumi.RegisterOutputType(ClusterParameterGroupParameterArrayOutput{})
 	pulumi.RegisterOutputType(ClusterRestoreToPointInTimeOutput{})

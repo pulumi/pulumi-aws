@@ -1531,47 +1531,6 @@ func (i RuleSourceArgs) ToRuleSourceOutputWithContext(ctx context.Context) RuleS
 	return pulumi.ToOutputWithContext(ctx, i).(RuleSourceOutput)
 }
 
-func (i RuleSourceArgs) ToRuleSourcePtrOutput() RuleSourcePtrOutput {
-	return i.ToRuleSourcePtrOutputWithContext(context.Background())
-}
-
-func (i RuleSourceArgs) ToRuleSourcePtrOutputWithContext(ctx context.Context) RuleSourcePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleSourceOutput).ToRuleSourcePtrOutputWithContext(ctx)
-}
-
-// RuleSourcePtrInput is an input type that accepts RuleSourceArgs, RuleSourcePtr and RuleSourcePtrOutput values.
-// You can construct a concrete instance of `RuleSourcePtrInput` via:
-//
-//          RuleSourceArgs{...}
-//
-//  or:
-//
-//          nil
-type RuleSourcePtrInput interface {
-	pulumi.Input
-
-	ToRuleSourcePtrOutput() RuleSourcePtrOutput
-	ToRuleSourcePtrOutputWithContext(context.Context) RuleSourcePtrOutput
-}
-
-type ruleSourcePtrType RuleSourceArgs
-
-func RuleSourcePtr(v *RuleSourceArgs) RuleSourcePtrInput {
-	return (*ruleSourcePtrType)(v)
-}
-
-func (*ruleSourcePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RuleSource)(nil)).Elem()
-}
-
-func (i *ruleSourcePtrType) ToRuleSourcePtrOutput() RuleSourcePtrOutput {
-	return i.ToRuleSourcePtrOutputWithContext(context.Background())
-}
-
-func (i *ruleSourcePtrType) ToRuleSourcePtrOutputWithContext(ctx context.Context) RuleSourcePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleSourcePtrOutput)
-}
-
 type RuleSourceOutput struct{ *pulumi.OutputState }
 
 func (RuleSourceOutput) ElementType() reflect.Type {
@@ -1584,16 +1543,6 @@ func (o RuleSourceOutput) ToRuleSourceOutput() RuleSourceOutput {
 
 func (o RuleSourceOutput) ToRuleSourceOutputWithContext(ctx context.Context) RuleSourceOutput {
 	return o
-}
-
-func (o RuleSourceOutput) ToRuleSourcePtrOutput() RuleSourcePtrOutput {
-	return o.ToRuleSourcePtrOutputWithContext(context.Background())
-}
-
-func (o RuleSourceOutput) ToRuleSourcePtrOutputWithContext(ctx context.Context) RuleSourcePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleSource) *RuleSource {
-		return &v
-	}).(RuleSourcePtrOutput)
 }
 
 // Indicates whether AWS or the customer owns and manages the AWS Config rule. Valid values are `AWS` or `CUSTOM_LAMBDA`. For more information about managed rules, see the [AWS Config Managed Rules documentation](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html). For more information about custom rules, see the [AWS Config Custom Rules documentation](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html). Custom Lambda Functions require permissions to allow the AWS Config service to invoke them, e.g. via the `lambda.Permission` resource.
@@ -1609,60 +1558,6 @@ func (o RuleSourceOutput) SourceDetails() RuleSourceSourceDetailArrayOutput {
 // For AWS Config managed rules, a predefined identifier, e.g `IAM_PASSWORD_POLICY`. For custom Lambda rules, the identifier is the ARN of the Lambda Function, such as `arn:aws:lambda:us-east-1:123456789012:function:custom_rule_name` or the `arn` attribute of the `lambda.Function` resource.
 func (o RuleSourceOutput) SourceIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleSource) string { return v.SourceIdentifier }).(pulumi.StringOutput)
-}
-
-type RuleSourcePtrOutput struct{ *pulumi.OutputState }
-
-func (RuleSourcePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RuleSource)(nil)).Elem()
-}
-
-func (o RuleSourcePtrOutput) ToRuleSourcePtrOutput() RuleSourcePtrOutput {
-	return o
-}
-
-func (o RuleSourcePtrOutput) ToRuleSourcePtrOutputWithContext(ctx context.Context) RuleSourcePtrOutput {
-	return o
-}
-
-func (o RuleSourcePtrOutput) Elem() RuleSourceOutput {
-	return o.ApplyT(func(v *RuleSource) RuleSource {
-		if v != nil {
-			return *v
-		}
-		var ret RuleSource
-		return ret
-	}).(RuleSourceOutput)
-}
-
-// Indicates whether AWS or the customer owns and manages the AWS Config rule. Valid values are `AWS` or `CUSTOM_LAMBDA`. For more information about managed rules, see the [AWS Config Managed Rules documentation](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html). For more information about custom rules, see the [AWS Config Custom Rules documentation](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html). Custom Lambda Functions require permissions to allow the AWS Config service to invoke them, e.g. via the `lambda.Permission` resource.
-func (o RuleSourcePtrOutput) Owner() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RuleSource) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Owner
-	}).(pulumi.StringPtrOutput)
-}
-
-// Provides the source and type of the event that causes AWS Config to evaluate your AWS resources. Only valid if `owner` is `CUSTOM_LAMBDA`.
-func (o RuleSourcePtrOutput) SourceDetails() RuleSourceSourceDetailArrayOutput {
-	return o.ApplyT(func(v *RuleSource) []RuleSourceSourceDetail {
-		if v == nil {
-			return nil
-		}
-		return v.SourceDetails
-	}).(RuleSourceSourceDetailArrayOutput)
-}
-
-// For AWS Config managed rules, a predefined identifier, e.g `IAM_PASSWORD_POLICY`. For custom Lambda rules, the identifier is the ARN of the Lambda Function, such as `arn:aws:lambda:us-east-1:123456789012:function:custom_rule_name` or the `arn` attribute of the `lambda.Function` resource.
-func (o RuleSourcePtrOutput) SourceIdentifier() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RuleSource) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.SourceIdentifier
-	}).(pulumi.StringPtrOutput)
 }
 
 type RuleSourceSourceDetail struct {
@@ -1802,7 +1697,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleScopeInput)(nil)).Elem(), RuleScopeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleScopePtrInput)(nil)).Elem(), RuleScopeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleSourceInput)(nil)).Elem(), RuleSourceArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RuleSourcePtrInput)(nil)).Elem(), RuleSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleSourceSourceDetailInput)(nil)).Elem(), RuleSourceSourceDetailArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleSourceSourceDetailArrayInput)(nil)).Elem(), RuleSourceSourceDetailArray{})
 	pulumi.RegisterOutputType(ConfigurationAggregatorAccountAggregationSourceOutput{})
@@ -1826,7 +1720,6 @@ func init() {
 	pulumi.RegisterOutputType(RuleScopeOutput{})
 	pulumi.RegisterOutputType(RuleScopePtrOutput{})
 	pulumi.RegisterOutputType(RuleSourceOutput{})
-	pulumi.RegisterOutputType(RuleSourcePtrOutput{})
 	pulumi.RegisterOutputType(RuleSourceSourceDetailOutput{})
 	pulumi.RegisterOutputType(RuleSourceSourceDetailArrayOutput{})
 }

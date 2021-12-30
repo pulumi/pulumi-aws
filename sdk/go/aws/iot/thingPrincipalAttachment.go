@@ -146,7 +146,7 @@ type ThingPrincipalAttachmentInput interface {
 }
 
 func (*ThingPrincipalAttachment) ElementType() reflect.Type {
-	return reflect.TypeOf((*ThingPrincipalAttachment)(nil))
+	return reflect.TypeOf((**ThingPrincipalAttachment)(nil)).Elem()
 }
 
 func (i *ThingPrincipalAttachment) ToThingPrincipalAttachmentOutput() ThingPrincipalAttachmentOutput {
@@ -155,35 +155,6 @@ func (i *ThingPrincipalAttachment) ToThingPrincipalAttachmentOutput() ThingPrinc
 
 func (i *ThingPrincipalAttachment) ToThingPrincipalAttachmentOutputWithContext(ctx context.Context) ThingPrincipalAttachmentOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ThingPrincipalAttachmentOutput)
-}
-
-func (i *ThingPrincipalAttachment) ToThingPrincipalAttachmentPtrOutput() ThingPrincipalAttachmentPtrOutput {
-	return i.ToThingPrincipalAttachmentPtrOutputWithContext(context.Background())
-}
-
-func (i *ThingPrincipalAttachment) ToThingPrincipalAttachmentPtrOutputWithContext(ctx context.Context) ThingPrincipalAttachmentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ThingPrincipalAttachmentPtrOutput)
-}
-
-type ThingPrincipalAttachmentPtrInput interface {
-	pulumi.Input
-
-	ToThingPrincipalAttachmentPtrOutput() ThingPrincipalAttachmentPtrOutput
-	ToThingPrincipalAttachmentPtrOutputWithContext(ctx context.Context) ThingPrincipalAttachmentPtrOutput
-}
-
-type thingPrincipalAttachmentPtrType ThingPrincipalAttachmentArgs
-
-func (*thingPrincipalAttachmentPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ThingPrincipalAttachment)(nil))
-}
-
-func (i *thingPrincipalAttachmentPtrType) ToThingPrincipalAttachmentPtrOutput() ThingPrincipalAttachmentPtrOutput {
-	return i.ToThingPrincipalAttachmentPtrOutputWithContext(context.Background())
-}
-
-func (i *thingPrincipalAttachmentPtrType) ToThingPrincipalAttachmentPtrOutputWithContext(ctx context.Context) ThingPrincipalAttachmentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ThingPrincipalAttachmentPtrOutput)
 }
 
 // ThingPrincipalAttachmentArrayInput is an input type that accepts ThingPrincipalAttachmentArray and ThingPrincipalAttachmentArrayOutput values.
@@ -239,7 +210,7 @@ func (i ThingPrincipalAttachmentMap) ToThingPrincipalAttachmentMapOutputWithCont
 type ThingPrincipalAttachmentOutput struct{ *pulumi.OutputState }
 
 func (ThingPrincipalAttachmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ThingPrincipalAttachment)(nil))
+	return reflect.TypeOf((**ThingPrincipalAttachment)(nil)).Elem()
 }
 
 func (o ThingPrincipalAttachmentOutput) ToThingPrincipalAttachmentOutput() ThingPrincipalAttachmentOutput {
@@ -250,44 +221,10 @@ func (o ThingPrincipalAttachmentOutput) ToThingPrincipalAttachmentOutputWithCont
 	return o
 }
 
-func (o ThingPrincipalAttachmentOutput) ToThingPrincipalAttachmentPtrOutput() ThingPrincipalAttachmentPtrOutput {
-	return o.ToThingPrincipalAttachmentPtrOutputWithContext(context.Background())
-}
-
-func (o ThingPrincipalAttachmentOutput) ToThingPrincipalAttachmentPtrOutputWithContext(ctx context.Context) ThingPrincipalAttachmentPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ThingPrincipalAttachment) *ThingPrincipalAttachment {
-		return &v
-	}).(ThingPrincipalAttachmentPtrOutput)
-}
-
-type ThingPrincipalAttachmentPtrOutput struct{ *pulumi.OutputState }
-
-func (ThingPrincipalAttachmentPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ThingPrincipalAttachment)(nil))
-}
-
-func (o ThingPrincipalAttachmentPtrOutput) ToThingPrincipalAttachmentPtrOutput() ThingPrincipalAttachmentPtrOutput {
-	return o
-}
-
-func (o ThingPrincipalAttachmentPtrOutput) ToThingPrincipalAttachmentPtrOutputWithContext(ctx context.Context) ThingPrincipalAttachmentPtrOutput {
-	return o
-}
-
-func (o ThingPrincipalAttachmentPtrOutput) Elem() ThingPrincipalAttachmentOutput {
-	return o.ApplyT(func(v *ThingPrincipalAttachment) ThingPrincipalAttachment {
-		if v != nil {
-			return *v
-		}
-		var ret ThingPrincipalAttachment
-		return ret
-	}).(ThingPrincipalAttachmentOutput)
-}
-
 type ThingPrincipalAttachmentArrayOutput struct{ *pulumi.OutputState }
 
 func (ThingPrincipalAttachmentArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ThingPrincipalAttachment)(nil))
+	return reflect.TypeOf((*[]*ThingPrincipalAttachment)(nil)).Elem()
 }
 
 func (o ThingPrincipalAttachmentArrayOutput) ToThingPrincipalAttachmentArrayOutput() ThingPrincipalAttachmentArrayOutput {
@@ -299,15 +236,15 @@ func (o ThingPrincipalAttachmentArrayOutput) ToThingPrincipalAttachmentArrayOutp
 }
 
 func (o ThingPrincipalAttachmentArrayOutput) Index(i pulumi.IntInput) ThingPrincipalAttachmentOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ThingPrincipalAttachment {
-		return vs[0].([]ThingPrincipalAttachment)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ThingPrincipalAttachment {
+		return vs[0].([]*ThingPrincipalAttachment)[vs[1].(int)]
 	}).(ThingPrincipalAttachmentOutput)
 }
 
 type ThingPrincipalAttachmentMapOutput struct{ *pulumi.OutputState }
 
 func (ThingPrincipalAttachmentMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ThingPrincipalAttachment)(nil))
+	return reflect.TypeOf((*map[string]*ThingPrincipalAttachment)(nil)).Elem()
 }
 
 func (o ThingPrincipalAttachmentMapOutput) ToThingPrincipalAttachmentMapOutput() ThingPrincipalAttachmentMapOutput {
@@ -319,18 +256,16 @@ func (o ThingPrincipalAttachmentMapOutput) ToThingPrincipalAttachmentMapOutputWi
 }
 
 func (o ThingPrincipalAttachmentMapOutput) MapIndex(k pulumi.StringInput) ThingPrincipalAttachmentOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ThingPrincipalAttachment {
-		return vs[0].(map[string]ThingPrincipalAttachment)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ThingPrincipalAttachment {
+		return vs[0].(map[string]*ThingPrincipalAttachment)[vs[1].(string)]
 	}).(ThingPrincipalAttachmentOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ThingPrincipalAttachmentInput)(nil)).Elem(), &ThingPrincipalAttachment{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ThingPrincipalAttachmentPtrInput)(nil)).Elem(), &ThingPrincipalAttachment{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ThingPrincipalAttachmentArrayInput)(nil)).Elem(), ThingPrincipalAttachmentArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ThingPrincipalAttachmentMapInput)(nil)).Elem(), ThingPrincipalAttachmentMap{})
 	pulumi.RegisterOutputType(ThingPrincipalAttachmentOutput{})
-	pulumi.RegisterOutputType(ThingPrincipalAttachmentPtrOutput{})
 	pulumi.RegisterOutputType(ThingPrincipalAttachmentArrayOutput{})
 	pulumi.RegisterOutputType(ThingPrincipalAttachmentMapOutput{})
 }

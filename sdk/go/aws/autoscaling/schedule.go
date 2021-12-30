@@ -249,7 +249,7 @@ type ScheduleInput interface {
 }
 
 func (*Schedule) ElementType() reflect.Type {
-	return reflect.TypeOf((*Schedule)(nil))
+	return reflect.TypeOf((**Schedule)(nil)).Elem()
 }
 
 func (i *Schedule) ToScheduleOutput() ScheduleOutput {
@@ -258,35 +258,6 @@ func (i *Schedule) ToScheduleOutput() ScheduleOutput {
 
 func (i *Schedule) ToScheduleOutputWithContext(ctx context.Context) ScheduleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduleOutput)
-}
-
-func (i *Schedule) ToSchedulePtrOutput() SchedulePtrOutput {
-	return i.ToSchedulePtrOutputWithContext(context.Background())
-}
-
-func (i *Schedule) ToSchedulePtrOutputWithContext(ctx context.Context) SchedulePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SchedulePtrOutput)
-}
-
-type SchedulePtrInput interface {
-	pulumi.Input
-
-	ToSchedulePtrOutput() SchedulePtrOutput
-	ToSchedulePtrOutputWithContext(ctx context.Context) SchedulePtrOutput
-}
-
-type schedulePtrType ScheduleArgs
-
-func (*schedulePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Schedule)(nil))
-}
-
-func (i *schedulePtrType) ToSchedulePtrOutput() SchedulePtrOutput {
-	return i.ToSchedulePtrOutputWithContext(context.Background())
-}
-
-func (i *schedulePtrType) ToSchedulePtrOutputWithContext(ctx context.Context) SchedulePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SchedulePtrOutput)
 }
 
 // ScheduleArrayInput is an input type that accepts ScheduleArray and ScheduleArrayOutput values.
@@ -342,7 +313,7 @@ func (i ScheduleMap) ToScheduleMapOutputWithContext(ctx context.Context) Schedul
 type ScheduleOutput struct{ *pulumi.OutputState }
 
 func (ScheduleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Schedule)(nil))
+	return reflect.TypeOf((**Schedule)(nil)).Elem()
 }
 
 func (o ScheduleOutput) ToScheduleOutput() ScheduleOutput {
@@ -353,44 +324,10 @@ func (o ScheduleOutput) ToScheduleOutputWithContext(ctx context.Context) Schedul
 	return o
 }
 
-func (o ScheduleOutput) ToSchedulePtrOutput() SchedulePtrOutput {
-	return o.ToSchedulePtrOutputWithContext(context.Background())
-}
-
-func (o ScheduleOutput) ToSchedulePtrOutputWithContext(ctx context.Context) SchedulePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Schedule) *Schedule {
-		return &v
-	}).(SchedulePtrOutput)
-}
-
-type SchedulePtrOutput struct{ *pulumi.OutputState }
-
-func (SchedulePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Schedule)(nil))
-}
-
-func (o SchedulePtrOutput) ToSchedulePtrOutput() SchedulePtrOutput {
-	return o
-}
-
-func (o SchedulePtrOutput) ToSchedulePtrOutputWithContext(ctx context.Context) SchedulePtrOutput {
-	return o
-}
-
-func (o SchedulePtrOutput) Elem() ScheduleOutput {
-	return o.ApplyT(func(v *Schedule) Schedule {
-		if v != nil {
-			return *v
-		}
-		var ret Schedule
-		return ret
-	}).(ScheduleOutput)
-}
-
 type ScheduleArrayOutput struct{ *pulumi.OutputState }
 
 func (ScheduleArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Schedule)(nil))
+	return reflect.TypeOf((*[]*Schedule)(nil)).Elem()
 }
 
 func (o ScheduleArrayOutput) ToScheduleArrayOutput() ScheduleArrayOutput {
@@ -402,15 +339,15 @@ func (o ScheduleArrayOutput) ToScheduleArrayOutputWithContext(ctx context.Contex
 }
 
 func (o ScheduleArrayOutput) Index(i pulumi.IntInput) ScheduleOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Schedule {
-		return vs[0].([]Schedule)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Schedule {
+		return vs[0].([]*Schedule)[vs[1].(int)]
 	}).(ScheduleOutput)
 }
 
 type ScheduleMapOutput struct{ *pulumi.OutputState }
 
 func (ScheduleMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Schedule)(nil))
+	return reflect.TypeOf((*map[string]*Schedule)(nil)).Elem()
 }
 
 func (o ScheduleMapOutput) ToScheduleMapOutput() ScheduleMapOutput {
@@ -422,18 +359,16 @@ func (o ScheduleMapOutput) ToScheduleMapOutputWithContext(ctx context.Context) S
 }
 
 func (o ScheduleMapOutput) MapIndex(k pulumi.StringInput) ScheduleOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Schedule {
-		return vs[0].(map[string]Schedule)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Schedule {
+		return vs[0].(map[string]*Schedule)[vs[1].(string)]
 	}).(ScheduleOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduleInput)(nil)).Elem(), &Schedule{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SchedulePtrInput)(nil)).Elem(), &Schedule{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduleArrayInput)(nil)).Elem(), ScheduleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduleMapInput)(nil)).Elem(), ScheduleMap{})
 	pulumi.RegisterOutputType(ScheduleOutput{})
-	pulumi.RegisterOutputType(SchedulePtrOutput{})
 	pulumi.RegisterOutputType(ScheduleArrayOutput{})
 	pulumi.RegisterOutputType(ScheduleMapOutput{})
 }

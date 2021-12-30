@@ -124,43 +124,43 @@ export class Key extends pulumi.CustomResource {
      */
     constructor(name: string, args?: KeyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: KeyArgs | KeyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as KeyState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["bypassPolicyLockoutSafetyCheck"] = state ? state.bypassPolicyLockoutSafetyCheck : undefined;
-            inputs["customerMasterKeySpec"] = state ? state.customerMasterKeySpec : undefined;
-            inputs["deletionWindowInDays"] = state ? state.deletionWindowInDays : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["enableKeyRotation"] = state ? state.enableKeyRotation : undefined;
-            inputs["isEnabled"] = state ? state.isEnabled : undefined;
-            inputs["keyId"] = state ? state.keyId : undefined;
-            inputs["keyUsage"] = state ? state.keyUsage : undefined;
-            inputs["multiRegion"] = state ? state.multiRegion : undefined;
-            inputs["policy"] = state ? state.policy : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["bypassPolicyLockoutSafetyCheck"] = state ? state.bypassPolicyLockoutSafetyCheck : undefined;
+            resourceInputs["customerMasterKeySpec"] = state ? state.customerMasterKeySpec : undefined;
+            resourceInputs["deletionWindowInDays"] = state ? state.deletionWindowInDays : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["enableKeyRotation"] = state ? state.enableKeyRotation : undefined;
+            resourceInputs["isEnabled"] = state ? state.isEnabled : undefined;
+            resourceInputs["keyId"] = state ? state.keyId : undefined;
+            resourceInputs["keyUsage"] = state ? state.keyUsage : undefined;
+            resourceInputs["multiRegion"] = state ? state.multiRegion : undefined;
+            resourceInputs["policy"] = state ? state.policy : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as KeyArgs | undefined;
-            inputs["bypassPolicyLockoutSafetyCheck"] = args ? args.bypassPolicyLockoutSafetyCheck : undefined;
-            inputs["customerMasterKeySpec"] = args ? args.customerMasterKeySpec : undefined;
-            inputs["deletionWindowInDays"] = args ? args.deletionWindowInDays : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["enableKeyRotation"] = args ? args.enableKeyRotation : undefined;
-            inputs["isEnabled"] = args ? args.isEnabled : undefined;
-            inputs["keyUsage"] = args ? args.keyUsage : undefined;
-            inputs["multiRegion"] = args ? args.multiRegion : undefined;
-            inputs["policy"] = args ? args.policy : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["keyId"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["bypassPolicyLockoutSafetyCheck"] = args ? args.bypassPolicyLockoutSafetyCheck : undefined;
+            resourceInputs["customerMasterKeySpec"] = args ? args.customerMasterKeySpec : undefined;
+            resourceInputs["deletionWindowInDays"] = args ? args.deletionWindowInDays : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["enableKeyRotation"] = args ? args.enableKeyRotation : undefined;
+            resourceInputs["isEnabled"] = args ? args.isEnabled : undefined;
+            resourceInputs["keyUsage"] = args ? args.keyUsage : undefined;
+            resourceInputs["multiRegion"] = args ? args.multiRegion : undefined;
+            resourceInputs["policy"] = args ? args.policy : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["keyId"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Key.__pulumiType, name, inputs, opts);
+        super(Key.__pulumiType, name, resourceInputs, opts);
     }
 }
 

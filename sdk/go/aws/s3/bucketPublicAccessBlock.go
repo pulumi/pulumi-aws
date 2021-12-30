@@ -189,7 +189,7 @@ type BucketPublicAccessBlockInput interface {
 }
 
 func (*BucketPublicAccessBlock) ElementType() reflect.Type {
-	return reflect.TypeOf((*BucketPublicAccessBlock)(nil))
+	return reflect.TypeOf((**BucketPublicAccessBlock)(nil)).Elem()
 }
 
 func (i *BucketPublicAccessBlock) ToBucketPublicAccessBlockOutput() BucketPublicAccessBlockOutput {
@@ -198,35 +198,6 @@ func (i *BucketPublicAccessBlock) ToBucketPublicAccessBlockOutput() BucketPublic
 
 func (i *BucketPublicAccessBlock) ToBucketPublicAccessBlockOutputWithContext(ctx context.Context) BucketPublicAccessBlockOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BucketPublicAccessBlockOutput)
-}
-
-func (i *BucketPublicAccessBlock) ToBucketPublicAccessBlockPtrOutput() BucketPublicAccessBlockPtrOutput {
-	return i.ToBucketPublicAccessBlockPtrOutputWithContext(context.Background())
-}
-
-func (i *BucketPublicAccessBlock) ToBucketPublicAccessBlockPtrOutputWithContext(ctx context.Context) BucketPublicAccessBlockPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketPublicAccessBlockPtrOutput)
-}
-
-type BucketPublicAccessBlockPtrInput interface {
-	pulumi.Input
-
-	ToBucketPublicAccessBlockPtrOutput() BucketPublicAccessBlockPtrOutput
-	ToBucketPublicAccessBlockPtrOutputWithContext(ctx context.Context) BucketPublicAccessBlockPtrOutput
-}
-
-type bucketPublicAccessBlockPtrType BucketPublicAccessBlockArgs
-
-func (*bucketPublicAccessBlockPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BucketPublicAccessBlock)(nil))
-}
-
-func (i *bucketPublicAccessBlockPtrType) ToBucketPublicAccessBlockPtrOutput() BucketPublicAccessBlockPtrOutput {
-	return i.ToBucketPublicAccessBlockPtrOutputWithContext(context.Background())
-}
-
-func (i *bucketPublicAccessBlockPtrType) ToBucketPublicAccessBlockPtrOutputWithContext(ctx context.Context) BucketPublicAccessBlockPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketPublicAccessBlockPtrOutput)
 }
 
 // BucketPublicAccessBlockArrayInput is an input type that accepts BucketPublicAccessBlockArray and BucketPublicAccessBlockArrayOutput values.
@@ -282,7 +253,7 @@ func (i BucketPublicAccessBlockMap) ToBucketPublicAccessBlockMapOutputWithContex
 type BucketPublicAccessBlockOutput struct{ *pulumi.OutputState }
 
 func (BucketPublicAccessBlockOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BucketPublicAccessBlock)(nil))
+	return reflect.TypeOf((**BucketPublicAccessBlock)(nil)).Elem()
 }
 
 func (o BucketPublicAccessBlockOutput) ToBucketPublicAccessBlockOutput() BucketPublicAccessBlockOutput {
@@ -293,44 +264,10 @@ func (o BucketPublicAccessBlockOutput) ToBucketPublicAccessBlockOutputWithContex
 	return o
 }
 
-func (o BucketPublicAccessBlockOutput) ToBucketPublicAccessBlockPtrOutput() BucketPublicAccessBlockPtrOutput {
-	return o.ToBucketPublicAccessBlockPtrOutputWithContext(context.Background())
-}
-
-func (o BucketPublicAccessBlockOutput) ToBucketPublicAccessBlockPtrOutputWithContext(ctx context.Context) BucketPublicAccessBlockPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketPublicAccessBlock) *BucketPublicAccessBlock {
-		return &v
-	}).(BucketPublicAccessBlockPtrOutput)
-}
-
-type BucketPublicAccessBlockPtrOutput struct{ *pulumi.OutputState }
-
-func (BucketPublicAccessBlockPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**BucketPublicAccessBlock)(nil))
-}
-
-func (o BucketPublicAccessBlockPtrOutput) ToBucketPublicAccessBlockPtrOutput() BucketPublicAccessBlockPtrOutput {
-	return o
-}
-
-func (o BucketPublicAccessBlockPtrOutput) ToBucketPublicAccessBlockPtrOutputWithContext(ctx context.Context) BucketPublicAccessBlockPtrOutput {
-	return o
-}
-
-func (o BucketPublicAccessBlockPtrOutput) Elem() BucketPublicAccessBlockOutput {
-	return o.ApplyT(func(v *BucketPublicAccessBlock) BucketPublicAccessBlock {
-		if v != nil {
-			return *v
-		}
-		var ret BucketPublicAccessBlock
-		return ret
-	}).(BucketPublicAccessBlockOutput)
-}
-
 type BucketPublicAccessBlockArrayOutput struct{ *pulumi.OutputState }
 
 func (BucketPublicAccessBlockArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]BucketPublicAccessBlock)(nil))
+	return reflect.TypeOf((*[]*BucketPublicAccessBlock)(nil)).Elem()
 }
 
 func (o BucketPublicAccessBlockArrayOutput) ToBucketPublicAccessBlockArrayOutput() BucketPublicAccessBlockArrayOutput {
@@ -342,15 +279,15 @@ func (o BucketPublicAccessBlockArrayOutput) ToBucketPublicAccessBlockArrayOutput
 }
 
 func (o BucketPublicAccessBlockArrayOutput) Index(i pulumi.IntInput) BucketPublicAccessBlockOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BucketPublicAccessBlock {
-		return vs[0].([]BucketPublicAccessBlock)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BucketPublicAccessBlock {
+		return vs[0].([]*BucketPublicAccessBlock)[vs[1].(int)]
 	}).(BucketPublicAccessBlockOutput)
 }
 
 type BucketPublicAccessBlockMapOutput struct{ *pulumi.OutputState }
 
 func (BucketPublicAccessBlockMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]BucketPublicAccessBlock)(nil))
+	return reflect.TypeOf((*map[string]*BucketPublicAccessBlock)(nil)).Elem()
 }
 
 func (o BucketPublicAccessBlockMapOutput) ToBucketPublicAccessBlockMapOutput() BucketPublicAccessBlockMapOutput {
@@ -362,18 +299,16 @@ func (o BucketPublicAccessBlockMapOutput) ToBucketPublicAccessBlockMapOutputWith
 }
 
 func (o BucketPublicAccessBlockMapOutput) MapIndex(k pulumi.StringInput) BucketPublicAccessBlockOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) BucketPublicAccessBlock {
-		return vs[0].(map[string]BucketPublicAccessBlock)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *BucketPublicAccessBlock {
+		return vs[0].(map[string]*BucketPublicAccessBlock)[vs[1].(string)]
 	}).(BucketPublicAccessBlockOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketPublicAccessBlockInput)(nil)).Elem(), &BucketPublicAccessBlock{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BucketPublicAccessBlockPtrInput)(nil)).Elem(), &BucketPublicAccessBlock{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketPublicAccessBlockArrayInput)(nil)).Elem(), BucketPublicAccessBlockArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketPublicAccessBlockMapInput)(nil)).Elem(), BucketPublicAccessBlockMap{})
 	pulumi.RegisterOutputType(BucketPublicAccessBlockOutput{})
-	pulumi.RegisterOutputType(BucketPublicAccessBlockPtrOutput{})
 	pulumi.RegisterOutputType(BucketPublicAccessBlockArrayOutput{})
 	pulumi.RegisterOutputType(BucketPublicAccessBlockMapOutput{})
 }

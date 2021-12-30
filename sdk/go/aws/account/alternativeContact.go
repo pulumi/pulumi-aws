@@ -180,7 +180,7 @@ type AlternativeContactInput interface {
 }
 
 func (*AlternativeContact) ElementType() reflect.Type {
-	return reflect.TypeOf((*AlternativeContact)(nil))
+	return reflect.TypeOf((**AlternativeContact)(nil)).Elem()
 }
 
 func (i *AlternativeContact) ToAlternativeContactOutput() AlternativeContactOutput {
@@ -189,35 +189,6 @@ func (i *AlternativeContact) ToAlternativeContactOutput() AlternativeContactOutp
 
 func (i *AlternativeContact) ToAlternativeContactOutputWithContext(ctx context.Context) AlternativeContactOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AlternativeContactOutput)
-}
-
-func (i *AlternativeContact) ToAlternativeContactPtrOutput() AlternativeContactPtrOutput {
-	return i.ToAlternativeContactPtrOutputWithContext(context.Background())
-}
-
-func (i *AlternativeContact) ToAlternativeContactPtrOutputWithContext(ctx context.Context) AlternativeContactPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AlternativeContactPtrOutput)
-}
-
-type AlternativeContactPtrInput interface {
-	pulumi.Input
-
-	ToAlternativeContactPtrOutput() AlternativeContactPtrOutput
-	ToAlternativeContactPtrOutputWithContext(ctx context.Context) AlternativeContactPtrOutput
-}
-
-type alternativeContactPtrType AlternativeContactArgs
-
-func (*alternativeContactPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AlternativeContact)(nil))
-}
-
-func (i *alternativeContactPtrType) ToAlternativeContactPtrOutput() AlternativeContactPtrOutput {
-	return i.ToAlternativeContactPtrOutputWithContext(context.Background())
-}
-
-func (i *alternativeContactPtrType) ToAlternativeContactPtrOutputWithContext(ctx context.Context) AlternativeContactPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AlternativeContactPtrOutput)
 }
 
 // AlternativeContactArrayInput is an input type that accepts AlternativeContactArray and AlternativeContactArrayOutput values.
@@ -273,7 +244,7 @@ func (i AlternativeContactMap) ToAlternativeContactMapOutputWithContext(ctx cont
 type AlternativeContactOutput struct{ *pulumi.OutputState }
 
 func (AlternativeContactOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AlternativeContact)(nil))
+	return reflect.TypeOf((**AlternativeContact)(nil)).Elem()
 }
 
 func (o AlternativeContactOutput) ToAlternativeContactOutput() AlternativeContactOutput {
@@ -284,44 +255,10 @@ func (o AlternativeContactOutput) ToAlternativeContactOutputWithContext(ctx cont
 	return o
 }
 
-func (o AlternativeContactOutput) ToAlternativeContactPtrOutput() AlternativeContactPtrOutput {
-	return o.ToAlternativeContactPtrOutputWithContext(context.Background())
-}
-
-func (o AlternativeContactOutput) ToAlternativeContactPtrOutputWithContext(ctx context.Context) AlternativeContactPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AlternativeContact) *AlternativeContact {
-		return &v
-	}).(AlternativeContactPtrOutput)
-}
-
-type AlternativeContactPtrOutput struct{ *pulumi.OutputState }
-
-func (AlternativeContactPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AlternativeContact)(nil))
-}
-
-func (o AlternativeContactPtrOutput) ToAlternativeContactPtrOutput() AlternativeContactPtrOutput {
-	return o
-}
-
-func (o AlternativeContactPtrOutput) ToAlternativeContactPtrOutputWithContext(ctx context.Context) AlternativeContactPtrOutput {
-	return o
-}
-
-func (o AlternativeContactPtrOutput) Elem() AlternativeContactOutput {
-	return o.ApplyT(func(v *AlternativeContact) AlternativeContact {
-		if v != nil {
-			return *v
-		}
-		var ret AlternativeContact
-		return ret
-	}).(AlternativeContactOutput)
-}
-
 type AlternativeContactArrayOutput struct{ *pulumi.OutputState }
 
 func (AlternativeContactArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AlternativeContact)(nil))
+	return reflect.TypeOf((*[]*AlternativeContact)(nil)).Elem()
 }
 
 func (o AlternativeContactArrayOutput) ToAlternativeContactArrayOutput() AlternativeContactArrayOutput {
@@ -333,15 +270,15 @@ func (o AlternativeContactArrayOutput) ToAlternativeContactArrayOutputWithContex
 }
 
 func (o AlternativeContactArrayOutput) Index(i pulumi.IntInput) AlternativeContactOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AlternativeContact {
-		return vs[0].([]AlternativeContact)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AlternativeContact {
+		return vs[0].([]*AlternativeContact)[vs[1].(int)]
 	}).(AlternativeContactOutput)
 }
 
 type AlternativeContactMapOutput struct{ *pulumi.OutputState }
 
 func (AlternativeContactMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]AlternativeContact)(nil))
+	return reflect.TypeOf((*map[string]*AlternativeContact)(nil)).Elem()
 }
 
 func (o AlternativeContactMapOutput) ToAlternativeContactMapOutput() AlternativeContactMapOutput {
@@ -353,18 +290,16 @@ func (o AlternativeContactMapOutput) ToAlternativeContactMapOutputWithContext(ct
 }
 
 func (o AlternativeContactMapOutput) MapIndex(k pulumi.StringInput) AlternativeContactOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) AlternativeContact {
-		return vs[0].(map[string]AlternativeContact)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *AlternativeContact {
+		return vs[0].(map[string]*AlternativeContact)[vs[1].(string)]
 	}).(AlternativeContactOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AlternativeContactInput)(nil)).Elem(), &AlternativeContact{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AlternativeContactPtrInput)(nil)).Elem(), &AlternativeContact{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlternativeContactArrayInput)(nil)).Elem(), AlternativeContactArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlternativeContactMapInput)(nil)).Elem(), AlternativeContactMap{})
 	pulumi.RegisterOutputType(AlternativeContactOutput{})
-	pulumi.RegisterOutputType(AlternativeContactPtrOutput{})
 	pulumi.RegisterOutputType(AlternativeContactArrayOutput{})
 	pulumi.RegisterOutputType(AlternativeContactMapOutput{})
 }

@@ -127,19 +127,19 @@ export class Filter extends pulumi.CustomResource {
      */
     constructor(name: string, args: FilterArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: FilterArgs | FilterState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FilterState | undefined;
-            inputs["action"] = state ? state.action : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["detectorId"] = state ? state.detectorId : undefined;
-            inputs["findingCriteria"] = state ? state.findingCriteria : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["rank"] = state ? state.rank : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["action"] = state ? state.action : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["detectorId"] = state ? state.detectorId : undefined;
+            resourceInputs["findingCriteria"] = state ? state.findingCriteria : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["rank"] = state ? state.rank : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as FilterArgs | undefined;
             if ((!args || args.action === undefined) && !opts.urn) {
@@ -154,20 +154,20 @@ export class Filter extends pulumi.CustomResource {
             if ((!args || args.rank === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'rank'");
             }
-            inputs["action"] = args ? args.action : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["detectorId"] = args ? args.detectorId : undefined;
-            inputs["findingCriteria"] = args ? args.findingCriteria : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["rank"] = args ? args.rank : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["action"] = args ? args.action : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["detectorId"] = args ? args.detectorId : undefined;
+            resourceInputs["findingCriteria"] = args ? args.findingCriteria : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["rank"] = args ? args.rank : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Filter.__pulumiType, name, inputs, opts);
+        super(Filter.__pulumiType, name, resourceInputs, opts);
     }
 }
 

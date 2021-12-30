@@ -114,24 +114,24 @@ export class FindingAggregator extends pulumi.CustomResource {
      */
     constructor(name: string, args: FindingAggregatorArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: FindingAggregatorArgs | FindingAggregatorState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FindingAggregatorState | undefined;
-            inputs["linkingMode"] = state ? state.linkingMode : undefined;
-            inputs["specifiedRegions"] = state ? state.specifiedRegions : undefined;
+            resourceInputs["linkingMode"] = state ? state.linkingMode : undefined;
+            resourceInputs["specifiedRegions"] = state ? state.specifiedRegions : undefined;
         } else {
             const args = argsOrState as FindingAggregatorArgs | undefined;
             if ((!args || args.linkingMode === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'linkingMode'");
             }
-            inputs["linkingMode"] = args ? args.linkingMode : undefined;
-            inputs["specifiedRegions"] = args ? args.specifiedRegions : undefined;
+            resourceInputs["linkingMode"] = args ? args.linkingMode : undefined;
+            resourceInputs["specifiedRegions"] = args ? args.specifiedRegions : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(FindingAggregator.__pulumiType, name, inputs, opts);
+        super(FindingAggregator.__pulumiType, name, resourceInputs, opts);
     }
 }
 

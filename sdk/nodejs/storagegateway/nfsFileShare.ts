@@ -156,32 +156,32 @@ export class NfsFileShare extends pulumi.CustomResource {
      */
     constructor(name: string, args: NfsFileShareArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: NfsFileShareArgs | NfsFileShareState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NfsFileShareState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["auditDestinationArn"] = state ? state.auditDestinationArn : undefined;
-            inputs["cacheAttributes"] = state ? state.cacheAttributes : undefined;
-            inputs["clientLists"] = state ? state.clientLists : undefined;
-            inputs["defaultStorageClass"] = state ? state.defaultStorageClass : undefined;
-            inputs["fileShareName"] = state ? state.fileShareName : undefined;
-            inputs["fileshareId"] = state ? state.fileshareId : undefined;
-            inputs["gatewayArn"] = state ? state.gatewayArn : undefined;
-            inputs["guessMimeTypeEnabled"] = state ? state.guessMimeTypeEnabled : undefined;
-            inputs["kmsEncrypted"] = state ? state.kmsEncrypted : undefined;
-            inputs["kmsKeyArn"] = state ? state.kmsKeyArn : undefined;
-            inputs["locationArn"] = state ? state.locationArn : undefined;
-            inputs["nfsFileShareDefaults"] = state ? state.nfsFileShareDefaults : undefined;
-            inputs["notificationPolicy"] = state ? state.notificationPolicy : undefined;
-            inputs["objectAcl"] = state ? state.objectAcl : undefined;
-            inputs["path"] = state ? state.path : undefined;
-            inputs["readOnly"] = state ? state.readOnly : undefined;
-            inputs["requesterPays"] = state ? state.requesterPays : undefined;
-            inputs["roleArn"] = state ? state.roleArn : undefined;
-            inputs["squash"] = state ? state.squash : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["auditDestinationArn"] = state ? state.auditDestinationArn : undefined;
+            resourceInputs["cacheAttributes"] = state ? state.cacheAttributes : undefined;
+            resourceInputs["clientLists"] = state ? state.clientLists : undefined;
+            resourceInputs["defaultStorageClass"] = state ? state.defaultStorageClass : undefined;
+            resourceInputs["fileShareName"] = state ? state.fileShareName : undefined;
+            resourceInputs["fileshareId"] = state ? state.fileshareId : undefined;
+            resourceInputs["gatewayArn"] = state ? state.gatewayArn : undefined;
+            resourceInputs["guessMimeTypeEnabled"] = state ? state.guessMimeTypeEnabled : undefined;
+            resourceInputs["kmsEncrypted"] = state ? state.kmsEncrypted : undefined;
+            resourceInputs["kmsKeyArn"] = state ? state.kmsKeyArn : undefined;
+            resourceInputs["locationArn"] = state ? state.locationArn : undefined;
+            resourceInputs["nfsFileShareDefaults"] = state ? state.nfsFileShareDefaults : undefined;
+            resourceInputs["notificationPolicy"] = state ? state.notificationPolicy : undefined;
+            resourceInputs["objectAcl"] = state ? state.objectAcl : undefined;
+            resourceInputs["path"] = state ? state.path : undefined;
+            resourceInputs["readOnly"] = state ? state.readOnly : undefined;
+            resourceInputs["requesterPays"] = state ? state.requesterPays : undefined;
+            resourceInputs["roleArn"] = state ? state.roleArn : undefined;
+            resourceInputs["squash"] = state ? state.squash : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as NfsFileShareArgs | undefined;
             if ((!args || args.clientLists === undefined) && !opts.urn) {
@@ -196,33 +196,33 @@ export class NfsFileShare extends pulumi.CustomResource {
             if ((!args || args.roleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            inputs["auditDestinationArn"] = args ? args.auditDestinationArn : undefined;
-            inputs["cacheAttributes"] = args ? args.cacheAttributes : undefined;
-            inputs["clientLists"] = args ? args.clientLists : undefined;
-            inputs["defaultStorageClass"] = args ? args.defaultStorageClass : undefined;
-            inputs["fileShareName"] = args ? args.fileShareName : undefined;
-            inputs["gatewayArn"] = args ? args.gatewayArn : undefined;
-            inputs["guessMimeTypeEnabled"] = args ? args.guessMimeTypeEnabled : undefined;
-            inputs["kmsEncrypted"] = args ? args.kmsEncrypted : undefined;
-            inputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
-            inputs["locationArn"] = args ? args.locationArn : undefined;
-            inputs["nfsFileShareDefaults"] = args ? args.nfsFileShareDefaults : undefined;
-            inputs["notificationPolicy"] = args ? args.notificationPolicy : undefined;
-            inputs["objectAcl"] = args ? args.objectAcl : undefined;
-            inputs["readOnly"] = args ? args.readOnly : undefined;
-            inputs["requesterPays"] = args ? args.requesterPays : undefined;
-            inputs["roleArn"] = args ? args.roleArn : undefined;
-            inputs["squash"] = args ? args.squash : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["fileshareId"] = undefined /*out*/;
-            inputs["path"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["auditDestinationArn"] = args ? args.auditDestinationArn : undefined;
+            resourceInputs["cacheAttributes"] = args ? args.cacheAttributes : undefined;
+            resourceInputs["clientLists"] = args ? args.clientLists : undefined;
+            resourceInputs["defaultStorageClass"] = args ? args.defaultStorageClass : undefined;
+            resourceInputs["fileShareName"] = args ? args.fileShareName : undefined;
+            resourceInputs["gatewayArn"] = args ? args.gatewayArn : undefined;
+            resourceInputs["guessMimeTypeEnabled"] = args ? args.guessMimeTypeEnabled : undefined;
+            resourceInputs["kmsEncrypted"] = args ? args.kmsEncrypted : undefined;
+            resourceInputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
+            resourceInputs["locationArn"] = args ? args.locationArn : undefined;
+            resourceInputs["nfsFileShareDefaults"] = args ? args.nfsFileShareDefaults : undefined;
+            resourceInputs["notificationPolicy"] = args ? args.notificationPolicy : undefined;
+            resourceInputs["objectAcl"] = args ? args.objectAcl : undefined;
+            resourceInputs["readOnly"] = args ? args.readOnly : undefined;
+            resourceInputs["requesterPays"] = args ? args.requesterPays : undefined;
+            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["squash"] = args ? args.squash : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["fileshareId"] = undefined /*out*/;
+            resourceInputs["path"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(NfsFileShare.__pulumiType, name, inputs, opts);
+        super(NfsFileShare.__pulumiType, name, resourceInputs, opts);
     }
 }
 

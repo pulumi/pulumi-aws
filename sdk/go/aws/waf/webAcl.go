@@ -264,7 +264,7 @@ type WebAclInput interface {
 }
 
 func (*WebAcl) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAcl)(nil))
+	return reflect.TypeOf((**WebAcl)(nil)).Elem()
 }
 
 func (i *WebAcl) ToWebAclOutput() WebAclOutput {
@@ -273,35 +273,6 @@ func (i *WebAcl) ToWebAclOutput() WebAclOutput {
 
 func (i *WebAcl) ToWebAclOutputWithContext(ctx context.Context) WebAclOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WebAclOutput)
-}
-
-func (i *WebAcl) ToWebAclPtrOutput() WebAclPtrOutput {
-	return i.ToWebAclPtrOutputWithContext(context.Background())
-}
-
-func (i *WebAcl) ToWebAclPtrOutputWithContext(ctx context.Context) WebAclPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclPtrOutput)
-}
-
-type WebAclPtrInput interface {
-	pulumi.Input
-
-	ToWebAclPtrOutput() WebAclPtrOutput
-	ToWebAclPtrOutputWithContext(ctx context.Context) WebAclPtrOutput
-}
-
-type webAclPtrType WebAclArgs
-
-func (*webAclPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebAcl)(nil))
-}
-
-func (i *webAclPtrType) ToWebAclPtrOutput() WebAclPtrOutput {
-	return i.ToWebAclPtrOutputWithContext(context.Background())
-}
-
-func (i *webAclPtrType) ToWebAclPtrOutputWithContext(ctx context.Context) WebAclPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclPtrOutput)
 }
 
 // WebAclArrayInput is an input type that accepts WebAclArray and WebAclArrayOutput values.
@@ -357,7 +328,7 @@ func (i WebAclMap) ToWebAclMapOutputWithContext(ctx context.Context) WebAclMapOu
 type WebAclOutput struct{ *pulumi.OutputState }
 
 func (WebAclOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WebAcl)(nil))
+	return reflect.TypeOf((**WebAcl)(nil)).Elem()
 }
 
 func (o WebAclOutput) ToWebAclOutput() WebAclOutput {
@@ -368,44 +339,10 @@ func (o WebAclOutput) ToWebAclOutputWithContext(ctx context.Context) WebAclOutpu
 	return o
 }
 
-func (o WebAclOutput) ToWebAclPtrOutput() WebAclPtrOutput {
-	return o.ToWebAclPtrOutputWithContext(context.Background())
-}
-
-func (o WebAclOutput) ToWebAclPtrOutputWithContext(ctx context.Context) WebAclPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAcl) *WebAcl {
-		return &v
-	}).(WebAclPtrOutput)
-}
-
-type WebAclPtrOutput struct{ *pulumi.OutputState }
-
-func (WebAclPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebAcl)(nil))
-}
-
-func (o WebAclPtrOutput) ToWebAclPtrOutput() WebAclPtrOutput {
-	return o
-}
-
-func (o WebAclPtrOutput) ToWebAclPtrOutputWithContext(ctx context.Context) WebAclPtrOutput {
-	return o
-}
-
-func (o WebAclPtrOutput) Elem() WebAclOutput {
-	return o.ApplyT(func(v *WebAcl) WebAcl {
-		if v != nil {
-			return *v
-		}
-		var ret WebAcl
-		return ret
-	}).(WebAclOutput)
-}
-
 type WebAclArrayOutput struct{ *pulumi.OutputState }
 
 func (WebAclArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]WebAcl)(nil))
+	return reflect.TypeOf((*[]*WebAcl)(nil)).Elem()
 }
 
 func (o WebAclArrayOutput) ToWebAclArrayOutput() WebAclArrayOutput {
@@ -417,15 +354,15 @@ func (o WebAclArrayOutput) ToWebAclArrayOutputWithContext(ctx context.Context) W
 }
 
 func (o WebAclArrayOutput) Index(i pulumi.IntInput) WebAclOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WebAcl {
-		return vs[0].([]WebAcl)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *WebAcl {
+		return vs[0].([]*WebAcl)[vs[1].(int)]
 	}).(WebAclOutput)
 }
 
 type WebAclMapOutput struct{ *pulumi.OutputState }
 
 func (WebAclMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]WebAcl)(nil))
+	return reflect.TypeOf((*map[string]*WebAcl)(nil)).Elem()
 }
 
 func (o WebAclMapOutput) ToWebAclMapOutput() WebAclMapOutput {
@@ -437,18 +374,16 @@ func (o WebAclMapOutput) ToWebAclMapOutputWithContext(ctx context.Context) WebAc
 }
 
 func (o WebAclMapOutput) MapIndex(k pulumi.StringInput) WebAclOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) WebAcl {
-		return vs[0].(map[string]WebAcl)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *WebAcl {
+		return vs[0].(map[string]*WebAcl)[vs[1].(string)]
 	}).(WebAclOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclInput)(nil)).Elem(), &WebAcl{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclPtrInput)(nil)).Elem(), &WebAcl{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclArrayInput)(nil)).Elem(), WebAclArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclMapInput)(nil)).Elem(), WebAclMap{})
 	pulumi.RegisterOutputType(WebAclOutput{})
-	pulumi.RegisterOutputType(WebAclPtrOutput{})
 	pulumi.RegisterOutputType(WebAclArrayOutput{})
 	pulumi.RegisterOutputType(WebAclMapOutput{})
 }

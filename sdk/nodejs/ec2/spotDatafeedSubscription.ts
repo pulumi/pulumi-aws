@@ -77,24 +77,24 @@ export class SpotDatafeedSubscription extends pulumi.CustomResource {
      */
     constructor(name: string, args: SpotDatafeedSubscriptionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SpotDatafeedSubscriptionArgs | SpotDatafeedSubscriptionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SpotDatafeedSubscriptionState | undefined;
-            inputs["bucket"] = state ? state.bucket : undefined;
-            inputs["prefix"] = state ? state.prefix : undefined;
+            resourceInputs["bucket"] = state ? state.bucket : undefined;
+            resourceInputs["prefix"] = state ? state.prefix : undefined;
         } else {
             const args = argsOrState as SpotDatafeedSubscriptionArgs | undefined;
             if ((!args || args.bucket === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'bucket'");
             }
-            inputs["bucket"] = args ? args.bucket : undefined;
-            inputs["prefix"] = args ? args.prefix : undefined;
+            resourceInputs["bucket"] = args ? args.bucket : undefined;
+            resourceInputs["prefix"] = args ? args.prefix : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(SpotDatafeedSubscription.__pulumiType, name, inputs, opts);
+        super(SpotDatafeedSubscription.__pulumiType, name, resourceInputs, opts);
     }
 }
 

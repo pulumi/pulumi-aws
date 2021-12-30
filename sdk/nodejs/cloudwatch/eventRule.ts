@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  *     rule: console.name,
  *     arn: awsLogins.arn,
  * });
- * const snsTopicPolicy = awsLogins.arn.apply(arn => aws.iam.getPolicyDocument({
+ * const snsTopicPolicy = awsLogins.arn.apply(arn => aws.iam.getPolicyDocumentOutput({
  *     statements: [{
  *         effect: "Allow",
  *         actions: ["SNS:Publish"],
@@ -136,39 +136,39 @@ export class EventRule extends pulumi.CustomResource {
      */
     constructor(name: string, args?: EventRuleArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: EventRuleArgs | EventRuleState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EventRuleState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["eventBusName"] = state ? state.eventBusName : undefined;
-            inputs["eventPattern"] = state ? state.eventPattern : undefined;
-            inputs["isEnabled"] = state ? state.isEnabled : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["namePrefix"] = state ? state.namePrefix : undefined;
-            inputs["roleArn"] = state ? state.roleArn : undefined;
-            inputs["scheduleExpression"] = state ? state.scheduleExpression : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["eventBusName"] = state ? state.eventBusName : undefined;
+            resourceInputs["eventPattern"] = state ? state.eventPattern : undefined;
+            resourceInputs["isEnabled"] = state ? state.isEnabled : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
+            resourceInputs["roleArn"] = state ? state.roleArn : undefined;
+            resourceInputs["scheduleExpression"] = state ? state.scheduleExpression : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as EventRuleArgs | undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["eventBusName"] = args ? args.eventBusName : undefined;
-            inputs["eventPattern"] = args ? args.eventPattern : undefined;
-            inputs["isEnabled"] = args ? args.isEnabled : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["namePrefix"] = args ? args.namePrefix : undefined;
-            inputs["roleArn"] = args ? args.roleArn : undefined;
-            inputs["scheduleExpression"] = args ? args.scheduleExpression : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["eventBusName"] = args ? args.eventBusName : undefined;
+            resourceInputs["eventPattern"] = args ? args.eventPattern : undefined;
+            resourceInputs["isEnabled"] = args ? args.isEnabled : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
+            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["scheduleExpression"] = args ? args.scheduleExpression : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(EventRule.__pulumiType, name, inputs, opts);
+        super(EventRule.__pulumiType, name, resourceInputs, opts);
     }
 }
 

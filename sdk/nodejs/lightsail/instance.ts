@@ -202,28 +202,28 @@ export class Instance extends pulumi.CustomResource {
      */
     constructor(name: string, args: InstanceArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: InstanceArgs | InstanceState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as InstanceState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["availabilityZone"] = state ? state.availabilityZone : undefined;
-            inputs["blueprintId"] = state ? state.blueprintId : undefined;
-            inputs["bundleId"] = state ? state.bundleId : undefined;
-            inputs["cpuCount"] = state ? state.cpuCount : undefined;
-            inputs["createdAt"] = state ? state.createdAt : undefined;
-            inputs["ipv6Address"] = state ? state.ipv6Address : undefined;
-            inputs["ipv6Addresses"] = state ? state.ipv6Addresses : undefined;
-            inputs["isStaticIp"] = state ? state.isStaticIp : undefined;
-            inputs["keyPairName"] = state ? state.keyPairName : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["privateIpAddress"] = state ? state.privateIpAddress : undefined;
-            inputs["publicIpAddress"] = state ? state.publicIpAddress : undefined;
-            inputs["ramSize"] = state ? state.ramSize : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["userData"] = state ? state.userData : undefined;
-            inputs["username"] = state ? state.username : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["availabilityZone"] = state ? state.availabilityZone : undefined;
+            resourceInputs["blueprintId"] = state ? state.blueprintId : undefined;
+            resourceInputs["bundleId"] = state ? state.bundleId : undefined;
+            resourceInputs["cpuCount"] = state ? state.cpuCount : undefined;
+            resourceInputs["createdAt"] = state ? state.createdAt : undefined;
+            resourceInputs["ipv6Address"] = state ? state.ipv6Address : undefined;
+            resourceInputs["ipv6Addresses"] = state ? state.ipv6Addresses : undefined;
+            resourceInputs["isStaticIp"] = state ? state.isStaticIp : undefined;
+            resourceInputs["keyPairName"] = state ? state.keyPairName : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["privateIpAddress"] = state ? state.privateIpAddress : undefined;
+            resourceInputs["publicIpAddress"] = state ? state.publicIpAddress : undefined;
+            resourceInputs["ramSize"] = state ? state.ramSize : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["userData"] = state ? state.userData : undefined;
+            resourceInputs["username"] = state ? state.username : undefined;
         } else {
             const args = argsOrState as InstanceArgs | undefined;
             if ((!args || args.availabilityZone === undefined) && !opts.urn) {
@@ -235,29 +235,29 @@ export class Instance extends pulumi.CustomResource {
             if ((!args || args.bundleId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'bundleId'");
             }
-            inputs["availabilityZone"] = args ? args.availabilityZone : undefined;
-            inputs["blueprintId"] = args ? args.blueprintId : undefined;
-            inputs["bundleId"] = args ? args.bundleId : undefined;
-            inputs["keyPairName"] = args ? args.keyPairName : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["userData"] = args ? args.userData : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["cpuCount"] = undefined /*out*/;
-            inputs["createdAt"] = undefined /*out*/;
-            inputs["ipv6Address"] = undefined /*out*/;
-            inputs["ipv6Addresses"] = undefined /*out*/;
-            inputs["isStaticIp"] = undefined /*out*/;
-            inputs["privateIpAddress"] = undefined /*out*/;
-            inputs["publicIpAddress"] = undefined /*out*/;
-            inputs["ramSize"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
-            inputs["username"] = undefined /*out*/;
+            resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
+            resourceInputs["blueprintId"] = args ? args.blueprintId : undefined;
+            resourceInputs["bundleId"] = args ? args.bundleId : undefined;
+            resourceInputs["keyPairName"] = args ? args.keyPairName : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["userData"] = args ? args.userData : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["cpuCount"] = undefined /*out*/;
+            resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["ipv6Address"] = undefined /*out*/;
+            resourceInputs["ipv6Addresses"] = undefined /*out*/;
+            resourceInputs["isStaticIp"] = undefined /*out*/;
+            resourceInputs["privateIpAddress"] = undefined /*out*/;
+            resourceInputs["publicIpAddress"] = undefined /*out*/;
+            resourceInputs["ramSize"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["username"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Instance.__pulumiType, name, inputs, opts);
+        super(Instance.__pulumiType, name, resourceInputs, opts);
     }
 }
 

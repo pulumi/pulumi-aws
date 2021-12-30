@@ -87,28 +87,28 @@ export class Deployment extends pulumi.CustomResource {
      */
     constructor(name: string, args: DeploymentArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DeploymentArgs | DeploymentState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DeploymentState | undefined;
-            inputs["apiId"] = state ? state.apiId : undefined;
-            inputs["autoDeployed"] = state ? state.autoDeployed : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["triggers"] = state ? state.triggers : undefined;
+            resourceInputs["apiId"] = state ? state.apiId : undefined;
+            resourceInputs["autoDeployed"] = state ? state.autoDeployed : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["triggers"] = state ? state.triggers : undefined;
         } else {
             const args = argsOrState as DeploymentArgs | undefined;
             if ((!args || args.apiId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'apiId'");
             }
-            inputs["apiId"] = args ? args.apiId : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["triggers"] = args ? args.triggers : undefined;
-            inputs["autoDeployed"] = undefined /*out*/;
+            resourceInputs["apiId"] = args ? args.apiId : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["triggers"] = args ? args.triggers : undefined;
+            resourceInputs["autoDeployed"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Deployment.__pulumiType, name, inputs, opts);
+        super(Deployment.__pulumiType, name, resourceInputs, opts);
     }
 }
 

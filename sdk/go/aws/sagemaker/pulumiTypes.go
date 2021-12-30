@@ -698,47 +698,6 @@ func (i CodeRepositoryGitConfigArgs) ToCodeRepositoryGitConfigOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(CodeRepositoryGitConfigOutput)
 }
 
-func (i CodeRepositoryGitConfigArgs) ToCodeRepositoryGitConfigPtrOutput() CodeRepositoryGitConfigPtrOutput {
-	return i.ToCodeRepositoryGitConfigPtrOutputWithContext(context.Background())
-}
-
-func (i CodeRepositoryGitConfigArgs) ToCodeRepositoryGitConfigPtrOutputWithContext(ctx context.Context) CodeRepositoryGitConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CodeRepositoryGitConfigOutput).ToCodeRepositoryGitConfigPtrOutputWithContext(ctx)
-}
-
-// CodeRepositoryGitConfigPtrInput is an input type that accepts CodeRepositoryGitConfigArgs, CodeRepositoryGitConfigPtr and CodeRepositoryGitConfigPtrOutput values.
-// You can construct a concrete instance of `CodeRepositoryGitConfigPtrInput` via:
-//
-//          CodeRepositoryGitConfigArgs{...}
-//
-//  or:
-//
-//          nil
-type CodeRepositoryGitConfigPtrInput interface {
-	pulumi.Input
-
-	ToCodeRepositoryGitConfigPtrOutput() CodeRepositoryGitConfigPtrOutput
-	ToCodeRepositoryGitConfigPtrOutputWithContext(context.Context) CodeRepositoryGitConfigPtrOutput
-}
-
-type codeRepositoryGitConfigPtrType CodeRepositoryGitConfigArgs
-
-func CodeRepositoryGitConfigPtr(v *CodeRepositoryGitConfigArgs) CodeRepositoryGitConfigPtrInput {
-	return (*codeRepositoryGitConfigPtrType)(v)
-}
-
-func (*codeRepositoryGitConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CodeRepositoryGitConfig)(nil)).Elem()
-}
-
-func (i *codeRepositoryGitConfigPtrType) ToCodeRepositoryGitConfigPtrOutput() CodeRepositoryGitConfigPtrOutput {
-	return i.ToCodeRepositoryGitConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *codeRepositoryGitConfigPtrType) ToCodeRepositoryGitConfigPtrOutputWithContext(ctx context.Context) CodeRepositoryGitConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CodeRepositoryGitConfigPtrOutput)
-}
-
 type CodeRepositoryGitConfigOutput struct{ *pulumi.OutputState }
 
 func (CodeRepositoryGitConfigOutput) ElementType() reflect.Type {
@@ -751,16 +710,6 @@ func (o CodeRepositoryGitConfigOutput) ToCodeRepositoryGitConfigOutput() CodeRep
 
 func (o CodeRepositoryGitConfigOutput) ToCodeRepositoryGitConfigOutputWithContext(ctx context.Context) CodeRepositoryGitConfigOutput {
 	return o
-}
-
-func (o CodeRepositoryGitConfigOutput) ToCodeRepositoryGitConfigPtrOutput() CodeRepositoryGitConfigPtrOutput {
-	return o.ToCodeRepositoryGitConfigPtrOutputWithContext(context.Background())
-}
-
-func (o CodeRepositoryGitConfigOutput) ToCodeRepositoryGitConfigPtrOutputWithContext(ctx context.Context) CodeRepositoryGitConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CodeRepositoryGitConfig) *CodeRepositoryGitConfig {
-		return &v
-	}).(CodeRepositoryGitConfigPtrOutput)
 }
 
 // The default branch for the Git repository.
@@ -776,60 +725,6 @@ func (o CodeRepositoryGitConfigOutput) RepositoryUrl() pulumi.StringOutput {
 // The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the credentials used to access the git repository. The secret must have a staging label of AWSCURRENT and must be in the following format: `{"username": UserName, "password": Password}`
 func (o CodeRepositoryGitConfigOutput) SecretArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CodeRepositoryGitConfig) *string { return v.SecretArn }).(pulumi.StringPtrOutput)
-}
-
-type CodeRepositoryGitConfigPtrOutput struct{ *pulumi.OutputState }
-
-func (CodeRepositoryGitConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CodeRepositoryGitConfig)(nil)).Elem()
-}
-
-func (o CodeRepositoryGitConfigPtrOutput) ToCodeRepositoryGitConfigPtrOutput() CodeRepositoryGitConfigPtrOutput {
-	return o
-}
-
-func (o CodeRepositoryGitConfigPtrOutput) ToCodeRepositoryGitConfigPtrOutputWithContext(ctx context.Context) CodeRepositoryGitConfigPtrOutput {
-	return o
-}
-
-func (o CodeRepositoryGitConfigPtrOutput) Elem() CodeRepositoryGitConfigOutput {
-	return o.ApplyT(func(v *CodeRepositoryGitConfig) CodeRepositoryGitConfig {
-		if v != nil {
-			return *v
-		}
-		var ret CodeRepositoryGitConfig
-		return ret
-	}).(CodeRepositoryGitConfigOutput)
-}
-
-// The default branch for the Git repository.
-func (o CodeRepositoryGitConfigPtrOutput) Branch() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CodeRepositoryGitConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Branch
-	}).(pulumi.StringPtrOutput)
-}
-
-// The URL where the Git repository is located.
-func (o CodeRepositoryGitConfigPtrOutput) RepositoryUrl() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CodeRepositoryGitConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.RepositoryUrl
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the credentials used to access the git repository. The secret must have a staging label of AWSCURRENT and must be in the following format: `{"username": UserName, "password": Password}`
-func (o CodeRepositoryGitConfigPtrOutput) SecretArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CodeRepositoryGitConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SecretArn
-	}).(pulumi.StringPtrOutput)
 }
 
 type DeviceFleetOutputConfig struct {
@@ -869,47 +764,6 @@ func (i DeviceFleetOutputConfigArgs) ToDeviceFleetOutputConfigOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(DeviceFleetOutputConfigOutput)
 }
 
-func (i DeviceFleetOutputConfigArgs) ToDeviceFleetOutputConfigPtrOutput() DeviceFleetOutputConfigPtrOutput {
-	return i.ToDeviceFleetOutputConfigPtrOutputWithContext(context.Background())
-}
-
-func (i DeviceFleetOutputConfigArgs) ToDeviceFleetOutputConfigPtrOutputWithContext(ctx context.Context) DeviceFleetOutputConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeviceFleetOutputConfigOutput).ToDeviceFleetOutputConfigPtrOutputWithContext(ctx)
-}
-
-// DeviceFleetOutputConfigPtrInput is an input type that accepts DeviceFleetOutputConfigArgs, DeviceFleetOutputConfigPtr and DeviceFleetOutputConfigPtrOutput values.
-// You can construct a concrete instance of `DeviceFleetOutputConfigPtrInput` via:
-//
-//          DeviceFleetOutputConfigArgs{...}
-//
-//  or:
-//
-//          nil
-type DeviceFleetOutputConfigPtrInput interface {
-	pulumi.Input
-
-	ToDeviceFleetOutputConfigPtrOutput() DeviceFleetOutputConfigPtrOutput
-	ToDeviceFleetOutputConfigPtrOutputWithContext(context.Context) DeviceFleetOutputConfigPtrOutput
-}
-
-type deviceFleetOutputConfigPtrType DeviceFleetOutputConfigArgs
-
-func DeviceFleetOutputConfigPtr(v *DeviceFleetOutputConfigArgs) DeviceFleetOutputConfigPtrInput {
-	return (*deviceFleetOutputConfigPtrType)(v)
-}
-
-func (*deviceFleetOutputConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DeviceFleetOutputConfig)(nil)).Elem()
-}
-
-func (i *deviceFleetOutputConfigPtrType) ToDeviceFleetOutputConfigPtrOutput() DeviceFleetOutputConfigPtrOutput {
-	return i.ToDeviceFleetOutputConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *deviceFleetOutputConfigPtrType) ToDeviceFleetOutputConfigPtrOutputWithContext(ctx context.Context) DeviceFleetOutputConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeviceFleetOutputConfigPtrOutput)
-}
-
 type DeviceFleetOutputConfigOutput struct{ *pulumi.OutputState }
 
 func (DeviceFleetOutputConfigOutput) ElementType() reflect.Type {
@@ -924,16 +778,6 @@ func (o DeviceFleetOutputConfigOutput) ToDeviceFleetOutputConfigOutputWithContex
 	return o
 }
 
-func (o DeviceFleetOutputConfigOutput) ToDeviceFleetOutputConfigPtrOutput() DeviceFleetOutputConfigPtrOutput {
-	return o.ToDeviceFleetOutputConfigPtrOutputWithContext(context.Background())
-}
-
-func (o DeviceFleetOutputConfigOutput) ToDeviceFleetOutputConfigPtrOutputWithContext(ctx context.Context) DeviceFleetOutputConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeviceFleetOutputConfig) *DeviceFleetOutputConfig {
-		return &v
-	}).(DeviceFleetOutputConfigPtrOutput)
-}
-
 // The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume after compilation job. If you don't provide a KMS key ID, Amazon SageMaker uses the default KMS key for Amazon S3 for your role's account.
 func (o DeviceFleetOutputConfigOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DeviceFleetOutputConfig) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
@@ -942,50 +786,6 @@ func (o DeviceFleetOutputConfigOutput) KmsKeyId() pulumi.StringPtrOutput {
 // The Amazon Simple Storage (S3) bucker URI.
 func (o DeviceFleetOutputConfigOutput) S3OutputLocation() pulumi.StringOutput {
 	return o.ApplyT(func(v DeviceFleetOutputConfig) string { return v.S3OutputLocation }).(pulumi.StringOutput)
-}
-
-type DeviceFleetOutputConfigPtrOutput struct{ *pulumi.OutputState }
-
-func (DeviceFleetOutputConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DeviceFleetOutputConfig)(nil)).Elem()
-}
-
-func (o DeviceFleetOutputConfigPtrOutput) ToDeviceFleetOutputConfigPtrOutput() DeviceFleetOutputConfigPtrOutput {
-	return o
-}
-
-func (o DeviceFleetOutputConfigPtrOutput) ToDeviceFleetOutputConfigPtrOutputWithContext(ctx context.Context) DeviceFleetOutputConfigPtrOutput {
-	return o
-}
-
-func (o DeviceFleetOutputConfigPtrOutput) Elem() DeviceFleetOutputConfigOutput {
-	return o.ApplyT(func(v *DeviceFleetOutputConfig) DeviceFleetOutputConfig {
-		if v != nil {
-			return *v
-		}
-		var ret DeviceFleetOutputConfig
-		return ret
-	}).(DeviceFleetOutputConfigOutput)
-}
-
-// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt data on the storage volume after compilation job. If you don't provide a KMS key ID, Amazon SageMaker uses the default KMS key for Amazon S3 for your role's account.
-func (o DeviceFleetOutputConfigPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DeviceFleetOutputConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return v.KmsKeyId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Amazon Simple Storage (S3) bucker URI.
-func (o DeviceFleetOutputConfigPtrOutput) S3OutputLocation() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DeviceFleetOutputConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.S3OutputLocation
-	}).(pulumi.StringPtrOutput)
 }
 
 type DomainDefaultUserSettings struct {
@@ -1041,47 +841,6 @@ func (i DomainDefaultUserSettingsArgs) ToDomainDefaultUserSettingsOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsOutput)
 }
 
-func (i DomainDefaultUserSettingsArgs) ToDomainDefaultUserSettingsPtrOutput() DomainDefaultUserSettingsPtrOutput {
-	return i.ToDomainDefaultUserSettingsPtrOutputWithContext(context.Background())
-}
-
-func (i DomainDefaultUserSettingsArgs) ToDomainDefaultUserSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsOutput).ToDomainDefaultUserSettingsPtrOutputWithContext(ctx)
-}
-
-// DomainDefaultUserSettingsPtrInput is an input type that accepts DomainDefaultUserSettingsArgs, DomainDefaultUserSettingsPtr and DomainDefaultUserSettingsPtrOutput values.
-// You can construct a concrete instance of `DomainDefaultUserSettingsPtrInput` via:
-//
-//          DomainDefaultUserSettingsArgs{...}
-//
-//  or:
-//
-//          nil
-type DomainDefaultUserSettingsPtrInput interface {
-	pulumi.Input
-
-	ToDomainDefaultUserSettingsPtrOutput() DomainDefaultUserSettingsPtrOutput
-	ToDomainDefaultUserSettingsPtrOutputWithContext(context.Context) DomainDefaultUserSettingsPtrOutput
-}
-
-type domainDefaultUserSettingsPtrType DomainDefaultUserSettingsArgs
-
-func DomainDefaultUserSettingsPtr(v *DomainDefaultUserSettingsArgs) DomainDefaultUserSettingsPtrInput {
-	return (*domainDefaultUserSettingsPtrType)(v)
-}
-
-func (*domainDefaultUserSettingsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DomainDefaultUserSettings)(nil)).Elem()
-}
-
-func (i *domainDefaultUserSettingsPtrType) ToDomainDefaultUserSettingsPtrOutput() DomainDefaultUserSettingsPtrOutput {
-	return i.ToDomainDefaultUserSettingsPtrOutputWithContext(context.Background())
-}
-
-func (i *domainDefaultUserSettingsPtrType) ToDomainDefaultUserSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DomainDefaultUserSettingsPtrOutput)
-}
-
 type DomainDefaultUserSettingsOutput struct{ *pulumi.OutputState }
 
 func (DomainDefaultUserSettingsOutput) ElementType() reflect.Type {
@@ -1094,16 +853,6 @@ func (o DomainDefaultUserSettingsOutput) ToDomainDefaultUserSettingsOutput() Dom
 
 func (o DomainDefaultUserSettingsOutput) ToDomainDefaultUserSettingsOutputWithContext(ctx context.Context) DomainDefaultUserSettingsOutput {
 	return o
-}
-
-func (o DomainDefaultUserSettingsOutput) ToDomainDefaultUserSettingsPtrOutput() DomainDefaultUserSettingsPtrOutput {
-	return o.ToDomainDefaultUserSettingsPtrOutputWithContext(context.Background())
-}
-
-func (o DomainDefaultUserSettingsOutput) ToDomainDefaultUserSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainDefaultUserSettings) *DomainDefaultUserSettings {
-		return &v
-	}).(DomainDefaultUserSettingsPtrOutput)
 }
 
 // The execution role ARN for the user.
@@ -1138,90 +887,6 @@ func (o DomainDefaultUserSettingsOutput) SharingSettings() DomainDefaultUserSett
 // The TensorBoard app settings. See TensorBoard App Settings below.
 func (o DomainDefaultUserSettingsOutput) TensorBoardAppSettings() DomainDefaultUserSettingsTensorBoardAppSettingsPtrOutput {
 	return o.ApplyT(func(v DomainDefaultUserSettings) *DomainDefaultUserSettingsTensorBoardAppSettings {
-		return v.TensorBoardAppSettings
-	}).(DomainDefaultUserSettingsTensorBoardAppSettingsPtrOutput)
-}
-
-type DomainDefaultUserSettingsPtrOutput struct{ *pulumi.OutputState }
-
-func (DomainDefaultUserSettingsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DomainDefaultUserSettings)(nil)).Elem()
-}
-
-func (o DomainDefaultUserSettingsPtrOutput) ToDomainDefaultUserSettingsPtrOutput() DomainDefaultUserSettingsPtrOutput {
-	return o
-}
-
-func (o DomainDefaultUserSettingsPtrOutput) ToDomainDefaultUserSettingsPtrOutputWithContext(ctx context.Context) DomainDefaultUserSettingsPtrOutput {
-	return o
-}
-
-func (o DomainDefaultUserSettingsPtrOutput) Elem() DomainDefaultUserSettingsOutput {
-	return o.ApplyT(func(v *DomainDefaultUserSettings) DomainDefaultUserSettings {
-		if v != nil {
-			return *v
-		}
-		var ret DomainDefaultUserSettings
-		return ret
-	}).(DomainDefaultUserSettingsOutput)
-}
-
-// The execution role ARN for the user.
-func (o DomainDefaultUserSettingsPtrOutput) ExecutionRole() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DomainDefaultUserSettings) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ExecutionRole
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Jupyter server's app settings. See Jupyter Server App Settings below.
-func (o DomainDefaultUserSettingsPtrOutput) JupyterServerAppSettings() DomainDefaultUserSettingsJupyterServerAppSettingsPtrOutput {
-	return o.ApplyT(func(v *DomainDefaultUserSettings) *DomainDefaultUserSettingsJupyterServerAppSettings {
-		if v == nil {
-			return nil
-		}
-		return v.JupyterServerAppSettings
-	}).(DomainDefaultUserSettingsJupyterServerAppSettingsPtrOutput)
-}
-
-// The kernel gateway app settings. See Kernel Gateway App Settings below.
-func (o DomainDefaultUserSettingsPtrOutput) KernelGatewayAppSettings() DomainDefaultUserSettingsKernelGatewayAppSettingsPtrOutput {
-	return o.ApplyT(func(v *DomainDefaultUserSettings) *DomainDefaultUserSettingsKernelGatewayAppSettings {
-		if v == nil {
-			return nil
-		}
-		return v.KernelGatewayAppSettings
-	}).(DomainDefaultUserSettingsKernelGatewayAppSettingsPtrOutput)
-}
-
-// The security groups.
-func (o DomainDefaultUserSettingsPtrOutput) SecurityGroups() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *DomainDefaultUserSettings) []string {
-		if v == nil {
-			return nil
-		}
-		return v.SecurityGroups
-	}).(pulumi.StringArrayOutput)
-}
-
-// The sharing settings. See Sharing Settings below.
-func (o DomainDefaultUserSettingsPtrOutput) SharingSettings() DomainDefaultUserSettingsSharingSettingsPtrOutput {
-	return o.ApplyT(func(v *DomainDefaultUserSettings) *DomainDefaultUserSettingsSharingSettings {
-		if v == nil {
-			return nil
-		}
-		return v.SharingSettings
-	}).(DomainDefaultUserSettingsSharingSettingsPtrOutput)
-}
-
-// The TensorBoard app settings. See TensorBoard App Settings below.
-func (o DomainDefaultUserSettingsPtrOutput) TensorBoardAppSettings() DomainDefaultUserSettingsTensorBoardAppSettingsPtrOutput {
-	return o.ApplyT(func(v *DomainDefaultUserSettings) *DomainDefaultUserSettingsTensorBoardAppSettings {
-		if v == nil {
-			return nil
-		}
 		return v.TensorBoardAppSettings
 	}).(DomainDefaultUserSettingsTensorBoardAppSettingsPtrOutput)
 }
@@ -6229,47 +5894,6 @@ func (i FlowDefinitionHumanLoopConfigArgs) ToFlowDefinitionHumanLoopConfigOutput
 	return pulumi.ToOutputWithContext(ctx, i).(FlowDefinitionHumanLoopConfigOutput)
 }
 
-func (i FlowDefinitionHumanLoopConfigArgs) ToFlowDefinitionHumanLoopConfigPtrOutput() FlowDefinitionHumanLoopConfigPtrOutput {
-	return i.ToFlowDefinitionHumanLoopConfigPtrOutputWithContext(context.Background())
-}
-
-func (i FlowDefinitionHumanLoopConfigArgs) ToFlowDefinitionHumanLoopConfigPtrOutputWithContext(ctx context.Context) FlowDefinitionHumanLoopConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FlowDefinitionHumanLoopConfigOutput).ToFlowDefinitionHumanLoopConfigPtrOutputWithContext(ctx)
-}
-
-// FlowDefinitionHumanLoopConfigPtrInput is an input type that accepts FlowDefinitionHumanLoopConfigArgs, FlowDefinitionHumanLoopConfigPtr and FlowDefinitionHumanLoopConfigPtrOutput values.
-// You can construct a concrete instance of `FlowDefinitionHumanLoopConfigPtrInput` via:
-//
-//          FlowDefinitionHumanLoopConfigArgs{...}
-//
-//  or:
-//
-//          nil
-type FlowDefinitionHumanLoopConfigPtrInput interface {
-	pulumi.Input
-
-	ToFlowDefinitionHumanLoopConfigPtrOutput() FlowDefinitionHumanLoopConfigPtrOutput
-	ToFlowDefinitionHumanLoopConfigPtrOutputWithContext(context.Context) FlowDefinitionHumanLoopConfigPtrOutput
-}
-
-type flowDefinitionHumanLoopConfigPtrType FlowDefinitionHumanLoopConfigArgs
-
-func FlowDefinitionHumanLoopConfigPtr(v *FlowDefinitionHumanLoopConfigArgs) FlowDefinitionHumanLoopConfigPtrInput {
-	return (*flowDefinitionHumanLoopConfigPtrType)(v)
-}
-
-func (*flowDefinitionHumanLoopConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FlowDefinitionHumanLoopConfig)(nil)).Elem()
-}
-
-func (i *flowDefinitionHumanLoopConfigPtrType) ToFlowDefinitionHumanLoopConfigPtrOutput() FlowDefinitionHumanLoopConfigPtrOutput {
-	return i.ToFlowDefinitionHumanLoopConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *flowDefinitionHumanLoopConfigPtrType) ToFlowDefinitionHumanLoopConfigPtrOutputWithContext(ctx context.Context) FlowDefinitionHumanLoopConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FlowDefinitionHumanLoopConfigPtrOutput)
-}
-
 type FlowDefinitionHumanLoopConfigOutput struct{ *pulumi.OutputState }
 
 func (FlowDefinitionHumanLoopConfigOutput) ElementType() reflect.Type {
@@ -6282,16 +5906,6 @@ func (o FlowDefinitionHumanLoopConfigOutput) ToFlowDefinitionHumanLoopConfigOutp
 
 func (o FlowDefinitionHumanLoopConfigOutput) ToFlowDefinitionHumanLoopConfigOutputWithContext(ctx context.Context) FlowDefinitionHumanLoopConfigOutput {
 	return o
-}
-
-func (o FlowDefinitionHumanLoopConfigOutput) ToFlowDefinitionHumanLoopConfigPtrOutput() FlowDefinitionHumanLoopConfigPtrOutput {
-	return o.ToFlowDefinitionHumanLoopConfigPtrOutputWithContext(context.Background())
-}
-
-func (o FlowDefinitionHumanLoopConfigOutput) ToFlowDefinitionHumanLoopConfigPtrOutputWithContext(ctx context.Context) FlowDefinitionHumanLoopConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowDefinitionHumanLoopConfig) *FlowDefinitionHumanLoopConfig {
-		return &v
-	}).(FlowDefinitionHumanLoopConfigPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of the human task user interface.
@@ -6339,120 +5953,6 @@ func (o FlowDefinitionHumanLoopConfigOutput) TaskTitle() pulumi.StringOutput {
 // The Amazon Resource Name (ARN) of the human task user interface. Amazon Resource Name (ARN) of a team of workers. For Public workforces see [AWS Docs](https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-management-public.html).
 func (o FlowDefinitionHumanLoopConfigOutput) WorkteamArn() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowDefinitionHumanLoopConfig) string { return v.WorkteamArn }).(pulumi.StringOutput)
-}
-
-type FlowDefinitionHumanLoopConfigPtrOutput struct{ *pulumi.OutputState }
-
-func (FlowDefinitionHumanLoopConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FlowDefinitionHumanLoopConfig)(nil)).Elem()
-}
-
-func (o FlowDefinitionHumanLoopConfigPtrOutput) ToFlowDefinitionHumanLoopConfigPtrOutput() FlowDefinitionHumanLoopConfigPtrOutput {
-	return o
-}
-
-func (o FlowDefinitionHumanLoopConfigPtrOutput) ToFlowDefinitionHumanLoopConfigPtrOutputWithContext(ctx context.Context) FlowDefinitionHumanLoopConfigPtrOutput {
-	return o
-}
-
-func (o FlowDefinitionHumanLoopConfigPtrOutput) Elem() FlowDefinitionHumanLoopConfigOutput {
-	return o.ApplyT(func(v *FlowDefinitionHumanLoopConfig) FlowDefinitionHumanLoopConfig {
-		if v != nil {
-			return *v
-		}
-		var ret FlowDefinitionHumanLoopConfig
-		return ret
-	}).(FlowDefinitionHumanLoopConfigOutput)
-}
-
-// The Amazon Resource Name (ARN) of the human task user interface.
-func (o FlowDefinitionHumanLoopConfigPtrOutput) HumanTaskUiArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FlowDefinitionHumanLoopConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.HumanTaskUiArn
-	}).(pulumi.StringPtrOutput)
-}
-
-// Defines the amount of money paid to an Amazon Mechanical Turk worker for each task performed. See Public Workforce Task Price details below.
-func (o FlowDefinitionHumanLoopConfigPtrOutput) PublicWorkforceTaskPrice() FlowDefinitionHumanLoopConfigPublicWorkforceTaskPricePtrOutput {
-	return o.ApplyT(func(v *FlowDefinitionHumanLoopConfig) *FlowDefinitionHumanLoopConfigPublicWorkforceTaskPrice {
-		if v == nil {
-			return nil
-		}
-		return v.PublicWorkforceTaskPrice
-	}).(FlowDefinitionHumanLoopConfigPublicWorkforceTaskPricePtrOutput)
-}
-
-// The length of time that a task remains available for review by human workers. Valid value range between `1` and `864000`.
-func (o FlowDefinitionHumanLoopConfigPtrOutput) TaskAvailabilityLifetimeInSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *FlowDefinitionHumanLoopConfig) *int {
-		if v == nil {
-			return nil
-		}
-		return v.TaskAvailabilityLifetimeInSeconds
-	}).(pulumi.IntPtrOutput)
-}
-
-// The number of distinct workers who will perform the same task on each object. Valid value range between `1` and `3`.
-func (o FlowDefinitionHumanLoopConfigPtrOutput) TaskCount() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *FlowDefinitionHumanLoopConfig) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.TaskCount
-	}).(pulumi.IntPtrOutput)
-}
-
-// A description for the human worker task.
-func (o FlowDefinitionHumanLoopConfigPtrOutput) TaskDescription() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FlowDefinitionHumanLoopConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.TaskDescription
-	}).(pulumi.StringPtrOutput)
-}
-
-// An array of keywords used to describe the task so that workers can discover the task.
-func (o FlowDefinitionHumanLoopConfigPtrOutput) TaskKeywords() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *FlowDefinitionHumanLoopConfig) []string {
-		if v == nil {
-			return nil
-		}
-		return v.TaskKeywords
-	}).(pulumi.StringArrayOutput)
-}
-
-// The amount of time that a worker has to complete a task. The default value is `3600` seconds.
-func (o FlowDefinitionHumanLoopConfigPtrOutput) TaskTimeLimitInSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *FlowDefinitionHumanLoopConfig) *int {
-		if v == nil {
-			return nil
-		}
-		return v.TaskTimeLimitInSeconds
-	}).(pulumi.IntPtrOutput)
-}
-
-// A title for the human worker task.
-func (o FlowDefinitionHumanLoopConfigPtrOutput) TaskTitle() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FlowDefinitionHumanLoopConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.TaskTitle
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Amazon Resource Name (ARN) of the human task user interface. Amazon Resource Name (ARN) of a team of workers. For Public workforces see [AWS Docs](https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-management-public.html).
-func (o FlowDefinitionHumanLoopConfigPtrOutput) WorkteamArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FlowDefinitionHumanLoopConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.WorkteamArn
-	}).(pulumi.StringPtrOutput)
 }
 
 type FlowDefinitionHumanLoopConfigPublicWorkforceTaskPrice struct {
@@ -6945,47 +6445,6 @@ func (i FlowDefinitionOutputConfigArgs) ToFlowDefinitionOutputConfigOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(FlowDefinitionOutputConfigOutput)
 }
 
-func (i FlowDefinitionOutputConfigArgs) ToFlowDefinitionOutputConfigPtrOutput() FlowDefinitionOutputConfigPtrOutput {
-	return i.ToFlowDefinitionOutputConfigPtrOutputWithContext(context.Background())
-}
-
-func (i FlowDefinitionOutputConfigArgs) ToFlowDefinitionOutputConfigPtrOutputWithContext(ctx context.Context) FlowDefinitionOutputConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FlowDefinitionOutputConfigOutput).ToFlowDefinitionOutputConfigPtrOutputWithContext(ctx)
-}
-
-// FlowDefinitionOutputConfigPtrInput is an input type that accepts FlowDefinitionOutputConfigArgs, FlowDefinitionOutputConfigPtr and FlowDefinitionOutputConfigPtrOutput values.
-// You can construct a concrete instance of `FlowDefinitionOutputConfigPtrInput` via:
-//
-//          FlowDefinitionOutputConfigArgs{...}
-//
-//  or:
-//
-//          nil
-type FlowDefinitionOutputConfigPtrInput interface {
-	pulumi.Input
-
-	ToFlowDefinitionOutputConfigPtrOutput() FlowDefinitionOutputConfigPtrOutput
-	ToFlowDefinitionOutputConfigPtrOutputWithContext(context.Context) FlowDefinitionOutputConfigPtrOutput
-}
-
-type flowDefinitionOutputConfigPtrType FlowDefinitionOutputConfigArgs
-
-func FlowDefinitionOutputConfigPtr(v *FlowDefinitionOutputConfigArgs) FlowDefinitionOutputConfigPtrInput {
-	return (*flowDefinitionOutputConfigPtrType)(v)
-}
-
-func (*flowDefinitionOutputConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FlowDefinitionOutputConfig)(nil)).Elem()
-}
-
-func (i *flowDefinitionOutputConfigPtrType) ToFlowDefinitionOutputConfigPtrOutput() FlowDefinitionOutputConfigPtrOutput {
-	return i.ToFlowDefinitionOutputConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *flowDefinitionOutputConfigPtrType) ToFlowDefinitionOutputConfigPtrOutputWithContext(ctx context.Context) FlowDefinitionOutputConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FlowDefinitionOutputConfigPtrOutput)
-}
-
 type FlowDefinitionOutputConfigOutput struct{ *pulumi.OutputState }
 
 func (FlowDefinitionOutputConfigOutput) ElementType() reflect.Type {
@@ -7000,16 +6459,6 @@ func (o FlowDefinitionOutputConfigOutput) ToFlowDefinitionOutputConfigOutputWith
 	return o
 }
 
-func (o FlowDefinitionOutputConfigOutput) ToFlowDefinitionOutputConfigPtrOutput() FlowDefinitionOutputConfigPtrOutput {
-	return o.ToFlowDefinitionOutputConfigPtrOutputWithContext(context.Background())
-}
-
-func (o FlowDefinitionOutputConfigOutput) ToFlowDefinitionOutputConfigPtrOutputWithContext(ctx context.Context) FlowDefinitionOutputConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowDefinitionOutputConfig) *FlowDefinitionOutputConfig {
-		return &v
-	}).(FlowDefinitionOutputConfigPtrOutput)
-}
-
 // The Amazon Key Management Service (KMS) key ARN for server-side encryption.
 func (o FlowDefinitionOutputConfigOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FlowDefinitionOutputConfig) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
@@ -7018,50 +6467,6 @@ func (o FlowDefinitionOutputConfigOutput) KmsKeyId() pulumi.StringPtrOutput {
 // The Amazon S3 path where the object containing human output will be made available.
 func (o FlowDefinitionOutputConfigOutput) S3OutputPath() pulumi.StringOutput {
 	return o.ApplyT(func(v FlowDefinitionOutputConfig) string { return v.S3OutputPath }).(pulumi.StringOutput)
-}
-
-type FlowDefinitionOutputConfigPtrOutput struct{ *pulumi.OutputState }
-
-func (FlowDefinitionOutputConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FlowDefinitionOutputConfig)(nil)).Elem()
-}
-
-func (o FlowDefinitionOutputConfigPtrOutput) ToFlowDefinitionOutputConfigPtrOutput() FlowDefinitionOutputConfigPtrOutput {
-	return o
-}
-
-func (o FlowDefinitionOutputConfigPtrOutput) ToFlowDefinitionOutputConfigPtrOutputWithContext(ctx context.Context) FlowDefinitionOutputConfigPtrOutput {
-	return o
-}
-
-func (o FlowDefinitionOutputConfigPtrOutput) Elem() FlowDefinitionOutputConfigOutput {
-	return o.ApplyT(func(v *FlowDefinitionOutputConfig) FlowDefinitionOutputConfig {
-		if v != nil {
-			return *v
-		}
-		var ret FlowDefinitionOutputConfig
-		return ret
-	}).(FlowDefinitionOutputConfigOutput)
-}
-
-// The Amazon Key Management Service (KMS) key ARN for server-side encryption.
-func (o FlowDefinitionOutputConfigPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FlowDefinitionOutputConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return v.KmsKeyId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Amazon S3 path where the object containing human output will be made available.
-func (o FlowDefinitionOutputConfigPtrOutput) S3OutputPath() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *FlowDefinitionOutputConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.S3OutputPath
-	}).(pulumi.StringPtrOutput)
 }
 
 type HumanTaskUIUiTemplate struct {
@@ -7105,47 +6510,6 @@ func (i HumanTaskUIUiTemplateArgs) ToHumanTaskUIUiTemplateOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(HumanTaskUIUiTemplateOutput)
 }
 
-func (i HumanTaskUIUiTemplateArgs) ToHumanTaskUIUiTemplatePtrOutput() HumanTaskUIUiTemplatePtrOutput {
-	return i.ToHumanTaskUIUiTemplatePtrOutputWithContext(context.Background())
-}
-
-func (i HumanTaskUIUiTemplateArgs) ToHumanTaskUIUiTemplatePtrOutputWithContext(ctx context.Context) HumanTaskUIUiTemplatePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HumanTaskUIUiTemplateOutput).ToHumanTaskUIUiTemplatePtrOutputWithContext(ctx)
-}
-
-// HumanTaskUIUiTemplatePtrInput is an input type that accepts HumanTaskUIUiTemplateArgs, HumanTaskUIUiTemplatePtr and HumanTaskUIUiTemplatePtrOutput values.
-// You can construct a concrete instance of `HumanTaskUIUiTemplatePtrInput` via:
-//
-//          HumanTaskUIUiTemplateArgs{...}
-//
-//  or:
-//
-//          nil
-type HumanTaskUIUiTemplatePtrInput interface {
-	pulumi.Input
-
-	ToHumanTaskUIUiTemplatePtrOutput() HumanTaskUIUiTemplatePtrOutput
-	ToHumanTaskUIUiTemplatePtrOutputWithContext(context.Context) HumanTaskUIUiTemplatePtrOutput
-}
-
-type humanTaskUIUiTemplatePtrType HumanTaskUIUiTemplateArgs
-
-func HumanTaskUIUiTemplatePtr(v *HumanTaskUIUiTemplateArgs) HumanTaskUIUiTemplatePtrInput {
-	return (*humanTaskUIUiTemplatePtrType)(v)
-}
-
-func (*humanTaskUIUiTemplatePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**HumanTaskUIUiTemplate)(nil)).Elem()
-}
-
-func (i *humanTaskUIUiTemplatePtrType) ToHumanTaskUIUiTemplatePtrOutput() HumanTaskUIUiTemplatePtrOutput {
-	return i.ToHumanTaskUIUiTemplatePtrOutputWithContext(context.Background())
-}
-
-func (i *humanTaskUIUiTemplatePtrType) ToHumanTaskUIUiTemplatePtrOutputWithContext(ctx context.Context) HumanTaskUIUiTemplatePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HumanTaskUIUiTemplatePtrOutput)
-}
-
 type HumanTaskUIUiTemplateOutput struct{ *pulumi.OutputState }
 
 func (HumanTaskUIUiTemplateOutput) ElementType() reflect.Type {
@@ -7158,16 +6522,6 @@ func (o HumanTaskUIUiTemplateOutput) ToHumanTaskUIUiTemplateOutput() HumanTaskUI
 
 func (o HumanTaskUIUiTemplateOutput) ToHumanTaskUIUiTemplateOutputWithContext(ctx context.Context) HumanTaskUIUiTemplateOutput {
 	return o
-}
-
-func (o HumanTaskUIUiTemplateOutput) ToHumanTaskUIUiTemplatePtrOutput() HumanTaskUIUiTemplatePtrOutput {
-	return o.ToHumanTaskUIUiTemplatePtrOutputWithContext(context.Background())
-}
-
-func (o HumanTaskUIUiTemplateOutput) ToHumanTaskUIUiTemplatePtrOutputWithContext(ctx context.Context) HumanTaskUIUiTemplatePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v HumanTaskUIUiTemplate) *HumanTaskUIUiTemplate {
-		return &v
-	}).(HumanTaskUIUiTemplatePtrOutput)
 }
 
 // The content of the Liquid template for the worker user interface.
@@ -7183,60 +6537,6 @@ func (o HumanTaskUIUiTemplateOutput) ContentSha256() pulumi.StringPtrOutput {
 // The URL for the user interface template.
 func (o HumanTaskUIUiTemplateOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v HumanTaskUIUiTemplate) *string { return v.Url }).(pulumi.StringPtrOutput)
-}
-
-type HumanTaskUIUiTemplatePtrOutput struct{ *pulumi.OutputState }
-
-func (HumanTaskUIUiTemplatePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**HumanTaskUIUiTemplate)(nil)).Elem()
-}
-
-func (o HumanTaskUIUiTemplatePtrOutput) ToHumanTaskUIUiTemplatePtrOutput() HumanTaskUIUiTemplatePtrOutput {
-	return o
-}
-
-func (o HumanTaskUIUiTemplatePtrOutput) ToHumanTaskUIUiTemplatePtrOutputWithContext(ctx context.Context) HumanTaskUIUiTemplatePtrOutput {
-	return o
-}
-
-func (o HumanTaskUIUiTemplatePtrOutput) Elem() HumanTaskUIUiTemplateOutput {
-	return o.ApplyT(func(v *HumanTaskUIUiTemplate) HumanTaskUIUiTemplate {
-		if v != nil {
-			return *v
-		}
-		var ret HumanTaskUIUiTemplate
-		return ret
-	}).(HumanTaskUIUiTemplateOutput)
-}
-
-// The content of the Liquid template for the worker user interface.
-func (o HumanTaskUIUiTemplatePtrOutput) Content() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HumanTaskUIUiTemplate) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Content
-	}).(pulumi.StringPtrOutput)
-}
-
-// The SHA-256 digest of the contents of the template.
-func (o HumanTaskUIUiTemplatePtrOutput) ContentSha256() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HumanTaskUIUiTemplate) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ContentSha256
-	}).(pulumi.StringPtrOutput)
-}
-
-// The URL for the user interface template.
-func (o HumanTaskUIUiTemplatePtrOutput) Url() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HumanTaskUIUiTemplate) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Url
-	}).(pulumi.StringPtrOutput)
 }
 
 type ModelContainer struct {
@@ -10795,11 +10095,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AppResourceSpecInput)(nil)).Elem(), AppResourceSpecArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppResourceSpecPtrInput)(nil)).Elem(), AppResourceSpecArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CodeRepositoryGitConfigInput)(nil)).Elem(), CodeRepositoryGitConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CodeRepositoryGitConfigPtrInput)(nil)).Elem(), CodeRepositoryGitConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeviceFleetOutputConfigInput)(nil)).Elem(), DeviceFleetOutputConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DeviceFleetOutputConfigPtrInput)(nil)).Elem(), DeviceFleetOutputConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsInput)(nil)).Elem(), DomainDefaultUserSettingsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsPtrInput)(nil)).Elem(), DomainDefaultUserSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsJupyterServerAppSettingsInput)(nil)).Elem(), DomainDefaultUserSettingsJupyterServerAppSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsJupyterServerAppSettingsPtrInput)(nil)).Elem(), DomainDefaultUserSettingsJupyterServerAppSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecInput)(nil)).Elem(), DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecArgs{})
@@ -10865,7 +10162,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigInput)(nil)).Elem(), FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigPtrInput)(nil)).Elem(), FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowDefinitionHumanLoopConfigInput)(nil)).Elem(), FlowDefinitionHumanLoopConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FlowDefinitionHumanLoopConfigPtrInput)(nil)).Elem(), FlowDefinitionHumanLoopConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceInput)(nil)).Elem(), FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowDefinitionHumanLoopConfigPublicWorkforceTaskPricePtrInput)(nil)).Elem(), FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdInput)(nil)).Elem(), FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdArgs{})
@@ -10873,9 +10169,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowDefinitionHumanLoopRequestSourceInput)(nil)).Elem(), FlowDefinitionHumanLoopRequestSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowDefinitionHumanLoopRequestSourcePtrInput)(nil)).Elem(), FlowDefinitionHumanLoopRequestSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowDefinitionOutputConfigInput)(nil)).Elem(), FlowDefinitionOutputConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FlowDefinitionOutputConfigPtrInput)(nil)).Elem(), FlowDefinitionOutputConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HumanTaskUIUiTemplateInput)(nil)).Elem(), HumanTaskUIUiTemplateArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*HumanTaskUIUiTemplatePtrInput)(nil)).Elem(), HumanTaskUIUiTemplateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelContainerInput)(nil)).Elem(), ModelContainerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelContainerArrayInput)(nil)).Elem(), ModelContainerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelContainerImageConfigInput)(nil)).Elem(), ModelContainerImageConfigArgs{})
@@ -10929,11 +10223,8 @@ func init() {
 	pulumi.RegisterOutputType(AppResourceSpecOutput{})
 	pulumi.RegisterOutputType(AppResourceSpecPtrOutput{})
 	pulumi.RegisterOutputType(CodeRepositoryGitConfigOutput{})
-	pulumi.RegisterOutputType(CodeRepositoryGitConfigPtrOutput{})
 	pulumi.RegisterOutputType(DeviceFleetOutputConfigOutput{})
-	pulumi.RegisterOutputType(DeviceFleetOutputConfigPtrOutput{})
 	pulumi.RegisterOutputType(DomainDefaultUserSettingsOutput{})
-	pulumi.RegisterOutputType(DomainDefaultUserSettingsPtrOutput{})
 	pulumi.RegisterOutputType(DomainDefaultUserSettingsJupyterServerAppSettingsOutput{})
 	pulumi.RegisterOutputType(DomainDefaultUserSettingsJupyterServerAppSettingsPtrOutput{})
 	pulumi.RegisterOutputType(DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpecOutput{})
@@ -10999,7 +10290,6 @@ func init() {
 	pulumi.RegisterOutputType(FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigOutput{})
 	pulumi.RegisterOutputType(FlowDefinitionHumanLoopActivationConfigHumanLoopActivationConditionsConfigPtrOutput{})
 	pulumi.RegisterOutputType(FlowDefinitionHumanLoopConfigOutput{})
-	pulumi.RegisterOutputType(FlowDefinitionHumanLoopConfigPtrOutput{})
 	pulumi.RegisterOutputType(FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceOutput{})
 	pulumi.RegisterOutputType(FlowDefinitionHumanLoopConfigPublicWorkforceTaskPricePtrOutput{})
 	pulumi.RegisterOutputType(FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdOutput{})
@@ -11007,9 +10297,7 @@ func init() {
 	pulumi.RegisterOutputType(FlowDefinitionHumanLoopRequestSourceOutput{})
 	pulumi.RegisterOutputType(FlowDefinitionHumanLoopRequestSourcePtrOutput{})
 	pulumi.RegisterOutputType(FlowDefinitionOutputConfigOutput{})
-	pulumi.RegisterOutputType(FlowDefinitionOutputConfigPtrOutput{})
 	pulumi.RegisterOutputType(HumanTaskUIUiTemplateOutput{})
-	pulumi.RegisterOutputType(HumanTaskUIUiTemplatePtrOutput{})
 	pulumi.RegisterOutputType(ModelContainerOutput{})
 	pulumi.RegisterOutputType(ModelContainerArrayOutput{})
 	pulumi.RegisterOutputType(ModelContainerImageConfigOutput{})

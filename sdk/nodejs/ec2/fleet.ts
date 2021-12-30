@@ -118,21 +118,21 @@ export class Fleet extends pulumi.CustomResource {
      */
     constructor(name: string, args: FleetArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: FleetArgs | FleetState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FleetState | undefined;
-            inputs["excessCapacityTerminationPolicy"] = state ? state.excessCapacityTerminationPolicy : undefined;
-            inputs["launchTemplateConfig"] = state ? state.launchTemplateConfig : undefined;
-            inputs["onDemandOptions"] = state ? state.onDemandOptions : undefined;
-            inputs["replaceUnhealthyInstances"] = state ? state.replaceUnhealthyInstances : undefined;
-            inputs["spotOptions"] = state ? state.spotOptions : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["targetCapacitySpecification"] = state ? state.targetCapacitySpecification : undefined;
-            inputs["terminateInstances"] = state ? state.terminateInstances : undefined;
-            inputs["terminateInstancesWithExpiration"] = state ? state.terminateInstancesWithExpiration : undefined;
-            inputs["type"] = state ? state.type : undefined;
+            resourceInputs["excessCapacityTerminationPolicy"] = state ? state.excessCapacityTerminationPolicy : undefined;
+            resourceInputs["launchTemplateConfig"] = state ? state.launchTemplateConfig : undefined;
+            resourceInputs["onDemandOptions"] = state ? state.onDemandOptions : undefined;
+            resourceInputs["replaceUnhealthyInstances"] = state ? state.replaceUnhealthyInstances : undefined;
+            resourceInputs["spotOptions"] = state ? state.spotOptions : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["targetCapacitySpecification"] = state ? state.targetCapacitySpecification : undefined;
+            resourceInputs["terminateInstances"] = state ? state.terminateInstances : undefined;
+            resourceInputs["terminateInstancesWithExpiration"] = state ? state.terminateInstancesWithExpiration : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as FleetArgs | undefined;
             if ((!args || args.launchTemplateConfig === undefined) && !opts.urn) {
@@ -141,22 +141,22 @@ export class Fleet extends pulumi.CustomResource {
             if ((!args || args.targetCapacitySpecification === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetCapacitySpecification'");
             }
-            inputs["excessCapacityTerminationPolicy"] = args ? args.excessCapacityTerminationPolicy : undefined;
-            inputs["launchTemplateConfig"] = args ? args.launchTemplateConfig : undefined;
-            inputs["onDemandOptions"] = args ? args.onDemandOptions : undefined;
-            inputs["replaceUnhealthyInstances"] = args ? args.replaceUnhealthyInstances : undefined;
-            inputs["spotOptions"] = args ? args.spotOptions : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["targetCapacitySpecification"] = args ? args.targetCapacitySpecification : undefined;
-            inputs["terminateInstances"] = args ? args.terminateInstances : undefined;
-            inputs["terminateInstancesWithExpiration"] = args ? args.terminateInstancesWithExpiration : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["excessCapacityTerminationPolicy"] = args ? args.excessCapacityTerminationPolicy : undefined;
+            resourceInputs["launchTemplateConfig"] = args ? args.launchTemplateConfig : undefined;
+            resourceInputs["onDemandOptions"] = args ? args.onDemandOptions : undefined;
+            resourceInputs["replaceUnhealthyInstances"] = args ? args.replaceUnhealthyInstances : undefined;
+            resourceInputs["spotOptions"] = args ? args.spotOptions : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["targetCapacitySpecification"] = args ? args.targetCapacitySpecification : undefined;
+            resourceInputs["terminateInstances"] = args ? args.terminateInstances : undefined;
+            resourceInputs["terminateInstancesWithExpiration"] = args ? args.terminateInstancesWithExpiration : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Fleet.__pulumiType, name, inputs, opts);
+        super(Fleet.__pulumiType, name, resourceInputs, opts);
     }
 }
 

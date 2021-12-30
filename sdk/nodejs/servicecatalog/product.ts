@@ -141,26 +141,26 @@ export class Product extends pulumi.CustomResource {
      */
     constructor(name: string, args: ProductArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ProductArgs | ProductState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProductState | undefined;
-            inputs["acceptLanguage"] = state ? state.acceptLanguage : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["createdTime"] = state ? state.createdTime : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["distributor"] = state ? state.distributor : undefined;
-            inputs["hasDefaultPath"] = state ? state.hasDefaultPath : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["owner"] = state ? state.owner : undefined;
-            inputs["provisioningArtifactParameters"] = state ? state.provisioningArtifactParameters : undefined;
-            inputs["status"] = state ? state.status : undefined;
-            inputs["supportDescription"] = state ? state.supportDescription : undefined;
-            inputs["supportEmail"] = state ? state.supportEmail : undefined;
-            inputs["supportUrl"] = state ? state.supportUrl : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["type"] = state ? state.type : undefined;
+            resourceInputs["acceptLanguage"] = state ? state.acceptLanguage : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["createdTime"] = state ? state.createdTime : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["distributor"] = state ? state.distributor : undefined;
+            resourceInputs["hasDefaultPath"] = state ? state.hasDefaultPath : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["owner"] = state ? state.owner : undefined;
+            resourceInputs["provisioningArtifactParameters"] = state ? state.provisioningArtifactParameters : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["supportDescription"] = state ? state.supportDescription : undefined;
+            resourceInputs["supportEmail"] = state ? state.supportEmail : undefined;
+            resourceInputs["supportUrl"] = state ? state.supportUrl : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as ProductArgs | undefined;
             if ((!args || args.owner === undefined) && !opts.urn) {
@@ -172,27 +172,27 @@ export class Product extends pulumi.CustomResource {
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            inputs["acceptLanguage"] = args ? args.acceptLanguage : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["distributor"] = args ? args.distributor : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["owner"] = args ? args.owner : undefined;
-            inputs["provisioningArtifactParameters"] = args ? args.provisioningArtifactParameters : undefined;
-            inputs["supportDescription"] = args ? args.supportDescription : undefined;
-            inputs["supportEmail"] = args ? args.supportEmail : undefined;
-            inputs["supportUrl"] = args ? args.supportUrl : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["createdTime"] = undefined /*out*/;
-            inputs["hasDefaultPath"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["acceptLanguage"] = args ? args.acceptLanguage : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["distributor"] = args ? args.distributor : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["owner"] = args ? args.owner : undefined;
+            resourceInputs["provisioningArtifactParameters"] = args ? args.provisioningArtifactParameters : undefined;
+            resourceInputs["supportDescription"] = args ? args.supportDescription : undefined;
+            resourceInputs["supportEmail"] = args ? args.supportEmail : undefined;
+            resourceInputs["supportUrl"] = args ? args.supportUrl : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["createdTime"] = undefined /*out*/;
+            resourceInputs["hasDefaultPath"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Product.__pulumiType, name, inputs, opts);
+        super(Product.__pulumiType, name, resourceInputs, opts);
     }
 }
 

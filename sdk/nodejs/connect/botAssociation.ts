@@ -126,12 +126,12 @@ export class BotAssociation extends pulumi.CustomResource {
      */
     constructor(name: string, args: BotAssociationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: BotAssociationArgs | BotAssociationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BotAssociationState | undefined;
-            inputs["instanceId"] = state ? state.instanceId : undefined;
-            inputs["lexBot"] = state ? state.lexBot : undefined;
+            resourceInputs["instanceId"] = state ? state.instanceId : undefined;
+            resourceInputs["lexBot"] = state ? state.lexBot : undefined;
         } else {
             const args = argsOrState as BotAssociationArgs | undefined;
             if ((!args || args.instanceId === undefined) && !opts.urn) {
@@ -140,13 +140,13 @@ export class BotAssociation extends pulumi.CustomResource {
             if ((!args || args.lexBot === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'lexBot'");
             }
-            inputs["instanceId"] = args ? args.instanceId : undefined;
-            inputs["lexBot"] = args ? args.lexBot : undefined;
+            resourceInputs["instanceId"] = args ? args.instanceId : undefined;
+            resourceInputs["lexBot"] = args ? args.lexBot : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(BotAssociation.__pulumiType, name, inputs, opts);
+        super(BotAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

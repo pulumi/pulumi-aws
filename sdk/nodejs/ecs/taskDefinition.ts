@@ -350,30 +350,30 @@ export class TaskDefinition extends pulumi.CustomResource {
      */
     constructor(name: string, args: TaskDefinitionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: TaskDefinitionArgs | TaskDefinitionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TaskDefinitionState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["containerDefinitions"] = state ? state.containerDefinitions : undefined;
-            inputs["cpu"] = state ? state.cpu : undefined;
-            inputs["ephemeralStorage"] = state ? state.ephemeralStorage : undefined;
-            inputs["executionRoleArn"] = state ? state.executionRoleArn : undefined;
-            inputs["family"] = state ? state.family : undefined;
-            inputs["inferenceAccelerators"] = state ? state.inferenceAccelerators : undefined;
-            inputs["ipcMode"] = state ? state.ipcMode : undefined;
-            inputs["memory"] = state ? state.memory : undefined;
-            inputs["networkMode"] = state ? state.networkMode : undefined;
-            inputs["pidMode"] = state ? state.pidMode : undefined;
-            inputs["placementConstraints"] = state ? state.placementConstraints : undefined;
-            inputs["proxyConfiguration"] = state ? state.proxyConfiguration : undefined;
-            inputs["requiresCompatibilities"] = state ? state.requiresCompatibilities : undefined;
-            inputs["revision"] = state ? state.revision : undefined;
-            inputs["runtimePlatform"] = state ? state.runtimePlatform : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["taskRoleArn"] = state ? state.taskRoleArn : undefined;
-            inputs["volumes"] = state ? state.volumes : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["containerDefinitions"] = state ? state.containerDefinitions : undefined;
+            resourceInputs["cpu"] = state ? state.cpu : undefined;
+            resourceInputs["ephemeralStorage"] = state ? state.ephemeralStorage : undefined;
+            resourceInputs["executionRoleArn"] = state ? state.executionRoleArn : undefined;
+            resourceInputs["family"] = state ? state.family : undefined;
+            resourceInputs["inferenceAccelerators"] = state ? state.inferenceAccelerators : undefined;
+            resourceInputs["ipcMode"] = state ? state.ipcMode : undefined;
+            resourceInputs["memory"] = state ? state.memory : undefined;
+            resourceInputs["networkMode"] = state ? state.networkMode : undefined;
+            resourceInputs["pidMode"] = state ? state.pidMode : undefined;
+            resourceInputs["placementConstraints"] = state ? state.placementConstraints : undefined;
+            resourceInputs["proxyConfiguration"] = state ? state.proxyConfiguration : undefined;
+            resourceInputs["requiresCompatibilities"] = state ? state.requiresCompatibilities : undefined;
+            resourceInputs["revision"] = state ? state.revision : undefined;
+            resourceInputs["runtimePlatform"] = state ? state.runtimePlatform : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["taskRoleArn"] = state ? state.taskRoleArn : undefined;
+            resourceInputs["volumes"] = state ? state.volumes : undefined;
         } else {
             const args = argsOrState as TaskDefinitionArgs | undefined;
             if ((!args || args.containerDefinitions === undefined) && !opts.urn) {
@@ -382,31 +382,31 @@ export class TaskDefinition extends pulumi.CustomResource {
             if ((!args || args.family === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'family'");
             }
-            inputs["containerDefinitions"] = args ? args.containerDefinitions : undefined;
-            inputs["cpu"] = args ? args.cpu : undefined;
-            inputs["ephemeralStorage"] = args ? args.ephemeralStorage : undefined;
-            inputs["executionRoleArn"] = args ? args.executionRoleArn : undefined;
-            inputs["family"] = args ? args.family : undefined;
-            inputs["inferenceAccelerators"] = args ? args.inferenceAccelerators : undefined;
-            inputs["ipcMode"] = args ? args.ipcMode : undefined;
-            inputs["memory"] = args ? args.memory : undefined;
-            inputs["networkMode"] = args ? args.networkMode : undefined;
-            inputs["pidMode"] = args ? args.pidMode : undefined;
-            inputs["placementConstraints"] = args ? args.placementConstraints : undefined;
-            inputs["proxyConfiguration"] = args ? args.proxyConfiguration : undefined;
-            inputs["requiresCompatibilities"] = args ? args.requiresCompatibilities : undefined;
-            inputs["runtimePlatform"] = args ? args.runtimePlatform : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["taskRoleArn"] = args ? args.taskRoleArn : undefined;
-            inputs["volumes"] = args ? args.volumes : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["revision"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["containerDefinitions"] = args ? args.containerDefinitions : undefined;
+            resourceInputs["cpu"] = args ? args.cpu : undefined;
+            resourceInputs["ephemeralStorage"] = args ? args.ephemeralStorage : undefined;
+            resourceInputs["executionRoleArn"] = args ? args.executionRoleArn : undefined;
+            resourceInputs["family"] = args ? args.family : undefined;
+            resourceInputs["inferenceAccelerators"] = args ? args.inferenceAccelerators : undefined;
+            resourceInputs["ipcMode"] = args ? args.ipcMode : undefined;
+            resourceInputs["memory"] = args ? args.memory : undefined;
+            resourceInputs["networkMode"] = args ? args.networkMode : undefined;
+            resourceInputs["pidMode"] = args ? args.pidMode : undefined;
+            resourceInputs["placementConstraints"] = args ? args.placementConstraints : undefined;
+            resourceInputs["proxyConfiguration"] = args ? args.proxyConfiguration : undefined;
+            resourceInputs["requiresCompatibilities"] = args ? args.requiresCompatibilities : undefined;
+            resourceInputs["runtimePlatform"] = args ? args.runtimePlatform : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["taskRoleArn"] = args ? args.taskRoleArn : undefined;
+            resourceInputs["volumes"] = args ? args.volumes : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["revision"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(TaskDefinition.__pulumiType, name, inputs, opts);
+        super(TaskDefinition.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -98,17 +98,17 @@ export class HostedConfigurationVersion extends pulumi.CustomResource {
      */
     constructor(name: string, args: HostedConfigurationVersionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: HostedConfigurationVersionArgs | HostedConfigurationVersionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as HostedConfigurationVersionState | undefined;
-            inputs["applicationId"] = state ? state.applicationId : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["configurationProfileId"] = state ? state.configurationProfileId : undefined;
-            inputs["content"] = state ? state.content : undefined;
-            inputs["contentType"] = state ? state.contentType : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["versionNumber"] = state ? state.versionNumber : undefined;
+            resourceInputs["applicationId"] = state ? state.applicationId : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["configurationProfileId"] = state ? state.configurationProfileId : undefined;
+            resourceInputs["content"] = state ? state.content : undefined;
+            resourceInputs["contentType"] = state ? state.contentType : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["versionNumber"] = state ? state.versionNumber : undefined;
         } else {
             const args = argsOrState as HostedConfigurationVersionArgs | undefined;
             if ((!args || args.applicationId === undefined) && !opts.urn) {
@@ -123,18 +123,18 @@ export class HostedConfigurationVersion extends pulumi.CustomResource {
             if ((!args || args.contentType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'contentType'");
             }
-            inputs["applicationId"] = args ? args.applicationId : undefined;
-            inputs["configurationProfileId"] = args ? args.configurationProfileId : undefined;
-            inputs["content"] = args ? args.content : undefined;
-            inputs["contentType"] = args ? args.contentType : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["versionNumber"] = undefined /*out*/;
+            resourceInputs["applicationId"] = args ? args.applicationId : undefined;
+            resourceInputs["configurationProfileId"] = args ? args.configurationProfileId : undefined;
+            resourceInputs["content"] = args ? args.content : undefined;
+            resourceInputs["contentType"] = args ? args.contentType : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["versionNumber"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(HostedConfigurationVersion.__pulumiType, name, inputs, opts);
+        super(HostedConfigurationVersion.__pulumiType, name, resourceInputs, opts);
     }
 }
 

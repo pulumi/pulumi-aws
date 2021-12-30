@@ -507,7 +507,7 @@ type RoleInput interface {
 }
 
 func (*Role) ElementType() reflect.Type {
-	return reflect.TypeOf((*Role)(nil))
+	return reflect.TypeOf((**Role)(nil)).Elem()
 }
 
 func (i *Role) ToRoleOutput() RoleOutput {
@@ -516,35 +516,6 @@ func (i *Role) ToRoleOutput() RoleOutput {
 
 func (i *Role) ToRoleOutputWithContext(ctx context.Context) RoleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RoleOutput)
-}
-
-func (i *Role) ToRolePtrOutput() RolePtrOutput {
-	return i.ToRolePtrOutputWithContext(context.Background())
-}
-
-func (i *Role) ToRolePtrOutputWithContext(ctx context.Context) RolePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RolePtrOutput)
-}
-
-type RolePtrInput interface {
-	pulumi.Input
-
-	ToRolePtrOutput() RolePtrOutput
-	ToRolePtrOutputWithContext(ctx context.Context) RolePtrOutput
-}
-
-type rolePtrType RoleArgs
-
-func (*rolePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Role)(nil))
-}
-
-func (i *rolePtrType) ToRolePtrOutput() RolePtrOutput {
-	return i.ToRolePtrOutputWithContext(context.Background())
-}
-
-func (i *rolePtrType) ToRolePtrOutputWithContext(ctx context.Context) RolePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RolePtrOutput)
 }
 
 // RoleArrayInput is an input type that accepts RoleArray and RoleArrayOutput values.
@@ -600,7 +571,7 @@ func (i RoleMap) ToRoleMapOutputWithContext(ctx context.Context) RoleMapOutput {
 type RoleOutput struct{ *pulumi.OutputState }
 
 func (RoleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Role)(nil))
+	return reflect.TypeOf((**Role)(nil)).Elem()
 }
 
 func (o RoleOutput) ToRoleOutput() RoleOutput {
@@ -611,44 +582,10 @@ func (o RoleOutput) ToRoleOutputWithContext(ctx context.Context) RoleOutput {
 	return o
 }
 
-func (o RoleOutput) ToRolePtrOutput() RolePtrOutput {
-	return o.ToRolePtrOutputWithContext(context.Background())
-}
-
-func (o RoleOutput) ToRolePtrOutputWithContext(ctx context.Context) RolePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Role) *Role {
-		return &v
-	}).(RolePtrOutput)
-}
-
-type RolePtrOutput struct{ *pulumi.OutputState }
-
-func (RolePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Role)(nil))
-}
-
-func (o RolePtrOutput) ToRolePtrOutput() RolePtrOutput {
-	return o
-}
-
-func (o RolePtrOutput) ToRolePtrOutputWithContext(ctx context.Context) RolePtrOutput {
-	return o
-}
-
-func (o RolePtrOutput) Elem() RoleOutput {
-	return o.ApplyT(func(v *Role) Role {
-		if v != nil {
-			return *v
-		}
-		var ret Role
-		return ret
-	}).(RoleOutput)
-}
-
 type RoleArrayOutput struct{ *pulumi.OutputState }
 
 func (RoleArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Role)(nil))
+	return reflect.TypeOf((*[]*Role)(nil)).Elem()
 }
 
 func (o RoleArrayOutput) ToRoleArrayOutput() RoleArrayOutput {
@@ -660,15 +597,15 @@ func (o RoleArrayOutput) ToRoleArrayOutputWithContext(ctx context.Context) RoleA
 }
 
 func (o RoleArrayOutput) Index(i pulumi.IntInput) RoleOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Role {
-		return vs[0].([]Role)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Role {
+		return vs[0].([]*Role)[vs[1].(int)]
 	}).(RoleOutput)
 }
 
 type RoleMapOutput struct{ *pulumi.OutputState }
 
 func (RoleMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Role)(nil))
+	return reflect.TypeOf((*map[string]*Role)(nil)).Elem()
 }
 
 func (o RoleMapOutput) ToRoleMapOutput() RoleMapOutput {
@@ -680,18 +617,16 @@ func (o RoleMapOutput) ToRoleMapOutputWithContext(ctx context.Context) RoleMapOu
 }
 
 func (o RoleMapOutput) MapIndex(k pulumi.StringInput) RoleOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Role {
-		return vs[0].(map[string]Role)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Role {
+		return vs[0].(map[string]*Role)[vs[1].(string)]
 	}).(RoleOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RoleInput)(nil)).Elem(), &Role{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RolePtrInput)(nil)).Elem(), &Role{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RoleArrayInput)(nil)).Elem(), RoleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RoleMapInput)(nil)).Elem(), RoleMap{})
 	pulumi.RegisterOutputType(RoleOutput{})
-	pulumi.RegisterOutputType(RolePtrOutput{})
 	pulumi.RegisterOutputType(RoleArrayOutput{})
 	pulumi.RegisterOutputType(RoleMapOutput{})
 }

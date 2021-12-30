@@ -109,16 +109,16 @@ export class DomainAssociation extends pulumi.CustomResource {
      */
     constructor(name: string, args: DomainAssociationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DomainAssociationArgs | DomainAssociationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DomainAssociationState | undefined;
-            inputs["appId"] = state ? state.appId : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["certificateVerificationDnsRecord"] = state ? state.certificateVerificationDnsRecord : undefined;
-            inputs["domainName"] = state ? state.domainName : undefined;
-            inputs["subDomains"] = state ? state.subDomains : undefined;
-            inputs["waitForVerification"] = state ? state.waitForVerification : undefined;
+            resourceInputs["appId"] = state ? state.appId : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["certificateVerificationDnsRecord"] = state ? state.certificateVerificationDnsRecord : undefined;
+            resourceInputs["domainName"] = state ? state.domainName : undefined;
+            resourceInputs["subDomains"] = state ? state.subDomains : undefined;
+            resourceInputs["waitForVerification"] = state ? state.waitForVerification : undefined;
         } else {
             const args = argsOrState as DomainAssociationArgs | undefined;
             if ((!args || args.appId === undefined) && !opts.urn) {
@@ -130,17 +130,17 @@ export class DomainAssociation extends pulumi.CustomResource {
             if ((!args || args.subDomains === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subDomains'");
             }
-            inputs["appId"] = args ? args.appId : undefined;
-            inputs["domainName"] = args ? args.domainName : undefined;
-            inputs["subDomains"] = args ? args.subDomains : undefined;
-            inputs["waitForVerification"] = args ? args.waitForVerification : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["certificateVerificationDnsRecord"] = undefined /*out*/;
+            resourceInputs["appId"] = args ? args.appId : undefined;
+            resourceInputs["domainName"] = args ? args.domainName : undefined;
+            resourceInputs["subDomains"] = args ? args.subDomains : undefined;
+            resourceInputs["waitForVerification"] = args ? args.waitForVerification : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["certificateVerificationDnsRecord"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(DomainAssociation.__pulumiType, name, inputs, opts);
+        super(DomainAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

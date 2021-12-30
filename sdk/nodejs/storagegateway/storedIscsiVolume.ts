@@ -166,30 +166,30 @@ export class StoredIscsiVolume extends pulumi.CustomResource {
      */
     constructor(name: string, args: StoredIscsiVolumeArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: StoredIscsiVolumeArgs | StoredIscsiVolumeState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as StoredIscsiVolumeState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["chapEnabled"] = state ? state.chapEnabled : undefined;
-            inputs["diskId"] = state ? state.diskId : undefined;
-            inputs["gatewayArn"] = state ? state.gatewayArn : undefined;
-            inputs["kmsEncrypted"] = state ? state.kmsEncrypted : undefined;
-            inputs["kmsKey"] = state ? state.kmsKey : undefined;
-            inputs["lunNumber"] = state ? state.lunNumber : undefined;
-            inputs["networkInterfaceId"] = state ? state.networkInterfaceId : undefined;
-            inputs["networkInterfacePort"] = state ? state.networkInterfacePort : undefined;
-            inputs["preserveExistingData"] = state ? state.preserveExistingData : undefined;
-            inputs["snapshotId"] = state ? state.snapshotId : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["targetArn"] = state ? state.targetArn : undefined;
-            inputs["targetName"] = state ? state.targetName : undefined;
-            inputs["volumeAttachmentStatus"] = state ? state.volumeAttachmentStatus : undefined;
-            inputs["volumeId"] = state ? state.volumeId : undefined;
-            inputs["volumeSizeInBytes"] = state ? state.volumeSizeInBytes : undefined;
-            inputs["volumeStatus"] = state ? state.volumeStatus : undefined;
-            inputs["volumeType"] = state ? state.volumeType : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["chapEnabled"] = state ? state.chapEnabled : undefined;
+            resourceInputs["diskId"] = state ? state.diskId : undefined;
+            resourceInputs["gatewayArn"] = state ? state.gatewayArn : undefined;
+            resourceInputs["kmsEncrypted"] = state ? state.kmsEncrypted : undefined;
+            resourceInputs["kmsKey"] = state ? state.kmsKey : undefined;
+            resourceInputs["lunNumber"] = state ? state.lunNumber : undefined;
+            resourceInputs["networkInterfaceId"] = state ? state.networkInterfaceId : undefined;
+            resourceInputs["networkInterfacePort"] = state ? state.networkInterfacePort : undefined;
+            resourceInputs["preserveExistingData"] = state ? state.preserveExistingData : undefined;
+            resourceInputs["snapshotId"] = state ? state.snapshotId : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["targetArn"] = state ? state.targetArn : undefined;
+            resourceInputs["targetName"] = state ? state.targetName : undefined;
+            resourceInputs["volumeAttachmentStatus"] = state ? state.volumeAttachmentStatus : undefined;
+            resourceInputs["volumeId"] = state ? state.volumeId : undefined;
+            resourceInputs["volumeSizeInBytes"] = state ? state.volumeSizeInBytes : undefined;
+            resourceInputs["volumeStatus"] = state ? state.volumeStatus : undefined;
+            resourceInputs["volumeType"] = state ? state.volumeType : undefined;
         } else {
             const args = argsOrState as StoredIscsiVolumeArgs | undefined;
             if ((!args || args.diskId === undefined) && !opts.urn) {
@@ -207,31 +207,31 @@ export class StoredIscsiVolume extends pulumi.CustomResource {
             if ((!args || args.targetName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetName'");
             }
-            inputs["diskId"] = args ? args.diskId : undefined;
-            inputs["gatewayArn"] = args ? args.gatewayArn : undefined;
-            inputs["kmsEncrypted"] = args ? args.kmsEncrypted : undefined;
-            inputs["kmsKey"] = args ? args.kmsKey : undefined;
-            inputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
-            inputs["preserveExistingData"] = args ? args.preserveExistingData : undefined;
-            inputs["snapshotId"] = args ? args.snapshotId : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["targetName"] = args ? args.targetName : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["chapEnabled"] = undefined /*out*/;
-            inputs["lunNumber"] = undefined /*out*/;
-            inputs["networkInterfacePort"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
-            inputs["targetArn"] = undefined /*out*/;
-            inputs["volumeAttachmentStatus"] = undefined /*out*/;
-            inputs["volumeId"] = undefined /*out*/;
-            inputs["volumeSizeInBytes"] = undefined /*out*/;
-            inputs["volumeStatus"] = undefined /*out*/;
-            inputs["volumeType"] = undefined /*out*/;
+            resourceInputs["diskId"] = args ? args.diskId : undefined;
+            resourceInputs["gatewayArn"] = args ? args.gatewayArn : undefined;
+            resourceInputs["kmsEncrypted"] = args ? args.kmsEncrypted : undefined;
+            resourceInputs["kmsKey"] = args ? args.kmsKey : undefined;
+            resourceInputs["networkInterfaceId"] = args ? args.networkInterfaceId : undefined;
+            resourceInputs["preserveExistingData"] = args ? args.preserveExistingData : undefined;
+            resourceInputs["snapshotId"] = args ? args.snapshotId : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["targetName"] = args ? args.targetName : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["chapEnabled"] = undefined /*out*/;
+            resourceInputs["lunNumber"] = undefined /*out*/;
+            resourceInputs["networkInterfacePort"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["targetArn"] = undefined /*out*/;
+            resourceInputs["volumeAttachmentStatus"] = undefined /*out*/;
+            resourceInputs["volumeId"] = undefined /*out*/;
+            resourceInputs["volumeSizeInBytes"] = undefined /*out*/;
+            resourceInputs["volumeStatus"] = undefined /*out*/;
+            resourceInputs["volumeType"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(StoredIscsiVolume.__pulumiType, name, inputs, opts);
+        super(StoredIscsiVolume.__pulumiType, name, resourceInputs, opts);
     }
 }
 

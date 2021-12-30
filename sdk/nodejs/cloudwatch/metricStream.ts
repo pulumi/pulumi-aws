@@ -203,23 +203,23 @@ export class MetricStream extends pulumi.CustomResource {
      */
     constructor(name: string, args: MetricStreamArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: MetricStreamArgs | MetricStreamState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MetricStreamState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["creationDate"] = state ? state.creationDate : undefined;
-            inputs["excludeFilters"] = state ? state.excludeFilters : undefined;
-            inputs["firehoseArn"] = state ? state.firehoseArn : undefined;
-            inputs["includeFilters"] = state ? state.includeFilters : undefined;
-            inputs["lastUpdateDate"] = state ? state.lastUpdateDate : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["namePrefix"] = state ? state.namePrefix : undefined;
-            inputs["outputFormat"] = state ? state.outputFormat : undefined;
-            inputs["roleArn"] = state ? state.roleArn : undefined;
-            inputs["state"] = state ? state.state : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["creationDate"] = state ? state.creationDate : undefined;
+            resourceInputs["excludeFilters"] = state ? state.excludeFilters : undefined;
+            resourceInputs["firehoseArn"] = state ? state.firehoseArn : undefined;
+            resourceInputs["includeFilters"] = state ? state.includeFilters : undefined;
+            resourceInputs["lastUpdateDate"] = state ? state.lastUpdateDate : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
+            resourceInputs["outputFormat"] = state ? state.outputFormat : undefined;
+            resourceInputs["roleArn"] = state ? state.roleArn : undefined;
+            resourceInputs["state"] = state ? state.state : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as MetricStreamArgs | undefined;
             if ((!args || args.firehoseArn === undefined) && !opts.urn) {
@@ -231,24 +231,24 @@ export class MetricStream extends pulumi.CustomResource {
             if ((!args || args.roleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            inputs["excludeFilters"] = args ? args.excludeFilters : undefined;
-            inputs["firehoseArn"] = args ? args.firehoseArn : undefined;
-            inputs["includeFilters"] = args ? args.includeFilters : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["namePrefix"] = args ? args.namePrefix : undefined;
-            inputs["outputFormat"] = args ? args.outputFormat : undefined;
-            inputs["roleArn"] = args ? args.roleArn : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["creationDate"] = undefined /*out*/;
-            inputs["lastUpdateDate"] = undefined /*out*/;
-            inputs["state"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["excludeFilters"] = args ? args.excludeFilters : undefined;
+            resourceInputs["firehoseArn"] = args ? args.firehoseArn : undefined;
+            resourceInputs["includeFilters"] = args ? args.includeFilters : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
+            resourceInputs["outputFormat"] = args ? args.outputFormat : undefined;
+            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["creationDate"] = undefined /*out*/;
+            resourceInputs["lastUpdateDate"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(MetricStream.__pulumiType, name, inputs, opts);
+        super(MetricStream.__pulumiType, name, resourceInputs, opts);
     }
 }
 

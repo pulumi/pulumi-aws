@@ -72,25 +72,25 @@ export class StaticIp extends pulumi.CustomResource {
      */
     constructor(name: string, args?: StaticIpArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: StaticIpArgs | StaticIpState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as StaticIpState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["ipAddress"] = state ? state.ipAddress : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["supportCode"] = state ? state.supportCode : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["ipAddress"] = state ? state.ipAddress : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["supportCode"] = state ? state.supportCode : undefined;
         } else {
             const args = argsOrState as StaticIpArgs | undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["ipAddress"] = undefined /*out*/;
-            inputs["supportCode"] = undefined /*out*/;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["ipAddress"] = undefined /*out*/;
+            resourceInputs["supportCode"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(StaticIp.__pulumiType, name, inputs, opts);
+        super(StaticIp.__pulumiType, name, resourceInputs, opts);
     }
 }
 

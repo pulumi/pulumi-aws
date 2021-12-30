@@ -51,47 +51,6 @@ func (i AliasRoutingStrategyArgs) ToAliasRoutingStrategyOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(AliasRoutingStrategyOutput)
 }
 
-func (i AliasRoutingStrategyArgs) ToAliasRoutingStrategyPtrOutput() AliasRoutingStrategyPtrOutput {
-	return i.ToAliasRoutingStrategyPtrOutputWithContext(context.Background())
-}
-
-func (i AliasRoutingStrategyArgs) ToAliasRoutingStrategyPtrOutputWithContext(ctx context.Context) AliasRoutingStrategyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AliasRoutingStrategyOutput).ToAliasRoutingStrategyPtrOutputWithContext(ctx)
-}
-
-// AliasRoutingStrategyPtrInput is an input type that accepts AliasRoutingStrategyArgs, AliasRoutingStrategyPtr and AliasRoutingStrategyPtrOutput values.
-// You can construct a concrete instance of `AliasRoutingStrategyPtrInput` via:
-//
-//          AliasRoutingStrategyArgs{...}
-//
-//  or:
-//
-//          nil
-type AliasRoutingStrategyPtrInput interface {
-	pulumi.Input
-
-	ToAliasRoutingStrategyPtrOutput() AliasRoutingStrategyPtrOutput
-	ToAliasRoutingStrategyPtrOutputWithContext(context.Context) AliasRoutingStrategyPtrOutput
-}
-
-type aliasRoutingStrategyPtrType AliasRoutingStrategyArgs
-
-func AliasRoutingStrategyPtr(v *AliasRoutingStrategyArgs) AliasRoutingStrategyPtrInput {
-	return (*aliasRoutingStrategyPtrType)(v)
-}
-
-func (*aliasRoutingStrategyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AliasRoutingStrategy)(nil)).Elem()
-}
-
-func (i *aliasRoutingStrategyPtrType) ToAliasRoutingStrategyPtrOutput() AliasRoutingStrategyPtrOutput {
-	return i.ToAliasRoutingStrategyPtrOutputWithContext(context.Background())
-}
-
-func (i *aliasRoutingStrategyPtrType) ToAliasRoutingStrategyPtrOutputWithContext(ctx context.Context) AliasRoutingStrategyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AliasRoutingStrategyPtrOutput)
-}
-
 type AliasRoutingStrategyOutput struct{ *pulumi.OutputState }
 
 func (AliasRoutingStrategyOutput) ElementType() reflect.Type {
@@ -104,16 +63,6 @@ func (o AliasRoutingStrategyOutput) ToAliasRoutingStrategyOutput() AliasRoutingS
 
 func (o AliasRoutingStrategyOutput) ToAliasRoutingStrategyOutputWithContext(ctx context.Context) AliasRoutingStrategyOutput {
 	return o
-}
-
-func (o AliasRoutingStrategyOutput) ToAliasRoutingStrategyPtrOutput() AliasRoutingStrategyPtrOutput {
-	return o.ToAliasRoutingStrategyPtrOutputWithContext(context.Background())
-}
-
-func (o AliasRoutingStrategyOutput) ToAliasRoutingStrategyPtrOutputWithContext(ctx context.Context) AliasRoutingStrategyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AliasRoutingStrategy) *AliasRoutingStrategy {
-		return &v
-	}).(AliasRoutingStrategyPtrOutput)
 }
 
 // ID of the Gamelift Fleet to point the alias to.
@@ -129,60 +78,6 @@ func (o AliasRoutingStrategyOutput) Message() pulumi.StringPtrOutput {
 // Type of routing strategyE.g., `SIMPLE` or `TERMINAL`
 func (o AliasRoutingStrategyOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AliasRoutingStrategy) string { return v.Type }).(pulumi.StringOutput)
-}
-
-type AliasRoutingStrategyPtrOutput struct{ *pulumi.OutputState }
-
-func (AliasRoutingStrategyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AliasRoutingStrategy)(nil)).Elem()
-}
-
-func (o AliasRoutingStrategyPtrOutput) ToAliasRoutingStrategyPtrOutput() AliasRoutingStrategyPtrOutput {
-	return o
-}
-
-func (o AliasRoutingStrategyPtrOutput) ToAliasRoutingStrategyPtrOutputWithContext(ctx context.Context) AliasRoutingStrategyPtrOutput {
-	return o
-}
-
-func (o AliasRoutingStrategyPtrOutput) Elem() AliasRoutingStrategyOutput {
-	return o.ApplyT(func(v *AliasRoutingStrategy) AliasRoutingStrategy {
-		if v != nil {
-			return *v
-		}
-		var ret AliasRoutingStrategy
-		return ret
-	}).(AliasRoutingStrategyOutput)
-}
-
-// ID of the Gamelift Fleet to point the alias to.
-func (o AliasRoutingStrategyPtrOutput) FleetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AliasRoutingStrategy) *string {
-		if v == nil {
-			return nil
-		}
-		return v.FleetId
-	}).(pulumi.StringPtrOutput)
-}
-
-// Message text to be used with the `TERMINAL` routing strategy.
-func (o AliasRoutingStrategyPtrOutput) Message() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AliasRoutingStrategy) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Message
-	}).(pulumi.StringPtrOutput)
-}
-
-// Type of routing strategyE.g., `SIMPLE` or `TERMINAL`
-func (o AliasRoutingStrategyPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AliasRoutingStrategy) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Type
-	}).(pulumi.StringPtrOutput)
 }
 
 type BuildStorageLocation struct {
@@ -226,47 +121,6 @@ func (i BuildStorageLocationArgs) ToBuildStorageLocationOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(BuildStorageLocationOutput)
 }
 
-func (i BuildStorageLocationArgs) ToBuildStorageLocationPtrOutput() BuildStorageLocationPtrOutput {
-	return i.ToBuildStorageLocationPtrOutputWithContext(context.Background())
-}
-
-func (i BuildStorageLocationArgs) ToBuildStorageLocationPtrOutputWithContext(ctx context.Context) BuildStorageLocationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BuildStorageLocationOutput).ToBuildStorageLocationPtrOutputWithContext(ctx)
-}
-
-// BuildStorageLocationPtrInput is an input type that accepts BuildStorageLocationArgs, BuildStorageLocationPtr and BuildStorageLocationPtrOutput values.
-// You can construct a concrete instance of `BuildStorageLocationPtrInput` via:
-//
-//          BuildStorageLocationArgs{...}
-//
-//  or:
-//
-//          nil
-type BuildStorageLocationPtrInput interface {
-	pulumi.Input
-
-	ToBuildStorageLocationPtrOutput() BuildStorageLocationPtrOutput
-	ToBuildStorageLocationPtrOutputWithContext(context.Context) BuildStorageLocationPtrOutput
-}
-
-type buildStorageLocationPtrType BuildStorageLocationArgs
-
-func BuildStorageLocationPtr(v *BuildStorageLocationArgs) BuildStorageLocationPtrInput {
-	return (*buildStorageLocationPtrType)(v)
-}
-
-func (*buildStorageLocationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BuildStorageLocation)(nil)).Elem()
-}
-
-func (i *buildStorageLocationPtrType) ToBuildStorageLocationPtrOutput() BuildStorageLocationPtrOutput {
-	return i.ToBuildStorageLocationPtrOutputWithContext(context.Background())
-}
-
-func (i *buildStorageLocationPtrType) ToBuildStorageLocationPtrOutputWithContext(ctx context.Context) BuildStorageLocationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BuildStorageLocationPtrOutput)
-}
-
 type BuildStorageLocationOutput struct{ *pulumi.OutputState }
 
 func (BuildStorageLocationOutput) ElementType() reflect.Type {
@@ -279,16 +133,6 @@ func (o BuildStorageLocationOutput) ToBuildStorageLocationOutput() BuildStorageL
 
 func (o BuildStorageLocationOutput) ToBuildStorageLocationOutputWithContext(ctx context.Context) BuildStorageLocationOutput {
 	return o
-}
-
-func (o BuildStorageLocationOutput) ToBuildStorageLocationPtrOutput() BuildStorageLocationPtrOutput {
-	return o.ToBuildStorageLocationPtrOutputWithContext(context.Background())
-}
-
-func (o BuildStorageLocationOutput) ToBuildStorageLocationPtrOutputWithContext(ctx context.Context) BuildStorageLocationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BuildStorageLocation) *BuildStorageLocation {
-		return &v
-	}).(BuildStorageLocationPtrOutput)
 }
 
 // Name of your S3 bucket.
@@ -304,60 +148,6 @@ func (o BuildStorageLocationOutput) Key() pulumi.StringOutput {
 // ARN of the access role that allows Amazon GameLift to access your S3 bucket.
 func (o BuildStorageLocationOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v BuildStorageLocation) string { return v.RoleArn }).(pulumi.StringOutput)
-}
-
-type BuildStorageLocationPtrOutput struct{ *pulumi.OutputState }
-
-func (BuildStorageLocationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**BuildStorageLocation)(nil)).Elem()
-}
-
-func (o BuildStorageLocationPtrOutput) ToBuildStorageLocationPtrOutput() BuildStorageLocationPtrOutput {
-	return o
-}
-
-func (o BuildStorageLocationPtrOutput) ToBuildStorageLocationPtrOutputWithContext(ctx context.Context) BuildStorageLocationPtrOutput {
-	return o
-}
-
-func (o BuildStorageLocationPtrOutput) Elem() BuildStorageLocationOutput {
-	return o.ApplyT(func(v *BuildStorageLocation) BuildStorageLocation {
-		if v != nil {
-			return *v
-		}
-		var ret BuildStorageLocation
-		return ret
-	}).(BuildStorageLocationOutput)
-}
-
-// Name of your S3 bucket.
-func (o BuildStorageLocationPtrOutput) Bucket() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *BuildStorageLocation) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Bucket
-	}).(pulumi.StringPtrOutput)
-}
-
-// Name of the zip file containing your build files.
-func (o BuildStorageLocationPtrOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *BuildStorageLocation) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Key
-	}).(pulumi.StringPtrOutput)
-}
-
-// ARN of the access role that allows Amazon GameLift to access your S3 bucket.
-func (o BuildStorageLocationPtrOutput) RoleArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *BuildStorageLocation) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.RoleArn
-	}).(pulumi.StringPtrOutput)
 }
 
 type FleetEc2InboundPermission struct {
@@ -1038,9 +828,7 @@ func (o GameSessionQueuePlayerLatencyPolicyArrayOutput) Index(i pulumi.IntInput)
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AliasRoutingStrategyInput)(nil)).Elem(), AliasRoutingStrategyArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AliasRoutingStrategyPtrInput)(nil)).Elem(), AliasRoutingStrategyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BuildStorageLocationInput)(nil)).Elem(), BuildStorageLocationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BuildStorageLocationPtrInput)(nil)).Elem(), BuildStorageLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetEc2InboundPermissionInput)(nil)).Elem(), FleetEc2InboundPermissionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetEc2InboundPermissionArrayInput)(nil)).Elem(), FleetEc2InboundPermissionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetResourceCreationLimitPolicyInput)(nil)).Elem(), FleetResourceCreationLimitPolicyArgs{})
@@ -1052,9 +840,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GameSessionQueuePlayerLatencyPolicyInput)(nil)).Elem(), GameSessionQueuePlayerLatencyPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GameSessionQueuePlayerLatencyPolicyArrayInput)(nil)).Elem(), GameSessionQueuePlayerLatencyPolicyArray{})
 	pulumi.RegisterOutputType(AliasRoutingStrategyOutput{})
-	pulumi.RegisterOutputType(AliasRoutingStrategyPtrOutput{})
 	pulumi.RegisterOutputType(BuildStorageLocationOutput{})
-	pulumi.RegisterOutputType(BuildStorageLocationPtrOutput{})
 	pulumi.RegisterOutputType(FleetEc2InboundPermissionOutput{})
 	pulumi.RegisterOutputType(FleetEc2InboundPermissionArrayOutput{})
 	pulumi.RegisterOutputType(FleetResourceCreationLimitPolicyOutput{})

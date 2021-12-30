@@ -35,15 +35,15 @@ namespace Pulumi.Aws.Kms
         ///             Description = "oauth config",
         ///             IsEnabled = true,
         ///         });
-        ///         var oauth = oauthConfig.KeyId.Apply(keyId =&gt; Aws.Kms.GetCipherText.InvokeAsync(new Aws.Kms.GetCipherTextArgs
+        ///         var oauth = Aws.Kms.GetCipherText.Invoke(new Aws.Kms.GetCipherTextInvokeArgs
         ///         {
-        ///             KeyId = keyId,
+        ///             KeyId = oauthConfig.KeyId,
         ///             Plaintext = @"{
         ///   ""client_id"": ""e587dbae22222f55da22"",
         ///   ""client_secret"": ""8289575d00000ace55e1815ec13673955721b8a5""
         /// }
         /// ",
-        ///         }));
+        ///         });
         ///     }
         /// 
         /// }
@@ -77,15 +77,15 @@ namespace Pulumi.Aws.Kms
         ///             Description = "oauth config",
         ///             IsEnabled = true,
         ///         });
-        ///         var oauth = oauthConfig.KeyId.Apply(keyId =&gt; Aws.Kms.GetCipherText.InvokeAsync(new Aws.Kms.GetCipherTextArgs
+        ///         var oauth = Aws.Kms.GetCipherText.Invoke(new Aws.Kms.GetCipherTextInvokeArgs
         ///         {
-        ///             KeyId = keyId,
+        ///             KeyId = oauthConfig.KeyId,
         ///             Plaintext = @"{
         ///   ""client_id"": ""e587dbae22222f55da22"",
         ///   ""client_secret"": ""8289575d00000ace55e1815ec13673955721b8a5""
         /// }
         /// ",
-        ///         }));
+        ///         });
         ///     }
         /// 
         /// }

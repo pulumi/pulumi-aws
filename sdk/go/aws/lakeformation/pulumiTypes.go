@@ -955,61 +955,6 @@ type GetDataLakeSettingsCreateDatabaseDefaultPermission struct {
 	Principal string `pulumi:"principal"`
 }
 
-// GetDataLakeSettingsCreateDatabaseDefaultPermissionInput is an input type that accepts GetDataLakeSettingsCreateDatabaseDefaultPermissionArgs and GetDataLakeSettingsCreateDatabaseDefaultPermissionOutput values.
-// You can construct a concrete instance of `GetDataLakeSettingsCreateDatabaseDefaultPermissionInput` via:
-//
-//          GetDataLakeSettingsCreateDatabaseDefaultPermissionArgs{...}
-type GetDataLakeSettingsCreateDatabaseDefaultPermissionInput interface {
-	pulumi.Input
-
-	ToGetDataLakeSettingsCreateDatabaseDefaultPermissionOutput() GetDataLakeSettingsCreateDatabaseDefaultPermissionOutput
-	ToGetDataLakeSettingsCreateDatabaseDefaultPermissionOutputWithContext(context.Context) GetDataLakeSettingsCreateDatabaseDefaultPermissionOutput
-}
-
-type GetDataLakeSettingsCreateDatabaseDefaultPermissionArgs struct {
-	// List of permissions granted to the principal.
-	Permissions pulumi.StringArrayInput `pulumi:"permissions"`
-	// Principal who is granted permissions.
-	Principal pulumi.StringInput `pulumi:"principal"`
-}
-
-func (GetDataLakeSettingsCreateDatabaseDefaultPermissionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetDataLakeSettingsCreateDatabaseDefaultPermission)(nil)).Elem()
-}
-
-func (i GetDataLakeSettingsCreateDatabaseDefaultPermissionArgs) ToGetDataLakeSettingsCreateDatabaseDefaultPermissionOutput() GetDataLakeSettingsCreateDatabaseDefaultPermissionOutput {
-	return i.ToGetDataLakeSettingsCreateDatabaseDefaultPermissionOutputWithContext(context.Background())
-}
-
-func (i GetDataLakeSettingsCreateDatabaseDefaultPermissionArgs) ToGetDataLakeSettingsCreateDatabaseDefaultPermissionOutputWithContext(ctx context.Context) GetDataLakeSettingsCreateDatabaseDefaultPermissionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDataLakeSettingsCreateDatabaseDefaultPermissionOutput)
-}
-
-// GetDataLakeSettingsCreateDatabaseDefaultPermissionArrayInput is an input type that accepts GetDataLakeSettingsCreateDatabaseDefaultPermissionArray and GetDataLakeSettingsCreateDatabaseDefaultPermissionArrayOutput values.
-// You can construct a concrete instance of `GetDataLakeSettingsCreateDatabaseDefaultPermissionArrayInput` via:
-//
-//          GetDataLakeSettingsCreateDatabaseDefaultPermissionArray{ GetDataLakeSettingsCreateDatabaseDefaultPermissionArgs{...} }
-type GetDataLakeSettingsCreateDatabaseDefaultPermissionArrayInput interface {
-	pulumi.Input
-
-	ToGetDataLakeSettingsCreateDatabaseDefaultPermissionArrayOutput() GetDataLakeSettingsCreateDatabaseDefaultPermissionArrayOutput
-	ToGetDataLakeSettingsCreateDatabaseDefaultPermissionArrayOutputWithContext(context.Context) GetDataLakeSettingsCreateDatabaseDefaultPermissionArrayOutput
-}
-
-type GetDataLakeSettingsCreateDatabaseDefaultPermissionArray []GetDataLakeSettingsCreateDatabaseDefaultPermissionInput
-
-func (GetDataLakeSettingsCreateDatabaseDefaultPermissionArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetDataLakeSettingsCreateDatabaseDefaultPermission)(nil)).Elem()
-}
-
-func (i GetDataLakeSettingsCreateDatabaseDefaultPermissionArray) ToGetDataLakeSettingsCreateDatabaseDefaultPermissionArrayOutput() GetDataLakeSettingsCreateDatabaseDefaultPermissionArrayOutput {
-	return i.ToGetDataLakeSettingsCreateDatabaseDefaultPermissionArrayOutputWithContext(context.Background())
-}
-
-func (i GetDataLakeSettingsCreateDatabaseDefaultPermissionArray) ToGetDataLakeSettingsCreateDatabaseDefaultPermissionArrayOutputWithContext(ctx context.Context) GetDataLakeSettingsCreateDatabaseDefaultPermissionArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDataLakeSettingsCreateDatabaseDefaultPermissionArrayOutput)
-}
-
 type GetDataLakeSettingsCreateDatabaseDefaultPermissionOutput struct{ *pulumi.OutputState }
 
 func (GetDataLakeSettingsCreateDatabaseDefaultPermissionOutput) ElementType() reflect.Type {
@@ -1059,61 +1004,6 @@ type GetDataLakeSettingsCreateTableDefaultPermission struct {
 	Permissions []string `pulumi:"permissions"`
 	// Principal who is granted permissions.
 	Principal string `pulumi:"principal"`
-}
-
-// GetDataLakeSettingsCreateTableDefaultPermissionInput is an input type that accepts GetDataLakeSettingsCreateTableDefaultPermissionArgs and GetDataLakeSettingsCreateTableDefaultPermissionOutput values.
-// You can construct a concrete instance of `GetDataLakeSettingsCreateTableDefaultPermissionInput` via:
-//
-//          GetDataLakeSettingsCreateTableDefaultPermissionArgs{...}
-type GetDataLakeSettingsCreateTableDefaultPermissionInput interface {
-	pulumi.Input
-
-	ToGetDataLakeSettingsCreateTableDefaultPermissionOutput() GetDataLakeSettingsCreateTableDefaultPermissionOutput
-	ToGetDataLakeSettingsCreateTableDefaultPermissionOutputWithContext(context.Context) GetDataLakeSettingsCreateTableDefaultPermissionOutput
-}
-
-type GetDataLakeSettingsCreateTableDefaultPermissionArgs struct {
-	// List of permissions granted to the principal.
-	Permissions pulumi.StringArrayInput `pulumi:"permissions"`
-	// Principal who is granted permissions.
-	Principal pulumi.StringInput `pulumi:"principal"`
-}
-
-func (GetDataLakeSettingsCreateTableDefaultPermissionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetDataLakeSettingsCreateTableDefaultPermission)(nil)).Elem()
-}
-
-func (i GetDataLakeSettingsCreateTableDefaultPermissionArgs) ToGetDataLakeSettingsCreateTableDefaultPermissionOutput() GetDataLakeSettingsCreateTableDefaultPermissionOutput {
-	return i.ToGetDataLakeSettingsCreateTableDefaultPermissionOutputWithContext(context.Background())
-}
-
-func (i GetDataLakeSettingsCreateTableDefaultPermissionArgs) ToGetDataLakeSettingsCreateTableDefaultPermissionOutputWithContext(ctx context.Context) GetDataLakeSettingsCreateTableDefaultPermissionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDataLakeSettingsCreateTableDefaultPermissionOutput)
-}
-
-// GetDataLakeSettingsCreateTableDefaultPermissionArrayInput is an input type that accepts GetDataLakeSettingsCreateTableDefaultPermissionArray and GetDataLakeSettingsCreateTableDefaultPermissionArrayOutput values.
-// You can construct a concrete instance of `GetDataLakeSettingsCreateTableDefaultPermissionArrayInput` via:
-//
-//          GetDataLakeSettingsCreateTableDefaultPermissionArray{ GetDataLakeSettingsCreateTableDefaultPermissionArgs{...} }
-type GetDataLakeSettingsCreateTableDefaultPermissionArrayInput interface {
-	pulumi.Input
-
-	ToGetDataLakeSettingsCreateTableDefaultPermissionArrayOutput() GetDataLakeSettingsCreateTableDefaultPermissionArrayOutput
-	ToGetDataLakeSettingsCreateTableDefaultPermissionArrayOutputWithContext(context.Context) GetDataLakeSettingsCreateTableDefaultPermissionArrayOutput
-}
-
-type GetDataLakeSettingsCreateTableDefaultPermissionArray []GetDataLakeSettingsCreateTableDefaultPermissionInput
-
-func (GetDataLakeSettingsCreateTableDefaultPermissionArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetDataLakeSettingsCreateTableDefaultPermission)(nil)).Elem()
-}
-
-func (i GetDataLakeSettingsCreateTableDefaultPermissionArray) ToGetDataLakeSettingsCreateTableDefaultPermissionArrayOutput() GetDataLakeSettingsCreateTableDefaultPermissionArrayOutput {
-	return i.ToGetDataLakeSettingsCreateTableDefaultPermissionArrayOutputWithContext(context.Background())
-}
-
-func (i GetDataLakeSettingsCreateTableDefaultPermissionArray) ToGetDataLakeSettingsCreateTableDefaultPermissionArrayOutputWithContext(ctx context.Context) GetDataLakeSettingsCreateTableDefaultPermissionArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDataLakeSettingsCreateTableDefaultPermissionArrayOutput)
 }
 
 type GetDataLakeSettingsCreateTableDefaultPermissionOutput struct{ *pulumi.OutputState }
@@ -1911,10 +1801,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PermissionsTablePtrInput)(nil)).Elem(), PermissionsTableArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PermissionsTableWithColumnsInput)(nil)).Elem(), PermissionsTableWithColumnsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PermissionsTableWithColumnsPtrInput)(nil)).Elem(), PermissionsTableWithColumnsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetDataLakeSettingsCreateDatabaseDefaultPermissionInput)(nil)).Elem(), GetDataLakeSettingsCreateDatabaseDefaultPermissionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetDataLakeSettingsCreateDatabaseDefaultPermissionArrayInput)(nil)).Elem(), GetDataLakeSettingsCreateDatabaseDefaultPermissionArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetDataLakeSettingsCreateTableDefaultPermissionInput)(nil)).Elem(), GetDataLakeSettingsCreateTableDefaultPermissionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetDataLakeSettingsCreateTableDefaultPermissionArrayInput)(nil)).Elem(), GetDataLakeSettingsCreateTableDefaultPermissionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPermissionsDataLocationInput)(nil)).Elem(), GetPermissionsDataLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPermissionsDataLocationPtrInput)(nil)).Elem(), GetPermissionsDataLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPermissionsDatabaseInput)(nil)).Elem(), GetPermissionsDatabaseArgs{})

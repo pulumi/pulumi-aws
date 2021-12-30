@@ -205,7 +205,7 @@ type ReportGroupInput interface {
 }
 
 func (*ReportGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReportGroup)(nil))
+	return reflect.TypeOf((**ReportGroup)(nil)).Elem()
 }
 
 func (i *ReportGroup) ToReportGroupOutput() ReportGroupOutput {
@@ -214,35 +214,6 @@ func (i *ReportGroup) ToReportGroupOutput() ReportGroupOutput {
 
 func (i *ReportGroup) ToReportGroupOutputWithContext(ctx context.Context) ReportGroupOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ReportGroupOutput)
-}
-
-func (i *ReportGroup) ToReportGroupPtrOutput() ReportGroupPtrOutput {
-	return i.ToReportGroupPtrOutputWithContext(context.Background())
-}
-
-func (i *ReportGroup) ToReportGroupPtrOutputWithContext(ctx context.Context) ReportGroupPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReportGroupPtrOutput)
-}
-
-type ReportGroupPtrInput interface {
-	pulumi.Input
-
-	ToReportGroupPtrOutput() ReportGroupPtrOutput
-	ToReportGroupPtrOutputWithContext(ctx context.Context) ReportGroupPtrOutput
-}
-
-type reportGroupPtrType ReportGroupArgs
-
-func (*reportGroupPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ReportGroup)(nil))
-}
-
-func (i *reportGroupPtrType) ToReportGroupPtrOutput() ReportGroupPtrOutput {
-	return i.ToReportGroupPtrOutputWithContext(context.Background())
-}
-
-func (i *reportGroupPtrType) ToReportGroupPtrOutputWithContext(ctx context.Context) ReportGroupPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReportGroupPtrOutput)
 }
 
 // ReportGroupArrayInput is an input type that accepts ReportGroupArray and ReportGroupArrayOutput values.
@@ -298,7 +269,7 @@ func (i ReportGroupMap) ToReportGroupMapOutputWithContext(ctx context.Context) R
 type ReportGroupOutput struct{ *pulumi.OutputState }
 
 func (ReportGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReportGroup)(nil))
+	return reflect.TypeOf((**ReportGroup)(nil)).Elem()
 }
 
 func (o ReportGroupOutput) ToReportGroupOutput() ReportGroupOutput {
@@ -309,44 +280,10 @@ func (o ReportGroupOutput) ToReportGroupOutputWithContext(ctx context.Context) R
 	return o
 }
 
-func (o ReportGroupOutput) ToReportGroupPtrOutput() ReportGroupPtrOutput {
-	return o.ToReportGroupPtrOutputWithContext(context.Background())
-}
-
-func (o ReportGroupOutput) ToReportGroupPtrOutputWithContext(ctx context.Context) ReportGroupPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReportGroup) *ReportGroup {
-		return &v
-	}).(ReportGroupPtrOutput)
-}
-
-type ReportGroupPtrOutput struct{ *pulumi.OutputState }
-
-func (ReportGroupPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ReportGroup)(nil))
-}
-
-func (o ReportGroupPtrOutput) ToReportGroupPtrOutput() ReportGroupPtrOutput {
-	return o
-}
-
-func (o ReportGroupPtrOutput) ToReportGroupPtrOutputWithContext(ctx context.Context) ReportGroupPtrOutput {
-	return o
-}
-
-func (o ReportGroupPtrOutput) Elem() ReportGroupOutput {
-	return o.ApplyT(func(v *ReportGroup) ReportGroup {
-		if v != nil {
-			return *v
-		}
-		var ret ReportGroup
-		return ret
-	}).(ReportGroupOutput)
-}
-
 type ReportGroupArrayOutput struct{ *pulumi.OutputState }
 
 func (ReportGroupArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ReportGroup)(nil))
+	return reflect.TypeOf((*[]*ReportGroup)(nil)).Elem()
 }
 
 func (o ReportGroupArrayOutput) ToReportGroupArrayOutput() ReportGroupArrayOutput {
@@ -358,15 +295,15 @@ func (o ReportGroupArrayOutput) ToReportGroupArrayOutputWithContext(ctx context.
 }
 
 func (o ReportGroupArrayOutput) Index(i pulumi.IntInput) ReportGroupOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ReportGroup {
-		return vs[0].([]ReportGroup)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ReportGroup {
+		return vs[0].([]*ReportGroup)[vs[1].(int)]
 	}).(ReportGroupOutput)
 }
 
 type ReportGroupMapOutput struct{ *pulumi.OutputState }
 
 func (ReportGroupMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ReportGroup)(nil))
+	return reflect.TypeOf((*map[string]*ReportGroup)(nil)).Elem()
 }
 
 func (o ReportGroupMapOutput) ToReportGroupMapOutput() ReportGroupMapOutput {
@@ -378,18 +315,16 @@ func (o ReportGroupMapOutput) ToReportGroupMapOutputWithContext(ctx context.Cont
 }
 
 func (o ReportGroupMapOutput) MapIndex(k pulumi.StringInput) ReportGroupOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ReportGroup {
-		return vs[0].(map[string]ReportGroup)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ReportGroup {
+		return vs[0].(map[string]*ReportGroup)[vs[1].(string)]
 	}).(ReportGroupOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ReportGroupInput)(nil)).Elem(), &ReportGroup{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ReportGroupPtrInput)(nil)).Elem(), &ReportGroup{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReportGroupArrayInput)(nil)).Elem(), ReportGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReportGroupMapInput)(nil)).Elem(), ReportGroupMap{})
 	pulumi.RegisterOutputType(ReportGroupOutput{})
-	pulumi.RegisterOutputType(ReportGroupPtrOutput{})
 	pulumi.RegisterOutputType(ReportGroupArrayOutput{})
 	pulumi.RegisterOutputType(ReportGroupMapOutput{})
 }

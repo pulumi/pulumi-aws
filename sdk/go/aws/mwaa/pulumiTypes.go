@@ -19,63 +19,6 @@ type EnvironmentLastUpdated struct {
 	Status *string `pulumi:"status"`
 }
 
-// EnvironmentLastUpdatedInput is an input type that accepts EnvironmentLastUpdatedArgs and EnvironmentLastUpdatedOutput values.
-// You can construct a concrete instance of `EnvironmentLastUpdatedInput` via:
-//
-//          EnvironmentLastUpdatedArgs{...}
-type EnvironmentLastUpdatedInput interface {
-	pulumi.Input
-
-	ToEnvironmentLastUpdatedOutput() EnvironmentLastUpdatedOutput
-	ToEnvironmentLastUpdatedOutputWithContext(context.Context) EnvironmentLastUpdatedOutput
-}
-
-type EnvironmentLastUpdatedArgs struct {
-	// The Created At date of the MWAA Environment
-	// * `logging_configuration[0].<LOG_CONFIGURATION_TYPE>[0].cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published
-	CreatedAt pulumi.StringPtrInput                 `pulumi:"createdAt"`
-	Errors    EnvironmentLastUpdatedErrorArrayInput `pulumi:"errors"`
-	// The status of the Amazon MWAA Environment
-	Status pulumi.StringPtrInput `pulumi:"status"`
-}
-
-func (EnvironmentLastUpdatedArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EnvironmentLastUpdated)(nil)).Elem()
-}
-
-func (i EnvironmentLastUpdatedArgs) ToEnvironmentLastUpdatedOutput() EnvironmentLastUpdatedOutput {
-	return i.ToEnvironmentLastUpdatedOutputWithContext(context.Background())
-}
-
-func (i EnvironmentLastUpdatedArgs) ToEnvironmentLastUpdatedOutputWithContext(ctx context.Context) EnvironmentLastUpdatedOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentLastUpdatedOutput)
-}
-
-// EnvironmentLastUpdatedArrayInput is an input type that accepts EnvironmentLastUpdatedArray and EnvironmentLastUpdatedArrayOutput values.
-// You can construct a concrete instance of `EnvironmentLastUpdatedArrayInput` via:
-//
-//          EnvironmentLastUpdatedArray{ EnvironmentLastUpdatedArgs{...} }
-type EnvironmentLastUpdatedArrayInput interface {
-	pulumi.Input
-
-	ToEnvironmentLastUpdatedArrayOutput() EnvironmentLastUpdatedArrayOutput
-	ToEnvironmentLastUpdatedArrayOutputWithContext(context.Context) EnvironmentLastUpdatedArrayOutput
-}
-
-type EnvironmentLastUpdatedArray []EnvironmentLastUpdatedInput
-
-func (EnvironmentLastUpdatedArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]EnvironmentLastUpdated)(nil)).Elem()
-}
-
-func (i EnvironmentLastUpdatedArray) ToEnvironmentLastUpdatedArrayOutput() EnvironmentLastUpdatedArrayOutput {
-	return i.ToEnvironmentLastUpdatedArrayOutputWithContext(context.Background())
-}
-
-func (i EnvironmentLastUpdatedArray) ToEnvironmentLastUpdatedArrayOutputWithContext(ctx context.Context) EnvironmentLastUpdatedArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentLastUpdatedArrayOutput)
-}
-
 type EnvironmentLastUpdatedOutput struct{ *pulumi.OutputState }
 
 func (EnvironmentLastUpdatedOutput) ElementType() reflect.Type {
@@ -128,59 +71,6 @@ func (o EnvironmentLastUpdatedArrayOutput) Index(i pulumi.IntInput) EnvironmentL
 type EnvironmentLastUpdatedError struct {
 	ErrorCode    *string `pulumi:"errorCode"`
 	ErrorMessage *string `pulumi:"errorMessage"`
-}
-
-// EnvironmentLastUpdatedErrorInput is an input type that accepts EnvironmentLastUpdatedErrorArgs and EnvironmentLastUpdatedErrorOutput values.
-// You can construct a concrete instance of `EnvironmentLastUpdatedErrorInput` via:
-//
-//          EnvironmentLastUpdatedErrorArgs{...}
-type EnvironmentLastUpdatedErrorInput interface {
-	pulumi.Input
-
-	ToEnvironmentLastUpdatedErrorOutput() EnvironmentLastUpdatedErrorOutput
-	ToEnvironmentLastUpdatedErrorOutputWithContext(context.Context) EnvironmentLastUpdatedErrorOutput
-}
-
-type EnvironmentLastUpdatedErrorArgs struct {
-	ErrorCode    pulumi.StringPtrInput `pulumi:"errorCode"`
-	ErrorMessage pulumi.StringPtrInput `pulumi:"errorMessage"`
-}
-
-func (EnvironmentLastUpdatedErrorArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EnvironmentLastUpdatedError)(nil)).Elem()
-}
-
-func (i EnvironmentLastUpdatedErrorArgs) ToEnvironmentLastUpdatedErrorOutput() EnvironmentLastUpdatedErrorOutput {
-	return i.ToEnvironmentLastUpdatedErrorOutputWithContext(context.Background())
-}
-
-func (i EnvironmentLastUpdatedErrorArgs) ToEnvironmentLastUpdatedErrorOutputWithContext(ctx context.Context) EnvironmentLastUpdatedErrorOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentLastUpdatedErrorOutput)
-}
-
-// EnvironmentLastUpdatedErrorArrayInput is an input type that accepts EnvironmentLastUpdatedErrorArray and EnvironmentLastUpdatedErrorArrayOutput values.
-// You can construct a concrete instance of `EnvironmentLastUpdatedErrorArrayInput` via:
-//
-//          EnvironmentLastUpdatedErrorArray{ EnvironmentLastUpdatedErrorArgs{...} }
-type EnvironmentLastUpdatedErrorArrayInput interface {
-	pulumi.Input
-
-	ToEnvironmentLastUpdatedErrorArrayOutput() EnvironmentLastUpdatedErrorArrayOutput
-	ToEnvironmentLastUpdatedErrorArrayOutputWithContext(context.Context) EnvironmentLastUpdatedErrorArrayOutput
-}
-
-type EnvironmentLastUpdatedErrorArray []EnvironmentLastUpdatedErrorInput
-
-func (EnvironmentLastUpdatedErrorArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]EnvironmentLastUpdatedError)(nil)).Elem()
-}
-
-func (i EnvironmentLastUpdatedErrorArray) ToEnvironmentLastUpdatedErrorArrayOutput() EnvironmentLastUpdatedErrorArrayOutput {
-	return i.ToEnvironmentLastUpdatedErrorArrayOutputWithContext(context.Background())
-}
-
-func (i EnvironmentLastUpdatedErrorArray) ToEnvironmentLastUpdatedErrorArrayOutputWithContext(ctx context.Context) EnvironmentLastUpdatedErrorArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentLastUpdatedErrorArrayOutput)
 }
 
 type EnvironmentLastUpdatedErrorOutput struct{ *pulumi.OutputState }
@@ -1338,47 +1228,6 @@ func (i EnvironmentNetworkConfigurationArgs) ToEnvironmentNetworkConfigurationOu
 	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentNetworkConfigurationOutput)
 }
 
-func (i EnvironmentNetworkConfigurationArgs) ToEnvironmentNetworkConfigurationPtrOutput() EnvironmentNetworkConfigurationPtrOutput {
-	return i.ToEnvironmentNetworkConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i EnvironmentNetworkConfigurationArgs) ToEnvironmentNetworkConfigurationPtrOutputWithContext(ctx context.Context) EnvironmentNetworkConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentNetworkConfigurationOutput).ToEnvironmentNetworkConfigurationPtrOutputWithContext(ctx)
-}
-
-// EnvironmentNetworkConfigurationPtrInput is an input type that accepts EnvironmentNetworkConfigurationArgs, EnvironmentNetworkConfigurationPtr and EnvironmentNetworkConfigurationPtrOutput values.
-// You can construct a concrete instance of `EnvironmentNetworkConfigurationPtrInput` via:
-//
-//          EnvironmentNetworkConfigurationArgs{...}
-//
-//  or:
-//
-//          nil
-type EnvironmentNetworkConfigurationPtrInput interface {
-	pulumi.Input
-
-	ToEnvironmentNetworkConfigurationPtrOutput() EnvironmentNetworkConfigurationPtrOutput
-	ToEnvironmentNetworkConfigurationPtrOutputWithContext(context.Context) EnvironmentNetworkConfigurationPtrOutput
-}
-
-type environmentNetworkConfigurationPtrType EnvironmentNetworkConfigurationArgs
-
-func EnvironmentNetworkConfigurationPtr(v *EnvironmentNetworkConfigurationArgs) EnvironmentNetworkConfigurationPtrInput {
-	return (*environmentNetworkConfigurationPtrType)(v)
-}
-
-func (*environmentNetworkConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EnvironmentNetworkConfiguration)(nil)).Elem()
-}
-
-func (i *environmentNetworkConfigurationPtrType) ToEnvironmentNetworkConfigurationPtrOutput() EnvironmentNetworkConfigurationPtrOutput {
-	return i.ToEnvironmentNetworkConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i *environmentNetworkConfigurationPtrType) ToEnvironmentNetworkConfigurationPtrOutputWithContext(ctx context.Context) EnvironmentNetworkConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentNetworkConfigurationPtrOutput)
-}
-
 type EnvironmentNetworkConfigurationOutput struct{ *pulumi.OutputState }
 
 func (EnvironmentNetworkConfigurationOutput) ElementType() reflect.Type {
@@ -1393,16 +1242,6 @@ func (o EnvironmentNetworkConfigurationOutput) ToEnvironmentNetworkConfiguration
 	return o
 }
 
-func (o EnvironmentNetworkConfigurationOutput) ToEnvironmentNetworkConfigurationPtrOutput() EnvironmentNetworkConfigurationPtrOutput {
-	return o.ToEnvironmentNetworkConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (o EnvironmentNetworkConfigurationOutput) ToEnvironmentNetworkConfigurationPtrOutputWithContext(ctx context.Context) EnvironmentNetworkConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EnvironmentNetworkConfiguration) *EnvironmentNetworkConfiguration {
-		return &v
-	}).(EnvironmentNetworkConfigurationPtrOutput)
-}
-
 // Security groups IDs for the environment. At least one of the security group needs to allow MWAA resources to talk to each other, otherwise MWAA cannot be provisioned.
 func (o EnvironmentNetworkConfigurationOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v EnvironmentNetworkConfiguration) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
@@ -1413,55 +1252,7 @@ func (o EnvironmentNetworkConfigurationOutput) SubnetIds() pulumi.StringArrayOut
 	return o.ApplyT(func(v EnvironmentNetworkConfiguration) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
-type EnvironmentNetworkConfigurationPtrOutput struct{ *pulumi.OutputState }
-
-func (EnvironmentNetworkConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EnvironmentNetworkConfiguration)(nil)).Elem()
-}
-
-func (o EnvironmentNetworkConfigurationPtrOutput) ToEnvironmentNetworkConfigurationPtrOutput() EnvironmentNetworkConfigurationPtrOutput {
-	return o
-}
-
-func (o EnvironmentNetworkConfigurationPtrOutput) ToEnvironmentNetworkConfigurationPtrOutputWithContext(ctx context.Context) EnvironmentNetworkConfigurationPtrOutput {
-	return o
-}
-
-func (o EnvironmentNetworkConfigurationPtrOutput) Elem() EnvironmentNetworkConfigurationOutput {
-	return o.ApplyT(func(v *EnvironmentNetworkConfiguration) EnvironmentNetworkConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret EnvironmentNetworkConfiguration
-		return ret
-	}).(EnvironmentNetworkConfigurationOutput)
-}
-
-// Security groups IDs for the environment. At least one of the security group needs to allow MWAA resources to talk to each other, otherwise MWAA cannot be provisioned.
-func (o EnvironmentNetworkConfigurationPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *EnvironmentNetworkConfiguration) []string {
-		if v == nil {
-			return nil
-		}
-		return v.SecurityGroupIds
-	}).(pulumi.StringArrayOutput)
-}
-
-// The private subnet IDs in which the environment should be created. MWAA requires two subnets.
-func (o EnvironmentNetworkConfigurationPtrOutput) SubnetIds() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *EnvironmentNetworkConfiguration) []string {
-		if v == nil {
-			return nil
-		}
-		return v.SubnetIds
-	}).(pulumi.StringArrayOutput)
-}
-
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentLastUpdatedInput)(nil)).Elem(), EnvironmentLastUpdatedArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentLastUpdatedArrayInput)(nil)).Elem(), EnvironmentLastUpdatedArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentLastUpdatedErrorInput)(nil)).Elem(), EnvironmentLastUpdatedErrorArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentLastUpdatedErrorArrayInput)(nil)).Elem(), EnvironmentLastUpdatedErrorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentLoggingConfigurationInput)(nil)).Elem(), EnvironmentLoggingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentLoggingConfigurationPtrInput)(nil)).Elem(), EnvironmentLoggingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentLoggingConfigurationDagProcessingLogsInput)(nil)).Elem(), EnvironmentLoggingConfigurationDagProcessingLogsArgs{})
@@ -1475,7 +1266,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentLoggingConfigurationWorkerLogsInput)(nil)).Elem(), EnvironmentLoggingConfigurationWorkerLogsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentLoggingConfigurationWorkerLogsPtrInput)(nil)).Elem(), EnvironmentLoggingConfigurationWorkerLogsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentNetworkConfigurationInput)(nil)).Elem(), EnvironmentNetworkConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentNetworkConfigurationPtrInput)(nil)).Elem(), EnvironmentNetworkConfigurationArgs{})
 	pulumi.RegisterOutputType(EnvironmentLastUpdatedOutput{})
 	pulumi.RegisterOutputType(EnvironmentLastUpdatedArrayOutput{})
 	pulumi.RegisterOutputType(EnvironmentLastUpdatedErrorOutput{})
@@ -1493,5 +1283,4 @@ func init() {
 	pulumi.RegisterOutputType(EnvironmentLoggingConfigurationWorkerLogsOutput{})
 	pulumi.RegisterOutputType(EnvironmentLoggingConfigurationWorkerLogsPtrOutput{})
 	pulumi.RegisterOutputType(EnvironmentNetworkConfigurationOutput{})
-	pulumi.RegisterOutputType(EnvironmentNetworkConfigurationPtrOutput{})
 }

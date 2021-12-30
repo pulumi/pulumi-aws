@@ -117,20 +117,20 @@ export class Configuration extends pulumi.CustomResource {
      */
     constructor(name: string, args: ConfigurationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ConfigurationArgs | ConfigurationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ConfigurationState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["authenticationStrategy"] = state ? state.authenticationStrategy : undefined;
-            inputs["data"] = state ? state.data : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["engineType"] = state ? state.engineType : undefined;
-            inputs["engineVersion"] = state ? state.engineVersion : undefined;
-            inputs["latestRevision"] = state ? state.latestRevision : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["authenticationStrategy"] = state ? state.authenticationStrategy : undefined;
+            resourceInputs["data"] = state ? state.data : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["engineType"] = state ? state.engineType : undefined;
+            resourceInputs["engineVersion"] = state ? state.engineVersion : undefined;
+            resourceInputs["latestRevision"] = state ? state.latestRevision : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as ConfigurationArgs | undefined;
             if ((!args || args.data === undefined) && !opts.urn) {
@@ -142,21 +142,21 @@ export class Configuration extends pulumi.CustomResource {
             if ((!args || args.engineVersion === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'engineVersion'");
             }
-            inputs["authenticationStrategy"] = args ? args.authenticationStrategy : undefined;
-            inputs["data"] = args ? args.data : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["engineType"] = args ? args.engineType : undefined;
-            inputs["engineVersion"] = args ? args.engineVersion : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["latestRevision"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["authenticationStrategy"] = args ? args.authenticationStrategy : undefined;
+            resourceInputs["data"] = args ? args.data : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["engineType"] = args ? args.engineType : undefined;
+            resourceInputs["engineVersion"] = args ? args.engineVersion : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["latestRevision"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Configuration.__pulumiType, name, inputs, opts);
+        super(Configuration.__pulumiType, name, resourceInputs, opts);
     }
 }
 

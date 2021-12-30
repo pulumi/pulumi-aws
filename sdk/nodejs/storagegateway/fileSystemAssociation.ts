@@ -158,19 +158,19 @@ export class FileSystemAssociation extends pulumi.CustomResource {
      */
     constructor(name: string, args: FileSystemAssociationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: FileSystemAssociationArgs | FileSystemAssociationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FileSystemAssociationState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["auditDestinationArn"] = state ? state.auditDestinationArn : undefined;
-            inputs["cacheAttributes"] = state ? state.cacheAttributes : undefined;
-            inputs["gatewayArn"] = state ? state.gatewayArn : undefined;
-            inputs["locationArn"] = state ? state.locationArn : undefined;
-            inputs["password"] = state ? state.password : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["username"] = state ? state.username : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["auditDestinationArn"] = state ? state.auditDestinationArn : undefined;
+            resourceInputs["cacheAttributes"] = state ? state.cacheAttributes : undefined;
+            resourceInputs["gatewayArn"] = state ? state.gatewayArn : undefined;
+            resourceInputs["locationArn"] = state ? state.locationArn : undefined;
+            resourceInputs["password"] = state ? state.password : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["username"] = state ? state.username : undefined;
         } else {
             const args = argsOrState as FileSystemAssociationArgs | undefined;
             if ((!args || args.gatewayArn === undefined) && !opts.urn) {
@@ -185,20 +185,20 @@ export class FileSystemAssociation extends pulumi.CustomResource {
             if ((!args || args.username === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'username'");
             }
-            inputs["auditDestinationArn"] = args ? args.auditDestinationArn : undefined;
-            inputs["cacheAttributes"] = args ? args.cacheAttributes : undefined;
-            inputs["gatewayArn"] = args ? args.gatewayArn : undefined;
-            inputs["locationArn"] = args ? args.locationArn : undefined;
-            inputs["password"] = args ? args.password : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["username"] = args ? args.username : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["auditDestinationArn"] = args ? args.auditDestinationArn : undefined;
+            resourceInputs["cacheAttributes"] = args ? args.cacheAttributes : undefined;
+            resourceInputs["gatewayArn"] = args ? args.gatewayArn : undefined;
+            resourceInputs["locationArn"] = args ? args.locationArn : undefined;
+            resourceInputs["password"] = args ? args.password : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["username"] = args ? args.username : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(FileSystemAssociation.__pulumiType, name, inputs, opts);
+        super(FileSystemAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -115,18 +115,18 @@ export class Access extends pulumi.CustomResource {
      */
     constructor(name: string, args: AccessArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AccessArgs | AccessState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AccessState | undefined;
-            inputs["externalId"] = state ? state.externalId : undefined;
-            inputs["homeDirectory"] = state ? state.homeDirectory : undefined;
-            inputs["homeDirectoryMappings"] = state ? state.homeDirectoryMappings : undefined;
-            inputs["homeDirectoryType"] = state ? state.homeDirectoryType : undefined;
-            inputs["policy"] = state ? state.policy : undefined;
-            inputs["posixProfile"] = state ? state.posixProfile : undefined;
-            inputs["role"] = state ? state.role : undefined;
-            inputs["serverId"] = state ? state.serverId : undefined;
+            resourceInputs["externalId"] = state ? state.externalId : undefined;
+            resourceInputs["homeDirectory"] = state ? state.homeDirectory : undefined;
+            resourceInputs["homeDirectoryMappings"] = state ? state.homeDirectoryMappings : undefined;
+            resourceInputs["homeDirectoryType"] = state ? state.homeDirectoryType : undefined;
+            resourceInputs["policy"] = state ? state.policy : undefined;
+            resourceInputs["posixProfile"] = state ? state.posixProfile : undefined;
+            resourceInputs["role"] = state ? state.role : undefined;
+            resourceInputs["serverId"] = state ? state.serverId : undefined;
         } else {
             const args = argsOrState as AccessArgs | undefined;
             if ((!args || args.externalId === undefined) && !opts.urn) {
@@ -135,19 +135,19 @@ export class Access extends pulumi.CustomResource {
             if ((!args || args.serverId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serverId'");
             }
-            inputs["externalId"] = args ? args.externalId : undefined;
-            inputs["homeDirectory"] = args ? args.homeDirectory : undefined;
-            inputs["homeDirectoryMappings"] = args ? args.homeDirectoryMappings : undefined;
-            inputs["homeDirectoryType"] = args ? args.homeDirectoryType : undefined;
-            inputs["policy"] = args ? args.policy : undefined;
-            inputs["posixProfile"] = args ? args.posixProfile : undefined;
-            inputs["role"] = args ? args.role : undefined;
-            inputs["serverId"] = args ? args.serverId : undefined;
+            resourceInputs["externalId"] = args ? args.externalId : undefined;
+            resourceInputs["homeDirectory"] = args ? args.homeDirectory : undefined;
+            resourceInputs["homeDirectoryMappings"] = args ? args.homeDirectoryMappings : undefined;
+            resourceInputs["homeDirectoryType"] = args ? args.homeDirectoryType : undefined;
+            resourceInputs["policy"] = args ? args.policy : undefined;
+            resourceInputs["posixProfile"] = args ? args.posixProfile : undefined;
+            resourceInputs["role"] = args ? args.role : undefined;
+            resourceInputs["serverId"] = args ? args.serverId : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Access.__pulumiType, name, inputs, opts);
+        super(Access.__pulumiType, name, resourceInputs, opts);
     }
 }
 

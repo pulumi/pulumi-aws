@@ -108,13 +108,13 @@ export class RepositoryPolicy extends pulumi.CustomResource {
      */
     constructor(name: string, args: RepositoryPolicyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RepositoryPolicyArgs | RepositoryPolicyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RepositoryPolicyState | undefined;
-            inputs["policy"] = state ? state.policy : undefined;
-            inputs["registryId"] = state ? state.registryId : undefined;
-            inputs["repository"] = state ? state.repository : undefined;
+            resourceInputs["policy"] = state ? state.policy : undefined;
+            resourceInputs["registryId"] = state ? state.registryId : undefined;
+            resourceInputs["repository"] = state ? state.repository : undefined;
         } else {
             const args = argsOrState as RepositoryPolicyArgs | undefined;
             if ((!args || args.policy === undefined) && !opts.urn) {
@@ -123,14 +123,14 @@ export class RepositoryPolicy extends pulumi.CustomResource {
             if ((!args || args.repository === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'repository'");
             }
-            inputs["policy"] = args ? args.policy : undefined;
-            inputs["repository"] = args ? args.repository : undefined;
-            inputs["registryId"] = undefined /*out*/;
+            resourceInputs["policy"] = args ? args.policy : undefined;
+            resourceInputs["repository"] = args ? args.repository : undefined;
+            resourceInputs["registryId"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(RepositoryPolicy.__pulumiType, name, inputs, opts);
+        super(RepositoryPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

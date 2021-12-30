@@ -96,19 +96,19 @@ export class BgpPeer extends pulumi.CustomResource {
      */
     constructor(name: string, args: BgpPeerArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: BgpPeerArgs | BgpPeerState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BgpPeerState | undefined;
-            inputs["addressFamily"] = state ? state.addressFamily : undefined;
-            inputs["amazonAddress"] = state ? state.amazonAddress : undefined;
-            inputs["awsDevice"] = state ? state.awsDevice : undefined;
-            inputs["bgpAsn"] = state ? state.bgpAsn : undefined;
-            inputs["bgpAuthKey"] = state ? state.bgpAuthKey : undefined;
-            inputs["bgpPeerId"] = state ? state.bgpPeerId : undefined;
-            inputs["bgpStatus"] = state ? state.bgpStatus : undefined;
-            inputs["customerAddress"] = state ? state.customerAddress : undefined;
-            inputs["virtualInterfaceId"] = state ? state.virtualInterfaceId : undefined;
+            resourceInputs["addressFamily"] = state ? state.addressFamily : undefined;
+            resourceInputs["amazonAddress"] = state ? state.amazonAddress : undefined;
+            resourceInputs["awsDevice"] = state ? state.awsDevice : undefined;
+            resourceInputs["bgpAsn"] = state ? state.bgpAsn : undefined;
+            resourceInputs["bgpAuthKey"] = state ? state.bgpAuthKey : undefined;
+            resourceInputs["bgpPeerId"] = state ? state.bgpPeerId : undefined;
+            resourceInputs["bgpStatus"] = state ? state.bgpStatus : undefined;
+            resourceInputs["customerAddress"] = state ? state.customerAddress : undefined;
+            resourceInputs["virtualInterfaceId"] = state ? state.virtualInterfaceId : undefined;
         } else {
             const args = argsOrState as BgpPeerArgs | undefined;
             if ((!args || args.addressFamily === undefined) && !opts.urn) {
@@ -120,20 +120,20 @@ export class BgpPeer extends pulumi.CustomResource {
             if ((!args || args.virtualInterfaceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'virtualInterfaceId'");
             }
-            inputs["addressFamily"] = args ? args.addressFamily : undefined;
-            inputs["amazonAddress"] = args ? args.amazonAddress : undefined;
-            inputs["bgpAsn"] = args ? args.bgpAsn : undefined;
-            inputs["bgpAuthKey"] = args ? args.bgpAuthKey : undefined;
-            inputs["customerAddress"] = args ? args.customerAddress : undefined;
-            inputs["virtualInterfaceId"] = args ? args.virtualInterfaceId : undefined;
-            inputs["awsDevice"] = undefined /*out*/;
-            inputs["bgpPeerId"] = undefined /*out*/;
-            inputs["bgpStatus"] = undefined /*out*/;
+            resourceInputs["addressFamily"] = args ? args.addressFamily : undefined;
+            resourceInputs["amazonAddress"] = args ? args.amazonAddress : undefined;
+            resourceInputs["bgpAsn"] = args ? args.bgpAsn : undefined;
+            resourceInputs["bgpAuthKey"] = args ? args.bgpAuthKey : undefined;
+            resourceInputs["customerAddress"] = args ? args.customerAddress : undefined;
+            resourceInputs["virtualInterfaceId"] = args ? args.virtualInterfaceId : undefined;
+            resourceInputs["awsDevice"] = undefined /*out*/;
+            resourceInputs["bgpPeerId"] = undefined /*out*/;
+            resourceInputs["bgpStatus"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(BgpPeer.__pulumiType, name, inputs, opts);
+        super(BgpPeer.__pulumiType, name, resourceInputs, opts);
     }
 }
 

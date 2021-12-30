@@ -194,16 +194,16 @@ export class EventConnection extends pulumi.CustomResource {
      */
     constructor(name: string, args: EventConnectionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: EventConnectionArgs | EventConnectionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EventConnectionState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["authParameters"] = state ? state.authParameters : undefined;
-            inputs["authorizationType"] = state ? state.authorizationType : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["secretArn"] = state ? state.secretArn : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["authParameters"] = state ? state.authParameters : undefined;
+            resourceInputs["authorizationType"] = state ? state.authorizationType : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["secretArn"] = state ? state.secretArn : undefined;
         } else {
             const args = argsOrState as EventConnectionArgs | undefined;
             if ((!args || args.authParameters === undefined) && !opts.urn) {
@@ -212,17 +212,17 @@ export class EventConnection extends pulumi.CustomResource {
             if ((!args || args.authorizationType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'authorizationType'");
             }
-            inputs["authParameters"] = args ? args.authParameters : undefined;
-            inputs["authorizationType"] = args ? args.authorizationType : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["secretArn"] = undefined /*out*/;
+            resourceInputs["authParameters"] = args ? args.authParameters : undefined;
+            resourceInputs["authorizationType"] = args ? args.authorizationType : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["secretArn"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(EventConnection.__pulumiType, name, inputs, opts);
+        super(EventConnection.__pulumiType, name, resourceInputs, opts);
     }
 }
 

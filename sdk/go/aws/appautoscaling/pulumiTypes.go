@@ -1106,47 +1106,6 @@ func (i ScheduledActionScalableTargetActionArgs) ToScheduledActionScalableTarget
 	return pulumi.ToOutputWithContext(ctx, i).(ScheduledActionScalableTargetActionOutput)
 }
 
-func (i ScheduledActionScalableTargetActionArgs) ToScheduledActionScalableTargetActionPtrOutput() ScheduledActionScalableTargetActionPtrOutput {
-	return i.ToScheduledActionScalableTargetActionPtrOutputWithContext(context.Background())
-}
-
-func (i ScheduledActionScalableTargetActionArgs) ToScheduledActionScalableTargetActionPtrOutputWithContext(ctx context.Context) ScheduledActionScalableTargetActionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ScheduledActionScalableTargetActionOutput).ToScheduledActionScalableTargetActionPtrOutputWithContext(ctx)
-}
-
-// ScheduledActionScalableTargetActionPtrInput is an input type that accepts ScheduledActionScalableTargetActionArgs, ScheduledActionScalableTargetActionPtr and ScheduledActionScalableTargetActionPtrOutput values.
-// You can construct a concrete instance of `ScheduledActionScalableTargetActionPtrInput` via:
-//
-//          ScheduledActionScalableTargetActionArgs{...}
-//
-//  or:
-//
-//          nil
-type ScheduledActionScalableTargetActionPtrInput interface {
-	pulumi.Input
-
-	ToScheduledActionScalableTargetActionPtrOutput() ScheduledActionScalableTargetActionPtrOutput
-	ToScheduledActionScalableTargetActionPtrOutputWithContext(context.Context) ScheduledActionScalableTargetActionPtrOutput
-}
-
-type scheduledActionScalableTargetActionPtrType ScheduledActionScalableTargetActionArgs
-
-func ScheduledActionScalableTargetActionPtr(v *ScheduledActionScalableTargetActionArgs) ScheduledActionScalableTargetActionPtrInput {
-	return (*scheduledActionScalableTargetActionPtrType)(v)
-}
-
-func (*scheduledActionScalableTargetActionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ScheduledActionScalableTargetAction)(nil)).Elem()
-}
-
-func (i *scheduledActionScalableTargetActionPtrType) ToScheduledActionScalableTargetActionPtrOutput() ScheduledActionScalableTargetActionPtrOutput {
-	return i.ToScheduledActionScalableTargetActionPtrOutputWithContext(context.Background())
-}
-
-func (i *scheduledActionScalableTargetActionPtrType) ToScheduledActionScalableTargetActionPtrOutputWithContext(ctx context.Context) ScheduledActionScalableTargetActionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ScheduledActionScalableTargetActionPtrOutput)
-}
-
 type ScheduledActionScalableTargetActionOutput struct{ *pulumi.OutputState }
 
 func (ScheduledActionScalableTargetActionOutput) ElementType() reflect.Type {
@@ -1161,16 +1120,6 @@ func (o ScheduledActionScalableTargetActionOutput) ToScheduledActionScalableTarg
 	return o
 }
 
-func (o ScheduledActionScalableTargetActionOutput) ToScheduledActionScalableTargetActionPtrOutput() ScheduledActionScalableTargetActionPtrOutput {
-	return o.ToScheduledActionScalableTargetActionPtrOutputWithContext(context.Background())
-}
-
-func (o ScheduledActionScalableTargetActionOutput) ToScheduledActionScalableTargetActionPtrOutputWithContext(ctx context.Context) ScheduledActionScalableTargetActionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ScheduledActionScalableTargetAction) *ScheduledActionScalableTargetAction {
-		return &v
-	}).(ScheduledActionScalableTargetActionPtrOutput)
-}
-
 // The maximum capacity. At least one of `maxCapacity` or `minCapacity` must be set.
 func (o ScheduledActionScalableTargetActionOutput) MaxCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ScheduledActionScalableTargetAction) *int { return v.MaxCapacity }).(pulumi.IntPtrOutput)
@@ -1179,50 +1128,6 @@ func (o ScheduledActionScalableTargetActionOutput) MaxCapacity() pulumi.IntPtrOu
 // The minimum capacity. At least one of `minCapacity` or `maxCapacity` must be set.
 func (o ScheduledActionScalableTargetActionOutput) MinCapacity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ScheduledActionScalableTargetAction) *int { return v.MinCapacity }).(pulumi.IntPtrOutput)
-}
-
-type ScheduledActionScalableTargetActionPtrOutput struct{ *pulumi.OutputState }
-
-func (ScheduledActionScalableTargetActionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ScheduledActionScalableTargetAction)(nil)).Elem()
-}
-
-func (o ScheduledActionScalableTargetActionPtrOutput) ToScheduledActionScalableTargetActionPtrOutput() ScheduledActionScalableTargetActionPtrOutput {
-	return o
-}
-
-func (o ScheduledActionScalableTargetActionPtrOutput) ToScheduledActionScalableTargetActionPtrOutputWithContext(ctx context.Context) ScheduledActionScalableTargetActionPtrOutput {
-	return o
-}
-
-func (o ScheduledActionScalableTargetActionPtrOutput) Elem() ScheduledActionScalableTargetActionOutput {
-	return o.ApplyT(func(v *ScheduledActionScalableTargetAction) ScheduledActionScalableTargetAction {
-		if v != nil {
-			return *v
-		}
-		var ret ScheduledActionScalableTargetAction
-		return ret
-	}).(ScheduledActionScalableTargetActionOutput)
-}
-
-// The maximum capacity. At least one of `maxCapacity` or `minCapacity` must be set.
-func (o ScheduledActionScalableTargetActionPtrOutput) MaxCapacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ScheduledActionScalableTargetAction) *int {
-		if v == nil {
-			return nil
-		}
-		return v.MaxCapacity
-	}).(pulumi.IntPtrOutput)
-}
-
-// The minimum capacity. At least one of `minCapacity` or `maxCapacity` must be set.
-func (o ScheduledActionScalableTargetActionPtrOutput) MinCapacity() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ScheduledActionScalableTargetAction) *int {
-		if v == nil {
-			return nil
-		}
-		return v.MinCapacity
-	}).(pulumi.IntPtrOutput)
 }
 
 func init() {
@@ -1239,7 +1144,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationInput)(nil)).Elem(), PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationPtrInput)(nil)).Elem(), PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledActionScalableTargetActionInput)(nil)).Elem(), ScheduledActionScalableTargetActionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ScheduledActionScalableTargetActionPtrInput)(nil)).Elem(), ScheduledActionScalableTargetActionArgs{})
 	pulumi.RegisterOutputType(PolicyStepScalingPolicyConfigurationOutput{})
 	pulumi.RegisterOutputType(PolicyStepScalingPolicyConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(PolicyStepScalingPolicyConfigurationStepAdjustmentOutput{})
@@ -1253,5 +1157,4 @@ func init() {
 	pulumi.RegisterOutputType(PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationOutput{})
 	pulumi.RegisterOutputType(PolicyTargetTrackingScalingPolicyConfigurationPredefinedMetricSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(ScheduledActionScalableTargetActionOutput{})
-	pulumi.RegisterOutputType(ScheduledActionScalableTargetActionPtrOutput{})
 }

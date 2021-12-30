@@ -83,12 +83,12 @@ export class SnapshotScheduleAssociation extends pulumi.CustomResource {
      */
     constructor(name: string, args: SnapshotScheduleAssociationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SnapshotScheduleAssociationArgs | SnapshotScheduleAssociationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SnapshotScheduleAssociationState | undefined;
-            inputs["clusterIdentifier"] = state ? state.clusterIdentifier : undefined;
-            inputs["scheduleIdentifier"] = state ? state.scheduleIdentifier : undefined;
+            resourceInputs["clusterIdentifier"] = state ? state.clusterIdentifier : undefined;
+            resourceInputs["scheduleIdentifier"] = state ? state.scheduleIdentifier : undefined;
         } else {
             const args = argsOrState as SnapshotScheduleAssociationArgs | undefined;
             if ((!args || args.clusterIdentifier === undefined) && !opts.urn) {
@@ -97,13 +97,13 @@ export class SnapshotScheduleAssociation extends pulumi.CustomResource {
             if ((!args || args.scheduleIdentifier === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scheduleIdentifier'");
             }
-            inputs["clusterIdentifier"] = args ? args.clusterIdentifier : undefined;
-            inputs["scheduleIdentifier"] = args ? args.scheduleIdentifier : undefined;
+            resourceInputs["clusterIdentifier"] = args ? args.clusterIdentifier : undefined;
+            resourceInputs["scheduleIdentifier"] = args ? args.scheduleIdentifier : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(SnapshotScheduleAssociation.__pulumiType, name, inputs, opts);
+        super(SnapshotScheduleAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

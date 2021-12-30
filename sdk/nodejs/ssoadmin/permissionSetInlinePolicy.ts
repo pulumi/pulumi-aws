@@ -68,13 +68,13 @@ export class PermissionSetInlinePolicy extends pulumi.CustomResource {
      */
     constructor(name: string, args: PermissionSetInlinePolicyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PermissionSetInlinePolicyArgs | PermissionSetInlinePolicyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PermissionSetInlinePolicyState | undefined;
-            inputs["inlinePolicy"] = state ? state.inlinePolicy : undefined;
-            inputs["instanceArn"] = state ? state.instanceArn : undefined;
-            inputs["permissionSetArn"] = state ? state.permissionSetArn : undefined;
+            resourceInputs["inlinePolicy"] = state ? state.inlinePolicy : undefined;
+            resourceInputs["instanceArn"] = state ? state.instanceArn : undefined;
+            resourceInputs["permissionSetArn"] = state ? state.permissionSetArn : undefined;
         } else {
             const args = argsOrState as PermissionSetInlinePolicyArgs | undefined;
             if ((!args || args.inlinePolicy === undefined) && !opts.urn) {
@@ -86,14 +86,14 @@ export class PermissionSetInlinePolicy extends pulumi.CustomResource {
             if ((!args || args.permissionSetArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'permissionSetArn'");
             }
-            inputs["inlinePolicy"] = args ? args.inlinePolicy : undefined;
-            inputs["instanceArn"] = args ? args.instanceArn : undefined;
-            inputs["permissionSetArn"] = args ? args.permissionSetArn : undefined;
+            resourceInputs["inlinePolicy"] = args ? args.inlinePolicy : undefined;
+            resourceInputs["instanceArn"] = args ? args.instanceArn : undefined;
+            resourceInputs["permissionSetArn"] = args ? args.permissionSetArn : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(PermissionSetInlinePolicy.__pulumiType, name, inputs, opts);
+        super(PermissionSetInlinePolicy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

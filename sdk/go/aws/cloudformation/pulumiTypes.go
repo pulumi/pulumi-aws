@@ -462,61 +462,6 @@ type GetCloudFormationTypeLoggingConfig struct {
 	LogRoleArn string `pulumi:"logRoleArn"`
 }
 
-// GetCloudFormationTypeLoggingConfigInput is an input type that accepts GetCloudFormationTypeLoggingConfigArgs and GetCloudFormationTypeLoggingConfigOutput values.
-// You can construct a concrete instance of `GetCloudFormationTypeLoggingConfigInput` via:
-//
-//          GetCloudFormationTypeLoggingConfigArgs{...}
-type GetCloudFormationTypeLoggingConfigInput interface {
-	pulumi.Input
-
-	ToGetCloudFormationTypeLoggingConfigOutput() GetCloudFormationTypeLoggingConfigOutput
-	ToGetCloudFormationTypeLoggingConfigOutputWithContext(context.Context) GetCloudFormationTypeLoggingConfigOutput
-}
-
-type GetCloudFormationTypeLoggingConfigArgs struct {
-	// Name of the CloudWatch Log Group where CloudFormation sends error logging information when invoking the type's handlers.
-	LogGroupName pulumi.StringInput `pulumi:"logGroupName"`
-	// Amazon Resource Name (ARN) of the IAM Role CloudFormation assumes when sending error logging information to CloudWatch Logs.
-	LogRoleArn pulumi.StringInput `pulumi:"logRoleArn"`
-}
-
-func (GetCloudFormationTypeLoggingConfigArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetCloudFormationTypeLoggingConfig)(nil)).Elem()
-}
-
-func (i GetCloudFormationTypeLoggingConfigArgs) ToGetCloudFormationTypeLoggingConfigOutput() GetCloudFormationTypeLoggingConfigOutput {
-	return i.ToGetCloudFormationTypeLoggingConfigOutputWithContext(context.Background())
-}
-
-func (i GetCloudFormationTypeLoggingConfigArgs) ToGetCloudFormationTypeLoggingConfigOutputWithContext(ctx context.Context) GetCloudFormationTypeLoggingConfigOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetCloudFormationTypeLoggingConfigOutput)
-}
-
-// GetCloudFormationTypeLoggingConfigArrayInput is an input type that accepts GetCloudFormationTypeLoggingConfigArray and GetCloudFormationTypeLoggingConfigArrayOutput values.
-// You can construct a concrete instance of `GetCloudFormationTypeLoggingConfigArrayInput` via:
-//
-//          GetCloudFormationTypeLoggingConfigArray{ GetCloudFormationTypeLoggingConfigArgs{...} }
-type GetCloudFormationTypeLoggingConfigArrayInput interface {
-	pulumi.Input
-
-	ToGetCloudFormationTypeLoggingConfigArrayOutput() GetCloudFormationTypeLoggingConfigArrayOutput
-	ToGetCloudFormationTypeLoggingConfigArrayOutputWithContext(context.Context) GetCloudFormationTypeLoggingConfigArrayOutput
-}
-
-type GetCloudFormationTypeLoggingConfigArray []GetCloudFormationTypeLoggingConfigInput
-
-func (GetCloudFormationTypeLoggingConfigArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetCloudFormationTypeLoggingConfig)(nil)).Elem()
-}
-
-func (i GetCloudFormationTypeLoggingConfigArray) ToGetCloudFormationTypeLoggingConfigArrayOutput() GetCloudFormationTypeLoggingConfigArrayOutput {
-	return i.ToGetCloudFormationTypeLoggingConfigArrayOutputWithContext(context.Background())
-}
-
-func (i GetCloudFormationTypeLoggingConfigArray) ToGetCloudFormationTypeLoggingConfigArrayOutputWithContext(ctx context.Context) GetCloudFormationTypeLoggingConfigArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetCloudFormationTypeLoggingConfigArrayOutput)
-}
-
 type GetCloudFormationTypeLoggingConfigOutput struct{ *pulumi.OutputState }
 
 func (GetCloudFormationTypeLoggingConfigOutput) ElementType() reflect.Type {
@@ -568,8 +513,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StackSetAutoDeploymentPtrInput)(nil)).Elem(), StackSetAutoDeploymentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StackSetInstanceDeploymentTargetsInput)(nil)).Elem(), StackSetInstanceDeploymentTargetsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StackSetInstanceDeploymentTargetsPtrInput)(nil)).Elem(), StackSetInstanceDeploymentTargetsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetCloudFormationTypeLoggingConfigInput)(nil)).Elem(), GetCloudFormationTypeLoggingConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetCloudFormationTypeLoggingConfigArrayInput)(nil)).Elem(), GetCloudFormationTypeLoggingConfigArray{})
 	pulumi.RegisterOutputType(CloudFormationTypeLoggingConfigOutput{})
 	pulumi.RegisterOutputType(CloudFormationTypeLoggingConfigPtrOutput{})
 	pulumi.RegisterOutputType(StackSetAutoDeploymentOutput{})

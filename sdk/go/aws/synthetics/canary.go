@@ -335,7 +335,7 @@ type CanaryInput interface {
 }
 
 func (*Canary) ElementType() reflect.Type {
-	return reflect.TypeOf((*Canary)(nil))
+	return reflect.TypeOf((**Canary)(nil)).Elem()
 }
 
 func (i *Canary) ToCanaryOutput() CanaryOutput {
@@ -344,35 +344,6 @@ func (i *Canary) ToCanaryOutput() CanaryOutput {
 
 func (i *Canary) ToCanaryOutputWithContext(ctx context.Context) CanaryOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CanaryOutput)
-}
-
-func (i *Canary) ToCanaryPtrOutput() CanaryPtrOutput {
-	return i.ToCanaryPtrOutputWithContext(context.Background())
-}
-
-func (i *Canary) ToCanaryPtrOutputWithContext(ctx context.Context) CanaryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CanaryPtrOutput)
-}
-
-type CanaryPtrInput interface {
-	pulumi.Input
-
-	ToCanaryPtrOutput() CanaryPtrOutput
-	ToCanaryPtrOutputWithContext(ctx context.Context) CanaryPtrOutput
-}
-
-type canaryPtrType CanaryArgs
-
-func (*canaryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Canary)(nil))
-}
-
-func (i *canaryPtrType) ToCanaryPtrOutput() CanaryPtrOutput {
-	return i.ToCanaryPtrOutputWithContext(context.Background())
-}
-
-func (i *canaryPtrType) ToCanaryPtrOutputWithContext(ctx context.Context) CanaryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CanaryPtrOutput)
 }
 
 // CanaryArrayInput is an input type that accepts CanaryArray and CanaryArrayOutput values.
@@ -428,7 +399,7 @@ func (i CanaryMap) ToCanaryMapOutputWithContext(ctx context.Context) CanaryMapOu
 type CanaryOutput struct{ *pulumi.OutputState }
 
 func (CanaryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Canary)(nil))
+	return reflect.TypeOf((**Canary)(nil)).Elem()
 }
 
 func (o CanaryOutput) ToCanaryOutput() CanaryOutput {
@@ -439,44 +410,10 @@ func (o CanaryOutput) ToCanaryOutputWithContext(ctx context.Context) CanaryOutpu
 	return o
 }
 
-func (o CanaryOutput) ToCanaryPtrOutput() CanaryPtrOutput {
-	return o.ToCanaryPtrOutputWithContext(context.Background())
-}
-
-func (o CanaryOutput) ToCanaryPtrOutputWithContext(ctx context.Context) CanaryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Canary) *Canary {
-		return &v
-	}).(CanaryPtrOutput)
-}
-
-type CanaryPtrOutput struct{ *pulumi.OutputState }
-
-func (CanaryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Canary)(nil))
-}
-
-func (o CanaryPtrOutput) ToCanaryPtrOutput() CanaryPtrOutput {
-	return o
-}
-
-func (o CanaryPtrOutput) ToCanaryPtrOutputWithContext(ctx context.Context) CanaryPtrOutput {
-	return o
-}
-
-func (o CanaryPtrOutput) Elem() CanaryOutput {
-	return o.ApplyT(func(v *Canary) Canary {
-		if v != nil {
-			return *v
-		}
-		var ret Canary
-		return ret
-	}).(CanaryOutput)
-}
-
 type CanaryArrayOutput struct{ *pulumi.OutputState }
 
 func (CanaryArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Canary)(nil))
+	return reflect.TypeOf((*[]*Canary)(nil)).Elem()
 }
 
 func (o CanaryArrayOutput) ToCanaryArrayOutput() CanaryArrayOutput {
@@ -488,15 +425,15 @@ func (o CanaryArrayOutput) ToCanaryArrayOutputWithContext(ctx context.Context) C
 }
 
 func (o CanaryArrayOutput) Index(i pulumi.IntInput) CanaryOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Canary {
-		return vs[0].([]Canary)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Canary {
+		return vs[0].([]*Canary)[vs[1].(int)]
 	}).(CanaryOutput)
 }
 
 type CanaryMapOutput struct{ *pulumi.OutputState }
 
 func (CanaryMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Canary)(nil))
+	return reflect.TypeOf((*map[string]*Canary)(nil)).Elem()
 }
 
 func (o CanaryMapOutput) ToCanaryMapOutput() CanaryMapOutput {
@@ -508,18 +445,16 @@ func (o CanaryMapOutput) ToCanaryMapOutputWithContext(ctx context.Context) Canar
 }
 
 func (o CanaryMapOutput) MapIndex(k pulumi.StringInput) CanaryOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Canary {
-		return vs[0].(map[string]Canary)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Canary {
+		return vs[0].(map[string]*Canary)[vs[1].(string)]
 	}).(CanaryOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CanaryInput)(nil)).Elem(), &Canary{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CanaryPtrInput)(nil)).Elem(), &Canary{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CanaryArrayInput)(nil)).Elem(), CanaryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CanaryMapInput)(nil)).Elem(), CanaryMap{})
 	pulumi.RegisterOutputType(CanaryOutput{})
-	pulumi.RegisterOutputType(CanaryPtrOutput{})
 	pulumi.RegisterOutputType(CanaryArrayOutput{})
 	pulumi.RegisterOutputType(CanaryMapOutput{})
 }

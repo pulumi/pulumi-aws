@@ -27,10 +27,10 @@ import * as utilities from "../utilities";
  *     dbSubnetGroupName: "my_database_subnet_group",
  *     parameterGroupName: "default.mysql5.6",
  * });
- * const latestProdSnapshot = prod.id.apply(id => aws.rds.getSnapshot({
- *     dbInstanceIdentifier: id,
+ * const latestProdSnapshot = aws.rds.getSnapshotOutput({
+ *     dbInstanceIdentifier: prod.id,
  *     mostRecent: true,
- * }));
+ * });
  * // Use the latest production snapshot to create a dev instance.
  * const dev = new aws.rds.Instance("dev", {
  *     instanceClass: "db.t2.micro",

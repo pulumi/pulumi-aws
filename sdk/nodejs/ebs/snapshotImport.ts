@@ -116,46 +116,46 @@ export class SnapshotImport extends pulumi.CustomResource {
      */
     constructor(name: string, args: SnapshotImportArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SnapshotImportArgs | SnapshotImportState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SnapshotImportState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["clientData"] = state ? state.clientData : undefined;
-            inputs["dataEncryptionKeyId"] = state ? state.dataEncryptionKeyId : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["diskContainer"] = state ? state.diskContainer : undefined;
-            inputs["encrypted"] = state ? state.encrypted : undefined;
-            inputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
-            inputs["ownerAlias"] = state ? state.ownerAlias : undefined;
-            inputs["ownerId"] = state ? state.ownerId : undefined;
-            inputs["roleName"] = state ? state.roleName : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["volumeSize"] = state ? state.volumeSize : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["clientData"] = state ? state.clientData : undefined;
+            resourceInputs["dataEncryptionKeyId"] = state ? state.dataEncryptionKeyId : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["diskContainer"] = state ? state.diskContainer : undefined;
+            resourceInputs["encrypted"] = state ? state.encrypted : undefined;
+            resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
+            resourceInputs["ownerAlias"] = state ? state.ownerAlias : undefined;
+            resourceInputs["ownerId"] = state ? state.ownerId : undefined;
+            resourceInputs["roleName"] = state ? state.roleName : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["volumeSize"] = state ? state.volumeSize : undefined;
         } else {
             const args = argsOrState as SnapshotImportArgs | undefined;
             if ((!args || args.diskContainer === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'diskContainer'");
             }
-            inputs["clientData"] = args ? args.clientData : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["diskContainer"] = args ? args.diskContainer : undefined;
-            inputs["encrypted"] = args ? args.encrypted : undefined;
-            inputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            inputs["roleName"] = args ? args.roleName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["dataEncryptionKeyId"] = undefined /*out*/;
-            inputs["ownerAlias"] = undefined /*out*/;
-            inputs["ownerId"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
-            inputs["volumeSize"] = undefined /*out*/;
+            resourceInputs["clientData"] = args ? args.clientData : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["diskContainer"] = args ? args.diskContainer : undefined;
+            resourceInputs["encrypted"] = args ? args.encrypted : undefined;
+            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
+            resourceInputs["roleName"] = args ? args.roleName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["dataEncryptionKeyId"] = undefined /*out*/;
+            resourceInputs["ownerAlias"] = undefined /*out*/;
+            resourceInputs["ownerId"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["volumeSize"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(SnapshotImport.__pulumiType, name, inputs, opts);
+        super(SnapshotImport.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -281,7 +281,7 @@ type KeySigningKeyInput interface {
 }
 
 func (*KeySigningKey) ElementType() reflect.Type {
-	return reflect.TypeOf((*KeySigningKey)(nil))
+	return reflect.TypeOf((**KeySigningKey)(nil)).Elem()
 }
 
 func (i *KeySigningKey) ToKeySigningKeyOutput() KeySigningKeyOutput {
@@ -290,35 +290,6 @@ func (i *KeySigningKey) ToKeySigningKeyOutput() KeySigningKeyOutput {
 
 func (i *KeySigningKey) ToKeySigningKeyOutputWithContext(ctx context.Context) KeySigningKeyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(KeySigningKeyOutput)
-}
-
-func (i *KeySigningKey) ToKeySigningKeyPtrOutput() KeySigningKeyPtrOutput {
-	return i.ToKeySigningKeyPtrOutputWithContext(context.Background())
-}
-
-func (i *KeySigningKey) ToKeySigningKeyPtrOutputWithContext(ctx context.Context) KeySigningKeyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeySigningKeyPtrOutput)
-}
-
-type KeySigningKeyPtrInput interface {
-	pulumi.Input
-
-	ToKeySigningKeyPtrOutput() KeySigningKeyPtrOutput
-	ToKeySigningKeyPtrOutputWithContext(ctx context.Context) KeySigningKeyPtrOutput
-}
-
-type keySigningKeyPtrType KeySigningKeyArgs
-
-func (*keySigningKeyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**KeySigningKey)(nil))
-}
-
-func (i *keySigningKeyPtrType) ToKeySigningKeyPtrOutput() KeySigningKeyPtrOutput {
-	return i.ToKeySigningKeyPtrOutputWithContext(context.Background())
-}
-
-func (i *keySigningKeyPtrType) ToKeySigningKeyPtrOutputWithContext(ctx context.Context) KeySigningKeyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KeySigningKeyPtrOutput)
 }
 
 // KeySigningKeyArrayInput is an input type that accepts KeySigningKeyArray and KeySigningKeyArrayOutput values.
@@ -374,7 +345,7 @@ func (i KeySigningKeyMap) ToKeySigningKeyMapOutputWithContext(ctx context.Contex
 type KeySigningKeyOutput struct{ *pulumi.OutputState }
 
 func (KeySigningKeyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*KeySigningKey)(nil))
+	return reflect.TypeOf((**KeySigningKey)(nil)).Elem()
 }
 
 func (o KeySigningKeyOutput) ToKeySigningKeyOutput() KeySigningKeyOutput {
@@ -385,44 +356,10 @@ func (o KeySigningKeyOutput) ToKeySigningKeyOutputWithContext(ctx context.Contex
 	return o
 }
 
-func (o KeySigningKeyOutput) ToKeySigningKeyPtrOutput() KeySigningKeyPtrOutput {
-	return o.ToKeySigningKeyPtrOutputWithContext(context.Background())
-}
-
-func (o KeySigningKeyOutput) ToKeySigningKeyPtrOutputWithContext(ctx context.Context) KeySigningKeyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeySigningKey) *KeySigningKey {
-		return &v
-	}).(KeySigningKeyPtrOutput)
-}
-
-type KeySigningKeyPtrOutput struct{ *pulumi.OutputState }
-
-func (KeySigningKeyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**KeySigningKey)(nil))
-}
-
-func (o KeySigningKeyPtrOutput) ToKeySigningKeyPtrOutput() KeySigningKeyPtrOutput {
-	return o
-}
-
-func (o KeySigningKeyPtrOutput) ToKeySigningKeyPtrOutputWithContext(ctx context.Context) KeySigningKeyPtrOutput {
-	return o
-}
-
-func (o KeySigningKeyPtrOutput) Elem() KeySigningKeyOutput {
-	return o.ApplyT(func(v *KeySigningKey) KeySigningKey {
-		if v != nil {
-			return *v
-		}
-		var ret KeySigningKey
-		return ret
-	}).(KeySigningKeyOutput)
-}
-
 type KeySigningKeyArrayOutput struct{ *pulumi.OutputState }
 
 func (KeySigningKeyArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]KeySigningKey)(nil))
+	return reflect.TypeOf((*[]*KeySigningKey)(nil)).Elem()
 }
 
 func (o KeySigningKeyArrayOutput) ToKeySigningKeyArrayOutput() KeySigningKeyArrayOutput {
@@ -434,15 +371,15 @@ func (o KeySigningKeyArrayOutput) ToKeySigningKeyArrayOutputWithContext(ctx cont
 }
 
 func (o KeySigningKeyArrayOutput) Index(i pulumi.IntInput) KeySigningKeyOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KeySigningKey {
-		return vs[0].([]KeySigningKey)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *KeySigningKey {
+		return vs[0].([]*KeySigningKey)[vs[1].(int)]
 	}).(KeySigningKeyOutput)
 }
 
 type KeySigningKeyMapOutput struct{ *pulumi.OutputState }
 
 func (KeySigningKeyMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]KeySigningKey)(nil))
+	return reflect.TypeOf((*map[string]*KeySigningKey)(nil)).Elem()
 }
 
 func (o KeySigningKeyMapOutput) ToKeySigningKeyMapOutput() KeySigningKeyMapOutput {
@@ -454,18 +391,16 @@ func (o KeySigningKeyMapOutput) ToKeySigningKeyMapOutputWithContext(ctx context.
 }
 
 func (o KeySigningKeyMapOutput) MapIndex(k pulumi.StringInput) KeySigningKeyOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) KeySigningKey {
-		return vs[0].(map[string]KeySigningKey)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *KeySigningKey {
+		return vs[0].(map[string]*KeySigningKey)[vs[1].(string)]
 	}).(KeySigningKeyOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*KeySigningKeyInput)(nil)).Elem(), &KeySigningKey{})
-	pulumi.RegisterInputType(reflect.TypeOf((*KeySigningKeyPtrInput)(nil)).Elem(), &KeySigningKey{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KeySigningKeyArrayInput)(nil)).Elem(), KeySigningKeyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KeySigningKeyMapInput)(nil)).Elem(), KeySigningKeyMap{})
 	pulumi.RegisterOutputType(KeySigningKeyOutput{})
-	pulumi.RegisterOutputType(KeySigningKeyPtrOutput{})
 	pulumi.RegisterOutputType(KeySigningKeyArrayOutput{})
 	pulumi.RegisterOutputType(KeySigningKeyMapOutput{})
 }

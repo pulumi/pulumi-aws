@@ -137,7 +137,7 @@ type SpotDatafeedSubscriptionInput interface {
 }
 
 func (*SpotDatafeedSubscription) ElementType() reflect.Type {
-	return reflect.TypeOf((*SpotDatafeedSubscription)(nil))
+	return reflect.TypeOf((**SpotDatafeedSubscription)(nil)).Elem()
 }
 
 func (i *SpotDatafeedSubscription) ToSpotDatafeedSubscriptionOutput() SpotDatafeedSubscriptionOutput {
@@ -146,35 +146,6 @@ func (i *SpotDatafeedSubscription) ToSpotDatafeedSubscriptionOutput() SpotDatafe
 
 func (i *SpotDatafeedSubscription) ToSpotDatafeedSubscriptionOutputWithContext(ctx context.Context) SpotDatafeedSubscriptionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SpotDatafeedSubscriptionOutput)
-}
-
-func (i *SpotDatafeedSubscription) ToSpotDatafeedSubscriptionPtrOutput() SpotDatafeedSubscriptionPtrOutput {
-	return i.ToSpotDatafeedSubscriptionPtrOutputWithContext(context.Background())
-}
-
-func (i *SpotDatafeedSubscription) ToSpotDatafeedSubscriptionPtrOutputWithContext(ctx context.Context) SpotDatafeedSubscriptionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SpotDatafeedSubscriptionPtrOutput)
-}
-
-type SpotDatafeedSubscriptionPtrInput interface {
-	pulumi.Input
-
-	ToSpotDatafeedSubscriptionPtrOutput() SpotDatafeedSubscriptionPtrOutput
-	ToSpotDatafeedSubscriptionPtrOutputWithContext(ctx context.Context) SpotDatafeedSubscriptionPtrOutput
-}
-
-type spotDatafeedSubscriptionPtrType SpotDatafeedSubscriptionArgs
-
-func (*spotDatafeedSubscriptionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SpotDatafeedSubscription)(nil))
-}
-
-func (i *spotDatafeedSubscriptionPtrType) ToSpotDatafeedSubscriptionPtrOutput() SpotDatafeedSubscriptionPtrOutput {
-	return i.ToSpotDatafeedSubscriptionPtrOutputWithContext(context.Background())
-}
-
-func (i *spotDatafeedSubscriptionPtrType) ToSpotDatafeedSubscriptionPtrOutputWithContext(ctx context.Context) SpotDatafeedSubscriptionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SpotDatafeedSubscriptionPtrOutput)
 }
 
 // SpotDatafeedSubscriptionArrayInput is an input type that accepts SpotDatafeedSubscriptionArray and SpotDatafeedSubscriptionArrayOutput values.
@@ -230,7 +201,7 @@ func (i SpotDatafeedSubscriptionMap) ToSpotDatafeedSubscriptionMapOutputWithCont
 type SpotDatafeedSubscriptionOutput struct{ *pulumi.OutputState }
 
 func (SpotDatafeedSubscriptionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SpotDatafeedSubscription)(nil))
+	return reflect.TypeOf((**SpotDatafeedSubscription)(nil)).Elem()
 }
 
 func (o SpotDatafeedSubscriptionOutput) ToSpotDatafeedSubscriptionOutput() SpotDatafeedSubscriptionOutput {
@@ -241,44 +212,10 @@ func (o SpotDatafeedSubscriptionOutput) ToSpotDatafeedSubscriptionOutputWithCont
 	return o
 }
 
-func (o SpotDatafeedSubscriptionOutput) ToSpotDatafeedSubscriptionPtrOutput() SpotDatafeedSubscriptionPtrOutput {
-	return o.ToSpotDatafeedSubscriptionPtrOutputWithContext(context.Background())
-}
-
-func (o SpotDatafeedSubscriptionOutput) ToSpotDatafeedSubscriptionPtrOutputWithContext(ctx context.Context) SpotDatafeedSubscriptionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpotDatafeedSubscription) *SpotDatafeedSubscription {
-		return &v
-	}).(SpotDatafeedSubscriptionPtrOutput)
-}
-
-type SpotDatafeedSubscriptionPtrOutput struct{ *pulumi.OutputState }
-
-func (SpotDatafeedSubscriptionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SpotDatafeedSubscription)(nil))
-}
-
-func (o SpotDatafeedSubscriptionPtrOutput) ToSpotDatafeedSubscriptionPtrOutput() SpotDatafeedSubscriptionPtrOutput {
-	return o
-}
-
-func (o SpotDatafeedSubscriptionPtrOutput) ToSpotDatafeedSubscriptionPtrOutputWithContext(ctx context.Context) SpotDatafeedSubscriptionPtrOutput {
-	return o
-}
-
-func (o SpotDatafeedSubscriptionPtrOutput) Elem() SpotDatafeedSubscriptionOutput {
-	return o.ApplyT(func(v *SpotDatafeedSubscription) SpotDatafeedSubscription {
-		if v != nil {
-			return *v
-		}
-		var ret SpotDatafeedSubscription
-		return ret
-	}).(SpotDatafeedSubscriptionOutput)
-}
-
 type SpotDatafeedSubscriptionArrayOutput struct{ *pulumi.OutputState }
 
 func (SpotDatafeedSubscriptionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SpotDatafeedSubscription)(nil))
+	return reflect.TypeOf((*[]*SpotDatafeedSubscription)(nil)).Elem()
 }
 
 func (o SpotDatafeedSubscriptionArrayOutput) ToSpotDatafeedSubscriptionArrayOutput() SpotDatafeedSubscriptionArrayOutput {
@@ -290,15 +227,15 @@ func (o SpotDatafeedSubscriptionArrayOutput) ToSpotDatafeedSubscriptionArrayOutp
 }
 
 func (o SpotDatafeedSubscriptionArrayOutput) Index(i pulumi.IntInput) SpotDatafeedSubscriptionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SpotDatafeedSubscription {
-		return vs[0].([]SpotDatafeedSubscription)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SpotDatafeedSubscription {
+		return vs[0].([]*SpotDatafeedSubscription)[vs[1].(int)]
 	}).(SpotDatafeedSubscriptionOutput)
 }
 
 type SpotDatafeedSubscriptionMapOutput struct{ *pulumi.OutputState }
 
 func (SpotDatafeedSubscriptionMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]SpotDatafeedSubscription)(nil))
+	return reflect.TypeOf((*map[string]*SpotDatafeedSubscription)(nil)).Elem()
 }
 
 func (o SpotDatafeedSubscriptionMapOutput) ToSpotDatafeedSubscriptionMapOutput() SpotDatafeedSubscriptionMapOutput {
@@ -310,18 +247,16 @@ func (o SpotDatafeedSubscriptionMapOutput) ToSpotDatafeedSubscriptionMapOutputWi
 }
 
 func (o SpotDatafeedSubscriptionMapOutput) MapIndex(k pulumi.StringInput) SpotDatafeedSubscriptionOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SpotDatafeedSubscription {
-		return vs[0].(map[string]SpotDatafeedSubscription)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *SpotDatafeedSubscription {
+		return vs[0].(map[string]*SpotDatafeedSubscription)[vs[1].(string)]
 	}).(SpotDatafeedSubscriptionOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotDatafeedSubscriptionInput)(nil)).Elem(), &SpotDatafeedSubscription{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SpotDatafeedSubscriptionPtrInput)(nil)).Elem(), &SpotDatafeedSubscription{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotDatafeedSubscriptionArrayInput)(nil)).Elem(), SpotDatafeedSubscriptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpotDatafeedSubscriptionMapInput)(nil)).Elem(), SpotDatafeedSubscriptionMap{})
 	pulumi.RegisterOutputType(SpotDatafeedSubscriptionOutput{})
-	pulumi.RegisterOutputType(SpotDatafeedSubscriptionPtrOutput{})
 	pulumi.RegisterOutputType(SpotDatafeedSubscriptionArrayOutput{})
 	pulumi.RegisterOutputType(SpotDatafeedSubscriptionMapOutput{})
 }

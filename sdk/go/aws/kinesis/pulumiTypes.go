@@ -13175,59 +13175,6 @@ type GetStreamStreamModeDetail struct {
 	StreamMode string `pulumi:"streamMode"`
 }
 
-// GetStreamStreamModeDetailInput is an input type that accepts GetStreamStreamModeDetailArgs and GetStreamStreamModeDetailOutput values.
-// You can construct a concrete instance of `GetStreamStreamModeDetailInput` via:
-//
-//          GetStreamStreamModeDetailArgs{...}
-type GetStreamStreamModeDetailInput interface {
-	pulumi.Input
-
-	ToGetStreamStreamModeDetailOutput() GetStreamStreamModeDetailOutput
-	ToGetStreamStreamModeDetailOutputWithContext(context.Context) GetStreamStreamModeDetailOutput
-}
-
-type GetStreamStreamModeDetailArgs struct {
-	// The capacity mode of the stream. Either `ON_DEMAND` or `PROVISIONED`.
-	StreamMode pulumi.StringInput `pulumi:"streamMode"`
-}
-
-func (GetStreamStreamModeDetailArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetStreamStreamModeDetail)(nil)).Elem()
-}
-
-func (i GetStreamStreamModeDetailArgs) ToGetStreamStreamModeDetailOutput() GetStreamStreamModeDetailOutput {
-	return i.ToGetStreamStreamModeDetailOutputWithContext(context.Background())
-}
-
-func (i GetStreamStreamModeDetailArgs) ToGetStreamStreamModeDetailOutputWithContext(ctx context.Context) GetStreamStreamModeDetailOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetStreamStreamModeDetailOutput)
-}
-
-// GetStreamStreamModeDetailArrayInput is an input type that accepts GetStreamStreamModeDetailArray and GetStreamStreamModeDetailArrayOutput values.
-// You can construct a concrete instance of `GetStreamStreamModeDetailArrayInput` via:
-//
-//          GetStreamStreamModeDetailArray{ GetStreamStreamModeDetailArgs{...} }
-type GetStreamStreamModeDetailArrayInput interface {
-	pulumi.Input
-
-	ToGetStreamStreamModeDetailArrayOutput() GetStreamStreamModeDetailArrayOutput
-	ToGetStreamStreamModeDetailArrayOutputWithContext(context.Context) GetStreamStreamModeDetailArrayOutput
-}
-
-type GetStreamStreamModeDetailArray []GetStreamStreamModeDetailInput
-
-func (GetStreamStreamModeDetailArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetStreamStreamModeDetail)(nil)).Elem()
-}
-
-func (i GetStreamStreamModeDetailArray) ToGetStreamStreamModeDetailArrayOutput() GetStreamStreamModeDetailArrayOutput {
-	return i.ToGetStreamStreamModeDetailArrayOutputWithContext(context.Background())
-}
-
-func (i GetStreamStreamModeDetailArray) ToGetStreamStreamModeDetailArrayOutputWithContext(ctx context.Context) GetStreamStreamModeDetailArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetStreamStreamModeDetailArrayOutput)
-}
-
 type GetStreamStreamModeDetailOutput struct{ *pulumi.OutputState }
 
 func (GetStreamStreamModeDetailOutput) ElementType() reflect.Type {
@@ -13417,8 +13364,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameterArrayInput)(nil)).Elem(), FirehoseDeliveryStreamSplunkConfigurationProcessingConfigurationProcessorParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamStreamModeDetailsInput)(nil)).Elem(), StreamStreamModeDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamStreamModeDetailsPtrInput)(nil)).Elem(), StreamStreamModeDetailsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetStreamStreamModeDetailInput)(nil)).Elem(), GetStreamStreamModeDetailArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetStreamStreamModeDetailArrayInput)(nil)).Elem(), GetStreamStreamModeDetailArray{})
 	pulumi.RegisterOutputType(AnalyticsApplicationCloudwatchLoggingOptionsOutput{})
 	pulumi.RegisterOutputType(AnalyticsApplicationCloudwatchLoggingOptionsPtrOutput{})
 	pulumi.RegisterOutputType(AnalyticsApplicationInputsOutput{})

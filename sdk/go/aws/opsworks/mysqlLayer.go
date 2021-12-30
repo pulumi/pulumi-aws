@@ -317,7 +317,7 @@ type MysqlLayerInput interface {
 }
 
 func (*MysqlLayer) ElementType() reflect.Type {
-	return reflect.TypeOf((*MysqlLayer)(nil))
+	return reflect.TypeOf((**MysqlLayer)(nil)).Elem()
 }
 
 func (i *MysqlLayer) ToMysqlLayerOutput() MysqlLayerOutput {
@@ -326,35 +326,6 @@ func (i *MysqlLayer) ToMysqlLayerOutput() MysqlLayerOutput {
 
 func (i *MysqlLayer) ToMysqlLayerOutputWithContext(ctx context.Context) MysqlLayerOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(MysqlLayerOutput)
-}
-
-func (i *MysqlLayer) ToMysqlLayerPtrOutput() MysqlLayerPtrOutput {
-	return i.ToMysqlLayerPtrOutputWithContext(context.Background())
-}
-
-func (i *MysqlLayer) ToMysqlLayerPtrOutputWithContext(ctx context.Context) MysqlLayerPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MysqlLayerPtrOutput)
-}
-
-type MysqlLayerPtrInput interface {
-	pulumi.Input
-
-	ToMysqlLayerPtrOutput() MysqlLayerPtrOutput
-	ToMysqlLayerPtrOutputWithContext(ctx context.Context) MysqlLayerPtrOutput
-}
-
-type mysqlLayerPtrType MysqlLayerArgs
-
-func (*mysqlLayerPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**MysqlLayer)(nil))
-}
-
-func (i *mysqlLayerPtrType) ToMysqlLayerPtrOutput() MysqlLayerPtrOutput {
-	return i.ToMysqlLayerPtrOutputWithContext(context.Background())
-}
-
-func (i *mysqlLayerPtrType) ToMysqlLayerPtrOutputWithContext(ctx context.Context) MysqlLayerPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MysqlLayerPtrOutput)
 }
 
 // MysqlLayerArrayInput is an input type that accepts MysqlLayerArray and MysqlLayerArrayOutput values.
@@ -410,7 +381,7 @@ func (i MysqlLayerMap) ToMysqlLayerMapOutputWithContext(ctx context.Context) Mys
 type MysqlLayerOutput struct{ *pulumi.OutputState }
 
 func (MysqlLayerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*MysqlLayer)(nil))
+	return reflect.TypeOf((**MysqlLayer)(nil)).Elem()
 }
 
 func (o MysqlLayerOutput) ToMysqlLayerOutput() MysqlLayerOutput {
@@ -421,44 +392,10 @@ func (o MysqlLayerOutput) ToMysqlLayerOutputWithContext(ctx context.Context) Mys
 	return o
 }
 
-func (o MysqlLayerOutput) ToMysqlLayerPtrOutput() MysqlLayerPtrOutput {
-	return o.ToMysqlLayerPtrOutputWithContext(context.Background())
-}
-
-func (o MysqlLayerOutput) ToMysqlLayerPtrOutputWithContext(ctx context.Context) MysqlLayerPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MysqlLayer) *MysqlLayer {
-		return &v
-	}).(MysqlLayerPtrOutput)
-}
-
-type MysqlLayerPtrOutput struct{ *pulumi.OutputState }
-
-func (MysqlLayerPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**MysqlLayer)(nil))
-}
-
-func (o MysqlLayerPtrOutput) ToMysqlLayerPtrOutput() MysqlLayerPtrOutput {
-	return o
-}
-
-func (o MysqlLayerPtrOutput) ToMysqlLayerPtrOutputWithContext(ctx context.Context) MysqlLayerPtrOutput {
-	return o
-}
-
-func (o MysqlLayerPtrOutput) Elem() MysqlLayerOutput {
-	return o.ApplyT(func(v *MysqlLayer) MysqlLayer {
-		if v != nil {
-			return *v
-		}
-		var ret MysqlLayer
-		return ret
-	}).(MysqlLayerOutput)
-}
-
 type MysqlLayerArrayOutput struct{ *pulumi.OutputState }
 
 func (MysqlLayerArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]MysqlLayer)(nil))
+	return reflect.TypeOf((*[]*MysqlLayer)(nil)).Elem()
 }
 
 func (o MysqlLayerArrayOutput) ToMysqlLayerArrayOutput() MysqlLayerArrayOutput {
@@ -470,15 +407,15 @@ func (o MysqlLayerArrayOutput) ToMysqlLayerArrayOutputWithContext(ctx context.Co
 }
 
 func (o MysqlLayerArrayOutput) Index(i pulumi.IntInput) MysqlLayerOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MysqlLayer {
-		return vs[0].([]MysqlLayer)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *MysqlLayer {
+		return vs[0].([]*MysqlLayer)[vs[1].(int)]
 	}).(MysqlLayerOutput)
 }
 
 type MysqlLayerMapOutput struct{ *pulumi.OutputState }
 
 func (MysqlLayerMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]MysqlLayer)(nil))
+	return reflect.TypeOf((*map[string]*MysqlLayer)(nil)).Elem()
 }
 
 func (o MysqlLayerMapOutput) ToMysqlLayerMapOutput() MysqlLayerMapOutput {
@@ -490,18 +427,16 @@ func (o MysqlLayerMapOutput) ToMysqlLayerMapOutputWithContext(ctx context.Contex
 }
 
 func (o MysqlLayerMapOutput) MapIndex(k pulumi.StringInput) MysqlLayerOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) MysqlLayer {
-		return vs[0].(map[string]MysqlLayer)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *MysqlLayer {
+		return vs[0].(map[string]*MysqlLayer)[vs[1].(string)]
 	}).(MysqlLayerOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MysqlLayerInput)(nil)).Elem(), &MysqlLayer{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MysqlLayerPtrInput)(nil)).Elem(), &MysqlLayer{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MysqlLayerArrayInput)(nil)).Elem(), MysqlLayerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MysqlLayerMapInput)(nil)).Elem(), MysqlLayerMap{})
 	pulumi.RegisterOutputType(MysqlLayerOutput{})
-	pulumi.RegisterOutputType(MysqlLayerPtrOutput{})
 	pulumi.RegisterOutputType(MysqlLayerArrayOutput{})
 	pulumi.RegisterOutputType(MysqlLayerMapOutput{})
 }

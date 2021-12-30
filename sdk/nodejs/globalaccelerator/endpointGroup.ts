@@ -114,42 +114,42 @@ export class EndpointGroup extends pulumi.CustomResource {
      */
     constructor(name: string, args: EndpointGroupArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: EndpointGroupArgs | EndpointGroupState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EndpointGroupState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["endpointConfigurations"] = state ? state.endpointConfigurations : undefined;
-            inputs["endpointGroupRegion"] = state ? state.endpointGroupRegion : undefined;
-            inputs["healthCheckIntervalSeconds"] = state ? state.healthCheckIntervalSeconds : undefined;
-            inputs["healthCheckPath"] = state ? state.healthCheckPath : undefined;
-            inputs["healthCheckPort"] = state ? state.healthCheckPort : undefined;
-            inputs["healthCheckProtocol"] = state ? state.healthCheckProtocol : undefined;
-            inputs["listenerArn"] = state ? state.listenerArn : undefined;
-            inputs["portOverrides"] = state ? state.portOverrides : undefined;
-            inputs["thresholdCount"] = state ? state.thresholdCount : undefined;
-            inputs["trafficDialPercentage"] = state ? state.trafficDialPercentage : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["endpointConfigurations"] = state ? state.endpointConfigurations : undefined;
+            resourceInputs["endpointGroupRegion"] = state ? state.endpointGroupRegion : undefined;
+            resourceInputs["healthCheckIntervalSeconds"] = state ? state.healthCheckIntervalSeconds : undefined;
+            resourceInputs["healthCheckPath"] = state ? state.healthCheckPath : undefined;
+            resourceInputs["healthCheckPort"] = state ? state.healthCheckPort : undefined;
+            resourceInputs["healthCheckProtocol"] = state ? state.healthCheckProtocol : undefined;
+            resourceInputs["listenerArn"] = state ? state.listenerArn : undefined;
+            resourceInputs["portOverrides"] = state ? state.portOverrides : undefined;
+            resourceInputs["thresholdCount"] = state ? state.thresholdCount : undefined;
+            resourceInputs["trafficDialPercentage"] = state ? state.trafficDialPercentage : undefined;
         } else {
             const args = argsOrState as EndpointGroupArgs | undefined;
             if ((!args || args.listenerArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'listenerArn'");
             }
-            inputs["endpointConfigurations"] = args ? args.endpointConfigurations : undefined;
-            inputs["endpointGroupRegion"] = args ? args.endpointGroupRegion : undefined;
-            inputs["healthCheckIntervalSeconds"] = args ? args.healthCheckIntervalSeconds : undefined;
-            inputs["healthCheckPath"] = args ? args.healthCheckPath : undefined;
-            inputs["healthCheckPort"] = args ? args.healthCheckPort : undefined;
-            inputs["healthCheckProtocol"] = args ? args.healthCheckProtocol : undefined;
-            inputs["listenerArn"] = args ? args.listenerArn : undefined;
-            inputs["portOverrides"] = args ? args.portOverrides : undefined;
-            inputs["thresholdCount"] = args ? args.thresholdCount : undefined;
-            inputs["trafficDialPercentage"] = args ? args.trafficDialPercentage : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["endpointConfigurations"] = args ? args.endpointConfigurations : undefined;
+            resourceInputs["endpointGroupRegion"] = args ? args.endpointGroupRegion : undefined;
+            resourceInputs["healthCheckIntervalSeconds"] = args ? args.healthCheckIntervalSeconds : undefined;
+            resourceInputs["healthCheckPath"] = args ? args.healthCheckPath : undefined;
+            resourceInputs["healthCheckPort"] = args ? args.healthCheckPort : undefined;
+            resourceInputs["healthCheckProtocol"] = args ? args.healthCheckProtocol : undefined;
+            resourceInputs["listenerArn"] = args ? args.listenerArn : undefined;
+            resourceInputs["portOverrides"] = args ? args.portOverrides : undefined;
+            resourceInputs["thresholdCount"] = args ? args.thresholdCount : undefined;
+            resourceInputs["trafficDialPercentage"] = args ? args.trafficDialPercentage : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(EndpointGroup.__pulumiType, name, inputs, opts);
+        super(EndpointGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

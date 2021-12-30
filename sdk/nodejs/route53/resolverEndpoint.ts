@@ -116,18 +116,18 @@ export class ResolverEndpoint extends pulumi.CustomResource {
      */
     constructor(name: string, args: ResolverEndpointArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ResolverEndpointArgs | ResolverEndpointState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ResolverEndpointState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["direction"] = state ? state.direction : undefined;
-            inputs["hostVpcId"] = state ? state.hostVpcId : undefined;
-            inputs["ipAddresses"] = state ? state.ipAddresses : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["securityGroupIds"] = state ? state.securityGroupIds : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["direction"] = state ? state.direction : undefined;
+            resourceInputs["hostVpcId"] = state ? state.hostVpcId : undefined;
+            resourceInputs["ipAddresses"] = state ? state.ipAddresses : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["securityGroupIds"] = state ? state.securityGroupIds : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as ResolverEndpointArgs | undefined;
             if ((!args || args.direction === undefined) && !opts.urn) {
@@ -139,19 +139,19 @@ export class ResolverEndpoint extends pulumi.CustomResource {
             if ((!args || args.securityGroupIds === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'securityGroupIds'");
             }
-            inputs["direction"] = args ? args.direction : undefined;
-            inputs["ipAddresses"] = args ? args.ipAddresses : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["hostVpcId"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["direction"] = args ? args.direction : undefined;
+            resourceInputs["ipAddresses"] = args ? args.ipAddresses : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["securityGroupIds"] = args ? args.securityGroupIds : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["hostVpcId"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(ResolverEndpoint.__pulumiType, name, inputs, opts);
+        super(ResolverEndpoint.__pulumiType, name, resourceInputs, opts);
     }
 }
 

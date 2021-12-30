@@ -110,21 +110,21 @@ export class VpcAttachment extends pulumi.CustomResource {
      */
     constructor(name: string, args: VpcAttachmentArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VpcAttachmentArgs | VpcAttachmentState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VpcAttachmentState | undefined;
-            inputs["applianceModeSupport"] = state ? state.applianceModeSupport : undefined;
-            inputs["dnsSupport"] = state ? state.dnsSupport : undefined;
-            inputs["ipv6Support"] = state ? state.ipv6Support : undefined;
-            inputs["subnetIds"] = state ? state.subnetIds : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["transitGatewayDefaultRouteTableAssociation"] = state ? state.transitGatewayDefaultRouteTableAssociation : undefined;
-            inputs["transitGatewayDefaultRouteTablePropagation"] = state ? state.transitGatewayDefaultRouteTablePropagation : undefined;
-            inputs["transitGatewayId"] = state ? state.transitGatewayId : undefined;
-            inputs["vpcId"] = state ? state.vpcId : undefined;
-            inputs["vpcOwnerId"] = state ? state.vpcOwnerId : undefined;
+            resourceInputs["applianceModeSupport"] = state ? state.applianceModeSupport : undefined;
+            resourceInputs["dnsSupport"] = state ? state.dnsSupport : undefined;
+            resourceInputs["ipv6Support"] = state ? state.ipv6Support : undefined;
+            resourceInputs["subnetIds"] = state ? state.subnetIds : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["transitGatewayDefaultRouteTableAssociation"] = state ? state.transitGatewayDefaultRouteTableAssociation : undefined;
+            resourceInputs["transitGatewayDefaultRouteTablePropagation"] = state ? state.transitGatewayDefaultRouteTablePropagation : undefined;
+            resourceInputs["transitGatewayId"] = state ? state.transitGatewayId : undefined;
+            resourceInputs["vpcId"] = state ? state.vpcId : undefined;
+            resourceInputs["vpcOwnerId"] = state ? state.vpcOwnerId : undefined;
         } else {
             const args = argsOrState as VpcAttachmentArgs | undefined;
             if ((!args || args.subnetIds === undefined) && !opts.urn) {
@@ -136,22 +136,22 @@ export class VpcAttachment extends pulumi.CustomResource {
             if ((!args || args.vpcId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpcId'");
             }
-            inputs["applianceModeSupport"] = args ? args.applianceModeSupport : undefined;
-            inputs["dnsSupport"] = args ? args.dnsSupport : undefined;
-            inputs["ipv6Support"] = args ? args.ipv6Support : undefined;
-            inputs["subnetIds"] = args ? args.subnetIds : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["transitGatewayDefaultRouteTableAssociation"] = args ? args.transitGatewayDefaultRouteTableAssociation : undefined;
-            inputs["transitGatewayDefaultRouteTablePropagation"] = args ? args.transitGatewayDefaultRouteTablePropagation : undefined;
-            inputs["transitGatewayId"] = args ? args.transitGatewayId : undefined;
-            inputs["vpcId"] = args ? args.vpcId : undefined;
-            inputs["tagsAll"] = undefined /*out*/;
-            inputs["vpcOwnerId"] = undefined /*out*/;
+            resourceInputs["applianceModeSupport"] = args ? args.applianceModeSupport : undefined;
+            resourceInputs["dnsSupport"] = args ? args.dnsSupport : undefined;
+            resourceInputs["ipv6Support"] = args ? args.ipv6Support : undefined;
+            resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["transitGatewayDefaultRouteTableAssociation"] = args ? args.transitGatewayDefaultRouteTableAssociation : undefined;
+            resourceInputs["transitGatewayDefaultRouteTablePropagation"] = args ? args.transitGatewayDefaultRouteTablePropagation : undefined;
+            resourceInputs["transitGatewayId"] = args ? args.transitGatewayId : undefined;
+            resourceInputs["vpcId"] = args ? args.vpcId : undefined;
+            resourceInputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["vpcOwnerId"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(VpcAttachment.__pulumiType, name, inputs, opts);
+        super(VpcAttachment.__pulumiType, name, resourceInputs, opts);
     }
 }
 

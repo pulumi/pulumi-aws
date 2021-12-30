@@ -223,66 +223,66 @@ export class HealthCheck extends pulumi.CustomResource {
      */
     constructor(name: string, args: HealthCheckArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: HealthCheckArgs | HealthCheckState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as HealthCheckState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["childHealthThreshold"] = state ? state.childHealthThreshold : undefined;
-            inputs["childHealthchecks"] = state ? state.childHealthchecks : undefined;
-            inputs["cloudwatchAlarmName"] = state ? state.cloudwatchAlarmName : undefined;
-            inputs["cloudwatchAlarmRegion"] = state ? state.cloudwatchAlarmRegion : undefined;
-            inputs["disabled"] = state ? state.disabled : undefined;
-            inputs["enableSni"] = state ? state.enableSni : undefined;
-            inputs["failureThreshold"] = state ? state.failureThreshold : undefined;
-            inputs["fqdn"] = state ? state.fqdn : undefined;
-            inputs["insufficientDataHealthStatus"] = state ? state.insufficientDataHealthStatus : undefined;
-            inputs["invertHealthcheck"] = state ? state.invertHealthcheck : undefined;
-            inputs["ipAddress"] = state ? state.ipAddress : undefined;
-            inputs["measureLatency"] = state ? state.measureLatency : undefined;
-            inputs["port"] = state ? state.port : undefined;
-            inputs["referenceName"] = state ? state.referenceName : undefined;
-            inputs["regions"] = state ? state.regions : undefined;
-            inputs["requestInterval"] = state ? state.requestInterval : undefined;
-            inputs["resourcePath"] = state ? state.resourcePath : undefined;
-            inputs["routingControlArn"] = state ? state.routingControlArn : undefined;
-            inputs["searchString"] = state ? state.searchString : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["type"] = state ? state.type : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["childHealthThreshold"] = state ? state.childHealthThreshold : undefined;
+            resourceInputs["childHealthchecks"] = state ? state.childHealthchecks : undefined;
+            resourceInputs["cloudwatchAlarmName"] = state ? state.cloudwatchAlarmName : undefined;
+            resourceInputs["cloudwatchAlarmRegion"] = state ? state.cloudwatchAlarmRegion : undefined;
+            resourceInputs["disabled"] = state ? state.disabled : undefined;
+            resourceInputs["enableSni"] = state ? state.enableSni : undefined;
+            resourceInputs["failureThreshold"] = state ? state.failureThreshold : undefined;
+            resourceInputs["fqdn"] = state ? state.fqdn : undefined;
+            resourceInputs["insufficientDataHealthStatus"] = state ? state.insufficientDataHealthStatus : undefined;
+            resourceInputs["invertHealthcheck"] = state ? state.invertHealthcheck : undefined;
+            resourceInputs["ipAddress"] = state ? state.ipAddress : undefined;
+            resourceInputs["measureLatency"] = state ? state.measureLatency : undefined;
+            resourceInputs["port"] = state ? state.port : undefined;
+            resourceInputs["referenceName"] = state ? state.referenceName : undefined;
+            resourceInputs["regions"] = state ? state.regions : undefined;
+            resourceInputs["requestInterval"] = state ? state.requestInterval : undefined;
+            resourceInputs["resourcePath"] = state ? state.resourcePath : undefined;
+            resourceInputs["routingControlArn"] = state ? state.routingControlArn : undefined;
+            resourceInputs["searchString"] = state ? state.searchString : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as HealthCheckArgs | undefined;
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            inputs["childHealthThreshold"] = args ? args.childHealthThreshold : undefined;
-            inputs["childHealthchecks"] = args ? args.childHealthchecks : undefined;
-            inputs["cloudwatchAlarmName"] = args ? args.cloudwatchAlarmName : undefined;
-            inputs["cloudwatchAlarmRegion"] = args ? args.cloudwatchAlarmRegion : undefined;
-            inputs["disabled"] = args ? args.disabled : undefined;
-            inputs["enableSni"] = args ? args.enableSni : undefined;
-            inputs["failureThreshold"] = args ? args.failureThreshold : undefined;
-            inputs["fqdn"] = args ? args.fqdn : undefined;
-            inputs["insufficientDataHealthStatus"] = args ? args.insufficientDataHealthStatus : undefined;
-            inputs["invertHealthcheck"] = args ? args.invertHealthcheck : undefined;
-            inputs["ipAddress"] = args ? args.ipAddress : undefined;
-            inputs["measureLatency"] = args ? args.measureLatency : undefined;
-            inputs["port"] = args ? args.port : undefined;
-            inputs["referenceName"] = args ? args.referenceName : undefined;
-            inputs["regions"] = args ? args.regions : undefined;
-            inputs["requestInterval"] = args ? args.requestInterval : undefined;
-            inputs["resourcePath"] = args ? args.resourcePath : undefined;
-            inputs["routingControlArn"] = args ? args.routingControlArn : undefined;
-            inputs["searchString"] = args ? args.searchString : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["childHealthThreshold"] = args ? args.childHealthThreshold : undefined;
+            resourceInputs["childHealthchecks"] = args ? args.childHealthchecks : undefined;
+            resourceInputs["cloudwatchAlarmName"] = args ? args.cloudwatchAlarmName : undefined;
+            resourceInputs["cloudwatchAlarmRegion"] = args ? args.cloudwatchAlarmRegion : undefined;
+            resourceInputs["disabled"] = args ? args.disabled : undefined;
+            resourceInputs["enableSni"] = args ? args.enableSni : undefined;
+            resourceInputs["failureThreshold"] = args ? args.failureThreshold : undefined;
+            resourceInputs["fqdn"] = args ? args.fqdn : undefined;
+            resourceInputs["insufficientDataHealthStatus"] = args ? args.insufficientDataHealthStatus : undefined;
+            resourceInputs["invertHealthcheck"] = args ? args.invertHealthcheck : undefined;
+            resourceInputs["ipAddress"] = args ? args.ipAddress : undefined;
+            resourceInputs["measureLatency"] = args ? args.measureLatency : undefined;
+            resourceInputs["port"] = args ? args.port : undefined;
+            resourceInputs["referenceName"] = args ? args.referenceName : undefined;
+            resourceInputs["regions"] = args ? args.regions : undefined;
+            resourceInputs["requestInterval"] = args ? args.requestInterval : undefined;
+            resourceInputs["resourcePath"] = args ? args.resourcePath : undefined;
+            resourceInputs["routingControlArn"] = args ? args.routingControlArn : undefined;
+            resourceInputs["searchString"] = args ? args.searchString : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(HealthCheck.__pulumiType, name, inputs, opts);
+        super(HealthCheck.__pulumiType, name, resourceInputs, opts);
     }
 }
 

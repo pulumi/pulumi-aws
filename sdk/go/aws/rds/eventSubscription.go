@@ -241,7 +241,7 @@ type EventSubscriptionInput interface {
 }
 
 func (*EventSubscription) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventSubscription)(nil))
+	return reflect.TypeOf((**EventSubscription)(nil)).Elem()
 }
 
 func (i *EventSubscription) ToEventSubscriptionOutput() EventSubscriptionOutput {
@@ -250,35 +250,6 @@ func (i *EventSubscription) ToEventSubscriptionOutput() EventSubscriptionOutput 
 
 func (i *EventSubscription) ToEventSubscriptionOutputWithContext(ctx context.Context) EventSubscriptionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionOutput)
-}
-
-func (i *EventSubscription) ToEventSubscriptionPtrOutput() EventSubscriptionPtrOutput {
-	return i.ToEventSubscriptionPtrOutputWithContext(context.Background())
-}
-
-func (i *EventSubscription) ToEventSubscriptionPtrOutputWithContext(ctx context.Context) EventSubscriptionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionPtrOutput)
-}
-
-type EventSubscriptionPtrInput interface {
-	pulumi.Input
-
-	ToEventSubscriptionPtrOutput() EventSubscriptionPtrOutput
-	ToEventSubscriptionPtrOutputWithContext(ctx context.Context) EventSubscriptionPtrOutput
-}
-
-type eventSubscriptionPtrType EventSubscriptionArgs
-
-func (*eventSubscriptionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EventSubscription)(nil))
-}
-
-func (i *eventSubscriptionPtrType) ToEventSubscriptionPtrOutput() EventSubscriptionPtrOutput {
-	return i.ToEventSubscriptionPtrOutputWithContext(context.Background())
-}
-
-func (i *eventSubscriptionPtrType) ToEventSubscriptionPtrOutputWithContext(ctx context.Context) EventSubscriptionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EventSubscriptionPtrOutput)
 }
 
 // EventSubscriptionArrayInput is an input type that accepts EventSubscriptionArray and EventSubscriptionArrayOutput values.
@@ -334,7 +305,7 @@ func (i EventSubscriptionMap) ToEventSubscriptionMapOutputWithContext(ctx contex
 type EventSubscriptionOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventSubscription)(nil))
+	return reflect.TypeOf((**EventSubscription)(nil)).Elem()
 }
 
 func (o EventSubscriptionOutput) ToEventSubscriptionOutput() EventSubscriptionOutput {
@@ -345,44 +316,10 @@ func (o EventSubscriptionOutput) ToEventSubscriptionOutputWithContext(ctx contex
 	return o
 }
 
-func (o EventSubscriptionOutput) ToEventSubscriptionPtrOutput() EventSubscriptionPtrOutput {
-	return o.ToEventSubscriptionPtrOutputWithContext(context.Background())
-}
-
-func (o EventSubscriptionOutput) ToEventSubscriptionPtrOutputWithContext(ctx context.Context) EventSubscriptionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventSubscription) *EventSubscription {
-		return &v
-	}).(EventSubscriptionPtrOutput)
-}
-
-type EventSubscriptionPtrOutput struct{ *pulumi.OutputState }
-
-func (EventSubscriptionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EventSubscription)(nil))
-}
-
-func (o EventSubscriptionPtrOutput) ToEventSubscriptionPtrOutput() EventSubscriptionPtrOutput {
-	return o
-}
-
-func (o EventSubscriptionPtrOutput) ToEventSubscriptionPtrOutputWithContext(ctx context.Context) EventSubscriptionPtrOutput {
-	return o
-}
-
-func (o EventSubscriptionPtrOutput) Elem() EventSubscriptionOutput {
-	return o.ApplyT(func(v *EventSubscription) EventSubscription {
-		if v != nil {
-			return *v
-		}
-		var ret EventSubscription
-		return ret
-	}).(EventSubscriptionOutput)
-}
-
 type EventSubscriptionArrayOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]EventSubscription)(nil))
+	return reflect.TypeOf((*[]*EventSubscription)(nil)).Elem()
 }
 
 func (o EventSubscriptionArrayOutput) ToEventSubscriptionArrayOutput() EventSubscriptionArrayOutput {
@@ -394,15 +331,15 @@ func (o EventSubscriptionArrayOutput) ToEventSubscriptionArrayOutputWithContext(
 }
 
 func (o EventSubscriptionArrayOutput) Index(i pulumi.IntInput) EventSubscriptionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventSubscription {
-		return vs[0].([]EventSubscription)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EventSubscription {
+		return vs[0].([]*EventSubscription)[vs[1].(int)]
 	}).(EventSubscriptionOutput)
 }
 
 type EventSubscriptionMapOutput struct{ *pulumi.OutputState }
 
 func (EventSubscriptionMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]EventSubscription)(nil))
+	return reflect.TypeOf((*map[string]*EventSubscription)(nil)).Elem()
 }
 
 func (o EventSubscriptionMapOutput) ToEventSubscriptionMapOutput() EventSubscriptionMapOutput {
@@ -414,18 +351,16 @@ func (o EventSubscriptionMapOutput) ToEventSubscriptionMapOutputWithContext(ctx 
 }
 
 func (o EventSubscriptionMapOutput) MapIndex(k pulumi.StringInput) EventSubscriptionOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) EventSubscription {
-		return vs[0].(map[string]EventSubscription)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *EventSubscription {
+		return vs[0].(map[string]*EventSubscription)[vs[1].(string)]
 	}).(EventSubscriptionOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSubscriptionInput)(nil)).Elem(), &EventSubscription{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EventSubscriptionPtrInput)(nil)).Elem(), &EventSubscription{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSubscriptionArrayInput)(nil)).Elem(), EventSubscriptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSubscriptionMapInput)(nil)).Elem(), EventSubscriptionMap{})
 	pulumi.RegisterOutputType(EventSubscriptionOutput{})
-	pulumi.RegisterOutputType(EventSubscriptionPtrOutput{})
 	pulumi.RegisterOutputType(EventSubscriptionArrayOutput{})
 	pulumi.RegisterOutputType(EventSubscriptionMapOutput{})
 }

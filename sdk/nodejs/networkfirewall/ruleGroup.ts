@@ -325,20 +325,20 @@ export class RuleGroup extends pulumi.CustomResource {
      */
     constructor(name: string, args: RuleGroupArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RuleGroupArgs | RuleGroupState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RuleGroupState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["capacity"] = state ? state.capacity : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["ruleGroup"] = state ? state.ruleGroup : undefined;
-            inputs["rules"] = state ? state.rules : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["type"] = state ? state.type : undefined;
-            inputs["updateToken"] = state ? state.updateToken : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["capacity"] = state ? state.capacity : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["ruleGroup"] = state ? state.ruleGroup : undefined;
+            resourceInputs["rules"] = state ? state.rules : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["updateToken"] = state ? state.updateToken : undefined;
         } else {
             const args = argsOrState as RuleGroupArgs | undefined;
             if ((!args || args.capacity === undefined) && !opts.urn) {
@@ -347,21 +347,21 @@ export class RuleGroup extends pulumi.CustomResource {
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            inputs["capacity"] = args ? args.capacity : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["ruleGroup"] = args ? args.ruleGroup : undefined;
-            inputs["rules"] = args ? args.rules : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
-            inputs["updateToken"] = undefined /*out*/;
+            resourceInputs["capacity"] = args ? args.capacity : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["ruleGroup"] = args ? args.ruleGroup : undefined;
+            resourceInputs["rules"] = args ? args.rules : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["updateToken"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(RuleGroup.__pulumiType, name, inputs, opts);
+        super(RuleGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

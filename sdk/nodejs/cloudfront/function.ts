@@ -109,19 +109,19 @@ export class Function extends pulumi.CustomResource {
      */
     constructor(name: string, args: FunctionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: FunctionArgs | FunctionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FunctionState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["code"] = state ? state.code : undefined;
-            inputs["comment"] = state ? state.comment : undefined;
-            inputs["etag"] = state ? state.etag : undefined;
-            inputs["liveStageEtag"] = state ? state.liveStageEtag : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["publish"] = state ? state.publish : undefined;
-            inputs["runtime"] = state ? state.runtime : undefined;
-            inputs["status"] = state ? state.status : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["code"] = state ? state.code : undefined;
+            resourceInputs["comment"] = state ? state.comment : undefined;
+            resourceInputs["etag"] = state ? state.etag : undefined;
+            resourceInputs["liveStageEtag"] = state ? state.liveStageEtag : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["publish"] = state ? state.publish : undefined;
+            resourceInputs["runtime"] = state ? state.runtime : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
         } else {
             const args = argsOrState as FunctionArgs | undefined;
             if ((!args || args.code === undefined) && !opts.urn) {
@@ -130,20 +130,20 @@ export class Function extends pulumi.CustomResource {
             if ((!args || args.runtime === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'runtime'");
             }
-            inputs["code"] = args ? args.code : undefined;
-            inputs["comment"] = args ? args.comment : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["publish"] = args ? args.publish : undefined;
-            inputs["runtime"] = args ? args.runtime : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["etag"] = undefined /*out*/;
-            inputs["liveStageEtag"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
+            resourceInputs["code"] = args ? args.code : undefined;
+            resourceInputs["comment"] = args ? args.comment : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["publish"] = args ? args.publish : undefined;
+            resourceInputs["runtime"] = args ? args.runtime : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["etag"] = undefined /*out*/;
+            resourceInputs["liveStageEtag"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Function.__pulumiType, name, inputs, opts);
+        super(Function.__pulumiType, name, resourceInputs, opts);
     }
 }
 

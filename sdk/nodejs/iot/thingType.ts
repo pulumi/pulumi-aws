@@ -87,29 +87,29 @@ export class ThingType extends pulumi.CustomResource {
      */
     constructor(name: string, args?: ThingTypeArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ThingTypeArgs | ThingTypeState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ThingTypeState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["deprecated"] = state ? state.deprecated : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["properties"] = state ? state.properties : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["deprecated"] = state ? state.deprecated : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["properties"] = state ? state.properties : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as ThingTypeArgs | undefined;
-            inputs["deprecated"] = args ? args.deprecated : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["properties"] = args ? args.properties : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["deprecated"] = args ? args.deprecated : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(ThingType.__pulumiType, name, inputs, opts);
+        super(ThingType.__pulumiType, name, resourceInputs, opts);
     }
 }
 

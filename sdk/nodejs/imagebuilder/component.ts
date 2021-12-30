@@ -133,26 +133,26 @@ export class Component extends pulumi.CustomResource {
      */
     constructor(name: string, args: ComponentArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ComponentArgs | ComponentState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ComponentState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["changeDescription"] = state ? state.changeDescription : undefined;
-            inputs["data"] = state ? state.data : undefined;
-            inputs["dateCreated"] = state ? state.dateCreated : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["encrypted"] = state ? state.encrypted : undefined;
-            inputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["owner"] = state ? state.owner : undefined;
-            inputs["platform"] = state ? state.platform : undefined;
-            inputs["supportedOsVersions"] = state ? state.supportedOsVersions : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["type"] = state ? state.type : undefined;
-            inputs["uri"] = state ? state.uri : undefined;
-            inputs["version"] = state ? state.version : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["changeDescription"] = state ? state.changeDescription : undefined;
+            resourceInputs["data"] = state ? state.data : undefined;
+            resourceInputs["dateCreated"] = state ? state.dateCreated : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["encrypted"] = state ? state.encrypted : undefined;
+            resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["owner"] = state ? state.owner : undefined;
+            resourceInputs["platform"] = state ? state.platform : undefined;
+            resourceInputs["supportedOsVersions"] = state ? state.supportedOsVersions : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["uri"] = state ? state.uri : undefined;
+            resourceInputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as ComponentArgs | undefined;
             if ((!args || args.platform === undefined) && !opts.urn) {
@@ -161,27 +161,27 @@ export class Component extends pulumi.CustomResource {
             if ((!args || args.version === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'version'");
             }
-            inputs["changeDescription"] = args ? args.changeDescription : undefined;
-            inputs["data"] = args ? args.data : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["platform"] = args ? args.platform : undefined;
-            inputs["supportedOsVersions"] = args ? args.supportedOsVersions : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["uri"] = args ? args.uri : undefined;
-            inputs["version"] = args ? args.version : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["dateCreated"] = undefined /*out*/;
-            inputs["encrypted"] = undefined /*out*/;
-            inputs["owner"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["changeDescription"] = args ? args.changeDescription : undefined;
+            resourceInputs["data"] = args ? args.data : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["platform"] = args ? args.platform : undefined;
+            resourceInputs["supportedOsVersions"] = args ? args.supportedOsVersions : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["uri"] = args ? args.uri : undefined;
+            resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["dateCreated"] = undefined /*out*/;
+            resourceInputs["encrypted"] = undefined /*out*/;
+            resourceInputs["owner"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Component.__pulumiType, name, inputs, opts);
+        super(Component.__pulumiType, name, resourceInputs, opts);
     }
 }
 

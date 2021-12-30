@@ -227,7 +227,7 @@ type SchemaInput interface {
 }
 
 func (*Schema) ElementType() reflect.Type {
-	return reflect.TypeOf((*Schema)(nil))
+	return reflect.TypeOf((**Schema)(nil)).Elem()
 }
 
 func (i *Schema) ToSchemaOutput() SchemaOutput {
@@ -236,35 +236,6 @@ func (i *Schema) ToSchemaOutput() SchemaOutput {
 
 func (i *Schema) ToSchemaOutputWithContext(ctx context.Context) SchemaOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SchemaOutput)
-}
-
-func (i *Schema) ToSchemaPtrOutput() SchemaPtrOutput {
-	return i.ToSchemaPtrOutputWithContext(context.Background())
-}
-
-func (i *Schema) ToSchemaPtrOutputWithContext(ctx context.Context) SchemaPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SchemaPtrOutput)
-}
-
-type SchemaPtrInput interface {
-	pulumi.Input
-
-	ToSchemaPtrOutput() SchemaPtrOutput
-	ToSchemaPtrOutputWithContext(ctx context.Context) SchemaPtrOutput
-}
-
-type schemaPtrType SchemaArgs
-
-func (*schemaPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Schema)(nil))
-}
-
-func (i *schemaPtrType) ToSchemaPtrOutput() SchemaPtrOutput {
-	return i.ToSchemaPtrOutputWithContext(context.Background())
-}
-
-func (i *schemaPtrType) ToSchemaPtrOutputWithContext(ctx context.Context) SchemaPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SchemaPtrOutput)
 }
 
 // SchemaArrayInput is an input type that accepts SchemaArray and SchemaArrayOutput values.
@@ -320,7 +291,7 @@ func (i SchemaMap) ToSchemaMapOutputWithContext(ctx context.Context) SchemaMapOu
 type SchemaOutput struct{ *pulumi.OutputState }
 
 func (SchemaOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Schema)(nil))
+	return reflect.TypeOf((**Schema)(nil)).Elem()
 }
 
 func (o SchemaOutput) ToSchemaOutput() SchemaOutput {
@@ -331,44 +302,10 @@ func (o SchemaOutput) ToSchemaOutputWithContext(ctx context.Context) SchemaOutpu
 	return o
 }
 
-func (o SchemaOutput) ToSchemaPtrOutput() SchemaPtrOutput {
-	return o.ToSchemaPtrOutputWithContext(context.Background())
-}
-
-func (o SchemaOutput) ToSchemaPtrOutputWithContext(ctx context.Context) SchemaPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Schema) *Schema {
-		return &v
-	}).(SchemaPtrOutput)
-}
-
-type SchemaPtrOutput struct{ *pulumi.OutputState }
-
-func (SchemaPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Schema)(nil))
-}
-
-func (o SchemaPtrOutput) ToSchemaPtrOutput() SchemaPtrOutput {
-	return o
-}
-
-func (o SchemaPtrOutput) ToSchemaPtrOutputWithContext(ctx context.Context) SchemaPtrOutput {
-	return o
-}
-
-func (o SchemaPtrOutput) Elem() SchemaOutput {
-	return o.ApplyT(func(v *Schema) Schema {
-		if v != nil {
-			return *v
-		}
-		var ret Schema
-		return ret
-	}).(SchemaOutput)
-}
-
 type SchemaArrayOutput struct{ *pulumi.OutputState }
 
 func (SchemaArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Schema)(nil))
+	return reflect.TypeOf((*[]*Schema)(nil)).Elem()
 }
 
 func (o SchemaArrayOutput) ToSchemaArrayOutput() SchemaArrayOutput {
@@ -380,15 +317,15 @@ func (o SchemaArrayOutput) ToSchemaArrayOutputWithContext(ctx context.Context) S
 }
 
 func (o SchemaArrayOutput) Index(i pulumi.IntInput) SchemaOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Schema {
-		return vs[0].([]Schema)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Schema {
+		return vs[0].([]*Schema)[vs[1].(int)]
 	}).(SchemaOutput)
 }
 
 type SchemaMapOutput struct{ *pulumi.OutputState }
 
 func (SchemaMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Schema)(nil))
+	return reflect.TypeOf((*map[string]*Schema)(nil)).Elem()
 }
 
 func (o SchemaMapOutput) ToSchemaMapOutput() SchemaMapOutput {
@@ -400,18 +337,16 @@ func (o SchemaMapOutput) ToSchemaMapOutputWithContext(ctx context.Context) Schem
 }
 
 func (o SchemaMapOutput) MapIndex(k pulumi.StringInput) SchemaOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Schema {
-		return vs[0].(map[string]Schema)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Schema {
+		return vs[0].(map[string]*Schema)[vs[1].(string)]
 	}).(SchemaOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaInput)(nil)).Elem(), &Schema{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SchemaPtrInput)(nil)).Elem(), &Schema{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaArrayInput)(nil)).Elem(), SchemaArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaMapInput)(nil)).Elem(), SchemaMap{})
 	pulumi.RegisterOutputType(SchemaOutput{})
-	pulumi.RegisterOutputType(SchemaPtrOutput{})
 	pulumi.RegisterOutputType(SchemaArrayOutput{})
 	pulumi.RegisterOutputType(SchemaMapOutput{})
 }

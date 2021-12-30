@@ -79,12 +79,12 @@ export class Attachment extends pulumi.CustomResource {
     /** @deprecated aws.elasticloadbalancing.Attachment has been deprecated in favor of aws.elb.Attachment */
     constructor(name: string, argsOrState?: AttachmentArgs | AttachmentState, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Attachment is deprecated: aws.elasticloadbalancing.Attachment has been deprecated in favor of aws.elb.Attachment")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AttachmentState | undefined;
-            inputs["elb"] = state ? state.elb : undefined;
-            inputs["instance"] = state ? state.instance : undefined;
+            resourceInputs["elb"] = state ? state.elb : undefined;
+            resourceInputs["instance"] = state ? state.instance : undefined;
         } else {
             const args = argsOrState as AttachmentArgs | undefined;
             if ((!args || args.elb === undefined) && !opts.urn) {
@@ -93,13 +93,13 @@ export class Attachment extends pulumi.CustomResource {
             if ((!args || args.instance === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'instance'");
             }
-            inputs["elb"] = args ? args.elb : undefined;
-            inputs["instance"] = args ? args.instance : undefined;
+            resourceInputs["elb"] = args ? args.elb : undefined;
+            resourceInputs["instance"] = args ? args.instance : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Attachment.__pulumiType, name, inputs, opts);
+        super(Attachment.__pulumiType, name, resourceInputs, opts);
     }
 }
 

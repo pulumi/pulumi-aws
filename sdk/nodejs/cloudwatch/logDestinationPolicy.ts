@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  *     roleArn: aws_iam_role.iam_for_cloudwatch.arn,
  *     targetArn: aws_kinesis_stream.kinesis_for_cloudwatch.arn,
  * });
- * const testDestinationPolicyPolicyDocument = testDestination.arn.apply(arn => aws.iam.getPolicyDocument({
+ * const testDestinationPolicyPolicyDocument = aws.iam.getPolicyDocumentOutput({
  *     statements: [{
  *         effect: "Allow",
  *         principals: [{
@@ -25,9 +25,9 @@ import * as utilities from "../utilities";
  *             identifiers: ["123456789012"],
  *         }],
  *         actions: ["logs:PutSubscriptionFilter"],
- *         resources: [arn],
+ *         resources: [testDestination.arn],
  *     }],
- * }));
+ * });
  * const testDestinationPolicyLogDestinationPolicy = new aws.cloudwatch.LogDestinationPolicy("testDestinationPolicyLogDestinationPolicy", {
  *     destinationName: testDestination.name,
  *     accessPolicy: testDestinationPolicyPolicyDocument.apply(testDestinationPolicyPolicyDocument => testDestinationPolicyPolicyDocument.json),
@@ -88,12 +88,12 @@ export class LogDestinationPolicy extends pulumi.CustomResource {
      */
     constructor(name: string, args: LogDestinationPolicyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: LogDestinationPolicyArgs | LogDestinationPolicyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LogDestinationPolicyState | undefined;
-            inputs["accessPolicy"] = state ? state.accessPolicy : undefined;
-            inputs["destinationName"] = state ? state.destinationName : undefined;
+            resourceInputs["accessPolicy"] = state ? state.accessPolicy : undefined;
+            resourceInputs["destinationName"] = state ? state.destinationName : undefined;
         } else {
             const args = argsOrState as LogDestinationPolicyArgs | undefined;
             if ((!args || args.accessPolicy === undefined) && !opts.urn) {
@@ -102,13 +102,13 @@ export class LogDestinationPolicy extends pulumi.CustomResource {
             if ((!args || args.destinationName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'destinationName'");
             }
-            inputs["accessPolicy"] = args ? args.accessPolicy : undefined;
-            inputs["destinationName"] = args ? args.destinationName : undefined;
+            resourceInputs["accessPolicy"] = args ? args.accessPolicy : undefined;
+            resourceInputs["destinationName"] = args ? args.destinationName : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(LogDestinationPolicy.__pulumiType, name, inputs, opts);
+        super(LogDestinationPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

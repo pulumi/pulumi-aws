@@ -75,22 +75,22 @@ export class OrganizationAdminAccount extends pulumi.CustomResource {
      */
     constructor(name: string, args: OrganizationAdminAccountArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: OrganizationAdminAccountArgs | OrganizationAdminAccountState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OrganizationAdminAccountState | undefined;
-            inputs["adminAccountId"] = state ? state.adminAccountId : undefined;
+            resourceInputs["adminAccountId"] = state ? state.adminAccountId : undefined;
         } else {
             const args = argsOrState as OrganizationAdminAccountArgs | undefined;
             if ((!args || args.adminAccountId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'adminAccountId'");
             }
-            inputs["adminAccountId"] = args ? args.adminAccountId : undefined;
+            resourceInputs["adminAccountId"] = args ? args.adminAccountId : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(OrganizationAdminAccount.__pulumiType, name, inputs, opts);
+        super(OrganizationAdminAccount.__pulumiType, name, resourceInputs, opts);
     }
 }
 

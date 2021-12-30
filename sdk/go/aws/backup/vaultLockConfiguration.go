@@ -157,7 +157,7 @@ type VaultLockConfigurationInput interface {
 }
 
 func (*VaultLockConfiguration) ElementType() reflect.Type {
-	return reflect.TypeOf((*VaultLockConfiguration)(nil))
+	return reflect.TypeOf((**VaultLockConfiguration)(nil)).Elem()
 }
 
 func (i *VaultLockConfiguration) ToVaultLockConfigurationOutput() VaultLockConfigurationOutput {
@@ -166,35 +166,6 @@ func (i *VaultLockConfiguration) ToVaultLockConfigurationOutput() VaultLockConfi
 
 func (i *VaultLockConfiguration) ToVaultLockConfigurationOutputWithContext(ctx context.Context) VaultLockConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VaultLockConfigurationOutput)
-}
-
-func (i *VaultLockConfiguration) ToVaultLockConfigurationPtrOutput() VaultLockConfigurationPtrOutput {
-	return i.ToVaultLockConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i *VaultLockConfiguration) ToVaultLockConfigurationPtrOutputWithContext(ctx context.Context) VaultLockConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VaultLockConfigurationPtrOutput)
-}
-
-type VaultLockConfigurationPtrInput interface {
-	pulumi.Input
-
-	ToVaultLockConfigurationPtrOutput() VaultLockConfigurationPtrOutput
-	ToVaultLockConfigurationPtrOutputWithContext(ctx context.Context) VaultLockConfigurationPtrOutput
-}
-
-type vaultLockConfigurationPtrType VaultLockConfigurationArgs
-
-func (*vaultLockConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VaultLockConfiguration)(nil))
-}
-
-func (i *vaultLockConfigurationPtrType) ToVaultLockConfigurationPtrOutput() VaultLockConfigurationPtrOutput {
-	return i.ToVaultLockConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i *vaultLockConfigurationPtrType) ToVaultLockConfigurationPtrOutputWithContext(ctx context.Context) VaultLockConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VaultLockConfigurationPtrOutput)
 }
 
 // VaultLockConfigurationArrayInput is an input type that accepts VaultLockConfigurationArray and VaultLockConfigurationArrayOutput values.
@@ -250,7 +221,7 @@ func (i VaultLockConfigurationMap) ToVaultLockConfigurationMapOutputWithContext(
 type VaultLockConfigurationOutput struct{ *pulumi.OutputState }
 
 func (VaultLockConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VaultLockConfiguration)(nil))
+	return reflect.TypeOf((**VaultLockConfiguration)(nil)).Elem()
 }
 
 func (o VaultLockConfigurationOutput) ToVaultLockConfigurationOutput() VaultLockConfigurationOutput {
@@ -261,44 +232,10 @@ func (o VaultLockConfigurationOutput) ToVaultLockConfigurationOutputWithContext(
 	return o
 }
 
-func (o VaultLockConfigurationOutput) ToVaultLockConfigurationPtrOutput() VaultLockConfigurationPtrOutput {
-	return o.ToVaultLockConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (o VaultLockConfigurationOutput) ToVaultLockConfigurationPtrOutputWithContext(ctx context.Context) VaultLockConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VaultLockConfiguration) *VaultLockConfiguration {
-		return &v
-	}).(VaultLockConfigurationPtrOutput)
-}
-
-type VaultLockConfigurationPtrOutput struct{ *pulumi.OutputState }
-
-func (VaultLockConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VaultLockConfiguration)(nil))
-}
-
-func (o VaultLockConfigurationPtrOutput) ToVaultLockConfigurationPtrOutput() VaultLockConfigurationPtrOutput {
-	return o
-}
-
-func (o VaultLockConfigurationPtrOutput) ToVaultLockConfigurationPtrOutputWithContext(ctx context.Context) VaultLockConfigurationPtrOutput {
-	return o
-}
-
-func (o VaultLockConfigurationPtrOutput) Elem() VaultLockConfigurationOutput {
-	return o.ApplyT(func(v *VaultLockConfiguration) VaultLockConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret VaultLockConfiguration
-		return ret
-	}).(VaultLockConfigurationOutput)
-}
-
 type VaultLockConfigurationArrayOutput struct{ *pulumi.OutputState }
 
 func (VaultLockConfigurationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VaultLockConfiguration)(nil))
+	return reflect.TypeOf((*[]*VaultLockConfiguration)(nil)).Elem()
 }
 
 func (o VaultLockConfigurationArrayOutput) ToVaultLockConfigurationArrayOutput() VaultLockConfigurationArrayOutput {
@@ -310,15 +247,15 @@ func (o VaultLockConfigurationArrayOutput) ToVaultLockConfigurationArrayOutputWi
 }
 
 func (o VaultLockConfigurationArrayOutput) Index(i pulumi.IntInput) VaultLockConfigurationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VaultLockConfiguration {
-		return vs[0].([]VaultLockConfiguration)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VaultLockConfiguration {
+		return vs[0].([]*VaultLockConfiguration)[vs[1].(int)]
 	}).(VaultLockConfigurationOutput)
 }
 
 type VaultLockConfigurationMapOutput struct{ *pulumi.OutputState }
 
 func (VaultLockConfigurationMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]VaultLockConfiguration)(nil))
+	return reflect.TypeOf((*map[string]*VaultLockConfiguration)(nil)).Elem()
 }
 
 func (o VaultLockConfigurationMapOutput) ToVaultLockConfigurationMapOutput() VaultLockConfigurationMapOutput {
@@ -330,18 +267,16 @@ func (o VaultLockConfigurationMapOutput) ToVaultLockConfigurationMapOutputWithCo
 }
 
 func (o VaultLockConfigurationMapOutput) MapIndex(k pulumi.StringInput) VaultLockConfigurationOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) VaultLockConfiguration {
-		return vs[0].(map[string]VaultLockConfiguration)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *VaultLockConfiguration {
+		return vs[0].(map[string]*VaultLockConfiguration)[vs[1].(string)]
 	}).(VaultLockConfigurationOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VaultLockConfigurationInput)(nil)).Elem(), &VaultLockConfiguration{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VaultLockConfigurationPtrInput)(nil)).Elem(), &VaultLockConfiguration{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VaultLockConfigurationArrayInput)(nil)).Elem(), VaultLockConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VaultLockConfigurationMapInput)(nil)).Elem(), VaultLockConfigurationMap{})
 	pulumi.RegisterOutputType(VaultLockConfigurationOutput{})
-	pulumi.RegisterOutputType(VaultLockConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(VaultLockConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(VaultLockConfigurationMapOutput{})
 }

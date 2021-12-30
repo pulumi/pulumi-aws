@@ -133,14 +133,14 @@ export class WebAclLoggingConfiguration extends pulumi.CustomResource {
      */
     constructor(name: string, args: WebAclLoggingConfigurationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: WebAclLoggingConfigurationArgs | WebAclLoggingConfigurationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WebAclLoggingConfigurationState | undefined;
-            inputs["logDestinationConfigs"] = state ? state.logDestinationConfigs : undefined;
-            inputs["loggingFilter"] = state ? state.loggingFilter : undefined;
-            inputs["redactedFields"] = state ? state.redactedFields : undefined;
-            inputs["resourceArn"] = state ? state.resourceArn : undefined;
+            resourceInputs["logDestinationConfigs"] = state ? state.logDestinationConfigs : undefined;
+            resourceInputs["loggingFilter"] = state ? state.loggingFilter : undefined;
+            resourceInputs["redactedFields"] = state ? state.redactedFields : undefined;
+            resourceInputs["resourceArn"] = state ? state.resourceArn : undefined;
         } else {
             const args = argsOrState as WebAclLoggingConfigurationArgs | undefined;
             if ((!args || args.logDestinationConfigs === undefined) && !opts.urn) {
@@ -149,15 +149,15 @@ export class WebAclLoggingConfiguration extends pulumi.CustomResource {
             if ((!args || args.resourceArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceArn'");
             }
-            inputs["logDestinationConfigs"] = args ? args.logDestinationConfigs : undefined;
-            inputs["loggingFilter"] = args ? args.loggingFilter : undefined;
-            inputs["redactedFields"] = args ? args.redactedFields : undefined;
-            inputs["resourceArn"] = args ? args.resourceArn : undefined;
+            resourceInputs["logDestinationConfigs"] = args ? args.logDestinationConfigs : undefined;
+            resourceInputs["loggingFilter"] = args ? args.loggingFilter : undefined;
+            resourceInputs["redactedFields"] = args ? args.redactedFields : undefined;
+            resourceInputs["resourceArn"] = args ? args.resourceArn : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(WebAclLoggingConfiguration.__pulumiType, name, inputs, opts);
+        super(WebAclLoggingConfiguration.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -129,38 +129,38 @@ export class SlotType extends pulumi.CustomResource {
      */
     constructor(name: string, args: SlotTypeArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SlotTypeArgs | SlotTypeState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SlotTypeState | undefined;
-            inputs["checksum"] = state ? state.checksum : undefined;
-            inputs["createVersion"] = state ? state.createVersion : undefined;
-            inputs["createdDate"] = state ? state.createdDate : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["enumerationValues"] = state ? state.enumerationValues : undefined;
-            inputs["lastUpdatedDate"] = state ? state.lastUpdatedDate : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["valueSelectionStrategy"] = state ? state.valueSelectionStrategy : undefined;
-            inputs["version"] = state ? state.version : undefined;
+            resourceInputs["checksum"] = state ? state.checksum : undefined;
+            resourceInputs["createVersion"] = state ? state.createVersion : undefined;
+            resourceInputs["createdDate"] = state ? state.createdDate : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["enumerationValues"] = state ? state.enumerationValues : undefined;
+            resourceInputs["lastUpdatedDate"] = state ? state.lastUpdatedDate : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["valueSelectionStrategy"] = state ? state.valueSelectionStrategy : undefined;
+            resourceInputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as SlotTypeArgs | undefined;
             if ((!args || args.enumerationValues === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'enumerationValues'");
             }
-            inputs["createVersion"] = args ? args.createVersion : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["enumerationValues"] = args ? args.enumerationValues : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["valueSelectionStrategy"] = args ? args.valueSelectionStrategy : undefined;
-            inputs["checksum"] = undefined /*out*/;
-            inputs["createdDate"] = undefined /*out*/;
-            inputs["lastUpdatedDate"] = undefined /*out*/;
-            inputs["version"] = undefined /*out*/;
+            resourceInputs["createVersion"] = args ? args.createVersion : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["enumerationValues"] = args ? args.enumerationValues : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["valueSelectionStrategy"] = args ? args.valueSelectionStrategy : undefined;
+            resourceInputs["checksum"] = undefined /*out*/;
+            resourceInputs["createdDate"] = undefined /*out*/;
+            resourceInputs["lastUpdatedDate"] = undefined /*out*/;
+            resourceInputs["version"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(SlotType.__pulumiType, name, inputs, opts);
+        super(SlotType.__pulumiType, name, resourceInputs, opts);
     }
 }
 

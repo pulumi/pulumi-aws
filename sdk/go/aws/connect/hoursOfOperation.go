@@ -226,7 +226,7 @@ type HoursOfOperationInput interface {
 }
 
 func (*HoursOfOperation) ElementType() reflect.Type {
-	return reflect.TypeOf((*HoursOfOperation)(nil))
+	return reflect.TypeOf((**HoursOfOperation)(nil)).Elem()
 }
 
 func (i *HoursOfOperation) ToHoursOfOperationOutput() HoursOfOperationOutput {
@@ -235,35 +235,6 @@ func (i *HoursOfOperation) ToHoursOfOperationOutput() HoursOfOperationOutput {
 
 func (i *HoursOfOperation) ToHoursOfOperationOutputWithContext(ctx context.Context) HoursOfOperationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(HoursOfOperationOutput)
-}
-
-func (i *HoursOfOperation) ToHoursOfOperationPtrOutput() HoursOfOperationPtrOutput {
-	return i.ToHoursOfOperationPtrOutputWithContext(context.Background())
-}
-
-func (i *HoursOfOperation) ToHoursOfOperationPtrOutputWithContext(ctx context.Context) HoursOfOperationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HoursOfOperationPtrOutput)
-}
-
-type HoursOfOperationPtrInput interface {
-	pulumi.Input
-
-	ToHoursOfOperationPtrOutput() HoursOfOperationPtrOutput
-	ToHoursOfOperationPtrOutputWithContext(ctx context.Context) HoursOfOperationPtrOutput
-}
-
-type hoursOfOperationPtrType HoursOfOperationArgs
-
-func (*hoursOfOperationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**HoursOfOperation)(nil))
-}
-
-func (i *hoursOfOperationPtrType) ToHoursOfOperationPtrOutput() HoursOfOperationPtrOutput {
-	return i.ToHoursOfOperationPtrOutputWithContext(context.Background())
-}
-
-func (i *hoursOfOperationPtrType) ToHoursOfOperationPtrOutputWithContext(ctx context.Context) HoursOfOperationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HoursOfOperationPtrOutput)
 }
 
 // HoursOfOperationArrayInput is an input type that accepts HoursOfOperationArray and HoursOfOperationArrayOutput values.
@@ -319,7 +290,7 @@ func (i HoursOfOperationMap) ToHoursOfOperationMapOutputWithContext(ctx context.
 type HoursOfOperationOutput struct{ *pulumi.OutputState }
 
 func (HoursOfOperationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HoursOfOperation)(nil))
+	return reflect.TypeOf((**HoursOfOperation)(nil)).Elem()
 }
 
 func (o HoursOfOperationOutput) ToHoursOfOperationOutput() HoursOfOperationOutput {
@@ -330,44 +301,10 @@ func (o HoursOfOperationOutput) ToHoursOfOperationOutputWithContext(ctx context.
 	return o
 }
 
-func (o HoursOfOperationOutput) ToHoursOfOperationPtrOutput() HoursOfOperationPtrOutput {
-	return o.ToHoursOfOperationPtrOutputWithContext(context.Background())
-}
-
-func (o HoursOfOperationOutput) ToHoursOfOperationPtrOutputWithContext(ctx context.Context) HoursOfOperationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v HoursOfOperation) *HoursOfOperation {
-		return &v
-	}).(HoursOfOperationPtrOutput)
-}
-
-type HoursOfOperationPtrOutput struct{ *pulumi.OutputState }
-
-func (HoursOfOperationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**HoursOfOperation)(nil))
-}
-
-func (o HoursOfOperationPtrOutput) ToHoursOfOperationPtrOutput() HoursOfOperationPtrOutput {
-	return o
-}
-
-func (o HoursOfOperationPtrOutput) ToHoursOfOperationPtrOutputWithContext(ctx context.Context) HoursOfOperationPtrOutput {
-	return o
-}
-
-func (o HoursOfOperationPtrOutput) Elem() HoursOfOperationOutput {
-	return o.ApplyT(func(v *HoursOfOperation) HoursOfOperation {
-		if v != nil {
-			return *v
-		}
-		var ret HoursOfOperation
-		return ret
-	}).(HoursOfOperationOutput)
-}
-
 type HoursOfOperationArrayOutput struct{ *pulumi.OutputState }
 
 func (HoursOfOperationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]HoursOfOperation)(nil))
+	return reflect.TypeOf((*[]*HoursOfOperation)(nil)).Elem()
 }
 
 func (o HoursOfOperationArrayOutput) ToHoursOfOperationArrayOutput() HoursOfOperationArrayOutput {
@@ -379,15 +316,15 @@ func (o HoursOfOperationArrayOutput) ToHoursOfOperationArrayOutputWithContext(ct
 }
 
 func (o HoursOfOperationArrayOutput) Index(i pulumi.IntInput) HoursOfOperationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HoursOfOperation {
-		return vs[0].([]HoursOfOperation)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *HoursOfOperation {
+		return vs[0].([]*HoursOfOperation)[vs[1].(int)]
 	}).(HoursOfOperationOutput)
 }
 
 type HoursOfOperationMapOutput struct{ *pulumi.OutputState }
 
 func (HoursOfOperationMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]HoursOfOperation)(nil))
+	return reflect.TypeOf((*map[string]*HoursOfOperation)(nil)).Elem()
 }
 
 func (o HoursOfOperationMapOutput) ToHoursOfOperationMapOutput() HoursOfOperationMapOutput {
@@ -399,18 +336,16 @@ func (o HoursOfOperationMapOutput) ToHoursOfOperationMapOutputWithContext(ctx co
 }
 
 func (o HoursOfOperationMapOutput) MapIndex(k pulumi.StringInput) HoursOfOperationOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) HoursOfOperation {
-		return vs[0].(map[string]HoursOfOperation)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *HoursOfOperation {
+		return vs[0].(map[string]*HoursOfOperation)[vs[1].(string)]
 	}).(HoursOfOperationOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*HoursOfOperationInput)(nil)).Elem(), &HoursOfOperation{})
-	pulumi.RegisterInputType(reflect.TypeOf((*HoursOfOperationPtrInput)(nil)).Elem(), &HoursOfOperation{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HoursOfOperationArrayInput)(nil)).Elem(), HoursOfOperationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HoursOfOperationMapInput)(nil)).Elem(), HoursOfOperationMap{})
 	pulumi.RegisterOutputType(HoursOfOperationOutput{})
-	pulumi.RegisterOutputType(HoursOfOperationPtrOutput{})
 	pulumi.RegisterOutputType(HoursOfOperationArrayOutput{})
 	pulumi.RegisterOutputType(HoursOfOperationMapOutput{})
 }

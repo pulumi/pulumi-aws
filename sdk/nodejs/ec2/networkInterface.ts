@@ -153,64 +153,64 @@ export class NetworkInterface extends pulumi.CustomResource {
      */
     constructor(name: string, args: NetworkInterfaceArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: NetworkInterfaceArgs | NetworkInterfaceState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NetworkInterfaceState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["attachments"] = state ? state.attachments : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["interfaceType"] = state ? state.interfaceType : undefined;
-            inputs["ipv4PrefixCount"] = state ? state.ipv4PrefixCount : undefined;
-            inputs["ipv4Prefixes"] = state ? state.ipv4Prefixes : undefined;
-            inputs["ipv6AddressCount"] = state ? state.ipv6AddressCount : undefined;
-            inputs["ipv6Addresses"] = state ? state.ipv6Addresses : undefined;
-            inputs["ipv6PrefixCount"] = state ? state.ipv6PrefixCount : undefined;
-            inputs["ipv6Prefixes"] = state ? state.ipv6Prefixes : undefined;
-            inputs["macAddress"] = state ? state.macAddress : undefined;
-            inputs["outpostArn"] = state ? state.outpostArn : undefined;
-            inputs["ownerId"] = state ? state.ownerId : undefined;
-            inputs["privateDnsName"] = state ? state.privateDnsName : undefined;
-            inputs["privateIp"] = state ? state.privateIp : undefined;
-            inputs["privateIps"] = state ? state.privateIps : undefined;
-            inputs["privateIpsCount"] = state ? state.privateIpsCount : undefined;
-            inputs["securityGroups"] = state ? state.securityGroups : undefined;
-            inputs["sourceDestCheck"] = state ? state.sourceDestCheck : undefined;
-            inputs["subnetId"] = state ? state.subnetId : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["attachments"] = state ? state.attachments : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["interfaceType"] = state ? state.interfaceType : undefined;
+            resourceInputs["ipv4PrefixCount"] = state ? state.ipv4PrefixCount : undefined;
+            resourceInputs["ipv4Prefixes"] = state ? state.ipv4Prefixes : undefined;
+            resourceInputs["ipv6AddressCount"] = state ? state.ipv6AddressCount : undefined;
+            resourceInputs["ipv6Addresses"] = state ? state.ipv6Addresses : undefined;
+            resourceInputs["ipv6PrefixCount"] = state ? state.ipv6PrefixCount : undefined;
+            resourceInputs["ipv6Prefixes"] = state ? state.ipv6Prefixes : undefined;
+            resourceInputs["macAddress"] = state ? state.macAddress : undefined;
+            resourceInputs["outpostArn"] = state ? state.outpostArn : undefined;
+            resourceInputs["ownerId"] = state ? state.ownerId : undefined;
+            resourceInputs["privateDnsName"] = state ? state.privateDnsName : undefined;
+            resourceInputs["privateIp"] = state ? state.privateIp : undefined;
+            resourceInputs["privateIps"] = state ? state.privateIps : undefined;
+            resourceInputs["privateIpsCount"] = state ? state.privateIpsCount : undefined;
+            resourceInputs["securityGroups"] = state ? state.securityGroups : undefined;
+            resourceInputs["sourceDestCheck"] = state ? state.sourceDestCheck : undefined;
+            resourceInputs["subnetId"] = state ? state.subnetId : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as NetworkInterfaceArgs | undefined;
             if ((!args || args.subnetId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subnetId'");
             }
-            inputs["attachments"] = args ? args.attachments : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["interfaceType"] = args ? args.interfaceType : undefined;
-            inputs["ipv4PrefixCount"] = args ? args.ipv4PrefixCount : undefined;
-            inputs["ipv4Prefixes"] = args ? args.ipv4Prefixes : undefined;
-            inputs["ipv6AddressCount"] = args ? args.ipv6AddressCount : undefined;
-            inputs["ipv6Addresses"] = args ? args.ipv6Addresses : undefined;
-            inputs["ipv6PrefixCount"] = args ? args.ipv6PrefixCount : undefined;
-            inputs["ipv6Prefixes"] = args ? args.ipv6Prefixes : undefined;
-            inputs["privateIp"] = args ? args.privateIp : undefined;
-            inputs["privateIps"] = args ? args.privateIps : undefined;
-            inputs["privateIpsCount"] = args ? args.privateIpsCount : undefined;
-            inputs["securityGroups"] = args ? args.securityGroups : undefined;
-            inputs["sourceDestCheck"] = args ? args.sourceDestCheck : undefined;
-            inputs["subnetId"] = args ? args.subnetId : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["macAddress"] = undefined /*out*/;
-            inputs["outpostArn"] = undefined /*out*/;
-            inputs["ownerId"] = undefined /*out*/;
-            inputs["privateDnsName"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["attachments"] = args ? args.attachments : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["interfaceType"] = args ? args.interfaceType : undefined;
+            resourceInputs["ipv4PrefixCount"] = args ? args.ipv4PrefixCount : undefined;
+            resourceInputs["ipv4Prefixes"] = args ? args.ipv4Prefixes : undefined;
+            resourceInputs["ipv6AddressCount"] = args ? args.ipv6AddressCount : undefined;
+            resourceInputs["ipv6Addresses"] = args ? args.ipv6Addresses : undefined;
+            resourceInputs["ipv6PrefixCount"] = args ? args.ipv6PrefixCount : undefined;
+            resourceInputs["ipv6Prefixes"] = args ? args.ipv6Prefixes : undefined;
+            resourceInputs["privateIp"] = args ? args.privateIp : undefined;
+            resourceInputs["privateIps"] = args ? args.privateIps : undefined;
+            resourceInputs["privateIpsCount"] = args ? args.privateIpsCount : undefined;
+            resourceInputs["securityGroups"] = args ? args.securityGroups : undefined;
+            resourceInputs["sourceDestCheck"] = args ? args.sourceDestCheck : undefined;
+            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["macAddress"] = undefined /*out*/;
+            resourceInputs["outpostArn"] = undefined /*out*/;
+            resourceInputs["ownerId"] = undefined /*out*/;
+            resourceInputs["privateDnsName"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(NetworkInterface.__pulumiType, name, inputs, opts);
+        super(NetworkInterface.__pulumiType, name, resourceInputs, opts);
     }
 }
 

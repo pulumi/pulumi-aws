@@ -82,12 +82,12 @@ export class KinesisStreamingDestination extends pulumi.CustomResource {
      */
     constructor(name: string, args: KinesisStreamingDestinationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: KinesisStreamingDestinationArgs | KinesisStreamingDestinationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as KinesisStreamingDestinationState | undefined;
-            inputs["streamArn"] = state ? state.streamArn : undefined;
-            inputs["tableName"] = state ? state.tableName : undefined;
+            resourceInputs["streamArn"] = state ? state.streamArn : undefined;
+            resourceInputs["tableName"] = state ? state.tableName : undefined;
         } else {
             const args = argsOrState as KinesisStreamingDestinationArgs | undefined;
             if ((!args || args.streamArn === undefined) && !opts.urn) {
@@ -96,13 +96,13 @@ export class KinesisStreamingDestination extends pulumi.CustomResource {
             if ((!args || args.tableName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'tableName'");
             }
-            inputs["streamArn"] = args ? args.streamArn : undefined;
-            inputs["tableName"] = args ? args.tableName : undefined;
+            resourceInputs["streamArn"] = args ? args.streamArn : undefined;
+            resourceInputs["tableName"] = args ? args.tableName : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(KinesisStreamingDestination.__pulumiType, name, inputs, opts);
+        super(KinesisStreamingDestination.__pulumiType, name, resourceInputs, opts);
     }
 }
 

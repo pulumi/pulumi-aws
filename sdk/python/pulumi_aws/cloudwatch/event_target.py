@@ -666,7 +666,7 @@ class EventTarget(pulumi.CustomResource):
             }
           }
         \"\"\")
-        ssm_lifecycle_policy_document = stop_instance.arn.apply(lambda arn: aws.iam.get_policy_document(statements=[
+        ssm_lifecycle_policy_document = aws.iam.get_policy_document_output(statements=[
             aws.iam.GetPolicyDocumentStatementArgs(
                 effect="Allow",
                 actions=["ssm:SendCommand"],
@@ -680,9 +680,9 @@ class EventTarget(pulumi.CustomResource):
             aws.iam.GetPolicyDocumentStatementArgs(
                 effect="Allow",
                 actions=["ssm:SendCommand"],
-                resources=[arn],
+                resources=[stop_instance.arn],
             ),
-        ]))
+        ])
         ssm_lifecycle_role = aws.iam.Role("ssmLifecycleRole", assume_role_policy=ssm_lifecycle_trust.json)
         ssm_lifecycle_policy = aws.iam.Policy("ssmLifecyclePolicy", policy=ssm_lifecycle_policy_document.json)
         ssm_lifecycle_role_policy_attachment = aws.iam.RolePolicyAttachment("ssmLifecycleRolePolicyAttachment",
@@ -899,7 +899,7 @@ class EventTarget(pulumi.CustomResource):
             }
           }
         \"\"\")
-        ssm_lifecycle_policy_document = stop_instance.arn.apply(lambda arn: aws.iam.get_policy_document(statements=[
+        ssm_lifecycle_policy_document = aws.iam.get_policy_document_output(statements=[
             aws.iam.GetPolicyDocumentStatementArgs(
                 effect="Allow",
                 actions=["ssm:SendCommand"],
@@ -913,9 +913,9 @@ class EventTarget(pulumi.CustomResource):
             aws.iam.GetPolicyDocumentStatementArgs(
                 effect="Allow",
                 actions=["ssm:SendCommand"],
-                resources=[arn],
+                resources=[stop_instance.arn],
             ),
-        ]))
+        ])
         ssm_lifecycle_role = aws.iam.Role("ssmLifecycleRole", assume_role_policy=ssm_lifecycle_trust.json)
         ssm_lifecycle_policy = aws.iam.Policy("ssmLifecyclePolicy", policy=ssm_lifecycle_policy_document.json)
         ssm_lifecycle_role_policy_attachment = aws.iam.RolePolicyAttachment("ssmLifecycleRolePolicyAttachment",

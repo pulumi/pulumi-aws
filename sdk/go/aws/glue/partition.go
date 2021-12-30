@@ -164,7 +164,7 @@ type PartitionInput interface {
 }
 
 func (*Partition) ElementType() reflect.Type {
-	return reflect.TypeOf((*Partition)(nil))
+	return reflect.TypeOf((**Partition)(nil)).Elem()
 }
 
 func (i *Partition) ToPartitionOutput() PartitionOutput {
@@ -173,35 +173,6 @@ func (i *Partition) ToPartitionOutput() PartitionOutput {
 
 func (i *Partition) ToPartitionOutputWithContext(ctx context.Context) PartitionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PartitionOutput)
-}
-
-func (i *Partition) ToPartitionPtrOutput() PartitionPtrOutput {
-	return i.ToPartitionPtrOutputWithContext(context.Background())
-}
-
-func (i *Partition) ToPartitionPtrOutputWithContext(ctx context.Context) PartitionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PartitionPtrOutput)
-}
-
-type PartitionPtrInput interface {
-	pulumi.Input
-
-	ToPartitionPtrOutput() PartitionPtrOutput
-	ToPartitionPtrOutputWithContext(ctx context.Context) PartitionPtrOutput
-}
-
-type partitionPtrType PartitionArgs
-
-func (*partitionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Partition)(nil))
-}
-
-func (i *partitionPtrType) ToPartitionPtrOutput() PartitionPtrOutput {
-	return i.ToPartitionPtrOutputWithContext(context.Background())
-}
-
-func (i *partitionPtrType) ToPartitionPtrOutputWithContext(ctx context.Context) PartitionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PartitionPtrOutput)
 }
 
 // PartitionArrayInput is an input type that accepts PartitionArray and PartitionArrayOutput values.
@@ -257,7 +228,7 @@ func (i PartitionMap) ToPartitionMapOutputWithContext(ctx context.Context) Parti
 type PartitionOutput struct{ *pulumi.OutputState }
 
 func (PartitionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Partition)(nil))
+	return reflect.TypeOf((**Partition)(nil)).Elem()
 }
 
 func (o PartitionOutput) ToPartitionOutput() PartitionOutput {
@@ -268,44 +239,10 @@ func (o PartitionOutput) ToPartitionOutputWithContext(ctx context.Context) Parti
 	return o
 }
 
-func (o PartitionOutput) ToPartitionPtrOutput() PartitionPtrOutput {
-	return o.ToPartitionPtrOutputWithContext(context.Background())
-}
-
-func (o PartitionOutput) ToPartitionPtrOutputWithContext(ctx context.Context) PartitionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Partition) *Partition {
-		return &v
-	}).(PartitionPtrOutput)
-}
-
-type PartitionPtrOutput struct{ *pulumi.OutputState }
-
-func (PartitionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Partition)(nil))
-}
-
-func (o PartitionPtrOutput) ToPartitionPtrOutput() PartitionPtrOutput {
-	return o
-}
-
-func (o PartitionPtrOutput) ToPartitionPtrOutputWithContext(ctx context.Context) PartitionPtrOutput {
-	return o
-}
-
-func (o PartitionPtrOutput) Elem() PartitionOutput {
-	return o.ApplyT(func(v *Partition) Partition {
-		if v != nil {
-			return *v
-		}
-		var ret Partition
-		return ret
-	}).(PartitionOutput)
-}
-
 type PartitionArrayOutput struct{ *pulumi.OutputState }
 
 func (PartitionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Partition)(nil))
+	return reflect.TypeOf((*[]*Partition)(nil)).Elem()
 }
 
 func (o PartitionArrayOutput) ToPartitionArrayOutput() PartitionArrayOutput {
@@ -317,15 +254,15 @@ func (o PartitionArrayOutput) ToPartitionArrayOutputWithContext(ctx context.Cont
 }
 
 func (o PartitionArrayOutput) Index(i pulumi.IntInput) PartitionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Partition {
-		return vs[0].([]Partition)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Partition {
+		return vs[0].([]*Partition)[vs[1].(int)]
 	}).(PartitionOutput)
 }
 
 type PartitionMapOutput struct{ *pulumi.OutputState }
 
 func (PartitionMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Partition)(nil))
+	return reflect.TypeOf((*map[string]*Partition)(nil)).Elem()
 }
 
 func (o PartitionMapOutput) ToPartitionMapOutput() PartitionMapOutput {
@@ -337,18 +274,16 @@ func (o PartitionMapOutput) ToPartitionMapOutputWithContext(ctx context.Context)
 }
 
 func (o PartitionMapOutput) MapIndex(k pulumi.StringInput) PartitionOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Partition {
-		return vs[0].(map[string]Partition)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Partition {
+		return vs[0].(map[string]*Partition)[vs[1].(string)]
 	}).(PartitionOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PartitionInput)(nil)).Elem(), &Partition{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PartitionPtrInput)(nil)).Elem(), &Partition{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PartitionArrayInput)(nil)).Elem(), PartitionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PartitionMapInput)(nil)).Elem(), PartitionMap{})
 	pulumi.RegisterOutputType(PartitionOutput{})
-	pulumi.RegisterOutputType(PartitionPtrOutput{})
 	pulumi.RegisterOutputType(PartitionArrayOutput{})
 	pulumi.RegisterOutputType(PartitionMapOutput{})
 }

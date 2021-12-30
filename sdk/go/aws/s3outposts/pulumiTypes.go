@@ -15,59 +15,6 @@ type EndpointNetworkInterface struct {
 	NetworkInterfaceId *string `pulumi:"networkInterfaceId"`
 }
 
-// EndpointNetworkInterfaceInput is an input type that accepts EndpointNetworkInterfaceArgs and EndpointNetworkInterfaceOutput values.
-// You can construct a concrete instance of `EndpointNetworkInterfaceInput` via:
-//
-//          EndpointNetworkInterfaceArgs{...}
-type EndpointNetworkInterfaceInput interface {
-	pulumi.Input
-
-	ToEndpointNetworkInterfaceOutput() EndpointNetworkInterfaceOutput
-	ToEndpointNetworkInterfaceOutputWithContext(context.Context) EndpointNetworkInterfaceOutput
-}
-
-type EndpointNetworkInterfaceArgs struct {
-	// Identifier of the Elastic Network Interface (ENI).
-	NetworkInterfaceId pulumi.StringPtrInput `pulumi:"networkInterfaceId"`
-}
-
-func (EndpointNetworkInterfaceArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EndpointNetworkInterface)(nil)).Elem()
-}
-
-func (i EndpointNetworkInterfaceArgs) ToEndpointNetworkInterfaceOutput() EndpointNetworkInterfaceOutput {
-	return i.ToEndpointNetworkInterfaceOutputWithContext(context.Background())
-}
-
-func (i EndpointNetworkInterfaceArgs) ToEndpointNetworkInterfaceOutputWithContext(ctx context.Context) EndpointNetworkInterfaceOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EndpointNetworkInterfaceOutput)
-}
-
-// EndpointNetworkInterfaceArrayInput is an input type that accepts EndpointNetworkInterfaceArray and EndpointNetworkInterfaceArrayOutput values.
-// You can construct a concrete instance of `EndpointNetworkInterfaceArrayInput` via:
-//
-//          EndpointNetworkInterfaceArray{ EndpointNetworkInterfaceArgs{...} }
-type EndpointNetworkInterfaceArrayInput interface {
-	pulumi.Input
-
-	ToEndpointNetworkInterfaceArrayOutput() EndpointNetworkInterfaceArrayOutput
-	ToEndpointNetworkInterfaceArrayOutputWithContext(context.Context) EndpointNetworkInterfaceArrayOutput
-}
-
-type EndpointNetworkInterfaceArray []EndpointNetworkInterfaceInput
-
-func (EndpointNetworkInterfaceArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]EndpointNetworkInterface)(nil)).Elem()
-}
-
-func (i EndpointNetworkInterfaceArray) ToEndpointNetworkInterfaceArrayOutput() EndpointNetworkInterfaceArrayOutput {
-	return i.ToEndpointNetworkInterfaceArrayOutputWithContext(context.Background())
-}
-
-func (i EndpointNetworkInterfaceArray) ToEndpointNetworkInterfaceArrayOutputWithContext(ctx context.Context) EndpointNetworkInterfaceArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EndpointNetworkInterfaceArrayOutput)
-}
-
 type EndpointNetworkInterfaceOutput struct{ *pulumi.OutputState }
 
 func (EndpointNetworkInterfaceOutput) ElementType() reflect.Type {
@@ -108,8 +55,6 @@ func (o EndpointNetworkInterfaceArrayOutput) Index(i pulumi.IntInput) EndpointNe
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*EndpointNetworkInterfaceInput)(nil)).Elem(), EndpointNetworkInterfaceArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EndpointNetworkInterfaceArrayInput)(nil)).Elem(), EndpointNetworkInterfaceArray{})
 	pulumi.RegisterOutputType(EndpointNetworkInterfaceOutput{})
 	pulumi.RegisterOutputType(EndpointNetworkInterfaceArrayOutput{})
 }

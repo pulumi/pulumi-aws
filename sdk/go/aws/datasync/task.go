@@ -237,7 +237,7 @@ type TaskInput interface {
 }
 
 func (*Task) ElementType() reflect.Type {
-	return reflect.TypeOf((*Task)(nil))
+	return reflect.TypeOf((**Task)(nil)).Elem()
 }
 
 func (i *Task) ToTaskOutput() TaskOutput {
@@ -246,35 +246,6 @@ func (i *Task) ToTaskOutput() TaskOutput {
 
 func (i *Task) ToTaskOutputWithContext(ctx context.Context) TaskOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TaskOutput)
-}
-
-func (i *Task) ToTaskPtrOutput() TaskPtrOutput {
-	return i.ToTaskPtrOutputWithContext(context.Background())
-}
-
-func (i *Task) ToTaskPtrOutputWithContext(ctx context.Context) TaskPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskPtrOutput)
-}
-
-type TaskPtrInput interface {
-	pulumi.Input
-
-	ToTaskPtrOutput() TaskPtrOutput
-	ToTaskPtrOutputWithContext(ctx context.Context) TaskPtrOutput
-}
-
-type taskPtrType TaskArgs
-
-func (*taskPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Task)(nil))
-}
-
-func (i *taskPtrType) ToTaskPtrOutput() TaskPtrOutput {
-	return i.ToTaskPtrOutputWithContext(context.Background())
-}
-
-func (i *taskPtrType) ToTaskPtrOutputWithContext(ctx context.Context) TaskPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskPtrOutput)
 }
 
 // TaskArrayInput is an input type that accepts TaskArray and TaskArrayOutput values.
@@ -330,7 +301,7 @@ func (i TaskMap) ToTaskMapOutputWithContext(ctx context.Context) TaskMapOutput {
 type TaskOutput struct{ *pulumi.OutputState }
 
 func (TaskOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Task)(nil))
+	return reflect.TypeOf((**Task)(nil)).Elem()
 }
 
 func (o TaskOutput) ToTaskOutput() TaskOutput {
@@ -341,44 +312,10 @@ func (o TaskOutput) ToTaskOutputWithContext(ctx context.Context) TaskOutput {
 	return o
 }
 
-func (o TaskOutput) ToTaskPtrOutput() TaskPtrOutput {
-	return o.ToTaskPtrOutputWithContext(context.Background())
-}
-
-func (o TaskOutput) ToTaskPtrOutputWithContext(ctx context.Context) TaskPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Task) *Task {
-		return &v
-	}).(TaskPtrOutput)
-}
-
-type TaskPtrOutput struct{ *pulumi.OutputState }
-
-func (TaskPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Task)(nil))
-}
-
-func (o TaskPtrOutput) ToTaskPtrOutput() TaskPtrOutput {
-	return o
-}
-
-func (o TaskPtrOutput) ToTaskPtrOutputWithContext(ctx context.Context) TaskPtrOutput {
-	return o
-}
-
-func (o TaskPtrOutput) Elem() TaskOutput {
-	return o.ApplyT(func(v *Task) Task {
-		if v != nil {
-			return *v
-		}
-		var ret Task
-		return ret
-	}).(TaskOutput)
-}
-
 type TaskArrayOutput struct{ *pulumi.OutputState }
 
 func (TaskArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Task)(nil))
+	return reflect.TypeOf((*[]*Task)(nil)).Elem()
 }
 
 func (o TaskArrayOutput) ToTaskArrayOutput() TaskArrayOutput {
@@ -390,15 +327,15 @@ func (o TaskArrayOutput) ToTaskArrayOutputWithContext(ctx context.Context) TaskA
 }
 
 func (o TaskArrayOutput) Index(i pulumi.IntInput) TaskOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Task {
-		return vs[0].([]Task)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Task {
+		return vs[0].([]*Task)[vs[1].(int)]
 	}).(TaskOutput)
 }
 
 type TaskMapOutput struct{ *pulumi.OutputState }
 
 func (TaskMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Task)(nil))
+	return reflect.TypeOf((*map[string]*Task)(nil)).Elem()
 }
 
 func (o TaskMapOutput) ToTaskMapOutput() TaskMapOutput {
@@ -410,18 +347,16 @@ func (o TaskMapOutput) ToTaskMapOutputWithContext(ctx context.Context) TaskMapOu
 }
 
 func (o TaskMapOutput) MapIndex(k pulumi.StringInput) TaskOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Task {
-		return vs[0].(map[string]Task)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Task {
+		return vs[0].(map[string]*Task)[vs[1].(string)]
 	}).(TaskOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskInput)(nil)).Elem(), &Task{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TaskPtrInput)(nil)).Elem(), &Task{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskArrayInput)(nil)).Elem(), TaskArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskMapInput)(nil)).Elem(), TaskMap{})
 	pulumi.RegisterOutputType(TaskOutput{})
-	pulumi.RegisterOutputType(TaskPtrOutput{})
 	pulumi.RegisterOutputType(TaskArrayOutput{})
 	pulumi.RegisterOutputType(TaskMapOutput{})
 }

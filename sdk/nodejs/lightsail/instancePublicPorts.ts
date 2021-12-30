@@ -79,12 +79,12 @@ export class InstancePublicPorts extends pulumi.CustomResource {
      */
     constructor(name: string, args: InstancePublicPortsArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: InstancePublicPortsArgs | InstancePublicPortsState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as InstancePublicPortsState | undefined;
-            inputs["instanceName"] = state ? state.instanceName : undefined;
-            inputs["portInfos"] = state ? state.portInfos : undefined;
+            resourceInputs["instanceName"] = state ? state.instanceName : undefined;
+            resourceInputs["portInfos"] = state ? state.portInfos : undefined;
         } else {
             const args = argsOrState as InstancePublicPortsArgs | undefined;
             if ((!args || args.instanceName === undefined) && !opts.urn) {
@@ -93,13 +93,13 @@ export class InstancePublicPorts extends pulumi.CustomResource {
             if ((!args || args.portInfos === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'portInfos'");
             }
-            inputs["instanceName"] = args ? args.instanceName : undefined;
-            inputs["portInfos"] = args ? args.portInfos : undefined;
+            resourceInputs["instanceName"] = args ? args.instanceName : undefined;
+            resourceInputs["portInfos"] = args ? args.portInfos : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(InstancePublicPorts.__pulumiType, name, inputs, opts);
+        super(InstancePublicPorts.__pulumiType, name, resourceInputs, opts);
     }
 }
 

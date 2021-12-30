@@ -162,7 +162,7 @@ type VoiceConnectorTerminationCredentialsInput interface {
 }
 
 func (*VoiceConnectorTerminationCredentials) ElementType() reflect.Type {
-	return reflect.TypeOf((*VoiceConnectorTerminationCredentials)(nil))
+	return reflect.TypeOf((**VoiceConnectorTerminationCredentials)(nil)).Elem()
 }
 
 func (i *VoiceConnectorTerminationCredentials) ToVoiceConnectorTerminationCredentialsOutput() VoiceConnectorTerminationCredentialsOutput {
@@ -171,35 +171,6 @@ func (i *VoiceConnectorTerminationCredentials) ToVoiceConnectorTerminationCreden
 
 func (i *VoiceConnectorTerminationCredentials) ToVoiceConnectorTerminationCredentialsOutputWithContext(ctx context.Context) VoiceConnectorTerminationCredentialsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VoiceConnectorTerminationCredentialsOutput)
-}
-
-func (i *VoiceConnectorTerminationCredentials) ToVoiceConnectorTerminationCredentialsPtrOutput() VoiceConnectorTerminationCredentialsPtrOutput {
-	return i.ToVoiceConnectorTerminationCredentialsPtrOutputWithContext(context.Background())
-}
-
-func (i *VoiceConnectorTerminationCredentials) ToVoiceConnectorTerminationCredentialsPtrOutputWithContext(ctx context.Context) VoiceConnectorTerminationCredentialsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VoiceConnectorTerminationCredentialsPtrOutput)
-}
-
-type VoiceConnectorTerminationCredentialsPtrInput interface {
-	pulumi.Input
-
-	ToVoiceConnectorTerminationCredentialsPtrOutput() VoiceConnectorTerminationCredentialsPtrOutput
-	ToVoiceConnectorTerminationCredentialsPtrOutputWithContext(ctx context.Context) VoiceConnectorTerminationCredentialsPtrOutput
-}
-
-type voiceConnectorTerminationCredentialsPtrType VoiceConnectorTerminationCredentialsArgs
-
-func (*voiceConnectorTerminationCredentialsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VoiceConnectorTerminationCredentials)(nil))
-}
-
-func (i *voiceConnectorTerminationCredentialsPtrType) ToVoiceConnectorTerminationCredentialsPtrOutput() VoiceConnectorTerminationCredentialsPtrOutput {
-	return i.ToVoiceConnectorTerminationCredentialsPtrOutputWithContext(context.Background())
-}
-
-func (i *voiceConnectorTerminationCredentialsPtrType) ToVoiceConnectorTerminationCredentialsPtrOutputWithContext(ctx context.Context) VoiceConnectorTerminationCredentialsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VoiceConnectorTerminationCredentialsPtrOutput)
 }
 
 // VoiceConnectorTerminationCredentialsArrayInput is an input type that accepts VoiceConnectorTerminationCredentialsArray and VoiceConnectorTerminationCredentialsArrayOutput values.
@@ -255,7 +226,7 @@ func (i VoiceConnectorTerminationCredentialsMap) ToVoiceConnectorTerminationCred
 type VoiceConnectorTerminationCredentialsOutput struct{ *pulumi.OutputState }
 
 func (VoiceConnectorTerminationCredentialsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VoiceConnectorTerminationCredentials)(nil))
+	return reflect.TypeOf((**VoiceConnectorTerminationCredentials)(nil)).Elem()
 }
 
 func (o VoiceConnectorTerminationCredentialsOutput) ToVoiceConnectorTerminationCredentialsOutput() VoiceConnectorTerminationCredentialsOutput {
@@ -266,44 +237,10 @@ func (o VoiceConnectorTerminationCredentialsOutput) ToVoiceConnectorTerminationC
 	return o
 }
 
-func (o VoiceConnectorTerminationCredentialsOutput) ToVoiceConnectorTerminationCredentialsPtrOutput() VoiceConnectorTerminationCredentialsPtrOutput {
-	return o.ToVoiceConnectorTerminationCredentialsPtrOutputWithContext(context.Background())
-}
-
-func (o VoiceConnectorTerminationCredentialsOutput) ToVoiceConnectorTerminationCredentialsPtrOutputWithContext(ctx context.Context) VoiceConnectorTerminationCredentialsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VoiceConnectorTerminationCredentials) *VoiceConnectorTerminationCredentials {
-		return &v
-	}).(VoiceConnectorTerminationCredentialsPtrOutput)
-}
-
-type VoiceConnectorTerminationCredentialsPtrOutput struct{ *pulumi.OutputState }
-
-func (VoiceConnectorTerminationCredentialsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VoiceConnectorTerminationCredentials)(nil))
-}
-
-func (o VoiceConnectorTerminationCredentialsPtrOutput) ToVoiceConnectorTerminationCredentialsPtrOutput() VoiceConnectorTerminationCredentialsPtrOutput {
-	return o
-}
-
-func (o VoiceConnectorTerminationCredentialsPtrOutput) ToVoiceConnectorTerminationCredentialsPtrOutputWithContext(ctx context.Context) VoiceConnectorTerminationCredentialsPtrOutput {
-	return o
-}
-
-func (o VoiceConnectorTerminationCredentialsPtrOutput) Elem() VoiceConnectorTerminationCredentialsOutput {
-	return o.ApplyT(func(v *VoiceConnectorTerminationCredentials) VoiceConnectorTerminationCredentials {
-		if v != nil {
-			return *v
-		}
-		var ret VoiceConnectorTerminationCredentials
-		return ret
-	}).(VoiceConnectorTerminationCredentialsOutput)
-}
-
 type VoiceConnectorTerminationCredentialsArrayOutput struct{ *pulumi.OutputState }
 
 func (VoiceConnectorTerminationCredentialsArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VoiceConnectorTerminationCredentials)(nil))
+	return reflect.TypeOf((*[]*VoiceConnectorTerminationCredentials)(nil)).Elem()
 }
 
 func (o VoiceConnectorTerminationCredentialsArrayOutput) ToVoiceConnectorTerminationCredentialsArrayOutput() VoiceConnectorTerminationCredentialsArrayOutput {
@@ -315,15 +252,15 @@ func (o VoiceConnectorTerminationCredentialsArrayOutput) ToVoiceConnectorTermina
 }
 
 func (o VoiceConnectorTerminationCredentialsArrayOutput) Index(i pulumi.IntInput) VoiceConnectorTerminationCredentialsOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VoiceConnectorTerminationCredentials {
-		return vs[0].([]VoiceConnectorTerminationCredentials)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VoiceConnectorTerminationCredentials {
+		return vs[0].([]*VoiceConnectorTerminationCredentials)[vs[1].(int)]
 	}).(VoiceConnectorTerminationCredentialsOutput)
 }
 
 type VoiceConnectorTerminationCredentialsMapOutput struct{ *pulumi.OutputState }
 
 func (VoiceConnectorTerminationCredentialsMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]VoiceConnectorTerminationCredentials)(nil))
+	return reflect.TypeOf((*map[string]*VoiceConnectorTerminationCredentials)(nil)).Elem()
 }
 
 func (o VoiceConnectorTerminationCredentialsMapOutput) ToVoiceConnectorTerminationCredentialsMapOutput() VoiceConnectorTerminationCredentialsMapOutput {
@@ -335,18 +272,16 @@ func (o VoiceConnectorTerminationCredentialsMapOutput) ToVoiceConnectorTerminati
 }
 
 func (o VoiceConnectorTerminationCredentialsMapOutput) MapIndex(k pulumi.StringInput) VoiceConnectorTerminationCredentialsOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) VoiceConnectorTerminationCredentials {
-		return vs[0].(map[string]VoiceConnectorTerminationCredentials)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *VoiceConnectorTerminationCredentials {
+		return vs[0].(map[string]*VoiceConnectorTerminationCredentials)[vs[1].(string)]
 	}).(VoiceConnectorTerminationCredentialsOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VoiceConnectorTerminationCredentialsInput)(nil)).Elem(), &VoiceConnectorTerminationCredentials{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VoiceConnectorTerminationCredentialsPtrInput)(nil)).Elem(), &VoiceConnectorTerminationCredentials{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VoiceConnectorTerminationCredentialsArrayInput)(nil)).Elem(), VoiceConnectorTerminationCredentialsArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VoiceConnectorTerminationCredentialsMapInput)(nil)).Elem(), VoiceConnectorTerminationCredentialsMap{})
 	pulumi.RegisterOutputType(VoiceConnectorTerminationCredentialsOutput{})
-	pulumi.RegisterOutputType(VoiceConnectorTerminationCredentialsPtrOutput{})
 	pulumi.RegisterOutputType(VoiceConnectorTerminationCredentialsArrayOutput{})
 	pulumi.RegisterOutputType(VoiceConnectorTerminationCredentialsMapOutput{})
 }

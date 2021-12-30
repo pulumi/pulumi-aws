@@ -154,7 +154,7 @@ type TemplateInput interface {
 }
 
 func (*Template) ElementType() reflect.Type {
-	return reflect.TypeOf((*Template)(nil))
+	return reflect.TypeOf((**Template)(nil)).Elem()
 }
 
 func (i *Template) ToTemplateOutput() TemplateOutput {
@@ -163,35 +163,6 @@ func (i *Template) ToTemplateOutput() TemplateOutput {
 
 func (i *Template) ToTemplateOutputWithContext(ctx context.Context) TemplateOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TemplateOutput)
-}
-
-func (i *Template) ToTemplatePtrOutput() TemplatePtrOutput {
-	return i.ToTemplatePtrOutputWithContext(context.Background())
-}
-
-func (i *Template) ToTemplatePtrOutputWithContext(ctx context.Context) TemplatePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplatePtrOutput)
-}
-
-type TemplatePtrInput interface {
-	pulumi.Input
-
-	ToTemplatePtrOutput() TemplatePtrOutput
-	ToTemplatePtrOutputWithContext(ctx context.Context) TemplatePtrOutput
-}
-
-type templatePtrType TemplateArgs
-
-func (*templatePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Template)(nil))
-}
-
-func (i *templatePtrType) ToTemplatePtrOutput() TemplatePtrOutput {
-	return i.ToTemplatePtrOutputWithContext(context.Background())
-}
-
-func (i *templatePtrType) ToTemplatePtrOutputWithContext(ctx context.Context) TemplatePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplatePtrOutput)
 }
 
 // TemplateArrayInput is an input type that accepts TemplateArray and TemplateArrayOutput values.
@@ -247,7 +218,7 @@ func (i TemplateMap) ToTemplateMapOutputWithContext(ctx context.Context) Templat
 type TemplateOutput struct{ *pulumi.OutputState }
 
 func (TemplateOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Template)(nil))
+	return reflect.TypeOf((**Template)(nil)).Elem()
 }
 
 func (o TemplateOutput) ToTemplateOutput() TemplateOutput {
@@ -258,44 +229,10 @@ func (o TemplateOutput) ToTemplateOutputWithContext(ctx context.Context) Templat
 	return o
 }
 
-func (o TemplateOutput) ToTemplatePtrOutput() TemplatePtrOutput {
-	return o.ToTemplatePtrOutputWithContext(context.Background())
-}
-
-func (o TemplateOutput) ToTemplatePtrOutputWithContext(ctx context.Context) TemplatePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Template) *Template {
-		return &v
-	}).(TemplatePtrOutput)
-}
-
-type TemplatePtrOutput struct{ *pulumi.OutputState }
-
-func (TemplatePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Template)(nil))
-}
-
-func (o TemplatePtrOutput) ToTemplatePtrOutput() TemplatePtrOutput {
-	return o
-}
-
-func (o TemplatePtrOutput) ToTemplatePtrOutputWithContext(ctx context.Context) TemplatePtrOutput {
-	return o
-}
-
-func (o TemplatePtrOutput) Elem() TemplateOutput {
-	return o.ApplyT(func(v *Template) Template {
-		if v != nil {
-			return *v
-		}
-		var ret Template
-		return ret
-	}).(TemplateOutput)
-}
-
 type TemplateArrayOutput struct{ *pulumi.OutputState }
 
 func (TemplateArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Template)(nil))
+	return reflect.TypeOf((*[]*Template)(nil)).Elem()
 }
 
 func (o TemplateArrayOutput) ToTemplateArrayOutput() TemplateArrayOutput {
@@ -307,15 +244,15 @@ func (o TemplateArrayOutput) ToTemplateArrayOutputWithContext(ctx context.Contex
 }
 
 func (o TemplateArrayOutput) Index(i pulumi.IntInput) TemplateOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Template {
-		return vs[0].([]Template)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Template {
+		return vs[0].([]*Template)[vs[1].(int)]
 	}).(TemplateOutput)
 }
 
 type TemplateMapOutput struct{ *pulumi.OutputState }
 
 func (TemplateMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Template)(nil))
+	return reflect.TypeOf((*map[string]*Template)(nil)).Elem()
 }
 
 func (o TemplateMapOutput) ToTemplateMapOutput() TemplateMapOutput {
@@ -327,18 +264,16 @@ func (o TemplateMapOutput) ToTemplateMapOutputWithContext(ctx context.Context) T
 }
 
 func (o TemplateMapOutput) MapIndex(k pulumi.StringInput) TemplateOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Template {
-		return vs[0].(map[string]Template)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Template {
+		return vs[0].(map[string]*Template)[vs[1].(string)]
 	}).(TemplateOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateInput)(nil)).Elem(), &Template{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplatePtrInput)(nil)).Elem(), &Template{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateArrayInput)(nil)).Elem(), TemplateArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateMapInput)(nil)).Elem(), TemplateMap{})
 	pulumi.RegisterOutputType(TemplateOutput{})
-	pulumi.RegisterOutputType(TemplatePtrOutput{})
 	pulumi.RegisterOutputType(TemplateArrayOutput{})
 	pulumi.RegisterOutputType(TemplateMapOutput{})
 }

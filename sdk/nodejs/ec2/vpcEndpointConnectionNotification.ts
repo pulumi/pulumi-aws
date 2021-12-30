@@ -110,16 +110,16 @@ export class VpcEndpointConnectionNotification extends pulumi.CustomResource {
      */
     constructor(name: string, args: VpcEndpointConnectionNotificationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VpcEndpointConnectionNotificationArgs | VpcEndpointConnectionNotificationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VpcEndpointConnectionNotificationState | undefined;
-            inputs["connectionEvents"] = state ? state.connectionEvents : undefined;
-            inputs["connectionNotificationArn"] = state ? state.connectionNotificationArn : undefined;
-            inputs["notificationType"] = state ? state.notificationType : undefined;
-            inputs["state"] = state ? state.state : undefined;
-            inputs["vpcEndpointId"] = state ? state.vpcEndpointId : undefined;
-            inputs["vpcEndpointServiceId"] = state ? state.vpcEndpointServiceId : undefined;
+            resourceInputs["connectionEvents"] = state ? state.connectionEvents : undefined;
+            resourceInputs["connectionNotificationArn"] = state ? state.connectionNotificationArn : undefined;
+            resourceInputs["notificationType"] = state ? state.notificationType : undefined;
+            resourceInputs["state"] = state ? state.state : undefined;
+            resourceInputs["vpcEndpointId"] = state ? state.vpcEndpointId : undefined;
+            resourceInputs["vpcEndpointServiceId"] = state ? state.vpcEndpointServiceId : undefined;
         } else {
             const args = argsOrState as VpcEndpointConnectionNotificationArgs | undefined;
             if ((!args || args.connectionEvents === undefined) && !opts.urn) {
@@ -128,17 +128,17 @@ export class VpcEndpointConnectionNotification extends pulumi.CustomResource {
             if ((!args || args.connectionNotificationArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'connectionNotificationArn'");
             }
-            inputs["connectionEvents"] = args ? args.connectionEvents : undefined;
-            inputs["connectionNotificationArn"] = args ? args.connectionNotificationArn : undefined;
-            inputs["vpcEndpointId"] = args ? args.vpcEndpointId : undefined;
-            inputs["vpcEndpointServiceId"] = args ? args.vpcEndpointServiceId : undefined;
-            inputs["notificationType"] = undefined /*out*/;
-            inputs["state"] = undefined /*out*/;
+            resourceInputs["connectionEvents"] = args ? args.connectionEvents : undefined;
+            resourceInputs["connectionNotificationArn"] = args ? args.connectionNotificationArn : undefined;
+            resourceInputs["vpcEndpointId"] = args ? args.vpcEndpointId : undefined;
+            resourceInputs["vpcEndpointServiceId"] = args ? args.vpcEndpointServiceId : undefined;
+            resourceInputs["notificationType"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(VpcEndpointConnectionNotification.__pulumiType, name, inputs, opts);
+        super(VpcEndpointConnectionNotification.__pulumiType, name, resourceInputs, opts);
     }
 }
 

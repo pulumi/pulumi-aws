@@ -133,21 +133,21 @@ export class Schema extends pulumi.CustomResource {
      */
     constructor(name: string, args: SchemaArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SchemaArgs | SchemaState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SchemaState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["content"] = state ? state.content : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["lastModified"] = state ? state.lastModified : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["registryName"] = state ? state.registryName : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["type"] = state ? state.type : undefined;
-            inputs["version"] = state ? state.version : undefined;
-            inputs["versionCreatedDate"] = state ? state.versionCreatedDate : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["content"] = state ? state.content : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["lastModified"] = state ? state.lastModified : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["registryName"] = state ? state.registryName : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["version"] = state ? state.version : undefined;
+            resourceInputs["versionCreatedDate"] = state ? state.versionCreatedDate : undefined;
         } else {
             const args = argsOrState as SchemaArgs | undefined;
             if ((!args || args.content === undefined) && !opts.urn) {
@@ -159,22 +159,22 @@ export class Schema extends pulumi.CustomResource {
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            inputs["content"] = args ? args.content : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["registryName"] = args ? args.registryName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["lastModified"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
-            inputs["version"] = undefined /*out*/;
-            inputs["versionCreatedDate"] = undefined /*out*/;
+            resourceInputs["content"] = args ? args.content : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["registryName"] = args ? args.registryName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["lastModified"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["version"] = undefined /*out*/;
+            resourceInputs["versionCreatedDate"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Schema.__pulumiType, name, inputs, opts);
+        super(Schema.__pulumiType, name, resourceInputs, opts);
     }
 }
 

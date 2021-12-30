@@ -325,33 +325,33 @@ export class Project extends pulumi.CustomResource {
      */
     constructor(name: string, args: ProjectArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ProjectArgs | ProjectState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProjectState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["artifacts"] = state ? state.artifacts : undefined;
-            inputs["badgeEnabled"] = state ? state.badgeEnabled : undefined;
-            inputs["badgeUrl"] = state ? state.badgeUrl : undefined;
-            inputs["buildBatchConfig"] = state ? state.buildBatchConfig : undefined;
-            inputs["buildTimeout"] = state ? state.buildTimeout : undefined;
-            inputs["cache"] = state ? state.cache : undefined;
-            inputs["concurrentBuildLimit"] = state ? state.concurrentBuildLimit : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["encryptionKey"] = state ? state.encryptionKey : undefined;
-            inputs["environment"] = state ? state.environment : undefined;
-            inputs["fileSystemLocations"] = state ? state.fileSystemLocations : undefined;
-            inputs["logsConfig"] = state ? state.logsConfig : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["queuedTimeout"] = state ? state.queuedTimeout : undefined;
-            inputs["secondaryArtifacts"] = state ? state.secondaryArtifacts : undefined;
-            inputs["secondarySources"] = state ? state.secondarySources : undefined;
-            inputs["serviceRole"] = state ? state.serviceRole : undefined;
-            inputs["source"] = state ? state.source : undefined;
-            inputs["sourceVersion"] = state ? state.sourceVersion : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["vpcConfig"] = state ? state.vpcConfig : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["artifacts"] = state ? state.artifacts : undefined;
+            resourceInputs["badgeEnabled"] = state ? state.badgeEnabled : undefined;
+            resourceInputs["badgeUrl"] = state ? state.badgeUrl : undefined;
+            resourceInputs["buildBatchConfig"] = state ? state.buildBatchConfig : undefined;
+            resourceInputs["buildTimeout"] = state ? state.buildTimeout : undefined;
+            resourceInputs["cache"] = state ? state.cache : undefined;
+            resourceInputs["concurrentBuildLimit"] = state ? state.concurrentBuildLimit : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["encryptionKey"] = state ? state.encryptionKey : undefined;
+            resourceInputs["environment"] = state ? state.environment : undefined;
+            resourceInputs["fileSystemLocations"] = state ? state.fileSystemLocations : undefined;
+            resourceInputs["logsConfig"] = state ? state.logsConfig : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["queuedTimeout"] = state ? state.queuedTimeout : undefined;
+            resourceInputs["secondaryArtifacts"] = state ? state.secondaryArtifacts : undefined;
+            resourceInputs["secondarySources"] = state ? state.secondarySources : undefined;
+            resourceInputs["serviceRole"] = state ? state.serviceRole : undefined;
+            resourceInputs["source"] = state ? state.source : undefined;
+            resourceInputs["sourceVersion"] = state ? state.sourceVersion : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["vpcConfig"] = state ? state.vpcConfig : undefined;
         } else {
             const args = argsOrState as ProjectArgs | undefined;
             if ((!args || args.artifacts === undefined) && !opts.urn) {
@@ -366,34 +366,34 @@ export class Project extends pulumi.CustomResource {
             if ((!args || args.source === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'source'");
             }
-            inputs["artifacts"] = args ? args.artifacts : undefined;
-            inputs["badgeEnabled"] = args ? args.badgeEnabled : undefined;
-            inputs["buildBatchConfig"] = args ? args.buildBatchConfig : undefined;
-            inputs["buildTimeout"] = args ? args.buildTimeout : undefined;
-            inputs["cache"] = args ? args.cache : undefined;
-            inputs["concurrentBuildLimit"] = args ? args.concurrentBuildLimit : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["encryptionKey"] = args ? args.encryptionKey : undefined;
-            inputs["environment"] = args ? args.environment : undefined;
-            inputs["fileSystemLocations"] = args ? args.fileSystemLocations : undefined;
-            inputs["logsConfig"] = args ? args.logsConfig : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["queuedTimeout"] = args ? args.queuedTimeout : undefined;
-            inputs["secondaryArtifacts"] = args ? args.secondaryArtifacts : undefined;
-            inputs["secondarySources"] = args ? args.secondarySources : undefined;
-            inputs["serviceRole"] = args ? args.serviceRole : undefined;
-            inputs["source"] = args ? args.source : undefined;
-            inputs["sourceVersion"] = args ? args.sourceVersion : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["vpcConfig"] = args ? args.vpcConfig : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["badgeUrl"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["artifacts"] = args ? args.artifacts : undefined;
+            resourceInputs["badgeEnabled"] = args ? args.badgeEnabled : undefined;
+            resourceInputs["buildBatchConfig"] = args ? args.buildBatchConfig : undefined;
+            resourceInputs["buildTimeout"] = args ? args.buildTimeout : undefined;
+            resourceInputs["cache"] = args ? args.cache : undefined;
+            resourceInputs["concurrentBuildLimit"] = args ? args.concurrentBuildLimit : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["encryptionKey"] = args ? args.encryptionKey : undefined;
+            resourceInputs["environment"] = args ? args.environment : undefined;
+            resourceInputs["fileSystemLocations"] = args ? args.fileSystemLocations : undefined;
+            resourceInputs["logsConfig"] = args ? args.logsConfig : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["queuedTimeout"] = args ? args.queuedTimeout : undefined;
+            resourceInputs["secondaryArtifacts"] = args ? args.secondaryArtifacts : undefined;
+            resourceInputs["secondarySources"] = args ? args.secondarySources : undefined;
+            resourceInputs["serviceRole"] = args ? args.serviceRole : undefined;
+            resourceInputs["source"] = args ? args.source : undefined;
+            resourceInputs["sourceVersion"] = args ? args.sourceVersion : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["vpcConfig"] = args ? args.vpcConfig : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["badgeUrl"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Project.__pulumiType, name, inputs, opts);
+        super(Project.__pulumiType, name, resourceInputs, opts);
     }
 }
 

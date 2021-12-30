@@ -202,39 +202,39 @@ export class SmbFileShare extends pulumi.CustomResource {
      */
     constructor(name: string, args: SmbFileShareArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SmbFileShareArgs | SmbFileShareState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SmbFileShareState | undefined;
-            inputs["accessBasedEnumeration"] = state ? state.accessBasedEnumeration : undefined;
-            inputs["adminUserLists"] = state ? state.adminUserLists : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["auditDestinationArn"] = state ? state.auditDestinationArn : undefined;
-            inputs["authentication"] = state ? state.authentication : undefined;
-            inputs["bucketRegion"] = state ? state.bucketRegion : undefined;
-            inputs["cacheAttributes"] = state ? state.cacheAttributes : undefined;
-            inputs["caseSensitivity"] = state ? state.caseSensitivity : undefined;
-            inputs["defaultStorageClass"] = state ? state.defaultStorageClass : undefined;
-            inputs["fileShareName"] = state ? state.fileShareName : undefined;
-            inputs["fileshareId"] = state ? state.fileshareId : undefined;
-            inputs["gatewayArn"] = state ? state.gatewayArn : undefined;
-            inputs["guessMimeTypeEnabled"] = state ? state.guessMimeTypeEnabled : undefined;
-            inputs["invalidUserLists"] = state ? state.invalidUserLists : undefined;
-            inputs["kmsEncrypted"] = state ? state.kmsEncrypted : undefined;
-            inputs["kmsKeyArn"] = state ? state.kmsKeyArn : undefined;
-            inputs["locationArn"] = state ? state.locationArn : undefined;
-            inputs["notificationPolicy"] = state ? state.notificationPolicy : undefined;
-            inputs["objectAcl"] = state ? state.objectAcl : undefined;
-            inputs["oplocksEnabled"] = state ? state.oplocksEnabled : undefined;
-            inputs["path"] = state ? state.path : undefined;
-            inputs["readOnly"] = state ? state.readOnly : undefined;
-            inputs["requesterPays"] = state ? state.requesterPays : undefined;
-            inputs["roleArn"] = state ? state.roleArn : undefined;
-            inputs["smbAclEnabled"] = state ? state.smbAclEnabled : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["validUserLists"] = state ? state.validUserLists : undefined;
-            inputs["vpcEndpointDnsName"] = state ? state.vpcEndpointDnsName : undefined;
+            resourceInputs["accessBasedEnumeration"] = state ? state.accessBasedEnumeration : undefined;
+            resourceInputs["adminUserLists"] = state ? state.adminUserLists : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["auditDestinationArn"] = state ? state.auditDestinationArn : undefined;
+            resourceInputs["authentication"] = state ? state.authentication : undefined;
+            resourceInputs["bucketRegion"] = state ? state.bucketRegion : undefined;
+            resourceInputs["cacheAttributes"] = state ? state.cacheAttributes : undefined;
+            resourceInputs["caseSensitivity"] = state ? state.caseSensitivity : undefined;
+            resourceInputs["defaultStorageClass"] = state ? state.defaultStorageClass : undefined;
+            resourceInputs["fileShareName"] = state ? state.fileShareName : undefined;
+            resourceInputs["fileshareId"] = state ? state.fileshareId : undefined;
+            resourceInputs["gatewayArn"] = state ? state.gatewayArn : undefined;
+            resourceInputs["guessMimeTypeEnabled"] = state ? state.guessMimeTypeEnabled : undefined;
+            resourceInputs["invalidUserLists"] = state ? state.invalidUserLists : undefined;
+            resourceInputs["kmsEncrypted"] = state ? state.kmsEncrypted : undefined;
+            resourceInputs["kmsKeyArn"] = state ? state.kmsKeyArn : undefined;
+            resourceInputs["locationArn"] = state ? state.locationArn : undefined;
+            resourceInputs["notificationPolicy"] = state ? state.notificationPolicy : undefined;
+            resourceInputs["objectAcl"] = state ? state.objectAcl : undefined;
+            resourceInputs["oplocksEnabled"] = state ? state.oplocksEnabled : undefined;
+            resourceInputs["path"] = state ? state.path : undefined;
+            resourceInputs["readOnly"] = state ? state.readOnly : undefined;
+            resourceInputs["requesterPays"] = state ? state.requesterPays : undefined;
+            resourceInputs["roleArn"] = state ? state.roleArn : undefined;
+            resourceInputs["smbAclEnabled"] = state ? state.smbAclEnabled : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["validUserLists"] = state ? state.validUserLists : undefined;
+            resourceInputs["vpcEndpointDnsName"] = state ? state.vpcEndpointDnsName : undefined;
         } else {
             const args = argsOrState as SmbFileShareArgs | undefined;
             if ((!args || args.gatewayArn === undefined) && !opts.urn) {
@@ -246,40 +246,40 @@ export class SmbFileShare extends pulumi.CustomResource {
             if ((!args || args.roleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            inputs["accessBasedEnumeration"] = args ? args.accessBasedEnumeration : undefined;
-            inputs["adminUserLists"] = args ? args.adminUserLists : undefined;
-            inputs["auditDestinationArn"] = args ? args.auditDestinationArn : undefined;
-            inputs["authentication"] = args ? args.authentication : undefined;
-            inputs["bucketRegion"] = args ? args.bucketRegion : undefined;
-            inputs["cacheAttributes"] = args ? args.cacheAttributes : undefined;
-            inputs["caseSensitivity"] = args ? args.caseSensitivity : undefined;
-            inputs["defaultStorageClass"] = args ? args.defaultStorageClass : undefined;
-            inputs["fileShareName"] = args ? args.fileShareName : undefined;
-            inputs["gatewayArn"] = args ? args.gatewayArn : undefined;
-            inputs["guessMimeTypeEnabled"] = args ? args.guessMimeTypeEnabled : undefined;
-            inputs["invalidUserLists"] = args ? args.invalidUserLists : undefined;
-            inputs["kmsEncrypted"] = args ? args.kmsEncrypted : undefined;
-            inputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
-            inputs["locationArn"] = args ? args.locationArn : undefined;
-            inputs["notificationPolicy"] = args ? args.notificationPolicy : undefined;
-            inputs["objectAcl"] = args ? args.objectAcl : undefined;
-            inputs["oplocksEnabled"] = args ? args.oplocksEnabled : undefined;
-            inputs["readOnly"] = args ? args.readOnly : undefined;
-            inputs["requesterPays"] = args ? args.requesterPays : undefined;
-            inputs["roleArn"] = args ? args.roleArn : undefined;
-            inputs["smbAclEnabled"] = args ? args.smbAclEnabled : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["validUserLists"] = args ? args.validUserLists : undefined;
-            inputs["vpcEndpointDnsName"] = args ? args.vpcEndpointDnsName : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["fileshareId"] = undefined /*out*/;
-            inputs["path"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["accessBasedEnumeration"] = args ? args.accessBasedEnumeration : undefined;
+            resourceInputs["adminUserLists"] = args ? args.adminUserLists : undefined;
+            resourceInputs["auditDestinationArn"] = args ? args.auditDestinationArn : undefined;
+            resourceInputs["authentication"] = args ? args.authentication : undefined;
+            resourceInputs["bucketRegion"] = args ? args.bucketRegion : undefined;
+            resourceInputs["cacheAttributes"] = args ? args.cacheAttributes : undefined;
+            resourceInputs["caseSensitivity"] = args ? args.caseSensitivity : undefined;
+            resourceInputs["defaultStorageClass"] = args ? args.defaultStorageClass : undefined;
+            resourceInputs["fileShareName"] = args ? args.fileShareName : undefined;
+            resourceInputs["gatewayArn"] = args ? args.gatewayArn : undefined;
+            resourceInputs["guessMimeTypeEnabled"] = args ? args.guessMimeTypeEnabled : undefined;
+            resourceInputs["invalidUserLists"] = args ? args.invalidUserLists : undefined;
+            resourceInputs["kmsEncrypted"] = args ? args.kmsEncrypted : undefined;
+            resourceInputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
+            resourceInputs["locationArn"] = args ? args.locationArn : undefined;
+            resourceInputs["notificationPolicy"] = args ? args.notificationPolicy : undefined;
+            resourceInputs["objectAcl"] = args ? args.objectAcl : undefined;
+            resourceInputs["oplocksEnabled"] = args ? args.oplocksEnabled : undefined;
+            resourceInputs["readOnly"] = args ? args.readOnly : undefined;
+            resourceInputs["requesterPays"] = args ? args.requesterPays : undefined;
+            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["smbAclEnabled"] = args ? args.smbAclEnabled : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["validUserLists"] = args ? args.validUserLists : undefined;
+            resourceInputs["vpcEndpointDnsName"] = args ? args.vpcEndpointDnsName : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["fileshareId"] = undefined /*out*/;
+            resourceInputs["path"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(SmbFileShare.__pulumiType, name, inputs, opts);
+        super(SmbFileShare.__pulumiType, name, resourceInputs, opts);
     }
 }
 

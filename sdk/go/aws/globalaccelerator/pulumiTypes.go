@@ -192,61 +192,6 @@ type AcceleratorIpSet struct {
 	IpFamily *string `pulumi:"ipFamily"`
 }
 
-// AcceleratorIpSetInput is an input type that accepts AcceleratorIpSetArgs and AcceleratorIpSetOutput values.
-// You can construct a concrete instance of `AcceleratorIpSetInput` via:
-//
-//          AcceleratorIpSetArgs{...}
-type AcceleratorIpSetInput interface {
-	pulumi.Input
-
-	ToAcceleratorIpSetOutput() AcceleratorIpSetOutput
-	ToAcceleratorIpSetOutputWithContext(context.Context) AcceleratorIpSetOutput
-}
-
-type AcceleratorIpSetArgs struct {
-	// A list of IP addresses in the IP address set.
-	IpAddresses pulumi.StringArrayInput `pulumi:"ipAddresses"`
-	// The type of IP addresses included in this IP set.
-	IpFamily pulumi.StringPtrInput `pulumi:"ipFamily"`
-}
-
-func (AcceleratorIpSetArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AcceleratorIpSet)(nil)).Elem()
-}
-
-func (i AcceleratorIpSetArgs) ToAcceleratorIpSetOutput() AcceleratorIpSetOutput {
-	return i.ToAcceleratorIpSetOutputWithContext(context.Background())
-}
-
-func (i AcceleratorIpSetArgs) ToAcceleratorIpSetOutputWithContext(ctx context.Context) AcceleratorIpSetOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AcceleratorIpSetOutput)
-}
-
-// AcceleratorIpSetArrayInput is an input type that accepts AcceleratorIpSetArray and AcceleratorIpSetArrayOutput values.
-// You can construct a concrete instance of `AcceleratorIpSetArrayInput` via:
-//
-//          AcceleratorIpSetArray{ AcceleratorIpSetArgs{...} }
-type AcceleratorIpSetArrayInput interface {
-	pulumi.Input
-
-	ToAcceleratorIpSetArrayOutput() AcceleratorIpSetArrayOutput
-	ToAcceleratorIpSetArrayOutputWithContext(context.Context) AcceleratorIpSetArrayOutput
-}
-
-type AcceleratorIpSetArray []AcceleratorIpSetInput
-
-func (AcceleratorIpSetArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AcceleratorIpSet)(nil)).Elem()
-}
-
-func (i AcceleratorIpSetArray) ToAcceleratorIpSetArrayOutput() AcceleratorIpSetArrayOutput {
-	return i.ToAcceleratorIpSetArrayOutputWithContext(context.Background())
-}
-
-func (i AcceleratorIpSetArray) ToAcceleratorIpSetArrayOutputWithContext(ctx context.Context) AcceleratorIpSetArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AcceleratorIpSetArrayOutput)
-}
-
 type AcceleratorIpSetOutput struct{ *pulumi.OutputState }
 
 func (AcceleratorIpSetOutput) ElementType() reflect.Type {
@@ -627,60 +572,6 @@ type GetAcceleratorAttribute struct {
 	FlowLogsS3Prefix string `pulumi:"flowLogsS3Prefix"`
 }
 
-// GetAcceleratorAttributeInput is an input type that accepts GetAcceleratorAttributeArgs and GetAcceleratorAttributeOutput values.
-// You can construct a concrete instance of `GetAcceleratorAttributeInput` via:
-//
-//          GetAcceleratorAttributeArgs{...}
-type GetAcceleratorAttributeInput interface {
-	pulumi.Input
-
-	ToGetAcceleratorAttributeOutput() GetAcceleratorAttributeOutput
-	ToGetAcceleratorAttributeOutputWithContext(context.Context) GetAcceleratorAttributeOutput
-}
-
-type GetAcceleratorAttributeArgs struct {
-	FlowLogsEnabled  pulumi.BoolInput   `pulumi:"flowLogsEnabled"`
-	FlowLogsS3Bucket pulumi.StringInput `pulumi:"flowLogsS3Bucket"`
-	FlowLogsS3Prefix pulumi.StringInput `pulumi:"flowLogsS3Prefix"`
-}
-
-func (GetAcceleratorAttributeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetAcceleratorAttribute)(nil)).Elem()
-}
-
-func (i GetAcceleratorAttributeArgs) ToGetAcceleratorAttributeOutput() GetAcceleratorAttributeOutput {
-	return i.ToGetAcceleratorAttributeOutputWithContext(context.Background())
-}
-
-func (i GetAcceleratorAttributeArgs) ToGetAcceleratorAttributeOutputWithContext(ctx context.Context) GetAcceleratorAttributeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetAcceleratorAttributeOutput)
-}
-
-// GetAcceleratorAttributeArrayInput is an input type that accepts GetAcceleratorAttributeArray and GetAcceleratorAttributeArrayOutput values.
-// You can construct a concrete instance of `GetAcceleratorAttributeArrayInput` via:
-//
-//          GetAcceleratorAttributeArray{ GetAcceleratorAttributeArgs{...} }
-type GetAcceleratorAttributeArrayInput interface {
-	pulumi.Input
-
-	ToGetAcceleratorAttributeArrayOutput() GetAcceleratorAttributeArrayOutput
-	ToGetAcceleratorAttributeArrayOutputWithContext(context.Context) GetAcceleratorAttributeArrayOutput
-}
-
-type GetAcceleratorAttributeArray []GetAcceleratorAttributeInput
-
-func (GetAcceleratorAttributeArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetAcceleratorAttribute)(nil)).Elem()
-}
-
-func (i GetAcceleratorAttributeArray) ToGetAcceleratorAttributeArrayOutput() GetAcceleratorAttributeArrayOutput {
-	return i.ToGetAcceleratorAttributeArrayOutputWithContext(context.Background())
-}
-
-func (i GetAcceleratorAttributeArray) ToGetAcceleratorAttributeArrayOutputWithContext(ctx context.Context) GetAcceleratorAttributeArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetAcceleratorAttributeArrayOutput)
-}
-
 type GetAcceleratorAttributeOutput struct{ *pulumi.OutputState }
 
 func (GetAcceleratorAttributeOutput) ElementType() reflect.Type {
@@ -732,59 +623,6 @@ type GetAcceleratorIpSet struct {
 	IpFamily    string   `pulumi:"ipFamily"`
 }
 
-// GetAcceleratorIpSetInput is an input type that accepts GetAcceleratorIpSetArgs and GetAcceleratorIpSetOutput values.
-// You can construct a concrete instance of `GetAcceleratorIpSetInput` via:
-//
-//          GetAcceleratorIpSetArgs{...}
-type GetAcceleratorIpSetInput interface {
-	pulumi.Input
-
-	ToGetAcceleratorIpSetOutput() GetAcceleratorIpSetOutput
-	ToGetAcceleratorIpSetOutputWithContext(context.Context) GetAcceleratorIpSetOutput
-}
-
-type GetAcceleratorIpSetArgs struct {
-	IpAddresses pulumi.StringArrayInput `pulumi:"ipAddresses"`
-	IpFamily    pulumi.StringInput      `pulumi:"ipFamily"`
-}
-
-func (GetAcceleratorIpSetArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetAcceleratorIpSet)(nil)).Elem()
-}
-
-func (i GetAcceleratorIpSetArgs) ToGetAcceleratorIpSetOutput() GetAcceleratorIpSetOutput {
-	return i.ToGetAcceleratorIpSetOutputWithContext(context.Background())
-}
-
-func (i GetAcceleratorIpSetArgs) ToGetAcceleratorIpSetOutputWithContext(ctx context.Context) GetAcceleratorIpSetOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetAcceleratorIpSetOutput)
-}
-
-// GetAcceleratorIpSetArrayInput is an input type that accepts GetAcceleratorIpSetArray and GetAcceleratorIpSetArrayOutput values.
-// You can construct a concrete instance of `GetAcceleratorIpSetArrayInput` via:
-//
-//          GetAcceleratorIpSetArray{ GetAcceleratorIpSetArgs{...} }
-type GetAcceleratorIpSetArrayInput interface {
-	pulumi.Input
-
-	ToGetAcceleratorIpSetArrayOutput() GetAcceleratorIpSetArrayOutput
-	ToGetAcceleratorIpSetArrayOutputWithContext(context.Context) GetAcceleratorIpSetArrayOutput
-}
-
-type GetAcceleratorIpSetArray []GetAcceleratorIpSetInput
-
-func (GetAcceleratorIpSetArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetAcceleratorIpSet)(nil)).Elem()
-}
-
-func (i GetAcceleratorIpSetArray) ToGetAcceleratorIpSetArrayOutput() GetAcceleratorIpSetArrayOutput {
-	return i.ToGetAcceleratorIpSetArrayOutputWithContext(context.Background())
-}
-
-func (i GetAcceleratorIpSetArray) ToGetAcceleratorIpSetArrayOutputWithContext(ctx context.Context) GetAcceleratorIpSetArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetAcceleratorIpSetArrayOutput)
-}
-
 type GetAcceleratorIpSetOutput struct{ *pulumi.OutputState }
 
 func (GetAcceleratorIpSetOutput) ElementType() reflect.Type {
@@ -830,18 +668,12 @@ func (o GetAcceleratorIpSetArrayOutput) Index(i pulumi.IntInput) GetAcceleratorI
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AcceleratorAttributesInput)(nil)).Elem(), AcceleratorAttributesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AcceleratorAttributesPtrInput)(nil)).Elem(), AcceleratorAttributesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AcceleratorIpSetInput)(nil)).Elem(), AcceleratorIpSetArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AcceleratorIpSetArrayInput)(nil)).Elem(), AcceleratorIpSetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointGroupEndpointConfigurationInput)(nil)).Elem(), EndpointGroupEndpointConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointGroupEndpointConfigurationArrayInput)(nil)).Elem(), EndpointGroupEndpointConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointGroupPortOverrideInput)(nil)).Elem(), EndpointGroupPortOverrideArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointGroupPortOverrideArrayInput)(nil)).Elem(), EndpointGroupPortOverrideArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ListenerPortRangeInput)(nil)).Elem(), ListenerPortRangeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ListenerPortRangeArrayInput)(nil)).Elem(), ListenerPortRangeArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetAcceleratorAttributeInput)(nil)).Elem(), GetAcceleratorAttributeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetAcceleratorAttributeArrayInput)(nil)).Elem(), GetAcceleratorAttributeArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetAcceleratorIpSetInput)(nil)).Elem(), GetAcceleratorIpSetArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetAcceleratorIpSetArrayInput)(nil)).Elem(), GetAcceleratorIpSetArray{})
 	pulumi.RegisterOutputType(AcceleratorAttributesOutput{})
 	pulumi.RegisterOutputType(AcceleratorAttributesPtrOutput{})
 	pulumi.RegisterOutputType(AcceleratorIpSetOutput{})

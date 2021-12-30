@@ -133,24 +133,24 @@ export class Endpoint extends pulumi.CustomResource {
      */
     constructor(name: string, args: EndpointArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: EndpointArgs | EndpointState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EndpointState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["authenticationOptions"] = state ? state.authenticationOptions : undefined;
-            inputs["clientCidrBlock"] = state ? state.clientCidrBlock : undefined;
-            inputs["connectionLogOptions"] = state ? state.connectionLogOptions : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["dnsName"] = state ? state.dnsName : undefined;
-            inputs["dnsServers"] = state ? state.dnsServers : undefined;
-            inputs["selfServicePortal"] = state ? state.selfServicePortal : undefined;
-            inputs["serverCertificateArn"] = state ? state.serverCertificateArn : undefined;
-            inputs["splitTunnel"] = state ? state.splitTunnel : undefined;
-            inputs["status"] = state ? state.status : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["transportProtocol"] = state ? state.transportProtocol : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["authenticationOptions"] = state ? state.authenticationOptions : undefined;
+            resourceInputs["clientCidrBlock"] = state ? state.clientCidrBlock : undefined;
+            resourceInputs["connectionLogOptions"] = state ? state.connectionLogOptions : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["dnsName"] = state ? state.dnsName : undefined;
+            resourceInputs["dnsServers"] = state ? state.dnsServers : undefined;
+            resourceInputs["selfServicePortal"] = state ? state.selfServicePortal : undefined;
+            resourceInputs["serverCertificateArn"] = state ? state.serverCertificateArn : undefined;
+            resourceInputs["splitTunnel"] = state ? state.splitTunnel : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["transportProtocol"] = state ? state.transportProtocol : undefined;
         } else {
             const args = argsOrState as EndpointArgs | undefined;
             if ((!args || args.authenticationOptions === undefined) && !opts.urn) {
@@ -165,25 +165,25 @@ export class Endpoint extends pulumi.CustomResource {
             if ((!args || args.serverCertificateArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serverCertificateArn'");
             }
-            inputs["authenticationOptions"] = args ? args.authenticationOptions : undefined;
-            inputs["clientCidrBlock"] = args ? args.clientCidrBlock : undefined;
-            inputs["connectionLogOptions"] = args ? args.connectionLogOptions : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["dnsServers"] = args ? args.dnsServers : undefined;
-            inputs["selfServicePortal"] = args ? args.selfServicePortal : undefined;
-            inputs["serverCertificateArn"] = args ? args.serverCertificateArn : undefined;
-            inputs["splitTunnel"] = args ? args.splitTunnel : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["transportProtocol"] = args ? args.transportProtocol : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["dnsName"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["authenticationOptions"] = args ? args.authenticationOptions : undefined;
+            resourceInputs["clientCidrBlock"] = args ? args.clientCidrBlock : undefined;
+            resourceInputs["connectionLogOptions"] = args ? args.connectionLogOptions : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["dnsServers"] = args ? args.dnsServers : undefined;
+            resourceInputs["selfServicePortal"] = args ? args.selfServicePortal : undefined;
+            resourceInputs["serverCertificateArn"] = args ? args.serverCertificateArn : undefined;
+            resourceInputs["splitTunnel"] = args ? args.splitTunnel : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["transportProtocol"] = args ? args.transportProtocol : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["dnsName"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Endpoint.__pulumiType, name, inputs, opts);
+        super(Endpoint.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -453,65 +453,6 @@ type AppProductionBranch struct {
 	ThumbnailUrl *string `pulumi:"thumbnailUrl"`
 }
 
-// AppProductionBranchInput is an input type that accepts AppProductionBranchArgs and AppProductionBranchOutput values.
-// You can construct a concrete instance of `AppProductionBranchInput` via:
-//
-//          AppProductionBranchArgs{...}
-type AppProductionBranchInput interface {
-	pulumi.Input
-
-	ToAppProductionBranchOutput() AppProductionBranchOutput
-	ToAppProductionBranchOutputWithContext(context.Context) AppProductionBranchOutput
-}
-
-type AppProductionBranchArgs struct {
-	// The branch name for the production branch.
-	BranchName pulumi.StringPtrInput `pulumi:"branchName"`
-	// The last deploy time of the production branch.
-	LastDeployTime pulumi.StringPtrInput `pulumi:"lastDeployTime"`
-	// The status code for a URL rewrite or redirect rule. Valid values: `200`, `301`, `302`, `404`, `404-200`.
-	Status pulumi.StringPtrInput `pulumi:"status"`
-	// The thumbnail URL for the production branch.
-	ThumbnailUrl pulumi.StringPtrInput `pulumi:"thumbnailUrl"`
-}
-
-func (AppProductionBranchArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AppProductionBranch)(nil)).Elem()
-}
-
-func (i AppProductionBranchArgs) ToAppProductionBranchOutput() AppProductionBranchOutput {
-	return i.ToAppProductionBranchOutputWithContext(context.Background())
-}
-
-func (i AppProductionBranchArgs) ToAppProductionBranchOutputWithContext(ctx context.Context) AppProductionBranchOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppProductionBranchOutput)
-}
-
-// AppProductionBranchArrayInput is an input type that accepts AppProductionBranchArray and AppProductionBranchArrayOutput values.
-// You can construct a concrete instance of `AppProductionBranchArrayInput` via:
-//
-//          AppProductionBranchArray{ AppProductionBranchArgs{...} }
-type AppProductionBranchArrayInput interface {
-	pulumi.Input
-
-	ToAppProductionBranchArrayOutput() AppProductionBranchArrayOutput
-	ToAppProductionBranchArrayOutputWithContext(context.Context) AppProductionBranchArrayOutput
-}
-
-type AppProductionBranchArray []AppProductionBranchInput
-
-func (AppProductionBranchArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AppProductionBranch)(nil)).Elem()
-}
-
-func (i AppProductionBranchArray) ToAppProductionBranchArrayOutput() AppProductionBranchArrayOutput {
-	return i.ToAppProductionBranchArrayOutputWithContext(context.Background())
-}
-
-func (i AppProductionBranchArray) ToAppProductionBranchArrayOutputWithContext(ctx context.Context) AppProductionBranchArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AppProductionBranchArrayOutput)
-}
-
 type AppProductionBranchOutput struct{ *pulumi.OutputState }
 
 func (AppProductionBranchOutput) ElementType() reflect.Type {
@@ -695,8 +636,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AppAutoBranchCreationConfigPtrInput)(nil)).Elem(), AppAutoBranchCreationConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppCustomRuleInput)(nil)).Elem(), AppCustomRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppCustomRuleArrayInput)(nil)).Elem(), AppCustomRuleArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AppProductionBranchInput)(nil)).Elem(), AppProductionBranchArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AppProductionBranchArrayInput)(nil)).Elem(), AppProductionBranchArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainAssociationSubDomainInput)(nil)).Elem(), DomainAssociationSubDomainArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainAssociationSubDomainArrayInput)(nil)).Elem(), DomainAssociationSubDomainArray{})
 	pulumi.RegisterOutputType(AppAutoBranchCreationConfigOutput{})

@@ -118,21 +118,21 @@ export class Pipeline extends pulumi.CustomResource {
      */
     constructor(name: string, args: PipelineArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PipelineArgs | PipelineState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PipelineState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["awsKmsKeyArn"] = state ? state.awsKmsKeyArn : undefined;
-            inputs["contentConfig"] = state ? state.contentConfig : undefined;
-            inputs["contentConfigPermissions"] = state ? state.contentConfigPermissions : undefined;
-            inputs["inputBucket"] = state ? state.inputBucket : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["notifications"] = state ? state.notifications : undefined;
-            inputs["outputBucket"] = state ? state.outputBucket : undefined;
-            inputs["role"] = state ? state.role : undefined;
-            inputs["thumbnailConfig"] = state ? state.thumbnailConfig : undefined;
-            inputs["thumbnailConfigPermissions"] = state ? state.thumbnailConfigPermissions : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["awsKmsKeyArn"] = state ? state.awsKmsKeyArn : undefined;
+            resourceInputs["contentConfig"] = state ? state.contentConfig : undefined;
+            resourceInputs["contentConfigPermissions"] = state ? state.contentConfigPermissions : undefined;
+            resourceInputs["inputBucket"] = state ? state.inputBucket : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["notifications"] = state ? state.notifications : undefined;
+            resourceInputs["outputBucket"] = state ? state.outputBucket : undefined;
+            resourceInputs["role"] = state ? state.role : undefined;
+            resourceInputs["thumbnailConfig"] = state ? state.thumbnailConfig : undefined;
+            resourceInputs["thumbnailConfigPermissions"] = state ? state.thumbnailConfigPermissions : undefined;
         } else {
             const args = argsOrState as PipelineArgs | undefined;
             if ((!args || args.inputBucket === undefined) && !opts.urn) {
@@ -141,22 +141,22 @@ export class Pipeline extends pulumi.CustomResource {
             if ((!args || args.role === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'role'");
             }
-            inputs["awsKmsKeyArn"] = args ? args.awsKmsKeyArn : undefined;
-            inputs["contentConfig"] = args ? args.contentConfig : undefined;
-            inputs["contentConfigPermissions"] = args ? args.contentConfigPermissions : undefined;
-            inputs["inputBucket"] = args ? args.inputBucket : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["notifications"] = args ? args.notifications : undefined;
-            inputs["outputBucket"] = args ? args.outputBucket : undefined;
-            inputs["role"] = args ? args.role : undefined;
-            inputs["thumbnailConfig"] = args ? args.thumbnailConfig : undefined;
-            inputs["thumbnailConfigPermissions"] = args ? args.thumbnailConfigPermissions : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["awsKmsKeyArn"] = args ? args.awsKmsKeyArn : undefined;
+            resourceInputs["contentConfig"] = args ? args.contentConfig : undefined;
+            resourceInputs["contentConfigPermissions"] = args ? args.contentConfigPermissions : undefined;
+            resourceInputs["inputBucket"] = args ? args.inputBucket : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["notifications"] = args ? args.notifications : undefined;
+            resourceInputs["outputBucket"] = args ? args.outputBucket : undefined;
+            resourceInputs["role"] = args ? args.role : undefined;
+            resourceInputs["thumbnailConfig"] = args ? args.thumbnailConfig : undefined;
+            resourceInputs["thumbnailConfigPermissions"] = args ? args.thumbnailConfigPermissions : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Pipeline.__pulumiType, name, inputs, opts);
+        super(Pipeline.__pulumiType, name, resourceInputs, opts);
     }
 }
 

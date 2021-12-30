@@ -83,14 +83,14 @@ export class BaiduChannel extends pulumi.CustomResource {
      */
     constructor(name: string, args: BaiduChannelArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: BaiduChannelArgs | BaiduChannelState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BaiduChannelState | undefined;
-            inputs["apiKey"] = state ? state.apiKey : undefined;
-            inputs["applicationId"] = state ? state.applicationId : undefined;
-            inputs["enabled"] = state ? state.enabled : undefined;
-            inputs["secretKey"] = state ? state.secretKey : undefined;
+            resourceInputs["apiKey"] = state ? state.apiKey : undefined;
+            resourceInputs["applicationId"] = state ? state.applicationId : undefined;
+            resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["secretKey"] = state ? state.secretKey : undefined;
         } else {
             const args = argsOrState as BaiduChannelArgs | undefined;
             if ((!args || args.apiKey === undefined) && !opts.urn) {
@@ -102,15 +102,15 @@ export class BaiduChannel extends pulumi.CustomResource {
             if ((!args || args.secretKey === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'secretKey'");
             }
-            inputs["apiKey"] = args ? args.apiKey : undefined;
-            inputs["applicationId"] = args ? args.applicationId : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["secretKey"] = args ? args.secretKey : undefined;
+            resourceInputs["apiKey"] = args ? args.apiKey : undefined;
+            resourceInputs["applicationId"] = args ? args.applicationId : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["secretKey"] = args ? args.secretKey : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(BaiduChannel.__pulumiType, name, inputs, opts);
+        super(BaiduChannel.__pulumiType, name, resourceInputs, opts);
     }
 }
 

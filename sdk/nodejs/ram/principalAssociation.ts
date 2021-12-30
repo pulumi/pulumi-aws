@@ -96,12 +96,12 @@ export class PrincipalAssociation extends pulumi.CustomResource {
      */
     constructor(name: string, args: PrincipalAssociationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PrincipalAssociationArgs | PrincipalAssociationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PrincipalAssociationState | undefined;
-            inputs["principal"] = state ? state.principal : undefined;
-            inputs["resourceShareArn"] = state ? state.resourceShareArn : undefined;
+            resourceInputs["principal"] = state ? state.principal : undefined;
+            resourceInputs["resourceShareArn"] = state ? state.resourceShareArn : undefined;
         } else {
             const args = argsOrState as PrincipalAssociationArgs | undefined;
             if ((!args || args.principal === undefined) && !opts.urn) {
@@ -110,13 +110,13 @@ export class PrincipalAssociation extends pulumi.CustomResource {
             if ((!args || args.resourceShareArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceShareArn'");
             }
-            inputs["principal"] = args ? args.principal : undefined;
-            inputs["resourceShareArn"] = args ? args.resourceShareArn : undefined;
+            resourceInputs["principal"] = args ? args.principal : undefined;
+            resourceInputs["resourceShareArn"] = args ? args.resourceShareArn : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(PrincipalAssociation.__pulumiType, name, inputs, opts);
+        super(PrincipalAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

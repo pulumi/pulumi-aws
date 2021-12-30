@@ -180,47 +180,6 @@ func (i CodeSigningConfigAllowedPublishersArgs) ToCodeSigningConfigAllowedPublis
 	return pulumi.ToOutputWithContext(ctx, i).(CodeSigningConfigAllowedPublishersOutput)
 }
 
-func (i CodeSigningConfigAllowedPublishersArgs) ToCodeSigningConfigAllowedPublishersPtrOutput() CodeSigningConfigAllowedPublishersPtrOutput {
-	return i.ToCodeSigningConfigAllowedPublishersPtrOutputWithContext(context.Background())
-}
-
-func (i CodeSigningConfigAllowedPublishersArgs) ToCodeSigningConfigAllowedPublishersPtrOutputWithContext(ctx context.Context) CodeSigningConfigAllowedPublishersPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CodeSigningConfigAllowedPublishersOutput).ToCodeSigningConfigAllowedPublishersPtrOutputWithContext(ctx)
-}
-
-// CodeSigningConfigAllowedPublishersPtrInput is an input type that accepts CodeSigningConfigAllowedPublishersArgs, CodeSigningConfigAllowedPublishersPtr and CodeSigningConfigAllowedPublishersPtrOutput values.
-// You can construct a concrete instance of `CodeSigningConfigAllowedPublishersPtrInput` via:
-//
-//          CodeSigningConfigAllowedPublishersArgs{...}
-//
-//  or:
-//
-//          nil
-type CodeSigningConfigAllowedPublishersPtrInput interface {
-	pulumi.Input
-
-	ToCodeSigningConfigAllowedPublishersPtrOutput() CodeSigningConfigAllowedPublishersPtrOutput
-	ToCodeSigningConfigAllowedPublishersPtrOutputWithContext(context.Context) CodeSigningConfigAllowedPublishersPtrOutput
-}
-
-type codeSigningConfigAllowedPublishersPtrType CodeSigningConfigAllowedPublishersArgs
-
-func CodeSigningConfigAllowedPublishersPtr(v *CodeSigningConfigAllowedPublishersArgs) CodeSigningConfigAllowedPublishersPtrInput {
-	return (*codeSigningConfigAllowedPublishersPtrType)(v)
-}
-
-func (*codeSigningConfigAllowedPublishersPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CodeSigningConfigAllowedPublishers)(nil)).Elem()
-}
-
-func (i *codeSigningConfigAllowedPublishersPtrType) ToCodeSigningConfigAllowedPublishersPtrOutput() CodeSigningConfigAllowedPublishersPtrOutput {
-	return i.ToCodeSigningConfigAllowedPublishersPtrOutputWithContext(context.Background())
-}
-
-func (i *codeSigningConfigAllowedPublishersPtrType) ToCodeSigningConfigAllowedPublishersPtrOutputWithContext(ctx context.Context) CodeSigningConfigAllowedPublishersPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CodeSigningConfigAllowedPublishersPtrOutput)
-}
-
 type CodeSigningConfigAllowedPublishersOutput struct{ *pulumi.OutputState }
 
 func (CodeSigningConfigAllowedPublishersOutput) ElementType() reflect.Type {
@@ -235,53 +194,9 @@ func (o CodeSigningConfigAllowedPublishersOutput) ToCodeSigningConfigAllowedPubl
 	return o
 }
 
-func (o CodeSigningConfigAllowedPublishersOutput) ToCodeSigningConfigAllowedPublishersPtrOutput() CodeSigningConfigAllowedPublishersPtrOutput {
-	return o.ToCodeSigningConfigAllowedPublishersPtrOutputWithContext(context.Background())
-}
-
-func (o CodeSigningConfigAllowedPublishersOutput) ToCodeSigningConfigAllowedPublishersPtrOutputWithContext(ctx context.Context) CodeSigningConfigAllowedPublishersPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CodeSigningConfigAllowedPublishers) *CodeSigningConfigAllowedPublishers {
-		return &v
-	}).(CodeSigningConfigAllowedPublishersPtrOutput)
-}
-
 // The Amazon Resource Name (ARN) for each of the signing profiles. A signing profile defines a trusted user who can sign a code package.
 func (o CodeSigningConfigAllowedPublishersOutput) SigningProfileVersionArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CodeSigningConfigAllowedPublishers) []string { return v.SigningProfileVersionArns }).(pulumi.StringArrayOutput)
-}
-
-type CodeSigningConfigAllowedPublishersPtrOutput struct{ *pulumi.OutputState }
-
-func (CodeSigningConfigAllowedPublishersPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CodeSigningConfigAllowedPublishers)(nil)).Elem()
-}
-
-func (o CodeSigningConfigAllowedPublishersPtrOutput) ToCodeSigningConfigAllowedPublishersPtrOutput() CodeSigningConfigAllowedPublishersPtrOutput {
-	return o
-}
-
-func (o CodeSigningConfigAllowedPublishersPtrOutput) ToCodeSigningConfigAllowedPublishersPtrOutputWithContext(ctx context.Context) CodeSigningConfigAllowedPublishersPtrOutput {
-	return o
-}
-
-func (o CodeSigningConfigAllowedPublishersPtrOutput) Elem() CodeSigningConfigAllowedPublishersOutput {
-	return o.ApplyT(func(v *CodeSigningConfigAllowedPublishers) CodeSigningConfigAllowedPublishers {
-		if v != nil {
-			return *v
-		}
-		var ret CodeSigningConfigAllowedPublishers
-		return ret
-	}).(CodeSigningConfigAllowedPublishersOutput)
-}
-
-// The Amazon Resource Name (ARN) for each of the signing profiles. A signing profile defines a trusted user who can sign a code package.
-func (o CodeSigningConfigAllowedPublishersPtrOutput) SigningProfileVersionArns() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *CodeSigningConfigAllowedPublishers) []string {
-		if v == nil {
-			return nil
-		}
-		return v.SigningProfileVersionArns
-	}).(pulumi.StringArrayOutput)
 }
 
 type CodeSigningConfigPolicies struct {
@@ -2526,59 +2441,6 @@ type GetCodeSigningConfigAllowedPublisher struct {
 	SigningProfileVersionArns []string `pulumi:"signingProfileVersionArns"`
 }
 
-// GetCodeSigningConfigAllowedPublisherInput is an input type that accepts GetCodeSigningConfigAllowedPublisherArgs and GetCodeSigningConfigAllowedPublisherOutput values.
-// You can construct a concrete instance of `GetCodeSigningConfigAllowedPublisherInput` via:
-//
-//          GetCodeSigningConfigAllowedPublisherArgs{...}
-type GetCodeSigningConfigAllowedPublisherInput interface {
-	pulumi.Input
-
-	ToGetCodeSigningConfigAllowedPublisherOutput() GetCodeSigningConfigAllowedPublisherOutput
-	ToGetCodeSigningConfigAllowedPublisherOutputWithContext(context.Context) GetCodeSigningConfigAllowedPublisherOutput
-}
-
-type GetCodeSigningConfigAllowedPublisherArgs struct {
-	// The Amazon Resource Name (ARN) for each of the signing profiles. A signing profile defines a trusted user who can sign a code package.
-	SigningProfileVersionArns pulumi.StringArrayInput `pulumi:"signingProfileVersionArns"`
-}
-
-func (GetCodeSigningConfigAllowedPublisherArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetCodeSigningConfigAllowedPublisher)(nil)).Elem()
-}
-
-func (i GetCodeSigningConfigAllowedPublisherArgs) ToGetCodeSigningConfigAllowedPublisherOutput() GetCodeSigningConfigAllowedPublisherOutput {
-	return i.ToGetCodeSigningConfigAllowedPublisherOutputWithContext(context.Background())
-}
-
-func (i GetCodeSigningConfigAllowedPublisherArgs) ToGetCodeSigningConfigAllowedPublisherOutputWithContext(ctx context.Context) GetCodeSigningConfigAllowedPublisherOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetCodeSigningConfigAllowedPublisherOutput)
-}
-
-// GetCodeSigningConfigAllowedPublisherArrayInput is an input type that accepts GetCodeSigningConfigAllowedPublisherArray and GetCodeSigningConfigAllowedPublisherArrayOutput values.
-// You can construct a concrete instance of `GetCodeSigningConfigAllowedPublisherArrayInput` via:
-//
-//          GetCodeSigningConfigAllowedPublisherArray{ GetCodeSigningConfigAllowedPublisherArgs{...} }
-type GetCodeSigningConfigAllowedPublisherArrayInput interface {
-	pulumi.Input
-
-	ToGetCodeSigningConfigAllowedPublisherArrayOutput() GetCodeSigningConfigAllowedPublisherArrayOutput
-	ToGetCodeSigningConfigAllowedPublisherArrayOutputWithContext(context.Context) GetCodeSigningConfigAllowedPublisherArrayOutput
-}
-
-type GetCodeSigningConfigAllowedPublisherArray []GetCodeSigningConfigAllowedPublisherInput
-
-func (GetCodeSigningConfigAllowedPublisherArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetCodeSigningConfigAllowedPublisher)(nil)).Elem()
-}
-
-func (i GetCodeSigningConfigAllowedPublisherArray) ToGetCodeSigningConfigAllowedPublisherArrayOutput() GetCodeSigningConfigAllowedPublisherArrayOutput {
-	return i.ToGetCodeSigningConfigAllowedPublisherArrayOutputWithContext(context.Background())
-}
-
-func (i GetCodeSigningConfigAllowedPublisherArray) ToGetCodeSigningConfigAllowedPublisherArrayOutputWithContext(ctx context.Context) GetCodeSigningConfigAllowedPublisherArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetCodeSigningConfigAllowedPublisherArrayOutput)
-}
-
 type GetCodeSigningConfigAllowedPublisherOutput struct{ *pulumi.OutputState }
 
 func (GetCodeSigningConfigAllowedPublisherOutput) ElementType() reflect.Type {
@@ -2621,59 +2483,6 @@ func (o GetCodeSigningConfigAllowedPublisherArrayOutput) Index(i pulumi.IntInput
 type GetCodeSigningConfigPolicy struct {
 	// Code signing configuration policy for deployment validation failure.
 	UntrustedArtifactOnDeployment string `pulumi:"untrustedArtifactOnDeployment"`
-}
-
-// GetCodeSigningConfigPolicyInput is an input type that accepts GetCodeSigningConfigPolicyArgs and GetCodeSigningConfigPolicyOutput values.
-// You can construct a concrete instance of `GetCodeSigningConfigPolicyInput` via:
-//
-//          GetCodeSigningConfigPolicyArgs{...}
-type GetCodeSigningConfigPolicyInput interface {
-	pulumi.Input
-
-	ToGetCodeSigningConfigPolicyOutput() GetCodeSigningConfigPolicyOutput
-	ToGetCodeSigningConfigPolicyOutputWithContext(context.Context) GetCodeSigningConfigPolicyOutput
-}
-
-type GetCodeSigningConfigPolicyArgs struct {
-	// Code signing configuration policy for deployment validation failure.
-	UntrustedArtifactOnDeployment pulumi.StringInput `pulumi:"untrustedArtifactOnDeployment"`
-}
-
-func (GetCodeSigningConfigPolicyArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetCodeSigningConfigPolicy)(nil)).Elem()
-}
-
-func (i GetCodeSigningConfigPolicyArgs) ToGetCodeSigningConfigPolicyOutput() GetCodeSigningConfigPolicyOutput {
-	return i.ToGetCodeSigningConfigPolicyOutputWithContext(context.Background())
-}
-
-func (i GetCodeSigningConfigPolicyArgs) ToGetCodeSigningConfigPolicyOutputWithContext(ctx context.Context) GetCodeSigningConfigPolicyOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetCodeSigningConfigPolicyOutput)
-}
-
-// GetCodeSigningConfigPolicyArrayInput is an input type that accepts GetCodeSigningConfigPolicyArray and GetCodeSigningConfigPolicyArrayOutput values.
-// You can construct a concrete instance of `GetCodeSigningConfigPolicyArrayInput` via:
-//
-//          GetCodeSigningConfigPolicyArray{ GetCodeSigningConfigPolicyArgs{...} }
-type GetCodeSigningConfigPolicyArrayInput interface {
-	pulumi.Input
-
-	ToGetCodeSigningConfigPolicyArrayOutput() GetCodeSigningConfigPolicyArrayOutput
-	ToGetCodeSigningConfigPolicyArrayOutputWithContext(context.Context) GetCodeSigningConfigPolicyArrayOutput
-}
-
-type GetCodeSigningConfigPolicyArray []GetCodeSigningConfigPolicyInput
-
-func (GetCodeSigningConfigPolicyArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetCodeSigningConfigPolicy)(nil)).Elem()
-}
-
-func (i GetCodeSigningConfigPolicyArray) ToGetCodeSigningConfigPolicyArrayOutput() GetCodeSigningConfigPolicyArrayOutput {
-	return i.ToGetCodeSigningConfigPolicyArrayOutputWithContext(context.Background())
-}
-
-func (i GetCodeSigningConfigPolicyArray) ToGetCodeSigningConfigPolicyArrayOutputWithContext(ctx context.Context) GetCodeSigningConfigPolicyArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetCodeSigningConfigPolicyArrayOutput)
 }
 
 type GetCodeSigningConfigPolicyOutput struct{ *pulumi.OutputState }
@@ -2719,33 +2528,6 @@ type GetFunctionDeadLetterConfig struct {
 	TargetArn string `pulumi:"targetArn"`
 }
 
-// GetFunctionDeadLetterConfigInput is an input type that accepts GetFunctionDeadLetterConfigArgs and GetFunctionDeadLetterConfigOutput values.
-// You can construct a concrete instance of `GetFunctionDeadLetterConfigInput` via:
-//
-//          GetFunctionDeadLetterConfigArgs{...}
-type GetFunctionDeadLetterConfigInput interface {
-	pulumi.Input
-
-	ToGetFunctionDeadLetterConfigOutput() GetFunctionDeadLetterConfigOutput
-	ToGetFunctionDeadLetterConfigOutputWithContext(context.Context) GetFunctionDeadLetterConfigOutput
-}
-
-type GetFunctionDeadLetterConfigArgs struct {
-	TargetArn pulumi.StringInput `pulumi:"targetArn"`
-}
-
-func (GetFunctionDeadLetterConfigArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetFunctionDeadLetterConfig)(nil)).Elem()
-}
-
-func (i GetFunctionDeadLetterConfigArgs) ToGetFunctionDeadLetterConfigOutput() GetFunctionDeadLetterConfigOutput {
-	return i.ToGetFunctionDeadLetterConfigOutputWithContext(context.Background())
-}
-
-func (i GetFunctionDeadLetterConfigArgs) ToGetFunctionDeadLetterConfigOutputWithContext(ctx context.Context) GetFunctionDeadLetterConfigOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetFunctionDeadLetterConfigOutput)
-}
-
 type GetFunctionDeadLetterConfigOutput struct{ *pulumi.OutputState }
 
 func (GetFunctionDeadLetterConfigOutput) ElementType() reflect.Type {
@@ -2766,33 +2548,6 @@ func (o GetFunctionDeadLetterConfigOutput) TargetArn() pulumi.StringOutput {
 
 type GetFunctionEnvironment struct {
 	Variables map[string]string `pulumi:"variables"`
-}
-
-// GetFunctionEnvironmentInput is an input type that accepts GetFunctionEnvironmentArgs and GetFunctionEnvironmentOutput values.
-// You can construct a concrete instance of `GetFunctionEnvironmentInput` via:
-//
-//          GetFunctionEnvironmentArgs{...}
-type GetFunctionEnvironmentInput interface {
-	pulumi.Input
-
-	ToGetFunctionEnvironmentOutput() GetFunctionEnvironmentOutput
-	ToGetFunctionEnvironmentOutputWithContext(context.Context) GetFunctionEnvironmentOutput
-}
-
-type GetFunctionEnvironmentArgs struct {
-	Variables pulumi.StringMapInput `pulumi:"variables"`
-}
-
-func (GetFunctionEnvironmentArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetFunctionEnvironment)(nil)).Elem()
-}
-
-func (i GetFunctionEnvironmentArgs) ToGetFunctionEnvironmentOutput() GetFunctionEnvironmentOutput {
-	return i.ToGetFunctionEnvironmentOutputWithContext(context.Background())
-}
-
-func (i GetFunctionEnvironmentArgs) ToGetFunctionEnvironmentOutputWithContext(ctx context.Context) GetFunctionEnvironmentOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetFunctionEnvironmentOutput)
 }
 
 type GetFunctionEnvironmentOutput struct{ *pulumi.OutputState }
@@ -2817,60 +2572,6 @@ type GetFunctionFileSystemConfig struct {
 	// Unqualified (no `:QUALIFIER` or `:VERSION` suffix) Amazon Resource Name (ARN) identifying your Lambda Function. See also `qualifiedArn`.
 	Arn            string `pulumi:"arn"`
 	LocalMountPath string `pulumi:"localMountPath"`
-}
-
-// GetFunctionFileSystemConfigInput is an input type that accepts GetFunctionFileSystemConfigArgs and GetFunctionFileSystemConfigOutput values.
-// You can construct a concrete instance of `GetFunctionFileSystemConfigInput` via:
-//
-//          GetFunctionFileSystemConfigArgs{...}
-type GetFunctionFileSystemConfigInput interface {
-	pulumi.Input
-
-	ToGetFunctionFileSystemConfigOutput() GetFunctionFileSystemConfigOutput
-	ToGetFunctionFileSystemConfigOutputWithContext(context.Context) GetFunctionFileSystemConfigOutput
-}
-
-type GetFunctionFileSystemConfigArgs struct {
-	// Unqualified (no `:QUALIFIER` or `:VERSION` suffix) Amazon Resource Name (ARN) identifying your Lambda Function. See also `qualifiedArn`.
-	Arn            pulumi.StringInput `pulumi:"arn"`
-	LocalMountPath pulumi.StringInput `pulumi:"localMountPath"`
-}
-
-func (GetFunctionFileSystemConfigArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetFunctionFileSystemConfig)(nil)).Elem()
-}
-
-func (i GetFunctionFileSystemConfigArgs) ToGetFunctionFileSystemConfigOutput() GetFunctionFileSystemConfigOutput {
-	return i.ToGetFunctionFileSystemConfigOutputWithContext(context.Background())
-}
-
-func (i GetFunctionFileSystemConfigArgs) ToGetFunctionFileSystemConfigOutputWithContext(ctx context.Context) GetFunctionFileSystemConfigOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetFunctionFileSystemConfigOutput)
-}
-
-// GetFunctionFileSystemConfigArrayInput is an input type that accepts GetFunctionFileSystemConfigArray and GetFunctionFileSystemConfigArrayOutput values.
-// You can construct a concrete instance of `GetFunctionFileSystemConfigArrayInput` via:
-//
-//          GetFunctionFileSystemConfigArray{ GetFunctionFileSystemConfigArgs{...} }
-type GetFunctionFileSystemConfigArrayInput interface {
-	pulumi.Input
-
-	ToGetFunctionFileSystemConfigArrayOutput() GetFunctionFileSystemConfigArrayOutput
-	ToGetFunctionFileSystemConfigArrayOutputWithContext(context.Context) GetFunctionFileSystemConfigArrayOutput
-}
-
-type GetFunctionFileSystemConfigArray []GetFunctionFileSystemConfigInput
-
-func (GetFunctionFileSystemConfigArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetFunctionFileSystemConfig)(nil)).Elem()
-}
-
-func (i GetFunctionFileSystemConfigArray) ToGetFunctionFileSystemConfigArrayOutput() GetFunctionFileSystemConfigArrayOutput {
-	return i.ToGetFunctionFileSystemConfigArrayOutputWithContext(context.Background())
-}
-
-func (i GetFunctionFileSystemConfigArray) ToGetFunctionFileSystemConfigArrayOutputWithContext(ctx context.Context) GetFunctionFileSystemConfigArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetFunctionFileSystemConfigArrayOutput)
 }
 
 type GetFunctionFileSystemConfigOutput struct{ *pulumi.OutputState }
@@ -2920,33 +2621,6 @@ type GetFunctionTracingConfig struct {
 	Mode string `pulumi:"mode"`
 }
 
-// GetFunctionTracingConfigInput is an input type that accepts GetFunctionTracingConfigArgs and GetFunctionTracingConfigOutput values.
-// You can construct a concrete instance of `GetFunctionTracingConfigInput` via:
-//
-//          GetFunctionTracingConfigArgs{...}
-type GetFunctionTracingConfigInput interface {
-	pulumi.Input
-
-	ToGetFunctionTracingConfigOutput() GetFunctionTracingConfigOutput
-	ToGetFunctionTracingConfigOutputWithContext(context.Context) GetFunctionTracingConfigOutput
-}
-
-type GetFunctionTracingConfigArgs struct {
-	Mode pulumi.StringInput `pulumi:"mode"`
-}
-
-func (GetFunctionTracingConfigArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetFunctionTracingConfig)(nil)).Elem()
-}
-
-func (i GetFunctionTracingConfigArgs) ToGetFunctionTracingConfigOutput() GetFunctionTracingConfigOutput {
-	return i.ToGetFunctionTracingConfigOutputWithContext(context.Background())
-}
-
-func (i GetFunctionTracingConfigArgs) ToGetFunctionTracingConfigOutputWithContext(ctx context.Context) GetFunctionTracingConfigOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetFunctionTracingConfigOutput)
-}
-
 type GetFunctionTracingConfigOutput struct{ *pulumi.OutputState }
 
 func (GetFunctionTracingConfigOutput) ElementType() reflect.Type {
@@ -2969,35 +2643,6 @@ type GetFunctionVpcConfig struct {
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	SubnetIds        []string `pulumi:"subnetIds"`
 	VpcId            string   `pulumi:"vpcId"`
-}
-
-// GetFunctionVpcConfigInput is an input type that accepts GetFunctionVpcConfigArgs and GetFunctionVpcConfigOutput values.
-// You can construct a concrete instance of `GetFunctionVpcConfigInput` via:
-//
-//          GetFunctionVpcConfigArgs{...}
-type GetFunctionVpcConfigInput interface {
-	pulumi.Input
-
-	ToGetFunctionVpcConfigOutput() GetFunctionVpcConfigOutput
-	ToGetFunctionVpcConfigOutputWithContext(context.Context) GetFunctionVpcConfigOutput
-}
-
-type GetFunctionVpcConfigArgs struct {
-	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
-	SubnetIds        pulumi.StringArrayInput `pulumi:"subnetIds"`
-	VpcId            pulumi.StringInput      `pulumi:"vpcId"`
-}
-
-func (GetFunctionVpcConfigArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetFunctionVpcConfig)(nil)).Elem()
-}
-
-func (i GetFunctionVpcConfigArgs) ToGetFunctionVpcConfigOutput() GetFunctionVpcConfigOutput {
-	return i.ToGetFunctionVpcConfigOutputWithContext(context.Background())
-}
-
-func (i GetFunctionVpcConfigArgs) ToGetFunctionVpcConfigOutputWithContext(ctx context.Context) GetFunctionVpcConfigOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetFunctionVpcConfigOutput)
 }
 
 type GetFunctionVpcConfigOutput struct{ *pulumi.OutputState }
@@ -3030,7 +2675,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AliasRoutingConfigInput)(nil)).Elem(), AliasRoutingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AliasRoutingConfigPtrInput)(nil)).Elem(), AliasRoutingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CodeSigningConfigAllowedPublishersInput)(nil)).Elem(), CodeSigningConfigAllowedPublishersArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CodeSigningConfigAllowedPublishersPtrInput)(nil)).Elem(), CodeSigningConfigAllowedPublishersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CodeSigningConfigPoliciesInput)(nil)).Elem(), CodeSigningConfigPoliciesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CodeSigningConfigPoliciesPtrInput)(nil)).Elem(), CodeSigningConfigPoliciesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSourceMappingDestinationConfigInput)(nil)).Elem(), EventSourceMappingDestinationConfigArgs{})
@@ -3063,20 +2707,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionTracingConfigPtrInput)(nil)).Elem(), FunctionTracingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionVpcConfigInput)(nil)).Elem(), FunctionVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionVpcConfigPtrInput)(nil)).Elem(), FunctionVpcConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetCodeSigningConfigAllowedPublisherInput)(nil)).Elem(), GetCodeSigningConfigAllowedPublisherArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetCodeSigningConfigAllowedPublisherArrayInput)(nil)).Elem(), GetCodeSigningConfigAllowedPublisherArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetCodeSigningConfigPolicyInput)(nil)).Elem(), GetCodeSigningConfigPolicyArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetCodeSigningConfigPolicyArrayInput)(nil)).Elem(), GetCodeSigningConfigPolicyArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetFunctionDeadLetterConfigInput)(nil)).Elem(), GetFunctionDeadLetterConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetFunctionEnvironmentInput)(nil)).Elem(), GetFunctionEnvironmentArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetFunctionFileSystemConfigInput)(nil)).Elem(), GetFunctionFileSystemConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetFunctionFileSystemConfigArrayInput)(nil)).Elem(), GetFunctionFileSystemConfigArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetFunctionTracingConfigInput)(nil)).Elem(), GetFunctionTracingConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetFunctionVpcConfigInput)(nil)).Elem(), GetFunctionVpcConfigArgs{})
 	pulumi.RegisterOutputType(AliasRoutingConfigOutput{})
 	pulumi.RegisterOutputType(AliasRoutingConfigPtrOutput{})
 	pulumi.RegisterOutputType(CodeSigningConfigAllowedPublishersOutput{})
-	pulumi.RegisterOutputType(CodeSigningConfigAllowedPublishersPtrOutput{})
 	pulumi.RegisterOutputType(CodeSigningConfigPoliciesOutput{})
 	pulumi.RegisterOutputType(CodeSigningConfigPoliciesPtrOutput{})
 	pulumi.RegisterOutputType(EventSourceMappingDestinationConfigOutput{})

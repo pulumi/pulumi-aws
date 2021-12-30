@@ -238,72 +238,72 @@ export class BucketObject extends pulumi.CustomResource {
      */
     constructor(name: string, args: BucketObjectArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: BucketObjectArgs | BucketObjectState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BucketObjectState | undefined;
-            inputs["acl"] = state ? state.acl : undefined;
-            inputs["bucket"] = state ? state.bucket : undefined;
-            inputs["bucketKeyEnabled"] = state ? state.bucketKeyEnabled : undefined;
-            inputs["cacheControl"] = state ? state.cacheControl : undefined;
-            inputs["content"] = state ? state.content : undefined;
-            inputs["contentBase64"] = state ? state.contentBase64 : undefined;
-            inputs["contentDisposition"] = state ? state.contentDisposition : undefined;
-            inputs["contentEncoding"] = state ? state.contentEncoding : undefined;
-            inputs["contentLanguage"] = state ? state.contentLanguage : undefined;
-            inputs["contentType"] = state ? state.contentType : undefined;
-            inputs["etag"] = state ? state.etag : undefined;
-            inputs["forceDestroy"] = state ? state.forceDestroy : undefined;
-            inputs["key"] = state ? state.key : undefined;
-            inputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
-            inputs["metadata"] = state ? state.metadata : undefined;
-            inputs["objectLockLegalHoldStatus"] = state ? state.objectLockLegalHoldStatus : undefined;
-            inputs["objectLockMode"] = state ? state.objectLockMode : undefined;
-            inputs["objectLockRetainUntilDate"] = state ? state.objectLockRetainUntilDate : undefined;
-            inputs["serverSideEncryption"] = state ? state.serverSideEncryption : undefined;
-            inputs["source"] = state ? state.source : undefined;
-            inputs["sourceHash"] = state ? state.sourceHash : undefined;
-            inputs["storageClass"] = state ? state.storageClass : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["versionId"] = state ? state.versionId : undefined;
-            inputs["websiteRedirect"] = state ? state.websiteRedirect : undefined;
+            resourceInputs["acl"] = state ? state.acl : undefined;
+            resourceInputs["bucket"] = state ? state.bucket : undefined;
+            resourceInputs["bucketKeyEnabled"] = state ? state.bucketKeyEnabled : undefined;
+            resourceInputs["cacheControl"] = state ? state.cacheControl : undefined;
+            resourceInputs["content"] = state ? state.content : undefined;
+            resourceInputs["contentBase64"] = state ? state.contentBase64 : undefined;
+            resourceInputs["contentDisposition"] = state ? state.contentDisposition : undefined;
+            resourceInputs["contentEncoding"] = state ? state.contentEncoding : undefined;
+            resourceInputs["contentLanguage"] = state ? state.contentLanguage : undefined;
+            resourceInputs["contentType"] = state ? state.contentType : undefined;
+            resourceInputs["etag"] = state ? state.etag : undefined;
+            resourceInputs["forceDestroy"] = state ? state.forceDestroy : undefined;
+            resourceInputs["key"] = state ? state.key : undefined;
+            resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
+            resourceInputs["metadata"] = state ? state.metadata : undefined;
+            resourceInputs["objectLockLegalHoldStatus"] = state ? state.objectLockLegalHoldStatus : undefined;
+            resourceInputs["objectLockMode"] = state ? state.objectLockMode : undefined;
+            resourceInputs["objectLockRetainUntilDate"] = state ? state.objectLockRetainUntilDate : undefined;
+            resourceInputs["serverSideEncryption"] = state ? state.serverSideEncryption : undefined;
+            resourceInputs["source"] = state ? state.source : undefined;
+            resourceInputs["sourceHash"] = state ? state.sourceHash : undefined;
+            resourceInputs["storageClass"] = state ? state.storageClass : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["versionId"] = state ? state.versionId : undefined;
+            resourceInputs["websiteRedirect"] = state ? state.websiteRedirect : undefined;
         } else {
             const args = argsOrState as BucketObjectArgs | undefined;
             if ((!args || args.bucket === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'bucket'");
             }
-            inputs["acl"] = args ? args.acl : undefined;
-            inputs["bucket"] = args ? args.bucket : undefined;
-            inputs["bucketKeyEnabled"] = args ? args.bucketKeyEnabled : undefined;
-            inputs["cacheControl"] = args ? args.cacheControl : undefined;
-            inputs["content"] = args ? args.content : undefined;
-            inputs["contentBase64"] = args ? args.contentBase64 : undefined;
-            inputs["contentDisposition"] = args ? args.contentDisposition : undefined;
-            inputs["contentEncoding"] = args ? args.contentEncoding : undefined;
-            inputs["contentLanguage"] = args ? args.contentLanguage : undefined;
-            inputs["contentType"] = args ? args.contentType : undefined;
-            inputs["etag"] = args ? args.etag : undefined;
-            inputs["forceDestroy"] = args ? args.forceDestroy : undefined;
-            inputs["key"] = args ? args.key : undefined;
-            inputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            inputs["metadata"] = args ? args.metadata : undefined;
-            inputs["objectLockLegalHoldStatus"] = args ? args.objectLockLegalHoldStatus : undefined;
-            inputs["objectLockMode"] = args ? args.objectLockMode : undefined;
-            inputs["objectLockRetainUntilDate"] = args ? args.objectLockRetainUntilDate : undefined;
-            inputs["serverSideEncryption"] = args ? args.serverSideEncryption : undefined;
-            inputs["source"] = args ? args.source : undefined;
-            inputs["sourceHash"] = args ? args.sourceHash : undefined;
-            inputs["storageClass"] = args ? args.storageClass : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["websiteRedirect"] = args ? args.websiteRedirect : undefined;
-            inputs["tagsAll"] = undefined /*out*/;
-            inputs["versionId"] = undefined /*out*/;
+            resourceInputs["acl"] = args ? args.acl : undefined;
+            resourceInputs["bucket"] = args ? args.bucket : undefined;
+            resourceInputs["bucketKeyEnabled"] = args ? args.bucketKeyEnabled : undefined;
+            resourceInputs["cacheControl"] = args ? args.cacheControl : undefined;
+            resourceInputs["content"] = args ? args.content : undefined;
+            resourceInputs["contentBase64"] = args ? args.contentBase64 : undefined;
+            resourceInputs["contentDisposition"] = args ? args.contentDisposition : undefined;
+            resourceInputs["contentEncoding"] = args ? args.contentEncoding : undefined;
+            resourceInputs["contentLanguage"] = args ? args.contentLanguage : undefined;
+            resourceInputs["contentType"] = args ? args.contentType : undefined;
+            resourceInputs["etag"] = args ? args.etag : undefined;
+            resourceInputs["forceDestroy"] = args ? args.forceDestroy : undefined;
+            resourceInputs["key"] = args ? args.key : undefined;
+            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
+            resourceInputs["metadata"] = args ? args.metadata : undefined;
+            resourceInputs["objectLockLegalHoldStatus"] = args ? args.objectLockLegalHoldStatus : undefined;
+            resourceInputs["objectLockMode"] = args ? args.objectLockMode : undefined;
+            resourceInputs["objectLockRetainUntilDate"] = args ? args.objectLockRetainUntilDate : undefined;
+            resourceInputs["serverSideEncryption"] = args ? args.serverSideEncryption : undefined;
+            resourceInputs["source"] = args ? args.source : undefined;
+            resourceInputs["sourceHash"] = args ? args.sourceHash : undefined;
+            resourceInputs["storageClass"] = args ? args.storageClass : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["websiteRedirect"] = args ? args.websiteRedirect : undefined;
+            resourceInputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["versionId"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(BucketObject.__pulumiType, name, inputs, opts);
+        super(BucketObject.__pulumiType, name, resourceInputs, opts);
     }
 }
 

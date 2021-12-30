@@ -260,7 +260,7 @@ type RemediationConfigurationInput interface {
 }
 
 func (*RemediationConfiguration) ElementType() reflect.Type {
-	return reflect.TypeOf((*RemediationConfiguration)(nil))
+	return reflect.TypeOf((**RemediationConfiguration)(nil)).Elem()
 }
 
 func (i *RemediationConfiguration) ToRemediationConfigurationOutput() RemediationConfigurationOutput {
@@ -269,35 +269,6 @@ func (i *RemediationConfiguration) ToRemediationConfigurationOutput() Remediatio
 
 func (i *RemediationConfiguration) ToRemediationConfigurationOutputWithContext(ctx context.Context) RemediationConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RemediationConfigurationOutput)
-}
-
-func (i *RemediationConfiguration) ToRemediationConfigurationPtrOutput() RemediationConfigurationPtrOutput {
-	return i.ToRemediationConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i *RemediationConfiguration) ToRemediationConfigurationPtrOutputWithContext(ctx context.Context) RemediationConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RemediationConfigurationPtrOutput)
-}
-
-type RemediationConfigurationPtrInput interface {
-	pulumi.Input
-
-	ToRemediationConfigurationPtrOutput() RemediationConfigurationPtrOutput
-	ToRemediationConfigurationPtrOutputWithContext(ctx context.Context) RemediationConfigurationPtrOutput
-}
-
-type remediationConfigurationPtrType RemediationConfigurationArgs
-
-func (*remediationConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RemediationConfiguration)(nil))
-}
-
-func (i *remediationConfigurationPtrType) ToRemediationConfigurationPtrOutput() RemediationConfigurationPtrOutput {
-	return i.ToRemediationConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i *remediationConfigurationPtrType) ToRemediationConfigurationPtrOutputWithContext(ctx context.Context) RemediationConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RemediationConfigurationPtrOutput)
 }
 
 // RemediationConfigurationArrayInput is an input type that accepts RemediationConfigurationArray and RemediationConfigurationArrayOutput values.
@@ -353,7 +324,7 @@ func (i RemediationConfigurationMap) ToRemediationConfigurationMapOutputWithCont
 type RemediationConfigurationOutput struct{ *pulumi.OutputState }
 
 func (RemediationConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RemediationConfiguration)(nil))
+	return reflect.TypeOf((**RemediationConfiguration)(nil)).Elem()
 }
 
 func (o RemediationConfigurationOutput) ToRemediationConfigurationOutput() RemediationConfigurationOutput {
@@ -364,44 +335,10 @@ func (o RemediationConfigurationOutput) ToRemediationConfigurationOutputWithCont
 	return o
 }
 
-func (o RemediationConfigurationOutput) ToRemediationConfigurationPtrOutput() RemediationConfigurationPtrOutput {
-	return o.ToRemediationConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (o RemediationConfigurationOutput) ToRemediationConfigurationPtrOutputWithContext(ctx context.Context) RemediationConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RemediationConfiguration) *RemediationConfiguration {
-		return &v
-	}).(RemediationConfigurationPtrOutput)
-}
-
-type RemediationConfigurationPtrOutput struct{ *pulumi.OutputState }
-
-func (RemediationConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RemediationConfiguration)(nil))
-}
-
-func (o RemediationConfigurationPtrOutput) ToRemediationConfigurationPtrOutput() RemediationConfigurationPtrOutput {
-	return o
-}
-
-func (o RemediationConfigurationPtrOutput) ToRemediationConfigurationPtrOutputWithContext(ctx context.Context) RemediationConfigurationPtrOutput {
-	return o
-}
-
-func (o RemediationConfigurationPtrOutput) Elem() RemediationConfigurationOutput {
-	return o.ApplyT(func(v *RemediationConfiguration) RemediationConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret RemediationConfiguration
-		return ret
-	}).(RemediationConfigurationOutput)
-}
-
 type RemediationConfigurationArrayOutput struct{ *pulumi.OutputState }
 
 func (RemediationConfigurationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RemediationConfiguration)(nil))
+	return reflect.TypeOf((*[]*RemediationConfiguration)(nil)).Elem()
 }
 
 func (o RemediationConfigurationArrayOutput) ToRemediationConfigurationArrayOutput() RemediationConfigurationArrayOutput {
@@ -413,15 +350,15 @@ func (o RemediationConfigurationArrayOutput) ToRemediationConfigurationArrayOutp
 }
 
 func (o RemediationConfigurationArrayOutput) Index(i pulumi.IntInput) RemediationConfigurationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RemediationConfiguration {
-		return vs[0].([]RemediationConfiguration)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RemediationConfiguration {
+		return vs[0].([]*RemediationConfiguration)[vs[1].(int)]
 	}).(RemediationConfigurationOutput)
 }
 
 type RemediationConfigurationMapOutput struct{ *pulumi.OutputState }
 
 func (RemediationConfigurationMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]RemediationConfiguration)(nil))
+	return reflect.TypeOf((*map[string]*RemediationConfiguration)(nil)).Elem()
 }
 
 func (o RemediationConfigurationMapOutput) ToRemediationConfigurationMapOutput() RemediationConfigurationMapOutput {
@@ -433,18 +370,16 @@ func (o RemediationConfigurationMapOutput) ToRemediationConfigurationMapOutputWi
 }
 
 func (o RemediationConfigurationMapOutput) MapIndex(k pulumi.StringInput) RemediationConfigurationOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) RemediationConfiguration {
-		return vs[0].(map[string]RemediationConfiguration)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *RemediationConfiguration {
+		return vs[0].(map[string]*RemediationConfiguration)[vs[1].(string)]
 	}).(RemediationConfigurationOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RemediationConfigurationInput)(nil)).Elem(), &RemediationConfiguration{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RemediationConfigurationPtrInput)(nil)).Elem(), &RemediationConfiguration{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemediationConfigurationArrayInput)(nil)).Elem(), RemediationConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RemediationConfigurationMapInput)(nil)).Elem(), RemediationConfigurationMap{})
 	pulumi.RegisterOutputType(RemediationConfigurationOutput{})
-	pulumi.RegisterOutputType(RemediationConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RemediationConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(RemediationConfigurationMapOutput{})
 }

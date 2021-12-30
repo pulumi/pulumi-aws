@@ -59,47 +59,6 @@ func (i CachePolicyParametersInCacheKeyAndForwardedToOriginArgs) ToCachePolicyPa
 	return pulumi.ToOutputWithContext(ctx, i).(CachePolicyParametersInCacheKeyAndForwardedToOriginOutput)
 }
 
-func (i CachePolicyParametersInCacheKeyAndForwardedToOriginArgs) ToCachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput() CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput {
-	return i.ToCachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutputWithContext(context.Background())
-}
-
-func (i CachePolicyParametersInCacheKeyAndForwardedToOriginArgs) ToCachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutputWithContext(ctx context.Context) CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CachePolicyParametersInCacheKeyAndForwardedToOriginOutput).ToCachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutputWithContext(ctx)
-}
-
-// CachePolicyParametersInCacheKeyAndForwardedToOriginPtrInput is an input type that accepts CachePolicyParametersInCacheKeyAndForwardedToOriginArgs, CachePolicyParametersInCacheKeyAndForwardedToOriginPtr and CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput values.
-// You can construct a concrete instance of `CachePolicyParametersInCacheKeyAndForwardedToOriginPtrInput` via:
-//
-//          CachePolicyParametersInCacheKeyAndForwardedToOriginArgs{...}
-//
-//  or:
-//
-//          nil
-type CachePolicyParametersInCacheKeyAndForwardedToOriginPtrInput interface {
-	pulumi.Input
-
-	ToCachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput() CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput
-	ToCachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutputWithContext(context.Context) CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput
-}
-
-type cachePolicyParametersInCacheKeyAndForwardedToOriginPtrType CachePolicyParametersInCacheKeyAndForwardedToOriginArgs
-
-func CachePolicyParametersInCacheKeyAndForwardedToOriginPtr(v *CachePolicyParametersInCacheKeyAndForwardedToOriginArgs) CachePolicyParametersInCacheKeyAndForwardedToOriginPtrInput {
-	return (*cachePolicyParametersInCacheKeyAndForwardedToOriginPtrType)(v)
-}
-
-func (*cachePolicyParametersInCacheKeyAndForwardedToOriginPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CachePolicyParametersInCacheKeyAndForwardedToOrigin)(nil)).Elem()
-}
-
-func (i *cachePolicyParametersInCacheKeyAndForwardedToOriginPtrType) ToCachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput() CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput {
-	return i.ToCachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutputWithContext(context.Background())
-}
-
-func (i *cachePolicyParametersInCacheKeyAndForwardedToOriginPtrType) ToCachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutputWithContext(ctx context.Context) CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput)
-}
-
 type CachePolicyParametersInCacheKeyAndForwardedToOriginOutput struct{ *pulumi.OutputState }
 
 func (CachePolicyParametersInCacheKeyAndForwardedToOriginOutput) ElementType() reflect.Type {
@@ -112,16 +71,6 @@ func (o CachePolicyParametersInCacheKeyAndForwardedToOriginOutput) ToCachePolicy
 
 func (o CachePolicyParametersInCacheKeyAndForwardedToOriginOutput) ToCachePolicyParametersInCacheKeyAndForwardedToOriginOutputWithContext(ctx context.Context) CachePolicyParametersInCacheKeyAndForwardedToOriginOutput {
 	return o
-}
-
-func (o CachePolicyParametersInCacheKeyAndForwardedToOriginOutput) ToCachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput() CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput {
-	return o.ToCachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutputWithContext(context.Background())
-}
-
-func (o CachePolicyParametersInCacheKeyAndForwardedToOriginOutput) ToCachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutputWithContext(ctx context.Context) CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CachePolicyParametersInCacheKeyAndForwardedToOrigin) *CachePolicyParametersInCacheKeyAndForwardedToOrigin {
-		return &v
-	}).(CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput)
 }
 
 // Object that determines whether any cookies in viewer requests (and if so, which cookies) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.
@@ -153,80 +102,6 @@ func (o CachePolicyParametersInCacheKeyAndForwardedToOriginOutput) QueryStringsC
 	return o.ApplyT(func(v CachePolicyParametersInCacheKeyAndForwardedToOrigin) CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig {
 		return v.QueryStringsConfig
 	}).(CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigOutput)
-}
-
-type CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput struct{ *pulumi.OutputState }
-
-func (CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CachePolicyParametersInCacheKeyAndForwardedToOrigin)(nil)).Elem()
-}
-
-func (o CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput) ToCachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput() CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput {
-	return o
-}
-
-func (o CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput) ToCachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutputWithContext(ctx context.Context) CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput {
-	return o
-}
-
-func (o CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput) Elem() CachePolicyParametersInCacheKeyAndForwardedToOriginOutput {
-	return o.ApplyT(func(v *CachePolicyParametersInCacheKeyAndForwardedToOrigin) CachePolicyParametersInCacheKeyAndForwardedToOrigin {
-		if v != nil {
-			return *v
-		}
-		var ret CachePolicyParametersInCacheKeyAndForwardedToOrigin
-		return ret
-	}).(CachePolicyParametersInCacheKeyAndForwardedToOriginOutput)
-}
-
-// Object that determines whether any cookies in viewer requests (and if so, which cookies) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.
-func (o CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput) CookiesConfig() CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrOutput {
-	return o.ApplyT(func(v *CachePolicyParametersInCacheKeyAndForwardedToOrigin) *CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig {
-		if v == nil {
-			return nil
-		}
-		return &v.CookiesConfig
-	}).(CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrOutput)
-}
-
-// A flag that can affect whether the Accept-Encoding HTTP header is included in the cache key and included in requests that CloudFront sends to the origin.
-func (o CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput) EnableAcceptEncodingBrotli() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *CachePolicyParametersInCacheKeyAndForwardedToOrigin) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.EnableAcceptEncodingBrotli
-	}).(pulumi.BoolPtrOutput)
-}
-
-// A flag that can affect whether the Accept-Encoding HTTP header is included in the cache key and included in requests that CloudFront sends to the origin.
-func (o CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput) EnableAcceptEncodingGzip() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *CachePolicyParametersInCacheKeyAndForwardedToOrigin) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.EnableAcceptEncodingGzip
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Object that determines whether any HTTP headers (and if so, which headers) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.
-func (o CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput) HeadersConfig() CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrOutput {
-	return o.ApplyT(func(v *CachePolicyParametersInCacheKeyAndForwardedToOrigin) *CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig {
-		if v == nil {
-			return nil
-		}
-		return &v.HeadersConfig
-	}).(CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrOutput)
-}
-
-// Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Query String Config for more information.
-func (o CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput) QueryStringsConfig() CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrOutput {
-	return o.ApplyT(func(v *CachePolicyParametersInCacheKeyAndForwardedToOrigin) *CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig {
-		if v == nil {
-			return nil
-		}
-		return &v.QueryStringsConfig
-	}).(CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrOutput)
 }
 
 type CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig struct {
@@ -266,47 +141,6 @@ func (i CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArgs) To
 	return pulumi.ToOutputWithContext(ctx, i).(CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigOutput)
 }
 
-func (i CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArgs) ToCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrOutput() CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrOutput {
-	return i.ToCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrOutputWithContext(context.Background())
-}
-
-func (i CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArgs) ToCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrOutputWithContext(ctx context.Context) CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigOutput).ToCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrOutputWithContext(ctx)
-}
-
-// CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrInput is an input type that accepts CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArgs, CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtr and CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrOutput values.
-// You can construct a concrete instance of `CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrInput` via:
-//
-//          CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArgs{...}
-//
-//  or:
-//
-//          nil
-type CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrInput interface {
-	pulumi.Input
-
-	ToCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrOutput() CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrOutput
-	ToCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrOutputWithContext(context.Context) CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrOutput
-}
-
-type cachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrType CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArgs
-
-func CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtr(v *CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArgs) CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrInput {
-	return (*cachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrType)(v)
-}
-
-func (*cachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig)(nil)).Elem()
-}
-
-func (i *cachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrType) ToCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrOutput() CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrOutput {
-	return i.ToCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *cachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrType) ToCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrOutputWithContext(ctx context.Context) CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrOutput)
-}
-
 type CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigOutput struct{ *pulumi.OutputState }
 
 func (CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigOutput) ElementType() reflect.Type {
@@ -321,16 +155,6 @@ func (o CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigOutput) 
 	return o
 }
 
-func (o CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigOutput) ToCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrOutput() CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrOutput {
-	return o.ToCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrOutputWithContext(context.Background())
-}
-
-func (o CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigOutput) ToCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrOutputWithContext(ctx context.Context) CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig) *CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig {
-		return &v
-	}).(CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrOutput)
-}
-
 // Determines whether any cookies in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`, `allExcept`, `all`.
 func (o CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigOutput) CookieBehavior() pulumi.StringOutput {
 	return o.ApplyT(func(v CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig) string {
@@ -341,50 +165,6 @@ func (o CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigOutput) 
 // Object that contains a list of cookie names. See Items for more information.
 func (o CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigOutput) Cookies() CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesPtrOutput {
 	return o.ApplyT(func(v CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig) *CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookies {
-		return v.Cookies
-	}).(CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesPtrOutput)
-}
-
-type CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrOutput struct{ *pulumi.OutputState }
-
-func (CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig)(nil)).Elem()
-}
-
-func (o CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrOutput) ToCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrOutput() CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrOutput {
-	return o
-}
-
-func (o CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrOutput) ToCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrOutputWithContext(ctx context.Context) CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrOutput {
-	return o
-}
-
-func (o CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrOutput) Elem() CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigOutput {
-	return o.ApplyT(func(v *CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig) CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig {
-		if v != nil {
-			return *v
-		}
-		var ret CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig
-		return ret
-	}).(CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigOutput)
-}
-
-// Determines whether any cookies in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`, `allExcept`, `all`.
-func (o CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrOutput) CookieBehavior() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.CookieBehavior
-	}).(pulumi.StringPtrOutput)
-}
-
-// Object that contains a list of cookie names. See Items for more information.
-func (o CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrOutput) Cookies() CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesPtrOutput {
-	return o.ApplyT(func(v *CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig) *CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookies {
-		if v == nil {
-			return nil
-		}
 		return v.Cookies
 	}).(CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesPtrOutput)
 }
@@ -565,47 +345,6 @@ func (i CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArgs) To
 	return pulumi.ToOutputWithContext(ctx, i).(CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigOutput)
 }
 
-func (i CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArgs) ToCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrOutput() CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrOutput {
-	return i.ToCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrOutputWithContext(context.Background())
-}
-
-func (i CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArgs) ToCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrOutputWithContext(ctx context.Context) CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigOutput).ToCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrOutputWithContext(ctx)
-}
-
-// CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrInput is an input type that accepts CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArgs, CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtr and CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrOutput values.
-// You can construct a concrete instance of `CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrInput` via:
-//
-//          CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArgs{...}
-//
-//  or:
-//
-//          nil
-type CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrInput interface {
-	pulumi.Input
-
-	ToCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrOutput() CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrOutput
-	ToCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrOutputWithContext(context.Context) CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrOutput
-}
-
-type cachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrType CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArgs
-
-func CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtr(v *CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArgs) CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrInput {
-	return (*cachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrType)(v)
-}
-
-func (*cachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig)(nil)).Elem()
-}
-
-func (i *cachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrType) ToCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrOutput() CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrOutput {
-	return i.ToCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *cachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrType) ToCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrOutputWithContext(ctx context.Context) CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrOutput)
-}
-
 type CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigOutput struct{ *pulumi.OutputState }
 
 func (CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigOutput) ElementType() reflect.Type {
@@ -620,16 +359,6 @@ func (o CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigOutput) 
 	return o
 }
 
-func (o CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigOutput) ToCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrOutput() CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrOutput {
-	return o.ToCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrOutputWithContext(context.Background())
-}
-
-func (o CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigOutput) ToCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrOutputWithContext(ctx context.Context) CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig) *CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig {
-		return &v
-	}).(CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrOutput)
-}
-
 // Determines whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`.
 func (o CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigOutput) HeaderBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig) *string {
@@ -640,50 +369,6 @@ func (o CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigOutput) 
 // Object that contains a list of header names. See Items for more information.
 func (o CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigOutput) Headers() CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersPtrOutput {
 	return o.ApplyT(func(v CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig) *CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaders {
-		return v.Headers
-	}).(CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersPtrOutput)
-}
-
-type CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrOutput struct{ *pulumi.OutputState }
-
-func (CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig)(nil)).Elem()
-}
-
-func (o CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrOutput) ToCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrOutput() CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrOutput {
-	return o
-}
-
-func (o CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrOutput) ToCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrOutputWithContext(ctx context.Context) CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrOutput {
-	return o
-}
-
-func (o CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrOutput) Elem() CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigOutput {
-	return o.ApplyT(func(v *CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig) CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig {
-		if v != nil {
-			return *v
-		}
-		var ret CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig
-		return ret
-	}).(CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigOutput)
-}
-
-// Determines whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`.
-func (o CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrOutput) HeaderBehavior() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return v.HeaderBehavior
-	}).(pulumi.StringPtrOutput)
-}
-
-// Object that contains a list of header names. See Items for more information.
-func (o CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrOutput) Headers() CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersPtrOutput {
-	return o.ApplyT(func(v *CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig) *CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaders {
-		if v == nil {
-			return nil
-		}
 		return v.Headers
 	}).(CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersPtrOutput)
 }
@@ -864,47 +549,6 @@ func (i CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArg
 	return pulumi.ToOutputWithContext(ctx, i).(CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigOutput)
 }
 
-func (i CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArgs) ToCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrOutput() CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrOutput {
-	return i.ToCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrOutputWithContext(context.Background())
-}
-
-func (i CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArgs) ToCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrOutputWithContext(ctx context.Context) CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigOutput).ToCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrOutputWithContext(ctx)
-}
-
-// CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrInput is an input type that accepts CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArgs, CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtr and CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrOutput values.
-// You can construct a concrete instance of `CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrInput` via:
-//
-//          CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArgs{...}
-//
-//  or:
-//
-//          nil
-type CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrInput interface {
-	pulumi.Input
-
-	ToCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrOutput() CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrOutput
-	ToCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrOutputWithContext(context.Context) CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrOutput
-}
-
-type cachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrType CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArgs
-
-func CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtr(v *CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArgs) CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrInput {
-	return (*cachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrType)(v)
-}
-
-func (*cachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig)(nil)).Elem()
-}
-
-func (i *cachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrType) ToCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrOutput() CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrOutput {
-	return i.ToCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *cachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrType) ToCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrOutputWithContext(ctx context.Context) CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrOutput)
-}
-
 type CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigOutput struct{ *pulumi.OutputState }
 
 func (CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigOutput) ElementType() reflect.Type {
@@ -919,16 +563,6 @@ func (o CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigOut
 	return o
 }
 
-func (o CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigOutput) ToCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrOutput() CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrOutput {
-	return o.ToCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrOutputWithContext(context.Background())
-}
-
-func (o CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigOutput) ToCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrOutputWithContext(ctx context.Context) CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig) *CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig {
-		return &v
-	}).(CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrOutput)
-}
-
 // Determines whether any URL query strings in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`, `allExcept`, `all`.
 func (o CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigOutput) QueryStringBehavior() pulumi.StringOutput {
 	return o.ApplyT(func(v CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig) string {
@@ -939,50 +573,6 @@ func (o CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigOut
 // Object that contains a list of query string names. See Items for more information.
 func (o CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigOutput) QueryStrings() CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsPtrOutput {
 	return o.ApplyT(func(v CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig) *CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStrings {
-		return v.QueryStrings
-	}).(CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsPtrOutput)
-}
-
-type CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrOutput struct{ *pulumi.OutputState }
-
-func (CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig)(nil)).Elem()
-}
-
-func (o CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrOutput) ToCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrOutput() CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrOutput {
-	return o
-}
-
-func (o CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrOutput) ToCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrOutputWithContext(ctx context.Context) CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrOutput {
-	return o
-}
-
-func (o CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrOutput) Elem() CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigOutput {
-	return o.ApplyT(func(v *CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig) CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig {
-		if v != nil {
-			return *v
-		}
-		var ret CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig
-		return ret
-	}).(CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigOutput)
-}
-
-// Determines whether any URL query strings in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`, `allExcept`, `all`.
-func (o CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrOutput) QueryStringBehavior() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.QueryStringBehavior
-	}).(pulumi.StringPtrOutput)
-}
-
-// Object that contains a list of query string names. See Items for more information.
-func (o CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrOutput) QueryStrings() CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsPtrOutput {
-	return o.ApplyT(func(v *CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig) *CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStrings {
-		if v == nil {
-			return nil
-		}
 		return v.QueryStrings
 	}).(CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsPtrOutput)
 }
@@ -1424,47 +1014,6 @@ func (i DistributionDefaultCacheBehaviorArgs) ToDistributionDefaultCacheBehavior
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionDefaultCacheBehaviorOutput)
 }
 
-func (i DistributionDefaultCacheBehaviorArgs) ToDistributionDefaultCacheBehaviorPtrOutput() DistributionDefaultCacheBehaviorPtrOutput {
-	return i.ToDistributionDefaultCacheBehaviorPtrOutputWithContext(context.Background())
-}
-
-func (i DistributionDefaultCacheBehaviorArgs) ToDistributionDefaultCacheBehaviorPtrOutputWithContext(ctx context.Context) DistributionDefaultCacheBehaviorPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DistributionDefaultCacheBehaviorOutput).ToDistributionDefaultCacheBehaviorPtrOutputWithContext(ctx)
-}
-
-// DistributionDefaultCacheBehaviorPtrInput is an input type that accepts DistributionDefaultCacheBehaviorArgs, DistributionDefaultCacheBehaviorPtr and DistributionDefaultCacheBehaviorPtrOutput values.
-// You can construct a concrete instance of `DistributionDefaultCacheBehaviorPtrInput` via:
-//
-//          DistributionDefaultCacheBehaviorArgs{...}
-//
-//  or:
-//
-//          nil
-type DistributionDefaultCacheBehaviorPtrInput interface {
-	pulumi.Input
-
-	ToDistributionDefaultCacheBehaviorPtrOutput() DistributionDefaultCacheBehaviorPtrOutput
-	ToDistributionDefaultCacheBehaviorPtrOutputWithContext(context.Context) DistributionDefaultCacheBehaviorPtrOutput
-}
-
-type distributionDefaultCacheBehaviorPtrType DistributionDefaultCacheBehaviorArgs
-
-func DistributionDefaultCacheBehaviorPtr(v *DistributionDefaultCacheBehaviorArgs) DistributionDefaultCacheBehaviorPtrInput {
-	return (*distributionDefaultCacheBehaviorPtrType)(v)
-}
-
-func (*distributionDefaultCacheBehaviorPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DistributionDefaultCacheBehavior)(nil)).Elem()
-}
-
-func (i *distributionDefaultCacheBehaviorPtrType) ToDistributionDefaultCacheBehaviorPtrOutput() DistributionDefaultCacheBehaviorPtrOutput {
-	return i.ToDistributionDefaultCacheBehaviorPtrOutputWithContext(context.Background())
-}
-
-func (i *distributionDefaultCacheBehaviorPtrType) ToDistributionDefaultCacheBehaviorPtrOutputWithContext(ctx context.Context) DistributionDefaultCacheBehaviorPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DistributionDefaultCacheBehaviorPtrOutput)
-}
-
 type DistributionDefaultCacheBehaviorOutput struct{ *pulumi.OutputState }
 
 func (DistributionDefaultCacheBehaviorOutput) ElementType() reflect.Type {
@@ -1477,16 +1026,6 @@ func (o DistributionDefaultCacheBehaviorOutput) ToDistributionDefaultCacheBehavi
 
 func (o DistributionDefaultCacheBehaviorOutput) ToDistributionDefaultCacheBehaviorOutputWithContext(ctx context.Context) DistributionDefaultCacheBehaviorOutput {
 	return o
-}
-
-func (o DistributionDefaultCacheBehaviorOutput) ToDistributionDefaultCacheBehaviorPtrOutput() DistributionDefaultCacheBehaviorPtrOutput {
-	return o.ToDistributionDefaultCacheBehaviorPtrOutputWithContext(context.Background())
-}
-
-func (o DistributionDefaultCacheBehaviorOutput) ToDistributionDefaultCacheBehaviorPtrOutputWithContext(ctx context.Context) DistributionDefaultCacheBehaviorPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DistributionDefaultCacheBehavior) *DistributionDefaultCacheBehavior {
-		return &v
-	}).(DistributionDefaultCacheBehaviorPtrOutput)
 }
 
 // Controls which HTTP methods CloudFront
@@ -1615,247 +1154,6 @@ func (o DistributionDefaultCacheBehaviorOutput) TrustedSigners() pulumi.StringAr
 // of `allow-all`, `https-only`, or `redirect-to-https`.
 func (o DistributionDefaultCacheBehaviorOutput) ViewerProtocolPolicy() pulumi.StringOutput {
 	return o.ApplyT(func(v DistributionDefaultCacheBehavior) string { return v.ViewerProtocolPolicy }).(pulumi.StringOutput)
-}
-
-type DistributionDefaultCacheBehaviorPtrOutput struct{ *pulumi.OutputState }
-
-func (DistributionDefaultCacheBehaviorPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DistributionDefaultCacheBehavior)(nil)).Elem()
-}
-
-func (o DistributionDefaultCacheBehaviorPtrOutput) ToDistributionDefaultCacheBehaviorPtrOutput() DistributionDefaultCacheBehaviorPtrOutput {
-	return o
-}
-
-func (o DistributionDefaultCacheBehaviorPtrOutput) ToDistributionDefaultCacheBehaviorPtrOutputWithContext(ctx context.Context) DistributionDefaultCacheBehaviorPtrOutput {
-	return o
-}
-
-func (o DistributionDefaultCacheBehaviorPtrOutput) Elem() DistributionDefaultCacheBehaviorOutput {
-	return o.ApplyT(func(v *DistributionDefaultCacheBehavior) DistributionDefaultCacheBehavior {
-		if v != nil {
-			return *v
-		}
-		var ret DistributionDefaultCacheBehavior
-		return ret
-	}).(DistributionDefaultCacheBehaviorOutput)
-}
-
-// Controls which HTTP methods CloudFront
-// processes and forwards to your Amazon S3 bucket or your custom origin.
-func (o DistributionDefaultCacheBehaviorPtrOutput) AllowedMethods() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *DistributionDefaultCacheBehavior) []string {
-		if v == nil {
-			return nil
-		}
-		return v.AllowedMethods
-	}).(pulumi.StringArrayOutput)
-}
-
-// The unique identifier of the cache policy that
-// is attached to the cache behavior.
-func (o DistributionDefaultCacheBehaviorPtrOutput) CachePolicyId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DistributionDefaultCacheBehavior) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CachePolicyId
-	}).(pulumi.StringPtrOutput)
-}
-
-// Controls whether CloudFront caches the
-// response to requests using the specified HTTP methods.
-func (o DistributionDefaultCacheBehaviorPtrOutput) CachedMethods() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *DistributionDefaultCacheBehavior) []string {
-		if v == nil {
-			return nil
-		}
-		return v.CachedMethods
-	}).(pulumi.StringArrayOutput)
-}
-
-// Whether you want CloudFront to automatically
-// compress content for web requests that include `Accept-Encoding: gzip` in
-// the request header (default: `false`).
-func (o DistributionDefaultCacheBehaviorPtrOutput) Compress() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *DistributionDefaultCacheBehavior) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.Compress
-	}).(pulumi.BoolPtrOutput)
-}
-
-// The default amount of time (in seconds) that an
-// object is in a CloudFront cache before CloudFront forwards another request
-// in the absence of an `Cache-Control max-age` or `Expires` header.
-func (o DistributionDefaultCacheBehaviorPtrOutput) DefaultTtl() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DistributionDefaultCacheBehavior) *int {
-		if v == nil {
-			return nil
-		}
-		return v.DefaultTtl
-	}).(pulumi.IntPtrOutput)
-}
-
-// Field level encryption configuration ID
-func (o DistributionDefaultCacheBehaviorPtrOutput) FieldLevelEncryptionId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DistributionDefaultCacheBehavior) *string {
-		if v == nil {
-			return nil
-		}
-		return v.FieldLevelEncryptionId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The forwarded values configuration that specifies how CloudFront
-// handles query strings, cookies and headers (maximum one).
-func (o DistributionDefaultCacheBehaviorPtrOutput) ForwardedValues() DistributionDefaultCacheBehaviorForwardedValuesPtrOutput {
-	return o.ApplyT(func(v *DistributionDefaultCacheBehavior) *DistributionDefaultCacheBehaviorForwardedValues {
-		if v == nil {
-			return nil
-		}
-		return v.ForwardedValues
-	}).(DistributionDefaultCacheBehaviorForwardedValuesPtrOutput)
-}
-
-// A config block that triggers a cloudfront
-// function with specific actions (maximum 2).
-func (o DistributionDefaultCacheBehaviorPtrOutput) FunctionAssociations() DistributionDefaultCacheBehaviorFunctionAssociationArrayOutput {
-	return o.ApplyT(func(v *DistributionDefaultCacheBehavior) []DistributionDefaultCacheBehaviorFunctionAssociation {
-		if v == nil {
-			return nil
-		}
-		return v.FunctionAssociations
-	}).(DistributionDefaultCacheBehaviorFunctionAssociationArrayOutput)
-}
-
-// A config block that triggers a lambda
-// function with specific actions (maximum 4).
-func (o DistributionDefaultCacheBehaviorPtrOutput) LambdaFunctionAssociations() DistributionDefaultCacheBehaviorLambdaFunctionAssociationArrayOutput {
-	return o.ApplyT(func(v *DistributionDefaultCacheBehavior) []DistributionDefaultCacheBehaviorLambdaFunctionAssociation {
-		if v == nil {
-			return nil
-		}
-		return v.LambdaFunctionAssociations
-	}).(DistributionDefaultCacheBehaviorLambdaFunctionAssociationArrayOutput)
-}
-
-// The maximum amount of time (in seconds) that an
-// object is in a CloudFront cache before CloudFront forwards another request
-// to your origin to determine whether the object has been updated. Only
-// effective in the presence of `Cache-Control max-age`, `Cache-Control
-// s-maxage`, and `Expires` headers.
-func (o DistributionDefaultCacheBehaviorPtrOutput) MaxTtl() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DistributionDefaultCacheBehavior) *int {
-		if v == nil {
-			return nil
-		}
-		return v.MaxTtl
-	}).(pulumi.IntPtrOutput)
-}
-
-// The minimum amount of time that you want objects to
-// stay in CloudFront caches before CloudFront queries your origin to see
-// whether the object has been updated. Defaults to 0 seconds.
-func (o DistributionDefaultCacheBehaviorPtrOutput) MinTtl() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DistributionDefaultCacheBehavior) *int {
-		if v == nil {
-			return nil
-		}
-		return v.MinTtl
-	}).(pulumi.IntPtrOutput)
-}
-
-// The unique identifier of the origin request policy
-// that is attached to the behavior.
-func (o DistributionDefaultCacheBehaviorPtrOutput) OriginRequestPolicyId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DistributionDefaultCacheBehavior) *string {
-		if v == nil {
-			return nil
-		}
-		return v.OriginRequestPolicyId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The ARN of the real-time log configuration
-// that is attached to this cache behavior.
-func (o DistributionDefaultCacheBehaviorPtrOutput) RealtimeLogConfigArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DistributionDefaultCacheBehavior) *string {
-		if v == nil {
-			return nil
-		}
-		return v.RealtimeLogConfigArn
-	}).(pulumi.StringPtrOutput)
-}
-
-// The identifier for a response headers policy.
-func (o DistributionDefaultCacheBehaviorPtrOutput) ResponseHeadersPolicyId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DistributionDefaultCacheBehavior) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ResponseHeadersPolicyId
-	}).(pulumi.StringPtrOutput)
-}
-
-// Indicates whether you want to distribute
-// media files in Microsoft Smooth Streaming format using the origin that is
-// associated with this cache behavior.
-func (o DistributionDefaultCacheBehaviorPtrOutput) SmoothStreaming() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *DistributionDefaultCacheBehavior) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.SmoothStreaming
-	}).(pulumi.BoolPtrOutput)
-}
-
-// The value of ID for the origin that you want
-// CloudFront to route requests to when a request matches the path pattern
-// either for a cache behavior or for the default cache behavior.
-func (o DistributionDefaultCacheBehaviorPtrOutput) TargetOriginId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DistributionDefaultCacheBehavior) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.TargetOriginId
-	}).(pulumi.StringPtrOutput)
-}
-
-// A list of key group IDs that CloudFront can use to validate signed URLs or signed cookies.
-// See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
-func (o DistributionDefaultCacheBehaviorPtrOutput) TrustedKeyGroups() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *DistributionDefaultCacheBehavior) []string {
-		if v == nil {
-			return nil
-		}
-		return v.TrustedKeyGroups
-	}).(pulumi.StringArrayOutput)
-}
-
-// List of AWS account IDs (or `self`) that you want to allow to create signed URLs for private content.
-// See the [CloudFront User Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-trusted-signers.html) for more information about this feature.
-func (o DistributionDefaultCacheBehaviorPtrOutput) TrustedSigners() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *DistributionDefaultCacheBehavior) []string {
-		if v == nil {
-			return nil
-		}
-		return v.TrustedSigners
-	}).(pulumi.StringArrayOutput)
-}
-
-// Use this element to specify the
-// protocol that users can use to access the files in the origin specified by
-// TargetOriginId when a request matches the path pattern in PathPattern. One
-// of `allow-all`, `https-only`, or `redirect-to-https`.
-func (o DistributionDefaultCacheBehaviorPtrOutput) ViewerProtocolPolicy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DistributionDefaultCacheBehavior) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ViewerProtocolPolicy
-	}).(pulumi.StringPtrOutput)
 }
 
 type DistributionDefaultCacheBehaviorForwardedValues struct {
@@ -4792,47 +4090,6 @@ func (i DistributionRestrictionsArgs) ToDistributionRestrictionsOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionRestrictionsOutput)
 }
 
-func (i DistributionRestrictionsArgs) ToDistributionRestrictionsPtrOutput() DistributionRestrictionsPtrOutput {
-	return i.ToDistributionRestrictionsPtrOutputWithContext(context.Background())
-}
-
-func (i DistributionRestrictionsArgs) ToDistributionRestrictionsPtrOutputWithContext(ctx context.Context) DistributionRestrictionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DistributionRestrictionsOutput).ToDistributionRestrictionsPtrOutputWithContext(ctx)
-}
-
-// DistributionRestrictionsPtrInput is an input type that accepts DistributionRestrictionsArgs, DistributionRestrictionsPtr and DistributionRestrictionsPtrOutput values.
-// You can construct a concrete instance of `DistributionRestrictionsPtrInput` via:
-//
-//          DistributionRestrictionsArgs{...}
-//
-//  or:
-//
-//          nil
-type DistributionRestrictionsPtrInput interface {
-	pulumi.Input
-
-	ToDistributionRestrictionsPtrOutput() DistributionRestrictionsPtrOutput
-	ToDistributionRestrictionsPtrOutputWithContext(context.Context) DistributionRestrictionsPtrOutput
-}
-
-type distributionRestrictionsPtrType DistributionRestrictionsArgs
-
-func DistributionRestrictionsPtr(v *DistributionRestrictionsArgs) DistributionRestrictionsPtrInput {
-	return (*distributionRestrictionsPtrType)(v)
-}
-
-func (*distributionRestrictionsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DistributionRestrictions)(nil)).Elem()
-}
-
-func (i *distributionRestrictionsPtrType) ToDistributionRestrictionsPtrOutput() DistributionRestrictionsPtrOutput {
-	return i.ToDistributionRestrictionsPtrOutputWithContext(context.Background())
-}
-
-func (i *distributionRestrictionsPtrType) ToDistributionRestrictionsPtrOutputWithContext(ctx context.Context) DistributionRestrictionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DistributionRestrictionsPtrOutput)
-}
-
 type DistributionRestrictionsOutput struct{ *pulumi.OutputState }
 
 func (DistributionRestrictionsOutput) ElementType() reflect.Type {
@@ -4847,51 +4104,8 @@ func (o DistributionRestrictionsOutput) ToDistributionRestrictionsOutputWithCont
 	return o
 }
 
-func (o DistributionRestrictionsOutput) ToDistributionRestrictionsPtrOutput() DistributionRestrictionsPtrOutput {
-	return o.ToDistributionRestrictionsPtrOutputWithContext(context.Background())
-}
-
-func (o DistributionRestrictionsOutput) ToDistributionRestrictionsPtrOutputWithContext(ctx context.Context) DistributionRestrictionsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DistributionRestrictions) *DistributionRestrictions {
-		return &v
-	}).(DistributionRestrictionsPtrOutput)
-}
-
 func (o DistributionRestrictionsOutput) GeoRestriction() DistributionRestrictionsGeoRestrictionOutput {
 	return o.ApplyT(func(v DistributionRestrictions) DistributionRestrictionsGeoRestriction { return v.GeoRestriction }).(DistributionRestrictionsGeoRestrictionOutput)
-}
-
-type DistributionRestrictionsPtrOutput struct{ *pulumi.OutputState }
-
-func (DistributionRestrictionsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DistributionRestrictions)(nil)).Elem()
-}
-
-func (o DistributionRestrictionsPtrOutput) ToDistributionRestrictionsPtrOutput() DistributionRestrictionsPtrOutput {
-	return o
-}
-
-func (o DistributionRestrictionsPtrOutput) ToDistributionRestrictionsPtrOutputWithContext(ctx context.Context) DistributionRestrictionsPtrOutput {
-	return o
-}
-
-func (o DistributionRestrictionsPtrOutput) Elem() DistributionRestrictionsOutput {
-	return o.ApplyT(func(v *DistributionRestrictions) DistributionRestrictions {
-		if v != nil {
-			return *v
-		}
-		var ret DistributionRestrictions
-		return ret
-	}).(DistributionRestrictionsOutput)
-}
-
-func (o DistributionRestrictionsPtrOutput) GeoRestriction() DistributionRestrictionsGeoRestrictionPtrOutput {
-	return o.ApplyT(func(v *DistributionRestrictions) *DistributionRestrictionsGeoRestriction {
-		if v == nil {
-			return nil
-		}
-		return &v.GeoRestriction
-	}).(DistributionRestrictionsGeoRestrictionPtrOutput)
 }
 
 type DistributionRestrictionsGeoRestriction struct {
@@ -4939,47 +4153,6 @@ func (i DistributionRestrictionsGeoRestrictionArgs) ToDistributionRestrictionsGe
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionRestrictionsGeoRestrictionOutput)
 }
 
-func (i DistributionRestrictionsGeoRestrictionArgs) ToDistributionRestrictionsGeoRestrictionPtrOutput() DistributionRestrictionsGeoRestrictionPtrOutput {
-	return i.ToDistributionRestrictionsGeoRestrictionPtrOutputWithContext(context.Background())
-}
-
-func (i DistributionRestrictionsGeoRestrictionArgs) ToDistributionRestrictionsGeoRestrictionPtrOutputWithContext(ctx context.Context) DistributionRestrictionsGeoRestrictionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DistributionRestrictionsGeoRestrictionOutput).ToDistributionRestrictionsGeoRestrictionPtrOutputWithContext(ctx)
-}
-
-// DistributionRestrictionsGeoRestrictionPtrInput is an input type that accepts DistributionRestrictionsGeoRestrictionArgs, DistributionRestrictionsGeoRestrictionPtr and DistributionRestrictionsGeoRestrictionPtrOutput values.
-// You can construct a concrete instance of `DistributionRestrictionsGeoRestrictionPtrInput` via:
-//
-//          DistributionRestrictionsGeoRestrictionArgs{...}
-//
-//  or:
-//
-//          nil
-type DistributionRestrictionsGeoRestrictionPtrInput interface {
-	pulumi.Input
-
-	ToDistributionRestrictionsGeoRestrictionPtrOutput() DistributionRestrictionsGeoRestrictionPtrOutput
-	ToDistributionRestrictionsGeoRestrictionPtrOutputWithContext(context.Context) DistributionRestrictionsGeoRestrictionPtrOutput
-}
-
-type distributionRestrictionsGeoRestrictionPtrType DistributionRestrictionsGeoRestrictionArgs
-
-func DistributionRestrictionsGeoRestrictionPtr(v *DistributionRestrictionsGeoRestrictionArgs) DistributionRestrictionsGeoRestrictionPtrInput {
-	return (*distributionRestrictionsGeoRestrictionPtrType)(v)
-}
-
-func (*distributionRestrictionsGeoRestrictionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DistributionRestrictionsGeoRestriction)(nil)).Elem()
-}
-
-func (i *distributionRestrictionsGeoRestrictionPtrType) ToDistributionRestrictionsGeoRestrictionPtrOutput() DistributionRestrictionsGeoRestrictionPtrOutput {
-	return i.ToDistributionRestrictionsGeoRestrictionPtrOutputWithContext(context.Background())
-}
-
-func (i *distributionRestrictionsGeoRestrictionPtrType) ToDistributionRestrictionsGeoRestrictionPtrOutputWithContext(ctx context.Context) DistributionRestrictionsGeoRestrictionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DistributionRestrictionsGeoRestrictionPtrOutput)
-}
-
 type DistributionRestrictionsGeoRestrictionOutput struct{ *pulumi.OutputState }
 
 func (DistributionRestrictionsGeoRestrictionOutput) ElementType() reflect.Type {
@@ -4992,16 +4165,6 @@ func (o DistributionRestrictionsGeoRestrictionOutput) ToDistributionRestrictions
 
 func (o DistributionRestrictionsGeoRestrictionOutput) ToDistributionRestrictionsGeoRestrictionOutputWithContext(ctx context.Context) DistributionRestrictionsGeoRestrictionOutput {
 	return o
-}
-
-func (o DistributionRestrictionsGeoRestrictionOutput) ToDistributionRestrictionsGeoRestrictionPtrOutput() DistributionRestrictionsGeoRestrictionPtrOutput {
-	return o.ToDistributionRestrictionsGeoRestrictionPtrOutputWithContext(context.Background())
-}
-
-func (o DistributionRestrictionsGeoRestrictionOutput) ToDistributionRestrictionsGeoRestrictionPtrOutputWithContext(ctx context.Context) DistributionRestrictionsGeoRestrictionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DistributionRestrictionsGeoRestriction) *DistributionRestrictionsGeoRestriction {
-		return &v
-	}).(DistributionRestrictionsGeoRestrictionPtrOutput)
 }
 
 // The [ISO 3166-1-alpha-2 codes][4] for which you
@@ -5018,114 +4181,11 @@ func (o DistributionRestrictionsGeoRestrictionOutput) RestrictionType() pulumi.S
 	return o.ApplyT(func(v DistributionRestrictionsGeoRestriction) string { return v.RestrictionType }).(pulumi.StringOutput)
 }
 
-type DistributionRestrictionsGeoRestrictionPtrOutput struct{ *pulumi.OutputState }
-
-func (DistributionRestrictionsGeoRestrictionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DistributionRestrictionsGeoRestriction)(nil)).Elem()
-}
-
-func (o DistributionRestrictionsGeoRestrictionPtrOutput) ToDistributionRestrictionsGeoRestrictionPtrOutput() DistributionRestrictionsGeoRestrictionPtrOutput {
-	return o
-}
-
-func (o DistributionRestrictionsGeoRestrictionPtrOutput) ToDistributionRestrictionsGeoRestrictionPtrOutputWithContext(ctx context.Context) DistributionRestrictionsGeoRestrictionPtrOutput {
-	return o
-}
-
-func (o DistributionRestrictionsGeoRestrictionPtrOutput) Elem() DistributionRestrictionsGeoRestrictionOutput {
-	return o.ApplyT(func(v *DistributionRestrictionsGeoRestriction) DistributionRestrictionsGeoRestriction {
-		if v != nil {
-			return *v
-		}
-		var ret DistributionRestrictionsGeoRestriction
-		return ret
-	}).(DistributionRestrictionsGeoRestrictionOutput)
-}
-
-// The [ISO 3166-1-alpha-2 codes][4] for which you
-// want CloudFront either to distribute your content (`whitelist`) or not
-// distribute your content (`blacklist`).
-func (o DistributionRestrictionsGeoRestrictionPtrOutput) Locations() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *DistributionRestrictionsGeoRestriction) []string {
-		if v == nil {
-			return nil
-		}
-		return v.Locations
-	}).(pulumi.StringArrayOutput)
-}
-
-// The method that you want to use to restrict
-// distribution of your content by country: `none`, `whitelist`, or
-// `blacklist`.
-func (o DistributionRestrictionsGeoRestrictionPtrOutput) RestrictionType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DistributionRestrictionsGeoRestriction) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.RestrictionType
-	}).(pulumi.StringPtrOutput)
-}
-
 type DistributionTrustedKeyGroup struct {
 	// A flag that specifies whether Origin Shield is enabled.
 	Enabled *bool `pulumi:"enabled"`
 	// List of nested attributes for each trusted signer
 	Items []DistributionTrustedKeyGroupItem `pulumi:"items"`
-}
-
-// DistributionTrustedKeyGroupInput is an input type that accepts DistributionTrustedKeyGroupArgs and DistributionTrustedKeyGroupOutput values.
-// You can construct a concrete instance of `DistributionTrustedKeyGroupInput` via:
-//
-//          DistributionTrustedKeyGroupArgs{...}
-type DistributionTrustedKeyGroupInput interface {
-	pulumi.Input
-
-	ToDistributionTrustedKeyGroupOutput() DistributionTrustedKeyGroupOutput
-	ToDistributionTrustedKeyGroupOutputWithContext(context.Context) DistributionTrustedKeyGroupOutput
-}
-
-type DistributionTrustedKeyGroupArgs struct {
-	// A flag that specifies whether Origin Shield is enabled.
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// List of nested attributes for each trusted signer
-	Items DistributionTrustedKeyGroupItemArrayInput `pulumi:"items"`
-}
-
-func (DistributionTrustedKeyGroupArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DistributionTrustedKeyGroup)(nil)).Elem()
-}
-
-func (i DistributionTrustedKeyGroupArgs) ToDistributionTrustedKeyGroupOutput() DistributionTrustedKeyGroupOutput {
-	return i.ToDistributionTrustedKeyGroupOutputWithContext(context.Background())
-}
-
-func (i DistributionTrustedKeyGroupArgs) ToDistributionTrustedKeyGroupOutputWithContext(ctx context.Context) DistributionTrustedKeyGroupOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DistributionTrustedKeyGroupOutput)
-}
-
-// DistributionTrustedKeyGroupArrayInput is an input type that accepts DistributionTrustedKeyGroupArray and DistributionTrustedKeyGroupArrayOutput values.
-// You can construct a concrete instance of `DistributionTrustedKeyGroupArrayInput` via:
-//
-//          DistributionTrustedKeyGroupArray{ DistributionTrustedKeyGroupArgs{...} }
-type DistributionTrustedKeyGroupArrayInput interface {
-	pulumi.Input
-
-	ToDistributionTrustedKeyGroupArrayOutput() DistributionTrustedKeyGroupArrayOutput
-	ToDistributionTrustedKeyGroupArrayOutputWithContext(context.Context) DistributionTrustedKeyGroupArrayOutput
-}
-
-type DistributionTrustedKeyGroupArray []DistributionTrustedKeyGroupInput
-
-func (DistributionTrustedKeyGroupArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DistributionTrustedKeyGroup)(nil)).Elem()
-}
-
-func (i DistributionTrustedKeyGroupArray) ToDistributionTrustedKeyGroupArrayOutput() DistributionTrustedKeyGroupArrayOutput {
-	return i.ToDistributionTrustedKeyGroupArrayOutputWithContext(context.Background())
-}
-
-func (i DistributionTrustedKeyGroupArray) ToDistributionTrustedKeyGroupArrayOutputWithContext(ctx context.Context) DistributionTrustedKeyGroupArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DistributionTrustedKeyGroupArrayOutput)
 }
 
 type DistributionTrustedKeyGroupOutput struct{ *pulumi.OutputState }
@@ -5179,61 +4239,6 @@ type DistributionTrustedKeyGroupItem struct {
 	KeyPairIds []string `pulumi:"keyPairIds"`
 }
 
-// DistributionTrustedKeyGroupItemInput is an input type that accepts DistributionTrustedKeyGroupItemArgs and DistributionTrustedKeyGroupItemOutput values.
-// You can construct a concrete instance of `DistributionTrustedKeyGroupItemInput` via:
-//
-//          DistributionTrustedKeyGroupItemArgs{...}
-type DistributionTrustedKeyGroupItemInput interface {
-	pulumi.Input
-
-	ToDistributionTrustedKeyGroupItemOutput() DistributionTrustedKeyGroupItemOutput
-	ToDistributionTrustedKeyGroupItemOutputWithContext(context.Context) DistributionTrustedKeyGroupItemOutput
-}
-
-type DistributionTrustedKeyGroupItemArgs struct {
-	// The ID of the key group that contains the public keys
-	KeyGroupId pulumi.StringPtrInput `pulumi:"keyGroupId"`
-	// Set of active CloudFront key pairs associated with the signer account
-	KeyPairIds pulumi.StringArrayInput `pulumi:"keyPairIds"`
-}
-
-func (DistributionTrustedKeyGroupItemArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DistributionTrustedKeyGroupItem)(nil)).Elem()
-}
-
-func (i DistributionTrustedKeyGroupItemArgs) ToDistributionTrustedKeyGroupItemOutput() DistributionTrustedKeyGroupItemOutput {
-	return i.ToDistributionTrustedKeyGroupItemOutputWithContext(context.Background())
-}
-
-func (i DistributionTrustedKeyGroupItemArgs) ToDistributionTrustedKeyGroupItemOutputWithContext(ctx context.Context) DistributionTrustedKeyGroupItemOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DistributionTrustedKeyGroupItemOutput)
-}
-
-// DistributionTrustedKeyGroupItemArrayInput is an input type that accepts DistributionTrustedKeyGroupItemArray and DistributionTrustedKeyGroupItemArrayOutput values.
-// You can construct a concrete instance of `DistributionTrustedKeyGroupItemArrayInput` via:
-//
-//          DistributionTrustedKeyGroupItemArray{ DistributionTrustedKeyGroupItemArgs{...} }
-type DistributionTrustedKeyGroupItemArrayInput interface {
-	pulumi.Input
-
-	ToDistributionTrustedKeyGroupItemArrayOutput() DistributionTrustedKeyGroupItemArrayOutput
-	ToDistributionTrustedKeyGroupItemArrayOutputWithContext(context.Context) DistributionTrustedKeyGroupItemArrayOutput
-}
-
-type DistributionTrustedKeyGroupItemArray []DistributionTrustedKeyGroupItemInput
-
-func (DistributionTrustedKeyGroupItemArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DistributionTrustedKeyGroupItem)(nil)).Elem()
-}
-
-func (i DistributionTrustedKeyGroupItemArray) ToDistributionTrustedKeyGroupItemArrayOutput() DistributionTrustedKeyGroupItemArrayOutput {
-	return i.ToDistributionTrustedKeyGroupItemArrayOutputWithContext(context.Background())
-}
-
-func (i DistributionTrustedKeyGroupItemArray) ToDistributionTrustedKeyGroupItemArrayOutputWithContext(ctx context.Context) DistributionTrustedKeyGroupItemArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DistributionTrustedKeyGroupItemArrayOutput)
-}
-
 type DistributionTrustedKeyGroupItemOutput struct{ *pulumi.OutputState }
 
 func (DistributionTrustedKeyGroupItemOutput) ElementType() reflect.Type {
@@ -5285,61 +4290,6 @@ type DistributionTrustedSigner struct {
 	Items []DistributionTrustedSignerItem `pulumi:"items"`
 }
 
-// DistributionTrustedSignerInput is an input type that accepts DistributionTrustedSignerArgs and DistributionTrustedSignerOutput values.
-// You can construct a concrete instance of `DistributionTrustedSignerInput` via:
-//
-//          DistributionTrustedSignerArgs{...}
-type DistributionTrustedSignerInput interface {
-	pulumi.Input
-
-	ToDistributionTrustedSignerOutput() DistributionTrustedSignerOutput
-	ToDistributionTrustedSignerOutputWithContext(context.Context) DistributionTrustedSignerOutput
-}
-
-type DistributionTrustedSignerArgs struct {
-	// A flag that specifies whether Origin Shield is enabled.
-	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// List of nested attributes for each trusted signer
-	Items DistributionTrustedSignerItemArrayInput `pulumi:"items"`
-}
-
-func (DistributionTrustedSignerArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DistributionTrustedSigner)(nil)).Elem()
-}
-
-func (i DistributionTrustedSignerArgs) ToDistributionTrustedSignerOutput() DistributionTrustedSignerOutput {
-	return i.ToDistributionTrustedSignerOutputWithContext(context.Background())
-}
-
-func (i DistributionTrustedSignerArgs) ToDistributionTrustedSignerOutputWithContext(ctx context.Context) DistributionTrustedSignerOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DistributionTrustedSignerOutput)
-}
-
-// DistributionTrustedSignerArrayInput is an input type that accepts DistributionTrustedSignerArray and DistributionTrustedSignerArrayOutput values.
-// You can construct a concrete instance of `DistributionTrustedSignerArrayInput` via:
-//
-//          DistributionTrustedSignerArray{ DistributionTrustedSignerArgs{...} }
-type DistributionTrustedSignerArrayInput interface {
-	pulumi.Input
-
-	ToDistributionTrustedSignerArrayOutput() DistributionTrustedSignerArrayOutput
-	ToDistributionTrustedSignerArrayOutputWithContext(context.Context) DistributionTrustedSignerArrayOutput
-}
-
-type DistributionTrustedSignerArray []DistributionTrustedSignerInput
-
-func (DistributionTrustedSignerArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DistributionTrustedSigner)(nil)).Elem()
-}
-
-func (i DistributionTrustedSignerArray) ToDistributionTrustedSignerArrayOutput() DistributionTrustedSignerArrayOutput {
-	return i.ToDistributionTrustedSignerArrayOutputWithContext(context.Background())
-}
-
-func (i DistributionTrustedSignerArray) ToDistributionTrustedSignerArrayOutputWithContext(ctx context.Context) DistributionTrustedSignerArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DistributionTrustedSignerArrayOutput)
-}
-
 type DistributionTrustedSignerOutput struct{ *pulumi.OutputState }
 
 func (DistributionTrustedSignerOutput) ElementType() reflect.Type {
@@ -5389,61 +4339,6 @@ type DistributionTrustedSignerItem struct {
 	AwsAccountNumber *string `pulumi:"awsAccountNumber"`
 	// Set of active CloudFront key pairs associated with the signer account
 	KeyPairIds []string `pulumi:"keyPairIds"`
-}
-
-// DistributionTrustedSignerItemInput is an input type that accepts DistributionTrustedSignerItemArgs and DistributionTrustedSignerItemOutput values.
-// You can construct a concrete instance of `DistributionTrustedSignerItemInput` via:
-//
-//          DistributionTrustedSignerItemArgs{...}
-type DistributionTrustedSignerItemInput interface {
-	pulumi.Input
-
-	ToDistributionTrustedSignerItemOutput() DistributionTrustedSignerItemOutput
-	ToDistributionTrustedSignerItemOutputWithContext(context.Context) DistributionTrustedSignerItemOutput
-}
-
-type DistributionTrustedSignerItemArgs struct {
-	// AWS account ID or `self`
-	AwsAccountNumber pulumi.StringPtrInput `pulumi:"awsAccountNumber"`
-	// Set of active CloudFront key pairs associated with the signer account
-	KeyPairIds pulumi.StringArrayInput `pulumi:"keyPairIds"`
-}
-
-func (DistributionTrustedSignerItemArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DistributionTrustedSignerItem)(nil)).Elem()
-}
-
-func (i DistributionTrustedSignerItemArgs) ToDistributionTrustedSignerItemOutput() DistributionTrustedSignerItemOutput {
-	return i.ToDistributionTrustedSignerItemOutputWithContext(context.Background())
-}
-
-func (i DistributionTrustedSignerItemArgs) ToDistributionTrustedSignerItemOutputWithContext(ctx context.Context) DistributionTrustedSignerItemOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DistributionTrustedSignerItemOutput)
-}
-
-// DistributionTrustedSignerItemArrayInput is an input type that accepts DistributionTrustedSignerItemArray and DistributionTrustedSignerItemArrayOutput values.
-// You can construct a concrete instance of `DistributionTrustedSignerItemArrayInput` via:
-//
-//          DistributionTrustedSignerItemArray{ DistributionTrustedSignerItemArgs{...} }
-type DistributionTrustedSignerItemArrayInput interface {
-	pulumi.Input
-
-	ToDistributionTrustedSignerItemArrayOutput() DistributionTrustedSignerItemArrayOutput
-	ToDistributionTrustedSignerItemArrayOutputWithContext(context.Context) DistributionTrustedSignerItemArrayOutput
-}
-
-type DistributionTrustedSignerItemArray []DistributionTrustedSignerItemInput
-
-func (DistributionTrustedSignerItemArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DistributionTrustedSignerItem)(nil)).Elem()
-}
-
-func (i DistributionTrustedSignerItemArray) ToDistributionTrustedSignerItemArrayOutput() DistributionTrustedSignerItemArrayOutput {
-	return i.ToDistributionTrustedSignerItemArrayOutputWithContext(context.Background())
-}
-
-func (i DistributionTrustedSignerItemArray) ToDistributionTrustedSignerItemArrayOutputWithContext(ctx context.Context) DistributionTrustedSignerItemArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DistributionTrustedSignerItemArrayOutput)
 }
 
 type DistributionTrustedSignerItemOutput struct{ *pulumi.OutputState }
@@ -5573,47 +4468,6 @@ func (i DistributionViewerCertificateArgs) ToDistributionViewerCertificateOutput
 	return pulumi.ToOutputWithContext(ctx, i).(DistributionViewerCertificateOutput)
 }
 
-func (i DistributionViewerCertificateArgs) ToDistributionViewerCertificatePtrOutput() DistributionViewerCertificatePtrOutput {
-	return i.ToDistributionViewerCertificatePtrOutputWithContext(context.Background())
-}
-
-func (i DistributionViewerCertificateArgs) ToDistributionViewerCertificatePtrOutputWithContext(ctx context.Context) DistributionViewerCertificatePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DistributionViewerCertificateOutput).ToDistributionViewerCertificatePtrOutputWithContext(ctx)
-}
-
-// DistributionViewerCertificatePtrInput is an input type that accepts DistributionViewerCertificateArgs, DistributionViewerCertificatePtr and DistributionViewerCertificatePtrOutput values.
-// You can construct a concrete instance of `DistributionViewerCertificatePtrInput` via:
-//
-//          DistributionViewerCertificateArgs{...}
-//
-//  or:
-//
-//          nil
-type DistributionViewerCertificatePtrInput interface {
-	pulumi.Input
-
-	ToDistributionViewerCertificatePtrOutput() DistributionViewerCertificatePtrOutput
-	ToDistributionViewerCertificatePtrOutputWithContext(context.Context) DistributionViewerCertificatePtrOutput
-}
-
-type distributionViewerCertificatePtrType DistributionViewerCertificateArgs
-
-func DistributionViewerCertificatePtr(v *DistributionViewerCertificateArgs) DistributionViewerCertificatePtrInput {
-	return (*distributionViewerCertificatePtrType)(v)
-}
-
-func (*distributionViewerCertificatePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DistributionViewerCertificate)(nil)).Elem()
-}
-
-func (i *distributionViewerCertificatePtrType) ToDistributionViewerCertificatePtrOutput() DistributionViewerCertificatePtrOutput {
-	return i.ToDistributionViewerCertificatePtrOutputWithContext(context.Background())
-}
-
-func (i *distributionViewerCertificatePtrType) ToDistributionViewerCertificatePtrOutputWithContext(ctx context.Context) DistributionViewerCertificatePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DistributionViewerCertificatePtrOutput)
-}
-
 type DistributionViewerCertificateOutput struct{ *pulumi.OutputState }
 
 func (DistributionViewerCertificateOutput) ElementType() reflect.Type {
@@ -5626,16 +4480,6 @@ func (o DistributionViewerCertificateOutput) ToDistributionViewerCertificateOutp
 
 func (o DistributionViewerCertificateOutput) ToDistributionViewerCertificateOutputWithContext(ctx context.Context) DistributionViewerCertificateOutput {
 	return o
-}
-
-func (o DistributionViewerCertificateOutput) ToDistributionViewerCertificatePtrOutput() DistributionViewerCertificatePtrOutput {
-	return o.ToDistributionViewerCertificatePtrOutputWithContext(context.Background())
-}
-
-func (o DistributionViewerCertificateOutput) ToDistributionViewerCertificatePtrOutputWithContext(ctx context.Context) DistributionViewerCertificatePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DistributionViewerCertificate) *DistributionViewerCertificate {
-		return &v
-	}).(DistributionViewerCertificatePtrOutput)
 }
 
 // The ARN of the [AWS Certificate Manager](https://aws.amazon.com/certificate-manager/)
@@ -5680,97 +4524,6 @@ func (o DistributionViewerCertificateOutput) SslSupportMethod() pulumi.StringPtr
 	return o.ApplyT(func(v DistributionViewerCertificate) *string { return v.SslSupportMethod }).(pulumi.StringPtrOutput)
 }
 
-type DistributionViewerCertificatePtrOutput struct{ *pulumi.OutputState }
-
-func (DistributionViewerCertificatePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DistributionViewerCertificate)(nil)).Elem()
-}
-
-func (o DistributionViewerCertificatePtrOutput) ToDistributionViewerCertificatePtrOutput() DistributionViewerCertificatePtrOutput {
-	return o
-}
-
-func (o DistributionViewerCertificatePtrOutput) ToDistributionViewerCertificatePtrOutputWithContext(ctx context.Context) DistributionViewerCertificatePtrOutput {
-	return o
-}
-
-func (o DistributionViewerCertificatePtrOutput) Elem() DistributionViewerCertificateOutput {
-	return o.ApplyT(func(v *DistributionViewerCertificate) DistributionViewerCertificate {
-		if v != nil {
-			return *v
-		}
-		var ret DistributionViewerCertificate
-		return ret
-	}).(DistributionViewerCertificateOutput)
-}
-
-// The ARN of the [AWS Certificate Manager](https://aws.amazon.com/certificate-manager/)
-// certificate that you wish to use with this distribution. Specify this,
-// `cloudfrontDefaultCertificate`, or `iamCertificateId`.  The ACM
-// certificate must be in  US-EAST-1.
-func (o DistributionViewerCertificatePtrOutput) AcmCertificateArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DistributionViewerCertificate) *string {
-		if v == nil {
-			return nil
-		}
-		return v.AcmCertificateArn
-	}).(pulumi.StringPtrOutput)
-}
-
-// `true` if you want viewers to use HTTPS
-// to request your objects and you're using the CloudFront domain name for your
-// distribution. Specify this, `acmCertificateArn`, or `iamCertificateId`.
-func (o DistributionViewerCertificatePtrOutput) CloudfrontDefaultCertificate() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *DistributionViewerCertificate) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.CloudfrontDefaultCertificate
-	}).(pulumi.BoolPtrOutput)
-}
-
-// The IAM certificate identifier of the custom viewer
-// certificate for this distribution if you are using a custom domain. Specify
-// this, `acmCertificateArn`, or `cloudfrontDefaultCertificate`.
-func (o DistributionViewerCertificatePtrOutput) IamCertificateId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DistributionViewerCertificate) *string {
-		if v == nil {
-			return nil
-		}
-		return v.IamCertificateId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The minimum version of the SSL protocol that
-// you want CloudFront to use for HTTPS connections. Can only be set if
-// `cloudfrontDefaultCertificate = false`. See all possible values in
-// [this](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/secure-connections-supported-viewer-protocols-ciphers.html)
-// table under "Security policy." Some examples include: `TLSv1.2_2019` and
-// `TLSv1.2_2021`. Default: `TLSv1`. **NOTE**:
-// If you are using a custom certificate (specified with `acmCertificateArn`
-// or `iamCertificateId`), and have specified `sni-only` in
-// `sslSupportMethod`, `TLSv1` or later must be specified. If you have
-// specified `vip` in `sslSupportMethod`, only `SSLv3` or `TLSv1` can be
-// specified. If you have specified `cloudfrontDefaultCertificate`, `TLSv1`
-// must be specified.
-func (o DistributionViewerCertificatePtrOutput) MinimumProtocolVersion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DistributionViewerCertificate) *string {
-		if v == nil {
-			return nil
-		}
-		return v.MinimumProtocolVersion
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o DistributionViewerCertificatePtrOutput) SslSupportMethod() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DistributionViewerCertificate) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SslSupportMethod
-	}).(pulumi.StringPtrOutput)
-}
-
 type FieldLevelEncryptionConfigContentTypeProfileConfig struct {
 	// Object that contains an attribute `items` that contains the list of configurations for a field-level encryption content type-profile. See Content Type Profile.
 	ContentTypeProfiles FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfiles `pulumi:"contentTypeProfiles"`
@@ -5808,47 +4561,6 @@ func (i FieldLevelEncryptionConfigContentTypeProfileConfigArgs) ToFieldLevelEncr
 	return pulumi.ToOutputWithContext(ctx, i).(FieldLevelEncryptionConfigContentTypeProfileConfigOutput)
 }
 
-func (i FieldLevelEncryptionConfigContentTypeProfileConfigArgs) ToFieldLevelEncryptionConfigContentTypeProfileConfigPtrOutput() FieldLevelEncryptionConfigContentTypeProfileConfigPtrOutput {
-	return i.ToFieldLevelEncryptionConfigContentTypeProfileConfigPtrOutputWithContext(context.Background())
-}
-
-func (i FieldLevelEncryptionConfigContentTypeProfileConfigArgs) ToFieldLevelEncryptionConfigContentTypeProfileConfigPtrOutputWithContext(ctx context.Context) FieldLevelEncryptionConfigContentTypeProfileConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FieldLevelEncryptionConfigContentTypeProfileConfigOutput).ToFieldLevelEncryptionConfigContentTypeProfileConfigPtrOutputWithContext(ctx)
-}
-
-// FieldLevelEncryptionConfigContentTypeProfileConfigPtrInput is an input type that accepts FieldLevelEncryptionConfigContentTypeProfileConfigArgs, FieldLevelEncryptionConfigContentTypeProfileConfigPtr and FieldLevelEncryptionConfigContentTypeProfileConfigPtrOutput values.
-// You can construct a concrete instance of `FieldLevelEncryptionConfigContentTypeProfileConfigPtrInput` via:
-//
-//          FieldLevelEncryptionConfigContentTypeProfileConfigArgs{...}
-//
-//  or:
-//
-//          nil
-type FieldLevelEncryptionConfigContentTypeProfileConfigPtrInput interface {
-	pulumi.Input
-
-	ToFieldLevelEncryptionConfigContentTypeProfileConfigPtrOutput() FieldLevelEncryptionConfigContentTypeProfileConfigPtrOutput
-	ToFieldLevelEncryptionConfigContentTypeProfileConfigPtrOutputWithContext(context.Context) FieldLevelEncryptionConfigContentTypeProfileConfigPtrOutput
-}
-
-type fieldLevelEncryptionConfigContentTypeProfileConfigPtrType FieldLevelEncryptionConfigContentTypeProfileConfigArgs
-
-func FieldLevelEncryptionConfigContentTypeProfileConfigPtr(v *FieldLevelEncryptionConfigContentTypeProfileConfigArgs) FieldLevelEncryptionConfigContentTypeProfileConfigPtrInput {
-	return (*fieldLevelEncryptionConfigContentTypeProfileConfigPtrType)(v)
-}
-
-func (*fieldLevelEncryptionConfigContentTypeProfileConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FieldLevelEncryptionConfigContentTypeProfileConfig)(nil)).Elem()
-}
-
-func (i *fieldLevelEncryptionConfigContentTypeProfileConfigPtrType) ToFieldLevelEncryptionConfigContentTypeProfileConfigPtrOutput() FieldLevelEncryptionConfigContentTypeProfileConfigPtrOutput {
-	return i.ToFieldLevelEncryptionConfigContentTypeProfileConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *fieldLevelEncryptionConfigContentTypeProfileConfigPtrType) ToFieldLevelEncryptionConfigContentTypeProfileConfigPtrOutputWithContext(ctx context.Context) FieldLevelEncryptionConfigContentTypeProfileConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FieldLevelEncryptionConfigContentTypeProfileConfigPtrOutput)
-}
-
 type FieldLevelEncryptionConfigContentTypeProfileConfigOutput struct{ *pulumi.OutputState }
 
 func (FieldLevelEncryptionConfigContentTypeProfileConfigOutput) ElementType() reflect.Type {
@@ -5863,16 +4575,6 @@ func (o FieldLevelEncryptionConfigContentTypeProfileConfigOutput) ToFieldLevelEn
 	return o
 }
 
-func (o FieldLevelEncryptionConfigContentTypeProfileConfigOutput) ToFieldLevelEncryptionConfigContentTypeProfileConfigPtrOutput() FieldLevelEncryptionConfigContentTypeProfileConfigPtrOutput {
-	return o.ToFieldLevelEncryptionConfigContentTypeProfileConfigPtrOutputWithContext(context.Background())
-}
-
-func (o FieldLevelEncryptionConfigContentTypeProfileConfigOutput) ToFieldLevelEncryptionConfigContentTypeProfileConfigPtrOutputWithContext(ctx context.Context) FieldLevelEncryptionConfigContentTypeProfileConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FieldLevelEncryptionConfigContentTypeProfileConfig) *FieldLevelEncryptionConfigContentTypeProfileConfig {
-		return &v
-	}).(FieldLevelEncryptionConfigContentTypeProfileConfigPtrOutput)
-}
-
 // Object that contains an attribute `items` that contains the list of configurations for a field-level encryption content type-profile. See Content Type Profile.
 func (o FieldLevelEncryptionConfigContentTypeProfileConfigOutput) ContentTypeProfiles() FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesOutput {
 	return o.ApplyT(func(v FieldLevelEncryptionConfigContentTypeProfileConfig) FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfiles {
@@ -5885,50 +4587,6 @@ func (o FieldLevelEncryptionConfigContentTypeProfileConfigOutput) ForwardWhenCon
 	return o.ApplyT(func(v FieldLevelEncryptionConfigContentTypeProfileConfig) bool {
 		return v.ForwardWhenContentTypeIsUnknown
 	}).(pulumi.BoolOutput)
-}
-
-type FieldLevelEncryptionConfigContentTypeProfileConfigPtrOutput struct{ *pulumi.OutputState }
-
-func (FieldLevelEncryptionConfigContentTypeProfileConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FieldLevelEncryptionConfigContentTypeProfileConfig)(nil)).Elem()
-}
-
-func (o FieldLevelEncryptionConfigContentTypeProfileConfigPtrOutput) ToFieldLevelEncryptionConfigContentTypeProfileConfigPtrOutput() FieldLevelEncryptionConfigContentTypeProfileConfigPtrOutput {
-	return o
-}
-
-func (o FieldLevelEncryptionConfigContentTypeProfileConfigPtrOutput) ToFieldLevelEncryptionConfigContentTypeProfileConfigPtrOutputWithContext(ctx context.Context) FieldLevelEncryptionConfigContentTypeProfileConfigPtrOutput {
-	return o
-}
-
-func (o FieldLevelEncryptionConfigContentTypeProfileConfigPtrOutput) Elem() FieldLevelEncryptionConfigContentTypeProfileConfigOutput {
-	return o.ApplyT(func(v *FieldLevelEncryptionConfigContentTypeProfileConfig) FieldLevelEncryptionConfigContentTypeProfileConfig {
-		if v != nil {
-			return *v
-		}
-		var ret FieldLevelEncryptionConfigContentTypeProfileConfig
-		return ret
-	}).(FieldLevelEncryptionConfigContentTypeProfileConfigOutput)
-}
-
-// Object that contains an attribute `items` that contains the list of configurations for a field-level encryption content type-profile. See Content Type Profile.
-func (o FieldLevelEncryptionConfigContentTypeProfileConfigPtrOutput) ContentTypeProfiles() FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesPtrOutput {
-	return o.ApplyT(func(v *FieldLevelEncryptionConfigContentTypeProfileConfig) *FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfiles {
-		if v == nil {
-			return nil
-		}
-		return &v.ContentTypeProfiles
-	}).(FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesPtrOutput)
-}
-
-// specifies what to do when an unknown content type is provided for the profile. If true, content is forwarded without being encrypted when the content type is unknown. If false (the default), an error is returned when the content type is unknown.
-func (o FieldLevelEncryptionConfigContentTypeProfileConfigPtrOutput) ForwardWhenContentTypeIsUnknown() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *FieldLevelEncryptionConfigContentTypeProfileConfig) *bool {
-		if v == nil {
-			return nil
-		}
-		return &v.ForwardWhenContentTypeIsUnknown
-	}).(pulumi.BoolPtrOutput)
 }
 
 type FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfiles struct {
@@ -5962,47 +4620,6 @@ func (i FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesArg
 	return pulumi.ToOutputWithContext(ctx, i).(FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesOutput)
 }
 
-func (i FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesArgs) ToFieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesPtrOutput() FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesPtrOutput {
-	return i.ToFieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesPtrOutputWithContext(context.Background())
-}
-
-func (i FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesArgs) ToFieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesPtrOutputWithContext(ctx context.Context) FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesOutput).ToFieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesPtrOutputWithContext(ctx)
-}
-
-// FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesPtrInput is an input type that accepts FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesArgs, FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesPtr and FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesPtrOutput values.
-// You can construct a concrete instance of `FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesPtrInput` via:
-//
-//          FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesArgs{...}
-//
-//  or:
-//
-//          nil
-type FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesPtrInput interface {
-	pulumi.Input
-
-	ToFieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesPtrOutput() FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesPtrOutput
-	ToFieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesPtrOutputWithContext(context.Context) FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesPtrOutput
-}
-
-type fieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesPtrType FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesArgs
-
-func FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesPtr(v *FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesArgs) FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesPtrInput {
-	return (*fieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesPtrType)(v)
-}
-
-func (*fieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfiles)(nil)).Elem()
-}
-
-func (i *fieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesPtrType) ToFieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesPtrOutput() FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesPtrOutput {
-	return i.ToFieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesPtrOutputWithContext(context.Background())
-}
-
-func (i *fieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesPtrType) ToFieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesPtrOutputWithContext(ctx context.Context) FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesPtrOutput)
-}
-
 type FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesOutput struct{ *pulumi.OutputState }
 
 func (FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesOutput) ElementType() reflect.Type {
@@ -6017,51 +4634,8 @@ func (o FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesOut
 	return o
 }
 
-func (o FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesOutput) ToFieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesPtrOutput() FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesPtrOutput {
-	return o.ToFieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesPtrOutputWithContext(context.Background())
-}
-
-func (o FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesOutput) ToFieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesPtrOutputWithContext(ctx context.Context) FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfiles) *FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfiles {
-		return &v
-	}).(FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesPtrOutput)
-}
-
 func (o FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesOutput) Items() FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArrayOutput {
 	return o.ApplyT(func(v FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfiles) []FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItem {
-		return v.Items
-	}).(FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArrayOutput)
-}
-
-type FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesPtrOutput struct{ *pulumi.OutputState }
-
-func (FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfiles)(nil)).Elem()
-}
-
-func (o FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesPtrOutput) ToFieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesPtrOutput() FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesPtrOutput {
-	return o
-}
-
-func (o FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesPtrOutput) ToFieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesPtrOutputWithContext(ctx context.Context) FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesPtrOutput {
-	return o
-}
-
-func (o FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesPtrOutput) Elem() FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesOutput {
-	return o.ApplyT(func(v *FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfiles) FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfiles {
-		if v != nil {
-			return *v
-		}
-		var ret FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfiles
-		return ret
-	}).(FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesOutput)
-}
-
-func (o FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesPtrOutput) Items() FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArrayOutput {
-	return o.ApplyT(func(v *FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfiles) []FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItem {
-		if v == nil {
-			return nil
-		}
 		return v.Items
 	}).(FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArrayOutput)
 }
@@ -6224,47 +4798,6 @@ func (i FieldLevelEncryptionConfigQueryArgProfileConfigArgs) ToFieldLevelEncrypt
 	return pulumi.ToOutputWithContext(ctx, i).(FieldLevelEncryptionConfigQueryArgProfileConfigOutput)
 }
 
-func (i FieldLevelEncryptionConfigQueryArgProfileConfigArgs) ToFieldLevelEncryptionConfigQueryArgProfileConfigPtrOutput() FieldLevelEncryptionConfigQueryArgProfileConfigPtrOutput {
-	return i.ToFieldLevelEncryptionConfigQueryArgProfileConfigPtrOutputWithContext(context.Background())
-}
-
-func (i FieldLevelEncryptionConfigQueryArgProfileConfigArgs) ToFieldLevelEncryptionConfigQueryArgProfileConfigPtrOutputWithContext(ctx context.Context) FieldLevelEncryptionConfigQueryArgProfileConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FieldLevelEncryptionConfigQueryArgProfileConfigOutput).ToFieldLevelEncryptionConfigQueryArgProfileConfigPtrOutputWithContext(ctx)
-}
-
-// FieldLevelEncryptionConfigQueryArgProfileConfigPtrInput is an input type that accepts FieldLevelEncryptionConfigQueryArgProfileConfigArgs, FieldLevelEncryptionConfigQueryArgProfileConfigPtr and FieldLevelEncryptionConfigQueryArgProfileConfigPtrOutput values.
-// You can construct a concrete instance of `FieldLevelEncryptionConfigQueryArgProfileConfigPtrInput` via:
-//
-//          FieldLevelEncryptionConfigQueryArgProfileConfigArgs{...}
-//
-//  or:
-//
-//          nil
-type FieldLevelEncryptionConfigQueryArgProfileConfigPtrInput interface {
-	pulumi.Input
-
-	ToFieldLevelEncryptionConfigQueryArgProfileConfigPtrOutput() FieldLevelEncryptionConfigQueryArgProfileConfigPtrOutput
-	ToFieldLevelEncryptionConfigQueryArgProfileConfigPtrOutputWithContext(context.Context) FieldLevelEncryptionConfigQueryArgProfileConfigPtrOutput
-}
-
-type fieldLevelEncryptionConfigQueryArgProfileConfigPtrType FieldLevelEncryptionConfigQueryArgProfileConfigArgs
-
-func FieldLevelEncryptionConfigQueryArgProfileConfigPtr(v *FieldLevelEncryptionConfigQueryArgProfileConfigArgs) FieldLevelEncryptionConfigQueryArgProfileConfigPtrInput {
-	return (*fieldLevelEncryptionConfigQueryArgProfileConfigPtrType)(v)
-}
-
-func (*fieldLevelEncryptionConfigQueryArgProfileConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FieldLevelEncryptionConfigQueryArgProfileConfig)(nil)).Elem()
-}
-
-func (i *fieldLevelEncryptionConfigQueryArgProfileConfigPtrType) ToFieldLevelEncryptionConfigQueryArgProfileConfigPtrOutput() FieldLevelEncryptionConfigQueryArgProfileConfigPtrOutput {
-	return i.ToFieldLevelEncryptionConfigQueryArgProfileConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *fieldLevelEncryptionConfigQueryArgProfileConfigPtrType) ToFieldLevelEncryptionConfigQueryArgProfileConfigPtrOutputWithContext(ctx context.Context) FieldLevelEncryptionConfigQueryArgProfileConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FieldLevelEncryptionConfigQueryArgProfileConfigPtrOutput)
-}
-
 type FieldLevelEncryptionConfigQueryArgProfileConfigOutput struct{ *pulumi.OutputState }
 
 func (FieldLevelEncryptionConfigQueryArgProfileConfigOutput) ElementType() reflect.Type {
@@ -6279,16 +4812,6 @@ func (o FieldLevelEncryptionConfigQueryArgProfileConfigOutput) ToFieldLevelEncry
 	return o
 }
 
-func (o FieldLevelEncryptionConfigQueryArgProfileConfigOutput) ToFieldLevelEncryptionConfigQueryArgProfileConfigPtrOutput() FieldLevelEncryptionConfigQueryArgProfileConfigPtrOutput {
-	return o.ToFieldLevelEncryptionConfigQueryArgProfileConfigPtrOutputWithContext(context.Background())
-}
-
-func (o FieldLevelEncryptionConfigQueryArgProfileConfigOutput) ToFieldLevelEncryptionConfigQueryArgProfileConfigPtrOutputWithContext(ctx context.Context) FieldLevelEncryptionConfigQueryArgProfileConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FieldLevelEncryptionConfigQueryArgProfileConfig) *FieldLevelEncryptionConfigQueryArgProfileConfig {
-		return &v
-	}).(FieldLevelEncryptionConfigQueryArgProfileConfigPtrOutput)
-}
-
 // Flag to set if you want a request to be forwarded to the origin even if the profile specified by the field-level encryption query argument, fle-profile, is unknown.
 func (o FieldLevelEncryptionConfigQueryArgProfileConfigOutput) ForwardWhenQueryArgProfileIsUnknown() pulumi.BoolOutput {
 	return o.ApplyT(func(v FieldLevelEncryptionConfigQueryArgProfileConfig) bool {
@@ -6299,50 +4822,6 @@ func (o FieldLevelEncryptionConfigQueryArgProfileConfigOutput) ForwardWhenQueryA
 // Object that contains an attribute `items` that contains the list ofrofiles specified for query argument-profile mapping for field-level encryption. see Query Arg Profile.
 func (o FieldLevelEncryptionConfigQueryArgProfileConfigOutput) QueryArgProfiles() FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesPtrOutput {
 	return o.ApplyT(func(v FieldLevelEncryptionConfigQueryArgProfileConfig) *FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfiles {
-		return v.QueryArgProfiles
-	}).(FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesPtrOutput)
-}
-
-type FieldLevelEncryptionConfigQueryArgProfileConfigPtrOutput struct{ *pulumi.OutputState }
-
-func (FieldLevelEncryptionConfigQueryArgProfileConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FieldLevelEncryptionConfigQueryArgProfileConfig)(nil)).Elem()
-}
-
-func (o FieldLevelEncryptionConfigQueryArgProfileConfigPtrOutput) ToFieldLevelEncryptionConfigQueryArgProfileConfigPtrOutput() FieldLevelEncryptionConfigQueryArgProfileConfigPtrOutput {
-	return o
-}
-
-func (o FieldLevelEncryptionConfigQueryArgProfileConfigPtrOutput) ToFieldLevelEncryptionConfigQueryArgProfileConfigPtrOutputWithContext(ctx context.Context) FieldLevelEncryptionConfigQueryArgProfileConfigPtrOutput {
-	return o
-}
-
-func (o FieldLevelEncryptionConfigQueryArgProfileConfigPtrOutput) Elem() FieldLevelEncryptionConfigQueryArgProfileConfigOutput {
-	return o.ApplyT(func(v *FieldLevelEncryptionConfigQueryArgProfileConfig) FieldLevelEncryptionConfigQueryArgProfileConfig {
-		if v != nil {
-			return *v
-		}
-		var ret FieldLevelEncryptionConfigQueryArgProfileConfig
-		return ret
-	}).(FieldLevelEncryptionConfigQueryArgProfileConfigOutput)
-}
-
-// Flag to set if you want a request to be forwarded to the origin even if the profile specified by the field-level encryption query argument, fle-profile, is unknown.
-func (o FieldLevelEncryptionConfigQueryArgProfileConfigPtrOutput) ForwardWhenQueryArgProfileIsUnknown() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *FieldLevelEncryptionConfigQueryArgProfileConfig) *bool {
-		if v == nil {
-			return nil
-		}
-		return &v.ForwardWhenQueryArgProfileIsUnknown
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Object that contains an attribute `items` that contains the list ofrofiles specified for query argument-profile mapping for field-level encryption. see Query Arg Profile.
-func (o FieldLevelEncryptionConfigQueryArgProfileConfigPtrOutput) QueryArgProfiles() FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesPtrOutput {
-	return o.ApplyT(func(v *FieldLevelEncryptionConfigQueryArgProfileConfig) *FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfiles {
-		if v == nil {
-			return nil
-		}
 		return v.QueryArgProfiles
 	}).(FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesPtrOutput)
 }
@@ -6619,47 +5098,6 @@ func (i FieldLevelEncryptionProfileEncryptionEntitiesArgs) ToFieldLevelEncryptio
 	return pulumi.ToOutputWithContext(ctx, i).(FieldLevelEncryptionProfileEncryptionEntitiesOutput)
 }
 
-func (i FieldLevelEncryptionProfileEncryptionEntitiesArgs) ToFieldLevelEncryptionProfileEncryptionEntitiesPtrOutput() FieldLevelEncryptionProfileEncryptionEntitiesPtrOutput {
-	return i.ToFieldLevelEncryptionProfileEncryptionEntitiesPtrOutputWithContext(context.Background())
-}
-
-func (i FieldLevelEncryptionProfileEncryptionEntitiesArgs) ToFieldLevelEncryptionProfileEncryptionEntitiesPtrOutputWithContext(ctx context.Context) FieldLevelEncryptionProfileEncryptionEntitiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FieldLevelEncryptionProfileEncryptionEntitiesOutput).ToFieldLevelEncryptionProfileEncryptionEntitiesPtrOutputWithContext(ctx)
-}
-
-// FieldLevelEncryptionProfileEncryptionEntitiesPtrInput is an input type that accepts FieldLevelEncryptionProfileEncryptionEntitiesArgs, FieldLevelEncryptionProfileEncryptionEntitiesPtr and FieldLevelEncryptionProfileEncryptionEntitiesPtrOutput values.
-// You can construct a concrete instance of `FieldLevelEncryptionProfileEncryptionEntitiesPtrInput` via:
-//
-//          FieldLevelEncryptionProfileEncryptionEntitiesArgs{...}
-//
-//  or:
-//
-//          nil
-type FieldLevelEncryptionProfileEncryptionEntitiesPtrInput interface {
-	pulumi.Input
-
-	ToFieldLevelEncryptionProfileEncryptionEntitiesPtrOutput() FieldLevelEncryptionProfileEncryptionEntitiesPtrOutput
-	ToFieldLevelEncryptionProfileEncryptionEntitiesPtrOutputWithContext(context.Context) FieldLevelEncryptionProfileEncryptionEntitiesPtrOutput
-}
-
-type fieldLevelEncryptionProfileEncryptionEntitiesPtrType FieldLevelEncryptionProfileEncryptionEntitiesArgs
-
-func FieldLevelEncryptionProfileEncryptionEntitiesPtr(v *FieldLevelEncryptionProfileEncryptionEntitiesArgs) FieldLevelEncryptionProfileEncryptionEntitiesPtrInput {
-	return (*fieldLevelEncryptionProfileEncryptionEntitiesPtrType)(v)
-}
-
-func (*fieldLevelEncryptionProfileEncryptionEntitiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FieldLevelEncryptionProfileEncryptionEntities)(nil)).Elem()
-}
-
-func (i *fieldLevelEncryptionProfileEncryptionEntitiesPtrType) ToFieldLevelEncryptionProfileEncryptionEntitiesPtrOutput() FieldLevelEncryptionProfileEncryptionEntitiesPtrOutput {
-	return i.ToFieldLevelEncryptionProfileEncryptionEntitiesPtrOutputWithContext(context.Background())
-}
-
-func (i *fieldLevelEncryptionProfileEncryptionEntitiesPtrType) ToFieldLevelEncryptionProfileEncryptionEntitiesPtrOutputWithContext(ctx context.Context) FieldLevelEncryptionProfileEncryptionEntitiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FieldLevelEncryptionProfileEncryptionEntitiesPtrOutput)
-}
-
 type FieldLevelEncryptionProfileEncryptionEntitiesOutput struct{ *pulumi.OutputState }
 
 func (FieldLevelEncryptionProfileEncryptionEntitiesOutput) ElementType() reflect.Type {
@@ -6674,51 +5112,8 @@ func (o FieldLevelEncryptionProfileEncryptionEntitiesOutput) ToFieldLevelEncrypt
 	return o
 }
 
-func (o FieldLevelEncryptionProfileEncryptionEntitiesOutput) ToFieldLevelEncryptionProfileEncryptionEntitiesPtrOutput() FieldLevelEncryptionProfileEncryptionEntitiesPtrOutput {
-	return o.ToFieldLevelEncryptionProfileEncryptionEntitiesPtrOutputWithContext(context.Background())
-}
-
-func (o FieldLevelEncryptionProfileEncryptionEntitiesOutput) ToFieldLevelEncryptionProfileEncryptionEntitiesPtrOutputWithContext(ctx context.Context) FieldLevelEncryptionProfileEncryptionEntitiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FieldLevelEncryptionProfileEncryptionEntities) *FieldLevelEncryptionProfileEncryptionEntities {
-		return &v
-	}).(FieldLevelEncryptionProfileEncryptionEntitiesPtrOutput)
-}
-
 func (o FieldLevelEncryptionProfileEncryptionEntitiesOutput) Items() FieldLevelEncryptionProfileEncryptionEntitiesItemArrayOutput {
 	return o.ApplyT(func(v FieldLevelEncryptionProfileEncryptionEntities) []FieldLevelEncryptionProfileEncryptionEntitiesItem {
-		return v.Items
-	}).(FieldLevelEncryptionProfileEncryptionEntitiesItemArrayOutput)
-}
-
-type FieldLevelEncryptionProfileEncryptionEntitiesPtrOutput struct{ *pulumi.OutputState }
-
-func (FieldLevelEncryptionProfileEncryptionEntitiesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FieldLevelEncryptionProfileEncryptionEntities)(nil)).Elem()
-}
-
-func (o FieldLevelEncryptionProfileEncryptionEntitiesPtrOutput) ToFieldLevelEncryptionProfileEncryptionEntitiesPtrOutput() FieldLevelEncryptionProfileEncryptionEntitiesPtrOutput {
-	return o
-}
-
-func (o FieldLevelEncryptionProfileEncryptionEntitiesPtrOutput) ToFieldLevelEncryptionProfileEncryptionEntitiesPtrOutputWithContext(ctx context.Context) FieldLevelEncryptionProfileEncryptionEntitiesPtrOutput {
-	return o
-}
-
-func (o FieldLevelEncryptionProfileEncryptionEntitiesPtrOutput) Elem() FieldLevelEncryptionProfileEncryptionEntitiesOutput {
-	return o.ApplyT(func(v *FieldLevelEncryptionProfileEncryptionEntities) FieldLevelEncryptionProfileEncryptionEntities {
-		if v != nil {
-			return *v
-		}
-		var ret FieldLevelEncryptionProfileEncryptionEntities
-		return ret
-	}).(FieldLevelEncryptionProfileEncryptionEntitiesOutput)
-}
-
-func (o FieldLevelEncryptionProfileEncryptionEntitiesPtrOutput) Items() FieldLevelEncryptionProfileEncryptionEntitiesItemArrayOutput {
-	return o.ApplyT(func(v *FieldLevelEncryptionProfileEncryptionEntities) []FieldLevelEncryptionProfileEncryptionEntitiesItem {
-		if v == nil {
-			return nil
-		}
 		return v.Items
 	}).(FieldLevelEncryptionProfileEncryptionEntitiesItemArrayOutput)
 }
@@ -6922,47 +5317,6 @@ func (i MonitoringSubscriptionMonitoringSubscriptionArgs) ToMonitoringSubscripti
 	return pulumi.ToOutputWithContext(ctx, i).(MonitoringSubscriptionMonitoringSubscriptionOutput)
 }
 
-func (i MonitoringSubscriptionMonitoringSubscriptionArgs) ToMonitoringSubscriptionMonitoringSubscriptionPtrOutput() MonitoringSubscriptionMonitoringSubscriptionPtrOutput {
-	return i.ToMonitoringSubscriptionMonitoringSubscriptionPtrOutputWithContext(context.Background())
-}
-
-func (i MonitoringSubscriptionMonitoringSubscriptionArgs) ToMonitoringSubscriptionMonitoringSubscriptionPtrOutputWithContext(ctx context.Context) MonitoringSubscriptionMonitoringSubscriptionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MonitoringSubscriptionMonitoringSubscriptionOutput).ToMonitoringSubscriptionMonitoringSubscriptionPtrOutputWithContext(ctx)
-}
-
-// MonitoringSubscriptionMonitoringSubscriptionPtrInput is an input type that accepts MonitoringSubscriptionMonitoringSubscriptionArgs, MonitoringSubscriptionMonitoringSubscriptionPtr and MonitoringSubscriptionMonitoringSubscriptionPtrOutput values.
-// You can construct a concrete instance of `MonitoringSubscriptionMonitoringSubscriptionPtrInput` via:
-//
-//          MonitoringSubscriptionMonitoringSubscriptionArgs{...}
-//
-//  or:
-//
-//          nil
-type MonitoringSubscriptionMonitoringSubscriptionPtrInput interface {
-	pulumi.Input
-
-	ToMonitoringSubscriptionMonitoringSubscriptionPtrOutput() MonitoringSubscriptionMonitoringSubscriptionPtrOutput
-	ToMonitoringSubscriptionMonitoringSubscriptionPtrOutputWithContext(context.Context) MonitoringSubscriptionMonitoringSubscriptionPtrOutput
-}
-
-type monitoringSubscriptionMonitoringSubscriptionPtrType MonitoringSubscriptionMonitoringSubscriptionArgs
-
-func MonitoringSubscriptionMonitoringSubscriptionPtr(v *MonitoringSubscriptionMonitoringSubscriptionArgs) MonitoringSubscriptionMonitoringSubscriptionPtrInput {
-	return (*monitoringSubscriptionMonitoringSubscriptionPtrType)(v)
-}
-
-func (*monitoringSubscriptionMonitoringSubscriptionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**MonitoringSubscriptionMonitoringSubscription)(nil)).Elem()
-}
-
-func (i *monitoringSubscriptionMonitoringSubscriptionPtrType) ToMonitoringSubscriptionMonitoringSubscriptionPtrOutput() MonitoringSubscriptionMonitoringSubscriptionPtrOutput {
-	return i.ToMonitoringSubscriptionMonitoringSubscriptionPtrOutputWithContext(context.Background())
-}
-
-func (i *monitoringSubscriptionMonitoringSubscriptionPtrType) ToMonitoringSubscriptionMonitoringSubscriptionPtrOutputWithContext(ctx context.Context) MonitoringSubscriptionMonitoringSubscriptionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MonitoringSubscriptionMonitoringSubscriptionPtrOutput)
-}
-
 type MonitoringSubscriptionMonitoringSubscriptionOutput struct{ *pulumi.OutputState }
 
 func (MonitoringSubscriptionMonitoringSubscriptionOutput) ElementType() reflect.Type {
@@ -6977,55 +5331,11 @@ func (o MonitoringSubscriptionMonitoringSubscriptionOutput) ToMonitoringSubscrip
 	return o
 }
 
-func (o MonitoringSubscriptionMonitoringSubscriptionOutput) ToMonitoringSubscriptionMonitoringSubscriptionPtrOutput() MonitoringSubscriptionMonitoringSubscriptionPtrOutput {
-	return o.ToMonitoringSubscriptionMonitoringSubscriptionPtrOutputWithContext(context.Background())
-}
-
-func (o MonitoringSubscriptionMonitoringSubscriptionOutput) ToMonitoringSubscriptionMonitoringSubscriptionPtrOutputWithContext(ctx context.Context) MonitoringSubscriptionMonitoringSubscriptionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MonitoringSubscriptionMonitoringSubscription) *MonitoringSubscriptionMonitoringSubscription {
-		return &v
-	}).(MonitoringSubscriptionMonitoringSubscriptionPtrOutput)
-}
-
 // A subscription configuration for additional CloudWatch metrics. See below.
 func (o MonitoringSubscriptionMonitoringSubscriptionOutput) RealtimeMetricsSubscriptionConfig() MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigOutput {
 	return o.ApplyT(func(v MonitoringSubscriptionMonitoringSubscription) MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfig {
 		return v.RealtimeMetricsSubscriptionConfig
 	}).(MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigOutput)
-}
-
-type MonitoringSubscriptionMonitoringSubscriptionPtrOutput struct{ *pulumi.OutputState }
-
-func (MonitoringSubscriptionMonitoringSubscriptionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**MonitoringSubscriptionMonitoringSubscription)(nil)).Elem()
-}
-
-func (o MonitoringSubscriptionMonitoringSubscriptionPtrOutput) ToMonitoringSubscriptionMonitoringSubscriptionPtrOutput() MonitoringSubscriptionMonitoringSubscriptionPtrOutput {
-	return o
-}
-
-func (o MonitoringSubscriptionMonitoringSubscriptionPtrOutput) ToMonitoringSubscriptionMonitoringSubscriptionPtrOutputWithContext(ctx context.Context) MonitoringSubscriptionMonitoringSubscriptionPtrOutput {
-	return o
-}
-
-func (o MonitoringSubscriptionMonitoringSubscriptionPtrOutput) Elem() MonitoringSubscriptionMonitoringSubscriptionOutput {
-	return o.ApplyT(func(v *MonitoringSubscriptionMonitoringSubscription) MonitoringSubscriptionMonitoringSubscription {
-		if v != nil {
-			return *v
-		}
-		var ret MonitoringSubscriptionMonitoringSubscription
-		return ret
-	}).(MonitoringSubscriptionMonitoringSubscriptionOutput)
-}
-
-// A subscription configuration for additional CloudWatch metrics. See below.
-func (o MonitoringSubscriptionMonitoringSubscriptionPtrOutput) RealtimeMetricsSubscriptionConfig() MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrOutput {
-	return o.ApplyT(func(v *MonitoringSubscriptionMonitoringSubscription) *MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfig {
-		if v == nil {
-			return nil
-		}
-		return &v.RealtimeMetricsSubscriptionConfig
-	}).(MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrOutput)
 }
 
 type MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfig struct {
@@ -7061,47 +5371,6 @@ func (i MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionC
 	return pulumi.ToOutputWithContext(ctx, i).(MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigOutput)
 }
 
-func (i MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs) ToMonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrOutput() MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrOutput {
-	return i.ToMonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrOutputWithContext(context.Background())
-}
-
-func (i MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs) ToMonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrOutputWithContext(ctx context.Context) MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigOutput).ToMonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrOutputWithContext(ctx)
-}
-
-// MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrInput is an input type that accepts MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs, MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtr and MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrOutput values.
-// You can construct a concrete instance of `MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrInput` via:
-//
-//          MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs{...}
-//
-//  or:
-//
-//          nil
-type MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrInput interface {
-	pulumi.Input
-
-	ToMonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrOutput() MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrOutput
-	ToMonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrOutputWithContext(context.Context) MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrOutput
-}
-
-type monitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrType MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs
-
-func MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtr(v *MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs) MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrInput {
-	return (*monitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrType)(v)
-}
-
-func (*monitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfig)(nil)).Elem()
-}
-
-func (i *monitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrType) ToMonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrOutput() MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrOutput {
-	return i.ToMonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *monitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrType) ToMonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrOutputWithContext(ctx context.Context) MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrOutput)
-}
-
 type MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigOutput struct{ *pulumi.OutputState }
 
 func (MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigOutput) ElementType() reflect.Type {
@@ -7116,55 +5385,11 @@ func (o MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionC
 	return o
 }
 
-func (o MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigOutput) ToMonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrOutput() MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrOutput {
-	return o.ToMonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrOutputWithContext(context.Background())
-}
-
-func (o MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigOutput) ToMonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrOutputWithContext(ctx context.Context) MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfig) *MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfig {
-		return &v
-	}).(MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrOutput)
-}
-
 // A flag that indicates whether additional CloudWatch metrics are enabled for a given CloudFront distribution. Valid values are `Enabled` and `Disabled`. See below.
 func (o MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigOutput) RealtimeMetricsSubscriptionStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfig) string {
 		return v.RealtimeMetricsSubscriptionStatus
 	}).(pulumi.StringOutput)
-}
-
-type MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrOutput struct{ *pulumi.OutputState }
-
-func (MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfig)(nil)).Elem()
-}
-
-func (o MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrOutput) ToMonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrOutput() MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrOutput {
-	return o
-}
-
-func (o MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrOutput) ToMonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrOutputWithContext(ctx context.Context) MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrOutput {
-	return o
-}
-
-func (o MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrOutput) Elem() MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigOutput {
-	return o.ApplyT(func(v *MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfig) MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfig {
-		if v != nil {
-			return *v
-		}
-		var ret MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfig
-		return ret
-	}).(MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigOutput)
-}
-
-// A flag that indicates whether additional CloudWatch metrics are enabled for a given CloudFront distribution. Valid values are `Enabled` and `Disabled`. See below.
-func (o MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrOutput) RealtimeMetricsSubscriptionStatus() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.RealtimeMetricsSubscriptionStatus
-	}).(pulumi.StringPtrOutput)
 }
 
 type OriginRequestPolicyCookiesConfig struct {
@@ -7200,47 +5425,6 @@ func (i OriginRequestPolicyCookiesConfigArgs) ToOriginRequestPolicyCookiesConfig
 	return pulumi.ToOutputWithContext(ctx, i).(OriginRequestPolicyCookiesConfigOutput)
 }
 
-func (i OriginRequestPolicyCookiesConfigArgs) ToOriginRequestPolicyCookiesConfigPtrOutput() OriginRequestPolicyCookiesConfigPtrOutput {
-	return i.ToOriginRequestPolicyCookiesConfigPtrOutputWithContext(context.Background())
-}
-
-func (i OriginRequestPolicyCookiesConfigArgs) ToOriginRequestPolicyCookiesConfigPtrOutputWithContext(ctx context.Context) OriginRequestPolicyCookiesConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OriginRequestPolicyCookiesConfigOutput).ToOriginRequestPolicyCookiesConfigPtrOutputWithContext(ctx)
-}
-
-// OriginRequestPolicyCookiesConfigPtrInput is an input type that accepts OriginRequestPolicyCookiesConfigArgs, OriginRequestPolicyCookiesConfigPtr and OriginRequestPolicyCookiesConfigPtrOutput values.
-// You can construct a concrete instance of `OriginRequestPolicyCookiesConfigPtrInput` via:
-//
-//          OriginRequestPolicyCookiesConfigArgs{...}
-//
-//  or:
-//
-//          nil
-type OriginRequestPolicyCookiesConfigPtrInput interface {
-	pulumi.Input
-
-	ToOriginRequestPolicyCookiesConfigPtrOutput() OriginRequestPolicyCookiesConfigPtrOutput
-	ToOriginRequestPolicyCookiesConfigPtrOutputWithContext(context.Context) OriginRequestPolicyCookiesConfigPtrOutput
-}
-
-type originRequestPolicyCookiesConfigPtrType OriginRequestPolicyCookiesConfigArgs
-
-func OriginRequestPolicyCookiesConfigPtr(v *OriginRequestPolicyCookiesConfigArgs) OriginRequestPolicyCookiesConfigPtrInput {
-	return (*originRequestPolicyCookiesConfigPtrType)(v)
-}
-
-func (*originRequestPolicyCookiesConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**OriginRequestPolicyCookiesConfig)(nil)).Elem()
-}
-
-func (i *originRequestPolicyCookiesConfigPtrType) ToOriginRequestPolicyCookiesConfigPtrOutput() OriginRequestPolicyCookiesConfigPtrOutput {
-	return i.ToOriginRequestPolicyCookiesConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *originRequestPolicyCookiesConfigPtrType) ToOriginRequestPolicyCookiesConfigPtrOutputWithContext(ctx context.Context) OriginRequestPolicyCookiesConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OriginRequestPolicyCookiesConfigPtrOutput)
-}
-
 type OriginRequestPolicyCookiesConfigOutput struct{ *pulumi.OutputState }
 
 func (OriginRequestPolicyCookiesConfigOutput) ElementType() reflect.Type {
@@ -7255,64 +5439,12 @@ func (o OriginRequestPolicyCookiesConfigOutput) ToOriginRequestPolicyCookiesConf
 	return o
 }
 
-func (o OriginRequestPolicyCookiesConfigOutput) ToOriginRequestPolicyCookiesConfigPtrOutput() OriginRequestPolicyCookiesConfigPtrOutput {
-	return o.ToOriginRequestPolicyCookiesConfigPtrOutputWithContext(context.Background())
-}
-
-func (o OriginRequestPolicyCookiesConfigOutput) ToOriginRequestPolicyCookiesConfigPtrOutputWithContext(ctx context.Context) OriginRequestPolicyCookiesConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OriginRequestPolicyCookiesConfig) *OriginRequestPolicyCookiesConfig {
-		return &v
-	}).(OriginRequestPolicyCookiesConfigPtrOutput)
-}
-
 func (o OriginRequestPolicyCookiesConfigOutput) CookieBehavior() pulumi.StringOutput {
 	return o.ApplyT(func(v OriginRequestPolicyCookiesConfig) string { return v.CookieBehavior }).(pulumi.StringOutput)
 }
 
 func (o OriginRequestPolicyCookiesConfigOutput) Cookies() OriginRequestPolicyCookiesConfigCookiesPtrOutput {
 	return o.ApplyT(func(v OriginRequestPolicyCookiesConfig) *OriginRequestPolicyCookiesConfigCookies { return v.Cookies }).(OriginRequestPolicyCookiesConfigCookiesPtrOutput)
-}
-
-type OriginRequestPolicyCookiesConfigPtrOutput struct{ *pulumi.OutputState }
-
-func (OriginRequestPolicyCookiesConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**OriginRequestPolicyCookiesConfig)(nil)).Elem()
-}
-
-func (o OriginRequestPolicyCookiesConfigPtrOutput) ToOriginRequestPolicyCookiesConfigPtrOutput() OriginRequestPolicyCookiesConfigPtrOutput {
-	return o
-}
-
-func (o OriginRequestPolicyCookiesConfigPtrOutput) ToOriginRequestPolicyCookiesConfigPtrOutputWithContext(ctx context.Context) OriginRequestPolicyCookiesConfigPtrOutput {
-	return o
-}
-
-func (o OriginRequestPolicyCookiesConfigPtrOutput) Elem() OriginRequestPolicyCookiesConfigOutput {
-	return o.ApplyT(func(v *OriginRequestPolicyCookiesConfig) OriginRequestPolicyCookiesConfig {
-		if v != nil {
-			return *v
-		}
-		var ret OriginRequestPolicyCookiesConfig
-		return ret
-	}).(OriginRequestPolicyCookiesConfigOutput)
-}
-
-func (o OriginRequestPolicyCookiesConfigPtrOutput) CookieBehavior() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *OriginRequestPolicyCookiesConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.CookieBehavior
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o OriginRequestPolicyCookiesConfigPtrOutput) Cookies() OriginRequestPolicyCookiesConfigCookiesPtrOutput {
-	return o.ApplyT(func(v *OriginRequestPolicyCookiesConfig) *OriginRequestPolicyCookiesConfigCookies {
-		if v == nil {
-			return nil
-		}
-		return v.Cookies
-	}).(OriginRequestPolicyCookiesConfigCookiesPtrOutput)
 }
 
 type OriginRequestPolicyCookiesConfigCookies struct {
@@ -7481,47 +5613,6 @@ func (i OriginRequestPolicyHeadersConfigArgs) ToOriginRequestPolicyHeadersConfig
 	return pulumi.ToOutputWithContext(ctx, i).(OriginRequestPolicyHeadersConfigOutput)
 }
 
-func (i OriginRequestPolicyHeadersConfigArgs) ToOriginRequestPolicyHeadersConfigPtrOutput() OriginRequestPolicyHeadersConfigPtrOutput {
-	return i.ToOriginRequestPolicyHeadersConfigPtrOutputWithContext(context.Background())
-}
-
-func (i OriginRequestPolicyHeadersConfigArgs) ToOriginRequestPolicyHeadersConfigPtrOutputWithContext(ctx context.Context) OriginRequestPolicyHeadersConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OriginRequestPolicyHeadersConfigOutput).ToOriginRequestPolicyHeadersConfigPtrOutputWithContext(ctx)
-}
-
-// OriginRequestPolicyHeadersConfigPtrInput is an input type that accepts OriginRequestPolicyHeadersConfigArgs, OriginRequestPolicyHeadersConfigPtr and OriginRequestPolicyHeadersConfigPtrOutput values.
-// You can construct a concrete instance of `OriginRequestPolicyHeadersConfigPtrInput` via:
-//
-//          OriginRequestPolicyHeadersConfigArgs{...}
-//
-//  or:
-//
-//          nil
-type OriginRequestPolicyHeadersConfigPtrInput interface {
-	pulumi.Input
-
-	ToOriginRequestPolicyHeadersConfigPtrOutput() OriginRequestPolicyHeadersConfigPtrOutput
-	ToOriginRequestPolicyHeadersConfigPtrOutputWithContext(context.Context) OriginRequestPolicyHeadersConfigPtrOutput
-}
-
-type originRequestPolicyHeadersConfigPtrType OriginRequestPolicyHeadersConfigArgs
-
-func OriginRequestPolicyHeadersConfigPtr(v *OriginRequestPolicyHeadersConfigArgs) OriginRequestPolicyHeadersConfigPtrInput {
-	return (*originRequestPolicyHeadersConfigPtrType)(v)
-}
-
-func (*originRequestPolicyHeadersConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**OriginRequestPolicyHeadersConfig)(nil)).Elem()
-}
-
-func (i *originRequestPolicyHeadersConfigPtrType) ToOriginRequestPolicyHeadersConfigPtrOutput() OriginRequestPolicyHeadersConfigPtrOutput {
-	return i.ToOriginRequestPolicyHeadersConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *originRequestPolicyHeadersConfigPtrType) ToOriginRequestPolicyHeadersConfigPtrOutputWithContext(ctx context.Context) OriginRequestPolicyHeadersConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OriginRequestPolicyHeadersConfigPtrOutput)
-}
-
 type OriginRequestPolicyHeadersConfigOutput struct{ *pulumi.OutputState }
 
 func (OriginRequestPolicyHeadersConfigOutput) ElementType() reflect.Type {
@@ -7536,64 +5627,12 @@ func (o OriginRequestPolicyHeadersConfigOutput) ToOriginRequestPolicyHeadersConf
 	return o
 }
 
-func (o OriginRequestPolicyHeadersConfigOutput) ToOriginRequestPolicyHeadersConfigPtrOutput() OriginRequestPolicyHeadersConfigPtrOutput {
-	return o.ToOriginRequestPolicyHeadersConfigPtrOutputWithContext(context.Background())
-}
-
-func (o OriginRequestPolicyHeadersConfigOutput) ToOriginRequestPolicyHeadersConfigPtrOutputWithContext(ctx context.Context) OriginRequestPolicyHeadersConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OriginRequestPolicyHeadersConfig) *OriginRequestPolicyHeadersConfig {
-		return &v
-	}).(OriginRequestPolicyHeadersConfigPtrOutput)
-}
-
 func (o OriginRequestPolicyHeadersConfigOutput) HeaderBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v OriginRequestPolicyHeadersConfig) *string { return v.HeaderBehavior }).(pulumi.StringPtrOutput)
 }
 
 func (o OriginRequestPolicyHeadersConfigOutput) Headers() OriginRequestPolicyHeadersConfigHeadersPtrOutput {
 	return o.ApplyT(func(v OriginRequestPolicyHeadersConfig) *OriginRequestPolicyHeadersConfigHeaders { return v.Headers }).(OriginRequestPolicyHeadersConfigHeadersPtrOutput)
-}
-
-type OriginRequestPolicyHeadersConfigPtrOutput struct{ *pulumi.OutputState }
-
-func (OriginRequestPolicyHeadersConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**OriginRequestPolicyHeadersConfig)(nil)).Elem()
-}
-
-func (o OriginRequestPolicyHeadersConfigPtrOutput) ToOriginRequestPolicyHeadersConfigPtrOutput() OriginRequestPolicyHeadersConfigPtrOutput {
-	return o
-}
-
-func (o OriginRequestPolicyHeadersConfigPtrOutput) ToOriginRequestPolicyHeadersConfigPtrOutputWithContext(ctx context.Context) OriginRequestPolicyHeadersConfigPtrOutput {
-	return o
-}
-
-func (o OriginRequestPolicyHeadersConfigPtrOutput) Elem() OriginRequestPolicyHeadersConfigOutput {
-	return o.ApplyT(func(v *OriginRequestPolicyHeadersConfig) OriginRequestPolicyHeadersConfig {
-		if v != nil {
-			return *v
-		}
-		var ret OriginRequestPolicyHeadersConfig
-		return ret
-	}).(OriginRequestPolicyHeadersConfigOutput)
-}
-
-func (o OriginRequestPolicyHeadersConfigPtrOutput) HeaderBehavior() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *OriginRequestPolicyHeadersConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return v.HeaderBehavior
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o OriginRequestPolicyHeadersConfigPtrOutput) Headers() OriginRequestPolicyHeadersConfigHeadersPtrOutput {
-	return o.ApplyT(func(v *OriginRequestPolicyHeadersConfig) *OriginRequestPolicyHeadersConfigHeaders {
-		if v == nil {
-			return nil
-		}
-		return v.Headers
-	}).(OriginRequestPolicyHeadersConfigHeadersPtrOutput)
 }
 
 type OriginRequestPolicyHeadersConfigHeaders struct {
@@ -7762,47 +5801,6 @@ func (i OriginRequestPolicyQueryStringsConfigArgs) ToOriginRequestPolicyQueryStr
 	return pulumi.ToOutputWithContext(ctx, i).(OriginRequestPolicyQueryStringsConfigOutput)
 }
 
-func (i OriginRequestPolicyQueryStringsConfigArgs) ToOriginRequestPolicyQueryStringsConfigPtrOutput() OriginRequestPolicyQueryStringsConfigPtrOutput {
-	return i.ToOriginRequestPolicyQueryStringsConfigPtrOutputWithContext(context.Background())
-}
-
-func (i OriginRequestPolicyQueryStringsConfigArgs) ToOriginRequestPolicyQueryStringsConfigPtrOutputWithContext(ctx context.Context) OriginRequestPolicyQueryStringsConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OriginRequestPolicyQueryStringsConfigOutput).ToOriginRequestPolicyQueryStringsConfigPtrOutputWithContext(ctx)
-}
-
-// OriginRequestPolicyQueryStringsConfigPtrInput is an input type that accepts OriginRequestPolicyQueryStringsConfigArgs, OriginRequestPolicyQueryStringsConfigPtr and OriginRequestPolicyQueryStringsConfigPtrOutput values.
-// You can construct a concrete instance of `OriginRequestPolicyQueryStringsConfigPtrInput` via:
-//
-//          OriginRequestPolicyQueryStringsConfigArgs{...}
-//
-//  or:
-//
-//          nil
-type OriginRequestPolicyQueryStringsConfigPtrInput interface {
-	pulumi.Input
-
-	ToOriginRequestPolicyQueryStringsConfigPtrOutput() OriginRequestPolicyQueryStringsConfigPtrOutput
-	ToOriginRequestPolicyQueryStringsConfigPtrOutputWithContext(context.Context) OriginRequestPolicyQueryStringsConfigPtrOutput
-}
-
-type originRequestPolicyQueryStringsConfigPtrType OriginRequestPolicyQueryStringsConfigArgs
-
-func OriginRequestPolicyQueryStringsConfigPtr(v *OriginRequestPolicyQueryStringsConfigArgs) OriginRequestPolicyQueryStringsConfigPtrInput {
-	return (*originRequestPolicyQueryStringsConfigPtrType)(v)
-}
-
-func (*originRequestPolicyQueryStringsConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**OriginRequestPolicyQueryStringsConfig)(nil)).Elem()
-}
-
-func (i *originRequestPolicyQueryStringsConfigPtrType) ToOriginRequestPolicyQueryStringsConfigPtrOutput() OriginRequestPolicyQueryStringsConfigPtrOutput {
-	return i.ToOriginRequestPolicyQueryStringsConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *originRequestPolicyQueryStringsConfigPtrType) ToOriginRequestPolicyQueryStringsConfigPtrOutputWithContext(ctx context.Context) OriginRequestPolicyQueryStringsConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OriginRequestPolicyQueryStringsConfigPtrOutput)
-}
-
 type OriginRequestPolicyQueryStringsConfigOutput struct{ *pulumi.OutputState }
 
 func (OriginRequestPolicyQueryStringsConfigOutput) ElementType() reflect.Type {
@@ -7817,64 +5815,12 @@ func (o OriginRequestPolicyQueryStringsConfigOutput) ToOriginRequestPolicyQueryS
 	return o
 }
 
-func (o OriginRequestPolicyQueryStringsConfigOutput) ToOriginRequestPolicyQueryStringsConfigPtrOutput() OriginRequestPolicyQueryStringsConfigPtrOutput {
-	return o.ToOriginRequestPolicyQueryStringsConfigPtrOutputWithContext(context.Background())
-}
-
-func (o OriginRequestPolicyQueryStringsConfigOutput) ToOriginRequestPolicyQueryStringsConfigPtrOutputWithContext(ctx context.Context) OriginRequestPolicyQueryStringsConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OriginRequestPolicyQueryStringsConfig) *OriginRequestPolicyQueryStringsConfig {
-		return &v
-	}).(OriginRequestPolicyQueryStringsConfigPtrOutput)
-}
-
 func (o OriginRequestPolicyQueryStringsConfigOutput) QueryStringBehavior() pulumi.StringOutput {
 	return o.ApplyT(func(v OriginRequestPolicyQueryStringsConfig) string { return v.QueryStringBehavior }).(pulumi.StringOutput)
 }
 
 func (o OriginRequestPolicyQueryStringsConfigOutput) QueryStrings() OriginRequestPolicyQueryStringsConfigQueryStringsPtrOutput {
 	return o.ApplyT(func(v OriginRequestPolicyQueryStringsConfig) *OriginRequestPolicyQueryStringsConfigQueryStrings {
-		return v.QueryStrings
-	}).(OriginRequestPolicyQueryStringsConfigQueryStringsPtrOutput)
-}
-
-type OriginRequestPolicyQueryStringsConfigPtrOutput struct{ *pulumi.OutputState }
-
-func (OriginRequestPolicyQueryStringsConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**OriginRequestPolicyQueryStringsConfig)(nil)).Elem()
-}
-
-func (o OriginRequestPolicyQueryStringsConfigPtrOutput) ToOriginRequestPolicyQueryStringsConfigPtrOutput() OriginRequestPolicyQueryStringsConfigPtrOutput {
-	return o
-}
-
-func (o OriginRequestPolicyQueryStringsConfigPtrOutput) ToOriginRequestPolicyQueryStringsConfigPtrOutputWithContext(ctx context.Context) OriginRequestPolicyQueryStringsConfigPtrOutput {
-	return o
-}
-
-func (o OriginRequestPolicyQueryStringsConfigPtrOutput) Elem() OriginRequestPolicyQueryStringsConfigOutput {
-	return o.ApplyT(func(v *OriginRequestPolicyQueryStringsConfig) OriginRequestPolicyQueryStringsConfig {
-		if v != nil {
-			return *v
-		}
-		var ret OriginRequestPolicyQueryStringsConfig
-		return ret
-	}).(OriginRequestPolicyQueryStringsConfigOutput)
-}
-
-func (o OriginRequestPolicyQueryStringsConfigPtrOutput) QueryStringBehavior() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *OriginRequestPolicyQueryStringsConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.QueryStringBehavior
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o OriginRequestPolicyQueryStringsConfigPtrOutput) QueryStrings() OriginRequestPolicyQueryStringsConfigQueryStringsPtrOutput {
-	return o.ApplyT(func(v *OriginRequestPolicyQueryStringsConfig) *OriginRequestPolicyQueryStringsConfigQueryStrings {
-		if v == nil {
-			return nil
-		}
 		return v.QueryStrings
 	}).(OriginRequestPolicyQueryStringsConfigQueryStringsPtrOutput)
 }
@@ -8049,47 +5995,6 @@ func (i RealtimeLogConfigEndpointArgs) ToRealtimeLogConfigEndpointOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(RealtimeLogConfigEndpointOutput)
 }
 
-func (i RealtimeLogConfigEndpointArgs) ToRealtimeLogConfigEndpointPtrOutput() RealtimeLogConfigEndpointPtrOutput {
-	return i.ToRealtimeLogConfigEndpointPtrOutputWithContext(context.Background())
-}
-
-func (i RealtimeLogConfigEndpointArgs) ToRealtimeLogConfigEndpointPtrOutputWithContext(ctx context.Context) RealtimeLogConfigEndpointPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RealtimeLogConfigEndpointOutput).ToRealtimeLogConfigEndpointPtrOutputWithContext(ctx)
-}
-
-// RealtimeLogConfigEndpointPtrInput is an input type that accepts RealtimeLogConfigEndpointArgs, RealtimeLogConfigEndpointPtr and RealtimeLogConfigEndpointPtrOutput values.
-// You can construct a concrete instance of `RealtimeLogConfigEndpointPtrInput` via:
-//
-//          RealtimeLogConfigEndpointArgs{...}
-//
-//  or:
-//
-//          nil
-type RealtimeLogConfigEndpointPtrInput interface {
-	pulumi.Input
-
-	ToRealtimeLogConfigEndpointPtrOutput() RealtimeLogConfigEndpointPtrOutput
-	ToRealtimeLogConfigEndpointPtrOutputWithContext(context.Context) RealtimeLogConfigEndpointPtrOutput
-}
-
-type realtimeLogConfigEndpointPtrType RealtimeLogConfigEndpointArgs
-
-func RealtimeLogConfigEndpointPtr(v *RealtimeLogConfigEndpointArgs) RealtimeLogConfigEndpointPtrInput {
-	return (*realtimeLogConfigEndpointPtrType)(v)
-}
-
-func (*realtimeLogConfigEndpointPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RealtimeLogConfigEndpoint)(nil)).Elem()
-}
-
-func (i *realtimeLogConfigEndpointPtrType) ToRealtimeLogConfigEndpointPtrOutput() RealtimeLogConfigEndpointPtrOutput {
-	return i.ToRealtimeLogConfigEndpointPtrOutputWithContext(context.Background())
-}
-
-func (i *realtimeLogConfigEndpointPtrType) ToRealtimeLogConfigEndpointPtrOutputWithContext(ctx context.Context) RealtimeLogConfigEndpointPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RealtimeLogConfigEndpointPtrOutput)
-}
-
 type RealtimeLogConfigEndpointOutput struct{ *pulumi.OutputState }
 
 func (RealtimeLogConfigEndpointOutput) ElementType() reflect.Type {
@@ -8104,16 +6009,6 @@ func (o RealtimeLogConfigEndpointOutput) ToRealtimeLogConfigEndpointOutputWithCo
 	return o
 }
 
-func (o RealtimeLogConfigEndpointOutput) ToRealtimeLogConfigEndpointPtrOutput() RealtimeLogConfigEndpointPtrOutput {
-	return o.ToRealtimeLogConfigEndpointPtrOutputWithContext(context.Background())
-}
-
-func (o RealtimeLogConfigEndpointOutput) ToRealtimeLogConfigEndpointPtrOutputWithContext(ctx context.Context) RealtimeLogConfigEndpointPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RealtimeLogConfigEndpoint) *RealtimeLogConfigEndpoint {
-		return &v
-	}).(RealtimeLogConfigEndpointPtrOutput)
-}
-
 // The Amazon Kinesis data stream configuration.
 func (o RealtimeLogConfigEndpointOutput) KinesisStreamConfig() RealtimeLogConfigEndpointKinesisStreamConfigOutput {
 	return o.ApplyT(func(v RealtimeLogConfigEndpoint) RealtimeLogConfigEndpointKinesisStreamConfig {
@@ -8124,50 +6019,6 @@ func (o RealtimeLogConfigEndpointOutput) KinesisStreamConfig() RealtimeLogConfig
 // The type of data stream where real-time log data is sent. The only valid value is `Kinesis`.
 func (o RealtimeLogConfigEndpointOutput) StreamType() pulumi.StringOutput {
 	return o.ApplyT(func(v RealtimeLogConfigEndpoint) string { return v.StreamType }).(pulumi.StringOutput)
-}
-
-type RealtimeLogConfigEndpointPtrOutput struct{ *pulumi.OutputState }
-
-func (RealtimeLogConfigEndpointPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RealtimeLogConfigEndpoint)(nil)).Elem()
-}
-
-func (o RealtimeLogConfigEndpointPtrOutput) ToRealtimeLogConfigEndpointPtrOutput() RealtimeLogConfigEndpointPtrOutput {
-	return o
-}
-
-func (o RealtimeLogConfigEndpointPtrOutput) ToRealtimeLogConfigEndpointPtrOutputWithContext(ctx context.Context) RealtimeLogConfigEndpointPtrOutput {
-	return o
-}
-
-func (o RealtimeLogConfigEndpointPtrOutput) Elem() RealtimeLogConfigEndpointOutput {
-	return o.ApplyT(func(v *RealtimeLogConfigEndpoint) RealtimeLogConfigEndpoint {
-		if v != nil {
-			return *v
-		}
-		var ret RealtimeLogConfigEndpoint
-		return ret
-	}).(RealtimeLogConfigEndpointOutput)
-}
-
-// The Amazon Kinesis data stream configuration.
-func (o RealtimeLogConfigEndpointPtrOutput) KinesisStreamConfig() RealtimeLogConfigEndpointKinesisStreamConfigPtrOutput {
-	return o.ApplyT(func(v *RealtimeLogConfigEndpoint) *RealtimeLogConfigEndpointKinesisStreamConfig {
-		if v == nil {
-			return nil
-		}
-		return &v.KinesisStreamConfig
-	}).(RealtimeLogConfigEndpointKinesisStreamConfigPtrOutput)
-}
-
-// The type of data stream where real-time log data is sent. The only valid value is `Kinesis`.
-func (o RealtimeLogConfigEndpointPtrOutput) StreamType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RealtimeLogConfigEndpoint) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.StreamType
-	}).(pulumi.StringPtrOutput)
 }
 
 type RealtimeLogConfigEndpointKinesisStreamConfig struct {
@@ -8209,47 +6060,6 @@ func (i RealtimeLogConfigEndpointKinesisStreamConfigArgs) ToRealtimeLogConfigEnd
 	return pulumi.ToOutputWithContext(ctx, i).(RealtimeLogConfigEndpointKinesisStreamConfigOutput)
 }
 
-func (i RealtimeLogConfigEndpointKinesisStreamConfigArgs) ToRealtimeLogConfigEndpointKinesisStreamConfigPtrOutput() RealtimeLogConfigEndpointKinesisStreamConfigPtrOutput {
-	return i.ToRealtimeLogConfigEndpointKinesisStreamConfigPtrOutputWithContext(context.Background())
-}
-
-func (i RealtimeLogConfigEndpointKinesisStreamConfigArgs) ToRealtimeLogConfigEndpointKinesisStreamConfigPtrOutputWithContext(ctx context.Context) RealtimeLogConfigEndpointKinesisStreamConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RealtimeLogConfigEndpointKinesisStreamConfigOutput).ToRealtimeLogConfigEndpointKinesisStreamConfigPtrOutputWithContext(ctx)
-}
-
-// RealtimeLogConfigEndpointKinesisStreamConfigPtrInput is an input type that accepts RealtimeLogConfigEndpointKinesisStreamConfigArgs, RealtimeLogConfigEndpointKinesisStreamConfigPtr and RealtimeLogConfigEndpointKinesisStreamConfigPtrOutput values.
-// You can construct a concrete instance of `RealtimeLogConfigEndpointKinesisStreamConfigPtrInput` via:
-//
-//          RealtimeLogConfigEndpointKinesisStreamConfigArgs{...}
-//
-//  or:
-//
-//          nil
-type RealtimeLogConfigEndpointKinesisStreamConfigPtrInput interface {
-	pulumi.Input
-
-	ToRealtimeLogConfigEndpointKinesisStreamConfigPtrOutput() RealtimeLogConfigEndpointKinesisStreamConfigPtrOutput
-	ToRealtimeLogConfigEndpointKinesisStreamConfigPtrOutputWithContext(context.Context) RealtimeLogConfigEndpointKinesisStreamConfigPtrOutput
-}
-
-type realtimeLogConfigEndpointKinesisStreamConfigPtrType RealtimeLogConfigEndpointKinesisStreamConfigArgs
-
-func RealtimeLogConfigEndpointKinesisStreamConfigPtr(v *RealtimeLogConfigEndpointKinesisStreamConfigArgs) RealtimeLogConfigEndpointKinesisStreamConfigPtrInput {
-	return (*realtimeLogConfigEndpointKinesisStreamConfigPtrType)(v)
-}
-
-func (*realtimeLogConfigEndpointKinesisStreamConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RealtimeLogConfigEndpointKinesisStreamConfig)(nil)).Elem()
-}
-
-func (i *realtimeLogConfigEndpointKinesisStreamConfigPtrType) ToRealtimeLogConfigEndpointKinesisStreamConfigPtrOutput() RealtimeLogConfigEndpointKinesisStreamConfigPtrOutput {
-	return i.ToRealtimeLogConfigEndpointKinesisStreamConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *realtimeLogConfigEndpointKinesisStreamConfigPtrType) ToRealtimeLogConfigEndpointKinesisStreamConfigPtrOutputWithContext(ctx context.Context) RealtimeLogConfigEndpointKinesisStreamConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RealtimeLogConfigEndpointKinesisStreamConfigPtrOutput)
-}
-
 type RealtimeLogConfigEndpointKinesisStreamConfigOutput struct{ *pulumi.OutputState }
 
 func (RealtimeLogConfigEndpointKinesisStreamConfigOutput) ElementType() reflect.Type {
@@ -8264,16 +6074,6 @@ func (o RealtimeLogConfigEndpointKinesisStreamConfigOutput) ToRealtimeLogConfigE
 	return o
 }
 
-func (o RealtimeLogConfigEndpointKinesisStreamConfigOutput) ToRealtimeLogConfigEndpointKinesisStreamConfigPtrOutput() RealtimeLogConfigEndpointKinesisStreamConfigPtrOutput {
-	return o.ToRealtimeLogConfigEndpointKinesisStreamConfigPtrOutputWithContext(context.Background())
-}
-
-func (o RealtimeLogConfigEndpointKinesisStreamConfigOutput) ToRealtimeLogConfigEndpointKinesisStreamConfigPtrOutputWithContext(ctx context.Context) RealtimeLogConfigEndpointKinesisStreamConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RealtimeLogConfigEndpointKinesisStreamConfig) *RealtimeLogConfigEndpointKinesisStreamConfig {
-		return &v
-	}).(RealtimeLogConfigEndpointKinesisStreamConfigPtrOutput)
-}
-
 // The ARN of an IAM role that CloudFront can use to send real-time log data to the Kinesis data stream.
 // See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-iam-role) for more information.
 func (o RealtimeLogConfigEndpointKinesisStreamConfigOutput) RoleArn() pulumi.StringOutput {
@@ -8283,51 +6083,6 @@ func (o RealtimeLogConfigEndpointKinesisStreamConfigOutput) RoleArn() pulumi.Str
 // The ARN of the Kinesis data stream.
 func (o RealtimeLogConfigEndpointKinesisStreamConfigOutput) StreamArn() pulumi.StringOutput {
 	return o.ApplyT(func(v RealtimeLogConfigEndpointKinesisStreamConfig) string { return v.StreamArn }).(pulumi.StringOutput)
-}
-
-type RealtimeLogConfigEndpointKinesisStreamConfigPtrOutput struct{ *pulumi.OutputState }
-
-func (RealtimeLogConfigEndpointKinesisStreamConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RealtimeLogConfigEndpointKinesisStreamConfig)(nil)).Elem()
-}
-
-func (o RealtimeLogConfigEndpointKinesisStreamConfigPtrOutput) ToRealtimeLogConfigEndpointKinesisStreamConfigPtrOutput() RealtimeLogConfigEndpointKinesisStreamConfigPtrOutput {
-	return o
-}
-
-func (o RealtimeLogConfigEndpointKinesisStreamConfigPtrOutput) ToRealtimeLogConfigEndpointKinesisStreamConfigPtrOutputWithContext(ctx context.Context) RealtimeLogConfigEndpointKinesisStreamConfigPtrOutput {
-	return o
-}
-
-func (o RealtimeLogConfigEndpointKinesisStreamConfigPtrOutput) Elem() RealtimeLogConfigEndpointKinesisStreamConfigOutput {
-	return o.ApplyT(func(v *RealtimeLogConfigEndpointKinesisStreamConfig) RealtimeLogConfigEndpointKinesisStreamConfig {
-		if v != nil {
-			return *v
-		}
-		var ret RealtimeLogConfigEndpointKinesisStreamConfig
-		return ret
-	}).(RealtimeLogConfigEndpointKinesisStreamConfigOutput)
-}
-
-// The ARN of an IAM role that CloudFront can use to send real-time log data to the Kinesis data stream.
-// See the [AWS documentation](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html#understand-real-time-log-config-iam-role) for more information.
-func (o RealtimeLogConfigEndpointKinesisStreamConfigPtrOutput) RoleArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RealtimeLogConfigEndpointKinesisStreamConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.RoleArn
-	}).(pulumi.StringPtrOutput)
-}
-
-// The ARN of the Kinesis data stream.
-func (o RealtimeLogConfigEndpointKinesisStreamConfigPtrOutput) StreamArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RealtimeLogConfigEndpointKinesisStreamConfig) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.StreamArn
-	}).(pulumi.StringPtrOutput)
 }
 
 type ResponseHeadersPolicyCorsConfig struct {
@@ -10623,67 +8378,6 @@ type GetCachePolicyParametersInCacheKeyAndForwardedToOrigin struct {
 	QueryStringsConfigs []GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig `pulumi:"queryStringsConfigs"`
 }
 
-// GetCachePolicyParametersInCacheKeyAndForwardedToOriginInput is an input type that accepts GetCachePolicyParametersInCacheKeyAndForwardedToOriginArgs and GetCachePolicyParametersInCacheKeyAndForwardedToOriginOutput values.
-// You can construct a concrete instance of `GetCachePolicyParametersInCacheKeyAndForwardedToOriginInput` via:
-//
-//          GetCachePolicyParametersInCacheKeyAndForwardedToOriginArgs{...}
-type GetCachePolicyParametersInCacheKeyAndForwardedToOriginInput interface {
-	pulumi.Input
-
-	ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginOutput() GetCachePolicyParametersInCacheKeyAndForwardedToOriginOutput
-	ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginOutputWithContext(context.Context) GetCachePolicyParametersInCacheKeyAndForwardedToOriginOutput
-}
-
-type GetCachePolicyParametersInCacheKeyAndForwardedToOriginArgs struct {
-	// Object that determines whether any cookies in viewer requests (and if so, which cookies) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.
-	CookiesConfigs GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArrayInput `pulumi:"cookiesConfigs"`
-	// A flag that can affect whether the Accept-Encoding HTTP header is included in the cache key and included in requests that CloudFront sends to the origin.
-	EnableAcceptEncodingBrotli pulumi.BoolInput `pulumi:"enableAcceptEncodingBrotli"`
-	// A flag that can affect whether the Accept-Encoding HTTP header is included in the cache key and included in requests that CloudFront sends to the origin.
-	EnableAcceptEncodingGzip pulumi.BoolInput `pulumi:"enableAcceptEncodingGzip"`
-	// Object that determines whether any HTTP headers (and if so, which headers) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Headers Config for more information.
-	HeadersConfigs GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArrayInput `pulumi:"headersConfigs"`
-	// Object that determines whether any URL query strings in viewer requests (and if so, which query strings) are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Query String Config for more information.
-	QueryStringsConfigs GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArrayInput `pulumi:"queryStringsConfigs"`
-}
-
-func (GetCachePolicyParametersInCacheKeyAndForwardedToOriginArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetCachePolicyParametersInCacheKeyAndForwardedToOrigin)(nil)).Elem()
-}
-
-func (i GetCachePolicyParametersInCacheKeyAndForwardedToOriginArgs) ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginOutput() GetCachePolicyParametersInCacheKeyAndForwardedToOriginOutput {
-	return i.ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginOutputWithContext(context.Background())
-}
-
-func (i GetCachePolicyParametersInCacheKeyAndForwardedToOriginArgs) ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginOutputWithContext(ctx context.Context) GetCachePolicyParametersInCacheKeyAndForwardedToOriginOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetCachePolicyParametersInCacheKeyAndForwardedToOriginOutput)
-}
-
-// GetCachePolicyParametersInCacheKeyAndForwardedToOriginArrayInput is an input type that accepts GetCachePolicyParametersInCacheKeyAndForwardedToOriginArray and GetCachePolicyParametersInCacheKeyAndForwardedToOriginArrayOutput values.
-// You can construct a concrete instance of `GetCachePolicyParametersInCacheKeyAndForwardedToOriginArrayInput` via:
-//
-//          GetCachePolicyParametersInCacheKeyAndForwardedToOriginArray{ GetCachePolicyParametersInCacheKeyAndForwardedToOriginArgs{...} }
-type GetCachePolicyParametersInCacheKeyAndForwardedToOriginArrayInput interface {
-	pulumi.Input
-
-	ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginArrayOutput() GetCachePolicyParametersInCacheKeyAndForwardedToOriginArrayOutput
-	ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginArrayOutputWithContext(context.Context) GetCachePolicyParametersInCacheKeyAndForwardedToOriginArrayOutput
-}
-
-type GetCachePolicyParametersInCacheKeyAndForwardedToOriginArray []GetCachePolicyParametersInCacheKeyAndForwardedToOriginInput
-
-func (GetCachePolicyParametersInCacheKeyAndForwardedToOriginArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetCachePolicyParametersInCacheKeyAndForwardedToOrigin)(nil)).Elem()
-}
-
-func (i GetCachePolicyParametersInCacheKeyAndForwardedToOriginArray) ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginArrayOutput() GetCachePolicyParametersInCacheKeyAndForwardedToOriginArrayOutput {
-	return i.ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginArrayOutputWithContext(context.Background())
-}
-
-func (i GetCachePolicyParametersInCacheKeyAndForwardedToOriginArray) ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginArrayOutputWithContext(ctx context.Context) GetCachePolicyParametersInCacheKeyAndForwardedToOriginArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetCachePolicyParametersInCacheKeyAndForwardedToOriginArrayOutput)
-}
-
 type GetCachePolicyParametersInCacheKeyAndForwardedToOriginOutput struct{ *pulumi.OutputState }
 
 func (GetCachePolicyParametersInCacheKeyAndForwardedToOriginOutput) ElementType() reflect.Type {
@@ -10758,61 +8452,6 @@ type GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig struct 
 	Cookies []GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookie `pulumi:"cookies"`
 }
 
-// GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigInput is an input type that accepts GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArgs and GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigOutput values.
-// You can construct a concrete instance of `GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigInput` via:
-//
-//          GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArgs{...}
-type GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigInput interface {
-	pulumi.Input
-
-	ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigOutput() GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigOutput
-	ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigOutputWithContext(context.Context) GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigOutput
-}
-
-type GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArgs struct {
-	// Determines whether any cookies in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`, `allExcept`, `all`.
-	CookieBehavior pulumi.StringInput `pulumi:"cookieBehavior"`
-	// Object that contains a list of cookie names. See Items for more information.
-	Cookies GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieArrayInput `pulumi:"cookies"`
-}
-
-func (GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig)(nil)).Elem()
-}
-
-func (i GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArgs) ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigOutput() GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigOutput {
-	return i.ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigOutputWithContext(context.Background())
-}
-
-func (i GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArgs) ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigOutputWithContext(ctx context.Context) GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigOutput)
-}
-
-// GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArrayInput is an input type that accepts GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArray and GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArrayOutput values.
-// You can construct a concrete instance of `GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArrayInput` via:
-//
-//          GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArray{ GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArgs{...} }
-type GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArrayInput interface {
-	pulumi.Input
-
-	ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArrayOutput() GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArrayOutput
-	ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArrayOutputWithContext(context.Context) GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArrayOutput
-}
-
-type GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArray []GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigInput
-
-func (GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig)(nil)).Elem()
-}
-
-func (i GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArray) ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArrayOutput() GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArrayOutput {
-	return i.ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArrayOutputWithContext(context.Background())
-}
-
-func (i GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArray) ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArrayOutputWithContext(ctx context.Context) GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArrayOutput)
-}
-
 type GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigOutput struct{ *pulumi.OutputState }
 
 func (GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigOutput) ElementType() reflect.Type {
@@ -10866,59 +8505,6 @@ type GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookie s
 	Items []string `pulumi:"items"`
 }
 
-// GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieInput is an input type that accepts GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieArgs and GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieOutput values.
-// You can construct a concrete instance of `GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieInput` via:
-//
-//          GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieArgs{...}
-type GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieInput interface {
-	pulumi.Input
-
-	ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieOutput() GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieOutput
-	ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieOutputWithContext(context.Context) GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieOutput
-}
-
-type GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieArgs struct {
-	// A list of item names (`cookies`, `headers`, or `queryStrings`).
-	Items pulumi.StringArrayInput `pulumi:"items"`
-}
-
-func (GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookie)(nil)).Elem()
-}
-
-func (i GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieArgs) ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieOutput() GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieOutput {
-	return i.ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieOutputWithContext(context.Background())
-}
-
-func (i GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieArgs) ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieOutputWithContext(ctx context.Context) GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieOutput)
-}
-
-// GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieArrayInput is an input type that accepts GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieArray and GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieArrayOutput values.
-// You can construct a concrete instance of `GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieArrayInput` via:
-//
-//          GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieArray{ GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieArgs{...} }
-type GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieArrayInput interface {
-	pulumi.Input
-
-	ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieArrayOutput() GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieArrayOutput
-	ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieArrayOutputWithContext(context.Context) GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieArrayOutput
-}
-
-type GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieArray []GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieInput
-
-func (GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookie)(nil)).Elem()
-}
-
-func (i GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieArray) ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieArrayOutput() GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieArrayOutput {
-	return i.ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieArrayOutputWithContext(context.Background())
-}
-
-func (i GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieArray) ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieArrayOutputWithContext(ctx context.Context) GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieArrayOutput)
-}
-
 type GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieOutput struct{ *pulumi.OutputState }
 
 func (GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieOutput) ElementType() reflect.Type {
@@ -10965,61 +8551,6 @@ type GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig struct 
 	HeaderBehavior string `pulumi:"headerBehavior"`
 	// Object that contains a list of header names. See Items for more information.
 	Headers []GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeader `pulumi:"headers"`
-}
-
-// GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigInput is an input type that accepts GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArgs and GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigOutput values.
-// You can construct a concrete instance of `GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigInput` via:
-//
-//          GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArgs{...}
-type GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigInput interface {
-	pulumi.Input
-
-	ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigOutput() GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigOutput
-	ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigOutputWithContext(context.Context) GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigOutput
-}
-
-type GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArgs struct {
-	// Determines whether any HTTP headers are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`.
-	HeaderBehavior pulumi.StringInput `pulumi:"headerBehavior"`
-	// Object that contains a list of header names. See Items for more information.
-	Headers GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderArrayInput `pulumi:"headers"`
-}
-
-func (GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig)(nil)).Elem()
-}
-
-func (i GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArgs) ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigOutput() GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigOutput {
-	return i.ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigOutputWithContext(context.Background())
-}
-
-func (i GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArgs) ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigOutputWithContext(ctx context.Context) GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigOutput)
-}
-
-// GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArrayInput is an input type that accepts GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArray and GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArrayOutput values.
-// You can construct a concrete instance of `GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArrayInput` via:
-//
-//          GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArray{ GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArgs{...} }
-type GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArrayInput interface {
-	pulumi.Input
-
-	ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArrayOutput() GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArrayOutput
-	ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArrayOutputWithContext(context.Context) GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArrayOutput
-}
-
-type GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArray []GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigInput
-
-func (GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfig)(nil)).Elem()
-}
-
-func (i GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArray) ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArrayOutput() GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArrayOutput {
-	return i.ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArrayOutputWithContext(context.Background())
-}
-
-func (i GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArray) ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArrayOutputWithContext(ctx context.Context) GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArrayOutput)
 }
 
 type GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigOutput struct{ *pulumi.OutputState }
@@ -11075,59 +8606,6 @@ type GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeader s
 	Items []string `pulumi:"items"`
 }
 
-// GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderInput is an input type that accepts GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderArgs and GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderOutput values.
-// You can construct a concrete instance of `GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderInput` via:
-//
-//          GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderArgs{...}
-type GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderInput interface {
-	pulumi.Input
-
-	ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderOutput() GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderOutput
-	ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderOutputWithContext(context.Context) GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderOutput
-}
-
-type GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderArgs struct {
-	// A list of item names (`cookies`, `headers`, or `queryStrings`).
-	Items pulumi.StringArrayInput `pulumi:"items"`
-}
-
-func (GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeader)(nil)).Elem()
-}
-
-func (i GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderArgs) ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderOutput() GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderOutput {
-	return i.ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderOutputWithContext(context.Background())
-}
-
-func (i GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderArgs) ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderOutputWithContext(ctx context.Context) GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderOutput)
-}
-
-// GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderArrayInput is an input type that accepts GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderArray and GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderArrayOutput values.
-// You can construct a concrete instance of `GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderArrayInput` via:
-//
-//          GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderArray{ GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderArgs{...} }
-type GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderArrayInput interface {
-	pulumi.Input
-
-	ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderArrayOutput() GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderArrayOutput
-	ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderArrayOutputWithContext(context.Context) GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderArrayOutput
-}
-
-type GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderArray []GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderInput
-
-func (GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeader)(nil)).Elem()
-}
-
-func (i GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderArray) ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderArrayOutput() GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderArrayOutput {
-	return i.ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderArrayOutputWithContext(context.Background())
-}
-
-func (i GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderArray) ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderArrayOutputWithContext(ctx context.Context) GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderArrayOutput)
-}
-
 type GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderOutput struct{ *pulumi.OutputState }
 
 func (GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderOutput) ElementType() reflect.Type {
@@ -11174,61 +8652,6 @@ type GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig st
 	QueryStringBehavior string `pulumi:"queryStringBehavior"`
 	// Object that contains a list of query string names. See Items for more information.
 	QueryStrings []GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryString `pulumi:"queryStrings"`
-}
-
-// GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigInput is an input type that accepts GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArgs and GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigOutput values.
-// You can construct a concrete instance of `GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigInput` via:
-//
-//          GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArgs{...}
-type GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigInput interface {
-	pulumi.Input
-
-	ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigOutput() GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigOutput
-	ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigOutputWithContext(context.Context) GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigOutput
-}
-
-type GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArgs struct {
-	// Determines whether any URL query strings in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. Valid values are `none`, `whitelist`, `allExcept`, `all`.
-	QueryStringBehavior pulumi.StringInput `pulumi:"queryStringBehavior"`
-	// Object that contains a list of query string names. See Items for more information.
-	QueryStrings GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringArrayInput `pulumi:"queryStrings"`
-}
-
-func (GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig)(nil)).Elem()
-}
-
-func (i GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArgs) ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigOutput() GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigOutput {
-	return i.ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigOutputWithContext(context.Background())
-}
-
-func (i GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArgs) ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigOutputWithContext(ctx context.Context) GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigOutput)
-}
-
-// GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArrayInput is an input type that accepts GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArray and GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArrayOutput values.
-// You can construct a concrete instance of `GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArrayInput` via:
-//
-//          GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArray{ GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArgs{...} }
-type GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArrayInput interface {
-	pulumi.Input
-
-	ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArrayOutput() GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArrayOutput
-	ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArrayOutputWithContext(context.Context) GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArrayOutput
-}
-
-type GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArray []GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigInput
-
-func (GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig)(nil)).Elem()
-}
-
-func (i GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArray) ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArrayOutput() GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArrayOutput {
-	return i.ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArrayOutputWithContext(context.Background())
-}
-
-func (i GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArray) ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArrayOutputWithContext(ctx context.Context) GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArrayOutput)
 }
 
 type GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigOutput struct{ *pulumi.OutputState }
@@ -11284,59 +8707,6 @@ type GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQue
 	Items []string `pulumi:"items"`
 }
 
-// GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringInput is an input type that accepts GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringArgs and GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringOutput values.
-// You can construct a concrete instance of `GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringInput` via:
-//
-//          GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringArgs{...}
-type GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringInput interface {
-	pulumi.Input
-
-	ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringOutput() GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringOutput
-	ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringOutputWithContext(context.Context) GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringOutput
-}
-
-type GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringArgs struct {
-	// A list of item names (`cookies`, `headers`, or `queryStrings`).
-	Items pulumi.StringArrayInput `pulumi:"items"`
-}
-
-func (GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryString)(nil)).Elem()
-}
-
-func (i GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringArgs) ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringOutput() GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringOutput {
-	return i.ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringOutputWithContext(context.Background())
-}
-
-func (i GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringArgs) ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringOutputWithContext(ctx context.Context) GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringOutput)
-}
-
-// GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringArrayInput is an input type that accepts GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringArray and GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringArrayOutput values.
-// You can construct a concrete instance of `GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringArrayInput` via:
-//
-//          GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringArray{ GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringArgs{...} }
-type GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringArrayInput interface {
-	pulumi.Input
-
-	ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringArrayOutput() GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringArrayOutput
-	ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringArrayOutputWithContext(context.Context) GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringArrayOutput
-}
-
-type GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringArray []GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringInput
-
-func (GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryString)(nil)).Elem()
-}
-
-func (i GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringArray) ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringArrayOutput() GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringArrayOutput {
-	return i.ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringArrayOutputWithContext(context.Background())
-}
-
-func (i GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringArray) ToGetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringArrayOutputWithContext(ctx context.Context) GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringArrayOutput)
-}
-
 type GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringOutput struct{ *pulumi.OutputState }
 
 func (GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringOutput) ElementType() reflect.Type {
@@ -11381,59 +8751,6 @@ func (o GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfig
 type GetOriginRequestPolicyCookiesConfig struct {
 	CookieBehavior string                                      `pulumi:"cookieBehavior"`
 	Cookies        []GetOriginRequestPolicyCookiesConfigCookie `pulumi:"cookies"`
-}
-
-// GetOriginRequestPolicyCookiesConfigInput is an input type that accepts GetOriginRequestPolicyCookiesConfigArgs and GetOriginRequestPolicyCookiesConfigOutput values.
-// You can construct a concrete instance of `GetOriginRequestPolicyCookiesConfigInput` via:
-//
-//          GetOriginRequestPolicyCookiesConfigArgs{...}
-type GetOriginRequestPolicyCookiesConfigInput interface {
-	pulumi.Input
-
-	ToGetOriginRequestPolicyCookiesConfigOutput() GetOriginRequestPolicyCookiesConfigOutput
-	ToGetOriginRequestPolicyCookiesConfigOutputWithContext(context.Context) GetOriginRequestPolicyCookiesConfigOutput
-}
-
-type GetOriginRequestPolicyCookiesConfigArgs struct {
-	CookieBehavior pulumi.StringInput                                  `pulumi:"cookieBehavior"`
-	Cookies        GetOriginRequestPolicyCookiesConfigCookieArrayInput `pulumi:"cookies"`
-}
-
-func (GetOriginRequestPolicyCookiesConfigArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetOriginRequestPolicyCookiesConfig)(nil)).Elem()
-}
-
-func (i GetOriginRequestPolicyCookiesConfigArgs) ToGetOriginRequestPolicyCookiesConfigOutput() GetOriginRequestPolicyCookiesConfigOutput {
-	return i.ToGetOriginRequestPolicyCookiesConfigOutputWithContext(context.Background())
-}
-
-func (i GetOriginRequestPolicyCookiesConfigArgs) ToGetOriginRequestPolicyCookiesConfigOutputWithContext(ctx context.Context) GetOriginRequestPolicyCookiesConfigOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetOriginRequestPolicyCookiesConfigOutput)
-}
-
-// GetOriginRequestPolicyCookiesConfigArrayInput is an input type that accepts GetOriginRequestPolicyCookiesConfigArray and GetOriginRequestPolicyCookiesConfigArrayOutput values.
-// You can construct a concrete instance of `GetOriginRequestPolicyCookiesConfigArrayInput` via:
-//
-//          GetOriginRequestPolicyCookiesConfigArray{ GetOriginRequestPolicyCookiesConfigArgs{...} }
-type GetOriginRequestPolicyCookiesConfigArrayInput interface {
-	pulumi.Input
-
-	ToGetOriginRequestPolicyCookiesConfigArrayOutput() GetOriginRequestPolicyCookiesConfigArrayOutput
-	ToGetOriginRequestPolicyCookiesConfigArrayOutputWithContext(context.Context) GetOriginRequestPolicyCookiesConfigArrayOutput
-}
-
-type GetOriginRequestPolicyCookiesConfigArray []GetOriginRequestPolicyCookiesConfigInput
-
-func (GetOriginRequestPolicyCookiesConfigArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetOriginRequestPolicyCookiesConfig)(nil)).Elem()
-}
-
-func (i GetOriginRequestPolicyCookiesConfigArray) ToGetOriginRequestPolicyCookiesConfigArrayOutput() GetOriginRequestPolicyCookiesConfigArrayOutput {
-	return i.ToGetOriginRequestPolicyCookiesConfigArrayOutputWithContext(context.Background())
-}
-
-func (i GetOriginRequestPolicyCookiesConfigArray) ToGetOriginRequestPolicyCookiesConfigArrayOutputWithContext(ctx context.Context) GetOriginRequestPolicyCookiesConfigArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetOriginRequestPolicyCookiesConfigArrayOutput)
 }
 
 type GetOriginRequestPolicyCookiesConfigOutput struct{ *pulumi.OutputState }
@@ -11484,58 +8801,6 @@ type GetOriginRequestPolicyCookiesConfigCookie struct {
 	Items []string `pulumi:"items"`
 }
 
-// GetOriginRequestPolicyCookiesConfigCookieInput is an input type that accepts GetOriginRequestPolicyCookiesConfigCookieArgs and GetOriginRequestPolicyCookiesConfigCookieOutput values.
-// You can construct a concrete instance of `GetOriginRequestPolicyCookiesConfigCookieInput` via:
-//
-//          GetOriginRequestPolicyCookiesConfigCookieArgs{...}
-type GetOriginRequestPolicyCookiesConfigCookieInput interface {
-	pulumi.Input
-
-	ToGetOriginRequestPolicyCookiesConfigCookieOutput() GetOriginRequestPolicyCookiesConfigCookieOutput
-	ToGetOriginRequestPolicyCookiesConfigCookieOutputWithContext(context.Context) GetOriginRequestPolicyCookiesConfigCookieOutput
-}
-
-type GetOriginRequestPolicyCookiesConfigCookieArgs struct {
-	Items pulumi.StringArrayInput `pulumi:"items"`
-}
-
-func (GetOriginRequestPolicyCookiesConfigCookieArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetOriginRequestPolicyCookiesConfigCookie)(nil)).Elem()
-}
-
-func (i GetOriginRequestPolicyCookiesConfigCookieArgs) ToGetOriginRequestPolicyCookiesConfigCookieOutput() GetOriginRequestPolicyCookiesConfigCookieOutput {
-	return i.ToGetOriginRequestPolicyCookiesConfigCookieOutputWithContext(context.Background())
-}
-
-func (i GetOriginRequestPolicyCookiesConfigCookieArgs) ToGetOriginRequestPolicyCookiesConfigCookieOutputWithContext(ctx context.Context) GetOriginRequestPolicyCookiesConfigCookieOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetOriginRequestPolicyCookiesConfigCookieOutput)
-}
-
-// GetOriginRequestPolicyCookiesConfigCookieArrayInput is an input type that accepts GetOriginRequestPolicyCookiesConfigCookieArray and GetOriginRequestPolicyCookiesConfigCookieArrayOutput values.
-// You can construct a concrete instance of `GetOriginRequestPolicyCookiesConfigCookieArrayInput` via:
-//
-//          GetOriginRequestPolicyCookiesConfigCookieArray{ GetOriginRequestPolicyCookiesConfigCookieArgs{...} }
-type GetOriginRequestPolicyCookiesConfigCookieArrayInput interface {
-	pulumi.Input
-
-	ToGetOriginRequestPolicyCookiesConfigCookieArrayOutput() GetOriginRequestPolicyCookiesConfigCookieArrayOutput
-	ToGetOriginRequestPolicyCookiesConfigCookieArrayOutputWithContext(context.Context) GetOriginRequestPolicyCookiesConfigCookieArrayOutput
-}
-
-type GetOriginRequestPolicyCookiesConfigCookieArray []GetOriginRequestPolicyCookiesConfigCookieInput
-
-func (GetOriginRequestPolicyCookiesConfigCookieArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetOriginRequestPolicyCookiesConfigCookie)(nil)).Elem()
-}
-
-func (i GetOriginRequestPolicyCookiesConfigCookieArray) ToGetOriginRequestPolicyCookiesConfigCookieArrayOutput() GetOriginRequestPolicyCookiesConfigCookieArrayOutput {
-	return i.ToGetOriginRequestPolicyCookiesConfigCookieArrayOutputWithContext(context.Background())
-}
-
-func (i GetOriginRequestPolicyCookiesConfigCookieArray) ToGetOriginRequestPolicyCookiesConfigCookieArrayOutputWithContext(ctx context.Context) GetOriginRequestPolicyCookiesConfigCookieArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetOriginRequestPolicyCookiesConfigCookieArrayOutput)
-}
-
 type GetOriginRequestPolicyCookiesConfigCookieOutput struct{ *pulumi.OutputState }
 
 func (GetOriginRequestPolicyCookiesConfigCookieOutput) ElementType() reflect.Type {
@@ -11577,59 +8842,6 @@ func (o GetOriginRequestPolicyCookiesConfigCookieArrayOutput) Index(i pulumi.Int
 type GetOriginRequestPolicyHeadersConfig struct {
 	HeaderBehavior string                                      `pulumi:"headerBehavior"`
 	Headers        []GetOriginRequestPolicyHeadersConfigHeader `pulumi:"headers"`
-}
-
-// GetOriginRequestPolicyHeadersConfigInput is an input type that accepts GetOriginRequestPolicyHeadersConfigArgs and GetOriginRequestPolicyHeadersConfigOutput values.
-// You can construct a concrete instance of `GetOriginRequestPolicyHeadersConfigInput` via:
-//
-//          GetOriginRequestPolicyHeadersConfigArgs{...}
-type GetOriginRequestPolicyHeadersConfigInput interface {
-	pulumi.Input
-
-	ToGetOriginRequestPolicyHeadersConfigOutput() GetOriginRequestPolicyHeadersConfigOutput
-	ToGetOriginRequestPolicyHeadersConfigOutputWithContext(context.Context) GetOriginRequestPolicyHeadersConfigOutput
-}
-
-type GetOriginRequestPolicyHeadersConfigArgs struct {
-	HeaderBehavior pulumi.StringInput                                  `pulumi:"headerBehavior"`
-	Headers        GetOriginRequestPolicyHeadersConfigHeaderArrayInput `pulumi:"headers"`
-}
-
-func (GetOriginRequestPolicyHeadersConfigArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetOriginRequestPolicyHeadersConfig)(nil)).Elem()
-}
-
-func (i GetOriginRequestPolicyHeadersConfigArgs) ToGetOriginRequestPolicyHeadersConfigOutput() GetOriginRequestPolicyHeadersConfigOutput {
-	return i.ToGetOriginRequestPolicyHeadersConfigOutputWithContext(context.Background())
-}
-
-func (i GetOriginRequestPolicyHeadersConfigArgs) ToGetOriginRequestPolicyHeadersConfigOutputWithContext(ctx context.Context) GetOriginRequestPolicyHeadersConfigOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetOriginRequestPolicyHeadersConfigOutput)
-}
-
-// GetOriginRequestPolicyHeadersConfigArrayInput is an input type that accepts GetOriginRequestPolicyHeadersConfigArray and GetOriginRequestPolicyHeadersConfigArrayOutput values.
-// You can construct a concrete instance of `GetOriginRequestPolicyHeadersConfigArrayInput` via:
-//
-//          GetOriginRequestPolicyHeadersConfigArray{ GetOriginRequestPolicyHeadersConfigArgs{...} }
-type GetOriginRequestPolicyHeadersConfigArrayInput interface {
-	pulumi.Input
-
-	ToGetOriginRequestPolicyHeadersConfigArrayOutput() GetOriginRequestPolicyHeadersConfigArrayOutput
-	ToGetOriginRequestPolicyHeadersConfigArrayOutputWithContext(context.Context) GetOriginRequestPolicyHeadersConfigArrayOutput
-}
-
-type GetOriginRequestPolicyHeadersConfigArray []GetOriginRequestPolicyHeadersConfigInput
-
-func (GetOriginRequestPolicyHeadersConfigArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetOriginRequestPolicyHeadersConfig)(nil)).Elem()
-}
-
-func (i GetOriginRequestPolicyHeadersConfigArray) ToGetOriginRequestPolicyHeadersConfigArrayOutput() GetOriginRequestPolicyHeadersConfigArrayOutput {
-	return i.ToGetOriginRequestPolicyHeadersConfigArrayOutputWithContext(context.Background())
-}
-
-func (i GetOriginRequestPolicyHeadersConfigArray) ToGetOriginRequestPolicyHeadersConfigArrayOutputWithContext(ctx context.Context) GetOriginRequestPolicyHeadersConfigArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetOriginRequestPolicyHeadersConfigArrayOutput)
 }
 
 type GetOriginRequestPolicyHeadersConfigOutput struct{ *pulumi.OutputState }
@@ -11680,58 +8892,6 @@ type GetOriginRequestPolicyHeadersConfigHeader struct {
 	Items []string `pulumi:"items"`
 }
 
-// GetOriginRequestPolicyHeadersConfigHeaderInput is an input type that accepts GetOriginRequestPolicyHeadersConfigHeaderArgs and GetOriginRequestPolicyHeadersConfigHeaderOutput values.
-// You can construct a concrete instance of `GetOriginRequestPolicyHeadersConfigHeaderInput` via:
-//
-//          GetOriginRequestPolicyHeadersConfigHeaderArgs{...}
-type GetOriginRequestPolicyHeadersConfigHeaderInput interface {
-	pulumi.Input
-
-	ToGetOriginRequestPolicyHeadersConfigHeaderOutput() GetOriginRequestPolicyHeadersConfigHeaderOutput
-	ToGetOriginRequestPolicyHeadersConfigHeaderOutputWithContext(context.Context) GetOriginRequestPolicyHeadersConfigHeaderOutput
-}
-
-type GetOriginRequestPolicyHeadersConfigHeaderArgs struct {
-	Items pulumi.StringArrayInput `pulumi:"items"`
-}
-
-func (GetOriginRequestPolicyHeadersConfigHeaderArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetOriginRequestPolicyHeadersConfigHeader)(nil)).Elem()
-}
-
-func (i GetOriginRequestPolicyHeadersConfigHeaderArgs) ToGetOriginRequestPolicyHeadersConfigHeaderOutput() GetOriginRequestPolicyHeadersConfigHeaderOutput {
-	return i.ToGetOriginRequestPolicyHeadersConfigHeaderOutputWithContext(context.Background())
-}
-
-func (i GetOriginRequestPolicyHeadersConfigHeaderArgs) ToGetOriginRequestPolicyHeadersConfigHeaderOutputWithContext(ctx context.Context) GetOriginRequestPolicyHeadersConfigHeaderOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetOriginRequestPolicyHeadersConfigHeaderOutput)
-}
-
-// GetOriginRequestPolicyHeadersConfigHeaderArrayInput is an input type that accepts GetOriginRequestPolicyHeadersConfigHeaderArray and GetOriginRequestPolicyHeadersConfigHeaderArrayOutput values.
-// You can construct a concrete instance of `GetOriginRequestPolicyHeadersConfigHeaderArrayInput` via:
-//
-//          GetOriginRequestPolicyHeadersConfigHeaderArray{ GetOriginRequestPolicyHeadersConfigHeaderArgs{...} }
-type GetOriginRequestPolicyHeadersConfigHeaderArrayInput interface {
-	pulumi.Input
-
-	ToGetOriginRequestPolicyHeadersConfigHeaderArrayOutput() GetOriginRequestPolicyHeadersConfigHeaderArrayOutput
-	ToGetOriginRequestPolicyHeadersConfigHeaderArrayOutputWithContext(context.Context) GetOriginRequestPolicyHeadersConfigHeaderArrayOutput
-}
-
-type GetOriginRequestPolicyHeadersConfigHeaderArray []GetOriginRequestPolicyHeadersConfigHeaderInput
-
-func (GetOriginRequestPolicyHeadersConfigHeaderArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetOriginRequestPolicyHeadersConfigHeader)(nil)).Elem()
-}
-
-func (i GetOriginRequestPolicyHeadersConfigHeaderArray) ToGetOriginRequestPolicyHeadersConfigHeaderArrayOutput() GetOriginRequestPolicyHeadersConfigHeaderArrayOutput {
-	return i.ToGetOriginRequestPolicyHeadersConfigHeaderArrayOutputWithContext(context.Background())
-}
-
-func (i GetOriginRequestPolicyHeadersConfigHeaderArray) ToGetOriginRequestPolicyHeadersConfigHeaderArrayOutputWithContext(ctx context.Context) GetOriginRequestPolicyHeadersConfigHeaderArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetOriginRequestPolicyHeadersConfigHeaderArrayOutput)
-}
-
 type GetOriginRequestPolicyHeadersConfigHeaderOutput struct{ *pulumi.OutputState }
 
 func (GetOriginRequestPolicyHeadersConfigHeaderOutput) ElementType() reflect.Type {
@@ -11773,59 +8933,6 @@ func (o GetOriginRequestPolicyHeadersConfigHeaderArrayOutput) Index(i pulumi.Int
 type GetOriginRequestPolicyQueryStringsConfig struct {
 	QueryStringBehavior string                                                `pulumi:"queryStringBehavior"`
 	QueryStrings        []GetOriginRequestPolicyQueryStringsConfigQueryString `pulumi:"queryStrings"`
-}
-
-// GetOriginRequestPolicyQueryStringsConfigInput is an input type that accepts GetOriginRequestPolicyQueryStringsConfigArgs and GetOriginRequestPolicyQueryStringsConfigOutput values.
-// You can construct a concrete instance of `GetOriginRequestPolicyQueryStringsConfigInput` via:
-//
-//          GetOriginRequestPolicyQueryStringsConfigArgs{...}
-type GetOriginRequestPolicyQueryStringsConfigInput interface {
-	pulumi.Input
-
-	ToGetOriginRequestPolicyQueryStringsConfigOutput() GetOriginRequestPolicyQueryStringsConfigOutput
-	ToGetOriginRequestPolicyQueryStringsConfigOutputWithContext(context.Context) GetOriginRequestPolicyQueryStringsConfigOutput
-}
-
-type GetOriginRequestPolicyQueryStringsConfigArgs struct {
-	QueryStringBehavior pulumi.StringInput                                            `pulumi:"queryStringBehavior"`
-	QueryStrings        GetOriginRequestPolicyQueryStringsConfigQueryStringArrayInput `pulumi:"queryStrings"`
-}
-
-func (GetOriginRequestPolicyQueryStringsConfigArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetOriginRequestPolicyQueryStringsConfig)(nil)).Elem()
-}
-
-func (i GetOriginRequestPolicyQueryStringsConfigArgs) ToGetOriginRequestPolicyQueryStringsConfigOutput() GetOriginRequestPolicyQueryStringsConfigOutput {
-	return i.ToGetOriginRequestPolicyQueryStringsConfigOutputWithContext(context.Background())
-}
-
-func (i GetOriginRequestPolicyQueryStringsConfigArgs) ToGetOriginRequestPolicyQueryStringsConfigOutputWithContext(ctx context.Context) GetOriginRequestPolicyQueryStringsConfigOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetOriginRequestPolicyQueryStringsConfigOutput)
-}
-
-// GetOriginRequestPolicyQueryStringsConfigArrayInput is an input type that accepts GetOriginRequestPolicyQueryStringsConfigArray and GetOriginRequestPolicyQueryStringsConfigArrayOutput values.
-// You can construct a concrete instance of `GetOriginRequestPolicyQueryStringsConfigArrayInput` via:
-//
-//          GetOriginRequestPolicyQueryStringsConfigArray{ GetOriginRequestPolicyQueryStringsConfigArgs{...} }
-type GetOriginRequestPolicyQueryStringsConfigArrayInput interface {
-	pulumi.Input
-
-	ToGetOriginRequestPolicyQueryStringsConfigArrayOutput() GetOriginRequestPolicyQueryStringsConfigArrayOutput
-	ToGetOriginRequestPolicyQueryStringsConfigArrayOutputWithContext(context.Context) GetOriginRequestPolicyQueryStringsConfigArrayOutput
-}
-
-type GetOriginRequestPolicyQueryStringsConfigArray []GetOriginRequestPolicyQueryStringsConfigInput
-
-func (GetOriginRequestPolicyQueryStringsConfigArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetOriginRequestPolicyQueryStringsConfig)(nil)).Elem()
-}
-
-func (i GetOriginRequestPolicyQueryStringsConfigArray) ToGetOriginRequestPolicyQueryStringsConfigArrayOutput() GetOriginRequestPolicyQueryStringsConfigArrayOutput {
-	return i.ToGetOriginRequestPolicyQueryStringsConfigArrayOutputWithContext(context.Background())
-}
-
-func (i GetOriginRequestPolicyQueryStringsConfigArray) ToGetOriginRequestPolicyQueryStringsConfigArrayOutputWithContext(ctx context.Context) GetOriginRequestPolicyQueryStringsConfigArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetOriginRequestPolicyQueryStringsConfigArrayOutput)
 }
 
 type GetOriginRequestPolicyQueryStringsConfigOutput struct{ *pulumi.OutputState }
@@ -11874,58 +8981,6 @@ func (o GetOriginRequestPolicyQueryStringsConfigArrayOutput) Index(i pulumi.IntI
 
 type GetOriginRequestPolicyQueryStringsConfigQueryString struct {
 	Items []string `pulumi:"items"`
-}
-
-// GetOriginRequestPolicyQueryStringsConfigQueryStringInput is an input type that accepts GetOriginRequestPolicyQueryStringsConfigQueryStringArgs and GetOriginRequestPolicyQueryStringsConfigQueryStringOutput values.
-// You can construct a concrete instance of `GetOriginRequestPolicyQueryStringsConfigQueryStringInput` via:
-//
-//          GetOriginRequestPolicyQueryStringsConfigQueryStringArgs{...}
-type GetOriginRequestPolicyQueryStringsConfigQueryStringInput interface {
-	pulumi.Input
-
-	ToGetOriginRequestPolicyQueryStringsConfigQueryStringOutput() GetOriginRequestPolicyQueryStringsConfigQueryStringOutput
-	ToGetOriginRequestPolicyQueryStringsConfigQueryStringOutputWithContext(context.Context) GetOriginRequestPolicyQueryStringsConfigQueryStringOutput
-}
-
-type GetOriginRequestPolicyQueryStringsConfigQueryStringArgs struct {
-	Items pulumi.StringArrayInput `pulumi:"items"`
-}
-
-func (GetOriginRequestPolicyQueryStringsConfigQueryStringArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetOriginRequestPolicyQueryStringsConfigQueryString)(nil)).Elem()
-}
-
-func (i GetOriginRequestPolicyQueryStringsConfigQueryStringArgs) ToGetOriginRequestPolicyQueryStringsConfigQueryStringOutput() GetOriginRequestPolicyQueryStringsConfigQueryStringOutput {
-	return i.ToGetOriginRequestPolicyQueryStringsConfigQueryStringOutputWithContext(context.Background())
-}
-
-func (i GetOriginRequestPolicyQueryStringsConfigQueryStringArgs) ToGetOriginRequestPolicyQueryStringsConfigQueryStringOutputWithContext(ctx context.Context) GetOriginRequestPolicyQueryStringsConfigQueryStringOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetOriginRequestPolicyQueryStringsConfigQueryStringOutput)
-}
-
-// GetOriginRequestPolicyQueryStringsConfigQueryStringArrayInput is an input type that accepts GetOriginRequestPolicyQueryStringsConfigQueryStringArray and GetOriginRequestPolicyQueryStringsConfigQueryStringArrayOutput values.
-// You can construct a concrete instance of `GetOriginRequestPolicyQueryStringsConfigQueryStringArrayInput` via:
-//
-//          GetOriginRequestPolicyQueryStringsConfigQueryStringArray{ GetOriginRequestPolicyQueryStringsConfigQueryStringArgs{...} }
-type GetOriginRequestPolicyQueryStringsConfigQueryStringArrayInput interface {
-	pulumi.Input
-
-	ToGetOriginRequestPolicyQueryStringsConfigQueryStringArrayOutput() GetOriginRequestPolicyQueryStringsConfigQueryStringArrayOutput
-	ToGetOriginRequestPolicyQueryStringsConfigQueryStringArrayOutputWithContext(context.Context) GetOriginRequestPolicyQueryStringsConfigQueryStringArrayOutput
-}
-
-type GetOriginRequestPolicyQueryStringsConfigQueryStringArray []GetOriginRequestPolicyQueryStringsConfigQueryStringInput
-
-func (GetOriginRequestPolicyQueryStringsConfigQueryStringArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetOriginRequestPolicyQueryStringsConfigQueryString)(nil)).Elem()
-}
-
-func (i GetOriginRequestPolicyQueryStringsConfigQueryStringArray) ToGetOriginRequestPolicyQueryStringsConfigQueryStringArrayOutput() GetOriginRequestPolicyQueryStringsConfigQueryStringArrayOutput {
-	return i.ToGetOriginRequestPolicyQueryStringsConfigQueryStringArrayOutputWithContext(context.Background())
-}
-
-func (i GetOriginRequestPolicyQueryStringsConfigQueryStringArray) ToGetOriginRequestPolicyQueryStringsConfigQueryStringArrayOutputWithContext(ctx context.Context) GetOriginRequestPolicyQueryStringsConfigQueryStringArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetOriginRequestPolicyQueryStringsConfigQueryStringArrayOutput)
 }
 
 type GetOriginRequestPolicyQueryStringsConfigQueryStringOutput struct{ *pulumi.OutputState }
@@ -11980,70 +9035,6 @@ type GetResponseHeadersPolicyCorsConfig struct {
 	// A number that CloudFront uses as the value for the max-age directive in the Strict-Transport-Security HTTP response header.
 	AccessControlMaxAgeSec int  `pulumi:"accessControlMaxAgeSec"`
 	OriginOverride         bool `pulumi:"originOverride"`
-}
-
-// GetResponseHeadersPolicyCorsConfigInput is an input type that accepts GetResponseHeadersPolicyCorsConfigArgs and GetResponseHeadersPolicyCorsConfigOutput values.
-// You can construct a concrete instance of `GetResponseHeadersPolicyCorsConfigInput` via:
-//
-//          GetResponseHeadersPolicyCorsConfigArgs{...}
-type GetResponseHeadersPolicyCorsConfigInput interface {
-	pulumi.Input
-
-	ToGetResponseHeadersPolicyCorsConfigOutput() GetResponseHeadersPolicyCorsConfigOutput
-	ToGetResponseHeadersPolicyCorsConfigOutputWithContext(context.Context) GetResponseHeadersPolicyCorsConfigOutput
-}
-
-type GetResponseHeadersPolicyCorsConfigArgs struct {
-	// A Boolean value that CloudFront uses as the value for the Access-Control-Allow-Credentials HTTP response header.
-	AccessControlAllowCredentials pulumi.BoolInput `pulumi:"accessControlAllowCredentials"`
-	// Object that contains an attribute `items` that contains a list of HTTP header names that CloudFront includes as values for the Access-Control-Allow-Headers HTTP response header.
-	AccessControlAllowHeaders GetResponseHeadersPolicyCorsConfigAccessControlAllowHeaderArrayInput `pulumi:"accessControlAllowHeaders"`
-	// Object that contains an attribute `items` that contains a list of HTTP methods that CloudFront includes as values for the Access-Control-Allow-Methods HTTP response header. Valid values: `GET` | `POST` | `OPTIONS` | `PUT` | `DELETE` | `HEAD` | `ALL`
-	AccessControlAllowMethods GetResponseHeadersPolicyCorsConfigAccessControlAllowMethodArrayInput `pulumi:"accessControlAllowMethods"`
-	// Object that contains an attribute `items` that contains a list of origins that CloudFront can use as the value for the Access-Control-Allow-Origin HTTP response header.
-	AccessControlAllowOrigins GetResponseHeadersPolicyCorsConfigAccessControlAllowOriginArrayInput `pulumi:"accessControlAllowOrigins"`
-	// Object that contains an attribute `items` that contains a list of HTTP headers that CloudFront includes as values for the Access-Control-Expose-Headers HTTP response header.
-	AccessControlExposeHeaders GetResponseHeadersPolicyCorsConfigAccessControlExposeHeaderArrayInput `pulumi:"accessControlExposeHeaders"`
-	// A number that CloudFront uses as the value for the max-age directive in the Strict-Transport-Security HTTP response header.
-	AccessControlMaxAgeSec pulumi.IntInput  `pulumi:"accessControlMaxAgeSec"`
-	OriginOverride         pulumi.BoolInput `pulumi:"originOverride"`
-}
-
-func (GetResponseHeadersPolicyCorsConfigArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetResponseHeadersPolicyCorsConfig)(nil)).Elem()
-}
-
-func (i GetResponseHeadersPolicyCorsConfigArgs) ToGetResponseHeadersPolicyCorsConfigOutput() GetResponseHeadersPolicyCorsConfigOutput {
-	return i.ToGetResponseHeadersPolicyCorsConfigOutputWithContext(context.Background())
-}
-
-func (i GetResponseHeadersPolicyCorsConfigArgs) ToGetResponseHeadersPolicyCorsConfigOutputWithContext(ctx context.Context) GetResponseHeadersPolicyCorsConfigOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetResponseHeadersPolicyCorsConfigOutput)
-}
-
-// GetResponseHeadersPolicyCorsConfigArrayInput is an input type that accepts GetResponseHeadersPolicyCorsConfigArray and GetResponseHeadersPolicyCorsConfigArrayOutput values.
-// You can construct a concrete instance of `GetResponseHeadersPolicyCorsConfigArrayInput` via:
-//
-//          GetResponseHeadersPolicyCorsConfigArray{ GetResponseHeadersPolicyCorsConfigArgs{...} }
-type GetResponseHeadersPolicyCorsConfigArrayInput interface {
-	pulumi.Input
-
-	ToGetResponseHeadersPolicyCorsConfigArrayOutput() GetResponseHeadersPolicyCorsConfigArrayOutput
-	ToGetResponseHeadersPolicyCorsConfigArrayOutputWithContext(context.Context) GetResponseHeadersPolicyCorsConfigArrayOutput
-}
-
-type GetResponseHeadersPolicyCorsConfigArray []GetResponseHeadersPolicyCorsConfigInput
-
-func (GetResponseHeadersPolicyCorsConfigArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetResponseHeadersPolicyCorsConfig)(nil)).Elem()
-}
-
-func (i GetResponseHeadersPolicyCorsConfigArray) ToGetResponseHeadersPolicyCorsConfigArrayOutput() GetResponseHeadersPolicyCorsConfigArrayOutput {
-	return i.ToGetResponseHeadersPolicyCorsConfigArrayOutputWithContext(context.Background())
-}
-
-func (i GetResponseHeadersPolicyCorsConfigArray) ToGetResponseHeadersPolicyCorsConfigArrayOutputWithContext(ctx context.Context) GetResponseHeadersPolicyCorsConfigArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetResponseHeadersPolicyCorsConfigArrayOutput)
 }
 
 type GetResponseHeadersPolicyCorsConfigOutput struct{ *pulumi.OutputState }
@@ -12126,58 +9117,6 @@ type GetResponseHeadersPolicyCorsConfigAccessControlAllowHeader struct {
 	Items []string `pulumi:"items"`
 }
 
-// GetResponseHeadersPolicyCorsConfigAccessControlAllowHeaderInput is an input type that accepts GetResponseHeadersPolicyCorsConfigAccessControlAllowHeaderArgs and GetResponseHeadersPolicyCorsConfigAccessControlAllowHeaderOutput values.
-// You can construct a concrete instance of `GetResponseHeadersPolicyCorsConfigAccessControlAllowHeaderInput` via:
-//
-//          GetResponseHeadersPolicyCorsConfigAccessControlAllowHeaderArgs{...}
-type GetResponseHeadersPolicyCorsConfigAccessControlAllowHeaderInput interface {
-	pulumi.Input
-
-	ToGetResponseHeadersPolicyCorsConfigAccessControlAllowHeaderOutput() GetResponseHeadersPolicyCorsConfigAccessControlAllowHeaderOutput
-	ToGetResponseHeadersPolicyCorsConfigAccessControlAllowHeaderOutputWithContext(context.Context) GetResponseHeadersPolicyCorsConfigAccessControlAllowHeaderOutput
-}
-
-type GetResponseHeadersPolicyCorsConfigAccessControlAllowHeaderArgs struct {
-	Items pulumi.StringArrayInput `pulumi:"items"`
-}
-
-func (GetResponseHeadersPolicyCorsConfigAccessControlAllowHeaderArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetResponseHeadersPolicyCorsConfigAccessControlAllowHeader)(nil)).Elem()
-}
-
-func (i GetResponseHeadersPolicyCorsConfigAccessControlAllowHeaderArgs) ToGetResponseHeadersPolicyCorsConfigAccessControlAllowHeaderOutput() GetResponseHeadersPolicyCorsConfigAccessControlAllowHeaderOutput {
-	return i.ToGetResponseHeadersPolicyCorsConfigAccessControlAllowHeaderOutputWithContext(context.Background())
-}
-
-func (i GetResponseHeadersPolicyCorsConfigAccessControlAllowHeaderArgs) ToGetResponseHeadersPolicyCorsConfigAccessControlAllowHeaderOutputWithContext(ctx context.Context) GetResponseHeadersPolicyCorsConfigAccessControlAllowHeaderOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetResponseHeadersPolicyCorsConfigAccessControlAllowHeaderOutput)
-}
-
-// GetResponseHeadersPolicyCorsConfigAccessControlAllowHeaderArrayInput is an input type that accepts GetResponseHeadersPolicyCorsConfigAccessControlAllowHeaderArray and GetResponseHeadersPolicyCorsConfigAccessControlAllowHeaderArrayOutput values.
-// You can construct a concrete instance of `GetResponseHeadersPolicyCorsConfigAccessControlAllowHeaderArrayInput` via:
-//
-//          GetResponseHeadersPolicyCorsConfigAccessControlAllowHeaderArray{ GetResponseHeadersPolicyCorsConfigAccessControlAllowHeaderArgs{...} }
-type GetResponseHeadersPolicyCorsConfigAccessControlAllowHeaderArrayInput interface {
-	pulumi.Input
-
-	ToGetResponseHeadersPolicyCorsConfigAccessControlAllowHeaderArrayOutput() GetResponseHeadersPolicyCorsConfigAccessControlAllowHeaderArrayOutput
-	ToGetResponseHeadersPolicyCorsConfigAccessControlAllowHeaderArrayOutputWithContext(context.Context) GetResponseHeadersPolicyCorsConfigAccessControlAllowHeaderArrayOutput
-}
-
-type GetResponseHeadersPolicyCorsConfigAccessControlAllowHeaderArray []GetResponseHeadersPolicyCorsConfigAccessControlAllowHeaderInput
-
-func (GetResponseHeadersPolicyCorsConfigAccessControlAllowHeaderArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetResponseHeadersPolicyCorsConfigAccessControlAllowHeader)(nil)).Elem()
-}
-
-func (i GetResponseHeadersPolicyCorsConfigAccessControlAllowHeaderArray) ToGetResponseHeadersPolicyCorsConfigAccessControlAllowHeaderArrayOutput() GetResponseHeadersPolicyCorsConfigAccessControlAllowHeaderArrayOutput {
-	return i.ToGetResponseHeadersPolicyCorsConfigAccessControlAllowHeaderArrayOutputWithContext(context.Background())
-}
-
-func (i GetResponseHeadersPolicyCorsConfigAccessControlAllowHeaderArray) ToGetResponseHeadersPolicyCorsConfigAccessControlAllowHeaderArrayOutputWithContext(ctx context.Context) GetResponseHeadersPolicyCorsConfigAccessControlAllowHeaderArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetResponseHeadersPolicyCorsConfigAccessControlAllowHeaderArrayOutput)
-}
-
 type GetResponseHeadersPolicyCorsConfigAccessControlAllowHeaderOutput struct{ *pulumi.OutputState }
 
 func (GetResponseHeadersPolicyCorsConfigAccessControlAllowHeaderOutput) ElementType() reflect.Type {
@@ -12218,58 +9157,6 @@ func (o GetResponseHeadersPolicyCorsConfigAccessControlAllowHeaderArrayOutput) I
 
 type GetResponseHeadersPolicyCorsConfigAccessControlAllowMethod struct {
 	Items []string `pulumi:"items"`
-}
-
-// GetResponseHeadersPolicyCorsConfigAccessControlAllowMethodInput is an input type that accepts GetResponseHeadersPolicyCorsConfigAccessControlAllowMethodArgs and GetResponseHeadersPolicyCorsConfigAccessControlAllowMethodOutput values.
-// You can construct a concrete instance of `GetResponseHeadersPolicyCorsConfigAccessControlAllowMethodInput` via:
-//
-//          GetResponseHeadersPolicyCorsConfigAccessControlAllowMethodArgs{...}
-type GetResponseHeadersPolicyCorsConfigAccessControlAllowMethodInput interface {
-	pulumi.Input
-
-	ToGetResponseHeadersPolicyCorsConfigAccessControlAllowMethodOutput() GetResponseHeadersPolicyCorsConfigAccessControlAllowMethodOutput
-	ToGetResponseHeadersPolicyCorsConfigAccessControlAllowMethodOutputWithContext(context.Context) GetResponseHeadersPolicyCorsConfigAccessControlAllowMethodOutput
-}
-
-type GetResponseHeadersPolicyCorsConfigAccessControlAllowMethodArgs struct {
-	Items pulumi.StringArrayInput `pulumi:"items"`
-}
-
-func (GetResponseHeadersPolicyCorsConfigAccessControlAllowMethodArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetResponseHeadersPolicyCorsConfigAccessControlAllowMethod)(nil)).Elem()
-}
-
-func (i GetResponseHeadersPolicyCorsConfigAccessControlAllowMethodArgs) ToGetResponseHeadersPolicyCorsConfigAccessControlAllowMethodOutput() GetResponseHeadersPolicyCorsConfigAccessControlAllowMethodOutput {
-	return i.ToGetResponseHeadersPolicyCorsConfigAccessControlAllowMethodOutputWithContext(context.Background())
-}
-
-func (i GetResponseHeadersPolicyCorsConfigAccessControlAllowMethodArgs) ToGetResponseHeadersPolicyCorsConfigAccessControlAllowMethodOutputWithContext(ctx context.Context) GetResponseHeadersPolicyCorsConfigAccessControlAllowMethodOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetResponseHeadersPolicyCorsConfigAccessControlAllowMethodOutput)
-}
-
-// GetResponseHeadersPolicyCorsConfigAccessControlAllowMethodArrayInput is an input type that accepts GetResponseHeadersPolicyCorsConfigAccessControlAllowMethodArray and GetResponseHeadersPolicyCorsConfigAccessControlAllowMethodArrayOutput values.
-// You can construct a concrete instance of `GetResponseHeadersPolicyCorsConfigAccessControlAllowMethodArrayInput` via:
-//
-//          GetResponseHeadersPolicyCorsConfigAccessControlAllowMethodArray{ GetResponseHeadersPolicyCorsConfigAccessControlAllowMethodArgs{...} }
-type GetResponseHeadersPolicyCorsConfigAccessControlAllowMethodArrayInput interface {
-	pulumi.Input
-
-	ToGetResponseHeadersPolicyCorsConfigAccessControlAllowMethodArrayOutput() GetResponseHeadersPolicyCorsConfigAccessControlAllowMethodArrayOutput
-	ToGetResponseHeadersPolicyCorsConfigAccessControlAllowMethodArrayOutputWithContext(context.Context) GetResponseHeadersPolicyCorsConfigAccessControlAllowMethodArrayOutput
-}
-
-type GetResponseHeadersPolicyCorsConfigAccessControlAllowMethodArray []GetResponseHeadersPolicyCorsConfigAccessControlAllowMethodInput
-
-func (GetResponseHeadersPolicyCorsConfigAccessControlAllowMethodArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetResponseHeadersPolicyCorsConfigAccessControlAllowMethod)(nil)).Elem()
-}
-
-func (i GetResponseHeadersPolicyCorsConfigAccessControlAllowMethodArray) ToGetResponseHeadersPolicyCorsConfigAccessControlAllowMethodArrayOutput() GetResponseHeadersPolicyCorsConfigAccessControlAllowMethodArrayOutput {
-	return i.ToGetResponseHeadersPolicyCorsConfigAccessControlAllowMethodArrayOutputWithContext(context.Background())
-}
-
-func (i GetResponseHeadersPolicyCorsConfigAccessControlAllowMethodArray) ToGetResponseHeadersPolicyCorsConfigAccessControlAllowMethodArrayOutputWithContext(ctx context.Context) GetResponseHeadersPolicyCorsConfigAccessControlAllowMethodArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetResponseHeadersPolicyCorsConfigAccessControlAllowMethodArrayOutput)
 }
 
 type GetResponseHeadersPolicyCorsConfigAccessControlAllowMethodOutput struct{ *pulumi.OutputState }
@@ -12314,58 +9201,6 @@ type GetResponseHeadersPolicyCorsConfigAccessControlAllowOrigin struct {
 	Items []string `pulumi:"items"`
 }
 
-// GetResponseHeadersPolicyCorsConfigAccessControlAllowOriginInput is an input type that accepts GetResponseHeadersPolicyCorsConfigAccessControlAllowOriginArgs and GetResponseHeadersPolicyCorsConfigAccessControlAllowOriginOutput values.
-// You can construct a concrete instance of `GetResponseHeadersPolicyCorsConfigAccessControlAllowOriginInput` via:
-//
-//          GetResponseHeadersPolicyCorsConfigAccessControlAllowOriginArgs{...}
-type GetResponseHeadersPolicyCorsConfigAccessControlAllowOriginInput interface {
-	pulumi.Input
-
-	ToGetResponseHeadersPolicyCorsConfigAccessControlAllowOriginOutput() GetResponseHeadersPolicyCorsConfigAccessControlAllowOriginOutput
-	ToGetResponseHeadersPolicyCorsConfigAccessControlAllowOriginOutputWithContext(context.Context) GetResponseHeadersPolicyCorsConfigAccessControlAllowOriginOutput
-}
-
-type GetResponseHeadersPolicyCorsConfigAccessControlAllowOriginArgs struct {
-	Items pulumi.StringArrayInput `pulumi:"items"`
-}
-
-func (GetResponseHeadersPolicyCorsConfigAccessControlAllowOriginArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetResponseHeadersPolicyCorsConfigAccessControlAllowOrigin)(nil)).Elem()
-}
-
-func (i GetResponseHeadersPolicyCorsConfigAccessControlAllowOriginArgs) ToGetResponseHeadersPolicyCorsConfigAccessControlAllowOriginOutput() GetResponseHeadersPolicyCorsConfigAccessControlAllowOriginOutput {
-	return i.ToGetResponseHeadersPolicyCorsConfigAccessControlAllowOriginOutputWithContext(context.Background())
-}
-
-func (i GetResponseHeadersPolicyCorsConfigAccessControlAllowOriginArgs) ToGetResponseHeadersPolicyCorsConfigAccessControlAllowOriginOutputWithContext(ctx context.Context) GetResponseHeadersPolicyCorsConfigAccessControlAllowOriginOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetResponseHeadersPolicyCorsConfigAccessControlAllowOriginOutput)
-}
-
-// GetResponseHeadersPolicyCorsConfigAccessControlAllowOriginArrayInput is an input type that accepts GetResponseHeadersPolicyCorsConfigAccessControlAllowOriginArray and GetResponseHeadersPolicyCorsConfigAccessControlAllowOriginArrayOutput values.
-// You can construct a concrete instance of `GetResponseHeadersPolicyCorsConfigAccessControlAllowOriginArrayInput` via:
-//
-//          GetResponseHeadersPolicyCorsConfigAccessControlAllowOriginArray{ GetResponseHeadersPolicyCorsConfigAccessControlAllowOriginArgs{...} }
-type GetResponseHeadersPolicyCorsConfigAccessControlAllowOriginArrayInput interface {
-	pulumi.Input
-
-	ToGetResponseHeadersPolicyCorsConfigAccessControlAllowOriginArrayOutput() GetResponseHeadersPolicyCorsConfigAccessControlAllowOriginArrayOutput
-	ToGetResponseHeadersPolicyCorsConfigAccessControlAllowOriginArrayOutputWithContext(context.Context) GetResponseHeadersPolicyCorsConfigAccessControlAllowOriginArrayOutput
-}
-
-type GetResponseHeadersPolicyCorsConfigAccessControlAllowOriginArray []GetResponseHeadersPolicyCorsConfigAccessControlAllowOriginInput
-
-func (GetResponseHeadersPolicyCorsConfigAccessControlAllowOriginArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetResponseHeadersPolicyCorsConfigAccessControlAllowOrigin)(nil)).Elem()
-}
-
-func (i GetResponseHeadersPolicyCorsConfigAccessControlAllowOriginArray) ToGetResponseHeadersPolicyCorsConfigAccessControlAllowOriginArrayOutput() GetResponseHeadersPolicyCorsConfigAccessControlAllowOriginArrayOutput {
-	return i.ToGetResponseHeadersPolicyCorsConfigAccessControlAllowOriginArrayOutputWithContext(context.Background())
-}
-
-func (i GetResponseHeadersPolicyCorsConfigAccessControlAllowOriginArray) ToGetResponseHeadersPolicyCorsConfigAccessControlAllowOriginArrayOutputWithContext(ctx context.Context) GetResponseHeadersPolicyCorsConfigAccessControlAllowOriginArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetResponseHeadersPolicyCorsConfigAccessControlAllowOriginArrayOutput)
-}
-
 type GetResponseHeadersPolicyCorsConfigAccessControlAllowOriginOutput struct{ *pulumi.OutputState }
 
 func (GetResponseHeadersPolicyCorsConfigAccessControlAllowOriginOutput) ElementType() reflect.Type {
@@ -12408,58 +9243,6 @@ type GetResponseHeadersPolicyCorsConfigAccessControlExposeHeader struct {
 	Items []string `pulumi:"items"`
 }
 
-// GetResponseHeadersPolicyCorsConfigAccessControlExposeHeaderInput is an input type that accepts GetResponseHeadersPolicyCorsConfigAccessControlExposeHeaderArgs and GetResponseHeadersPolicyCorsConfigAccessControlExposeHeaderOutput values.
-// You can construct a concrete instance of `GetResponseHeadersPolicyCorsConfigAccessControlExposeHeaderInput` via:
-//
-//          GetResponseHeadersPolicyCorsConfigAccessControlExposeHeaderArgs{...}
-type GetResponseHeadersPolicyCorsConfigAccessControlExposeHeaderInput interface {
-	pulumi.Input
-
-	ToGetResponseHeadersPolicyCorsConfigAccessControlExposeHeaderOutput() GetResponseHeadersPolicyCorsConfigAccessControlExposeHeaderOutput
-	ToGetResponseHeadersPolicyCorsConfigAccessControlExposeHeaderOutputWithContext(context.Context) GetResponseHeadersPolicyCorsConfigAccessControlExposeHeaderOutput
-}
-
-type GetResponseHeadersPolicyCorsConfigAccessControlExposeHeaderArgs struct {
-	Items pulumi.StringArrayInput `pulumi:"items"`
-}
-
-func (GetResponseHeadersPolicyCorsConfigAccessControlExposeHeaderArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetResponseHeadersPolicyCorsConfigAccessControlExposeHeader)(nil)).Elem()
-}
-
-func (i GetResponseHeadersPolicyCorsConfigAccessControlExposeHeaderArgs) ToGetResponseHeadersPolicyCorsConfigAccessControlExposeHeaderOutput() GetResponseHeadersPolicyCorsConfigAccessControlExposeHeaderOutput {
-	return i.ToGetResponseHeadersPolicyCorsConfigAccessControlExposeHeaderOutputWithContext(context.Background())
-}
-
-func (i GetResponseHeadersPolicyCorsConfigAccessControlExposeHeaderArgs) ToGetResponseHeadersPolicyCorsConfigAccessControlExposeHeaderOutputWithContext(ctx context.Context) GetResponseHeadersPolicyCorsConfigAccessControlExposeHeaderOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetResponseHeadersPolicyCorsConfigAccessControlExposeHeaderOutput)
-}
-
-// GetResponseHeadersPolicyCorsConfigAccessControlExposeHeaderArrayInput is an input type that accepts GetResponseHeadersPolicyCorsConfigAccessControlExposeHeaderArray and GetResponseHeadersPolicyCorsConfigAccessControlExposeHeaderArrayOutput values.
-// You can construct a concrete instance of `GetResponseHeadersPolicyCorsConfigAccessControlExposeHeaderArrayInput` via:
-//
-//          GetResponseHeadersPolicyCorsConfigAccessControlExposeHeaderArray{ GetResponseHeadersPolicyCorsConfigAccessControlExposeHeaderArgs{...} }
-type GetResponseHeadersPolicyCorsConfigAccessControlExposeHeaderArrayInput interface {
-	pulumi.Input
-
-	ToGetResponseHeadersPolicyCorsConfigAccessControlExposeHeaderArrayOutput() GetResponseHeadersPolicyCorsConfigAccessControlExposeHeaderArrayOutput
-	ToGetResponseHeadersPolicyCorsConfigAccessControlExposeHeaderArrayOutputWithContext(context.Context) GetResponseHeadersPolicyCorsConfigAccessControlExposeHeaderArrayOutput
-}
-
-type GetResponseHeadersPolicyCorsConfigAccessControlExposeHeaderArray []GetResponseHeadersPolicyCorsConfigAccessControlExposeHeaderInput
-
-func (GetResponseHeadersPolicyCorsConfigAccessControlExposeHeaderArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetResponseHeadersPolicyCorsConfigAccessControlExposeHeader)(nil)).Elem()
-}
-
-func (i GetResponseHeadersPolicyCorsConfigAccessControlExposeHeaderArray) ToGetResponseHeadersPolicyCorsConfigAccessControlExposeHeaderArrayOutput() GetResponseHeadersPolicyCorsConfigAccessControlExposeHeaderArrayOutput {
-	return i.ToGetResponseHeadersPolicyCorsConfigAccessControlExposeHeaderArrayOutputWithContext(context.Background())
-}
-
-func (i GetResponseHeadersPolicyCorsConfigAccessControlExposeHeaderArray) ToGetResponseHeadersPolicyCorsConfigAccessControlExposeHeaderArrayOutputWithContext(ctx context.Context) GetResponseHeadersPolicyCorsConfigAccessControlExposeHeaderArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetResponseHeadersPolicyCorsConfigAccessControlExposeHeaderArrayOutput)
-}
-
 type GetResponseHeadersPolicyCorsConfigAccessControlExposeHeaderOutput struct{ *pulumi.OutputState }
 
 func (GetResponseHeadersPolicyCorsConfigAccessControlExposeHeaderOutput) ElementType() reflect.Type {
@@ -12500,58 +9283,6 @@ func (o GetResponseHeadersPolicyCorsConfigAccessControlExposeHeaderArrayOutput) 
 
 type GetResponseHeadersPolicyCustomHeadersConfig struct {
 	Items []GetResponseHeadersPolicyCustomHeadersConfigItem `pulumi:"items"`
-}
-
-// GetResponseHeadersPolicyCustomHeadersConfigInput is an input type that accepts GetResponseHeadersPolicyCustomHeadersConfigArgs and GetResponseHeadersPolicyCustomHeadersConfigOutput values.
-// You can construct a concrete instance of `GetResponseHeadersPolicyCustomHeadersConfigInput` via:
-//
-//          GetResponseHeadersPolicyCustomHeadersConfigArgs{...}
-type GetResponseHeadersPolicyCustomHeadersConfigInput interface {
-	pulumi.Input
-
-	ToGetResponseHeadersPolicyCustomHeadersConfigOutput() GetResponseHeadersPolicyCustomHeadersConfigOutput
-	ToGetResponseHeadersPolicyCustomHeadersConfigOutputWithContext(context.Context) GetResponseHeadersPolicyCustomHeadersConfigOutput
-}
-
-type GetResponseHeadersPolicyCustomHeadersConfigArgs struct {
-	Items GetResponseHeadersPolicyCustomHeadersConfigItemArrayInput `pulumi:"items"`
-}
-
-func (GetResponseHeadersPolicyCustomHeadersConfigArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetResponseHeadersPolicyCustomHeadersConfig)(nil)).Elem()
-}
-
-func (i GetResponseHeadersPolicyCustomHeadersConfigArgs) ToGetResponseHeadersPolicyCustomHeadersConfigOutput() GetResponseHeadersPolicyCustomHeadersConfigOutput {
-	return i.ToGetResponseHeadersPolicyCustomHeadersConfigOutputWithContext(context.Background())
-}
-
-func (i GetResponseHeadersPolicyCustomHeadersConfigArgs) ToGetResponseHeadersPolicyCustomHeadersConfigOutputWithContext(ctx context.Context) GetResponseHeadersPolicyCustomHeadersConfigOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetResponseHeadersPolicyCustomHeadersConfigOutput)
-}
-
-// GetResponseHeadersPolicyCustomHeadersConfigArrayInput is an input type that accepts GetResponseHeadersPolicyCustomHeadersConfigArray and GetResponseHeadersPolicyCustomHeadersConfigArrayOutput values.
-// You can construct a concrete instance of `GetResponseHeadersPolicyCustomHeadersConfigArrayInput` via:
-//
-//          GetResponseHeadersPolicyCustomHeadersConfigArray{ GetResponseHeadersPolicyCustomHeadersConfigArgs{...} }
-type GetResponseHeadersPolicyCustomHeadersConfigArrayInput interface {
-	pulumi.Input
-
-	ToGetResponseHeadersPolicyCustomHeadersConfigArrayOutput() GetResponseHeadersPolicyCustomHeadersConfigArrayOutput
-	ToGetResponseHeadersPolicyCustomHeadersConfigArrayOutputWithContext(context.Context) GetResponseHeadersPolicyCustomHeadersConfigArrayOutput
-}
-
-type GetResponseHeadersPolicyCustomHeadersConfigArray []GetResponseHeadersPolicyCustomHeadersConfigInput
-
-func (GetResponseHeadersPolicyCustomHeadersConfigArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetResponseHeadersPolicyCustomHeadersConfig)(nil)).Elem()
-}
-
-func (i GetResponseHeadersPolicyCustomHeadersConfigArray) ToGetResponseHeadersPolicyCustomHeadersConfigArrayOutput() GetResponseHeadersPolicyCustomHeadersConfigArrayOutput {
-	return i.ToGetResponseHeadersPolicyCustomHeadersConfigArrayOutputWithContext(context.Background())
-}
-
-func (i GetResponseHeadersPolicyCustomHeadersConfigArray) ToGetResponseHeadersPolicyCustomHeadersConfigArrayOutputWithContext(ctx context.Context) GetResponseHeadersPolicyCustomHeadersConfigArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetResponseHeadersPolicyCustomHeadersConfigArrayOutput)
 }
 
 type GetResponseHeadersPolicyCustomHeadersConfigOutput struct{ *pulumi.OutputState }
@@ -12601,63 +9332,6 @@ type GetResponseHeadersPolicyCustomHeadersConfigItem struct {
 	Override bool `pulumi:"override"`
 	// The value for the HTTP response header.
 	Value string `pulumi:"value"`
-}
-
-// GetResponseHeadersPolicyCustomHeadersConfigItemInput is an input type that accepts GetResponseHeadersPolicyCustomHeadersConfigItemArgs and GetResponseHeadersPolicyCustomHeadersConfigItemOutput values.
-// You can construct a concrete instance of `GetResponseHeadersPolicyCustomHeadersConfigItemInput` via:
-//
-//          GetResponseHeadersPolicyCustomHeadersConfigItemArgs{...}
-type GetResponseHeadersPolicyCustomHeadersConfigItemInput interface {
-	pulumi.Input
-
-	ToGetResponseHeadersPolicyCustomHeadersConfigItemOutput() GetResponseHeadersPolicyCustomHeadersConfigItemOutput
-	ToGetResponseHeadersPolicyCustomHeadersConfigItemOutputWithContext(context.Context) GetResponseHeadersPolicyCustomHeadersConfigItemOutput
-}
-
-type GetResponseHeadersPolicyCustomHeadersConfigItemArgs struct {
-	// The HTTP response header name.
-	Header pulumi.StringInput `pulumi:"header"`
-	// A Boolean value that determines whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
-	Override pulumi.BoolInput `pulumi:"override"`
-	// The value for the HTTP response header.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (GetResponseHeadersPolicyCustomHeadersConfigItemArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetResponseHeadersPolicyCustomHeadersConfigItem)(nil)).Elem()
-}
-
-func (i GetResponseHeadersPolicyCustomHeadersConfigItemArgs) ToGetResponseHeadersPolicyCustomHeadersConfigItemOutput() GetResponseHeadersPolicyCustomHeadersConfigItemOutput {
-	return i.ToGetResponseHeadersPolicyCustomHeadersConfigItemOutputWithContext(context.Background())
-}
-
-func (i GetResponseHeadersPolicyCustomHeadersConfigItemArgs) ToGetResponseHeadersPolicyCustomHeadersConfigItemOutputWithContext(ctx context.Context) GetResponseHeadersPolicyCustomHeadersConfigItemOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetResponseHeadersPolicyCustomHeadersConfigItemOutput)
-}
-
-// GetResponseHeadersPolicyCustomHeadersConfigItemArrayInput is an input type that accepts GetResponseHeadersPolicyCustomHeadersConfigItemArray and GetResponseHeadersPolicyCustomHeadersConfigItemArrayOutput values.
-// You can construct a concrete instance of `GetResponseHeadersPolicyCustomHeadersConfigItemArrayInput` via:
-//
-//          GetResponseHeadersPolicyCustomHeadersConfigItemArray{ GetResponseHeadersPolicyCustomHeadersConfigItemArgs{...} }
-type GetResponseHeadersPolicyCustomHeadersConfigItemArrayInput interface {
-	pulumi.Input
-
-	ToGetResponseHeadersPolicyCustomHeadersConfigItemArrayOutput() GetResponseHeadersPolicyCustomHeadersConfigItemArrayOutput
-	ToGetResponseHeadersPolicyCustomHeadersConfigItemArrayOutputWithContext(context.Context) GetResponseHeadersPolicyCustomHeadersConfigItemArrayOutput
-}
-
-type GetResponseHeadersPolicyCustomHeadersConfigItemArray []GetResponseHeadersPolicyCustomHeadersConfigItemInput
-
-func (GetResponseHeadersPolicyCustomHeadersConfigItemArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetResponseHeadersPolicyCustomHeadersConfigItem)(nil)).Elem()
-}
-
-func (i GetResponseHeadersPolicyCustomHeadersConfigItemArray) ToGetResponseHeadersPolicyCustomHeadersConfigItemArrayOutput() GetResponseHeadersPolicyCustomHeadersConfigItemArrayOutput {
-	return i.ToGetResponseHeadersPolicyCustomHeadersConfigItemArrayOutputWithContext(context.Background())
-}
-
-func (i GetResponseHeadersPolicyCustomHeadersConfigItemArray) ToGetResponseHeadersPolicyCustomHeadersConfigItemArrayOutputWithContext(ctx context.Context) GetResponseHeadersPolicyCustomHeadersConfigItemArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetResponseHeadersPolicyCustomHeadersConfigItemArrayOutput)
 }
 
 type GetResponseHeadersPolicyCustomHeadersConfigItemOutput struct{ *pulumi.OutputState }
@@ -12722,69 +9396,6 @@ type GetResponseHeadersPolicySecurityHeadersConfig struct {
 	StrictTransportSecurities []GetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity `pulumi:"strictTransportSecurities"`
 	// Settings that determine whether CloudFront includes the X-XSS-Protection HTTP response header and the header’s value. See XSS Protection for more information.
 	XssProtections []GetResponseHeadersPolicySecurityHeadersConfigXssProtection `pulumi:"xssProtections"`
-}
-
-// GetResponseHeadersPolicySecurityHeadersConfigInput is an input type that accepts GetResponseHeadersPolicySecurityHeadersConfigArgs and GetResponseHeadersPolicySecurityHeadersConfigOutput values.
-// You can construct a concrete instance of `GetResponseHeadersPolicySecurityHeadersConfigInput` via:
-//
-//          GetResponseHeadersPolicySecurityHeadersConfigArgs{...}
-type GetResponseHeadersPolicySecurityHeadersConfigInput interface {
-	pulumi.Input
-
-	ToGetResponseHeadersPolicySecurityHeadersConfigOutput() GetResponseHeadersPolicySecurityHeadersConfigOutput
-	ToGetResponseHeadersPolicySecurityHeadersConfigOutputWithContext(context.Context) GetResponseHeadersPolicySecurityHeadersConfigOutput
-}
-
-type GetResponseHeadersPolicySecurityHeadersConfigArgs struct {
-	// The policy directives and their values that CloudFront includes as values for the Content-Security-Policy HTTP response header.
-	ContentSecurityPolicies GetResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyArrayInput `pulumi:"contentSecurityPolicies"`
-	// A setting that determines whether CloudFront includes the X-Content-Type-Options HTTP response header with its value set to nosniff. See Content Type Options for more information.
-	ContentTypeOptions GetResponseHeadersPolicySecurityHeadersConfigContentTypeOptionArrayInput `pulumi:"contentTypeOptions"`
-	// A setting that determines whether CloudFront includes the X-Frame-Options HTTP response header and the header’s value. See Frame Options for more information.
-	FrameOptions GetResponseHeadersPolicySecurityHeadersConfigFrameOptionArrayInput `pulumi:"frameOptions"`
-	// The value of the Referrer-Policy HTTP response header. Valid Values: `no-referrer` | `no-referrer-when-downgrade` | `origin` | `origin-when-cross-origin` | `same-origin` | `strict-origin` | `strict-origin-when-cross-origin` | `unsafe-url`
-	ReferrerPolicies GetResponseHeadersPolicySecurityHeadersConfigReferrerPolicyArrayInput `pulumi:"referrerPolicies"`
-	// Settings that determine whether CloudFront includes the Strict-Transport-Security HTTP response header and the header’s value. See Strict Transport Security for more information.
-	StrictTransportSecurities GetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityArrayInput `pulumi:"strictTransportSecurities"`
-	// Settings that determine whether CloudFront includes the X-XSS-Protection HTTP response header and the header’s value. See XSS Protection for more information.
-	XssProtections GetResponseHeadersPolicySecurityHeadersConfigXssProtectionArrayInput `pulumi:"xssProtections"`
-}
-
-func (GetResponseHeadersPolicySecurityHeadersConfigArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetResponseHeadersPolicySecurityHeadersConfig)(nil)).Elem()
-}
-
-func (i GetResponseHeadersPolicySecurityHeadersConfigArgs) ToGetResponseHeadersPolicySecurityHeadersConfigOutput() GetResponseHeadersPolicySecurityHeadersConfigOutput {
-	return i.ToGetResponseHeadersPolicySecurityHeadersConfigOutputWithContext(context.Background())
-}
-
-func (i GetResponseHeadersPolicySecurityHeadersConfigArgs) ToGetResponseHeadersPolicySecurityHeadersConfigOutputWithContext(ctx context.Context) GetResponseHeadersPolicySecurityHeadersConfigOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetResponseHeadersPolicySecurityHeadersConfigOutput)
-}
-
-// GetResponseHeadersPolicySecurityHeadersConfigArrayInput is an input type that accepts GetResponseHeadersPolicySecurityHeadersConfigArray and GetResponseHeadersPolicySecurityHeadersConfigArrayOutput values.
-// You can construct a concrete instance of `GetResponseHeadersPolicySecurityHeadersConfigArrayInput` via:
-//
-//          GetResponseHeadersPolicySecurityHeadersConfigArray{ GetResponseHeadersPolicySecurityHeadersConfigArgs{...} }
-type GetResponseHeadersPolicySecurityHeadersConfigArrayInput interface {
-	pulumi.Input
-
-	ToGetResponseHeadersPolicySecurityHeadersConfigArrayOutput() GetResponseHeadersPolicySecurityHeadersConfigArrayOutput
-	ToGetResponseHeadersPolicySecurityHeadersConfigArrayOutputWithContext(context.Context) GetResponseHeadersPolicySecurityHeadersConfigArrayOutput
-}
-
-type GetResponseHeadersPolicySecurityHeadersConfigArray []GetResponseHeadersPolicySecurityHeadersConfigInput
-
-func (GetResponseHeadersPolicySecurityHeadersConfigArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetResponseHeadersPolicySecurityHeadersConfig)(nil)).Elem()
-}
-
-func (i GetResponseHeadersPolicySecurityHeadersConfigArray) ToGetResponseHeadersPolicySecurityHeadersConfigArrayOutput() GetResponseHeadersPolicySecurityHeadersConfigArrayOutput {
-	return i.ToGetResponseHeadersPolicySecurityHeadersConfigArrayOutputWithContext(context.Background())
-}
-
-func (i GetResponseHeadersPolicySecurityHeadersConfigArray) ToGetResponseHeadersPolicySecurityHeadersConfigArrayOutputWithContext(ctx context.Context) GetResponseHeadersPolicySecurityHeadersConfigArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetResponseHeadersPolicySecurityHeadersConfigArrayOutput)
 }
 
 type GetResponseHeadersPolicySecurityHeadersConfigOutput struct{ *pulumi.OutputState }
@@ -12870,61 +9481,6 @@ type GetResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicy struct {
 	Override bool `pulumi:"override"`
 }
 
-// GetResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyInput is an input type that accepts GetResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyArgs and GetResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyOutput values.
-// You can construct a concrete instance of `GetResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyInput` via:
-//
-//          GetResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyArgs{...}
-type GetResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyInput interface {
-	pulumi.Input
-
-	ToGetResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyOutput() GetResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyOutput
-	ToGetResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyOutputWithContext(context.Context) GetResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyOutput
-}
-
-type GetResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyArgs struct {
-	// The policy directives and their values that CloudFront includes as values for the Content-Security-Policy HTTP response header.
-	ContentSecurityPolicy pulumi.StringInput `pulumi:"contentSecurityPolicy"`
-	// A Boolean value that determines whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
-	Override pulumi.BoolInput `pulumi:"override"`
-}
-
-func (GetResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicy)(nil)).Elem()
-}
-
-func (i GetResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyArgs) ToGetResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyOutput() GetResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyOutput {
-	return i.ToGetResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyOutputWithContext(context.Background())
-}
-
-func (i GetResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyArgs) ToGetResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyOutputWithContext(ctx context.Context) GetResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyOutput)
-}
-
-// GetResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyArrayInput is an input type that accepts GetResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyArray and GetResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyArrayOutput values.
-// You can construct a concrete instance of `GetResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyArrayInput` via:
-//
-//          GetResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyArray{ GetResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyArgs{...} }
-type GetResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyArrayInput interface {
-	pulumi.Input
-
-	ToGetResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyArrayOutput() GetResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyArrayOutput
-	ToGetResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyArrayOutputWithContext(context.Context) GetResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyArrayOutput
-}
-
-type GetResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyArray []GetResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyInput
-
-func (GetResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicy)(nil)).Elem()
-}
-
-func (i GetResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyArray) ToGetResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyArrayOutput() GetResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyArrayOutput {
-	return i.ToGetResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyArrayOutputWithContext(context.Background())
-}
-
-func (i GetResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyArray) ToGetResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyArrayOutputWithContext(ctx context.Context) GetResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyArrayOutput)
-}
-
 type GetResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyOutput struct{ *pulumi.OutputState }
 
 func (GetResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyOutput) ElementType() reflect.Type {
@@ -12976,59 +9532,6 @@ type GetResponseHeadersPolicySecurityHeadersConfigContentTypeOption struct {
 	Override bool `pulumi:"override"`
 }
 
-// GetResponseHeadersPolicySecurityHeadersConfigContentTypeOptionInput is an input type that accepts GetResponseHeadersPolicySecurityHeadersConfigContentTypeOptionArgs and GetResponseHeadersPolicySecurityHeadersConfigContentTypeOptionOutput values.
-// You can construct a concrete instance of `GetResponseHeadersPolicySecurityHeadersConfigContentTypeOptionInput` via:
-//
-//          GetResponseHeadersPolicySecurityHeadersConfigContentTypeOptionArgs{...}
-type GetResponseHeadersPolicySecurityHeadersConfigContentTypeOptionInput interface {
-	pulumi.Input
-
-	ToGetResponseHeadersPolicySecurityHeadersConfigContentTypeOptionOutput() GetResponseHeadersPolicySecurityHeadersConfigContentTypeOptionOutput
-	ToGetResponseHeadersPolicySecurityHeadersConfigContentTypeOptionOutputWithContext(context.Context) GetResponseHeadersPolicySecurityHeadersConfigContentTypeOptionOutput
-}
-
-type GetResponseHeadersPolicySecurityHeadersConfigContentTypeOptionArgs struct {
-	// A Boolean value that determines whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
-	Override pulumi.BoolInput `pulumi:"override"`
-}
-
-func (GetResponseHeadersPolicySecurityHeadersConfigContentTypeOptionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetResponseHeadersPolicySecurityHeadersConfigContentTypeOption)(nil)).Elem()
-}
-
-func (i GetResponseHeadersPolicySecurityHeadersConfigContentTypeOptionArgs) ToGetResponseHeadersPolicySecurityHeadersConfigContentTypeOptionOutput() GetResponseHeadersPolicySecurityHeadersConfigContentTypeOptionOutput {
-	return i.ToGetResponseHeadersPolicySecurityHeadersConfigContentTypeOptionOutputWithContext(context.Background())
-}
-
-func (i GetResponseHeadersPolicySecurityHeadersConfigContentTypeOptionArgs) ToGetResponseHeadersPolicySecurityHeadersConfigContentTypeOptionOutputWithContext(ctx context.Context) GetResponseHeadersPolicySecurityHeadersConfigContentTypeOptionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetResponseHeadersPolicySecurityHeadersConfigContentTypeOptionOutput)
-}
-
-// GetResponseHeadersPolicySecurityHeadersConfigContentTypeOptionArrayInput is an input type that accepts GetResponseHeadersPolicySecurityHeadersConfigContentTypeOptionArray and GetResponseHeadersPolicySecurityHeadersConfigContentTypeOptionArrayOutput values.
-// You can construct a concrete instance of `GetResponseHeadersPolicySecurityHeadersConfigContentTypeOptionArrayInput` via:
-//
-//          GetResponseHeadersPolicySecurityHeadersConfigContentTypeOptionArray{ GetResponseHeadersPolicySecurityHeadersConfigContentTypeOptionArgs{...} }
-type GetResponseHeadersPolicySecurityHeadersConfigContentTypeOptionArrayInput interface {
-	pulumi.Input
-
-	ToGetResponseHeadersPolicySecurityHeadersConfigContentTypeOptionArrayOutput() GetResponseHeadersPolicySecurityHeadersConfigContentTypeOptionArrayOutput
-	ToGetResponseHeadersPolicySecurityHeadersConfigContentTypeOptionArrayOutputWithContext(context.Context) GetResponseHeadersPolicySecurityHeadersConfigContentTypeOptionArrayOutput
-}
-
-type GetResponseHeadersPolicySecurityHeadersConfigContentTypeOptionArray []GetResponseHeadersPolicySecurityHeadersConfigContentTypeOptionInput
-
-func (GetResponseHeadersPolicySecurityHeadersConfigContentTypeOptionArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetResponseHeadersPolicySecurityHeadersConfigContentTypeOption)(nil)).Elem()
-}
-
-func (i GetResponseHeadersPolicySecurityHeadersConfigContentTypeOptionArray) ToGetResponseHeadersPolicySecurityHeadersConfigContentTypeOptionArrayOutput() GetResponseHeadersPolicySecurityHeadersConfigContentTypeOptionArrayOutput {
-	return i.ToGetResponseHeadersPolicySecurityHeadersConfigContentTypeOptionArrayOutputWithContext(context.Background())
-}
-
-func (i GetResponseHeadersPolicySecurityHeadersConfigContentTypeOptionArray) ToGetResponseHeadersPolicySecurityHeadersConfigContentTypeOptionArrayOutputWithContext(ctx context.Context) GetResponseHeadersPolicySecurityHeadersConfigContentTypeOptionArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetResponseHeadersPolicySecurityHeadersConfigContentTypeOptionArrayOutput)
-}
-
 type GetResponseHeadersPolicySecurityHeadersConfigContentTypeOptionOutput struct{ *pulumi.OutputState }
 
 func (GetResponseHeadersPolicySecurityHeadersConfigContentTypeOptionOutput) ElementType() reflect.Type {
@@ -13073,61 +9576,6 @@ type GetResponseHeadersPolicySecurityHeadersConfigFrameOption struct {
 	FrameOption string `pulumi:"frameOption"`
 	// A Boolean value that determines whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
 	Override bool `pulumi:"override"`
-}
-
-// GetResponseHeadersPolicySecurityHeadersConfigFrameOptionInput is an input type that accepts GetResponseHeadersPolicySecurityHeadersConfigFrameOptionArgs and GetResponseHeadersPolicySecurityHeadersConfigFrameOptionOutput values.
-// You can construct a concrete instance of `GetResponseHeadersPolicySecurityHeadersConfigFrameOptionInput` via:
-//
-//          GetResponseHeadersPolicySecurityHeadersConfigFrameOptionArgs{...}
-type GetResponseHeadersPolicySecurityHeadersConfigFrameOptionInput interface {
-	pulumi.Input
-
-	ToGetResponseHeadersPolicySecurityHeadersConfigFrameOptionOutput() GetResponseHeadersPolicySecurityHeadersConfigFrameOptionOutput
-	ToGetResponseHeadersPolicySecurityHeadersConfigFrameOptionOutputWithContext(context.Context) GetResponseHeadersPolicySecurityHeadersConfigFrameOptionOutput
-}
-
-type GetResponseHeadersPolicySecurityHeadersConfigFrameOptionArgs struct {
-	// The value of the X-Frame-Options HTTP response header. Valid values: `DENY` | `SAMEORIGIN`
-	FrameOption pulumi.StringInput `pulumi:"frameOption"`
-	// A Boolean value that determines whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
-	Override pulumi.BoolInput `pulumi:"override"`
-}
-
-func (GetResponseHeadersPolicySecurityHeadersConfigFrameOptionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetResponseHeadersPolicySecurityHeadersConfigFrameOption)(nil)).Elem()
-}
-
-func (i GetResponseHeadersPolicySecurityHeadersConfigFrameOptionArgs) ToGetResponseHeadersPolicySecurityHeadersConfigFrameOptionOutput() GetResponseHeadersPolicySecurityHeadersConfigFrameOptionOutput {
-	return i.ToGetResponseHeadersPolicySecurityHeadersConfigFrameOptionOutputWithContext(context.Background())
-}
-
-func (i GetResponseHeadersPolicySecurityHeadersConfigFrameOptionArgs) ToGetResponseHeadersPolicySecurityHeadersConfigFrameOptionOutputWithContext(ctx context.Context) GetResponseHeadersPolicySecurityHeadersConfigFrameOptionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetResponseHeadersPolicySecurityHeadersConfigFrameOptionOutput)
-}
-
-// GetResponseHeadersPolicySecurityHeadersConfigFrameOptionArrayInput is an input type that accepts GetResponseHeadersPolicySecurityHeadersConfigFrameOptionArray and GetResponseHeadersPolicySecurityHeadersConfigFrameOptionArrayOutput values.
-// You can construct a concrete instance of `GetResponseHeadersPolicySecurityHeadersConfigFrameOptionArrayInput` via:
-//
-//          GetResponseHeadersPolicySecurityHeadersConfigFrameOptionArray{ GetResponseHeadersPolicySecurityHeadersConfigFrameOptionArgs{...} }
-type GetResponseHeadersPolicySecurityHeadersConfigFrameOptionArrayInput interface {
-	pulumi.Input
-
-	ToGetResponseHeadersPolicySecurityHeadersConfigFrameOptionArrayOutput() GetResponseHeadersPolicySecurityHeadersConfigFrameOptionArrayOutput
-	ToGetResponseHeadersPolicySecurityHeadersConfigFrameOptionArrayOutputWithContext(context.Context) GetResponseHeadersPolicySecurityHeadersConfigFrameOptionArrayOutput
-}
-
-type GetResponseHeadersPolicySecurityHeadersConfigFrameOptionArray []GetResponseHeadersPolicySecurityHeadersConfigFrameOptionInput
-
-func (GetResponseHeadersPolicySecurityHeadersConfigFrameOptionArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetResponseHeadersPolicySecurityHeadersConfigFrameOption)(nil)).Elem()
-}
-
-func (i GetResponseHeadersPolicySecurityHeadersConfigFrameOptionArray) ToGetResponseHeadersPolicySecurityHeadersConfigFrameOptionArrayOutput() GetResponseHeadersPolicySecurityHeadersConfigFrameOptionArrayOutput {
-	return i.ToGetResponseHeadersPolicySecurityHeadersConfigFrameOptionArrayOutputWithContext(context.Background())
-}
-
-func (i GetResponseHeadersPolicySecurityHeadersConfigFrameOptionArray) ToGetResponseHeadersPolicySecurityHeadersConfigFrameOptionArrayOutputWithContext(ctx context.Context) GetResponseHeadersPolicySecurityHeadersConfigFrameOptionArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetResponseHeadersPolicySecurityHeadersConfigFrameOptionArrayOutput)
 }
 
 type GetResponseHeadersPolicySecurityHeadersConfigFrameOptionOutput struct{ *pulumi.OutputState }
@@ -13179,61 +9627,6 @@ type GetResponseHeadersPolicySecurityHeadersConfigReferrerPolicy struct {
 	Override bool `pulumi:"override"`
 	// The value of the Referrer-Policy HTTP response header. Valid Values: `no-referrer` | `no-referrer-when-downgrade` | `origin` | `origin-when-cross-origin` | `same-origin` | `strict-origin` | `strict-origin-when-cross-origin` | `unsafe-url`
 	ReferrerPolicy string `pulumi:"referrerPolicy"`
-}
-
-// GetResponseHeadersPolicySecurityHeadersConfigReferrerPolicyInput is an input type that accepts GetResponseHeadersPolicySecurityHeadersConfigReferrerPolicyArgs and GetResponseHeadersPolicySecurityHeadersConfigReferrerPolicyOutput values.
-// You can construct a concrete instance of `GetResponseHeadersPolicySecurityHeadersConfigReferrerPolicyInput` via:
-//
-//          GetResponseHeadersPolicySecurityHeadersConfigReferrerPolicyArgs{...}
-type GetResponseHeadersPolicySecurityHeadersConfigReferrerPolicyInput interface {
-	pulumi.Input
-
-	ToGetResponseHeadersPolicySecurityHeadersConfigReferrerPolicyOutput() GetResponseHeadersPolicySecurityHeadersConfigReferrerPolicyOutput
-	ToGetResponseHeadersPolicySecurityHeadersConfigReferrerPolicyOutputWithContext(context.Context) GetResponseHeadersPolicySecurityHeadersConfigReferrerPolicyOutput
-}
-
-type GetResponseHeadersPolicySecurityHeadersConfigReferrerPolicyArgs struct {
-	// A Boolean value that determines whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
-	Override pulumi.BoolInput `pulumi:"override"`
-	// The value of the Referrer-Policy HTTP response header. Valid Values: `no-referrer` | `no-referrer-when-downgrade` | `origin` | `origin-when-cross-origin` | `same-origin` | `strict-origin` | `strict-origin-when-cross-origin` | `unsafe-url`
-	ReferrerPolicy pulumi.StringInput `pulumi:"referrerPolicy"`
-}
-
-func (GetResponseHeadersPolicySecurityHeadersConfigReferrerPolicyArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetResponseHeadersPolicySecurityHeadersConfigReferrerPolicy)(nil)).Elem()
-}
-
-func (i GetResponseHeadersPolicySecurityHeadersConfigReferrerPolicyArgs) ToGetResponseHeadersPolicySecurityHeadersConfigReferrerPolicyOutput() GetResponseHeadersPolicySecurityHeadersConfigReferrerPolicyOutput {
-	return i.ToGetResponseHeadersPolicySecurityHeadersConfigReferrerPolicyOutputWithContext(context.Background())
-}
-
-func (i GetResponseHeadersPolicySecurityHeadersConfigReferrerPolicyArgs) ToGetResponseHeadersPolicySecurityHeadersConfigReferrerPolicyOutputWithContext(ctx context.Context) GetResponseHeadersPolicySecurityHeadersConfigReferrerPolicyOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetResponseHeadersPolicySecurityHeadersConfigReferrerPolicyOutput)
-}
-
-// GetResponseHeadersPolicySecurityHeadersConfigReferrerPolicyArrayInput is an input type that accepts GetResponseHeadersPolicySecurityHeadersConfigReferrerPolicyArray and GetResponseHeadersPolicySecurityHeadersConfigReferrerPolicyArrayOutput values.
-// You can construct a concrete instance of `GetResponseHeadersPolicySecurityHeadersConfigReferrerPolicyArrayInput` via:
-//
-//          GetResponseHeadersPolicySecurityHeadersConfigReferrerPolicyArray{ GetResponseHeadersPolicySecurityHeadersConfigReferrerPolicyArgs{...} }
-type GetResponseHeadersPolicySecurityHeadersConfigReferrerPolicyArrayInput interface {
-	pulumi.Input
-
-	ToGetResponseHeadersPolicySecurityHeadersConfigReferrerPolicyArrayOutput() GetResponseHeadersPolicySecurityHeadersConfigReferrerPolicyArrayOutput
-	ToGetResponseHeadersPolicySecurityHeadersConfigReferrerPolicyArrayOutputWithContext(context.Context) GetResponseHeadersPolicySecurityHeadersConfigReferrerPolicyArrayOutput
-}
-
-type GetResponseHeadersPolicySecurityHeadersConfigReferrerPolicyArray []GetResponseHeadersPolicySecurityHeadersConfigReferrerPolicyInput
-
-func (GetResponseHeadersPolicySecurityHeadersConfigReferrerPolicyArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetResponseHeadersPolicySecurityHeadersConfigReferrerPolicy)(nil)).Elem()
-}
-
-func (i GetResponseHeadersPolicySecurityHeadersConfigReferrerPolicyArray) ToGetResponseHeadersPolicySecurityHeadersConfigReferrerPolicyArrayOutput() GetResponseHeadersPolicySecurityHeadersConfigReferrerPolicyArrayOutput {
-	return i.ToGetResponseHeadersPolicySecurityHeadersConfigReferrerPolicyArrayOutputWithContext(context.Background())
-}
-
-func (i GetResponseHeadersPolicySecurityHeadersConfigReferrerPolicyArray) ToGetResponseHeadersPolicySecurityHeadersConfigReferrerPolicyArrayOutputWithContext(ctx context.Context) GetResponseHeadersPolicySecurityHeadersConfigReferrerPolicyArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetResponseHeadersPolicySecurityHeadersConfigReferrerPolicyArrayOutput)
 }
 
 type GetResponseHeadersPolicySecurityHeadersConfigReferrerPolicyOutput struct{ *pulumi.OutputState }
@@ -13289,65 +9682,6 @@ type GetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity struct
 	Override bool `pulumi:"override"`
 	// A Boolean value that determines whether CloudFront includes the preload directive in the Strict-Transport-Security HTTP response header.
 	Preload bool `pulumi:"preload"`
-}
-
-// GetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityInput is an input type that accepts GetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityArgs and GetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityOutput values.
-// You can construct a concrete instance of `GetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityInput` via:
-//
-//          GetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityArgs{...}
-type GetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityInput interface {
-	pulumi.Input
-
-	ToGetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityOutput() GetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityOutput
-	ToGetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityOutputWithContext(context.Context) GetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityOutput
-}
-
-type GetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityArgs struct {
-	// A number that CloudFront uses as the value for the max-age directive in the Strict-Transport-Security HTTP response header.
-	AccessControlMaxAgeSec pulumi.IntInput `pulumi:"accessControlMaxAgeSec"`
-	// A Boolean value that determines whether CloudFront includes the includeSubDomains directive in the Strict-Transport-Security HTTP response header.
-	IncludeSubdomains pulumi.BoolInput `pulumi:"includeSubdomains"`
-	// A Boolean value that determines whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
-	Override pulumi.BoolInput `pulumi:"override"`
-	// A Boolean value that determines whether CloudFront includes the preload directive in the Strict-Transport-Security HTTP response header.
-	Preload pulumi.BoolInput `pulumi:"preload"`
-}
-
-func (GetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity)(nil)).Elem()
-}
-
-func (i GetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityArgs) ToGetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityOutput() GetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityOutput {
-	return i.ToGetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityOutputWithContext(context.Background())
-}
-
-func (i GetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityArgs) ToGetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityOutputWithContext(ctx context.Context) GetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityOutput)
-}
-
-// GetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityArrayInput is an input type that accepts GetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityArray and GetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityArrayOutput values.
-// You can construct a concrete instance of `GetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityArrayInput` via:
-//
-//          GetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityArray{ GetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityArgs{...} }
-type GetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityArrayInput interface {
-	pulumi.Input
-
-	ToGetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityArrayOutput() GetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityArrayOutput
-	ToGetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityArrayOutputWithContext(context.Context) GetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityArrayOutput
-}
-
-type GetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityArray []GetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityInput
-
-func (GetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurity)(nil)).Elem()
-}
-
-func (i GetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityArray) ToGetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityArrayOutput() GetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityArrayOutput {
-	return i.ToGetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityArrayOutputWithContext(context.Background())
-}
-
-func (i GetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityArray) ToGetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityArrayOutputWithContext(ctx context.Context) GetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityArrayOutput)
 }
 
 type GetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityOutput struct{ *pulumi.OutputState }
@@ -13419,65 +9753,6 @@ type GetResponseHeadersPolicySecurityHeadersConfigXssProtection struct {
 	ReportUri string `pulumi:"reportUri"`
 }
 
-// GetResponseHeadersPolicySecurityHeadersConfigXssProtectionInput is an input type that accepts GetResponseHeadersPolicySecurityHeadersConfigXssProtectionArgs and GetResponseHeadersPolicySecurityHeadersConfigXssProtectionOutput values.
-// You can construct a concrete instance of `GetResponseHeadersPolicySecurityHeadersConfigXssProtectionInput` via:
-//
-//          GetResponseHeadersPolicySecurityHeadersConfigXssProtectionArgs{...}
-type GetResponseHeadersPolicySecurityHeadersConfigXssProtectionInput interface {
-	pulumi.Input
-
-	ToGetResponseHeadersPolicySecurityHeadersConfigXssProtectionOutput() GetResponseHeadersPolicySecurityHeadersConfigXssProtectionOutput
-	ToGetResponseHeadersPolicySecurityHeadersConfigXssProtectionOutputWithContext(context.Context) GetResponseHeadersPolicySecurityHeadersConfigXssProtectionOutput
-}
-
-type GetResponseHeadersPolicySecurityHeadersConfigXssProtectionArgs struct {
-	// A Boolean value that determines whether CloudFront includes the mode=block directive in the X-XSS-Protection header.
-	ModeBlock pulumi.BoolInput `pulumi:"modeBlock"`
-	// A Boolean value that determines whether CloudFront overrides the X-XSS-Protection HTTP response header received from the origin with the one specified in this response headers policy.
-	Override pulumi.BoolInput `pulumi:"override"`
-	// A Boolean value that determines the value of the X-XSS-Protection HTTP response header. When this setting is true, the value of the X-XSS-Protection header is 1. When this setting is false, the value of the X-XSS-Protection header is 0.
-	Protection pulumi.BoolInput `pulumi:"protection"`
-	// A Boolean value that determines whether CloudFront sets a reporting URI in the X-XSS-Protection header.
-	ReportUri pulumi.StringInput `pulumi:"reportUri"`
-}
-
-func (GetResponseHeadersPolicySecurityHeadersConfigXssProtectionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetResponseHeadersPolicySecurityHeadersConfigXssProtection)(nil)).Elem()
-}
-
-func (i GetResponseHeadersPolicySecurityHeadersConfigXssProtectionArgs) ToGetResponseHeadersPolicySecurityHeadersConfigXssProtectionOutput() GetResponseHeadersPolicySecurityHeadersConfigXssProtectionOutput {
-	return i.ToGetResponseHeadersPolicySecurityHeadersConfigXssProtectionOutputWithContext(context.Background())
-}
-
-func (i GetResponseHeadersPolicySecurityHeadersConfigXssProtectionArgs) ToGetResponseHeadersPolicySecurityHeadersConfigXssProtectionOutputWithContext(ctx context.Context) GetResponseHeadersPolicySecurityHeadersConfigXssProtectionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetResponseHeadersPolicySecurityHeadersConfigXssProtectionOutput)
-}
-
-// GetResponseHeadersPolicySecurityHeadersConfigXssProtectionArrayInput is an input type that accepts GetResponseHeadersPolicySecurityHeadersConfigXssProtectionArray and GetResponseHeadersPolicySecurityHeadersConfigXssProtectionArrayOutput values.
-// You can construct a concrete instance of `GetResponseHeadersPolicySecurityHeadersConfigXssProtectionArrayInput` via:
-//
-//          GetResponseHeadersPolicySecurityHeadersConfigXssProtectionArray{ GetResponseHeadersPolicySecurityHeadersConfigXssProtectionArgs{...} }
-type GetResponseHeadersPolicySecurityHeadersConfigXssProtectionArrayInput interface {
-	pulumi.Input
-
-	ToGetResponseHeadersPolicySecurityHeadersConfigXssProtectionArrayOutput() GetResponseHeadersPolicySecurityHeadersConfigXssProtectionArrayOutput
-	ToGetResponseHeadersPolicySecurityHeadersConfigXssProtectionArrayOutputWithContext(context.Context) GetResponseHeadersPolicySecurityHeadersConfigXssProtectionArrayOutput
-}
-
-type GetResponseHeadersPolicySecurityHeadersConfigXssProtectionArray []GetResponseHeadersPolicySecurityHeadersConfigXssProtectionInput
-
-func (GetResponseHeadersPolicySecurityHeadersConfigXssProtectionArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetResponseHeadersPolicySecurityHeadersConfigXssProtection)(nil)).Elem()
-}
-
-func (i GetResponseHeadersPolicySecurityHeadersConfigXssProtectionArray) ToGetResponseHeadersPolicySecurityHeadersConfigXssProtectionArrayOutput() GetResponseHeadersPolicySecurityHeadersConfigXssProtectionArrayOutput {
-	return i.ToGetResponseHeadersPolicySecurityHeadersConfigXssProtectionArrayOutputWithContext(context.Background())
-}
-
-func (i GetResponseHeadersPolicySecurityHeadersConfigXssProtectionArray) ToGetResponseHeadersPolicySecurityHeadersConfigXssProtectionArrayOutputWithContext(ctx context.Context) GetResponseHeadersPolicySecurityHeadersConfigXssProtectionArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetResponseHeadersPolicySecurityHeadersConfigXssProtectionArrayOutput)
-}
-
 type GetResponseHeadersPolicySecurityHeadersConfigXssProtectionOutput struct{ *pulumi.OutputState }
 
 func (GetResponseHeadersPolicySecurityHeadersConfigXssProtectionOutput) ElementType() reflect.Type {
@@ -13534,23 +9809,18 @@ func (o GetResponseHeadersPolicySecurityHeadersConfigXssProtectionArrayOutput) I
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CachePolicyParametersInCacheKeyAndForwardedToOriginInput)(nil)).Elem(), CachePolicyParametersInCacheKeyAndForwardedToOriginArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CachePolicyParametersInCacheKeyAndForwardedToOriginPtrInput)(nil)).Elem(), CachePolicyParametersInCacheKeyAndForwardedToOriginArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigInput)(nil)).Elem(), CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrInput)(nil)).Elem(), CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesInput)(nil)).Elem(), CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesPtrInput)(nil)).Elem(), CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigInput)(nil)).Elem(), CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrInput)(nil)).Elem(), CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersInput)(nil)).Elem(), CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersPtrInput)(nil)).Elem(), CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigInput)(nil)).Elem(), CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrInput)(nil)).Elem(), CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsInput)(nil)).Elem(), CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsPtrInput)(nil)).Elem(), CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionCustomErrorResponseInput)(nil)).Elem(), DistributionCustomErrorResponseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionCustomErrorResponseArrayInput)(nil)).Elem(), DistributionCustomErrorResponseArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionDefaultCacheBehaviorInput)(nil)).Elem(), DistributionDefaultCacheBehaviorArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DistributionDefaultCacheBehaviorPtrInput)(nil)).Elem(), DistributionDefaultCacheBehaviorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionDefaultCacheBehaviorForwardedValuesInput)(nil)).Elem(), DistributionDefaultCacheBehaviorForwardedValuesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionDefaultCacheBehaviorForwardedValuesPtrInput)(nil)).Elem(), DistributionDefaultCacheBehaviorForwardedValuesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionDefaultCacheBehaviorForwardedValuesCookiesInput)(nil)).Elem(), DistributionDefaultCacheBehaviorForwardedValuesCookiesArgs{})
@@ -13587,56 +9857,34 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionOriginS3OriginConfigInput)(nil)).Elem(), DistributionOriginS3OriginConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionOriginS3OriginConfigPtrInput)(nil)).Elem(), DistributionOriginS3OriginConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionRestrictionsInput)(nil)).Elem(), DistributionRestrictionsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DistributionRestrictionsPtrInput)(nil)).Elem(), DistributionRestrictionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionRestrictionsGeoRestrictionInput)(nil)).Elem(), DistributionRestrictionsGeoRestrictionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DistributionRestrictionsGeoRestrictionPtrInput)(nil)).Elem(), DistributionRestrictionsGeoRestrictionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DistributionTrustedKeyGroupInput)(nil)).Elem(), DistributionTrustedKeyGroupArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DistributionTrustedKeyGroupArrayInput)(nil)).Elem(), DistributionTrustedKeyGroupArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DistributionTrustedKeyGroupItemInput)(nil)).Elem(), DistributionTrustedKeyGroupItemArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DistributionTrustedKeyGroupItemArrayInput)(nil)).Elem(), DistributionTrustedKeyGroupItemArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DistributionTrustedSignerInput)(nil)).Elem(), DistributionTrustedSignerArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DistributionTrustedSignerArrayInput)(nil)).Elem(), DistributionTrustedSignerArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DistributionTrustedSignerItemInput)(nil)).Elem(), DistributionTrustedSignerItemArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DistributionTrustedSignerItemArrayInput)(nil)).Elem(), DistributionTrustedSignerItemArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionViewerCertificateInput)(nil)).Elem(), DistributionViewerCertificateArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DistributionViewerCertificatePtrInput)(nil)).Elem(), DistributionViewerCertificateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FieldLevelEncryptionConfigContentTypeProfileConfigInput)(nil)).Elem(), FieldLevelEncryptionConfigContentTypeProfileConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FieldLevelEncryptionConfigContentTypeProfileConfigPtrInput)(nil)).Elem(), FieldLevelEncryptionConfigContentTypeProfileConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesInput)(nil)).Elem(), FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesPtrInput)(nil)).Elem(), FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemInput)(nil)).Elem(), FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArrayInput)(nil)).Elem(), FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FieldLevelEncryptionConfigQueryArgProfileConfigInput)(nil)).Elem(), FieldLevelEncryptionConfigQueryArgProfileConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FieldLevelEncryptionConfigQueryArgProfileConfigPtrInput)(nil)).Elem(), FieldLevelEncryptionConfigQueryArgProfileConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesInput)(nil)).Elem(), FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesPtrInput)(nil)).Elem(), FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemInput)(nil)).Elem(), FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArrayInput)(nil)).Elem(), FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FieldLevelEncryptionProfileEncryptionEntitiesInput)(nil)).Elem(), FieldLevelEncryptionProfileEncryptionEntitiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FieldLevelEncryptionProfileEncryptionEntitiesPtrInput)(nil)).Elem(), FieldLevelEncryptionProfileEncryptionEntitiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FieldLevelEncryptionProfileEncryptionEntitiesItemInput)(nil)).Elem(), FieldLevelEncryptionProfileEncryptionEntitiesItemArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FieldLevelEncryptionProfileEncryptionEntitiesItemArrayInput)(nil)).Elem(), FieldLevelEncryptionProfileEncryptionEntitiesItemArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatternsInput)(nil)).Elem(), FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatternsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringSubscriptionMonitoringSubscriptionInput)(nil)).Elem(), MonitoringSubscriptionMonitoringSubscriptionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringSubscriptionMonitoringSubscriptionPtrInput)(nil)).Elem(), MonitoringSubscriptionMonitoringSubscriptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigInput)(nil)).Elem(), MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrInput)(nil)).Elem(), MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginRequestPolicyCookiesConfigInput)(nil)).Elem(), OriginRequestPolicyCookiesConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*OriginRequestPolicyCookiesConfigPtrInput)(nil)).Elem(), OriginRequestPolicyCookiesConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginRequestPolicyCookiesConfigCookiesInput)(nil)).Elem(), OriginRequestPolicyCookiesConfigCookiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginRequestPolicyCookiesConfigCookiesPtrInput)(nil)).Elem(), OriginRequestPolicyCookiesConfigCookiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginRequestPolicyHeadersConfigInput)(nil)).Elem(), OriginRequestPolicyHeadersConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*OriginRequestPolicyHeadersConfigPtrInput)(nil)).Elem(), OriginRequestPolicyHeadersConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginRequestPolicyHeadersConfigHeadersInput)(nil)).Elem(), OriginRequestPolicyHeadersConfigHeadersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginRequestPolicyHeadersConfigHeadersPtrInput)(nil)).Elem(), OriginRequestPolicyHeadersConfigHeadersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginRequestPolicyQueryStringsConfigInput)(nil)).Elem(), OriginRequestPolicyQueryStringsConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*OriginRequestPolicyQueryStringsConfigPtrInput)(nil)).Elem(), OriginRequestPolicyQueryStringsConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginRequestPolicyQueryStringsConfigQueryStringsInput)(nil)).Elem(), OriginRequestPolicyQueryStringsConfigQueryStringsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginRequestPolicyQueryStringsConfigQueryStringsPtrInput)(nil)).Elem(), OriginRequestPolicyQueryStringsConfigQueryStringsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RealtimeLogConfigEndpointInput)(nil)).Elem(), RealtimeLogConfigEndpointArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RealtimeLogConfigEndpointPtrInput)(nil)).Elem(), RealtimeLogConfigEndpointArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RealtimeLogConfigEndpointKinesisStreamConfigInput)(nil)).Elem(), RealtimeLogConfigEndpointKinesisStreamConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RealtimeLogConfigEndpointKinesisStreamConfigPtrInput)(nil)).Elem(), RealtimeLogConfigEndpointKinesisStreamConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResponseHeadersPolicyCorsConfigInput)(nil)).Elem(), ResponseHeadersPolicyCorsConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResponseHeadersPolicyCorsConfigPtrInput)(nil)).Elem(), ResponseHeadersPolicyCorsConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResponseHeadersPolicyCorsConfigAccessControlAllowHeadersInput)(nil)).Elem(), ResponseHeadersPolicyCorsConfigAccessControlAllowHeadersArgs{})
@@ -13665,78 +9913,19 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityPtrInput)(nil)).Elem(), ResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResponseHeadersPolicySecurityHeadersConfigXssProtectionInput)(nil)).Elem(), ResponseHeadersPolicySecurityHeadersConfigXssProtectionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResponseHeadersPolicySecurityHeadersConfigXssProtectionPtrInput)(nil)).Elem(), ResponseHeadersPolicySecurityHeadersConfigXssProtectionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetCachePolicyParametersInCacheKeyAndForwardedToOriginInput)(nil)).Elem(), GetCachePolicyParametersInCacheKeyAndForwardedToOriginArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetCachePolicyParametersInCacheKeyAndForwardedToOriginArrayInput)(nil)).Elem(), GetCachePolicyParametersInCacheKeyAndForwardedToOriginArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigInput)(nil)).Elem(), GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArrayInput)(nil)).Elem(), GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieInput)(nil)).Elem(), GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieArrayInput)(nil)).Elem(), GetCachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookieArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigInput)(nil)).Elem(), GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArrayInput)(nil)).Elem(), GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderInput)(nil)).Elem(), GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderArrayInput)(nil)).Elem(), GetCachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeaderArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigInput)(nil)).Elem(), GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArrayInput)(nil)).Elem(), GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringInput)(nil)).Elem(), GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringArrayInput)(nil)).Elem(), GetCachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetOriginRequestPolicyCookiesConfigInput)(nil)).Elem(), GetOriginRequestPolicyCookiesConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetOriginRequestPolicyCookiesConfigArrayInput)(nil)).Elem(), GetOriginRequestPolicyCookiesConfigArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetOriginRequestPolicyCookiesConfigCookieInput)(nil)).Elem(), GetOriginRequestPolicyCookiesConfigCookieArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetOriginRequestPolicyCookiesConfigCookieArrayInput)(nil)).Elem(), GetOriginRequestPolicyCookiesConfigCookieArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetOriginRequestPolicyHeadersConfigInput)(nil)).Elem(), GetOriginRequestPolicyHeadersConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetOriginRequestPolicyHeadersConfigArrayInput)(nil)).Elem(), GetOriginRequestPolicyHeadersConfigArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetOriginRequestPolicyHeadersConfigHeaderInput)(nil)).Elem(), GetOriginRequestPolicyHeadersConfigHeaderArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetOriginRequestPolicyHeadersConfigHeaderArrayInput)(nil)).Elem(), GetOriginRequestPolicyHeadersConfigHeaderArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetOriginRequestPolicyQueryStringsConfigInput)(nil)).Elem(), GetOriginRequestPolicyQueryStringsConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetOriginRequestPolicyQueryStringsConfigArrayInput)(nil)).Elem(), GetOriginRequestPolicyQueryStringsConfigArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetOriginRequestPolicyQueryStringsConfigQueryStringInput)(nil)).Elem(), GetOriginRequestPolicyQueryStringsConfigQueryStringArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetOriginRequestPolicyQueryStringsConfigQueryStringArrayInput)(nil)).Elem(), GetOriginRequestPolicyQueryStringsConfigQueryStringArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetResponseHeadersPolicyCorsConfigInput)(nil)).Elem(), GetResponseHeadersPolicyCorsConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetResponseHeadersPolicyCorsConfigArrayInput)(nil)).Elem(), GetResponseHeadersPolicyCorsConfigArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetResponseHeadersPolicyCorsConfigAccessControlAllowHeaderInput)(nil)).Elem(), GetResponseHeadersPolicyCorsConfigAccessControlAllowHeaderArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetResponseHeadersPolicyCorsConfigAccessControlAllowHeaderArrayInput)(nil)).Elem(), GetResponseHeadersPolicyCorsConfigAccessControlAllowHeaderArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetResponseHeadersPolicyCorsConfigAccessControlAllowMethodInput)(nil)).Elem(), GetResponseHeadersPolicyCorsConfigAccessControlAllowMethodArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetResponseHeadersPolicyCorsConfigAccessControlAllowMethodArrayInput)(nil)).Elem(), GetResponseHeadersPolicyCorsConfigAccessControlAllowMethodArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetResponseHeadersPolicyCorsConfigAccessControlAllowOriginInput)(nil)).Elem(), GetResponseHeadersPolicyCorsConfigAccessControlAllowOriginArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetResponseHeadersPolicyCorsConfigAccessControlAllowOriginArrayInput)(nil)).Elem(), GetResponseHeadersPolicyCorsConfigAccessControlAllowOriginArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetResponseHeadersPolicyCorsConfigAccessControlExposeHeaderInput)(nil)).Elem(), GetResponseHeadersPolicyCorsConfigAccessControlExposeHeaderArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetResponseHeadersPolicyCorsConfigAccessControlExposeHeaderArrayInput)(nil)).Elem(), GetResponseHeadersPolicyCorsConfigAccessControlExposeHeaderArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetResponseHeadersPolicyCustomHeadersConfigInput)(nil)).Elem(), GetResponseHeadersPolicyCustomHeadersConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetResponseHeadersPolicyCustomHeadersConfigArrayInput)(nil)).Elem(), GetResponseHeadersPolicyCustomHeadersConfigArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetResponseHeadersPolicyCustomHeadersConfigItemInput)(nil)).Elem(), GetResponseHeadersPolicyCustomHeadersConfigItemArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetResponseHeadersPolicyCustomHeadersConfigItemArrayInput)(nil)).Elem(), GetResponseHeadersPolicyCustomHeadersConfigItemArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetResponseHeadersPolicySecurityHeadersConfigInput)(nil)).Elem(), GetResponseHeadersPolicySecurityHeadersConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetResponseHeadersPolicySecurityHeadersConfigArrayInput)(nil)).Elem(), GetResponseHeadersPolicySecurityHeadersConfigArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyInput)(nil)).Elem(), GetResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyArrayInput)(nil)).Elem(), GetResponseHeadersPolicySecurityHeadersConfigContentSecurityPolicyArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetResponseHeadersPolicySecurityHeadersConfigContentTypeOptionInput)(nil)).Elem(), GetResponseHeadersPolicySecurityHeadersConfigContentTypeOptionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetResponseHeadersPolicySecurityHeadersConfigContentTypeOptionArrayInput)(nil)).Elem(), GetResponseHeadersPolicySecurityHeadersConfigContentTypeOptionArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetResponseHeadersPolicySecurityHeadersConfigFrameOptionInput)(nil)).Elem(), GetResponseHeadersPolicySecurityHeadersConfigFrameOptionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetResponseHeadersPolicySecurityHeadersConfigFrameOptionArrayInput)(nil)).Elem(), GetResponseHeadersPolicySecurityHeadersConfigFrameOptionArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetResponseHeadersPolicySecurityHeadersConfigReferrerPolicyInput)(nil)).Elem(), GetResponseHeadersPolicySecurityHeadersConfigReferrerPolicyArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetResponseHeadersPolicySecurityHeadersConfigReferrerPolicyArrayInput)(nil)).Elem(), GetResponseHeadersPolicySecurityHeadersConfigReferrerPolicyArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityInput)(nil)).Elem(), GetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityArrayInput)(nil)).Elem(), GetResponseHeadersPolicySecurityHeadersConfigStrictTransportSecurityArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetResponseHeadersPolicySecurityHeadersConfigXssProtectionInput)(nil)).Elem(), GetResponseHeadersPolicySecurityHeadersConfigXssProtectionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetResponseHeadersPolicySecurityHeadersConfigXssProtectionArrayInput)(nil)).Elem(), GetResponseHeadersPolicySecurityHeadersConfigXssProtectionArray{})
 	pulumi.RegisterOutputType(CachePolicyParametersInCacheKeyAndForwardedToOriginOutput{})
-	pulumi.RegisterOutputType(CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput{})
 	pulumi.RegisterOutputType(CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigOutput{})
-	pulumi.RegisterOutputType(CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigPtrOutput{})
 	pulumi.RegisterOutputType(CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesOutput{})
 	pulumi.RegisterOutputType(CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookiesPtrOutput{})
 	pulumi.RegisterOutputType(CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigOutput{})
-	pulumi.RegisterOutputType(CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigPtrOutput{})
 	pulumi.RegisterOutputType(CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersOutput{})
 	pulumi.RegisterOutputType(CachePolicyParametersInCacheKeyAndForwardedToOriginHeadersConfigHeadersPtrOutput{})
 	pulumi.RegisterOutputType(CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigOutput{})
-	pulumi.RegisterOutputType(CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigPtrOutput{})
 	pulumi.RegisterOutputType(CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsOutput{})
 	pulumi.RegisterOutputType(CachePolicyParametersInCacheKeyAndForwardedToOriginQueryStringsConfigQueryStringsPtrOutput{})
 	pulumi.RegisterOutputType(DistributionCustomErrorResponseOutput{})
 	pulumi.RegisterOutputType(DistributionCustomErrorResponseArrayOutput{})
 	pulumi.RegisterOutputType(DistributionDefaultCacheBehaviorOutput{})
-	pulumi.RegisterOutputType(DistributionDefaultCacheBehaviorPtrOutput{})
 	pulumi.RegisterOutputType(DistributionDefaultCacheBehaviorForwardedValuesOutput{})
 	pulumi.RegisterOutputType(DistributionDefaultCacheBehaviorForwardedValuesPtrOutput{})
 	pulumi.RegisterOutputType(DistributionDefaultCacheBehaviorForwardedValuesCookiesOutput{})
@@ -13773,9 +9962,7 @@ func init() {
 	pulumi.RegisterOutputType(DistributionOriginS3OriginConfigOutput{})
 	pulumi.RegisterOutputType(DistributionOriginS3OriginConfigPtrOutput{})
 	pulumi.RegisterOutputType(DistributionRestrictionsOutput{})
-	pulumi.RegisterOutputType(DistributionRestrictionsPtrOutput{})
 	pulumi.RegisterOutputType(DistributionRestrictionsGeoRestrictionOutput{})
-	pulumi.RegisterOutputType(DistributionRestrictionsGeoRestrictionPtrOutput{})
 	pulumi.RegisterOutputType(DistributionTrustedKeyGroupOutput{})
 	pulumi.RegisterOutputType(DistributionTrustedKeyGroupArrayOutput{})
 	pulumi.RegisterOutputType(DistributionTrustedKeyGroupItemOutput{})
@@ -13785,44 +9972,32 @@ func init() {
 	pulumi.RegisterOutputType(DistributionTrustedSignerItemOutput{})
 	pulumi.RegisterOutputType(DistributionTrustedSignerItemArrayOutput{})
 	pulumi.RegisterOutputType(DistributionViewerCertificateOutput{})
-	pulumi.RegisterOutputType(DistributionViewerCertificatePtrOutput{})
 	pulumi.RegisterOutputType(FieldLevelEncryptionConfigContentTypeProfileConfigOutput{})
-	pulumi.RegisterOutputType(FieldLevelEncryptionConfigContentTypeProfileConfigPtrOutput{})
 	pulumi.RegisterOutputType(FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesOutput{})
-	pulumi.RegisterOutputType(FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesPtrOutput{})
 	pulumi.RegisterOutputType(FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemOutput{})
 	pulumi.RegisterOutputType(FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArrayOutput{})
 	pulumi.RegisterOutputType(FieldLevelEncryptionConfigQueryArgProfileConfigOutput{})
-	pulumi.RegisterOutputType(FieldLevelEncryptionConfigQueryArgProfileConfigPtrOutput{})
 	pulumi.RegisterOutputType(FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesOutput{})
 	pulumi.RegisterOutputType(FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesPtrOutput{})
 	pulumi.RegisterOutputType(FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemOutput{})
 	pulumi.RegisterOutputType(FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArrayOutput{})
 	pulumi.RegisterOutputType(FieldLevelEncryptionProfileEncryptionEntitiesOutput{})
-	pulumi.RegisterOutputType(FieldLevelEncryptionProfileEncryptionEntitiesPtrOutput{})
 	pulumi.RegisterOutputType(FieldLevelEncryptionProfileEncryptionEntitiesItemOutput{})
 	pulumi.RegisterOutputType(FieldLevelEncryptionProfileEncryptionEntitiesItemArrayOutput{})
 	pulumi.RegisterOutputType(FieldLevelEncryptionProfileEncryptionEntitiesItemFieldPatternsOutput{})
 	pulumi.RegisterOutputType(MonitoringSubscriptionMonitoringSubscriptionOutput{})
-	pulumi.RegisterOutputType(MonitoringSubscriptionMonitoringSubscriptionPtrOutput{})
 	pulumi.RegisterOutputType(MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigOutput{})
-	pulumi.RegisterOutputType(MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigPtrOutput{})
 	pulumi.RegisterOutputType(OriginRequestPolicyCookiesConfigOutput{})
-	pulumi.RegisterOutputType(OriginRequestPolicyCookiesConfigPtrOutput{})
 	pulumi.RegisterOutputType(OriginRequestPolicyCookiesConfigCookiesOutput{})
 	pulumi.RegisterOutputType(OriginRequestPolicyCookiesConfigCookiesPtrOutput{})
 	pulumi.RegisterOutputType(OriginRequestPolicyHeadersConfigOutput{})
-	pulumi.RegisterOutputType(OriginRequestPolicyHeadersConfigPtrOutput{})
 	pulumi.RegisterOutputType(OriginRequestPolicyHeadersConfigHeadersOutput{})
 	pulumi.RegisterOutputType(OriginRequestPolicyHeadersConfigHeadersPtrOutput{})
 	pulumi.RegisterOutputType(OriginRequestPolicyQueryStringsConfigOutput{})
-	pulumi.RegisterOutputType(OriginRequestPolicyQueryStringsConfigPtrOutput{})
 	pulumi.RegisterOutputType(OriginRequestPolicyQueryStringsConfigQueryStringsOutput{})
 	pulumi.RegisterOutputType(OriginRequestPolicyQueryStringsConfigQueryStringsPtrOutput{})
 	pulumi.RegisterOutputType(RealtimeLogConfigEndpointOutput{})
-	pulumi.RegisterOutputType(RealtimeLogConfigEndpointPtrOutput{})
 	pulumi.RegisterOutputType(RealtimeLogConfigEndpointKinesisStreamConfigOutput{})
-	pulumi.RegisterOutputType(RealtimeLogConfigEndpointKinesisStreamConfigPtrOutput{})
 	pulumi.RegisterOutputType(ResponseHeadersPolicyCorsConfigOutput{})
 	pulumi.RegisterOutputType(ResponseHeadersPolicyCorsConfigPtrOutput{})
 	pulumi.RegisterOutputType(ResponseHeadersPolicyCorsConfigAccessControlAllowHeadersOutput{})

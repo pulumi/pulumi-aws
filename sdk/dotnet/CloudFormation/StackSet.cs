@@ -84,11 +84,11 @@ namespace Pulumi.Aws.CloudFormation
     /// }
     /// ",
     ///         });
-    ///         var aWSCloudFormationStackSetAdministrationRoleExecutionPolicyPolicyDocument = example.ExecutionRoleName.Apply(executionRoleName =&gt; Aws.Iam.GetPolicyDocument.InvokeAsync(new Aws.Iam.GetPolicyDocumentArgs
+    ///         var aWSCloudFormationStackSetAdministrationRoleExecutionPolicyPolicyDocument = Aws.Iam.GetPolicyDocument.Invoke(new Aws.Iam.GetPolicyDocumentInvokeArgs
     ///         {
     ///             Statements = 
     ///             {
-    ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementArgs
+    ///                 new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///                 {
     ///                     Actions = 
     ///                     {
@@ -97,11 +97,11 @@ namespace Pulumi.Aws.CloudFormation
     ///                     Effect = "Allow",
     ///                     Resources = 
     ///                     {
-    ///                         $"arn:aws:iam::*:role/{executionRoleName}",
+    ///                         example.ExecutionRoleName.Apply(executionRoleName =&gt; $"arn:aws:iam::*:role/{executionRoleName}"),
     ///                     },
     ///                 },
     ///             },
-    ///         }));
+    ///         });
     ///         var aWSCloudFormationStackSetAdministrationRoleExecutionPolicyRolePolicy = new Aws.Iam.RolePolicy("aWSCloudFormationStackSetAdministrationRoleExecutionPolicyRolePolicy", new Aws.Iam.RolePolicyArgs
     ///         {
     ///             Policy = aWSCloudFormationStackSetAdministrationRoleExecutionPolicyPolicyDocument.Apply(aWSCloudFormationStackSetAdministrationRoleExecutionPolicyPolicyDocument =&gt; aWSCloudFormationStackSetAdministrationRoleExecutionPolicyPolicyDocument.Json),

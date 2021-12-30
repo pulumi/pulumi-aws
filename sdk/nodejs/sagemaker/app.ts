@@ -101,18 +101,18 @@ export class App extends pulumi.CustomResource {
      */
     constructor(name: string, args: AppArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AppArgs | AppState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AppState | undefined;
-            inputs["appName"] = state ? state.appName : undefined;
-            inputs["appType"] = state ? state.appType : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["domainId"] = state ? state.domainId : undefined;
-            inputs["resourceSpec"] = state ? state.resourceSpec : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["userProfileName"] = state ? state.userProfileName : undefined;
+            resourceInputs["appName"] = state ? state.appName : undefined;
+            resourceInputs["appType"] = state ? state.appType : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["domainId"] = state ? state.domainId : undefined;
+            resourceInputs["resourceSpec"] = state ? state.resourceSpec : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["userProfileName"] = state ? state.userProfileName : undefined;
         } else {
             const args = argsOrState as AppArgs | undefined;
             if ((!args || args.appName === undefined) && !opts.urn) {
@@ -127,19 +127,19 @@ export class App extends pulumi.CustomResource {
             if ((!args || args.userProfileName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'userProfileName'");
             }
-            inputs["appName"] = args ? args.appName : undefined;
-            inputs["appType"] = args ? args.appType : undefined;
-            inputs["domainId"] = args ? args.domainId : undefined;
-            inputs["resourceSpec"] = args ? args.resourceSpec : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["userProfileName"] = args ? args.userProfileName : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["appName"] = args ? args.appName : undefined;
+            resourceInputs["appType"] = args ? args.appType : undefined;
+            resourceInputs["domainId"] = args ? args.domainId : undefined;
+            resourceInputs["resourceSpec"] = args ? args.resourceSpec : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["userProfileName"] = args ? args.userProfileName : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(App.__pulumiType, name, inputs, opts);
+        super(App.__pulumiType, name, resourceInputs, opts);
     }
 }
 

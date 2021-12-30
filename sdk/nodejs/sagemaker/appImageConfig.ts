@@ -107,30 +107,30 @@ export class AppImageConfig extends pulumi.CustomResource {
      */
     constructor(name: string, args: AppImageConfigArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AppImageConfigArgs | AppImageConfigState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AppImageConfigState | undefined;
-            inputs["appImageConfigName"] = state ? state.appImageConfigName : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["kernelGatewayImageConfig"] = state ? state.kernelGatewayImageConfig : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["appImageConfigName"] = state ? state.appImageConfigName : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["kernelGatewayImageConfig"] = state ? state.kernelGatewayImageConfig : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as AppImageConfigArgs | undefined;
             if ((!args || args.appImageConfigName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'appImageConfigName'");
             }
-            inputs["appImageConfigName"] = args ? args.appImageConfigName : undefined;
-            inputs["kernelGatewayImageConfig"] = args ? args.kernelGatewayImageConfig : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["appImageConfigName"] = args ? args.appImageConfigName : undefined;
+            resourceInputs["kernelGatewayImageConfig"] = args ? args.kernelGatewayImageConfig : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(AppImageConfig.__pulumiType, name, inputs, opts);
+        super(AppImageConfig.__pulumiType, name, resourceInputs, opts);
     }
 }
 

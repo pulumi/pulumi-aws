@@ -70,22 +70,22 @@ export class AccountAlias extends pulumi.CustomResource {
      */
     constructor(name: string, args: AccountAliasArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AccountAliasArgs | AccountAliasState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AccountAliasState | undefined;
-            inputs["accountAlias"] = state ? state.accountAlias : undefined;
+            resourceInputs["accountAlias"] = state ? state.accountAlias : undefined;
         } else {
             const args = argsOrState as AccountAliasArgs | undefined;
             if ((!args || args.accountAlias === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'accountAlias'");
             }
-            inputs["accountAlias"] = args ? args.accountAlias : undefined;
+            resourceInputs["accountAlias"] = args ? args.accountAlias : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(AccountAlias.__pulumiType, name, inputs, opts);
+        super(AccountAlias.__pulumiType, name, resourceInputs, opts);
     }
 }
 

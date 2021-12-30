@@ -132,20 +132,20 @@ export class Grant extends pulumi.CustomResource {
      */
     constructor(name: string, args: GrantArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: GrantArgs | GrantState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GrantState | undefined;
-            inputs["constraints"] = state ? state.constraints : undefined;
-            inputs["grantCreationTokens"] = state ? state.grantCreationTokens : undefined;
-            inputs["grantId"] = state ? state.grantId : undefined;
-            inputs["grantToken"] = state ? state.grantToken : undefined;
-            inputs["granteePrincipal"] = state ? state.granteePrincipal : undefined;
-            inputs["keyId"] = state ? state.keyId : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["operations"] = state ? state.operations : undefined;
-            inputs["retireOnDelete"] = state ? state.retireOnDelete : undefined;
-            inputs["retiringPrincipal"] = state ? state.retiringPrincipal : undefined;
+            resourceInputs["constraints"] = state ? state.constraints : undefined;
+            resourceInputs["grantCreationTokens"] = state ? state.grantCreationTokens : undefined;
+            resourceInputs["grantId"] = state ? state.grantId : undefined;
+            resourceInputs["grantToken"] = state ? state.grantToken : undefined;
+            resourceInputs["granteePrincipal"] = state ? state.granteePrincipal : undefined;
+            resourceInputs["keyId"] = state ? state.keyId : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["operations"] = state ? state.operations : undefined;
+            resourceInputs["retireOnDelete"] = state ? state.retireOnDelete : undefined;
+            resourceInputs["retiringPrincipal"] = state ? state.retiringPrincipal : undefined;
         } else {
             const args = argsOrState as GrantArgs | undefined;
             if ((!args || args.granteePrincipal === undefined) && !opts.urn) {
@@ -157,21 +157,21 @@ export class Grant extends pulumi.CustomResource {
             if ((!args || args.operations === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'operations'");
             }
-            inputs["constraints"] = args ? args.constraints : undefined;
-            inputs["grantCreationTokens"] = args ? args.grantCreationTokens : undefined;
-            inputs["granteePrincipal"] = args ? args.granteePrincipal : undefined;
-            inputs["keyId"] = args ? args.keyId : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["operations"] = args ? args.operations : undefined;
-            inputs["retireOnDelete"] = args ? args.retireOnDelete : undefined;
-            inputs["retiringPrincipal"] = args ? args.retiringPrincipal : undefined;
-            inputs["grantId"] = undefined /*out*/;
-            inputs["grantToken"] = undefined /*out*/;
+            resourceInputs["constraints"] = args ? args.constraints : undefined;
+            resourceInputs["grantCreationTokens"] = args ? args.grantCreationTokens : undefined;
+            resourceInputs["granteePrincipal"] = args ? args.granteePrincipal : undefined;
+            resourceInputs["keyId"] = args ? args.keyId : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["operations"] = args ? args.operations : undefined;
+            resourceInputs["retireOnDelete"] = args ? args.retireOnDelete : undefined;
+            resourceInputs["retiringPrincipal"] = args ? args.retiringPrincipal : undefined;
+            resourceInputs["grantId"] = undefined /*out*/;
+            resourceInputs["grantToken"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Grant.__pulumiType, name, inputs, opts);
+        super(Grant.__pulumiType, name, resourceInputs, opts);
     }
 }
 

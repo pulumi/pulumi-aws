@@ -106,18 +106,18 @@ export class CloudFormationStack extends pulumi.CustomResource {
      */
     constructor(name: string, args: CloudFormationStackArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: CloudFormationStackArgs | CloudFormationStackState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CloudFormationStackState | undefined;
-            inputs["applicationId"] = state ? state.applicationId : undefined;
-            inputs["capabilities"] = state ? state.capabilities : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["outputs"] = state ? state.outputs : undefined;
-            inputs["parameters"] = state ? state.parameters : undefined;
-            inputs["semanticVersion"] = state ? state.semanticVersion : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["applicationId"] = state ? state.applicationId : undefined;
+            resourceInputs["capabilities"] = state ? state.capabilities : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["outputs"] = state ? state.outputs : undefined;
+            resourceInputs["parameters"] = state ? state.parameters : undefined;
+            resourceInputs["semanticVersion"] = state ? state.semanticVersion : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as CloudFormationStackArgs | undefined;
             if ((!args || args.applicationId === undefined) && !opts.urn) {
@@ -126,19 +126,19 @@ export class CloudFormationStack extends pulumi.CustomResource {
             if ((!args || args.capabilities === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'capabilities'");
             }
-            inputs["applicationId"] = args ? args.applicationId : undefined;
-            inputs["capabilities"] = args ? args.capabilities : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["parameters"] = args ? args.parameters : undefined;
-            inputs["semanticVersion"] = args ? args.semanticVersion : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["outputs"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["applicationId"] = args ? args.applicationId : undefined;
+            resourceInputs["capabilities"] = args ? args.capabilities : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["parameters"] = args ? args.parameters : undefined;
+            resourceInputs["semanticVersion"] = args ? args.semanticVersion : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["outputs"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(CloudFormationStack.__pulumiType, name, inputs, opts);
+        super(CloudFormationStack.__pulumiType, name, resourceInputs, opts);
     }
 }
 

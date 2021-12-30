@@ -276,7 +276,7 @@ type BucketNotificationInput interface {
 }
 
 func (*BucketNotification) ElementType() reflect.Type {
-	return reflect.TypeOf((*BucketNotification)(nil))
+	return reflect.TypeOf((**BucketNotification)(nil)).Elem()
 }
 
 func (i *BucketNotification) ToBucketNotificationOutput() BucketNotificationOutput {
@@ -285,35 +285,6 @@ func (i *BucketNotification) ToBucketNotificationOutput() BucketNotificationOutp
 
 func (i *BucketNotification) ToBucketNotificationOutputWithContext(ctx context.Context) BucketNotificationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BucketNotificationOutput)
-}
-
-func (i *BucketNotification) ToBucketNotificationPtrOutput() BucketNotificationPtrOutput {
-	return i.ToBucketNotificationPtrOutputWithContext(context.Background())
-}
-
-func (i *BucketNotification) ToBucketNotificationPtrOutputWithContext(ctx context.Context) BucketNotificationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketNotificationPtrOutput)
-}
-
-type BucketNotificationPtrInput interface {
-	pulumi.Input
-
-	ToBucketNotificationPtrOutput() BucketNotificationPtrOutput
-	ToBucketNotificationPtrOutputWithContext(ctx context.Context) BucketNotificationPtrOutput
-}
-
-type bucketNotificationPtrType BucketNotificationArgs
-
-func (*bucketNotificationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BucketNotification)(nil))
-}
-
-func (i *bucketNotificationPtrType) ToBucketNotificationPtrOutput() BucketNotificationPtrOutput {
-	return i.ToBucketNotificationPtrOutputWithContext(context.Background())
-}
-
-func (i *bucketNotificationPtrType) ToBucketNotificationPtrOutputWithContext(ctx context.Context) BucketNotificationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketNotificationPtrOutput)
 }
 
 // BucketNotificationArrayInput is an input type that accepts BucketNotificationArray and BucketNotificationArrayOutput values.
@@ -369,7 +340,7 @@ func (i BucketNotificationMap) ToBucketNotificationMapOutputWithContext(ctx cont
 type BucketNotificationOutput struct{ *pulumi.OutputState }
 
 func (BucketNotificationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BucketNotification)(nil))
+	return reflect.TypeOf((**BucketNotification)(nil)).Elem()
 }
 
 func (o BucketNotificationOutput) ToBucketNotificationOutput() BucketNotificationOutput {
@@ -380,44 +351,10 @@ func (o BucketNotificationOutput) ToBucketNotificationOutputWithContext(ctx cont
 	return o
 }
 
-func (o BucketNotificationOutput) ToBucketNotificationPtrOutput() BucketNotificationPtrOutput {
-	return o.ToBucketNotificationPtrOutputWithContext(context.Background())
-}
-
-func (o BucketNotificationOutput) ToBucketNotificationPtrOutputWithContext(ctx context.Context) BucketNotificationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketNotification) *BucketNotification {
-		return &v
-	}).(BucketNotificationPtrOutput)
-}
-
-type BucketNotificationPtrOutput struct{ *pulumi.OutputState }
-
-func (BucketNotificationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**BucketNotification)(nil))
-}
-
-func (o BucketNotificationPtrOutput) ToBucketNotificationPtrOutput() BucketNotificationPtrOutput {
-	return o
-}
-
-func (o BucketNotificationPtrOutput) ToBucketNotificationPtrOutputWithContext(ctx context.Context) BucketNotificationPtrOutput {
-	return o
-}
-
-func (o BucketNotificationPtrOutput) Elem() BucketNotificationOutput {
-	return o.ApplyT(func(v *BucketNotification) BucketNotification {
-		if v != nil {
-			return *v
-		}
-		var ret BucketNotification
-		return ret
-	}).(BucketNotificationOutput)
-}
-
 type BucketNotificationArrayOutput struct{ *pulumi.OutputState }
 
 func (BucketNotificationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]BucketNotification)(nil))
+	return reflect.TypeOf((*[]*BucketNotification)(nil)).Elem()
 }
 
 func (o BucketNotificationArrayOutput) ToBucketNotificationArrayOutput() BucketNotificationArrayOutput {
@@ -429,15 +366,15 @@ func (o BucketNotificationArrayOutput) ToBucketNotificationArrayOutputWithContex
 }
 
 func (o BucketNotificationArrayOutput) Index(i pulumi.IntInput) BucketNotificationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BucketNotification {
-		return vs[0].([]BucketNotification)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BucketNotification {
+		return vs[0].([]*BucketNotification)[vs[1].(int)]
 	}).(BucketNotificationOutput)
 }
 
 type BucketNotificationMapOutput struct{ *pulumi.OutputState }
 
 func (BucketNotificationMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]BucketNotification)(nil))
+	return reflect.TypeOf((*map[string]*BucketNotification)(nil)).Elem()
 }
 
 func (o BucketNotificationMapOutput) ToBucketNotificationMapOutput() BucketNotificationMapOutput {
@@ -449,18 +386,16 @@ func (o BucketNotificationMapOutput) ToBucketNotificationMapOutputWithContext(ct
 }
 
 func (o BucketNotificationMapOutput) MapIndex(k pulumi.StringInput) BucketNotificationOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) BucketNotification {
-		return vs[0].(map[string]BucketNotification)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *BucketNotification {
+		return vs[0].(map[string]*BucketNotification)[vs[1].(string)]
 	}).(BucketNotificationOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketNotificationInput)(nil)).Elem(), &BucketNotification{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BucketNotificationPtrInput)(nil)).Elem(), &BucketNotification{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketNotificationArrayInput)(nil)).Elem(), BucketNotificationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketNotificationMapInput)(nil)).Elem(), BucketNotificationMap{})
 	pulumi.RegisterOutputType(BucketNotificationOutput{})
-	pulumi.RegisterOutputType(BucketNotificationPtrOutput{})
 	pulumi.RegisterOutputType(BucketNotificationArrayOutput{})
 	pulumi.RegisterOutputType(BucketNotificationMapOutput{})
 }

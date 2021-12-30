@@ -284,28 +284,28 @@ export class BucketNotification extends pulumi.CustomResource {
      */
     constructor(name: string, args: BucketNotificationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: BucketNotificationArgs | BucketNotificationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BucketNotificationState | undefined;
-            inputs["bucket"] = state ? state.bucket : undefined;
-            inputs["lambdaFunctions"] = state ? state.lambdaFunctions : undefined;
-            inputs["queues"] = state ? state.queues : undefined;
-            inputs["topics"] = state ? state.topics : undefined;
+            resourceInputs["bucket"] = state ? state.bucket : undefined;
+            resourceInputs["lambdaFunctions"] = state ? state.lambdaFunctions : undefined;
+            resourceInputs["queues"] = state ? state.queues : undefined;
+            resourceInputs["topics"] = state ? state.topics : undefined;
         } else {
             const args = argsOrState as BucketNotificationArgs | undefined;
             if ((!args || args.bucket === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'bucket'");
             }
-            inputs["bucket"] = args ? args.bucket : undefined;
-            inputs["lambdaFunctions"] = args ? args.lambdaFunctions : undefined;
-            inputs["queues"] = args ? args.queues : undefined;
-            inputs["topics"] = args ? args.topics : undefined;
+            resourceInputs["bucket"] = args ? args.bucket : undefined;
+            resourceInputs["lambdaFunctions"] = args ? args.lambdaFunctions : undefined;
+            resourceInputs["queues"] = args ? args.queues : undefined;
+            resourceInputs["topics"] = args ? args.topics : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(BucketNotification.__pulumiType, name, inputs, opts);
+        super(BucketNotification.__pulumiType, name, resourceInputs, opts);
     }
 }
 

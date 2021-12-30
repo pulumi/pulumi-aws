@@ -2428,65 +2428,6 @@ type GetAmiBlockDeviceMapping struct {
 	VirtualName string `pulumi:"virtualName"`
 }
 
-// GetAmiBlockDeviceMappingInput is an input type that accepts GetAmiBlockDeviceMappingArgs and GetAmiBlockDeviceMappingOutput values.
-// You can construct a concrete instance of `GetAmiBlockDeviceMappingInput` via:
-//
-//          GetAmiBlockDeviceMappingArgs{...}
-type GetAmiBlockDeviceMappingInput interface {
-	pulumi.Input
-
-	ToGetAmiBlockDeviceMappingOutput() GetAmiBlockDeviceMappingOutput
-	ToGetAmiBlockDeviceMappingOutputWithContext(context.Context) GetAmiBlockDeviceMappingOutput
-}
-
-type GetAmiBlockDeviceMappingArgs struct {
-	// The physical name of the device.
-	DeviceName pulumi.StringInput `pulumi:"deviceName"`
-	// Map containing EBS information, if the device is EBS based. Unlike most object attributes, these are accessed directly (e.g., `ebs.volume_size` or `ebs["volumeSize"]`) rather than accessed through the first element of a list (e.g., `ebs[0].volume_size`).
-	Ebs pulumi.StringMapInput `pulumi:"ebs"`
-	// Suppresses the specified device included in the block device mapping of the AMI.
-	NoDevice pulumi.StringInput `pulumi:"noDevice"`
-	// The virtual device name (for instance stores).
-	VirtualName pulumi.StringInput `pulumi:"virtualName"`
-}
-
-func (GetAmiBlockDeviceMappingArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetAmiBlockDeviceMapping)(nil)).Elem()
-}
-
-func (i GetAmiBlockDeviceMappingArgs) ToGetAmiBlockDeviceMappingOutput() GetAmiBlockDeviceMappingOutput {
-	return i.ToGetAmiBlockDeviceMappingOutputWithContext(context.Background())
-}
-
-func (i GetAmiBlockDeviceMappingArgs) ToGetAmiBlockDeviceMappingOutputWithContext(ctx context.Context) GetAmiBlockDeviceMappingOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetAmiBlockDeviceMappingOutput)
-}
-
-// GetAmiBlockDeviceMappingArrayInput is an input type that accepts GetAmiBlockDeviceMappingArray and GetAmiBlockDeviceMappingArrayOutput values.
-// You can construct a concrete instance of `GetAmiBlockDeviceMappingArrayInput` via:
-//
-//          GetAmiBlockDeviceMappingArray{ GetAmiBlockDeviceMappingArgs{...} }
-type GetAmiBlockDeviceMappingArrayInput interface {
-	pulumi.Input
-
-	ToGetAmiBlockDeviceMappingArrayOutput() GetAmiBlockDeviceMappingArrayOutput
-	ToGetAmiBlockDeviceMappingArrayOutputWithContext(context.Context) GetAmiBlockDeviceMappingArrayOutput
-}
-
-type GetAmiBlockDeviceMappingArray []GetAmiBlockDeviceMappingInput
-
-func (GetAmiBlockDeviceMappingArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetAmiBlockDeviceMapping)(nil)).Elem()
-}
-
-func (i GetAmiBlockDeviceMappingArray) ToGetAmiBlockDeviceMappingArrayOutput() GetAmiBlockDeviceMappingArrayOutput {
-	return i.ToGetAmiBlockDeviceMappingArrayOutputWithContext(context.Background())
-}
-
-func (i GetAmiBlockDeviceMappingArray) ToGetAmiBlockDeviceMappingArrayOutputWithContext(ctx context.Context) GetAmiBlockDeviceMappingArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetAmiBlockDeviceMappingArrayOutput)
-}
-
 type GetAmiBlockDeviceMappingOutput struct{ *pulumi.OutputState }
 
 func (GetAmiBlockDeviceMappingOutput) ElementType() reflect.Type {
@@ -2747,59 +2688,6 @@ func (o GetAmiIdsFilterArrayOutput) Index(i pulumi.IntInput) GetAmiIdsFilterOutp
 type GetAmiProductCode struct {
 	ProductCodeId   string `pulumi:"productCodeId"`
 	ProductCodeType string `pulumi:"productCodeType"`
-}
-
-// GetAmiProductCodeInput is an input type that accepts GetAmiProductCodeArgs and GetAmiProductCodeOutput values.
-// You can construct a concrete instance of `GetAmiProductCodeInput` via:
-//
-//          GetAmiProductCodeArgs{...}
-type GetAmiProductCodeInput interface {
-	pulumi.Input
-
-	ToGetAmiProductCodeOutput() GetAmiProductCodeOutput
-	ToGetAmiProductCodeOutputWithContext(context.Context) GetAmiProductCodeOutput
-}
-
-type GetAmiProductCodeArgs struct {
-	ProductCodeId   pulumi.StringInput `pulumi:"productCodeId"`
-	ProductCodeType pulumi.StringInput `pulumi:"productCodeType"`
-}
-
-func (GetAmiProductCodeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetAmiProductCode)(nil)).Elem()
-}
-
-func (i GetAmiProductCodeArgs) ToGetAmiProductCodeOutput() GetAmiProductCodeOutput {
-	return i.ToGetAmiProductCodeOutputWithContext(context.Background())
-}
-
-func (i GetAmiProductCodeArgs) ToGetAmiProductCodeOutputWithContext(ctx context.Context) GetAmiProductCodeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetAmiProductCodeOutput)
-}
-
-// GetAmiProductCodeArrayInput is an input type that accepts GetAmiProductCodeArray and GetAmiProductCodeArrayOutput values.
-// You can construct a concrete instance of `GetAmiProductCodeArrayInput` via:
-//
-//          GetAmiProductCodeArray{ GetAmiProductCodeArgs{...} }
-type GetAmiProductCodeArrayInput interface {
-	pulumi.Input
-
-	ToGetAmiProductCodeArrayOutput() GetAmiProductCodeArrayOutput
-	ToGetAmiProductCodeArrayOutputWithContext(context.Context) GetAmiProductCodeArrayOutput
-}
-
-type GetAmiProductCodeArray []GetAmiProductCodeInput
-
-func (GetAmiProductCodeArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetAmiProductCode)(nil)).Elem()
-}
-
-func (i GetAmiProductCodeArray) ToGetAmiProductCodeArrayOutput() GetAmiProductCodeArrayOutput {
-	return i.ToGetAmiProductCodeArrayOutputWithContext(context.Background())
-}
-
-func (i GetAmiProductCodeArray) ToGetAmiProductCodeArrayOutputWithContext(ctx context.Context) GetAmiProductCodeArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetAmiProductCodeArrayOutput)
 }
 
 type GetAmiProductCodeOutput struct{ *pulumi.OutputState }
@@ -3483,14 +3371,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderEndpointArrayInput)(nil)).Elem(), ProviderEndpointArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderIgnoreTagsInput)(nil)).Elem(), ProviderIgnoreTagsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProviderIgnoreTagsPtrInput)(nil)).Elem(), ProviderIgnoreTagsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetAmiBlockDeviceMappingInput)(nil)).Elem(), GetAmiBlockDeviceMappingArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetAmiBlockDeviceMappingArrayInput)(nil)).Elem(), GetAmiBlockDeviceMappingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAmiFilterInput)(nil)).Elem(), GetAmiFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAmiFilterArrayInput)(nil)).Elem(), GetAmiFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAmiIdsFilterInput)(nil)).Elem(), GetAmiIdsFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAmiIdsFilterArrayInput)(nil)).Elem(), GetAmiIdsFilterArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetAmiProductCodeInput)(nil)).Elem(), GetAmiProductCodeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetAmiProductCodeArrayInput)(nil)).Elem(), GetAmiProductCodeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAutoscalingGroupsFilterInput)(nil)).Elem(), GetAutoscalingGroupsFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAutoscalingGroupsFilterArrayInput)(nil)).Elem(), GetAutoscalingGroupsFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAvailabilityZoneFilterInput)(nil)).Elem(), GetAvailabilityZoneFilterArgs{})

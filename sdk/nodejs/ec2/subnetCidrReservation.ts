@@ -86,15 +86,15 @@ export class SubnetCidrReservation extends pulumi.CustomResource {
      */
     constructor(name: string, args: SubnetCidrReservationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SubnetCidrReservationArgs | SubnetCidrReservationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SubnetCidrReservationState | undefined;
-            inputs["cidrBlock"] = state ? state.cidrBlock : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["ownerId"] = state ? state.ownerId : undefined;
-            inputs["reservationType"] = state ? state.reservationType : undefined;
-            inputs["subnetId"] = state ? state.subnetId : undefined;
+            resourceInputs["cidrBlock"] = state ? state.cidrBlock : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["ownerId"] = state ? state.ownerId : undefined;
+            resourceInputs["reservationType"] = state ? state.reservationType : undefined;
+            resourceInputs["subnetId"] = state ? state.subnetId : undefined;
         } else {
             const args = argsOrState as SubnetCidrReservationArgs | undefined;
             if ((!args || args.cidrBlock === undefined) && !opts.urn) {
@@ -106,16 +106,16 @@ export class SubnetCidrReservation extends pulumi.CustomResource {
             if ((!args || args.subnetId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'subnetId'");
             }
-            inputs["cidrBlock"] = args ? args.cidrBlock : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["reservationType"] = args ? args.reservationType : undefined;
-            inputs["subnetId"] = args ? args.subnetId : undefined;
-            inputs["ownerId"] = undefined /*out*/;
+            resourceInputs["cidrBlock"] = args ? args.cidrBlock : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["reservationType"] = args ? args.reservationType : undefined;
+            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
+            resourceInputs["ownerId"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(SubnetCidrReservation.__pulumiType, name, inputs, opts);
+        super(SubnetCidrReservation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

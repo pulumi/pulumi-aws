@@ -116,16 +116,16 @@ export class VolumeAttachment extends pulumi.CustomResource {
      */
     constructor(name: string, args: VolumeAttachmentArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VolumeAttachmentArgs | VolumeAttachmentState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VolumeAttachmentState | undefined;
-            inputs["deviceName"] = state ? state.deviceName : undefined;
-            inputs["forceDetach"] = state ? state.forceDetach : undefined;
-            inputs["instanceId"] = state ? state.instanceId : undefined;
-            inputs["skipDestroy"] = state ? state.skipDestroy : undefined;
-            inputs["stopInstanceBeforeDetaching"] = state ? state.stopInstanceBeforeDetaching : undefined;
-            inputs["volumeId"] = state ? state.volumeId : undefined;
+            resourceInputs["deviceName"] = state ? state.deviceName : undefined;
+            resourceInputs["forceDetach"] = state ? state.forceDetach : undefined;
+            resourceInputs["instanceId"] = state ? state.instanceId : undefined;
+            resourceInputs["skipDestroy"] = state ? state.skipDestroy : undefined;
+            resourceInputs["stopInstanceBeforeDetaching"] = state ? state.stopInstanceBeforeDetaching : undefined;
+            resourceInputs["volumeId"] = state ? state.volumeId : undefined;
         } else {
             const args = argsOrState as VolumeAttachmentArgs | undefined;
             if ((!args || args.deviceName === undefined) && !opts.urn) {
@@ -137,17 +137,17 @@ export class VolumeAttachment extends pulumi.CustomResource {
             if ((!args || args.volumeId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'volumeId'");
             }
-            inputs["deviceName"] = args ? args.deviceName : undefined;
-            inputs["forceDetach"] = args ? args.forceDetach : undefined;
-            inputs["instanceId"] = args ? args.instanceId : undefined;
-            inputs["skipDestroy"] = args ? args.skipDestroy : undefined;
-            inputs["stopInstanceBeforeDetaching"] = args ? args.stopInstanceBeforeDetaching : undefined;
-            inputs["volumeId"] = args ? args.volumeId : undefined;
+            resourceInputs["deviceName"] = args ? args.deviceName : undefined;
+            resourceInputs["forceDetach"] = args ? args.forceDetach : undefined;
+            resourceInputs["instanceId"] = args ? args.instanceId : undefined;
+            resourceInputs["skipDestroy"] = args ? args.skipDestroy : undefined;
+            resourceInputs["stopInstanceBeforeDetaching"] = args ? args.stopInstanceBeforeDetaching : undefined;
+            resourceInputs["volumeId"] = args ? args.volumeId : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(VolumeAttachment.__pulumiType, name, inputs, opts);
+        super(VolumeAttachment.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -78,13 +78,13 @@ export class StaticIpAttachment extends pulumi.CustomResource {
      */
     constructor(name: string, args: StaticIpAttachmentArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: StaticIpAttachmentArgs | StaticIpAttachmentState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as StaticIpAttachmentState | undefined;
-            inputs["instanceName"] = state ? state.instanceName : undefined;
-            inputs["ipAddress"] = state ? state.ipAddress : undefined;
-            inputs["staticIpName"] = state ? state.staticIpName : undefined;
+            resourceInputs["instanceName"] = state ? state.instanceName : undefined;
+            resourceInputs["ipAddress"] = state ? state.ipAddress : undefined;
+            resourceInputs["staticIpName"] = state ? state.staticIpName : undefined;
         } else {
             const args = argsOrState as StaticIpAttachmentArgs | undefined;
             if ((!args || args.instanceName === undefined) && !opts.urn) {
@@ -93,14 +93,14 @@ export class StaticIpAttachment extends pulumi.CustomResource {
             if ((!args || args.staticIpName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'staticIpName'");
             }
-            inputs["instanceName"] = args ? args.instanceName : undefined;
-            inputs["staticIpName"] = args ? args.staticIpName : undefined;
-            inputs["ipAddress"] = undefined /*out*/;
+            resourceInputs["instanceName"] = args ? args.instanceName : undefined;
+            resourceInputs["staticIpName"] = args ? args.staticIpName : undefined;
+            resourceInputs["ipAddress"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(StaticIpAttachment.__pulumiType, name, inputs, opts);
+        super(StaticIpAttachment.__pulumiType, name, resourceInputs, opts);
     }
 }
 

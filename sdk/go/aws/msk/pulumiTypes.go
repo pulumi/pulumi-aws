@@ -59,47 +59,6 @@ func (i ClusterBrokerNodeGroupInfoArgs) ToClusterBrokerNodeGroupInfoOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ClusterBrokerNodeGroupInfoOutput)
 }
 
-func (i ClusterBrokerNodeGroupInfoArgs) ToClusterBrokerNodeGroupInfoPtrOutput() ClusterBrokerNodeGroupInfoPtrOutput {
-	return i.ToClusterBrokerNodeGroupInfoPtrOutputWithContext(context.Background())
-}
-
-func (i ClusterBrokerNodeGroupInfoArgs) ToClusterBrokerNodeGroupInfoPtrOutputWithContext(ctx context.Context) ClusterBrokerNodeGroupInfoPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterBrokerNodeGroupInfoOutput).ToClusterBrokerNodeGroupInfoPtrOutputWithContext(ctx)
-}
-
-// ClusterBrokerNodeGroupInfoPtrInput is an input type that accepts ClusterBrokerNodeGroupInfoArgs, ClusterBrokerNodeGroupInfoPtr and ClusterBrokerNodeGroupInfoPtrOutput values.
-// You can construct a concrete instance of `ClusterBrokerNodeGroupInfoPtrInput` via:
-//
-//          ClusterBrokerNodeGroupInfoArgs{...}
-//
-//  or:
-//
-//          nil
-type ClusterBrokerNodeGroupInfoPtrInput interface {
-	pulumi.Input
-
-	ToClusterBrokerNodeGroupInfoPtrOutput() ClusterBrokerNodeGroupInfoPtrOutput
-	ToClusterBrokerNodeGroupInfoPtrOutputWithContext(context.Context) ClusterBrokerNodeGroupInfoPtrOutput
-}
-
-type clusterBrokerNodeGroupInfoPtrType ClusterBrokerNodeGroupInfoArgs
-
-func ClusterBrokerNodeGroupInfoPtr(v *ClusterBrokerNodeGroupInfoArgs) ClusterBrokerNodeGroupInfoPtrInput {
-	return (*clusterBrokerNodeGroupInfoPtrType)(v)
-}
-
-func (*clusterBrokerNodeGroupInfoPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ClusterBrokerNodeGroupInfo)(nil)).Elem()
-}
-
-func (i *clusterBrokerNodeGroupInfoPtrType) ToClusterBrokerNodeGroupInfoPtrOutput() ClusterBrokerNodeGroupInfoPtrOutput {
-	return i.ToClusterBrokerNodeGroupInfoPtrOutputWithContext(context.Background())
-}
-
-func (i *clusterBrokerNodeGroupInfoPtrType) ToClusterBrokerNodeGroupInfoPtrOutputWithContext(ctx context.Context) ClusterBrokerNodeGroupInfoPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterBrokerNodeGroupInfoPtrOutput)
-}
-
 type ClusterBrokerNodeGroupInfoOutput struct{ *pulumi.OutputState }
 
 func (ClusterBrokerNodeGroupInfoOutput) ElementType() reflect.Type {
@@ -112,16 +71,6 @@ func (o ClusterBrokerNodeGroupInfoOutput) ToClusterBrokerNodeGroupInfoOutput() C
 
 func (o ClusterBrokerNodeGroupInfoOutput) ToClusterBrokerNodeGroupInfoOutputWithContext(ctx context.Context) ClusterBrokerNodeGroupInfoOutput {
 	return o
-}
-
-func (o ClusterBrokerNodeGroupInfoOutput) ToClusterBrokerNodeGroupInfoPtrOutput() ClusterBrokerNodeGroupInfoPtrOutput {
-	return o.ToClusterBrokerNodeGroupInfoPtrOutputWithContext(context.Background())
-}
-
-func (o ClusterBrokerNodeGroupInfoOutput) ToClusterBrokerNodeGroupInfoPtrOutputWithContext(ctx context.Context) ClusterBrokerNodeGroupInfoPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterBrokerNodeGroupInfo) *ClusterBrokerNodeGroupInfo {
-		return &v
-	}).(ClusterBrokerNodeGroupInfoPtrOutput)
 }
 
 // The distribution of broker nodes across availability zones ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-model-brokerazdistribution)). Currently the only valid value is `DEFAULT`.
@@ -147,80 +96,6 @@ func (o ClusterBrokerNodeGroupInfoOutput) InstanceType() pulumi.StringOutput {
 // A list of the security groups to associate with the elastic network interfaces to control who can communicate with the cluster.
 func (o ClusterBrokerNodeGroupInfoOutput) SecurityGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ClusterBrokerNodeGroupInfo) []string { return v.SecurityGroups }).(pulumi.StringArrayOutput)
-}
-
-type ClusterBrokerNodeGroupInfoPtrOutput struct{ *pulumi.OutputState }
-
-func (ClusterBrokerNodeGroupInfoPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ClusterBrokerNodeGroupInfo)(nil)).Elem()
-}
-
-func (o ClusterBrokerNodeGroupInfoPtrOutput) ToClusterBrokerNodeGroupInfoPtrOutput() ClusterBrokerNodeGroupInfoPtrOutput {
-	return o
-}
-
-func (o ClusterBrokerNodeGroupInfoPtrOutput) ToClusterBrokerNodeGroupInfoPtrOutputWithContext(ctx context.Context) ClusterBrokerNodeGroupInfoPtrOutput {
-	return o
-}
-
-func (o ClusterBrokerNodeGroupInfoPtrOutput) Elem() ClusterBrokerNodeGroupInfoOutput {
-	return o.ApplyT(func(v *ClusterBrokerNodeGroupInfo) ClusterBrokerNodeGroupInfo {
-		if v != nil {
-			return *v
-		}
-		var ret ClusterBrokerNodeGroupInfo
-		return ret
-	}).(ClusterBrokerNodeGroupInfoOutput)
-}
-
-// The distribution of broker nodes across availability zones ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-model-brokerazdistribution)). Currently the only valid value is `DEFAULT`.
-func (o ClusterBrokerNodeGroupInfoPtrOutput) AzDistribution() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClusterBrokerNodeGroupInfo) *string {
-		if v == nil {
-			return nil
-		}
-		return v.AzDistribution
-	}).(pulumi.StringPtrOutput)
-}
-
-// A list of subnets to connect to in client VPC ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-prop-brokernodegroupinfo-clientsubnets)).
-func (o ClusterBrokerNodeGroupInfoPtrOutput) ClientSubnets() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *ClusterBrokerNodeGroupInfo) []string {
-		if v == nil {
-			return nil
-		}
-		return v.ClientSubnets
-	}).(pulumi.StringArrayOutput)
-}
-
-// The size in GiB of the EBS volume for the data drive on each broker node.
-func (o ClusterBrokerNodeGroupInfoPtrOutput) EbsVolumeSize() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ClusterBrokerNodeGroupInfo) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.EbsVolumeSize
-	}).(pulumi.IntPtrOutput)
-}
-
-// Specify the instance type to use for the kafka brokersE.g., kafka.m5.large. ([Pricing info](https://aws.amazon.com/msk/pricing/))
-func (o ClusterBrokerNodeGroupInfoPtrOutput) InstanceType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ClusterBrokerNodeGroupInfo) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.InstanceType
-	}).(pulumi.StringPtrOutput)
-}
-
-// A list of the security groups to associate with the elastic network interfaces to control who can communicate with the cluster.
-func (o ClusterBrokerNodeGroupInfoPtrOutput) SecurityGroups() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *ClusterBrokerNodeGroupInfo) []string {
-		if v == nil {
-			return nil
-		}
-		return v.SecurityGroups
-	}).(pulumi.StringArrayOutput)
 }
 
 type ClusterClientAuthentication struct {
@@ -2515,69 +2390,6 @@ type GetBrokerNodesNodeInfoList struct {
 	NodeArn string `pulumi:"nodeArn"`
 }
 
-// GetBrokerNodesNodeInfoListInput is an input type that accepts GetBrokerNodesNodeInfoListArgs and GetBrokerNodesNodeInfoListOutput values.
-// You can construct a concrete instance of `GetBrokerNodesNodeInfoListInput` via:
-//
-//          GetBrokerNodesNodeInfoListArgs{...}
-type GetBrokerNodesNodeInfoListInput interface {
-	pulumi.Input
-
-	ToGetBrokerNodesNodeInfoListOutput() GetBrokerNodesNodeInfoListOutput
-	ToGetBrokerNodesNodeInfoListOutputWithContext(context.Context) GetBrokerNodesNodeInfoListOutput
-}
-
-type GetBrokerNodesNodeInfoListArgs struct {
-	// The attached elastic network interface of the broker
-	AttachedEniId pulumi.StringInput `pulumi:"attachedEniId"`
-	// The ID of the broker
-	BrokerId pulumi.Float64Input `pulumi:"brokerId"`
-	// The client subnet to which this broker node belongs
-	ClientSubnet pulumi.StringInput `pulumi:"clientSubnet"`
-	// The client virtual private cloud (VPC) IP address
-	ClientVpcIpAddress pulumi.StringInput `pulumi:"clientVpcIpAddress"`
-	// Set of endpoints for accessing the broker. This does not include ports
-	Endpoints pulumi.StringArrayInput `pulumi:"endpoints"`
-	// The Amazon Resource Name (ARN) of the node
-	NodeArn pulumi.StringInput `pulumi:"nodeArn"`
-}
-
-func (GetBrokerNodesNodeInfoListArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetBrokerNodesNodeInfoList)(nil)).Elem()
-}
-
-func (i GetBrokerNodesNodeInfoListArgs) ToGetBrokerNodesNodeInfoListOutput() GetBrokerNodesNodeInfoListOutput {
-	return i.ToGetBrokerNodesNodeInfoListOutputWithContext(context.Background())
-}
-
-func (i GetBrokerNodesNodeInfoListArgs) ToGetBrokerNodesNodeInfoListOutputWithContext(ctx context.Context) GetBrokerNodesNodeInfoListOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetBrokerNodesNodeInfoListOutput)
-}
-
-// GetBrokerNodesNodeInfoListArrayInput is an input type that accepts GetBrokerNodesNodeInfoListArray and GetBrokerNodesNodeInfoListArrayOutput values.
-// You can construct a concrete instance of `GetBrokerNodesNodeInfoListArrayInput` via:
-//
-//          GetBrokerNodesNodeInfoListArray{ GetBrokerNodesNodeInfoListArgs{...} }
-type GetBrokerNodesNodeInfoListArrayInput interface {
-	pulumi.Input
-
-	ToGetBrokerNodesNodeInfoListArrayOutput() GetBrokerNodesNodeInfoListArrayOutput
-	ToGetBrokerNodesNodeInfoListArrayOutputWithContext(context.Context) GetBrokerNodesNodeInfoListArrayOutput
-}
-
-type GetBrokerNodesNodeInfoListArray []GetBrokerNodesNodeInfoListInput
-
-func (GetBrokerNodesNodeInfoListArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetBrokerNodesNodeInfoList)(nil)).Elem()
-}
-
-func (i GetBrokerNodesNodeInfoListArray) ToGetBrokerNodesNodeInfoListArrayOutput() GetBrokerNodesNodeInfoListArrayOutput {
-	return i.ToGetBrokerNodesNodeInfoListArrayOutputWithContext(context.Background())
-}
-
-func (i GetBrokerNodesNodeInfoListArray) ToGetBrokerNodesNodeInfoListArrayOutputWithContext(ctx context.Context) GetBrokerNodesNodeInfoListArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetBrokerNodesNodeInfoListArrayOutput)
-}
-
 type GetBrokerNodesNodeInfoListOutput struct{ *pulumi.OutputState }
 
 func (GetBrokerNodesNodeInfoListOutput) ElementType() reflect.Type {
@@ -2644,7 +2456,6 @@ func (o GetBrokerNodesNodeInfoListArrayOutput) Index(i pulumi.IntInput) GetBroke
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterBrokerNodeGroupInfoInput)(nil)).Elem(), ClusterBrokerNodeGroupInfoArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ClusterBrokerNodeGroupInfoPtrInput)(nil)).Elem(), ClusterBrokerNodeGroupInfoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterClientAuthenticationInput)(nil)).Elem(), ClusterClientAuthenticationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterClientAuthenticationPtrInput)(nil)).Elem(), ClusterClientAuthenticationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterClientAuthenticationSaslInput)(nil)).Elem(), ClusterClientAuthenticationSaslArgs{})
@@ -2675,10 +2486,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterOpenMonitoringPrometheusJmxExporterPtrInput)(nil)).Elem(), ClusterOpenMonitoringPrometheusJmxExporterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterOpenMonitoringPrometheusNodeExporterInput)(nil)).Elem(), ClusterOpenMonitoringPrometheusNodeExporterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterOpenMonitoringPrometheusNodeExporterPtrInput)(nil)).Elem(), ClusterOpenMonitoringPrometheusNodeExporterArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetBrokerNodesNodeInfoListInput)(nil)).Elem(), GetBrokerNodesNodeInfoListArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetBrokerNodesNodeInfoListArrayInput)(nil)).Elem(), GetBrokerNodesNodeInfoListArray{})
 	pulumi.RegisterOutputType(ClusterBrokerNodeGroupInfoOutput{})
-	pulumi.RegisterOutputType(ClusterBrokerNodeGroupInfoPtrOutput{})
 	pulumi.RegisterOutputType(ClusterClientAuthenticationOutput{})
 	pulumi.RegisterOutputType(ClusterClientAuthenticationPtrOutput{})
 	pulumi.RegisterOutputType(ClusterClientAuthenticationSaslOutput{})

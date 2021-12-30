@@ -88,24 +88,24 @@ export class DomainDkim extends pulumi.CustomResource {
      */
     constructor(name: string, args: DomainDkimArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DomainDkimArgs | DomainDkimState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DomainDkimState | undefined;
-            inputs["dkimTokens"] = state ? state.dkimTokens : undefined;
-            inputs["domain"] = state ? state.domain : undefined;
+            resourceInputs["dkimTokens"] = state ? state.dkimTokens : undefined;
+            resourceInputs["domain"] = state ? state.domain : undefined;
         } else {
             const args = argsOrState as DomainDkimArgs | undefined;
             if ((!args || args.domain === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'domain'");
             }
-            inputs["domain"] = args ? args.domain : undefined;
-            inputs["dkimTokens"] = undefined /*out*/;
+            resourceInputs["domain"] = args ? args.domain : undefined;
+            resourceInputs["dkimTokens"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(DomainDkim.__pulumiType, name, inputs, opts);
+        super(DomainDkim.__pulumiType, name, resourceInputs, opts);
     }
 }
 

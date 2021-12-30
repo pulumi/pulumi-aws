@@ -21,65 +21,6 @@ type CertificateDomainValidationOption struct {
 	ResourceRecordValue *string `pulumi:"resourceRecordValue"`
 }
 
-// CertificateDomainValidationOptionInput is an input type that accepts CertificateDomainValidationOptionArgs and CertificateDomainValidationOptionOutput values.
-// You can construct a concrete instance of `CertificateDomainValidationOptionInput` via:
-//
-//          CertificateDomainValidationOptionArgs{...}
-type CertificateDomainValidationOptionInput interface {
-	pulumi.Input
-
-	ToCertificateDomainValidationOptionOutput() CertificateDomainValidationOptionOutput
-	ToCertificateDomainValidationOptionOutputWithContext(context.Context) CertificateDomainValidationOptionOutput
-}
-
-type CertificateDomainValidationOptionArgs struct {
-	// A domain name for which the certificate should be issued
-	DomainName pulumi.StringPtrInput `pulumi:"domainName"`
-	// The name of the DNS record to create to validate the certificate
-	ResourceRecordName pulumi.StringPtrInput `pulumi:"resourceRecordName"`
-	// The type of DNS record to create
-	ResourceRecordType pulumi.StringPtrInput `pulumi:"resourceRecordType"`
-	// The value the DNS record needs to have
-	ResourceRecordValue pulumi.StringPtrInput `pulumi:"resourceRecordValue"`
-}
-
-func (CertificateDomainValidationOptionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CertificateDomainValidationOption)(nil)).Elem()
-}
-
-func (i CertificateDomainValidationOptionArgs) ToCertificateDomainValidationOptionOutput() CertificateDomainValidationOptionOutput {
-	return i.ToCertificateDomainValidationOptionOutputWithContext(context.Background())
-}
-
-func (i CertificateDomainValidationOptionArgs) ToCertificateDomainValidationOptionOutputWithContext(ctx context.Context) CertificateDomainValidationOptionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CertificateDomainValidationOptionOutput)
-}
-
-// CertificateDomainValidationOptionArrayInput is an input type that accepts CertificateDomainValidationOptionArray and CertificateDomainValidationOptionArrayOutput values.
-// You can construct a concrete instance of `CertificateDomainValidationOptionArrayInput` via:
-//
-//          CertificateDomainValidationOptionArray{ CertificateDomainValidationOptionArgs{...} }
-type CertificateDomainValidationOptionArrayInput interface {
-	pulumi.Input
-
-	ToCertificateDomainValidationOptionArrayOutput() CertificateDomainValidationOptionArrayOutput
-	ToCertificateDomainValidationOptionArrayOutputWithContext(context.Context) CertificateDomainValidationOptionArrayOutput
-}
-
-type CertificateDomainValidationOptionArray []CertificateDomainValidationOptionInput
-
-func (CertificateDomainValidationOptionArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CertificateDomainValidationOption)(nil)).Elem()
-}
-
-func (i CertificateDomainValidationOptionArray) ToCertificateDomainValidationOptionArrayOutput() CertificateDomainValidationOptionArrayOutput {
-	return i.ToCertificateDomainValidationOptionArrayOutputWithContext(context.Background())
-}
-
-func (i CertificateDomainValidationOptionArray) ToCertificateDomainValidationOptionArrayOutputWithContext(ctx context.Context) CertificateDomainValidationOptionArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CertificateDomainValidationOptionArrayOutput)
-}
-
 type CertificateDomainValidationOptionOutput struct{ *pulumi.OutputState }
 
 func (CertificateDomainValidationOptionOutput) ElementType() reflect.Type {
@@ -272,8 +213,6 @@ func (o CertificateOptionsPtrOutput) CertificateTransparencyLoggingPreference() 
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*CertificateDomainValidationOptionInput)(nil)).Elem(), CertificateDomainValidationOptionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CertificateDomainValidationOptionArrayInput)(nil)).Elem(), CertificateDomainValidationOptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CertificateOptionsInput)(nil)).Elem(), CertificateOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CertificateOptionsPtrInput)(nil)).Elem(), CertificateOptionsArgs{})
 	pulumi.RegisterOutputType(CertificateDomainValidationOptionOutput{})

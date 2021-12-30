@@ -93,17 +93,17 @@ export class TapePool extends pulumi.CustomResource {
      */
     constructor(name: string, args: TapePoolArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: TapePoolArgs | TapePoolState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TapePoolState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["poolName"] = state ? state.poolName : undefined;
-            inputs["retentionLockTimeInDays"] = state ? state.retentionLockTimeInDays : undefined;
-            inputs["retentionLockType"] = state ? state.retentionLockType : undefined;
-            inputs["storageClass"] = state ? state.storageClass : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["poolName"] = state ? state.poolName : undefined;
+            resourceInputs["retentionLockTimeInDays"] = state ? state.retentionLockTimeInDays : undefined;
+            resourceInputs["retentionLockType"] = state ? state.retentionLockType : undefined;
+            resourceInputs["storageClass"] = state ? state.storageClass : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as TapePoolArgs | undefined;
             if ((!args || args.poolName === undefined) && !opts.urn) {
@@ -112,18 +112,18 @@ export class TapePool extends pulumi.CustomResource {
             if ((!args || args.storageClass === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageClass'");
             }
-            inputs["poolName"] = args ? args.poolName : undefined;
-            inputs["retentionLockTimeInDays"] = args ? args.retentionLockTimeInDays : undefined;
-            inputs["retentionLockType"] = args ? args.retentionLockType : undefined;
-            inputs["storageClass"] = args ? args.storageClass : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["poolName"] = args ? args.poolName : undefined;
+            resourceInputs["retentionLockTimeInDays"] = args ? args.retentionLockTimeInDays : undefined;
+            resourceInputs["retentionLockType"] = args ? args.retentionLockType : undefined;
+            resourceInputs["storageClass"] = args ? args.storageClass : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(TapePool.__pulumiType, name, inputs, opts);
+        super(TapePool.__pulumiType, name, resourceInputs, opts);
     }
 }
 

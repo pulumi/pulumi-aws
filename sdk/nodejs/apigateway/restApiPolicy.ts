@@ -95,12 +95,12 @@ export class RestApiPolicy extends pulumi.CustomResource {
      */
     constructor(name: string, args: RestApiPolicyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RestApiPolicyArgs | RestApiPolicyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RestApiPolicyState | undefined;
-            inputs["policy"] = state ? state.policy : undefined;
-            inputs["restApiId"] = state ? state.restApiId : undefined;
+            resourceInputs["policy"] = state ? state.policy : undefined;
+            resourceInputs["restApiId"] = state ? state.restApiId : undefined;
         } else {
             const args = argsOrState as RestApiPolicyArgs | undefined;
             if ((!args || args.policy === undefined) && !opts.urn) {
@@ -109,13 +109,13 @@ export class RestApiPolicy extends pulumi.CustomResource {
             if ((!args || args.restApiId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'restApiId'");
             }
-            inputs["policy"] = args ? args.policy : undefined;
-            inputs["restApiId"] = args ? args.restApiId : undefined;
+            resourceInputs["policy"] = args ? args.policy : undefined;
+            resourceInputs["restApiId"] = args ? args.restApiId : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(RestApiPolicy.__pulumiType, name, inputs, opts);
+        super(RestApiPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

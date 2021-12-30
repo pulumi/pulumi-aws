@@ -145,7 +145,7 @@ type StudioLifecycleConfigInput interface {
 }
 
 func (*StudioLifecycleConfig) ElementType() reflect.Type {
-	return reflect.TypeOf((*StudioLifecycleConfig)(nil))
+	return reflect.TypeOf((**StudioLifecycleConfig)(nil)).Elem()
 }
 
 func (i *StudioLifecycleConfig) ToStudioLifecycleConfigOutput() StudioLifecycleConfigOutput {
@@ -154,35 +154,6 @@ func (i *StudioLifecycleConfig) ToStudioLifecycleConfigOutput() StudioLifecycleC
 
 func (i *StudioLifecycleConfig) ToStudioLifecycleConfigOutputWithContext(ctx context.Context) StudioLifecycleConfigOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StudioLifecycleConfigOutput)
-}
-
-func (i *StudioLifecycleConfig) ToStudioLifecycleConfigPtrOutput() StudioLifecycleConfigPtrOutput {
-	return i.ToStudioLifecycleConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *StudioLifecycleConfig) ToStudioLifecycleConfigPtrOutputWithContext(ctx context.Context) StudioLifecycleConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StudioLifecycleConfigPtrOutput)
-}
-
-type StudioLifecycleConfigPtrInput interface {
-	pulumi.Input
-
-	ToStudioLifecycleConfigPtrOutput() StudioLifecycleConfigPtrOutput
-	ToStudioLifecycleConfigPtrOutputWithContext(ctx context.Context) StudioLifecycleConfigPtrOutput
-}
-
-type studioLifecycleConfigPtrType StudioLifecycleConfigArgs
-
-func (*studioLifecycleConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**StudioLifecycleConfig)(nil))
-}
-
-func (i *studioLifecycleConfigPtrType) ToStudioLifecycleConfigPtrOutput() StudioLifecycleConfigPtrOutput {
-	return i.ToStudioLifecycleConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *studioLifecycleConfigPtrType) ToStudioLifecycleConfigPtrOutputWithContext(ctx context.Context) StudioLifecycleConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StudioLifecycleConfigPtrOutput)
 }
 
 // StudioLifecycleConfigArrayInput is an input type that accepts StudioLifecycleConfigArray and StudioLifecycleConfigArrayOutput values.
@@ -238,7 +209,7 @@ func (i StudioLifecycleConfigMap) ToStudioLifecycleConfigMapOutputWithContext(ct
 type StudioLifecycleConfigOutput struct{ *pulumi.OutputState }
 
 func (StudioLifecycleConfigOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*StudioLifecycleConfig)(nil))
+	return reflect.TypeOf((**StudioLifecycleConfig)(nil)).Elem()
 }
 
 func (o StudioLifecycleConfigOutput) ToStudioLifecycleConfigOutput() StudioLifecycleConfigOutput {
@@ -249,44 +220,10 @@ func (o StudioLifecycleConfigOutput) ToStudioLifecycleConfigOutputWithContext(ct
 	return o
 }
 
-func (o StudioLifecycleConfigOutput) ToStudioLifecycleConfigPtrOutput() StudioLifecycleConfigPtrOutput {
-	return o.ToStudioLifecycleConfigPtrOutputWithContext(context.Background())
-}
-
-func (o StudioLifecycleConfigOutput) ToStudioLifecycleConfigPtrOutputWithContext(ctx context.Context) StudioLifecycleConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v StudioLifecycleConfig) *StudioLifecycleConfig {
-		return &v
-	}).(StudioLifecycleConfigPtrOutput)
-}
-
-type StudioLifecycleConfigPtrOutput struct{ *pulumi.OutputState }
-
-func (StudioLifecycleConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**StudioLifecycleConfig)(nil))
-}
-
-func (o StudioLifecycleConfigPtrOutput) ToStudioLifecycleConfigPtrOutput() StudioLifecycleConfigPtrOutput {
-	return o
-}
-
-func (o StudioLifecycleConfigPtrOutput) ToStudioLifecycleConfigPtrOutputWithContext(ctx context.Context) StudioLifecycleConfigPtrOutput {
-	return o
-}
-
-func (o StudioLifecycleConfigPtrOutput) Elem() StudioLifecycleConfigOutput {
-	return o.ApplyT(func(v *StudioLifecycleConfig) StudioLifecycleConfig {
-		if v != nil {
-			return *v
-		}
-		var ret StudioLifecycleConfig
-		return ret
-	}).(StudioLifecycleConfigOutput)
-}
-
 type StudioLifecycleConfigArrayOutput struct{ *pulumi.OutputState }
 
 func (StudioLifecycleConfigArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]StudioLifecycleConfig)(nil))
+	return reflect.TypeOf((*[]*StudioLifecycleConfig)(nil)).Elem()
 }
 
 func (o StudioLifecycleConfigArrayOutput) ToStudioLifecycleConfigArrayOutput() StudioLifecycleConfigArrayOutput {
@@ -298,15 +235,15 @@ func (o StudioLifecycleConfigArrayOutput) ToStudioLifecycleConfigArrayOutputWith
 }
 
 func (o StudioLifecycleConfigArrayOutput) Index(i pulumi.IntInput) StudioLifecycleConfigOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StudioLifecycleConfig {
-		return vs[0].([]StudioLifecycleConfig)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *StudioLifecycleConfig {
+		return vs[0].([]*StudioLifecycleConfig)[vs[1].(int)]
 	}).(StudioLifecycleConfigOutput)
 }
 
 type StudioLifecycleConfigMapOutput struct{ *pulumi.OutputState }
 
 func (StudioLifecycleConfigMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]StudioLifecycleConfig)(nil))
+	return reflect.TypeOf((*map[string]*StudioLifecycleConfig)(nil)).Elem()
 }
 
 func (o StudioLifecycleConfigMapOutput) ToStudioLifecycleConfigMapOutput() StudioLifecycleConfigMapOutput {
@@ -318,18 +255,16 @@ func (o StudioLifecycleConfigMapOutput) ToStudioLifecycleConfigMapOutputWithCont
 }
 
 func (o StudioLifecycleConfigMapOutput) MapIndex(k pulumi.StringInput) StudioLifecycleConfigOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) StudioLifecycleConfig {
-		return vs[0].(map[string]StudioLifecycleConfig)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *StudioLifecycleConfig {
+		return vs[0].(map[string]*StudioLifecycleConfig)[vs[1].(string)]
 	}).(StudioLifecycleConfigOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StudioLifecycleConfigInput)(nil)).Elem(), &StudioLifecycleConfig{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StudioLifecycleConfigPtrInput)(nil)).Elem(), &StudioLifecycleConfig{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StudioLifecycleConfigArrayInput)(nil)).Elem(), StudioLifecycleConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StudioLifecycleConfigMapInput)(nil)).Elem(), StudioLifecycleConfigMap{})
 	pulumi.RegisterOutputType(StudioLifecycleConfigOutput{})
-	pulumi.RegisterOutputType(StudioLifecycleConfigPtrOutput{})
 	pulumi.RegisterOutputType(StudioLifecycleConfigArrayOutput{})
 	pulumi.RegisterOutputType(StudioLifecycleConfigMapOutput{})
 }

@@ -36,6 +36,10 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
+// 		_ = kms.GetCipherTextOutput(ctx, kms.GetCipherTextOutputArgs{
+// 			KeyId:     oauthConfig.KeyId,
+// 			Plaintext: pulumi.String(fmt.Sprintf("%v%v%v%v", "{\n", "  \"client_id\": \"e587dbae22222f55da22\",\n", "  \"client_secret\": \"8289575d00000ace55e1815ec13673955721b8a5\"\n", "}\n")),
+// 		}, nil)
 // 		return nil
 // 	})
 // }

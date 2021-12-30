@@ -126,26 +126,26 @@ export class ClassificationJob extends pulumi.CustomResource {
      */
     constructor(name: string, args: ClassificationJobArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ClassificationJobArgs | ClassificationJobState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ClassificationJobState | undefined;
-            inputs["createdAt"] = state ? state.createdAt : undefined;
-            inputs["customDataIdentifierIds"] = state ? state.customDataIdentifierIds : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["initialRun"] = state ? state.initialRun : undefined;
-            inputs["jobArn"] = state ? state.jobArn : undefined;
-            inputs["jobId"] = state ? state.jobId : undefined;
-            inputs["jobStatus"] = state ? state.jobStatus : undefined;
-            inputs["jobType"] = state ? state.jobType : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["namePrefix"] = state ? state.namePrefix : undefined;
-            inputs["s3JobDefinition"] = state ? state.s3JobDefinition : undefined;
-            inputs["samplingPercentage"] = state ? state.samplingPercentage : undefined;
-            inputs["scheduleFrequency"] = state ? state.scheduleFrequency : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["userPausedDetails"] = state ? state.userPausedDetails : undefined;
+            resourceInputs["createdAt"] = state ? state.createdAt : undefined;
+            resourceInputs["customDataIdentifierIds"] = state ? state.customDataIdentifierIds : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["initialRun"] = state ? state.initialRun : undefined;
+            resourceInputs["jobArn"] = state ? state.jobArn : undefined;
+            resourceInputs["jobId"] = state ? state.jobId : undefined;
+            resourceInputs["jobStatus"] = state ? state.jobStatus : undefined;
+            resourceInputs["jobType"] = state ? state.jobType : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
+            resourceInputs["s3JobDefinition"] = state ? state.s3JobDefinition : undefined;
+            resourceInputs["samplingPercentage"] = state ? state.samplingPercentage : undefined;
+            resourceInputs["scheduleFrequency"] = state ? state.scheduleFrequency : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["userPausedDetails"] = state ? state.userPausedDetails : undefined;
         } else {
             const args = argsOrState as ClassificationJobArgs | undefined;
             if ((!args || args.jobType === undefined) && !opts.urn) {
@@ -154,27 +154,27 @@ export class ClassificationJob extends pulumi.CustomResource {
             if ((!args || args.s3JobDefinition === undefined) && !opts.urn) {
                 throw new Error("Missing required property 's3JobDefinition'");
             }
-            inputs["customDataIdentifierIds"] = args ? args.customDataIdentifierIds : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["initialRun"] = args ? args.initialRun : undefined;
-            inputs["jobStatus"] = args ? args.jobStatus : undefined;
-            inputs["jobType"] = args ? args.jobType : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["namePrefix"] = args ? args.namePrefix : undefined;
-            inputs["s3JobDefinition"] = args ? args.s3JobDefinition : undefined;
-            inputs["samplingPercentage"] = args ? args.samplingPercentage : undefined;
-            inputs["scheduleFrequency"] = args ? args.scheduleFrequency : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["createdAt"] = undefined /*out*/;
-            inputs["jobArn"] = undefined /*out*/;
-            inputs["jobId"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
-            inputs["userPausedDetails"] = undefined /*out*/;
+            resourceInputs["customDataIdentifierIds"] = args ? args.customDataIdentifierIds : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["initialRun"] = args ? args.initialRun : undefined;
+            resourceInputs["jobStatus"] = args ? args.jobStatus : undefined;
+            resourceInputs["jobType"] = args ? args.jobType : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
+            resourceInputs["s3JobDefinition"] = args ? args.s3JobDefinition : undefined;
+            resourceInputs["samplingPercentage"] = args ? args.samplingPercentage : undefined;
+            resourceInputs["scheduleFrequency"] = args ? args.scheduleFrequency : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["jobArn"] = undefined /*out*/;
+            resourceInputs["jobId"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["userPausedDetails"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(ClassificationJob.__pulumiType, name, inputs, opts);
+        super(ClassificationJob.__pulumiType, name, resourceInputs, opts);
     }
 }
 

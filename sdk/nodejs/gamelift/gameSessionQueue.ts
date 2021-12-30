@@ -106,31 +106,31 @@ export class GameSessionQueue extends pulumi.CustomResource {
      */
     constructor(name: string, args?: GameSessionQueueArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: GameSessionQueueArgs | GameSessionQueueState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GameSessionQueueState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["destinations"] = state ? state.destinations : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["playerLatencyPolicies"] = state ? state.playerLatencyPolicies : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["timeoutInSeconds"] = state ? state.timeoutInSeconds : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["destinations"] = state ? state.destinations : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["playerLatencyPolicies"] = state ? state.playerLatencyPolicies : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["timeoutInSeconds"] = state ? state.timeoutInSeconds : undefined;
         } else {
             const args = argsOrState as GameSessionQueueArgs | undefined;
-            inputs["destinations"] = args ? args.destinations : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["playerLatencyPolicies"] = args ? args.playerLatencyPolicies : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["timeoutInSeconds"] = args ? args.timeoutInSeconds : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["destinations"] = args ? args.destinations : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["playerLatencyPolicies"] = args ? args.playerLatencyPolicies : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["timeoutInSeconds"] = args ? args.timeoutInSeconds : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(GameSessionQueue.__pulumiType, name, inputs, opts);
+        super(GameSessionQueue.__pulumiType, name, resourceInputs, opts);
     }
 }
 

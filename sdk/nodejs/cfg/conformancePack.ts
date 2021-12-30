@@ -141,31 +141,31 @@ export class ConformancePack extends pulumi.CustomResource {
      */
     constructor(name: string, args?: ConformancePackArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ConformancePackArgs | ConformancePackState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ConformancePackState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["deliveryS3Bucket"] = state ? state.deliveryS3Bucket : undefined;
-            inputs["deliveryS3KeyPrefix"] = state ? state.deliveryS3KeyPrefix : undefined;
-            inputs["inputParameters"] = state ? state.inputParameters : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["templateBody"] = state ? state.templateBody : undefined;
-            inputs["templateS3Uri"] = state ? state.templateS3Uri : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["deliveryS3Bucket"] = state ? state.deliveryS3Bucket : undefined;
+            resourceInputs["deliveryS3KeyPrefix"] = state ? state.deliveryS3KeyPrefix : undefined;
+            resourceInputs["inputParameters"] = state ? state.inputParameters : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["templateBody"] = state ? state.templateBody : undefined;
+            resourceInputs["templateS3Uri"] = state ? state.templateS3Uri : undefined;
         } else {
             const args = argsOrState as ConformancePackArgs | undefined;
-            inputs["deliveryS3Bucket"] = args ? args.deliveryS3Bucket : undefined;
-            inputs["deliveryS3KeyPrefix"] = args ? args.deliveryS3KeyPrefix : undefined;
-            inputs["inputParameters"] = args ? args.inputParameters : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["templateBody"] = args ? args.templateBody : undefined;
-            inputs["templateS3Uri"] = args ? args.templateS3Uri : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["deliveryS3Bucket"] = args ? args.deliveryS3Bucket : undefined;
+            resourceInputs["deliveryS3KeyPrefix"] = args ? args.deliveryS3KeyPrefix : undefined;
+            resourceInputs["inputParameters"] = args ? args.inputParameters : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["templateBody"] = args ? args.templateBody : undefined;
+            resourceInputs["templateS3Uri"] = args ? args.templateS3Uri : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(ConformancePack.__pulumiType, name, inputs, opts);
+        super(ConformancePack.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -204,7 +204,7 @@ type VpcIpamPoolCidrAllocationInput interface {
 }
 
 func (*VpcIpamPoolCidrAllocation) ElementType() reflect.Type {
-	return reflect.TypeOf((*VpcIpamPoolCidrAllocation)(nil))
+	return reflect.TypeOf((**VpcIpamPoolCidrAllocation)(nil)).Elem()
 }
 
 func (i *VpcIpamPoolCidrAllocation) ToVpcIpamPoolCidrAllocationOutput() VpcIpamPoolCidrAllocationOutput {
@@ -213,35 +213,6 @@ func (i *VpcIpamPoolCidrAllocation) ToVpcIpamPoolCidrAllocationOutput() VpcIpamP
 
 func (i *VpcIpamPoolCidrAllocation) ToVpcIpamPoolCidrAllocationOutputWithContext(ctx context.Context) VpcIpamPoolCidrAllocationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VpcIpamPoolCidrAllocationOutput)
-}
-
-func (i *VpcIpamPoolCidrAllocation) ToVpcIpamPoolCidrAllocationPtrOutput() VpcIpamPoolCidrAllocationPtrOutput {
-	return i.ToVpcIpamPoolCidrAllocationPtrOutputWithContext(context.Background())
-}
-
-func (i *VpcIpamPoolCidrAllocation) ToVpcIpamPoolCidrAllocationPtrOutputWithContext(ctx context.Context) VpcIpamPoolCidrAllocationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VpcIpamPoolCidrAllocationPtrOutput)
-}
-
-type VpcIpamPoolCidrAllocationPtrInput interface {
-	pulumi.Input
-
-	ToVpcIpamPoolCidrAllocationPtrOutput() VpcIpamPoolCidrAllocationPtrOutput
-	ToVpcIpamPoolCidrAllocationPtrOutputWithContext(ctx context.Context) VpcIpamPoolCidrAllocationPtrOutput
-}
-
-type vpcIpamPoolCidrAllocationPtrType VpcIpamPoolCidrAllocationArgs
-
-func (*vpcIpamPoolCidrAllocationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VpcIpamPoolCidrAllocation)(nil))
-}
-
-func (i *vpcIpamPoolCidrAllocationPtrType) ToVpcIpamPoolCidrAllocationPtrOutput() VpcIpamPoolCidrAllocationPtrOutput {
-	return i.ToVpcIpamPoolCidrAllocationPtrOutputWithContext(context.Background())
-}
-
-func (i *vpcIpamPoolCidrAllocationPtrType) ToVpcIpamPoolCidrAllocationPtrOutputWithContext(ctx context.Context) VpcIpamPoolCidrAllocationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VpcIpamPoolCidrAllocationPtrOutput)
 }
 
 // VpcIpamPoolCidrAllocationArrayInput is an input type that accepts VpcIpamPoolCidrAllocationArray and VpcIpamPoolCidrAllocationArrayOutput values.
@@ -297,7 +268,7 @@ func (i VpcIpamPoolCidrAllocationMap) ToVpcIpamPoolCidrAllocationMapOutputWithCo
 type VpcIpamPoolCidrAllocationOutput struct{ *pulumi.OutputState }
 
 func (VpcIpamPoolCidrAllocationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VpcIpamPoolCidrAllocation)(nil))
+	return reflect.TypeOf((**VpcIpamPoolCidrAllocation)(nil)).Elem()
 }
 
 func (o VpcIpamPoolCidrAllocationOutput) ToVpcIpamPoolCidrAllocationOutput() VpcIpamPoolCidrAllocationOutput {
@@ -308,44 +279,10 @@ func (o VpcIpamPoolCidrAllocationOutput) ToVpcIpamPoolCidrAllocationOutputWithCo
 	return o
 }
 
-func (o VpcIpamPoolCidrAllocationOutput) ToVpcIpamPoolCidrAllocationPtrOutput() VpcIpamPoolCidrAllocationPtrOutput {
-	return o.ToVpcIpamPoolCidrAllocationPtrOutputWithContext(context.Background())
-}
-
-func (o VpcIpamPoolCidrAllocationOutput) ToVpcIpamPoolCidrAllocationPtrOutputWithContext(ctx context.Context) VpcIpamPoolCidrAllocationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpcIpamPoolCidrAllocation) *VpcIpamPoolCidrAllocation {
-		return &v
-	}).(VpcIpamPoolCidrAllocationPtrOutput)
-}
-
-type VpcIpamPoolCidrAllocationPtrOutput struct{ *pulumi.OutputState }
-
-func (VpcIpamPoolCidrAllocationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VpcIpamPoolCidrAllocation)(nil))
-}
-
-func (o VpcIpamPoolCidrAllocationPtrOutput) ToVpcIpamPoolCidrAllocationPtrOutput() VpcIpamPoolCidrAllocationPtrOutput {
-	return o
-}
-
-func (o VpcIpamPoolCidrAllocationPtrOutput) ToVpcIpamPoolCidrAllocationPtrOutputWithContext(ctx context.Context) VpcIpamPoolCidrAllocationPtrOutput {
-	return o
-}
-
-func (o VpcIpamPoolCidrAllocationPtrOutput) Elem() VpcIpamPoolCidrAllocationOutput {
-	return o.ApplyT(func(v *VpcIpamPoolCidrAllocation) VpcIpamPoolCidrAllocation {
-		if v != nil {
-			return *v
-		}
-		var ret VpcIpamPoolCidrAllocation
-		return ret
-	}).(VpcIpamPoolCidrAllocationOutput)
-}
-
 type VpcIpamPoolCidrAllocationArrayOutput struct{ *pulumi.OutputState }
 
 func (VpcIpamPoolCidrAllocationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VpcIpamPoolCidrAllocation)(nil))
+	return reflect.TypeOf((*[]*VpcIpamPoolCidrAllocation)(nil)).Elem()
 }
 
 func (o VpcIpamPoolCidrAllocationArrayOutput) ToVpcIpamPoolCidrAllocationArrayOutput() VpcIpamPoolCidrAllocationArrayOutput {
@@ -357,15 +294,15 @@ func (o VpcIpamPoolCidrAllocationArrayOutput) ToVpcIpamPoolCidrAllocationArrayOu
 }
 
 func (o VpcIpamPoolCidrAllocationArrayOutput) Index(i pulumi.IntInput) VpcIpamPoolCidrAllocationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VpcIpamPoolCidrAllocation {
-		return vs[0].([]VpcIpamPoolCidrAllocation)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VpcIpamPoolCidrAllocation {
+		return vs[0].([]*VpcIpamPoolCidrAllocation)[vs[1].(int)]
 	}).(VpcIpamPoolCidrAllocationOutput)
 }
 
 type VpcIpamPoolCidrAllocationMapOutput struct{ *pulumi.OutputState }
 
 func (VpcIpamPoolCidrAllocationMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]VpcIpamPoolCidrAllocation)(nil))
+	return reflect.TypeOf((*map[string]*VpcIpamPoolCidrAllocation)(nil)).Elem()
 }
 
 func (o VpcIpamPoolCidrAllocationMapOutput) ToVpcIpamPoolCidrAllocationMapOutput() VpcIpamPoolCidrAllocationMapOutput {
@@ -377,18 +314,16 @@ func (o VpcIpamPoolCidrAllocationMapOutput) ToVpcIpamPoolCidrAllocationMapOutput
 }
 
 func (o VpcIpamPoolCidrAllocationMapOutput) MapIndex(k pulumi.StringInput) VpcIpamPoolCidrAllocationOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) VpcIpamPoolCidrAllocation {
-		return vs[0].(map[string]VpcIpamPoolCidrAllocation)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *VpcIpamPoolCidrAllocation {
+		return vs[0].(map[string]*VpcIpamPoolCidrAllocation)[vs[1].(string)]
 	}).(VpcIpamPoolCidrAllocationOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcIpamPoolCidrAllocationInput)(nil)).Elem(), &VpcIpamPoolCidrAllocation{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VpcIpamPoolCidrAllocationPtrInput)(nil)).Elem(), &VpcIpamPoolCidrAllocation{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcIpamPoolCidrAllocationArrayInput)(nil)).Elem(), VpcIpamPoolCidrAllocationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcIpamPoolCidrAllocationMapInput)(nil)).Elem(), VpcIpamPoolCidrAllocationMap{})
 	pulumi.RegisterOutputType(VpcIpamPoolCidrAllocationOutput{})
-	pulumi.RegisterOutputType(VpcIpamPoolCidrAllocationPtrOutput{})
 	pulumi.RegisterOutputType(VpcIpamPoolCidrAllocationArrayOutput{})
 	pulumi.RegisterOutputType(VpcIpamPoolCidrAllocationMapOutput{})
 }

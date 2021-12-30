@@ -51,47 +51,6 @@ func (i LifecyclePolicyPolicyDetailsArgs) ToLifecyclePolicyPolicyDetailsOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyPolicyDetailsOutput)
 }
 
-func (i LifecyclePolicyPolicyDetailsArgs) ToLifecyclePolicyPolicyDetailsPtrOutput() LifecyclePolicyPolicyDetailsPtrOutput {
-	return i.ToLifecyclePolicyPolicyDetailsPtrOutputWithContext(context.Background())
-}
-
-func (i LifecyclePolicyPolicyDetailsArgs) ToLifecyclePolicyPolicyDetailsPtrOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyPolicyDetailsOutput).ToLifecyclePolicyPolicyDetailsPtrOutputWithContext(ctx)
-}
-
-// LifecyclePolicyPolicyDetailsPtrInput is an input type that accepts LifecyclePolicyPolicyDetailsArgs, LifecyclePolicyPolicyDetailsPtr and LifecyclePolicyPolicyDetailsPtrOutput values.
-// You can construct a concrete instance of `LifecyclePolicyPolicyDetailsPtrInput` via:
-//
-//          LifecyclePolicyPolicyDetailsArgs{...}
-//
-//  or:
-//
-//          nil
-type LifecyclePolicyPolicyDetailsPtrInput interface {
-	pulumi.Input
-
-	ToLifecyclePolicyPolicyDetailsPtrOutput() LifecyclePolicyPolicyDetailsPtrOutput
-	ToLifecyclePolicyPolicyDetailsPtrOutputWithContext(context.Context) LifecyclePolicyPolicyDetailsPtrOutput
-}
-
-type lifecyclePolicyPolicyDetailsPtrType LifecyclePolicyPolicyDetailsArgs
-
-func LifecyclePolicyPolicyDetailsPtr(v *LifecyclePolicyPolicyDetailsArgs) LifecyclePolicyPolicyDetailsPtrInput {
-	return (*lifecyclePolicyPolicyDetailsPtrType)(v)
-}
-
-func (*lifecyclePolicyPolicyDetailsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LifecyclePolicyPolicyDetails)(nil)).Elem()
-}
-
-func (i *lifecyclePolicyPolicyDetailsPtrType) ToLifecyclePolicyPolicyDetailsPtrOutput() LifecyclePolicyPolicyDetailsPtrOutput {
-	return i.ToLifecyclePolicyPolicyDetailsPtrOutputWithContext(context.Background())
-}
-
-func (i *lifecyclePolicyPolicyDetailsPtrType) ToLifecyclePolicyPolicyDetailsPtrOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyPolicyDetailsPtrOutput)
-}
-
 type LifecyclePolicyPolicyDetailsOutput struct{ *pulumi.OutputState }
 
 func (LifecyclePolicyPolicyDetailsOutput) ElementType() reflect.Type {
@@ -104,16 +63,6 @@ func (o LifecyclePolicyPolicyDetailsOutput) ToLifecyclePolicyPolicyDetailsOutput
 
 func (o LifecyclePolicyPolicyDetailsOutput) ToLifecyclePolicyPolicyDetailsOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsOutput {
 	return o
-}
-
-func (o LifecyclePolicyPolicyDetailsOutput) ToLifecyclePolicyPolicyDetailsPtrOutput() LifecyclePolicyPolicyDetailsPtrOutput {
-	return o.ToLifecyclePolicyPolicyDetailsPtrOutputWithContext(context.Background())
-}
-
-func (o LifecyclePolicyPolicyDetailsOutput) ToLifecyclePolicyPolicyDetailsPtrOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LifecyclePolicyPolicyDetails) *LifecyclePolicyPolicyDetails {
-		return &v
-	}).(LifecyclePolicyPolicyDetailsPtrOutput)
 }
 
 // A list of resource types that should be targeted by the lifecycle policy. `VOLUME` is currently the only allowed value.
@@ -129,60 +78,6 @@ func (o LifecyclePolicyPolicyDetailsOutput) Schedules() LifecyclePolicyPolicyDet
 // A map of tag keys and their values. Any resources that match the `resourceTypes` and are tagged with _any_ of these tags will be targeted.
 func (o LifecyclePolicyPolicyDetailsOutput) TargetTags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LifecyclePolicyPolicyDetails) map[string]string { return v.TargetTags }).(pulumi.StringMapOutput)
-}
-
-type LifecyclePolicyPolicyDetailsPtrOutput struct{ *pulumi.OutputState }
-
-func (LifecyclePolicyPolicyDetailsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LifecyclePolicyPolicyDetails)(nil)).Elem()
-}
-
-func (o LifecyclePolicyPolicyDetailsPtrOutput) ToLifecyclePolicyPolicyDetailsPtrOutput() LifecyclePolicyPolicyDetailsPtrOutput {
-	return o
-}
-
-func (o LifecyclePolicyPolicyDetailsPtrOutput) ToLifecyclePolicyPolicyDetailsPtrOutputWithContext(ctx context.Context) LifecyclePolicyPolicyDetailsPtrOutput {
-	return o
-}
-
-func (o LifecyclePolicyPolicyDetailsPtrOutput) Elem() LifecyclePolicyPolicyDetailsOutput {
-	return o.ApplyT(func(v *LifecyclePolicyPolicyDetails) LifecyclePolicyPolicyDetails {
-		if v != nil {
-			return *v
-		}
-		var ret LifecyclePolicyPolicyDetails
-		return ret
-	}).(LifecyclePolicyPolicyDetailsOutput)
-}
-
-// A list of resource types that should be targeted by the lifecycle policy. `VOLUME` is currently the only allowed value.
-func (o LifecyclePolicyPolicyDetailsPtrOutput) ResourceTypes() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *LifecyclePolicyPolicyDetails) []string {
-		if v == nil {
-			return nil
-		}
-		return v.ResourceTypes
-	}).(pulumi.StringArrayOutput)
-}
-
-// See the `schedule` configuration block.
-func (o LifecyclePolicyPolicyDetailsPtrOutput) Schedules() LifecyclePolicyPolicyDetailsScheduleArrayOutput {
-	return o.ApplyT(func(v *LifecyclePolicyPolicyDetails) []LifecyclePolicyPolicyDetailsSchedule {
-		if v == nil {
-			return nil
-		}
-		return v.Schedules
-	}).(LifecyclePolicyPolicyDetailsScheduleArrayOutput)
-}
-
-// A map of tag keys and their values. Any resources that match the `resourceTypes` and are tagged with _any_ of these tags will be targeted.
-func (o LifecyclePolicyPolicyDetailsPtrOutput) TargetTags() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *LifecyclePolicyPolicyDetails) map[string]string {
-		if v == nil {
-			return nil
-		}
-		return v.TargetTags
-	}).(pulumi.StringMapOutput)
 }
 
 type LifecyclePolicyPolicyDetailsSchedule struct {
@@ -919,7 +814,6 @@ func (o LifecyclePolicyPolicyDetailsScheduleRetainRuleOutput) Count() pulumi.Int
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyPolicyDetailsInput)(nil)).Elem(), LifecyclePolicyPolicyDetailsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyPolicyDetailsPtrInput)(nil)).Elem(), LifecyclePolicyPolicyDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyPolicyDetailsScheduleInput)(nil)).Elem(), LifecyclePolicyPolicyDetailsScheduleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyPolicyDetailsScheduleArrayInput)(nil)).Elem(), LifecyclePolicyPolicyDetailsScheduleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyPolicyDetailsScheduleCreateRuleInput)(nil)).Elem(), LifecyclePolicyPolicyDetailsScheduleCreateRuleArgs{})
@@ -931,7 +825,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRulePtrInput)(nil)).Elem(), LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyPolicyDetailsScheduleRetainRuleInput)(nil)).Elem(), LifecyclePolicyPolicyDetailsScheduleRetainRuleArgs{})
 	pulumi.RegisterOutputType(LifecyclePolicyPolicyDetailsOutput{})
-	pulumi.RegisterOutputType(LifecyclePolicyPolicyDetailsPtrOutput{})
 	pulumi.RegisterOutputType(LifecyclePolicyPolicyDetailsScheduleOutput{})
 	pulumi.RegisterOutputType(LifecyclePolicyPolicyDetailsScheduleArrayOutput{})
 	pulumi.RegisterOutputType(LifecyclePolicyPolicyDetailsScheduleCreateRuleOutput{})

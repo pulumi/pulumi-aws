@@ -3548,47 +3548,6 @@ func (i BucketOwnershipControlsRuleArgs) ToBucketOwnershipControlsRuleOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(BucketOwnershipControlsRuleOutput)
 }
 
-func (i BucketOwnershipControlsRuleArgs) ToBucketOwnershipControlsRulePtrOutput() BucketOwnershipControlsRulePtrOutput {
-	return i.ToBucketOwnershipControlsRulePtrOutputWithContext(context.Background())
-}
-
-func (i BucketOwnershipControlsRuleArgs) ToBucketOwnershipControlsRulePtrOutputWithContext(ctx context.Context) BucketOwnershipControlsRulePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketOwnershipControlsRuleOutput).ToBucketOwnershipControlsRulePtrOutputWithContext(ctx)
-}
-
-// BucketOwnershipControlsRulePtrInput is an input type that accepts BucketOwnershipControlsRuleArgs, BucketOwnershipControlsRulePtr and BucketOwnershipControlsRulePtrOutput values.
-// You can construct a concrete instance of `BucketOwnershipControlsRulePtrInput` via:
-//
-//          BucketOwnershipControlsRuleArgs{...}
-//
-//  or:
-//
-//          nil
-type BucketOwnershipControlsRulePtrInput interface {
-	pulumi.Input
-
-	ToBucketOwnershipControlsRulePtrOutput() BucketOwnershipControlsRulePtrOutput
-	ToBucketOwnershipControlsRulePtrOutputWithContext(context.Context) BucketOwnershipControlsRulePtrOutput
-}
-
-type bucketOwnershipControlsRulePtrType BucketOwnershipControlsRuleArgs
-
-func BucketOwnershipControlsRulePtr(v *BucketOwnershipControlsRuleArgs) BucketOwnershipControlsRulePtrInput {
-	return (*bucketOwnershipControlsRulePtrType)(v)
-}
-
-func (*bucketOwnershipControlsRulePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BucketOwnershipControlsRule)(nil)).Elem()
-}
-
-func (i *bucketOwnershipControlsRulePtrType) ToBucketOwnershipControlsRulePtrOutput() BucketOwnershipControlsRulePtrOutput {
-	return i.ToBucketOwnershipControlsRulePtrOutputWithContext(context.Background())
-}
-
-func (i *bucketOwnershipControlsRulePtrType) ToBucketOwnershipControlsRulePtrOutputWithContext(ctx context.Context) BucketOwnershipControlsRulePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BucketOwnershipControlsRulePtrOutput)
-}
-
 type BucketOwnershipControlsRuleOutput struct{ *pulumi.OutputState }
 
 func (BucketOwnershipControlsRuleOutput) ElementType() reflect.Type {
@@ -3603,53 +3562,9 @@ func (o BucketOwnershipControlsRuleOutput) ToBucketOwnershipControlsRuleOutputWi
 	return o
 }
 
-func (o BucketOwnershipControlsRuleOutput) ToBucketOwnershipControlsRulePtrOutput() BucketOwnershipControlsRulePtrOutput {
-	return o.ToBucketOwnershipControlsRulePtrOutputWithContext(context.Background())
-}
-
-func (o BucketOwnershipControlsRuleOutput) ToBucketOwnershipControlsRulePtrOutputWithContext(ctx context.Context) BucketOwnershipControlsRulePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketOwnershipControlsRule) *BucketOwnershipControlsRule {
-		return &v
-	}).(BucketOwnershipControlsRulePtrOutput)
-}
-
 // Object ownership. Valid values: `BucketOwnerPreferred`, `ObjectWriter` or `BucketOwnerEnforced`
 func (o BucketOwnershipControlsRuleOutput) ObjectOwnership() pulumi.StringOutput {
 	return o.ApplyT(func(v BucketOwnershipControlsRule) string { return v.ObjectOwnership }).(pulumi.StringOutput)
-}
-
-type BucketOwnershipControlsRulePtrOutput struct{ *pulumi.OutputState }
-
-func (BucketOwnershipControlsRulePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**BucketOwnershipControlsRule)(nil)).Elem()
-}
-
-func (o BucketOwnershipControlsRulePtrOutput) ToBucketOwnershipControlsRulePtrOutput() BucketOwnershipControlsRulePtrOutput {
-	return o
-}
-
-func (o BucketOwnershipControlsRulePtrOutput) ToBucketOwnershipControlsRulePtrOutputWithContext(ctx context.Context) BucketOwnershipControlsRulePtrOutput {
-	return o
-}
-
-func (o BucketOwnershipControlsRulePtrOutput) Elem() BucketOwnershipControlsRuleOutput {
-	return o.ApplyT(func(v *BucketOwnershipControlsRule) BucketOwnershipControlsRule {
-		if v != nil {
-			return *v
-		}
-		var ret BucketOwnershipControlsRule
-		return ret
-	}).(BucketOwnershipControlsRuleOutput)
-}
-
-// Object ownership. Valid values: `BucketOwnerPreferred`, `ObjectWriter` or `BucketOwnerEnforced`
-func (o BucketOwnershipControlsRulePtrOutput) ObjectOwnership() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *BucketOwnershipControlsRule) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ObjectOwnership
-	}).(pulumi.StringPtrOutput)
 }
 
 type BucketReplicationConfigRule struct {
@@ -8172,47 +8087,6 @@ func (i InventoryDestinationArgs) ToInventoryDestinationOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(InventoryDestinationOutput)
 }
 
-func (i InventoryDestinationArgs) ToInventoryDestinationPtrOutput() InventoryDestinationPtrOutput {
-	return i.ToInventoryDestinationPtrOutputWithContext(context.Background())
-}
-
-func (i InventoryDestinationArgs) ToInventoryDestinationPtrOutputWithContext(ctx context.Context) InventoryDestinationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InventoryDestinationOutput).ToInventoryDestinationPtrOutputWithContext(ctx)
-}
-
-// InventoryDestinationPtrInput is an input type that accepts InventoryDestinationArgs, InventoryDestinationPtr and InventoryDestinationPtrOutput values.
-// You can construct a concrete instance of `InventoryDestinationPtrInput` via:
-//
-//          InventoryDestinationArgs{...}
-//
-//  or:
-//
-//          nil
-type InventoryDestinationPtrInput interface {
-	pulumi.Input
-
-	ToInventoryDestinationPtrOutput() InventoryDestinationPtrOutput
-	ToInventoryDestinationPtrOutputWithContext(context.Context) InventoryDestinationPtrOutput
-}
-
-type inventoryDestinationPtrType InventoryDestinationArgs
-
-func InventoryDestinationPtr(v *InventoryDestinationArgs) InventoryDestinationPtrInput {
-	return (*inventoryDestinationPtrType)(v)
-}
-
-func (*inventoryDestinationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**InventoryDestination)(nil)).Elem()
-}
-
-func (i *inventoryDestinationPtrType) ToInventoryDestinationPtrOutput() InventoryDestinationPtrOutput {
-	return i.ToInventoryDestinationPtrOutputWithContext(context.Background())
-}
-
-func (i *inventoryDestinationPtrType) ToInventoryDestinationPtrOutputWithContext(ctx context.Context) InventoryDestinationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InventoryDestinationPtrOutput)
-}
-
 type InventoryDestinationOutput struct{ *pulumi.OutputState }
 
 func (InventoryDestinationOutput) ElementType() reflect.Type {
@@ -8227,53 +8101,9 @@ func (o InventoryDestinationOutput) ToInventoryDestinationOutputWithContext(ctx 
 	return o
 }
 
-func (o InventoryDestinationOutput) ToInventoryDestinationPtrOutput() InventoryDestinationPtrOutput {
-	return o.ToInventoryDestinationPtrOutputWithContext(context.Background())
-}
-
-func (o InventoryDestinationOutput) ToInventoryDestinationPtrOutputWithContext(ctx context.Context) InventoryDestinationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v InventoryDestination) *InventoryDestination {
-		return &v
-	}).(InventoryDestinationPtrOutput)
-}
-
 // The S3 bucket configuration where inventory results are published (documented below).
 func (o InventoryDestinationOutput) Bucket() InventoryDestinationBucketOutput {
 	return o.ApplyT(func(v InventoryDestination) InventoryDestinationBucket { return v.Bucket }).(InventoryDestinationBucketOutput)
-}
-
-type InventoryDestinationPtrOutput struct{ *pulumi.OutputState }
-
-func (InventoryDestinationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**InventoryDestination)(nil)).Elem()
-}
-
-func (o InventoryDestinationPtrOutput) ToInventoryDestinationPtrOutput() InventoryDestinationPtrOutput {
-	return o
-}
-
-func (o InventoryDestinationPtrOutput) ToInventoryDestinationPtrOutputWithContext(ctx context.Context) InventoryDestinationPtrOutput {
-	return o
-}
-
-func (o InventoryDestinationPtrOutput) Elem() InventoryDestinationOutput {
-	return o.ApplyT(func(v *InventoryDestination) InventoryDestination {
-		if v != nil {
-			return *v
-		}
-		var ret InventoryDestination
-		return ret
-	}).(InventoryDestinationOutput)
-}
-
-// The S3 bucket configuration where inventory results are published (documented below).
-func (o InventoryDestinationPtrOutput) Bucket() InventoryDestinationBucketPtrOutput {
-	return o.ApplyT(func(v *InventoryDestination) *InventoryDestinationBucket {
-		if v == nil {
-			return nil
-		}
-		return &v.Bucket
-	}).(InventoryDestinationBucketPtrOutput)
 }
 
 type InventoryDestinationBucket struct {
@@ -8325,47 +8155,6 @@ func (i InventoryDestinationBucketArgs) ToInventoryDestinationBucketOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(InventoryDestinationBucketOutput)
 }
 
-func (i InventoryDestinationBucketArgs) ToInventoryDestinationBucketPtrOutput() InventoryDestinationBucketPtrOutput {
-	return i.ToInventoryDestinationBucketPtrOutputWithContext(context.Background())
-}
-
-func (i InventoryDestinationBucketArgs) ToInventoryDestinationBucketPtrOutputWithContext(ctx context.Context) InventoryDestinationBucketPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InventoryDestinationBucketOutput).ToInventoryDestinationBucketPtrOutputWithContext(ctx)
-}
-
-// InventoryDestinationBucketPtrInput is an input type that accepts InventoryDestinationBucketArgs, InventoryDestinationBucketPtr and InventoryDestinationBucketPtrOutput values.
-// You can construct a concrete instance of `InventoryDestinationBucketPtrInput` via:
-//
-//          InventoryDestinationBucketArgs{...}
-//
-//  or:
-//
-//          nil
-type InventoryDestinationBucketPtrInput interface {
-	pulumi.Input
-
-	ToInventoryDestinationBucketPtrOutput() InventoryDestinationBucketPtrOutput
-	ToInventoryDestinationBucketPtrOutputWithContext(context.Context) InventoryDestinationBucketPtrOutput
-}
-
-type inventoryDestinationBucketPtrType InventoryDestinationBucketArgs
-
-func InventoryDestinationBucketPtr(v *InventoryDestinationBucketArgs) InventoryDestinationBucketPtrInput {
-	return (*inventoryDestinationBucketPtrType)(v)
-}
-
-func (*inventoryDestinationBucketPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**InventoryDestinationBucket)(nil)).Elem()
-}
-
-func (i *inventoryDestinationBucketPtrType) ToInventoryDestinationBucketPtrOutput() InventoryDestinationBucketPtrOutput {
-	return i.ToInventoryDestinationBucketPtrOutputWithContext(context.Background())
-}
-
-func (i *inventoryDestinationBucketPtrType) ToInventoryDestinationBucketPtrOutputWithContext(ctx context.Context) InventoryDestinationBucketPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InventoryDestinationBucketPtrOutput)
-}
-
 type InventoryDestinationBucketOutput struct{ *pulumi.OutputState }
 
 func (InventoryDestinationBucketOutput) ElementType() reflect.Type {
@@ -8378,16 +8167,6 @@ func (o InventoryDestinationBucketOutput) ToInventoryDestinationBucketOutput() I
 
 func (o InventoryDestinationBucketOutput) ToInventoryDestinationBucketOutputWithContext(ctx context.Context) InventoryDestinationBucketOutput {
 	return o
-}
-
-func (o InventoryDestinationBucketOutput) ToInventoryDestinationBucketPtrOutput() InventoryDestinationBucketPtrOutput {
-	return o.ToInventoryDestinationBucketPtrOutputWithContext(context.Background())
-}
-
-func (o InventoryDestinationBucketOutput) ToInventoryDestinationBucketPtrOutputWithContext(ctx context.Context) InventoryDestinationBucketPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v InventoryDestinationBucket) *InventoryDestinationBucket {
-		return &v
-	}).(InventoryDestinationBucketPtrOutput)
 }
 
 // The ID of the account that owns the destination bucket. Recommended to be set to prevent problems if the destination bucket ownership changes.
@@ -8413,80 +8192,6 @@ func (o InventoryDestinationBucketOutput) Format() pulumi.StringOutput {
 // The prefix that is prepended to all inventory results.
 func (o InventoryDestinationBucketOutput) Prefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InventoryDestinationBucket) *string { return v.Prefix }).(pulumi.StringPtrOutput)
-}
-
-type InventoryDestinationBucketPtrOutput struct{ *pulumi.OutputState }
-
-func (InventoryDestinationBucketPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**InventoryDestinationBucket)(nil)).Elem()
-}
-
-func (o InventoryDestinationBucketPtrOutput) ToInventoryDestinationBucketPtrOutput() InventoryDestinationBucketPtrOutput {
-	return o
-}
-
-func (o InventoryDestinationBucketPtrOutput) ToInventoryDestinationBucketPtrOutputWithContext(ctx context.Context) InventoryDestinationBucketPtrOutput {
-	return o
-}
-
-func (o InventoryDestinationBucketPtrOutput) Elem() InventoryDestinationBucketOutput {
-	return o.ApplyT(func(v *InventoryDestinationBucket) InventoryDestinationBucket {
-		if v != nil {
-			return *v
-		}
-		var ret InventoryDestinationBucket
-		return ret
-	}).(InventoryDestinationBucketOutput)
-}
-
-// The ID of the account that owns the destination bucket. Recommended to be set to prevent problems if the destination bucket ownership changes.
-func (o InventoryDestinationBucketPtrOutput) AccountId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *InventoryDestinationBucket) *string {
-		if v == nil {
-			return nil
-		}
-		return v.AccountId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Amazon S3 bucket ARN of the destination.
-func (o InventoryDestinationBucketPtrOutput) BucketArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *InventoryDestinationBucket) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.BucketArn
-	}).(pulumi.StringPtrOutput)
-}
-
-// Contains the type of server-side encryption to use to encrypt the inventory (documented below).
-func (o InventoryDestinationBucketPtrOutput) Encryption() InventoryDestinationBucketEncryptionPtrOutput {
-	return o.ApplyT(func(v *InventoryDestinationBucket) *InventoryDestinationBucketEncryption {
-		if v == nil {
-			return nil
-		}
-		return v.Encryption
-	}).(InventoryDestinationBucketEncryptionPtrOutput)
-}
-
-// Specifies the output format of the inventory results. Can be `CSV`, [`ORC`](https://orc.apache.org/) or [`Parquet`](https://parquet.apache.org/).
-func (o InventoryDestinationBucketPtrOutput) Format() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *InventoryDestinationBucket) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Format
-	}).(pulumi.StringPtrOutput)
-}
-
-// The prefix that is prepended to all inventory results.
-func (o InventoryDestinationBucketPtrOutput) Prefix() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *InventoryDestinationBucket) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Prefix
-	}).(pulumi.StringPtrOutput)
 }
 
 type InventoryDestinationBucketEncryption struct {
@@ -9074,47 +8779,6 @@ func (i InventoryScheduleArgs) ToInventoryScheduleOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(InventoryScheduleOutput)
 }
 
-func (i InventoryScheduleArgs) ToInventorySchedulePtrOutput() InventorySchedulePtrOutput {
-	return i.ToInventorySchedulePtrOutputWithContext(context.Background())
-}
-
-func (i InventoryScheduleArgs) ToInventorySchedulePtrOutputWithContext(ctx context.Context) InventorySchedulePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InventoryScheduleOutput).ToInventorySchedulePtrOutputWithContext(ctx)
-}
-
-// InventorySchedulePtrInput is an input type that accepts InventoryScheduleArgs, InventorySchedulePtr and InventorySchedulePtrOutput values.
-// You can construct a concrete instance of `InventorySchedulePtrInput` via:
-//
-//          InventoryScheduleArgs{...}
-//
-//  or:
-//
-//          nil
-type InventorySchedulePtrInput interface {
-	pulumi.Input
-
-	ToInventorySchedulePtrOutput() InventorySchedulePtrOutput
-	ToInventorySchedulePtrOutputWithContext(context.Context) InventorySchedulePtrOutput
-}
-
-type inventorySchedulePtrType InventoryScheduleArgs
-
-func InventorySchedulePtr(v *InventoryScheduleArgs) InventorySchedulePtrInput {
-	return (*inventorySchedulePtrType)(v)
-}
-
-func (*inventorySchedulePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**InventorySchedule)(nil)).Elem()
-}
-
-func (i *inventorySchedulePtrType) ToInventorySchedulePtrOutput() InventorySchedulePtrOutput {
-	return i.ToInventorySchedulePtrOutputWithContext(context.Background())
-}
-
-func (i *inventorySchedulePtrType) ToInventorySchedulePtrOutputWithContext(ctx context.Context) InventorySchedulePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(InventorySchedulePtrOutput)
-}
-
 type InventoryScheduleOutput struct{ *pulumi.OutputState }
 
 func (InventoryScheduleOutput) ElementType() reflect.Type {
@@ -9129,53 +8793,9 @@ func (o InventoryScheduleOutput) ToInventoryScheduleOutputWithContext(ctx contex
 	return o
 }
 
-func (o InventoryScheduleOutput) ToInventorySchedulePtrOutput() InventorySchedulePtrOutput {
-	return o.ToInventorySchedulePtrOutputWithContext(context.Background())
-}
-
-func (o InventoryScheduleOutput) ToInventorySchedulePtrOutputWithContext(ctx context.Context) InventorySchedulePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v InventorySchedule) *InventorySchedule {
-		return &v
-	}).(InventorySchedulePtrOutput)
-}
-
 // Specifies how frequently inventory results are produced. Valid values: `Daily`, `Weekly`.
 func (o InventoryScheduleOutput) Frequency() pulumi.StringOutput {
 	return o.ApplyT(func(v InventorySchedule) string { return v.Frequency }).(pulumi.StringOutput)
-}
-
-type InventorySchedulePtrOutput struct{ *pulumi.OutputState }
-
-func (InventorySchedulePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**InventorySchedule)(nil)).Elem()
-}
-
-func (o InventorySchedulePtrOutput) ToInventorySchedulePtrOutput() InventorySchedulePtrOutput {
-	return o
-}
-
-func (o InventorySchedulePtrOutput) ToInventorySchedulePtrOutputWithContext(ctx context.Context) InventorySchedulePtrOutput {
-	return o
-}
-
-func (o InventorySchedulePtrOutput) Elem() InventoryScheduleOutput {
-	return o.ApplyT(func(v *InventorySchedule) InventorySchedule {
-		if v != nil {
-			return *v
-		}
-		var ret InventorySchedule
-		return ret
-	}).(InventoryScheduleOutput)
-}
-
-// Specifies how frequently inventory results are produced. Valid values: `Daily`, `Weekly`.
-func (o InventorySchedulePtrOutput) Frequency() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *InventorySchedule) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Frequency
-	}).(pulumi.StringPtrOutput)
 }
 
 type ObjectCopyGrant struct {
@@ -9361,7 +8981,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketObjectLockConfigurationRuleDefaultRetentionInput)(nil)).Elem(), BucketObjectLockConfigurationRuleDefaultRetentionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketObjectLockConfigurationRuleDefaultRetentionPtrInput)(nil)).Elem(), BucketObjectLockConfigurationRuleDefaultRetentionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketOwnershipControlsRuleInput)(nil)).Elem(), BucketOwnershipControlsRuleArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BucketOwnershipControlsRulePtrInput)(nil)).Elem(), BucketOwnershipControlsRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketReplicationConfigRuleInput)(nil)).Elem(), BucketReplicationConfigRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketReplicationConfigRuleArrayInput)(nil)).Elem(), BucketReplicationConfigRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketReplicationConfigRuleDeleteMarkerReplicationInput)(nil)).Elem(), BucketReplicationConfigRuleDeleteMarkerReplicationArgs{})
@@ -9421,9 +9040,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketWebsiteInput)(nil)).Elem(), BucketWebsiteArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketWebsitePtrInput)(nil)).Elem(), BucketWebsiteArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InventoryDestinationInput)(nil)).Elem(), InventoryDestinationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*InventoryDestinationPtrInput)(nil)).Elem(), InventoryDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InventoryDestinationBucketInput)(nil)).Elem(), InventoryDestinationBucketArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*InventoryDestinationBucketPtrInput)(nil)).Elem(), InventoryDestinationBucketArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InventoryDestinationBucketEncryptionInput)(nil)).Elem(), InventoryDestinationBucketEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InventoryDestinationBucketEncryptionPtrInput)(nil)).Elem(), InventoryDestinationBucketEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InventoryDestinationBucketEncryptionSseKmsInput)(nil)).Elem(), InventoryDestinationBucketEncryptionSseKmsArgs{})
@@ -9433,7 +9050,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InventoryFilterInput)(nil)).Elem(), InventoryFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InventoryFilterPtrInput)(nil)).Elem(), InventoryFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InventoryScheduleInput)(nil)).Elem(), InventoryScheduleArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*InventorySchedulePtrInput)(nil)).Elem(), InventoryScheduleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ObjectCopyGrantInput)(nil)).Elem(), ObjectCopyGrantArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ObjectCopyGrantArrayInput)(nil)).Elem(), ObjectCopyGrantArray{})
 	pulumi.RegisterOutputType(AccessPointPublicAccessBlockConfigurationOutput{})
@@ -9485,7 +9101,6 @@ func init() {
 	pulumi.RegisterOutputType(BucketObjectLockConfigurationRuleDefaultRetentionOutput{})
 	pulumi.RegisterOutputType(BucketObjectLockConfigurationRuleDefaultRetentionPtrOutput{})
 	pulumi.RegisterOutputType(BucketOwnershipControlsRuleOutput{})
-	pulumi.RegisterOutputType(BucketOwnershipControlsRulePtrOutput{})
 	pulumi.RegisterOutputType(BucketReplicationConfigRuleOutput{})
 	pulumi.RegisterOutputType(BucketReplicationConfigRuleArrayOutput{})
 	pulumi.RegisterOutputType(BucketReplicationConfigRuleDeleteMarkerReplicationOutput{})
@@ -9545,9 +9160,7 @@ func init() {
 	pulumi.RegisterOutputType(BucketWebsiteOutput{})
 	pulumi.RegisterOutputType(BucketWebsitePtrOutput{})
 	pulumi.RegisterOutputType(InventoryDestinationOutput{})
-	pulumi.RegisterOutputType(InventoryDestinationPtrOutput{})
 	pulumi.RegisterOutputType(InventoryDestinationBucketOutput{})
-	pulumi.RegisterOutputType(InventoryDestinationBucketPtrOutput{})
 	pulumi.RegisterOutputType(InventoryDestinationBucketEncryptionOutput{})
 	pulumi.RegisterOutputType(InventoryDestinationBucketEncryptionPtrOutput{})
 	pulumi.RegisterOutputType(InventoryDestinationBucketEncryptionSseKmsOutput{})
@@ -9557,7 +9170,6 @@ func init() {
 	pulumi.RegisterOutputType(InventoryFilterOutput{})
 	pulumi.RegisterOutputType(InventoryFilterPtrOutput{})
 	pulumi.RegisterOutputType(InventoryScheduleOutput{})
-	pulumi.RegisterOutputType(InventorySchedulePtrOutput{})
 	pulumi.RegisterOutputType(ObjectCopyGrantOutput{})
 	pulumi.RegisterOutputType(ObjectCopyGrantArrayOutput{})
 }

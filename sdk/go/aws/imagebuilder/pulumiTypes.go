@@ -688,59 +688,6 @@ type ImageOutputResource struct {
 	Amis []ImageOutputResourceAmi `pulumi:"amis"`
 }
 
-// ImageOutputResourceInput is an input type that accepts ImageOutputResourceArgs and ImageOutputResourceOutput values.
-// You can construct a concrete instance of `ImageOutputResourceInput` via:
-//
-//          ImageOutputResourceArgs{...}
-type ImageOutputResourceInput interface {
-	pulumi.Input
-
-	ToImageOutputResourceOutput() ImageOutputResourceOutput
-	ToImageOutputResourceOutputWithContext(context.Context) ImageOutputResourceOutput
-}
-
-type ImageOutputResourceArgs struct {
-	// Set of objects with each Amazon Machine Image (AMI) created.
-	Amis ImageOutputResourceAmiArrayInput `pulumi:"amis"`
-}
-
-func (ImageOutputResourceArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ImageOutputResource)(nil)).Elem()
-}
-
-func (i ImageOutputResourceArgs) ToImageOutputResourceOutput() ImageOutputResourceOutput {
-	return i.ToImageOutputResourceOutputWithContext(context.Background())
-}
-
-func (i ImageOutputResourceArgs) ToImageOutputResourceOutputWithContext(ctx context.Context) ImageOutputResourceOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ImageOutputResourceOutput)
-}
-
-// ImageOutputResourceArrayInput is an input type that accepts ImageOutputResourceArray and ImageOutputResourceArrayOutput values.
-// You can construct a concrete instance of `ImageOutputResourceArrayInput` via:
-//
-//          ImageOutputResourceArray{ ImageOutputResourceArgs{...} }
-type ImageOutputResourceArrayInput interface {
-	pulumi.Input
-
-	ToImageOutputResourceArrayOutput() ImageOutputResourceArrayOutput
-	ToImageOutputResourceArrayOutputWithContext(context.Context) ImageOutputResourceArrayOutput
-}
-
-type ImageOutputResourceArray []ImageOutputResourceInput
-
-func (ImageOutputResourceArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ImageOutputResource)(nil)).Elem()
-}
-
-func (i ImageOutputResourceArray) ToImageOutputResourceArrayOutput() ImageOutputResourceArrayOutput {
-	return i.ToImageOutputResourceArrayOutputWithContext(context.Background())
-}
-
-func (i ImageOutputResourceArray) ToImageOutputResourceArrayOutputWithContext(ctx context.Context) ImageOutputResourceArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ImageOutputResourceArrayOutput)
-}
-
 type ImageOutputResourceOutput struct{ *pulumi.OutputState }
 
 func (ImageOutputResourceOutput) ElementType() reflect.Type {
@@ -791,67 +738,6 @@ type ImageOutputResourceAmi struct {
 	Name *string `pulumi:"name"`
 	// Region of the AMI.
 	Region *string `pulumi:"region"`
-}
-
-// ImageOutputResourceAmiInput is an input type that accepts ImageOutputResourceAmiArgs and ImageOutputResourceAmiOutput values.
-// You can construct a concrete instance of `ImageOutputResourceAmiInput` via:
-//
-//          ImageOutputResourceAmiArgs{...}
-type ImageOutputResourceAmiInput interface {
-	pulumi.Input
-
-	ToImageOutputResourceAmiOutput() ImageOutputResourceAmiOutput
-	ToImageOutputResourceAmiOutputWithContext(context.Context) ImageOutputResourceAmiOutput
-}
-
-type ImageOutputResourceAmiArgs struct {
-	// Account identifier of the AMI.
-	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
-	// Description of the AMI.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Identifier of the AMI.
-	Image pulumi.StringPtrInput `pulumi:"image"`
-	// Name of the AMI.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Region of the AMI.
-	Region pulumi.StringPtrInput `pulumi:"region"`
-}
-
-func (ImageOutputResourceAmiArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ImageOutputResourceAmi)(nil)).Elem()
-}
-
-func (i ImageOutputResourceAmiArgs) ToImageOutputResourceAmiOutput() ImageOutputResourceAmiOutput {
-	return i.ToImageOutputResourceAmiOutputWithContext(context.Background())
-}
-
-func (i ImageOutputResourceAmiArgs) ToImageOutputResourceAmiOutputWithContext(ctx context.Context) ImageOutputResourceAmiOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ImageOutputResourceAmiOutput)
-}
-
-// ImageOutputResourceAmiArrayInput is an input type that accepts ImageOutputResourceAmiArray and ImageOutputResourceAmiArrayOutput values.
-// You can construct a concrete instance of `ImageOutputResourceAmiArrayInput` via:
-//
-//          ImageOutputResourceAmiArray{ ImageOutputResourceAmiArgs{...} }
-type ImageOutputResourceAmiArrayInput interface {
-	pulumi.Input
-
-	ToImageOutputResourceAmiArrayOutput() ImageOutputResourceAmiArrayOutput
-	ToImageOutputResourceAmiArrayOutputWithContext(context.Context) ImageOutputResourceAmiArrayOutput
-}
-
-type ImageOutputResourceAmiArray []ImageOutputResourceAmiInput
-
-func (ImageOutputResourceAmiArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ImageOutputResourceAmi)(nil)).Elem()
-}
-
-func (i ImageOutputResourceAmiArray) ToImageOutputResourceAmiArrayOutput() ImageOutputResourceAmiArrayOutput {
-	return i.ToImageOutputResourceAmiArrayOutputWithContext(context.Background())
-}
-
-func (i ImageOutputResourceAmiArray) ToImageOutputResourceAmiArrayOutputWithContext(ctx context.Context) ImageOutputResourceAmiArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ImageOutputResourceAmiArrayOutput)
 }
 
 type ImageOutputResourceAmiOutput struct{ *pulumi.OutputState }
@@ -1999,63 +1885,6 @@ type GetDistributionConfigurationDistribution struct {
 	Region string `pulumi:"region"`
 }
 
-// GetDistributionConfigurationDistributionInput is an input type that accepts GetDistributionConfigurationDistributionArgs and GetDistributionConfigurationDistributionOutput values.
-// You can construct a concrete instance of `GetDistributionConfigurationDistributionInput` via:
-//
-//          GetDistributionConfigurationDistributionArgs{...}
-type GetDistributionConfigurationDistributionInput interface {
-	pulumi.Input
-
-	ToGetDistributionConfigurationDistributionOutput() GetDistributionConfigurationDistributionOutput
-	ToGetDistributionConfigurationDistributionOutputWithContext(context.Context) GetDistributionConfigurationDistributionOutput
-}
-
-type GetDistributionConfigurationDistributionArgs struct {
-	// Nested list of AMI distribution configuration.
-	AmiDistributionConfigurations GetDistributionConfigurationDistributionAmiDistributionConfigurationArrayInput `pulumi:"amiDistributionConfigurations"`
-	// Set of Amazon Resource Names (ARNs) of License Manager License Configurations.
-	LicenseConfigurationArns pulumi.StringArrayInput `pulumi:"licenseConfigurationArns"`
-	// AWS Region of distribution.
-	Region pulumi.StringInput `pulumi:"region"`
-}
-
-func (GetDistributionConfigurationDistributionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetDistributionConfigurationDistribution)(nil)).Elem()
-}
-
-func (i GetDistributionConfigurationDistributionArgs) ToGetDistributionConfigurationDistributionOutput() GetDistributionConfigurationDistributionOutput {
-	return i.ToGetDistributionConfigurationDistributionOutputWithContext(context.Background())
-}
-
-func (i GetDistributionConfigurationDistributionArgs) ToGetDistributionConfigurationDistributionOutputWithContext(ctx context.Context) GetDistributionConfigurationDistributionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDistributionConfigurationDistributionOutput)
-}
-
-// GetDistributionConfigurationDistributionArrayInput is an input type that accepts GetDistributionConfigurationDistributionArray and GetDistributionConfigurationDistributionArrayOutput values.
-// You can construct a concrete instance of `GetDistributionConfigurationDistributionArrayInput` via:
-//
-//          GetDistributionConfigurationDistributionArray{ GetDistributionConfigurationDistributionArgs{...} }
-type GetDistributionConfigurationDistributionArrayInput interface {
-	pulumi.Input
-
-	ToGetDistributionConfigurationDistributionArrayOutput() GetDistributionConfigurationDistributionArrayOutput
-	ToGetDistributionConfigurationDistributionArrayOutputWithContext(context.Context) GetDistributionConfigurationDistributionArrayOutput
-}
-
-type GetDistributionConfigurationDistributionArray []GetDistributionConfigurationDistributionInput
-
-func (GetDistributionConfigurationDistributionArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetDistributionConfigurationDistribution)(nil)).Elem()
-}
-
-func (i GetDistributionConfigurationDistributionArray) ToGetDistributionConfigurationDistributionArrayOutput() GetDistributionConfigurationDistributionArrayOutput {
-	return i.ToGetDistributionConfigurationDistributionArrayOutputWithContext(context.Background())
-}
-
-func (i GetDistributionConfigurationDistributionArray) ToGetDistributionConfigurationDistributionArrayOutputWithContext(ctx context.Context) GetDistributionConfigurationDistributionArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDistributionConfigurationDistributionArrayOutput)
-}
-
 type GetDistributionConfigurationDistributionOutput struct{ *pulumi.OutputState }
 
 func (GetDistributionConfigurationDistributionOutput) ElementType() reflect.Type {
@@ -2120,69 +1949,6 @@ type GetDistributionConfigurationDistributionAmiDistributionConfiguration struct
 	Name string `pulumi:"name"`
 	// Set of target AWS Account identifiers.
 	TargetAccountIds []string `pulumi:"targetAccountIds"`
-}
-
-// GetDistributionConfigurationDistributionAmiDistributionConfigurationInput is an input type that accepts GetDistributionConfigurationDistributionAmiDistributionConfigurationArgs and GetDistributionConfigurationDistributionAmiDistributionConfigurationOutput values.
-// You can construct a concrete instance of `GetDistributionConfigurationDistributionAmiDistributionConfigurationInput` via:
-//
-//          GetDistributionConfigurationDistributionAmiDistributionConfigurationArgs{...}
-type GetDistributionConfigurationDistributionAmiDistributionConfigurationInput interface {
-	pulumi.Input
-
-	ToGetDistributionConfigurationDistributionAmiDistributionConfigurationOutput() GetDistributionConfigurationDistributionAmiDistributionConfigurationOutput
-	ToGetDistributionConfigurationDistributionAmiDistributionConfigurationOutputWithContext(context.Context) GetDistributionConfigurationDistributionAmiDistributionConfigurationOutput
-}
-
-type GetDistributionConfigurationDistributionAmiDistributionConfigurationArgs struct {
-	// Key-value map of tags to apply to distributed AMI.
-	AmiTags pulumi.StringMapInput `pulumi:"amiTags"`
-	// Description to apply to distributed AMI.
-	Description pulumi.StringInput `pulumi:"description"`
-	// Amazon Resource Name (ARN) of Key Management Service (KMS) Key to encrypt AMI.
-	KmsKeyId pulumi.StringInput `pulumi:"kmsKeyId"`
-	// Nested list of EC2 launch permissions.
-	LaunchPermissions GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArrayInput `pulumi:"launchPermissions"`
-	// Name of the distribution configuration.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Set of target AWS Account identifiers.
-	TargetAccountIds pulumi.StringArrayInput `pulumi:"targetAccountIds"`
-}
-
-func (GetDistributionConfigurationDistributionAmiDistributionConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetDistributionConfigurationDistributionAmiDistributionConfiguration)(nil)).Elem()
-}
-
-func (i GetDistributionConfigurationDistributionAmiDistributionConfigurationArgs) ToGetDistributionConfigurationDistributionAmiDistributionConfigurationOutput() GetDistributionConfigurationDistributionAmiDistributionConfigurationOutput {
-	return i.ToGetDistributionConfigurationDistributionAmiDistributionConfigurationOutputWithContext(context.Background())
-}
-
-func (i GetDistributionConfigurationDistributionAmiDistributionConfigurationArgs) ToGetDistributionConfigurationDistributionAmiDistributionConfigurationOutputWithContext(ctx context.Context) GetDistributionConfigurationDistributionAmiDistributionConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDistributionConfigurationDistributionAmiDistributionConfigurationOutput)
-}
-
-// GetDistributionConfigurationDistributionAmiDistributionConfigurationArrayInput is an input type that accepts GetDistributionConfigurationDistributionAmiDistributionConfigurationArray and GetDistributionConfigurationDistributionAmiDistributionConfigurationArrayOutput values.
-// You can construct a concrete instance of `GetDistributionConfigurationDistributionAmiDistributionConfigurationArrayInput` via:
-//
-//          GetDistributionConfigurationDistributionAmiDistributionConfigurationArray{ GetDistributionConfigurationDistributionAmiDistributionConfigurationArgs{...} }
-type GetDistributionConfigurationDistributionAmiDistributionConfigurationArrayInput interface {
-	pulumi.Input
-
-	ToGetDistributionConfigurationDistributionAmiDistributionConfigurationArrayOutput() GetDistributionConfigurationDistributionAmiDistributionConfigurationArrayOutput
-	ToGetDistributionConfigurationDistributionAmiDistributionConfigurationArrayOutputWithContext(context.Context) GetDistributionConfigurationDistributionAmiDistributionConfigurationArrayOutput
-}
-
-type GetDistributionConfigurationDistributionAmiDistributionConfigurationArray []GetDistributionConfigurationDistributionAmiDistributionConfigurationInput
-
-func (GetDistributionConfigurationDistributionAmiDistributionConfigurationArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetDistributionConfigurationDistributionAmiDistributionConfiguration)(nil)).Elem()
-}
-
-func (i GetDistributionConfigurationDistributionAmiDistributionConfigurationArray) ToGetDistributionConfigurationDistributionAmiDistributionConfigurationArrayOutput() GetDistributionConfigurationDistributionAmiDistributionConfigurationArrayOutput {
-	return i.ToGetDistributionConfigurationDistributionAmiDistributionConfigurationArrayOutputWithContext(context.Background())
-}
-
-func (i GetDistributionConfigurationDistributionAmiDistributionConfigurationArray) ToGetDistributionConfigurationDistributionAmiDistributionConfigurationArrayOutputWithContext(ctx context.Context) GetDistributionConfigurationDistributionAmiDistributionConfigurationArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDistributionConfigurationDistributionAmiDistributionConfigurationArrayOutput)
 }
 
 type GetDistributionConfigurationDistributionAmiDistributionConfigurationOutput struct{ *pulumi.OutputState }
@@ -2264,61 +2030,6 @@ type GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchP
 	UserIds []string `pulumi:"userIds"`
 }
 
-// GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionInput is an input type that accepts GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgs and GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionOutput values.
-// You can construct a concrete instance of `GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionInput` via:
-//
-//          GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgs{...}
-type GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionInput interface {
-	pulumi.Input
-
-	ToGetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionOutput() GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionOutput
-	ToGetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionOutputWithContext(context.Context) GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionOutput
-}
-
-type GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgs struct {
-	// Set of EC2 launch permission user groups.
-	UserGroups pulumi.StringArrayInput `pulumi:"userGroups"`
-	// Set of AWS Account identifiers.
-	UserIds pulumi.StringArrayInput `pulumi:"userIds"`
-}
-
-func (GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission)(nil)).Elem()
-}
-
-func (i GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgs) ToGetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionOutput() GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionOutput {
-	return i.ToGetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionOutputWithContext(context.Background())
-}
-
-func (i GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgs) ToGetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionOutputWithContext(ctx context.Context) GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionOutput)
-}
-
-// GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArrayInput is an input type that accepts GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArray and GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArrayOutput values.
-// You can construct a concrete instance of `GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArrayInput` via:
-//
-//          GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArray{ GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgs{...} }
-type GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArrayInput interface {
-	pulumi.Input
-
-	ToGetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArrayOutput() GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArrayOutput
-	ToGetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArrayOutputWithContext(context.Context) GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArrayOutput
-}
-
-type GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArray []GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionInput
-
-func (GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermission)(nil)).Elem()
-}
-
-func (i GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArray) ToGetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArrayOutput() GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArrayOutput {
-	return i.ToGetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArrayOutputWithContext(context.Background())
-}
-
-func (i GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArray) ToGetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArrayOutputWithContext(ctx context.Context) GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArrayOutput)
-}
-
 type GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionOutput struct{ *pulumi.OutputState }
 
 func (GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionOutput) ElementType() reflect.Type {
@@ -2374,61 +2085,6 @@ type GetImageImageTestsConfiguration struct {
 	TimeoutMinutes int `pulumi:"timeoutMinutes"`
 }
 
-// GetImageImageTestsConfigurationInput is an input type that accepts GetImageImageTestsConfigurationArgs and GetImageImageTestsConfigurationOutput values.
-// You can construct a concrete instance of `GetImageImageTestsConfigurationInput` via:
-//
-//          GetImageImageTestsConfigurationArgs{...}
-type GetImageImageTestsConfigurationInput interface {
-	pulumi.Input
-
-	ToGetImageImageTestsConfigurationOutput() GetImageImageTestsConfigurationOutput
-	ToGetImageImageTestsConfigurationOutputWithContext(context.Context) GetImageImageTestsConfigurationOutput
-}
-
-type GetImageImageTestsConfigurationArgs struct {
-	// Whether image tests are enabled.
-	ImageTestsEnabled pulumi.BoolInput `pulumi:"imageTestsEnabled"`
-	// Number of minutes before image tests time out.
-	TimeoutMinutes pulumi.IntInput `pulumi:"timeoutMinutes"`
-}
-
-func (GetImageImageTestsConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetImageImageTestsConfiguration)(nil)).Elem()
-}
-
-func (i GetImageImageTestsConfigurationArgs) ToGetImageImageTestsConfigurationOutput() GetImageImageTestsConfigurationOutput {
-	return i.ToGetImageImageTestsConfigurationOutputWithContext(context.Background())
-}
-
-func (i GetImageImageTestsConfigurationArgs) ToGetImageImageTestsConfigurationOutputWithContext(ctx context.Context) GetImageImageTestsConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetImageImageTestsConfigurationOutput)
-}
-
-// GetImageImageTestsConfigurationArrayInput is an input type that accepts GetImageImageTestsConfigurationArray and GetImageImageTestsConfigurationArrayOutput values.
-// You can construct a concrete instance of `GetImageImageTestsConfigurationArrayInput` via:
-//
-//          GetImageImageTestsConfigurationArray{ GetImageImageTestsConfigurationArgs{...} }
-type GetImageImageTestsConfigurationArrayInput interface {
-	pulumi.Input
-
-	ToGetImageImageTestsConfigurationArrayOutput() GetImageImageTestsConfigurationArrayOutput
-	ToGetImageImageTestsConfigurationArrayOutputWithContext(context.Context) GetImageImageTestsConfigurationArrayOutput
-}
-
-type GetImageImageTestsConfigurationArray []GetImageImageTestsConfigurationInput
-
-func (GetImageImageTestsConfigurationArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetImageImageTestsConfiguration)(nil)).Elem()
-}
-
-func (i GetImageImageTestsConfigurationArray) ToGetImageImageTestsConfigurationArrayOutput() GetImageImageTestsConfigurationArrayOutput {
-	return i.ToGetImageImageTestsConfigurationArrayOutputWithContext(context.Background())
-}
-
-func (i GetImageImageTestsConfigurationArray) ToGetImageImageTestsConfigurationArrayOutputWithContext(ctx context.Context) GetImageImageTestsConfigurationArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetImageImageTestsConfigurationArrayOutput)
-}
-
 type GetImageImageTestsConfigurationOutput struct{ *pulumi.OutputState }
 
 func (GetImageImageTestsConfigurationOutput) ElementType() reflect.Type {
@@ -2476,59 +2132,6 @@ func (o GetImageImageTestsConfigurationArrayOutput) Index(i pulumi.IntInput) Get
 type GetImageOutputResource struct {
 	// Set of objects with each Amazon Machine Image (AMI) created.
 	Amis []GetImageOutputResourceAmi `pulumi:"amis"`
-}
-
-// GetImageOutputResourceInput is an input type that accepts GetImageOutputResourceArgs and GetImageOutputResourceOutput values.
-// You can construct a concrete instance of `GetImageOutputResourceInput` via:
-//
-//          GetImageOutputResourceArgs{...}
-type GetImageOutputResourceInput interface {
-	pulumi.Input
-
-	ToGetImageOutputResourceOutput() GetImageOutputResourceOutput
-	ToGetImageOutputResourceOutputWithContext(context.Context) GetImageOutputResourceOutput
-}
-
-type GetImageOutputResourceArgs struct {
-	// Set of objects with each Amazon Machine Image (AMI) created.
-	Amis GetImageOutputResourceAmiArrayInput `pulumi:"amis"`
-}
-
-func (GetImageOutputResourceArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetImageOutputResource)(nil)).Elem()
-}
-
-func (i GetImageOutputResourceArgs) ToGetImageOutputResourceOutput() GetImageOutputResourceOutput {
-	return i.ToGetImageOutputResourceOutputWithContext(context.Background())
-}
-
-func (i GetImageOutputResourceArgs) ToGetImageOutputResourceOutputWithContext(ctx context.Context) GetImageOutputResourceOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetImageOutputResourceOutput)
-}
-
-// GetImageOutputResourceArrayInput is an input type that accepts GetImageOutputResourceArray and GetImageOutputResourceArrayOutput values.
-// You can construct a concrete instance of `GetImageOutputResourceArrayInput` via:
-//
-//          GetImageOutputResourceArray{ GetImageOutputResourceArgs{...} }
-type GetImageOutputResourceArrayInput interface {
-	pulumi.Input
-
-	ToGetImageOutputResourceArrayOutput() GetImageOutputResourceArrayOutput
-	ToGetImageOutputResourceArrayOutputWithContext(context.Context) GetImageOutputResourceArrayOutput
-}
-
-type GetImageOutputResourceArray []GetImageOutputResourceInput
-
-func (GetImageOutputResourceArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetImageOutputResource)(nil)).Elem()
-}
-
-func (i GetImageOutputResourceArray) ToGetImageOutputResourceArrayOutput() GetImageOutputResourceArrayOutput {
-	return i.ToGetImageOutputResourceArrayOutputWithContext(context.Background())
-}
-
-func (i GetImageOutputResourceArray) ToGetImageOutputResourceArrayOutputWithContext(ctx context.Context) GetImageOutputResourceArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetImageOutputResourceArrayOutput)
 }
 
 type GetImageOutputResourceOutput struct{ *pulumi.OutputState }
@@ -2581,67 +2184,6 @@ type GetImageOutputResourceAmi struct {
 	Name string `pulumi:"name"`
 	// Region of the AMI.
 	Region string `pulumi:"region"`
-}
-
-// GetImageOutputResourceAmiInput is an input type that accepts GetImageOutputResourceAmiArgs and GetImageOutputResourceAmiOutput values.
-// You can construct a concrete instance of `GetImageOutputResourceAmiInput` via:
-//
-//          GetImageOutputResourceAmiArgs{...}
-type GetImageOutputResourceAmiInput interface {
-	pulumi.Input
-
-	ToGetImageOutputResourceAmiOutput() GetImageOutputResourceAmiOutput
-	ToGetImageOutputResourceAmiOutputWithContext(context.Context) GetImageOutputResourceAmiOutput
-}
-
-type GetImageOutputResourceAmiArgs struct {
-	// Account identifier of the AMI.
-	AccountId pulumi.StringInput `pulumi:"accountId"`
-	// Description of the AMI.
-	Description pulumi.StringInput `pulumi:"description"`
-	// Identifier of the AMI.
-	Image pulumi.StringInput `pulumi:"image"`
-	// Name of the AMI.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Region of the AMI.
-	Region pulumi.StringInput `pulumi:"region"`
-}
-
-func (GetImageOutputResourceAmiArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetImageOutputResourceAmi)(nil)).Elem()
-}
-
-func (i GetImageOutputResourceAmiArgs) ToGetImageOutputResourceAmiOutput() GetImageOutputResourceAmiOutput {
-	return i.ToGetImageOutputResourceAmiOutputWithContext(context.Background())
-}
-
-func (i GetImageOutputResourceAmiArgs) ToGetImageOutputResourceAmiOutputWithContext(ctx context.Context) GetImageOutputResourceAmiOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetImageOutputResourceAmiOutput)
-}
-
-// GetImageOutputResourceAmiArrayInput is an input type that accepts GetImageOutputResourceAmiArray and GetImageOutputResourceAmiArrayOutput values.
-// You can construct a concrete instance of `GetImageOutputResourceAmiArrayInput` via:
-//
-//          GetImageOutputResourceAmiArray{ GetImageOutputResourceAmiArgs{...} }
-type GetImageOutputResourceAmiArrayInput interface {
-	pulumi.Input
-
-	ToGetImageOutputResourceAmiArrayOutput() GetImageOutputResourceAmiArrayOutput
-	ToGetImageOutputResourceAmiArrayOutputWithContext(context.Context) GetImageOutputResourceAmiArrayOutput
-}
-
-type GetImageOutputResourceAmiArray []GetImageOutputResourceAmiInput
-
-func (GetImageOutputResourceAmiArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetImageOutputResourceAmi)(nil)).Elem()
-}
-
-func (i GetImageOutputResourceAmiArray) ToGetImageOutputResourceAmiArrayOutput() GetImageOutputResourceAmiArrayOutput {
-	return i.ToGetImageOutputResourceAmiArrayOutputWithContext(context.Background())
-}
-
-func (i GetImageOutputResourceAmiArray) ToGetImageOutputResourceAmiArrayOutputWithContext(ctx context.Context) GetImageOutputResourceAmiArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetImageOutputResourceAmiArrayOutput)
 }
 
 type GetImageOutputResourceAmiOutput struct{ *pulumi.OutputState }
@@ -2710,61 +2252,6 @@ type GetImagePipelineImageTestsConfiguration struct {
 	TimeoutMinutes int `pulumi:"timeoutMinutes"`
 }
 
-// GetImagePipelineImageTestsConfigurationInput is an input type that accepts GetImagePipelineImageTestsConfigurationArgs and GetImagePipelineImageTestsConfigurationOutput values.
-// You can construct a concrete instance of `GetImagePipelineImageTestsConfigurationInput` via:
-//
-//          GetImagePipelineImageTestsConfigurationArgs{...}
-type GetImagePipelineImageTestsConfigurationInput interface {
-	pulumi.Input
-
-	ToGetImagePipelineImageTestsConfigurationOutput() GetImagePipelineImageTestsConfigurationOutput
-	ToGetImagePipelineImageTestsConfigurationOutputWithContext(context.Context) GetImagePipelineImageTestsConfigurationOutput
-}
-
-type GetImagePipelineImageTestsConfigurationArgs struct {
-	// Whether image tests are enabled.
-	ImageTestsEnabled pulumi.BoolInput `pulumi:"imageTestsEnabled"`
-	// Number of minutes before image tests time out.
-	TimeoutMinutes pulumi.IntInput `pulumi:"timeoutMinutes"`
-}
-
-func (GetImagePipelineImageTestsConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetImagePipelineImageTestsConfiguration)(nil)).Elem()
-}
-
-func (i GetImagePipelineImageTestsConfigurationArgs) ToGetImagePipelineImageTestsConfigurationOutput() GetImagePipelineImageTestsConfigurationOutput {
-	return i.ToGetImagePipelineImageTestsConfigurationOutputWithContext(context.Background())
-}
-
-func (i GetImagePipelineImageTestsConfigurationArgs) ToGetImagePipelineImageTestsConfigurationOutputWithContext(ctx context.Context) GetImagePipelineImageTestsConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetImagePipelineImageTestsConfigurationOutput)
-}
-
-// GetImagePipelineImageTestsConfigurationArrayInput is an input type that accepts GetImagePipelineImageTestsConfigurationArray and GetImagePipelineImageTestsConfigurationArrayOutput values.
-// You can construct a concrete instance of `GetImagePipelineImageTestsConfigurationArrayInput` via:
-//
-//          GetImagePipelineImageTestsConfigurationArray{ GetImagePipelineImageTestsConfigurationArgs{...} }
-type GetImagePipelineImageTestsConfigurationArrayInput interface {
-	pulumi.Input
-
-	ToGetImagePipelineImageTestsConfigurationArrayOutput() GetImagePipelineImageTestsConfigurationArrayOutput
-	ToGetImagePipelineImageTestsConfigurationArrayOutputWithContext(context.Context) GetImagePipelineImageTestsConfigurationArrayOutput
-}
-
-type GetImagePipelineImageTestsConfigurationArray []GetImagePipelineImageTestsConfigurationInput
-
-func (GetImagePipelineImageTestsConfigurationArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetImagePipelineImageTestsConfiguration)(nil)).Elem()
-}
-
-func (i GetImagePipelineImageTestsConfigurationArray) ToGetImagePipelineImageTestsConfigurationArrayOutput() GetImagePipelineImageTestsConfigurationArrayOutput {
-	return i.ToGetImagePipelineImageTestsConfigurationArrayOutputWithContext(context.Background())
-}
-
-func (i GetImagePipelineImageTestsConfigurationArray) ToGetImagePipelineImageTestsConfigurationArrayOutputWithContext(ctx context.Context) GetImagePipelineImageTestsConfigurationArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetImagePipelineImageTestsConfigurationArrayOutput)
-}
-
 type GetImagePipelineImageTestsConfigurationOutput struct{ *pulumi.OutputState }
 
 func (GetImagePipelineImageTestsConfigurationOutput) ElementType() reflect.Type {
@@ -2814,61 +2301,6 @@ type GetImagePipelineSchedule struct {
 	PipelineExecutionStartCondition string `pulumi:"pipelineExecutionStartCondition"`
 	// Cron expression of how often the pipeline start condition is evaluated.
 	ScheduleExpression string `pulumi:"scheduleExpression"`
-}
-
-// GetImagePipelineScheduleInput is an input type that accepts GetImagePipelineScheduleArgs and GetImagePipelineScheduleOutput values.
-// You can construct a concrete instance of `GetImagePipelineScheduleInput` via:
-//
-//          GetImagePipelineScheduleArgs{...}
-type GetImagePipelineScheduleInput interface {
-	pulumi.Input
-
-	ToGetImagePipelineScheduleOutput() GetImagePipelineScheduleOutput
-	ToGetImagePipelineScheduleOutputWithContext(context.Context) GetImagePipelineScheduleOutput
-}
-
-type GetImagePipelineScheduleArgs struct {
-	// Condition when the pipeline should trigger a new image build.
-	PipelineExecutionStartCondition pulumi.StringInput `pulumi:"pipelineExecutionStartCondition"`
-	// Cron expression of how often the pipeline start condition is evaluated.
-	ScheduleExpression pulumi.StringInput `pulumi:"scheduleExpression"`
-}
-
-func (GetImagePipelineScheduleArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetImagePipelineSchedule)(nil)).Elem()
-}
-
-func (i GetImagePipelineScheduleArgs) ToGetImagePipelineScheduleOutput() GetImagePipelineScheduleOutput {
-	return i.ToGetImagePipelineScheduleOutputWithContext(context.Background())
-}
-
-func (i GetImagePipelineScheduleArgs) ToGetImagePipelineScheduleOutputWithContext(ctx context.Context) GetImagePipelineScheduleOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetImagePipelineScheduleOutput)
-}
-
-// GetImagePipelineScheduleArrayInput is an input type that accepts GetImagePipelineScheduleArray and GetImagePipelineScheduleArrayOutput values.
-// You can construct a concrete instance of `GetImagePipelineScheduleArrayInput` via:
-//
-//          GetImagePipelineScheduleArray{ GetImagePipelineScheduleArgs{...} }
-type GetImagePipelineScheduleArrayInput interface {
-	pulumi.Input
-
-	ToGetImagePipelineScheduleArrayOutput() GetImagePipelineScheduleArrayOutput
-	ToGetImagePipelineScheduleArrayOutputWithContext(context.Context) GetImagePipelineScheduleArrayOutput
-}
-
-type GetImagePipelineScheduleArray []GetImagePipelineScheduleInput
-
-func (GetImagePipelineScheduleArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetImagePipelineSchedule)(nil)).Elem()
-}
-
-func (i GetImagePipelineScheduleArray) ToGetImagePipelineScheduleArrayOutput() GetImagePipelineScheduleArrayOutput {
-	return i.ToGetImagePipelineScheduleArrayOutputWithContext(context.Background())
-}
-
-func (i GetImagePipelineScheduleArray) ToGetImagePipelineScheduleArrayOutputWithContext(ctx context.Context) GetImagePipelineScheduleArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetImagePipelineScheduleArrayOutput)
 }
 
 type GetImagePipelineScheduleOutput struct{ *pulumi.OutputState }
@@ -2924,65 +2356,6 @@ type GetImageRecipeBlockDeviceMapping struct {
 	NoDevice string `pulumi:"noDevice"`
 	// Virtual device name. For example, `ephemeral0`. Instance store volumes are numbered starting from 0.
 	VirtualName string `pulumi:"virtualName"`
-}
-
-// GetImageRecipeBlockDeviceMappingInput is an input type that accepts GetImageRecipeBlockDeviceMappingArgs and GetImageRecipeBlockDeviceMappingOutput values.
-// You can construct a concrete instance of `GetImageRecipeBlockDeviceMappingInput` via:
-//
-//          GetImageRecipeBlockDeviceMappingArgs{...}
-type GetImageRecipeBlockDeviceMappingInput interface {
-	pulumi.Input
-
-	ToGetImageRecipeBlockDeviceMappingOutput() GetImageRecipeBlockDeviceMappingOutput
-	ToGetImageRecipeBlockDeviceMappingOutputWithContext(context.Context) GetImageRecipeBlockDeviceMappingOutput
-}
-
-type GetImageRecipeBlockDeviceMappingArgs struct {
-	// Name of the device. For example, `/dev/sda` or `/dev/xvdb`.
-	DeviceName pulumi.StringInput `pulumi:"deviceName"`
-	// Single list of object with Elastic Block Storage (EBS) block device mapping settings.
-	Ebs GetImageRecipeBlockDeviceMappingEbArrayInput `pulumi:"ebs"`
-	// Whether to remove a mapping from the parent image.
-	NoDevice pulumi.StringInput `pulumi:"noDevice"`
-	// Virtual device name. For example, `ephemeral0`. Instance store volumes are numbered starting from 0.
-	VirtualName pulumi.StringInput `pulumi:"virtualName"`
-}
-
-func (GetImageRecipeBlockDeviceMappingArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetImageRecipeBlockDeviceMapping)(nil)).Elem()
-}
-
-func (i GetImageRecipeBlockDeviceMappingArgs) ToGetImageRecipeBlockDeviceMappingOutput() GetImageRecipeBlockDeviceMappingOutput {
-	return i.ToGetImageRecipeBlockDeviceMappingOutputWithContext(context.Background())
-}
-
-func (i GetImageRecipeBlockDeviceMappingArgs) ToGetImageRecipeBlockDeviceMappingOutputWithContext(ctx context.Context) GetImageRecipeBlockDeviceMappingOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetImageRecipeBlockDeviceMappingOutput)
-}
-
-// GetImageRecipeBlockDeviceMappingArrayInput is an input type that accepts GetImageRecipeBlockDeviceMappingArray and GetImageRecipeBlockDeviceMappingArrayOutput values.
-// You can construct a concrete instance of `GetImageRecipeBlockDeviceMappingArrayInput` via:
-//
-//          GetImageRecipeBlockDeviceMappingArray{ GetImageRecipeBlockDeviceMappingArgs{...} }
-type GetImageRecipeBlockDeviceMappingArrayInput interface {
-	pulumi.Input
-
-	ToGetImageRecipeBlockDeviceMappingArrayOutput() GetImageRecipeBlockDeviceMappingArrayOutput
-	ToGetImageRecipeBlockDeviceMappingArrayOutputWithContext(context.Context) GetImageRecipeBlockDeviceMappingArrayOutput
-}
-
-type GetImageRecipeBlockDeviceMappingArray []GetImageRecipeBlockDeviceMappingInput
-
-func (GetImageRecipeBlockDeviceMappingArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetImageRecipeBlockDeviceMapping)(nil)).Elem()
-}
-
-func (i GetImageRecipeBlockDeviceMappingArray) ToGetImageRecipeBlockDeviceMappingArrayOutput() GetImageRecipeBlockDeviceMappingArrayOutput {
-	return i.ToGetImageRecipeBlockDeviceMappingArrayOutputWithContext(context.Background())
-}
-
-func (i GetImageRecipeBlockDeviceMappingArray) ToGetImageRecipeBlockDeviceMappingArrayOutputWithContext(ctx context.Context) GetImageRecipeBlockDeviceMappingArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetImageRecipeBlockDeviceMappingArrayOutput)
 }
 
 type GetImageRecipeBlockDeviceMappingOutput struct{ *pulumi.OutputState }
@@ -3054,71 +2427,6 @@ type GetImageRecipeBlockDeviceMappingEb struct {
 	VolumeSize int `pulumi:"volumeSize"`
 	// Type of the volume. For example, `gp2` or `io2`.
 	VolumeType string `pulumi:"volumeType"`
-}
-
-// GetImageRecipeBlockDeviceMappingEbInput is an input type that accepts GetImageRecipeBlockDeviceMappingEbArgs and GetImageRecipeBlockDeviceMappingEbOutput values.
-// You can construct a concrete instance of `GetImageRecipeBlockDeviceMappingEbInput` via:
-//
-//          GetImageRecipeBlockDeviceMappingEbArgs{...}
-type GetImageRecipeBlockDeviceMappingEbInput interface {
-	pulumi.Input
-
-	ToGetImageRecipeBlockDeviceMappingEbOutput() GetImageRecipeBlockDeviceMappingEbOutput
-	ToGetImageRecipeBlockDeviceMappingEbOutputWithContext(context.Context) GetImageRecipeBlockDeviceMappingEbOutput
-}
-
-type GetImageRecipeBlockDeviceMappingEbArgs struct {
-	// Whether to delete the volume on termination. Defaults to unset, which is the value inherited from the parent image.
-	DeleteOnTermination pulumi.BoolInput `pulumi:"deleteOnTermination"`
-	// Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
-	Encrypted pulumi.BoolInput `pulumi:"encrypted"`
-	// Number of Input/Output (I/O) operations per second to provision for an `io1` or `io2` volume.
-	Iops pulumi.IntInput `pulumi:"iops"`
-	// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.
-	KmsKeyId pulumi.StringInput `pulumi:"kmsKeyId"`
-	// Identifier of the EC2 Volume Snapshot.
-	SnapshotId pulumi.StringInput `pulumi:"snapshotId"`
-	// Size of the volume, in GiB.
-	VolumeSize pulumi.IntInput `pulumi:"volumeSize"`
-	// Type of the volume. For example, `gp2` or `io2`.
-	VolumeType pulumi.StringInput `pulumi:"volumeType"`
-}
-
-func (GetImageRecipeBlockDeviceMappingEbArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetImageRecipeBlockDeviceMappingEb)(nil)).Elem()
-}
-
-func (i GetImageRecipeBlockDeviceMappingEbArgs) ToGetImageRecipeBlockDeviceMappingEbOutput() GetImageRecipeBlockDeviceMappingEbOutput {
-	return i.ToGetImageRecipeBlockDeviceMappingEbOutputWithContext(context.Background())
-}
-
-func (i GetImageRecipeBlockDeviceMappingEbArgs) ToGetImageRecipeBlockDeviceMappingEbOutputWithContext(ctx context.Context) GetImageRecipeBlockDeviceMappingEbOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetImageRecipeBlockDeviceMappingEbOutput)
-}
-
-// GetImageRecipeBlockDeviceMappingEbArrayInput is an input type that accepts GetImageRecipeBlockDeviceMappingEbArray and GetImageRecipeBlockDeviceMappingEbArrayOutput values.
-// You can construct a concrete instance of `GetImageRecipeBlockDeviceMappingEbArrayInput` via:
-//
-//          GetImageRecipeBlockDeviceMappingEbArray{ GetImageRecipeBlockDeviceMappingEbArgs{...} }
-type GetImageRecipeBlockDeviceMappingEbArrayInput interface {
-	pulumi.Input
-
-	ToGetImageRecipeBlockDeviceMappingEbArrayOutput() GetImageRecipeBlockDeviceMappingEbArrayOutput
-	ToGetImageRecipeBlockDeviceMappingEbArrayOutputWithContext(context.Context) GetImageRecipeBlockDeviceMappingEbArrayOutput
-}
-
-type GetImageRecipeBlockDeviceMappingEbArray []GetImageRecipeBlockDeviceMappingEbInput
-
-func (GetImageRecipeBlockDeviceMappingEbArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetImageRecipeBlockDeviceMappingEb)(nil)).Elem()
-}
-
-func (i GetImageRecipeBlockDeviceMappingEbArray) ToGetImageRecipeBlockDeviceMappingEbArrayOutput() GetImageRecipeBlockDeviceMappingEbArrayOutput {
-	return i.ToGetImageRecipeBlockDeviceMappingEbArrayOutputWithContext(context.Background())
-}
-
-func (i GetImageRecipeBlockDeviceMappingEbArray) ToGetImageRecipeBlockDeviceMappingEbArrayOutputWithContext(ctx context.Context) GetImageRecipeBlockDeviceMappingEbArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetImageRecipeBlockDeviceMappingEbArrayOutput)
 }
 
 type GetImageRecipeBlockDeviceMappingEbOutput struct{ *pulumi.OutputState }
@@ -3193,59 +2501,6 @@ func (o GetImageRecipeBlockDeviceMappingEbArrayOutput) Index(i pulumi.IntInput) 
 type GetImageRecipeComponent struct {
 	// Amazon Resource Name (ARN) of the Image Builder Component.
 	ComponentArn string `pulumi:"componentArn"`
-}
-
-// GetImageRecipeComponentInput is an input type that accepts GetImageRecipeComponentArgs and GetImageRecipeComponentOutput values.
-// You can construct a concrete instance of `GetImageRecipeComponentInput` via:
-//
-//          GetImageRecipeComponentArgs{...}
-type GetImageRecipeComponentInput interface {
-	pulumi.Input
-
-	ToGetImageRecipeComponentOutput() GetImageRecipeComponentOutput
-	ToGetImageRecipeComponentOutputWithContext(context.Context) GetImageRecipeComponentOutput
-}
-
-type GetImageRecipeComponentArgs struct {
-	// Amazon Resource Name (ARN) of the Image Builder Component.
-	ComponentArn pulumi.StringInput `pulumi:"componentArn"`
-}
-
-func (GetImageRecipeComponentArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetImageRecipeComponent)(nil)).Elem()
-}
-
-func (i GetImageRecipeComponentArgs) ToGetImageRecipeComponentOutput() GetImageRecipeComponentOutput {
-	return i.ToGetImageRecipeComponentOutputWithContext(context.Background())
-}
-
-func (i GetImageRecipeComponentArgs) ToGetImageRecipeComponentOutputWithContext(ctx context.Context) GetImageRecipeComponentOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetImageRecipeComponentOutput)
-}
-
-// GetImageRecipeComponentArrayInput is an input type that accepts GetImageRecipeComponentArray and GetImageRecipeComponentArrayOutput values.
-// You can construct a concrete instance of `GetImageRecipeComponentArrayInput` via:
-//
-//          GetImageRecipeComponentArray{ GetImageRecipeComponentArgs{...} }
-type GetImageRecipeComponentArrayInput interface {
-	pulumi.Input
-
-	ToGetImageRecipeComponentArrayOutput() GetImageRecipeComponentArrayOutput
-	ToGetImageRecipeComponentArrayOutputWithContext(context.Context) GetImageRecipeComponentArrayOutput
-}
-
-type GetImageRecipeComponentArray []GetImageRecipeComponentInput
-
-func (GetImageRecipeComponentArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetImageRecipeComponent)(nil)).Elem()
-}
-
-func (i GetImageRecipeComponentArray) ToGetImageRecipeComponentArrayOutput() GetImageRecipeComponentArrayOutput {
-	return i.ToGetImageRecipeComponentArrayOutputWithContext(context.Background())
-}
-
-func (i GetImageRecipeComponentArray) ToGetImageRecipeComponentArrayOutputWithContext(ctx context.Context) GetImageRecipeComponentArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetImageRecipeComponentArrayOutput)
 }
 
 type GetImageRecipeComponentOutput struct{ *pulumi.OutputState }
@@ -3398,59 +2653,6 @@ type GetInfrastructureConfigurationLogging struct {
 	S3Logs []GetInfrastructureConfigurationLoggingS3Log `pulumi:"s3Logs"`
 }
 
-// GetInfrastructureConfigurationLoggingInput is an input type that accepts GetInfrastructureConfigurationLoggingArgs and GetInfrastructureConfigurationLoggingOutput values.
-// You can construct a concrete instance of `GetInfrastructureConfigurationLoggingInput` via:
-//
-//          GetInfrastructureConfigurationLoggingArgs{...}
-type GetInfrastructureConfigurationLoggingInput interface {
-	pulumi.Input
-
-	ToGetInfrastructureConfigurationLoggingOutput() GetInfrastructureConfigurationLoggingOutput
-	ToGetInfrastructureConfigurationLoggingOutputWithContext(context.Context) GetInfrastructureConfigurationLoggingOutput
-}
-
-type GetInfrastructureConfigurationLoggingArgs struct {
-	// Nested list of S3 logs settings.
-	S3Logs GetInfrastructureConfigurationLoggingS3LogArrayInput `pulumi:"s3Logs"`
-}
-
-func (GetInfrastructureConfigurationLoggingArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetInfrastructureConfigurationLogging)(nil)).Elem()
-}
-
-func (i GetInfrastructureConfigurationLoggingArgs) ToGetInfrastructureConfigurationLoggingOutput() GetInfrastructureConfigurationLoggingOutput {
-	return i.ToGetInfrastructureConfigurationLoggingOutputWithContext(context.Background())
-}
-
-func (i GetInfrastructureConfigurationLoggingArgs) ToGetInfrastructureConfigurationLoggingOutputWithContext(ctx context.Context) GetInfrastructureConfigurationLoggingOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetInfrastructureConfigurationLoggingOutput)
-}
-
-// GetInfrastructureConfigurationLoggingArrayInput is an input type that accepts GetInfrastructureConfigurationLoggingArray and GetInfrastructureConfigurationLoggingArrayOutput values.
-// You can construct a concrete instance of `GetInfrastructureConfigurationLoggingArrayInput` via:
-//
-//          GetInfrastructureConfigurationLoggingArray{ GetInfrastructureConfigurationLoggingArgs{...} }
-type GetInfrastructureConfigurationLoggingArrayInput interface {
-	pulumi.Input
-
-	ToGetInfrastructureConfigurationLoggingArrayOutput() GetInfrastructureConfigurationLoggingArrayOutput
-	ToGetInfrastructureConfigurationLoggingArrayOutputWithContext(context.Context) GetInfrastructureConfigurationLoggingArrayOutput
-}
-
-type GetInfrastructureConfigurationLoggingArray []GetInfrastructureConfigurationLoggingInput
-
-func (GetInfrastructureConfigurationLoggingArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetInfrastructureConfigurationLogging)(nil)).Elem()
-}
-
-func (i GetInfrastructureConfigurationLoggingArray) ToGetInfrastructureConfigurationLoggingArrayOutput() GetInfrastructureConfigurationLoggingArrayOutput {
-	return i.ToGetInfrastructureConfigurationLoggingArrayOutputWithContext(context.Background())
-}
-
-func (i GetInfrastructureConfigurationLoggingArray) ToGetInfrastructureConfigurationLoggingArrayOutputWithContext(ctx context.Context) GetInfrastructureConfigurationLoggingArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetInfrastructureConfigurationLoggingArrayOutput)
-}
-
 type GetInfrastructureConfigurationLoggingOutput struct{ *pulumi.OutputState }
 
 func (GetInfrastructureConfigurationLoggingOutput) ElementType() reflect.Type {
@@ -3497,61 +2699,6 @@ type GetInfrastructureConfigurationLoggingS3Log struct {
 	S3BucketName string `pulumi:"s3BucketName"`
 	// Key prefix for S3 Bucket logging.
 	S3KeyPrefix string `pulumi:"s3KeyPrefix"`
-}
-
-// GetInfrastructureConfigurationLoggingS3LogInput is an input type that accepts GetInfrastructureConfigurationLoggingS3LogArgs and GetInfrastructureConfigurationLoggingS3LogOutput values.
-// You can construct a concrete instance of `GetInfrastructureConfigurationLoggingS3LogInput` via:
-//
-//          GetInfrastructureConfigurationLoggingS3LogArgs{...}
-type GetInfrastructureConfigurationLoggingS3LogInput interface {
-	pulumi.Input
-
-	ToGetInfrastructureConfigurationLoggingS3LogOutput() GetInfrastructureConfigurationLoggingS3LogOutput
-	ToGetInfrastructureConfigurationLoggingS3LogOutputWithContext(context.Context) GetInfrastructureConfigurationLoggingS3LogOutput
-}
-
-type GetInfrastructureConfigurationLoggingS3LogArgs struct {
-	// Name of the S3 Bucket for logging.
-	S3BucketName pulumi.StringInput `pulumi:"s3BucketName"`
-	// Key prefix for S3 Bucket logging.
-	S3KeyPrefix pulumi.StringInput `pulumi:"s3KeyPrefix"`
-}
-
-func (GetInfrastructureConfigurationLoggingS3LogArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetInfrastructureConfigurationLoggingS3Log)(nil)).Elem()
-}
-
-func (i GetInfrastructureConfigurationLoggingS3LogArgs) ToGetInfrastructureConfigurationLoggingS3LogOutput() GetInfrastructureConfigurationLoggingS3LogOutput {
-	return i.ToGetInfrastructureConfigurationLoggingS3LogOutputWithContext(context.Background())
-}
-
-func (i GetInfrastructureConfigurationLoggingS3LogArgs) ToGetInfrastructureConfigurationLoggingS3LogOutputWithContext(ctx context.Context) GetInfrastructureConfigurationLoggingS3LogOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetInfrastructureConfigurationLoggingS3LogOutput)
-}
-
-// GetInfrastructureConfigurationLoggingS3LogArrayInput is an input type that accepts GetInfrastructureConfigurationLoggingS3LogArray and GetInfrastructureConfigurationLoggingS3LogArrayOutput values.
-// You can construct a concrete instance of `GetInfrastructureConfigurationLoggingS3LogArrayInput` via:
-//
-//          GetInfrastructureConfigurationLoggingS3LogArray{ GetInfrastructureConfigurationLoggingS3LogArgs{...} }
-type GetInfrastructureConfigurationLoggingS3LogArrayInput interface {
-	pulumi.Input
-
-	ToGetInfrastructureConfigurationLoggingS3LogArrayOutput() GetInfrastructureConfigurationLoggingS3LogArrayOutput
-	ToGetInfrastructureConfigurationLoggingS3LogArrayOutputWithContext(context.Context) GetInfrastructureConfigurationLoggingS3LogArrayOutput
-}
-
-type GetInfrastructureConfigurationLoggingS3LogArray []GetInfrastructureConfigurationLoggingS3LogInput
-
-func (GetInfrastructureConfigurationLoggingS3LogArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetInfrastructureConfigurationLoggingS3Log)(nil)).Elem()
-}
-
-func (i GetInfrastructureConfigurationLoggingS3LogArray) ToGetInfrastructureConfigurationLoggingS3LogArrayOutput() GetInfrastructureConfigurationLoggingS3LogArrayOutput {
-	return i.ToGetInfrastructureConfigurationLoggingS3LogArrayOutputWithContext(context.Background())
-}
-
-func (i GetInfrastructureConfigurationLoggingS3LogArray) ToGetInfrastructureConfigurationLoggingS3LogArrayOutputWithContext(ctx context.Context) GetInfrastructureConfigurationLoggingS3LogArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetInfrastructureConfigurationLoggingS3LogArrayOutput)
 }
 
 type GetInfrastructureConfigurationLoggingS3LogOutput struct{ *pulumi.OutputState }
@@ -3607,10 +2754,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionPtrInput)(nil)).Elem(), DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageImageTestsConfigurationInput)(nil)).Elem(), ImageImageTestsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageImageTestsConfigurationPtrInput)(nil)).Elem(), ImageImageTestsConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ImageOutputResourceInput)(nil)).Elem(), ImageOutputResourceArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ImageOutputResourceArrayInput)(nil)).Elem(), ImageOutputResourceArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ImageOutputResourceAmiInput)(nil)).Elem(), ImageOutputResourceAmiArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ImageOutputResourceAmiArrayInput)(nil)).Elem(), ImageOutputResourceAmiArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImagePipelineImageTestsConfigurationInput)(nil)).Elem(), ImagePipelineImageTestsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImagePipelineImageTestsConfigurationPtrInput)(nil)).Elem(), ImagePipelineImageTestsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ImagePipelineScheduleInput)(nil)).Elem(), ImagePipelineScheduleArgs{})
@@ -3625,34 +2768,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InfrastructureConfigurationLoggingPtrInput)(nil)).Elem(), InfrastructureConfigurationLoggingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InfrastructureConfigurationLoggingS3LogsInput)(nil)).Elem(), InfrastructureConfigurationLoggingS3LogsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InfrastructureConfigurationLoggingS3LogsPtrInput)(nil)).Elem(), InfrastructureConfigurationLoggingS3LogsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetDistributionConfigurationDistributionInput)(nil)).Elem(), GetDistributionConfigurationDistributionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetDistributionConfigurationDistributionArrayInput)(nil)).Elem(), GetDistributionConfigurationDistributionArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetDistributionConfigurationDistributionAmiDistributionConfigurationInput)(nil)).Elem(), GetDistributionConfigurationDistributionAmiDistributionConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetDistributionConfigurationDistributionAmiDistributionConfigurationArrayInput)(nil)).Elem(), GetDistributionConfigurationDistributionAmiDistributionConfigurationArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionInput)(nil)).Elem(), GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArrayInput)(nil)).Elem(), GetDistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetImageImageTestsConfigurationInput)(nil)).Elem(), GetImageImageTestsConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetImageImageTestsConfigurationArrayInput)(nil)).Elem(), GetImageImageTestsConfigurationArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetImageOutputResourceInput)(nil)).Elem(), GetImageOutputResourceArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetImageOutputResourceArrayInput)(nil)).Elem(), GetImageOutputResourceArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetImageOutputResourceAmiInput)(nil)).Elem(), GetImageOutputResourceAmiArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetImageOutputResourceAmiArrayInput)(nil)).Elem(), GetImageOutputResourceAmiArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetImagePipelineImageTestsConfigurationInput)(nil)).Elem(), GetImagePipelineImageTestsConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetImagePipelineImageTestsConfigurationArrayInput)(nil)).Elem(), GetImagePipelineImageTestsConfigurationArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetImagePipelineScheduleInput)(nil)).Elem(), GetImagePipelineScheduleArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetImagePipelineScheduleArrayInput)(nil)).Elem(), GetImagePipelineScheduleArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetImageRecipeBlockDeviceMappingInput)(nil)).Elem(), GetImageRecipeBlockDeviceMappingArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetImageRecipeBlockDeviceMappingArrayInput)(nil)).Elem(), GetImageRecipeBlockDeviceMappingArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetImageRecipeBlockDeviceMappingEbInput)(nil)).Elem(), GetImageRecipeBlockDeviceMappingEbArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetImageRecipeBlockDeviceMappingEbArrayInput)(nil)).Elem(), GetImageRecipeBlockDeviceMappingEbArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetImageRecipeComponentInput)(nil)).Elem(), GetImageRecipeComponentArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetImageRecipeComponentArrayInput)(nil)).Elem(), GetImageRecipeComponentArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetImageRecipesFilterInput)(nil)).Elem(), GetImageRecipesFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetImageRecipesFilterArrayInput)(nil)).Elem(), GetImageRecipesFilterArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetInfrastructureConfigurationLoggingInput)(nil)).Elem(), GetInfrastructureConfigurationLoggingArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetInfrastructureConfigurationLoggingArrayInput)(nil)).Elem(), GetInfrastructureConfigurationLoggingArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetInfrastructureConfigurationLoggingS3LogInput)(nil)).Elem(), GetInfrastructureConfigurationLoggingS3LogArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetInfrastructureConfigurationLoggingS3LogArrayInput)(nil)).Elem(), GetInfrastructureConfigurationLoggingS3LogArray{})
 	pulumi.RegisterOutputType(DistributionConfigurationDistributionOutput{})
 	pulumi.RegisterOutputType(DistributionConfigurationDistributionArrayOutput{})
 	pulumi.RegisterOutputType(DistributionConfigurationDistributionAmiDistributionConfigurationOutput{})

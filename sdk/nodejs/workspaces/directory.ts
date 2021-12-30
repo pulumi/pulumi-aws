@@ -230,52 +230,52 @@ export class Directory extends pulumi.CustomResource {
      */
     constructor(name: string, args: DirectoryArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DirectoryArgs | DirectoryState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DirectoryState | undefined;
-            inputs["alias"] = state ? state.alias : undefined;
-            inputs["customerUserName"] = state ? state.customerUserName : undefined;
-            inputs["directoryId"] = state ? state.directoryId : undefined;
-            inputs["directoryName"] = state ? state.directoryName : undefined;
-            inputs["directoryType"] = state ? state.directoryType : undefined;
-            inputs["dnsIpAddresses"] = state ? state.dnsIpAddresses : undefined;
-            inputs["iamRoleId"] = state ? state.iamRoleId : undefined;
-            inputs["ipGroupIds"] = state ? state.ipGroupIds : undefined;
-            inputs["registrationCode"] = state ? state.registrationCode : undefined;
-            inputs["selfServicePermissions"] = state ? state.selfServicePermissions : undefined;
-            inputs["subnetIds"] = state ? state.subnetIds : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["workspaceAccessProperties"] = state ? state.workspaceAccessProperties : undefined;
-            inputs["workspaceCreationProperties"] = state ? state.workspaceCreationProperties : undefined;
-            inputs["workspaceSecurityGroupId"] = state ? state.workspaceSecurityGroupId : undefined;
+            resourceInputs["alias"] = state ? state.alias : undefined;
+            resourceInputs["customerUserName"] = state ? state.customerUserName : undefined;
+            resourceInputs["directoryId"] = state ? state.directoryId : undefined;
+            resourceInputs["directoryName"] = state ? state.directoryName : undefined;
+            resourceInputs["directoryType"] = state ? state.directoryType : undefined;
+            resourceInputs["dnsIpAddresses"] = state ? state.dnsIpAddresses : undefined;
+            resourceInputs["iamRoleId"] = state ? state.iamRoleId : undefined;
+            resourceInputs["ipGroupIds"] = state ? state.ipGroupIds : undefined;
+            resourceInputs["registrationCode"] = state ? state.registrationCode : undefined;
+            resourceInputs["selfServicePermissions"] = state ? state.selfServicePermissions : undefined;
+            resourceInputs["subnetIds"] = state ? state.subnetIds : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["workspaceAccessProperties"] = state ? state.workspaceAccessProperties : undefined;
+            resourceInputs["workspaceCreationProperties"] = state ? state.workspaceCreationProperties : undefined;
+            resourceInputs["workspaceSecurityGroupId"] = state ? state.workspaceSecurityGroupId : undefined;
         } else {
             const args = argsOrState as DirectoryArgs | undefined;
             if ((!args || args.directoryId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'directoryId'");
             }
-            inputs["directoryId"] = args ? args.directoryId : undefined;
-            inputs["ipGroupIds"] = args ? args.ipGroupIds : undefined;
-            inputs["selfServicePermissions"] = args ? args.selfServicePermissions : undefined;
-            inputs["subnetIds"] = args ? args.subnetIds : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["workspaceAccessProperties"] = args ? args.workspaceAccessProperties : undefined;
-            inputs["workspaceCreationProperties"] = args ? args.workspaceCreationProperties : undefined;
-            inputs["alias"] = undefined /*out*/;
-            inputs["customerUserName"] = undefined /*out*/;
-            inputs["directoryName"] = undefined /*out*/;
-            inputs["directoryType"] = undefined /*out*/;
-            inputs["dnsIpAddresses"] = undefined /*out*/;
-            inputs["iamRoleId"] = undefined /*out*/;
-            inputs["registrationCode"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
-            inputs["workspaceSecurityGroupId"] = undefined /*out*/;
+            resourceInputs["directoryId"] = args ? args.directoryId : undefined;
+            resourceInputs["ipGroupIds"] = args ? args.ipGroupIds : undefined;
+            resourceInputs["selfServicePermissions"] = args ? args.selfServicePermissions : undefined;
+            resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["workspaceAccessProperties"] = args ? args.workspaceAccessProperties : undefined;
+            resourceInputs["workspaceCreationProperties"] = args ? args.workspaceCreationProperties : undefined;
+            resourceInputs["alias"] = undefined /*out*/;
+            resourceInputs["customerUserName"] = undefined /*out*/;
+            resourceInputs["directoryName"] = undefined /*out*/;
+            resourceInputs["directoryType"] = undefined /*out*/;
+            resourceInputs["dnsIpAddresses"] = undefined /*out*/;
+            resourceInputs["iamRoleId"] = undefined /*out*/;
+            resourceInputs["registrationCode"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["workspaceSecurityGroupId"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Directory.__pulumiType, name, inputs, opts);
+        super(Directory.__pulumiType, name, resourceInputs, opts);
     }
 }
 

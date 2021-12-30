@@ -172,33 +172,33 @@ export class Endpoint extends pulumi.CustomResource {
      */
     constructor(name: string, args: EndpointArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: EndpointArgs | EndpointState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EndpointState | undefined;
-            inputs["certificateArn"] = state ? state.certificateArn : undefined;
-            inputs["databaseName"] = state ? state.databaseName : undefined;
-            inputs["elasticsearchSettings"] = state ? state.elasticsearchSettings : undefined;
-            inputs["endpointArn"] = state ? state.endpointArn : undefined;
-            inputs["endpointId"] = state ? state.endpointId : undefined;
-            inputs["endpointType"] = state ? state.endpointType : undefined;
-            inputs["engineName"] = state ? state.engineName : undefined;
-            inputs["extraConnectionAttributes"] = state ? state.extraConnectionAttributes : undefined;
-            inputs["kafkaSettings"] = state ? state.kafkaSettings : undefined;
-            inputs["kinesisSettings"] = state ? state.kinesisSettings : undefined;
-            inputs["kmsKeyArn"] = state ? state.kmsKeyArn : undefined;
-            inputs["mongodbSettings"] = state ? state.mongodbSettings : undefined;
-            inputs["password"] = state ? state.password : undefined;
-            inputs["port"] = state ? state.port : undefined;
-            inputs["s3Settings"] = state ? state.s3Settings : undefined;
-            inputs["secretsManagerAccessRoleArn"] = state ? state.secretsManagerAccessRoleArn : undefined;
-            inputs["secretsManagerArn"] = state ? state.secretsManagerArn : undefined;
-            inputs["serverName"] = state ? state.serverName : undefined;
-            inputs["serviceAccessRole"] = state ? state.serviceAccessRole : undefined;
-            inputs["sslMode"] = state ? state.sslMode : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["username"] = state ? state.username : undefined;
+            resourceInputs["certificateArn"] = state ? state.certificateArn : undefined;
+            resourceInputs["databaseName"] = state ? state.databaseName : undefined;
+            resourceInputs["elasticsearchSettings"] = state ? state.elasticsearchSettings : undefined;
+            resourceInputs["endpointArn"] = state ? state.endpointArn : undefined;
+            resourceInputs["endpointId"] = state ? state.endpointId : undefined;
+            resourceInputs["endpointType"] = state ? state.endpointType : undefined;
+            resourceInputs["engineName"] = state ? state.engineName : undefined;
+            resourceInputs["extraConnectionAttributes"] = state ? state.extraConnectionAttributes : undefined;
+            resourceInputs["kafkaSettings"] = state ? state.kafkaSettings : undefined;
+            resourceInputs["kinesisSettings"] = state ? state.kinesisSettings : undefined;
+            resourceInputs["kmsKeyArn"] = state ? state.kmsKeyArn : undefined;
+            resourceInputs["mongodbSettings"] = state ? state.mongodbSettings : undefined;
+            resourceInputs["password"] = state ? state.password : undefined;
+            resourceInputs["port"] = state ? state.port : undefined;
+            resourceInputs["s3Settings"] = state ? state.s3Settings : undefined;
+            resourceInputs["secretsManagerAccessRoleArn"] = state ? state.secretsManagerAccessRoleArn : undefined;
+            resourceInputs["secretsManagerArn"] = state ? state.secretsManagerArn : undefined;
+            resourceInputs["serverName"] = state ? state.serverName : undefined;
+            resourceInputs["serviceAccessRole"] = state ? state.serviceAccessRole : undefined;
+            resourceInputs["sslMode"] = state ? state.sslMode : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["username"] = state ? state.username : undefined;
         } else {
             const args = argsOrState as EndpointArgs | undefined;
             if ((!args || args.endpointId === undefined) && !opts.urn) {
@@ -210,34 +210,34 @@ export class Endpoint extends pulumi.CustomResource {
             if ((!args || args.engineName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'engineName'");
             }
-            inputs["certificateArn"] = args ? args.certificateArn : undefined;
-            inputs["databaseName"] = args ? args.databaseName : undefined;
-            inputs["elasticsearchSettings"] = args ? args.elasticsearchSettings : undefined;
-            inputs["endpointId"] = args ? args.endpointId : undefined;
-            inputs["endpointType"] = args ? args.endpointType : undefined;
-            inputs["engineName"] = args ? args.engineName : undefined;
-            inputs["extraConnectionAttributes"] = args ? args.extraConnectionAttributes : undefined;
-            inputs["kafkaSettings"] = args ? args.kafkaSettings : undefined;
-            inputs["kinesisSettings"] = args ? args.kinesisSettings : undefined;
-            inputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
-            inputs["mongodbSettings"] = args ? args.mongodbSettings : undefined;
-            inputs["password"] = args ? args.password : undefined;
-            inputs["port"] = args ? args.port : undefined;
-            inputs["s3Settings"] = args ? args.s3Settings : undefined;
-            inputs["secretsManagerAccessRoleArn"] = args ? args.secretsManagerAccessRoleArn : undefined;
-            inputs["secretsManagerArn"] = args ? args.secretsManagerArn : undefined;
-            inputs["serverName"] = args ? args.serverName : undefined;
-            inputs["serviceAccessRole"] = args ? args.serviceAccessRole : undefined;
-            inputs["sslMode"] = args ? args.sslMode : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["username"] = args ? args.username : undefined;
-            inputs["endpointArn"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["certificateArn"] = args ? args.certificateArn : undefined;
+            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
+            resourceInputs["elasticsearchSettings"] = args ? args.elasticsearchSettings : undefined;
+            resourceInputs["endpointId"] = args ? args.endpointId : undefined;
+            resourceInputs["endpointType"] = args ? args.endpointType : undefined;
+            resourceInputs["engineName"] = args ? args.engineName : undefined;
+            resourceInputs["extraConnectionAttributes"] = args ? args.extraConnectionAttributes : undefined;
+            resourceInputs["kafkaSettings"] = args ? args.kafkaSettings : undefined;
+            resourceInputs["kinesisSettings"] = args ? args.kinesisSettings : undefined;
+            resourceInputs["kmsKeyArn"] = args ? args.kmsKeyArn : undefined;
+            resourceInputs["mongodbSettings"] = args ? args.mongodbSettings : undefined;
+            resourceInputs["password"] = args ? args.password : undefined;
+            resourceInputs["port"] = args ? args.port : undefined;
+            resourceInputs["s3Settings"] = args ? args.s3Settings : undefined;
+            resourceInputs["secretsManagerAccessRoleArn"] = args ? args.secretsManagerAccessRoleArn : undefined;
+            resourceInputs["secretsManagerArn"] = args ? args.secretsManagerArn : undefined;
+            resourceInputs["serverName"] = args ? args.serverName : undefined;
+            resourceInputs["serviceAccessRole"] = args ? args.serviceAccessRole : undefined;
+            resourceInputs["sslMode"] = args ? args.sslMode : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["username"] = args ? args.username : undefined;
+            resourceInputs["endpointArn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Endpoint.__pulumiType, name, inputs, opts);
+        super(Endpoint.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -148,7 +148,7 @@ type RuleGroupNamespaceInput interface {
 }
 
 func (*RuleGroupNamespace) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleGroupNamespace)(nil))
+	return reflect.TypeOf((**RuleGroupNamespace)(nil)).Elem()
 }
 
 func (i *RuleGroupNamespace) ToRuleGroupNamespaceOutput() RuleGroupNamespaceOutput {
@@ -157,35 +157,6 @@ func (i *RuleGroupNamespace) ToRuleGroupNamespaceOutput() RuleGroupNamespaceOutp
 
 func (i *RuleGroupNamespace) ToRuleGroupNamespaceOutputWithContext(ctx context.Context) RuleGroupNamespaceOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupNamespaceOutput)
-}
-
-func (i *RuleGroupNamespace) ToRuleGroupNamespacePtrOutput() RuleGroupNamespacePtrOutput {
-	return i.ToRuleGroupNamespacePtrOutputWithContext(context.Background())
-}
-
-func (i *RuleGroupNamespace) ToRuleGroupNamespacePtrOutputWithContext(ctx context.Context) RuleGroupNamespacePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupNamespacePtrOutput)
-}
-
-type RuleGroupNamespacePtrInput interface {
-	pulumi.Input
-
-	ToRuleGroupNamespacePtrOutput() RuleGroupNamespacePtrOutput
-	ToRuleGroupNamespacePtrOutputWithContext(ctx context.Context) RuleGroupNamespacePtrOutput
-}
-
-type ruleGroupNamespacePtrType RuleGroupNamespaceArgs
-
-func (*ruleGroupNamespacePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RuleGroupNamespace)(nil))
-}
-
-func (i *ruleGroupNamespacePtrType) ToRuleGroupNamespacePtrOutput() RuleGroupNamespacePtrOutput {
-	return i.ToRuleGroupNamespacePtrOutputWithContext(context.Background())
-}
-
-func (i *ruleGroupNamespacePtrType) ToRuleGroupNamespacePtrOutputWithContext(ctx context.Context) RuleGroupNamespacePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RuleGroupNamespacePtrOutput)
 }
 
 // RuleGroupNamespaceArrayInput is an input type that accepts RuleGroupNamespaceArray and RuleGroupNamespaceArrayOutput values.
@@ -241,7 +212,7 @@ func (i RuleGroupNamespaceMap) ToRuleGroupNamespaceMapOutputWithContext(ctx cont
 type RuleGroupNamespaceOutput struct{ *pulumi.OutputState }
 
 func (RuleGroupNamespaceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RuleGroupNamespace)(nil))
+	return reflect.TypeOf((**RuleGroupNamespace)(nil)).Elem()
 }
 
 func (o RuleGroupNamespaceOutput) ToRuleGroupNamespaceOutput() RuleGroupNamespaceOutput {
@@ -252,44 +223,10 @@ func (o RuleGroupNamespaceOutput) ToRuleGroupNamespaceOutputWithContext(ctx cont
 	return o
 }
 
-func (o RuleGroupNamespaceOutput) ToRuleGroupNamespacePtrOutput() RuleGroupNamespacePtrOutput {
-	return o.ToRuleGroupNamespacePtrOutputWithContext(context.Background())
-}
-
-func (o RuleGroupNamespaceOutput) ToRuleGroupNamespacePtrOutputWithContext(ctx context.Context) RuleGroupNamespacePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuleGroupNamespace) *RuleGroupNamespace {
-		return &v
-	}).(RuleGroupNamespacePtrOutput)
-}
-
-type RuleGroupNamespacePtrOutput struct{ *pulumi.OutputState }
-
-func (RuleGroupNamespacePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RuleGroupNamespace)(nil))
-}
-
-func (o RuleGroupNamespacePtrOutput) ToRuleGroupNamespacePtrOutput() RuleGroupNamespacePtrOutput {
-	return o
-}
-
-func (o RuleGroupNamespacePtrOutput) ToRuleGroupNamespacePtrOutputWithContext(ctx context.Context) RuleGroupNamespacePtrOutput {
-	return o
-}
-
-func (o RuleGroupNamespacePtrOutput) Elem() RuleGroupNamespaceOutput {
-	return o.ApplyT(func(v *RuleGroupNamespace) RuleGroupNamespace {
-		if v != nil {
-			return *v
-		}
-		var ret RuleGroupNamespace
-		return ret
-	}).(RuleGroupNamespaceOutput)
-}
-
 type RuleGroupNamespaceArrayOutput struct{ *pulumi.OutputState }
 
 func (RuleGroupNamespaceArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RuleGroupNamespace)(nil))
+	return reflect.TypeOf((*[]*RuleGroupNamespace)(nil)).Elem()
 }
 
 func (o RuleGroupNamespaceArrayOutput) ToRuleGroupNamespaceArrayOutput() RuleGroupNamespaceArrayOutput {
@@ -301,15 +238,15 @@ func (o RuleGroupNamespaceArrayOutput) ToRuleGroupNamespaceArrayOutputWithContex
 }
 
 func (o RuleGroupNamespaceArrayOutput) Index(i pulumi.IntInput) RuleGroupNamespaceOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RuleGroupNamespace {
-		return vs[0].([]RuleGroupNamespace)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RuleGroupNamespace {
+		return vs[0].([]*RuleGroupNamespace)[vs[1].(int)]
 	}).(RuleGroupNamespaceOutput)
 }
 
 type RuleGroupNamespaceMapOutput struct{ *pulumi.OutputState }
 
 func (RuleGroupNamespaceMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]RuleGroupNamespace)(nil))
+	return reflect.TypeOf((*map[string]*RuleGroupNamespace)(nil)).Elem()
 }
 
 func (o RuleGroupNamespaceMapOutput) ToRuleGroupNamespaceMapOutput() RuleGroupNamespaceMapOutput {
@@ -321,18 +258,16 @@ func (o RuleGroupNamespaceMapOutput) ToRuleGroupNamespaceMapOutputWithContext(ct
 }
 
 func (o RuleGroupNamespaceMapOutput) MapIndex(k pulumi.StringInput) RuleGroupNamespaceOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) RuleGroupNamespace {
-		return vs[0].(map[string]RuleGroupNamespace)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *RuleGroupNamespace {
+		return vs[0].(map[string]*RuleGroupNamespace)[vs[1].(string)]
 	}).(RuleGroupNamespaceOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupNamespaceInput)(nil)).Elem(), &RuleGroupNamespace{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupNamespacePtrInput)(nil)).Elem(), &RuleGroupNamespace{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupNamespaceArrayInput)(nil)).Elem(), RuleGroupNamespaceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleGroupNamespaceMapInput)(nil)).Elem(), RuleGroupNamespaceMap{})
 	pulumi.RegisterOutputType(RuleGroupNamespaceOutput{})
-	pulumi.RegisterOutputType(RuleGroupNamespacePtrOutput{})
 	pulumi.RegisterOutputType(RuleGroupNamespaceArrayOutput{})
 	pulumi.RegisterOutputType(RuleGroupNamespaceMapOutput{})
 }

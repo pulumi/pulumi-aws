@@ -84,24 +84,24 @@ export class InviteAccepter extends pulumi.CustomResource {
      */
     constructor(name: string, args: InviteAccepterArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: InviteAccepterArgs | InviteAccepterState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as InviteAccepterState | undefined;
-            inputs["invitationId"] = state ? state.invitationId : undefined;
-            inputs["masterId"] = state ? state.masterId : undefined;
+            resourceInputs["invitationId"] = state ? state.invitationId : undefined;
+            resourceInputs["masterId"] = state ? state.masterId : undefined;
         } else {
             const args = argsOrState as InviteAccepterArgs | undefined;
             if ((!args || args.masterId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'masterId'");
             }
-            inputs["masterId"] = args ? args.masterId : undefined;
-            inputs["invitationId"] = undefined /*out*/;
+            resourceInputs["masterId"] = args ? args.masterId : undefined;
+            resourceInputs["invitationId"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(InviteAccepter.__pulumiType, name, inputs, opts);
+        super(InviteAccepter.__pulumiType, name, resourceInputs, opts);
     }
 }
 

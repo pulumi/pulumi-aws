@@ -122,31 +122,31 @@ export class Connection extends pulumi.CustomResource {
      */
     constructor(name: string, args?: ConnectionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ConnectionArgs | ConnectionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ConnectionState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["connectionStatus"] = state ? state.connectionStatus : undefined;
-            inputs["hostArn"] = state ? state.hostArn : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["providerType"] = state ? state.providerType : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["connectionStatus"] = state ? state.connectionStatus : undefined;
+            resourceInputs["hostArn"] = state ? state.hostArn : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["providerType"] = state ? state.providerType : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as ConnectionArgs | undefined;
-            inputs["hostArn"] = args ? args.hostArn : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["providerType"] = args ? args.providerType : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["connectionStatus"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["hostArn"] = args ? args.hostArn : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["providerType"] = args ? args.providerType : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["connectionStatus"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Connection.__pulumiType, name, inputs, opts);
+        super(Connection.__pulumiType, name, resourceInputs, opts);
     }
 }
 

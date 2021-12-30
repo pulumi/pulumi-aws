@@ -78,12 +78,12 @@ export class MonitoringSubscription extends pulumi.CustomResource {
      */
     constructor(name: string, args: MonitoringSubscriptionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: MonitoringSubscriptionArgs | MonitoringSubscriptionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MonitoringSubscriptionState | undefined;
-            inputs["distributionId"] = state ? state.distributionId : undefined;
-            inputs["monitoringSubscription"] = state ? state.monitoringSubscription : undefined;
+            resourceInputs["distributionId"] = state ? state.distributionId : undefined;
+            resourceInputs["monitoringSubscription"] = state ? state.monitoringSubscription : undefined;
         } else {
             const args = argsOrState as MonitoringSubscriptionArgs | undefined;
             if ((!args || args.distributionId === undefined) && !opts.urn) {
@@ -92,13 +92,13 @@ export class MonitoringSubscription extends pulumi.CustomResource {
             if ((!args || args.monitoringSubscription === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'monitoringSubscription'");
             }
-            inputs["distributionId"] = args ? args.distributionId : undefined;
-            inputs["monitoringSubscription"] = args ? args.monitoringSubscription : undefined;
+            resourceInputs["distributionId"] = args ? args.distributionId : undefined;
+            resourceInputs["monitoringSubscription"] = args ? args.monitoringSubscription : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(MonitoringSubscription.__pulumiType, name, inputs, opts);
+        super(MonitoringSubscription.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -124,7 +124,7 @@ type OrganizationAdminAccountInput interface {
 }
 
 func (*OrganizationAdminAccount) ElementType() reflect.Type {
-	return reflect.TypeOf((*OrganizationAdminAccount)(nil))
+	return reflect.TypeOf((**OrganizationAdminAccount)(nil)).Elem()
 }
 
 func (i *OrganizationAdminAccount) ToOrganizationAdminAccountOutput() OrganizationAdminAccountOutput {
@@ -133,35 +133,6 @@ func (i *OrganizationAdminAccount) ToOrganizationAdminAccountOutput() Organizati
 
 func (i *OrganizationAdminAccount) ToOrganizationAdminAccountOutputWithContext(ctx context.Context) OrganizationAdminAccountOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationAdminAccountOutput)
-}
-
-func (i *OrganizationAdminAccount) ToOrganizationAdminAccountPtrOutput() OrganizationAdminAccountPtrOutput {
-	return i.ToOrganizationAdminAccountPtrOutputWithContext(context.Background())
-}
-
-func (i *OrganizationAdminAccount) ToOrganizationAdminAccountPtrOutputWithContext(ctx context.Context) OrganizationAdminAccountPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OrganizationAdminAccountPtrOutput)
-}
-
-type OrganizationAdminAccountPtrInput interface {
-	pulumi.Input
-
-	ToOrganizationAdminAccountPtrOutput() OrganizationAdminAccountPtrOutput
-	ToOrganizationAdminAccountPtrOutputWithContext(ctx context.Context) OrganizationAdminAccountPtrOutput
-}
-
-type organizationAdminAccountPtrType OrganizationAdminAccountArgs
-
-func (*organizationAdminAccountPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**OrganizationAdminAccount)(nil))
-}
-
-func (i *organizationAdminAccountPtrType) ToOrganizationAdminAccountPtrOutput() OrganizationAdminAccountPtrOutput {
-	return i.ToOrganizationAdminAccountPtrOutputWithContext(context.Background())
-}
-
-func (i *organizationAdminAccountPtrType) ToOrganizationAdminAccountPtrOutputWithContext(ctx context.Context) OrganizationAdminAccountPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OrganizationAdminAccountPtrOutput)
 }
 
 // OrganizationAdminAccountArrayInput is an input type that accepts OrganizationAdminAccountArray and OrganizationAdminAccountArrayOutput values.
@@ -217,7 +188,7 @@ func (i OrganizationAdminAccountMap) ToOrganizationAdminAccountMapOutputWithCont
 type OrganizationAdminAccountOutput struct{ *pulumi.OutputState }
 
 func (OrganizationAdminAccountOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OrganizationAdminAccount)(nil))
+	return reflect.TypeOf((**OrganizationAdminAccount)(nil)).Elem()
 }
 
 func (o OrganizationAdminAccountOutput) ToOrganizationAdminAccountOutput() OrganizationAdminAccountOutput {
@@ -228,44 +199,10 @@ func (o OrganizationAdminAccountOutput) ToOrganizationAdminAccountOutputWithCont
 	return o
 }
 
-func (o OrganizationAdminAccountOutput) ToOrganizationAdminAccountPtrOutput() OrganizationAdminAccountPtrOutput {
-	return o.ToOrganizationAdminAccountPtrOutputWithContext(context.Background())
-}
-
-func (o OrganizationAdminAccountOutput) ToOrganizationAdminAccountPtrOutputWithContext(ctx context.Context) OrganizationAdminAccountPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrganizationAdminAccount) *OrganizationAdminAccount {
-		return &v
-	}).(OrganizationAdminAccountPtrOutput)
-}
-
-type OrganizationAdminAccountPtrOutput struct{ *pulumi.OutputState }
-
-func (OrganizationAdminAccountPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**OrganizationAdminAccount)(nil))
-}
-
-func (o OrganizationAdminAccountPtrOutput) ToOrganizationAdminAccountPtrOutput() OrganizationAdminAccountPtrOutput {
-	return o
-}
-
-func (o OrganizationAdminAccountPtrOutput) ToOrganizationAdminAccountPtrOutputWithContext(ctx context.Context) OrganizationAdminAccountPtrOutput {
-	return o
-}
-
-func (o OrganizationAdminAccountPtrOutput) Elem() OrganizationAdminAccountOutput {
-	return o.ApplyT(func(v *OrganizationAdminAccount) OrganizationAdminAccount {
-		if v != nil {
-			return *v
-		}
-		var ret OrganizationAdminAccount
-		return ret
-	}).(OrganizationAdminAccountOutput)
-}
-
 type OrganizationAdminAccountArrayOutput struct{ *pulumi.OutputState }
 
 func (OrganizationAdminAccountArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]OrganizationAdminAccount)(nil))
+	return reflect.TypeOf((*[]*OrganizationAdminAccount)(nil)).Elem()
 }
 
 func (o OrganizationAdminAccountArrayOutput) ToOrganizationAdminAccountArrayOutput() OrganizationAdminAccountArrayOutput {
@@ -277,15 +214,15 @@ func (o OrganizationAdminAccountArrayOutput) ToOrganizationAdminAccountArrayOutp
 }
 
 func (o OrganizationAdminAccountArrayOutput) Index(i pulumi.IntInput) OrganizationAdminAccountOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OrganizationAdminAccount {
-		return vs[0].([]OrganizationAdminAccount)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *OrganizationAdminAccount {
+		return vs[0].([]*OrganizationAdminAccount)[vs[1].(int)]
 	}).(OrganizationAdminAccountOutput)
 }
 
 type OrganizationAdminAccountMapOutput struct{ *pulumi.OutputState }
 
 func (OrganizationAdminAccountMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]OrganizationAdminAccount)(nil))
+	return reflect.TypeOf((*map[string]*OrganizationAdminAccount)(nil)).Elem()
 }
 
 func (o OrganizationAdminAccountMapOutput) ToOrganizationAdminAccountMapOutput() OrganizationAdminAccountMapOutput {
@@ -297,18 +234,16 @@ func (o OrganizationAdminAccountMapOutput) ToOrganizationAdminAccountMapOutputWi
 }
 
 func (o OrganizationAdminAccountMapOutput) MapIndex(k pulumi.StringInput) OrganizationAdminAccountOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) OrganizationAdminAccount {
-		return vs[0].(map[string]OrganizationAdminAccount)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *OrganizationAdminAccount {
+		return vs[0].(map[string]*OrganizationAdminAccount)[vs[1].(string)]
 	}).(OrganizationAdminAccountOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationAdminAccountInput)(nil)).Elem(), &OrganizationAdminAccount{})
-	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationAdminAccountPtrInput)(nil)).Elem(), &OrganizationAdminAccount{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationAdminAccountArrayInput)(nil)).Elem(), OrganizationAdminAccountArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationAdminAccountMapInput)(nil)).Elem(), OrganizationAdminAccountMap{})
 	pulumi.RegisterOutputType(OrganizationAdminAccountOutput{})
-	pulumi.RegisterOutputType(OrganizationAdminAccountPtrOutput{})
 	pulumi.RegisterOutputType(OrganizationAdminAccountArrayOutput{})
 	pulumi.RegisterOutputType(OrganizationAdminAccountMapOutput{})
 }

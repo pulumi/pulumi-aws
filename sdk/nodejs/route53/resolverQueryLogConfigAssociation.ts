@@ -73,12 +73,12 @@ export class ResolverQueryLogConfigAssociation extends pulumi.CustomResource {
      */
     constructor(name: string, args: ResolverQueryLogConfigAssociationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ResolverQueryLogConfigAssociationArgs | ResolverQueryLogConfigAssociationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ResolverQueryLogConfigAssociationState | undefined;
-            inputs["resolverQueryLogConfigId"] = state ? state.resolverQueryLogConfigId : undefined;
-            inputs["resourceId"] = state ? state.resourceId : undefined;
+            resourceInputs["resolverQueryLogConfigId"] = state ? state.resolverQueryLogConfigId : undefined;
+            resourceInputs["resourceId"] = state ? state.resourceId : undefined;
         } else {
             const args = argsOrState as ResolverQueryLogConfigAssociationArgs | undefined;
             if ((!args || args.resolverQueryLogConfigId === undefined) && !opts.urn) {
@@ -87,13 +87,13 @@ export class ResolverQueryLogConfigAssociation extends pulumi.CustomResource {
             if ((!args || args.resourceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceId'");
             }
-            inputs["resolverQueryLogConfigId"] = args ? args.resolverQueryLogConfigId : undefined;
-            inputs["resourceId"] = args ? args.resourceId : undefined;
+            resourceInputs["resolverQueryLogConfigId"] = args ? args.resolverQueryLogConfigId : undefined;
+            resourceInputs["resourceId"] = args ? args.resourceId : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(ResolverQueryLogConfigAssociation.__pulumiType, name, inputs, opts);
+        super(ResolverQueryLogConfigAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

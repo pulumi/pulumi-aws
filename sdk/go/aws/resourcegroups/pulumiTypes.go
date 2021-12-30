@@ -47,47 +47,6 @@ func (i GroupResourceQueryArgs) ToGroupResourceQueryOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(GroupResourceQueryOutput)
 }
 
-func (i GroupResourceQueryArgs) ToGroupResourceQueryPtrOutput() GroupResourceQueryPtrOutput {
-	return i.ToGroupResourceQueryPtrOutputWithContext(context.Background())
-}
-
-func (i GroupResourceQueryArgs) ToGroupResourceQueryPtrOutputWithContext(ctx context.Context) GroupResourceQueryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GroupResourceQueryOutput).ToGroupResourceQueryPtrOutputWithContext(ctx)
-}
-
-// GroupResourceQueryPtrInput is an input type that accepts GroupResourceQueryArgs, GroupResourceQueryPtr and GroupResourceQueryPtrOutput values.
-// You can construct a concrete instance of `GroupResourceQueryPtrInput` via:
-//
-//          GroupResourceQueryArgs{...}
-//
-//  or:
-//
-//          nil
-type GroupResourceQueryPtrInput interface {
-	pulumi.Input
-
-	ToGroupResourceQueryPtrOutput() GroupResourceQueryPtrOutput
-	ToGroupResourceQueryPtrOutputWithContext(context.Context) GroupResourceQueryPtrOutput
-}
-
-type groupResourceQueryPtrType GroupResourceQueryArgs
-
-func GroupResourceQueryPtr(v *GroupResourceQueryArgs) GroupResourceQueryPtrInput {
-	return (*groupResourceQueryPtrType)(v)
-}
-
-func (*groupResourceQueryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**GroupResourceQuery)(nil)).Elem()
-}
-
-func (i *groupResourceQueryPtrType) ToGroupResourceQueryPtrOutput() GroupResourceQueryPtrOutput {
-	return i.ToGroupResourceQueryPtrOutputWithContext(context.Background())
-}
-
-func (i *groupResourceQueryPtrType) ToGroupResourceQueryPtrOutputWithContext(ctx context.Context) GroupResourceQueryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GroupResourceQueryPtrOutput)
-}
-
 type GroupResourceQueryOutput struct{ *pulumi.OutputState }
 
 func (GroupResourceQueryOutput) ElementType() reflect.Type {
@@ -102,16 +61,6 @@ func (o GroupResourceQueryOutput) ToGroupResourceQueryOutputWithContext(ctx cont
 	return o
 }
 
-func (o GroupResourceQueryOutput) ToGroupResourceQueryPtrOutput() GroupResourceQueryPtrOutput {
-	return o.ToGroupResourceQueryPtrOutputWithContext(context.Background())
-}
-
-func (o GroupResourceQueryOutput) ToGroupResourceQueryPtrOutputWithContext(ctx context.Context) GroupResourceQueryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GroupResourceQuery) *GroupResourceQuery {
-		return &v
-	}).(GroupResourceQueryPtrOutput)
-}
-
 // The resource query as a JSON string.
 func (o GroupResourceQueryOutput) Query() pulumi.StringOutput {
 	return o.ApplyT(func(v GroupResourceQuery) string { return v.Query }).(pulumi.StringOutput)
@@ -122,53 +71,7 @@ func (o GroupResourceQueryOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GroupResourceQuery) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-type GroupResourceQueryPtrOutput struct{ *pulumi.OutputState }
-
-func (GroupResourceQueryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GroupResourceQuery)(nil)).Elem()
-}
-
-func (o GroupResourceQueryPtrOutput) ToGroupResourceQueryPtrOutput() GroupResourceQueryPtrOutput {
-	return o
-}
-
-func (o GroupResourceQueryPtrOutput) ToGroupResourceQueryPtrOutputWithContext(ctx context.Context) GroupResourceQueryPtrOutput {
-	return o
-}
-
-func (o GroupResourceQueryPtrOutput) Elem() GroupResourceQueryOutput {
-	return o.ApplyT(func(v *GroupResourceQuery) GroupResourceQuery {
-		if v != nil {
-			return *v
-		}
-		var ret GroupResourceQuery
-		return ret
-	}).(GroupResourceQueryOutput)
-}
-
-// The resource query as a JSON string.
-func (o GroupResourceQueryPtrOutput) Query() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GroupResourceQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Query
-	}).(pulumi.StringPtrOutput)
-}
-
-// The type of the resource query. Defaults to `TAG_FILTERS_1_0`.
-func (o GroupResourceQueryPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GroupResourceQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Type
-	}).(pulumi.StringPtrOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GroupResourceQueryInput)(nil)).Elem(), GroupResourceQueryArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GroupResourceQueryPtrInput)(nil)).Elem(), GroupResourceQueryArgs{})
 	pulumi.RegisterOutputType(GroupResourceQueryOutput{})
-	pulumi.RegisterOutputType(GroupResourceQueryPtrOutput{})
 }

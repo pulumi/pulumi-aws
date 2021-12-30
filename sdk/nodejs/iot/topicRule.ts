@@ -160,34 +160,34 @@ export class TopicRule extends pulumi.CustomResource {
      */
     constructor(name: string, args: TopicRuleArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: TopicRuleArgs | TopicRuleState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TopicRuleState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["cloudwatchAlarm"] = state ? state.cloudwatchAlarm : undefined;
-            inputs["cloudwatchMetric"] = state ? state.cloudwatchMetric : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["dynamodb"] = state ? state.dynamodb : undefined;
-            inputs["dynamodbv2s"] = state ? state.dynamodbv2s : undefined;
-            inputs["elasticsearch"] = state ? state.elasticsearch : undefined;
-            inputs["enabled"] = state ? state.enabled : undefined;
-            inputs["errorAction"] = state ? state.errorAction : undefined;
-            inputs["firehose"] = state ? state.firehose : undefined;
-            inputs["iotAnalytics"] = state ? state.iotAnalytics : undefined;
-            inputs["iotEvents"] = state ? state.iotEvents : undefined;
-            inputs["kinesis"] = state ? state.kinesis : undefined;
-            inputs["lambda"] = state ? state.lambda : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["republish"] = state ? state.republish : undefined;
-            inputs["s3"] = state ? state.s3 : undefined;
-            inputs["sns"] = state ? state.sns : undefined;
-            inputs["sql"] = state ? state.sql : undefined;
-            inputs["sqlVersion"] = state ? state.sqlVersion : undefined;
-            inputs["sqs"] = state ? state.sqs : undefined;
-            inputs["stepFunctions"] = state ? state.stepFunctions : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["cloudwatchAlarm"] = state ? state.cloudwatchAlarm : undefined;
+            resourceInputs["cloudwatchMetric"] = state ? state.cloudwatchMetric : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["dynamodb"] = state ? state.dynamodb : undefined;
+            resourceInputs["dynamodbv2s"] = state ? state.dynamodbv2s : undefined;
+            resourceInputs["elasticsearch"] = state ? state.elasticsearch : undefined;
+            resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["errorAction"] = state ? state.errorAction : undefined;
+            resourceInputs["firehose"] = state ? state.firehose : undefined;
+            resourceInputs["iotAnalytics"] = state ? state.iotAnalytics : undefined;
+            resourceInputs["iotEvents"] = state ? state.iotEvents : undefined;
+            resourceInputs["kinesis"] = state ? state.kinesis : undefined;
+            resourceInputs["lambda"] = state ? state.lambda : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["republish"] = state ? state.republish : undefined;
+            resourceInputs["s3"] = state ? state.s3 : undefined;
+            resourceInputs["sns"] = state ? state.sns : undefined;
+            resourceInputs["sql"] = state ? state.sql : undefined;
+            resourceInputs["sqlVersion"] = state ? state.sqlVersion : undefined;
+            resourceInputs["sqs"] = state ? state.sqs : undefined;
+            resourceInputs["stepFunctions"] = state ? state.stepFunctions : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as TopicRuleArgs | undefined;
             if ((!args || args.enabled === undefined) && !opts.urn) {
@@ -199,35 +199,35 @@ export class TopicRule extends pulumi.CustomResource {
             if ((!args || args.sqlVersion === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sqlVersion'");
             }
-            inputs["cloudwatchAlarm"] = args ? args.cloudwatchAlarm : undefined;
-            inputs["cloudwatchMetric"] = args ? args.cloudwatchMetric : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["dynamodb"] = args ? args.dynamodb : undefined;
-            inputs["dynamodbv2s"] = args ? args.dynamodbv2s : undefined;
-            inputs["elasticsearch"] = args ? args.elasticsearch : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["errorAction"] = args ? args.errorAction : undefined;
-            inputs["firehose"] = args ? args.firehose : undefined;
-            inputs["iotAnalytics"] = args ? args.iotAnalytics : undefined;
-            inputs["iotEvents"] = args ? args.iotEvents : undefined;
-            inputs["kinesis"] = args ? args.kinesis : undefined;
-            inputs["lambda"] = args ? args.lambda : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["republish"] = args ? args.republish : undefined;
-            inputs["s3"] = args ? args.s3 : undefined;
-            inputs["sns"] = args ? args.sns : undefined;
-            inputs["sql"] = args ? args.sql : undefined;
-            inputs["sqlVersion"] = args ? args.sqlVersion : undefined;
-            inputs["sqs"] = args ? args.sqs : undefined;
-            inputs["stepFunctions"] = args ? args.stepFunctions : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["cloudwatchAlarm"] = args ? args.cloudwatchAlarm : undefined;
+            resourceInputs["cloudwatchMetric"] = args ? args.cloudwatchMetric : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["dynamodb"] = args ? args.dynamodb : undefined;
+            resourceInputs["dynamodbv2s"] = args ? args.dynamodbv2s : undefined;
+            resourceInputs["elasticsearch"] = args ? args.elasticsearch : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["errorAction"] = args ? args.errorAction : undefined;
+            resourceInputs["firehose"] = args ? args.firehose : undefined;
+            resourceInputs["iotAnalytics"] = args ? args.iotAnalytics : undefined;
+            resourceInputs["iotEvents"] = args ? args.iotEvents : undefined;
+            resourceInputs["kinesis"] = args ? args.kinesis : undefined;
+            resourceInputs["lambda"] = args ? args.lambda : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["republish"] = args ? args.republish : undefined;
+            resourceInputs["s3"] = args ? args.s3 : undefined;
+            resourceInputs["sns"] = args ? args.sns : undefined;
+            resourceInputs["sql"] = args ? args.sql : undefined;
+            resourceInputs["sqlVersion"] = args ? args.sqlVersion : undefined;
+            resourceInputs["sqs"] = args ? args.sqs : undefined;
+            resourceInputs["stepFunctions"] = args ? args.stepFunctions : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(TopicRule.__pulumiType, name, inputs, opts);
+        super(TopicRule.__pulumiType, name, resourceInputs, opts);
     }
 }
 

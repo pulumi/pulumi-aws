@@ -17,77 +17,6 @@ type AccountThrottleSettings struct {
 	RateLimit *float64 `pulumi:"rateLimit"`
 }
 
-// AccountThrottleSettingsInput is an input type that accepts AccountThrottleSettingsArgs and AccountThrottleSettingsOutput values.
-// You can construct a concrete instance of `AccountThrottleSettingsInput` via:
-//
-//          AccountThrottleSettingsArgs{...}
-type AccountThrottleSettingsInput interface {
-	pulumi.Input
-
-	ToAccountThrottleSettingsOutput() AccountThrottleSettingsOutput
-	ToAccountThrottleSettingsOutputWithContext(context.Context) AccountThrottleSettingsOutput
-}
-
-type AccountThrottleSettingsArgs struct {
-	// The absolute maximum number of times API Gateway allows the API to be called per second (RPS).
-	BurstLimit pulumi.IntPtrInput `pulumi:"burstLimit"`
-	// The number of times API Gateway allows the API to be called per second on average (RPS).
-	RateLimit pulumi.Float64PtrInput `pulumi:"rateLimit"`
-}
-
-func (AccountThrottleSettingsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AccountThrottleSettings)(nil)).Elem()
-}
-
-func (i AccountThrottleSettingsArgs) ToAccountThrottleSettingsOutput() AccountThrottleSettingsOutput {
-	return i.ToAccountThrottleSettingsOutputWithContext(context.Background())
-}
-
-func (i AccountThrottleSettingsArgs) ToAccountThrottleSettingsOutputWithContext(ctx context.Context) AccountThrottleSettingsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccountThrottleSettingsOutput)
-}
-
-func (i AccountThrottleSettingsArgs) ToAccountThrottleSettingsPtrOutput() AccountThrottleSettingsPtrOutput {
-	return i.ToAccountThrottleSettingsPtrOutputWithContext(context.Background())
-}
-
-func (i AccountThrottleSettingsArgs) ToAccountThrottleSettingsPtrOutputWithContext(ctx context.Context) AccountThrottleSettingsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccountThrottleSettingsOutput).ToAccountThrottleSettingsPtrOutputWithContext(ctx)
-}
-
-// AccountThrottleSettingsPtrInput is an input type that accepts AccountThrottleSettingsArgs, AccountThrottleSettingsPtr and AccountThrottleSettingsPtrOutput values.
-// You can construct a concrete instance of `AccountThrottleSettingsPtrInput` via:
-//
-//          AccountThrottleSettingsArgs{...}
-//
-//  or:
-//
-//          nil
-type AccountThrottleSettingsPtrInput interface {
-	pulumi.Input
-
-	ToAccountThrottleSettingsPtrOutput() AccountThrottleSettingsPtrOutput
-	ToAccountThrottleSettingsPtrOutputWithContext(context.Context) AccountThrottleSettingsPtrOutput
-}
-
-type accountThrottleSettingsPtrType AccountThrottleSettingsArgs
-
-func AccountThrottleSettingsPtr(v *AccountThrottleSettingsArgs) AccountThrottleSettingsPtrInput {
-	return (*accountThrottleSettingsPtrType)(v)
-}
-
-func (*accountThrottleSettingsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AccountThrottleSettings)(nil)).Elem()
-}
-
-func (i *accountThrottleSettingsPtrType) ToAccountThrottleSettingsPtrOutput() AccountThrottleSettingsPtrOutput {
-	return i.ToAccountThrottleSettingsPtrOutputWithContext(context.Background())
-}
-
-func (i *accountThrottleSettingsPtrType) ToAccountThrottleSettingsPtrOutputWithContext(ctx context.Context) AccountThrottleSettingsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AccountThrottleSettingsPtrOutput)
-}
-
 type AccountThrottleSettingsOutput struct{ *pulumi.OutputState }
 
 func (AccountThrottleSettingsOutput) ElementType() reflect.Type {
@@ -102,16 +31,6 @@ func (o AccountThrottleSettingsOutput) ToAccountThrottleSettingsOutputWithContex
 	return o
 }
 
-func (o AccountThrottleSettingsOutput) ToAccountThrottleSettingsPtrOutput() AccountThrottleSettingsPtrOutput {
-	return o.ToAccountThrottleSettingsPtrOutputWithContext(context.Background())
-}
-
-func (o AccountThrottleSettingsOutput) ToAccountThrottleSettingsPtrOutputWithContext(ctx context.Context) AccountThrottleSettingsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountThrottleSettings) *AccountThrottleSettings {
-		return &v
-	}).(AccountThrottleSettingsPtrOutput)
-}
-
 // The absolute maximum number of times API Gateway allows the API to be called per second (RPS).
 func (o AccountThrottleSettingsOutput) BurstLimit() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AccountThrottleSettings) *int { return v.BurstLimit }).(pulumi.IntPtrOutput)
@@ -120,50 +39,6 @@ func (o AccountThrottleSettingsOutput) BurstLimit() pulumi.IntPtrOutput {
 // The number of times API Gateway allows the API to be called per second on average (RPS).
 func (o AccountThrottleSettingsOutput) RateLimit() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v AccountThrottleSettings) *float64 { return v.RateLimit }).(pulumi.Float64PtrOutput)
-}
-
-type AccountThrottleSettingsPtrOutput struct{ *pulumi.OutputState }
-
-func (AccountThrottleSettingsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AccountThrottleSettings)(nil)).Elem()
-}
-
-func (o AccountThrottleSettingsPtrOutput) ToAccountThrottleSettingsPtrOutput() AccountThrottleSettingsPtrOutput {
-	return o
-}
-
-func (o AccountThrottleSettingsPtrOutput) ToAccountThrottleSettingsPtrOutputWithContext(ctx context.Context) AccountThrottleSettingsPtrOutput {
-	return o
-}
-
-func (o AccountThrottleSettingsPtrOutput) Elem() AccountThrottleSettingsOutput {
-	return o.ApplyT(func(v *AccountThrottleSettings) AccountThrottleSettings {
-		if v != nil {
-			return *v
-		}
-		var ret AccountThrottleSettings
-		return ret
-	}).(AccountThrottleSettingsOutput)
-}
-
-// The absolute maximum number of times API Gateway allows the API to be called per second (RPS).
-func (o AccountThrottleSettingsPtrOutput) BurstLimit() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *AccountThrottleSettings) *int {
-		if v == nil {
-			return nil
-		}
-		return v.BurstLimit
-	}).(pulumi.IntPtrOutput)
-}
-
-// The number of times API Gateway allows the API to be called per second on average (RPS).
-func (o AccountThrottleSettingsPtrOutput) RateLimit() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *AccountThrottleSettings) *float64 {
-		if v == nil {
-			return nil
-		}
-		return v.RateLimit
-	}).(pulumi.Float64PtrOutput)
 }
 
 type DocumentationPartLocation struct {
@@ -215,47 +90,6 @@ func (i DocumentationPartLocationArgs) ToDocumentationPartLocationOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(DocumentationPartLocationOutput)
 }
 
-func (i DocumentationPartLocationArgs) ToDocumentationPartLocationPtrOutput() DocumentationPartLocationPtrOutput {
-	return i.ToDocumentationPartLocationPtrOutputWithContext(context.Background())
-}
-
-func (i DocumentationPartLocationArgs) ToDocumentationPartLocationPtrOutputWithContext(ctx context.Context) DocumentationPartLocationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DocumentationPartLocationOutput).ToDocumentationPartLocationPtrOutputWithContext(ctx)
-}
-
-// DocumentationPartLocationPtrInput is an input type that accepts DocumentationPartLocationArgs, DocumentationPartLocationPtr and DocumentationPartLocationPtrOutput values.
-// You can construct a concrete instance of `DocumentationPartLocationPtrInput` via:
-//
-//          DocumentationPartLocationArgs{...}
-//
-//  or:
-//
-//          nil
-type DocumentationPartLocationPtrInput interface {
-	pulumi.Input
-
-	ToDocumentationPartLocationPtrOutput() DocumentationPartLocationPtrOutput
-	ToDocumentationPartLocationPtrOutputWithContext(context.Context) DocumentationPartLocationPtrOutput
-}
-
-type documentationPartLocationPtrType DocumentationPartLocationArgs
-
-func DocumentationPartLocationPtr(v *DocumentationPartLocationArgs) DocumentationPartLocationPtrInput {
-	return (*documentationPartLocationPtrType)(v)
-}
-
-func (*documentationPartLocationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DocumentationPartLocation)(nil)).Elem()
-}
-
-func (i *documentationPartLocationPtrType) ToDocumentationPartLocationPtrOutput() DocumentationPartLocationPtrOutput {
-	return i.ToDocumentationPartLocationPtrOutputWithContext(context.Background())
-}
-
-func (i *documentationPartLocationPtrType) ToDocumentationPartLocationPtrOutputWithContext(ctx context.Context) DocumentationPartLocationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DocumentationPartLocationPtrOutput)
-}
-
 type DocumentationPartLocationOutput struct{ *pulumi.OutputState }
 
 func (DocumentationPartLocationOutput) ElementType() reflect.Type {
@@ -268,16 +102,6 @@ func (o DocumentationPartLocationOutput) ToDocumentationPartLocationOutput() Doc
 
 func (o DocumentationPartLocationOutput) ToDocumentationPartLocationOutputWithContext(ctx context.Context) DocumentationPartLocationOutput {
 	return o
-}
-
-func (o DocumentationPartLocationOutput) ToDocumentationPartLocationPtrOutput() DocumentationPartLocationPtrOutput {
-	return o.ToDocumentationPartLocationPtrOutputWithContext(context.Background())
-}
-
-func (o DocumentationPartLocationOutput) ToDocumentationPartLocationPtrOutputWithContext(ctx context.Context) DocumentationPartLocationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DocumentationPartLocation) *DocumentationPartLocation {
-		return &v
-	}).(DocumentationPartLocationPtrOutput)
 }
 
 // The HTTP verb of a method. The default value is `*` for any method.
@@ -303,80 +127,6 @@ func (o DocumentationPartLocationOutput) StatusCode() pulumi.StringPtrOutput {
 // The type of API entity to which the documentation content appliesE.g., `API`, `METHOD` or `REQUEST_BODY`
 func (o DocumentationPartLocationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v DocumentationPartLocation) string { return v.Type }).(pulumi.StringOutput)
-}
-
-type DocumentationPartLocationPtrOutput struct{ *pulumi.OutputState }
-
-func (DocumentationPartLocationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DocumentationPartLocation)(nil)).Elem()
-}
-
-func (o DocumentationPartLocationPtrOutput) ToDocumentationPartLocationPtrOutput() DocumentationPartLocationPtrOutput {
-	return o
-}
-
-func (o DocumentationPartLocationPtrOutput) ToDocumentationPartLocationPtrOutputWithContext(ctx context.Context) DocumentationPartLocationPtrOutput {
-	return o
-}
-
-func (o DocumentationPartLocationPtrOutput) Elem() DocumentationPartLocationOutput {
-	return o.ApplyT(func(v *DocumentationPartLocation) DocumentationPartLocation {
-		if v != nil {
-			return *v
-		}
-		var ret DocumentationPartLocation
-		return ret
-	}).(DocumentationPartLocationOutput)
-}
-
-// The HTTP verb of a method. The default value is `*` for any method.
-func (o DocumentationPartLocationPtrOutput) Method() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DocumentationPartLocation) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Method
-	}).(pulumi.StringPtrOutput)
-}
-
-// The name of the targeted API entity.
-func (o DocumentationPartLocationPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DocumentationPartLocation) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// The URL path of the target. The default value is `/` for the root resource.
-func (o DocumentationPartLocationPtrOutput) Path() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DocumentationPartLocation) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Path
-	}).(pulumi.StringPtrOutput)
-}
-
-// The HTTP status code of a response. The default value is `*` for any status code.
-func (o DocumentationPartLocationPtrOutput) StatusCode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DocumentationPartLocation) *string {
-		if v == nil {
-			return nil
-		}
-		return v.StatusCode
-	}).(pulumi.StringPtrOutput)
-}
-
-// The type of API entity to which the documentation content appliesE.g., `API`, `METHOD` or `REQUEST_BODY`
-func (o DocumentationPartLocationPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DocumentationPartLocation) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Type
-	}).(pulumi.StringPtrOutput)
 }
 
 type DomainNameEndpointConfiguration struct {
@@ -882,47 +632,6 @@ func (i MethodSettingsSettingsArgs) ToMethodSettingsSettingsOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(MethodSettingsSettingsOutput)
 }
 
-func (i MethodSettingsSettingsArgs) ToMethodSettingsSettingsPtrOutput() MethodSettingsSettingsPtrOutput {
-	return i.ToMethodSettingsSettingsPtrOutputWithContext(context.Background())
-}
-
-func (i MethodSettingsSettingsArgs) ToMethodSettingsSettingsPtrOutputWithContext(ctx context.Context) MethodSettingsSettingsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MethodSettingsSettingsOutput).ToMethodSettingsSettingsPtrOutputWithContext(ctx)
-}
-
-// MethodSettingsSettingsPtrInput is an input type that accepts MethodSettingsSettingsArgs, MethodSettingsSettingsPtr and MethodSettingsSettingsPtrOutput values.
-// You can construct a concrete instance of `MethodSettingsSettingsPtrInput` via:
-//
-//          MethodSettingsSettingsArgs{...}
-//
-//  or:
-//
-//          nil
-type MethodSettingsSettingsPtrInput interface {
-	pulumi.Input
-
-	ToMethodSettingsSettingsPtrOutput() MethodSettingsSettingsPtrOutput
-	ToMethodSettingsSettingsPtrOutputWithContext(context.Context) MethodSettingsSettingsPtrOutput
-}
-
-type methodSettingsSettingsPtrType MethodSettingsSettingsArgs
-
-func MethodSettingsSettingsPtr(v *MethodSettingsSettingsArgs) MethodSettingsSettingsPtrInput {
-	return (*methodSettingsSettingsPtrType)(v)
-}
-
-func (*methodSettingsSettingsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**MethodSettingsSettings)(nil)).Elem()
-}
-
-func (i *methodSettingsSettingsPtrType) ToMethodSettingsSettingsPtrOutput() MethodSettingsSettingsPtrOutput {
-	return i.ToMethodSettingsSettingsPtrOutputWithContext(context.Background())
-}
-
-func (i *methodSettingsSettingsPtrType) ToMethodSettingsSettingsPtrOutputWithContext(ctx context.Context) MethodSettingsSettingsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MethodSettingsSettingsPtrOutput)
-}
-
 type MethodSettingsSettingsOutput struct{ *pulumi.OutputState }
 
 func (MethodSettingsSettingsOutput) ElementType() reflect.Type {
@@ -935,16 +644,6 @@ func (o MethodSettingsSettingsOutput) ToMethodSettingsSettingsOutput() MethodSet
 
 func (o MethodSettingsSettingsOutput) ToMethodSettingsSettingsOutputWithContext(ctx context.Context) MethodSettingsSettingsOutput {
 	return o
-}
-
-func (o MethodSettingsSettingsOutput) ToMethodSettingsSettingsPtrOutput() MethodSettingsSettingsPtrOutput {
-	return o.ToMethodSettingsSettingsPtrOutputWithContext(context.Background())
-}
-
-func (o MethodSettingsSettingsOutput) ToMethodSettingsSettingsPtrOutputWithContext(ctx context.Context) MethodSettingsSettingsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MethodSettingsSettings) *MethodSettingsSettings {
-		return &v
-	}).(MethodSettingsSettingsPtrOutput)
 }
 
 // Specifies whether the cached responses are encrypted.
@@ -995,130 +694,6 @@ func (o MethodSettingsSettingsOutput) ThrottlingRateLimit() pulumi.Float64PtrOut
 // Specifies how to handle unauthorized requests for cache invalidation. The available values are `FAIL_WITH_403`, `SUCCEED_WITH_RESPONSE_HEADER`, `SUCCEED_WITHOUT_RESPONSE_HEADER`.
 func (o MethodSettingsSettingsOutput) UnauthorizedCacheControlHeaderStrategy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MethodSettingsSettings) *string { return v.UnauthorizedCacheControlHeaderStrategy }).(pulumi.StringPtrOutput)
-}
-
-type MethodSettingsSettingsPtrOutput struct{ *pulumi.OutputState }
-
-func (MethodSettingsSettingsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**MethodSettingsSettings)(nil)).Elem()
-}
-
-func (o MethodSettingsSettingsPtrOutput) ToMethodSettingsSettingsPtrOutput() MethodSettingsSettingsPtrOutput {
-	return o
-}
-
-func (o MethodSettingsSettingsPtrOutput) ToMethodSettingsSettingsPtrOutputWithContext(ctx context.Context) MethodSettingsSettingsPtrOutput {
-	return o
-}
-
-func (o MethodSettingsSettingsPtrOutput) Elem() MethodSettingsSettingsOutput {
-	return o.ApplyT(func(v *MethodSettingsSettings) MethodSettingsSettings {
-		if v != nil {
-			return *v
-		}
-		var ret MethodSettingsSettings
-		return ret
-	}).(MethodSettingsSettingsOutput)
-}
-
-// Specifies whether the cached responses are encrypted.
-func (o MethodSettingsSettingsPtrOutput) CacheDataEncrypted() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *MethodSettingsSettings) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.CacheDataEncrypted
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Specifies the time to live (TTL), in seconds, for cached responses. The higher the TTL, the longer the response will be cached.
-func (o MethodSettingsSettingsPtrOutput) CacheTtlInSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *MethodSettingsSettings) *int {
-		if v == nil {
-			return nil
-		}
-		return v.CacheTtlInSeconds
-	}).(pulumi.IntPtrOutput)
-}
-
-// Specifies whether responses should be cached and returned for requests. A cache cluster must be enabled on the stage for responses to be cached.
-func (o MethodSettingsSettingsPtrOutput) CachingEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *MethodSettingsSettings) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.CachingEnabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Specifies whether data trace logging is enabled for this method, which effects the log entries pushed to Amazon CloudWatch Logs.
-func (o MethodSettingsSettingsPtrOutput) DataTraceEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *MethodSettingsSettings) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.DataTraceEnabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Specifies the logging level for this method, which effects the log entries pushed to Amazon CloudWatch Logs. The available levels are `OFF`, `ERROR`, and `INFO`.
-func (o MethodSettingsSettingsPtrOutput) LoggingLevel() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MethodSettingsSettings) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LoggingLevel
-	}).(pulumi.StringPtrOutput)
-}
-
-// Specifies whether Amazon CloudWatch metrics are enabled for this method.
-func (o MethodSettingsSettingsPtrOutput) MetricsEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *MethodSettingsSettings) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.MetricsEnabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Specifies whether authorization is required for a cache invalidation request.
-func (o MethodSettingsSettingsPtrOutput) RequireAuthorizationForCacheControl() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *MethodSettingsSettings) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.RequireAuthorizationForCacheControl
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Specifies the throttling burst limit. Default: `-1` (throttling disabled).
-func (o MethodSettingsSettingsPtrOutput) ThrottlingBurstLimit() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *MethodSettingsSettings) *int {
-		if v == nil {
-			return nil
-		}
-		return v.ThrottlingBurstLimit
-	}).(pulumi.IntPtrOutput)
-}
-
-// Specifies the throttling rate limit. Default: `-1` (throttling disabled).
-func (o MethodSettingsSettingsPtrOutput) ThrottlingRateLimit() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *MethodSettingsSettings) *float64 {
-		if v == nil {
-			return nil
-		}
-		return v.ThrottlingRateLimit
-	}).(pulumi.Float64PtrOutput)
-}
-
-// Specifies how to handle unauthorized requests for cache invalidation. The available values are `FAIL_WITH_403`, `SUCCEED_WITH_RESPONSE_HEADER`, `SUCCEED_WITHOUT_RESPONSE_HEADER`.
-func (o MethodSettingsSettingsPtrOutput) UnauthorizedCacheControlHeaderStrategy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *MethodSettingsSettings) *string {
-		if v == nil {
-			return nil
-		}
-		return v.UnauthorizedCacheControlHeaderStrategy
-	}).(pulumi.StringPtrOutput)
 }
 
 type RestApiEndpointConfiguration struct {
@@ -2003,59 +1578,6 @@ type GetDomainNameEndpointConfiguration struct {
 	Types []string `pulumi:"types"`
 }
 
-// GetDomainNameEndpointConfigurationInput is an input type that accepts GetDomainNameEndpointConfigurationArgs and GetDomainNameEndpointConfigurationOutput values.
-// You can construct a concrete instance of `GetDomainNameEndpointConfigurationInput` via:
-//
-//          GetDomainNameEndpointConfigurationArgs{...}
-type GetDomainNameEndpointConfigurationInput interface {
-	pulumi.Input
-
-	ToGetDomainNameEndpointConfigurationOutput() GetDomainNameEndpointConfigurationOutput
-	ToGetDomainNameEndpointConfigurationOutputWithContext(context.Context) GetDomainNameEndpointConfigurationOutput
-}
-
-type GetDomainNameEndpointConfigurationArgs struct {
-	// List of endpoint types.
-	Types pulumi.StringArrayInput `pulumi:"types"`
-}
-
-func (GetDomainNameEndpointConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetDomainNameEndpointConfiguration)(nil)).Elem()
-}
-
-func (i GetDomainNameEndpointConfigurationArgs) ToGetDomainNameEndpointConfigurationOutput() GetDomainNameEndpointConfigurationOutput {
-	return i.ToGetDomainNameEndpointConfigurationOutputWithContext(context.Background())
-}
-
-func (i GetDomainNameEndpointConfigurationArgs) ToGetDomainNameEndpointConfigurationOutputWithContext(ctx context.Context) GetDomainNameEndpointConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDomainNameEndpointConfigurationOutput)
-}
-
-// GetDomainNameEndpointConfigurationArrayInput is an input type that accepts GetDomainNameEndpointConfigurationArray and GetDomainNameEndpointConfigurationArrayOutput values.
-// You can construct a concrete instance of `GetDomainNameEndpointConfigurationArrayInput` via:
-//
-//          GetDomainNameEndpointConfigurationArray{ GetDomainNameEndpointConfigurationArgs{...} }
-type GetDomainNameEndpointConfigurationArrayInput interface {
-	pulumi.Input
-
-	ToGetDomainNameEndpointConfigurationArrayOutput() GetDomainNameEndpointConfigurationArrayOutput
-	ToGetDomainNameEndpointConfigurationArrayOutputWithContext(context.Context) GetDomainNameEndpointConfigurationArrayOutput
-}
-
-type GetDomainNameEndpointConfigurationArray []GetDomainNameEndpointConfigurationInput
-
-func (GetDomainNameEndpointConfigurationArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetDomainNameEndpointConfiguration)(nil)).Elem()
-}
-
-func (i GetDomainNameEndpointConfigurationArray) ToGetDomainNameEndpointConfigurationArrayOutput() GetDomainNameEndpointConfigurationArrayOutput {
-	return i.ToGetDomainNameEndpointConfigurationArrayOutputWithContext(context.Background())
-}
-
-func (i GetDomainNameEndpointConfigurationArray) ToGetDomainNameEndpointConfigurationArrayOutputWithContext(ctx context.Context) GetDomainNameEndpointConfigurationArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDomainNameEndpointConfigurationArrayOutput)
-}
-
 type GetDomainNameEndpointConfigurationOutput struct{ *pulumi.OutputState }
 
 func (GetDomainNameEndpointConfigurationOutput) ElementType() reflect.Type {
@@ -2098,59 +1620,6 @@ func (o GetDomainNameEndpointConfigurationArrayOutput) Index(i pulumi.IntInput) 
 type GetRestApiEndpointConfiguration struct {
 	Types          []string `pulumi:"types"`
 	VpcEndpointIds []string `pulumi:"vpcEndpointIds"`
-}
-
-// GetRestApiEndpointConfigurationInput is an input type that accepts GetRestApiEndpointConfigurationArgs and GetRestApiEndpointConfigurationOutput values.
-// You can construct a concrete instance of `GetRestApiEndpointConfigurationInput` via:
-//
-//          GetRestApiEndpointConfigurationArgs{...}
-type GetRestApiEndpointConfigurationInput interface {
-	pulumi.Input
-
-	ToGetRestApiEndpointConfigurationOutput() GetRestApiEndpointConfigurationOutput
-	ToGetRestApiEndpointConfigurationOutputWithContext(context.Context) GetRestApiEndpointConfigurationOutput
-}
-
-type GetRestApiEndpointConfigurationArgs struct {
-	Types          pulumi.StringArrayInput `pulumi:"types"`
-	VpcEndpointIds pulumi.StringArrayInput `pulumi:"vpcEndpointIds"`
-}
-
-func (GetRestApiEndpointConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetRestApiEndpointConfiguration)(nil)).Elem()
-}
-
-func (i GetRestApiEndpointConfigurationArgs) ToGetRestApiEndpointConfigurationOutput() GetRestApiEndpointConfigurationOutput {
-	return i.ToGetRestApiEndpointConfigurationOutputWithContext(context.Background())
-}
-
-func (i GetRestApiEndpointConfigurationArgs) ToGetRestApiEndpointConfigurationOutputWithContext(ctx context.Context) GetRestApiEndpointConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetRestApiEndpointConfigurationOutput)
-}
-
-// GetRestApiEndpointConfigurationArrayInput is an input type that accepts GetRestApiEndpointConfigurationArray and GetRestApiEndpointConfigurationArrayOutput values.
-// You can construct a concrete instance of `GetRestApiEndpointConfigurationArrayInput` via:
-//
-//          GetRestApiEndpointConfigurationArray{ GetRestApiEndpointConfigurationArgs{...} }
-type GetRestApiEndpointConfigurationArrayInput interface {
-	pulumi.Input
-
-	ToGetRestApiEndpointConfigurationArrayOutput() GetRestApiEndpointConfigurationArrayOutput
-	ToGetRestApiEndpointConfigurationArrayOutputWithContext(context.Context) GetRestApiEndpointConfigurationArrayOutput
-}
-
-type GetRestApiEndpointConfigurationArray []GetRestApiEndpointConfigurationInput
-
-func (GetRestApiEndpointConfigurationArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetRestApiEndpointConfiguration)(nil)).Elem()
-}
-
-func (i GetRestApiEndpointConfigurationArray) ToGetRestApiEndpointConfigurationArrayOutput() GetRestApiEndpointConfigurationArrayOutput {
-	return i.ToGetRestApiEndpointConfigurationArrayOutputWithContext(context.Background())
-}
-
-func (i GetRestApiEndpointConfigurationArray) ToGetRestApiEndpointConfigurationArrayOutputWithContext(ctx context.Context) GetRestApiEndpointConfigurationArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetRestApiEndpointConfigurationArrayOutput)
 }
 
 type GetRestApiEndpointConfigurationOutput struct{ *pulumi.OutputState }
@@ -2196,10 +1665,7 @@ func (o GetRestApiEndpointConfigurationArrayOutput) Index(i pulumi.IntInput) Get
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*AccountThrottleSettingsInput)(nil)).Elem(), AccountThrottleSettingsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AccountThrottleSettingsPtrInput)(nil)).Elem(), AccountThrottleSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DocumentationPartLocationInput)(nil)).Elem(), DocumentationPartLocationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DocumentationPartLocationPtrInput)(nil)).Elem(), DocumentationPartLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainNameEndpointConfigurationInput)(nil)).Elem(), DomainNameEndpointConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainNameEndpointConfigurationPtrInput)(nil)).Elem(), DomainNameEndpointConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainNameMutualTlsAuthenticationInput)(nil)).Elem(), DomainNameMutualTlsAuthenticationArgs{})
@@ -2207,7 +1673,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationTlsConfigInput)(nil)).Elem(), IntegrationTlsConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationTlsConfigPtrInput)(nil)).Elem(), IntegrationTlsConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MethodSettingsSettingsInput)(nil)).Elem(), MethodSettingsSettingsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MethodSettingsSettingsPtrInput)(nil)).Elem(), MethodSettingsSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RestApiEndpointConfigurationInput)(nil)).Elem(), RestApiEndpointConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RestApiEndpointConfigurationPtrInput)(nil)).Elem(), RestApiEndpointConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StageAccessLogSettingsInput)(nil)).Elem(), StageAccessLogSettingsArgs{})
@@ -2220,14 +1685,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UsagePlanQuotaSettingsPtrInput)(nil)).Elem(), UsagePlanQuotaSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UsagePlanThrottleSettingsInput)(nil)).Elem(), UsagePlanThrottleSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UsagePlanThrottleSettingsPtrInput)(nil)).Elem(), UsagePlanThrottleSettingsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainNameEndpointConfigurationInput)(nil)).Elem(), GetDomainNameEndpointConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainNameEndpointConfigurationArrayInput)(nil)).Elem(), GetDomainNameEndpointConfigurationArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetRestApiEndpointConfigurationInput)(nil)).Elem(), GetRestApiEndpointConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetRestApiEndpointConfigurationArrayInput)(nil)).Elem(), GetRestApiEndpointConfigurationArray{})
 	pulumi.RegisterOutputType(AccountThrottleSettingsOutput{})
-	pulumi.RegisterOutputType(AccountThrottleSettingsPtrOutput{})
 	pulumi.RegisterOutputType(DocumentationPartLocationOutput{})
-	pulumi.RegisterOutputType(DocumentationPartLocationPtrOutput{})
 	pulumi.RegisterOutputType(DomainNameEndpointConfigurationOutput{})
 	pulumi.RegisterOutputType(DomainNameEndpointConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DomainNameMutualTlsAuthenticationOutput{})
@@ -2235,7 +1694,6 @@ func init() {
 	pulumi.RegisterOutputType(IntegrationTlsConfigOutput{})
 	pulumi.RegisterOutputType(IntegrationTlsConfigPtrOutput{})
 	pulumi.RegisterOutputType(MethodSettingsSettingsOutput{})
-	pulumi.RegisterOutputType(MethodSettingsSettingsPtrOutput{})
 	pulumi.RegisterOutputType(RestApiEndpointConfigurationOutput{})
 	pulumi.RegisterOutputType(RestApiEndpointConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(StageAccessLogSettingsOutput{})

@@ -326,7 +326,7 @@ type NfsFileShareInput interface {
 }
 
 func (*NfsFileShare) ElementType() reflect.Type {
-	return reflect.TypeOf((*NfsFileShare)(nil))
+	return reflect.TypeOf((**NfsFileShare)(nil)).Elem()
 }
 
 func (i *NfsFileShare) ToNfsFileShareOutput() NfsFileShareOutput {
@@ -335,35 +335,6 @@ func (i *NfsFileShare) ToNfsFileShareOutput() NfsFileShareOutput {
 
 func (i *NfsFileShare) ToNfsFileShareOutputWithContext(ctx context.Context) NfsFileShareOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NfsFileShareOutput)
-}
-
-func (i *NfsFileShare) ToNfsFileSharePtrOutput() NfsFileSharePtrOutput {
-	return i.ToNfsFileSharePtrOutputWithContext(context.Background())
-}
-
-func (i *NfsFileShare) ToNfsFileSharePtrOutputWithContext(ctx context.Context) NfsFileSharePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NfsFileSharePtrOutput)
-}
-
-type NfsFileSharePtrInput interface {
-	pulumi.Input
-
-	ToNfsFileSharePtrOutput() NfsFileSharePtrOutput
-	ToNfsFileSharePtrOutputWithContext(ctx context.Context) NfsFileSharePtrOutput
-}
-
-type nfsFileSharePtrType NfsFileShareArgs
-
-func (*nfsFileSharePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**NfsFileShare)(nil))
-}
-
-func (i *nfsFileSharePtrType) ToNfsFileSharePtrOutput() NfsFileSharePtrOutput {
-	return i.ToNfsFileSharePtrOutputWithContext(context.Background())
-}
-
-func (i *nfsFileSharePtrType) ToNfsFileSharePtrOutputWithContext(ctx context.Context) NfsFileSharePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NfsFileSharePtrOutput)
 }
 
 // NfsFileShareArrayInput is an input type that accepts NfsFileShareArray and NfsFileShareArrayOutput values.
@@ -419,7 +390,7 @@ func (i NfsFileShareMap) ToNfsFileShareMapOutputWithContext(ctx context.Context)
 type NfsFileShareOutput struct{ *pulumi.OutputState }
 
 func (NfsFileShareOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NfsFileShare)(nil))
+	return reflect.TypeOf((**NfsFileShare)(nil)).Elem()
 }
 
 func (o NfsFileShareOutput) ToNfsFileShareOutput() NfsFileShareOutput {
@@ -430,44 +401,10 @@ func (o NfsFileShareOutput) ToNfsFileShareOutputWithContext(ctx context.Context)
 	return o
 }
 
-func (o NfsFileShareOutput) ToNfsFileSharePtrOutput() NfsFileSharePtrOutput {
-	return o.ToNfsFileSharePtrOutputWithContext(context.Background())
-}
-
-func (o NfsFileShareOutput) ToNfsFileSharePtrOutputWithContext(ctx context.Context) NfsFileSharePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v NfsFileShare) *NfsFileShare {
-		return &v
-	}).(NfsFileSharePtrOutput)
-}
-
-type NfsFileSharePtrOutput struct{ *pulumi.OutputState }
-
-func (NfsFileSharePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**NfsFileShare)(nil))
-}
-
-func (o NfsFileSharePtrOutput) ToNfsFileSharePtrOutput() NfsFileSharePtrOutput {
-	return o
-}
-
-func (o NfsFileSharePtrOutput) ToNfsFileSharePtrOutputWithContext(ctx context.Context) NfsFileSharePtrOutput {
-	return o
-}
-
-func (o NfsFileSharePtrOutput) Elem() NfsFileShareOutput {
-	return o.ApplyT(func(v *NfsFileShare) NfsFileShare {
-		if v != nil {
-			return *v
-		}
-		var ret NfsFileShare
-		return ret
-	}).(NfsFileShareOutput)
-}
-
 type NfsFileShareArrayOutput struct{ *pulumi.OutputState }
 
 func (NfsFileShareArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]NfsFileShare)(nil))
+	return reflect.TypeOf((*[]*NfsFileShare)(nil)).Elem()
 }
 
 func (o NfsFileShareArrayOutput) ToNfsFileShareArrayOutput() NfsFileShareArrayOutput {
@@ -479,15 +416,15 @@ func (o NfsFileShareArrayOutput) ToNfsFileShareArrayOutputWithContext(ctx contex
 }
 
 func (o NfsFileShareArrayOutput) Index(i pulumi.IntInput) NfsFileShareOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NfsFileShare {
-		return vs[0].([]NfsFileShare)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NfsFileShare {
+		return vs[0].([]*NfsFileShare)[vs[1].(int)]
 	}).(NfsFileShareOutput)
 }
 
 type NfsFileShareMapOutput struct{ *pulumi.OutputState }
 
 func (NfsFileShareMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]NfsFileShare)(nil))
+	return reflect.TypeOf((*map[string]*NfsFileShare)(nil)).Elem()
 }
 
 func (o NfsFileShareMapOutput) ToNfsFileShareMapOutput() NfsFileShareMapOutput {
@@ -499,18 +436,16 @@ func (o NfsFileShareMapOutput) ToNfsFileShareMapOutputWithContext(ctx context.Co
 }
 
 func (o NfsFileShareMapOutput) MapIndex(k pulumi.StringInput) NfsFileShareOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) NfsFileShare {
-		return vs[0].(map[string]NfsFileShare)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *NfsFileShare {
+		return vs[0].(map[string]*NfsFileShare)[vs[1].(string)]
 	}).(NfsFileShareOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NfsFileShareInput)(nil)).Elem(), &NfsFileShare{})
-	pulumi.RegisterInputType(reflect.TypeOf((*NfsFileSharePtrInput)(nil)).Elem(), &NfsFileShare{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NfsFileShareArrayInput)(nil)).Elem(), NfsFileShareArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NfsFileShareMapInput)(nil)).Elem(), NfsFileShareMap{})
 	pulumi.RegisterOutputType(NfsFileShareOutput{})
-	pulumi.RegisterOutputType(NfsFileSharePtrOutput{})
 	pulumi.RegisterOutputType(NfsFileShareArrayOutput{})
 	pulumi.RegisterOutputType(NfsFileShareMapOutput{})
 }

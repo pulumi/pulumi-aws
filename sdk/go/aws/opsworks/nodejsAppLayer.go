@@ -307,7 +307,7 @@ type NodejsAppLayerInput interface {
 }
 
 func (*NodejsAppLayer) ElementType() reflect.Type {
-	return reflect.TypeOf((*NodejsAppLayer)(nil))
+	return reflect.TypeOf((**NodejsAppLayer)(nil)).Elem()
 }
 
 func (i *NodejsAppLayer) ToNodejsAppLayerOutput() NodejsAppLayerOutput {
@@ -316,35 +316,6 @@ func (i *NodejsAppLayer) ToNodejsAppLayerOutput() NodejsAppLayerOutput {
 
 func (i *NodejsAppLayer) ToNodejsAppLayerOutputWithContext(ctx context.Context) NodejsAppLayerOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(NodejsAppLayerOutput)
-}
-
-func (i *NodejsAppLayer) ToNodejsAppLayerPtrOutput() NodejsAppLayerPtrOutput {
-	return i.ToNodejsAppLayerPtrOutputWithContext(context.Background())
-}
-
-func (i *NodejsAppLayer) ToNodejsAppLayerPtrOutputWithContext(ctx context.Context) NodejsAppLayerPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NodejsAppLayerPtrOutput)
-}
-
-type NodejsAppLayerPtrInput interface {
-	pulumi.Input
-
-	ToNodejsAppLayerPtrOutput() NodejsAppLayerPtrOutput
-	ToNodejsAppLayerPtrOutputWithContext(ctx context.Context) NodejsAppLayerPtrOutput
-}
-
-type nodejsAppLayerPtrType NodejsAppLayerArgs
-
-func (*nodejsAppLayerPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**NodejsAppLayer)(nil))
-}
-
-func (i *nodejsAppLayerPtrType) ToNodejsAppLayerPtrOutput() NodejsAppLayerPtrOutput {
-	return i.ToNodejsAppLayerPtrOutputWithContext(context.Background())
-}
-
-func (i *nodejsAppLayerPtrType) ToNodejsAppLayerPtrOutputWithContext(ctx context.Context) NodejsAppLayerPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(NodejsAppLayerPtrOutput)
 }
 
 // NodejsAppLayerArrayInput is an input type that accepts NodejsAppLayerArray and NodejsAppLayerArrayOutput values.
@@ -400,7 +371,7 @@ func (i NodejsAppLayerMap) ToNodejsAppLayerMapOutputWithContext(ctx context.Cont
 type NodejsAppLayerOutput struct{ *pulumi.OutputState }
 
 func (NodejsAppLayerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*NodejsAppLayer)(nil))
+	return reflect.TypeOf((**NodejsAppLayer)(nil)).Elem()
 }
 
 func (o NodejsAppLayerOutput) ToNodejsAppLayerOutput() NodejsAppLayerOutput {
@@ -411,44 +382,10 @@ func (o NodejsAppLayerOutput) ToNodejsAppLayerOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o NodejsAppLayerOutput) ToNodejsAppLayerPtrOutput() NodejsAppLayerPtrOutput {
-	return o.ToNodejsAppLayerPtrOutputWithContext(context.Background())
-}
-
-func (o NodejsAppLayerOutput) ToNodejsAppLayerPtrOutputWithContext(ctx context.Context) NodejsAppLayerPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v NodejsAppLayer) *NodejsAppLayer {
-		return &v
-	}).(NodejsAppLayerPtrOutput)
-}
-
-type NodejsAppLayerPtrOutput struct{ *pulumi.OutputState }
-
-func (NodejsAppLayerPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**NodejsAppLayer)(nil))
-}
-
-func (o NodejsAppLayerPtrOutput) ToNodejsAppLayerPtrOutput() NodejsAppLayerPtrOutput {
-	return o
-}
-
-func (o NodejsAppLayerPtrOutput) ToNodejsAppLayerPtrOutputWithContext(ctx context.Context) NodejsAppLayerPtrOutput {
-	return o
-}
-
-func (o NodejsAppLayerPtrOutput) Elem() NodejsAppLayerOutput {
-	return o.ApplyT(func(v *NodejsAppLayer) NodejsAppLayer {
-		if v != nil {
-			return *v
-		}
-		var ret NodejsAppLayer
-		return ret
-	}).(NodejsAppLayerOutput)
-}
-
 type NodejsAppLayerArrayOutput struct{ *pulumi.OutputState }
 
 func (NodejsAppLayerArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]NodejsAppLayer)(nil))
+	return reflect.TypeOf((*[]*NodejsAppLayer)(nil)).Elem()
 }
 
 func (o NodejsAppLayerArrayOutput) ToNodejsAppLayerArrayOutput() NodejsAppLayerArrayOutput {
@@ -460,15 +397,15 @@ func (o NodejsAppLayerArrayOutput) ToNodejsAppLayerArrayOutputWithContext(ctx co
 }
 
 func (o NodejsAppLayerArrayOutput) Index(i pulumi.IntInput) NodejsAppLayerOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NodejsAppLayer {
-		return vs[0].([]NodejsAppLayer)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *NodejsAppLayer {
+		return vs[0].([]*NodejsAppLayer)[vs[1].(int)]
 	}).(NodejsAppLayerOutput)
 }
 
 type NodejsAppLayerMapOutput struct{ *pulumi.OutputState }
 
 func (NodejsAppLayerMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]NodejsAppLayer)(nil))
+	return reflect.TypeOf((*map[string]*NodejsAppLayer)(nil)).Elem()
 }
 
 func (o NodejsAppLayerMapOutput) ToNodejsAppLayerMapOutput() NodejsAppLayerMapOutput {
@@ -480,18 +417,16 @@ func (o NodejsAppLayerMapOutput) ToNodejsAppLayerMapOutputWithContext(ctx contex
 }
 
 func (o NodejsAppLayerMapOutput) MapIndex(k pulumi.StringInput) NodejsAppLayerOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) NodejsAppLayer {
-		return vs[0].(map[string]NodejsAppLayer)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *NodejsAppLayer {
+		return vs[0].(map[string]*NodejsAppLayer)[vs[1].(string)]
 	}).(NodejsAppLayerOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NodejsAppLayerInput)(nil)).Elem(), &NodejsAppLayer{})
-	pulumi.RegisterInputType(reflect.TypeOf((*NodejsAppLayerPtrInput)(nil)).Elem(), &NodejsAppLayer{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NodejsAppLayerArrayInput)(nil)).Elem(), NodejsAppLayerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NodejsAppLayerMapInput)(nil)).Elem(), NodejsAppLayerMap{})
 	pulumi.RegisterOutputType(NodejsAppLayerOutput{})
-	pulumi.RegisterOutputType(NodejsAppLayerPtrOutput{})
 	pulumi.RegisterOutputType(NodejsAppLayerArrayOutput{})
 	pulumi.RegisterOutputType(NodejsAppLayerMapOutput{})
 }

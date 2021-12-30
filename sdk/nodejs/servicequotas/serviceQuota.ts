@@ -102,20 +102,20 @@ export class ServiceQuota extends pulumi.CustomResource {
      */
     constructor(name: string, args: ServiceQuotaArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ServiceQuotaArgs | ServiceQuotaState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServiceQuotaState | undefined;
-            inputs["adjustable"] = state ? state.adjustable : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["defaultValue"] = state ? state.defaultValue : undefined;
-            inputs["quotaCode"] = state ? state.quotaCode : undefined;
-            inputs["quotaName"] = state ? state.quotaName : undefined;
-            inputs["requestId"] = state ? state.requestId : undefined;
-            inputs["requestStatus"] = state ? state.requestStatus : undefined;
-            inputs["serviceCode"] = state ? state.serviceCode : undefined;
-            inputs["serviceName"] = state ? state.serviceName : undefined;
-            inputs["value"] = state ? state.value : undefined;
+            resourceInputs["adjustable"] = state ? state.adjustable : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["defaultValue"] = state ? state.defaultValue : undefined;
+            resourceInputs["quotaCode"] = state ? state.quotaCode : undefined;
+            resourceInputs["quotaName"] = state ? state.quotaName : undefined;
+            resourceInputs["requestId"] = state ? state.requestId : undefined;
+            resourceInputs["requestStatus"] = state ? state.requestStatus : undefined;
+            resourceInputs["serviceCode"] = state ? state.serviceCode : undefined;
+            resourceInputs["serviceName"] = state ? state.serviceName : undefined;
+            resourceInputs["value"] = state ? state.value : undefined;
         } else {
             const args = argsOrState as ServiceQuotaArgs | undefined;
             if ((!args || args.quotaCode === undefined) && !opts.urn) {
@@ -127,21 +127,21 @@ export class ServiceQuota extends pulumi.CustomResource {
             if ((!args || args.value === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'value'");
             }
-            inputs["quotaCode"] = args ? args.quotaCode : undefined;
-            inputs["serviceCode"] = args ? args.serviceCode : undefined;
-            inputs["value"] = args ? args.value : undefined;
-            inputs["adjustable"] = undefined /*out*/;
-            inputs["arn"] = undefined /*out*/;
-            inputs["defaultValue"] = undefined /*out*/;
-            inputs["quotaName"] = undefined /*out*/;
-            inputs["requestId"] = undefined /*out*/;
-            inputs["requestStatus"] = undefined /*out*/;
-            inputs["serviceName"] = undefined /*out*/;
+            resourceInputs["quotaCode"] = args ? args.quotaCode : undefined;
+            resourceInputs["serviceCode"] = args ? args.serviceCode : undefined;
+            resourceInputs["value"] = args ? args.value : undefined;
+            resourceInputs["adjustable"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["defaultValue"] = undefined /*out*/;
+            resourceInputs["quotaName"] = undefined /*out*/;
+            resourceInputs["requestId"] = undefined /*out*/;
+            resourceInputs["requestStatus"] = undefined /*out*/;
+            resourceInputs["serviceName"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(ServiceQuota.__pulumiType, name, inputs, opts);
+        super(ServiceQuota.__pulumiType, name, resourceInputs, opts);
     }
 }
 

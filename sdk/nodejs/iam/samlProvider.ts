@@ -87,32 +87,32 @@ export class SamlProvider extends pulumi.CustomResource {
      */
     constructor(name: string, args: SamlProviderArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SamlProviderArgs | SamlProviderState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SamlProviderState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["samlMetadataDocument"] = state ? state.samlMetadataDocument : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["validUntil"] = state ? state.validUntil : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["samlMetadataDocument"] = state ? state.samlMetadataDocument : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["validUntil"] = state ? state.validUntil : undefined;
         } else {
             const args = argsOrState as SamlProviderArgs | undefined;
             if ((!args || args.samlMetadataDocument === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'samlMetadataDocument'");
             }
-            inputs["name"] = args ? args.name : undefined;
-            inputs["samlMetadataDocument"] = args ? args.samlMetadataDocument : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
-            inputs["validUntil"] = undefined /*out*/;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["samlMetadataDocument"] = args ? args.samlMetadataDocument : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["validUntil"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(SamlProvider.__pulumiType, name, inputs, opts);
+        super(SamlProvider.__pulumiType, name, resourceInputs, opts);
     }
 }
 

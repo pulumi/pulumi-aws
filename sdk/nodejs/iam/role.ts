@@ -262,50 +262,50 @@ export class Role extends pulumi.CustomResource {
      */
     constructor(name: string, args: RoleArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RoleArgs | RoleState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RoleState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["assumeRolePolicy"] = state ? state.assumeRolePolicy : undefined;
-            inputs["createDate"] = state ? state.createDate : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["forceDetachPolicies"] = state ? state.forceDetachPolicies : undefined;
-            inputs["inlinePolicies"] = state ? state.inlinePolicies : undefined;
-            inputs["managedPolicyArns"] = state ? state.managedPolicyArns : undefined;
-            inputs["maxSessionDuration"] = state ? state.maxSessionDuration : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["namePrefix"] = state ? state.namePrefix : undefined;
-            inputs["path"] = state ? state.path : undefined;
-            inputs["permissionsBoundary"] = state ? state.permissionsBoundary : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["uniqueId"] = state ? state.uniqueId : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["assumeRolePolicy"] = state ? state.assumeRolePolicy : undefined;
+            resourceInputs["createDate"] = state ? state.createDate : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["forceDetachPolicies"] = state ? state.forceDetachPolicies : undefined;
+            resourceInputs["inlinePolicies"] = state ? state.inlinePolicies : undefined;
+            resourceInputs["managedPolicyArns"] = state ? state.managedPolicyArns : undefined;
+            resourceInputs["maxSessionDuration"] = state ? state.maxSessionDuration : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
+            resourceInputs["path"] = state ? state.path : undefined;
+            resourceInputs["permissionsBoundary"] = state ? state.permissionsBoundary : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["uniqueId"] = state ? state.uniqueId : undefined;
         } else {
             const args = argsOrState as RoleArgs | undefined;
             if ((!args || args.assumeRolePolicy === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'assumeRolePolicy'");
             }
-            inputs["assumeRolePolicy"] = args ? args.assumeRolePolicy : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["forceDetachPolicies"] = args ? args.forceDetachPolicies : undefined;
-            inputs["inlinePolicies"] = args ? args.inlinePolicies : undefined;
-            inputs["managedPolicyArns"] = args ? args.managedPolicyArns : undefined;
-            inputs["maxSessionDuration"] = args ? args.maxSessionDuration : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["namePrefix"] = args ? args.namePrefix : undefined;
-            inputs["path"] = args ? args.path : undefined;
-            inputs["permissionsBoundary"] = args ? args.permissionsBoundary : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["createDate"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
-            inputs["uniqueId"] = undefined /*out*/;
+            resourceInputs["assumeRolePolicy"] = args ? args.assumeRolePolicy : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["forceDetachPolicies"] = args ? args.forceDetachPolicies : undefined;
+            resourceInputs["inlinePolicies"] = args ? args.inlinePolicies : undefined;
+            resourceInputs["managedPolicyArns"] = args ? args.managedPolicyArns : undefined;
+            resourceInputs["maxSessionDuration"] = args ? args.maxSessionDuration : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
+            resourceInputs["path"] = args ? args.path : undefined;
+            resourceInputs["permissionsBoundary"] = args ? args.permissionsBoundary : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["createDate"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["uniqueId"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Role.__pulumiType, name, inputs, opts);
+        super(Role.__pulumiType, name, resourceInputs, opts);
     }
 }
 

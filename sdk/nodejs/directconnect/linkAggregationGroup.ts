@@ -113,22 +113,22 @@ export class LinkAggregationGroup extends pulumi.CustomResource {
      */
     constructor(name: string, args: LinkAggregationGroupArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: LinkAggregationGroupArgs | LinkAggregationGroupState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as LinkAggregationGroupState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["connectionId"] = state ? state.connectionId : undefined;
-            inputs["connectionsBandwidth"] = state ? state.connectionsBandwidth : undefined;
-            inputs["forceDestroy"] = state ? state.forceDestroy : undefined;
-            inputs["hasLogicalRedundancy"] = state ? state.hasLogicalRedundancy : undefined;
-            inputs["jumboFrameCapable"] = state ? state.jumboFrameCapable : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["ownerAccountId"] = state ? state.ownerAccountId : undefined;
-            inputs["providerName"] = state ? state.providerName : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["connectionId"] = state ? state.connectionId : undefined;
+            resourceInputs["connectionsBandwidth"] = state ? state.connectionsBandwidth : undefined;
+            resourceInputs["forceDestroy"] = state ? state.forceDestroy : undefined;
+            resourceInputs["hasLogicalRedundancy"] = state ? state.hasLogicalRedundancy : undefined;
+            resourceInputs["jumboFrameCapable"] = state ? state.jumboFrameCapable : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["ownerAccountId"] = state ? state.ownerAccountId : undefined;
+            resourceInputs["providerName"] = state ? state.providerName : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as LinkAggregationGroupArgs | undefined;
             if ((!args || args.connectionsBandwidth === undefined) && !opts.urn) {
@@ -137,23 +137,23 @@ export class LinkAggregationGroup extends pulumi.CustomResource {
             if ((!args || args.location === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'location'");
             }
-            inputs["connectionId"] = args ? args.connectionId : undefined;
-            inputs["connectionsBandwidth"] = args ? args.connectionsBandwidth : undefined;
-            inputs["forceDestroy"] = args ? args.forceDestroy : undefined;
-            inputs["location"] = args ? args.location : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["providerName"] = args ? args.providerName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["hasLogicalRedundancy"] = undefined /*out*/;
-            inputs["jumboFrameCapable"] = undefined /*out*/;
-            inputs["ownerAccountId"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["connectionId"] = args ? args.connectionId : undefined;
+            resourceInputs["connectionsBandwidth"] = args ? args.connectionsBandwidth : undefined;
+            resourceInputs["forceDestroy"] = args ? args.forceDestroy : undefined;
+            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["providerName"] = args ? args.providerName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["hasLogicalRedundancy"] = undefined /*out*/;
+            resourceInputs["jumboFrameCapable"] = undefined /*out*/;
+            resourceInputs["ownerAccountId"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(LinkAggregationGroup.__pulumiType, name, inputs, opts);
+        super(LinkAggregationGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

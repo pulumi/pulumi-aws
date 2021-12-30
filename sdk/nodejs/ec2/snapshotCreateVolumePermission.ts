@@ -70,12 +70,12 @@ export class SnapshotCreateVolumePermission extends pulumi.CustomResource {
      */
     constructor(name: string, args: SnapshotCreateVolumePermissionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SnapshotCreateVolumePermissionArgs | SnapshotCreateVolumePermissionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SnapshotCreateVolumePermissionState | undefined;
-            inputs["accountId"] = state ? state.accountId : undefined;
-            inputs["snapshotId"] = state ? state.snapshotId : undefined;
+            resourceInputs["accountId"] = state ? state.accountId : undefined;
+            resourceInputs["snapshotId"] = state ? state.snapshotId : undefined;
         } else {
             const args = argsOrState as SnapshotCreateVolumePermissionArgs | undefined;
             if ((!args || args.accountId === undefined) && !opts.urn) {
@@ -84,13 +84,13 @@ export class SnapshotCreateVolumePermission extends pulumi.CustomResource {
             if ((!args || args.snapshotId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'snapshotId'");
             }
-            inputs["accountId"] = args ? args.accountId : undefined;
-            inputs["snapshotId"] = args ? args.snapshotId : undefined;
+            resourceInputs["accountId"] = args ? args.accountId : undefined;
+            resourceInputs["snapshotId"] = args ? args.snapshotId : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(SnapshotCreateVolumePermission.__pulumiType, name, inputs, opts);
+        super(SnapshotCreateVolumePermission.__pulumiType, name, resourceInputs, opts);
     }
 }
 

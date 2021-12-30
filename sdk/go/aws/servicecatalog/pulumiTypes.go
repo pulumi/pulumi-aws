@@ -63,47 +63,6 @@ func (i ProductProvisioningArtifactParametersArgs) ToProductProvisioningArtifact
 	return pulumi.ToOutputWithContext(ctx, i).(ProductProvisioningArtifactParametersOutput)
 }
 
-func (i ProductProvisioningArtifactParametersArgs) ToProductProvisioningArtifactParametersPtrOutput() ProductProvisioningArtifactParametersPtrOutput {
-	return i.ToProductProvisioningArtifactParametersPtrOutputWithContext(context.Background())
-}
-
-func (i ProductProvisioningArtifactParametersArgs) ToProductProvisioningArtifactParametersPtrOutputWithContext(ctx context.Context) ProductProvisioningArtifactParametersPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProductProvisioningArtifactParametersOutput).ToProductProvisioningArtifactParametersPtrOutputWithContext(ctx)
-}
-
-// ProductProvisioningArtifactParametersPtrInput is an input type that accepts ProductProvisioningArtifactParametersArgs, ProductProvisioningArtifactParametersPtr and ProductProvisioningArtifactParametersPtrOutput values.
-// You can construct a concrete instance of `ProductProvisioningArtifactParametersPtrInput` via:
-//
-//          ProductProvisioningArtifactParametersArgs{...}
-//
-//  or:
-//
-//          nil
-type ProductProvisioningArtifactParametersPtrInput interface {
-	pulumi.Input
-
-	ToProductProvisioningArtifactParametersPtrOutput() ProductProvisioningArtifactParametersPtrOutput
-	ToProductProvisioningArtifactParametersPtrOutputWithContext(context.Context) ProductProvisioningArtifactParametersPtrOutput
-}
-
-type productProvisioningArtifactParametersPtrType ProductProvisioningArtifactParametersArgs
-
-func ProductProvisioningArtifactParametersPtr(v *ProductProvisioningArtifactParametersArgs) ProductProvisioningArtifactParametersPtrInput {
-	return (*productProvisioningArtifactParametersPtrType)(v)
-}
-
-func (*productProvisioningArtifactParametersPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ProductProvisioningArtifactParameters)(nil)).Elem()
-}
-
-func (i *productProvisioningArtifactParametersPtrType) ToProductProvisioningArtifactParametersPtrOutput() ProductProvisioningArtifactParametersPtrOutput {
-	return i.ToProductProvisioningArtifactParametersPtrOutputWithContext(context.Background())
-}
-
-func (i *productProvisioningArtifactParametersPtrType) ToProductProvisioningArtifactParametersPtrOutputWithContext(ctx context.Context) ProductProvisioningArtifactParametersPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProductProvisioningArtifactParametersPtrOutput)
-}
-
 type ProductProvisioningArtifactParametersOutput struct{ *pulumi.OutputState }
 
 func (ProductProvisioningArtifactParametersOutput) ElementType() reflect.Type {
@@ -116,16 +75,6 @@ func (o ProductProvisioningArtifactParametersOutput) ToProductProvisioningArtifa
 
 func (o ProductProvisioningArtifactParametersOutput) ToProductProvisioningArtifactParametersOutputWithContext(ctx context.Context) ProductProvisioningArtifactParametersOutput {
 	return o
-}
-
-func (o ProductProvisioningArtifactParametersOutput) ToProductProvisioningArtifactParametersPtrOutput() ProductProvisioningArtifactParametersPtrOutput {
-	return o.ToProductProvisioningArtifactParametersPtrOutputWithContext(context.Background())
-}
-
-func (o ProductProvisioningArtifactParametersOutput) ToProductProvisioningArtifactParametersPtrOutputWithContext(ctx context.Context) ProductProvisioningArtifactParametersPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProductProvisioningArtifactParameters) *ProductProvisioningArtifactParameters {
-		return &v
-	}).(ProductProvisioningArtifactParametersPtrOutput)
 }
 
 // Description of the provisioning artifact (i.e., version), including how it differs from the previous provisioning artifact.
@@ -156,90 +105,6 @@ func (o ProductProvisioningArtifactParametersOutput) TemplateUrl() pulumi.String
 // Type of provisioning artifact. Valid values: `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE_AMI`, `MARKETPLACE_CAR` (Marketplace Clusters and AWS Resources).
 func (o ProductProvisioningArtifactParametersOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProductProvisioningArtifactParameters) *string { return v.Type }).(pulumi.StringPtrOutput)
-}
-
-type ProductProvisioningArtifactParametersPtrOutput struct{ *pulumi.OutputState }
-
-func (ProductProvisioningArtifactParametersPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ProductProvisioningArtifactParameters)(nil)).Elem()
-}
-
-func (o ProductProvisioningArtifactParametersPtrOutput) ToProductProvisioningArtifactParametersPtrOutput() ProductProvisioningArtifactParametersPtrOutput {
-	return o
-}
-
-func (o ProductProvisioningArtifactParametersPtrOutput) ToProductProvisioningArtifactParametersPtrOutputWithContext(ctx context.Context) ProductProvisioningArtifactParametersPtrOutput {
-	return o
-}
-
-func (o ProductProvisioningArtifactParametersPtrOutput) Elem() ProductProvisioningArtifactParametersOutput {
-	return o.ApplyT(func(v *ProductProvisioningArtifactParameters) ProductProvisioningArtifactParameters {
-		if v != nil {
-			return *v
-		}
-		var ret ProductProvisioningArtifactParameters
-		return ret
-	}).(ProductProvisioningArtifactParametersOutput)
-}
-
-// Description of the provisioning artifact (i.e., version), including how it differs from the previous provisioning artifact.
-func (o ProductProvisioningArtifactParametersPtrOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ProductProvisioningArtifactParameters) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Description
-	}).(pulumi.StringPtrOutput)
-}
-
-// Whether AWS Service Catalog stops validating the specified provisioning artifact template even if it is invalid.
-func (o ProductProvisioningArtifactParametersPtrOutput) DisableTemplateValidation() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ProductProvisioningArtifactParameters) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.DisableTemplateValidation
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Name of the provisioning artifact (for example, `v1`, `v2beta`). No spaces are allowed.
-func (o ProductProvisioningArtifactParametersPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ProductProvisioningArtifactParameters) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// Template source as the physical ID of the resource that contains the template. Currently only supports CloudFormation stack ARN. Specify the physical ID as `arn:[partition]:cloudformation:[region]:[account ID]:stack/[stack name]/[resource ID]`.
-func (o ProductProvisioningArtifactParametersPtrOutput) TemplatePhysicalId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ProductProvisioningArtifactParameters) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TemplatePhysicalId
-	}).(pulumi.StringPtrOutput)
-}
-
-// Template source as URL of the CloudFormation template in Amazon S3.
-func (o ProductProvisioningArtifactParametersPtrOutput) TemplateUrl() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ProductProvisioningArtifactParameters) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TemplateUrl
-	}).(pulumi.StringPtrOutput)
-}
-
-// Type of provisioning artifact. Valid values: `CLOUD_FORMATION_TEMPLATE`, `MARKETPLACE_AMI`, `MARKETPLACE_CAR` (Marketplace Clusters and AWS Resources).
-func (o ProductProvisioningArtifactParametersPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ProductProvisioningArtifactParameters) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Type
-	}).(pulumi.StringPtrOutput)
 }
 
 type ProvisionedProductProvisioningParameter struct {
@@ -638,47 +503,6 @@ func (i ServiceActionDefinitionArgs) ToServiceActionDefinitionOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceActionDefinitionOutput)
 }
 
-func (i ServiceActionDefinitionArgs) ToServiceActionDefinitionPtrOutput() ServiceActionDefinitionPtrOutput {
-	return i.ToServiceActionDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (i ServiceActionDefinitionArgs) ToServiceActionDefinitionPtrOutputWithContext(ctx context.Context) ServiceActionDefinitionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceActionDefinitionOutput).ToServiceActionDefinitionPtrOutputWithContext(ctx)
-}
-
-// ServiceActionDefinitionPtrInput is an input type that accepts ServiceActionDefinitionArgs, ServiceActionDefinitionPtr and ServiceActionDefinitionPtrOutput values.
-// You can construct a concrete instance of `ServiceActionDefinitionPtrInput` via:
-//
-//          ServiceActionDefinitionArgs{...}
-//
-//  or:
-//
-//          nil
-type ServiceActionDefinitionPtrInput interface {
-	pulumi.Input
-
-	ToServiceActionDefinitionPtrOutput() ServiceActionDefinitionPtrOutput
-	ToServiceActionDefinitionPtrOutputWithContext(context.Context) ServiceActionDefinitionPtrOutput
-}
-
-type serviceActionDefinitionPtrType ServiceActionDefinitionArgs
-
-func ServiceActionDefinitionPtr(v *ServiceActionDefinitionArgs) ServiceActionDefinitionPtrInput {
-	return (*serviceActionDefinitionPtrType)(v)
-}
-
-func (*serviceActionDefinitionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServiceActionDefinition)(nil)).Elem()
-}
-
-func (i *serviceActionDefinitionPtrType) ToServiceActionDefinitionPtrOutput() ServiceActionDefinitionPtrOutput {
-	return i.ToServiceActionDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (i *serviceActionDefinitionPtrType) ToServiceActionDefinitionPtrOutputWithContext(ctx context.Context) ServiceActionDefinitionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceActionDefinitionPtrOutput)
-}
-
 type ServiceActionDefinitionOutput struct{ *pulumi.OutputState }
 
 func (ServiceActionDefinitionOutput) ElementType() reflect.Type {
@@ -691,16 +515,6 @@ func (o ServiceActionDefinitionOutput) ToServiceActionDefinitionOutput() Service
 
 func (o ServiceActionDefinitionOutput) ToServiceActionDefinitionOutputWithContext(ctx context.Context) ServiceActionDefinitionOutput {
 	return o
-}
-
-func (o ServiceActionDefinitionOutput) ToServiceActionDefinitionPtrOutput() ServiceActionDefinitionPtrOutput {
-	return o.ToServiceActionDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (o ServiceActionDefinitionOutput) ToServiceActionDefinitionPtrOutputWithContext(ctx context.Context) ServiceActionDefinitionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceActionDefinition) *ServiceActionDefinition {
-		return &v
-	}).(ServiceActionDefinitionPtrOutput)
 }
 
 // ARN of the role that performs the self-service actions on your behalf. For example, `arn:aws:iam::12345678910:role/ActionRole`. To reuse the provisioned product launch role, set to `LAUNCH_ROLE`.
@@ -728,80 +542,6 @@ func (o ServiceActionDefinitionOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceActionDefinition) string { return v.Version }).(pulumi.StringOutput)
 }
 
-type ServiceActionDefinitionPtrOutput struct{ *pulumi.OutputState }
-
-func (ServiceActionDefinitionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServiceActionDefinition)(nil)).Elem()
-}
-
-func (o ServiceActionDefinitionPtrOutput) ToServiceActionDefinitionPtrOutput() ServiceActionDefinitionPtrOutput {
-	return o
-}
-
-func (o ServiceActionDefinitionPtrOutput) ToServiceActionDefinitionPtrOutputWithContext(ctx context.Context) ServiceActionDefinitionPtrOutput {
-	return o
-}
-
-func (o ServiceActionDefinitionPtrOutput) Elem() ServiceActionDefinitionOutput {
-	return o.ApplyT(func(v *ServiceActionDefinition) ServiceActionDefinition {
-		if v != nil {
-			return *v
-		}
-		var ret ServiceActionDefinition
-		return ret
-	}).(ServiceActionDefinitionOutput)
-}
-
-// ARN of the role that performs the self-service actions on your behalf. For example, `arn:aws:iam::12345678910:role/ActionRole`. To reuse the provisioned product launch role, set to `LAUNCH_ROLE`.
-func (o ServiceActionDefinitionPtrOutput) AssumeRole() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ServiceActionDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.AssumeRole
-	}).(pulumi.StringPtrOutput)
-}
-
-// Name of the SSM document. For example, `AWS-RestartEC2Instance`. If you are using a shared SSM document, you must provide the ARN instead of the name.
-func (o ServiceActionDefinitionPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ServiceActionDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// List of parameters in JSON format. For example: `[{\"Name\":\"InstanceId\",\"Type\":\"TARGET\"}]` or `[{\"Name\":\"InstanceId\",\"Type\":\"TEXT_VALUE\"}]`.
-func (o ServiceActionDefinitionPtrOutput) Parameters() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ServiceActionDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Parameters
-	}).(pulumi.StringPtrOutput)
-}
-
-// Service action definition type. Valid value is `SSM_AUTOMATION`. Default is `SSM_AUTOMATION`.
-func (o ServiceActionDefinitionPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ServiceActionDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Type
-	}).(pulumi.StringPtrOutput)
-}
-
-// SSM document version. For example, `1`.
-func (o ServiceActionDefinitionPtrOutput) Version() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ServiceActionDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Version
-	}).(pulumi.StringPtrOutput)
-}
-
 type GetLaunchPathsSummary struct {
 	// Block for constraints on the portfolio-product relationship. See details below.
 	ConstraintSummaries []GetLaunchPathsSummaryConstraintSummary `pulumi:"constraintSummaries"`
@@ -811,65 +551,6 @@ type GetLaunchPathsSummary struct {
 	PathId string `pulumi:"pathId"`
 	// Tags associated with this product path.
 	Tags map[string]string `pulumi:"tags"`
-}
-
-// GetLaunchPathsSummaryInput is an input type that accepts GetLaunchPathsSummaryArgs and GetLaunchPathsSummaryOutput values.
-// You can construct a concrete instance of `GetLaunchPathsSummaryInput` via:
-//
-//          GetLaunchPathsSummaryArgs{...}
-type GetLaunchPathsSummaryInput interface {
-	pulumi.Input
-
-	ToGetLaunchPathsSummaryOutput() GetLaunchPathsSummaryOutput
-	ToGetLaunchPathsSummaryOutputWithContext(context.Context) GetLaunchPathsSummaryOutput
-}
-
-type GetLaunchPathsSummaryArgs struct {
-	// Block for constraints on the portfolio-product relationship. See details below.
-	ConstraintSummaries GetLaunchPathsSummaryConstraintSummaryArrayInput `pulumi:"constraintSummaries"`
-	// Name of the portfolio to which the path was assigned.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Identifier of the product path.
-	PathId pulumi.StringInput `pulumi:"pathId"`
-	// Tags associated with this product path.
-	Tags pulumi.StringMapInput `pulumi:"tags"`
-}
-
-func (GetLaunchPathsSummaryArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetLaunchPathsSummary)(nil)).Elem()
-}
-
-func (i GetLaunchPathsSummaryArgs) ToGetLaunchPathsSummaryOutput() GetLaunchPathsSummaryOutput {
-	return i.ToGetLaunchPathsSummaryOutputWithContext(context.Background())
-}
-
-func (i GetLaunchPathsSummaryArgs) ToGetLaunchPathsSummaryOutputWithContext(ctx context.Context) GetLaunchPathsSummaryOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetLaunchPathsSummaryOutput)
-}
-
-// GetLaunchPathsSummaryArrayInput is an input type that accepts GetLaunchPathsSummaryArray and GetLaunchPathsSummaryArrayOutput values.
-// You can construct a concrete instance of `GetLaunchPathsSummaryArrayInput` via:
-//
-//          GetLaunchPathsSummaryArray{ GetLaunchPathsSummaryArgs{...} }
-type GetLaunchPathsSummaryArrayInput interface {
-	pulumi.Input
-
-	ToGetLaunchPathsSummaryArrayOutput() GetLaunchPathsSummaryArrayOutput
-	ToGetLaunchPathsSummaryArrayOutputWithContext(context.Context) GetLaunchPathsSummaryArrayOutput
-}
-
-type GetLaunchPathsSummaryArray []GetLaunchPathsSummaryInput
-
-func (GetLaunchPathsSummaryArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetLaunchPathsSummary)(nil)).Elem()
-}
-
-func (i GetLaunchPathsSummaryArray) ToGetLaunchPathsSummaryArrayOutput() GetLaunchPathsSummaryArrayOutput {
-	return i.ToGetLaunchPathsSummaryArrayOutputWithContext(context.Background())
-}
-
-func (i GetLaunchPathsSummaryArray) ToGetLaunchPathsSummaryArrayOutputWithContext(ctx context.Context) GetLaunchPathsSummaryArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetLaunchPathsSummaryArrayOutput)
 }
 
 type GetLaunchPathsSummaryOutput struct{ *pulumi.OutputState }
@@ -933,61 +614,6 @@ type GetLaunchPathsSummaryConstraintSummary struct {
 	Type string `pulumi:"type"`
 }
 
-// GetLaunchPathsSummaryConstraintSummaryInput is an input type that accepts GetLaunchPathsSummaryConstraintSummaryArgs and GetLaunchPathsSummaryConstraintSummaryOutput values.
-// You can construct a concrete instance of `GetLaunchPathsSummaryConstraintSummaryInput` via:
-//
-//          GetLaunchPathsSummaryConstraintSummaryArgs{...}
-type GetLaunchPathsSummaryConstraintSummaryInput interface {
-	pulumi.Input
-
-	ToGetLaunchPathsSummaryConstraintSummaryOutput() GetLaunchPathsSummaryConstraintSummaryOutput
-	ToGetLaunchPathsSummaryConstraintSummaryOutputWithContext(context.Context) GetLaunchPathsSummaryConstraintSummaryOutput
-}
-
-type GetLaunchPathsSummaryConstraintSummaryArgs struct {
-	// Description of the constraint.
-	Description pulumi.StringInput `pulumi:"description"`
-	// Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `STACKSET`, and `TEMPLATE`.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (GetLaunchPathsSummaryConstraintSummaryArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetLaunchPathsSummaryConstraintSummary)(nil)).Elem()
-}
-
-func (i GetLaunchPathsSummaryConstraintSummaryArgs) ToGetLaunchPathsSummaryConstraintSummaryOutput() GetLaunchPathsSummaryConstraintSummaryOutput {
-	return i.ToGetLaunchPathsSummaryConstraintSummaryOutputWithContext(context.Background())
-}
-
-func (i GetLaunchPathsSummaryConstraintSummaryArgs) ToGetLaunchPathsSummaryConstraintSummaryOutputWithContext(ctx context.Context) GetLaunchPathsSummaryConstraintSummaryOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetLaunchPathsSummaryConstraintSummaryOutput)
-}
-
-// GetLaunchPathsSummaryConstraintSummaryArrayInput is an input type that accepts GetLaunchPathsSummaryConstraintSummaryArray and GetLaunchPathsSummaryConstraintSummaryArrayOutput values.
-// You can construct a concrete instance of `GetLaunchPathsSummaryConstraintSummaryArrayInput` via:
-//
-//          GetLaunchPathsSummaryConstraintSummaryArray{ GetLaunchPathsSummaryConstraintSummaryArgs{...} }
-type GetLaunchPathsSummaryConstraintSummaryArrayInput interface {
-	pulumi.Input
-
-	ToGetLaunchPathsSummaryConstraintSummaryArrayOutput() GetLaunchPathsSummaryConstraintSummaryArrayOutput
-	ToGetLaunchPathsSummaryConstraintSummaryArrayOutputWithContext(context.Context) GetLaunchPathsSummaryConstraintSummaryArrayOutput
-}
-
-type GetLaunchPathsSummaryConstraintSummaryArray []GetLaunchPathsSummaryConstraintSummaryInput
-
-func (GetLaunchPathsSummaryConstraintSummaryArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetLaunchPathsSummaryConstraintSummary)(nil)).Elem()
-}
-
-func (i GetLaunchPathsSummaryConstraintSummaryArray) ToGetLaunchPathsSummaryConstraintSummaryArrayOutput() GetLaunchPathsSummaryConstraintSummaryArrayOutput {
-	return i.ToGetLaunchPathsSummaryConstraintSummaryArrayOutputWithContext(context.Background())
-}
-
-func (i GetLaunchPathsSummaryConstraintSummaryArray) ToGetLaunchPathsSummaryConstraintSummaryArrayOutputWithContext(ctx context.Context) GetLaunchPathsSummaryConstraintSummaryArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetLaunchPathsSummaryConstraintSummaryArrayOutput)
-}
-
 type GetLaunchPathsSummaryConstraintSummaryOutput struct{ *pulumi.OutputState }
 
 func (GetLaunchPathsSummaryConstraintSummaryOutput) ElementType() reflect.Type {
@@ -1044,68 +670,6 @@ type GetPortfolioConstraintsDetail struct {
 	ProductId string `pulumi:"productId"`
 	// Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `STACKSET`, and `TEMPLATE`.
 	Type string `pulumi:"type"`
-}
-
-// GetPortfolioConstraintsDetailInput is an input type that accepts GetPortfolioConstraintsDetailArgs and GetPortfolioConstraintsDetailOutput values.
-// You can construct a concrete instance of `GetPortfolioConstraintsDetailInput` via:
-//
-//          GetPortfolioConstraintsDetailArgs{...}
-type GetPortfolioConstraintsDetailInput interface {
-	pulumi.Input
-
-	ToGetPortfolioConstraintsDetailOutput() GetPortfolioConstraintsDetailOutput
-	ToGetPortfolioConstraintsDetailOutputWithContext(context.Context) GetPortfolioConstraintsDetailOutput
-}
-
-type GetPortfolioConstraintsDetailArgs struct {
-	// Identifier of the constraint.
-	ConstraintId pulumi.StringInput `pulumi:"constraintId"`
-	// Description of the constraint.
-	Description pulumi.StringInput `pulumi:"description"`
-	Owner       pulumi.StringInput `pulumi:"owner"`
-	// Portfolio identifier.
-	PortfolioId pulumi.StringInput `pulumi:"portfolioId"`
-	// Product identifier.
-	ProductId pulumi.StringInput `pulumi:"productId"`
-	// Type of constraint. Valid values are `LAUNCH`, `NOTIFICATION`, `STACKSET`, and `TEMPLATE`.
-	Type pulumi.StringInput `pulumi:"type"`
-}
-
-func (GetPortfolioConstraintsDetailArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetPortfolioConstraintsDetail)(nil)).Elem()
-}
-
-func (i GetPortfolioConstraintsDetailArgs) ToGetPortfolioConstraintsDetailOutput() GetPortfolioConstraintsDetailOutput {
-	return i.ToGetPortfolioConstraintsDetailOutputWithContext(context.Background())
-}
-
-func (i GetPortfolioConstraintsDetailArgs) ToGetPortfolioConstraintsDetailOutputWithContext(ctx context.Context) GetPortfolioConstraintsDetailOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetPortfolioConstraintsDetailOutput)
-}
-
-// GetPortfolioConstraintsDetailArrayInput is an input type that accepts GetPortfolioConstraintsDetailArray and GetPortfolioConstraintsDetailArrayOutput values.
-// You can construct a concrete instance of `GetPortfolioConstraintsDetailArrayInput` via:
-//
-//          GetPortfolioConstraintsDetailArray{ GetPortfolioConstraintsDetailArgs{...} }
-type GetPortfolioConstraintsDetailArrayInput interface {
-	pulumi.Input
-
-	ToGetPortfolioConstraintsDetailArrayOutput() GetPortfolioConstraintsDetailArrayOutput
-	ToGetPortfolioConstraintsDetailArrayOutputWithContext(context.Context) GetPortfolioConstraintsDetailArrayOutput
-}
-
-type GetPortfolioConstraintsDetailArray []GetPortfolioConstraintsDetailInput
-
-func (GetPortfolioConstraintsDetailArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetPortfolioConstraintsDetail)(nil)).Elem()
-}
-
-func (i GetPortfolioConstraintsDetailArray) ToGetPortfolioConstraintsDetailArrayOutput() GetPortfolioConstraintsDetailArrayOutput {
-	return i.ToGetPortfolioConstraintsDetailArrayOutputWithContext(context.Background())
-}
-
-func (i GetPortfolioConstraintsDetailArray) ToGetPortfolioConstraintsDetailArrayOutputWithContext(ctx context.Context) GetPortfolioConstraintsDetailArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetPortfolioConstraintsDetailArrayOutput)
 }
 
 type GetPortfolioConstraintsDetailOutput struct{ *pulumi.OutputState }
@@ -1173,27 +737,17 @@ func (o GetPortfolioConstraintsDetailArrayOutput) Index(i pulumi.IntInput) GetPo
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProductProvisioningArtifactParametersInput)(nil)).Elem(), ProductProvisioningArtifactParametersArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProductProvisioningArtifactParametersPtrInput)(nil)).Elem(), ProductProvisioningArtifactParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProvisionedProductProvisioningParameterInput)(nil)).Elem(), ProvisionedProductProvisioningParameterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProvisionedProductProvisioningParameterArrayInput)(nil)).Elem(), ProvisionedProductProvisioningParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProvisionedProductStackSetProvisioningPreferencesInput)(nil)).Elem(), ProvisionedProductStackSetProvisioningPreferencesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProvisionedProductStackSetProvisioningPreferencesPtrInput)(nil)).Elem(), ProvisionedProductStackSetProvisioningPreferencesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceActionDefinitionInput)(nil)).Elem(), ServiceActionDefinitionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ServiceActionDefinitionPtrInput)(nil)).Elem(), ServiceActionDefinitionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetLaunchPathsSummaryInput)(nil)).Elem(), GetLaunchPathsSummaryArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetLaunchPathsSummaryArrayInput)(nil)).Elem(), GetLaunchPathsSummaryArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetLaunchPathsSummaryConstraintSummaryInput)(nil)).Elem(), GetLaunchPathsSummaryConstraintSummaryArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetLaunchPathsSummaryConstraintSummaryArrayInput)(nil)).Elem(), GetLaunchPathsSummaryConstraintSummaryArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetPortfolioConstraintsDetailInput)(nil)).Elem(), GetPortfolioConstraintsDetailArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetPortfolioConstraintsDetailArrayInput)(nil)).Elem(), GetPortfolioConstraintsDetailArray{})
 	pulumi.RegisterOutputType(ProductProvisioningArtifactParametersOutput{})
-	pulumi.RegisterOutputType(ProductProvisioningArtifactParametersPtrOutput{})
 	pulumi.RegisterOutputType(ProvisionedProductProvisioningParameterOutput{})
 	pulumi.RegisterOutputType(ProvisionedProductProvisioningParameterArrayOutput{})
 	pulumi.RegisterOutputType(ProvisionedProductStackSetProvisioningPreferencesOutput{})
 	pulumi.RegisterOutputType(ProvisionedProductStackSetProvisioningPreferencesPtrOutput{})
 	pulumi.RegisterOutputType(ServiceActionDefinitionOutput{})
-	pulumi.RegisterOutputType(ServiceActionDefinitionPtrOutput{})
 	pulumi.RegisterOutputType(GetLaunchPathsSummaryOutput{})
 	pulumi.RegisterOutputType(GetLaunchPathsSummaryArrayOutput{})
 	pulumi.RegisterOutputType(GetLaunchPathsSummaryConstraintSummaryOutput{})

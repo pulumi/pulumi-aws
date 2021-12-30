@@ -157,42 +157,42 @@ export class Preset extends pulumi.CustomResource {
      */
     constructor(name: string, args: PresetArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PresetArgs | PresetState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PresetState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["audio"] = state ? state.audio : undefined;
-            inputs["audioCodecOptions"] = state ? state.audioCodecOptions : undefined;
-            inputs["container"] = state ? state.container : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["thumbnails"] = state ? state.thumbnails : undefined;
-            inputs["type"] = state ? state.type : undefined;
-            inputs["video"] = state ? state.video : undefined;
-            inputs["videoCodecOptions"] = state ? state.videoCodecOptions : undefined;
-            inputs["videoWatermarks"] = state ? state.videoWatermarks : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["audio"] = state ? state.audio : undefined;
+            resourceInputs["audioCodecOptions"] = state ? state.audioCodecOptions : undefined;
+            resourceInputs["container"] = state ? state.container : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["thumbnails"] = state ? state.thumbnails : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["video"] = state ? state.video : undefined;
+            resourceInputs["videoCodecOptions"] = state ? state.videoCodecOptions : undefined;
+            resourceInputs["videoWatermarks"] = state ? state.videoWatermarks : undefined;
         } else {
             const args = argsOrState as PresetArgs | undefined;
             if ((!args || args.container === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'container'");
             }
-            inputs["audio"] = args ? args.audio : undefined;
-            inputs["audioCodecOptions"] = args ? args.audioCodecOptions : undefined;
-            inputs["container"] = args ? args.container : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["thumbnails"] = args ? args.thumbnails : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["video"] = args ? args.video : undefined;
-            inputs["videoCodecOptions"] = args ? args.videoCodecOptions : undefined;
-            inputs["videoWatermarks"] = args ? args.videoWatermarks : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["audio"] = args ? args.audio : undefined;
+            resourceInputs["audioCodecOptions"] = args ? args.audioCodecOptions : undefined;
+            resourceInputs["container"] = args ? args.container : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["thumbnails"] = args ? args.thumbnails : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["video"] = args ? args.video : undefined;
+            resourceInputs["videoCodecOptions"] = args ? args.videoCodecOptions : undefined;
+            resourceInputs["videoWatermarks"] = args ? args.videoWatermarks : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Preset.__pulumiType, name, inputs, opts);
+        super(Preset.__pulumiType, name, resourceInputs, opts);
     }
 }
 

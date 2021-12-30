@@ -171,24 +171,24 @@ export class EventBusPolicy extends pulumi.CustomResource {
      */
     constructor(name: string, args: EventBusPolicyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: EventBusPolicyArgs | EventBusPolicyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EventBusPolicyState | undefined;
-            inputs["eventBusName"] = state ? state.eventBusName : undefined;
-            inputs["policy"] = state ? state.policy : undefined;
+            resourceInputs["eventBusName"] = state ? state.eventBusName : undefined;
+            resourceInputs["policy"] = state ? state.policy : undefined;
         } else {
             const args = argsOrState as EventBusPolicyArgs | undefined;
             if ((!args || args.policy === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policy'");
             }
-            inputs["eventBusName"] = args ? args.eventBusName : undefined;
-            inputs["policy"] = args ? args.policy : undefined;
+            resourceInputs["eventBusName"] = args ? args.eventBusName : undefined;
+            resourceInputs["policy"] = args ? args.policy : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(EventBusPolicy.__pulumiType, name, inputs, opts);
+        super(EventBusPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

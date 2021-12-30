@@ -141,37 +141,37 @@ export class Zone extends pulumi.CustomResource {
      */
     constructor(name: string, args?: ZoneArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ZoneArgs | ZoneState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ZoneState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["comment"] = state ? state.comment : undefined;
-            inputs["delegationSetId"] = state ? state.delegationSetId : undefined;
-            inputs["forceDestroy"] = state ? state.forceDestroy : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["nameServers"] = state ? state.nameServers : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["vpcs"] = state ? state.vpcs : undefined;
-            inputs["zoneId"] = state ? state.zoneId : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["comment"] = state ? state.comment : undefined;
+            resourceInputs["delegationSetId"] = state ? state.delegationSetId : undefined;
+            resourceInputs["forceDestroy"] = state ? state.forceDestroy : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["nameServers"] = state ? state.nameServers : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["vpcs"] = state ? state.vpcs : undefined;
+            resourceInputs["zoneId"] = state ? state.zoneId : undefined;
         } else {
             const args = argsOrState as ZoneArgs | undefined;
-            inputs["comment"] = (args ? args.comment : undefined) ?? "Managed by Pulumi";
-            inputs["delegationSetId"] = args ? args.delegationSetId : undefined;
-            inputs["forceDestroy"] = args ? args.forceDestroy : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["vpcs"] = args ? args.vpcs : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["nameServers"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
-            inputs["zoneId"] = undefined /*out*/;
+            resourceInputs["comment"] = (args ? args.comment : undefined) ?? "Managed by Pulumi";
+            resourceInputs["delegationSetId"] = args ? args.delegationSetId : undefined;
+            resourceInputs["forceDestroy"] = args ? args.forceDestroy : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["vpcs"] = args ? args.vpcs : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["nameServers"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["zoneId"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Zone.__pulumiType, name, inputs, opts);
+        super(Zone.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -77,14 +77,14 @@ export class ScalingPlan extends pulumi.CustomResource {
      */
     constructor(name: string, args: ScalingPlanArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ScalingPlanArgs | ScalingPlanState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ScalingPlanState | undefined;
-            inputs["applicationSource"] = state ? state.applicationSource : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["scalingInstructions"] = state ? state.scalingInstructions : undefined;
-            inputs["scalingPlanVersion"] = state ? state.scalingPlanVersion : undefined;
+            resourceInputs["applicationSource"] = state ? state.applicationSource : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["scalingInstructions"] = state ? state.scalingInstructions : undefined;
+            resourceInputs["scalingPlanVersion"] = state ? state.scalingPlanVersion : undefined;
         } else {
             const args = argsOrState as ScalingPlanArgs | undefined;
             if ((!args || args.applicationSource === undefined) && !opts.urn) {
@@ -93,15 +93,15 @@ export class ScalingPlan extends pulumi.CustomResource {
             if ((!args || args.scalingInstructions === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scalingInstructions'");
             }
-            inputs["applicationSource"] = args ? args.applicationSource : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["scalingInstructions"] = args ? args.scalingInstructions : undefined;
-            inputs["scalingPlanVersion"] = undefined /*out*/;
+            resourceInputs["applicationSource"] = args ? args.applicationSource : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["scalingInstructions"] = args ? args.scalingInstructions : undefined;
+            resourceInputs["scalingPlanVersion"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(ScalingPlan.__pulumiType, name, inputs, opts);
+        super(ScalingPlan.__pulumiType, name, resourceInputs, opts);
     }
 }
 

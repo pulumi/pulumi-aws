@@ -192,21 +192,21 @@ export class SecurityGroupRule extends pulumi.CustomResource {
      */
     constructor(name: string, args: SecurityGroupRuleArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SecurityGroupRuleArgs | SecurityGroupRuleState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SecurityGroupRuleState | undefined;
-            inputs["cidrBlocks"] = state ? state.cidrBlocks : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["fromPort"] = state ? state.fromPort : undefined;
-            inputs["ipv6CidrBlocks"] = state ? state.ipv6CidrBlocks : undefined;
-            inputs["prefixListIds"] = state ? state.prefixListIds : undefined;
-            inputs["protocol"] = state ? state.protocol : undefined;
-            inputs["securityGroupId"] = state ? state.securityGroupId : undefined;
-            inputs["self"] = state ? state.self : undefined;
-            inputs["sourceSecurityGroupId"] = state ? state.sourceSecurityGroupId : undefined;
-            inputs["toPort"] = state ? state.toPort : undefined;
-            inputs["type"] = state ? state.type : undefined;
+            resourceInputs["cidrBlocks"] = state ? state.cidrBlocks : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["fromPort"] = state ? state.fromPort : undefined;
+            resourceInputs["ipv6CidrBlocks"] = state ? state.ipv6CidrBlocks : undefined;
+            resourceInputs["prefixListIds"] = state ? state.prefixListIds : undefined;
+            resourceInputs["protocol"] = state ? state.protocol : undefined;
+            resourceInputs["securityGroupId"] = state ? state.securityGroupId : undefined;
+            resourceInputs["self"] = state ? state.self : undefined;
+            resourceInputs["sourceSecurityGroupId"] = state ? state.sourceSecurityGroupId : undefined;
+            resourceInputs["toPort"] = state ? state.toPort : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as SecurityGroupRuleArgs | undefined;
             if ((!args || args.fromPort === undefined) && !opts.urn) {
@@ -224,22 +224,22 @@ export class SecurityGroupRule extends pulumi.CustomResource {
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            inputs["cidrBlocks"] = args ? args.cidrBlocks : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["fromPort"] = args ? args.fromPort : undefined;
-            inputs["ipv6CidrBlocks"] = args ? args.ipv6CidrBlocks : undefined;
-            inputs["prefixListIds"] = args ? args.prefixListIds : undefined;
-            inputs["protocol"] = args ? args.protocol : undefined;
-            inputs["securityGroupId"] = args ? args.securityGroupId : undefined;
-            inputs["self"] = args ? args.self : undefined;
-            inputs["sourceSecurityGroupId"] = args ? args.sourceSecurityGroupId : undefined;
-            inputs["toPort"] = args ? args.toPort : undefined;
-            inputs["type"] = args ? args.type : undefined;
+            resourceInputs["cidrBlocks"] = args ? args.cidrBlocks : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["fromPort"] = args ? args.fromPort : undefined;
+            resourceInputs["ipv6CidrBlocks"] = args ? args.ipv6CidrBlocks : undefined;
+            resourceInputs["prefixListIds"] = args ? args.prefixListIds : undefined;
+            resourceInputs["protocol"] = args ? args.protocol : undefined;
+            resourceInputs["securityGroupId"] = args ? args.securityGroupId : undefined;
+            resourceInputs["self"] = args ? args.self : undefined;
+            resourceInputs["sourceSecurityGroupId"] = args ? args.sourceSecurityGroupId : undefined;
+            resourceInputs["toPort"] = args ? args.toPort : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(SecurityGroupRule.__pulumiType, name, inputs, opts);
+        super(SecurityGroupRule.__pulumiType, name, resourceInputs, opts);
     }
 }
 

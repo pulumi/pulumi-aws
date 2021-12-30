@@ -230,7 +230,7 @@ type ConformancePackInput interface {
 }
 
 func (*ConformancePack) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConformancePack)(nil))
+	return reflect.TypeOf((**ConformancePack)(nil)).Elem()
 }
 
 func (i *ConformancePack) ToConformancePackOutput() ConformancePackOutput {
@@ -239,35 +239,6 @@ func (i *ConformancePack) ToConformancePackOutput() ConformancePackOutput {
 
 func (i *ConformancePack) ToConformancePackOutputWithContext(ctx context.Context) ConformancePackOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ConformancePackOutput)
-}
-
-func (i *ConformancePack) ToConformancePackPtrOutput() ConformancePackPtrOutput {
-	return i.ToConformancePackPtrOutputWithContext(context.Background())
-}
-
-func (i *ConformancePack) ToConformancePackPtrOutputWithContext(ctx context.Context) ConformancePackPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConformancePackPtrOutput)
-}
-
-type ConformancePackPtrInput interface {
-	pulumi.Input
-
-	ToConformancePackPtrOutput() ConformancePackPtrOutput
-	ToConformancePackPtrOutputWithContext(ctx context.Context) ConformancePackPtrOutput
-}
-
-type conformancePackPtrType ConformancePackArgs
-
-func (*conformancePackPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConformancePack)(nil))
-}
-
-func (i *conformancePackPtrType) ToConformancePackPtrOutput() ConformancePackPtrOutput {
-	return i.ToConformancePackPtrOutputWithContext(context.Background())
-}
-
-func (i *conformancePackPtrType) ToConformancePackPtrOutputWithContext(ctx context.Context) ConformancePackPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConformancePackPtrOutput)
 }
 
 // ConformancePackArrayInput is an input type that accepts ConformancePackArray and ConformancePackArrayOutput values.
@@ -323,7 +294,7 @@ func (i ConformancePackMap) ToConformancePackMapOutputWithContext(ctx context.Co
 type ConformancePackOutput struct{ *pulumi.OutputState }
 
 func (ConformancePackOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConformancePack)(nil))
+	return reflect.TypeOf((**ConformancePack)(nil)).Elem()
 }
 
 func (o ConformancePackOutput) ToConformancePackOutput() ConformancePackOutput {
@@ -334,44 +305,10 @@ func (o ConformancePackOutput) ToConformancePackOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o ConformancePackOutput) ToConformancePackPtrOutput() ConformancePackPtrOutput {
-	return o.ToConformancePackPtrOutputWithContext(context.Background())
-}
-
-func (o ConformancePackOutput) ToConformancePackPtrOutputWithContext(ctx context.Context) ConformancePackPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConformancePack) *ConformancePack {
-		return &v
-	}).(ConformancePackPtrOutput)
-}
-
-type ConformancePackPtrOutput struct{ *pulumi.OutputState }
-
-func (ConformancePackPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConformancePack)(nil))
-}
-
-func (o ConformancePackPtrOutput) ToConformancePackPtrOutput() ConformancePackPtrOutput {
-	return o
-}
-
-func (o ConformancePackPtrOutput) ToConformancePackPtrOutputWithContext(ctx context.Context) ConformancePackPtrOutput {
-	return o
-}
-
-func (o ConformancePackPtrOutput) Elem() ConformancePackOutput {
-	return o.ApplyT(func(v *ConformancePack) ConformancePack {
-		if v != nil {
-			return *v
-		}
-		var ret ConformancePack
-		return ret
-	}).(ConformancePackOutput)
-}
-
 type ConformancePackArrayOutput struct{ *pulumi.OutputState }
 
 func (ConformancePackArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ConformancePack)(nil))
+	return reflect.TypeOf((*[]*ConformancePack)(nil)).Elem()
 }
 
 func (o ConformancePackArrayOutput) ToConformancePackArrayOutput() ConformancePackArrayOutput {
@@ -383,15 +320,15 @@ func (o ConformancePackArrayOutput) ToConformancePackArrayOutputWithContext(ctx 
 }
 
 func (o ConformancePackArrayOutput) Index(i pulumi.IntInput) ConformancePackOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConformancePack {
-		return vs[0].([]ConformancePack)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ConformancePack {
+		return vs[0].([]*ConformancePack)[vs[1].(int)]
 	}).(ConformancePackOutput)
 }
 
 type ConformancePackMapOutput struct{ *pulumi.OutputState }
 
 func (ConformancePackMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ConformancePack)(nil))
+	return reflect.TypeOf((*map[string]*ConformancePack)(nil)).Elem()
 }
 
 func (o ConformancePackMapOutput) ToConformancePackMapOutput() ConformancePackMapOutput {
@@ -403,18 +340,16 @@ func (o ConformancePackMapOutput) ToConformancePackMapOutputWithContext(ctx cont
 }
 
 func (o ConformancePackMapOutput) MapIndex(k pulumi.StringInput) ConformancePackOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ConformancePack {
-		return vs[0].(map[string]ConformancePack)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ConformancePack {
+		return vs[0].(map[string]*ConformancePack)[vs[1].(string)]
 	}).(ConformancePackOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConformancePackInput)(nil)).Elem(), &ConformancePack{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ConformancePackPtrInput)(nil)).Elem(), &ConformancePack{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConformancePackArrayInput)(nil)).Elem(), ConformancePackArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConformancePackMapInput)(nil)).Elem(), ConformancePackMap{})
 	pulumi.RegisterOutputType(ConformancePackOutput{})
-	pulumi.RegisterOutputType(ConformancePackPtrOutput{})
 	pulumi.RegisterOutputType(ConformancePackArrayOutput{})
 	pulumi.RegisterOutputType(ConformancePackMapOutput{})
 }

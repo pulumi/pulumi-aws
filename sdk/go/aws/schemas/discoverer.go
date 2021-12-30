@@ -158,7 +158,7 @@ type DiscovererInput interface {
 }
 
 func (*Discoverer) ElementType() reflect.Type {
-	return reflect.TypeOf((*Discoverer)(nil))
+	return reflect.TypeOf((**Discoverer)(nil)).Elem()
 }
 
 func (i *Discoverer) ToDiscovererOutput() DiscovererOutput {
@@ -167,35 +167,6 @@ func (i *Discoverer) ToDiscovererOutput() DiscovererOutput {
 
 func (i *Discoverer) ToDiscovererOutputWithContext(ctx context.Context) DiscovererOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DiscovererOutput)
-}
-
-func (i *Discoverer) ToDiscovererPtrOutput() DiscovererPtrOutput {
-	return i.ToDiscovererPtrOutputWithContext(context.Background())
-}
-
-func (i *Discoverer) ToDiscovererPtrOutputWithContext(ctx context.Context) DiscovererPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DiscovererPtrOutput)
-}
-
-type DiscovererPtrInput interface {
-	pulumi.Input
-
-	ToDiscovererPtrOutput() DiscovererPtrOutput
-	ToDiscovererPtrOutputWithContext(ctx context.Context) DiscovererPtrOutput
-}
-
-type discovererPtrType DiscovererArgs
-
-func (*discovererPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Discoverer)(nil))
-}
-
-func (i *discovererPtrType) ToDiscovererPtrOutput() DiscovererPtrOutput {
-	return i.ToDiscovererPtrOutputWithContext(context.Background())
-}
-
-func (i *discovererPtrType) ToDiscovererPtrOutputWithContext(ctx context.Context) DiscovererPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DiscovererPtrOutput)
 }
 
 // DiscovererArrayInput is an input type that accepts DiscovererArray and DiscovererArrayOutput values.
@@ -251,7 +222,7 @@ func (i DiscovererMap) ToDiscovererMapOutputWithContext(ctx context.Context) Dis
 type DiscovererOutput struct{ *pulumi.OutputState }
 
 func (DiscovererOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Discoverer)(nil))
+	return reflect.TypeOf((**Discoverer)(nil)).Elem()
 }
 
 func (o DiscovererOutput) ToDiscovererOutput() DiscovererOutput {
@@ -262,44 +233,10 @@ func (o DiscovererOutput) ToDiscovererOutputWithContext(ctx context.Context) Dis
 	return o
 }
 
-func (o DiscovererOutput) ToDiscovererPtrOutput() DiscovererPtrOutput {
-	return o.ToDiscovererPtrOutputWithContext(context.Background())
-}
-
-func (o DiscovererOutput) ToDiscovererPtrOutputWithContext(ctx context.Context) DiscovererPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Discoverer) *Discoverer {
-		return &v
-	}).(DiscovererPtrOutput)
-}
-
-type DiscovererPtrOutput struct{ *pulumi.OutputState }
-
-func (DiscovererPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Discoverer)(nil))
-}
-
-func (o DiscovererPtrOutput) ToDiscovererPtrOutput() DiscovererPtrOutput {
-	return o
-}
-
-func (o DiscovererPtrOutput) ToDiscovererPtrOutputWithContext(ctx context.Context) DiscovererPtrOutput {
-	return o
-}
-
-func (o DiscovererPtrOutput) Elem() DiscovererOutput {
-	return o.ApplyT(func(v *Discoverer) Discoverer {
-		if v != nil {
-			return *v
-		}
-		var ret Discoverer
-		return ret
-	}).(DiscovererOutput)
-}
-
 type DiscovererArrayOutput struct{ *pulumi.OutputState }
 
 func (DiscovererArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Discoverer)(nil))
+	return reflect.TypeOf((*[]*Discoverer)(nil)).Elem()
 }
 
 func (o DiscovererArrayOutput) ToDiscovererArrayOutput() DiscovererArrayOutput {
@@ -311,15 +248,15 @@ func (o DiscovererArrayOutput) ToDiscovererArrayOutputWithContext(ctx context.Co
 }
 
 func (o DiscovererArrayOutput) Index(i pulumi.IntInput) DiscovererOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Discoverer {
-		return vs[0].([]Discoverer)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Discoverer {
+		return vs[0].([]*Discoverer)[vs[1].(int)]
 	}).(DiscovererOutput)
 }
 
 type DiscovererMapOutput struct{ *pulumi.OutputState }
 
 func (DiscovererMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Discoverer)(nil))
+	return reflect.TypeOf((*map[string]*Discoverer)(nil)).Elem()
 }
 
 func (o DiscovererMapOutput) ToDiscovererMapOutput() DiscovererMapOutput {
@@ -331,18 +268,16 @@ func (o DiscovererMapOutput) ToDiscovererMapOutputWithContext(ctx context.Contex
 }
 
 func (o DiscovererMapOutput) MapIndex(k pulumi.StringInput) DiscovererOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Discoverer {
-		return vs[0].(map[string]Discoverer)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Discoverer {
+		return vs[0].(map[string]*Discoverer)[vs[1].(string)]
 	}).(DiscovererOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DiscovererInput)(nil)).Elem(), &Discoverer{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DiscovererPtrInput)(nil)).Elem(), &Discoverer{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DiscovererArrayInput)(nil)).Elem(), DiscovererArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DiscovererMapInput)(nil)).Elem(), DiscovererMap{})
 	pulumi.RegisterOutputType(DiscovererOutput{})
-	pulumi.RegisterOutputType(DiscovererPtrOutput{})
 	pulumi.RegisterOutputType(DiscovererArrayOutput{})
 	pulumi.RegisterOutputType(DiscovererMapOutput{})
 }

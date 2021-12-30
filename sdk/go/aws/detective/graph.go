@@ -133,7 +133,7 @@ type GraphInput interface {
 }
 
 func (*Graph) ElementType() reflect.Type {
-	return reflect.TypeOf((*Graph)(nil))
+	return reflect.TypeOf((**Graph)(nil)).Elem()
 }
 
 func (i *Graph) ToGraphOutput() GraphOutput {
@@ -142,35 +142,6 @@ func (i *Graph) ToGraphOutput() GraphOutput {
 
 func (i *Graph) ToGraphOutputWithContext(ctx context.Context) GraphOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GraphOutput)
-}
-
-func (i *Graph) ToGraphPtrOutput() GraphPtrOutput {
-	return i.ToGraphPtrOutputWithContext(context.Background())
-}
-
-func (i *Graph) ToGraphPtrOutputWithContext(ctx context.Context) GraphPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GraphPtrOutput)
-}
-
-type GraphPtrInput interface {
-	pulumi.Input
-
-	ToGraphPtrOutput() GraphPtrOutput
-	ToGraphPtrOutputWithContext(ctx context.Context) GraphPtrOutput
-}
-
-type graphPtrType GraphArgs
-
-func (*graphPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Graph)(nil))
-}
-
-func (i *graphPtrType) ToGraphPtrOutput() GraphPtrOutput {
-	return i.ToGraphPtrOutputWithContext(context.Background())
-}
-
-func (i *graphPtrType) ToGraphPtrOutputWithContext(ctx context.Context) GraphPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GraphPtrOutput)
 }
 
 // GraphArrayInput is an input type that accepts GraphArray and GraphArrayOutput values.
@@ -226,7 +197,7 @@ func (i GraphMap) ToGraphMapOutputWithContext(ctx context.Context) GraphMapOutpu
 type GraphOutput struct{ *pulumi.OutputState }
 
 func (GraphOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Graph)(nil))
+	return reflect.TypeOf((**Graph)(nil)).Elem()
 }
 
 func (o GraphOutput) ToGraphOutput() GraphOutput {
@@ -237,44 +208,10 @@ func (o GraphOutput) ToGraphOutputWithContext(ctx context.Context) GraphOutput {
 	return o
 }
 
-func (o GraphOutput) ToGraphPtrOutput() GraphPtrOutput {
-	return o.ToGraphPtrOutputWithContext(context.Background())
-}
-
-func (o GraphOutput) ToGraphPtrOutputWithContext(ctx context.Context) GraphPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Graph) *Graph {
-		return &v
-	}).(GraphPtrOutput)
-}
-
-type GraphPtrOutput struct{ *pulumi.OutputState }
-
-func (GraphPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Graph)(nil))
-}
-
-func (o GraphPtrOutput) ToGraphPtrOutput() GraphPtrOutput {
-	return o
-}
-
-func (o GraphPtrOutput) ToGraphPtrOutputWithContext(ctx context.Context) GraphPtrOutput {
-	return o
-}
-
-func (o GraphPtrOutput) Elem() GraphOutput {
-	return o.ApplyT(func(v *Graph) Graph {
-		if v != nil {
-			return *v
-		}
-		var ret Graph
-		return ret
-	}).(GraphOutput)
-}
-
 type GraphArrayOutput struct{ *pulumi.OutputState }
 
 func (GraphArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Graph)(nil))
+	return reflect.TypeOf((*[]*Graph)(nil)).Elem()
 }
 
 func (o GraphArrayOutput) ToGraphArrayOutput() GraphArrayOutput {
@@ -286,15 +223,15 @@ func (o GraphArrayOutput) ToGraphArrayOutputWithContext(ctx context.Context) Gra
 }
 
 func (o GraphArrayOutput) Index(i pulumi.IntInput) GraphOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Graph {
-		return vs[0].([]Graph)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Graph {
+		return vs[0].([]*Graph)[vs[1].(int)]
 	}).(GraphOutput)
 }
 
 type GraphMapOutput struct{ *pulumi.OutputState }
 
 func (GraphMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Graph)(nil))
+	return reflect.TypeOf((*map[string]*Graph)(nil)).Elem()
 }
 
 func (o GraphMapOutput) ToGraphMapOutput() GraphMapOutput {
@@ -306,18 +243,16 @@ func (o GraphMapOutput) ToGraphMapOutputWithContext(ctx context.Context) GraphMa
 }
 
 func (o GraphMapOutput) MapIndex(k pulumi.StringInput) GraphOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Graph {
-		return vs[0].(map[string]Graph)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Graph {
+		return vs[0].(map[string]*Graph)[vs[1].(string)]
 	}).(GraphOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GraphInput)(nil)).Elem(), &Graph{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GraphPtrInput)(nil)).Elem(), &Graph{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GraphArrayInput)(nil)).Elem(), GraphArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GraphMapInput)(nil)).Elem(), GraphMap{})
 	pulumi.RegisterOutputType(GraphOutput{})
-	pulumi.RegisterOutputType(GraphPtrOutput{})
 	pulumi.RegisterOutputType(GraphArrayOutput{})
 	pulumi.RegisterOutputType(GraphMapOutput{})
 }

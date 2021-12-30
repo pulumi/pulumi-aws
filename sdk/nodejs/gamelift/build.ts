@@ -96,17 +96,17 @@ export class Build extends pulumi.CustomResource {
      */
     constructor(name: string, args: BuildArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: BuildArgs | BuildState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BuildState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["operatingSystem"] = state ? state.operatingSystem : undefined;
-            inputs["storageLocation"] = state ? state.storageLocation : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["version"] = state ? state.version : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["operatingSystem"] = state ? state.operatingSystem : undefined;
+            resourceInputs["storageLocation"] = state ? state.storageLocation : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["version"] = state ? state.version : undefined;
         } else {
             const args = argsOrState as BuildArgs | undefined;
             if ((!args || args.operatingSystem === undefined) && !opts.urn) {
@@ -115,18 +115,18 @@ export class Build extends pulumi.CustomResource {
             if ((!args || args.storageLocation === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'storageLocation'");
             }
-            inputs["name"] = args ? args.name : undefined;
-            inputs["operatingSystem"] = args ? args.operatingSystem : undefined;
-            inputs["storageLocation"] = args ? args.storageLocation : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["version"] = args ? args.version : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["operatingSystem"] = args ? args.operatingSystem : undefined;
+            resourceInputs["storageLocation"] = args ? args.storageLocation : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Build.__pulumiType, name, inputs, opts);
+        super(Build.__pulumiType, name, resourceInputs, opts);
     }
 }
 

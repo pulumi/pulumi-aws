@@ -100,31 +100,31 @@ export class Detector extends pulumi.CustomResource {
      */
     constructor(name: string, args?: DetectorArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DetectorArgs | DetectorState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DetectorState | undefined;
-            inputs["accountId"] = state ? state.accountId : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["datasources"] = state ? state.datasources : undefined;
-            inputs["enable"] = state ? state.enable : undefined;
-            inputs["findingPublishingFrequency"] = state ? state.findingPublishingFrequency : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["accountId"] = state ? state.accountId : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["datasources"] = state ? state.datasources : undefined;
+            resourceInputs["enable"] = state ? state.enable : undefined;
+            resourceInputs["findingPublishingFrequency"] = state ? state.findingPublishingFrequency : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as DetectorArgs | undefined;
-            inputs["datasources"] = args ? args.datasources : undefined;
-            inputs["enable"] = args ? args.enable : undefined;
-            inputs["findingPublishingFrequency"] = args ? args.findingPublishingFrequency : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["accountId"] = undefined /*out*/;
-            inputs["arn"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["datasources"] = args ? args.datasources : undefined;
+            resourceInputs["enable"] = args ? args.enable : undefined;
+            resourceInputs["findingPublishingFrequency"] = args ? args.findingPublishingFrequency : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["accountId"] = undefined /*out*/;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Detector.__pulumiType, name, inputs, opts);
+        super(Detector.__pulumiType, name, resourceInputs, opts);
     }
 }
 

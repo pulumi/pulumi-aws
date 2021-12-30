@@ -330,21 +330,21 @@ export class RuleGroup extends pulumi.CustomResource {
      */
     constructor(name: string, args: RuleGroupArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RuleGroupArgs | RuleGroupState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RuleGroupState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["capacity"] = state ? state.capacity : undefined;
-            inputs["customResponseBodies"] = state ? state.customResponseBodies : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["lockToken"] = state ? state.lockToken : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["rules"] = state ? state.rules : undefined;
-            inputs["scope"] = state ? state.scope : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["visibilityConfig"] = state ? state.visibilityConfig : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["capacity"] = state ? state.capacity : undefined;
+            resourceInputs["customResponseBodies"] = state ? state.customResponseBodies : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["lockToken"] = state ? state.lockToken : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["rules"] = state ? state.rules : undefined;
+            resourceInputs["scope"] = state ? state.scope : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["visibilityConfig"] = state ? state.visibilityConfig : undefined;
         } else {
             const args = argsOrState as RuleGroupArgs | undefined;
             if ((!args || args.capacity === undefined) && !opts.urn) {
@@ -356,22 +356,22 @@ export class RuleGroup extends pulumi.CustomResource {
             if ((!args || args.visibilityConfig === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'visibilityConfig'");
             }
-            inputs["capacity"] = args ? args.capacity : undefined;
-            inputs["customResponseBodies"] = args ? args.customResponseBodies : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["rules"] = args ? args.rules : undefined;
-            inputs["scope"] = args ? args.scope : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = args ? args.tagsAll : undefined;
-            inputs["visibilityConfig"] = args ? args.visibilityConfig : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["lockToken"] = undefined /*out*/;
+            resourceInputs["capacity"] = args ? args.capacity : undefined;
+            resourceInputs["customResponseBodies"] = args ? args.customResponseBodies : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["rules"] = args ? args.rules : undefined;
+            resourceInputs["scope"] = args ? args.scope : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tagsAll"] = args ? args.tagsAll : undefined;
+            resourceInputs["visibilityConfig"] = args ? args.visibilityConfig : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["lockToken"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(RuleGroup.__pulumiType, name, inputs, opts);
+        super(RuleGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

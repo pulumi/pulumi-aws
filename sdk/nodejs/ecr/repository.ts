@@ -104,35 +104,35 @@ export class Repository extends pulumi.CustomResource {
      */
     constructor(name: string, args?: RepositoryArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RepositoryArgs | RepositoryState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RepositoryState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["encryptionConfigurations"] = state ? state.encryptionConfigurations : undefined;
-            inputs["imageScanningConfiguration"] = state ? state.imageScanningConfiguration : undefined;
-            inputs["imageTagMutability"] = state ? state.imageTagMutability : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["registryId"] = state ? state.registryId : undefined;
-            inputs["repositoryUrl"] = state ? state.repositoryUrl : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["encryptionConfigurations"] = state ? state.encryptionConfigurations : undefined;
+            resourceInputs["imageScanningConfiguration"] = state ? state.imageScanningConfiguration : undefined;
+            resourceInputs["imageTagMutability"] = state ? state.imageTagMutability : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["registryId"] = state ? state.registryId : undefined;
+            resourceInputs["repositoryUrl"] = state ? state.repositoryUrl : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as RepositoryArgs | undefined;
-            inputs["encryptionConfigurations"] = args ? args.encryptionConfigurations : undefined;
-            inputs["imageScanningConfiguration"] = args ? args.imageScanningConfiguration : undefined;
-            inputs["imageTagMutability"] = args ? args.imageTagMutability : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["registryId"] = undefined /*out*/;
-            inputs["repositoryUrl"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["encryptionConfigurations"] = args ? args.encryptionConfigurations : undefined;
+            resourceInputs["imageScanningConfiguration"] = args ? args.imageScanningConfiguration : undefined;
+            resourceInputs["imageTagMutability"] = args ? args.imageTagMutability : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["registryId"] = undefined /*out*/;
+            resourceInputs["repositoryUrl"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Repository.__pulumiType, name, inputs, opts);
+        super(Repository.__pulumiType, name, resourceInputs, opts);
     }
 }
 

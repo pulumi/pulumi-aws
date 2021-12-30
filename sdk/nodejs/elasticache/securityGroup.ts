@@ -81,26 +81,26 @@ export class SecurityGroup extends pulumi.CustomResource {
      */
     constructor(name: string, args: SecurityGroupArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SecurityGroupArgs | SecurityGroupState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SecurityGroupState | undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["securityGroupNames"] = state ? state.securityGroupNames : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["securityGroupNames"] = state ? state.securityGroupNames : undefined;
         } else {
             const args = argsOrState as SecurityGroupArgs | undefined;
             if ((!args || args.securityGroupNames === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'securityGroupNames'");
             }
-            inputs["description"] = (args ? args.description : undefined) ?? "Managed by Pulumi";
-            inputs["name"] = args ? args.name : undefined;
-            inputs["securityGroupNames"] = args ? args.securityGroupNames : undefined;
+            resourceInputs["description"] = (args ? args.description : undefined) ?? "Managed by Pulumi";
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["securityGroupNames"] = args ? args.securityGroupNames : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(SecurityGroup.__pulumiType, name, inputs, opts);
+        super(SecurityGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

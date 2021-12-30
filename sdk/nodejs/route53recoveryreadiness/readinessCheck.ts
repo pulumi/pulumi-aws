@@ -85,15 +85,15 @@ export class ReadinessCheck extends pulumi.CustomResource {
      */
     constructor(name: string, args: ReadinessCheckArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ReadinessCheckArgs | ReadinessCheckState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ReadinessCheckState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["readinessCheckName"] = state ? state.readinessCheckName : undefined;
-            inputs["resourceSetName"] = state ? state.resourceSetName : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["readinessCheckName"] = state ? state.readinessCheckName : undefined;
+            resourceInputs["resourceSetName"] = state ? state.resourceSetName : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as ReadinessCheckArgs | undefined;
             if ((!args || args.readinessCheckName === undefined) && !opts.urn) {
@@ -102,16 +102,16 @@ export class ReadinessCheck extends pulumi.CustomResource {
             if ((!args || args.resourceSetName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceSetName'");
             }
-            inputs["readinessCheckName"] = args ? args.readinessCheckName : undefined;
-            inputs["resourceSetName"] = args ? args.resourceSetName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["readinessCheckName"] = args ? args.readinessCheckName : undefined;
+            resourceInputs["resourceSetName"] = args ? args.resourceSetName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(ReadinessCheck.__pulumiType, name, inputs, opts);
+        super(ReadinessCheck.__pulumiType, name, resourceInputs, opts);
     }
 }
 

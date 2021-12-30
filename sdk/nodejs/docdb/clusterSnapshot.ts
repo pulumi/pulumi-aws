@@ -111,23 +111,23 @@ export class ClusterSnapshot extends pulumi.CustomResource {
      */
     constructor(name: string, args: ClusterSnapshotArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ClusterSnapshotArgs | ClusterSnapshotState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ClusterSnapshotState | undefined;
-            inputs["availabilityZones"] = state ? state.availabilityZones : undefined;
-            inputs["dbClusterIdentifier"] = state ? state.dbClusterIdentifier : undefined;
-            inputs["dbClusterSnapshotArn"] = state ? state.dbClusterSnapshotArn : undefined;
-            inputs["dbClusterSnapshotIdentifier"] = state ? state.dbClusterSnapshotIdentifier : undefined;
-            inputs["engine"] = state ? state.engine : undefined;
-            inputs["engineVersion"] = state ? state.engineVersion : undefined;
-            inputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
-            inputs["port"] = state ? state.port : undefined;
-            inputs["snapshotType"] = state ? state.snapshotType : undefined;
-            inputs["sourceDbClusterSnapshotArn"] = state ? state.sourceDbClusterSnapshotArn : undefined;
-            inputs["status"] = state ? state.status : undefined;
-            inputs["storageEncrypted"] = state ? state.storageEncrypted : undefined;
-            inputs["vpcId"] = state ? state.vpcId : undefined;
+            resourceInputs["availabilityZones"] = state ? state.availabilityZones : undefined;
+            resourceInputs["dbClusterIdentifier"] = state ? state.dbClusterIdentifier : undefined;
+            resourceInputs["dbClusterSnapshotArn"] = state ? state.dbClusterSnapshotArn : undefined;
+            resourceInputs["dbClusterSnapshotIdentifier"] = state ? state.dbClusterSnapshotIdentifier : undefined;
+            resourceInputs["engine"] = state ? state.engine : undefined;
+            resourceInputs["engineVersion"] = state ? state.engineVersion : undefined;
+            resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
+            resourceInputs["port"] = state ? state.port : undefined;
+            resourceInputs["snapshotType"] = state ? state.snapshotType : undefined;
+            resourceInputs["sourceDbClusterSnapshotArn"] = state ? state.sourceDbClusterSnapshotArn : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["storageEncrypted"] = state ? state.storageEncrypted : undefined;
+            resourceInputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
             const args = argsOrState as ClusterSnapshotArgs | undefined;
             if ((!args || args.dbClusterIdentifier === undefined) && !opts.urn) {
@@ -136,24 +136,24 @@ export class ClusterSnapshot extends pulumi.CustomResource {
             if ((!args || args.dbClusterSnapshotIdentifier === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dbClusterSnapshotIdentifier'");
             }
-            inputs["dbClusterIdentifier"] = args ? args.dbClusterIdentifier : undefined;
-            inputs["dbClusterSnapshotIdentifier"] = args ? args.dbClusterSnapshotIdentifier : undefined;
-            inputs["availabilityZones"] = undefined /*out*/;
-            inputs["dbClusterSnapshotArn"] = undefined /*out*/;
-            inputs["engine"] = undefined /*out*/;
-            inputs["engineVersion"] = undefined /*out*/;
-            inputs["kmsKeyId"] = undefined /*out*/;
-            inputs["port"] = undefined /*out*/;
-            inputs["snapshotType"] = undefined /*out*/;
-            inputs["sourceDbClusterSnapshotArn"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["storageEncrypted"] = undefined /*out*/;
-            inputs["vpcId"] = undefined /*out*/;
+            resourceInputs["dbClusterIdentifier"] = args ? args.dbClusterIdentifier : undefined;
+            resourceInputs["dbClusterSnapshotIdentifier"] = args ? args.dbClusterSnapshotIdentifier : undefined;
+            resourceInputs["availabilityZones"] = undefined /*out*/;
+            resourceInputs["dbClusterSnapshotArn"] = undefined /*out*/;
+            resourceInputs["engine"] = undefined /*out*/;
+            resourceInputs["engineVersion"] = undefined /*out*/;
+            resourceInputs["kmsKeyId"] = undefined /*out*/;
+            resourceInputs["port"] = undefined /*out*/;
+            resourceInputs["snapshotType"] = undefined /*out*/;
+            resourceInputs["sourceDbClusterSnapshotArn"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["storageEncrypted"] = undefined /*out*/;
+            resourceInputs["vpcId"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(ClusterSnapshot.__pulumiType, name, inputs, opts);
+        super(ClusterSnapshot.__pulumiType, name, resourceInputs, opts);
     }
 }
 

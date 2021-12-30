@@ -94,16 +94,16 @@ export class IdentityProviderConfig extends pulumi.CustomResource {
      */
     constructor(name: string, args: IdentityProviderConfigArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: IdentityProviderConfigArgs | IdentityProviderConfigState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IdentityProviderConfigState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["clusterName"] = state ? state.clusterName : undefined;
-            inputs["oidc"] = state ? state.oidc : undefined;
-            inputs["status"] = state ? state.status : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["clusterName"] = state ? state.clusterName : undefined;
+            resourceInputs["oidc"] = state ? state.oidc : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as IdentityProviderConfigArgs | undefined;
             if ((!args || args.clusterName === undefined) && !opts.urn) {
@@ -112,17 +112,17 @@ export class IdentityProviderConfig extends pulumi.CustomResource {
             if ((!args || args.oidc === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'oidc'");
             }
-            inputs["clusterName"] = args ? args.clusterName : undefined;
-            inputs["oidc"] = args ? args.oidc : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
+            resourceInputs["oidc"] = args ? args.oidc : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(IdentityProviderConfig.__pulumiType, name, inputs, opts);
+        super(IdentityProviderConfig.__pulumiType, name, resourceInputs, opts);
     }
 }
 

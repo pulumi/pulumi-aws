@@ -184,47 +184,6 @@ func (i EndpointConnectionLogOptionsArgs) ToEndpointConnectionLogOptionsOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(EndpointConnectionLogOptionsOutput)
 }
 
-func (i EndpointConnectionLogOptionsArgs) ToEndpointConnectionLogOptionsPtrOutput() EndpointConnectionLogOptionsPtrOutput {
-	return i.ToEndpointConnectionLogOptionsPtrOutputWithContext(context.Background())
-}
-
-func (i EndpointConnectionLogOptionsArgs) ToEndpointConnectionLogOptionsPtrOutputWithContext(ctx context.Context) EndpointConnectionLogOptionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EndpointConnectionLogOptionsOutput).ToEndpointConnectionLogOptionsPtrOutputWithContext(ctx)
-}
-
-// EndpointConnectionLogOptionsPtrInput is an input type that accepts EndpointConnectionLogOptionsArgs, EndpointConnectionLogOptionsPtr and EndpointConnectionLogOptionsPtrOutput values.
-// You can construct a concrete instance of `EndpointConnectionLogOptionsPtrInput` via:
-//
-//          EndpointConnectionLogOptionsArgs{...}
-//
-//  or:
-//
-//          nil
-type EndpointConnectionLogOptionsPtrInput interface {
-	pulumi.Input
-
-	ToEndpointConnectionLogOptionsPtrOutput() EndpointConnectionLogOptionsPtrOutput
-	ToEndpointConnectionLogOptionsPtrOutputWithContext(context.Context) EndpointConnectionLogOptionsPtrOutput
-}
-
-type endpointConnectionLogOptionsPtrType EndpointConnectionLogOptionsArgs
-
-func EndpointConnectionLogOptionsPtr(v *EndpointConnectionLogOptionsArgs) EndpointConnectionLogOptionsPtrInput {
-	return (*endpointConnectionLogOptionsPtrType)(v)
-}
-
-func (*endpointConnectionLogOptionsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EndpointConnectionLogOptions)(nil)).Elem()
-}
-
-func (i *endpointConnectionLogOptionsPtrType) ToEndpointConnectionLogOptionsPtrOutput() EndpointConnectionLogOptionsPtrOutput {
-	return i.ToEndpointConnectionLogOptionsPtrOutputWithContext(context.Background())
-}
-
-func (i *endpointConnectionLogOptionsPtrType) ToEndpointConnectionLogOptionsPtrOutputWithContext(ctx context.Context) EndpointConnectionLogOptionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EndpointConnectionLogOptionsPtrOutput)
-}
-
 type EndpointConnectionLogOptionsOutput struct{ *pulumi.OutputState }
 
 func (EndpointConnectionLogOptionsOutput) ElementType() reflect.Type {
@@ -237,16 +196,6 @@ func (o EndpointConnectionLogOptionsOutput) ToEndpointConnectionLogOptionsOutput
 
 func (o EndpointConnectionLogOptionsOutput) ToEndpointConnectionLogOptionsOutputWithContext(ctx context.Context) EndpointConnectionLogOptionsOutput {
 	return o
-}
-
-func (o EndpointConnectionLogOptionsOutput) ToEndpointConnectionLogOptionsPtrOutput() EndpointConnectionLogOptionsPtrOutput {
-	return o.ToEndpointConnectionLogOptionsPtrOutputWithContext(context.Background())
-}
-
-func (o EndpointConnectionLogOptionsOutput) ToEndpointConnectionLogOptionsPtrOutputWithContext(ctx context.Context) EndpointConnectionLogOptionsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointConnectionLogOptions) *EndpointConnectionLogOptions {
-		return &v
-	}).(EndpointConnectionLogOptionsPtrOutput)
 }
 
 // The name of the CloudWatch Logs log group.
@@ -264,67 +213,11 @@ func (o EndpointConnectionLogOptionsOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v EndpointConnectionLogOptions) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-type EndpointConnectionLogOptionsPtrOutput struct{ *pulumi.OutputState }
-
-func (EndpointConnectionLogOptionsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EndpointConnectionLogOptions)(nil)).Elem()
-}
-
-func (o EndpointConnectionLogOptionsPtrOutput) ToEndpointConnectionLogOptionsPtrOutput() EndpointConnectionLogOptionsPtrOutput {
-	return o
-}
-
-func (o EndpointConnectionLogOptionsPtrOutput) ToEndpointConnectionLogOptionsPtrOutputWithContext(ctx context.Context) EndpointConnectionLogOptionsPtrOutput {
-	return o
-}
-
-func (o EndpointConnectionLogOptionsPtrOutput) Elem() EndpointConnectionLogOptionsOutput {
-	return o.ApplyT(func(v *EndpointConnectionLogOptions) EndpointConnectionLogOptions {
-		if v != nil {
-			return *v
-		}
-		var ret EndpointConnectionLogOptions
-		return ret
-	}).(EndpointConnectionLogOptionsOutput)
-}
-
-// The name of the CloudWatch Logs log group.
-func (o EndpointConnectionLogOptionsPtrOutput) CloudwatchLogGroup() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EndpointConnectionLogOptions) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CloudwatchLogGroup
-	}).(pulumi.StringPtrOutput)
-}
-
-// The name of the CloudWatch Logs log stream to which the connection data is published.
-func (o EndpointConnectionLogOptionsPtrOutput) CloudwatchLogStream() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *EndpointConnectionLogOptions) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CloudwatchLogStream
-	}).(pulumi.StringPtrOutput)
-}
-
-// Indicates whether connection logging is enabled.
-func (o EndpointConnectionLogOptionsPtrOutput) Enabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *EndpointConnectionLogOptions) *bool {
-		if v == nil {
-			return nil
-		}
-		return &v.Enabled
-	}).(pulumi.BoolPtrOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointAuthenticationOptionInput)(nil)).Elem(), EndpointAuthenticationOptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointAuthenticationOptionArrayInput)(nil)).Elem(), EndpointAuthenticationOptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConnectionLogOptionsInput)(nil)).Elem(), EndpointConnectionLogOptionsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConnectionLogOptionsPtrInput)(nil)).Elem(), EndpointConnectionLogOptionsArgs{})
 	pulumi.RegisterOutputType(EndpointAuthenticationOptionOutput{})
 	pulumi.RegisterOutputType(EndpointAuthenticationOptionArrayOutput{})
 	pulumi.RegisterOutputType(EndpointConnectionLogOptionsOutput{})
-	pulumi.RegisterOutputType(EndpointConnectionLogOptionsPtrOutput{})
 }

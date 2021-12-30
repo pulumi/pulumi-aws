@@ -4930,65 +4930,6 @@ type GetListenerDefaultAction struct {
 	Type                 string                                        `pulumi:"type"`
 }
 
-// GetListenerDefaultActionInput is an input type that accepts GetListenerDefaultActionArgs and GetListenerDefaultActionOutput values.
-// You can construct a concrete instance of `GetListenerDefaultActionInput` via:
-//
-//          GetListenerDefaultActionArgs{...}
-type GetListenerDefaultActionInput interface {
-	pulumi.Input
-
-	ToGetListenerDefaultActionOutput() GetListenerDefaultActionOutput
-	ToGetListenerDefaultActionOutputWithContext(context.Context) GetListenerDefaultActionOutput
-}
-
-type GetListenerDefaultActionArgs struct {
-	AuthenticateCognitos GetListenerDefaultActionAuthenticateCognitoArrayInput `pulumi:"authenticateCognitos"`
-	AuthenticateOidcs    GetListenerDefaultActionAuthenticateOidcArrayInput    `pulumi:"authenticateOidcs"`
-	FixedResponses       GetListenerDefaultActionFixedResponseArrayInput       `pulumi:"fixedResponses"`
-	Forwards             GetListenerDefaultActionForwardArrayInput             `pulumi:"forwards"`
-	Order                pulumi.IntInput                                       `pulumi:"order"`
-	Redirects            GetListenerDefaultActionRedirectArrayInput            `pulumi:"redirects"`
-	TargetGroupArn       pulumi.StringInput                                    `pulumi:"targetGroupArn"`
-	Type                 pulumi.StringInput                                    `pulumi:"type"`
-}
-
-func (GetListenerDefaultActionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetListenerDefaultAction)(nil)).Elem()
-}
-
-func (i GetListenerDefaultActionArgs) ToGetListenerDefaultActionOutput() GetListenerDefaultActionOutput {
-	return i.ToGetListenerDefaultActionOutputWithContext(context.Background())
-}
-
-func (i GetListenerDefaultActionArgs) ToGetListenerDefaultActionOutputWithContext(ctx context.Context) GetListenerDefaultActionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetListenerDefaultActionOutput)
-}
-
-// GetListenerDefaultActionArrayInput is an input type that accepts GetListenerDefaultActionArray and GetListenerDefaultActionArrayOutput values.
-// You can construct a concrete instance of `GetListenerDefaultActionArrayInput` via:
-//
-//          GetListenerDefaultActionArray{ GetListenerDefaultActionArgs{...} }
-type GetListenerDefaultActionArrayInput interface {
-	pulumi.Input
-
-	ToGetListenerDefaultActionArrayOutput() GetListenerDefaultActionArrayOutput
-	ToGetListenerDefaultActionArrayOutputWithContext(context.Context) GetListenerDefaultActionArrayOutput
-}
-
-type GetListenerDefaultActionArray []GetListenerDefaultActionInput
-
-func (GetListenerDefaultActionArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetListenerDefaultAction)(nil)).Elem()
-}
-
-func (i GetListenerDefaultActionArray) ToGetListenerDefaultActionArrayOutput() GetListenerDefaultActionArrayOutput {
-	return i.ToGetListenerDefaultActionArrayOutputWithContext(context.Background())
-}
-
-func (i GetListenerDefaultActionArray) ToGetListenerDefaultActionArrayOutputWithContext(ctx context.Context) GetListenerDefaultActionArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetListenerDefaultActionArrayOutput)
-}
-
 type GetListenerDefaultActionOutput struct{ *pulumi.OutputState }
 
 func (GetListenerDefaultActionOutput) ElementType() reflect.Type {
@@ -5068,65 +5009,6 @@ type GetListenerDefaultActionAuthenticateCognito struct {
 	UserPoolArn                      string            `pulumi:"userPoolArn"`
 	UserPoolClientId                 string            `pulumi:"userPoolClientId"`
 	UserPoolDomain                   string            `pulumi:"userPoolDomain"`
-}
-
-// GetListenerDefaultActionAuthenticateCognitoInput is an input type that accepts GetListenerDefaultActionAuthenticateCognitoArgs and GetListenerDefaultActionAuthenticateCognitoOutput values.
-// You can construct a concrete instance of `GetListenerDefaultActionAuthenticateCognitoInput` via:
-//
-//          GetListenerDefaultActionAuthenticateCognitoArgs{...}
-type GetListenerDefaultActionAuthenticateCognitoInput interface {
-	pulumi.Input
-
-	ToGetListenerDefaultActionAuthenticateCognitoOutput() GetListenerDefaultActionAuthenticateCognitoOutput
-	ToGetListenerDefaultActionAuthenticateCognitoOutputWithContext(context.Context) GetListenerDefaultActionAuthenticateCognitoOutput
-}
-
-type GetListenerDefaultActionAuthenticateCognitoArgs struct {
-	AuthenticationRequestExtraParams pulumi.StringMapInput `pulumi:"authenticationRequestExtraParams"`
-	OnUnauthenticatedRequest         pulumi.StringInput    `pulumi:"onUnauthenticatedRequest"`
-	Scope                            pulumi.StringInput    `pulumi:"scope"`
-	SessionCookieName                pulumi.StringInput    `pulumi:"sessionCookieName"`
-	SessionTimeout                   pulumi.IntInput       `pulumi:"sessionTimeout"`
-	UserPoolArn                      pulumi.StringInput    `pulumi:"userPoolArn"`
-	UserPoolClientId                 pulumi.StringInput    `pulumi:"userPoolClientId"`
-	UserPoolDomain                   pulumi.StringInput    `pulumi:"userPoolDomain"`
-}
-
-func (GetListenerDefaultActionAuthenticateCognitoArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetListenerDefaultActionAuthenticateCognito)(nil)).Elem()
-}
-
-func (i GetListenerDefaultActionAuthenticateCognitoArgs) ToGetListenerDefaultActionAuthenticateCognitoOutput() GetListenerDefaultActionAuthenticateCognitoOutput {
-	return i.ToGetListenerDefaultActionAuthenticateCognitoOutputWithContext(context.Background())
-}
-
-func (i GetListenerDefaultActionAuthenticateCognitoArgs) ToGetListenerDefaultActionAuthenticateCognitoOutputWithContext(ctx context.Context) GetListenerDefaultActionAuthenticateCognitoOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetListenerDefaultActionAuthenticateCognitoOutput)
-}
-
-// GetListenerDefaultActionAuthenticateCognitoArrayInput is an input type that accepts GetListenerDefaultActionAuthenticateCognitoArray and GetListenerDefaultActionAuthenticateCognitoArrayOutput values.
-// You can construct a concrete instance of `GetListenerDefaultActionAuthenticateCognitoArrayInput` via:
-//
-//          GetListenerDefaultActionAuthenticateCognitoArray{ GetListenerDefaultActionAuthenticateCognitoArgs{...} }
-type GetListenerDefaultActionAuthenticateCognitoArrayInput interface {
-	pulumi.Input
-
-	ToGetListenerDefaultActionAuthenticateCognitoArrayOutput() GetListenerDefaultActionAuthenticateCognitoArrayOutput
-	ToGetListenerDefaultActionAuthenticateCognitoArrayOutputWithContext(context.Context) GetListenerDefaultActionAuthenticateCognitoArrayOutput
-}
-
-type GetListenerDefaultActionAuthenticateCognitoArray []GetListenerDefaultActionAuthenticateCognitoInput
-
-func (GetListenerDefaultActionAuthenticateCognitoArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetListenerDefaultActionAuthenticateCognito)(nil)).Elem()
-}
-
-func (i GetListenerDefaultActionAuthenticateCognitoArray) ToGetListenerDefaultActionAuthenticateCognitoArrayOutput() GetListenerDefaultActionAuthenticateCognitoArrayOutput {
-	return i.ToGetListenerDefaultActionAuthenticateCognitoArrayOutputWithContext(context.Background())
-}
-
-func (i GetListenerDefaultActionAuthenticateCognitoArray) ToGetListenerDefaultActionAuthenticateCognitoArrayOutputWithContext(ctx context.Context) GetListenerDefaultActionAuthenticateCognitoArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetListenerDefaultActionAuthenticateCognitoArrayOutput)
 }
 
 type GetListenerDefaultActionAuthenticateCognitoOutput struct{ *pulumi.OutputState }
@@ -5209,68 +5091,6 @@ type GetListenerDefaultActionAuthenticateOidc struct {
 	SessionTimeout                   int               `pulumi:"sessionTimeout"`
 	TokenEndpoint                    string            `pulumi:"tokenEndpoint"`
 	UserInfoEndpoint                 string            `pulumi:"userInfoEndpoint"`
-}
-
-// GetListenerDefaultActionAuthenticateOidcInput is an input type that accepts GetListenerDefaultActionAuthenticateOidcArgs and GetListenerDefaultActionAuthenticateOidcOutput values.
-// You can construct a concrete instance of `GetListenerDefaultActionAuthenticateOidcInput` via:
-//
-//          GetListenerDefaultActionAuthenticateOidcArgs{...}
-type GetListenerDefaultActionAuthenticateOidcInput interface {
-	pulumi.Input
-
-	ToGetListenerDefaultActionAuthenticateOidcOutput() GetListenerDefaultActionAuthenticateOidcOutput
-	ToGetListenerDefaultActionAuthenticateOidcOutputWithContext(context.Context) GetListenerDefaultActionAuthenticateOidcOutput
-}
-
-type GetListenerDefaultActionAuthenticateOidcArgs struct {
-	AuthenticationRequestExtraParams pulumi.StringMapInput `pulumi:"authenticationRequestExtraParams"`
-	AuthorizationEndpoint            pulumi.StringInput    `pulumi:"authorizationEndpoint"`
-	ClientId                         pulumi.StringInput    `pulumi:"clientId"`
-	ClientSecret                     pulumi.StringInput    `pulumi:"clientSecret"`
-	Issuer                           pulumi.StringInput    `pulumi:"issuer"`
-	OnUnauthenticatedRequest         pulumi.StringInput    `pulumi:"onUnauthenticatedRequest"`
-	Scope                            pulumi.StringInput    `pulumi:"scope"`
-	SessionCookieName                pulumi.StringInput    `pulumi:"sessionCookieName"`
-	SessionTimeout                   pulumi.IntInput       `pulumi:"sessionTimeout"`
-	TokenEndpoint                    pulumi.StringInput    `pulumi:"tokenEndpoint"`
-	UserInfoEndpoint                 pulumi.StringInput    `pulumi:"userInfoEndpoint"`
-}
-
-func (GetListenerDefaultActionAuthenticateOidcArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetListenerDefaultActionAuthenticateOidc)(nil)).Elem()
-}
-
-func (i GetListenerDefaultActionAuthenticateOidcArgs) ToGetListenerDefaultActionAuthenticateOidcOutput() GetListenerDefaultActionAuthenticateOidcOutput {
-	return i.ToGetListenerDefaultActionAuthenticateOidcOutputWithContext(context.Background())
-}
-
-func (i GetListenerDefaultActionAuthenticateOidcArgs) ToGetListenerDefaultActionAuthenticateOidcOutputWithContext(ctx context.Context) GetListenerDefaultActionAuthenticateOidcOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetListenerDefaultActionAuthenticateOidcOutput)
-}
-
-// GetListenerDefaultActionAuthenticateOidcArrayInput is an input type that accepts GetListenerDefaultActionAuthenticateOidcArray and GetListenerDefaultActionAuthenticateOidcArrayOutput values.
-// You can construct a concrete instance of `GetListenerDefaultActionAuthenticateOidcArrayInput` via:
-//
-//          GetListenerDefaultActionAuthenticateOidcArray{ GetListenerDefaultActionAuthenticateOidcArgs{...} }
-type GetListenerDefaultActionAuthenticateOidcArrayInput interface {
-	pulumi.Input
-
-	ToGetListenerDefaultActionAuthenticateOidcArrayOutput() GetListenerDefaultActionAuthenticateOidcArrayOutput
-	ToGetListenerDefaultActionAuthenticateOidcArrayOutputWithContext(context.Context) GetListenerDefaultActionAuthenticateOidcArrayOutput
-}
-
-type GetListenerDefaultActionAuthenticateOidcArray []GetListenerDefaultActionAuthenticateOidcInput
-
-func (GetListenerDefaultActionAuthenticateOidcArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetListenerDefaultActionAuthenticateOidc)(nil)).Elem()
-}
-
-func (i GetListenerDefaultActionAuthenticateOidcArray) ToGetListenerDefaultActionAuthenticateOidcArrayOutput() GetListenerDefaultActionAuthenticateOidcArrayOutput {
-	return i.ToGetListenerDefaultActionAuthenticateOidcArrayOutputWithContext(context.Background())
-}
-
-func (i GetListenerDefaultActionAuthenticateOidcArray) ToGetListenerDefaultActionAuthenticateOidcArrayOutputWithContext(ctx context.Context) GetListenerDefaultActionAuthenticateOidcArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetListenerDefaultActionAuthenticateOidcArrayOutput)
 }
 
 type GetListenerDefaultActionAuthenticateOidcOutput struct{ *pulumi.OutputState }
@@ -5359,60 +5179,6 @@ type GetListenerDefaultActionFixedResponse struct {
 	StatusCode  string `pulumi:"statusCode"`
 }
 
-// GetListenerDefaultActionFixedResponseInput is an input type that accepts GetListenerDefaultActionFixedResponseArgs and GetListenerDefaultActionFixedResponseOutput values.
-// You can construct a concrete instance of `GetListenerDefaultActionFixedResponseInput` via:
-//
-//          GetListenerDefaultActionFixedResponseArgs{...}
-type GetListenerDefaultActionFixedResponseInput interface {
-	pulumi.Input
-
-	ToGetListenerDefaultActionFixedResponseOutput() GetListenerDefaultActionFixedResponseOutput
-	ToGetListenerDefaultActionFixedResponseOutputWithContext(context.Context) GetListenerDefaultActionFixedResponseOutput
-}
-
-type GetListenerDefaultActionFixedResponseArgs struct {
-	ContentType pulumi.StringInput `pulumi:"contentType"`
-	MessageBody pulumi.StringInput `pulumi:"messageBody"`
-	StatusCode  pulumi.StringInput `pulumi:"statusCode"`
-}
-
-func (GetListenerDefaultActionFixedResponseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetListenerDefaultActionFixedResponse)(nil)).Elem()
-}
-
-func (i GetListenerDefaultActionFixedResponseArgs) ToGetListenerDefaultActionFixedResponseOutput() GetListenerDefaultActionFixedResponseOutput {
-	return i.ToGetListenerDefaultActionFixedResponseOutputWithContext(context.Background())
-}
-
-func (i GetListenerDefaultActionFixedResponseArgs) ToGetListenerDefaultActionFixedResponseOutputWithContext(ctx context.Context) GetListenerDefaultActionFixedResponseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetListenerDefaultActionFixedResponseOutput)
-}
-
-// GetListenerDefaultActionFixedResponseArrayInput is an input type that accepts GetListenerDefaultActionFixedResponseArray and GetListenerDefaultActionFixedResponseArrayOutput values.
-// You can construct a concrete instance of `GetListenerDefaultActionFixedResponseArrayInput` via:
-//
-//          GetListenerDefaultActionFixedResponseArray{ GetListenerDefaultActionFixedResponseArgs{...} }
-type GetListenerDefaultActionFixedResponseArrayInput interface {
-	pulumi.Input
-
-	ToGetListenerDefaultActionFixedResponseArrayOutput() GetListenerDefaultActionFixedResponseArrayOutput
-	ToGetListenerDefaultActionFixedResponseArrayOutputWithContext(context.Context) GetListenerDefaultActionFixedResponseArrayOutput
-}
-
-type GetListenerDefaultActionFixedResponseArray []GetListenerDefaultActionFixedResponseInput
-
-func (GetListenerDefaultActionFixedResponseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetListenerDefaultActionFixedResponse)(nil)).Elem()
-}
-
-func (i GetListenerDefaultActionFixedResponseArray) ToGetListenerDefaultActionFixedResponseArrayOutput() GetListenerDefaultActionFixedResponseArrayOutput {
-	return i.ToGetListenerDefaultActionFixedResponseArrayOutputWithContext(context.Background())
-}
-
-func (i GetListenerDefaultActionFixedResponseArray) ToGetListenerDefaultActionFixedResponseArrayOutputWithContext(ctx context.Context) GetListenerDefaultActionFixedResponseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetListenerDefaultActionFixedResponseArrayOutput)
-}
-
 type GetListenerDefaultActionFixedResponseOutput struct{ *pulumi.OutputState }
 
 func (GetListenerDefaultActionFixedResponseOutput) ElementType() reflect.Type {
@@ -5462,59 +5228,6 @@ func (o GetListenerDefaultActionFixedResponseArrayOutput) Index(i pulumi.IntInpu
 type GetListenerDefaultActionForward struct {
 	Stickinesses []GetListenerDefaultActionForwardStickiness  `pulumi:"stickinesses"`
 	TargetGroups []GetListenerDefaultActionForwardTargetGroup `pulumi:"targetGroups"`
-}
-
-// GetListenerDefaultActionForwardInput is an input type that accepts GetListenerDefaultActionForwardArgs and GetListenerDefaultActionForwardOutput values.
-// You can construct a concrete instance of `GetListenerDefaultActionForwardInput` via:
-//
-//          GetListenerDefaultActionForwardArgs{...}
-type GetListenerDefaultActionForwardInput interface {
-	pulumi.Input
-
-	ToGetListenerDefaultActionForwardOutput() GetListenerDefaultActionForwardOutput
-	ToGetListenerDefaultActionForwardOutputWithContext(context.Context) GetListenerDefaultActionForwardOutput
-}
-
-type GetListenerDefaultActionForwardArgs struct {
-	Stickinesses GetListenerDefaultActionForwardStickinessArrayInput  `pulumi:"stickinesses"`
-	TargetGroups GetListenerDefaultActionForwardTargetGroupArrayInput `pulumi:"targetGroups"`
-}
-
-func (GetListenerDefaultActionForwardArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetListenerDefaultActionForward)(nil)).Elem()
-}
-
-func (i GetListenerDefaultActionForwardArgs) ToGetListenerDefaultActionForwardOutput() GetListenerDefaultActionForwardOutput {
-	return i.ToGetListenerDefaultActionForwardOutputWithContext(context.Background())
-}
-
-func (i GetListenerDefaultActionForwardArgs) ToGetListenerDefaultActionForwardOutputWithContext(ctx context.Context) GetListenerDefaultActionForwardOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetListenerDefaultActionForwardOutput)
-}
-
-// GetListenerDefaultActionForwardArrayInput is an input type that accepts GetListenerDefaultActionForwardArray and GetListenerDefaultActionForwardArrayOutput values.
-// You can construct a concrete instance of `GetListenerDefaultActionForwardArrayInput` via:
-//
-//          GetListenerDefaultActionForwardArray{ GetListenerDefaultActionForwardArgs{...} }
-type GetListenerDefaultActionForwardArrayInput interface {
-	pulumi.Input
-
-	ToGetListenerDefaultActionForwardArrayOutput() GetListenerDefaultActionForwardArrayOutput
-	ToGetListenerDefaultActionForwardArrayOutputWithContext(context.Context) GetListenerDefaultActionForwardArrayOutput
-}
-
-type GetListenerDefaultActionForwardArray []GetListenerDefaultActionForwardInput
-
-func (GetListenerDefaultActionForwardArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetListenerDefaultActionForward)(nil)).Elem()
-}
-
-func (i GetListenerDefaultActionForwardArray) ToGetListenerDefaultActionForwardArrayOutput() GetListenerDefaultActionForwardArrayOutput {
-	return i.ToGetListenerDefaultActionForwardArrayOutputWithContext(context.Background())
-}
-
-func (i GetListenerDefaultActionForwardArray) ToGetListenerDefaultActionForwardArrayOutputWithContext(ctx context.Context) GetListenerDefaultActionForwardArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetListenerDefaultActionForwardArrayOutput)
 }
 
 type GetListenerDefaultActionForwardOutput struct{ *pulumi.OutputState }
@@ -5568,59 +5281,6 @@ type GetListenerDefaultActionForwardStickiness struct {
 	Enabled  bool `pulumi:"enabled"`
 }
 
-// GetListenerDefaultActionForwardStickinessInput is an input type that accepts GetListenerDefaultActionForwardStickinessArgs and GetListenerDefaultActionForwardStickinessOutput values.
-// You can construct a concrete instance of `GetListenerDefaultActionForwardStickinessInput` via:
-//
-//          GetListenerDefaultActionForwardStickinessArgs{...}
-type GetListenerDefaultActionForwardStickinessInput interface {
-	pulumi.Input
-
-	ToGetListenerDefaultActionForwardStickinessOutput() GetListenerDefaultActionForwardStickinessOutput
-	ToGetListenerDefaultActionForwardStickinessOutputWithContext(context.Context) GetListenerDefaultActionForwardStickinessOutput
-}
-
-type GetListenerDefaultActionForwardStickinessArgs struct {
-	Duration pulumi.IntInput  `pulumi:"duration"`
-	Enabled  pulumi.BoolInput `pulumi:"enabled"`
-}
-
-func (GetListenerDefaultActionForwardStickinessArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetListenerDefaultActionForwardStickiness)(nil)).Elem()
-}
-
-func (i GetListenerDefaultActionForwardStickinessArgs) ToGetListenerDefaultActionForwardStickinessOutput() GetListenerDefaultActionForwardStickinessOutput {
-	return i.ToGetListenerDefaultActionForwardStickinessOutputWithContext(context.Background())
-}
-
-func (i GetListenerDefaultActionForwardStickinessArgs) ToGetListenerDefaultActionForwardStickinessOutputWithContext(ctx context.Context) GetListenerDefaultActionForwardStickinessOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetListenerDefaultActionForwardStickinessOutput)
-}
-
-// GetListenerDefaultActionForwardStickinessArrayInput is an input type that accepts GetListenerDefaultActionForwardStickinessArray and GetListenerDefaultActionForwardStickinessArrayOutput values.
-// You can construct a concrete instance of `GetListenerDefaultActionForwardStickinessArrayInput` via:
-//
-//          GetListenerDefaultActionForwardStickinessArray{ GetListenerDefaultActionForwardStickinessArgs{...} }
-type GetListenerDefaultActionForwardStickinessArrayInput interface {
-	pulumi.Input
-
-	ToGetListenerDefaultActionForwardStickinessArrayOutput() GetListenerDefaultActionForwardStickinessArrayOutput
-	ToGetListenerDefaultActionForwardStickinessArrayOutputWithContext(context.Context) GetListenerDefaultActionForwardStickinessArrayOutput
-}
-
-type GetListenerDefaultActionForwardStickinessArray []GetListenerDefaultActionForwardStickinessInput
-
-func (GetListenerDefaultActionForwardStickinessArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetListenerDefaultActionForwardStickiness)(nil)).Elem()
-}
-
-func (i GetListenerDefaultActionForwardStickinessArray) ToGetListenerDefaultActionForwardStickinessArrayOutput() GetListenerDefaultActionForwardStickinessArrayOutput {
-	return i.ToGetListenerDefaultActionForwardStickinessArrayOutputWithContext(context.Background())
-}
-
-func (i GetListenerDefaultActionForwardStickinessArray) ToGetListenerDefaultActionForwardStickinessArrayOutputWithContext(ctx context.Context) GetListenerDefaultActionForwardStickinessArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetListenerDefaultActionForwardStickinessArrayOutput)
-}
-
 type GetListenerDefaultActionForwardStickinessOutput struct{ *pulumi.OutputState }
 
 func (GetListenerDefaultActionForwardStickinessOutput) ElementType() reflect.Type {
@@ -5667,60 +5327,6 @@ type GetListenerDefaultActionForwardTargetGroup struct {
 	// ARN of the listener. Required if `loadBalancerArn` and `port` is not set.
 	Arn    string `pulumi:"arn"`
 	Weight int    `pulumi:"weight"`
-}
-
-// GetListenerDefaultActionForwardTargetGroupInput is an input type that accepts GetListenerDefaultActionForwardTargetGroupArgs and GetListenerDefaultActionForwardTargetGroupOutput values.
-// You can construct a concrete instance of `GetListenerDefaultActionForwardTargetGroupInput` via:
-//
-//          GetListenerDefaultActionForwardTargetGroupArgs{...}
-type GetListenerDefaultActionForwardTargetGroupInput interface {
-	pulumi.Input
-
-	ToGetListenerDefaultActionForwardTargetGroupOutput() GetListenerDefaultActionForwardTargetGroupOutput
-	ToGetListenerDefaultActionForwardTargetGroupOutputWithContext(context.Context) GetListenerDefaultActionForwardTargetGroupOutput
-}
-
-type GetListenerDefaultActionForwardTargetGroupArgs struct {
-	// ARN of the listener. Required if `loadBalancerArn` and `port` is not set.
-	Arn    pulumi.StringInput `pulumi:"arn"`
-	Weight pulumi.IntInput    `pulumi:"weight"`
-}
-
-func (GetListenerDefaultActionForwardTargetGroupArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetListenerDefaultActionForwardTargetGroup)(nil)).Elem()
-}
-
-func (i GetListenerDefaultActionForwardTargetGroupArgs) ToGetListenerDefaultActionForwardTargetGroupOutput() GetListenerDefaultActionForwardTargetGroupOutput {
-	return i.ToGetListenerDefaultActionForwardTargetGroupOutputWithContext(context.Background())
-}
-
-func (i GetListenerDefaultActionForwardTargetGroupArgs) ToGetListenerDefaultActionForwardTargetGroupOutputWithContext(ctx context.Context) GetListenerDefaultActionForwardTargetGroupOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetListenerDefaultActionForwardTargetGroupOutput)
-}
-
-// GetListenerDefaultActionForwardTargetGroupArrayInput is an input type that accepts GetListenerDefaultActionForwardTargetGroupArray and GetListenerDefaultActionForwardTargetGroupArrayOutput values.
-// You can construct a concrete instance of `GetListenerDefaultActionForwardTargetGroupArrayInput` via:
-//
-//          GetListenerDefaultActionForwardTargetGroupArray{ GetListenerDefaultActionForwardTargetGroupArgs{...} }
-type GetListenerDefaultActionForwardTargetGroupArrayInput interface {
-	pulumi.Input
-
-	ToGetListenerDefaultActionForwardTargetGroupArrayOutput() GetListenerDefaultActionForwardTargetGroupArrayOutput
-	ToGetListenerDefaultActionForwardTargetGroupArrayOutputWithContext(context.Context) GetListenerDefaultActionForwardTargetGroupArrayOutput
-}
-
-type GetListenerDefaultActionForwardTargetGroupArray []GetListenerDefaultActionForwardTargetGroupInput
-
-func (GetListenerDefaultActionForwardTargetGroupArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetListenerDefaultActionForwardTargetGroup)(nil)).Elem()
-}
-
-func (i GetListenerDefaultActionForwardTargetGroupArray) ToGetListenerDefaultActionForwardTargetGroupArrayOutput() GetListenerDefaultActionForwardTargetGroupArrayOutput {
-	return i.ToGetListenerDefaultActionForwardTargetGroupArrayOutputWithContext(context.Background())
-}
-
-func (i GetListenerDefaultActionForwardTargetGroupArray) ToGetListenerDefaultActionForwardTargetGroupArrayOutputWithContext(ctx context.Context) GetListenerDefaultActionForwardTargetGroupArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetListenerDefaultActionForwardTargetGroupArrayOutput)
 }
 
 type GetListenerDefaultActionForwardTargetGroupOutput struct{ *pulumi.OutputState }
@@ -5774,64 +5380,6 @@ type GetListenerDefaultActionRedirect struct {
 	Protocol   string `pulumi:"protocol"`
 	Query      string `pulumi:"query"`
 	StatusCode string `pulumi:"statusCode"`
-}
-
-// GetListenerDefaultActionRedirectInput is an input type that accepts GetListenerDefaultActionRedirectArgs and GetListenerDefaultActionRedirectOutput values.
-// You can construct a concrete instance of `GetListenerDefaultActionRedirectInput` via:
-//
-//          GetListenerDefaultActionRedirectArgs{...}
-type GetListenerDefaultActionRedirectInput interface {
-	pulumi.Input
-
-	ToGetListenerDefaultActionRedirectOutput() GetListenerDefaultActionRedirectOutput
-	ToGetListenerDefaultActionRedirectOutputWithContext(context.Context) GetListenerDefaultActionRedirectOutput
-}
-
-type GetListenerDefaultActionRedirectArgs struct {
-	Host pulumi.StringInput `pulumi:"host"`
-	Path pulumi.StringInput `pulumi:"path"`
-	// Port of the listener. Required if `arn` is not set.
-	Port       pulumi.StringInput `pulumi:"port"`
-	Protocol   pulumi.StringInput `pulumi:"protocol"`
-	Query      pulumi.StringInput `pulumi:"query"`
-	StatusCode pulumi.StringInput `pulumi:"statusCode"`
-}
-
-func (GetListenerDefaultActionRedirectArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetListenerDefaultActionRedirect)(nil)).Elem()
-}
-
-func (i GetListenerDefaultActionRedirectArgs) ToGetListenerDefaultActionRedirectOutput() GetListenerDefaultActionRedirectOutput {
-	return i.ToGetListenerDefaultActionRedirectOutputWithContext(context.Background())
-}
-
-func (i GetListenerDefaultActionRedirectArgs) ToGetListenerDefaultActionRedirectOutputWithContext(ctx context.Context) GetListenerDefaultActionRedirectOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetListenerDefaultActionRedirectOutput)
-}
-
-// GetListenerDefaultActionRedirectArrayInput is an input type that accepts GetListenerDefaultActionRedirectArray and GetListenerDefaultActionRedirectArrayOutput values.
-// You can construct a concrete instance of `GetListenerDefaultActionRedirectArrayInput` via:
-//
-//          GetListenerDefaultActionRedirectArray{ GetListenerDefaultActionRedirectArgs{...} }
-type GetListenerDefaultActionRedirectArrayInput interface {
-	pulumi.Input
-
-	ToGetListenerDefaultActionRedirectArrayOutput() GetListenerDefaultActionRedirectArrayOutput
-	ToGetListenerDefaultActionRedirectArrayOutputWithContext(context.Context) GetListenerDefaultActionRedirectArrayOutput
-}
-
-type GetListenerDefaultActionRedirectArray []GetListenerDefaultActionRedirectInput
-
-func (GetListenerDefaultActionRedirectArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetListenerDefaultActionRedirect)(nil)).Elem()
-}
-
-func (i GetListenerDefaultActionRedirectArray) ToGetListenerDefaultActionRedirectArrayOutput() GetListenerDefaultActionRedirectArrayOutput {
-	return i.ToGetListenerDefaultActionRedirectArrayOutputWithContext(context.Background())
-}
-
-func (i GetListenerDefaultActionRedirectArray) ToGetListenerDefaultActionRedirectArrayOutputWithContext(ctx context.Context) GetListenerDefaultActionRedirectArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetListenerDefaultActionRedirectArrayOutput)
 }
 
 type GetListenerDefaultActionRedirectOutput struct{ *pulumi.OutputState }
@@ -5899,35 +5447,6 @@ type GetLoadBalancerAccessLogs struct {
 	Prefix  string `pulumi:"prefix"`
 }
 
-// GetLoadBalancerAccessLogsInput is an input type that accepts GetLoadBalancerAccessLogsArgs and GetLoadBalancerAccessLogsOutput values.
-// You can construct a concrete instance of `GetLoadBalancerAccessLogsInput` via:
-//
-//          GetLoadBalancerAccessLogsArgs{...}
-type GetLoadBalancerAccessLogsInput interface {
-	pulumi.Input
-
-	ToGetLoadBalancerAccessLogsOutput() GetLoadBalancerAccessLogsOutput
-	ToGetLoadBalancerAccessLogsOutputWithContext(context.Context) GetLoadBalancerAccessLogsOutput
-}
-
-type GetLoadBalancerAccessLogsArgs struct {
-	Bucket  pulumi.StringInput `pulumi:"bucket"`
-	Enabled pulumi.BoolInput   `pulumi:"enabled"`
-	Prefix  pulumi.StringInput `pulumi:"prefix"`
-}
-
-func (GetLoadBalancerAccessLogsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetLoadBalancerAccessLogs)(nil)).Elem()
-}
-
-func (i GetLoadBalancerAccessLogsArgs) ToGetLoadBalancerAccessLogsOutput() GetLoadBalancerAccessLogsOutput {
-	return i.ToGetLoadBalancerAccessLogsOutputWithContext(context.Background())
-}
-
-func (i GetLoadBalancerAccessLogsArgs) ToGetLoadBalancerAccessLogsOutputWithContext(ctx context.Context) GetLoadBalancerAccessLogsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetLoadBalancerAccessLogsOutput)
-}
-
 type GetLoadBalancerAccessLogsOutput struct{ *pulumi.OutputState }
 
 func (GetLoadBalancerAccessLogsOutput) ElementType() reflect.Type {
@@ -5960,62 +5479,6 @@ type GetLoadBalancerSubnetMapping struct {
 	OutpostId          string `pulumi:"outpostId"`
 	PrivateIpv4Address string `pulumi:"privateIpv4Address"`
 	SubnetId           string `pulumi:"subnetId"`
-}
-
-// GetLoadBalancerSubnetMappingInput is an input type that accepts GetLoadBalancerSubnetMappingArgs and GetLoadBalancerSubnetMappingOutput values.
-// You can construct a concrete instance of `GetLoadBalancerSubnetMappingInput` via:
-//
-//          GetLoadBalancerSubnetMappingArgs{...}
-type GetLoadBalancerSubnetMappingInput interface {
-	pulumi.Input
-
-	ToGetLoadBalancerSubnetMappingOutput() GetLoadBalancerSubnetMappingOutput
-	ToGetLoadBalancerSubnetMappingOutputWithContext(context.Context) GetLoadBalancerSubnetMappingOutput
-}
-
-type GetLoadBalancerSubnetMappingArgs struct {
-	AllocationId       pulumi.StringInput `pulumi:"allocationId"`
-	Ipv6Address        pulumi.StringInput `pulumi:"ipv6Address"`
-	OutpostId          pulumi.StringInput `pulumi:"outpostId"`
-	PrivateIpv4Address pulumi.StringInput `pulumi:"privateIpv4Address"`
-	SubnetId           pulumi.StringInput `pulumi:"subnetId"`
-}
-
-func (GetLoadBalancerSubnetMappingArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetLoadBalancerSubnetMapping)(nil)).Elem()
-}
-
-func (i GetLoadBalancerSubnetMappingArgs) ToGetLoadBalancerSubnetMappingOutput() GetLoadBalancerSubnetMappingOutput {
-	return i.ToGetLoadBalancerSubnetMappingOutputWithContext(context.Background())
-}
-
-func (i GetLoadBalancerSubnetMappingArgs) ToGetLoadBalancerSubnetMappingOutputWithContext(ctx context.Context) GetLoadBalancerSubnetMappingOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetLoadBalancerSubnetMappingOutput)
-}
-
-// GetLoadBalancerSubnetMappingArrayInput is an input type that accepts GetLoadBalancerSubnetMappingArray and GetLoadBalancerSubnetMappingArrayOutput values.
-// You can construct a concrete instance of `GetLoadBalancerSubnetMappingArrayInput` via:
-//
-//          GetLoadBalancerSubnetMappingArray{ GetLoadBalancerSubnetMappingArgs{...} }
-type GetLoadBalancerSubnetMappingArrayInput interface {
-	pulumi.Input
-
-	ToGetLoadBalancerSubnetMappingArrayOutput() GetLoadBalancerSubnetMappingArrayOutput
-	ToGetLoadBalancerSubnetMappingArrayOutputWithContext(context.Context) GetLoadBalancerSubnetMappingArrayOutput
-}
-
-type GetLoadBalancerSubnetMappingArray []GetLoadBalancerSubnetMappingInput
-
-func (GetLoadBalancerSubnetMappingArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetLoadBalancerSubnetMapping)(nil)).Elem()
-}
-
-func (i GetLoadBalancerSubnetMappingArray) ToGetLoadBalancerSubnetMappingArrayOutput() GetLoadBalancerSubnetMappingArrayOutput {
-	return i.ToGetLoadBalancerSubnetMappingArrayOutputWithContext(context.Background())
-}
-
-func (i GetLoadBalancerSubnetMappingArray) ToGetLoadBalancerSubnetMappingArrayOutputWithContext(ctx context.Context) GetLoadBalancerSubnetMappingArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetLoadBalancerSubnetMappingArrayOutput)
 }
 
 type GetLoadBalancerSubnetMappingOutput struct{ *pulumi.OutputState }
@@ -6084,41 +5547,6 @@ type GetTargetGroupHealthCheck struct {
 	UnhealthyThreshold int    `pulumi:"unhealthyThreshold"`
 }
 
-// GetTargetGroupHealthCheckInput is an input type that accepts GetTargetGroupHealthCheckArgs and GetTargetGroupHealthCheckOutput values.
-// You can construct a concrete instance of `GetTargetGroupHealthCheckInput` via:
-//
-//          GetTargetGroupHealthCheckArgs{...}
-type GetTargetGroupHealthCheckInput interface {
-	pulumi.Input
-
-	ToGetTargetGroupHealthCheckOutput() GetTargetGroupHealthCheckOutput
-	ToGetTargetGroupHealthCheckOutputWithContext(context.Context) GetTargetGroupHealthCheckOutput
-}
-
-type GetTargetGroupHealthCheckArgs struct {
-	Enabled            pulumi.BoolInput   `pulumi:"enabled"`
-	HealthyThreshold   pulumi.IntInput    `pulumi:"healthyThreshold"`
-	Interval           pulumi.IntInput    `pulumi:"interval"`
-	Matcher            pulumi.StringInput `pulumi:"matcher"`
-	Path               pulumi.StringInput `pulumi:"path"`
-	Port               pulumi.StringInput `pulumi:"port"`
-	Protocol           pulumi.StringInput `pulumi:"protocol"`
-	Timeout            pulumi.IntInput    `pulumi:"timeout"`
-	UnhealthyThreshold pulumi.IntInput    `pulumi:"unhealthyThreshold"`
-}
-
-func (GetTargetGroupHealthCheckArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetTargetGroupHealthCheck)(nil)).Elem()
-}
-
-func (i GetTargetGroupHealthCheckArgs) ToGetTargetGroupHealthCheckOutput() GetTargetGroupHealthCheckOutput {
-	return i.ToGetTargetGroupHealthCheckOutputWithContext(context.Background())
-}
-
-func (i GetTargetGroupHealthCheckArgs) ToGetTargetGroupHealthCheckOutputWithContext(ctx context.Context) GetTargetGroupHealthCheckOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetTargetGroupHealthCheckOutput)
-}
-
 type GetTargetGroupHealthCheckOutput struct{ *pulumi.OutputState }
 
 func (GetTargetGroupHealthCheckOutput) ElementType() reflect.Type {
@@ -6174,36 +5602,6 @@ type GetTargetGroupStickiness struct {
 	CookieName     string `pulumi:"cookieName"`
 	Enabled        bool   `pulumi:"enabled"`
 	Type           string `pulumi:"type"`
-}
-
-// GetTargetGroupStickinessInput is an input type that accepts GetTargetGroupStickinessArgs and GetTargetGroupStickinessOutput values.
-// You can construct a concrete instance of `GetTargetGroupStickinessInput` via:
-//
-//          GetTargetGroupStickinessArgs{...}
-type GetTargetGroupStickinessInput interface {
-	pulumi.Input
-
-	ToGetTargetGroupStickinessOutput() GetTargetGroupStickinessOutput
-	ToGetTargetGroupStickinessOutputWithContext(context.Context) GetTargetGroupStickinessOutput
-}
-
-type GetTargetGroupStickinessArgs struct {
-	CookieDuration pulumi.IntInput    `pulumi:"cookieDuration"`
-	CookieName     pulumi.StringInput `pulumi:"cookieName"`
-	Enabled        pulumi.BoolInput   `pulumi:"enabled"`
-	Type           pulumi.StringInput `pulumi:"type"`
-}
-
-func (GetTargetGroupStickinessArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetTargetGroupStickiness)(nil)).Elem()
-}
-
-func (i GetTargetGroupStickinessArgs) ToGetTargetGroupStickinessOutput() GetTargetGroupStickinessOutput {
-	return i.ToGetTargetGroupStickinessOutputWithContext(context.Background())
-}
-
-func (i GetTargetGroupStickinessArgs) ToGetTargetGroupStickinessOutputWithContext(ctx context.Context) GetTargetGroupStickinessOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetTargetGroupStickinessOutput)
 }
 
 type GetTargetGroupStickinessOutput struct{ *pulumi.OutputState }
@@ -6291,27 +5689,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TargetGroupHealthCheckPtrInput)(nil)).Elem(), TargetGroupHealthCheckArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TargetGroupStickinessInput)(nil)).Elem(), TargetGroupStickinessArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TargetGroupStickinessPtrInput)(nil)).Elem(), TargetGroupStickinessArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerDefaultActionInput)(nil)).Elem(), GetListenerDefaultActionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerDefaultActionArrayInput)(nil)).Elem(), GetListenerDefaultActionArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerDefaultActionAuthenticateCognitoInput)(nil)).Elem(), GetListenerDefaultActionAuthenticateCognitoArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerDefaultActionAuthenticateCognitoArrayInput)(nil)).Elem(), GetListenerDefaultActionAuthenticateCognitoArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerDefaultActionAuthenticateOidcInput)(nil)).Elem(), GetListenerDefaultActionAuthenticateOidcArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerDefaultActionAuthenticateOidcArrayInput)(nil)).Elem(), GetListenerDefaultActionAuthenticateOidcArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerDefaultActionFixedResponseInput)(nil)).Elem(), GetListenerDefaultActionFixedResponseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerDefaultActionFixedResponseArrayInput)(nil)).Elem(), GetListenerDefaultActionFixedResponseArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerDefaultActionForwardInput)(nil)).Elem(), GetListenerDefaultActionForwardArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerDefaultActionForwardArrayInput)(nil)).Elem(), GetListenerDefaultActionForwardArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerDefaultActionForwardStickinessInput)(nil)).Elem(), GetListenerDefaultActionForwardStickinessArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerDefaultActionForwardStickinessArrayInput)(nil)).Elem(), GetListenerDefaultActionForwardStickinessArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerDefaultActionForwardTargetGroupInput)(nil)).Elem(), GetListenerDefaultActionForwardTargetGroupArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerDefaultActionForwardTargetGroupArrayInput)(nil)).Elem(), GetListenerDefaultActionForwardTargetGroupArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerDefaultActionRedirectInput)(nil)).Elem(), GetListenerDefaultActionRedirectArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetListenerDefaultActionRedirectArrayInput)(nil)).Elem(), GetListenerDefaultActionRedirectArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetLoadBalancerAccessLogsInput)(nil)).Elem(), GetLoadBalancerAccessLogsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetLoadBalancerSubnetMappingInput)(nil)).Elem(), GetLoadBalancerSubnetMappingArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetLoadBalancerSubnetMappingArrayInput)(nil)).Elem(), GetLoadBalancerSubnetMappingArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetTargetGroupHealthCheckInput)(nil)).Elem(), GetTargetGroupHealthCheckArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetTargetGroupStickinessInput)(nil)).Elem(), GetTargetGroupStickinessArgs{})
 	pulumi.RegisterOutputType(ListenerDefaultActionOutput{})
 	pulumi.RegisterOutputType(ListenerDefaultActionArrayOutput{})
 	pulumi.RegisterOutputType(ListenerDefaultActionAuthenticateCognitoOutput{})

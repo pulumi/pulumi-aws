@@ -85,30 +85,30 @@ export class ModelPackageGroup extends pulumi.CustomResource {
      */
     constructor(name: string, args: ModelPackageGroupArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ModelPackageGroupArgs | ModelPackageGroupState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ModelPackageGroupState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["modelPackageGroupDescription"] = state ? state.modelPackageGroupDescription : undefined;
-            inputs["modelPackageGroupName"] = state ? state.modelPackageGroupName : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["modelPackageGroupDescription"] = state ? state.modelPackageGroupDescription : undefined;
+            resourceInputs["modelPackageGroupName"] = state ? state.modelPackageGroupName : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as ModelPackageGroupArgs | undefined;
             if ((!args || args.modelPackageGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'modelPackageGroupName'");
             }
-            inputs["modelPackageGroupDescription"] = args ? args.modelPackageGroupDescription : undefined;
-            inputs["modelPackageGroupName"] = args ? args.modelPackageGroupName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["modelPackageGroupDescription"] = args ? args.modelPackageGroupDescription : undefined;
+            resourceInputs["modelPackageGroupName"] = args ? args.modelPackageGroupName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(ModelPackageGroup.__pulumiType, name, inputs, opts);
+        super(ModelPackageGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

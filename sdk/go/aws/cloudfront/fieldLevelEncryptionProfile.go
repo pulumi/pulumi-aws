@@ -180,7 +180,7 @@ type FieldLevelEncryptionProfileInput interface {
 }
 
 func (*FieldLevelEncryptionProfile) ElementType() reflect.Type {
-	return reflect.TypeOf((*FieldLevelEncryptionProfile)(nil))
+	return reflect.TypeOf((**FieldLevelEncryptionProfile)(nil)).Elem()
 }
 
 func (i *FieldLevelEncryptionProfile) ToFieldLevelEncryptionProfileOutput() FieldLevelEncryptionProfileOutput {
@@ -189,35 +189,6 @@ func (i *FieldLevelEncryptionProfile) ToFieldLevelEncryptionProfileOutput() Fiel
 
 func (i *FieldLevelEncryptionProfile) ToFieldLevelEncryptionProfileOutputWithContext(ctx context.Context) FieldLevelEncryptionProfileOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FieldLevelEncryptionProfileOutput)
-}
-
-func (i *FieldLevelEncryptionProfile) ToFieldLevelEncryptionProfilePtrOutput() FieldLevelEncryptionProfilePtrOutput {
-	return i.ToFieldLevelEncryptionProfilePtrOutputWithContext(context.Background())
-}
-
-func (i *FieldLevelEncryptionProfile) ToFieldLevelEncryptionProfilePtrOutputWithContext(ctx context.Context) FieldLevelEncryptionProfilePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FieldLevelEncryptionProfilePtrOutput)
-}
-
-type FieldLevelEncryptionProfilePtrInput interface {
-	pulumi.Input
-
-	ToFieldLevelEncryptionProfilePtrOutput() FieldLevelEncryptionProfilePtrOutput
-	ToFieldLevelEncryptionProfilePtrOutputWithContext(ctx context.Context) FieldLevelEncryptionProfilePtrOutput
-}
-
-type fieldLevelEncryptionProfilePtrType FieldLevelEncryptionProfileArgs
-
-func (*fieldLevelEncryptionProfilePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FieldLevelEncryptionProfile)(nil))
-}
-
-func (i *fieldLevelEncryptionProfilePtrType) ToFieldLevelEncryptionProfilePtrOutput() FieldLevelEncryptionProfilePtrOutput {
-	return i.ToFieldLevelEncryptionProfilePtrOutputWithContext(context.Background())
-}
-
-func (i *fieldLevelEncryptionProfilePtrType) ToFieldLevelEncryptionProfilePtrOutputWithContext(ctx context.Context) FieldLevelEncryptionProfilePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FieldLevelEncryptionProfilePtrOutput)
 }
 
 // FieldLevelEncryptionProfileArrayInput is an input type that accepts FieldLevelEncryptionProfileArray and FieldLevelEncryptionProfileArrayOutput values.
@@ -273,7 +244,7 @@ func (i FieldLevelEncryptionProfileMap) ToFieldLevelEncryptionProfileMapOutputWi
 type FieldLevelEncryptionProfileOutput struct{ *pulumi.OutputState }
 
 func (FieldLevelEncryptionProfileOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FieldLevelEncryptionProfile)(nil))
+	return reflect.TypeOf((**FieldLevelEncryptionProfile)(nil)).Elem()
 }
 
 func (o FieldLevelEncryptionProfileOutput) ToFieldLevelEncryptionProfileOutput() FieldLevelEncryptionProfileOutput {
@@ -284,44 +255,10 @@ func (o FieldLevelEncryptionProfileOutput) ToFieldLevelEncryptionProfileOutputWi
 	return o
 }
 
-func (o FieldLevelEncryptionProfileOutput) ToFieldLevelEncryptionProfilePtrOutput() FieldLevelEncryptionProfilePtrOutput {
-	return o.ToFieldLevelEncryptionProfilePtrOutputWithContext(context.Background())
-}
-
-func (o FieldLevelEncryptionProfileOutput) ToFieldLevelEncryptionProfilePtrOutputWithContext(ctx context.Context) FieldLevelEncryptionProfilePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FieldLevelEncryptionProfile) *FieldLevelEncryptionProfile {
-		return &v
-	}).(FieldLevelEncryptionProfilePtrOutput)
-}
-
-type FieldLevelEncryptionProfilePtrOutput struct{ *pulumi.OutputState }
-
-func (FieldLevelEncryptionProfilePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FieldLevelEncryptionProfile)(nil))
-}
-
-func (o FieldLevelEncryptionProfilePtrOutput) ToFieldLevelEncryptionProfilePtrOutput() FieldLevelEncryptionProfilePtrOutput {
-	return o
-}
-
-func (o FieldLevelEncryptionProfilePtrOutput) ToFieldLevelEncryptionProfilePtrOutputWithContext(ctx context.Context) FieldLevelEncryptionProfilePtrOutput {
-	return o
-}
-
-func (o FieldLevelEncryptionProfilePtrOutput) Elem() FieldLevelEncryptionProfileOutput {
-	return o.ApplyT(func(v *FieldLevelEncryptionProfile) FieldLevelEncryptionProfile {
-		if v != nil {
-			return *v
-		}
-		var ret FieldLevelEncryptionProfile
-		return ret
-	}).(FieldLevelEncryptionProfileOutput)
-}
-
 type FieldLevelEncryptionProfileArrayOutput struct{ *pulumi.OutputState }
 
 func (FieldLevelEncryptionProfileArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FieldLevelEncryptionProfile)(nil))
+	return reflect.TypeOf((*[]*FieldLevelEncryptionProfile)(nil)).Elem()
 }
 
 func (o FieldLevelEncryptionProfileArrayOutput) ToFieldLevelEncryptionProfileArrayOutput() FieldLevelEncryptionProfileArrayOutput {
@@ -333,15 +270,15 @@ func (o FieldLevelEncryptionProfileArrayOutput) ToFieldLevelEncryptionProfileArr
 }
 
 func (o FieldLevelEncryptionProfileArrayOutput) Index(i pulumi.IntInput) FieldLevelEncryptionProfileOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FieldLevelEncryptionProfile {
-		return vs[0].([]FieldLevelEncryptionProfile)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FieldLevelEncryptionProfile {
+		return vs[0].([]*FieldLevelEncryptionProfile)[vs[1].(int)]
 	}).(FieldLevelEncryptionProfileOutput)
 }
 
 type FieldLevelEncryptionProfileMapOutput struct{ *pulumi.OutputState }
 
 func (FieldLevelEncryptionProfileMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]FieldLevelEncryptionProfile)(nil))
+	return reflect.TypeOf((*map[string]*FieldLevelEncryptionProfile)(nil)).Elem()
 }
 
 func (o FieldLevelEncryptionProfileMapOutput) ToFieldLevelEncryptionProfileMapOutput() FieldLevelEncryptionProfileMapOutput {
@@ -353,18 +290,16 @@ func (o FieldLevelEncryptionProfileMapOutput) ToFieldLevelEncryptionProfileMapOu
 }
 
 func (o FieldLevelEncryptionProfileMapOutput) MapIndex(k pulumi.StringInput) FieldLevelEncryptionProfileOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) FieldLevelEncryptionProfile {
-		return vs[0].(map[string]FieldLevelEncryptionProfile)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *FieldLevelEncryptionProfile {
+		return vs[0].(map[string]*FieldLevelEncryptionProfile)[vs[1].(string)]
 	}).(FieldLevelEncryptionProfileOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FieldLevelEncryptionProfileInput)(nil)).Elem(), &FieldLevelEncryptionProfile{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FieldLevelEncryptionProfilePtrInput)(nil)).Elem(), &FieldLevelEncryptionProfile{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FieldLevelEncryptionProfileArrayInput)(nil)).Elem(), FieldLevelEncryptionProfileArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FieldLevelEncryptionProfileMapInput)(nil)).Elem(), FieldLevelEncryptionProfileMap{})
 	pulumi.RegisterOutputType(FieldLevelEncryptionProfileOutput{})
-	pulumi.RegisterOutputType(FieldLevelEncryptionProfilePtrOutput{})
 	pulumi.RegisterOutputType(FieldLevelEncryptionProfileArrayOutput{})
 	pulumi.RegisterOutputType(FieldLevelEncryptionProfileMapOutput{})
 }

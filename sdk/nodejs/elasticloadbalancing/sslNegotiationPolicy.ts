@@ -123,14 +123,14 @@ export class SslNegotiationPolicy extends pulumi.CustomResource {
     /** @deprecated aws.elasticloadbalancing.SslNegotiationPolicy has been deprecated in favor of aws.elb.SslNegotiationPolicy */
     constructor(name: string, argsOrState?: SslNegotiationPolicyArgs | SslNegotiationPolicyState, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("SslNegotiationPolicy is deprecated: aws.elasticloadbalancing.SslNegotiationPolicy has been deprecated in favor of aws.elb.SslNegotiationPolicy")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SslNegotiationPolicyState | undefined;
-            inputs["attributes"] = state ? state.attributes : undefined;
-            inputs["lbPort"] = state ? state.lbPort : undefined;
-            inputs["loadBalancer"] = state ? state.loadBalancer : undefined;
-            inputs["name"] = state ? state.name : undefined;
+            resourceInputs["attributes"] = state ? state.attributes : undefined;
+            resourceInputs["lbPort"] = state ? state.lbPort : undefined;
+            resourceInputs["loadBalancer"] = state ? state.loadBalancer : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as SslNegotiationPolicyArgs | undefined;
             if ((!args || args.lbPort === undefined) && !opts.urn) {
@@ -139,15 +139,15 @@ export class SslNegotiationPolicy extends pulumi.CustomResource {
             if ((!args || args.loadBalancer === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'loadBalancer'");
             }
-            inputs["attributes"] = args ? args.attributes : undefined;
-            inputs["lbPort"] = args ? args.lbPort : undefined;
-            inputs["loadBalancer"] = args ? args.loadBalancer : undefined;
-            inputs["name"] = args ? args.name : undefined;
+            resourceInputs["attributes"] = args ? args.attributes : undefined;
+            resourceInputs["lbPort"] = args ? args.lbPort : undefined;
+            resourceInputs["loadBalancer"] = args ? args.loadBalancer : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(SslNegotiationPolicy.__pulumiType, name, inputs, opts);
+        super(SslNegotiationPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

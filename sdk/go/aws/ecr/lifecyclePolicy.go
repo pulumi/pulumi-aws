@@ -178,7 +178,7 @@ type LifecyclePolicyInput interface {
 }
 
 func (*LifecyclePolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*LifecyclePolicy)(nil))
+	return reflect.TypeOf((**LifecyclePolicy)(nil)).Elem()
 }
 
 func (i *LifecyclePolicy) ToLifecyclePolicyOutput() LifecyclePolicyOutput {
@@ -187,35 +187,6 @@ func (i *LifecyclePolicy) ToLifecyclePolicyOutput() LifecyclePolicyOutput {
 
 func (i *LifecyclePolicy) ToLifecyclePolicyOutputWithContext(ctx context.Context) LifecyclePolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyOutput)
-}
-
-func (i *LifecyclePolicy) ToLifecyclePolicyPtrOutput() LifecyclePolicyPtrOutput {
-	return i.ToLifecyclePolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *LifecyclePolicy) ToLifecyclePolicyPtrOutputWithContext(ctx context.Context) LifecyclePolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyPtrOutput)
-}
-
-type LifecyclePolicyPtrInput interface {
-	pulumi.Input
-
-	ToLifecyclePolicyPtrOutput() LifecyclePolicyPtrOutput
-	ToLifecyclePolicyPtrOutputWithContext(ctx context.Context) LifecyclePolicyPtrOutput
-}
-
-type lifecyclePolicyPtrType LifecyclePolicyArgs
-
-func (*lifecyclePolicyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**LifecyclePolicy)(nil))
-}
-
-func (i *lifecyclePolicyPtrType) ToLifecyclePolicyPtrOutput() LifecyclePolicyPtrOutput {
-	return i.ToLifecyclePolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *lifecyclePolicyPtrType) ToLifecyclePolicyPtrOutputWithContext(ctx context.Context) LifecyclePolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LifecyclePolicyPtrOutput)
 }
 
 // LifecyclePolicyArrayInput is an input type that accepts LifecyclePolicyArray and LifecyclePolicyArrayOutput values.
@@ -271,7 +242,7 @@ func (i LifecyclePolicyMap) ToLifecyclePolicyMapOutputWithContext(ctx context.Co
 type LifecyclePolicyOutput struct{ *pulumi.OutputState }
 
 func (LifecyclePolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LifecyclePolicy)(nil))
+	return reflect.TypeOf((**LifecyclePolicy)(nil)).Elem()
 }
 
 func (o LifecyclePolicyOutput) ToLifecyclePolicyOutput() LifecyclePolicyOutput {
@@ -282,44 +253,10 @@ func (o LifecyclePolicyOutput) ToLifecyclePolicyOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o LifecyclePolicyOutput) ToLifecyclePolicyPtrOutput() LifecyclePolicyPtrOutput {
-	return o.ToLifecyclePolicyPtrOutputWithContext(context.Background())
-}
-
-func (o LifecyclePolicyOutput) ToLifecyclePolicyPtrOutputWithContext(ctx context.Context) LifecyclePolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v LifecyclePolicy) *LifecyclePolicy {
-		return &v
-	}).(LifecyclePolicyPtrOutput)
-}
-
-type LifecyclePolicyPtrOutput struct{ *pulumi.OutputState }
-
-func (LifecyclePolicyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**LifecyclePolicy)(nil))
-}
-
-func (o LifecyclePolicyPtrOutput) ToLifecyclePolicyPtrOutput() LifecyclePolicyPtrOutput {
-	return o
-}
-
-func (o LifecyclePolicyPtrOutput) ToLifecyclePolicyPtrOutputWithContext(ctx context.Context) LifecyclePolicyPtrOutput {
-	return o
-}
-
-func (o LifecyclePolicyPtrOutput) Elem() LifecyclePolicyOutput {
-	return o.ApplyT(func(v *LifecyclePolicy) LifecyclePolicy {
-		if v != nil {
-			return *v
-		}
-		var ret LifecyclePolicy
-		return ret
-	}).(LifecyclePolicyOutput)
-}
-
 type LifecyclePolicyArrayOutput struct{ *pulumi.OutputState }
 
 func (LifecyclePolicyArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LifecyclePolicy)(nil))
+	return reflect.TypeOf((*[]*LifecyclePolicy)(nil)).Elem()
 }
 
 func (o LifecyclePolicyArrayOutput) ToLifecyclePolicyArrayOutput() LifecyclePolicyArrayOutput {
@@ -331,15 +268,15 @@ func (o LifecyclePolicyArrayOutput) ToLifecyclePolicyArrayOutputWithContext(ctx 
 }
 
 func (o LifecyclePolicyArrayOutput) Index(i pulumi.IntInput) LifecyclePolicyOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LifecyclePolicy {
-		return vs[0].([]LifecyclePolicy)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *LifecyclePolicy {
+		return vs[0].([]*LifecyclePolicy)[vs[1].(int)]
 	}).(LifecyclePolicyOutput)
 }
 
 type LifecyclePolicyMapOutput struct{ *pulumi.OutputState }
 
 func (LifecyclePolicyMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]LifecyclePolicy)(nil))
+	return reflect.TypeOf((*map[string]*LifecyclePolicy)(nil)).Elem()
 }
 
 func (o LifecyclePolicyMapOutput) ToLifecyclePolicyMapOutput() LifecyclePolicyMapOutput {
@@ -351,18 +288,16 @@ func (o LifecyclePolicyMapOutput) ToLifecyclePolicyMapOutputWithContext(ctx cont
 }
 
 func (o LifecyclePolicyMapOutput) MapIndex(k pulumi.StringInput) LifecyclePolicyOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LifecyclePolicy {
-		return vs[0].(map[string]LifecyclePolicy)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *LifecyclePolicy {
+		return vs[0].(map[string]*LifecyclePolicy)[vs[1].(string)]
 	}).(LifecyclePolicyOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyInput)(nil)).Elem(), &LifecyclePolicy{})
-	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyPtrInput)(nil)).Elem(), &LifecyclePolicy{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyArrayInput)(nil)).Elem(), LifecyclePolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LifecyclePolicyMapInput)(nil)).Elem(), LifecyclePolicyMap{})
 	pulumi.RegisterOutputType(LifecyclePolicyOutput{})
-	pulumi.RegisterOutputType(LifecyclePolicyPtrOutput{})
 	pulumi.RegisterOutputType(LifecyclePolicyArrayOutput{})
 	pulumi.RegisterOutputType(LifecyclePolicyMapOutput{})
 }

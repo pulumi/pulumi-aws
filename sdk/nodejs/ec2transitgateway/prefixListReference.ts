@@ -96,15 +96,15 @@ export class PrefixListReference extends pulumi.CustomResource {
      */
     constructor(name: string, args: PrefixListReferenceArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PrefixListReferenceArgs | PrefixListReferenceState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PrefixListReferenceState | undefined;
-            inputs["blackhole"] = state ? state.blackhole : undefined;
-            inputs["prefixListId"] = state ? state.prefixListId : undefined;
-            inputs["prefixListOwnerId"] = state ? state.prefixListOwnerId : undefined;
-            inputs["transitGatewayAttachmentId"] = state ? state.transitGatewayAttachmentId : undefined;
-            inputs["transitGatewayRouteTableId"] = state ? state.transitGatewayRouteTableId : undefined;
+            resourceInputs["blackhole"] = state ? state.blackhole : undefined;
+            resourceInputs["prefixListId"] = state ? state.prefixListId : undefined;
+            resourceInputs["prefixListOwnerId"] = state ? state.prefixListOwnerId : undefined;
+            resourceInputs["transitGatewayAttachmentId"] = state ? state.transitGatewayAttachmentId : undefined;
+            resourceInputs["transitGatewayRouteTableId"] = state ? state.transitGatewayRouteTableId : undefined;
         } else {
             const args = argsOrState as PrefixListReferenceArgs | undefined;
             if ((!args || args.prefixListId === undefined) && !opts.urn) {
@@ -113,16 +113,16 @@ export class PrefixListReference extends pulumi.CustomResource {
             if ((!args || args.transitGatewayRouteTableId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'transitGatewayRouteTableId'");
             }
-            inputs["blackhole"] = args ? args.blackhole : undefined;
-            inputs["prefixListId"] = args ? args.prefixListId : undefined;
-            inputs["transitGatewayAttachmentId"] = args ? args.transitGatewayAttachmentId : undefined;
-            inputs["transitGatewayRouteTableId"] = args ? args.transitGatewayRouteTableId : undefined;
-            inputs["prefixListOwnerId"] = undefined /*out*/;
+            resourceInputs["blackhole"] = args ? args.blackhole : undefined;
+            resourceInputs["prefixListId"] = args ? args.prefixListId : undefined;
+            resourceInputs["transitGatewayAttachmentId"] = args ? args.transitGatewayAttachmentId : undefined;
+            resourceInputs["transitGatewayRouteTableId"] = args ? args.transitGatewayRouteTableId : undefined;
+            resourceInputs["prefixListOwnerId"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(PrefixListReference.__pulumiType, name, inputs, opts);
+        super(PrefixListReference.__pulumiType, name, resourceInputs, opts);
     }
 }
 

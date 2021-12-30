@@ -852,61 +852,6 @@ type GetRepositoryEncryptionConfiguration struct {
 	KmsKey string `pulumi:"kmsKey"`
 }
 
-// GetRepositoryEncryptionConfigurationInput is an input type that accepts GetRepositoryEncryptionConfigurationArgs and GetRepositoryEncryptionConfigurationOutput values.
-// You can construct a concrete instance of `GetRepositoryEncryptionConfigurationInput` via:
-//
-//          GetRepositoryEncryptionConfigurationArgs{...}
-type GetRepositoryEncryptionConfigurationInput interface {
-	pulumi.Input
-
-	ToGetRepositoryEncryptionConfigurationOutput() GetRepositoryEncryptionConfigurationOutput
-	ToGetRepositoryEncryptionConfigurationOutputWithContext(context.Context) GetRepositoryEncryptionConfigurationOutput
-}
-
-type GetRepositoryEncryptionConfigurationArgs struct {
-	// The encryption type to use for the repository, either `AES256` or `KMS`.
-	EncryptionType pulumi.StringInput `pulumi:"encryptionType"`
-	// If `encryptionType` is `KMS`, the ARN of the KMS key used.
-	KmsKey pulumi.StringInput `pulumi:"kmsKey"`
-}
-
-func (GetRepositoryEncryptionConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetRepositoryEncryptionConfiguration)(nil)).Elem()
-}
-
-func (i GetRepositoryEncryptionConfigurationArgs) ToGetRepositoryEncryptionConfigurationOutput() GetRepositoryEncryptionConfigurationOutput {
-	return i.ToGetRepositoryEncryptionConfigurationOutputWithContext(context.Background())
-}
-
-func (i GetRepositoryEncryptionConfigurationArgs) ToGetRepositoryEncryptionConfigurationOutputWithContext(ctx context.Context) GetRepositoryEncryptionConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetRepositoryEncryptionConfigurationOutput)
-}
-
-// GetRepositoryEncryptionConfigurationArrayInput is an input type that accepts GetRepositoryEncryptionConfigurationArray and GetRepositoryEncryptionConfigurationArrayOutput values.
-// You can construct a concrete instance of `GetRepositoryEncryptionConfigurationArrayInput` via:
-//
-//          GetRepositoryEncryptionConfigurationArray{ GetRepositoryEncryptionConfigurationArgs{...} }
-type GetRepositoryEncryptionConfigurationArrayInput interface {
-	pulumi.Input
-
-	ToGetRepositoryEncryptionConfigurationArrayOutput() GetRepositoryEncryptionConfigurationArrayOutput
-	ToGetRepositoryEncryptionConfigurationArrayOutputWithContext(context.Context) GetRepositoryEncryptionConfigurationArrayOutput
-}
-
-type GetRepositoryEncryptionConfigurationArray []GetRepositoryEncryptionConfigurationInput
-
-func (GetRepositoryEncryptionConfigurationArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetRepositoryEncryptionConfiguration)(nil)).Elem()
-}
-
-func (i GetRepositoryEncryptionConfigurationArray) ToGetRepositoryEncryptionConfigurationArrayOutput() GetRepositoryEncryptionConfigurationArrayOutput {
-	return i.ToGetRepositoryEncryptionConfigurationArrayOutputWithContext(context.Background())
-}
-
-func (i GetRepositoryEncryptionConfigurationArray) ToGetRepositoryEncryptionConfigurationArrayOutputWithContext(ctx context.Context) GetRepositoryEncryptionConfigurationArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetRepositoryEncryptionConfigurationArrayOutput)
-}
-
 type GetRepositoryEncryptionConfigurationOutput struct{ *pulumi.OutputState }
 
 func (GetRepositoryEncryptionConfigurationOutput) ElementType() reflect.Type {
@@ -954,59 +899,6 @@ func (o GetRepositoryEncryptionConfigurationArrayOutput) Index(i pulumi.IntInput
 type GetRepositoryImageScanningConfiguration struct {
 	// Indicates whether images are scanned after being pushed to the repository.
 	ScanOnPush bool `pulumi:"scanOnPush"`
-}
-
-// GetRepositoryImageScanningConfigurationInput is an input type that accepts GetRepositoryImageScanningConfigurationArgs and GetRepositoryImageScanningConfigurationOutput values.
-// You can construct a concrete instance of `GetRepositoryImageScanningConfigurationInput` via:
-//
-//          GetRepositoryImageScanningConfigurationArgs{...}
-type GetRepositoryImageScanningConfigurationInput interface {
-	pulumi.Input
-
-	ToGetRepositoryImageScanningConfigurationOutput() GetRepositoryImageScanningConfigurationOutput
-	ToGetRepositoryImageScanningConfigurationOutputWithContext(context.Context) GetRepositoryImageScanningConfigurationOutput
-}
-
-type GetRepositoryImageScanningConfigurationArgs struct {
-	// Indicates whether images are scanned after being pushed to the repository.
-	ScanOnPush pulumi.BoolInput `pulumi:"scanOnPush"`
-}
-
-func (GetRepositoryImageScanningConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetRepositoryImageScanningConfiguration)(nil)).Elem()
-}
-
-func (i GetRepositoryImageScanningConfigurationArgs) ToGetRepositoryImageScanningConfigurationOutput() GetRepositoryImageScanningConfigurationOutput {
-	return i.ToGetRepositoryImageScanningConfigurationOutputWithContext(context.Background())
-}
-
-func (i GetRepositoryImageScanningConfigurationArgs) ToGetRepositoryImageScanningConfigurationOutputWithContext(ctx context.Context) GetRepositoryImageScanningConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetRepositoryImageScanningConfigurationOutput)
-}
-
-// GetRepositoryImageScanningConfigurationArrayInput is an input type that accepts GetRepositoryImageScanningConfigurationArray and GetRepositoryImageScanningConfigurationArrayOutput values.
-// You can construct a concrete instance of `GetRepositoryImageScanningConfigurationArrayInput` via:
-//
-//          GetRepositoryImageScanningConfigurationArray{ GetRepositoryImageScanningConfigurationArgs{...} }
-type GetRepositoryImageScanningConfigurationArrayInput interface {
-	pulumi.Input
-
-	ToGetRepositoryImageScanningConfigurationArrayOutput() GetRepositoryImageScanningConfigurationArrayOutput
-	ToGetRepositoryImageScanningConfigurationArrayOutputWithContext(context.Context) GetRepositoryImageScanningConfigurationArrayOutput
-}
-
-type GetRepositoryImageScanningConfigurationArray []GetRepositoryImageScanningConfigurationInput
-
-func (GetRepositoryImageScanningConfigurationArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetRepositoryImageScanningConfiguration)(nil)).Elem()
-}
-
-func (i GetRepositoryImageScanningConfigurationArray) ToGetRepositoryImageScanningConfigurationArrayOutput() GetRepositoryImageScanningConfigurationArrayOutput {
-	return i.ToGetRepositoryImageScanningConfigurationArrayOutputWithContext(context.Background())
-}
-
-func (i GetRepositoryImageScanningConfigurationArray) ToGetRepositoryImageScanningConfigurationArrayOutputWithContext(ctx context.Context) GetRepositoryImageScanningConfigurationArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetRepositoryImageScanningConfigurationArrayOutput)
 }
 
 type GetRepositoryImageScanningConfigurationOutput struct{ *pulumi.OutputState }
@@ -1063,10 +955,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryEncryptionConfigurationArrayInput)(nil)).Elem(), RepositoryEncryptionConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryImageScanningConfigurationInput)(nil)).Elem(), RepositoryImageScanningConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryImageScanningConfigurationPtrInput)(nil)).Elem(), RepositoryImageScanningConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryEncryptionConfigurationInput)(nil)).Elem(), GetRepositoryEncryptionConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryEncryptionConfigurationArrayInput)(nil)).Elem(), GetRepositoryEncryptionConfigurationArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryImageScanningConfigurationInput)(nil)).Elem(), GetRepositoryImageScanningConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoryImageScanningConfigurationArrayInput)(nil)).Elem(), GetRepositoryImageScanningConfigurationArray{})
 	pulumi.RegisterOutputType(RegistryScanningConfigurationRuleOutput{})
 	pulumi.RegisterOutputType(RegistryScanningConfigurationRuleArrayOutput{})
 	pulumi.RegisterOutputType(RegistryScanningConfigurationRuleRepositoryFilterOutput{})

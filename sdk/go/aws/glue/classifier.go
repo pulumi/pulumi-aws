@@ -241,7 +241,7 @@ type ClassifierInput interface {
 }
 
 func (*Classifier) ElementType() reflect.Type {
-	return reflect.TypeOf((*Classifier)(nil))
+	return reflect.TypeOf((**Classifier)(nil)).Elem()
 }
 
 func (i *Classifier) ToClassifierOutput() ClassifierOutput {
@@ -250,35 +250,6 @@ func (i *Classifier) ToClassifierOutput() ClassifierOutput {
 
 func (i *Classifier) ToClassifierOutputWithContext(ctx context.Context) ClassifierOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ClassifierOutput)
-}
-
-func (i *Classifier) ToClassifierPtrOutput() ClassifierPtrOutput {
-	return i.ToClassifierPtrOutputWithContext(context.Background())
-}
-
-func (i *Classifier) ToClassifierPtrOutputWithContext(ctx context.Context) ClassifierPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClassifierPtrOutput)
-}
-
-type ClassifierPtrInput interface {
-	pulumi.Input
-
-	ToClassifierPtrOutput() ClassifierPtrOutput
-	ToClassifierPtrOutputWithContext(ctx context.Context) ClassifierPtrOutput
-}
-
-type classifierPtrType ClassifierArgs
-
-func (*classifierPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Classifier)(nil))
-}
-
-func (i *classifierPtrType) ToClassifierPtrOutput() ClassifierPtrOutput {
-	return i.ToClassifierPtrOutputWithContext(context.Background())
-}
-
-func (i *classifierPtrType) ToClassifierPtrOutputWithContext(ctx context.Context) ClassifierPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClassifierPtrOutput)
 }
 
 // ClassifierArrayInput is an input type that accepts ClassifierArray and ClassifierArrayOutput values.
@@ -334,7 +305,7 @@ func (i ClassifierMap) ToClassifierMapOutputWithContext(ctx context.Context) Cla
 type ClassifierOutput struct{ *pulumi.OutputState }
 
 func (ClassifierOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Classifier)(nil))
+	return reflect.TypeOf((**Classifier)(nil)).Elem()
 }
 
 func (o ClassifierOutput) ToClassifierOutput() ClassifierOutput {
@@ -345,44 +316,10 @@ func (o ClassifierOutput) ToClassifierOutputWithContext(ctx context.Context) Cla
 	return o
 }
 
-func (o ClassifierOutput) ToClassifierPtrOutput() ClassifierPtrOutput {
-	return o.ToClassifierPtrOutputWithContext(context.Background())
-}
-
-func (o ClassifierOutput) ToClassifierPtrOutputWithContext(ctx context.Context) ClassifierPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Classifier) *Classifier {
-		return &v
-	}).(ClassifierPtrOutput)
-}
-
-type ClassifierPtrOutput struct{ *pulumi.OutputState }
-
-func (ClassifierPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Classifier)(nil))
-}
-
-func (o ClassifierPtrOutput) ToClassifierPtrOutput() ClassifierPtrOutput {
-	return o
-}
-
-func (o ClassifierPtrOutput) ToClassifierPtrOutputWithContext(ctx context.Context) ClassifierPtrOutput {
-	return o
-}
-
-func (o ClassifierPtrOutput) Elem() ClassifierOutput {
-	return o.ApplyT(func(v *Classifier) Classifier {
-		if v != nil {
-			return *v
-		}
-		var ret Classifier
-		return ret
-	}).(ClassifierOutput)
-}
-
 type ClassifierArrayOutput struct{ *pulumi.OutputState }
 
 func (ClassifierArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Classifier)(nil))
+	return reflect.TypeOf((*[]*Classifier)(nil)).Elem()
 }
 
 func (o ClassifierArrayOutput) ToClassifierArrayOutput() ClassifierArrayOutput {
@@ -394,15 +331,15 @@ func (o ClassifierArrayOutput) ToClassifierArrayOutputWithContext(ctx context.Co
 }
 
 func (o ClassifierArrayOutput) Index(i pulumi.IntInput) ClassifierOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Classifier {
-		return vs[0].([]Classifier)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Classifier {
+		return vs[0].([]*Classifier)[vs[1].(int)]
 	}).(ClassifierOutput)
 }
 
 type ClassifierMapOutput struct{ *pulumi.OutputState }
 
 func (ClassifierMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Classifier)(nil))
+	return reflect.TypeOf((*map[string]*Classifier)(nil)).Elem()
 }
 
 func (o ClassifierMapOutput) ToClassifierMapOutput() ClassifierMapOutput {
@@ -414,18 +351,16 @@ func (o ClassifierMapOutput) ToClassifierMapOutputWithContext(ctx context.Contex
 }
 
 func (o ClassifierMapOutput) MapIndex(k pulumi.StringInput) ClassifierOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Classifier {
-		return vs[0].(map[string]Classifier)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Classifier {
+		return vs[0].(map[string]*Classifier)[vs[1].(string)]
 	}).(ClassifierOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClassifierInput)(nil)).Elem(), &Classifier{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ClassifierPtrInput)(nil)).Elem(), &Classifier{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClassifierArrayInput)(nil)).Elem(), ClassifierArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClassifierMapInput)(nil)).Elem(), ClassifierMap{})
 	pulumi.RegisterOutputType(ClassifierOutput{})
-	pulumi.RegisterOutputType(ClassifierPtrOutput{})
 	pulumi.RegisterOutputType(ClassifierArrayOutput{})
 	pulumi.RegisterOutputType(ClassifierMapOutput{})
 }

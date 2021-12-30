@@ -4,7 +4,8 @@
     "description": "A Pulumi package for creating and managing Amazon Web Services (AWS) cloud resources.",
     "keywords": [
         "pulumi",
-        "aws"
+        "aws",
+        "category/cloud"
     ],
     "homepage": "https://pulumi.io",
     "repository": "https://github.com/pulumi/pulumi-aws",

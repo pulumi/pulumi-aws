@@ -515,47 +515,6 @@ func (i CanaryScheduleArgs) ToCanaryScheduleOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(CanaryScheduleOutput)
 }
 
-func (i CanaryScheduleArgs) ToCanarySchedulePtrOutput() CanarySchedulePtrOutput {
-	return i.ToCanarySchedulePtrOutputWithContext(context.Background())
-}
-
-func (i CanaryScheduleArgs) ToCanarySchedulePtrOutputWithContext(ctx context.Context) CanarySchedulePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CanaryScheduleOutput).ToCanarySchedulePtrOutputWithContext(ctx)
-}
-
-// CanarySchedulePtrInput is an input type that accepts CanaryScheduleArgs, CanarySchedulePtr and CanarySchedulePtrOutput values.
-// You can construct a concrete instance of `CanarySchedulePtrInput` via:
-//
-//          CanaryScheduleArgs{...}
-//
-//  or:
-//
-//          nil
-type CanarySchedulePtrInput interface {
-	pulumi.Input
-
-	ToCanarySchedulePtrOutput() CanarySchedulePtrOutput
-	ToCanarySchedulePtrOutputWithContext(context.Context) CanarySchedulePtrOutput
-}
-
-type canarySchedulePtrType CanaryScheduleArgs
-
-func CanarySchedulePtr(v *CanaryScheduleArgs) CanarySchedulePtrInput {
-	return (*canarySchedulePtrType)(v)
-}
-
-func (*canarySchedulePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CanarySchedule)(nil)).Elem()
-}
-
-func (i *canarySchedulePtrType) ToCanarySchedulePtrOutput() CanarySchedulePtrOutput {
-	return i.ToCanarySchedulePtrOutputWithContext(context.Background())
-}
-
-func (i *canarySchedulePtrType) ToCanarySchedulePtrOutputWithContext(ctx context.Context) CanarySchedulePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CanarySchedulePtrOutput)
-}
-
 type CanaryScheduleOutput struct{ *pulumi.OutputState }
 
 func (CanaryScheduleOutput) ElementType() reflect.Type {
@@ -570,16 +529,6 @@ func (o CanaryScheduleOutput) ToCanaryScheduleOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o CanaryScheduleOutput) ToCanarySchedulePtrOutput() CanarySchedulePtrOutput {
-	return o.ToCanarySchedulePtrOutputWithContext(context.Background())
-}
-
-func (o CanaryScheduleOutput) ToCanarySchedulePtrOutputWithContext(ctx context.Context) CanarySchedulePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CanarySchedule) *CanarySchedule {
-		return &v
-	}).(CanarySchedulePtrOutput)
-}
-
 // Duration in seconds, for the canary to continue making regular runs according to the schedule in the Expression value.
 func (o CanaryScheduleOutput) DurationInSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CanarySchedule) *int { return v.DurationInSeconds }).(pulumi.IntPtrOutput)
@@ -588,50 +537,6 @@ func (o CanaryScheduleOutput) DurationInSeconds() pulumi.IntPtrOutput {
 // Rate expression that defines how often the canary is to run. The syntax is rate(number unit). unit can be minute, minutes, or hour.
 func (o CanaryScheduleOutput) Expression() pulumi.StringOutput {
 	return o.ApplyT(func(v CanarySchedule) string { return v.Expression }).(pulumi.StringOutput)
-}
-
-type CanarySchedulePtrOutput struct{ *pulumi.OutputState }
-
-func (CanarySchedulePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CanarySchedule)(nil)).Elem()
-}
-
-func (o CanarySchedulePtrOutput) ToCanarySchedulePtrOutput() CanarySchedulePtrOutput {
-	return o
-}
-
-func (o CanarySchedulePtrOutput) ToCanarySchedulePtrOutputWithContext(ctx context.Context) CanarySchedulePtrOutput {
-	return o
-}
-
-func (o CanarySchedulePtrOutput) Elem() CanaryScheduleOutput {
-	return o.ApplyT(func(v *CanarySchedule) CanarySchedule {
-		if v != nil {
-			return *v
-		}
-		var ret CanarySchedule
-		return ret
-	}).(CanaryScheduleOutput)
-}
-
-// Duration in seconds, for the canary to continue making regular runs according to the schedule in the Expression value.
-func (o CanarySchedulePtrOutput) DurationInSeconds() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *CanarySchedule) *int {
-		if v == nil {
-			return nil
-		}
-		return v.DurationInSeconds
-	}).(pulumi.IntPtrOutput)
-}
-
-// Rate expression that defines how often the canary is to run. The syntax is rate(number unit). unit can be minute, minutes, or hour.
-func (o CanarySchedulePtrOutput) Expression() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CanarySchedule) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Expression
-	}).(pulumi.StringPtrOutput)
 }
 
 type CanaryTimeline struct {
@@ -643,65 +548,6 @@ type CanaryTimeline struct {
 	LastStarted *string `pulumi:"lastStarted"`
 	// Date and time that the canary's most recent run ended.
 	LastStopped *string `pulumi:"lastStopped"`
-}
-
-// CanaryTimelineInput is an input type that accepts CanaryTimelineArgs and CanaryTimelineOutput values.
-// You can construct a concrete instance of `CanaryTimelineInput` via:
-//
-//          CanaryTimelineArgs{...}
-type CanaryTimelineInput interface {
-	pulumi.Input
-
-	ToCanaryTimelineOutput() CanaryTimelineOutput
-	ToCanaryTimelineOutputWithContext(context.Context) CanaryTimelineOutput
-}
-
-type CanaryTimelineArgs struct {
-	// Date and time the canary was created.
-	Created pulumi.StringPtrInput `pulumi:"created"`
-	// Date and time the canary was most recently modified.
-	LastModified pulumi.StringPtrInput `pulumi:"lastModified"`
-	// Date and time that the canary's most recent run started.
-	LastStarted pulumi.StringPtrInput `pulumi:"lastStarted"`
-	// Date and time that the canary's most recent run ended.
-	LastStopped pulumi.StringPtrInput `pulumi:"lastStopped"`
-}
-
-func (CanaryTimelineArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CanaryTimeline)(nil)).Elem()
-}
-
-func (i CanaryTimelineArgs) ToCanaryTimelineOutput() CanaryTimelineOutput {
-	return i.ToCanaryTimelineOutputWithContext(context.Background())
-}
-
-func (i CanaryTimelineArgs) ToCanaryTimelineOutputWithContext(ctx context.Context) CanaryTimelineOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CanaryTimelineOutput)
-}
-
-// CanaryTimelineArrayInput is an input type that accepts CanaryTimelineArray and CanaryTimelineArrayOutput values.
-// You can construct a concrete instance of `CanaryTimelineArrayInput` via:
-//
-//          CanaryTimelineArray{ CanaryTimelineArgs{...} }
-type CanaryTimelineArrayInput interface {
-	pulumi.Input
-
-	ToCanaryTimelineArrayOutput() CanaryTimelineArrayOutput
-	ToCanaryTimelineArrayOutputWithContext(context.Context) CanaryTimelineArrayOutput
-}
-
-type CanaryTimelineArray []CanaryTimelineInput
-
-func (CanaryTimelineArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CanaryTimeline)(nil)).Elem()
-}
-
-func (i CanaryTimelineArray) ToCanaryTimelineArrayOutput() CanaryTimelineArrayOutput {
-	return i.ToCanaryTimelineArrayOutputWithContext(context.Background())
-}
-
-func (i CanaryTimelineArray) ToCanaryTimelineArrayOutputWithContext(ctx context.Context) CanaryTimelineArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CanaryTimelineArrayOutput)
 }
 
 type CanaryTimelineOutput struct{ *pulumi.OutputState }
@@ -941,9 +787,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CanaryRunConfigInput)(nil)).Elem(), CanaryRunConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CanaryRunConfigPtrInput)(nil)).Elem(), CanaryRunConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CanaryScheduleInput)(nil)).Elem(), CanaryScheduleArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CanarySchedulePtrInput)(nil)).Elem(), CanaryScheduleArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CanaryTimelineInput)(nil)).Elem(), CanaryTimelineArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CanaryTimelineArrayInput)(nil)).Elem(), CanaryTimelineArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CanaryVpcConfigInput)(nil)).Elem(), CanaryVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CanaryVpcConfigPtrInput)(nil)).Elem(), CanaryVpcConfigArgs{})
 	pulumi.RegisterOutputType(CanaryArtifactConfigOutput{})
@@ -953,7 +796,6 @@ func init() {
 	pulumi.RegisterOutputType(CanaryRunConfigOutput{})
 	pulumi.RegisterOutputType(CanaryRunConfigPtrOutput{})
 	pulumi.RegisterOutputType(CanaryScheduleOutput{})
-	pulumi.RegisterOutputType(CanarySchedulePtrOutput{})
 	pulumi.RegisterOutputType(CanaryTimelineOutput{})
 	pulumi.RegisterOutputType(CanaryTimelineArrayOutput{})
 	pulumi.RegisterOutputType(CanaryVpcConfigOutput{})

@@ -82,14 +82,14 @@ export class ProductPortfolioAssociation extends pulumi.CustomResource {
      */
     constructor(name: string, args: ProductPortfolioAssociationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ProductPortfolioAssociationArgs | ProductPortfolioAssociationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProductPortfolioAssociationState | undefined;
-            inputs["acceptLanguage"] = state ? state.acceptLanguage : undefined;
-            inputs["portfolioId"] = state ? state.portfolioId : undefined;
-            inputs["productId"] = state ? state.productId : undefined;
-            inputs["sourcePortfolioId"] = state ? state.sourcePortfolioId : undefined;
+            resourceInputs["acceptLanguage"] = state ? state.acceptLanguage : undefined;
+            resourceInputs["portfolioId"] = state ? state.portfolioId : undefined;
+            resourceInputs["productId"] = state ? state.productId : undefined;
+            resourceInputs["sourcePortfolioId"] = state ? state.sourcePortfolioId : undefined;
         } else {
             const args = argsOrState as ProductPortfolioAssociationArgs | undefined;
             if ((!args || args.portfolioId === undefined) && !opts.urn) {
@@ -98,15 +98,15 @@ export class ProductPortfolioAssociation extends pulumi.CustomResource {
             if ((!args || args.productId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'productId'");
             }
-            inputs["acceptLanguage"] = args ? args.acceptLanguage : undefined;
-            inputs["portfolioId"] = args ? args.portfolioId : undefined;
-            inputs["productId"] = args ? args.productId : undefined;
-            inputs["sourcePortfolioId"] = args ? args.sourcePortfolioId : undefined;
+            resourceInputs["acceptLanguage"] = args ? args.acceptLanguage : undefined;
+            resourceInputs["portfolioId"] = args ? args.portfolioId : undefined;
+            resourceInputs["productId"] = args ? args.productId : undefined;
+            resourceInputs["sourcePortfolioId"] = args ? args.sourcePortfolioId : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(ProductPortfolioAssociation.__pulumiType, name, inputs, opts);
+        super(ProductPortfolioAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

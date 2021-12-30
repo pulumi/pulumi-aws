@@ -38,10 +38,10 @@ namespace Pulumi.Aws.Ec2
         ///             VpcId = aws_vpc.Foo.Id,
         ///             ServiceName = "com.amazonaws.us-west-2.s3",
         ///         });
-        ///         var privateS3PrefixList = privateS3VpcEndpoint.PrefixListId.Apply(prefixListId =&gt; Aws.Ec2.GetPrefixList.InvokeAsync(new Aws.Ec2.GetPrefixListArgs
+        ///         var privateS3PrefixList = Aws.Ec2.GetPrefixList.Invoke(new Aws.Ec2.GetPrefixListInvokeArgs
         ///         {
-        ///             PrefixListId = prefixListId,
-        ///         }));
+        ///             PrefixListId = privateS3VpcEndpoint.PrefixListId,
+        ///         });
         ///         var bar = new Aws.Ec2.NetworkAcl("bar", new Aws.Ec2.NetworkAclArgs
         ///         {
         ///             VpcId = aws_vpc.Foo.Id,
@@ -123,10 +123,10 @@ namespace Pulumi.Aws.Ec2
         ///             VpcId = aws_vpc.Foo.Id,
         ///             ServiceName = "com.amazonaws.us-west-2.s3",
         ///         });
-        ///         var privateS3PrefixList = privateS3VpcEndpoint.PrefixListId.Apply(prefixListId =&gt; Aws.Ec2.GetPrefixList.InvokeAsync(new Aws.Ec2.GetPrefixListArgs
+        ///         var privateS3PrefixList = Aws.Ec2.GetPrefixList.Invoke(new Aws.Ec2.GetPrefixListInvokeArgs
         ///         {
-        ///             PrefixListId = prefixListId,
-        ///         }));
+        ///             PrefixListId = privateS3VpcEndpoint.PrefixListId,
+        ///         });
         ///         var bar = new Aws.Ec2.NetworkAcl("bar", new Aws.Ec2.NetworkAclArgs
         ///         {
         ///             VpcId = aws_vpc.Foo.Id,

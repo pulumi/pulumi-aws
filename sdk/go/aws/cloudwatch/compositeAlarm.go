@@ -211,7 +211,7 @@ type CompositeAlarmInput interface {
 }
 
 func (*CompositeAlarm) ElementType() reflect.Type {
-	return reflect.TypeOf((*CompositeAlarm)(nil))
+	return reflect.TypeOf((**CompositeAlarm)(nil)).Elem()
 }
 
 func (i *CompositeAlarm) ToCompositeAlarmOutput() CompositeAlarmOutput {
@@ -220,35 +220,6 @@ func (i *CompositeAlarm) ToCompositeAlarmOutput() CompositeAlarmOutput {
 
 func (i *CompositeAlarm) ToCompositeAlarmOutputWithContext(ctx context.Context) CompositeAlarmOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CompositeAlarmOutput)
-}
-
-func (i *CompositeAlarm) ToCompositeAlarmPtrOutput() CompositeAlarmPtrOutput {
-	return i.ToCompositeAlarmPtrOutputWithContext(context.Background())
-}
-
-func (i *CompositeAlarm) ToCompositeAlarmPtrOutputWithContext(ctx context.Context) CompositeAlarmPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CompositeAlarmPtrOutput)
-}
-
-type CompositeAlarmPtrInput interface {
-	pulumi.Input
-
-	ToCompositeAlarmPtrOutput() CompositeAlarmPtrOutput
-	ToCompositeAlarmPtrOutputWithContext(ctx context.Context) CompositeAlarmPtrOutput
-}
-
-type compositeAlarmPtrType CompositeAlarmArgs
-
-func (*compositeAlarmPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**CompositeAlarm)(nil))
-}
-
-func (i *compositeAlarmPtrType) ToCompositeAlarmPtrOutput() CompositeAlarmPtrOutput {
-	return i.ToCompositeAlarmPtrOutputWithContext(context.Background())
-}
-
-func (i *compositeAlarmPtrType) ToCompositeAlarmPtrOutputWithContext(ctx context.Context) CompositeAlarmPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CompositeAlarmPtrOutput)
 }
 
 // CompositeAlarmArrayInput is an input type that accepts CompositeAlarmArray and CompositeAlarmArrayOutput values.
@@ -304,7 +275,7 @@ func (i CompositeAlarmMap) ToCompositeAlarmMapOutputWithContext(ctx context.Cont
 type CompositeAlarmOutput struct{ *pulumi.OutputState }
 
 func (CompositeAlarmOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CompositeAlarm)(nil))
+	return reflect.TypeOf((**CompositeAlarm)(nil)).Elem()
 }
 
 func (o CompositeAlarmOutput) ToCompositeAlarmOutput() CompositeAlarmOutput {
@@ -315,44 +286,10 @@ func (o CompositeAlarmOutput) ToCompositeAlarmOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o CompositeAlarmOutput) ToCompositeAlarmPtrOutput() CompositeAlarmPtrOutput {
-	return o.ToCompositeAlarmPtrOutputWithContext(context.Background())
-}
-
-func (o CompositeAlarmOutput) ToCompositeAlarmPtrOutputWithContext(ctx context.Context) CompositeAlarmPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CompositeAlarm) *CompositeAlarm {
-		return &v
-	}).(CompositeAlarmPtrOutput)
-}
-
-type CompositeAlarmPtrOutput struct{ *pulumi.OutputState }
-
-func (CompositeAlarmPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CompositeAlarm)(nil))
-}
-
-func (o CompositeAlarmPtrOutput) ToCompositeAlarmPtrOutput() CompositeAlarmPtrOutput {
-	return o
-}
-
-func (o CompositeAlarmPtrOutput) ToCompositeAlarmPtrOutputWithContext(ctx context.Context) CompositeAlarmPtrOutput {
-	return o
-}
-
-func (o CompositeAlarmPtrOutput) Elem() CompositeAlarmOutput {
-	return o.ApplyT(func(v *CompositeAlarm) CompositeAlarm {
-		if v != nil {
-			return *v
-		}
-		var ret CompositeAlarm
-		return ret
-	}).(CompositeAlarmOutput)
-}
-
 type CompositeAlarmArrayOutput struct{ *pulumi.OutputState }
 
 func (CompositeAlarmArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CompositeAlarm)(nil))
+	return reflect.TypeOf((*[]*CompositeAlarm)(nil)).Elem()
 }
 
 func (o CompositeAlarmArrayOutput) ToCompositeAlarmArrayOutput() CompositeAlarmArrayOutput {
@@ -364,15 +301,15 @@ func (o CompositeAlarmArrayOutput) ToCompositeAlarmArrayOutputWithContext(ctx co
 }
 
 func (o CompositeAlarmArrayOutput) Index(i pulumi.IntInput) CompositeAlarmOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CompositeAlarm {
-		return vs[0].([]CompositeAlarm)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *CompositeAlarm {
+		return vs[0].([]*CompositeAlarm)[vs[1].(int)]
 	}).(CompositeAlarmOutput)
 }
 
 type CompositeAlarmMapOutput struct{ *pulumi.OutputState }
 
 func (CompositeAlarmMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]CompositeAlarm)(nil))
+	return reflect.TypeOf((*map[string]*CompositeAlarm)(nil)).Elem()
 }
 
 func (o CompositeAlarmMapOutput) ToCompositeAlarmMapOutput() CompositeAlarmMapOutput {
@@ -384,18 +321,16 @@ func (o CompositeAlarmMapOutput) ToCompositeAlarmMapOutputWithContext(ctx contex
 }
 
 func (o CompositeAlarmMapOutput) MapIndex(k pulumi.StringInput) CompositeAlarmOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) CompositeAlarm {
-		return vs[0].(map[string]CompositeAlarm)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *CompositeAlarm {
+		return vs[0].(map[string]*CompositeAlarm)[vs[1].(string)]
 	}).(CompositeAlarmOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CompositeAlarmInput)(nil)).Elem(), &CompositeAlarm{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CompositeAlarmPtrInput)(nil)).Elem(), &CompositeAlarm{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CompositeAlarmArrayInput)(nil)).Elem(), CompositeAlarmArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CompositeAlarmMapInput)(nil)).Elem(), CompositeAlarmMap{})
 	pulumi.RegisterOutputType(CompositeAlarmOutput{})
-	pulumi.RegisterOutputType(CompositeAlarmPtrOutput{})
 	pulumi.RegisterOutputType(CompositeAlarmArrayOutput{})
 	pulumi.RegisterOutputType(CompositeAlarmMapOutput{})
 }

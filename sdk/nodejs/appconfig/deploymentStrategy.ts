@@ -112,20 +112,20 @@ export class DeploymentStrategy extends pulumi.CustomResource {
      */
     constructor(name: string, args: DeploymentStrategyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DeploymentStrategyArgs | DeploymentStrategyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DeploymentStrategyState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["deploymentDurationInMinutes"] = state ? state.deploymentDurationInMinutes : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["finalBakeTimeInMinutes"] = state ? state.finalBakeTimeInMinutes : undefined;
-            inputs["growthFactor"] = state ? state.growthFactor : undefined;
-            inputs["growthType"] = state ? state.growthType : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["replicateTo"] = state ? state.replicateTo : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["deploymentDurationInMinutes"] = state ? state.deploymentDurationInMinutes : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["finalBakeTimeInMinutes"] = state ? state.finalBakeTimeInMinutes : undefined;
+            resourceInputs["growthFactor"] = state ? state.growthFactor : undefined;
+            resourceInputs["growthType"] = state ? state.growthType : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["replicateTo"] = state ? state.replicateTo : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as DeploymentStrategyArgs | undefined;
             if ((!args || args.deploymentDurationInMinutes === undefined) && !opts.urn) {
@@ -137,21 +137,21 @@ export class DeploymentStrategy extends pulumi.CustomResource {
             if ((!args || args.replicateTo === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'replicateTo'");
             }
-            inputs["deploymentDurationInMinutes"] = args ? args.deploymentDurationInMinutes : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["finalBakeTimeInMinutes"] = args ? args.finalBakeTimeInMinutes : undefined;
-            inputs["growthFactor"] = args ? args.growthFactor : undefined;
-            inputs["growthType"] = args ? args.growthType : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["replicateTo"] = args ? args.replicateTo : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["deploymentDurationInMinutes"] = args ? args.deploymentDurationInMinutes : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["finalBakeTimeInMinutes"] = args ? args.finalBakeTimeInMinutes : undefined;
+            resourceInputs["growthFactor"] = args ? args.growthFactor : undefined;
+            resourceInputs["growthType"] = args ? args.growthType : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["replicateTo"] = args ? args.replicateTo : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(DeploymentStrategy.__pulumiType, name, inputs, opts);
+        super(DeploymentStrategy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

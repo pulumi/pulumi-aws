@@ -122,31 +122,31 @@ export class Vault extends pulumi.CustomResource {
      */
     constructor(name: string, args?: VaultArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VaultArgs | VaultState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VaultState | undefined;
-            inputs["accessPolicy"] = state ? state.accessPolicy : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["location"] = state ? state.location : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["notification"] = state ? state.notification : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["accessPolicy"] = state ? state.accessPolicy : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["location"] = state ? state.location : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["notification"] = state ? state.notification : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as VaultArgs | undefined;
-            inputs["accessPolicy"] = args ? args.accessPolicy : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["notification"] = args ? args.notification : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["location"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["accessPolicy"] = args ? args.accessPolicy : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["notification"] = args ? args.notification : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Vault.__pulumiType, name, inputs, opts);
+        super(Vault.__pulumiType, name, resourceInputs, opts);
     }
 }
 

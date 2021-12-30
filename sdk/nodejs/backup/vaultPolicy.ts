@@ -102,13 +102,13 @@ export class VaultPolicy extends pulumi.CustomResource {
      */
     constructor(name: string, args: VaultPolicyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VaultPolicyArgs | VaultPolicyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VaultPolicyState | undefined;
-            inputs["backupVaultArn"] = state ? state.backupVaultArn : undefined;
-            inputs["backupVaultName"] = state ? state.backupVaultName : undefined;
-            inputs["policy"] = state ? state.policy : undefined;
+            resourceInputs["backupVaultArn"] = state ? state.backupVaultArn : undefined;
+            resourceInputs["backupVaultName"] = state ? state.backupVaultName : undefined;
+            resourceInputs["policy"] = state ? state.policy : undefined;
         } else {
             const args = argsOrState as VaultPolicyArgs | undefined;
             if ((!args || args.backupVaultName === undefined) && !opts.urn) {
@@ -117,14 +117,14 @@ export class VaultPolicy extends pulumi.CustomResource {
             if ((!args || args.policy === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policy'");
             }
-            inputs["backupVaultName"] = args ? args.backupVaultName : undefined;
-            inputs["policy"] = args ? args.policy : undefined;
-            inputs["backupVaultArn"] = undefined /*out*/;
+            resourceInputs["backupVaultName"] = args ? args.backupVaultName : undefined;
+            resourceInputs["policy"] = args ? args.policy : undefined;
+            resourceInputs["backupVaultArn"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(VaultPolicy.__pulumiType, name, inputs, opts);
+        super(VaultPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

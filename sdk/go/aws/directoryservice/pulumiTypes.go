@@ -423,68 +423,6 @@ type GetDirectoryConnectSetting struct {
 	VpcId string `pulumi:"vpcId"`
 }
 
-// GetDirectoryConnectSettingInput is an input type that accepts GetDirectoryConnectSettingArgs and GetDirectoryConnectSettingOutput values.
-// You can construct a concrete instance of `GetDirectoryConnectSettingInput` via:
-//
-//          GetDirectoryConnectSettingArgs{...}
-type GetDirectoryConnectSettingInput interface {
-	pulumi.Input
-
-	ToGetDirectoryConnectSettingOutput() GetDirectoryConnectSettingOutput
-	ToGetDirectoryConnectSettingOutputWithContext(context.Context) GetDirectoryConnectSettingOutput
-}
-
-type GetDirectoryConnectSettingArgs struct {
-	AvailabilityZones pulumi.StringArrayInput `pulumi:"availabilityZones"`
-	// The IP addresses of the AD Connector servers.
-	ConnectIps pulumi.StringArrayInput `pulumi:"connectIps"`
-	// The DNS IP addresses of the domain to connect to.
-	CustomerDnsIps pulumi.StringArrayInput `pulumi:"customerDnsIps"`
-	// The username corresponding to the password provided.
-	CustomerUsername pulumi.StringInput `pulumi:"customerUsername"`
-	// The identifiers of the subnets for the connector servers (2 subnets in 2 different AZs).
-	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
-	// The ID of the VPC that the connector is in.
-	VpcId pulumi.StringInput `pulumi:"vpcId"`
-}
-
-func (GetDirectoryConnectSettingArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetDirectoryConnectSetting)(nil)).Elem()
-}
-
-func (i GetDirectoryConnectSettingArgs) ToGetDirectoryConnectSettingOutput() GetDirectoryConnectSettingOutput {
-	return i.ToGetDirectoryConnectSettingOutputWithContext(context.Background())
-}
-
-func (i GetDirectoryConnectSettingArgs) ToGetDirectoryConnectSettingOutputWithContext(ctx context.Context) GetDirectoryConnectSettingOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDirectoryConnectSettingOutput)
-}
-
-// GetDirectoryConnectSettingArrayInput is an input type that accepts GetDirectoryConnectSettingArray and GetDirectoryConnectSettingArrayOutput values.
-// You can construct a concrete instance of `GetDirectoryConnectSettingArrayInput` via:
-//
-//          GetDirectoryConnectSettingArray{ GetDirectoryConnectSettingArgs{...} }
-type GetDirectoryConnectSettingArrayInput interface {
-	pulumi.Input
-
-	ToGetDirectoryConnectSettingArrayOutput() GetDirectoryConnectSettingArrayOutput
-	ToGetDirectoryConnectSettingArrayOutputWithContext(context.Context) GetDirectoryConnectSettingArrayOutput
-}
-
-type GetDirectoryConnectSettingArray []GetDirectoryConnectSettingInput
-
-func (GetDirectoryConnectSettingArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetDirectoryConnectSetting)(nil)).Elem()
-}
-
-func (i GetDirectoryConnectSettingArray) ToGetDirectoryConnectSettingArrayOutput() GetDirectoryConnectSettingArrayOutput {
-	return i.ToGetDirectoryConnectSettingArrayOutputWithContext(context.Background())
-}
-
-func (i GetDirectoryConnectSettingArray) ToGetDirectoryConnectSettingArrayOutputWithContext(ctx context.Context) GetDirectoryConnectSettingArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDirectoryConnectSettingArrayOutput)
-}
-
 type GetDirectoryConnectSettingOutput struct{ *pulumi.OutputState }
 
 func (GetDirectoryConnectSettingOutput) ElementType() reflect.Type {
@@ -556,62 +494,6 @@ type GetDirectoryVpcSetting struct {
 	VpcId string `pulumi:"vpcId"`
 }
 
-// GetDirectoryVpcSettingInput is an input type that accepts GetDirectoryVpcSettingArgs and GetDirectoryVpcSettingOutput values.
-// You can construct a concrete instance of `GetDirectoryVpcSettingInput` via:
-//
-//          GetDirectoryVpcSettingArgs{...}
-type GetDirectoryVpcSettingInput interface {
-	pulumi.Input
-
-	ToGetDirectoryVpcSettingOutput() GetDirectoryVpcSettingOutput
-	ToGetDirectoryVpcSettingOutputWithContext(context.Context) GetDirectoryVpcSettingOutput
-}
-
-type GetDirectoryVpcSettingArgs struct {
-	AvailabilityZones pulumi.StringArrayInput `pulumi:"availabilityZones"`
-	// The identifiers of the subnets for the connector servers (2 subnets in 2 different AZs).
-	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
-	// The ID of the VPC that the connector is in.
-	VpcId pulumi.StringInput `pulumi:"vpcId"`
-}
-
-func (GetDirectoryVpcSettingArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetDirectoryVpcSetting)(nil)).Elem()
-}
-
-func (i GetDirectoryVpcSettingArgs) ToGetDirectoryVpcSettingOutput() GetDirectoryVpcSettingOutput {
-	return i.ToGetDirectoryVpcSettingOutputWithContext(context.Background())
-}
-
-func (i GetDirectoryVpcSettingArgs) ToGetDirectoryVpcSettingOutputWithContext(ctx context.Context) GetDirectoryVpcSettingOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDirectoryVpcSettingOutput)
-}
-
-// GetDirectoryVpcSettingArrayInput is an input type that accepts GetDirectoryVpcSettingArray and GetDirectoryVpcSettingArrayOutput values.
-// You can construct a concrete instance of `GetDirectoryVpcSettingArrayInput` via:
-//
-//          GetDirectoryVpcSettingArray{ GetDirectoryVpcSettingArgs{...} }
-type GetDirectoryVpcSettingArrayInput interface {
-	pulumi.Input
-
-	ToGetDirectoryVpcSettingArrayOutput() GetDirectoryVpcSettingArrayOutput
-	ToGetDirectoryVpcSettingArrayOutputWithContext(context.Context) GetDirectoryVpcSettingArrayOutput
-}
-
-type GetDirectoryVpcSettingArray []GetDirectoryVpcSettingInput
-
-func (GetDirectoryVpcSettingArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetDirectoryVpcSetting)(nil)).Elem()
-}
-
-func (i GetDirectoryVpcSettingArray) ToGetDirectoryVpcSettingArrayOutput() GetDirectoryVpcSettingArrayOutput {
-	return i.ToGetDirectoryVpcSettingArrayOutputWithContext(context.Background())
-}
-
-func (i GetDirectoryVpcSettingArray) ToGetDirectoryVpcSettingArrayOutputWithContext(ctx context.Context) GetDirectoryVpcSettingArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDirectoryVpcSettingArrayOutput)
-}
-
 type GetDirectoryVpcSettingOutput struct{ *pulumi.OutputState }
 
 func (GetDirectoryVpcSettingOutput) ElementType() reflect.Type {
@@ -665,10 +547,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryConnectSettingsPtrInput)(nil)).Elem(), DirectoryConnectSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryVpcSettingsInput)(nil)).Elem(), DirectoryVpcSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DirectoryVpcSettingsPtrInput)(nil)).Elem(), DirectoryVpcSettingsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetDirectoryConnectSettingInput)(nil)).Elem(), GetDirectoryConnectSettingArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetDirectoryConnectSettingArrayInput)(nil)).Elem(), GetDirectoryConnectSettingArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetDirectoryVpcSettingInput)(nil)).Elem(), GetDirectoryVpcSettingArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetDirectoryVpcSettingArrayInput)(nil)).Elem(), GetDirectoryVpcSettingArray{})
 	pulumi.RegisterOutputType(DirectoryConnectSettingsOutput{})
 	pulumi.RegisterOutputType(DirectoryConnectSettingsPtrOutput{})
 	pulumi.RegisterOutputType(DirectoryVpcSettingsOutput{})

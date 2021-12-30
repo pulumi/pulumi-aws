@@ -220,26 +220,26 @@ export class Directory extends pulumi.CustomResource {
      */
     constructor(name: string, args: DirectoryArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DirectoryArgs | DirectoryState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DirectoryState | undefined;
-            inputs["accessUrl"] = state ? state.accessUrl : undefined;
-            inputs["alias"] = state ? state.alias : undefined;
-            inputs["connectSettings"] = state ? state.connectSettings : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["dnsIpAddresses"] = state ? state.dnsIpAddresses : undefined;
-            inputs["edition"] = state ? state.edition : undefined;
-            inputs["enableSso"] = state ? state.enableSso : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["password"] = state ? state.password : undefined;
-            inputs["securityGroupId"] = state ? state.securityGroupId : undefined;
-            inputs["shortName"] = state ? state.shortName : undefined;
-            inputs["size"] = state ? state.size : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["type"] = state ? state.type : undefined;
-            inputs["vpcSettings"] = state ? state.vpcSettings : undefined;
+            resourceInputs["accessUrl"] = state ? state.accessUrl : undefined;
+            resourceInputs["alias"] = state ? state.alias : undefined;
+            resourceInputs["connectSettings"] = state ? state.connectSettings : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["dnsIpAddresses"] = state ? state.dnsIpAddresses : undefined;
+            resourceInputs["edition"] = state ? state.edition : undefined;
+            resourceInputs["enableSso"] = state ? state.enableSso : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["password"] = state ? state.password : undefined;
+            resourceInputs["securityGroupId"] = state ? state.securityGroupId : undefined;
+            resourceInputs["shortName"] = state ? state.shortName : undefined;
+            resourceInputs["size"] = state ? state.size : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["vpcSettings"] = state ? state.vpcSettings : undefined;
         } else {
             const args = argsOrState as DirectoryArgs | undefined;
             if ((!args || args.name === undefined) && !opts.urn) {
@@ -248,27 +248,27 @@ export class Directory extends pulumi.CustomResource {
             if ((!args || args.password === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'password'");
             }
-            inputs["alias"] = args ? args.alias : undefined;
-            inputs["connectSettings"] = args ? args.connectSettings : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["edition"] = args ? args.edition : undefined;
-            inputs["enableSso"] = args ? args.enableSso : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["password"] = args ? args.password : undefined;
-            inputs["shortName"] = args ? args.shortName : undefined;
-            inputs["size"] = args ? args.size : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["vpcSettings"] = args ? args.vpcSettings : undefined;
-            inputs["accessUrl"] = undefined /*out*/;
-            inputs["dnsIpAddresses"] = undefined /*out*/;
-            inputs["securityGroupId"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["alias"] = args ? args.alias : undefined;
+            resourceInputs["connectSettings"] = args ? args.connectSettings : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["edition"] = args ? args.edition : undefined;
+            resourceInputs["enableSso"] = args ? args.enableSso : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["password"] = args ? args.password : undefined;
+            resourceInputs["shortName"] = args ? args.shortName : undefined;
+            resourceInputs["size"] = args ? args.size : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["vpcSettings"] = args ? args.vpcSettings : undefined;
+            resourceInputs["accessUrl"] = undefined /*out*/;
+            resourceInputs["dnsIpAddresses"] = undefined /*out*/;
+            resourceInputs["securityGroupId"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Directory.__pulumiType, name, inputs, opts);
+        super(Directory.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -129,22 +129,22 @@ export class Policy extends pulumi.CustomResource {
      */
     constructor(name: string, args: PolicyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PolicyArgs | PolicyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PolicyState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["deleteAllPolicyResources"] = state ? state.deleteAllPolicyResources : undefined;
-            inputs["excludeMap"] = state ? state.excludeMap : undefined;
-            inputs["excludeResourceTags"] = state ? state.excludeResourceTags : undefined;
-            inputs["includeMap"] = state ? state.includeMap : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["policyUpdateToken"] = state ? state.policyUpdateToken : undefined;
-            inputs["remediationEnabled"] = state ? state.remediationEnabled : undefined;
-            inputs["resourceTags"] = state ? state.resourceTags : undefined;
-            inputs["resourceType"] = state ? state.resourceType : undefined;
-            inputs["resourceTypeLists"] = state ? state.resourceTypeLists : undefined;
-            inputs["securityServicePolicyData"] = state ? state.securityServicePolicyData : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["deleteAllPolicyResources"] = state ? state.deleteAllPolicyResources : undefined;
+            resourceInputs["excludeMap"] = state ? state.excludeMap : undefined;
+            resourceInputs["excludeResourceTags"] = state ? state.excludeResourceTags : undefined;
+            resourceInputs["includeMap"] = state ? state.includeMap : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["policyUpdateToken"] = state ? state.policyUpdateToken : undefined;
+            resourceInputs["remediationEnabled"] = state ? state.remediationEnabled : undefined;
+            resourceInputs["resourceTags"] = state ? state.resourceTags : undefined;
+            resourceInputs["resourceType"] = state ? state.resourceType : undefined;
+            resourceInputs["resourceTypeLists"] = state ? state.resourceTypeLists : undefined;
+            resourceInputs["securityServicePolicyData"] = state ? state.securityServicePolicyData : undefined;
         } else {
             const args = argsOrState as PolicyArgs | undefined;
             if ((!args || args.excludeResourceTags === undefined) && !opts.urn) {
@@ -153,23 +153,23 @@ export class Policy extends pulumi.CustomResource {
             if ((!args || args.securityServicePolicyData === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'securityServicePolicyData'");
             }
-            inputs["deleteAllPolicyResources"] = args ? args.deleteAllPolicyResources : undefined;
-            inputs["excludeMap"] = args ? args.excludeMap : undefined;
-            inputs["excludeResourceTags"] = args ? args.excludeResourceTags : undefined;
-            inputs["includeMap"] = args ? args.includeMap : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["remediationEnabled"] = args ? args.remediationEnabled : undefined;
-            inputs["resourceTags"] = args ? args.resourceTags : undefined;
-            inputs["resourceType"] = args ? args.resourceType : undefined;
-            inputs["resourceTypeLists"] = args ? args.resourceTypeLists : undefined;
-            inputs["securityServicePolicyData"] = args ? args.securityServicePolicyData : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["policyUpdateToken"] = undefined /*out*/;
+            resourceInputs["deleteAllPolicyResources"] = args ? args.deleteAllPolicyResources : undefined;
+            resourceInputs["excludeMap"] = args ? args.excludeMap : undefined;
+            resourceInputs["excludeResourceTags"] = args ? args.excludeResourceTags : undefined;
+            resourceInputs["includeMap"] = args ? args.includeMap : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["remediationEnabled"] = args ? args.remediationEnabled : undefined;
+            resourceInputs["resourceTags"] = args ? args.resourceTags : undefined;
+            resourceInputs["resourceType"] = args ? args.resourceType : undefined;
+            resourceInputs["resourceTypeLists"] = args ? args.resourceTypeLists : undefined;
+            resourceInputs["securityServicePolicyData"] = args ? args.securityServicePolicyData : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["policyUpdateToken"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Policy.__pulumiType, name, inputs, opts);
+        super(Policy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

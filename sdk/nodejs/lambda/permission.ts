@@ -230,19 +230,19 @@ export class Permission extends pulumi.CustomResource {
      */
     constructor(name: string, args: PermissionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PermissionArgs | PermissionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PermissionState | undefined;
-            inputs["action"] = state ? state.action : undefined;
-            inputs["eventSourceToken"] = state ? state.eventSourceToken : undefined;
-            inputs["function"] = state ? state.function : undefined;
-            inputs["principal"] = state ? state.principal : undefined;
-            inputs["qualifier"] = state ? state.qualifier : undefined;
-            inputs["sourceAccount"] = state ? state.sourceAccount : undefined;
-            inputs["sourceArn"] = state ? state.sourceArn : undefined;
-            inputs["statementId"] = state ? state.statementId : undefined;
-            inputs["statementIdPrefix"] = state ? state.statementIdPrefix : undefined;
+            resourceInputs["action"] = state ? state.action : undefined;
+            resourceInputs["eventSourceToken"] = state ? state.eventSourceToken : undefined;
+            resourceInputs["function"] = state ? state.function : undefined;
+            resourceInputs["principal"] = state ? state.principal : undefined;
+            resourceInputs["qualifier"] = state ? state.qualifier : undefined;
+            resourceInputs["sourceAccount"] = state ? state.sourceAccount : undefined;
+            resourceInputs["sourceArn"] = state ? state.sourceArn : undefined;
+            resourceInputs["statementId"] = state ? state.statementId : undefined;
+            resourceInputs["statementIdPrefix"] = state ? state.statementIdPrefix : undefined;
         } else {
             const args = argsOrState as PermissionArgs | undefined;
             if ((!args || args.action === undefined) && !opts.urn) {
@@ -254,20 +254,20 @@ export class Permission extends pulumi.CustomResource {
             if ((!args || args.principal === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'principal'");
             }
-            inputs["action"] = args ? args.action : undefined;
-            inputs["eventSourceToken"] = args ? args.eventSourceToken : undefined;
-            inputs["function"] = args ? args.function : undefined;
-            inputs["principal"] = args ? args.principal : undefined;
-            inputs["qualifier"] = args ? args.qualifier : undefined;
-            inputs["sourceAccount"] = args ? args.sourceAccount : undefined;
-            inputs["sourceArn"] = args ? args.sourceArn : undefined;
-            inputs["statementId"] = args ? args.statementId : undefined;
-            inputs["statementIdPrefix"] = args ? args.statementIdPrefix : undefined;
+            resourceInputs["action"] = args ? args.action : undefined;
+            resourceInputs["eventSourceToken"] = args ? args.eventSourceToken : undefined;
+            resourceInputs["function"] = args ? args.function : undefined;
+            resourceInputs["principal"] = args ? args.principal : undefined;
+            resourceInputs["qualifier"] = args ? args.qualifier : undefined;
+            resourceInputs["sourceAccount"] = args ? args.sourceAccount : undefined;
+            resourceInputs["sourceArn"] = args ? args.sourceArn : undefined;
+            resourceInputs["statementId"] = args ? args.statementId : undefined;
+            resourceInputs["statementIdPrefix"] = args ? args.statementIdPrefix : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Permission.__pulumiType, name, inputs, opts);
+        super(Permission.__pulumiType, name, resourceInputs, opts);
     }
 }
 

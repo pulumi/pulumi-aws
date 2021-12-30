@@ -493,11 +493,11 @@ class StackSet(pulumi.CustomResource):
           }
         }
         \"\"\")
-        a_ws_cloud_formation_stack_set_administration_role_execution_policy_policy_document = example.execution_role_name.apply(lambda execution_role_name: aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        a_ws_cloud_formation_stack_set_administration_role_execution_policy_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             actions=["sts:AssumeRole"],
             effect="Allow",
-            resources=[f"arn:aws:iam::*:role/{execution_role_name}"],
-        )]))
+            resources=[example.execution_role_name.apply(lambda execution_role_name: f"arn:aws:iam::*:role/{execution_role_name}")],
+        )])
         a_ws_cloud_formation_stack_set_administration_role_execution_policy_role_policy = aws.iam.RolePolicy("aWSCloudFormationStackSetAdministrationRoleExecutionPolicyRolePolicy",
             policy=a_ws_cloud_formation_stack_set_administration_role_execution_policy_policy_document.json,
             role=a_ws_cloud_formation_stack_set_administration_role.name)
@@ -579,11 +579,11 @@ class StackSet(pulumi.CustomResource):
           }
         }
         \"\"\")
-        a_ws_cloud_formation_stack_set_administration_role_execution_policy_policy_document = example.execution_role_name.apply(lambda execution_role_name: aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+        a_ws_cloud_formation_stack_set_administration_role_execution_policy_policy_document = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
             actions=["sts:AssumeRole"],
             effect="Allow",
-            resources=[f"arn:aws:iam::*:role/{execution_role_name}"],
-        )]))
+            resources=[example.execution_role_name.apply(lambda execution_role_name: f"arn:aws:iam::*:role/{execution_role_name}")],
+        )])
         a_ws_cloud_formation_stack_set_administration_role_execution_policy_role_policy = aws.iam.RolePolicy("aWSCloudFormationStackSetAdministrationRoleExecutionPolicyRolePolicy",
             policy=a_ws_cloud_formation_stack_set_administration_role_execution_policy_policy_document.json,
             role=a_ws_cloud_formation_stack_set_administration_role.name)

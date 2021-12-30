@@ -24,9 +24,9 @@ import * as utilities from "./utilities";
  *     vpcId: aws_vpc.foo.id,
  *     serviceName: "com.amazonaws.us-west-2.s3",
  * });
- * const privateS3PrefixList = privateS3VpcEndpoint.prefixListId.apply(prefixListId => aws.ec2.getPrefixList({
- *     prefixListId: prefixListId,
- * }));
+ * const privateS3PrefixList = aws.ec2.getPrefixListOutput({
+ *     prefixListId: privateS3VpcEndpoint.prefixListId,
+ * });
  * const bar = new aws.ec2.NetworkAcl("bar", {vpcId: aws_vpc.foo.id});
  * const privateS3NetworkAclRule = new aws.ec2.NetworkAclRule("privateS3NetworkAclRule", {
  *     networkAclId: bar.id,

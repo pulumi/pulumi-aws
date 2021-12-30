@@ -328,63 +328,6 @@ type EnvironmentAllSetting struct {
 	Value     string  `pulumi:"value"`
 }
 
-// EnvironmentAllSettingInput is an input type that accepts EnvironmentAllSettingArgs and EnvironmentAllSettingOutput values.
-// You can construct a concrete instance of `EnvironmentAllSettingInput` via:
-//
-//          EnvironmentAllSettingArgs{...}
-type EnvironmentAllSettingInput interface {
-	pulumi.Input
-
-	ToEnvironmentAllSettingOutput() EnvironmentAllSettingOutput
-	ToEnvironmentAllSettingOutputWithContext(context.Context) EnvironmentAllSettingOutput
-}
-
-type EnvironmentAllSettingArgs struct {
-	// A unique name for this Environment. This name is used
-	// in the application URL
-	Name      pulumi.StringInput    `pulumi:"name"`
-	Namespace pulumi.StringInput    `pulumi:"namespace"`
-	Resource  pulumi.StringPtrInput `pulumi:"resource"`
-	Value     pulumi.StringInput    `pulumi:"value"`
-}
-
-func (EnvironmentAllSettingArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*EnvironmentAllSetting)(nil)).Elem()
-}
-
-func (i EnvironmentAllSettingArgs) ToEnvironmentAllSettingOutput() EnvironmentAllSettingOutput {
-	return i.ToEnvironmentAllSettingOutputWithContext(context.Background())
-}
-
-func (i EnvironmentAllSettingArgs) ToEnvironmentAllSettingOutputWithContext(ctx context.Context) EnvironmentAllSettingOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentAllSettingOutput)
-}
-
-// EnvironmentAllSettingArrayInput is an input type that accepts EnvironmentAllSettingArray and EnvironmentAllSettingArrayOutput values.
-// You can construct a concrete instance of `EnvironmentAllSettingArrayInput` via:
-//
-//          EnvironmentAllSettingArray{ EnvironmentAllSettingArgs{...} }
-type EnvironmentAllSettingArrayInput interface {
-	pulumi.Input
-
-	ToEnvironmentAllSettingArrayOutput() EnvironmentAllSettingArrayOutput
-	ToEnvironmentAllSettingArrayOutputWithContext(context.Context) EnvironmentAllSettingArrayOutput
-}
-
-type EnvironmentAllSettingArray []EnvironmentAllSettingInput
-
-func (EnvironmentAllSettingArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]EnvironmentAllSetting)(nil)).Elem()
-}
-
-func (i EnvironmentAllSettingArray) ToEnvironmentAllSettingArrayOutput() EnvironmentAllSettingArrayOutput {
-	return i.ToEnvironmentAllSettingArrayOutputWithContext(context.Background())
-}
-
-func (i EnvironmentAllSettingArray) ToEnvironmentAllSettingArrayOutputWithContext(ctx context.Context) EnvironmentAllSettingArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EnvironmentAllSettingArrayOutput)
-}
-
 type EnvironmentAllSettingOutput struct{ *pulumi.OutputState }
 
 func (EnvironmentAllSettingOutput) ElementType() reflect.Type {
@@ -566,40 +509,6 @@ type GetApplicationAppversionLifecycle struct {
 	ServiceRole string `pulumi:"serviceRole"`
 }
 
-// GetApplicationAppversionLifecycleInput is an input type that accepts GetApplicationAppversionLifecycleArgs and GetApplicationAppversionLifecycleOutput values.
-// You can construct a concrete instance of `GetApplicationAppversionLifecycleInput` via:
-//
-//          GetApplicationAppversionLifecycleArgs{...}
-type GetApplicationAppversionLifecycleInput interface {
-	pulumi.Input
-
-	ToGetApplicationAppversionLifecycleOutput() GetApplicationAppversionLifecycleOutput
-	ToGetApplicationAppversionLifecycleOutputWithContext(context.Context) GetApplicationAppversionLifecycleOutput
-}
-
-type GetApplicationAppversionLifecycleArgs struct {
-	// Specifies whether delete a version's source bundle from S3 when the application version is deleted.
-	DeleteSourceFromS3 pulumi.BoolInput `pulumi:"deleteSourceFromS3"`
-	// The number of days to retain an application version.
-	MaxAgeInDays pulumi.IntInput `pulumi:"maxAgeInDays"`
-	// The maximum number of application versions to retain.
-	MaxCount pulumi.IntInput `pulumi:"maxCount"`
-	// The ARN of an IAM service role under which the application version is deleted.  Elastic Beanstalk must have permission to assume this role.
-	ServiceRole pulumi.StringInput `pulumi:"serviceRole"`
-}
-
-func (GetApplicationAppversionLifecycleArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetApplicationAppversionLifecycle)(nil)).Elem()
-}
-
-func (i GetApplicationAppversionLifecycleArgs) ToGetApplicationAppversionLifecycleOutput() GetApplicationAppversionLifecycleOutput {
-	return i.ToGetApplicationAppversionLifecycleOutputWithContext(context.Background())
-}
-
-func (i GetApplicationAppversionLifecycleArgs) ToGetApplicationAppversionLifecycleOutputWithContext(ctx context.Context) GetApplicationAppversionLifecycleOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetApplicationAppversionLifecycleOutput)
-}
-
 type GetApplicationAppversionLifecycleOutput struct{ *pulumi.OutputState }
 
 func (GetApplicationAppversionLifecycleOutput) ElementType() reflect.Type {
@@ -639,11 +548,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationAppversionLifecyclePtrInput)(nil)).Elem(), ApplicationAppversionLifecycleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationTemplateSettingInput)(nil)).Elem(), ConfigurationTemplateSettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationTemplateSettingArrayInput)(nil)).Elem(), ConfigurationTemplateSettingArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentAllSettingInput)(nil)).Elem(), EnvironmentAllSettingArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentAllSettingArrayInput)(nil)).Elem(), EnvironmentAllSettingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentSettingInput)(nil)).Elem(), EnvironmentSettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentSettingArrayInput)(nil)).Elem(), EnvironmentSettingArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetApplicationAppversionLifecycleInput)(nil)).Elem(), GetApplicationAppversionLifecycleArgs{})
 	pulumi.RegisterOutputType(ApplicationAppversionLifecycleOutput{})
 	pulumi.RegisterOutputType(ApplicationAppversionLifecyclePtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationTemplateSettingOutput{})

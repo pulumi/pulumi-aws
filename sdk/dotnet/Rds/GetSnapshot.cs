@@ -42,11 +42,11 @@ namespace Pulumi.Aws.Rds
         ///             DbSubnetGroupName = "my_database_subnet_group",
         ///             ParameterGroupName = "default.mysql5.6",
         ///         });
-        ///         var latestProdSnapshot = prod.Id.Apply(id =&gt; Aws.Rds.GetSnapshot.InvokeAsync(new Aws.Rds.GetSnapshotArgs
+        ///         var latestProdSnapshot = Aws.Rds.GetSnapshot.Invoke(new Aws.Rds.GetSnapshotInvokeArgs
         ///         {
-        ///             DbInstanceIdentifier = id,
+        ///             DbInstanceIdentifier = prod.Id,
         ///             MostRecent = true,
-        ///         }));
+        ///         });
         ///         // Use the latest production snapshot to create a dev instance.
         ///         var dev = new Aws.Rds.Instance("dev", new Aws.Rds.InstanceArgs
         ///         {
@@ -94,11 +94,11 @@ namespace Pulumi.Aws.Rds
         ///             DbSubnetGroupName = "my_database_subnet_group",
         ///             ParameterGroupName = "default.mysql5.6",
         ///         });
-        ///         var latestProdSnapshot = prod.Id.Apply(id =&gt; Aws.Rds.GetSnapshot.InvokeAsync(new Aws.Rds.GetSnapshotArgs
+        ///         var latestProdSnapshot = Aws.Rds.GetSnapshot.Invoke(new Aws.Rds.GetSnapshotInvokeArgs
         ///         {
-        ///             DbInstanceIdentifier = id,
+        ///             DbInstanceIdentifier = prod.Id,
         ///             MostRecent = true,
-        ///         }));
+        ///         });
         ///         // Use the latest production snapshot to create a dev instance.
         ///         var dev = new Aws.Rds.Instance("dev", new Aws.Rds.InstanceArgs
         ///         {

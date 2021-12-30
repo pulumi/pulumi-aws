@@ -14,19 +14,19 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const exampleDomainIdentity = new aws.ses.DomainIdentity("exampleDomainIdentity", {domain: "example.com"});
- * const examplePolicyDocument = exampleDomainIdentity.arn.apply(arn => aws.iam.getPolicyDocument({
+ * const examplePolicyDocument = aws.iam.getPolicyDocumentOutput({
  *     statements: [{
  *         actions: [
  *             "SES:SendEmail",
  *             "SES:SendRawEmail",
  *         ],
- *         resources: [arn],
+ *         resources: [exampleDomainIdentity.arn],
  *         principals: [{
  *             identifiers: ["*"],
  *             type: "AWS",
  *         }],
  *     }],
- * }));
+ * });
  * const exampleIdentityPolicy = new aws.ses.IdentityPolicy("exampleIdentityPolicy", {
  *     identity: exampleDomainIdentity.arn,
  *     policy: examplePolicyDocument.apply(examplePolicyDocument => examplePolicyDocument.json),
@@ -91,13 +91,13 @@ export class IdentityPolicy extends pulumi.CustomResource {
      */
     constructor(name: string, args: IdentityPolicyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: IdentityPolicyArgs | IdentityPolicyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as IdentityPolicyState | undefined;
-            inputs["identity"] = state ? state.identity : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["policy"] = state ? state.policy : undefined;
+            resourceInputs["identity"] = state ? state.identity : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["policy"] = state ? state.policy : undefined;
         } else {
             const args = argsOrState as IdentityPolicyArgs | undefined;
             if ((!args || args.identity === undefined) && !opts.urn) {
@@ -106,14 +106,14 @@ export class IdentityPolicy extends pulumi.CustomResource {
             if ((!args || args.policy === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policy'");
             }
-            inputs["identity"] = args ? args.identity : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["policy"] = args ? args.policy : undefined;
+            resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["policy"] = args ? args.policy : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(IdentityPolicy.__pulumiType, name, inputs, opts);
+        super(IdentityPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

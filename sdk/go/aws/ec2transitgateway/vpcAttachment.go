@@ -220,7 +220,7 @@ type VpcAttachmentInput interface {
 }
 
 func (*VpcAttachment) ElementType() reflect.Type {
-	return reflect.TypeOf((*VpcAttachment)(nil))
+	return reflect.TypeOf((**VpcAttachment)(nil)).Elem()
 }
 
 func (i *VpcAttachment) ToVpcAttachmentOutput() VpcAttachmentOutput {
@@ -229,35 +229,6 @@ func (i *VpcAttachment) ToVpcAttachmentOutput() VpcAttachmentOutput {
 
 func (i *VpcAttachment) ToVpcAttachmentOutputWithContext(ctx context.Context) VpcAttachmentOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VpcAttachmentOutput)
-}
-
-func (i *VpcAttachment) ToVpcAttachmentPtrOutput() VpcAttachmentPtrOutput {
-	return i.ToVpcAttachmentPtrOutputWithContext(context.Background())
-}
-
-func (i *VpcAttachment) ToVpcAttachmentPtrOutputWithContext(ctx context.Context) VpcAttachmentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VpcAttachmentPtrOutput)
-}
-
-type VpcAttachmentPtrInput interface {
-	pulumi.Input
-
-	ToVpcAttachmentPtrOutput() VpcAttachmentPtrOutput
-	ToVpcAttachmentPtrOutputWithContext(ctx context.Context) VpcAttachmentPtrOutput
-}
-
-type vpcAttachmentPtrType VpcAttachmentArgs
-
-func (*vpcAttachmentPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VpcAttachment)(nil))
-}
-
-func (i *vpcAttachmentPtrType) ToVpcAttachmentPtrOutput() VpcAttachmentPtrOutput {
-	return i.ToVpcAttachmentPtrOutputWithContext(context.Background())
-}
-
-func (i *vpcAttachmentPtrType) ToVpcAttachmentPtrOutputWithContext(ctx context.Context) VpcAttachmentPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VpcAttachmentPtrOutput)
 }
 
 // VpcAttachmentArrayInput is an input type that accepts VpcAttachmentArray and VpcAttachmentArrayOutput values.
@@ -313,7 +284,7 @@ func (i VpcAttachmentMap) ToVpcAttachmentMapOutputWithContext(ctx context.Contex
 type VpcAttachmentOutput struct{ *pulumi.OutputState }
 
 func (VpcAttachmentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VpcAttachment)(nil))
+	return reflect.TypeOf((**VpcAttachment)(nil)).Elem()
 }
 
 func (o VpcAttachmentOutput) ToVpcAttachmentOutput() VpcAttachmentOutput {
@@ -324,44 +295,10 @@ func (o VpcAttachmentOutput) ToVpcAttachmentOutputWithContext(ctx context.Contex
 	return o
 }
 
-func (o VpcAttachmentOutput) ToVpcAttachmentPtrOutput() VpcAttachmentPtrOutput {
-	return o.ToVpcAttachmentPtrOutputWithContext(context.Background())
-}
-
-func (o VpcAttachmentOutput) ToVpcAttachmentPtrOutputWithContext(ctx context.Context) VpcAttachmentPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpcAttachment) *VpcAttachment {
-		return &v
-	}).(VpcAttachmentPtrOutput)
-}
-
-type VpcAttachmentPtrOutput struct{ *pulumi.OutputState }
-
-func (VpcAttachmentPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VpcAttachment)(nil))
-}
-
-func (o VpcAttachmentPtrOutput) ToVpcAttachmentPtrOutput() VpcAttachmentPtrOutput {
-	return o
-}
-
-func (o VpcAttachmentPtrOutput) ToVpcAttachmentPtrOutputWithContext(ctx context.Context) VpcAttachmentPtrOutput {
-	return o
-}
-
-func (o VpcAttachmentPtrOutput) Elem() VpcAttachmentOutput {
-	return o.ApplyT(func(v *VpcAttachment) VpcAttachment {
-		if v != nil {
-			return *v
-		}
-		var ret VpcAttachment
-		return ret
-	}).(VpcAttachmentOutput)
-}
-
 type VpcAttachmentArrayOutput struct{ *pulumi.OutputState }
 
 func (VpcAttachmentArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VpcAttachment)(nil))
+	return reflect.TypeOf((*[]*VpcAttachment)(nil)).Elem()
 }
 
 func (o VpcAttachmentArrayOutput) ToVpcAttachmentArrayOutput() VpcAttachmentArrayOutput {
@@ -373,15 +310,15 @@ func (o VpcAttachmentArrayOutput) ToVpcAttachmentArrayOutputWithContext(ctx cont
 }
 
 func (o VpcAttachmentArrayOutput) Index(i pulumi.IntInput) VpcAttachmentOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VpcAttachment {
-		return vs[0].([]VpcAttachment)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VpcAttachment {
+		return vs[0].([]*VpcAttachment)[vs[1].(int)]
 	}).(VpcAttachmentOutput)
 }
 
 type VpcAttachmentMapOutput struct{ *pulumi.OutputState }
 
 func (VpcAttachmentMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]VpcAttachment)(nil))
+	return reflect.TypeOf((*map[string]*VpcAttachment)(nil)).Elem()
 }
 
 func (o VpcAttachmentMapOutput) ToVpcAttachmentMapOutput() VpcAttachmentMapOutput {
@@ -393,18 +330,16 @@ func (o VpcAttachmentMapOutput) ToVpcAttachmentMapOutputWithContext(ctx context.
 }
 
 func (o VpcAttachmentMapOutput) MapIndex(k pulumi.StringInput) VpcAttachmentOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) VpcAttachment {
-		return vs[0].(map[string]VpcAttachment)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *VpcAttachment {
+		return vs[0].(map[string]*VpcAttachment)[vs[1].(string)]
 	}).(VpcAttachmentOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcAttachmentInput)(nil)).Elem(), &VpcAttachment{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VpcAttachmentPtrInput)(nil)).Elem(), &VpcAttachment{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcAttachmentArrayInput)(nil)).Elem(), VpcAttachmentArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcAttachmentMapInput)(nil)).Elem(), VpcAttachmentMap{})
 	pulumi.RegisterOutputType(VpcAttachmentOutput{})
-	pulumi.RegisterOutputType(VpcAttachmentPtrOutput{})
 	pulumi.RegisterOutputType(VpcAttachmentArrayOutput{})
 	pulumi.RegisterOutputType(VpcAttachmentMapOutput{})
 }

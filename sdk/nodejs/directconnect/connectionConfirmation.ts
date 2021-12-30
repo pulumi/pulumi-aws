@@ -60,22 +60,22 @@ export class ConnectionConfirmation extends pulumi.CustomResource {
      */
     constructor(name: string, args: ConnectionConfirmationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ConnectionConfirmationArgs | ConnectionConfirmationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ConnectionConfirmationState | undefined;
-            inputs["connectionId"] = state ? state.connectionId : undefined;
+            resourceInputs["connectionId"] = state ? state.connectionId : undefined;
         } else {
             const args = argsOrState as ConnectionConfirmationArgs | undefined;
             if ((!args || args.connectionId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'connectionId'");
             }
-            inputs["connectionId"] = args ? args.connectionId : undefined;
+            resourceInputs["connectionId"] = args ? args.connectionId : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(ConnectionConfirmation.__pulumiType, name, inputs, opts);
+        super(ConnectionConfirmation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

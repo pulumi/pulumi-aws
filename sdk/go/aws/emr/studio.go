@@ -281,7 +281,7 @@ type StudioInput interface {
 }
 
 func (*Studio) ElementType() reflect.Type {
-	return reflect.TypeOf((*Studio)(nil))
+	return reflect.TypeOf((**Studio)(nil)).Elem()
 }
 
 func (i *Studio) ToStudioOutput() StudioOutput {
@@ -290,35 +290,6 @@ func (i *Studio) ToStudioOutput() StudioOutput {
 
 func (i *Studio) ToStudioOutputWithContext(ctx context.Context) StudioOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(StudioOutput)
-}
-
-func (i *Studio) ToStudioPtrOutput() StudioPtrOutput {
-	return i.ToStudioPtrOutputWithContext(context.Background())
-}
-
-func (i *Studio) ToStudioPtrOutputWithContext(ctx context.Context) StudioPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StudioPtrOutput)
-}
-
-type StudioPtrInput interface {
-	pulumi.Input
-
-	ToStudioPtrOutput() StudioPtrOutput
-	ToStudioPtrOutputWithContext(ctx context.Context) StudioPtrOutput
-}
-
-type studioPtrType StudioArgs
-
-func (*studioPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Studio)(nil))
-}
-
-func (i *studioPtrType) ToStudioPtrOutput() StudioPtrOutput {
-	return i.ToStudioPtrOutputWithContext(context.Background())
-}
-
-func (i *studioPtrType) ToStudioPtrOutputWithContext(ctx context.Context) StudioPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(StudioPtrOutput)
 }
 
 // StudioArrayInput is an input type that accepts StudioArray and StudioArrayOutput values.
@@ -374,7 +345,7 @@ func (i StudioMap) ToStudioMapOutputWithContext(ctx context.Context) StudioMapOu
 type StudioOutput struct{ *pulumi.OutputState }
 
 func (StudioOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Studio)(nil))
+	return reflect.TypeOf((**Studio)(nil)).Elem()
 }
 
 func (o StudioOutput) ToStudioOutput() StudioOutput {
@@ -385,44 +356,10 @@ func (o StudioOutput) ToStudioOutputWithContext(ctx context.Context) StudioOutpu
 	return o
 }
 
-func (o StudioOutput) ToStudioPtrOutput() StudioPtrOutput {
-	return o.ToStudioPtrOutputWithContext(context.Background())
-}
-
-func (o StudioOutput) ToStudioPtrOutputWithContext(ctx context.Context) StudioPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Studio) *Studio {
-		return &v
-	}).(StudioPtrOutput)
-}
-
-type StudioPtrOutput struct{ *pulumi.OutputState }
-
-func (StudioPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Studio)(nil))
-}
-
-func (o StudioPtrOutput) ToStudioPtrOutput() StudioPtrOutput {
-	return o
-}
-
-func (o StudioPtrOutput) ToStudioPtrOutputWithContext(ctx context.Context) StudioPtrOutput {
-	return o
-}
-
-func (o StudioPtrOutput) Elem() StudioOutput {
-	return o.ApplyT(func(v *Studio) Studio {
-		if v != nil {
-			return *v
-		}
-		var ret Studio
-		return ret
-	}).(StudioOutput)
-}
-
 type StudioArrayOutput struct{ *pulumi.OutputState }
 
 func (StudioArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Studio)(nil))
+	return reflect.TypeOf((*[]*Studio)(nil)).Elem()
 }
 
 func (o StudioArrayOutput) ToStudioArrayOutput() StudioArrayOutput {
@@ -434,15 +371,15 @@ func (o StudioArrayOutput) ToStudioArrayOutputWithContext(ctx context.Context) S
 }
 
 func (o StudioArrayOutput) Index(i pulumi.IntInput) StudioOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Studio {
-		return vs[0].([]Studio)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Studio {
+		return vs[0].([]*Studio)[vs[1].(int)]
 	}).(StudioOutput)
 }
 
 type StudioMapOutput struct{ *pulumi.OutputState }
 
 func (StudioMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Studio)(nil))
+	return reflect.TypeOf((*map[string]*Studio)(nil)).Elem()
 }
 
 func (o StudioMapOutput) ToStudioMapOutput() StudioMapOutput {
@@ -454,18 +391,16 @@ func (o StudioMapOutput) ToStudioMapOutputWithContext(ctx context.Context) Studi
 }
 
 func (o StudioMapOutput) MapIndex(k pulumi.StringInput) StudioOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Studio {
-		return vs[0].(map[string]Studio)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Studio {
+		return vs[0].(map[string]*Studio)[vs[1].(string)]
 	}).(StudioOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StudioInput)(nil)).Elem(), &Studio{})
-	pulumi.RegisterInputType(reflect.TypeOf((*StudioPtrInput)(nil)).Elem(), &Studio{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StudioArrayInput)(nil)).Elem(), StudioArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StudioMapInput)(nil)).Elem(), StudioMap{})
 	pulumi.RegisterOutputType(StudioOutput{})
-	pulumi.RegisterOutputType(StudioPtrOutput{})
 	pulumi.RegisterOutputType(StudioArrayOutput{})
 	pulumi.RegisterOutputType(StudioMapOutput{})
 }

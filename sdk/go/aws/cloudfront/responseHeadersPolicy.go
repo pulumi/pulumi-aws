@@ -224,7 +224,7 @@ type ResponseHeadersPolicyInput interface {
 }
 
 func (*ResponseHeadersPolicy) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResponseHeadersPolicy)(nil))
+	return reflect.TypeOf((**ResponseHeadersPolicy)(nil)).Elem()
 }
 
 func (i *ResponseHeadersPolicy) ToResponseHeadersPolicyOutput() ResponseHeadersPolicyOutput {
@@ -233,35 +233,6 @@ func (i *ResponseHeadersPolicy) ToResponseHeadersPolicyOutput() ResponseHeadersP
 
 func (i *ResponseHeadersPolicy) ToResponseHeadersPolicyOutputWithContext(ctx context.Context) ResponseHeadersPolicyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ResponseHeadersPolicyOutput)
-}
-
-func (i *ResponseHeadersPolicy) ToResponseHeadersPolicyPtrOutput() ResponseHeadersPolicyPtrOutput {
-	return i.ToResponseHeadersPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *ResponseHeadersPolicy) ToResponseHeadersPolicyPtrOutputWithContext(ctx context.Context) ResponseHeadersPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResponseHeadersPolicyPtrOutput)
-}
-
-type ResponseHeadersPolicyPtrInput interface {
-	pulumi.Input
-
-	ToResponseHeadersPolicyPtrOutput() ResponseHeadersPolicyPtrOutput
-	ToResponseHeadersPolicyPtrOutputWithContext(ctx context.Context) ResponseHeadersPolicyPtrOutput
-}
-
-type responseHeadersPolicyPtrType ResponseHeadersPolicyArgs
-
-func (*responseHeadersPolicyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ResponseHeadersPolicy)(nil))
-}
-
-func (i *responseHeadersPolicyPtrType) ToResponseHeadersPolicyPtrOutput() ResponseHeadersPolicyPtrOutput {
-	return i.ToResponseHeadersPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *responseHeadersPolicyPtrType) ToResponseHeadersPolicyPtrOutputWithContext(ctx context.Context) ResponseHeadersPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResponseHeadersPolicyPtrOutput)
 }
 
 // ResponseHeadersPolicyArrayInput is an input type that accepts ResponseHeadersPolicyArray and ResponseHeadersPolicyArrayOutput values.
@@ -317,7 +288,7 @@ func (i ResponseHeadersPolicyMap) ToResponseHeadersPolicyMapOutputWithContext(ct
 type ResponseHeadersPolicyOutput struct{ *pulumi.OutputState }
 
 func (ResponseHeadersPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResponseHeadersPolicy)(nil))
+	return reflect.TypeOf((**ResponseHeadersPolicy)(nil)).Elem()
 }
 
 func (o ResponseHeadersPolicyOutput) ToResponseHeadersPolicyOutput() ResponseHeadersPolicyOutput {
@@ -328,44 +299,10 @@ func (o ResponseHeadersPolicyOutput) ToResponseHeadersPolicyOutputWithContext(ct
 	return o
 }
 
-func (o ResponseHeadersPolicyOutput) ToResponseHeadersPolicyPtrOutput() ResponseHeadersPolicyPtrOutput {
-	return o.ToResponseHeadersPolicyPtrOutputWithContext(context.Background())
-}
-
-func (o ResponseHeadersPolicyOutput) ToResponseHeadersPolicyPtrOutputWithContext(ctx context.Context) ResponseHeadersPolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResponseHeadersPolicy) *ResponseHeadersPolicy {
-		return &v
-	}).(ResponseHeadersPolicyPtrOutput)
-}
-
-type ResponseHeadersPolicyPtrOutput struct{ *pulumi.OutputState }
-
-func (ResponseHeadersPolicyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ResponseHeadersPolicy)(nil))
-}
-
-func (o ResponseHeadersPolicyPtrOutput) ToResponseHeadersPolicyPtrOutput() ResponseHeadersPolicyPtrOutput {
-	return o
-}
-
-func (o ResponseHeadersPolicyPtrOutput) ToResponseHeadersPolicyPtrOutputWithContext(ctx context.Context) ResponseHeadersPolicyPtrOutput {
-	return o
-}
-
-func (o ResponseHeadersPolicyPtrOutput) Elem() ResponseHeadersPolicyOutput {
-	return o.ApplyT(func(v *ResponseHeadersPolicy) ResponseHeadersPolicy {
-		if v != nil {
-			return *v
-		}
-		var ret ResponseHeadersPolicy
-		return ret
-	}).(ResponseHeadersPolicyOutput)
-}
-
 type ResponseHeadersPolicyArrayOutput struct{ *pulumi.OutputState }
 
 func (ResponseHeadersPolicyArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ResponseHeadersPolicy)(nil))
+	return reflect.TypeOf((*[]*ResponseHeadersPolicy)(nil)).Elem()
 }
 
 func (o ResponseHeadersPolicyArrayOutput) ToResponseHeadersPolicyArrayOutput() ResponseHeadersPolicyArrayOutput {
@@ -377,15 +314,15 @@ func (o ResponseHeadersPolicyArrayOutput) ToResponseHeadersPolicyArrayOutputWith
 }
 
 func (o ResponseHeadersPolicyArrayOutput) Index(i pulumi.IntInput) ResponseHeadersPolicyOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ResponseHeadersPolicy {
-		return vs[0].([]ResponseHeadersPolicy)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ResponseHeadersPolicy {
+		return vs[0].([]*ResponseHeadersPolicy)[vs[1].(int)]
 	}).(ResponseHeadersPolicyOutput)
 }
 
 type ResponseHeadersPolicyMapOutput struct{ *pulumi.OutputState }
 
 func (ResponseHeadersPolicyMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ResponseHeadersPolicy)(nil))
+	return reflect.TypeOf((*map[string]*ResponseHeadersPolicy)(nil)).Elem()
 }
 
 func (o ResponseHeadersPolicyMapOutput) ToResponseHeadersPolicyMapOutput() ResponseHeadersPolicyMapOutput {
@@ -397,18 +334,16 @@ func (o ResponseHeadersPolicyMapOutput) ToResponseHeadersPolicyMapOutputWithCont
 }
 
 func (o ResponseHeadersPolicyMapOutput) MapIndex(k pulumi.StringInput) ResponseHeadersPolicyOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ResponseHeadersPolicy {
-		return vs[0].(map[string]ResponseHeadersPolicy)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ResponseHeadersPolicy {
+		return vs[0].(map[string]*ResponseHeadersPolicy)[vs[1].(string)]
 	}).(ResponseHeadersPolicyOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ResponseHeadersPolicyInput)(nil)).Elem(), &ResponseHeadersPolicy{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ResponseHeadersPolicyPtrInput)(nil)).Elem(), &ResponseHeadersPolicy{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResponseHeadersPolicyArrayInput)(nil)).Elem(), ResponseHeadersPolicyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResponseHeadersPolicyMapInput)(nil)).Elem(), ResponseHeadersPolicyMap{})
 	pulumi.RegisterOutputType(ResponseHeadersPolicyOutput{})
-	pulumi.RegisterOutputType(ResponseHeadersPolicyPtrOutput{})
 	pulumi.RegisterOutputType(ResponseHeadersPolicyArrayOutput{})
 	pulumi.RegisterOutputType(ResponseHeadersPolicyMapOutput{})
 }

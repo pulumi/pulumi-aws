@@ -35,6 +35,28 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
+// 		examplePolicyDocument := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+// 			Statements: iam.GetPolicyDocumentStatementArray{
+// 				&iam.GetPolicyDocumentStatementArgs{
+// 					Actions: pulumi.StringArray{
+// 						pulumi.String("glacier:DeleteArchive"),
+// 					},
+// 					Effect: pulumi.String("Deny"),
+// 					Resources: pulumi.StringArray{
+// 						exampleVault.Arn,
+// 					},
+// 					Conditions: iam.GetPolicyDocumentStatementConditionArray{
+// 						&iam.GetPolicyDocumentStatementConditionArgs{
+// 							Test:     pulumi.String("NumericLessThanEquals"),
+// 							Variable: pulumi.String("glacier:ArchiveAgeinDays"),
+// 							Values: pulumi.StringArray{
+// 								pulumi.String("365"),
+// 							},
+// 						},
+// 					},
+// 				},
+// 			},
+// 		}, nil)
 // 		_, err = glacier.NewVaultLock(ctx, "exampleVaultLock", &glacier.VaultLockArgs{
 // 			CompleteLock: pulumi.Bool(false),
 // 			Policy: examplePolicyDocument.ApplyT(func(examplePolicyDocument iam.GetPolicyDocumentResult) (string, error) {
@@ -192,7 +214,7 @@ type VaultLockInput interface {
 }
 
 func (*VaultLock) ElementType() reflect.Type {
-	return reflect.TypeOf((*VaultLock)(nil))
+	return reflect.TypeOf((**VaultLock)(nil)).Elem()
 }
 
 func (i *VaultLock) ToVaultLockOutput() VaultLockOutput {
@@ -201,35 +223,6 @@ func (i *VaultLock) ToVaultLockOutput() VaultLockOutput {
 
 func (i *VaultLock) ToVaultLockOutputWithContext(ctx context.Context) VaultLockOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VaultLockOutput)
-}
-
-func (i *VaultLock) ToVaultLockPtrOutput() VaultLockPtrOutput {
-	return i.ToVaultLockPtrOutputWithContext(context.Background())
-}
-
-func (i *VaultLock) ToVaultLockPtrOutputWithContext(ctx context.Context) VaultLockPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VaultLockPtrOutput)
-}
-
-type VaultLockPtrInput interface {
-	pulumi.Input
-
-	ToVaultLockPtrOutput() VaultLockPtrOutput
-	ToVaultLockPtrOutputWithContext(ctx context.Context) VaultLockPtrOutput
-}
-
-type vaultLockPtrType VaultLockArgs
-
-func (*vaultLockPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VaultLock)(nil))
-}
-
-func (i *vaultLockPtrType) ToVaultLockPtrOutput() VaultLockPtrOutput {
-	return i.ToVaultLockPtrOutputWithContext(context.Background())
-}
-
-func (i *vaultLockPtrType) ToVaultLockPtrOutputWithContext(ctx context.Context) VaultLockPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VaultLockPtrOutput)
 }
 
 // VaultLockArrayInput is an input type that accepts VaultLockArray and VaultLockArrayOutput values.
@@ -285,7 +278,7 @@ func (i VaultLockMap) ToVaultLockMapOutputWithContext(ctx context.Context) Vault
 type VaultLockOutput struct{ *pulumi.OutputState }
 
 func (VaultLockOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VaultLock)(nil))
+	return reflect.TypeOf((**VaultLock)(nil)).Elem()
 }
 
 func (o VaultLockOutput) ToVaultLockOutput() VaultLockOutput {
@@ -296,44 +289,10 @@ func (o VaultLockOutput) ToVaultLockOutputWithContext(ctx context.Context) Vault
 	return o
 }
 
-func (o VaultLockOutput) ToVaultLockPtrOutput() VaultLockPtrOutput {
-	return o.ToVaultLockPtrOutputWithContext(context.Background())
-}
-
-func (o VaultLockOutput) ToVaultLockPtrOutputWithContext(ctx context.Context) VaultLockPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VaultLock) *VaultLock {
-		return &v
-	}).(VaultLockPtrOutput)
-}
-
-type VaultLockPtrOutput struct{ *pulumi.OutputState }
-
-func (VaultLockPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**VaultLock)(nil))
-}
-
-func (o VaultLockPtrOutput) ToVaultLockPtrOutput() VaultLockPtrOutput {
-	return o
-}
-
-func (o VaultLockPtrOutput) ToVaultLockPtrOutputWithContext(ctx context.Context) VaultLockPtrOutput {
-	return o
-}
-
-func (o VaultLockPtrOutput) Elem() VaultLockOutput {
-	return o.ApplyT(func(v *VaultLock) VaultLock {
-		if v != nil {
-			return *v
-		}
-		var ret VaultLock
-		return ret
-	}).(VaultLockOutput)
-}
-
 type VaultLockArrayOutput struct{ *pulumi.OutputState }
 
 func (VaultLockArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VaultLock)(nil))
+	return reflect.TypeOf((*[]*VaultLock)(nil)).Elem()
 }
 
 func (o VaultLockArrayOutput) ToVaultLockArrayOutput() VaultLockArrayOutput {
@@ -345,15 +304,15 @@ func (o VaultLockArrayOutput) ToVaultLockArrayOutputWithContext(ctx context.Cont
 }
 
 func (o VaultLockArrayOutput) Index(i pulumi.IntInput) VaultLockOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VaultLock {
-		return vs[0].([]VaultLock)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VaultLock {
+		return vs[0].([]*VaultLock)[vs[1].(int)]
 	}).(VaultLockOutput)
 }
 
 type VaultLockMapOutput struct{ *pulumi.OutputState }
 
 func (VaultLockMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]VaultLock)(nil))
+	return reflect.TypeOf((*map[string]*VaultLock)(nil)).Elem()
 }
 
 func (o VaultLockMapOutput) ToVaultLockMapOutput() VaultLockMapOutput {
@@ -365,18 +324,16 @@ func (o VaultLockMapOutput) ToVaultLockMapOutputWithContext(ctx context.Context)
 }
 
 func (o VaultLockMapOutput) MapIndex(k pulumi.StringInput) VaultLockOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) VaultLock {
-		return vs[0].(map[string]VaultLock)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *VaultLock {
+		return vs[0].(map[string]*VaultLock)[vs[1].(string)]
 	}).(VaultLockOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VaultLockInput)(nil)).Elem(), &VaultLock{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VaultLockPtrInput)(nil)).Elem(), &VaultLock{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VaultLockArrayInput)(nil)).Elem(), VaultLockArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VaultLockMapInput)(nil)).Elem(), VaultLockMap{})
 	pulumi.RegisterOutputType(VaultLockOutput{})
-	pulumi.RegisterOutputType(VaultLockPtrOutput{})
 	pulumi.RegisterOutputType(VaultLockArrayOutput{})
 	pulumi.RegisterOutputType(VaultLockMapOutput{})
 }

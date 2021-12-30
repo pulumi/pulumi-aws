@@ -116,21 +116,21 @@ export class Deployment extends pulumi.CustomResource {
      */
     constructor(name: string, args: DeploymentArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DeploymentArgs | DeploymentState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DeploymentState | undefined;
-            inputs["applicationId"] = state ? state.applicationId : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["configurationProfileId"] = state ? state.configurationProfileId : undefined;
-            inputs["configurationVersion"] = state ? state.configurationVersion : undefined;
-            inputs["deploymentNumber"] = state ? state.deploymentNumber : undefined;
-            inputs["deploymentStrategyId"] = state ? state.deploymentStrategyId : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["environmentId"] = state ? state.environmentId : undefined;
-            inputs["state"] = state ? state.state : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["applicationId"] = state ? state.applicationId : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["configurationProfileId"] = state ? state.configurationProfileId : undefined;
+            resourceInputs["configurationVersion"] = state ? state.configurationVersion : undefined;
+            resourceInputs["deploymentNumber"] = state ? state.deploymentNumber : undefined;
+            resourceInputs["deploymentStrategyId"] = state ? state.deploymentStrategyId : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["environmentId"] = state ? state.environmentId : undefined;
+            resourceInputs["state"] = state ? state.state : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as DeploymentArgs | undefined;
             if ((!args || args.applicationId === undefined) && !opts.urn) {
@@ -148,22 +148,22 @@ export class Deployment extends pulumi.CustomResource {
             if ((!args || args.environmentId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'environmentId'");
             }
-            inputs["applicationId"] = args ? args.applicationId : undefined;
-            inputs["configurationProfileId"] = args ? args.configurationProfileId : undefined;
-            inputs["configurationVersion"] = args ? args.configurationVersion : undefined;
-            inputs["deploymentStrategyId"] = args ? args.deploymentStrategyId : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["environmentId"] = args ? args.environmentId : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["deploymentNumber"] = undefined /*out*/;
-            inputs["state"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["applicationId"] = args ? args.applicationId : undefined;
+            resourceInputs["configurationProfileId"] = args ? args.configurationProfileId : undefined;
+            resourceInputs["configurationVersion"] = args ? args.configurationVersion : undefined;
+            resourceInputs["deploymentStrategyId"] = args ? args.deploymentStrategyId : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["environmentId"] = args ? args.environmentId : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["deploymentNumber"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Deployment.__pulumiType, name, inputs, opts);
+        super(Deployment.__pulumiType, name, resourceInputs, opts);
     }
 }
 

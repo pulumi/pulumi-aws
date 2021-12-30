@@ -138,50 +138,50 @@ export class ReceiptRule extends pulumi.CustomResource {
      */
     constructor(name: string, args: ReceiptRuleArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ReceiptRuleArgs | ReceiptRuleState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ReceiptRuleState | undefined;
-            inputs["addHeaderActions"] = state ? state.addHeaderActions : undefined;
-            inputs["after"] = state ? state.after : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["bounceActions"] = state ? state.bounceActions : undefined;
-            inputs["enabled"] = state ? state.enabled : undefined;
-            inputs["lambdaActions"] = state ? state.lambdaActions : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["recipients"] = state ? state.recipients : undefined;
-            inputs["ruleSetName"] = state ? state.ruleSetName : undefined;
-            inputs["s3Actions"] = state ? state.s3Actions : undefined;
-            inputs["scanEnabled"] = state ? state.scanEnabled : undefined;
-            inputs["snsActions"] = state ? state.snsActions : undefined;
-            inputs["stopActions"] = state ? state.stopActions : undefined;
-            inputs["tlsPolicy"] = state ? state.tlsPolicy : undefined;
-            inputs["workmailActions"] = state ? state.workmailActions : undefined;
+            resourceInputs["addHeaderActions"] = state ? state.addHeaderActions : undefined;
+            resourceInputs["after"] = state ? state.after : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["bounceActions"] = state ? state.bounceActions : undefined;
+            resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["lambdaActions"] = state ? state.lambdaActions : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["recipients"] = state ? state.recipients : undefined;
+            resourceInputs["ruleSetName"] = state ? state.ruleSetName : undefined;
+            resourceInputs["s3Actions"] = state ? state.s3Actions : undefined;
+            resourceInputs["scanEnabled"] = state ? state.scanEnabled : undefined;
+            resourceInputs["snsActions"] = state ? state.snsActions : undefined;
+            resourceInputs["stopActions"] = state ? state.stopActions : undefined;
+            resourceInputs["tlsPolicy"] = state ? state.tlsPolicy : undefined;
+            resourceInputs["workmailActions"] = state ? state.workmailActions : undefined;
         } else {
             const args = argsOrState as ReceiptRuleArgs | undefined;
             if ((!args || args.ruleSetName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'ruleSetName'");
             }
-            inputs["addHeaderActions"] = args ? args.addHeaderActions : undefined;
-            inputs["after"] = args ? args.after : undefined;
-            inputs["bounceActions"] = args ? args.bounceActions : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["lambdaActions"] = args ? args.lambdaActions : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["recipients"] = args ? args.recipients : undefined;
-            inputs["ruleSetName"] = args ? args.ruleSetName : undefined;
-            inputs["s3Actions"] = args ? args.s3Actions : undefined;
-            inputs["scanEnabled"] = args ? args.scanEnabled : undefined;
-            inputs["snsActions"] = args ? args.snsActions : undefined;
-            inputs["stopActions"] = args ? args.stopActions : undefined;
-            inputs["tlsPolicy"] = args ? args.tlsPolicy : undefined;
-            inputs["workmailActions"] = args ? args.workmailActions : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["addHeaderActions"] = args ? args.addHeaderActions : undefined;
+            resourceInputs["after"] = args ? args.after : undefined;
+            resourceInputs["bounceActions"] = args ? args.bounceActions : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["lambdaActions"] = args ? args.lambdaActions : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["recipients"] = args ? args.recipients : undefined;
+            resourceInputs["ruleSetName"] = args ? args.ruleSetName : undefined;
+            resourceInputs["s3Actions"] = args ? args.s3Actions : undefined;
+            resourceInputs["scanEnabled"] = args ? args.scanEnabled : undefined;
+            resourceInputs["snsActions"] = args ? args.snsActions : undefined;
+            resourceInputs["stopActions"] = args ? args.stopActions : undefined;
+            resourceInputs["tlsPolicy"] = args ? args.tlsPolicy : undefined;
+            resourceInputs["workmailActions"] = args ? args.workmailActions : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(ReceiptRule.__pulumiType, name, inputs, opts);
+        super(ReceiptRule.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -240,7 +240,7 @@ type WorkteamInput interface {
 }
 
 func (*Workteam) ElementType() reflect.Type {
-	return reflect.TypeOf((*Workteam)(nil))
+	return reflect.TypeOf((**Workteam)(nil)).Elem()
 }
 
 func (i *Workteam) ToWorkteamOutput() WorkteamOutput {
@@ -249,35 +249,6 @@ func (i *Workteam) ToWorkteamOutput() WorkteamOutput {
 
 func (i *Workteam) ToWorkteamOutputWithContext(ctx context.Context) WorkteamOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WorkteamOutput)
-}
-
-func (i *Workteam) ToWorkteamPtrOutput() WorkteamPtrOutput {
-	return i.ToWorkteamPtrOutputWithContext(context.Background())
-}
-
-func (i *Workteam) ToWorkteamPtrOutputWithContext(ctx context.Context) WorkteamPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkteamPtrOutput)
-}
-
-type WorkteamPtrInput interface {
-	pulumi.Input
-
-	ToWorkteamPtrOutput() WorkteamPtrOutput
-	ToWorkteamPtrOutputWithContext(ctx context.Context) WorkteamPtrOutput
-}
-
-type workteamPtrType WorkteamArgs
-
-func (*workteamPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Workteam)(nil))
-}
-
-func (i *workteamPtrType) ToWorkteamPtrOutput() WorkteamPtrOutput {
-	return i.ToWorkteamPtrOutputWithContext(context.Background())
-}
-
-func (i *workteamPtrType) ToWorkteamPtrOutputWithContext(ctx context.Context) WorkteamPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkteamPtrOutput)
 }
 
 // WorkteamArrayInput is an input type that accepts WorkteamArray and WorkteamArrayOutput values.
@@ -333,7 +304,7 @@ func (i WorkteamMap) ToWorkteamMapOutputWithContext(ctx context.Context) Worktea
 type WorkteamOutput struct{ *pulumi.OutputState }
 
 func (WorkteamOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Workteam)(nil))
+	return reflect.TypeOf((**Workteam)(nil)).Elem()
 }
 
 func (o WorkteamOutput) ToWorkteamOutput() WorkteamOutput {
@@ -344,44 +315,10 @@ func (o WorkteamOutput) ToWorkteamOutputWithContext(ctx context.Context) Worktea
 	return o
 }
 
-func (o WorkteamOutput) ToWorkteamPtrOutput() WorkteamPtrOutput {
-	return o.ToWorkteamPtrOutputWithContext(context.Background())
-}
-
-func (o WorkteamOutput) ToWorkteamPtrOutputWithContext(ctx context.Context) WorkteamPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Workteam) *Workteam {
-		return &v
-	}).(WorkteamPtrOutput)
-}
-
-type WorkteamPtrOutput struct{ *pulumi.OutputState }
-
-func (WorkteamPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Workteam)(nil))
-}
-
-func (o WorkteamPtrOutput) ToWorkteamPtrOutput() WorkteamPtrOutput {
-	return o
-}
-
-func (o WorkteamPtrOutput) ToWorkteamPtrOutputWithContext(ctx context.Context) WorkteamPtrOutput {
-	return o
-}
-
-func (o WorkteamPtrOutput) Elem() WorkteamOutput {
-	return o.ApplyT(func(v *Workteam) Workteam {
-		if v != nil {
-			return *v
-		}
-		var ret Workteam
-		return ret
-	}).(WorkteamOutput)
-}
-
 type WorkteamArrayOutput struct{ *pulumi.OutputState }
 
 func (WorkteamArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Workteam)(nil))
+	return reflect.TypeOf((*[]*Workteam)(nil)).Elem()
 }
 
 func (o WorkteamArrayOutput) ToWorkteamArrayOutput() WorkteamArrayOutput {
@@ -393,15 +330,15 @@ func (o WorkteamArrayOutput) ToWorkteamArrayOutputWithContext(ctx context.Contex
 }
 
 func (o WorkteamArrayOutput) Index(i pulumi.IntInput) WorkteamOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Workteam {
-		return vs[0].([]Workteam)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Workteam {
+		return vs[0].([]*Workteam)[vs[1].(int)]
 	}).(WorkteamOutput)
 }
 
 type WorkteamMapOutput struct{ *pulumi.OutputState }
 
 func (WorkteamMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Workteam)(nil))
+	return reflect.TypeOf((*map[string]*Workteam)(nil)).Elem()
 }
 
 func (o WorkteamMapOutput) ToWorkteamMapOutput() WorkteamMapOutput {
@@ -413,18 +350,16 @@ func (o WorkteamMapOutput) ToWorkteamMapOutputWithContext(ctx context.Context) W
 }
 
 func (o WorkteamMapOutput) MapIndex(k pulumi.StringInput) WorkteamOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Workteam {
-		return vs[0].(map[string]Workteam)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Workteam {
+		return vs[0].(map[string]*Workteam)[vs[1].(string)]
 	}).(WorkteamOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkteamInput)(nil)).Elem(), &Workteam{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WorkteamPtrInput)(nil)).Elem(), &Workteam{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkteamArrayInput)(nil)).Elem(), WorkteamArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkteamMapInput)(nil)).Elem(), WorkteamMap{})
 	pulumi.RegisterOutputType(WorkteamOutput{})
-	pulumi.RegisterOutputType(WorkteamPtrOutput{})
 	pulumi.RegisterOutputType(WorkteamArrayOutput{})
 	pulumi.RegisterOutputType(WorkteamMapOutput{})
 }

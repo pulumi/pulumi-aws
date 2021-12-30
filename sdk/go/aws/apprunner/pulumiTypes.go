@@ -21,65 +21,6 @@ type CustomDomainAssociationCertificateValidationRecord struct {
 	Value *string `pulumi:"value"`
 }
 
-// CustomDomainAssociationCertificateValidationRecordInput is an input type that accepts CustomDomainAssociationCertificateValidationRecordArgs and CustomDomainAssociationCertificateValidationRecordOutput values.
-// You can construct a concrete instance of `CustomDomainAssociationCertificateValidationRecordInput` via:
-//
-//          CustomDomainAssociationCertificateValidationRecordArgs{...}
-type CustomDomainAssociationCertificateValidationRecordInput interface {
-	pulumi.Input
-
-	ToCustomDomainAssociationCertificateValidationRecordOutput() CustomDomainAssociationCertificateValidationRecordOutput
-	ToCustomDomainAssociationCertificateValidationRecordOutputWithContext(context.Context) CustomDomainAssociationCertificateValidationRecordOutput
-}
-
-type CustomDomainAssociationCertificateValidationRecordArgs struct {
-	// The certificate CNAME record name.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The current state of the certificate CNAME record validation. It should change to `SUCCESS` after App Runner completes validation with your DNS.
-	Status pulumi.StringPtrInput `pulumi:"status"`
-	// The record type, always `CNAME`.
-	Type pulumi.StringPtrInput `pulumi:"type"`
-	// The certificate CNAME record value.
-	Value pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (CustomDomainAssociationCertificateValidationRecordArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomDomainAssociationCertificateValidationRecord)(nil)).Elem()
-}
-
-func (i CustomDomainAssociationCertificateValidationRecordArgs) ToCustomDomainAssociationCertificateValidationRecordOutput() CustomDomainAssociationCertificateValidationRecordOutput {
-	return i.ToCustomDomainAssociationCertificateValidationRecordOutputWithContext(context.Background())
-}
-
-func (i CustomDomainAssociationCertificateValidationRecordArgs) ToCustomDomainAssociationCertificateValidationRecordOutputWithContext(ctx context.Context) CustomDomainAssociationCertificateValidationRecordOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CustomDomainAssociationCertificateValidationRecordOutput)
-}
-
-// CustomDomainAssociationCertificateValidationRecordArrayInput is an input type that accepts CustomDomainAssociationCertificateValidationRecordArray and CustomDomainAssociationCertificateValidationRecordArrayOutput values.
-// You can construct a concrete instance of `CustomDomainAssociationCertificateValidationRecordArrayInput` via:
-//
-//          CustomDomainAssociationCertificateValidationRecordArray{ CustomDomainAssociationCertificateValidationRecordArgs{...} }
-type CustomDomainAssociationCertificateValidationRecordArrayInput interface {
-	pulumi.Input
-
-	ToCustomDomainAssociationCertificateValidationRecordArrayOutput() CustomDomainAssociationCertificateValidationRecordArrayOutput
-	ToCustomDomainAssociationCertificateValidationRecordArrayOutputWithContext(context.Context) CustomDomainAssociationCertificateValidationRecordArrayOutput
-}
-
-type CustomDomainAssociationCertificateValidationRecordArray []CustomDomainAssociationCertificateValidationRecordInput
-
-func (CustomDomainAssociationCertificateValidationRecordArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CustomDomainAssociationCertificateValidationRecord)(nil)).Elem()
-}
-
-func (i CustomDomainAssociationCertificateValidationRecordArray) ToCustomDomainAssociationCertificateValidationRecordArrayOutput() CustomDomainAssociationCertificateValidationRecordArrayOutput {
-	return i.ToCustomDomainAssociationCertificateValidationRecordArrayOutputWithContext(context.Background())
-}
-
-func (i CustomDomainAssociationCertificateValidationRecordArray) ToCustomDomainAssociationCertificateValidationRecordArrayOutputWithContext(ctx context.Context) CustomDomainAssociationCertificateValidationRecordArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CustomDomainAssociationCertificateValidationRecordArrayOutput)
-}
-
 type CustomDomainAssociationCertificateValidationRecordOutput struct{ *pulumi.OutputState }
 
 func (CustomDomainAssociationCertificateValidationRecordOutput) ElementType() reflect.Type {
@@ -723,47 +664,6 @@ func (i ServiceSourceConfigurationArgs) ToServiceSourceConfigurationOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceSourceConfigurationOutput)
 }
 
-func (i ServiceSourceConfigurationArgs) ToServiceSourceConfigurationPtrOutput() ServiceSourceConfigurationPtrOutput {
-	return i.ToServiceSourceConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i ServiceSourceConfigurationArgs) ToServiceSourceConfigurationPtrOutputWithContext(ctx context.Context) ServiceSourceConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceSourceConfigurationOutput).ToServiceSourceConfigurationPtrOutputWithContext(ctx)
-}
-
-// ServiceSourceConfigurationPtrInput is an input type that accepts ServiceSourceConfigurationArgs, ServiceSourceConfigurationPtr and ServiceSourceConfigurationPtrOutput values.
-// You can construct a concrete instance of `ServiceSourceConfigurationPtrInput` via:
-//
-//          ServiceSourceConfigurationArgs{...}
-//
-//  or:
-//
-//          nil
-type ServiceSourceConfigurationPtrInput interface {
-	pulumi.Input
-
-	ToServiceSourceConfigurationPtrOutput() ServiceSourceConfigurationPtrOutput
-	ToServiceSourceConfigurationPtrOutputWithContext(context.Context) ServiceSourceConfigurationPtrOutput
-}
-
-type serviceSourceConfigurationPtrType ServiceSourceConfigurationArgs
-
-func ServiceSourceConfigurationPtr(v *ServiceSourceConfigurationArgs) ServiceSourceConfigurationPtrInput {
-	return (*serviceSourceConfigurationPtrType)(v)
-}
-
-func (*serviceSourceConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServiceSourceConfiguration)(nil)).Elem()
-}
-
-func (i *serviceSourceConfigurationPtrType) ToServiceSourceConfigurationPtrOutput() ServiceSourceConfigurationPtrOutput {
-	return i.ToServiceSourceConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i *serviceSourceConfigurationPtrType) ToServiceSourceConfigurationPtrOutputWithContext(ctx context.Context) ServiceSourceConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceSourceConfigurationPtrOutput)
-}
-
 type ServiceSourceConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ServiceSourceConfigurationOutput) ElementType() reflect.Type {
@@ -776,16 +676,6 @@ func (o ServiceSourceConfigurationOutput) ToServiceSourceConfigurationOutput() S
 
 func (o ServiceSourceConfigurationOutput) ToServiceSourceConfigurationOutputWithContext(ctx context.Context) ServiceSourceConfigurationOutput {
 	return o
-}
-
-func (o ServiceSourceConfigurationOutput) ToServiceSourceConfigurationPtrOutput() ServiceSourceConfigurationPtrOutput {
-	return o.ToServiceSourceConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (o ServiceSourceConfigurationOutput) ToServiceSourceConfigurationPtrOutputWithContext(ctx context.Context) ServiceSourceConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceSourceConfiguration) *ServiceSourceConfiguration {
-		return &v
-	}).(ServiceSourceConfigurationPtrOutput)
 }
 
 // Describes resources needed to authenticate access to some source repositories. See Authentication Configuration below for more details.
@@ -808,70 +698,6 @@ func (o ServiceSourceConfigurationOutput) CodeRepository() ServiceSourceConfigur
 // Description of a source image repository. See Image Repository below for more details.
 func (o ServiceSourceConfigurationOutput) ImageRepository() ServiceSourceConfigurationImageRepositoryPtrOutput {
 	return o.ApplyT(func(v ServiceSourceConfiguration) *ServiceSourceConfigurationImageRepository {
-		return v.ImageRepository
-	}).(ServiceSourceConfigurationImageRepositoryPtrOutput)
-}
-
-type ServiceSourceConfigurationPtrOutput struct{ *pulumi.OutputState }
-
-func (ServiceSourceConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServiceSourceConfiguration)(nil)).Elem()
-}
-
-func (o ServiceSourceConfigurationPtrOutput) ToServiceSourceConfigurationPtrOutput() ServiceSourceConfigurationPtrOutput {
-	return o
-}
-
-func (o ServiceSourceConfigurationPtrOutput) ToServiceSourceConfigurationPtrOutputWithContext(ctx context.Context) ServiceSourceConfigurationPtrOutput {
-	return o
-}
-
-func (o ServiceSourceConfigurationPtrOutput) Elem() ServiceSourceConfigurationOutput {
-	return o.ApplyT(func(v *ServiceSourceConfiguration) ServiceSourceConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret ServiceSourceConfiguration
-		return ret
-	}).(ServiceSourceConfigurationOutput)
-}
-
-// Describes resources needed to authenticate access to some source repositories. See Authentication Configuration below for more details.
-func (o ServiceSourceConfigurationPtrOutput) AuthenticationConfiguration() ServiceSourceConfigurationAuthenticationConfigurationPtrOutput {
-	return o.ApplyT(func(v *ServiceSourceConfiguration) *ServiceSourceConfigurationAuthenticationConfiguration {
-		if v == nil {
-			return nil
-		}
-		return v.AuthenticationConfiguration
-	}).(ServiceSourceConfigurationAuthenticationConfigurationPtrOutput)
-}
-
-// Whether continuous integration from the source repository is enabled for the App Runner service. If set to `true`, each repository change (source code commit or new image version) starts a deployment. Defaults to `true`.
-func (o ServiceSourceConfigurationPtrOutput) AutoDeploymentsEnabled() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ServiceSourceConfiguration) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.AutoDeploymentsEnabled
-	}).(pulumi.BoolPtrOutput)
-}
-
-// Description of a source code repository. See Code Repository below for more details.
-func (o ServiceSourceConfigurationPtrOutput) CodeRepository() ServiceSourceConfigurationCodeRepositoryPtrOutput {
-	return o.ApplyT(func(v *ServiceSourceConfiguration) *ServiceSourceConfigurationCodeRepository {
-		if v == nil {
-			return nil
-		}
-		return v.CodeRepository
-	}).(ServiceSourceConfigurationCodeRepositoryPtrOutput)
-}
-
-// Description of a source image repository. See Image Repository below for more details.
-func (o ServiceSourceConfigurationPtrOutput) ImageRepository() ServiceSourceConfigurationImageRepositoryPtrOutput {
-	return o.ApplyT(func(v *ServiceSourceConfiguration) *ServiceSourceConfigurationImageRepository {
-		if v == nil {
-			return nil
-		}
 		return v.ImageRepository
 	}).(ServiceSourceConfigurationImageRepositoryPtrOutput)
 }
@@ -2107,8 +1933,6 @@ func (o ServiceSourceConfigurationImageRepositoryImageConfigurationPtrOutput) St
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*CustomDomainAssociationCertificateValidationRecordInput)(nil)).Elem(), CustomDomainAssociationCertificateValidationRecordArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*CustomDomainAssociationCertificateValidationRecordArrayInput)(nil)).Elem(), CustomDomainAssociationCertificateValidationRecordArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEncryptionConfigurationInput)(nil)).Elem(), ServiceEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEncryptionConfigurationPtrInput)(nil)).Elem(), ServiceEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceHealthCheckConfigurationInput)(nil)).Elem(), ServiceHealthCheckConfigurationArgs{})
@@ -2116,7 +1940,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceInstanceConfigurationInput)(nil)).Elem(), ServiceInstanceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceInstanceConfigurationPtrInput)(nil)).Elem(), ServiceInstanceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceSourceConfigurationInput)(nil)).Elem(), ServiceSourceConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ServiceSourceConfigurationPtrInput)(nil)).Elem(), ServiceSourceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceSourceConfigurationAuthenticationConfigurationInput)(nil)).Elem(), ServiceSourceConfigurationAuthenticationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceSourceConfigurationAuthenticationConfigurationPtrInput)(nil)).Elem(), ServiceSourceConfigurationAuthenticationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceSourceConfigurationCodeRepositoryInput)(nil)).Elem(), ServiceSourceConfigurationCodeRepositoryArgs{})
@@ -2140,7 +1963,6 @@ func init() {
 	pulumi.RegisterOutputType(ServiceInstanceConfigurationOutput{})
 	pulumi.RegisterOutputType(ServiceInstanceConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ServiceSourceConfigurationOutput{})
-	pulumi.RegisterOutputType(ServiceSourceConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ServiceSourceConfigurationAuthenticationConfigurationOutput{})
 	pulumi.RegisterOutputType(ServiceSourceConfigurationAuthenticationConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ServiceSourceConfigurationCodeRepositoryOutput{})

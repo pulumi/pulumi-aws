@@ -84,14 +84,14 @@ export class VpcIpv6CidrBlockAssociation extends pulumi.CustomResource {
      */
     constructor(name: string, args: VpcIpv6CidrBlockAssociationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VpcIpv6CidrBlockAssociationArgs | VpcIpv6CidrBlockAssociationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VpcIpv6CidrBlockAssociationState | undefined;
-            inputs["ipv6CidrBlock"] = state ? state.ipv6CidrBlock : undefined;
-            inputs["ipv6IpamPoolId"] = state ? state.ipv6IpamPoolId : undefined;
-            inputs["ipv6NetmaskLength"] = state ? state.ipv6NetmaskLength : undefined;
-            inputs["vpcId"] = state ? state.vpcId : undefined;
+            resourceInputs["ipv6CidrBlock"] = state ? state.ipv6CidrBlock : undefined;
+            resourceInputs["ipv6IpamPoolId"] = state ? state.ipv6IpamPoolId : undefined;
+            resourceInputs["ipv6NetmaskLength"] = state ? state.ipv6NetmaskLength : undefined;
+            resourceInputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
             const args = argsOrState as VpcIpv6CidrBlockAssociationArgs | undefined;
             if ((!args || args.ipv6IpamPoolId === undefined) && !opts.urn) {
@@ -100,15 +100,15 @@ export class VpcIpv6CidrBlockAssociation extends pulumi.CustomResource {
             if ((!args || args.vpcId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpcId'");
             }
-            inputs["ipv6CidrBlock"] = args ? args.ipv6CidrBlock : undefined;
-            inputs["ipv6IpamPoolId"] = args ? args.ipv6IpamPoolId : undefined;
-            inputs["ipv6NetmaskLength"] = args ? args.ipv6NetmaskLength : undefined;
-            inputs["vpcId"] = args ? args.vpcId : undefined;
+            resourceInputs["ipv6CidrBlock"] = args ? args.ipv6CidrBlock : undefined;
+            resourceInputs["ipv6IpamPoolId"] = args ? args.ipv6IpamPoolId : undefined;
+            resourceInputs["ipv6NetmaskLength"] = args ? args.ipv6NetmaskLength : undefined;
+            resourceInputs["vpcId"] = args ? args.vpcId : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(VpcIpv6CidrBlockAssociation.__pulumiType, name, inputs, opts);
+        super(VpcIpv6CidrBlockAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

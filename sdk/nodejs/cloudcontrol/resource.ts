@@ -81,16 +81,16 @@ export class Resource extends pulumi.CustomResource {
      */
     constructor(name: string, args: ResourceArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ResourceArgs | ResourceState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ResourceState | undefined;
-            inputs["desiredState"] = state ? state.desiredState : undefined;
-            inputs["properties"] = state ? state.properties : undefined;
-            inputs["roleArn"] = state ? state.roleArn : undefined;
-            inputs["schema"] = state ? state.schema : undefined;
-            inputs["typeName"] = state ? state.typeName : undefined;
-            inputs["typeVersionId"] = state ? state.typeVersionId : undefined;
+            resourceInputs["desiredState"] = state ? state.desiredState : undefined;
+            resourceInputs["properties"] = state ? state.properties : undefined;
+            resourceInputs["roleArn"] = state ? state.roleArn : undefined;
+            resourceInputs["schema"] = state ? state.schema : undefined;
+            resourceInputs["typeName"] = state ? state.typeName : undefined;
+            resourceInputs["typeVersionId"] = state ? state.typeVersionId : undefined;
         } else {
             const args = argsOrState as ResourceArgs | undefined;
             if ((!args || args.desiredState === undefined) && !opts.urn) {
@@ -99,17 +99,17 @@ export class Resource extends pulumi.CustomResource {
             if ((!args || args.typeName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'typeName'");
             }
-            inputs["desiredState"] = args ? args.desiredState : undefined;
-            inputs["roleArn"] = args ? args.roleArn : undefined;
-            inputs["schema"] = args ? args.schema : undefined;
-            inputs["typeName"] = args ? args.typeName : undefined;
-            inputs["typeVersionId"] = args ? args.typeVersionId : undefined;
-            inputs["properties"] = undefined /*out*/;
+            resourceInputs["desiredState"] = args ? args.desiredState : undefined;
+            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["schema"] = args ? args.schema : undefined;
+            resourceInputs["typeName"] = args ? args.typeName : undefined;
+            resourceInputs["typeVersionId"] = args ? args.typeVersionId : undefined;
+            resourceInputs["properties"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Resource.__pulumiType, name, inputs, opts);
+        super(Resource.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -124,7 +124,7 @@ type ReceiptRuleSetInput interface {
 }
 
 func (*ReceiptRuleSet) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReceiptRuleSet)(nil))
+	return reflect.TypeOf((**ReceiptRuleSet)(nil)).Elem()
 }
 
 func (i *ReceiptRuleSet) ToReceiptRuleSetOutput() ReceiptRuleSetOutput {
@@ -133,35 +133,6 @@ func (i *ReceiptRuleSet) ToReceiptRuleSetOutput() ReceiptRuleSetOutput {
 
 func (i *ReceiptRuleSet) ToReceiptRuleSetOutputWithContext(ctx context.Context) ReceiptRuleSetOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ReceiptRuleSetOutput)
-}
-
-func (i *ReceiptRuleSet) ToReceiptRuleSetPtrOutput() ReceiptRuleSetPtrOutput {
-	return i.ToReceiptRuleSetPtrOutputWithContext(context.Background())
-}
-
-func (i *ReceiptRuleSet) ToReceiptRuleSetPtrOutputWithContext(ctx context.Context) ReceiptRuleSetPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReceiptRuleSetPtrOutput)
-}
-
-type ReceiptRuleSetPtrInput interface {
-	pulumi.Input
-
-	ToReceiptRuleSetPtrOutput() ReceiptRuleSetPtrOutput
-	ToReceiptRuleSetPtrOutputWithContext(ctx context.Context) ReceiptRuleSetPtrOutput
-}
-
-type receiptRuleSetPtrType ReceiptRuleSetArgs
-
-func (*receiptRuleSetPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ReceiptRuleSet)(nil))
-}
-
-func (i *receiptRuleSetPtrType) ToReceiptRuleSetPtrOutput() ReceiptRuleSetPtrOutput {
-	return i.ToReceiptRuleSetPtrOutputWithContext(context.Background())
-}
-
-func (i *receiptRuleSetPtrType) ToReceiptRuleSetPtrOutputWithContext(ctx context.Context) ReceiptRuleSetPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReceiptRuleSetPtrOutput)
 }
 
 // ReceiptRuleSetArrayInput is an input type that accepts ReceiptRuleSetArray and ReceiptRuleSetArrayOutput values.
@@ -217,7 +188,7 @@ func (i ReceiptRuleSetMap) ToReceiptRuleSetMapOutputWithContext(ctx context.Cont
 type ReceiptRuleSetOutput struct{ *pulumi.OutputState }
 
 func (ReceiptRuleSetOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReceiptRuleSet)(nil))
+	return reflect.TypeOf((**ReceiptRuleSet)(nil)).Elem()
 }
 
 func (o ReceiptRuleSetOutput) ToReceiptRuleSetOutput() ReceiptRuleSetOutput {
@@ -228,44 +199,10 @@ func (o ReceiptRuleSetOutput) ToReceiptRuleSetOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o ReceiptRuleSetOutput) ToReceiptRuleSetPtrOutput() ReceiptRuleSetPtrOutput {
-	return o.ToReceiptRuleSetPtrOutputWithContext(context.Background())
-}
-
-func (o ReceiptRuleSetOutput) ToReceiptRuleSetPtrOutputWithContext(ctx context.Context) ReceiptRuleSetPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReceiptRuleSet) *ReceiptRuleSet {
-		return &v
-	}).(ReceiptRuleSetPtrOutput)
-}
-
-type ReceiptRuleSetPtrOutput struct{ *pulumi.OutputState }
-
-func (ReceiptRuleSetPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ReceiptRuleSet)(nil))
-}
-
-func (o ReceiptRuleSetPtrOutput) ToReceiptRuleSetPtrOutput() ReceiptRuleSetPtrOutput {
-	return o
-}
-
-func (o ReceiptRuleSetPtrOutput) ToReceiptRuleSetPtrOutputWithContext(ctx context.Context) ReceiptRuleSetPtrOutput {
-	return o
-}
-
-func (o ReceiptRuleSetPtrOutput) Elem() ReceiptRuleSetOutput {
-	return o.ApplyT(func(v *ReceiptRuleSet) ReceiptRuleSet {
-		if v != nil {
-			return *v
-		}
-		var ret ReceiptRuleSet
-		return ret
-	}).(ReceiptRuleSetOutput)
-}
-
 type ReceiptRuleSetArrayOutput struct{ *pulumi.OutputState }
 
 func (ReceiptRuleSetArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ReceiptRuleSet)(nil))
+	return reflect.TypeOf((*[]*ReceiptRuleSet)(nil)).Elem()
 }
 
 func (o ReceiptRuleSetArrayOutput) ToReceiptRuleSetArrayOutput() ReceiptRuleSetArrayOutput {
@@ -277,15 +214,15 @@ func (o ReceiptRuleSetArrayOutput) ToReceiptRuleSetArrayOutputWithContext(ctx co
 }
 
 func (o ReceiptRuleSetArrayOutput) Index(i pulumi.IntInput) ReceiptRuleSetOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ReceiptRuleSet {
-		return vs[0].([]ReceiptRuleSet)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ReceiptRuleSet {
+		return vs[0].([]*ReceiptRuleSet)[vs[1].(int)]
 	}).(ReceiptRuleSetOutput)
 }
 
 type ReceiptRuleSetMapOutput struct{ *pulumi.OutputState }
 
 func (ReceiptRuleSetMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ReceiptRuleSet)(nil))
+	return reflect.TypeOf((*map[string]*ReceiptRuleSet)(nil)).Elem()
 }
 
 func (o ReceiptRuleSetMapOutput) ToReceiptRuleSetMapOutput() ReceiptRuleSetMapOutput {
@@ -297,18 +234,16 @@ func (o ReceiptRuleSetMapOutput) ToReceiptRuleSetMapOutputWithContext(ctx contex
 }
 
 func (o ReceiptRuleSetMapOutput) MapIndex(k pulumi.StringInput) ReceiptRuleSetOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ReceiptRuleSet {
-		return vs[0].(map[string]ReceiptRuleSet)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ReceiptRuleSet {
+		return vs[0].(map[string]*ReceiptRuleSet)[vs[1].(string)]
 	}).(ReceiptRuleSetOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ReceiptRuleSetInput)(nil)).Elem(), &ReceiptRuleSet{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ReceiptRuleSetPtrInput)(nil)).Elem(), &ReceiptRuleSet{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReceiptRuleSetArrayInput)(nil)).Elem(), ReceiptRuleSetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReceiptRuleSetMapInput)(nil)).Elem(), ReceiptRuleSetMap{})
 	pulumi.RegisterOutputType(ReceiptRuleSetOutput{})
-	pulumi.RegisterOutputType(ReceiptRuleSetPtrOutput{})
 	pulumi.RegisterOutputType(ReceiptRuleSetArrayOutput{})
 	pulumi.RegisterOutputType(ReceiptRuleSetMapOutput{})
 }

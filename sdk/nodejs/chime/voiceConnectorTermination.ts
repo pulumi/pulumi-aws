@@ -96,16 +96,16 @@ export class VoiceConnectorTermination extends pulumi.CustomResource {
      */
     constructor(name: string, args: VoiceConnectorTerminationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VoiceConnectorTerminationArgs | VoiceConnectorTerminationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VoiceConnectorTerminationState | undefined;
-            inputs["callingRegions"] = state ? state.callingRegions : undefined;
-            inputs["cidrAllowLists"] = state ? state.cidrAllowLists : undefined;
-            inputs["cpsLimit"] = state ? state.cpsLimit : undefined;
-            inputs["defaultPhoneNumber"] = state ? state.defaultPhoneNumber : undefined;
-            inputs["disabled"] = state ? state.disabled : undefined;
-            inputs["voiceConnectorId"] = state ? state.voiceConnectorId : undefined;
+            resourceInputs["callingRegions"] = state ? state.callingRegions : undefined;
+            resourceInputs["cidrAllowLists"] = state ? state.cidrAllowLists : undefined;
+            resourceInputs["cpsLimit"] = state ? state.cpsLimit : undefined;
+            resourceInputs["defaultPhoneNumber"] = state ? state.defaultPhoneNumber : undefined;
+            resourceInputs["disabled"] = state ? state.disabled : undefined;
+            resourceInputs["voiceConnectorId"] = state ? state.voiceConnectorId : undefined;
         } else {
             const args = argsOrState as VoiceConnectorTerminationArgs | undefined;
             if ((!args || args.callingRegions === undefined) && !opts.urn) {
@@ -117,17 +117,17 @@ export class VoiceConnectorTermination extends pulumi.CustomResource {
             if ((!args || args.voiceConnectorId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'voiceConnectorId'");
             }
-            inputs["callingRegions"] = args ? args.callingRegions : undefined;
-            inputs["cidrAllowLists"] = args ? args.cidrAllowLists : undefined;
-            inputs["cpsLimit"] = args ? args.cpsLimit : undefined;
-            inputs["defaultPhoneNumber"] = args ? args.defaultPhoneNumber : undefined;
-            inputs["disabled"] = args ? args.disabled : undefined;
-            inputs["voiceConnectorId"] = args ? args.voiceConnectorId : undefined;
+            resourceInputs["callingRegions"] = args ? args.callingRegions : undefined;
+            resourceInputs["cidrAllowLists"] = args ? args.cidrAllowLists : undefined;
+            resourceInputs["cpsLimit"] = args ? args.cpsLimit : undefined;
+            resourceInputs["defaultPhoneNumber"] = args ? args.defaultPhoneNumber : undefined;
+            resourceInputs["disabled"] = args ? args.disabled : undefined;
+            resourceInputs["voiceConnectorId"] = args ? args.voiceConnectorId : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(VoiceConnectorTermination.__pulumiType, name, inputs, opts);
+        super(VoiceConnectorTermination.__pulumiType, name, resourceInputs, opts);
     }
 }
 

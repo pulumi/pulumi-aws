@@ -18,62 +18,6 @@ type ClusterNode struct {
 	Port *int `pulumi:"port"`
 }
 
-// ClusterNodeInput is an input type that accepts ClusterNodeArgs and ClusterNodeOutput values.
-// You can construct a concrete instance of `ClusterNodeInput` via:
-//
-//          ClusterNodeArgs{...}
-type ClusterNodeInput interface {
-	pulumi.Input
-
-	ToClusterNodeOutput() ClusterNodeOutput
-	ToClusterNodeOutputWithContext(context.Context) ClusterNodeOutput
-}
-
-type ClusterNodeArgs struct {
-	Address          pulumi.StringPtrInput `pulumi:"address"`
-	AvailabilityZone pulumi.StringPtrInput `pulumi:"availabilityZone"`
-	Id               pulumi.StringPtrInput `pulumi:"id"`
-	// The port used by the configuration endpoint
-	Port pulumi.IntPtrInput `pulumi:"port"`
-}
-
-func (ClusterNodeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ClusterNode)(nil)).Elem()
-}
-
-func (i ClusterNodeArgs) ToClusterNodeOutput() ClusterNodeOutput {
-	return i.ToClusterNodeOutputWithContext(context.Background())
-}
-
-func (i ClusterNodeArgs) ToClusterNodeOutputWithContext(ctx context.Context) ClusterNodeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterNodeOutput)
-}
-
-// ClusterNodeArrayInput is an input type that accepts ClusterNodeArray and ClusterNodeArrayOutput values.
-// You can construct a concrete instance of `ClusterNodeArrayInput` via:
-//
-//          ClusterNodeArray{ ClusterNodeArgs{...} }
-type ClusterNodeArrayInput interface {
-	pulumi.Input
-
-	ToClusterNodeArrayOutput() ClusterNodeArrayOutput
-	ToClusterNodeArrayOutputWithContext(context.Context) ClusterNodeArrayOutput
-}
-
-type ClusterNodeArray []ClusterNodeInput
-
-func (ClusterNodeArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ClusterNode)(nil)).Elem()
-}
-
-func (i ClusterNodeArray) ToClusterNodeArrayOutput() ClusterNodeArrayOutput {
-	return i.ToClusterNodeArrayOutputWithContext(context.Background())
-}
-
-func (i ClusterNodeArray) ToClusterNodeArrayOutputWithContext(ctx context.Context) ClusterNodeArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ClusterNodeArrayOutput)
-}
-
 type ClusterNodeOutput struct{ *pulumi.OutputState }
 
 func (ClusterNodeOutput) ElementType() reflect.Type {
@@ -369,8 +313,6 @@ func (o ParameterGroupParameterArrayOutput) Index(i pulumi.IntInput) ParameterGr
 }
 
 func init() {
-	pulumi.RegisterInputType(reflect.TypeOf((*ClusterNodeInput)(nil)).Elem(), ClusterNodeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ClusterNodeArrayInput)(nil)).Elem(), ClusterNodeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterServerSideEncryptionInput)(nil)).Elem(), ClusterServerSideEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterServerSideEncryptionPtrInput)(nil)).Elem(), ClusterServerSideEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ParameterGroupParameterInput)(nil)).Elem(), ParameterGroupParameterArgs{})

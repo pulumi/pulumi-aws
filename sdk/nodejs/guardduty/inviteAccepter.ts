@@ -92,12 +92,12 @@ export class InviteAccepter extends pulumi.CustomResource {
      */
     constructor(name: string, args: InviteAccepterArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: InviteAccepterArgs | InviteAccepterState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as InviteAccepterState | undefined;
-            inputs["detectorId"] = state ? state.detectorId : undefined;
-            inputs["masterAccountId"] = state ? state.masterAccountId : undefined;
+            resourceInputs["detectorId"] = state ? state.detectorId : undefined;
+            resourceInputs["masterAccountId"] = state ? state.masterAccountId : undefined;
         } else {
             const args = argsOrState as InviteAccepterArgs | undefined;
             if ((!args || args.detectorId === undefined) && !opts.urn) {
@@ -106,13 +106,13 @@ export class InviteAccepter extends pulumi.CustomResource {
             if ((!args || args.masterAccountId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'masterAccountId'");
             }
-            inputs["detectorId"] = args ? args.detectorId : undefined;
-            inputs["masterAccountId"] = args ? args.masterAccountId : undefined;
+            resourceInputs["detectorId"] = args ? args.detectorId : undefined;
+            resourceInputs["masterAccountId"] = args ? args.masterAccountId : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(InviteAccepter.__pulumiType, name, inputs, opts);
+        super(InviteAccepter.__pulumiType, name, resourceInputs, opts);
     }
 }
 

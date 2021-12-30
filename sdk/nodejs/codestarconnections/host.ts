@@ -92,16 +92,16 @@ export class Host extends pulumi.CustomResource {
      */
     constructor(name: string, args: HostArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: HostArgs | HostState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as HostState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["providerEndpoint"] = state ? state.providerEndpoint : undefined;
-            inputs["providerType"] = state ? state.providerType : undefined;
-            inputs["status"] = state ? state.status : undefined;
-            inputs["vpcConfiguration"] = state ? state.vpcConfiguration : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["providerEndpoint"] = state ? state.providerEndpoint : undefined;
+            resourceInputs["providerType"] = state ? state.providerType : undefined;
+            resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["vpcConfiguration"] = state ? state.vpcConfiguration : undefined;
         } else {
             const args = argsOrState as HostArgs | undefined;
             if ((!args || args.providerEndpoint === undefined) && !opts.urn) {
@@ -110,17 +110,17 @@ export class Host extends pulumi.CustomResource {
             if ((!args || args.providerType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'providerType'");
             }
-            inputs["name"] = args ? args.name : undefined;
-            inputs["providerEndpoint"] = args ? args.providerEndpoint : undefined;
-            inputs["providerType"] = args ? args.providerType : undefined;
-            inputs["vpcConfiguration"] = args ? args.vpcConfiguration : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["status"] = undefined /*out*/;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["providerEndpoint"] = args ? args.providerEndpoint : undefined;
+            resourceInputs["providerType"] = args ? args.providerType : undefined;
+            resourceInputs["vpcConfiguration"] = args ? args.vpcConfiguration : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["status"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Host.__pulumiType, name, inputs, opts);
+        super(Host.__pulumiType, name, resourceInputs, opts);
     }
 }
 

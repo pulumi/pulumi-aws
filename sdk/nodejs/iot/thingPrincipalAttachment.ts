@@ -73,12 +73,12 @@ export class ThingPrincipalAttachment extends pulumi.CustomResource {
      */
     constructor(name: string, args: ThingPrincipalAttachmentArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ThingPrincipalAttachmentArgs | ThingPrincipalAttachmentState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ThingPrincipalAttachmentState | undefined;
-            inputs["principal"] = state ? state.principal : undefined;
-            inputs["thing"] = state ? state.thing : undefined;
+            resourceInputs["principal"] = state ? state.principal : undefined;
+            resourceInputs["thing"] = state ? state.thing : undefined;
         } else {
             const args = argsOrState as ThingPrincipalAttachmentArgs | undefined;
             if ((!args || args.principal === undefined) && !opts.urn) {
@@ -87,13 +87,13 @@ export class ThingPrincipalAttachment extends pulumi.CustomResource {
             if ((!args || args.thing === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'thing'");
             }
-            inputs["principal"] = args ? args.principal : undefined;
-            inputs["thing"] = args ? args.thing : undefined;
+            resourceInputs["principal"] = args ? args.principal : undefined;
+            resourceInputs["thing"] = args ? args.thing : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(ThingPrincipalAttachment.__pulumiType, name, inputs, opts);
+        super(ThingPrincipalAttachment.__pulumiType, name, resourceInputs, opts);
     }
 }
 

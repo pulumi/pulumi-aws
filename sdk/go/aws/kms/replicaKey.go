@@ -246,7 +246,7 @@ type ReplicaKeyInput interface {
 }
 
 func (*ReplicaKey) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReplicaKey)(nil))
+	return reflect.TypeOf((**ReplicaKey)(nil)).Elem()
 }
 
 func (i *ReplicaKey) ToReplicaKeyOutput() ReplicaKeyOutput {
@@ -255,35 +255,6 @@ func (i *ReplicaKey) ToReplicaKeyOutput() ReplicaKeyOutput {
 
 func (i *ReplicaKey) ToReplicaKeyOutputWithContext(ctx context.Context) ReplicaKeyOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicaKeyOutput)
-}
-
-func (i *ReplicaKey) ToReplicaKeyPtrOutput() ReplicaKeyPtrOutput {
-	return i.ToReplicaKeyPtrOutputWithContext(context.Background())
-}
-
-func (i *ReplicaKey) ToReplicaKeyPtrOutputWithContext(ctx context.Context) ReplicaKeyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReplicaKeyPtrOutput)
-}
-
-type ReplicaKeyPtrInput interface {
-	pulumi.Input
-
-	ToReplicaKeyPtrOutput() ReplicaKeyPtrOutput
-	ToReplicaKeyPtrOutputWithContext(ctx context.Context) ReplicaKeyPtrOutput
-}
-
-type replicaKeyPtrType ReplicaKeyArgs
-
-func (*replicaKeyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ReplicaKey)(nil))
-}
-
-func (i *replicaKeyPtrType) ToReplicaKeyPtrOutput() ReplicaKeyPtrOutput {
-	return i.ToReplicaKeyPtrOutputWithContext(context.Background())
-}
-
-func (i *replicaKeyPtrType) ToReplicaKeyPtrOutputWithContext(ctx context.Context) ReplicaKeyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReplicaKeyPtrOutput)
 }
 
 // ReplicaKeyArrayInput is an input type that accepts ReplicaKeyArray and ReplicaKeyArrayOutput values.
@@ -339,7 +310,7 @@ func (i ReplicaKeyMap) ToReplicaKeyMapOutputWithContext(ctx context.Context) Rep
 type ReplicaKeyOutput struct{ *pulumi.OutputState }
 
 func (ReplicaKeyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReplicaKey)(nil))
+	return reflect.TypeOf((**ReplicaKey)(nil)).Elem()
 }
 
 func (o ReplicaKeyOutput) ToReplicaKeyOutput() ReplicaKeyOutput {
@@ -350,44 +321,10 @@ func (o ReplicaKeyOutput) ToReplicaKeyOutputWithContext(ctx context.Context) Rep
 	return o
 }
 
-func (o ReplicaKeyOutput) ToReplicaKeyPtrOutput() ReplicaKeyPtrOutput {
-	return o.ToReplicaKeyPtrOutputWithContext(context.Background())
-}
-
-func (o ReplicaKeyOutput) ToReplicaKeyPtrOutputWithContext(ctx context.Context) ReplicaKeyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicaKey) *ReplicaKey {
-		return &v
-	}).(ReplicaKeyPtrOutput)
-}
-
-type ReplicaKeyPtrOutput struct{ *pulumi.OutputState }
-
-func (ReplicaKeyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ReplicaKey)(nil))
-}
-
-func (o ReplicaKeyPtrOutput) ToReplicaKeyPtrOutput() ReplicaKeyPtrOutput {
-	return o
-}
-
-func (o ReplicaKeyPtrOutput) ToReplicaKeyPtrOutputWithContext(ctx context.Context) ReplicaKeyPtrOutput {
-	return o
-}
-
-func (o ReplicaKeyPtrOutput) Elem() ReplicaKeyOutput {
-	return o.ApplyT(func(v *ReplicaKey) ReplicaKey {
-		if v != nil {
-			return *v
-		}
-		var ret ReplicaKey
-		return ret
-	}).(ReplicaKeyOutput)
-}
-
 type ReplicaKeyArrayOutput struct{ *pulumi.OutputState }
 
 func (ReplicaKeyArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ReplicaKey)(nil))
+	return reflect.TypeOf((*[]*ReplicaKey)(nil)).Elem()
 }
 
 func (o ReplicaKeyArrayOutput) ToReplicaKeyArrayOutput() ReplicaKeyArrayOutput {
@@ -399,15 +336,15 @@ func (o ReplicaKeyArrayOutput) ToReplicaKeyArrayOutputWithContext(ctx context.Co
 }
 
 func (o ReplicaKeyArrayOutput) Index(i pulumi.IntInput) ReplicaKeyOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ReplicaKey {
-		return vs[0].([]ReplicaKey)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ReplicaKey {
+		return vs[0].([]*ReplicaKey)[vs[1].(int)]
 	}).(ReplicaKeyOutput)
 }
 
 type ReplicaKeyMapOutput struct{ *pulumi.OutputState }
 
 func (ReplicaKeyMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ReplicaKey)(nil))
+	return reflect.TypeOf((*map[string]*ReplicaKey)(nil)).Elem()
 }
 
 func (o ReplicaKeyMapOutput) ToReplicaKeyMapOutput() ReplicaKeyMapOutput {
@@ -419,18 +356,16 @@ func (o ReplicaKeyMapOutput) ToReplicaKeyMapOutputWithContext(ctx context.Contex
 }
 
 func (o ReplicaKeyMapOutput) MapIndex(k pulumi.StringInput) ReplicaKeyOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ReplicaKey {
-		return vs[0].(map[string]ReplicaKey)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ReplicaKey {
+		return vs[0].(map[string]*ReplicaKey)[vs[1].(string)]
 	}).(ReplicaKeyOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicaKeyInput)(nil)).Elem(), &ReplicaKey{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ReplicaKeyPtrInput)(nil)).Elem(), &ReplicaKey{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicaKeyArrayInput)(nil)).Elem(), ReplicaKeyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicaKeyMapInput)(nil)).Elem(), ReplicaKeyMap{})
 	pulumi.RegisterOutputType(ReplicaKeyOutput{})
-	pulumi.RegisterOutputType(ReplicaKeyPtrOutput{})
 	pulumi.RegisterOutputType(ReplicaKeyArrayOutput{})
 	pulumi.RegisterOutputType(ReplicaKeyMapOutput{})
 }

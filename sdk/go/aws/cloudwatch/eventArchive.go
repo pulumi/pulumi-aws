@@ -201,7 +201,7 @@ type EventArchiveInput interface {
 }
 
 func (*EventArchive) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventArchive)(nil))
+	return reflect.TypeOf((**EventArchive)(nil)).Elem()
 }
 
 func (i *EventArchive) ToEventArchiveOutput() EventArchiveOutput {
@@ -210,35 +210,6 @@ func (i *EventArchive) ToEventArchiveOutput() EventArchiveOutput {
 
 func (i *EventArchive) ToEventArchiveOutputWithContext(ctx context.Context) EventArchiveOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EventArchiveOutput)
-}
-
-func (i *EventArchive) ToEventArchivePtrOutput() EventArchivePtrOutput {
-	return i.ToEventArchivePtrOutputWithContext(context.Background())
-}
-
-func (i *EventArchive) ToEventArchivePtrOutputWithContext(ctx context.Context) EventArchivePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EventArchivePtrOutput)
-}
-
-type EventArchivePtrInput interface {
-	pulumi.Input
-
-	ToEventArchivePtrOutput() EventArchivePtrOutput
-	ToEventArchivePtrOutputWithContext(ctx context.Context) EventArchivePtrOutput
-}
-
-type eventArchivePtrType EventArchiveArgs
-
-func (*eventArchivePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EventArchive)(nil))
-}
-
-func (i *eventArchivePtrType) ToEventArchivePtrOutput() EventArchivePtrOutput {
-	return i.ToEventArchivePtrOutputWithContext(context.Background())
-}
-
-func (i *eventArchivePtrType) ToEventArchivePtrOutputWithContext(ctx context.Context) EventArchivePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EventArchivePtrOutput)
 }
 
 // EventArchiveArrayInput is an input type that accepts EventArchiveArray and EventArchiveArrayOutput values.
@@ -294,7 +265,7 @@ func (i EventArchiveMap) ToEventArchiveMapOutputWithContext(ctx context.Context)
 type EventArchiveOutput struct{ *pulumi.OutputState }
 
 func (EventArchiveOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EventArchive)(nil))
+	return reflect.TypeOf((**EventArchive)(nil)).Elem()
 }
 
 func (o EventArchiveOutput) ToEventArchiveOutput() EventArchiveOutput {
@@ -305,44 +276,10 @@ func (o EventArchiveOutput) ToEventArchiveOutputWithContext(ctx context.Context)
 	return o
 }
 
-func (o EventArchiveOutput) ToEventArchivePtrOutput() EventArchivePtrOutput {
-	return o.ToEventArchivePtrOutputWithContext(context.Background())
-}
-
-func (o EventArchiveOutput) ToEventArchivePtrOutputWithContext(ctx context.Context) EventArchivePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventArchive) *EventArchive {
-		return &v
-	}).(EventArchivePtrOutput)
-}
-
-type EventArchivePtrOutput struct{ *pulumi.OutputState }
-
-func (EventArchivePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EventArchive)(nil))
-}
-
-func (o EventArchivePtrOutput) ToEventArchivePtrOutput() EventArchivePtrOutput {
-	return o
-}
-
-func (o EventArchivePtrOutput) ToEventArchivePtrOutputWithContext(ctx context.Context) EventArchivePtrOutput {
-	return o
-}
-
-func (o EventArchivePtrOutput) Elem() EventArchiveOutput {
-	return o.ApplyT(func(v *EventArchive) EventArchive {
-		if v != nil {
-			return *v
-		}
-		var ret EventArchive
-		return ret
-	}).(EventArchiveOutput)
-}
-
 type EventArchiveArrayOutput struct{ *pulumi.OutputState }
 
 func (EventArchiveArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]EventArchive)(nil))
+	return reflect.TypeOf((*[]*EventArchive)(nil)).Elem()
 }
 
 func (o EventArchiveArrayOutput) ToEventArchiveArrayOutput() EventArchiveArrayOutput {
@@ -354,15 +291,15 @@ func (o EventArchiveArrayOutput) ToEventArchiveArrayOutputWithContext(ctx contex
 }
 
 func (o EventArchiveArrayOutput) Index(i pulumi.IntInput) EventArchiveOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EventArchive {
-		return vs[0].([]EventArchive)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EventArchive {
+		return vs[0].([]*EventArchive)[vs[1].(int)]
 	}).(EventArchiveOutput)
 }
 
 type EventArchiveMapOutput struct{ *pulumi.OutputState }
 
 func (EventArchiveMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]EventArchive)(nil))
+	return reflect.TypeOf((*map[string]*EventArchive)(nil)).Elem()
 }
 
 func (o EventArchiveMapOutput) ToEventArchiveMapOutput() EventArchiveMapOutput {
@@ -374,18 +311,16 @@ func (o EventArchiveMapOutput) ToEventArchiveMapOutputWithContext(ctx context.Co
 }
 
 func (o EventArchiveMapOutput) MapIndex(k pulumi.StringInput) EventArchiveOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) EventArchive {
-		return vs[0].(map[string]EventArchive)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *EventArchive {
+		return vs[0].(map[string]*EventArchive)[vs[1].(string)]
 	}).(EventArchiveOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EventArchiveInput)(nil)).Elem(), &EventArchive{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EventArchivePtrInput)(nil)).Elem(), &EventArchive{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventArchiveArrayInput)(nil)).Elem(), EventArchiveArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EventArchiveMapInput)(nil)).Elem(), EventArchiveMap{})
 	pulumi.RegisterOutputType(EventArchiveOutput{})
-	pulumi.RegisterOutputType(EventArchivePtrOutput{})
 	pulumi.RegisterOutputType(EventArchiveArrayOutput{})
 	pulumi.RegisterOutputType(EventArchiveMapOutput{})
 }

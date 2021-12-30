@@ -86,13 +86,13 @@ export class OrganizationConfiguration extends pulumi.CustomResource {
      */
     constructor(name: string, args: OrganizationConfigurationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: OrganizationConfigurationArgs | OrganizationConfigurationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as OrganizationConfigurationState | undefined;
-            inputs["autoEnable"] = state ? state.autoEnable : undefined;
-            inputs["datasources"] = state ? state.datasources : undefined;
-            inputs["detectorId"] = state ? state.detectorId : undefined;
+            resourceInputs["autoEnable"] = state ? state.autoEnable : undefined;
+            resourceInputs["datasources"] = state ? state.datasources : undefined;
+            resourceInputs["detectorId"] = state ? state.detectorId : undefined;
         } else {
             const args = argsOrState as OrganizationConfigurationArgs | undefined;
             if ((!args || args.autoEnable === undefined) && !opts.urn) {
@@ -101,14 +101,14 @@ export class OrganizationConfiguration extends pulumi.CustomResource {
             if ((!args || args.detectorId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'detectorId'");
             }
-            inputs["autoEnable"] = args ? args.autoEnable : undefined;
-            inputs["datasources"] = args ? args.datasources : undefined;
-            inputs["detectorId"] = args ? args.detectorId : undefined;
+            resourceInputs["autoEnable"] = args ? args.autoEnable : undefined;
+            resourceInputs["datasources"] = args ? args.datasources : undefined;
+            resourceInputs["detectorId"] = args ? args.detectorId : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(OrganizationConfiguration.__pulumiType, name, inputs, opts);
+        super(OrganizationConfiguration.__pulumiType, name, resourceInputs, opts);
     }
 }
 

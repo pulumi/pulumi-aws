@@ -37,6 +37,9 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
+// 		privateS3PrefixList := ec2.GetPrefixListOutput(ctx, ec2.GetPrefixListOutputArgs{
+// 			PrefixListId: privateS3VpcEndpoint.PrefixListId,
+// 		}, nil)
 // 		bar, err := ec2.NewNetworkAcl(ctx, "bar", &ec2.NetworkAclArgs{
 // 			VpcId: pulumi.Any(aws_vpc.Foo.Id),
 // 		})

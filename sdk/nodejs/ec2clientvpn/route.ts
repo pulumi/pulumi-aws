@@ -107,16 +107,16 @@ export class Route extends pulumi.CustomResource {
      */
     constructor(name: string, args: RouteArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RouteArgs | RouteState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RouteState | undefined;
-            inputs["clientVpnEndpointId"] = state ? state.clientVpnEndpointId : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["destinationCidrBlock"] = state ? state.destinationCidrBlock : undefined;
-            inputs["origin"] = state ? state.origin : undefined;
-            inputs["targetVpcSubnetId"] = state ? state.targetVpcSubnetId : undefined;
-            inputs["type"] = state ? state.type : undefined;
+            resourceInputs["clientVpnEndpointId"] = state ? state.clientVpnEndpointId : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["destinationCidrBlock"] = state ? state.destinationCidrBlock : undefined;
+            resourceInputs["origin"] = state ? state.origin : undefined;
+            resourceInputs["targetVpcSubnetId"] = state ? state.targetVpcSubnetId : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as RouteArgs | undefined;
             if ((!args || args.clientVpnEndpointId === undefined) && !opts.urn) {
@@ -128,17 +128,17 @@ export class Route extends pulumi.CustomResource {
             if ((!args || args.targetVpcSubnetId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetVpcSubnetId'");
             }
-            inputs["clientVpnEndpointId"] = args ? args.clientVpnEndpointId : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["destinationCidrBlock"] = args ? args.destinationCidrBlock : undefined;
-            inputs["targetVpcSubnetId"] = args ? args.targetVpcSubnetId : undefined;
-            inputs["origin"] = undefined /*out*/;
-            inputs["type"] = undefined /*out*/;
+            resourceInputs["clientVpnEndpointId"] = args ? args.clientVpnEndpointId : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["destinationCidrBlock"] = args ? args.destinationCidrBlock : undefined;
+            resourceInputs["targetVpcSubnetId"] = args ? args.targetVpcSubnetId : undefined;
+            resourceInputs["origin"] = undefined /*out*/;
+            resourceInputs["type"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Route.__pulumiType, name, inputs, opts);
+        super(Route.__pulumiType, name, resourceInputs, opts);
     }
 }
 

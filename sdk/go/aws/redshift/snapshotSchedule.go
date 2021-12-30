@@ -23,7 +23,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := redshift.NewSnapshotSchedule(ctx, "_default", &redshift.SnapshotScheduleArgs{
+// 		_, err := redshift.NewSnapshotSchedule(ctx, "default", &redshift.SnapshotScheduleArgs{
 // 			Definitions: pulumi.StringArray{
 // 				pulumi.String("rate(12 hours)"),
 // 			},
@@ -186,7 +186,7 @@ type SnapshotScheduleInput interface {
 }
 
 func (*SnapshotSchedule) ElementType() reflect.Type {
-	return reflect.TypeOf((*SnapshotSchedule)(nil))
+	return reflect.TypeOf((**SnapshotSchedule)(nil)).Elem()
 }
 
 func (i *SnapshotSchedule) ToSnapshotScheduleOutput() SnapshotScheduleOutput {
@@ -195,35 +195,6 @@ func (i *SnapshotSchedule) ToSnapshotScheduleOutput() SnapshotScheduleOutput {
 
 func (i *SnapshotSchedule) ToSnapshotScheduleOutputWithContext(ctx context.Context) SnapshotScheduleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SnapshotScheduleOutput)
-}
-
-func (i *SnapshotSchedule) ToSnapshotSchedulePtrOutput() SnapshotSchedulePtrOutput {
-	return i.ToSnapshotSchedulePtrOutputWithContext(context.Background())
-}
-
-func (i *SnapshotSchedule) ToSnapshotSchedulePtrOutputWithContext(ctx context.Context) SnapshotSchedulePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SnapshotSchedulePtrOutput)
-}
-
-type SnapshotSchedulePtrInput interface {
-	pulumi.Input
-
-	ToSnapshotSchedulePtrOutput() SnapshotSchedulePtrOutput
-	ToSnapshotSchedulePtrOutputWithContext(ctx context.Context) SnapshotSchedulePtrOutput
-}
-
-type snapshotSchedulePtrType SnapshotScheduleArgs
-
-func (*snapshotSchedulePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SnapshotSchedule)(nil))
-}
-
-func (i *snapshotSchedulePtrType) ToSnapshotSchedulePtrOutput() SnapshotSchedulePtrOutput {
-	return i.ToSnapshotSchedulePtrOutputWithContext(context.Background())
-}
-
-func (i *snapshotSchedulePtrType) ToSnapshotSchedulePtrOutputWithContext(ctx context.Context) SnapshotSchedulePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SnapshotSchedulePtrOutput)
 }
 
 // SnapshotScheduleArrayInput is an input type that accepts SnapshotScheduleArray and SnapshotScheduleArrayOutput values.
@@ -279,7 +250,7 @@ func (i SnapshotScheduleMap) ToSnapshotScheduleMapOutputWithContext(ctx context.
 type SnapshotScheduleOutput struct{ *pulumi.OutputState }
 
 func (SnapshotScheduleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SnapshotSchedule)(nil))
+	return reflect.TypeOf((**SnapshotSchedule)(nil)).Elem()
 }
 
 func (o SnapshotScheduleOutput) ToSnapshotScheduleOutput() SnapshotScheduleOutput {
@@ -290,44 +261,10 @@ func (o SnapshotScheduleOutput) ToSnapshotScheduleOutputWithContext(ctx context.
 	return o
 }
 
-func (o SnapshotScheduleOutput) ToSnapshotSchedulePtrOutput() SnapshotSchedulePtrOutput {
-	return o.ToSnapshotSchedulePtrOutputWithContext(context.Background())
-}
-
-func (o SnapshotScheduleOutput) ToSnapshotSchedulePtrOutputWithContext(ctx context.Context) SnapshotSchedulePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SnapshotSchedule) *SnapshotSchedule {
-		return &v
-	}).(SnapshotSchedulePtrOutput)
-}
-
-type SnapshotSchedulePtrOutput struct{ *pulumi.OutputState }
-
-func (SnapshotSchedulePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SnapshotSchedule)(nil))
-}
-
-func (o SnapshotSchedulePtrOutput) ToSnapshotSchedulePtrOutput() SnapshotSchedulePtrOutput {
-	return o
-}
-
-func (o SnapshotSchedulePtrOutput) ToSnapshotSchedulePtrOutputWithContext(ctx context.Context) SnapshotSchedulePtrOutput {
-	return o
-}
-
-func (o SnapshotSchedulePtrOutput) Elem() SnapshotScheduleOutput {
-	return o.ApplyT(func(v *SnapshotSchedule) SnapshotSchedule {
-		if v != nil {
-			return *v
-		}
-		var ret SnapshotSchedule
-		return ret
-	}).(SnapshotScheduleOutput)
-}
-
 type SnapshotScheduleArrayOutput struct{ *pulumi.OutputState }
 
 func (SnapshotScheduleArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SnapshotSchedule)(nil))
+	return reflect.TypeOf((*[]*SnapshotSchedule)(nil)).Elem()
 }
 
 func (o SnapshotScheduleArrayOutput) ToSnapshotScheduleArrayOutput() SnapshotScheduleArrayOutput {
@@ -339,15 +276,15 @@ func (o SnapshotScheduleArrayOutput) ToSnapshotScheduleArrayOutputWithContext(ct
 }
 
 func (o SnapshotScheduleArrayOutput) Index(i pulumi.IntInput) SnapshotScheduleOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SnapshotSchedule {
-		return vs[0].([]SnapshotSchedule)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SnapshotSchedule {
+		return vs[0].([]*SnapshotSchedule)[vs[1].(int)]
 	}).(SnapshotScheduleOutput)
 }
 
 type SnapshotScheduleMapOutput struct{ *pulumi.OutputState }
 
 func (SnapshotScheduleMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]SnapshotSchedule)(nil))
+	return reflect.TypeOf((*map[string]*SnapshotSchedule)(nil)).Elem()
 }
 
 func (o SnapshotScheduleMapOutput) ToSnapshotScheduleMapOutput() SnapshotScheduleMapOutput {
@@ -359,18 +296,16 @@ func (o SnapshotScheduleMapOutput) ToSnapshotScheduleMapOutputWithContext(ctx co
 }
 
 func (o SnapshotScheduleMapOutput) MapIndex(k pulumi.StringInput) SnapshotScheduleOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SnapshotSchedule {
-		return vs[0].(map[string]SnapshotSchedule)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *SnapshotSchedule {
+		return vs[0].(map[string]*SnapshotSchedule)[vs[1].(string)]
 	}).(SnapshotScheduleOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotScheduleInput)(nil)).Elem(), &SnapshotSchedule{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotSchedulePtrInput)(nil)).Elem(), &SnapshotSchedule{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotScheduleArrayInput)(nil)).Elem(), SnapshotScheduleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotScheduleMapInput)(nil)).Elem(), SnapshotScheduleMap{})
 	pulumi.RegisterOutputType(SnapshotScheduleOutput{})
-	pulumi.RegisterOutputType(SnapshotSchedulePtrOutput{})
 	pulumi.RegisterOutputType(SnapshotScheduleArrayOutput{})
 	pulumi.RegisterOutputType(SnapshotScheduleMapOutput{})
 }

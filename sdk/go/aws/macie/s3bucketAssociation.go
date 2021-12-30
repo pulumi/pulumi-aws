@@ -148,7 +148,7 @@ type S3BucketAssociationInput interface {
 }
 
 func (*S3BucketAssociation) ElementType() reflect.Type {
-	return reflect.TypeOf((*S3BucketAssociation)(nil))
+	return reflect.TypeOf((**S3BucketAssociation)(nil)).Elem()
 }
 
 func (i *S3BucketAssociation) ToS3BucketAssociationOutput() S3BucketAssociationOutput {
@@ -157,35 +157,6 @@ func (i *S3BucketAssociation) ToS3BucketAssociationOutput() S3BucketAssociationO
 
 func (i *S3BucketAssociation) ToS3BucketAssociationOutputWithContext(ctx context.Context) S3BucketAssociationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(S3BucketAssociationOutput)
-}
-
-func (i *S3BucketAssociation) ToS3BucketAssociationPtrOutput() S3BucketAssociationPtrOutput {
-	return i.ToS3BucketAssociationPtrOutputWithContext(context.Background())
-}
-
-func (i *S3BucketAssociation) ToS3BucketAssociationPtrOutputWithContext(ctx context.Context) S3BucketAssociationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(S3BucketAssociationPtrOutput)
-}
-
-type S3BucketAssociationPtrInput interface {
-	pulumi.Input
-
-	ToS3BucketAssociationPtrOutput() S3BucketAssociationPtrOutput
-	ToS3BucketAssociationPtrOutputWithContext(ctx context.Context) S3BucketAssociationPtrOutput
-}
-
-type s3bucketAssociationPtrType S3BucketAssociationArgs
-
-func (*s3bucketAssociationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**S3BucketAssociation)(nil))
-}
-
-func (i *s3bucketAssociationPtrType) ToS3BucketAssociationPtrOutput() S3BucketAssociationPtrOutput {
-	return i.ToS3BucketAssociationPtrOutputWithContext(context.Background())
-}
-
-func (i *s3bucketAssociationPtrType) ToS3BucketAssociationPtrOutputWithContext(ctx context.Context) S3BucketAssociationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(S3BucketAssociationPtrOutput)
 }
 
 // S3BucketAssociationArrayInput is an input type that accepts S3BucketAssociationArray and S3BucketAssociationArrayOutput values.
@@ -241,7 +212,7 @@ func (i S3BucketAssociationMap) ToS3BucketAssociationMapOutputWithContext(ctx co
 type S3BucketAssociationOutput struct{ *pulumi.OutputState }
 
 func (S3BucketAssociationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*S3BucketAssociation)(nil))
+	return reflect.TypeOf((**S3BucketAssociation)(nil)).Elem()
 }
 
 func (o S3BucketAssociationOutput) ToS3BucketAssociationOutput() S3BucketAssociationOutput {
@@ -252,44 +223,10 @@ func (o S3BucketAssociationOutput) ToS3BucketAssociationOutputWithContext(ctx co
 	return o
 }
 
-func (o S3BucketAssociationOutput) ToS3BucketAssociationPtrOutput() S3BucketAssociationPtrOutput {
-	return o.ToS3BucketAssociationPtrOutputWithContext(context.Background())
-}
-
-func (o S3BucketAssociationOutput) ToS3BucketAssociationPtrOutputWithContext(ctx context.Context) S3BucketAssociationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v S3BucketAssociation) *S3BucketAssociation {
-		return &v
-	}).(S3BucketAssociationPtrOutput)
-}
-
-type S3BucketAssociationPtrOutput struct{ *pulumi.OutputState }
-
-func (S3BucketAssociationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**S3BucketAssociation)(nil))
-}
-
-func (o S3BucketAssociationPtrOutput) ToS3BucketAssociationPtrOutput() S3BucketAssociationPtrOutput {
-	return o
-}
-
-func (o S3BucketAssociationPtrOutput) ToS3BucketAssociationPtrOutputWithContext(ctx context.Context) S3BucketAssociationPtrOutput {
-	return o
-}
-
-func (o S3BucketAssociationPtrOutput) Elem() S3BucketAssociationOutput {
-	return o.ApplyT(func(v *S3BucketAssociation) S3BucketAssociation {
-		if v != nil {
-			return *v
-		}
-		var ret S3BucketAssociation
-		return ret
-	}).(S3BucketAssociationOutput)
-}
-
 type S3BucketAssociationArrayOutput struct{ *pulumi.OutputState }
 
 func (S3BucketAssociationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]S3BucketAssociation)(nil))
+	return reflect.TypeOf((*[]*S3BucketAssociation)(nil)).Elem()
 }
 
 func (o S3BucketAssociationArrayOutput) ToS3BucketAssociationArrayOutput() S3BucketAssociationArrayOutput {
@@ -301,15 +238,15 @@ func (o S3BucketAssociationArrayOutput) ToS3BucketAssociationArrayOutputWithCont
 }
 
 func (o S3BucketAssociationArrayOutput) Index(i pulumi.IntInput) S3BucketAssociationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) S3BucketAssociation {
-		return vs[0].([]S3BucketAssociation)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *S3BucketAssociation {
+		return vs[0].([]*S3BucketAssociation)[vs[1].(int)]
 	}).(S3BucketAssociationOutput)
 }
 
 type S3BucketAssociationMapOutput struct{ *pulumi.OutputState }
 
 func (S3BucketAssociationMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]S3BucketAssociation)(nil))
+	return reflect.TypeOf((*map[string]*S3BucketAssociation)(nil)).Elem()
 }
 
 func (o S3BucketAssociationMapOutput) ToS3BucketAssociationMapOutput() S3BucketAssociationMapOutput {
@@ -321,18 +258,16 @@ func (o S3BucketAssociationMapOutput) ToS3BucketAssociationMapOutputWithContext(
 }
 
 func (o S3BucketAssociationMapOutput) MapIndex(k pulumi.StringInput) S3BucketAssociationOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) S3BucketAssociation {
-		return vs[0].(map[string]S3BucketAssociation)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *S3BucketAssociation {
+		return vs[0].(map[string]*S3BucketAssociation)[vs[1].(string)]
 	}).(S3BucketAssociationOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*S3BucketAssociationInput)(nil)).Elem(), &S3BucketAssociation{})
-	pulumi.RegisterInputType(reflect.TypeOf((*S3BucketAssociationPtrInput)(nil)).Elem(), &S3BucketAssociation{})
 	pulumi.RegisterInputType(reflect.TypeOf((*S3BucketAssociationArrayInput)(nil)).Elem(), S3BucketAssociationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*S3BucketAssociationMapInput)(nil)).Elem(), S3BucketAssociationMap{})
 	pulumi.RegisterOutputType(S3BucketAssociationOutput{})
-	pulumi.RegisterOutputType(S3BucketAssociationPtrOutput{})
 	pulumi.RegisterOutputType(S3BucketAssociationArrayOutput{})
 	pulumi.RegisterOutputType(S3BucketAssociationMapOutput{})
 }

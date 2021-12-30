@@ -201,57 +201,57 @@ export class Queue extends pulumi.CustomResource {
      */
     constructor(name: string, args?: QueueArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: QueueArgs | QueueState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as QueueState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["contentBasedDeduplication"] = state ? state.contentBasedDeduplication : undefined;
-            inputs["deduplicationScope"] = state ? state.deduplicationScope : undefined;
-            inputs["delaySeconds"] = state ? state.delaySeconds : undefined;
-            inputs["fifoQueue"] = state ? state.fifoQueue : undefined;
-            inputs["fifoThroughputLimit"] = state ? state.fifoThroughputLimit : undefined;
-            inputs["kmsDataKeyReusePeriodSeconds"] = state ? state.kmsDataKeyReusePeriodSeconds : undefined;
-            inputs["kmsMasterKeyId"] = state ? state.kmsMasterKeyId : undefined;
-            inputs["maxMessageSize"] = state ? state.maxMessageSize : undefined;
-            inputs["messageRetentionSeconds"] = state ? state.messageRetentionSeconds : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["namePrefix"] = state ? state.namePrefix : undefined;
-            inputs["policy"] = state ? state.policy : undefined;
-            inputs["receiveWaitTimeSeconds"] = state ? state.receiveWaitTimeSeconds : undefined;
-            inputs["redrivePolicy"] = state ? state.redrivePolicy : undefined;
-            inputs["sqsManagedSseEnabled"] = state ? state.sqsManagedSseEnabled : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["url"] = state ? state.url : undefined;
-            inputs["visibilityTimeoutSeconds"] = state ? state.visibilityTimeoutSeconds : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["contentBasedDeduplication"] = state ? state.contentBasedDeduplication : undefined;
+            resourceInputs["deduplicationScope"] = state ? state.deduplicationScope : undefined;
+            resourceInputs["delaySeconds"] = state ? state.delaySeconds : undefined;
+            resourceInputs["fifoQueue"] = state ? state.fifoQueue : undefined;
+            resourceInputs["fifoThroughputLimit"] = state ? state.fifoThroughputLimit : undefined;
+            resourceInputs["kmsDataKeyReusePeriodSeconds"] = state ? state.kmsDataKeyReusePeriodSeconds : undefined;
+            resourceInputs["kmsMasterKeyId"] = state ? state.kmsMasterKeyId : undefined;
+            resourceInputs["maxMessageSize"] = state ? state.maxMessageSize : undefined;
+            resourceInputs["messageRetentionSeconds"] = state ? state.messageRetentionSeconds : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["namePrefix"] = state ? state.namePrefix : undefined;
+            resourceInputs["policy"] = state ? state.policy : undefined;
+            resourceInputs["receiveWaitTimeSeconds"] = state ? state.receiveWaitTimeSeconds : undefined;
+            resourceInputs["redrivePolicy"] = state ? state.redrivePolicy : undefined;
+            resourceInputs["sqsManagedSseEnabled"] = state ? state.sqsManagedSseEnabled : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["url"] = state ? state.url : undefined;
+            resourceInputs["visibilityTimeoutSeconds"] = state ? state.visibilityTimeoutSeconds : undefined;
         } else {
             const args = argsOrState as QueueArgs | undefined;
-            inputs["contentBasedDeduplication"] = args ? args.contentBasedDeduplication : undefined;
-            inputs["deduplicationScope"] = args ? args.deduplicationScope : undefined;
-            inputs["delaySeconds"] = args ? args.delaySeconds : undefined;
-            inputs["fifoQueue"] = args ? args.fifoQueue : undefined;
-            inputs["fifoThroughputLimit"] = args ? args.fifoThroughputLimit : undefined;
-            inputs["kmsDataKeyReusePeriodSeconds"] = args ? args.kmsDataKeyReusePeriodSeconds : undefined;
-            inputs["kmsMasterKeyId"] = args ? args.kmsMasterKeyId : undefined;
-            inputs["maxMessageSize"] = args ? args.maxMessageSize : undefined;
-            inputs["messageRetentionSeconds"] = args ? args.messageRetentionSeconds : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["namePrefix"] = args ? args.namePrefix : undefined;
-            inputs["policy"] = args ? args.policy : undefined;
-            inputs["receiveWaitTimeSeconds"] = args ? args.receiveWaitTimeSeconds : undefined;
-            inputs["redrivePolicy"] = args ? args.redrivePolicy : undefined;
-            inputs["sqsManagedSseEnabled"] = args ? args.sqsManagedSseEnabled : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["visibilityTimeoutSeconds"] = args ? args.visibilityTimeoutSeconds : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
-            inputs["url"] = undefined /*out*/;
+            resourceInputs["contentBasedDeduplication"] = args ? args.contentBasedDeduplication : undefined;
+            resourceInputs["deduplicationScope"] = args ? args.deduplicationScope : undefined;
+            resourceInputs["delaySeconds"] = args ? args.delaySeconds : undefined;
+            resourceInputs["fifoQueue"] = args ? args.fifoQueue : undefined;
+            resourceInputs["fifoThroughputLimit"] = args ? args.fifoThroughputLimit : undefined;
+            resourceInputs["kmsDataKeyReusePeriodSeconds"] = args ? args.kmsDataKeyReusePeriodSeconds : undefined;
+            resourceInputs["kmsMasterKeyId"] = args ? args.kmsMasterKeyId : undefined;
+            resourceInputs["maxMessageSize"] = args ? args.maxMessageSize : undefined;
+            resourceInputs["messageRetentionSeconds"] = args ? args.messageRetentionSeconds : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["namePrefix"] = args ? args.namePrefix : undefined;
+            resourceInputs["policy"] = args ? args.policy : undefined;
+            resourceInputs["receiveWaitTimeSeconds"] = args ? args.receiveWaitTimeSeconds : undefined;
+            resourceInputs["redrivePolicy"] = args ? args.redrivePolicy : undefined;
+            resourceInputs["sqsManagedSseEnabled"] = args ? args.sqsManagedSseEnabled : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["visibilityTimeoutSeconds"] = args ? args.visibilityTimeoutSeconds : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["url"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Queue.__pulumiType, name, inputs, opts);
+        super(Queue.__pulumiType, name, resourceInputs, opts);
     }
 }
 

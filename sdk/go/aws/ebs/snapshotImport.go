@@ -213,7 +213,7 @@ type SnapshotImportInput interface {
 }
 
 func (*SnapshotImport) ElementType() reflect.Type {
-	return reflect.TypeOf((*SnapshotImport)(nil))
+	return reflect.TypeOf((**SnapshotImport)(nil)).Elem()
 }
 
 func (i *SnapshotImport) ToSnapshotImportOutput() SnapshotImportOutput {
@@ -222,35 +222,6 @@ func (i *SnapshotImport) ToSnapshotImportOutput() SnapshotImportOutput {
 
 func (i *SnapshotImport) ToSnapshotImportOutputWithContext(ctx context.Context) SnapshotImportOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(SnapshotImportOutput)
-}
-
-func (i *SnapshotImport) ToSnapshotImportPtrOutput() SnapshotImportPtrOutput {
-	return i.ToSnapshotImportPtrOutputWithContext(context.Background())
-}
-
-func (i *SnapshotImport) ToSnapshotImportPtrOutputWithContext(ctx context.Context) SnapshotImportPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SnapshotImportPtrOutput)
-}
-
-type SnapshotImportPtrInput interface {
-	pulumi.Input
-
-	ToSnapshotImportPtrOutput() SnapshotImportPtrOutput
-	ToSnapshotImportPtrOutputWithContext(ctx context.Context) SnapshotImportPtrOutput
-}
-
-type snapshotImportPtrType SnapshotImportArgs
-
-func (*snapshotImportPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SnapshotImport)(nil))
-}
-
-func (i *snapshotImportPtrType) ToSnapshotImportPtrOutput() SnapshotImportPtrOutput {
-	return i.ToSnapshotImportPtrOutputWithContext(context.Background())
-}
-
-func (i *snapshotImportPtrType) ToSnapshotImportPtrOutputWithContext(ctx context.Context) SnapshotImportPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SnapshotImportPtrOutput)
 }
 
 // SnapshotImportArrayInput is an input type that accepts SnapshotImportArray and SnapshotImportArrayOutput values.
@@ -306,7 +277,7 @@ func (i SnapshotImportMap) ToSnapshotImportMapOutputWithContext(ctx context.Cont
 type SnapshotImportOutput struct{ *pulumi.OutputState }
 
 func (SnapshotImportOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*SnapshotImport)(nil))
+	return reflect.TypeOf((**SnapshotImport)(nil)).Elem()
 }
 
 func (o SnapshotImportOutput) ToSnapshotImportOutput() SnapshotImportOutput {
@@ -317,44 +288,10 @@ func (o SnapshotImportOutput) ToSnapshotImportOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o SnapshotImportOutput) ToSnapshotImportPtrOutput() SnapshotImportPtrOutput {
-	return o.ToSnapshotImportPtrOutputWithContext(context.Background())
-}
-
-func (o SnapshotImportOutput) ToSnapshotImportPtrOutputWithContext(ctx context.Context) SnapshotImportPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SnapshotImport) *SnapshotImport {
-		return &v
-	}).(SnapshotImportPtrOutput)
-}
-
-type SnapshotImportPtrOutput struct{ *pulumi.OutputState }
-
-func (SnapshotImportPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**SnapshotImport)(nil))
-}
-
-func (o SnapshotImportPtrOutput) ToSnapshotImportPtrOutput() SnapshotImportPtrOutput {
-	return o
-}
-
-func (o SnapshotImportPtrOutput) ToSnapshotImportPtrOutputWithContext(ctx context.Context) SnapshotImportPtrOutput {
-	return o
-}
-
-func (o SnapshotImportPtrOutput) Elem() SnapshotImportOutput {
-	return o.ApplyT(func(v *SnapshotImport) SnapshotImport {
-		if v != nil {
-			return *v
-		}
-		var ret SnapshotImport
-		return ret
-	}).(SnapshotImportOutput)
-}
-
 type SnapshotImportArrayOutput struct{ *pulumi.OutputState }
 
 func (SnapshotImportArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SnapshotImport)(nil))
+	return reflect.TypeOf((*[]*SnapshotImport)(nil)).Elem()
 }
 
 func (o SnapshotImportArrayOutput) ToSnapshotImportArrayOutput() SnapshotImportArrayOutput {
@@ -366,15 +303,15 @@ func (o SnapshotImportArrayOutput) ToSnapshotImportArrayOutputWithContext(ctx co
 }
 
 func (o SnapshotImportArrayOutput) Index(i pulumi.IntInput) SnapshotImportOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SnapshotImport {
-		return vs[0].([]SnapshotImport)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *SnapshotImport {
+		return vs[0].([]*SnapshotImport)[vs[1].(int)]
 	}).(SnapshotImportOutput)
 }
 
 type SnapshotImportMapOutput struct{ *pulumi.OutputState }
 
 func (SnapshotImportMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]SnapshotImport)(nil))
+	return reflect.TypeOf((*map[string]*SnapshotImport)(nil)).Elem()
 }
 
 func (o SnapshotImportMapOutput) ToSnapshotImportMapOutput() SnapshotImportMapOutput {
@@ -386,18 +323,16 @@ func (o SnapshotImportMapOutput) ToSnapshotImportMapOutputWithContext(ctx contex
 }
 
 func (o SnapshotImportMapOutput) MapIndex(k pulumi.StringInput) SnapshotImportOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) SnapshotImport {
-		return vs[0].(map[string]SnapshotImport)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *SnapshotImport {
+		return vs[0].(map[string]*SnapshotImport)[vs[1].(string)]
 	}).(SnapshotImportOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotImportInput)(nil)).Elem(), &SnapshotImport{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotImportPtrInput)(nil)).Elem(), &SnapshotImport{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotImportArrayInput)(nil)).Elem(), SnapshotImportArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SnapshotImportMapInput)(nil)).Elem(), SnapshotImportMap{})
 	pulumi.RegisterOutputType(SnapshotImportOutput{})
-	pulumi.RegisterOutputType(SnapshotImportPtrOutput{})
 	pulumi.RegisterOutputType(SnapshotImportArrayOutput{})
 	pulumi.RegisterOutputType(SnapshotImportMapOutput{})
 }

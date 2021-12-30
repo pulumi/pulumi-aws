@@ -103,19 +103,19 @@ export class UserProfile extends pulumi.CustomResource {
      */
     constructor(name: string, args: UserProfileArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: UserProfileArgs | UserProfileState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as UserProfileState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["domainId"] = state ? state.domainId : undefined;
-            inputs["homeEfsFileSystemUid"] = state ? state.homeEfsFileSystemUid : undefined;
-            inputs["singleSignOnUserIdentifier"] = state ? state.singleSignOnUserIdentifier : undefined;
-            inputs["singleSignOnUserValue"] = state ? state.singleSignOnUserValue : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["userProfileName"] = state ? state.userProfileName : undefined;
-            inputs["userSettings"] = state ? state.userSettings : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["domainId"] = state ? state.domainId : undefined;
+            resourceInputs["homeEfsFileSystemUid"] = state ? state.homeEfsFileSystemUid : undefined;
+            resourceInputs["singleSignOnUserIdentifier"] = state ? state.singleSignOnUserIdentifier : undefined;
+            resourceInputs["singleSignOnUserValue"] = state ? state.singleSignOnUserValue : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["userProfileName"] = state ? state.userProfileName : undefined;
+            resourceInputs["userSettings"] = state ? state.userSettings : undefined;
         } else {
             const args = argsOrState as UserProfileArgs | undefined;
             if ((!args || args.domainId === undefined) && !opts.urn) {
@@ -124,20 +124,20 @@ export class UserProfile extends pulumi.CustomResource {
             if ((!args || args.userProfileName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'userProfileName'");
             }
-            inputs["domainId"] = args ? args.domainId : undefined;
-            inputs["singleSignOnUserIdentifier"] = args ? args.singleSignOnUserIdentifier : undefined;
-            inputs["singleSignOnUserValue"] = args ? args.singleSignOnUserValue : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["userProfileName"] = args ? args.userProfileName : undefined;
-            inputs["userSettings"] = args ? args.userSettings : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["homeEfsFileSystemUid"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["domainId"] = args ? args.domainId : undefined;
+            resourceInputs["singleSignOnUserIdentifier"] = args ? args.singleSignOnUserIdentifier : undefined;
+            resourceInputs["singleSignOnUserValue"] = args ? args.singleSignOnUserValue : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["userProfileName"] = args ? args.userProfileName : undefined;
+            resourceInputs["userSettings"] = args ? args.userSettings : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["homeEfsFileSystemUid"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(UserProfile.__pulumiType, name, inputs, opts);
+        super(UserProfile.__pulumiType, name, resourceInputs, opts);
     }
 }
 

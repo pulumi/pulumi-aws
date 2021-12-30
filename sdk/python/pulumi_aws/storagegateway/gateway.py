@@ -688,7 +688,7 @@ class Gateway(pulumi.CustomResource):
             device_name="/dev/xvdb",
             volume_id=aws_ebs_volume["test"]["id"],
             instance_id=aws_instance["test"]["id"])
-        test_local_disk = test_volume_attachment.device_name.apply(lambda device_name: aws.storagegateway.get_local_disk(disk_node=device_name,
+        test_local_disk = test_volume_attachment.device_name.apply(lambda device_name: aws.storagegateway.get_local_disk_output(disk_node=device_name,
             gateway_arn=aws_storagegateway_gateway["test"]["arn"]))
         test_cache = aws.storagegateway.Cache("testCache",
             disk_id=test_local_disk.disk_id,
@@ -813,7 +813,7 @@ class Gateway(pulumi.CustomResource):
             device_name="/dev/xvdb",
             volume_id=aws_ebs_volume["test"]["id"],
             instance_id=aws_instance["test"]["id"])
-        test_local_disk = test_volume_attachment.device_name.apply(lambda device_name: aws.storagegateway.get_local_disk(disk_node=device_name,
+        test_local_disk = test_volume_attachment.device_name.apply(lambda device_name: aws.storagegateway.get_local_disk_output(disk_node=device_name,
             gateway_arn=aws_storagegateway_gateway["test"]["arn"]))
         test_cache = aws.storagegateway.Cache("testCache",
             disk_id=test_local_disk.disk_id,

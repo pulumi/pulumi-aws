@@ -362,7 +362,7 @@ type TriggerInput interface {
 }
 
 func (*Trigger) ElementType() reflect.Type {
-	return reflect.TypeOf((*Trigger)(nil))
+	return reflect.TypeOf((**Trigger)(nil)).Elem()
 }
 
 func (i *Trigger) ToTriggerOutput() TriggerOutput {
@@ -371,35 +371,6 @@ func (i *Trigger) ToTriggerOutput() TriggerOutput {
 
 func (i *Trigger) ToTriggerOutputWithContext(ctx context.Context) TriggerOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TriggerOutput)
-}
-
-func (i *Trigger) ToTriggerPtrOutput() TriggerPtrOutput {
-	return i.ToTriggerPtrOutputWithContext(context.Background())
-}
-
-func (i *Trigger) ToTriggerPtrOutputWithContext(ctx context.Context) TriggerPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TriggerPtrOutput)
-}
-
-type TriggerPtrInput interface {
-	pulumi.Input
-
-	ToTriggerPtrOutput() TriggerPtrOutput
-	ToTriggerPtrOutputWithContext(ctx context.Context) TriggerPtrOutput
-}
-
-type triggerPtrType TriggerArgs
-
-func (*triggerPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Trigger)(nil))
-}
-
-func (i *triggerPtrType) ToTriggerPtrOutput() TriggerPtrOutput {
-	return i.ToTriggerPtrOutputWithContext(context.Background())
-}
-
-func (i *triggerPtrType) ToTriggerPtrOutputWithContext(ctx context.Context) TriggerPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TriggerPtrOutput)
 }
 
 // TriggerArrayInput is an input type that accepts TriggerArray and TriggerArrayOutput values.
@@ -455,7 +426,7 @@ func (i TriggerMap) ToTriggerMapOutputWithContext(ctx context.Context) TriggerMa
 type TriggerOutput struct{ *pulumi.OutputState }
 
 func (TriggerOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Trigger)(nil))
+	return reflect.TypeOf((**Trigger)(nil)).Elem()
 }
 
 func (o TriggerOutput) ToTriggerOutput() TriggerOutput {
@@ -466,44 +437,10 @@ func (o TriggerOutput) ToTriggerOutputWithContext(ctx context.Context) TriggerOu
 	return o
 }
 
-func (o TriggerOutput) ToTriggerPtrOutput() TriggerPtrOutput {
-	return o.ToTriggerPtrOutputWithContext(context.Background())
-}
-
-func (o TriggerOutput) ToTriggerPtrOutputWithContext(ctx context.Context) TriggerPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Trigger) *Trigger {
-		return &v
-	}).(TriggerPtrOutput)
-}
-
-type TriggerPtrOutput struct{ *pulumi.OutputState }
-
-func (TriggerPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Trigger)(nil))
-}
-
-func (o TriggerPtrOutput) ToTriggerPtrOutput() TriggerPtrOutput {
-	return o
-}
-
-func (o TriggerPtrOutput) ToTriggerPtrOutputWithContext(ctx context.Context) TriggerPtrOutput {
-	return o
-}
-
-func (o TriggerPtrOutput) Elem() TriggerOutput {
-	return o.ApplyT(func(v *Trigger) Trigger {
-		if v != nil {
-			return *v
-		}
-		var ret Trigger
-		return ret
-	}).(TriggerOutput)
-}
-
 type TriggerArrayOutput struct{ *pulumi.OutputState }
 
 func (TriggerArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Trigger)(nil))
+	return reflect.TypeOf((*[]*Trigger)(nil)).Elem()
 }
 
 func (o TriggerArrayOutput) ToTriggerArrayOutput() TriggerArrayOutput {
@@ -515,15 +452,15 @@ func (o TriggerArrayOutput) ToTriggerArrayOutputWithContext(ctx context.Context)
 }
 
 func (o TriggerArrayOutput) Index(i pulumi.IntInput) TriggerOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Trigger {
-		return vs[0].([]Trigger)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Trigger {
+		return vs[0].([]*Trigger)[vs[1].(int)]
 	}).(TriggerOutput)
 }
 
 type TriggerMapOutput struct{ *pulumi.OutputState }
 
 func (TriggerMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Trigger)(nil))
+	return reflect.TypeOf((*map[string]*Trigger)(nil)).Elem()
 }
 
 func (o TriggerMapOutput) ToTriggerMapOutput() TriggerMapOutput {
@@ -535,18 +472,16 @@ func (o TriggerMapOutput) ToTriggerMapOutputWithContext(ctx context.Context) Tri
 }
 
 func (o TriggerMapOutput) MapIndex(k pulumi.StringInput) TriggerOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Trigger {
-		return vs[0].(map[string]Trigger)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Trigger {
+		return vs[0].(map[string]*Trigger)[vs[1].(string)]
 	}).(TriggerOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TriggerInput)(nil)).Elem(), &Trigger{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TriggerPtrInput)(nil)).Elem(), &Trigger{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TriggerArrayInput)(nil)).Elem(), TriggerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TriggerMapInput)(nil)).Elem(), TriggerMap{})
 	pulumi.RegisterOutputType(TriggerOutput{})
-	pulumi.RegisterOutputType(TriggerPtrOutput{})
 	pulumi.RegisterOutputType(TriggerArrayOutput{})
 	pulumi.RegisterOutputType(TriggerMapOutput{})
 }

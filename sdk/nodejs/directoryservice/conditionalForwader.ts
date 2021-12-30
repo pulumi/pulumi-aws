@@ -81,13 +81,13 @@ export class ConditionalForwader extends pulumi.CustomResource {
      */
     constructor(name: string, args: ConditionalForwaderArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ConditionalForwaderArgs | ConditionalForwaderState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ConditionalForwaderState | undefined;
-            inputs["directoryId"] = state ? state.directoryId : undefined;
-            inputs["dnsIps"] = state ? state.dnsIps : undefined;
-            inputs["remoteDomainName"] = state ? state.remoteDomainName : undefined;
+            resourceInputs["directoryId"] = state ? state.directoryId : undefined;
+            resourceInputs["dnsIps"] = state ? state.dnsIps : undefined;
+            resourceInputs["remoteDomainName"] = state ? state.remoteDomainName : undefined;
         } else {
             const args = argsOrState as ConditionalForwaderArgs | undefined;
             if ((!args || args.directoryId === undefined) && !opts.urn) {
@@ -99,14 +99,14 @@ export class ConditionalForwader extends pulumi.CustomResource {
             if ((!args || args.remoteDomainName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'remoteDomainName'");
             }
-            inputs["directoryId"] = args ? args.directoryId : undefined;
-            inputs["dnsIps"] = args ? args.dnsIps : undefined;
-            inputs["remoteDomainName"] = args ? args.remoteDomainName : undefined;
+            resourceInputs["directoryId"] = args ? args.directoryId : undefined;
+            resourceInputs["dnsIps"] = args ? args.dnsIps : undefined;
+            resourceInputs["remoteDomainName"] = args ? args.remoteDomainName : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(ConditionalForwader.__pulumiType, name, inputs, opts);
+        super(ConditionalForwader.__pulumiType, name, resourceInputs, opts);
     }
 }
 

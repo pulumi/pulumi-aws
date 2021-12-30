@@ -116,7 +116,7 @@ type EncryptionByDefaultInput interface {
 }
 
 func (*EncryptionByDefault) ElementType() reflect.Type {
-	return reflect.TypeOf((*EncryptionByDefault)(nil))
+	return reflect.TypeOf((**EncryptionByDefault)(nil)).Elem()
 }
 
 func (i *EncryptionByDefault) ToEncryptionByDefaultOutput() EncryptionByDefaultOutput {
@@ -125,35 +125,6 @@ func (i *EncryptionByDefault) ToEncryptionByDefaultOutput() EncryptionByDefaultO
 
 func (i *EncryptionByDefault) ToEncryptionByDefaultOutputWithContext(ctx context.Context) EncryptionByDefaultOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(EncryptionByDefaultOutput)
-}
-
-func (i *EncryptionByDefault) ToEncryptionByDefaultPtrOutput() EncryptionByDefaultPtrOutput {
-	return i.ToEncryptionByDefaultPtrOutputWithContext(context.Background())
-}
-
-func (i *EncryptionByDefault) ToEncryptionByDefaultPtrOutputWithContext(ctx context.Context) EncryptionByDefaultPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EncryptionByDefaultPtrOutput)
-}
-
-type EncryptionByDefaultPtrInput interface {
-	pulumi.Input
-
-	ToEncryptionByDefaultPtrOutput() EncryptionByDefaultPtrOutput
-	ToEncryptionByDefaultPtrOutputWithContext(ctx context.Context) EncryptionByDefaultPtrOutput
-}
-
-type encryptionByDefaultPtrType EncryptionByDefaultArgs
-
-func (*encryptionByDefaultPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**EncryptionByDefault)(nil))
-}
-
-func (i *encryptionByDefaultPtrType) ToEncryptionByDefaultPtrOutput() EncryptionByDefaultPtrOutput {
-	return i.ToEncryptionByDefaultPtrOutputWithContext(context.Background())
-}
-
-func (i *encryptionByDefaultPtrType) ToEncryptionByDefaultPtrOutputWithContext(ctx context.Context) EncryptionByDefaultPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(EncryptionByDefaultPtrOutput)
 }
 
 // EncryptionByDefaultArrayInput is an input type that accepts EncryptionByDefaultArray and EncryptionByDefaultArrayOutput values.
@@ -209,7 +180,7 @@ func (i EncryptionByDefaultMap) ToEncryptionByDefaultMapOutputWithContext(ctx co
 type EncryptionByDefaultOutput struct{ *pulumi.OutputState }
 
 func (EncryptionByDefaultOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*EncryptionByDefault)(nil))
+	return reflect.TypeOf((**EncryptionByDefault)(nil)).Elem()
 }
 
 func (o EncryptionByDefaultOutput) ToEncryptionByDefaultOutput() EncryptionByDefaultOutput {
@@ -220,44 +191,10 @@ func (o EncryptionByDefaultOutput) ToEncryptionByDefaultOutputWithContext(ctx co
 	return o
 }
 
-func (o EncryptionByDefaultOutput) ToEncryptionByDefaultPtrOutput() EncryptionByDefaultPtrOutput {
-	return o.ToEncryptionByDefaultPtrOutputWithContext(context.Background())
-}
-
-func (o EncryptionByDefaultOutput) ToEncryptionByDefaultPtrOutputWithContext(ctx context.Context) EncryptionByDefaultPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v EncryptionByDefault) *EncryptionByDefault {
-		return &v
-	}).(EncryptionByDefaultPtrOutput)
-}
-
-type EncryptionByDefaultPtrOutput struct{ *pulumi.OutputState }
-
-func (EncryptionByDefaultPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**EncryptionByDefault)(nil))
-}
-
-func (o EncryptionByDefaultPtrOutput) ToEncryptionByDefaultPtrOutput() EncryptionByDefaultPtrOutput {
-	return o
-}
-
-func (o EncryptionByDefaultPtrOutput) ToEncryptionByDefaultPtrOutputWithContext(ctx context.Context) EncryptionByDefaultPtrOutput {
-	return o
-}
-
-func (o EncryptionByDefaultPtrOutput) Elem() EncryptionByDefaultOutput {
-	return o.ApplyT(func(v *EncryptionByDefault) EncryptionByDefault {
-		if v != nil {
-			return *v
-		}
-		var ret EncryptionByDefault
-		return ret
-	}).(EncryptionByDefaultOutput)
-}
-
 type EncryptionByDefaultArrayOutput struct{ *pulumi.OutputState }
 
 func (EncryptionByDefaultArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]EncryptionByDefault)(nil))
+	return reflect.TypeOf((*[]*EncryptionByDefault)(nil)).Elem()
 }
 
 func (o EncryptionByDefaultArrayOutput) ToEncryptionByDefaultArrayOutput() EncryptionByDefaultArrayOutput {
@@ -269,15 +206,15 @@ func (o EncryptionByDefaultArrayOutput) ToEncryptionByDefaultArrayOutputWithCont
 }
 
 func (o EncryptionByDefaultArrayOutput) Index(i pulumi.IntInput) EncryptionByDefaultOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EncryptionByDefault {
-		return vs[0].([]EncryptionByDefault)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *EncryptionByDefault {
+		return vs[0].([]*EncryptionByDefault)[vs[1].(int)]
 	}).(EncryptionByDefaultOutput)
 }
 
 type EncryptionByDefaultMapOutput struct{ *pulumi.OutputState }
 
 func (EncryptionByDefaultMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]EncryptionByDefault)(nil))
+	return reflect.TypeOf((*map[string]*EncryptionByDefault)(nil)).Elem()
 }
 
 func (o EncryptionByDefaultMapOutput) ToEncryptionByDefaultMapOutput() EncryptionByDefaultMapOutput {
@@ -289,18 +226,16 @@ func (o EncryptionByDefaultMapOutput) ToEncryptionByDefaultMapOutputWithContext(
 }
 
 func (o EncryptionByDefaultMapOutput) MapIndex(k pulumi.StringInput) EncryptionByDefaultOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) EncryptionByDefault {
-		return vs[0].(map[string]EncryptionByDefault)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *EncryptionByDefault {
+		return vs[0].(map[string]*EncryptionByDefault)[vs[1].(string)]
 	}).(EncryptionByDefaultOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EncryptionByDefaultInput)(nil)).Elem(), &EncryptionByDefault{})
-	pulumi.RegisterInputType(reflect.TypeOf((*EncryptionByDefaultPtrInput)(nil)).Elem(), &EncryptionByDefault{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EncryptionByDefaultArrayInput)(nil)).Elem(), EncryptionByDefaultArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EncryptionByDefaultMapInput)(nil)).Elem(), EncryptionByDefaultMap{})
 	pulumi.RegisterOutputType(EncryptionByDefaultOutput{})
-	pulumi.RegisterOutputType(EncryptionByDefaultPtrOutput{})
 	pulumi.RegisterOutputType(EncryptionByDefaultArrayOutput{})
 	pulumi.RegisterOutputType(EncryptionByDefaultMapOutput{})
 }

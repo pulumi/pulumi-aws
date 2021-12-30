@@ -99,17 +99,17 @@ export class AssessmentTemplate extends pulumi.CustomResource {
      */
     constructor(name: string, args: AssessmentTemplateArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AssessmentTemplateArgs | AssessmentTemplateState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AssessmentTemplateState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["duration"] = state ? state.duration : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["rulesPackageArns"] = state ? state.rulesPackageArns : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["targetArn"] = state ? state.targetArn : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["duration"] = state ? state.duration : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["rulesPackageArns"] = state ? state.rulesPackageArns : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["targetArn"] = state ? state.targetArn : undefined;
         } else {
             const args = argsOrState as AssessmentTemplateArgs | undefined;
             if ((!args || args.duration === undefined) && !opts.urn) {
@@ -121,18 +121,18 @@ export class AssessmentTemplate extends pulumi.CustomResource {
             if ((!args || args.targetArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetArn'");
             }
-            inputs["duration"] = args ? args.duration : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["rulesPackageArns"] = args ? args.rulesPackageArns : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["targetArn"] = args ? args.targetArn : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["duration"] = args ? args.duration : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["rulesPackageArns"] = args ? args.rulesPackageArns : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["targetArn"] = args ? args.targetArn : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(AssessmentTemplate.__pulumiType, name, inputs, opts);
+        super(AssessmentTemplate.__pulumiType, name, resourceInputs, opts);
     }
 }
 

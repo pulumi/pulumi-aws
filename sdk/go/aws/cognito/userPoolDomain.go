@@ -73,7 +73,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = route53.NewRecord(ctx, "auth_cognito_A", &route53.RecordArgs{
+// 		_, err = route53.NewRecord(ctx, "auth-cognito-A", &route53.RecordArgs{
 // 			Name:   main.Domain,
 // 			Type:   pulumi.String("A"),
 // 			ZoneId: pulumi.String(exampleZone.ZoneId),
@@ -222,7 +222,7 @@ type UserPoolDomainInput interface {
 }
 
 func (*UserPoolDomain) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserPoolDomain)(nil))
+	return reflect.TypeOf((**UserPoolDomain)(nil)).Elem()
 }
 
 func (i *UserPoolDomain) ToUserPoolDomainOutput() UserPoolDomainOutput {
@@ -231,35 +231,6 @@ func (i *UserPoolDomain) ToUserPoolDomainOutput() UserPoolDomainOutput {
 
 func (i *UserPoolDomain) ToUserPoolDomainOutputWithContext(ctx context.Context) UserPoolDomainOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(UserPoolDomainOutput)
-}
-
-func (i *UserPoolDomain) ToUserPoolDomainPtrOutput() UserPoolDomainPtrOutput {
-	return i.ToUserPoolDomainPtrOutputWithContext(context.Background())
-}
-
-func (i *UserPoolDomain) ToUserPoolDomainPtrOutputWithContext(ctx context.Context) UserPoolDomainPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserPoolDomainPtrOutput)
-}
-
-type UserPoolDomainPtrInput interface {
-	pulumi.Input
-
-	ToUserPoolDomainPtrOutput() UserPoolDomainPtrOutput
-	ToUserPoolDomainPtrOutputWithContext(ctx context.Context) UserPoolDomainPtrOutput
-}
-
-type userPoolDomainPtrType UserPoolDomainArgs
-
-func (*userPoolDomainPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**UserPoolDomain)(nil))
-}
-
-func (i *userPoolDomainPtrType) ToUserPoolDomainPtrOutput() UserPoolDomainPtrOutput {
-	return i.ToUserPoolDomainPtrOutputWithContext(context.Background())
-}
-
-func (i *userPoolDomainPtrType) ToUserPoolDomainPtrOutputWithContext(ctx context.Context) UserPoolDomainPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserPoolDomainPtrOutput)
 }
 
 // UserPoolDomainArrayInput is an input type that accepts UserPoolDomainArray and UserPoolDomainArrayOutput values.
@@ -315,7 +286,7 @@ func (i UserPoolDomainMap) ToUserPoolDomainMapOutputWithContext(ctx context.Cont
 type UserPoolDomainOutput struct{ *pulumi.OutputState }
 
 func (UserPoolDomainOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserPoolDomain)(nil))
+	return reflect.TypeOf((**UserPoolDomain)(nil)).Elem()
 }
 
 func (o UserPoolDomainOutput) ToUserPoolDomainOutput() UserPoolDomainOutput {
@@ -326,44 +297,10 @@ func (o UserPoolDomainOutput) ToUserPoolDomainOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o UserPoolDomainOutput) ToUserPoolDomainPtrOutput() UserPoolDomainPtrOutput {
-	return o.ToUserPoolDomainPtrOutputWithContext(context.Background())
-}
-
-func (o UserPoolDomainOutput) ToUserPoolDomainPtrOutputWithContext(ctx context.Context) UserPoolDomainPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserPoolDomain) *UserPoolDomain {
-		return &v
-	}).(UserPoolDomainPtrOutput)
-}
-
-type UserPoolDomainPtrOutput struct{ *pulumi.OutputState }
-
-func (UserPoolDomainPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**UserPoolDomain)(nil))
-}
-
-func (o UserPoolDomainPtrOutput) ToUserPoolDomainPtrOutput() UserPoolDomainPtrOutput {
-	return o
-}
-
-func (o UserPoolDomainPtrOutput) ToUserPoolDomainPtrOutputWithContext(ctx context.Context) UserPoolDomainPtrOutput {
-	return o
-}
-
-func (o UserPoolDomainPtrOutput) Elem() UserPoolDomainOutput {
-	return o.ApplyT(func(v *UserPoolDomain) UserPoolDomain {
-		if v != nil {
-			return *v
-		}
-		var ret UserPoolDomain
-		return ret
-	}).(UserPoolDomainOutput)
-}
-
 type UserPoolDomainArrayOutput struct{ *pulumi.OutputState }
 
 func (UserPoolDomainArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]UserPoolDomain)(nil))
+	return reflect.TypeOf((*[]*UserPoolDomain)(nil)).Elem()
 }
 
 func (o UserPoolDomainArrayOutput) ToUserPoolDomainArrayOutput() UserPoolDomainArrayOutput {
@@ -375,15 +312,15 @@ func (o UserPoolDomainArrayOutput) ToUserPoolDomainArrayOutputWithContext(ctx co
 }
 
 func (o UserPoolDomainArrayOutput) Index(i pulumi.IntInput) UserPoolDomainOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserPoolDomain {
-		return vs[0].([]UserPoolDomain)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *UserPoolDomain {
+		return vs[0].([]*UserPoolDomain)[vs[1].(int)]
 	}).(UserPoolDomainOutput)
 }
 
 type UserPoolDomainMapOutput struct{ *pulumi.OutputState }
 
 func (UserPoolDomainMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]UserPoolDomain)(nil))
+	return reflect.TypeOf((*map[string]*UserPoolDomain)(nil)).Elem()
 }
 
 func (o UserPoolDomainMapOutput) ToUserPoolDomainMapOutput() UserPoolDomainMapOutput {
@@ -395,18 +332,16 @@ func (o UserPoolDomainMapOutput) ToUserPoolDomainMapOutputWithContext(ctx contex
 }
 
 func (o UserPoolDomainMapOutput) MapIndex(k pulumi.StringInput) UserPoolDomainOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) UserPoolDomain {
-		return vs[0].(map[string]UserPoolDomain)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *UserPoolDomain {
+		return vs[0].(map[string]*UserPoolDomain)[vs[1].(string)]
 	}).(UserPoolDomainOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolDomainInput)(nil)).Elem(), &UserPoolDomain{})
-	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolDomainPtrInput)(nil)).Elem(), &UserPoolDomain{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolDomainArrayInput)(nil)).Elem(), UserPoolDomainArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolDomainMapInput)(nil)).Elem(), UserPoolDomainMap{})
 	pulumi.RegisterOutputType(UserPoolDomainOutput{})
-	pulumi.RegisterOutputType(UserPoolDomainPtrOutput{})
 	pulumi.RegisterOutputType(UserPoolDomainArrayOutput{})
 	pulumi.RegisterOutputType(UserPoolDomainMapOutput{})
 }

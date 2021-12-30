@@ -163,28 +163,28 @@ export class NotebookInstance extends pulumi.CustomResource {
      */
     constructor(name: string, args: NotebookInstanceArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: NotebookInstanceArgs | NotebookInstanceState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as NotebookInstanceState | undefined;
-            inputs["additionalCodeRepositories"] = state ? state.additionalCodeRepositories : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["defaultCodeRepository"] = state ? state.defaultCodeRepository : undefined;
-            inputs["directInternetAccess"] = state ? state.directInternetAccess : undefined;
-            inputs["instanceType"] = state ? state.instanceType : undefined;
-            inputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
-            inputs["lifecycleConfigName"] = state ? state.lifecycleConfigName : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["networkInterfaceId"] = state ? state.networkInterfaceId : undefined;
-            inputs["platformIdentifier"] = state ? state.platformIdentifier : undefined;
-            inputs["roleArn"] = state ? state.roleArn : undefined;
-            inputs["rootAccess"] = state ? state.rootAccess : undefined;
-            inputs["securityGroups"] = state ? state.securityGroups : undefined;
-            inputs["subnetId"] = state ? state.subnetId : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["url"] = state ? state.url : undefined;
-            inputs["volumeSize"] = state ? state.volumeSize : undefined;
+            resourceInputs["additionalCodeRepositories"] = state ? state.additionalCodeRepositories : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["defaultCodeRepository"] = state ? state.defaultCodeRepository : undefined;
+            resourceInputs["directInternetAccess"] = state ? state.directInternetAccess : undefined;
+            resourceInputs["instanceType"] = state ? state.instanceType : undefined;
+            resourceInputs["kmsKeyId"] = state ? state.kmsKeyId : undefined;
+            resourceInputs["lifecycleConfigName"] = state ? state.lifecycleConfigName : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["networkInterfaceId"] = state ? state.networkInterfaceId : undefined;
+            resourceInputs["platformIdentifier"] = state ? state.platformIdentifier : undefined;
+            resourceInputs["roleArn"] = state ? state.roleArn : undefined;
+            resourceInputs["rootAccess"] = state ? state.rootAccess : undefined;
+            resourceInputs["securityGroups"] = state ? state.securityGroups : undefined;
+            resourceInputs["subnetId"] = state ? state.subnetId : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["url"] = state ? state.url : undefined;
+            resourceInputs["volumeSize"] = state ? state.volumeSize : undefined;
         } else {
             const args = argsOrState as NotebookInstanceArgs | undefined;
             if ((!args || args.instanceType === undefined) && !opts.urn) {
@@ -193,29 +193,29 @@ export class NotebookInstance extends pulumi.CustomResource {
             if ((!args || args.roleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
-            inputs["additionalCodeRepositories"] = args ? args.additionalCodeRepositories : undefined;
-            inputs["defaultCodeRepository"] = args ? args.defaultCodeRepository : undefined;
-            inputs["directInternetAccess"] = args ? args.directInternetAccess : undefined;
-            inputs["instanceType"] = args ? args.instanceType : undefined;
-            inputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
-            inputs["lifecycleConfigName"] = args ? args.lifecycleConfigName : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["platformIdentifier"] = args ? args.platformIdentifier : undefined;
-            inputs["roleArn"] = args ? args.roleArn : undefined;
-            inputs["rootAccess"] = args ? args.rootAccess : undefined;
-            inputs["securityGroups"] = args ? args.securityGroups : undefined;
-            inputs["subnetId"] = args ? args.subnetId : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["volumeSize"] = args ? args.volumeSize : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["networkInterfaceId"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
-            inputs["url"] = undefined /*out*/;
+            resourceInputs["additionalCodeRepositories"] = args ? args.additionalCodeRepositories : undefined;
+            resourceInputs["defaultCodeRepository"] = args ? args.defaultCodeRepository : undefined;
+            resourceInputs["directInternetAccess"] = args ? args.directInternetAccess : undefined;
+            resourceInputs["instanceType"] = args ? args.instanceType : undefined;
+            resourceInputs["kmsKeyId"] = args ? args.kmsKeyId : undefined;
+            resourceInputs["lifecycleConfigName"] = args ? args.lifecycleConfigName : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["platformIdentifier"] = args ? args.platformIdentifier : undefined;
+            resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["rootAccess"] = args ? args.rootAccess : undefined;
+            resourceInputs["securityGroups"] = args ? args.securityGroups : undefined;
+            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["volumeSize"] = args ? args.volumeSize : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["networkInterfaceId"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["url"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(NotebookInstance.__pulumiType, name, inputs, opts);
+        super(NotebookInstance.__pulumiType, name, resourceInputs, opts);
     }
 }
 

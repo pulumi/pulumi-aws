@@ -336,7 +336,7 @@ type OntapFileSystemInput interface {
 }
 
 func (*OntapFileSystem) ElementType() reflect.Type {
-	return reflect.TypeOf((*OntapFileSystem)(nil))
+	return reflect.TypeOf((**OntapFileSystem)(nil)).Elem()
 }
 
 func (i *OntapFileSystem) ToOntapFileSystemOutput() OntapFileSystemOutput {
@@ -345,35 +345,6 @@ func (i *OntapFileSystem) ToOntapFileSystemOutput() OntapFileSystemOutput {
 
 func (i *OntapFileSystem) ToOntapFileSystemOutputWithContext(ctx context.Context) OntapFileSystemOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OntapFileSystemOutput)
-}
-
-func (i *OntapFileSystem) ToOntapFileSystemPtrOutput() OntapFileSystemPtrOutput {
-	return i.ToOntapFileSystemPtrOutputWithContext(context.Background())
-}
-
-func (i *OntapFileSystem) ToOntapFileSystemPtrOutputWithContext(ctx context.Context) OntapFileSystemPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OntapFileSystemPtrOutput)
-}
-
-type OntapFileSystemPtrInput interface {
-	pulumi.Input
-
-	ToOntapFileSystemPtrOutput() OntapFileSystemPtrOutput
-	ToOntapFileSystemPtrOutputWithContext(ctx context.Context) OntapFileSystemPtrOutput
-}
-
-type ontapFileSystemPtrType OntapFileSystemArgs
-
-func (*ontapFileSystemPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**OntapFileSystem)(nil))
-}
-
-func (i *ontapFileSystemPtrType) ToOntapFileSystemPtrOutput() OntapFileSystemPtrOutput {
-	return i.ToOntapFileSystemPtrOutputWithContext(context.Background())
-}
-
-func (i *ontapFileSystemPtrType) ToOntapFileSystemPtrOutputWithContext(ctx context.Context) OntapFileSystemPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OntapFileSystemPtrOutput)
 }
 
 // OntapFileSystemArrayInput is an input type that accepts OntapFileSystemArray and OntapFileSystemArrayOutput values.
@@ -429,7 +400,7 @@ func (i OntapFileSystemMap) ToOntapFileSystemMapOutputWithContext(ctx context.Co
 type OntapFileSystemOutput struct{ *pulumi.OutputState }
 
 func (OntapFileSystemOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OntapFileSystem)(nil))
+	return reflect.TypeOf((**OntapFileSystem)(nil)).Elem()
 }
 
 func (o OntapFileSystemOutput) ToOntapFileSystemOutput() OntapFileSystemOutput {
@@ -440,44 +411,10 @@ func (o OntapFileSystemOutput) ToOntapFileSystemOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o OntapFileSystemOutput) ToOntapFileSystemPtrOutput() OntapFileSystemPtrOutput {
-	return o.ToOntapFileSystemPtrOutputWithContext(context.Background())
-}
-
-func (o OntapFileSystemOutput) ToOntapFileSystemPtrOutputWithContext(ctx context.Context) OntapFileSystemPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OntapFileSystem) *OntapFileSystem {
-		return &v
-	}).(OntapFileSystemPtrOutput)
-}
-
-type OntapFileSystemPtrOutput struct{ *pulumi.OutputState }
-
-func (OntapFileSystemPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**OntapFileSystem)(nil))
-}
-
-func (o OntapFileSystemPtrOutput) ToOntapFileSystemPtrOutput() OntapFileSystemPtrOutput {
-	return o
-}
-
-func (o OntapFileSystemPtrOutput) ToOntapFileSystemPtrOutputWithContext(ctx context.Context) OntapFileSystemPtrOutput {
-	return o
-}
-
-func (o OntapFileSystemPtrOutput) Elem() OntapFileSystemOutput {
-	return o.ApplyT(func(v *OntapFileSystem) OntapFileSystem {
-		if v != nil {
-			return *v
-		}
-		var ret OntapFileSystem
-		return ret
-	}).(OntapFileSystemOutput)
-}
-
 type OntapFileSystemArrayOutput struct{ *pulumi.OutputState }
 
 func (OntapFileSystemArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]OntapFileSystem)(nil))
+	return reflect.TypeOf((*[]*OntapFileSystem)(nil)).Elem()
 }
 
 func (o OntapFileSystemArrayOutput) ToOntapFileSystemArrayOutput() OntapFileSystemArrayOutput {
@@ -489,15 +426,15 @@ func (o OntapFileSystemArrayOutput) ToOntapFileSystemArrayOutputWithContext(ctx 
 }
 
 func (o OntapFileSystemArrayOutput) Index(i pulumi.IntInput) OntapFileSystemOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OntapFileSystem {
-		return vs[0].([]OntapFileSystem)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *OntapFileSystem {
+		return vs[0].([]*OntapFileSystem)[vs[1].(int)]
 	}).(OntapFileSystemOutput)
 }
 
 type OntapFileSystemMapOutput struct{ *pulumi.OutputState }
 
 func (OntapFileSystemMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]OntapFileSystem)(nil))
+	return reflect.TypeOf((*map[string]*OntapFileSystem)(nil)).Elem()
 }
 
 func (o OntapFileSystemMapOutput) ToOntapFileSystemMapOutput() OntapFileSystemMapOutput {
@@ -509,18 +446,16 @@ func (o OntapFileSystemMapOutput) ToOntapFileSystemMapOutputWithContext(ctx cont
 }
 
 func (o OntapFileSystemMapOutput) MapIndex(k pulumi.StringInput) OntapFileSystemOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) OntapFileSystem {
-		return vs[0].(map[string]OntapFileSystem)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *OntapFileSystem {
+		return vs[0].(map[string]*OntapFileSystem)[vs[1].(string)]
 	}).(OntapFileSystemOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OntapFileSystemInput)(nil)).Elem(), &OntapFileSystem{})
-	pulumi.RegisterInputType(reflect.TypeOf((*OntapFileSystemPtrInput)(nil)).Elem(), &OntapFileSystem{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OntapFileSystemArrayInput)(nil)).Elem(), OntapFileSystemArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OntapFileSystemMapInput)(nil)).Elem(), OntapFileSystemMap{})
 	pulumi.RegisterOutputType(OntapFileSystemOutput{})
-	pulumi.RegisterOutputType(OntapFileSystemPtrOutput{})
 	pulumi.RegisterOutputType(OntapFileSystemArrayOutput{})
 	pulumi.RegisterOutputType(OntapFileSystemMapOutput{})
 }

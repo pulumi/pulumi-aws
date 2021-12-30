@@ -355,7 +355,7 @@ type FlowLogInput interface {
 }
 
 func (*FlowLog) ElementType() reflect.Type {
-	return reflect.TypeOf((*FlowLog)(nil))
+	return reflect.TypeOf((**FlowLog)(nil)).Elem()
 }
 
 func (i *FlowLog) ToFlowLogOutput() FlowLogOutput {
@@ -364,35 +364,6 @@ func (i *FlowLog) ToFlowLogOutput() FlowLogOutput {
 
 func (i *FlowLog) ToFlowLogOutputWithContext(ctx context.Context) FlowLogOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(FlowLogOutput)
-}
-
-func (i *FlowLog) ToFlowLogPtrOutput() FlowLogPtrOutput {
-	return i.ToFlowLogPtrOutputWithContext(context.Background())
-}
-
-func (i *FlowLog) ToFlowLogPtrOutputWithContext(ctx context.Context) FlowLogPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FlowLogPtrOutput)
-}
-
-type FlowLogPtrInput interface {
-	pulumi.Input
-
-	ToFlowLogPtrOutput() FlowLogPtrOutput
-	ToFlowLogPtrOutputWithContext(ctx context.Context) FlowLogPtrOutput
-}
-
-type flowLogPtrType FlowLogArgs
-
-func (*flowLogPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**FlowLog)(nil))
-}
-
-func (i *flowLogPtrType) ToFlowLogPtrOutput() FlowLogPtrOutput {
-	return i.ToFlowLogPtrOutputWithContext(context.Background())
-}
-
-func (i *flowLogPtrType) ToFlowLogPtrOutputWithContext(ctx context.Context) FlowLogPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FlowLogPtrOutput)
 }
 
 // FlowLogArrayInput is an input type that accepts FlowLogArray and FlowLogArrayOutput values.
@@ -448,7 +419,7 @@ func (i FlowLogMap) ToFlowLogMapOutputWithContext(ctx context.Context) FlowLogMa
 type FlowLogOutput struct{ *pulumi.OutputState }
 
 func (FlowLogOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*FlowLog)(nil))
+	return reflect.TypeOf((**FlowLog)(nil)).Elem()
 }
 
 func (o FlowLogOutput) ToFlowLogOutput() FlowLogOutput {
@@ -459,44 +430,10 @@ func (o FlowLogOutput) ToFlowLogOutputWithContext(ctx context.Context) FlowLogOu
 	return o
 }
 
-func (o FlowLogOutput) ToFlowLogPtrOutput() FlowLogPtrOutput {
-	return o.ToFlowLogPtrOutputWithContext(context.Background())
-}
-
-func (o FlowLogOutput) ToFlowLogPtrOutputWithContext(ctx context.Context) FlowLogPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v FlowLog) *FlowLog {
-		return &v
-	}).(FlowLogPtrOutput)
-}
-
-type FlowLogPtrOutput struct{ *pulumi.OutputState }
-
-func (FlowLogPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**FlowLog)(nil))
-}
-
-func (o FlowLogPtrOutput) ToFlowLogPtrOutput() FlowLogPtrOutput {
-	return o
-}
-
-func (o FlowLogPtrOutput) ToFlowLogPtrOutputWithContext(ctx context.Context) FlowLogPtrOutput {
-	return o
-}
-
-func (o FlowLogPtrOutput) Elem() FlowLogOutput {
-	return o.ApplyT(func(v *FlowLog) FlowLog {
-		if v != nil {
-			return *v
-		}
-		var ret FlowLog
-		return ret
-	}).(FlowLogOutput)
-}
-
 type FlowLogArrayOutput struct{ *pulumi.OutputState }
 
 func (FlowLogArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FlowLog)(nil))
+	return reflect.TypeOf((*[]*FlowLog)(nil)).Elem()
 }
 
 func (o FlowLogArrayOutput) ToFlowLogArrayOutput() FlowLogArrayOutput {
@@ -508,15 +445,15 @@ func (o FlowLogArrayOutput) ToFlowLogArrayOutputWithContext(ctx context.Context)
 }
 
 func (o FlowLogArrayOutput) Index(i pulumi.IntInput) FlowLogOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FlowLog {
-		return vs[0].([]FlowLog)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *FlowLog {
+		return vs[0].([]*FlowLog)[vs[1].(int)]
 	}).(FlowLogOutput)
 }
 
 type FlowLogMapOutput struct{ *pulumi.OutputState }
 
 func (FlowLogMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]FlowLog)(nil))
+	return reflect.TypeOf((*map[string]*FlowLog)(nil)).Elem()
 }
 
 func (o FlowLogMapOutput) ToFlowLogMapOutput() FlowLogMapOutput {
@@ -528,18 +465,16 @@ func (o FlowLogMapOutput) ToFlowLogMapOutputWithContext(ctx context.Context) Flo
 }
 
 func (o FlowLogMapOutput) MapIndex(k pulumi.StringInput) FlowLogOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) FlowLog {
-		return vs[0].(map[string]FlowLog)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *FlowLog {
+		return vs[0].(map[string]*FlowLog)[vs[1].(string)]
 	}).(FlowLogOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowLogInput)(nil)).Elem(), &FlowLog{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FlowLogPtrInput)(nil)).Elem(), &FlowLog{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowLogArrayInput)(nil)).Elem(), FlowLogArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowLogMapInput)(nil)).Elem(), FlowLogMap{})
 	pulumi.RegisterOutputType(FlowLogOutput{})
-	pulumi.RegisterOutputType(FlowLogPtrOutput{})
 	pulumi.RegisterOutputType(FlowLogArrayOutput{})
 	pulumi.RegisterOutputType(FlowLogMapOutput{})
 }

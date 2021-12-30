@@ -104,36 +104,36 @@ export class KeyPair extends pulumi.CustomResource {
      */
     constructor(name: string, args: KeyPairArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: KeyPairArgs | KeyPairState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as KeyPairState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["fingerprint"] = state ? state.fingerprint : undefined;
-            inputs["keyName"] = state ? state.keyName : undefined;
-            inputs["keyNamePrefix"] = state ? state.keyNamePrefix : undefined;
-            inputs["keyPairId"] = state ? state.keyPairId : undefined;
-            inputs["publicKey"] = state ? state.publicKey : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["fingerprint"] = state ? state.fingerprint : undefined;
+            resourceInputs["keyName"] = state ? state.keyName : undefined;
+            resourceInputs["keyNamePrefix"] = state ? state.keyNamePrefix : undefined;
+            resourceInputs["keyPairId"] = state ? state.keyPairId : undefined;
+            resourceInputs["publicKey"] = state ? state.publicKey : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as KeyPairArgs | undefined;
             if ((!args || args.publicKey === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'publicKey'");
             }
-            inputs["keyName"] = args ? args.keyName : undefined;
-            inputs["keyNamePrefix"] = args ? args.keyNamePrefix : undefined;
-            inputs["publicKey"] = args ? args.publicKey : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["fingerprint"] = undefined /*out*/;
-            inputs["keyPairId"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["keyName"] = args ? args.keyName : undefined;
+            resourceInputs["keyNamePrefix"] = args ? args.keyNamePrefix : undefined;
+            resourceInputs["publicKey"] = args ? args.publicKey : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["fingerprint"] = undefined /*out*/;
+            resourceInputs["keyPairId"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(KeyPair.__pulumiType, name, inputs, opts);
+        super(KeyPair.__pulumiType, name, resourceInputs, opts);
     }
 }
 

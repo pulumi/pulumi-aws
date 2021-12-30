@@ -89,15 +89,15 @@ export class HumanTaskUI extends pulumi.CustomResource {
      */
     constructor(name: string, args: HumanTaskUIArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: HumanTaskUIArgs | HumanTaskUIState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as HumanTaskUIState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["humanTaskUiName"] = state ? state.humanTaskUiName : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["uiTemplate"] = state ? state.uiTemplate : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["humanTaskUiName"] = state ? state.humanTaskUiName : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["uiTemplate"] = state ? state.uiTemplate : undefined;
         } else {
             const args = argsOrState as HumanTaskUIArgs | undefined;
             if ((!args || args.humanTaskUiName === undefined) && !opts.urn) {
@@ -106,16 +106,16 @@ export class HumanTaskUI extends pulumi.CustomResource {
             if ((!args || args.uiTemplate === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'uiTemplate'");
             }
-            inputs["humanTaskUiName"] = args ? args.humanTaskUiName : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["uiTemplate"] = args ? args.uiTemplate : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["humanTaskUiName"] = args ? args.humanTaskUiName : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["uiTemplate"] = args ? args.uiTemplate : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(HumanTaskUI.__pulumiType, name, inputs, opts);
+        super(HumanTaskUI.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -89,12 +89,12 @@ export class ContainerPolicy extends pulumi.CustomResource {
      */
     constructor(name: string, args: ContainerPolicyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ContainerPolicyArgs | ContainerPolicyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ContainerPolicyState | undefined;
-            inputs["containerName"] = state ? state.containerName : undefined;
-            inputs["policy"] = state ? state.policy : undefined;
+            resourceInputs["containerName"] = state ? state.containerName : undefined;
+            resourceInputs["policy"] = state ? state.policy : undefined;
         } else {
             const args = argsOrState as ContainerPolicyArgs | undefined;
             if ((!args || args.containerName === undefined) && !opts.urn) {
@@ -103,13 +103,13 @@ export class ContainerPolicy extends pulumi.CustomResource {
             if ((!args || args.policy === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policy'");
             }
-            inputs["containerName"] = args ? args.containerName : undefined;
-            inputs["policy"] = args ? args.policy : undefined;
+            resourceInputs["containerName"] = args ? args.containerName : undefined;
+            resourceInputs["policy"] = args ? args.policy : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(ContainerPolicy.__pulumiType, name, inputs, opts);
+        super(ContainerPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

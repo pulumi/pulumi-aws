@@ -154,7 +154,7 @@ type AggregateAuthorizationInput interface {
 }
 
 func (*AggregateAuthorization) ElementType() reflect.Type {
-	return reflect.TypeOf((*AggregateAuthorization)(nil))
+	return reflect.TypeOf((**AggregateAuthorization)(nil)).Elem()
 }
 
 func (i *AggregateAuthorization) ToAggregateAuthorizationOutput() AggregateAuthorizationOutput {
@@ -163,35 +163,6 @@ func (i *AggregateAuthorization) ToAggregateAuthorizationOutput() AggregateAutho
 
 func (i *AggregateAuthorization) ToAggregateAuthorizationOutputWithContext(ctx context.Context) AggregateAuthorizationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AggregateAuthorizationOutput)
-}
-
-func (i *AggregateAuthorization) ToAggregateAuthorizationPtrOutput() AggregateAuthorizationPtrOutput {
-	return i.ToAggregateAuthorizationPtrOutputWithContext(context.Background())
-}
-
-func (i *AggregateAuthorization) ToAggregateAuthorizationPtrOutputWithContext(ctx context.Context) AggregateAuthorizationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AggregateAuthorizationPtrOutput)
-}
-
-type AggregateAuthorizationPtrInput interface {
-	pulumi.Input
-
-	ToAggregateAuthorizationPtrOutput() AggregateAuthorizationPtrOutput
-	ToAggregateAuthorizationPtrOutputWithContext(ctx context.Context) AggregateAuthorizationPtrOutput
-}
-
-type aggregateAuthorizationPtrType AggregateAuthorizationArgs
-
-func (*aggregateAuthorizationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AggregateAuthorization)(nil))
-}
-
-func (i *aggregateAuthorizationPtrType) ToAggregateAuthorizationPtrOutput() AggregateAuthorizationPtrOutput {
-	return i.ToAggregateAuthorizationPtrOutputWithContext(context.Background())
-}
-
-func (i *aggregateAuthorizationPtrType) ToAggregateAuthorizationPtrOutputWithContext(ctx context.Context) AggregateAuthorizationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AggregateAuthorizationPtrOutput)
 }
 
 // AggregateAuthorizationArrayInput is an input type that accepts AggregateAuthorizationArray and AggregateAuthorizationArrayOutput values.
@@ -247,7 +218,7 @@ func (i AggregateAuthorizationMap) ToAggregateAuthorizationMapOutputWithContext(
 type AggregateAuthorizationOutput struct{ *pulumi.OutputState }
 
 func (AggregateAuthorizationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AggregateAuthorization)(nil))
+	return reflect.TypeOf((**AggregateAuthorization)(nil)).Elem()
 }
 
 func (o AggregateAuthorizationOutput) ToAggregateAuthorizationOutput() AggregateAuthorizationOutput {
@@ -258,44 +229,10 @@ func (o AggregateAuthorizationOutput) ToAggregateAuthorizationOutputWithContext(
 	return o
 }
 
-func (o AggregateAuthorizationOutput) ToAggregateAuthorizationPtrOutput() AggregateAuthorizationPtrOutput {
-	return o.ToAggregateAuthorizationPtrOutputWithContext(context.Background())
-}
-
-func (o AggregateAuthorizationOutput) ToAggregateAuthorizationPtrOutputWithContext(ctx context.Context) AggregateAuthorizationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AggregateAuthorization) *AggregateAuthorization {
-		return &v
-	}).(AggregateAuthorizationPtrOutput)
-}
-
-type AggregateAuthorizationPtrOutput struct{ *pulumi.OutputState }
-
-func (AggregateAuthorizationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AggregateAuthorization)(nil))
-}
-
-func (o AggregateAuthorizationPtrOutput) ToAggregateAuthorizationPtrOutput() AggregateAuthorizationPtrOutput {
-	return o
-}
-
-func (o AggregateAuthorizationPtrOutput) ToAggregateAuthorizationPtrOutputWithContext(ctx context.Context) AggregateAuthorizationPtrOutput {
-	return o
-}
-
-func (o AggregateAuthorizationPtrOutput) Elem() AggregateAuthorizationOutput {
-	return o.ApplyT(func(v *AggregateAuthorization) AggregateAuthorization {
-		if v != nil {
-			return *v
-		}
-		var ret AggregateAuthorization
-		return ret
-	}).(AggregateAuthorizationOutput)
-}
-
 type AggregateAuthorizationArrayOutput struct{ *pulumi.OutputState }
 
 func (AggregateAuthorizationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]AggregateAuthorization)(nil))
+	return reflect.TypeOf((*[]*AggregateAuthorization)(nil)).Elem()
 }
 
 func (o AggregateAuthorizationArrayOutput) ToAggregateAuthorizationArrayOutput() AggregateAuthorizationArrayOutput {
@@ -307,15 +244,15 @@ func (o AggregateAuthorizationArrayOutput) ToAggregateAuthorizationArrayOutputWi
 }
 
 func (o AggregateAuthorizationArrayOutput) Index(i pulumi.IntInput) AggregateAuthorizationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AggregateAuthorization {
-		return vs[0].([]AggregateAuthorization)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *AggregateAuthorization {
+		return vs[0].([]*AggregateAuthorization)[vs[1].(int)]
 	}).(AggregateAuthorizationOutput)
 }
 
 type AggregateAuthorizationMapOutput struct{ *pulumi.OutputState }
 
 func (AggregateAuthorizationMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]AggregateAuthorization)(nil))
+	return reflect.TypeOf((*map[string]*AggregateAuthorization)(nil)).Elem()
 }
 
 func (o AggregateAuthorizationMapOutput) ToAggregateAuthorizationMapOutput() AggregateAuthorizationMapOutput {
@@ -327,18 +264,16 @@ func (o AggregateAuthorizationMapOutput) ToAggregateAuthorizationMapOutputWithCo
 }
 
 func (o AggregateAuthorizationMapOutput) MapIndex(k pulumi.StringInput) AggregateAuthorizationOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) AggregateAuthorization {
-		return vs[0].(map[string]AggregateAuthorization)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *AggregateAuthorization {
+		return vs[0].(map[string]*AggregateAuthorization)[vs[1].(string)]
 	}).(AggregateAuthorizationOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AggregateAuthorizationInput)(nil)).Elem(), &AggregateAuthorization{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AggregateAuthorizationPtrInput)(nil)).Elem(), &AggregateAuthorization{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AggregateAuthorizationArrayInput)(nil)).Elem(), AggregateAuthorizationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AggregateAuthorizationMapInput)(nil)).Elem(), AggregateAuthorizationMap{})
 	pulumi.RegisterOutputType(AggregateAuthorizationOutput{})
-	pulumi.RegisterOutputType(AggregateAuthorizationPtrOutput{})
 	pulumi.RegisterOutputType(AggregateAuthorizationArrayOutput{})
 	pulumi.RegisterOutputType(AggregateAuthorizationMapOutput{})
 }

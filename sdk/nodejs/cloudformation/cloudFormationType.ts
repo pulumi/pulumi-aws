@@ -120,27 +120,27 @@ export class CloudFormationType extends pulumi.CustomResource {
      */
     constructor(name: string, args: CloudFormationTypeArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: CloudFormationTypeArgs | CloudFormationTypeState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CloudFormationTypeState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["defaultVersionId"] = state ? state.defaultVersionId : undefined;
-            inputs["deprecatedStatus"] = state ? state.deprecatedStatus : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["documentationUrl"] = state ? state.documentationUrl : undefined;
-            inputs["executionRoleArn"] = state ? state.executionRoleArn : undefined;
-            inputs["isDefaultVersion"] = state ? state.isDefaultVersion : undefined;
-            inputs["loggingConfig"] = state ? state.loggingConfig : undefined;
-            inputs["provisioningType"] = state ? state.provisioningType : undefined;
-            inputs["schema"] = state ? state.schema : undefined;
-            inputs["schemaHandlerPackage"] = state ? state.schemaHandlerPackage : undefined;
-            inputs["sourceUrl"] = state ? state.sourceUrl : undefined;
-            inputs["type"] = state ? state.type : undefined;
-            inputs["typeArn"] = state ? state.typeArn : undefined;
-            inputs["typeName"] = state ? state.typeName : undefined;
-            inputs["versionId"] = state ? state.versionId : undefined;
-            inputs["visibility"] = state ? state.visibility : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["defaultVersionId"] = state ? state.defaultVersionId : undefined;
+            resourceInputs["deprecatedStatus"] = state ? state.deprecatedStatus : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["documentationUrl"] = state ? state.documentationUrl : undefined;
+            resourceInputs["executionRoleArn"] = state ? state.executionRoleArn : undefined;
+            resourceInputs["isDefaultVersion"] = state ? state.isDefaultVersion : undefined;
+            resourceInputs["loggingConfig"] = state ? state.loggingConfig : undefined;
+            resourceInputs["provisioningType"] = state ? state.provisioningType : undefined;
+            resourceInputs["schema"] = state ? state.schema : undefined;
+            resourceInputs["schemaHandlerPackage"] = state ? state.schemaHandlerPackage : undefined;
+            resourceInputs["sourceUrl"] = state ? state.sourceUrl : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
+            resourceInputs["typeArn"] = state ? state.typeArn : undefined;
+            resourceInputs["typeName"] = state ? state.typeName : undefined;
+            resourceInputs["versionId"] = state ? state.versionId : undefined;
+            resourceInputs["visibility"] = state ? state.visibility : undefined;
         } else {
             const args = argsOrState as CloudFormationTypeArgs | undefined;
             if ((!args || args.schemaHandlerPackage === undefined) && !opts.urn) {
@@ -149,28 +149,28 @@ export class CloudFormationType extends pulumi.CustomResource {
             if ((!args || args.typeName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'typeName'");
             }
-            inputs["executionRoleArn"] = args ? args.executionRoleArn : undefined;
-            inputs["loggingConfig"] = args ? args.loggingConfig : undefined;
-            inputs["schemaHandlerPackage"] = args ? args.schemaHandlerPackage : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["typeName"] = args ? args.typeName : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["defaultVersionId"] = undefined /*out*/;
-            inputs["deprecatedStatus"] = undefined /*out*/;
-            inputs["description"] = undefined /*out*/;
-            inputs["documentationUrl"] = undefined /*out*/;
-            inputs["isDefaultVersion"] = undefined /*out*/;
-            inputs["provisioningType"] = undefined /*out*/;
-            inputs["schema"] = undefined /*out*/;
-            inputs["sourceUrl"] = undefined /*out*/;
-            inputs["typeArn"] = undefined /*out*/;
-            inputs["versionId"] = undefined /*out*/;
-            inputs["visibility"] = undefined /*out*/;
+            resourceInputs["executionRoleArn"] = args ? args.executionRoleArn : undefined;
+            resourceInputs["loggingConfig"] = args ? args.loggingConfig : undefined;
+            resourceInputs["schemaHandlerPackage"] = args ? args.schemaHandlerPackage : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["typeName"] = args ? args.typeName : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["defaultVersionId"] = undefined /*out*/;
+            resourceInputs["deprecatedStatus"] = undefined /*out*/;
+            resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["documentationUrl"] = undefined /*out*/;
+            resourceInputs["isDefaultVersion"] = undefined /*out*/;
+            resourceInputs["provisioningType"] = undefined /*out*/;
+            resourceInputs["schema"] = undefined /*out*/;
+            resourceInputs["sourceUrl"] = undefined /*out*/;
+            resourceInputs["typeArn"] = undefined /*out*/;
+            resourceInputs["versionId"] = undefined /*out*/;
+            resourceInputs["visibility"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(CloudFormationType.__pulumiType, name, inputs, opts);
+        super(CloudFormationType.__pulumiType, name, resourceInputs, opts);
     }
 }
 

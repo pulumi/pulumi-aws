@@ -120,23 +120,23 @@ export class MaintenanceWindow extends pulumi.CustomResource {
      */
     constructor(name: string, args: MaintenanceWindowArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: MaintenanceWindowArgs | MaintenanceWindowState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as MaintenanceWindowState | undefined;
-            inputs["allowUnassociatedTargets"] = state ? state.allowUnassociatedTargets : undefined;
-            inputs["cutoff"] = state ? state.cutoff : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["duration"] = state ? state.duration : undefined;
-            inputs["enabled"] = state ? state.enabled : undefined;
-            inputs["endDate"] = state ? state.endDate : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["schedule"] = state ? state.schedule : undefined;
-            inputs["scheduleOffset"] = state ? state.scheduleOffset : undefined;
-            inputs["scheduleTimezone"] = state ? state.scheduleTimezone : undefined;
-            inputs["startDate"] = state ? state.startDate : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["allowUnassociatedTargets"] = state ? state.allowUnassociatedTargets : undefined;
+            resourceInputs["cutoff"] = state ? state.cutoff : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["duration"] = state ? state.duration : undefined;
+            resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["endDate"] = state ? state.endDate : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["schedule"] = state ? state.schedule : undefined;
+            resourceInputs["scheduleOffset"] = state ? state.scheduleOffset : undefined;
+            resourceInputs["scheduleTimezone"] = state ? state.scheduleTimezone : undefined;
+            resourceInputs["startDate"] = state ? state.startDate : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as MaintenanceWindowArgs | undefined;
             if ((!args || args.cutoff === undefined) && !opts.urn) {
@@ -148,24 +148,24 @@ export class MaintenanceWindow extends pulumi.CustomResource {
             if ((!args || args.schedule === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'schedule'");
             }
-            inputs["allowUnassociatedTargets"] = args ? args.allowUnassociatedTargets : undefined;
-            inputs["cutoff"] = args ? args.cutoff : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["duration"] = args ? args.duration : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["endDate"] = args ? args.endDate : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["schedule"] = args ? args.schedule : undefined;
-            inputs["scheduleOffset"] = args ? args.scheduleOffset : undefined;
-            inputs["scheduleTimezone"] = args ? args.scheduleTimezone : undefined;
-            inputs["startDate"] = args ? args.startDate : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["allowUnassociatedTargets"] = args ? args.allowUnassociatedTargets : undefined;
+            resourceInputs["cutoff"] = args ? args.cutoff : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["duration"] = args ? args.duration : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["endDate"] = args ? args.endDate : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["schedule"] = args ? args.schedule : undefined;
+            resourceInputs["scheduleOffset"] = args ? args.scheduleOffset : undefined;
+            resourceInputs["scheduleTimezone"] = args ? args.scheduleTimezone : undefined;
+            resourceInputs["startDate"] = args ? args.startDate : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(MaintenanceWindow.__pulumiType, name, inputs, opts);
+        super(MaintenanceWindow.__pulumiType, name, resourceInputs, opts);
     }
 }
 

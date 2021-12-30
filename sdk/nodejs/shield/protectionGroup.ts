@@ -133,18 +133,18 @@ export class ProtectionGroup extends pulumi.CustomResource {
      */
     constructor(name: string, args: ProtectionGroupArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ProtectionGroupArgs | ProtectionGroupState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProtectionGroupState | undefined;
-            inputs["aggregation"] = state ? state.aggregation : undefined;
-            inputs["members"] = state ? state.members : undefined;
-            inputs["pattern"] = state ? state.pattern : undefined;
-            inputs["protectionGroupArn"] = state ? state.protectionGroupArn : undefined;
-            inputs["protectionGroupId"] = state ? state.protectionGroupId : undefined;
-            inputs["resourceType"] = state ? state.resourceType : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["aggregation"] = state ? state.aggregation : undefined;
+            resourceInputs["members"] = state ? state.members : undefined;
+            resourceInputs["pattern"] = state ? state.pattern : undefined;
+            resourceInputs["protectionGroupArn"] = state ? state.protectionGroupArn : undefined;
+            resourceInputs["protectionGroupId"] = state ? state.protectionGroupId : undefined;
+            resourceInputs["resourceType"] = state ? state.resourceType : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as ProtectionGroupArgs | undefined;
             if ((!args || args.aggregation === undefined) && !opts.urn) {
@@ -156,19 +156,19 @@ export class ProtectionGroup extends pulumi.CustomResource {
             if ((!args || args.protectionGroupId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'protectionGroupId'");
             }
-            inputs["aggregation"] = args ? args.aggregation : undefined;
-            inputs["members"] = args ? args.members : undefined;
-            inputs["pattern"] = args ? args.pattern : undefined;
-            inputs["protectionGroupId"] = args ? args.protectionGroupId : undefined;
-            inputs["resourceType"] = args ? args.resourceType : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["protectionGroupArn"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["aggregation"] = args ? args.aggregation : undefined;
+            resourceInputs["members"] = args ? args.members : undefined;
+            resourceInputs["pattern"] = args ? args.pattern : undefined;
+            resourceInputs["protectionGroupId"] = args ? args.protectionGroupId : undefined;
+            resourceInputs["resourceType"] = args ? args.resourceType : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["protectionGroupArn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(ProtectionGroup.__pulumiType, name, inputs, opts);
+        super(ProtectionGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

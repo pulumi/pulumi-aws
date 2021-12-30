@@ -82,14 +82,14 @@ export class ApplicationSnapshot extends pulumi.CustomResource {
      */
     constructor(name: string, args: ApplicationSnapshotArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ApplicationSnapshotArgs | ApplicationSnapshotState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ApplicationSnapshotState | undefined;
-            inputs["applicationName"] = state ? state.applicationName : undefined;
-            inputs["applicationVersionId"] = state ? state.applicationVersionId : undefined;
-            inputs["snapshotCreationTimestamp"] = state ? state.snapshotCreationTimestamp : undefined;
-            inputs["snapshotName"] = state ? state.snapshotName : undefined;
+            resourceInputs["applicationName"] = state ? state.applicationName : undefined;
+            resourceInputs["applicationVersionId"] = state ? state.applicationVersionId : undefined;
+            resourceInputs["snapshotCreationTimestamp"] = state ? state.snapshotCreationTimestamp : undefined;
+            resourceInputs["snapshotName"] = state ? state.snapshotName : undefined;
         } else {
             const args = argsOrState as ApplicationSnapshotArgs | undefined;
             if ((!args || args.applicationName === undefined) && !opts.urn) {
@@ -98,15 +98,15 @@ export class ApplicationSnapshot extends pulumi.CustomResource {
             if ((!args || args.snapshotName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'snapshotName'");
             }
-            inputs["applicationName"] = args ? args.applicationName : undefined;
-            inputs["snapshotName"] = args ? args.snapshotName : undefined;
-            inputs["applicationVersionId"] = undefined /*out*/;
-            inputs["snapshotCreationTimestamp"] = undefined /*out*/;
+            resourceInputs["applicationName"] = args ? args.applicationName : undefined;
+            resourceInputs["snapshotName"] = args ? args.snapshotName : undefined;
+            resourceInputs["applicationVersionId"] = undefined /*out*/;
+            resourceInputs["snapshotCreationTimestamp"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(ApplicationSnapshot.__pulumiType, name, inputs, opts);
+        super(ApplicationSnapshot.__pulumiType, name, resourceInputs, opts);
     }
 }
 

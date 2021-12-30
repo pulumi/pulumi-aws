@@ -109,28 +109,28 @@ export class ProxyDefaultTargetGroup extends pulumi.CustomResource {
      */
     constructor(name: string, args: ProxyDefaultTargetGroupArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ProxyDefaultTargetGroupArgs | ProxyDefaultTargetGroupState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProxyDefaultTargetGroupState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["connectionPoolConfig"] = state ? state.connectionPoolConfig : undefined;
-            inputs["dbProxyName"] = state ? state.dbProxyName : undefined;
-            inputs["name"] = state ? state.name : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["connectionPoolConfig"] = state ? state.connectionPoolConfig : undefined;
+            resourceInputs["dbProxyName"] = state ? state.dbProxyName : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
         } else {
             const args = argsOrState as ProxyDefaultTargetGroupArgs | undefined;
             if ((!args || args.dbProxyName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dbProxyName'");
             }
-            inputs["connectionPoolConfig"] = args ? args.connectionPoolConfig : undefined;
-            inputs["dbProxyName"] = args ? args.dbProxyName : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["name"] = undefined /*out*/;
+            resourceInputs["connectionPoolConfig"] = args ? args.connectionPoolConfig : undefined;
+            resourceInputs["dbProxyName"] = args ? args.dbProxyName : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(ProxyDefaultTargetGroup.__pulumiType, name, inputs, opts);
+        super(ProxyDefaultTargetGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

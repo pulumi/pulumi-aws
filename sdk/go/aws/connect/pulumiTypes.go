@@ -47,47 +47,6 @@ func (i BotAssociationLexBotArgs) ToBotAssociationLexBotOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(BotAssociationLexBotOutput)
 }
 
-func (i BotAssociationLexBotArgs) ToBotAssociationLexBotPtrOutput() BotAssociationLexBotPtrOutput {
-	return i.ToBotAssociationLexBotPtrOutputWithContext(context.Background())
-}
-
-func (i BotAssociationLexBotArgs) ToBotAssociationLexBotPtrOutputWithContext(ctx context.Context) BotAssociationLexBotPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BotAssociationLexBotOutput).ToBotAssociationLexBotPtrOutputWithContext(ctx)
-}
-
-// BotAssociationLexBotPtrInput is an input type that accepts BotAssociationLexBotArgs, BotAssociationLexBotPtr and BotAssociationLexBotPtrOutput values.
-// You can construct a concrete instance of `BotAssociationLexBotPtrInput` via:
-//
-//          BotAssociationLexBotArgs{...}
-//
-//  or:
-//
-//          nil
-type BotAssociationLexBotPtrInput interface {
-	pulumi.Input
-
-	ToBotAssociationLexBotPtrOutput() BotAssociationLexBotPtrOutput
-	ToBotAssociationLexBotPtrOutputWithContext(context.Context) BotAssociationLexBotPtrOutput
-}
-
-type botAssociationLexBotPtrType BotAssociationLexBotArgs
-
-func BotAssociationLexBotPtr(v *BotAssociationLexBotArgs) BotAssociationLexBotPtrInput {
-	return (*botAssociationLexBotPtrType)(v)
-}
-
-func (*botAssociationLexBotPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BotAssociationLexBot)(nil)).Elem()
-}
-
-func (i *botAssociationLexBotPtrType) ToBotAssociationLexBotPtrOutput() BotAssociationLexBotPtrOutput {
-	return i.ToBotAssociationLexBotPtrOutputWithContext(context.Background())
-}
-
-func (i *botAssociationLexBotPtrType) ToBotAssociationLexBotPtrOutputWithContext(ctx context.Context) BotAssociationLexBotPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BotAssociationLexBotPtrOutput)
-}
-
 type BotAssociationLexBotOutput struct{ *pulumi.OutputState }
 
 func (BotAssociationLexBotOutput) ElementType() reflect.Type {
@@ -102,16 +61,6 @@ func (o BotAssociationLexBotOutput) ToBotAssociationLexBotOutputWithContext(ctx 
 	return o
 }
 
-func (o BotAssociationLexBotOutput) ToBotAssociationLexBotPtrOutput() BotAssociationLexBotPtrOutput {
-	return o.ToBotAssociationLexBotPtrOutputWithContext(context.Background())
-}
-
-func (o BotAssociationLexBotOutput) ToBotAssociationLexBotPtrOutputWithContext(ctx context.Context) BotAssociationLexBotPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BotAssociationLexBot) *BotAssociationLexBot {
-		return &v
-	}).(BotAssociationLexBotPtrOutput)
-}
-
 // The Region that the Amazon Lex (V1) bot was created in. Defaults to current region.
 func (o BotAssociationLexBotOutput) LexRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BotAssociationLexBot) *string { return v.LexRegion }).(pulumi.StringPtrOutput)
@@ -120,50 +69,6 @@ func (o BotAssociationLexBotOutput) LexRegion() pulumi.StringPtrOutput {
 // The name of the Amazon Lex (V1) bot.
 func (o BotAssociationLexBotOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v BotAssociationLexBot) string { return v.Name }).(pulumi.StringOutput)
-}
-
-type BotAssociationLexBotPtrOutput struct{ *pulumi.OutputState }
-
-func (BotAssociationLexBotPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**BotAssociationLexBot)(nil)).Elem()
-}
-
-func (o BotAssociationLexBotPtrOutput) ToBotAssociationLexBotPtrOutput() BotAssociationLexBotPtrOutput {
-	return o
-}
-
-func (o BotAssociationLexBotPtrOutput) ToBotAssociationLexBotPtrOutputWithContext(ctx context.Context) BotAssociationLexBotPtrOutput {
-	return o
-}
-
-func (o BotAssociationLexBotPtrOutput) Elem() BotAssociationLexBotOutput {
-	return o.ApplyT(func(v *BotAssociationLexBot) BotAssociationLexBot {
-		if v != nil {
-			return *v
-		}
-		var ret BotAssociationLexBot
-		return ret
-	}).(BotAssociationLexBotOutput)
-}
-
-// The Region that the Amazon Lex (V1) bot was created in. Defaults to current region.
-func (o BotAssociationLexBotPtrOutput) LexRegion() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *BotAssociationLexBot) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LexRegion
-	}).(pulumi.StringPtrOutput)
-}
-
-// The name of the Amazon Lex (V1) bot.
-func (o BotAssociationLexBotPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *BotAssociationLexBot) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Name
-	}).(pulumi.StringPtrOutput)
 }
 
 type HoursOfOperationConfig struct {
@@ -473,63 +378,6 @@ type GetHoursOfOperationConfig struct {
 	StartTimes []GetHoursOfOperationConfigStartTime `pulumi:"startTimes"`
 }
 
-// GetHoursOfOperationConfigInput is an input type that accepts GetHoursOfOperationConfigArgs and GetHoursOfOperationConfigOutput values.
-// You can construct a concrete instance of `GetHoursOfOperationConfigInput` via:
-//
-//          GetHoursOfOperationConfigArgs{...}
-type GetHoursOfOperationConfigInput interface {
-	pulumi.Input
-
-	ToGetHoursOfOperationConfigOutput() GetHoursOfOperationConfigOutput
-	ToGetHoursOfOperationConfigOutputWithContext(context.Context) GetHoursOfOperationConfigOutput
-}
-
-type GetHoursOfOperationConfigArgs struct {
-	// Specifies the day that the hours of operation applies to.
-	Day pulumi.StringInput `pulumi:"day"`
-	// A end time block specifies the time that your contact center closes. The `endTime` is documented below.
-	EndTimes GetHoursOfOperationConfigEndTimeArrayInput `pulumi:"endTimes"`
-	// A start time block specifies the time that your contact center opens. The `startTime` is documented below.
-	StartTimes GetHoursOfOperationConfigStartTimeArrayInput `pulumi:"startTimes"`
-}
-
-func (GetHoursOfOperationConfigArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetHoursOfOperationConfig)(nil)).Elem()
-}
-
-func (i GetHoursOfOperationConfigArgs) ToGetHoursOfOperationConfigOutput() GetHoursOfOperationConfigOutput {
-	return i.ToGetHoursOfOperationConfigOutputWithContext(context.Background())
-}
-
-func (i GetHoursOfOperationConfigArgs) ToGetHoursOfOperationConfigOutputWithContext(ctx context.Context) GetHoursOfOperationConfigOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetHoursOfOperationConfigOutput)
-}
-
-// GetHoursOfOperationConfigArrayInput is an input type that accepts GetHoursOfOperationConfigArray and GetHoursOfOperationConfigArrayOutput values.
-// You can construct a concrete instance of `GetHoursOfOperationConfigArrayInput` via:
-//
-//          GetHoursOfOperationConfigArray{ GetHoursOfOperationConfigArgs{...} }
-type GetHoursOfOperationConfigArrayInput interface {
-	pulumi.Input
-
-	ToGetHoursOfOperationConfigArrayOutput() GetHoursOfOperationConfigArrayOutput
-	ToGetHoursOfOperationConfigArrayOutputWithContext(context.Context) GetHoursOfOperationConfigArrayOutput
-}
-
-type GetHoursOfOperationConfigArray []GetHoursOfOperationConfigInput
-
-func (GetHoursOfOperationConfigArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetHoursOfOperationConfig)(nil)).Elem()
-}
-
-func (i GetHoursOfOperationConfigArray) ToGetHoursOfOperationConfigArrayOutput() GetHoursOfOperationConfigArrayOutput {
-	return i.ToGetHoursOfOperationConfigArrayOutputWithContext(context.Background())
-}
-
-func (i GetHoursOfOperationConfigArray) ToGetHoursOfOperationConfigArrayOutputWithContext(ctx context.Context) GetHoursOfOperationConfigArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetHoursOfOperationConfigArrayOutput)
-}
-
 type GetHoursOfOperationConfigOutput struct{ *pulumi.OutputState }
 
 func (GetHoursOfOperationConfigOutput) ElementType() reflect.Type {
@@ -586,61 +434,6 @@ type GetHoursOfOperationConfigEndTime struct {
 	Minutes int `pulumi:"minutes"`
 }
 
-// GetHoursOfOperationConfigEndTimeInput is an input type that accepts GetHoursOfOperationConfigEndTimeArgs and GetHoursOfOperationConfigEndTimeOutput values.
-// You can construct a concrete instance of `GetHoursOfOperationConfigEndTimeInput` via:
-//
-//          GetHoursOfOperationConfigEndTimeArgs{...}
-type GetHoursOfOperationConfigEndTimeInput interface {
-	pulumi.Input
-
-	ToGetHoursOfOperationConfigEndTimeOutput() GetHoursOfOperationConfigEndTimeOutput
-	ToGetHoursOfOperationConfigEndTimeOutputWithContext(context.Context) GetHoursOfOperationConfigEndTimeOutput
-}
-
-type GetHoursOfOperationConfigEndTimeArgs struct {
-	// Specifies the hour of opening.
-	Hours pulumi.IntInput `pulumi:"hours"`
-	// Specifies the minute of opening.
-	Minutes pulumi.IntInput `pulumi:"minutes"`
-}
-
-func (GetHoursOfOperationConfigEndTimeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetHoursOfOperationConfigEndTime)(nil)).Elem()
-}
-
-func (i GetHoursOfOperationConfigEndTimeArgs) ToGetHoursOfOperationConfigEndTimeOutput() GetHoursOfOperationConfigEndTimeOutput {
-	return i.ToGetHoursOfOperationConfigEndTimeOutputWithContext(context.Background())
-}
-
-func (i GetHoursOfOperationConfigEndTimeArgs) ToGetHoursOfOperationConfigEndTimeOutputWithContext(ctx context.Context) GetHoursOfOperationConfigEndTimeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetHoursOfOperationConfigEndTimeOutput)
-}
-
-// GetHoursOfOperationConfigEndTimeArrayInput is an input type that accepts GetHoursOfOperationConfigEndTimeArray and GetHoursOfOperationConfigEndTimeArrayOutput values.
-// You can construct a concrete instance of `GetHoursOfOperationConfigEndTimeArrayInput` via:
-//
-//          GetHoursOfOperationConfigEndTimeArray{ GetHoursOfOperationConfigEndTimeArgs{...} }
-type GetHoursOfOperationConfigEndTimeArrayInput interface {
-	pulumi.Input
-
-	ToGetHoursOfOperationConfigEndTimeArrayOutput() GetHoursOfOperationConfigEndTimeArrayOutput
-	ToGetHoursOfOperationConfigEndTimeArrayOutputWithContext(context.Context) GetHoursOfOperationConfigEndTimeArrayOutput
-}
-
-type GetHoursOfOperationConfigEndTimeArray []GetHoursOfOperationConfigEndTimeInput
-
-func (GetHoursOfOperationConfigEndTimeArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetHoursOfOperationConfigEndTime)(nil)).Elem()
-}
-
-func (i GetHoursOfOperationConfigEndTimeArray) ToGetHoursOfOperationConfigEndTimeArrayOutput() GetHoursOfOperationConfigEndTimeArrayOutput {
-	return i.ToGetHoursOfOperationConfigEndTimeArrayOutputWithContext(context.Background())
-}
-
-func (i GetHoursOfOperationConfigEndTimeArray) ToGetHoursOfOperationConfigEndTimeArrayOutputWithContext(ctx context.Context) GetHoursOfOperationConfigEndTimeArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetHoursOfOperationConfigEndTimeArrayOutput)
-}
-
 type GetHoursOfOperationConfigEndTimeOutput struct{ *pulumi.OutputState }
 
 func (GetHoursOfOperationConfigEndTimeOutput) ElementType() reflect.Type {
@@ -692,61 +485,6 @@ type GetHoursOfOperationConfigStartTime struct {
 	Minutes int `pulumi:"minutes"`
 }
 
-// GetHoursOfOperationConfigStartTimeInput is an input type that accepts GetHoursOfOperationConfigStartTimeArgs and GetHoursOfOperationConfigStartTimeOutput values.
-// You can construct a concrete instance of `GetHoursOfOperationConfigStartTimeInput` via:
-//
-//          GetHoursOfOperationConfigStartTimeArgs{...}
-type GetHoursOfOperationConfigStartTimeInput interface {
-	pulumi.Input
-
-	ToGetHoursOfOperationConfigStartTimeOutput() GetHoursOfOperationConfigStartTimeOutput
-	ToGetHoursOfOperationConfigStartTimeOutputWithContext(context.Context) GetHoursOfOperationConfigStartTimeOutput
-}
-
-type GetHoursOfOperationConfigStartTimeArgs struct {
-	// Specifies the hour of opening.
-	Hours pulumi.IntInput `pulumi:"hours"`
-	// Specifies the minute of opening.
-	Minutes pulumi.IntInput `pulumi:"minutes"`
-}
-
-func (GetHoursOfOperationConfigStartTimeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetHoursOfOperationConfigStartTime)(nil)).Elem()
-}
-
-func (i GetHoursOfOperationConfigStartTimeArgs) ToGetHoursOfOperationConfigStartTimeOutput() GetHoursOfOperationConfigStartTimeOutput {
-	return i.ToGetHoursOfOperationConfigStartTimeOutputWithContext(context.Background())
-}
-
-func (i GetHoursOfOperationConfigStartTimeArgs) ToGetHoursOfOperationConfigStartTimeOutputWithContext(ctx context.Context) GetHoursOfOperationConfigStartTimeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetHoursOfOperationConfigStartTimeOutput)
-}
-
-// GetHoursOfOperationConfigStartTimeArrayInput is an input type that accepts GetHoursOfOperationConfigStartTimeArray and GetHoursOfOperationConfigStartTimeArrayOutput values.
-// You can construct a concrete instance of `GetHoursOfOperationConfigStartTimeArrayInput` via:
-//
-//          GetHoursOfOperationConfigStartTimeArray{ GetHoursOfOperationConfigStartTimeArgs{...} }
-type GetHoursOfOperationConfigStartTimeArrayInput interface {
-	pulumi.Input
-
-	ToGetHoursOfOperationConfigStartTimeArrayOutput() GetHoursOfOperationConfigStartTimeArrayOutput
-	ToGetHoursOfOperationConfigStartTimeArrayOutputWithContext(context.Context) GetHoursOfOperationConfigStartTimeArrayOutput
-}
-
-type GetHoursOfOperationConfigStartTimeArray []GetHoursOfOperationConfigStartTimeInput
-
-func (GetHoursOfOperationConfigStartTimeArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetHoursOfOperationConfigStartTime)(nil)).Elem()
-}
-
-func (i GetHoursOfOperationConfigStartTimeArray) ToGetHoursOfOperationConfigStartTimeArrayOutput() GetHoursOfOperationConfigStartTimeArrayOutput {
-	return i.ToGetHoursOfOperationConfigStartTimeArrayOutputWithContext(context.Background())
-}
-
-func (i GetHoursOfOperationConfigStartTimeArray) ToGetHoursOfOperationConfigStartTimeArrayOutputWithContext(ctx context.Context) GetHoursOfOperationConfigStartTimeArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetHoursOfOperationConfigStartTimeArrayOutput)
-}
-
 type GetHoursOfOperationConfigStartTimeOutput struct{ *pulumi.OutputState }
 
 func (GetHoursOfOperationConfigStartTimeOutput) ElementType() reflect.Type {
@@ -793,20 +531,12 @@ func (o GetHoursOfOperationConfigStartTimeArrayOutput) Index(i pulumi.IntInput) 
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BotAssociationLexBotInput)(nil)).Elem(), BotAssociationLexBotArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BotAssociationLexBotPtrInput)(nil)).Elem(), BotAssociationLexBotArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HoursOfOperationConfigInput)(nil)).Elem(), HoursOfOperationConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HoursOfOperationConfigArrayInput)(nil)).Elem(), HoursOfOperationConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HoursOfOperationConfigEndTimeInput)(nil)).Elem(), HoursOfOperationConfigEndTimeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HoursOfOperationConfigStartTimeInput)(nil)).Elem(), HoursOfOperationConfigStartTimeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetBotAssociationLexBotInput)(nil)).Elem(), GetBotAssociationLexBotArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetHoursOfOperationConfigInput)(nil)).Elem(), GetHoursOfOperationConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetHoursOfOperationConfigArrayInput)(nil)).Elem(), GetHoursOfOperationConfigArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetHoursOfOperationConfigEndTimeInput)(nil)).Elem(), GetHoursOfOperationConfigEndTimeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetHoursOfOperationConfigEndTimeArrayInput)(nil)).Elem(), GetHoursOfOperationConfigEndTimeArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetHoursOfOperationConfigStartTimeInput)(nil)).Elem(), GetHoursOfOperationConfigStartTimeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetHoursOfOperationConfigStartTimeArrayInput)(nil)).Elem(), GetHoursOfOperationConfigStartTimeArray{})
 	pulumi.RegisterOutputType(BotAssociationLexBotOutput{})
-	pulumi.RegisterOutputType(BotAssociationLexBotPtrOutput{})
 	pulumi.RegisterOutputType(HoursOfOperationConfigOutput{})
 	pulumi.RegisterOutputType(HoursOfOperationConfigArrayOutput{})
 	pulumi.RegisterOutputType(HoursOfOperationConfigEndTimeOutput{})

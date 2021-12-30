@@ -1191,59 +1191,6 @@ type GetJobQueueComputeEnvironmentOrder struct {
 	Order              int    `pulumi:"order"`
 }
 
-// GetJobQueueComputeEnvironmentOrderInput is an input type that accepts GetJobQueueComputeEnvironmentOrderArgs and GetJobQueueComputeEnvironmentOrderOutput values.
-// You can construct a concrete instance of `GetJobQueueComputeEnvironmentOrderInput` via:
-//
-//          GetJobQueueComputeEnvironmentOrderArgs{...}
-type GetJobQueueComputeEnvironmentOrderInput interface {
-	pulumi.Input
-
-	ToGetJobQueueComputeEnvironmentOrderOutput() GetJobQueueComputeEnvironmentOrderOutput
-	ToGetJobQueueComputeEnvironmentOrderOutputWithContext(context.Context) GetJobQueueComputeEnvironmentOrderOutput
-}
-
-type GetJobQueueComputeEnvironmentOrderArgs struct {
-	ComputeEnvironment pulumi.StringInput `pulumi:"computeEnvironment"`
-	Order              pulumi.IntInput    `pulumi:"order"`
-}
-
-func (GetJobQueueComputeEnvironmentOrderArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetJobQueueComputeEnvironmentOrder)(nil)).Elem()
-}
-
-func (i GetJobQueueComputeEnvironmentOrderArgs) ToGetJobQueueComputeEnvironmentOrderOutput() GetJobQueueComputeEnvironmentOrderOutput {
-	return i.ToGetJobQueueComputeEnvironmentOrderOutputWithContext(context.Background())
-}
-
-func (i GetJobQueueComputeEnvironmentOrderArgs) ToGetJobQueueComputeEnvironmentOrderOutputWithContext(ctx context.Context) GetJobQueueComputeEnvironmentOrderOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetJobQueueComputeEnvironmentOrderOutput)
-}
-
-// GetJobQueueComputeEnvironmentOrderArrayInput is an input type that accepts GetJobQueueComputeEnvironmentOrderArray and GetJobQueueComputeEnvironmentOrderArrayOutput values.
-// You can construct a concrete instance of `GetJobQueueComputeEnvironmentOrderArrayInput` via:
-//
-//          GetJobQueueComputeEnvironmentOrderArray{ GetJobQueueComputeEnvironmentOrderArgs{...} }
-type GetJobQueueComputeEnvironmentOrderArrayInput interface {
-	pulumi.Input
-
-	ToGetJobQueueComputeEnvironmentOrderArrayOutput() GetJobQueueComputeEnvironmentOrderArrayOutput
-	ToGetJobQueueComputeEnvironmentOrderArrayOutputWithContext(context.Context) GetJobQueueComputeEnvironmentOrderArrayOutput
-}
-
-type GetJobQueueComputeEnvironmentOrderArray []GetJobQueueComputeEnvironmentOrderInput
-
-func (GetJobQueueComputeEnvironmentOrderArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetJobQueueComputeEnvironmentOrder)(nil)).Elem()
-}
-
-func (i GetJobQueueComputeEnvironmentOrderArray) ToGetJobQueueComputeEnvironmentOrderArrayOutput() GetJobQueueComputeEnvironmentOrderArrayOutput {
-	return i.ToGetJobQueueComputeEnvironmentOrderArrayOutputWithContext(context.Background())
-}
-
-func (i GetJobQueueComputeEnvironmentOrderArray) ToGetJobQueueComputeEnvironmentOrderArrayOutputWithContext(ctx context.Context) GetJobQueueComputeEnvironmentOrderArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetJobQueueComputeEnvironmentOrderArrayOutput)
-}
-
 type GetJobQueueComputeEnvironmentOrderOutput struct{ *pulumi.OutputState }
 
 func (GetJobQueueComputeEnvironmentOrderOutput) ElementType() reflect.Type {
@@ -1299,8 +1246,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionRetryStrategyEvaluateOnExitArrayInput)(nil)).Elem(), JobDefinitionRetryStrategyEvaluateOnExitArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionTimeoutInput)(nil)).Elem(), JobDefinitionTimeoutArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionTimeoutPtrInput)(nil)).Elem(), JobDefinitionTimeoutArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetJobQueueComputeEnvironmentOrderInput)(nil)).Elem(), GetJobQueueComputeEnvironmentOrderArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetJobQueueComputeEnvironmentOrderArrayInput)(nil)).Elem(), GetJobQueueComputeEnvironmentOrderArray{})
 	pulumi.RegisterOutputType(ComputeEnvironmentComputeResourcesOutput{})
 	pulumi.RegisterOutputType(ComputeEnvironmentComputeResourcesPtrOutput{})
 	pulumi.RegisterOutputType(ComputeEnvironmentComputeResourcesEc2ConfigurationOutput{})

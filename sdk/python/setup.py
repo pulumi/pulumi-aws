@@ -45,7 +45,7 @@ setup(name='pulumi_aws',
       cmdclass={
           'install': InstallPluginCommand,
       },
-      keywords='pulumi aws',
+      keywords='pulumi aws category/cloud',
       url='https://pulumi.io',
       project_urls={
           'Repository': 'https://github.com/pulumi/pulumi-aws'
@@ -55,6 +55,7 @@ setup(name='pulumi_aws',
       package_data={
           'pulumi_aws': [
               'py.typed',
+              'pulumi-plugin.json',
           ]
       },
       install_requires=[

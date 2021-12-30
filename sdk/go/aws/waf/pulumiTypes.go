@@ -1525,47 +1525,6 @@ func (i WebAclDefaultActionArgs) ToWebAclDefaultActionOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(WebAclDefaultActionOutput)
 }
 
-func (i WebAclDefaultActionArgs) ToWebAclDefaultActionPtrOutput() WebAclDefaultActionPtrOutput {
-	return i.ToWebAclDefaultActionPtrOutputWithContext(context.Background())
-}
-
-func (i WebAclDefaultActionArgs) ToWebAclDefaultActionPtrOutputWithContext(ctx context.Context) WebAclDefaultActionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclDefaultActionOutput).ToWebAclDefaultActionPtrOutputWithContext(ctx)
-}
-
-// WebAclDefaultActionPtrInput is an input type that accepts WebAclDefaultActionArgs, WebAclDefaultActionPtr and WebAclDefaultActionPtrOutput values.
-// You can construct a concrete instance of `WebAclDefaultActionPtrInput` via:
-//
-//          WebAclDefaultActionArgs{...}
-//
-//  or:
-//
-//          nil
-type WebAclDefaultActionPtrInput interface {
-	pulumi.Input
-
-	ToWebAclDefaultActionPtrOutput() WebAclDefaultActionPtrOutput
-	ToWebAclDefaultActionPtrOutputWithContext(context.Context) WebAclDefaultActionPtrOutput
-}
-
-type webAclDefaultActionPtrType WebAclDefaultActionArgs
-
-func WebAclDefaultActionPtr(v *WebAclDefaultActionArgs) WebAclDefaultActionPtrInput {
-	return (*webAclDefaultActionPtrType)(v)
-}
-
-func (*webAclDefaultActionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebAclDefaultAction)(nil)).Elem()
-}
-
-func (i *webAclDefaultActionPtrType) ToWebAclDefaultActionPtrOutput() WebAclDefaultActionPtrOutput {
-	return i.ToWebAclDefaultActionPtrOutputWithContext(context.Background())
-}
-
-func (i *webAclDefaultActionPtrType) ToWebAclDefaultActionPtrOutputWithContext(ctx context.Context) WebAclDefaultActionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WebAclDefaultActionPtrOutput)
-}
-
 type WebAclDefaultActionOutput struct{ *pulumi.OutputState }
 
 func (WebAclDefaultActionOutput) ElementType() reflect.Type {
@@ -1580,53 +1539,9 @@ func (o WebAclDefaultActionOutput) ToWebAclDefaultActionOutputWithContext(ctx co
 	return o
 }
 
-func (o WebAclDefaultActionOutput) ToWebAclDefaultActionPtrOutput() WebAclDefaultActionPtrOutput {
-	return o.ToWebAclDefaultActionPtrOutputWithContext(context.Background())
-}
-
-func (o WebAclDefaultActionOutput) ToWebAclDefaultActionPtrOutputWithContext(ctx context.Context) WebAclDefaultActionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WebAclDefaultAction) *WebAclDefaultAction {
-		return &v
-	}).(WebAclDefaultActionPtrOutput)
-}
-
 // The rule type, either `REGULAR`, as defined by [Rule](http://docs.aws.amazon.com/waf/latest/APIReference/API_Rule.html), `RATE_BASED`, as defined by [RateBasedRule](http://docs.aws.amazon.com/waf/latest/APIReference/API_RateBasedRule.html), or `GROUP`, as defined by [RuleGroup](https://docs.aws.amazon.com/waf/latest/APIReference/API_RuleGroup.html). The default is REGULAR. If you add a RATE_BASED rule, you need to set `type` as `RATE_BASED`. If you add a GROUP rule, you need to set `type` as `GROUP`.
 func (o WebAclDefaultActionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v WebAclDefaultAction) string { return v.Type }).(pulumi.StringOutput)
-}
-
-type WebAclDefaultActionPtrOutput struct{ *pulumi.OutputState }
-
-func (WebAclDefaultActionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WebAclDefaultAction)(nil)).Elem()
-}
-
-func (o WebAclDefaultActionPtrOutput) ToWebAclDefaultActionPtrOutput() WebAclDefaultActionPtrOutput {
-	return o
-}
-
-func (o WebAclDefaultActionPtrOutput) ToWebAclDefaultActionPtrOutputWithContext(ctx context.Context) WebAclDefaultActionPtrOutput {
-	return o
-}
-
-func (o WebAclDefaultActionPtrOutput) Elem() WebAclDefaultActionOutput {
-	return o.ApplyT(func(v *WebAclDefaultAction) WebAclDefaultAction {
-		if v != nil {
-			return *v
-		}
-		var ret WebAclDefaultAction
-		return ret
-	}).(WebAclDefaultActionOutput)
-}
-
-// The rule type, either `REGULAR`, as defined by [Rule](http://docs.aws.amazon.com/waf/latest/APIReference/API_Rule.html), `RATE_BASED`, as defined by [RateBasedRule](http://docs.aws.amazon.com/waf/latest/APIReference/API_RateBasedRule.html), or `GROUP`, as defined by [RuleGroup](https://docs.aws.amazon.com/waf/latest/APIReference/API_RuleGroup.html). The default is REGULAR. If you add a RATE_BASED rule, you need to set `type` as `RATE_BASED`. If you add a GROUP rule, you need to set `type` as `GROUP`.
-func (o WebAclDefaultActionPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WebAclDefaultAction) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Type
-	}).(pulumi.StringPtrOutput)
 }
 
 type WebAclLoggingConfiguration struct {
@@ -2656,7 +2571,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SqlInjectionMatchSetSqlInjectionMatchTupleArrayInput)(nil)).Elem(), SqlInjectionMatchSetSqlInjectionMatchTupleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatchInput)(nil)).Elem(), SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatchArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclDefaultActionInput)(nil)).Elem(), WebAclDefaultActionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WebAclDefaultActionPtrInput)(nil)).Elem(), WebAclDefaultActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclLoggingConfigurationInput)(nil)).Elem(), WebAclLoggingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclLoggingConfigurationPtrInput)(nil)).Elem(), WebAclLoggingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WebAclLoggingConfigurationRedactedFieldsInput)(nil)).Elem(), WebAclLoggingConfigurationRedactedFieldsArgs{})
@@ -2696,7 +2610,6 @@ func init() {
 	pulumi.RegisterOutputType(SqlInjectionMatchSetSqlInjectionMatchTupleArrayOutput{})
 	pulumi.RegisterOutputType(SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatchOutput{})
 	pulumi.RegisterOutputType(WebAclDefaultActionOutput{})
-	pulumi.RegisterOutputType(WebAclDefaultActionPtrOutput{})
 	pulumi.RegisterOutputType(WebAclLoggingConfigurationOutput{})
 	pulumi.RegisterOutputType(WebAclLoggingConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(WebAclLoggingConfigurationRedactedFieldsOutput{})

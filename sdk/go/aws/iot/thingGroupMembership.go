@@ -143,7 +143,7 @@ type ThingGroupMembershipInput interface {
 }
 
 func (*ThingGroupMembership) ElementType() reflect.Type {
-	return reflect.TypeOf((*ThingGroupMembership)(nil))
+	return reflect.TypeOf((**ThingGroupMembership)(nil)).Elem()
 }
 
 func (i *ThingGroupMembership) ToThingGroupMembershipOutput() ThingGroupMembershipOutput {
@@ -152,35 +152,6 @@ func (i *ThingGroupMembership) ToThingGroupMembershipOutput() ThingGroupMembersh
 
 func (i *ThingGroupMembership) ToThingGroupMembershipOutputWithContext(ctx context.Context) ThingGroupMembershipOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ThingGroupMembershipOutput)
-}
-
-func (i *ThingGroupMembership) ToThingGroupMembershipPtrOutput() ThingGroupMembershipPtrOutput {
-	return i.ToThingGroupMembershipPtrOutputWithContext(context.Background())
-}
-
-func (i *ThingGroupMembership) ToThingGroupMembershipPtrOutputWithContext(ctx context.Context) ThingGroupMembershipPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ThingGroupMembershipPtrOutput)
-}
-
-type ThingGroupMembershipPtrInput interface {
-	pulumi.Input
-
-	ToThingGroupMembershipPtrOutput() ThingGroupMembershipPtrOutput
-	ToThingGroupMembershipPtrOutputWithContext(ctx context.Context) ThingGroupMembershipPtrOutput
-}
-
-type thingGroupMembershipPtrType ThingGroupMembershipArgs
-
-func (*thingGroupMembershipPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ThingGroupMembership)(nil))
-}
-
-func (i *thingGroupMembershipPtrType) ToThingGroupMembershipPtrOutput() ThingGroupMembershipPtrOutput {
-	return i.ToThingGroupMembershipPtrOutputWithContext(context.Background())
-}
-
-func (i *thingGroupMembershipPtrType) ToThingGroupMembershipPtrOutputWithContext(ctx context.Context) ThingGroupMembershipPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ThingGroupMembershipPtrOutput)
 }
 
 // ThingGroupMembershipArrayInput is an input type that accepts ThingGroupMembershipArray and ThingGroupMembershipArrayOutput values.
@@ -236,7 +207,7 @@ func (i ThingGroupMembershipMap) ToThingGroupMembershipMapOutputWithContext(ctx 
 type ThingGroupMembershipOutput struct{ *pulumi.OutputState }
 
 func (ThingGroupMembershipOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ThingGroupMembership)(nil))
+	return reflect.TypeOf((**ThingGroupMembership)(nil)).Elem()
 }
 
 func (o ThingGroupMembershipOutput) ToThingGroupMembershipOutput() ThingGroupMembershipOutput {
@@ -247,44 +218,10 @@ func (o ThingGroupMembershipOutput) ToThingGroupMembershipOutputWithContext(ctx 
 	return o
 }
 
-func (o ThingGroupMembershipOutput) ToThingGroupMembershipPtrOutput() ThingGroupMembershipPtrOutput {
-	return o.ToThingGroupMembershipPtrOutputWithContext(context.Background())
-}
-
-func (o ThingGroupMembershipOutput) ToThingGroupMembershipPtrOutputWithContext(ctx context.Context) ThingGroupMembershipPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ThingGroupMembership) *ThingGroupMembership {
-		return &v
-	}).(ThingGroupMembershipPtrOutput)
-}
-
-type ThingGroupMembershipPtrOutput struct{ *pulumi.OutputState }
-
-func (ThingGroupMembershipPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ThingGroupMembership)(nil))
-}
-
-func (o ThingGroupMembershipPtrOutput) ToThingGroupMembershipPtrOutput() ThingGroupMembershipPtrOutput {
-	return o
-}
-
-func (o ThingGroupMembershipPtrOutput) ToThingGroupMembershipPtrOutputWithContext(ctx context.Context) ThingGroupMembershipPtrOutput {
-	return o
-}
-
-func (o ThingGroupMembershipPtrOutput) Elem() ThingGroupMembershipOutput {
-	return o.ApplyT(func(v *ThingGroupMembership) ThingGroupMembership {
-		if v != nil {
-			return *v
-		}
-		var ret ThingGroupMembership
-		return ret
-	}).(ThingGroupMembershipOutput)
-}
-
 type ThingGroupMembershipArrayOutput struct{ *pulumi.OutputState }
 
 func (ThingGroupMembershipArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ThingGroupMembership)(nil))
+	return reflect.TypeOf((*[]*ThingGroupMembership)(nil)).Elem()
 }
 
 func (o ThingGroupMembershipArrayOutput) ToThingGroupMembershipArrayOutput() ThingGroupMembershipArrayOutput {
@@ -296,15 +233,15 @@ func (o ThingGroupMembershipArrayOutput) ToThingGroupMembershipArrayOutputWithCo
 }
 
 func (o ThingGroupMembershipArrayOutput) Index(i pulumi.IntInput) ThingGroupMembershipOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ThingGroupMembership {
-		return vs[0].([]ThingGroupMembership)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ThingGroupMembership {
+		return vs[0].([]*ThingGroupMembership)[vs[1].(int)]
 	}).(ThingGroupMembershipOutput)
 }
 
 type ThingGroupMembershipMapOutput struct{ *pulumi.OutputState }
 
 func (ThingGroupMembershipMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ThingGroupMembership)(nil))
+	return reflect.TypeOf((*map[string]*ThingGroupMembership)(nil)).Elem()
 }
 
 func (o ThingGroupMembershipMapOutput) ToThingGroupMembershipMapOutput() ThingGroupMembershipMapOutput {
@@ -316,18 +253,16 @@ func (o ThingGroupMembershipMapOutput) ToThingGroupMembershipMapOutputWithContex
 }
 
 func (o ThingGroupMembershipMapOutput) MapIndex(k pulumi.StringInput) ThingGroupMembershipOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ThingGroupMembership {
-		return vs[0].(map[string]ThingGroupMembership)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ThingGroupMembership {
+		return vs[0].(map[string]*ThingGroupMembership)[vs[1].(string)]
 	}).(ThingGroupMembershipOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ThingGroupMembershipInput)(nil)).Elem(), &ThingGroupMembership{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ThingGroupMembershipPtrInput)(nil)).Elem(), &ThingGroupMembership{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ThingGroupMembershipArrayInput)(nil)).Elem(), ThingGroupMembershipArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ThingGroupMembershipMapInput)(nil)).Elem(), ThingGroupMembershipMap{})
 	pulumi.RegisterOutputType(ThingGroupMembershipOutput{})
-	pulumi.RegisterOutputType(ThingGroupMembershipPtrOutput{})
 	pulumi.RegisterOutputType(ThingGroupMembershipArrayOutput{})
 	pulumi.RegisterOutputType(ThingGroupMembershipMapOutput{})
 }

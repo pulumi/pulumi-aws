@@ -133,22 +133,22 @@ export class Workspace extends pulumi.CustomResource {
      */
     constructor(name: string, args: WorkspaceArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: WorkspaceArgs | WorkspaceState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WorkspaceState | undefined;
-            inputs["bundleId"] = state ? state.bundleId : undefined;
-            inputs["computerName"] = state ? state.computerName : undefined;
-            inputs["directoryId"] = state ? state.directoryId : undefined;
-            inputs["ipAddress"] = state ? state.ipAddress : undefined;
-            inputs["rootVolumeEncryptionEnabled"] = state ? state.rootVolumeEncryptionEnabled : undefined;
-            inputs["state"] = state ? state.state : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["userName"] = state ? state.userName : undefined;
-            inputs["userVolumeEncryptionEnabled"] = state ? state.userVolumeEncryptionEnabled : undefined;
-            inputs["volumeEncryptionKey"] = state ? state.volumeEncryptionKey : undefined;
-            inputs["workspaceProperties"] = state ? state.workspaceProperties : undefined;
+            resourceInputs["bundleId"] = state ? state.bundleId : undefined;
+            resourceInputs["computerName"] = state ? state.computerName : undefined;
+            resourceInputs["directoryId"] = state ? state.directoryId : undefined;
+            resourceInputs["ipAddress"] = state ? state.ipAddress : undefined;
+            resourceInputs["rootVolumeEncryptionEnabled"] = state ? state.rootVolumeEncryptionEnabled : undefined;
+            resourceInputs["state"] = state ? state.state : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["userName"] = state ? state.userName : undefined;
+            resourceInputs["userVolumeEncryptionEnabled"] = state ? state.userVolumeEncryptionEnabled : undefined;
+            resourceInputs["volumeEncryptionKey"] = state ? state.volumeEncryptionKey : undefined;
+            resourceInputs["workspaceProperties"] = state ? state.workspaceProperties : undefined;
         } else {
             const args = argsOrState as WorkspaceArgs | undefined;
             if ((!args || args.bundleId === undefined) && !opts.urn) {
@@ -160,23 +160,23 @@ export class Workspace extends pulumi.CustomResource {
             if ((!args || args.userName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'userName'");
             }
-            inputs["bundleId"] = args ? args.bundleId : undefined;
-            inputs["directoryId"] = args ? args.directoryId : undefined;
-            inputs["rootVolumeEncryptionEnabled"] = args ? args.rootVolumeEncryptionEnabled : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["userName"] = args ? args.userName : undefined;
-            inputs["userVolumeEncryptionEnabled"] = args ? args.userVolumeEncryptionEnabled : undefined;
-            inputs["volumeEncryptionKey"] = args ? args.volumeEncryptionKey : undefined;
-            inputs["workspaceProperties"] = args ? args.workspaceProperties : undefined;
-            inputs["computerName"] = undefined /*out*/;
-            inputs["ipAddress"] = undefined /*out*/;
-            inputs["state"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["bundleId"] = args ? args.bundleId : undefined;
+            resourceInputs["directoryId"] = args ? args.directoryId : undefined;
+            resourceInputs["rootVolumeEncryptionEnabled"] = args ? args.rootVolumeEncryptionEnabled : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["userName"] = args ? args.userName : undefined;
+            resourceInputs["userVolumeEncryptionEnabled"] = args ? args.userVolumeEncryptionEnabled : undefined;
+            resourceInputs["volumeEncryptionKey"] = args ? args.volumeEncryptionKey : undefined;
+            resourceInputs["workspaceProperties"] = args ? args.workspaceProperties : undefined;
+            resourceInputs["computerName"] = undefined /*out*/;
+            resourceInputs["ipAddress"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Workspace.__pulumiType, name, inputs, opts);
+        super(Workspace.__pulumiType, name, resourceInputs, opts);
     }
 }
 

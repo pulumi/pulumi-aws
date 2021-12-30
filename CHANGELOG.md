@@ -3,6 +3,8 @@ CHANGELOG
 
 ## HEAD (Unreleased)
 * Add support for db.t4g, db.m6g and db.r6g RDS instances
+* Upgrade to v3.15.0 of the pulumi-terraform-bridge.
+* Upgrade to pulumi v3.21.0
 
 ---
 

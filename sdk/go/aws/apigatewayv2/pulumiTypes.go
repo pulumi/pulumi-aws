@@ -449,47 +449,6 @@ func (i DomainNameDomainNameConfigurationArgs) ToDomainNameDomainNameConfigurati
 	return pulumi.ToOutputWithContext(ctx, i).(DomainNameDomainNameConfigurationOutput)
 }
 
-func (i DomainNameDomainNameConfigurationArgs) ToDomainNameDomainNameConfigurationPtrOutput() DomainNameDomainNameConfigurationPtrOutput {
-	return i.ToDomainNameDomainNameConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i DomainNameDomainNameConfigurationArgs) ToDomainNameDomainNameConfigurationPtrOutputWithContext(ctx context.Context) DomainNameDomainNameConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DomainNameDomainNameConfigurationOutput).ToDomainNameDomainNameConfigurationPtrOutputWithContext(ctx)
-}
-
-// DomainNameDomainNameConfigurationPtrInput is an input type that accepts DomainNameDomainNameConfigurationArgs, DomainNameDomainNameConfigurationPtr and DomainNameDomainNameConfigurationPtrOutput values.
-// You can construct a concrete instance of `DomainNameDomainNameConfigurationPtrInput` via:
-//
-//          DomainNameDomainNameConfigurationArgs{...}
-//
-//  or:
-//
-//          nil
-type DomainNameDomainNameConfigurationPtrInput interface {
-	pulumi.Input
-
-	ToDomainNameDomainNameConfigurationPtrOutput() DomainNameDomainNameConfigurationPtrOutput
-	ToDomainNameDomainNameConfigurationPtrOutputWithContext(context.Context) DomainNameDomainNameConfigurationPtrOutput
-}
-
-type domainNameDomainNameConfigurationPtrType DomainNameDomainNameConfigurationArgs
-
-func DomainNameDomainNameConfigurationPtr(v *DomainNameDomainNameConfigurationArgs) DomainNameDomainNameConfigurationPtrInput {
-	return (*domainNameDomainNameConfigurationPtrType)(v)
-}
-
-func (*domainNameDomainNameConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DomainNameDomainNameConfiguration)(nil)).Elem()
-}
-
-func (i *domainNameDomainNameConfigurationPtrType) ToDomainNameDomainNameConfigurationPtrOutput() DomainNameDomainNameConfigurationPtrOutput {
-	return i.ToDomainNameDomainNameConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i *domainNameDomainNameConfigurationPtrType) ToDomainNameDomainNameConfigurationPtrOutputWithContext(ctx context.Context) DomainNameDomainNameConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DomainNameDomainNameConfigurationPtrOutput)
-}
-
 type DomainNameDomainNameConfigurationOutput struct{ *pulumi.OutputState }
 
 func (DomainNameDomainNameConfigurationOutput) ElementType() reflect.Type {
@@ -502,16 +461,6 @@ func (o DomainNameDomainNameConfigurationOutput) ToDomainNameDomainNameConfigura
 
 func (o DomainNameDomainNameConfigurationOutput) ToDomainNameDomainNameConfigurationOutputWithContext(ctx context.Context) DomainNameDomainNameConfigurationOutput {
 	return o
-}
-
-func (o DomainNameDomainNameConfigurationOutput) ToDomainNameDomainNameConfigurationPtrOutput() DomainNameDomainNameConfigurationPtrOutput {
-	return o.ToDomainNameDomainNameConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (o DomainNameDomainNameConfigurationOutput) ToDomainNameDomainNameConfigurationPtrOutputWithContext(ctx context.Context) DomainNameDomainNameConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainNameDomainNameConfiguration) *DomainNameDomainNameConfiguration {
-		return &v
-	}).(DomainNameDomainNameConfigurationPtrOutput)
 }
 
 // The ARN of an AWS-managed certificate that will be used by the endpoint for the domain name. AWS Certificate Manager is the only supported source.
@@ -538,81 +487,6 @@ func (o DomainNameDomainNameConfigurationOutput) SecurityPolicy() pulumi.StringO
 // The target domain name.
 func (o DomainNameDomainNameConfigurationOutput) TargetDomainName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainNameDomainNameConfiguration) *string { return v.TargetDomainName }).(pulumi.StringPtrOutput)
-}
-
-type DomainNameDomainNameConfigurationPtrOutput struct{ *pulumi.OutputState }
-
-func (DomainNameDomainNameConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DomainNameDomainNameConfiguration)(nil)).Elem()
-}
-
-func (o DomainNameDomainNameConfigurationPtrOutput) ToDomainNameDomainNameConfigurationPtrOutput() DomainNameDomainNameConfigurationPtrOutput {
-	return o
-}
-
-func (o DomainNameDomainNameConfigurationPtrOutput) ToDomainNameDomainNameConfigurationPtrOutputWithContext(ctx context.Context) DomainNameDomainNameConfigurationPtrOutput {
-	return o
-}
-
-func (o DomainNameDomainNameConfigurationPtrOutput) Elem() DomainNameDomainNameConfigurationOutput {
-	return o.ApplyT(func(v *DomainNameDomainNameConfiguration) DomainNameDomainNameConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret DomainNameDomainNameConfiguration
-		return ret
-	}).(DomainNameDomainNameConfigurationOutput)
-}
-
-// The ARN of an AWS-managed certificate that will be used by the endpoint for the domain name. AWS Certificate Manager is the only supported source.
-// Use the `acm.Certificate` resource to configure an ACM certificate.
-func (o DomainNameDomainNameConfigurationPtrOutput) CertificateArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DomainNameDomainNameConfiguration) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.CertificateArn
-	}).(pulumi.StringPtrOutput)
-}
-
-// The endpoint type. Valid values: `REGIONAL`.
-func (o DomainNameDomainNameConfigurationPtrOutput) EndpointType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DomainNameDomainNameConfiguration) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.EndpointType
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Amazon Route 53 Hosted Zone ID of the endpoint.
-func (o DomainNameDomainNameConfigurationPtrOutput) HostedZoneId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DomainNameDomainNameConfiguration) *string {
-		if v == nil {
-			return nil
-		}
-		return v.HostedZoneId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The Transport Layer Security (TLS) version of the [security policy](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-custom-domain-tls-version.html) for the domain name. Valid values: `TLS_1_2`.
-func (o DomainNameDomainNameConfigurationPtrOutput) SecurityPolicy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DomainNameDomainNameConfiguration) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.SecurityPolicy
-	}).(pulumi.StringPtrOutput)
-}
-
-// The target domain name.
-func (o DomainNameDomainNameConfigurationPtrOutput) TargetDomainName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DomainNameDomainNameConfiguration) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TargetDomainName
-	}).(pulumi.StringPtrOutput)
 }
 
 type DomainNameMutualTlsAuthentication struct {
@@ -1667,69 +1541,6 @@ type GetApiCorsConfiguration struct {
 	MaxAge int `pulumi:"maxAge"`
 }
 
-// GetApiCorsConfigurationInput is an input type that accepts GetApiCorsConfigurationArgs and GetApiCorsConfigurationOutput values.
-// You can construct a concrete instance of `GetApiCorsConfigurationInput` via:
-//
-//          GetApiCorsConfigurationArgs{...}
-type GetApiCorsConfigurationInput interface {
-	pulumi.Input
-
-	ToGetApiCorsConfigurationOutput() GetApiCorsConfigurationOutput
-	ToGetApiCorsConfigurationOutputWithContext(context.Context) GetApiCorsConfigurationOutput
-}
-
-type GetApiCorsConfigurationArgs struct {
-	// Whether credentials are included in the CORS request.
-	AllowCredentials pulumi.BoolInput `pulumi:"allowCredentials"`
-	// The set of allowed HTTP headers.
-	AllowHeaders pulumi.StringArrayInput `pulumi:"allowHeaders"`
-	// The set of allowed HTTP methods.
-	AllowMethods pulumi.StringArrayInput `pulumi:"allowMethods"`
-	// The set of allowed origins.
-	AllowOrigins pulumi.StringArrayInput `pulumi:"allowOrigins"`
-	// The set of exposed HTTP headers.
-	ExposeHeaders pulumi.StringArrayInput `pulumi:"exposeHeaders"`
-	// The number of seconds that the browser should cache preflight request results.
-	MaxAge pulumi.IntInput `pulumi:"maxAge"`
-}
-
-func (GetApiCorsConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetApiCorsConfiguration)(nil)).Elem()
-}
-
-func (i GetApiCorsConfigurationArgs) ToGetApiCorsConfigurationOutput() GetApiCorsConfigurationOutput {
-	return i.ToGetApiCorsConfigurationOutputWithContext(context.Background())
-}
-
-func (i GetApiCorsConfigurationArgs) ToGetApiCorsConfigurationOutputWithContext(ctx context.Context) GetApiCorsConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetApiCorsConfigurationOutput)
-}
-
-// GetApiCorsConfigurationArrayInput is an input type that accepts GetApiCorsConfigurationArray and GetApiCorsConfigurationArrayOutput values.
-// You can construct a concrete instance of `GetApiCorsConfigurationArrayInput` via:
-//
-//          GetApiCorsConfigurationArray{ GetApiCorsConfigurationArgs{...} }
-type GetApiCorsConfigurationArrayInput interface {
-	pulumi.Input
-
-	ToGetApiCorsConfigurationArrayOutput() GetApiCorsConfigurationArrayOutput
-	ToGetApiCorsConfigurationArrayOutputWithContext(context.Context) GetApiCorsConfigurationArrayOutput
-}
-
-type GetApiCorsConfigurationArray []GetApiCorsConfigurationInput
-
-func (GetApiCorsConfigurationArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetApiCorsConfiguration)(nil)).Elem()
-}
-
-func (i GetApiCorsConfigurationArray) ToGetApiCorsConfigurationArrayOutput() GetApiCorsConfigurationArrayOutput {
-	return i.ToGetApiCorsConfigurationArrayOutputWithContext(context.Background())
-}
-
-func (i GetApiCorsConfigurationArray) ToGetApiCorsConfigurationArrayOutputWithContext(ctx context.Context) GetApiCorsConfigurationArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetApiCorsConfigurationArrayOutput)
-}
-
 type GetApiCorsConfigurationOutput struct{ *pulumi.OutputState }
 
 func (GetApiCorsConfigurationOutput) ElementType() reflect.Type {
@@ -1800,7 +1611,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AuthorizerJwtConfigurationInput)(nil)).Elem(), AuthorizerJwtConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AuthorizerJwtConfigurationPtrInput)(nil)).Elem(), AuthorizerJwtConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainNameDomainNameConfigurationInput)(nil)).Elem(), DomainNameDomainNameConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DomainNameDomainNameConfigurationPtrInput)(nil)).Elem(), DomainNameDomainNameConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainNameMutualTlsAuthenticationInput)(nil)).Elem(), DomainNameMutualTlsAuthenticationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainNameMutualTlsAuthenticationPtrInput)(nil)).Elem(), DomainNameMutualTlsAuthenticationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationResponseParameterInput)(nil)).Elem(), IntegrationResponseParameterArgs{})
@@ -1815,14 +1625,11 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StageDefaultRouteSettingsPtrInput)(nil)).Elem(), StageDefaultRouteSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StageRouteSettingInput)(nil)).Elem(), StageRouteSettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StageRouteSettingArrayInput)(nil)).Elem(), StageRouteSettingArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetApiCorsConfigurationInput)(nil)).Elem(), GetApiCorsConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetApiCorsConfigurationArrayInput)(nil)).Elem(), GetApiCorsConfigurationArray{})
 	pulumi.RegisterOutputType(ApiCorsConfigurationOutput{})
 	pulumi.RegisterOutputType(ApiCorsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AuthorizerJwtConfigurationOutput{})
 	pulumi.RegisterOutputType(AuthorizerJwtConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DomainNameDomainNameConfigurationOutput{})
-	pulumi.RegisterOutputType(DomainNameDomainNameConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DomainNameMutualTlsAuthenticationOutput{})
 	pulumi.RegisterOutputType(DomainNameMutualTlsAuthenticationPtrOutput{})
 	pulumi.RegisterOutputType(IntegrationResponseParameterOutput{})

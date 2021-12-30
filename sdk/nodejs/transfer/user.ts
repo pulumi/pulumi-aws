@@ -152,21 +152,21 @@ export class User extends pulumi.CustomResource {
      */
     constructor(name: string, args: UserArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: UserArgs | UserState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as UserState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["homeDirectory"] = state ? state.homeDirectory : undefined;
-            inputs["homeDirectoryMappings"] = state ? state.homeDirectoryMappings : undefined;
-            inputs["homeDirectoryType"] = state ? state.homeDirectoryType : undefined;
-            inputs["policy"] = state ? state.policy : undefined;
-            inputs["posixProfile"] = state ? state.posixProfile : undefined;
-            inputs["role"] = state ? state.role : undefined;
-            inputs["serverId"] = state ? state.serverId : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["userName"] = state ? state.userName : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["homeDirectory"] = state ? state.homeDirectory : undefined;
+            resourceInputs["homeDirectoryMappings"] = state ? state.homeDirectoryMappings : undefined;
+            resourceInputs["homeDirectoryType"] = state ? state.homeDirectoryType : undefined;
+            resourceInputs["policy"] = state ? state.policy : undefined;
+            resourceInputs["posixProfile"] = state ? state.posixProfile : undefined;
+            resourceInputs["role"] = state ? state.role : undefined;
+            resourceInputs["serverId"] = state ? state.serverId : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["userName"] = state ? state.userName : undefined;
         } else {
             const args = argsOrState as UserArgs | undefined;
             if ((!args || args.role === undefined) && !opts.urn) {
@@ -178,22 +178,22 @@ export class User extends pulumi.CustomResource {
             if ((!args || args.userName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'userName'");
             }
-            inputs["homeDirectory"] = args ? args.homeDirectory : undefined;
-            inputs["homeDirectoryMappings"] = args ? args.homeDirectoryMappings : undefined;
-            inputs["homeDirectoryType"] = args ? args.homeDirectoryType : undefined;
-            inputs["policy"] = args ? args.policy : undefined;
-            inputs["posixProfile"] = args ? args.posixProfile : undefined;
-            inputs["role"] = args ? args.role : undefined;
-            inputs["serverId"] = args ? args.serverId : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["userName"] = args ? args.userName : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["homeDirectory"] = args ? args.homeDirectory : undefined;
+            resourceInputs["homeDirectoryMappings"] = args ? args.homeDirectoryMappings : undefined;
+            resourceInputs["homeDirectoryType"] = args ? args.homeDirectoryType : undefined;
+            resourceInputs["policy"] = args ? args.policy : undefined;
+            resourceInputs["posixProfile"] = args ? args.posixProfile : undefined;
+            resourceInputs["role"] = args ? args.role : undefined;
+            resourceInputs["serverId"] = args ? args.serverId : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["userName"] = args ? args.userName : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(User.__pulumiType, name, inputs, opts);
+        super(User.__pulumiType, name, resourceInputs, opts);
     }
 }
 

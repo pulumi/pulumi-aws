@@ -274,45 +274,45 @@ export class PatchBaseline extends pulumi.CustomResource {
      */
     constructor(name: string, args?: PatchBaselineArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PatchBaselineArgs | PatchBaselineState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PatchBaselineState | undefined;
-            inputs["approvalRules"] = state ? state.approvalRules : undefined;
-            inputs["approvedPatches"] = state ? state.approvedPatches : undefined;
-            inputs["approvedPatchesComplianceLevel"] = state ? state.approvedPatchesComplianceLevel : undefined;
-            inputs["approvedPatchesEnableNonSecurity"] = state ? state.approvedPatchesEnableNonSecurity : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["globalFilters"] = state ? state.globalFilters : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["operatingSystem"] = state ? state.operatingSystem : undefined;
-            inputs["rejectedPatches"] = state ? state.rejectedPatches : undefined;
-            inputs["rejectedPatchesAction"] = state ? state.rejectedPatchesAction : undefined;
-            inputs["sources"] = state ? state.sources : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["approvalRules"] = state ? state.approvalRules : undefined;
+            resourceInputs["approvedPatches"] = state ? state.approvedPatches : undefined;
+            resourceInputs["approvedPatchesComplianceLevel"] = state ? state.approvedPatchesComplianceLevel : undefined;
+            resourceInputs["approvedPatchesEnableNonSecurity"] = state ? state.approvedPatchesEnableNonSecurity : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["globalFilters"] = state ? state.globalFilters : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["operatingSystem"] = state ? state.operatingSystem : undefined;
+            resourceInputs["rejectedPatches"] = state ? state.rejectedPatches : undefined;
+            resourceInputs["rejectedPatchesAction"] = state ? state.rejectedPatchesAction : undefined;
+            resourceInputs["sources"] = state ? state.sources : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as PatchBaselineArgs | undefined;
-            inputs["approvalRules"] = args ? args.approvalRules : undefined;
-            inputs["approvedPatches"] = args ? args.approvedPatches : undefined;
-            inputs["approvedPatchesComplianceLevel"] = args ? args.approvedPatchesComplianceLevel : undefined;
-            inputs["approvedPatchesEnableNonSecurity"] = args ? args.approvedPatchesEnableNonSecurity : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["globalFilters"] = args ? args.globalFilters : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["operatingSystem"] = args ? args.operatingSystem : undefined;
-            inputs["rejectedPatches"] = args ? args.rejectedPatches : undefined;
-            inputs["rejectedPatchesAction"] = args ? args.rejectedPatchesAction : undefined;
-            inputs["sources"] = args ? args.sources : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["approvalRules"] = args ? args.approvalRules : undefined;
+            resourceInputs["approvedPatches"] = args ? args.approvedPatches : undefined;
+            resourceInputs["approvedPatchesComplianceLevel"] = args ? args.approvedPatchesComplianceLevel : undefined;
+            resourceInputs["approvedPatchesEnableNonSecurity"] = args ? args.approvedPatchesEnableNonSecurity : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["globalFilters"] = args ? args.globalFilters : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["operatingSystem"] = args ? args.operatingSystem : undefined;
+            resourceInputs["rejectedPatches"] = args ? args.rejectedPatches : undefined;
+            resourceInputs["rejectedPatchesAction"] = args ? args.rejectedPatchesAction : undefined;
+            resourceInputs["sources"] = args ? args.sources : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(PatchBaseline.__pulumiType, name, inputs, opts);
+        super(PatchBaseline.__pulumiType, name, resourceInputs, opts);
     }
 }
 

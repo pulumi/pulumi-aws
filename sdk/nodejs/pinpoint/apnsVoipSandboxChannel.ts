@@ -107,38 +107,38 @@ export class ApnsVoipSandboxChannel extends pulumi.CustomResource {
      */
     constructor(name: string, args: ApnsVoipSandboxChannelArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ApnsVoipSandboxChannelArgs | ApnsVoipSandboxChannelState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ApnsVoipSandboxChannelState | undefined;
-            inputs["applicationId"] = state ? state.applicationId : undefined;
-            inputs["bundleId"] = state ? state.bundleId : undefined;
-            inputs["certificate"] = state ? state.certificate : undefined;
-            inputs["defaultAuthenticationMethod"] = state ? state.defaultAuthenticationMethod : undefined;
-            inputs["enabled"] = state ? state.enabled : undefined;
-            inputs["privateKey"] = state ? state.privateKey : undefined;
-            inputs["teamId"] = state ? state.teamId : undefined;
-            inputs["tokenKey"] = state ? state.tokenKey : undefined;
-            inputs["tokenKeyId"] = state ? state.tokenKeyId : undefined;
+            resourceInputs["applicationId"] = state ? state.applicationId : undefined;
+            resourceInputs["bundleId"] = state ? state.bundleId : undefined;
+            resourceInputs["certificate"] = state ? state.certificate : undefined;
+            resourceInputs["defaultAuthenticationMethod"] = state ? state.defaultAuthenticationMethod : undefined;
+            resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["privateKey"] = state ? state.privateKey : undefined;
+            resourceInputs["teamId"] = state ? state.teamId : undefined;
+            resourceInputs["tokenKey"] = state ? state.tokenKey : undefined;
+            resourceInputs["tokenKeyId"] = state ? state.tokenKeyId : undefined;
         } else {
             const args = argsOrState as ApnsVoipSandboxChannelArgs | undefined;
             if ((!args || args.applicationId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'applicationId'");
             }
-            inputs["applicationId"] = args ? args.applicationId : undefined;
-            inputs["bundleId"] = args ? args.bundleId : undefined;
-            inputs["certificate"] = args ? args.certificate : undefined;
-            inputs["defaultAuthenticationMethod"] = args ? args.defaultAuthenticationMethod : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["privateKey"] = args ? args.privateKey : undefined;
-            inputs["teamId"] = args ? args.teamId : undefined;
-            inputs["tokenKey"] = args ? args.tokenKey : undefined;
-            inputs["tokenKeyId"] = args ? args.tokenKeyId : undefined;
+            resourceInputs["applicationId"] = args ? args.applicationId : undefined;
+            resourceInputs["bundleId"] = args ? args.bundleId : undefined;
+            resourceInputs["certificate"] = args ? args.certificate : undefined;
+            resourceInputs["defaultAuthenticationMethod"] = args ? args.defaultAuthenticationMethod : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["privateKey"] = args ? args.privateKey : undefined;
+            resourceInputs["teamId"] = args ? args.teamId : undefined;
+            resourceInputs["tokenKey"] = args ? args.tokenKey : undefined;
+            resourceInputs["tokenKeyId"] = args ? args.tokenKeyId : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(ApnsVoipSandboxChannel.__pulumiType, name, inputs, opts);
+        super(ApnsVoipSandboxChannel.__pulumiType, name, resourceInputs, opts);
     }
 }
 

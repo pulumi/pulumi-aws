@@ -145,7 +145,7 @@ type ResolverDnsSecConfigInput interface {
 }
 
 func (*ResolverDnsSecConfig) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResolverDnsSecConfig)(nil))
+	return reflect.TypeOf((**ResolverDnsSecConfig)(nil)).Elem()
 }
 
 func (i *ResolverDnsSecConfig) ToResolverDnsSecConfigOutput() ResolverDnsSecConfigOutput {
@@ -154,35 +154,6 @@ func (i *ResolverDnsSecConfig) ToResolverDnsSecConfigOutput() ResolverDnsSecConf
 
 func (i *ResolverDnsSecConfig) ToResolverDnsSecConfigOutputWithContext(ctx context.Context) ResolverDnsSecConfigOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverDnsSecConfigOutput)
-}
-
-func (i *ResolverDnsSecConfig) ToResolverDnsSecConfigPtrOutput() ResolverDnsSecConfigPtrOutput {
-	return i.ToResolverDnsSecConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *ResolverDnsSecConfig) ToResolverDnsSecConfigPtrOutputWithContext(ctx context.Context) ResolverDnsSecConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResolverDnsSecConfigPtrOutput)
-}
-
-type ResolverDnsSecConfigPtrInput interface {
-	pulumi.Input
-
-	ToResolverDnsSecConfigPtrOutput() ResolverDnsSecConfigPtrOutput
-	ToResolverDnsSecConfigPtrOutputWithContext(ctx context.Context) ResolverDnsSecConfigPtrOutput
-}
-
-type resolverDnsSecConfigPtrType ResolverDnsSecConfigArgs
-
-func (*resolverDnsSecConfigPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ResolverDnsSecConfig)(nil))
-}
-
-func (i *resolverDnsSecConfigPtrType) ToResolverDnsSecConfigPtrOutput() ResolverDnsSecConfigPtrOutput {
-	return i.ToResolverDnsSecConfigPtrOutputWithContext(context.Background())
-}
-
-func (i *resolverDnsSecConfigPtrType) ToResolverDnsSecConfigPtrOutputWithContext(ctx context.Context) ResolverDnsSecConfigPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResolverDnsSecConfigPtrOutput)
 }
 
 // ResolverDnsSecConfigArrayInput is an input type that accepts ResolverDnsSecConfigArray and ResolverDnsSecConfigArrayOutput values.
@@ -238,7 +209,7 @@ func (i ResolverDnsSecConfigMap) ToResolverDnsSecConfigMapOutputWithContext(ctx 
 type ResolverDnsSecConfigOutput struct{ *pulumi.OutputState }
 
 func (ResolverDnsSecConfigOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResolverDnsSecConfig)(nil))
+	return reflect.TypeOf((**ResolverDnsSecConfig)(nil)).Elem()
 }
 
 func (o ResolverDnsSecConfigOutput) ToResolverDnsSecConfigOutput() ResolverDnsSecConfigOutput {
@@ -249,44 +220,10 @@ func (o ResolverDnsSecConfigOutput) ToResolverDnsSecConfigOutputWithContext(ctx 
 	return o
 }
 
-func (o ResolverDnsSecConfigOutput) ToResolverDnsSecConfigPtrOutput() ResolverDnsSecConfigPtrOutput {
-	return o.ToResolverDnsSecConfigPtrOutputWithContext(context.Background())
-}
-
-func (o ResolverDnsSecConfigOutput) ToResolverDnsSecConfigPtrOutputWithContext(ctx context.Context) ResolverDnsSecConfigPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResolverDnsSecConfig) *ResolverDnsSecConfig {
-		return &v
-	}).(ResolverDnsSecConfigPtrOutput)
-}
-
-type ResolverDnsSecConfigPtrOutput struct{ *pulumi.OutputState }
-
-func (ResolverDnsSecConfigPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ResolverDnsSecConfig)(nil))
-}
-
-func (o ResolverDnsSecConfigPtrOutput) ToResolverDnsSecConfigPtrOutput() ResolverDnsSecConfigPtrOutput {
-	return o
-}
-
-func (o ResolverDnsSecConfigPtrOutput) ToResolverDnsSecConfigPtrOutputWithContext(ctx context.Context) ResolverDnsSecConfigPtrOutput {
-	return o
-}
-
-func (o ResolverDnsSecConfigPtrOutput) Elem() ResolverDnsSecConfigOutput {
-	return o.ApplyT(func(v *ResolverDnsSecConfig) ResolverDnsSecConfig {
-		if v != nil {
-			return *v
-		}
-		var ret ResolverDnsSecConfig
-		return ret
-	}).(ResolverDnsSecConfigOutput)
-}
-
 type ResolverDnsSecConfigArrayOutput struct{ *pulumi.OutputState }
 
 func (ResolverDnsSecConfigArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ResolverDnsSecConfig)(nil))
+	return reflect.TypeOf((*[]*ResolverDnsSecConfig)(nil)).Elem()
 }
 
 func (o ResolverDnsSecConfigArrayOutput) ToResolverDnsSecConfigArrayOutput() ResolverDnsSecConfigArrayOutput {
@@ -298,15 +235,15 @@ func (o ResolverDnsSecConfigArrayOutput) ToResolverDnsSecConfigArrayOutputWithCo
 }
 
 func (o ResolverDnsSecConfigArrayOutput) Index(i pulumi.IntInput) ResolverDnsSecConfigOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ResolverDnsSecConfig {
-		return vs[0].([]ResolverDnsSecConfig)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ResolverDnsSecConfig {
+		return vs[0].([]*ResolverDnsSecConfig)[vs[1].(int)]
 	}).(ResolverDnsSecConfigOutput)
 }
 
 type ResolverDnsSecConfigMapOutput struct{ *pulumi.OutputState }
 
 func (ResolverDnsSecConfigMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ResolverDnsSecConfig)(nil))
+	return reflect.TypeOf((*map[string]*ResolverDnsSecConfig)(nil)).Elem()
 }
 
 func (o ResolverDnsSecConfigMapOutput) ToResolverDnsSecConfigMapOutput() ResolverDnsSecConfigMapOutput {
@@ -318,18 +255,16 @@ func (o ResolverDnsSecConfigMapOutput) ToResolverDnsSecConfigMapOutputWithContex
 }
 
 func (o ResolverDnsSecConfigMapOutput) MapIndex(k pulumi.StringInput) ResolverDnsSecConfigOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ResolverDnsSecConfig {
-		return vs[0].(map[string]ResolverDnsSecConfig)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ResolverDnsSecConfig {
+		return vs[0].(map[string]*ResolverDnsSecConfig)[vs[1].(string)]
 	}).(ResolverDnsSecConfigOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ResolverDnsSecConfigInput)(nil)).Elem(), &ResolverDnsSecConfig{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ResolverDnsSecConfigPtrInput)(nil)).Elem(), &ResolverDnsSecConfig{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResolverDnsSecConfigArrayInput)(nil)).Elem(), ResolverDnsSecConfigArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResolverDnsSecConfigMapInput)(nil)).Elem(), ResolverDnsSecConfigMap{})
 	pulumi.RegisterOutputType(ResolverDnsSecConfigOutput{})
-	pulumi.RegisterOutputType(ResolverDnsSecConfigPtrOutput{})
 	pulumi.RegisterOutputType(ResolverDnsSecConfigArrayOutput{})
 	pulumi.RegisterOutputType(ResolverDnsSecConfigMapOutput{})
 }

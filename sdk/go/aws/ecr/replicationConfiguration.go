@@ -182,7 +182,7 @@ type ReplicationConfigurationInput interface {
 }
 
 func (*ReplicationConfiguration) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReplicationConfiguration)(nil))
+	return reflect.TypeOf((**ReplicationConfiguration)(nil)).Elem()
 }
 
 func (i *ReplicationConfiguration) ToReplicationConfigurationOutput() ReplicationConfigurationOutput {
@@ -191,35 +191,6 @@ func (i *ReplicationConfiguration) ToReplicationConfigurationOutput() Replicatio
 
 func (i *ReplicationConfiguration) ToReplicationConfigurationOutputWithContext(ctx context.Context) ReplicationConfigurationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ReplicationConfigurationOutput)
-}
-
-func (i *ReplicationConfiguration) ToReplicationConfigurationPtrOutput() ReplicationConfigurationPtrOutput {
-	return i.ToReplicationConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i *ReplicationConfiguration) ToReplicationConfigurationPtrOutputWithContext(ctx context.Context) ReplicationConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReplicationConfigurationPtrOutput)
-}
-
-type ReplicationConfigurationPtrInput interface {
-	pulumi.Input
-
-	ToReplicationConfigurationPtrOutput() ReplicationConfigurationPtrOutput
-	ToReplicationConfigurationPtrOutputWithContext(ctx context.Context) ReplicationConfigurationPtrOutput
-}
-
-type replicationConfigurationPtrType ReplicationConfigurationArgs
-
-func (*replicationConfigurationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ReplicationConfiguration)(nil))
-}
-
-func (i *replicationConfigurationPtrType) ToReplicationConfigurationPtrOutput() ReplicationConfigurationPtrOutput {
-	return i.ToReplicationConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (i *replicationConfigurationPtrType) ToReplicationConfigurationPtrOutputWithContext(ctx context.Context) ReplicationConfigurationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ReplicationConfigurationPtrOutput)
 }
 
 // ReplicationConfigurationArrayInput is an input type that accepts ReplicationConfigurationArray and ReplicationConfigurationArrayOutput values.
@@ -275,7 +246,7 @@ func (i ReplicationConfigurationMap) ToReplicationConfigurationMapOutputWithCont
 type ReplicationConfigurationOutput struct{ *pulumi.OutputState }
 
 func (ReplicationConfigurationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ReplicationConfiguration)(nil))
+	return reflect.TypeOf((**ReplicationConfiguration)(nil)).Elem()
 }
 
 func (o ReplicationConfigurationOutput) ToReplicationConfigurationOutput() ReplicationConfigurationOutput {
@@ -286,44 +257,10 @@ func (o ReplicationConfigurationOutput) ToReplicationConfigurationOutputWithCont
 	return o
 }
 
-func (o ReplicationConfigurationOutput) ToReplicationConfigurationPtrOutput() ReplicationConfigurationPtrOutput {
-	return o.ToReplicationConfigurationPtrOutputWithContext(context.Background())
-}
-
-func (o ReplicationConfigurationOutput) ToReplicationConfigurationPtrOutputWithContext(ctx context.Context) ReplicationConfigurationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicationConfiguration) *ReplicationConfiguration {
-		return &v
-	}).(ReplicationConfigurationPtrOutput)
-}
-
-type ReplicationConfigurationPtrOutput struct{ *pulumi.OutputState }
-
-func (ReplicationConfigurationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ReplicationConfiguration)(nil))
-}
-
-func (o ReplicationConfigurationPtrOutput) ToReplicationConfigurationPtrOutput() ReplicationConfigurationPtrOutput {
-	return o
-}
-
-func (o ReplicationConfigurationPtrOutput) ToReplicationConfigurationPtrOutputWithContext(ctx context.Context) ReplicationConfigurationPtrOutput {
-	return o
-}
-
-func (o ReplicationConfigurationPtrOutput) Elem() ReplicationConfigurationOutput {
-	return o.ApplyT(func(v *ReplicationConfiguration) ReplicationConfiguration {
-		if v != nil {
-			return *v
-		}
-		var ret ReplicationConfiguration
-		return ret
-	}).(ReplicationConfigurationOutput)
-}
-
 type ReplicationConfigurationArrayOutput struct{ *pulumi.OutputState }
 
 func (ReplicationConfigurationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ReplicationConfiguration)(nil))
+	return reflect.TypeOf((*[]*ReplicationConfiguration)(nil)).Elem()
 }
 
 func (o ReplicationConfigurationArrayOutput) ToReplicationConfigurationArrayOutput() ReplicationConfigurationArrayOutput {
@@ -335,15 +272,15 @@ func (o ReplicationConfigurationArrayOutput) ToReplicationConfigurationArrayOutp
 }
 
 func (o ReplicationConfigurationArrayOutput) Index(i pulumi.IntInput) ReplicationConfigurationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ReplicationConfiguration {
-		return vs[0].([]ReplicationConfiguration)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ReplicationConfiguration {
+		return vs[0].([]*ReplicationConfiguration)[vs[1].(int)]
 	}).(ReplicationConfigurationOutput)
 }
 
 type ReplicationConfigurationMapOutput struct{ *pulumi.OutputState }
 
 func (ReplicationConfigurationMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ReplicationConfiguration)(nil))
+	return reflect.TypeOf((*map[string]*ReplicationConfiguration)(nil)).Elem()
 }
 
 func (o ReplicationConfigurationMapOutput) ToReplicationConfigurationMapOutput() ReplicationConfigurationMapOutput {
@@ -355,18 +292,16 @@ func (o ReplicationConfigurationMapOutput) ToReplicationConfigurationMapOutputWi
 }
 
 func (o ReplicationConfigurationMapOutput) MapIndex(k pulumi.StringInput) ReplicationConfigurationOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ReplicationConfiguration {
-		return vs[0].(map[string]ReplicationConfiguration)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ReplicationConfiguration {
+		return vs[0].(map[string]*ReplicationConfiguration)[vs[1].(string)]
 	}).(ReplicationConfigurationOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigurationInput)(nil)).Elem(), &ReplicationConfiguration{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigurationPtrInput)(nil)).Elem(), &ReplicationConfiguration{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigurationArrayInput)(nil)).Elem(), ReplicationConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigurationMapInput)(nil)).Elem(), ReplicationConfigurationMap{})
 	pulumi.RegisterOutputType(ReplicationConfigurationOutput{})
-	pulumi.RegisterOutputType(ReplicationConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ReplicationConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(ReplicationConfigurationMapOutput{})
 }

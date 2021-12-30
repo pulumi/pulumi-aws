@@ -85,24 +85,24 @@ export class InvitationAccepter extends pulumi.CustomResource {
      */
     constructor(name: string, args: InvitationAccepterArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: InvitationAccepterArgs | InvitationAccepterState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as InvitationAccepterState | undefined;
-            inputs["administratorAccountId"] = state ? state.administratorAccountId : undefined;
-            inputs["invitationId"] = state ? state.invitationId : undefined;
+            resourceInputs["administratorAccountId"] = state ? state.administratorAccountId : undefined;
+            resourceInputs["invitationId"] = state ? state.invitationId : undefined;
         } else {
             const args = argsOrState as InvitationAccepterArgs | undefined;
             if ((!args || args.administratorAccountId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'administratorAccountId'");
             }
-            inputs["administratorAccountId"] = args ? args.administratorAccountId : undefined;
-            inputs["invitationId"] = undefined /*out*/;
+            resourceInputs["administratorAccountId"] = args ? args.administratorAccountId : undefined;
+            resourceInputs["invitationId"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(InvitationAccepter.__pulumiType, name, inputs, opts);
+        super(InvitationAccepter.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -156,7 +156,7 @@ type KinesisStreamingDestinationInput interface {
 }
 
 func (*KinesisStreamingDestination) ElementType() reflect.Type {
-	return reflect.TypeOf((*KinesisStreamingDestination)(nil))
+	return reflect.TypeOf((**KinesisStreamingDestination)(nil)).Elem()
 }
 
 func (i *KinesisStreamingDestination) ToKinesisStreamingDestinationOutput() KinesisStreamingDestinationOutput {
@@ -165,35 +165,6 @@ func (i *KinesisStreamingDestination) ToKinesisStreamingDestinationOutput() Kine
 
 func (i *KinesisStreamingDestination) ToKinesisStreamingDestinationOutputWithContext(ctx context.Context) KinesisStreamingDestinationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(KinesisStreamingDestinationOutput)
-}
-
-func (i *KinesisStreamingDestination) ToKinesisStreamingDestinationPtrOutput() KinesisStreamingDestinationPtrOutput {
-	return i.ToKinesisStreamingDestinationPtrOutputWithContext(context.Background())
-}
-
-func (i *KinesisStreamingDestination) ToKinesisStreamingDestinationPtrOutputWithContext(ctx context.Context) KinesisStreamingDestinationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KinesisStreamingDestinationPtrOutput)
-}
-
-type KinesisStreamingDestinationPtrInput interface {
-	pulumi.Input
-
-	ToKinesisStreamingDestinationPtrOutput() KinesisStreamingDestinationPtrOutput
-	ToKinesisStreamingDestinationPtrOutputWithContext(ctx context.Context) KinesisStreamingDestinationPtrOutput
-}
-
-type kinesisStreamingDestinationPtrType KinesisStreamingDestinationArgs
-
-func (*kinesisStreamingDestinationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**KinesisStreamingDestination)(nil))
-}
-
-func (i *kinesisStreamingDestinationPtrType) ToKinesisStreamingDestinationPtrOutput() KinesisStreamingDestinationPtrOutput {
-	return i.ToKinesisStreamingDestinationPtrOutputWithContext(context.Background())
-}
-
-func (i *kinesisStreamingDestinationPtrType) ToKinesisStreamingDestinationPtrOutputWithContext(ctx context.Context) KinesisStreamingDestinationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KinesisStreamingDestinationPtrOutput)
 }
 
 // KinesisStreamingDestinationArrayInput is an input type that accepts KinesisStreamingDestinationArray and KinesisStreamingDestinationArrayOutput values.
@@ -249,7 +220,7 @@ func (i KinesisStreamingDestinationMap) ToKinesisStreamingDestinationMapOutputWi
 type KinesisStreamingDestinationOutput struct{ *pulumi.OutputState }
 
 func (KinesisStreamingDestinationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*KinesisStreamingDestination)(nil))
+	return reflect.TypeOf((**KinesisStreamingDestination)(nil)).Elem()
 }
 
 func (o KinesisStreamingDestinationOutput) ToKinesisStreamingDestinationOutput() KinesisStreamingDestinationOutput {
@@ -260,44 +231,10 @@ func (o KinesisStreamingDestinationOutput) ToKinesisStreamingDestinationOutputWi
 	return o
 }
 
-func (o KinesisStreamingDestinationOutput) ToKinesisStreamingDestinationPtrOutput() KinesisStreamingDestinationPtrOutput {
-	return o.ToKinesisStreamingDestinationPtrOutputWithContext(context.Background())
-}
-
-func (o KinesisStreamingDestinationOutput) ToKinesisStreamingDestinationPtrOutputWithContext(ctx context.Context) KinesisStreamingDestinationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v KinesisStreamingDestination) *KinesisStreamingDestination {
-		return &v
-	}).(KinesisStreamingDestinationPtrOutput)
-}
-
-type KinesisStreamingDestinationPtrOutput struct{ *pulumi.OutputState }
-
-func (KinesisStreamingDestinationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**KinesisStreamingDestination)(nil))
-}
-
-func (o KinesisStreamingDestinationPtrOutput) ToKinesisStreamingDestinationPtrOutput() KinesisStreamingDestinationPtrOutput {
-	return o
-}
-
-func (o KinesisStreamingDestinationPtrOutput) ToKinesisStreamingDestinationPtrOutputWithContext(ctx context.Context) KinesisStreamingDestinationPtrOutput {
-	return o
-}
-
-func (o KinesisStreamingDestinationPtrOutput) Elem() KinesisStreamingDestinationOutput {
-	return o.ApplyT(func(v *KinesisStreamingDestination) KinesisStreamingDestination {
-		if v != nil {
-			return *v
-		}
-		var ret KinesisStreamingDestination
-		return ret
-	}).(KinesisStreamingDestinationOutput)
-}
-
 type KinesisStreamingDestinationArrayOutput struct{ *pulumi.OutputState }
 
 func (KinesisStreamingDestinationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]KinesisStreamingDestination)(nil))
+	return reflect.TypeOf((*[]*KinesisStreamingDestination)(nil)).Elem()
 }
 
 func (o KinesisStreamingDestinationArrayOutput) ToKinesisStreamingDestinationArrayOutput() KinesisStreamingDestinationArrayOutput {
@@ -309,15 +246,15 @@ func (o KinesisStreamingDestinationArrayOutput) ToKinesisStreamingDestinationArr
 }
 
 func (o KinesisStreamingDestinationArrayOutput) Index(i pulumi.IntInput) KinesisStreamingDestinationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KinesisStreamingDestination {
-		return vs[0].([]KinesisStreamingDestination)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *KinesisStreamingDestination {
+		return vs[0].([]*KinesisStreamingDestination)[vs[1].(int)]
 	}).(KinesisStreamingDestinationOutput)
 }
 
 type KinesisStreamingDestinationMapOutput struct{ *pulumi.OutputState }
 
 func (KinesisStreamingDestinationMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]KinesisStreamingDestination)(nil))
+	return reflect.TypeOf((*map[string]*KinesisStreamingDestination)(nil)).Elem()
 }
 
 func (o KinesisStreamingDestinationMapOutput) ToKinesisStreamingDestinationMapOutput() KinesisStreamingDestinationMapOutput {
@@ -329,18 +266,16 @@ func (o KinesisStreamingDestinationMapOutput) ToKinesisStreamingDestinationMapOu
 }
 
 func (o KinesisStreamingDestinationMapOutput) MapIndex(k pulumi.StringInput) KinesisStreamingDestinationOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) KinesisStreamingDestination {
-		return vs[0].(map[string]KinesisStreamingDestination)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *KinesisStreamingDestination {
+		return vs[0].(map[string]*KinesisStreamingDestination)[vs[1].(string)]
 	}).(KinesisStreamingDestinationOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*KinesisStreamingDestinationInput)(nil)).Elem(), &KinesisStreamingDestination{})
-	pulumi.RegisterInputType(reflect.TypeOf((*KinesisStreamingDestinationPtrInput)(nil)).Elem(), &KinesisStreamingDestination{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KinesisStreamingDestinationArrayInput)(nil)).Elem(), KinesisStreamingDestinationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KinesisStreamingDestinationMapInput)(nil)).Elem(), KinesisStreamingDestinationMap{})
 	pulumi.RegisterOutputType(KinesisStreamingDestinationOutput{})
-	pulumi.RegisterOutputType(KinesisStreamingDestinationPtrOutput{})
 	pulumi.RegisterOutputType(KinesisStreamingDestinationArrayOutput{})
 	pulumi.RegisterOutputType(KinesisStreamingDestinationMapOutput{})
 }

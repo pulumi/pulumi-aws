@@ -84,23 +84,23 @@ export class SizeConstraintSet extends pulumi.CustomResource {
      */
     constructor(name: string, args?: SizeConstraintSetArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SizeConstraintSetArgs | SizeConstraintSetState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SizeConstraintSetState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["sizeConstraints"] = state ? state.sizeConstraints : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["sizeConstraints"] = state ? state.sizeConstraints : undefined;
         } else {
             const args = argsOrState as SizeConstraintSetArgs | undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["sizeConstraints"] = args ? args.sizeConstraints : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["sizeConstraints"] = args ? args.sizeConstraints : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(SizeConstraintSet.__pulumiType, name, inputs, opts);
+        super(SizeConstraintSet.__pulumiType, name, resourceInputs, opts);
     }
 }
 

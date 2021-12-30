@@ -328,60 +328,6 @@ type BrokerInstance struct {
 	IpAddress  *string  `pulumi:"ipAddress"`
 }
 
-// BrokerInstanceInput is an input type that accepts BrokerInstanceArgs and BrokerInstanceOutput values.
-// You can construct a concrete instance of `BrokerInstanceInput` via:
-//
-//          BrokerInstanceArgs{...}
-type BrokerInstanceInput interface {
-	pulumi.Input
-
-	ToBrokerInstanceOutput() BrokerInstanceOutput
-	ToBrokerInstanceOutputWithContext(context.Context) BrokerInstanceOutput
-}
-
-type BrokerInstanceArgs struct {
-	ConsoleUrl pulumi.StringPtrInput   `pulumi:"consoleUrl"`
-	Endpoints  pulumi.StringArrayInput `pulumi:"endpoints"`
-	IpAddress  pulumi.StringPtrInput   `pulumi:"ipAddress"`
-}
-
-func (BrokerInstanceArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*BrokerInstance)(nil)).Elem()
-}
-
-func (i BrokerInstanceArgs) ToBrokerInstanceOutput() BrokerInstanceOutput {
-	return i.ToBrokerInstanceOutputWithContext(context.Background())
-}
-
-func (i BrokerInstanceArgs) ToBrokerInstanceOutputWithContext(ctx context.Context) BrokerInstanceOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BrokerInstanceOutput)
-}
-
-// BrokerInstanceArrayInput is an input type that accepts BrokerInstanceArray and BrokerInstanceArrayOutput values.
-// You can construct a concrete instance of `BrokerInstanceArrayInput` via:
-//
-//          BrokerInstanceArray{ BrokerInstanceArgs{...} }
-type BrokerInstanceArrayInput interface {
-	pulumi.Input
-
-	ToBrokerInstanceArrayOutput() BrokerInstanceArrayOutput
-	ToBrokerInstanceArrayOutputWithContext(context.Context) BrokerInstanceArrayOutput
-}
-
-type BrokerInstanceArray []BrokerInstanceInput
-
-func (BrokerInstanceArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]BrokerInstance)(nil)).Elem()
-}
-
-func (i BrokerInstanceArray) ToBrokerInstanceArrayOutput() BrokerInstanceArrayOutput {
-	return i.ToBrokerInstanceArrayOutputWithContext(context.Background())
-}
-
-func (i BrokerInstanceArray) ToBrokerInstanceArrayOutputWithContext(ctx context.Context) BrokerInstanceArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BrokerInstanceArrayOutput)
-}
-
 type BrokerInstanceOutput struct{ *pulumi.OutputState }
 
 func (BrokerInstanceOutput) ElementType() reflect.Type {
@@ -1215,34 +1161,6 @@ type GetBrokerConfiguration struct {
 	Revision int    `pulumi:"revision"`
 }
 
-// GetBrokerConfigurationInput is an input type that accepts GetBrokerConfigurationArgs and GetBrokerConfigurationOutput values.
-// You can construct a concrete instance of `GetBrokerConfigurationInput` via:
-//
-//          GetBrokerConfigurationArgs{...}
-type GetBrokerConfigurationInput interface {
-	pulumi.Input
-
-	ToGetBrokerConfigurationOutput() GetBrokerConfigurationOutput
-	ToGetBrokerConfigurationOutputWithContext(context.Context) GetBrokerConfigurationOutput
-}
-
-type GetBrokerConfigurationArgs struct {
-	Id       pulumi.StringInput `pulumi:"id"`
-	Revision pulumi.IntInput    `pulumi:"revision"`
-}
-
-func (GetBrokerConfigurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetBrokerConfiguration)(nil)).Elem()
-}
-
-func (i GetBrokerConfigurationArgs) ToGetBrokerConfigurationOutput() GetBrokerConfigurationOutput {
-	return i.ToGetBrokerConfigurationOutputWithContext(context.Background())
-}
-
-func (i GetBrokerConfigurationArgs) ToGetBrokerConfigurationOutputWithContext(ctx context.Context) GetBrokerConfigurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetBrokerConfigurationOutput)
-}
-
 type GetBrokerConfigurationOutput struct{ *pulumi.OutputState }
 
 func (GetBrokerConfigurationOutput) ElementType() reflect.Type {
@@ -1268,59 +1186,6 @@ func (o GetBrokerConfigurationOutput) Revision() pulumi.IntOutput {
 type GetBrokerEncryptionOption struct {
 	KmsKeyId       string `pulumi:"kmsKeyId"`
 	UseAwsOwnedKey bool   `pulumi:"useAwsOwnedKey"`
-}
-
-// GetBrokerEncryptionOptionInput is an input type that accepts GetBrokerEncryptionOptionArgs and GetBrokerEncryptionOptionOutput values.
-// You can construct a concrete instance of `GetBrokerEncryptionOptionInput` via:
-//
-//          GetBrokerEncryptionOptionArgs{...}
-type GetBrokerEncryptionOptionInput interface {
-	pulumi.Input
-
-	ToGetBrokerEncryptionOptionOutput() GetBrokerEncryptionOptionOutput
-	ToGetBrokerEncryptionOptionOutputWithContext(context.Context) GetBrokerEncryptionOptionOutput
-}
-
-type GetBrokerEncryptionOptionArgs struct {
-	KmsKeyId       pulumi.StringInput `pulumi:"kmsKeyId"`
-	UseAwsOwnedKey pulumi.BoolInput   `pulumi:"useAwsOwnedKey"`
-}
-
-func (GetBrokerEncryptionOptionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetBrokerEncryptionOption)(nil)).Elem()
-}
-
-func (i GetBrokerEncryptionOptionArgs) ToGetBrokerEncryptionOptionOutput() GetBrokerEncryptionOptionOutput {
-	return i.ToGetBrokerEncryptionOptionOutputWithContext(context.Background())
-}
-
-func (i GetBrokerEncryptionOptionArgs) ToGetBrokerEncryptionOptionOutputWithContext(ctx context.Context) GetBrokerEncryptionOptionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetBrokerEncryptionOptionOutput)
-}
-
-// GetBrokerEncryptionOptionArrayInput is an input type that accepts GetBrokerEncryptionOptionArray and GetBrokerEncryptionOptionArrayOutput values.
-// You can construct a concrete instance of `GetBrokerEncryptionOptionArrayInput` via:
-//
-//          GetBrokerEncryptionOptionArray{ GetBrokerEncryptionOptionArgs{...} }
-type GetBrokerEncryptionOptionArrayInput interface {
-	pulumi.Input
-
-	ToGetBrokerEncryptionOptionArrayOutput() GetBrokerEncryptionOptionArrayOutput
-	ToGetBrokerEncryptionOptionArrayOutputWithContext(context.Context) GetBrokerEncryptionOptionArrayOutput
-}
-
-type GetBrokerEncryptionOptionArray []GetBrokerEncryptionOptionInput
-
-func (GetBrokerEncryptionOptionArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetBrokerEncryptionOption)(nil)).Elem()
-}
-
-func (i GetBrokerEncryptionOptionArray) ToGetBrokerEncryptionOptionArrayOutput() GetBrokerEncryptionOptionArrayOutput {
-	return i.ToGetBrokerEncryptionOptionArrayOutputWithContext(context.Background())
-}
-
-func (i GetBrokerEncryptionOptionArray) ToGetBrokerEncryptionOptionArrayOutputWithContext(ctx context.Context) GetBrokerEncryptionOptionArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetBrokerEncryptionOptionArrayOutput)
 }
 
 type GetBrokerEncryptionOptionOutput struct{ *pulumi.OutputState }
@@ -1369,60 +1234,6 @@ type GetBrokerInstance struct {
 	ConsoleUrl string   `pulumi:"consoleUrl"`
 	Endpoints  []string `pulumi:"endpoints"`
 	IpAddress  string   `pulumi:"ipAddress"`
-}
-
-// GetBrokerInstanceInput is an input type that accepts GetBrokerInstanceArgs and GetBrokerInstanceOutput values.
-// You can construct a concrete instance of `GetBrokerInstanceInput` via:
-//
-//          GetBrokerInstanceArgs{...}
-type GetBrokerInstanceInput interface {
-	pulumi.Input
-
-	ToGetBrokerInstanceOutput() GetBrokerInstanceOutput
-	ToGetBrokerInstanceOutputWithContext(context.Context) GetBrokerInstanceOutput
-}
-
-type GetBrokerInstanceArgs struct {
-	ConsoleUrl pulumi.StringInput      `pulumi:"consoleUrl"`
-	Endpoints  pulumi.StringArrayInput `pulumi:"endpoints"`
-	IpAddress  pulumi.StringInput      `pulumi:"ipAddress"`
-}
-
-func (GetBrokerInstanceArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetBrokerInstance)(nil)).Elem()
-}
-
-func (i GetBrokerInstanceArgs) ToGetBrokerInstanceOutput() GetBrokerInstanceOutput {
-	return i.ToGetBrokerInstanceOutputWithContext(context.Background())
-}
-
-func (i GetBrokerInstanceArgs) ToGetBrokerInstanceOutputWithContext(ctx context.Context) GetBrokerInstanceOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetBrokerInstanceOutput)
-}
-
-// GetBrokerInstanceArrayInput is an input type that accepts GetBrokerInstanceArray and GetBrokerInstanceArrayOutput values.
-// You can construct a concrete instance of `GetBrokerInstanceArrayInput` via:
-//
-//          GetBrokerInstanceArray{ GetBrokerInstanceArgs{...} }
-type GetBrokerInstanceArrayInput interface {
-	pulumi.Input
-
-	ToGetBrokerInstanceArrayOutput() GetBrokerInstanceArrayOutput
-	ToGetBrokerInstanceArrayOutputWithContext(context.Context) GetBrokerInstanceArrayOutput
-}
-
-type GetBrokerInstanceArray []GetBrokerInstanceInput
-
-func (GetBrokerInstanceArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetBrokerInstance)(nil)).Elem()
-}
-
-func (i GetBrokerInstanceArray) ToGetBrokerInstanceArrayOutput() GetBrokerInstanceArrayOutput {
-	return i.ToGetBrokerInstanceArrayOutputWithContext(context.Background())
-}
-
-func (i GetBrokerInstanceArray) ToGetBrokerInstanceArrayOutputWithContext(ctx context.Context) GetBrokerInstanceArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetBrokerInstanceArrayOutput)
 }
 
 type GetBrokerInstanceOutput struct{ *pulumi.OutputState }
@@ -1483,68 +1294,6 @@ type GetBrokerLdapServerMetadata struct {
 	UserRoleName           string   `pulumi:"userRoleName"`
 	UserSearchMatching     string   `pulumi:"userSearchMatching"`
 	UserSearchSubtree      bool     `pulumi:"userSearchSubtree"`
-}
-
-// GetBrokerLdapServerMetadataInput is an input type that accepts GetBrokerLdapServerMetadataArgs and GetBrokerLdapServerMetadataOutput values.
-// You can construct a concrete instance of `GetBrokerLdapServerMetadataInput` via:
-//
-//          GetBrokerLdapServerMetadataArgs{...}
-type GetBrokerLdapServerMetadataInput interface {
-	pulumi.Input
-
-	ToGetBrokerLdapServerMetadataOutput() GetBrokerLdapServerMetadataOutput
-	ToGetBrokerLdapServerMetadataOutputWithContext(context.Context) GetBrokerLdapServerMetadataOutput
-}
-
-type GetBrokerLdapServerMetadataArgs struct {
-	Hosts                  pulumi.StringArrayInput `pulumi:"hosts"`
-	RoleBase               pulumi.StringInput      `pulumi:"roleBase"`
-	RoleName               pulumi.StringInput      `pulumi:"roleName"`
-	RoleSearchMatching     pulumi.StringInput      `pulumi:"roleSearchMatching"`
-	RoleSearchSubtree      pulumi.BoolInput        `pulumi:"roleSearchSubtree"`
-	ServiceAccountPassword pulumi.StringInput      `pulumi:"serviceAccountPassword"`
-	ServiceAccountUsername pulumi.StringInput      `pulumi:"serviceAccountUsername"`
-	UserBase               pulumi.StringInput      `pulumi:"userBase"`
-	UserRoleName           pulumi.StringInput      `pulumi:"userRoleName"`
-	UserSearchMatching     pulumi.StringInput      `pulumi:"userSearchMatching"`
-	UserSearchSubtree      pulumi.BoolInput        `pulumi:"userSearchSubtree"`
-}
-
-func (GetBrokerLdapServerMetadataArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetBrokerLdapServerMetadata)(nil)).Elem()
-}
-
-func (i GetBrokerLdapServerMetadataArgs) ToGetBrokerLdapServerMetadataOutput() GetBrokerLdapServerMetadataOutput {
-	return i.ToGetBrokerLdapServerMetadataOutputWithContext(context.Background())
-}
-
-func (i GetBrokerLdapServerMetadataArgs) ToGetBrokerLdapServerMetadataOutputWithContext(ctx context.Context) GetBrokerLdapServerMetadataOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetBrokerLdapServerMetadataOutput)
-}
-
-// GetBrokerLdapServerMetadataArrayInput is an input type that accepts GetBrokerLdapServerMetadataArray and GetBrokerLdapServerMetadataArrayOutput values.
-// You can construct a concrete instance of `GetBrokerLdapServerMetadataArrayInput` via:
-//
-//          GetBrokerLdapServerMetadataArray{ GetBrokerLdapServerMetadataArgs{...} }
-type GetBrokerLdapServerMetadataArrayInput interface {
-	pulumi.Input
-
-	ToGetBrokerLdapServerMetadataArrayOutput() GetBrokerLdapServerMetadataArrayOutput
-	ToGetBrokerLdapServerMetadataArrayOutputWithContext(context.Context) GetBrokerLdapServerMetadataArrayOutput
-}
-
-type GetBrokerLdapServerMetadataArray []GetBrokerLdapServerMetadataInput
-
-func (GetBrokerLdapServerMetadataArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetBrokerLdapServerMetadata)(nil)).Elem()
-}
-
-func (i GetBrokerLdapServerMetadataArray) ToGetBrokerLdapServerMetadataArrayOutput() GetBrokerLdapServerMetadataArrayOutput {
-	return i.ToGetBrokerLdapServerMetadataArrayOutputWithContext(context.Background())
-}
-
-func (i GetBrokerLdapServerMetadataArray) ToGetBrokerLdapServerMetadataArrayOutputWithContext(ctx context.Context) GetBrokerLdapServerMetadataArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetBrokerLdapServerMetadataArrayOutput)
 }
 
 type GetBrokerLdapServerMetadataOutput struct{ *pulumi.OutputState }
@@ -1630,34 +1379,6 @@ type GetBrokerLogs struct {
 	General bool `pulumi:"general"`
 }
 
-// GetBrokerLogsInput is an input type that accepts GetBrokerLogsArgs and GetBrokerLogsOutput values.
-// You can construct a concrete instance of `GetBrokerLogsInput` via:
-//
-//          GetBrokerLogsArgs{...}
-type GetBrokerLogsInput interface {
-	pulumi.Input
-
-	ToGetBrokerLogsOutput() GetBrokerLogsOutput
-	ToGetBrokerLogsOutputWithContext(context.Context) GetBrokerLogsOutput
-}
-
-type GetBrokerLogsArgs struct {
-	Audit   pulumi.BoolInput `pulumi:"audit"`
-	General pulumi.BoolInput `pulumi:"general"`
-}
-
-func (GetBrokerLogsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetBrokerLogs)(nil)).Elem()
-}
-
-func (i GetBrokerLogsArgs) ToGetBrokerLogsOutput() GetBrokerLogsOutput {
-	return i.ToGetBrokerLogsOutputWithContext(context.Background())
-}
-
-func (i GetBrokerLogsArgs) ToGetBrokerLogsOutputWithContext(ctx context.Context) GetBrokerLogsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetBrokerLogsOutput)
-}
-
 type GetBrokerLogsOutput struct{ *pulumi.OutputState }
 
 func (GetBrokerLogsOutput) ElementType() reflect.Type {
@@ -1684,35 +1405,6 @@ type GetBrokerMaintenanceWindowStartTime struct {
 	DayOfWeek string `pulumi:"dayOfWeek"`
 	TimeOfDay string `pulumi:"timeOfDay"`
 	TimeZone  string `pulumi:"timeZone"`
-}
-
-// GetBrokerMaintenanceWindowStartTimeInput is an input type that accepts GetBrokerMaintenanceWindowStartTimeArgs and GetBrokerMaintenanceWindowStartTimeOutput values.
-// You can construct a concrete instance of `GetBrokerMaintenanceWindowStartTimeInput` via:
-//
-//          GetBrokerMaintenanceWindowStartTimeArgs{...}
-type GetBrokerMaintenanceWindowStartTimeInput interface {
-	pulumi.Input
-
-	ToGetBrokerMaintenanceWindowStartTimeOutput() GetBrokerMaintenanceWindowStartTimeOutput
-	ToGetBrokerMaintenanceWindowStartTimeOutputWithContext(context.Context) GetBrokerMaintenanceWindowStartTimeOutput
-}
-
-type GetBrokerMaintenanceWindowStartTimeArgs struct {
-	DayOfWeek pulumi.StringInput `pulumi:"dayOfWeek"`
-	TimeOfDay pulumi.StringInput `pulumi:"timeOfDay"`
-	TimeZone  pulumi.StringInput `pulumi:"timeZone"`
-}
-
-func (GetBrokerMaintenanceWindowStartTimeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetBrokerMaintenanceWindowStartTime)(nil)).Elem()
-}
-
-func (i GetBrokerMaintenanceWindowStartTimeArgs) ToGetBrokerMaintenanceWindowStartTimeOutput() GetBrokerMaintenanceWindowStartTimeOutput {
-	return i.ToGetBrokerMaintenanceWindowStartTimeOutputWithContext(context.Background())
-}
-
-func (i GetBrokerMaintenanceWindowStartTimeArgs) ToGetBrokerMaintenanceWindowStartTimeOutputWithContext(ctx context.Context) GetBrokerMaintenanceWindowStartTimeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetBrokerMaintenanceWindowStartTimeOutput)
 }
 
 type GetBrokerMaintenanceWindowStartTimeOutput struct{ *pulumi.OutputState }
@@ -1745,60 +1437,6 @@ type GetBrokerUser struct {
 	ConsoleAccess bool     `pulumi:"consoleAccess"`
 	Groups        []string `pulumi:"groups"`
 	Username      string   `pulumi:"username"`
-}
-
-// GetBrokerUserInput is an input type that accepts GetBrokerUserArgs and GetBrokerUserOutput values.
-// You can construct a concrete instance of `GetBrokerUserInput` via:
-//
-//          GetBrokerUserArgs{...}
-type GetBrokerUserInput interface {
-	pulumi.Input
-
-	ToGetBrokerUserOutput() GetBrokerUserOutput
-	ToGetBrokerUserOutputWithContext(context.Context) GetBrokerUserOutput
-}
-
-type GetBrokerUserArgs struct {
-	ConsoleAccess pulumi.BoolInput        `pulumi:"consoleAccess"`
-	Groups        pulumi.StringArrayInput `pulumi:"groups"`
-	Username      pulumi.StringInput      `pulumi:"username"`
-}
-
-func (GetBrokerUserArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetBrokerUser)(nil)).Elem()
-}
-
-func (i GetBrokerUserArgs) ToGetBrokerUserOutput() GetBrokerUserOutput {
-	return i.ToGetBrokerUserOutputWithContext(context.Background())
-}
-
-func (i GetBrokerUserArgs) ToGetBrokerUserOutputWithContext(ctx context.Context) GetBrokerUserOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetBrokerUserOutput)
-}
-
-// GetBrokerUserArrayInput is an input type that accepts GetBrokerUserArray and GetBrokerUserArrayOutput values.
-// You can construct a concrete instance of `GetBrokerUserArrayInput` via:
-//
-//          GetBrokerUserArray{ GetBrokerUserArgs{...} }
-type GetBrokerUserArrayInput interface {
-	pulumi.Input
-
-	ToGetBrokerUserArrayOutput() GetBrokerUserArrayOutput
-	ToGetBrokerUserArrayOutputWithContext(context.Context) GetBrokerUserArrayOutput
-}
-
-type GetBrokerUserArray []GetBrokerUserInput
-
-func (GetBrokerUserArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetBrokerUser)(nil)).Elem()
-}
-
-func (i GetBrokerUserArray) ToGetBrokerUserArrayOutput() GetBrokerUserArrayOutput {
-	return i.ToGetBrokerUserArrayOutputWithContext(context.Background())
-}
-
-func (i GetBrokerUserArray) ToGetBrokerUserArrayOutputWithContext(ctx context.Context) GetBrokerUserArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetBrokerUserArrayOutput)
 }
 
 type GetBrokerUserOutput struct{ *pulumi.OutputState }
@@ -1852,8 +1490,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BrokerConfigurationPtrInput)(nil)).Elem(), BrokerConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BrokerEncryptionOptionsInput)(nil)).Elem(), BrokerEncryptionOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BrokerEncryptionOptionsPtrInput)(nil)).Elem(), BrokerEncryptionOptionsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BrokerInstanceInput)(nil)).Elem(), BrokerInstanceArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BrokerInstanceArrayInput)(nil)).Elem(), BrokerInstanceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BrokerLdapServerMetadataInput)(nil)).Elem(), BrokerLdapServerMetadataArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BrokerLdapServerMetadataPtrInput)(nil)).Elem(), BrokerLdapServerMetadataArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BrokerLogsInput)(nil)).Elem(), BrokerLogsArgs{})
@@ -1862,17 +1498,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BrokerMaintenanceWindowStartTimePtrInput)(nil)).Elem(), BrokerMaintenanceWindowStartTimeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BrokerUserInput)(nil)).Elem(), BrokerUserArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BrokerUserArrayInput)(nil)).Elem(), BrokerUserArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetBrokerConfigurationInput)(nil)).Elem(), GetBrokerConfigurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetBrokerEncryptionOptionInput)(nil)).Elem(), GetBrokerEncryptionOptionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetBrokerEncryptionOptionArrayInput)(nil)).Elem(), GetBrokerEncryptionOptionArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetBrokerInstanceInput)(nil)).Elem(), GetBrokerInstanceArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetBrokerInstanceArrayInput)(nil)).Elem(), GetBrokerInstanceArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetBrokerLdapServerMetadataInput)(nil)).Elem(), GetBrokerLdapServerMetadataArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetBrokerLdapServerMetadataArrayInput)(nil)).Elem(), GetBrokerLdapServerMetadataArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetBrokerLogsInput)(nil)).Elem(), GetBrokerLogsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetBrokerMaintenanceWindowStartTimeInput)(nil)).Elem(), GetBrokerMaintenanceWindowStartTimeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetBrokerUserInput)(nil)).Elem(), GetBrokerUserArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetBrokerUserArrayInput)(nil)).Elem(), GetBrokerUserArray{})
 	pulumi.RegisterOutputType(BrokerConfigurationOutput{})
 	pulumi.RegisterOutputType(BrokerConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(BrokerEncryptionOptionsOutput{})

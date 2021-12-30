@@ -282,30 +282,30 @@ export class DeploymentGroup extends pulumi.CustomResource {
      */
     constructor(name: string, args: DeploymentGroupArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: DeploymentGroupArgs | DeploymentGroupState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DeploymentGroupState | undefined;
-            inputs["alarmConfiguration"] = state ? state.alarmConfiguration : undefined;
-            inputs["appName"] = state ? state.appName : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["autoRollbackConfiguration"] = state ? state.autoRollbackConfiguration : undefined;
-            inputs["autoscalingGroups"] = state ? state.autoscalingGroups : undefined;
-            inputs["blueGreenDeploymentConfig"] = state ? state.blueGreenDeploymentConfig : undefined;
-            inputs["computePlatform"] = state ? state.computePlatform : undefined;
-            inputs["deploymentConfigName"] = state ? state.deploymentConfigName : undefined;
-            inputs["deploymentGroupId"] = state ? state.deploymentGroupId : undefined;
-            inputs["deploymentGroupName"] = state ? state.deploymentGroupName : undefined;
-            inputs["deploymentStyle"] = state ? state.deploymentStyle : undefined;
-            inputs["ec2TagFilters"] = state ? state.ec2TagFilters : undefined;
-            inputs["ec2TagSets"] = state ? state.ec2TagSets : undefined;
-            inputs["ecsService"] = state ? state.ecsService : undefined;
-            inputs["loadBalancerInfo"] = state ? state.loadBalancerInfo : undefined;
-            inputs["onPremisesInstanceTagFilters"] = state ? state.onPremisesInstanceTagFilters : undefined;
-            inputs["serviceRoleArn"] = state ? state.serviceRoleArn : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["triggerConfigurations"] = state ? state.triggerConfigurations : undefined;
+            resourceInputs["alarmConfiguration"] = state ? state.alarmConfiguration : undefined;
+            resourceInputs["appName"] = state ? state.appName : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["autoRollbackConfiguration"] = state ? state.autoRollbackConfiguration : undefined;
+            resourceInputs["autoscalingGroups"] = state ? state.autoscalingGroups : undefined;
+            resourceInputs["blueGreenDeploymentConfig"] = state ? state.blueGreenDeploymentConfig : undefined;
+            resourceInputs["computePlatform"] = state ? state.computePlatform : undefined;
+            resourceInputs["deploymentConfigName"] = state ? state.deploymentConfigName : undefined;
+            resourceInputs["deploymentGroupId"] = state ? state.deploymentGroupId : undefined;
+            resourceInputs["deploymentGroupName"] = state ? state.deploymentGroupName : undefined;
+            resourceInputs["deploymentStyle"] = state ? state.deploymentStyle : undefined;
+            resourceInputs["ec2TagFilters"] = state ? state.ec2TagFilters : undefined;
+            resourceInputs["ec2TagSets"] = state ? state.ec2TagSets : undefined;
+            resourceInputs["ecsService"] = state ? state.ecsService : undefined;
+            resourceInputs["loadBalancerInfo"] = state ? state.loadBalancerInfo : undefined;
+            resourceInputs["onPremisesInstanceTagFilters"] = state ? state.onPremisesInstanceTagFilters : undefined;
+            resourceInputs["serviceRoleArn"] = state ? state.serviceRoleArn : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["triggerConfigurations"] = state ? state.triggerConfigurations : undefined;
         } else {
             const args = argsOrState as DeploymentGroupArgs | undefined;
             if ((!args || args.appName === undefined) && !opts.urn) {
@@ -317,31 +317,31 @@ export class DeploymentGroup extends pulumi.CustomResource {
             if ((!args || args.serviceRoleArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceRoleArn'");
             }
-            inputs["alarmConfiguration"] = args ? args.alarmConfiguration : undefined;
-            inputs["appName"] = args ? args.appName : undefined;
-            inputs["autoRollbackConfiguration"] = args ? args.autoRollbackConfiguration : undefined;
-            inputs["autoscalingGroups"] = args ? args.autoscalingGroups : undefined;
-            inputs["blueGreenDeploymentConfig"] = args ? args.blueGreenDeploymentConfig : undefined;
-            inputs["deploymentConfigName"] = args ? args.deploymentConfigName : undefined;
-            inputs["deploymentGroupName"] = args ? args.deploymentGroupName : undefined;
-            inputs["deploymentStyle"] = args ? args.deploymentStyle : undefined;
-            inputs["ec2TagFilters"] = args ? args.ec2TagFilters : undefined;
-            inputs["ec2TagSets"] = args ? args.ec2TagSets : undefined;
-            inputs["ecsService"] = args ? args.ecsService : undefined;
-            inputs["loadBalancerInfo"] = args ? args.loadBalancerInfo : undefined;
-            inputs["onPremisesInstanceTagFilters"] = args ? args.onPremisesInstanceTagFilters : undefined;
-            inputs["serviceRoleArn"] = args ? args.serviceRoleArn : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["triggerConfigurations"] = args ? args.triggerConfigurations : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["computePlatform"] = undefined /*out*/;
-            inputs["deploymentGroupId"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["alarmConfiguration"] = args ? args.alarmConfiguration : undefined;
+            resourceInputs["appName"] = args ? args.appName : undefined;
+            resourceInputs["autoRollbackConfiguration"] = args ? args.autoRollbackConfiguration : undefined;
+            resourceInputs["autoscalingGroups"] = args ? args.autoscalingGroups : undefined;
+            resourceInputs["blueGreenDeploymentConfig"] = args ? args.blueGreenDeploymentConfig : undefined;
+            resourceInputs["deploymentConfigName"] = args ? args.deploymentConfigName : undefined;
+            resourceInputs["deploymentGroupName"] = args ? args.deploymentGroupName : undefined;
+            resourceInputs["deploymentStyle"] = args ? args.deploymentStyle : undefined;
+            resourceInputs["ec2TagFilters"] = args ? args.ec2TagFilters : undefined;
+            resourceInputs["ec2TagSets"] = args ? args.ec2TagSets : undefined;
+            resourceInputs["ecsService"] = args ? args.ecsService : undefined;
+            resourceInputs["loadBalancerInfo"] = args ? args.loadBalancerInfo : undefined;
+            resourceInputs["onPremisesInstanceTagFilters"] = args ? args.onPremisesInstanceTagFilters : undefined;
+            resourceInputs["serviceRoleArn"] = args ? args.serviceRoleArn : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["triggerConfigurations"] = args ? args.triggerConfigurations : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["computePlatform"] = undefined /*out*/;
+            resourceInputs["deploymentGroupId"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(DeploymentGroup.__pulumiType, name, inputs, opts);
+        super(DeploymentGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

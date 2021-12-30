@@ -78,23 +78,23 @@ export class Workspace extends pulumi.CustomResource {
      */
     constructor(name: string, args?: WorkspaceArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: WorkspaceArgs | WorkspaceState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WorkspaceState | undefined;
-            inputs["alias"] = state ? state.alias : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["prometheusEndpoint"] = state ? state.prometheusEndpoint : undefined;
+            resourceInputs["alias"] = state ? state.alias : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["prometheusEndpoint"] = state ? state.prometheusEndpoint : undefined;
         } else {
             const args = argsOrState as WorkspaceArgs | undefined;
-            inputs["alias"] = args ? args.alias : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["prometheusEndpoint"] = undefined /*out*/;
+            resourceInputs["alias"] = args ? args.alias : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["prometheusEndpoint"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Workspace.__pulumiType, name, inputs, opts);
+        super(Workspace.__pulumiType, name, resourceInputs, opts);
     }
 }
 

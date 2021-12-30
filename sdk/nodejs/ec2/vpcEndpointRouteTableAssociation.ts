@@ -73,12 +73,12 @@ export class VpcEndpointRouteTableAssociation extends pulumi.CustomResource {
      */
     constructor(name: string, args: VpcEndpointRouteTableAssociationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VpcEndpointRouteTableAssociationArgs | VpcEndpointRouteTableAssociationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VpcEndpointRouteTableAssociationState | undefined;
-            inputs["routeTableId"] = state ? state.routeTableId : undefined;
-            inputs["vpcEndpointId"] = state ? state.vpcEndpointId : undefined;
+            resourceInputs["routeTableId"] = state ? state.routeTableId : undefined;
+            resourceInputs["vpcEndpointId"] = state ? state.vpcEndpointId : undefined;
         } else {
             const args = argsOrState as VpcEndpointRouteTableAssociationArgs | undefined;
             if ((!args || args.routeTableId === undefined) && !opts.urn) {
@@ -87,13 +87,13 @@ export class VpcEndpointRouteTableAssociation extends pulumi.CustomResource {
             if ((!args || args.vpcEndpointId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'vpcEndpointId'");
             }
-            inputs["routeTableId"] = args ? args.routeTableId : undefined;
-            inputs["vpcEndpointId"] = args ? args.vpcEndpointId : undefined;
+            resourceInputs["routeTableId"] = args ? args.routeTableId : undefined;
+            resourceInputs["vpcEndpointId"] = args ? args.vpcEndpointId : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(VpcEndpointRouteTableAssociation.__pulumiType, name, inputs, opts);
+        super(VpcEndpointRouteTableAssociation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

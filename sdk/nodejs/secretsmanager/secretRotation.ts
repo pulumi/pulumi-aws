@@ -94,15 +94,15 @@ export class SecretRotation extends pulumi.CustomResource {
      */
     constructor(name: string, args: SecretRotationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SecretRotationArgs | SecretRotationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as SecretRotationState | undefined;
-            inputs["rotationEnabled"] = state ? state.rotationEnabled : undefined;
-            inputs["rotationLambdaArn"] = state ? state.rotationLambdaArn : undefined;
-            inputs["rotationRules"] = state ? state.rotationRules : undefined;
-            inputs["secretId"] = state ? state.secretId : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["rotationEnabled"] = state ? state.rotationEnabled : undefined;
+            resourceInputs["rotationLambdaArn"] = state ? state.rotationLambdaArn : undefined;
+            resourceInputs["rotationRules"] = state ? state.rotationRules : undefined;
+            resourceInputs["secretId"] = state ? state.secretId : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
         } else {
             const args = argsOrState as SecretRotationArgs | undefined;
             if ((!args || args.rotationLambdaArn === undefined) && !opts.urn) {
@@ -114,16 +114,16 @@ export class SecretRotation extends pulumi.CustomResource {
             if ((!args || args.secretId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'secretId'");
             }
-            inputs["rotationLambdaArn"] = args ? args.rotationLambdaArn : undefined;
-            inputs["rotationRules"] = args ? args.rotationRules : undefined;
-            inputs["secretId"] = args ? args.secretId : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["rotationEnabled"] = undefined /*out*/;
+            resourceInputs["rotationLambdaArn"] = args ? args.rotationLambdaArn : undefined;
+            resourceInputs["rotationRules"] = args ? args.rotationRules : undefined;
+            resourceInputs["secretId"] = args ? args.secretId : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["rotationEnabled"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(SecretRotation.__pulumiType, name, inputs, opts);
+        super(SecretRotation.__pulumiType, name, resourceInputs, opts);
     }
 }
 

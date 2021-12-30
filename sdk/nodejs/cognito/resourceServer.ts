@@ -101,15 +101,15 @@ export class ResourceServer extends pulumi.CustomResource {
      */
     constructor(name: string, args: ResourceServerArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ResourceServerArgs | ResourceServerState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ResourceServerState | undefined;
-            inputs["identifier"] = state ? state.identifier : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["scopeIdentifiers"] = state ? state.scopeIdentifiers : undefined;
-            inputs["scopes"] = state ? state.scopes : undefined;
-            inputs["userPoolId"] = state ? state.userPoolId : undefined;
+            resourceInputs["identifier"] = state ? state.identifier : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["scopeIdentifiers"] = state ? state.scopeIdentifiers : undefined;
+            resourceInputs["scopes"] = state ? state.scopes : undefined;
+            resourceInputs["userPoolId"] = state ? state.userPoolId : undefined;
         } else {
             const args = argsOrState as ResourceServerArgs | undefined;
             if ((!args || args.identifier === undefined) && !opts.urn) {
@@ -118,16 +118,16 @@ export class ResourceServer extends pulumi.CustomResource {
             if ((!args || args.userPoolId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'userPoolId'");
             }
-            inputs["identifier"] = args ? args.identifier : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["scopes"] = args ? args.scopes : undefined;
-            inputs["userPoolId"] = args ? args.userPoolId : undefined;
-            inputs["scopeIdentifiers"] = undefined /*out*/;
+            resourceInputs["identifier"] = args ? args.identifier : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["scopes"] = args ? args.scopes : undefined;
+            resourceInputs["userPoolId"] = args ? args.userPoolId : undefined;
+            resourceInputs["scopeIdentifiers"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(ResourceServer.__pulumiType, name, inputs, opts);
+        super(ResourceServer.__pulumiType, name, resourceInputs, opts);
     }
 }
 

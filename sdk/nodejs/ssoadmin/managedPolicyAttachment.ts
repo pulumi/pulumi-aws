@@ -71,14 +71,14 @@ export class ManagedPolicyAttachment extends pulumi.CustomResource {
      */
     constructor(name: string, args: ManagedPolicyAttachmentArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ManagedPolicyAttachmentArgs | ManagedPolicyAttachmentState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ManagedPolicyAttachmentState | undefined;
-            inputs["instanceArn"] = state ? state.instanceArn : undefined;
-            inputs["managedPolicyArn"] = state ? state.managedPolicyArn : undefined;
-            inputs["managedPolicyName"] = state ? state.managedPolicyName : undefined;
-            inputs["permissionSetArn"] = state ? state.permissionSetArn : undefined;
+            resourceInputs["instanceArn"] = state ? state.instanceArn : undefined;
+            resourceInputs["managedPolicyArn"] = state ? state.managedPolicyArn : undefined;
+            resourceInputs["managedPolicyName"] = state ? state.managedPolicyName : undefined;
+            resourceInputs["permissionSetArn"] = state ? state.permissionSetArn : undefined;
         } else {
             const args = argsOrState as ManagedPolicyAttachmentArgs | undefined;
             if ((!args || args.instanceArn === undefined) && !opts.urn) {
@@ -90,15 +90,15 @@ export class ManagedPolicyAttachment extends pulumi.CustomResource {
             if ((!args || args.permissionSetArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'permissionSetArn'");
             }
-            inputs["instanceArn"] = args ? args.instanceArn : undefined;
-            inputs["managedPolicyArn"] = args ? args.managedPolicyArn : undefined;
-            inputs["permissionSetArn"] = args ? args.permissionSetArn : undefined;
-            inputs["managedPolicyName"] = undefined /*out*/;
+            resourceInputs["instanceArn"] = args ? args.instanceArn : undefined;
+            resourceInputs["managedPolicyArn"] = args ? args.managedPolicyArn : undefined;
+            resourceInputs["permissionSetArn"] = args ? args.permissionSetArn : undefined;
+            resourceInputs["managedPolicyName"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(ManagedPolicyAttachment.__pulumiType, name, inputs, opts);
+        super(ManagedPolicyAttachment.__pulumiType, name, resourceInputs, opts);
     }
 }
 

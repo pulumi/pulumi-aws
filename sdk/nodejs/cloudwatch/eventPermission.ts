@@ -107,15 +107,15 @@ export class EventPermission extends pulumi.CustomResource {
      */
     constructor(name: string, args: EventPermissionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: EventPermissionArgs | EventPermissionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EventPermissionState | undefined;
-            inputs["action"] = state ? state.action : undefined;
-            inputs["condition"] = state ? state.condition : undefined;
-            inputs["eventBusName"] = state ? state.eventBusName : undefined;
-            inputs["principal"] = state ? state.principal : undefined;
-            inputs["statementId"] = state ? state.statementId : undefined;
+            resourceInputs["action"] = state ? state.action : undefined;
+            resourceInputs["condition"] = state ? state.condition : undefined;
+            resourceInputs["eventBusName"] = state ? state.eventBusName : undefined;
+            resourceInputs["principal"] = state ? state.principal : undefined;
+            resourceInputs["statementId"] = state ? state.statementId : undefined;
         } else {
             const args = argsOrState as EventPermissionArgs | undefined;
             if ((!args || args.principal === undefined) && !opts.urn) {
@@ -124,16 +124,16 @@ export class EventPermission extends pulumi.CustomResource {
             if ((!args || args.statementId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'statementId'");
             }
-            inputs["action"] = args ? args.action : undefined;
-            inputs["condition"] = args ? args.condition : undefined;
-            inputs["eventBusName"] = args ? args.eventBusName : undefined;
-            inputs["principal"] = args ? args.principal : undefined;
-            inputs["statementId"] = args ? args.statementId : undefined;
+            resourceInputs["action"] = args ? args.action : undefined;
+            resourceInputs["condition"] = args ? args.condition : undefined;
+            resourceInputs["eventBusName"] = args ? args.eventBusName : undefined;
+            resourceInputs["principal"] = args ? args.principal : undefined;
+            resourceInputs["statementId"] = args ? args.statementId : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(EventPermission.__pulumiType, name, inputs, opts);
+        super(EventPermission.__pulumiType, name, resourceInputs, opts);
     }
 }
 

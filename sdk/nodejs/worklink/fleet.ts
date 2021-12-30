@@ -133,39 +133,39 @@ export class Fleet extends pulumi.CustomResource {
      */
     constructor(name: string, args?: FleetArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: FleetArgs | FleetState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FleetState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["auditStreamArn"] = state ? state.auditStreamArn : undefined;
-            inputs["companyCode"] = state ? state.companyCode : undefined;
-            inputs["createdTime"] = state ? state.createdTime : undefined;
-            inputs["deviceCaCertificate"] = state ? state.deviceCaCertificate : undefined;
-            inputs["displayName"] = state ? state.displayName : undefined;
-            inputs["identityProvider"] = state ? state.identityProvider : undefined;
-            inputs["lastUpdatedTime"] = state ? state.lastUpdatedTime : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["network"] = state ? state.network : undefined;
-            inputs["optimizeForEndUserLocation"] = state ? state.optimizeForEndUserLocation : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["auditStreamArn"] = state ? state.auditStreamArn : undefined;
+            resourceInputs["companyCode"] = state ? state.companyCode : undefined;
+            resourceInputs["createdTime"] = state ? state.createdTime : undefined;
+            resourceInputs["deviceCaCertificate"] = state ? state.deviceCaCertificate : undefined;
+            resourceInputs["displayName"] = state ? state.displayName : undefined;
+            resourceInputs["identityProvider"] = state ? state.identityProvider : undefined;
+            resourceInputs["lastUpdatedTime"] = state ? state.lastUpdatedTime : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["network"] = state ? state.network : undefined;
+            resourceInputs["optimizeForEndUserLocation"] = state ? state.optimizeForEndUserLocation : undefined;
         } else {
             const args = argsOrState as FleetArgs | undefined;
-            inputs["auditStreamArn"] = args ? args.auditStreamArn : undefined;
-            inputs["deviceCaCertificate"] = args ? args.deviceCaCertificate : undefined;
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["identityProvider"] = args ? args.identityProvider : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["network"] = args ? args.network : undefined;
-            inputs["optimizeForEndUserLocation"] = args ? args.optimizeForEndUserLocation : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["companyCode"] = undefined /*out*/;
-            inputs["createdTime"] = undefined /*out*/;
-            inputs["lastUpdatedTime"] = undefined /*out*/;
+            resourceInputs["auditStreamArn"] = args ? args.auditStreamArn : undefined;
+            resourceInputs["deviceCaCertificate"] = args ? args.deviceCaCertificate : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["identityProvider"] = args ? args.identityProvider : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["network"] = args ? args.network : undefined;
+            resourceInputs["optimizeForEndUserLocation"] = args ? args.optimizeForEndUserLocation : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["companyCode"] = undefined /*out*/;
+            resourceInputs["createdTime"] = undefined /*out*/;
+            resourceInputs["lastUpdatedTime"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Fleet.__pulumiType, name, inputs, opts);
+        super(Fleet.__pulumiType, name, resourceInputs, opts);
     }
 }
 

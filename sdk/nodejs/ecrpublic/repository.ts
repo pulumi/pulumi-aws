@@ -100,32 +100,32 @@ export class Repository extends pulumi.CustomResource {
      */
     constructor(name: string, args: RepositoryArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RepositoryArgs | RepositoryState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RepositoryState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["catalogData"] = state ? state.catalogData : undefined;
-            inputs["forceDestroy"] = state ? state.forceDestroy : undefined;
-            inputs["registryId"] = state ? state.registryId : undefined;
-            inputs["repositoryName"] = state ? state.repositoryName : undefined;
-            inputs["repositoryUri"] = state ? state.repositoryUri : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["catalogData"] = state ? state.catalogData : undefined;
+            resourceInputs["forceDestroy"] = state ? state.forceDestroy : undefined;
+            resourceInputs["registryId"] = state ? state.registryId : undefined;
+            resourceInputs["repositoryName"] = state ? state.repositoryName : undefined;
+            resourceInputs["repositoryUri"] = state ? state.repositoryUri : undefined;
         } else {
             const args = argsOrState as RepositoryArgs | undefined;
             if ((!args || args.repositoryName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'repositoryName'");
             }
-            inputs["catalogData"] = args ? args.catalogData : undefined;
-            inputs["forceDestroy"] = args ? args.forceDestroy : undefined;
-            inputs["repositoryName"] = args ? args.repositoryName : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["registryId"] = undefined /*out*/;
-            inputs["repositoryUri"] = undefined /*out*/;
+            resourceInputs["catalogData"] = args ? args.catalogData : undefined;
+            resourceInputs["forceDestroy"] = args ? args.forceDestroy : undefined;
+            resourceInputs["repositoryName"] = args ? args.repositoryName : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["registryId"] = undefined /*out*/;
+            resourceInputs["repositoryUri"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Repository.__pulumiType, name, inputs, opts);
+        super(Repository.__pulumiType, name, resourceInputs, opts);
     }
 }
 

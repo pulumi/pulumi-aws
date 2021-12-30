@@ -21,7 +21,6 @@ import (
 // import (
 // 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/iam"
 // 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/s3"
 // 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/ssm"
 // 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -146,7 +145,7 @@ type ResourceDataSyncInput interface {
 }
 
 func (*ResourceDataSync) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceDataSync)(nil))
+	return reflect.TypeOf((**ResourceDataSync)(nil)).Elem()
 }
 
 func (i *ResourceDataSync) ToResourceDataSyncOutput() ResourceDataSyncOutput {
@@ -155,35 +154,6 @@ func (i *ResourceDataSync) ToResourceDataSyncOutput() ResourceDataSyncOutput {
 
 func (i *ResourceDataSync) ToResourceDataSyncOutputWithContext(ctx context.Context) ResourceDataSyncOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceDataSyncOutput)
-}
-
-func (i *ResourceDataSync) ToResourceDataSyncPtrOutput() ResourceDataSyncPtrOutput {
-	return i.ToResourceDataSyncPtrOutputWithContext(context.Background())
-}
-
-func (i *ResourceDataSync) ToResourceDataSyncPtrOutputWithContext(ctx context.Context) ResourceDataSyncPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourceDataSyncPtrOutput)
-}
-
-type ResourceDataSyncPtrInput interface {
-	pulumi.Input
-
-	ToResourceDataSyncPtrOutput() ResourceDataSyncPtrOutput
-	ToResourceDataSyncPtrOutputWithContext(ctx context.Context) ResourceDataSyncPtrOutput
-}
-
-type resourceDataSyncPtrType ResourceDataSyncArgs
-
-func (*resourceDataSyncPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ResourceDataSync)(nil))
-}
-
-func (i *resourceDataSyncPtrType) ToResourceDataSyncPtrOutput() ResourceDataSyncPtrOutput {
-	return i.ToResourceDataSyncPtrOutputWithContext(context.Background())
-}
-
-func (i *resourceDataSyncPtrType) ToResourceDataSyncPtrOutputWithContext(ctx context.Context) ResourceDataSyncPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourceDataSyncPtrOutput)
 }
 
 // ResourceDataSyncArrayInput is an input type that accepts ResourceDataSyncArray and ResourceDataSyncArrayOutput values.
@@ -239,7 +209,7 @@ func (i ResourceDataSyncMap) ToResourceDataSyncMapOutputWithContext(ctx context.
 type ResourceDataSyncOutput struct{ *pulumi.OutputState }
 
 func (ResourceDataSyncOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceDataSync)(nil))
+	return reflect.TypeOf((**ResourceDataSync)(nil)).Elem()
 }
 
 func (o ResourceDataSyncOutput) ToResourceDataSyncOutput() ResourceDataSyncOutput {
@@ -250,44 +220,10 @@ func (o ResourceDataSyncOutput) ToResourceDataSyncOutputWithContext(ctx context.
 	return o
 }
 
-func (o ResourceDataSyncOutput) ToResourceDataSyncPtrOutput() ResourceDataSyncPtrOutput {
-	return o.ToResourceDataSyncPtrOutputWithContext(context.Background())
-}
-
-func (o ResourceDataSyncOutput) ToResourceDataSyncPtrOutputWithContext(ctx context.Context) ResourceDataSyncPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceDataSync) *ResourceDataSync {
-		return &v
-	}).(ResourceDataSyncPtrOutput)
-}
-
-type ResourceDataSyncPtrOutput struct{ *pulumi.OutputState }
-
-func (ResourceDataSyncPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ResourceDataSync)(nil))
-}
-
-func (o ResourceDataSyncPtrOutput) ToResourceDataSyncPtrOutput() ResourceDataSyncPtrOutput {
-	return o
-}
-
-func (o ResourceDataSyncPtrOutput) ToResourceDataSyncPtrOutputWithContext(ctx context.Context) ResourceDataSyncPtrOutput {
-	return o
-}
-
-func (o ResourceDataSyncPtrOutput) Elem() ResourceDataSyncOutput {
-	return o.ApplyT(func(v *ResourceDataSync) ResourceDataSync {
-		if v != nil {
-			return *v
-		}
-		var ret ResourceDataSync
-		return ret
-	}).(ResourceDataSyncOutput)
-}
-
 type ResourceDataSyncArrayOutput struct{ *pulumi.OutputState }
 
 func (ResourceDataSyncArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ResourceDataSync)(nil))
+	return reflect.TypeOf((*[]*ResourceDataSync)(nil)).Elem()
 }
 
 func (o ResourceDataSyncArrayOutput) ToResourceDataSyncArrayOutput() ResourceDataSyncArrayOutput {
@@ -299,15 +235,15 @@ func (o ResourceDataSyncArrayOutput) ToResourceDataSyncArrayOutputWithContext(ct
 }
 
 func (o ResourceDataSyncArrayOutput) Index(i pulumi.IntInput) ResourceDataSyncOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ResourceDataSync {
-		return vs[0].([]ResourceDataSync)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ResourceDataSync {
+		return vs[0].([]*ResourceDataSync)[vs[1].(int)]
 	}).(ResourceDataSyncOutput)
 }
 
 type ResourceDataSyncMapOutput struct{ *pulumi.OutputState }
 
 func (ResourceDataSyncMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ResourceDataSync)(nil))
+	return reflect.TypeOf((*map[string]*ResourceDataSync)(nil)).Elem()
 }
 
 func (o ResourceDataSyncMapOutput) ToResourceDataSyncMapOutput() ResourceDataSyncMapOutput {
@@ -319,18 +255,16 @@ func (o ResourceDataSyncMapOutput) ToResourceDataSyncMapOutputWithContext(ctx co
 }
 
 func (o ResourceDataSyncMapOutput) MapIndex(k pulumi.StringInput) ResourceDataSyncOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ResourceDataSync {
-		return vs[0].(map[string]ResourceDataSync)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ResourceDataSync {
+		return vs[0].(map[string]*ResourceDataSync)[vs[1].(string)]
 	}).(ResourceDataSyncOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceDataSyncInput)(nil)).Elem(), &ResourceDataSync{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ResourceDataSyncPtrInput)(nil)).Elem(), &ResourceDataSync{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceDataSyncArrayInput)(nil)).Elem(), ResourceDataSyncArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceDataSyncMapInput)(nil)).Elem(), ResourceDataSyncMap{})
 	pulumi.RegisterOutputType(ResourceDataSyncOutput{})
-	pulumi.RegisterOutputType(ResourceDataSyncPtrOutput{})
 	pulumi.RegisterOutputType(ResourceDataSyncArrayOutput{})
 	pulumi.RegisterOutputType(ResourceDataSyncMapOutput{})
 }

@@ -95,38 +95,38 @@ export class VpcIpamScope extends pulumi.CustomResource {
      */
     constructor(name: string, args: VpcIpamScopeArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VpcIpamScopeArgs | VpcIpamScopeState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VpcIpamScopeState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["ipamArn"] = state ? state.ipamArn : undefined;
-            inputs["ipamId"] = state ? state.ipamId : undefined;
-            inputs["ipamScopeType"] = state ? state.ipamScopeType : undefined;
-            inputs["isDefault"] = state ? state.isDefault : undefined;
-            inputs["poolCount"] = state ? state.poolCount : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["ipamArn"] = state ? state.ipamArn : undefined;
+            resourceInputs["ipamId"] = state ? state.ipamId : undefined;
+            resourceInputs["ipamScopeType"] = state ? state.ipamScopeType : undefined;
+            resourceInputs["isDefault"] = state ? state.isDefault : undefined;
+            resourceInputs["poolCount"] = state ? state.poolCount : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as VpcIpamScopeArgs | undefined;
             if ((!args || args.ipamId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'ipamId'");
             }
-            inputs["description"] = args ? args.description : undefined;
-            inputs["ipamId"] = args ? args.ipamId : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["ipamArn"] = undefined /*out*/;
-            inputs["ipamScopeType"] = undefined /*out*/;
-            inputs["isDefault"] = undefined /*out*/;
-            inputs["poolCount"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["ipamId"] = args ? args.ipamId : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["ipamArn"] = undefined /*out*/;
+            resourceInputs["ipamScopeType"] = undefined /*out*/;
+            resourceInputs["isDefault"] = undefined /*out*/;
+            resourceInputs["poolCount"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(VpcIpamScope.__pulumiType, name, inputs, opts);
+        super(VpcIpamScope.__pulumiType, name, resourceInputs, opts);
     }
 }
 

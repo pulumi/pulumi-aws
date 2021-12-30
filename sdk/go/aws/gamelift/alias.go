@@ -164,7 +164,7 @@ type AliasInput interface {
 }
 
 func (*Alias) ElementType() reflect.Type {
-	return reflect.TypeOf((*Alias)(nil))
+	return reflect.TypeOf((**Alias)(nil)).Elem()
 }
 
 func (i *Alias) ToAliasOutput() AliasOutput {
@@ -173,35 +173,6 @@ func (i *Alias) ToAliasOutput() AliasOutput {
 
 func (i *Alias) ToAliasOutputWithContext(ctx context.Context) AliasOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AliasOutput)
-}
-
-func (i *Alias) ToAliasPtrOutput() AliasPtrOutput {
-	return i.ToAliasPtrOutputWithContext(context.Background())
-}
-
-func (i *Alias) ToAliasPtrOutputWithContext(ctx context.Context) AliasPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AliasPtrOutput)
-}
-
-type AliasPtrInput interface {
-	pulumi.Input
-
-	ToAliasPtrOutput() AliasPtrOutput
-	ToAliasPtrOutputWithContext(ctx context.Context) AliasPtrOutput
-}
-
-type aliasPtrType AliasArgs
-
-func (*aliasPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Alias)(nil))
-}
-
-func (i *aliasPtrType) ToAliasPtrOutput() AliasPtrOutput {
-	return i.ToAliasPtrOutputWithContext(context.Background())
-}
-
-func (i *aliasPtrType) ToAliasPtrOutputWithContext(ctx context.Context) AliasPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AliasPtrOutput)
 }
 
 // AliasArrayInput is an input type that accepts AliasArray and AliasArrayOutput values.
@@ -257,7 +228,7 @@ func (i AliasMap) ToAliasMapOutputWithContext(ctx context.Context) AliasMapOutpu
 type AliasOutput struct{ *pulumi.OutputState }
 
 func (AliasOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Alias)(nil))
+	return reflect.TypeOf((**Alias)(nil)).Elem()
 }
 
 func (o AliasOutput) ToAliasOutput() AliasOutput {
@@ -268,44 +239,10 @@ func (o AliasOutput) ToAliasOutputWithContext(ctx context.Context) AliasOutput {
 	return o
 }
 
-func (o AliasOutput) ToAliasPtrOutput() AliasPtrOutput {
-	return o.ToAliasPtrOutputWithContext(context.Background())
-}
-
-func (o AliasOutput) ToAliasPtrOutputWithContext(ctx context.Context) AliasPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Alias) *Alias {
-		return &v
-	}).(AliasPtrOutput)
-}
-
-type AliasPtrOutput struct{ *pulumi.OutputState }
-
-func (AliasPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Alias)(nil))
-}
-
-func (o AliasPtrOutput) ToAliasPtrOutput() AliasPtrOutput {
-	return o
-}
-
-func (o AliasPtrOutput) ToAliasPtrOutputWithContext(ctx context.Context) AliasPtrOutput {
-	return o
-}
-
-func (o AliasPtrOutput) Elem() AliasOutput {
-	return o.ApplyT(func(v *Alias) Alias {
-		if v != nil {
-			return *v
-		}
-		var ret Alias
-		return ret
-	}).(AliasOutput)
-}
-
 type AliasArrayOutput struct{ *pulumi.OutputState }
 
 func (AliasArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Alias)(nil))
+	return reflect.TypeOf((*[]*Alias)(nil)).Elem()
 }
 
 func (o AliasArrayOutput) ToAliasArrayOutput() AliasArrayOutput {
@@ -317,15 +254,15 @@ func (o AliasArrayOutput) ToAliasArrayOutputWithContext(ctx context.Context) Ali
 }
 
 func (o AliasArrayOutput) Index(i pulumi.IntInput) AliasOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Alias {
-		return vs[0].([]Alias)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Alias {
+		return vs[0].([]*Alias)[vs[1].(int)]
 	}).(AliasOutput)
 }
 
 type AliasMapOutput struct{ *pulumi.OutputState }
 
 func (AliasMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Alias)(nil))
+	return reflect.TypeOf((*map[string]*Alias)(nil)).Elem()
 }
 
 func (o AliasMapOutput) ToAliasMapOutput() AliasMapOutput {
@@ -337,18 +274,16 @@ func (o AliasMapOutput) ToAliasMapOutputWithContext(ctx context.Context) AliasMa
 }
 
 func (o AliasMapOutput) MapIndex(k pulumi.StringInput) AliasOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Alias {
-		return vs[0].(map[string]Alias)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Alias {
+		return vs[0].(map[string]*Alias)[vs[1].(string)]
 	}).(AliasOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AliasInput)(nil)).Elem(), &Alias{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AliasPtrInput)(nil)).Elem(), &Alias{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AliasArrayInput)(nil)).Elem(), AliasArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AliasMapInput)(nil)).Elem(), AliasMap{})
 	pulumi.RegisterOutputType(AliasOutput{})
-	pulumi.RegisterOutputType(AliasPtrOutput{})
 	pulumi.RegisterOutputType(AliasArrayOutput{})
 	pulumi.RegisterOutputType(AliasMapOutput{})
 }

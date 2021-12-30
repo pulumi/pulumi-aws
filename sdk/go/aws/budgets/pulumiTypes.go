@@ -47,47 +47,6 @@ func (i BudgetActionActionThresholdArgs) ToBudgetActionActionThresholdOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetActionActionThresholdOutput)
 }
 
-func (i BudgetActionActionThresholdArgs) ToBudgetActionActionThresholdPtrOutput() BudgetActionActionThresholdPtrOutput {
-	return i.ToBudgetActionActionThresholdPtrOutputWithContext(context.Background())
-}
-
-func (i BudgetActionActionThresholdArgs) ToBudgetActionActionThresholdPtrOutputWithContext(ctx context.Context) BudgetActionActionThresholdPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BudgetActionActionThresholdOutput).ToBudgetActionActionThresholdPtrOutputWithContext(ctx)
-}
-
-// BudgetActionActionThresholdPtrInput is an input type that accepts BudgetActionActionThresholdArgs, BudgetActionActionThresholdPtr and BudgetActionActionThresholdPtrOutput values.
-// You can construct a concrete instance of `BudgetActionActionThresholdPtrInput` via:
-//
-//          BudgetActionActionThresholdArgs{...}
-//
-//  or:
-//
-//          nil
-type BudgetActionActionThresholdPtrInput interface {
-	pulumi.Input
-
-	ToBudgetActionActionThresholdPtrOutput() BudgetActionActionThresholdPtrOutput
-	ToBudgetActionActionThresholdPtrOutputWithContext(context.Context) BudgetActionActionThresholdPtrOutput
-}
-
-type budgetActionActionThresholdPtrType BudgetActionActionThresholdArgs
-
-func BudgetActionActionThresholdPtr(v *BudgetActionActionThresholdArgs) BudgetActionActionThresholdPtrInput {
-	return (*budgetActionActionThresholdPtrType)(v)
-}
-
-func (*budgetActionActionThresholdPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BudgetActionActionThreshold)(nil)).Elem()
-}
-
-func (i *budgetActionActionThresholdPtrType) ToBudgetActionActionThresholdPtrOutput() BudgetActionActionThresholdPtrOutput {
-	return i.ToBudgetActionActionThresholdPtrOutputWithContext(context.Background())
-}
-
-func (i *budgetActionActionThresholdPtrType) ToBudgetActionActionThresholdPtrOutputWithContext(ctx context.Context) BudgetActionActionThresholdPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BudgetActionActionThresholdPtrOutput)
-}
-
 type BudgetActionActionThresholdOutput struct{ *pulumi.OutputState }
 
 func (BudgetActionActionThresholdOutput) ElementType() reflect.Type {
@@ -102,16 +61,6 @@ func (o BudgetActionActionThresholdOutput) ToBudgetActionActionThresholdOutputWi
 	return o
 }
 
-func (o BudgetActionActionThresholdOutput) ToBudgetActionActionThresholdPtrOutput() BudgetActionActionThresholdPtrOutput {
-	return o.ToBudgetActionActionThresholdPtrOutputWithContext(context.Background())
-}
-
-func (o BudgetActionActionThresholdOutput) ToBudgetActionActionThresholdPtrOutputWithContext(ctx context.Context) BudgetActionActionThresholdPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetActionActionThreshold) *BudgetActionActionThreshold {
-		return &v
-	}).(BudgetActionActionThresholdPtrOutput)
-}
-
 // The type of threshold for a notification. Valid values are `PERCENTAGE` or `ABSOLUTE_VALUE`.
 func (o BudgetActionActionThresholdOutput) ActionThresholdType() pulumi.StringOutput {
 	return o.ApplyT(func(v BudgetActionActionThreshold) string { return v.ActionThresholdType }).(pulumi.StringOutput)
@@ -120,50 +69,6 @@ func (o BudgetActionActionThresholdOutput) ActionThresholdType() pulumi.StringOu
 // The threshold of a notification.
 func (o BudgetActionActionThresholdOutput) ActionThresholdValue() pulumi.Float64Output {
 	return o.ApplyT(func(v BudgetActionActionThreshold) float64 { return v.ActionThresholdValue }).(pulumi.Float64Output)
-}
-
-type BudgetActionActionThresholdPtrOutput struct{ *pulumi.OutputState }
-
-func (BudgetActionActionThresholdPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**BudgetActionActionThreshold)(nil)).Elem()
-}
-
-func (o BudgetActionActionThresholdPtrOutput) ToBudgetActionActionThresholdPtrOutput() BudgetActionActionThresholdPtrOutput {
-	return o
-}
-
-func (o BudgetActionActionThresholdPtrOutput) ToBudgetActionActionThresholdPtrOutputWithContext(ctx context.Context) BudgetActionActionThresholdPtrOutput {
-	return o
-}
-
-func (o BudgetActionActionThresholdPtrOutput) Elem() BudgetActionActionThresholdOutput {
-	return o.ApplyT(func(v *BudgetActionActionThreshold) BudgetActionActionThreshold {
-		if v != nil {
-			return *v
-		}
-		var ret BudgetActionActionThreshold
-		return ret
-	}).(BudgetActionActionThresholdOutput)
-}
-
-// The type of threshold for a notification. Valid values are `PERCENTAGE` or `ABSOLUTE_VALUE`.
-func (o BudgetActionActionThresholdPtrOutput) ActionThresholdType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *BudgetActionActionThreshold) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ActionThresholdType
-	}).(pulumi.StringPtrOutput)
-}
-
-// The threshold of a notification.
-func (o BudgetActionActionThresholdPtrOutput) ActionThresholdValue() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *BudgetActionActionThreshold) *float64 {
-		if v == nil {
-			return nil
-		}
-		return &v.ActionThresholdValue
-	}).(pulumi.Float64PtrOutput)
 }
 
 type BudgetActionDefinition struct {
@@ -207,47 +112,6 @@ func (i BudgetActionDefinitionArgs) ToBudgetActionDefinitionOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(BudgetActionDefinitionOutput)
 }
 
-func (i BudgetActionDefinitionArgs) ToBudgetActionDefinitionPtrOutput() BudgetActionDefinitionPtrOutput {
-	return i.ToBudgetActionDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (i BudgetActionDefinitionArgs) ToBudgetActionDefinitionPtrOutputWithContext(ctx context.Context) BudgetActionDefinitionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BudgetActionDefinitionOutput).ToBudgetActionDefinitionPtrOutputWithContext(ctx)
-}
-
-// BudgetActionDefinitionPtrInput is an input type that accepts BudgetActionDefinitionArgs, BudgetActionDefinitionPtr and BudgetActionDefinitionPtrOutput values.
-// You can construct a concrete instance of `BudgetActionDefinitionPtrInput` via:
-//
-//          BudgetActionDefinitionArgs{...}
-//
-//  or:
-//
-//          nil
-type BudgetActionDefinitionPtrInput interface {
-	pulumi.Input
-
-	ToBudgetActionDefinitionPtrOutput() BudgetActionDefinitionPtrOutput
-	ToBudgetActionDefinitionPtrOutputWithContext(context.Context) BudgetActionDefinitionPtrOutput
-}
-
-type budgetActionDefinitionPtrType BudgetActionDefinitionArgs
-
-func BudgetActionDefinitionPtr(v *BudgetActionDefinitionArgs) BudgetActionDefinitionPtrInput {
-	return (*budgetActionDefinitionPtrType)(v)
-}
-
-func (*budgetActionDefinitionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BudgetActionDefinition)(nil)).Elem()
-}
-
-func (i *budgetActionDefinitionPtrType) ToBudgetActionDefinitionPtrOutput() BudgetActionDefinitionPtrOutput {
-	return i.ToBudgetActionDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (i *budgetActionDefinitionPtrType) ToBudgetActionDefinitionPtrOutputWithContext(ctx context.Context) BudgetActionDefinitionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BudgetActionDefinitionPtrOutput)
-}
-
 type BudgetActionDefinitionOutput struct{ *pulumi.OutputState }
 
 func (BudgetActionDefinitionOutput) ElementType() reflect.Type {
@@ -260,16 +124,6 @@ func (o BudgetActionDefinitionOutput) ToBudgetActionDefinitionOutput() BudgetAct
 
 func (o BudgetActionDefinitionOutput) ToBudgetActionDefinitionOutputWithContext(ctx context.Context) BudgetActionDefinitionOutput {
 	return o
-}
-
-func (o BudgetActionDefinitionOutput) ToBudgetActionDefinitionPtrOutput() BudgetActionDefinitionPtrOutput {
-	return o.ToBudgetActionDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (o BudgetActionDefinitionOutput) ToBudgetActionDefinitionPtrOutputWithContext(ctx context.Context) BudgetActionDefinitionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetActionDefinition) *BudgetActionDefinition {
-		return &v
-	}).(BudgetActionDefinitionPtrOutput)
 }
 
 // The AWS Identity and Access Management (IAM) action definition details. See IAM Action Definition.
@@ -289,60 +143,6 @@ func (o BudgetActionDefinitionOutput) ScpActionDefinition() BudgetActionDefiniti
 // The AWS Systems Manager (SSM) action definition details. See SSM Action Definition.
 func (o BudgetActionDefinitionOutput) SsmActionDefinition() BudgetActionDefinitionSsmActionDefinitionPtrOutput {
 	return o.ApplyT(func(v BudgetActionDefinition) *BudgetActionDefinitionSsmActionDefinition {
-		return v.SsmActionDefinition
-	}).(BudgetActionDefinitionSsmActionDefinitionPtrOutput)
-}
-
-type BudgetActionDefinitionPtrOutput struct{ *pulumi.OutputState }
-
-func (BudgetActionDefinitionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**BudgetActionDefinition)(nil)).Elem()
-}
-
-func (o BudgetActionDefinitionPtrOutput) ToBudgetActionDefinitionPtrOutput() BudgetActionDefinitionPtrOutput {
-	return o
-}
-
-func (o BudgetActionDefinitionPtrOutput) ToBudgetActionDefinitionPtrOutputWithContext(ctx context.Context) BudgetActionDefinitionPtrOutput {
-	return o
-}
-
-func (o BudgetActionDefinitionPtrOutput) Elem() BudgetActionDefinitionOutput {
-	return o.ApplyT(func(v *BudgetActionDefinition) BudgetActionDefinition {
-		if v != nil {
-			return *v
-		}
-		var ret BudgetActionDefinition
-		return ret
-	}).(BudgetActionDefinitionOutput)
-}
-
-// The AWS Identity and Access Management (IAM) action definition details. See IAM Action Definition.
-func (o BudgetActionDefinitionPtrOutput) IamActionDefinition() BudgetActionDefinitionIamActionDefinitionPtrOutput {
-	return o.ApplyT(func(v *BudgetActionDefinition) *BudgetActionDefinitionIamActionDefinition {
-		if v == nil {
-			return nil
-		}
-		return v.IamActionDefinition
-	}).(BudgetActionDefinitionIamActionDefinitionPtrOutput)
-}
-
-// The service control policies (SCPs) action definition details. See SCP Action Definition.
-func (o BudgetActionDefinitionPtrOutput) ScpActionDefinition() BudgetActionDefinitionScpActionDefinitionPtrOutput {
-	return o.ApplyT(func(v *BudgetActionDefinition) *BudgetActionDefinitionScpActionDefinition {
-		if v == nil {
-			return nil
-		}
-		return v.ScpActionDefinition
-	}).(BudgetActionDefinitionScpActionDefinitionPtrOutput)
-}
-
-// The AWS Systems Manager (SSM) action definition details. See SSM Action Definition.
-func (o BudgetActionDefinitionPtrOutput) SsmActionDefinition() BudgetActionDefinitionSsmActionDefinitionPtrOutput {
-	return o.ApplyT(func(v *BudgetActionDefinition) *BudgetActionDefinitionSsmActionDefinition {
-		if v == nil {
-			return nil
-		}
 		return v.SsmActionDefinition
 	}).(BudgetActionDefinitionSsmActionDefinitionPtrOutput)
 }
@@ -984,58 +784,6 @@ type BudgetCostFilter struct {
 	Values []string `pulumi:"values"`
 }
 
-// BudgetCostFilterInput is an input type that accepts BudgetCostFilterArgs and BudgetCostFilterOutput values.
-// You can construct a concrete instance of `BudgetCostFilterInput` via:
-//
-//          BudgetCostFilterArgs{...}
-type BudgetCostFilterInput interface {
-	pulumi.Input
-
-	ToBudgetCostFilterOutput() BudgetCostFilterOutput
-	ToBudgetCostFilterOutputWithContext(context.Context) BudgetCostFilterOutput
-}
-
-type BudgetCostFilterArgs struct {
-	// The name of a budget. Unique within accounts.
-	Name   pulumi.StringInput      `pulumi:"name"`
-	Values pulumi.StringArrayInput `pulumi:"values"`
-}
-
-func (BudgetCostFilterArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*BudgetCostFilter)(nil)).Elem()
-}
-
-func (i BudgetCostFilterArgs) ToBudgetCostFilterOutput() BudgetCostFilterOutput {
-	return i.ToBudgetCostFilterOutputWithContext(context.Background())
-}
-
-func (i BudgetCostFilterArgs) ToBudgetCostFilterOutputWithContext(ctx context.Context) BudgetCostFilterOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BudgetCostFilterOutput)
-}
-
-type BudgetCostFilterOutput struct{ *pulumi.OutputState }
-
-func (BudgetCostFilterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BudgetCostFilter)(nil)).Elem()
-}
-
-func (o BudgetCostFilterOutput) ToBudgetCostFilterOutput() BudgetCostFilterOutput {
-	return o
-}
-
-func (o BudgetCostFilterOutput) ToBudgetCostFilterOutputWithContext(ctx context.Context) BudgetCostFilterOutput {
-	return o
-}
-
-// The name of a budget. Unique within accounts.
-func (o BudgetCostFilterOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v BudgetCostFilter) string { return v.Name }).(pulumi.StringOutput)
-}
-
-func (o BudgetCostFilterOutput) Values() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v BudgetCostFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
-}
-
 type BudgetCostTypes struct {
 	// A boolean value whether to include credits in the cost budget. Defaults to `true`
 	IncludeCredit *bool `pulumi:"includeCredit"`
@@ -1507,9 +1255,7 @@ func (o BudgetNotificationArrayOutput) Index(i pulumi.IntInput) BudgetNotificati
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BudgetActionActionThresholdInput)(nil)).Elem(), BudgetActionActionThresholdArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BudgetActionActionThresholdPtrInput)(nil)).Elem(), BudgetActionActionThresholdArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BudgetActionDefinitionInput)(nil)).Elem(), BudgetActionDefinitionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BudgetActionDefinitionPtrInput)(nil)).Elem(), BudgetActionDefinitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BudgetActionDefinitionIamActionDefinitionInput)(nil)).Elem(), BudgetActionDefinitionIamActionDefinitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BudgetActionDefinitionIamActionDefinitionPtrInput)(nil)).Elem(), BudgetActionDefinitionIamActionDefinitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BudgetActionDefinitionScpActionDefinitionInput)(nil)).Elem(), BudgetActionDefinitionScpActionDefinitionArgs{})
@@ -1518,15 +1264,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BudgetActionDefinitionSsmActionDefinitionPtrInput)(nil)).Elem(), BudgetActionDefinitionSsmActionDefinitionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BudgetActionSubscriberInput)(nil)).Elem(), BudgetActionSubscriberArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BudgetActionSubscriberArrayInput)(nil)).Elem(), BudgetActionSubscriberArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BudgetCostFilterInput)(nil)).Elem(), BudgetCostFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BudgetCostTypesInput)(nil)).Elem(), BudgetCostTypesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BudgetCostTypesPtrInput)(nil)).Elem(), BudgetCostTypesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BudgetNotificationInput)(nil)).Elem(), BudgetNotificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BudgetNotificationArrayInput)(nil)).Elem(), BudgetNotificationArray{})
 	pulumi.RegisterOutputType(BudgetActionActionThresholdOutput{})
-	pulumi.RegisterOutputType(BudgetActionActionThresholdPtrOutput{})
 	pulumi.RegisterOutputType(BudgetActionDefinitionOutput{})
-	pulumi.RegisterOutputType(BudgetActionDefinitionPtrOutput{})
 	pulumi.RegisterOutputType(BudgetActionDefinitionIamActionDefinitionOutput{})
 	pulumi.RegisterOutputType(BudgetActionDefinitionIamActionDefinitionPtrOutput{})
 	pulumi.RegisterOutputType(BudgetActionDefinitionScpActionDefinitionOutput{})
@@ -1535,7 +1278,6 @@ func init() {
 	pulumi.RegisterOutputType(BudgetActionDefinitionSsmActionDefinitionPtrOutput{})
 	pulumi.RegisterOutputType(BudgetActionSubscriberOutput{})
 	pulumi.RegisterOutputType(BudgetActionSubscriberArrayOutput{})
-	pulumi.RegisterOutputType(BudgetCostFilterOutput{})
 	pulumi.RegisterOutputType(BudgetCostTypesOutput{})
 	pulumi.RegisterOutputType(BudgetCostTypesPtrOutput{})
 	pulumi.RegisterOutputType(BudgetNotificationOutput{})

@@ -236,65 +236,65 @@ export class Table extends pulumi.CustomResource {
      */
     constructor(name: string, args?: TableArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: TableArgs | TableState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TableState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["attributes"] = state ? state.attributes : undefined;
-            inputs["billingMode"] = state ? state.billingMode : undefined;
-            inputs["globalSecondaryIndexes"] = state ? state.globalSecondaryIndexes : undefined;
-            inputs["hashKey"] = state ? state.hashKey : undefined;
-            inputs["localSecondaryIndexes"] = state ? state.localSecondaryIndexes : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["pointInTimeRecovery"] = state ? state.pointInTimeRecovery : undefined;
-            inputs["rangeKey"] = state ? state.rangeKey : undefined;
-            inputs["readCapacity"] = state ? state.readCapacity : undefined;
-            inputs["replicas"] = state ? state.replicas : undefined;
-            inputs["restoreDateTime"] = state ? state.restoreDateTime : undefined;
-            inputs["restoreSourceName"] = state ? state.restoreSourceName : undefined;
-            inputs["restoreToLatestTime"] = state ? state.restoreToLatestTime : undefined;
-            inputs["serverSideEncryption"] = state ? state.serverSideEncryption : undefined;
-            inputs["streamArn"] = state ? state.streamArn : undefined;
-            inputs["streamEnabled"] = state ? state.streamEnabled : undefined;
-            inputs["streamLabel"] = state ? state.streamLabel : undefined;
-            inputs["streamViewType"] = state ? state.streamViewType : undefined;
-            inputs["tableClass"] = state ? state.tableClass : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["ttl"] = state ? state.ttl : undefined;
-            inputs["writeCapacity"] = state ? state.writeCapacity : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["attributes"] = state ? state.attributes : undefined;
+            resourceInputs["billingMode"] = state ? state.billingMode : undefined;
+            resourceInputs["globalSecondaryIndexes"] = state ? state.globalSecondaryIndexes : undefined;
+            resourceInputs["hashKey"] = state ? state.hashKey : undefined;
+            resourceInputs["localSecondaryIndexes"] = state ? state.localSecondaryIndexes : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["pointInTimeRecovery"] = state ? state.pointInTimeRecovery : undefined;
+            resourceInputs["rangeKey"] = state ? state.rangeKey : undefined;
+            resourceInputs["readCapacity"] = state ? state.readCapacity : undefined;
+            resourceInputs["replicas"] = state ? state.replicas : undefined;
+            resourceInputs["restoreDateTime"] = state ? state.restoreDateTime : undefined;
+            resourceInputs["restoreSourceName"] = state ? state.restoreSourceName : undefined;
+            resourceInputs["restoreToLatestTime"] = state ? state.restoreToLatestTime : undefined;
+            resourceInputs["serverSideEncryption"] = state ? state.serverSideEncryption : undefined;
+            resourceInputs["streamArn"] = state ? state.streamArn : undefined;
+            resourceInputs["streamEnabled"] = state ? state.streamEnabled : undefined;
+            resourceInputs["streamLabel"] = state ? state.streamLabel : undefined;
+            resourceInputs["streamViewType"] = state ? state.streamViewType : undefined;
+            resourceInputs["tableClass"] = state ? state.tableClass : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["ttl"] = state ? state.ttl : undefined;
+            resourceInputs["writeCapacity"] = state ? state.writeCapacity : undefined;
         } else {
             const args = argsOrState as TableArgs | undefined;
-            inputs["attributes"] = args ? args.attributes : undefined;
-            inputs["billingMode"] = args ? args.billingMode : undefined;
-            inputs["globalSecondaryIndexes"] = args ? args.globalSecondaryIndexes : undefined;
-            inputs["hashKey"] = args ? args.hashKey : undefined;
-            inputs["localSecondaryIndexes"] = args ? args.localSecondaryIndexes : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["pointInTimeRecovery"] = args ? args.pointInTimeRecovery : undefined;
-            inputs["rangeKey"] = args ? args.rangeKey : undefined;
-            inputs["readCapacity"] = args ? args.readCapacity : undefined;
-            inputs["replicas"] = args ? args.replicas : undefined;
-            inputs["restoreDateTime"] = args ? args.restoreDateTime : undefined;
-            inputs["restoreSourceName"] = args ? args.restoreSourceName : undefined;
-            inputs["restoreToLatestTime"] = args ? args.restoreToLatestTime : undefined;
-            inputs["serverSideEncryption"] = args ? args.serverSideEncryption : undefined;
-            inputs["streamEnabled"] = args ? args.streamEnabled : undefined;
-            inputs["streamViewType"] = args ? args.streamViewType : undefined;
-            inputs["tableClass"] = args ? args.tableClass : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["ttl"] = args ? args.ttl : undefined;
-            inputs["writeCapacity"] = args ? args.writeCapacity : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["streamArn"] = undefined /*out*/;
-            inputs["streamLabel"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["attributes"] = args ? args.attributes : undefined;
+            resourceInputs["billingMode"] = args ? args.billingMode : undefined;
+            resourceInputs["globalSecondaryIndexes"] = args ? args.globalSecondaryIndexes : undefined;
+            resourceInputs["hashKey"] = args ? args.hashKey : undefined;
+            resourceInputs["localSecondaryIndexes"] = args ? args.localSecondaryIndexes : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["pointInTimeRecovery"] = args ? args.pointInTimeRecovery : undefined;
+            resourceInputs["rangeKey"] = args ? args.rangeKey : undefined;
+            resourceInputs["readCapacity"] = args ? args.readCapacity : undefined;
+            resourceInputs["replicas"] = args ? args.replicas : undefined;
+            resourceInputs["restoreDateTime"] = args ? args.restoreDateTime : undefined;
+            resourceInputs["restoreSourceName"] = args ? args.restoreSourceName : undefined;
+            resourceInputs["restoreToLatestTime"] = args ? args.restoreToLatestTime : undefined;
+            resourceInputs["serverSideEncryption"] = args ? args.serverSideEncryption : undefined;
+            resourceInputs["streamEnabled"] = args ? args.streamEnabled : undefined;
+            resourceInputs["streamViewType"] = args ? args.streamViewType : undefined;
+            resourceInputs["tableClass"] = args ? args.tableClass : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["ttl"] = args ? args.ttl : undefined;
+            resourceInputs["writeCapacity"] = args ? args.writeCapacity : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["streamArn"] = undefined /*out*/;
+            resourceInputs["streamLabel"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Table.__pulumiType, name, inputs, opts);
+        super(Table.__pulumiType, name, resourceInputs, opts);
     }
 }
 

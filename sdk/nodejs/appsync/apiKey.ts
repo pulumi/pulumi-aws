@@ -82,28 +82,28 @@ export class ApiKey extends pulumi.CustomResource {
      */
     constructor(name: string, args: ApiKeyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ApiKeyArgs | ApiKeyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ApiKeyState | undefined;
-            inputs["apiId"] = state ? state.apiId : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["expires"] = state ? state.expires : undefined;
-            inputs["key"] = state ? state.key : undefined;
+            resourceInputs["apiId"] = state ? state.apiId : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["expires"] = state ? state.expires : undefined;
+            resourceInputs["key"] = state ? state.key : undefined;
         } else {
             const args = argsOrState as ApiKeyArgs | undefined;
             if ((!args || args.apiId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'apiId'");
             }
-            inputs["apiId"] = args ? args.apiId : undefined;
-            inputs["description"] = (args ? args.description : undefined) ?? "Managed by Pulumi";
-            inputs["expires"] = args ? args.expires : undefined;
-            inputs["key"] = undefined /*out*/;
+            resourceInputs["apiId"] = args ? args.apiId : undefined;
+            resourceInputs["description"] = (args ? args.description : undefined) ?? "Managed by Pulumi";
+            resourceInputs["expires"] = args ? args.expires : undefined;
+            resourceInputs["key"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(ApiKey.__pulumiType, name, inputs, opts);
+        super(ApiKey.__pulumiType, name, resourceInputs, opts);
     }
 }
 

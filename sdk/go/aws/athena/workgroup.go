@@ -188,7 +188,7 @@ type WorkgroupInput interface {
 }
 
 func (*Workgroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*Workgroup)(nil))
+	return reflect.TypeOf((**Workgroup)(nil)).Elem()
 }
 
 func (i *Workgroup) ToWorkgroupOutput() WorkgroupOutput {
@@ -197,35 +197,6 @@ func (i *Workgroup) ToWorkgroupOutput() WorkgroupOutput {
 
 func (i *Workgroup) ToWorkgroupOutputWithContext(ctx context.Context) WorkgroupOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WorkgroupOutput)
-}
-
-func (i *Workgroup) ToWorkgroupPtrOutput() WorkgroupPtrOutput {
-	return i.ToWorkgroupPtrOutputWithContext(context.Background())
-}
-
-func (i *Workgroup) ToWorkgroupPtrOutputWithContext(ctx context.Context) WorkgroupPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkgroupPtrOutput)
-}
-
-type WorkgroupPtrInput interface {
-	pulumi.Input
-
-	ToWorkgroupPtrOutput() WorkgroupPtrOutput
-	ToWorkgroupPtrOutputWithContext(ctx context.Context) WorkgroupPtrOutput
-}
-
-type workgroupPtrType WorkgroupArgs
-
-func (*workgroupPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Workgroup)(nil))
-}
-
-func (i *workgroupPtrType) ToWorkgroupPtrOutput() WorkgroupPtrOutput {
-	return i.ToWorkgroupPtrOutputWithContext(context.Background())
-}
-
-func (i *workgroupPtrType) ToWorkgroupPtrOutputWithContext(ctx context.Context) WorkgroupPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkgroupPtrOutput)
 }
 
 // WorkgroupArrayInput is an input type that accepts WorkgroupArray and WorkgroupArrayOutput values.
@@ -281,7 +252,7 @@ func (i WorkgroupMap) ToWorkgroupMapOutputWithContext(ctx context.Context) Workg
 type WorkgroupOutput struct{ *pulumi.OutputState }
 
 func (WorkgroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Workgroup)(nil))
+	return reflect.TypeOf((**Workgroup)(nil)).Elem()
 }
 
 func (o WorkgroupOutput) ToWorkgroupOutput() WorkgroupOutput {
@@ -292,44 +263,10 @@ func (o WorkgroupOutput) ToWorkgroupOutputWithContext(ctx context.Context) Workg
 	return o
 }
 
-func (o WorkgroupOutput) ToWorkgroupPtrOutput() WorkgroupPtrOutput {
-	return o.ToWorkgroupPtrOutputWithContext(context.Background())
-}
-
-func (o WorkgroupOutput) ToWorkgroupPtrOutputWithContext(ctx context.Context) WorkgroupPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Workgroup) *Workgroup {
-		return &v
-	}).(WorkgroupPtrOutput)
-}
-
-type WorkgroupPtrOutput struct{ *pulumi.OutputState }
-
-func (WorkgroupPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Workgroup)(nil))
-}
-
-func (o WorkgroupPtrOutput) ToWorkgroupPtrOutput() WorkgroupPtrOutput {
-	return o
-}
-
-func (o WorkgroupPtrOutput) ToWorkgroupPtrOutputWithContext(ctx context.Context) WorkgroupPtrOutput {
-	return o
-}
-
-func (o WorkgroupPtrOutput) Elem() WorkgroupOutput {
-	return o.ApplyT(func(v *Workgroup) Workgroup {
-		if v != nil {
-			return *v
-		}
-		var ret Workgroup
-		return ret
-	}).(WorkgroupOutput)
-}
-
 type WorkgroupArrayOutput struct{ *pulumi.OutputState }
 
 func (WorkgroupArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Workgroup)(nil))
+	return reflect.TypeOf((*[]*Workgroup)(nil)).Elem()
 }
 
 func (o WorkgroupArrayOutput) ToWorkgroupArrayOutput() WorkgroupArrayOutput {
@@ -341,15 +278,15 @@ func (o WorkgroupArrayOutput) ToWorkgroupArrayOutputWithContext(ctx context.Cont
 }
 
 func (o WorkgroupArrayOutput) Index(i pulumi.IntInput) WorkgroupOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Workgroup {
-		return vs[0].([]Workgroup)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Workgroup {
+		return vs[0].([]*Workgroup)[vs[1].(int)]
 	}).(WorkgroupOutput)
 }
 
 type WorkgroupMapOutput struct{ *pulumi.OutputState }
 
 func (WorkgroupMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Workgroup)(nil))
+	return reflect.TypeOf((*map[string]*Workgroup)(nil)).Elem()
 }
 
 func (o WorkgroupMapOutput) ToWorkgroupMapOutput() WorkgroupMapOutput {
@@ -361,18 +298,16 @@ func (o WorkgroupMapOutput) ToWorkgroupMapOutputWithContext(ctx context.Context)
 }
 
 func (o WorkgroupMapOutput) MapIndex(k pulumi.StringInput) WorkgroupOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Workgroup {
-		return vs[0].(map[string]Workgroup)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Workgroup {
+		return vs[0].(map[string]*Workgroup)[vs[1].(string)]
 	}).(WorkgroupOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupInput)(nil)).Elem(), &Workgroup{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupPtrInput)(nil)).Elem(), &Workgroup{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupArrayInput)(nil)).Elem(), WorkgroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkgroupMapInput)(nil)).Elem(), WorkgroupMap{})
 	pulumi.RegisterOutputType(WorkgroupOutput{})
-	pulumi.RegisterOutputType(WorkgroupPtrOutput{})
 	pulumi.RegisterOutputType(WorkgroupArrayOutput{})
 	pulumi.RegisterOutputType(WorkgroupMapOutput{})
 }

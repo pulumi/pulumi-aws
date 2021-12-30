@@ -98,14 +98,14 @@ export class TableItem extends pulumi.CustomResource {
      */
     constructor(name: string, args: TableItemArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: TableItemArgs | TableItemState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TableItemState | undefined;
-            inputs["hashKey"] = state ? state.hashKey : undefined;
-            inputs["item"] = state ? state.item : undefined;
-            inputs["rangeKey"] = state ? state.rangeKey : undefined;
-            inputs["tableName"] = state ? state.tableName : undefined;
+            resourceInputs["hashKey"] = state ? state.hashKey : undefined;
+            resourceInputs["item"] = state ? state.item : undefined;
+            resourceInputs["rangeKey"] = state ? state.rangeKey : undefined;
+            resourceInputs["tableName"] = state ? state.tableName : undefined;
         } else {
             const args = argsOrState as TableItemArgs | undefined;
             if ((!args || args.hashKey === undefined) && !opts.urn) {
@@ -117,15 +117,15 @@ export class TableItem extends pulumi.CustomResource {
             if ((!args || args.tableName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'tableName'");
             }
-            inputs["hashKey"] = args ? args.hashKey : undefined;
-            inputs["item"] = args ? args.item : undefined;
-            inputs["rangeKey"] = args ? args.rangeKey : undefined;
-            inputs["tableName"] = args ? args.tableName : undefined;
+            resourceInputs["hashKey"] = args ? args.hashKey : undefined;
+            resourceInputs["item"] = args ? args.item : undefined;
+            resourceInputs["rangeKey"] = args ? args.rangeKey : undefined;
+            resourceInputs["tableName"] = args ? args.tableName : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(TableItem.__pulumiType, name, inputs, opts);
+        super(TableItem.__pulumiType, name, resourceInputs, opts);
     }
 }
 

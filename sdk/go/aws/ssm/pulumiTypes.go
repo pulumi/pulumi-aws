@@ -415,63 +415,6 @@ type DocumentParameter struct {
 	Type *string `pulumi:"type"`
 }
 
-// DocumentParameterInput is an input type that accepts DocumentParameterArgs and DocumentParameterOutput values.
-// You can construct a concrete instance of `DocumentParameterInput` via:
-//
-//          DocumentParameterArgs{...}
-type DocumentParameterInput interface {
-	pulumi.Input
-
-	ToDocumentParameterOutput() DocumentParameterOutput
-	ToDocumentParameterOutputWithContext(context.Context) DocumentParameterOutput
-}
-
-type DocumentParameterArgs struct {
-	DefaultValue pulumi.StringPtrInput `pulumi:"defaultValue"`
-	// The description of the document.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// The name of the document.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-	Type pulumi.StringPtrInput `pulumi:"type"`
-}
-
-func (DocumentParameterArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DocumentParameter)(nil)).Elem()
-}
-
-func (i DocumentParameterArgs) ToDocumentParameterOutput() DocumentParameterOutput {
-	return i.ToDocumentParameterOutputWithContext(context.Background())
-}
-
-func (i DocumentParameterArgs) ToDocumentParameterOutputWithContext(ctx context.Context) DocumentParameterOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DocumentParameterOutput)
-}
-
-// DocumentParameterArrayInput is an input type that accepts DocumentParameterArray and DocumentParameterArrayOutput values.
-// You can construct a concrete instance of `DocumentParameterArrayInput` via:
-//
-//          DocumentParameterArray{ DocumentParameterArgs{...} }
-type DocumentParameterArrayInput interface {
-	pulumi.Input
-
-	ToDocumentParameterArrayOutput() DocumentParameterArrayOutput
-	ToDocumentParameterArrayOutputWithContext(context.Context) DocumentParameterArrayOutput
-}
-
-type DocumentParameterArray []DocumentParameterInput
-
-func (DocumentParameterArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DocumentParameter)(nil)).Elem()
-}
-
-func (i DocumentParameterArray) ToDocumentParameterArrayOutput() DocumentParameterArrayOutput {
-	return i.ToDocumentParameterArrayOutputWithContext(context.Background())
-}
-
-func (i DocumentParameterArray) ToDocumentParameterArrayOutputWithContext(ctx context.Context) DocumentParameterArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DocumentParameterArrayOutput)
-}
-
 type DocumentParameterOutput struct{ *pulumi.OutputState }
 
 func (DocumentParameterOutput) ElementType() reflect.Type {
@@ -2825,47 +2768,6 @@ func (i ResourceDataSyncS3DestinationArgs) ToResourceDataSyncS3DestinationOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceDataSyncS3DestinationOutput)
 }
 
-func (i ResourceDataSyncS3DestinationArgs) ToResourceDataSyncS3DestinationPtrOutput() ResourceDataSyncS3DestinationPtrOutput {
-	return i.ToResourceDataSyncS3DestinationPtrOutputWithContext(context.Background())
-}
-
-func (i ResourceDataSyncS3DestinationArgs) ToResourceDataSyncS3DestinationPtrOutputWithContext(ctx context.Context) ResourceDataSyncS3DestinationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourceDataSyncS3DestinationOutput).ToResourceDataSyncS3DestinationPtrOutputWithContext(ctx)
-}
-
-// ResourceDataSyncS3DestinationPtrInput is an input type that accepts ResourceDataSyncS3DestinationArgs, ResourceDataSyncS3DestinationPtr and ResourceDataSyncS3DestinationPtrOutput values.
-// You can construct a concrete instance of `ResourceDataSyncS3DestinationPtrInput` via:
-//
-//          ResourceDataSyncS3DestinationArgs{...}
-//
-//  or:
-//
-//          nil
-type ResourceDataSyncS3DestinationPtrInput interface {
-	pulumi.Input
-
-	ToResourceDataSyncS3DestinationPtrOutput() ResourceDataSyncS3DestinationPtrOutput
-	ToResourceDataSyncS3DestinationPtrOutputWithContext(context.Context) ResourceDataSyncS3DestinationPtrOutput
-}
-
-type resourceDataSyncS3DestinationPtrType ResourceDataSyncS3DestinationArgs
-
-func ResourceDataSyncS3DestinationPtr(v *ResourceDataSyncS3DestinationArgs) ResourceDataSyncS3DestinationPtrInput {
-	return (*resourceDataSyncS3DestinationPtrType)(v)
-}
-
-func (*resourceDataSyncS3DestinationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ResourceDataSyncS3Destination)(nil)).Elem()
-}
-
-func (i *resourceDataSyncS3DestinationPtrType) ToResourceDataSyncS3DestinationPtrOutput() ResourceDataSyncS3DestinationPtrOutput {
-	return i.ToResourceDataSyncS3DestinationPtrOutputWithContext(context.Background())
-}
-
-func (i *resourceDataSyncS3DestinationPtrType) ToResourceDataSyncS3DestinationPtrOutputWithContext(ctx context.Context) ResourceDataSyncS3DestinationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourceDataSyncS3DestinationPtrOutput)
-}
-
 type ResourceDataSyncS3DestinationOutput struct{ *pulumi.OutputState }
 
 func (ResourceDataSyncS3DestinationOutput) ElementType() reflect.Type {
@@ -2878,16 +2780,6 @@ func (o ResourceDataSyncS3DestinationOutput) ToResourceDataSyncS3DestinationOutp
 
 func (o ResourceDataSyncS3DestinationOutput) ToResourceDataSyncS3DestinationOutputWithContext(ctx context.Context) ResourceDataSyncS3DestinationOutput {
 	return o
-}
-
-func (o ResourceDataSyncS3DestinationOutput) ToResourceDataSyncS3DestinationPtrOutput() ResourceDataSyncS3DestinationPtrOutput {
-	return o.ToResourceDataSyncS3DestinationPtrOutputWithContext(context.Background())
-}
-
-func (o ResourceDataSyncS3DestinationOutput) ToResourceDataSyncS3DestinationPtrOutputWithContext(ctx context.Context) ResourceDataSyncS3DestinationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceDataSyncS3Destination) *ResourceDataSyncS3Destination {
-		return &v
-	}).(ResourceDataSyncS3DestinationPtrOutput)
 }
 
 // Name of S3 bucket where the aggregated data is stored.
@@ -2915,80 +2807,6 @@ func (o ResourceDataSyncS3DestinationOutput) SyncFormat() pulumi.StringPtrOutput
 	return o.ApplyT(func(v ResourceDataSyncS3Destination) *string { return v.SyncFormat }).(pulumi.StringPtrOutput)
 }
 
-type ResourceDataSyncS3DestinationPtrOutput struct{ *pulumi.OutputState }
-
-func (ResourceDataSyncS3DestinationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ResourceDataSyncS3Destination)(nil)).Elem()
-}
-
-func (o ResourceDataSyncS3DestinationPtrOutput) ToResourceDataSyncS3DestinationPtrOutput() ResourceDataSyncS3DestinationPtrOutput {
-	return o
-}
-
-func (o ResourceDataSyncS3DestinationPtrOutput) ToResourceDataSyncS3DestinationPtrOutputWithContext(ctx context.Context) ResourceDataSyncS3DestinationPtrOutput {
-	return o
-}
-
-func (o ResourceDataSyncS3DestinationPtrOutput) Elem() ResourceDataSyncS3DestinationOutput {
-	return o.ApplyT(func(v *ResourceDataSyncS3Destination) ResourceDataSyncS3Destination {
-		if v != nil {
-			return *v
-		}
-		var ret ResourceDataSyncS3Destination
-		return ret
-	}).(ResourceDataSyncS3DestinationOutput)
-}
-
-// Name of S3 bucket where the aggregated data is stored.
-func (o ResourceDataSyncS3DestinationPtrOutput) BucketName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ResourceDataSyncS3Destination) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.BucketName
-	}).(pulumi.StringPtrOutput)
-}
-
-// ARN of an encryption key for a destination in Amazon S3.
-func (o ResourceDataSyncS3DestinationPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ResourceDataSyncS3Destination) *string {
-		if v == nil {
-			return nil
-		}
-		return v.KmsKeyArn
-	}).(pulumi.StringPtrOutput)
-}
-
-// Prefix for the bucket.
-func (o ResourceDataSyncS3DestinationPtrOutput) Prefix() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ResourceDataSyncS3Destination) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Prefix
-	}).(pulumi.StringPtrOutput)
-}
-
-// Region with the bucket targeted by the Resource Data Sync.
-func (o ResourceDataSyncS3DestinationPtrOutput) Region() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ResourceDataSyncS3Destination) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Region
-	}).(pulumi.StringPtrOutput)
-}
-
-// A supported sync format. Only JsonSerDe is currently supported. Defaults to JsonSerDe.
-func (o ResourceDataSyncS3DestinationPtrOutput) SyncFormat() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ResourceDataSyncS3Destination) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SyncFormat
-	}).(pulumi.StringPtrOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AssociationOutputLocationInput)(nil)).Elem(), AssociationOutputLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AssociationOutputLocationPtrInput)(nil)).Elem(), AssociationOutputLocationArgs{})
@@ -2996,8 +2814,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AssociationTargetArrayInput)(nil)).Elem(), AssociationTargetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DocumentAttachmentsSourceInput)(nil)).Elem(), DocumentAttachmentsSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DocumentAttachmentsSourceArrayInput)(nil)).Elem(), DocumentAttachmentsSourceArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DocumentParameterInput)(nil)).Elem(), DocumentParameterArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DocumentParameterArrayInput)(nil)).Elem(), DocumentParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MaintenanceWindowTargetTargetInput)(nil)).Elem(), MaintenanceWindowTargetTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MaintenanceWindowTargetTargetArrayInput)(nil)).Elem(), MaintenanceWindowTargetTargetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MaintenanceWindowTaskTargetInput)(nil)).Elem(), MaintenanceWindowTaskTargetArgs{})
@@ -3029,7 +2845,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PatchBaselineSourceInput)(nil)).Elem(), PatchBaselineSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PatchBaselineSourceArrayInput)(nil)).Elem(), PatchBaselineSourceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceDataSyncS3DestinationInput)(nil)).Elem(), ResourceDataSyncS3DestinationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ResourceDataSyncS3DestinationPtrInput)(nil)).Elem(), ResourceDataSyncS3DestinationArgs{})
 	pulumi.RegisterOutputType(AssociationOutputLocationOutput{})
 	pulumi.RegisterOutputType(AssociationOutputLocationPtrOutput{})
 	pulumi.RegisterOutputType(AssociationTargetOutput{})
@@ -3069,5 +2884,4 @@ func init() {
 	pulumi.RegisterOutputType(PatchBaselineSourceOutput{})
 	pulumi.RegisterOutputType(PatchBaselineSourceArrayOutput{})
 	pulumi.RegisterOutputType(ResourceDataSyncS3DestinationOutput{})
-	pulumi.RegisterOutputType(ResourceDataSyncS3DestinationPtrOutput{})
 }

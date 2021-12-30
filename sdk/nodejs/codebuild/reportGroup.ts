@@ -128,18 +128,18 @@ export class ReportGroup extends pulumi.CustomResource {
      */
     constructor(name: string, args: ReportGroupArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ReportGroupArgs | ReportGroupState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ReportGroupState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["created"] = state ? state.created : undefined;
-            inputs["deleteReports"] = state ? state.deleteReports : undefined;
-            inputs["exportConfig"] = state ? state.exportConfig : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["type"] = state ? state.type : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["created"] = state ? state.created : undefined;
+            resourceInputs["deleteReports"] = state ? state.deleteReports : undefined;
+            resourceInputs["exportConfig"] = state ? state.exportConfig : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as ReportGroupArgs | undefined;
             if ((!args || args.exportConfig === undefined) && !opts.urn) {
@@ -148,19 +148,19 @@ export class ReportGroup extends pulumi.CustomResource {
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            inputs["deleteReports"] = args ? args.deleteReports : undefined;
-            inputs["exportConfig"] = args ? args.exportConfig : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["type"] = args ? args.type : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["created"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["deleteReports"] = args ? args.deleteReports : undefined;
+            resourceInputs["exportConfig"] = args ? args.exportConfig : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["created"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(ReportGroup.__pulumiType, name, inputs, opts);
+        super(ReportGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

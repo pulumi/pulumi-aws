@@ -41,6 +41,10 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
+// 		latestProdSnapshot := rds.LookupSnapshotOutput(ctx, rds.GetSnapshotOutputArgs{
+// 			DbInstanceIdentifier: prod.ID(),
+// 			MostRecent:           pulumi.Bool(true),
+// 		}, nil)
 // 		_, err = rds.NewInstance(ctx, "dev", &rds.InstanceArgs{
 // 			InstanceClass: pulumi.String("db.t2.micro"),
 // 			Name:          pulumi.String("mydbdev"),

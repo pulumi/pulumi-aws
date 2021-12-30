@@ -47,20 +47,20 @@ namespace Pulumi.Aws.Cloud9
     ///         {
     ///             InstanceType = "t2.micro",
     ///         });
-    ///         var cloud9Instance = example.Id.Apply(id =&gt; Aws.Ec2.GetInstance.InvokeAsync(new Aws.Ec2.GetInstanceArgs
+    ///         var cloud9Instance = Aws.Ec2.GetInstance.Invoke(new Aws.Ec2.GetInstanceInvokeArgs
     ///         {
     ///             Filters = 
     ///             {
-    ///                 new Aws.Ec2.Inputs.GetInstanceFilterArgs
+    ///                 new Aws.Ec2.Inputs.GetInstanceFilterInputArgs
     ///                 {
     ///                     Name = "tag:aws:cloud9:environment",
     ///                     Values = 
     ///                     {
-    ///                         id,
+    ///                         example.Id,
     ///                     },
     ///                 },
     ///             },
-    ///         }));
+    ///         });
     ///         this.Cloud9Url = example.Id.Apply(id =&gt; $"https://{@var.Region}.console.aws.amazon.com/cloud9/ide/{id}");
     ///     }
     /// 
@@ -83,20 +83,20 @@ namespace Pulumi.Aws.Cloud9
     ///         {
     ///             InstanceType = "t2.micro",
     ///         });
-    ///         var cloud9Instance = example.Id.Apply(id =&gt; Aws.Ec2.GetInstance.InvokeAsync(new Aws.Ec2.GetInstanceArgs
+    ///         var cloud9Instance = Aws.Ec2.GetInstance.Invoke(new Aws.Ec2.GetInstanceInvokeArgs
     ///         {
     ///             Filters = 
     ///             {
-    ///                 new Aws.Ec2.Inputs.GetInstanceFilterArgs
+    ///                 new Aws.Ec2.Inputs.GetInstanceFilterInputArgs
     ///                 {
     ///                     Name = "tag:aws:cloud9:environment",
     ///                     Values = 
     ///                     {
-    ///                         id,
+    ///                         example.Id,
     ///                     },
     ///                 },
     ///             },
-    ///         }));
+    ///         });
     ///         var cloud9Eip = new Aws.Ec2.Eip("cloud9Eip", new Aws.Ec2.EipArgs
     ///         {
     ///             Instance = cloud9Instance.Apply(cloud9Instance =&gt; cloud9Instance.Id),

@@ -2904,61 +2904,6 @@ type GetDomainAdvancedSecurityOption struct {
 	InternalUserDatabaseEnabled bool `pulumi:"internalUserDatabaseEnabled"`
 }
 
-// GetDomainAdvancedSecurityOptionInput is an input type that accepts GetDomainAdvancedSecurityOptionArgs and GetDomainAdvancedSecurityOptionOutput values.
-// You can construct a concrete instance of `GetDomainAdvancedSecurityOptionInput` via:
-//
-//          GetDomainAdvancedSecurityOptionArgs{...}
-type GetDomainAdvancedSecurityOptionInput interface {
-	pulumi.Input
-
-	ToGetDomainAdvancedSecurityOptionOutput() GetDomainAdvancedSecurityOptionOutput
-	ToGetDomainAdvancedSecurityOptionOutputWithContext(context.Context) GetDomainAdvancedSecurityOptionOutput
-}
-
-type GetDomainAdvancedSecurityOptionArgs struct {
-	// Whether node to node encryption is enabled.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// Whether the internal user database is enabled.
-	InternalUserDatabaseEnabled pulumi.BoolInput `pulumi:"internalUserDatabaseEnabled"`
-}
-
-func (GetDomainAdvancedSecurityOptionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetDomainAdvancedSecurityOption)(nil)).Elem()
-}
-
-func (i GetDomainAdvancedSecurityOptionArgs) ToGetDomainAdvancedSecurityOptionOutput() GetDomainAdvancedSecurityOptionOutput {
-	return i.ToGetDomainAdvancedSecurityOptionOutputWithContext(context.Background())
-}
-
-func (i GetDomainAdvancedSecurityOptionArgs) ToGetDomainAdvancedSecurityOptionOutputWithContext(ctx context.Context) GetDomainAdvancedSecurityOptionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDomainAdvancedSecurityOptionOutput)
-}
-
-// GetDomainAdvancedSecurityOptionArrayInput is an input type that accepts GetDomainAdvancedSecurityOptionArray and GetDomainAdvancedSecurityOptionArrayOutput values.
-// You can construct a concrete instance of `GetDomainAdvancedSecurityOptionArrayInput` via:
-//
-//          GetDomainAdvancedSecurityOptionArray{ GetDomainAdvancedSecurityOptionArgs{...} }
-type GetDomainAdvancedSecurityOptionArrayInput interface {
-	pulumi.Input
-
-	ToGetDomainAdvancedSecurityOptionArrayOutput() GetDomainAdvancedSecurityOptionArrayOutput
-	ToGetDomainAdvancedSecurityOptionArrayOutputWithContext(context.Context) GetDomainAdvancedSecurityOptionArrayOutput
-}
-
-type GetDomainAdvancedSecurityOptionArray []GetDomainAdvancedSecurityOptionInput
-
-func (GetDomainAdvancedSecurityOptionArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetDomainAdvancedSecurityOption)(nil)).Elem()
-}
-
-func (i GetDomainAdvancedSecurityOptionArray) ToGetDomainAdvancedSecurityOptionArrayOutput() GetDomainAdvancedSecurityOptionArrayOutput {
-	return i.ToGetDomainAdvancedSecurityOptionArrayOutputWithContext(context.Background())
-}
-
-func (i GetDomainAdvancedSecurityOptionArray) ToGetDomainAdvancedSecurityOptionArrayOutputWithContext(ctx context.Context) GetDomainAdvancedSecurityOptionArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDomainAdvancedSecurityOptionArrayOutput)
-}
-
 type GetDomainAdvancedSecurityOptionOutput struct{ *pulumi.OutputState }
 
 func (GetDomainAdvancedSecurityOptionOutput) ElementType() reflect.Type {
@@ -3010,63 +2955,6 @@ type GetDomainAutoTuneOption struct {
 	MaintenanceSchedules []GetDomainAutoTuneOptionMaintenanceSchedule `pulumi:"maintenanceSchedules"`
 	// Whether the domain is set to roll back to default Auto-Tune settings when disabling Auto-Tune.
 	RollbackOnDisable string `pulumi:"rollbackOnDisable"`
-}
-
-// GetDomainAutoTuneOptionInput is an input type that accepts GetDomainAutoTuneOptionArgs and GetDomainAutoTuneOptionOutput values.
-// You can construct a concrete instance of `GetDomainAutoTuneOptionInput` via:
-//
-//          GetDomainAutoTuneOptionArgs{...}
-type GetDomainAutoTuneOptionInput interface {
-	pulumi.Input
-
-	ToGetDomainAutoTuneOptionOutput() GetDomainAutoTuneOptionOutput
-	ToGetDomainAutoTuneOptionOutputWithContext(context.Context) GetDomainAutoTuneOptionOutput
-}
-
-type GetDomainAutoTuneOptionArgs struct {
-	// The Auto-Tune desired state for the domain.
-	DesiredState pulumi.StringInput `pulumi:"desiredState"`
-	// A list of the nested configurations for the Auto-Tune maintenance windows of the domain.
-	MaintenanceSchedules GetDomainAutoTuneOptionMaintenanceScheduleArrayInput `pulumi:"maintenanceSchedules"`
-	// Whether the domain is set to roll back to default Auto-Tune settings when disabling Auto-Tune.
-	RollbackOnDisable pulumi.StringInput `pulumi:"rollbackOnDisable"`
-}
-
-func (GetDomainAutoTuneOptionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetDomainAutoTuneOption)(nil)).Elem()
-}
-
-func (i GetDomainAutoTuneOptionArgs) ToGetDomainAutoTuneOptionOutput() GetDomainAutoTuneOptionOutput {
-	return i.ToGetDomainAutoTuneOptionOutputWithContext(context.Background())
-}
-
-func (i GetDomainAutoTuneOptionArgs) ToGetDomainAutoTuneOptionOutputWithContext(ctx context.Context) GetDomainAutoTuneOptionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDomainAutoTuneOptionOutput)
-}
-
-// GetDomainAutoTuneOptionArrayInput is an input type that accepts GetDomainAutoTuneOptionArray and GetDomainAutoTuneOptionArrayOutput values.
-// You can construct a concrete instance of `GetDomainAutoTuneOptionArrayInput` via:
-//
-//          GetDomainAutoTuneOptionArray{ GetDomainAutoTuneOptionArgs{...} }
-type GetDomainAutoTuneOptionArrayInput interface {
-	pulumi.Input
-
-	ToGetDomainAutoTuneOptionArrayOutput() GetDomainAutoTuneOptionArrayOutput
-	ToGetDomainAutoTuneOptionArrayOutputWithContext(context.Context) GetDomainAutoTuneOptionArrayOutput
-}
-
-type GetDomainAutoTuneOptionArray []GetDomainAutoTuneOptionInput
-
-func (GetDomainAutoTuneOptionArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetDomainAutoTuneOption)(nil)).Elem()
-}
-
-func (i GetDomainAutoTuneOptionArray) ToGetDomainAutoTuneOptionArrayOutput() GetDomainAutoTuneOptionArrayOutput {
-	return i.ToGetDomainAutoTuneOptionArrayOutputWithContext(context.Background())
-}
-
-func (i GetDomainAutoTuneOptionArray) ToGetDomainAutoTuneOptionArrayOutputWithContext(ctx context.Context) GetDomainAutoTuneOptionArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDomainAutoTuneOptionArrayOutput)
 }
 
 type GetDomainAutoTuneOptionOutput struct{ *pulumi.OutputState }
@@ -3129,63 +3017,6 @@ type GetDomainAutoTuneOptionMaintenanceSchedule struct {
 	StartAt string `pulumi:"startAt"`
 }
 
-// GetDomainAutoTuneOptionMaintenanceScheduleInput is an input type that accepts GetDomainAutoTuneOptionMaintenanceScheduleArgs and GetDomainAutoTuneOptionMaintenanceScheduleOutput values.
-// You can construct a concrete instance of `GetDomainAutoTuneOptionMaintenanceScheduleInput` via:
-//
-//          GetDomainAutoTuneOptionMaintenanceScheduleArgs{...}
-type GetDomainAutoTuneOptionMaintenanceScheduleInput interface {
-	pulumi.Input
-
-	ToGetDomainAutoTuneOptionMaintenanceScheduleOutput() GetDomainAutoTuneOptionMaintenanceScheduleOutput
-	ToGetDomainAutoTuneOptionMaintenanceScheduleOutputWithContext(context.Context) GetDomainAutoTuneOptionMaintenanceScheduleOutput
-}
-
-type GetDomainAutoTuneOptionMaintenanceScheduleArgs struct {
-	// A cron expression specifying the recurrence pattern for an Auto-Tune maintenance schedule.
-	CronExpressionForRecurrence pulumi.StringInput `pulumi:"cronExpressionForRecurrence"`
-	// Configuration block for the duration of the Auto-Tune maintenance window.
-	Durations GetDomainAutoTuneOptionMaintenanceScheduleDurationArrayInput `pulumi:"durations"`
-	// Date and time at which the Auto-Tune maintenance schedule starts in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-	StartAt pulumi.StringInput `pulumi:"startAt"`
-}
-
-func (GetDomainAutoTuneOptionMaintenanceScheduleArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetDomainAutoTuneOptionMaintenanceSchedule)(nil)).Elem()
-}
-
-func (i GetDomainAutoTuneOptionMaintenanceScheduleArgs) ToGetDomainAutoTuneOptionMaintenanceScheduleOutput() GetDomainAutoTuneOptionMaintenanceScheduleOutput {
-	return i.ToGetDomainAutoTuneOptionMaintenanceScheduleOutputWithContext(context.Background())
-}
-
-func (i GetDomainAutoTuneOptionMaintenanceScheduleArgs) ToGetDomainAutoTuneOptionMaintenanceScheduleOutputWithContext(ctx context.Context) GetDomainAutoTuneOptionMaintenanceScheduleOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDomainAutoTuneOptionMaintenanceScheduleOutput)
-}
-
-// GetDomainAutoTuneOptionMaintenanceScheduleArrayInput is an input type that accepts GetDomainAutoTuneOptionMaintenanceScheduleArray and GetDomainAutoTuneOptionMaintenanceScheduleArrayOutput values.
-// You can construct a concrete instance of `GetDomainAutoTuneOptionMaintenanceScheduleArrayInput` via:
-//
-//          GetDomainAutoTuneOptionMaintenanceScheduleArray{ GetDomainAutoTuneOptionMaintenanceScheduleArgs{...} }
-type GetDomainAutoTuneOptionMaintenanceScheduleArrayInput interface {
-	pulumi.Input
-
-	ToGetDomainAutoTuneOptionMaintenanceScheduleArrayOutput() GetDomainAutoTuneOptionMaintenanceScheduleArrayOutput
-	ToGetDomainAutoTuneOptionMaintenanceScheduleArrayOutputWithContext(context.Context) GetDomainAutoTuneOptionMaintenanceScheduleArrayOutput
-}
-
-type GetDomainAutoTuneOptionMaintenanceScheduleArray []GetDomainAutoTuneOptionMaintenanceScheduleInput
-
-func (GetDomainAutoTuneOptionMaintenanceScheduleArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetDomainAutoTuneOptionMaintenanceSchedule)(nil)).Elem()
-}
-
-func (i GetDomainAutoTuneOptionMaintenanceScheduleArray) ToGetDomainAutoTuneOptionMaintenanceScheduleArrayOutput() GetDomainAutoTuneOptionMaintenanceScheduleArrayOutput {
-	return i.ToGetDomainAutoTuneOptionMaintenanceScheduleArrayOutputWithContext(context.Background())
-}
-
-func (i GetDomainAutoTuneOptionMaintenanceScheduleArray) ToGetDomainAutoTuneOptionMaintenanceScheduleArrayOutputWithContext(ctx context.Context) GetDomainAutoTuneOptionMaintenanceScheduleArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDomainAutoTuneOptionMaintenanceScheduleArrayOutput)
-}
-
 type GetDomainAutoTuneOptionMaintenanceScheduleOutput struct{ *pulumi.OutputState }
 
 func (GetDomainAutoTuneOptionMaintenanceScheduleOutput) ElementType() reflect.Type {
@@ -3242,61 +3073,6 @@ type GetDomainAutoTuneOptionMaintenanceScheduleDuration struct {
 	Unit string `pulumi:"unit"`
 	// An integer specifying the value of the duration of an Auto-Tune maintenance window.
 	Value int `pulumi:"value"`
-}
-
-// GetDomainAutoTuneOptionMaintenanceScheduleDurationInput is an input type that accepts GetDomainAutoTuneOptionMaintenanceScheduleDurationArgs and GetDomainAutoTuneOptionMaintenanceScheduleDurationOutput values.
-// You can construct a concrete instance of `GetDomainAutoTuneOptionMaintenanceScheduleDurationInput` via:
-//
-//          GetDomainAutoTuneOptionMaintenanceScheduleDurationArgs{...}
-type GetDomainAutoTuneOptionMaintenanceScheduleDurationInput interface {
-	pulumi.Input
-
-	ToGetDomainAutoTuneOptionMaintenanceScheduleDurationOutput() GetDomainAutoTuneOptionMaintenanceScheduleDurationOutput
-	ToGetDomainAutoTuneOptionMaintenanceScheduleDurationOutputWithContext(context.Context) GetDomainAutoTuneOptionMaintenanceScheduleDurationOutput
-}
-
-type GetDomainAutoTuneOptionMaintenanceScheduleDurationArgs struct {
-	// The unit of time specifying the duration of an Auto-Tune maintenance window.
-	Unit pulumi.StringInput `pulumi:"unit"`
-	// An integer specifying the value of the duration of an Auto-Tune maintenance window.
-	Value pulumi.IntInput `pulumi:"value"`
-}
-
-func (GetDomainAutoTuneOptionMaintenanceScheduleDurationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetDomainAutoTuneOptionMaintenanceScheduleDuration)(nil)).Elem()
-}
-
-func (i GetDomainAutoTuneOptionMaintenanceScheduleDurationArgs) ToGetDomainAutoTuneOptionMaintenanceScheduleDurationOutput() GetDomainAutoTuneOptionMaintenanceScheduleDurationOutput {
-	return i.ToGetDomainAutoTuneOptionMaintenanceScheduleDurationOutputWithContext(context.Background())
-}
-
-func (i GetDomainAutoTuneOptionMaintenanceScheduleDurationArgs) ToGetDomainAutoTuneOptionMaintenanceScheduleDurationOutputWithContext(ctx context.Context) GetDomainAutoTuneOptionMaintenanceScheduleDurationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDomainAutoTuneOptionMaintenanceScheduleDurationOutput)
-}
-
-// GetDomainAutoTuneOptionMaintenanceScheduleDurationArrayInput is an input type that accepts GetDomainAutoTuneOptionMaintenanceScheduleDurationArray and GetDomainAutoTuneOptionMaintenanceScheduleDurationArrayOutput values.
-// You can construct a concrete instance of `GetDomainAutoTuneOptionMaintenanceScheduleDurationArrayInput` via:
-//
-//          GetDomainAutoTuneOptionMaintenanceScheduleDurationArray{ GetDomainAutoTuneOptionMaintenanceScheduleDurationArgs{...} }
-type GetDomainAutoTuneOptionMaintenanceScheduleDurationArrayInput interface {
-	pulumi.Input
-
-	ToGetDomainAutoTuneOptionMaintenanceScheduleDurationArrayOutput() GetDomainAutoTuneOptionMaintenanceScheduleDurationArrayOutput
-	ToGetDomainAutoTuneOptionMaintenanceScheduleDurationArrayOutputWithContext(context.Context) GetDomainAutoTuneOptionMaintenanceScheduleDurationArrayOutput
-}
-
-type GetDomainAutoTuneOptionMaintenanceScheduleDurationArray []GetDomainAutoTuneOptionMaintenanceScheduleDurationInput
-
-func (GetDomainAutoTuneOptionMaintenanceScheduleDurationArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetDomainAutoTuneOptionMaintenanceScheduleDuration)(nil)).Elem()
-}
-
-func (i GetDomainAutoTuneOptionMaintenanceScheduleDurationArray) ToGetDomainAutoTuneOptionMaintenanceScheduleDurationArrayOutput() GetDomainAutoTuneOptionMaintenanceScheduleDurationArrayOutput {
-	return i.ToGetDomainAutoTuneOptionMaintenanceScheduleDurationArrayOutputWithContext(context.Background())
-}
-
-func (i GetDomainAutoTuneOptionMaintenanceScheduleDurationArray) ToGetDomainAutoTuneOptionMaintenanceScheduleDurationArrayOutputWithContext(ctx context.Context) GetDomainAutoTuneOptionMaintenanceScheduleDurationArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDomainAutoTuneOptionMaintenanceScheduleDurationArrayOutput)
 }
 
 type GetDomainAutoTuneOptionMaintenanceScheduleDurationOutput struct{ *pulumi.OutputState }
@@ -3364,77 +3140,6 @@ type GetDomainClusterConfig struct {
 	ZoneAwarenessConfigs []GetDomainClusterConfigZoneAwarenessConfig `pulumi:"zoneAwarenessConfigs"`
 	// Indicates whether zone awareness is enabled.
 	ZoneAwarenessEnabled bool `pulumi:"zoneAwarenessEnabled"`
-}
-
-// GetDomainClusterConfigInput is an input type that accepts GetDomainClusterConfigArgs and GetDomainClusterConfigOutput values.
-// You can construct a concrete instance of `GetDomainClusterConfigInput` via:
-//
-//          GetDomainClusterConfigArgs{...}
-type GetDomainClusterConfigInput interface {
-	pulumi.Input
-
-	ToGetDomainClusterConfigOutput() GetDomainClusterConfigOutput
-	ToGetDomainClusterConfigOutputWithContext(context.Context) GetDomainClusterConfigOutput
-}
-
-type GetDomainClusterConfigArgs struct {
-	// Number of dedicated master nodes in the cluster.
-	DedicatedMasterCount pulumi.IntInput `pulumi:"dedicatedMasterCount"`
-	// Indicates whether dedicated master nodes are enabled for the cluster.
-	DedicatedMasterEnabled pulumi.BoolInput `pulumi:"dedicatedMasterEnabled"`
-	// Instance type of the dedicated master nodes in the cluster.
-	DedicatedMasterType pulumi.StringInput `pulumi:"dedicatedMasterType"`
-	// Number of instances in the cluster.
-	InstanceCount pulumi.IntInput `pulumi:"instanceCount"`
-	// Instance type of data nodes in the cluster.
-	InstanceType pulumi.StringInput `pulumi:"instanceType"`
-	// The number of warm nodes in the cluster.
-	WarmCount pulumi.IntInput `pulumi:"warmCount"`
-	// Indicates warm storage is enabled.
-	WarmEnabled pulumi.BoolPtrInput `pulumi:"warmEnabled"`
-	// The instance type for the Elasticsearch cluster's warm nodes.
-	WarmType pulumi.StringInput `pulumi:"warmType"`
-	// Configuration block containing zone awareness settings.
-	ZoneAwarenessConfigs GetDomainClusterConfigZoneAwarenessConfigArrayInput `pulumi:"zoneAwarenessConfigs"`
-	// Indicates whether zone awareness is enabled.
-	ZoneAwarenessEnabled pulumi.BoolInput `pulumi:"zoneAwarenessEnabled"`
-}
-
-func (GetDomainClusterConfigArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetDomainClusterConfig)(nil)).Elem()
-}
-
-func (i GetDomainClusterConfigArgs) ToGetDomainClusterConfigOutput() GetDomainClusterConfigOutput {
-	return i.ToGetDomainClusterConfigOutputWithContext(context.Background())
-}
-
-func (i GetDomainClusterConfigArgs) ToGetDomainClusterConfigOutputWithContext(ctx context.Context) GetDomainClusterConfigOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDomainClusterConfigOutput)
-}
-
-// GetDomainClusterConfigArrayInput is an input type that accepts GetDomainClusterConfigArray and GetDomainClusterConfigArrayOutput values.
-// You can construct a concrete instance of `GetDomainClusterConfigArrayInput` via:
-//
-//          GetDomainClusterConfigArray{ GetDomainClusterConfigArgs{...} }
-type GetDomainClusterConfigArrayInput interface {
-	pulumi.Input
-
-	ToGetDomainClusterConfigArrayOutput() GetDomainClusterConfigArrayOutput
-	ToGetDomainClusterConfigArrayOutputWithContext(context.Context) GetDomainClusterConfigArrayOutput
-}
-
-type GetDomainClusterConfigArray []GetDomainClusterConfigInput
-
-func (GetDomainClusterConfigArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetDomainClusterConfig)(nil)).Elem()
-}
-
-func (i GetDomainClusterConfigArray) ToGetDomainClusterConfigArrayOutput() GetDomainClusterConfigArrayOutput {
-	return i.ToGetDomainClusterConfigArrayOutputWithContext(context.Background())
-}
-
-func (i GetDomainClusterConfigArray) ToGetDomainClusterConfigArrayOutputWithContext(ctx context.Context) GetDomainClusterConfigArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDomainClusterConfigArrayOutput)
 }
 
 type GetDomainClusterConfigOutput struct{ *pulumi.OutputState }
@@ -3528,59 +3233,6 @@ type GetDomainClusterConfigZoneAwarenessConfig struct {
 	AvailabilityZoneCount int `pulumi:"availabilityZoneCount"`
 }
 
-// GetDomainClusterConfigZoneAwarenessConfigInput is an input type that accepts GetDomainClusterConfigZoneAwarenessConfigArgs and GetDomainClusterConfigZoneAwarenessConfigOutput values.
-// You can construct a concrete instance of `GetDomainClusterConfigZoneAwarenessConfigInput` via:
-//
-//          GetDomainClusterConfigZoneAwarenessConfigArgs{...}
-type GetDomainClusterConfigZoneAwarenessConfigInput interface {
-	pulumi.Input
-
-	ToGetDomainClusterConfigZoneAwarenessConfigOutput() GetDomainClusterConfigZoneAwarenessConfigOutput
-	ToGetDomainClusterConfigZoneAwarenessConfigOutputWithContext(context.Context) GetDomainClusterConfigZoneAwarenessConfigOutput
-}
-
-type GetDomainClusterConfigZoneAwarenessConfigArgs struct {
-	// Number of availability zones used.
-	AvailabilityZoneCount pulumi.IntInput `pulumi:"availabilityZoneCount"`
-}
-
-func (GetDomainClusterConfigZoneAwarenessConfigArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetDomainClusterConfigZoneAwarenessConfig)(nil)).Elem()
-}
-
-func (i GetDomainClusterConfigZoneAwarenessConfigArgs) ToGetDomainClusterConfigZoneAwarenessConfigOutput() GetDomainClusterConfigZoneAwarenessConfigOutput {
-	return i.ToGetDomainClusterConfigZoneAwarenessConfigOutputWithContext(context.Background())
-}
-
-func (i GetDomainClusterConfigZoneAwarenessConfigArgs) ToGetDomainClusterConfigZoneAwarenessConfigOutputWithContext(ctx context.Context) GetDomainClusterConfigZoneAwarenessConfigOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDomainClusterConfigZoneAwarenessConfigOutput)
-}
-
-// GetDomainClusterConfigZoneAwarenessConfigArrayInput is an input type that accepts GetDomainClusterConfigZoneAwarenessConfigArray and GetDomainClusterConfigZoneAwarenessConfigArrayOutput values.
-// You can construct a concrete instance of `GetDomainClusterConfigZoneAwarenessConfigArrayInput` via:
-//
-//          GetDomainClusterConfigZoneAwarenessConfigArray{ GetDomainClusterConfigZoneAwarenessConfigArgs{...} }
-type GetDomainClusterConfigZoneAwarenessConfigArrayInput interface {
-	pulumi.Input
-
-	ToGetDomainClusterConfigZoneAwarenessConfigArrayOutput() GetDomainClusterConfigZoneAwarenessConfigArrayOutput
-	ToGetDomainClusterConfigZoneAwarenessConfigArrayOutputWithContext(context.Context) GetDomainClusterConfigZoneAwarenessConfigArrayOutput
-}
-
-type GetDomainClusterConfigZoneAwarenessConfigArray []GetDomainClusterConfigZoneAwarenessConfigInput
-
-func (GetDomainClusterConfigZoneAwarenessConfigArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetDomainClusterConfigZoneAwarenessConfig)(nil)).Elem()
-}
-
-func (i GetDomainClusterConfigZoneAwarenessConfigArray) ToGetDomainClusterConfigZoneAwarenessConfigArrayOutput() GetDomainClusterConfigZoneAwarenessConfigArrayOutput {
-	return i.ToGetDomainClusterConfigZoneAwarenessConfigArrayOutputWithContext(context.Background())
-}
-
-func (i GetDomainClusterConfigZoneAwarenessConfigArray) ToGetDomainClusterConfigZoneAwarenessConfigArrayOutputWithContext(ctx context.Context) GetDomainClusterConfigZoneAwarenessConfigArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDomainClusterConfigZoneAwarenessConfigArrayOutput)
-}
-
 type GetDomainClusterConfigZoneAwarenessConfigOutput struct{ *pulumi.OutputState }
 
 func (GetDomainClusterConfigZoneAwarenessConfigOutput) ElementType() reflect.Type {
@@ -3629,65 +3281,6 @@ type GetDomainCognitoOption struct {
 	RoleArn string `pulumi:"roleArn"`
 	// The Cognito User pool used by the domain.
 	UserPoolId string `pulumi:"userPoolId"`
-}
-
-// GetDomainCognitoOptionInput is an input type that accepts GetDomainCognitoOptionArgs and GetDomainCognitoOptionOutput values.
-// You can construct a concrete instance of `GetDomainCognitoOptionInput` via:
-//
-//          GetDomainCognitoOptionArgs{...}
-type GetDomainCognitoOptionInput interface {
-	pulumi.Input
-
-	ToGetDomainCognitoOptionOutput() GetDomainCognitoOptionOutput
-	ToGetDomainCognitoOptionOutputWithContext(context.Context) GetDomainCognitoOptionOutput
-}
-
-type GetDomainCognitoOptionArgs struct {
-	// Whether node to node encryption is enabled.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// The Cognito Identity pool used by the domain.
-	IdentityPoolId pulumi.StringInput `pulumi:"identityPoolId"`
-	// The IAM Role with the AmazonESCognitoAccess policy attached.
-	RoleArn pulumi.StringInput `pulumi:"roleArn"`
-	// The Cognito User pool used by the domain.
-	UserPoolId pulumi.StringInput `pulumi:"userPoolId"`
-}
-
-func (GetDomainCognitoOptionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetDomainCognitoOption)(nil)).Elem()
-}
-
-func (i GetDomainCognitoOptionArgs) ToGetDomainCognitoOptionOutput() GetDomainCognitoOptionOutput {
-	return i.ToGetDomainCognitoOptionOutputWithContext(context.Background())
-}
-
-func (i GetDomainCognitoOptionArgs) ToGetDomainCognitoOptionOutputWithContext(ctx context.Context) GetDomainCognitoOptionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDomainCognitoOptionOutput)
-}
-
-// GetDomainCognitoOptionArrayInput is an input type that accepts GetDomainCognitoOptionArray and GetDomainCognitoOptionArrayOutput values.
-// You can construct a concrete instance of `GetDomainCognitoOptionArrayInput` via:
-//
-//          GetDomainCognitoOptionArray{ GetDomainCognitoOptionArgs{...} }
-type GetDomainCognitoOptionArrayInput interface {
-	pulumi.Input
-
-	ToGetDomainCognitoOptionArrayOutput() GetDomainCognitoOptionArrayOutput
-	ToGetDomainCognitoOptionArrayOutputWithContext(context.Context) GetDomainCognitoOptionArrayOutput
-}
-
-type GetDomainCognitoOptionArray []GetDomainCognitoOptionInput
-
-func (GetDomainCognitoOptionArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetDomainCognitoOption)(nil)).Elem()
-}
-
-func (i GetDomainCognitoOptionArray) ToGetDomainCognitoOptionArrayOutput() GetDomainCognitoOptionArrayOutput {
-	return i.ToGetDomainCognitoOptionArrayOutputWithContext(context.Background())
-}
-
-func (i GetDomainCognitoOptionArray) ToGetDomainCognitoOptionArrayOutputWithContext(ctx context.Context) GetDomainCognitoOptionArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDomainCognitoOptionArrayOutput)
 }
 
 type GetDomainCognitoOptionOutput struct{ *pulumi.OutputState }
@@ -3755,65 +3348,6 @@ type GetDomainEbsOption struct {
 	VolumeType string `pulumi:"volumeType"`
 }
 
-// GetDomainEbsOptionInput is an input type that accepts GetDomainEbsOptionArgs and GetDomainEbsOptionOutput values.
-// You can construct a concrete instance of `GetDomainEbsOptionInput` via:
-//
-//          GetDomainEbsOptionArgs{...}
-type GetDomainEbsOptionInput interface {
-	pulumi.Input
-
-	ToGetDomainEbsOptionOutput() GetDomainEbsOptionOutput
-	ToGetDomainEbsOptionOutputWithContext(context.Context) GetDomainEbsOptionOutput
-}
-
-type GetDomainEbsOptionArgs struct {
-	// Whether EBS volumes are attached to data nodes in the domain.
-	EbsEnabled pulumi.BoolInput `pulumi:"ebsEnabled"`
-	// The baseline input/output (I/O) performance of EBS volumes attached to data nodes.
-	Iops pulumi.IntInput `pulumi:"iops"`
-	// The size of EBS volumes attached to data nodes (in GB).
-	VolumeSize pulumi.IntInput `pulumi:"volumeSize"`
-	// The type of EBS volumes attached to data nodes.
-	VolumeType pulumi.StringInput `pulumi:"volumeType"`
-}
-
-func (GetDomainEbsOptionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetDomainEbsOption)(nil)).Elem()
-}
-
-func (i GetDomainEbsOptionArgs) ToGetDomainEbsOptionOutput() GetDomainEbsOptionOutput {
-	return i.ToGetDomainEbsOptionOutputWithContext(context.Background())
-}
-
-func (i GetDomainEbsOptionArgs) ToGetDomainEbsOptionOutputWithContext(ctx context.Context) GetDomainEbsOptionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDomainEbsOptionOutput)
-}
-
-// GetDomainEbsOptionArrayInput is an input type that accepts GetDomainEbsOptionArray and GetDomainEbsOptionArrayOutput values.
-// You can construct a concrete instance of `GetDomainEbsOptionArrayInput` via:
-//
-//          GetDomainEbsOptionArray{ GetDomainEbsOptionArgs{...} }
-type GetDomainEbsOptionArrayInput interface {
-	pulumi.Input
-
-	ToGetDomainEbsOptionArrayOutput() GetDomainEbsOptionArrayOutput
-	ToGetDomainEbsOptionArrayOutputWithContext(context.Context) GetDomainEbsOptionArrayOutput
-}
-
-type GetDomainEbsOptionArray []GetDomainEbsOptionInput
-
-func (GetDomainEbsOptionArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetDomainEbsOption)(nil)).Elem()
-}
-
-func (i GetDomainEbsOptionArray) ToGetDomainEbsOptionArrayOutput() GetDomainEbsOptionArrayOutput {
-	return i.ToGetDomainEbsOptionArrayOutputWithContext(context.Background())
-}
-
-func (i GetDomainEbsOptionArray) ToGetDomainEbsOptionArrayOutputWithContext(ctx context.Context) GetDomainEbsOptionArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDomainEbsOptionArrayOutput)
-}
-
 type GetDomainEbsOptionOutput struct{ *pulumi.OutputState }
 
 func (GetDomainEbsOptionOutput) ElementType() reflect.Type {
@@ -3875,61 +3409,6 @@ type GetDomainEncryptionAtRest struct {
 	KmsKeyId string `pulumi:"kmsKeyId"`
 }
 
-// GetDomainEncryptionAtRestInput is an input type that accepts GetDomainEncryptionAtRestArgs and GetDomainEncryptionAtRestOutput values.
-// You can construct a concrete instance of `GetDomainEncryptionAtRestInput` via:
-//
-//          GetDomainEncryptionAtRestArgs{...}
-type GetDomainEncryptionAtRestInput interface {
-	pulumi.Input
-
-	ToGetDomainEncryptionAtRestOutput() GetDomainEncryptionAtRestOutput
-	ToGetDomainEncryptionAtRestOutputWithContext(context.Context) GetDomainEncryptionAtRestOutput
-}
-
-type GetDomainEncryptionAtRestArgs struct {
-	// Whether node to node encryption is enabled.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// The KMS key id used to encrypt data at rest.
-	KmsKeyId pulumi.StringInput `pulumi:"kmsKeyId"`
-}
-
-func (GetDomainEncryptionAtRestArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetDomainEncryptionAtRest)(nil)).Elem()
-}
-
-func (i GetDomainEncryptionAtRestArgs) ToGetDomainEncryptionAtRestOutput() GetDomainEncryptionAtRestOutput {
-	return i.ToGetDomainEncryptionAtRestOutputWithContext(context.Background())
-}
-
-func (i GetDomainEncryptionAtRestArgs) ToGetDomainEncryptionAtRestOutputWithContext(ctx context.Context) GetDomainEncryptionAtRestOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDomainEncryptionAtRestOutput)
-}
-
-// GetDomainEncryptionAtRestArrayInput is an input type that accepts GetDomainEncryptionAtRestArray and GetDomainEncryptionAtRestArrayOutput values.
-// You can construct a concrete instance of `GetDomainEncryptionAtRestArrayInput` via:
-//
-//          GetDomainEncryptionAtRestArray{ GetDomainEncryptionAtRestArgs{...} }
-type GetDomainEncryptionAtRestArrayInput interface {
-	pulumi.Input
-
-	ToGetDomainEncryptionAtRestArrayOutput() GetDomainEncryptionAtRestArrayOutput
-	ToGetDomainEncryptionAtRestArrayOutputWithContext(context.Context) GetDomainEncryptionAtRestArrayOutput
-}
-
-type GetDomainEncryptionAtRestArray []GetDomainEncryptionAtRestInput
-
-func (GetDomainEncryptionAtRestArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetDomainEncryptionAtRest)(nil)).Elem()
-}
-
-func (i GetDomainEncryptionAtRestArray) ToGetDomainEncryptionAtRestArrayOutput() GetDomainEncryptionAtRestArrayOutput {
-	return i.ToGetDomainEncryptionAtRestArrayOutputWithContext(context.Background())
-}
-
-func (i GetDomainEncryptionAtRestArray) ToGetDomainEncryptionAtRestArrayOutputWithContext(ctx context.Context) GetDomainEncryptionAtRestArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDomainEncryptionAtRestArrayOutput)
-}
-
 type GetDomainEncryptionAtRestOutput struct{ *pulumi.OutputState }
 
 func (GetDomainEncryptionAtRestOutput) ElementType() reflect.Type {
@@ -3981,63 +3460,6 @@ type GetDomainLogPublishingOption struct {
 	Enabled bool `pulumi:"enabled"`
 	// The type of Elasticsearch log being published.
 	LogType string `pulumi:"logType"`
-}
-
-// GetDomainLogPublishingOptionInput is an input type that accepts GetDomainLogPublishingOptionArgs and GetDomainLogPublishingOptionOutput values.
-// You can construct a concrete instance of `GetDomainLogPublishingOptionInput` via:
-//
-//          GetDomainLogPublishingOptionArgs{...}
-type GetDomainLogPublishingOptionInput interface {
-	pulumi.Input
-
-	ToGetDomainLogPublishingOptionOutput() GetDomainLogPublishingOptionOutput
-	ToGetDomainLogPublishingOptionOutputWithContext(context.Context) GetDomainLogPublishingOptionOutput
-}
-
-type GetDomainLogPublishingOptionArgs struct {
-	// The CloudWatch Log Group where the logs are published.
-	CloudwatchLogGroupArn pulumi.StringInput `pulumi:"cloudwatchLogGroupArn"`
-	// Whether node to node encryption is enabled.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// The type of Elasticsearch log being published.
-	LogType pulumi.StringInput `pulumi:"logType"`
-}
-
-func (GetDomainLogPublishingOptionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetDomainLogPublishingOption)(nil)).Elem()
-}
-
-func (i GetDomainLogPublishingOptionArgs) ToGetDomainLogPublishingOptionOutput() GetDomainLogPublishingOptionOutput {
-	return i.ToGetDomainLogPublishingOptionOutputWithContext(context.Background())
-}
-
-func (i GetDomainLogPublishingOptionArgs) ToGetDomainLogPublishingOptionOutputWithContext(ctx context.Context) GetDomainLogPublishingOptionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDomainLogPublishingOptionOutput)
-}
-
-// GetDomainLogPublishingOptionArrayInput is an input type that accepts GetDomainLogPublishingOptionArray and GetDomainLogPublishingOptionArrayOutput values.
-// You can construct a concrete instance of `GetDomainLogPublishingOptionArrayInput` via:
-//
-//          GetDomainLogPublishingOptionArray{ GetDomainLogPublishingOptionArgs{...} }
-type GetDomainLogPublishingOptionArrayInput interface {
-	pulumi.Input
-
-	ToGetDomainLogPublishingOptionArrayOutput() GetDomainLogPublishingOptionArrayOutput
-	ToGetDomainLogPublishingOptionArrayOutputWithContext(context.Context) GetDomainLogPublishingOptionArrayOutput
-}
-
-type GetDomainLogPublishingOptionArray []GetDomainLogPublishingOptionInput
-
-func (GetDomainLogPublishingOptionArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetDomainLogPublishingOption)(nil)).Elem()
-}
-
-func (i GetDomainLogPublishingOptionArray) ToGetDomainLogPublishingOptionArrayOutput() GetDomainLogPublishingOptionArrayOutput {
-	return i.ToGetDomainLogPublishingOptionArrayOutputWithContext(context.Background())
-}
-
-func (i GetDomainLogPublishingOptionArray) ToGetDomainLogPublishingOptionArrayOutputWithContext(ctx context.Context) GetDomainLogPublishingOptionArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDomainLogPublishingOptionArrayOutput)
 }
 
 type GetDomainLogPublishingOptionOutput struct{ *pulumi.OutputState }
@@ -4094,59 +3516,6 @@ type GetDomainNodeToNodeEncryption struct {
 	Enabled bool `pulumi:"enabled"`
 }
 
-// GetDomainNodeToNodeEncryptionInput is an input type that accepts GetDomainNodeToNodeEncryptionArgs and GetDomainNodeToNodeEncryptionOutput values.
-// You can construct a concrete instance of `GetDomainNodeToNodeEncryptionInput` via:
-//
-//          GetDomainNodeToNodeEncryptionArgs{...}
-type GetDomainNodeToNodeEncryptionInput interface {
-	pulumi.Input
-
-	ToGetDomainNodeToNodeEncryptionOutput() GetDomainNodeToNodeEncryptionOutput
-	ToGetDomainNodeToNodeEncryptionOutputWithContext(context.Context) GetDomainNodeToNodeEncryptionOutput
-}
-
-type GetDomainNodeToNodeEncryptionArgs struct {
-	// Whether node to node encryption is enabled.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-}
-
-func (GetDomainNodeToNodeEncryptionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetDomainNodeToNodeEncryption)(nil)).Elem()
-}
-
-func (i GetDomainNodeToNodeEncryptionArgs) ToGetDomainNodeToNodeEncryptionOutput() GetDomainNodeToNodeEncryptionOutput {
-	return i.ToGetDomainNodeToNodeEncryptionOutputWithContext(context.Background())
-}
-
-func (i GetDomainNodeToNodeEncryptionArgs) ToGetDomainNodeToNodeEncryptionOutputWithContext(ctx context.Context) GetDomainNodeToNodeEncryptionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDomainNodeToNodeEncryptionOutput)
-}
-
-// GetDomainNodeToNodeEncryptionArrayInput is an input type that accepts GetDomainNodeToNodeEncryptionArray and GetDomainNodeToNodeEncryptionArrayOutput values.
-// You can construct a concrete instance of `GetDomainNodeToNodeEncryptionArrayInput` via:
-//
-//          GetDomainNodeToNodeEncryptionArray{ GetDomainNodeToNodeEncryptionArgs{...} }
-type GetDomainNodeToNodeEncryptionArrayInput interface {
-	pulumi.Input
-
-	ToGetDomainNodeToNodeEncryptionArrayOutput() GetDomainNodeToNodeEncryptionArrayOutput
-	ToGetDomainNodeToNodeEncryptionArrayOutputWithContext(context.Context) GetDomainNodeToNodeEncryptionArrayOutput
-}
-
-type GetDomainNodeToNodeEncryptionArray []GetDomainNodeToNodeEncryptionInput
-
-func (GetDomainNodeToNodeEncryptionArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetDomainNodeToNodeEncryption)(nil)).Elem()
-}
-
-func (i GetDomainNodeToNodeEncryptionArray) ToGetDomainNodeToNodeEncryptionArrayOutput() GetDomainNodeToNodeEncryptionArrayOutput {
-	return i.ToGetDomainNodeToNodeEncryptionArrayOutputWithContext(context.Background())
-}
-
-func (i GetDomainNodeToNodeEncryptionArray) ToGetDomainNodeToNodeEncryptionArrayOutputWithContext(ctx context.Context) GetDomainNodeToNodeEncryptionArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDomainNodeToNodeEncryptionArrayOutput)
-}
-
 type GetDomainNodeToNodeEncryptionOutput struct{ *pulumi.OutputState }
 
 func (GetDomainNodeToNodeEncryptionOutput) ElementType() reflect.Type {
@@ -4189,59 +3558,6 @@ func (o GetDomainNodeToNodeEncryptionArrayOutput) Index(i pulumi.IntInput) GetDo
 type GetDomainSnapshotOption struct {
 	// Hour during which the service takes an automated daily snapshot of the indices in the domain.
 	AutomatedSnapshotStartHour int `pulumi:"automatedSnapshotStartHour"`
-}
-
-// GetDomainSnapshotOptionInput is an input type that accepts GetDomainSnapshotOptionArgs and GetDomainSnapshotOptionOutput values.
-// You can construct a concrete instance of `GetDomainSnapshotOptionInput` via:
-//
-//          GetDomainSnapshotOptionArgs{...}
-type GetDomainSnapshotOptionInput interface {
-	pulumi.Input
-
-	ToGetDomainSnapshotOptionOutput() GetDomainSnapshotOptionOutput
-	ToGetDomainSnapshotOptionOutputWithContext(context.Context) GetDomainSnapshotOptionOutput
-}
-
-type GetDomainSnapshotOptionArgs struct {
-	// Hour during which the service takes an automated daily snapshot of the indices in the domain.
-	AutomatedSnapshotStartHour pulumi.IntInput `pulumi:"automatedSnapshotStartHour"`
-}
-
-func (GetDomainSnapshotOptionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetDomainSnapshotOption)(nil)).Elem()
-}
-
-func (i GetDomainSnapshotOptionArgs) ToGetDomainSnapshotOptionOutput() GetDomainSnapshotOptionOutput {
-	return i.ToGetDomainSnapshotOptionOutputWithContext(context.Background())
-}
-
-func (i GetDomainSnapshotOptionArgs) ToGetDomainSnapshotOptionOutputWithContext(ctx context.Context) GetDomainSnapshotOptionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDomainSnapshotOptionOutput)
-}
-
-// GetDomainSnapshotOptionArrayInput is an input type that accepts GetDomainSnapshotOptionArray and GetDomainSnapshotOptionArrayOutput values.
-// You can construct a concrete instance of `GetDomainSnapshotOptionArrayInput` via:
-//
-//          GetDomainSnapshotOptionArray{ GetDomainSnapshotOptionArgs{...} }
-type GetDomainSnapshotOptionArrayInput interface {
-	pulumi.Input
-
-	ToGetDomainSnapshotOptionArrayOutput() GetDomainSnapshotOptionArrayOutput
-	ToGetDomainSnapshotOptionArrayOutputWithContext(context.Context) GetDomainSnapshotOptionArrayOutput
-}
-
-type GetDomainSnapshotOptionArray []GetDomainSnapshotOptionInput
-
-func (GetDomainSnapshotOptionArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetDomainSnapshotOption)(nil)).Elem()
-}
-
-func (i GetDomainSnapshotOptionArray) ToGetDomainSnapshotOptionArrayOutput() GetDomainSnapshotOptionArrayOutput {
-	return i.ToGetDomainSnapshotOptionArrayOutputWithContext(context.Background())
-}
-
-func (i GetDomainSnapshotOptionArray) ToGetDomainSnapshotOptionArrayOutputWithContext(ctx context.Context) GetDomainSnapshotOptionArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDomainSnapshotOptionArrayOutput)
 }
 
 type GetDomainSnapshotOptionOutput struct{ *pulumi.OutputState }
@@ -4292,65 +3608,6 @@ type GetDomainVpcOption struct {
 	SubnetIds []string `pulumi:"subnetIds"`
 	// The VPC used by the domain.
 	VpcId string `pulumi:"vpcId"`
-}
-
-// GetDomainVpcOptionInput is an input type that accepts GetDomainVpcOptionArgs and GetDomainVpcOptionOutput values.
-// You can construct a concrete instance of `GetDomainVpcOptionInput` via:
-//
-//          GetDomainVpcOptionArgs{...}
-type GetDomainVpcOptionInput interface {
-	pulumi.Input
-
-	ToGetDomainVpcOptionOutput() GetDomainVpcOptionOutput
-	ToGetDomainVpcOptionOutputWithContext(context.Context) GetDomainVpcOptionOutput
-}
-
-type GetDomainVpcOptionArgs struct {
-	// The availability zones used by the domain.
-	AvailabilityZones pulumi.StringArrayInput `pulumi:"availabilityZones"`
-	// The security groups used by the domain.
-	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
-	// The subnets used by the domain.
-	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
-	// The VPC used by the domain.
-	VpcId pulumi.StringInput `pulumi:"vpcId"`
-}
-
-func (GetDomainVpcOptionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetDomainVpcOption)(nil)).Elem()
-}
-
-func (i GetDomainVpcOptionArgs) ToGetDomainVpcOptionOutput() GetDomainVpcOptionOutput {
-	return i.ToGetDomainVpcOptionOutputWithContext(context.Background())
-}
-
-func (i GetDomainVpcOptionArgs) ToGetDomainVpcOptionOutputWithContext(ctx context.Context) GetDomainVpcOptionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDomainVpcOptionOutput)
-}
-
-// GetDomainVpcOptionArrayInput is an input type that accepts GetDomainVpcOptionArray and GetDomainVpcOptionArrayOutput values.
-// You can construct a concrete instance of `GetDomainVpcOptionArrayInput` via:
-//
-//          GetDomainVpcOptionArray{ GetDomainVpcOptionArgs{...} }
-type GetDomainVpcOptionArrayInput interface {
-	pulumi.Input
-
-	ToGetDomainVpcOptionArrayOutput() GetDomainVpcOptionArrayOutput
-	ToGetDomainVpcOptionArrayOutputWithContext(context.Context) GetDomainVpcOptionArrayOutput
-}
-
-type GetDomainVpcOptionArray []GetDomainVpcOptionInput
-
-func (GetDomainVpcOptionArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetDomainVpcOption)(nil)).Elem()
-}
-
-func (i GetDomainVpcOptionArray) ToGetDomainVpcOptionArrayOutput() GetDomainVpcOptionArrayOutput {
-	return i.ToGetDomainVpcOptionArrayOutputWithContext(context.Background())
-}
-
-func (i GetDomainVpcOptionArray) ToGetDomainVpcOptionArrayOutputWithContext(ctx context.Context) GetDomainVpcOptionArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetDomainVpcOptionArrayOutput)
 }
 
 type GetDomainVpcOptionOutput struct{ *pulumi.OutputState }
@@ -4441,32 +3698,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainSnapshotOptionsPtrInput)(nil)).Elem(), DomainSnapshotOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainVpcOptionsInput)(nil)).Elem(), DomainVpcOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainVpcOptionsPtrInput)(nil)).Elem(), DomainVpcOptionsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainAdvancedSecurityOptionInput)(nil)).Elem(), GetDomainAdvancedSecurityOptionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainAdvancedSecurityOptionArrayInput)(nil)).Elem(), GetDomainAdvancedSecurityOptionArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainAutoTuneOptionInput)(nil)).Elem(), GetDomainAutoTuneOptionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainAutoTuneOptionArrayInput)(nil)).Elem(), GetDomainAutoTuneOptionArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainAutoTuneOptionMaintenanceScheduleInput)(nil)).Elem(), GetDomainAutoTuneOptionMaintenanceScheduleArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainAutoTuneOptionMaintenanceScheduleArrayInput)(nil)).Elem(), GetDomainAutoTuneOptionMaintenanceScheduleArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainAutoTuneOptionMaintenanceScheduleDurationInput)(nil)).Elem(), GetDomainAutoTuneOptionMaintenanceScheduleDurationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainAutoTuneOptionMaintenanceScheduleDurationArrayInput)(nil)).Elem(), GetDomainAutoTuneOptionMaintenanceScheduleDurationArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainClusterConfigInput)(nil)).Elem(), GetDomainClusterConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainClusterConfigArrayInput)(nil)).Elem(), GetDomainClusterConfigArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainClusterConfigZoneAwarenessConfigInput)(nil)).Elem(), GetDomainClusterConfigZoneAwarenessConfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainClusterConfigZoneAwarenessConfigArrayInput)(nil)).Elem(), GetDomainClusterConfigZoneAwarenessConfigArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainCognitoOptionInput)(nil)).Elem(), GetDomainCognitoOptionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainCognitoOptionArrayInput)(nil)).Elem(), GetDomainCognitoOptionArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainEbsOptionInput)(nil)).Elem(), GetDomainEbsOptionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainEbsOptionArrayInput)(nil)).Elem(), GetDomainEbsOptionArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainEncryptionAtRestInput)(nil)).Elem(), GetDomainEncryptionAtRestArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainEncryptionAtRestArrayInput)(nil)).Elem(), GetDomainEncryptionAtRestArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainLogPublishingOptionInput)(nil)).Elem(), GetDomainLogPublishingOptionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainLogPublishingOptionArrayInput)(nil)).Elem(), GetDomainLogPublishingOptionArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainNodeToNodeEncryptionInput)(nil)).Elem(), GetDomainNodeToNodeEncryptionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainNodeToNodeEncryptionArrayInput)(nil)).Elem(), GetDomainNodeToNodeEncryptionArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainSnapshotOptionInput)(nil)).Elem(), GetDomainSnapshotOptionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainSnapshotOptionArrayInput)(nil)).Elem(), GetDomainSnapshotOptionArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainVpcOptionInput)(nil)).Elem(), GetDomainVpcOptionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainVpcOptionArrayInput)(nil)).Elem(), GetDomainVpcOptionArray{})
 	pulumi.RegisterOutputType(DomainAdvancedSecurityOptionsOutput{})
 	pulumi.RegisterOutputType(DomainAdvancedSecurityOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DomainAdvancedSecurityOptionsMasterUserOptionsOutput{})

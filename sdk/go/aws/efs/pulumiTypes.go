@@ -549,47 +549,6 @@ func (i BackupPolicyBackupPolicyArgs) ToBackupPolicyBackupPolicyOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(BackupPolicyBackupPolicyOutput)
 }
 
-func (i BackupPolicyBackupPolicyArgs) ToBackupPolicyBackupPolicyPtrOutput() BackupPolicyBackupPolicyPtrOutput {
-	return i.ToBackupPolicyBackupPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i BackupPolicyBackupPolicyArgs) ToBackupPolicyBackupPolicyPtrOutputWithContext(ctx context.Context) BackupPolicyBackupPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BackupPolicyBackupPolicyOutput).ToBackupPolicyBackupPolicyPtrOutputWithContext(ctx)
-}
-
-// BackupPolicyBackupPolicyPtrInput is an input type that accepts BackupPolicyBackupPolicyArgs, BackupPolicyBackupPolicyPtr and BackupPolicyBackupPolicyPtrOutput values.
-// You can construct a concrete instance of `BackupPolicyBackupPolicyPtrInput` via:
-//
-//          BackupPolicyBackupPolicyArgs{...}
-//
-//  or:
-//
-//          nil
-type BackupPolicyBackupPolicyPtrInput interface {
-	pulumi.Input
-
-	ToBackupPolicyBackupPolicyPtrOutput() BackupPolicyBackupPolicyPtrOutput
-	ToBackupPolicyBackupPolicyPtrOutputWithContext(context.Context) BackupPolicyBackupPolicyPtrOutput
-}
-
-type backupPolicyBackupPolicyPtrType BackupPolicyBackupPolicyArgs
-
-func BackupPolicyBackupPolicyPtr(v *BackupPolicyBackupPolicyArgs) BackupPolicyBackupPolicyPtrInput {
-	return (*backupPolicyBackupPolicyPtrType)(v)
-}
-
-func (*backupPolicyBackupPolicyPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BackupPolicyBackupPolicy)(nil)).Elem()
-}
-
-func (i *backupPolicyBackupPolicyPtrType) ToBackupPolicyBackupPolicyPtrOutput() BackupPolicyBackupPolicyPtrOutput {
-	return i.ToBackupPolicyBackupPolicyPtrOutputWithContext(context.Background())
-}
-
-func (i *backupPolicyBackupPolicyPtrType) ToBackupPolicyBackupPolicyPtrOutputWithContext(ctx context.Context) BackupPolicyBackupPolicyPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BackupPolicyBackupPolicyPtrOutput)
-}
-
 type BackupPolicyBackupPolicyOutput struct{ *pulumi.OutputState }
 
 func (BackupPolicyBackupPolicyOutput) ElementType() reflect.Type {
@@ -604,53 +563,9 @@ func (o BackupPolicyBackupPolicyOutput) ToBackupPolicyBackupPolicyOutputWithCont
 	return o
 }
 
-func (o BackupPolicyBackupPolicyOutput) ToBackupPolicyBackupPolicyPtrOutput() BackupPolicyBackupPolicyPtrOutput {
-	return o.ToBackupPolicyBackupPolicyPtrOutputWithContext(context.Background())
-}
-
-func (o BackupPolicyBackupPolicyOutput) ToBackupPolicyBackupPolicyPtrOutputWithContext(ctx context.Context) BackupPolicyBackupPolicyPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackupPolicyBackupPolicy) *BackupPolicyBackupPolicy {
-		return &v
-	}).(BackupPolicyBackupPolicyPtrOutput)
-}
-
 // A status of the backup policy. Valid values: `ENABLED`, `DISABLED`.
 func (o BackupPolicyBackupPolicyOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v BackupPolicyBackupPolicy) string { return v.Status }).(pulumi.StringOutput)
-}
-
-type BackupPolicyBackupPolicyPtrOutput struct{ *pulumi.OutputState }
-
-func (BackupPolicyBackupPolicyPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**BackupPolicyBackupPolicy)(nil)).Elem()
-}
-
-func (o BackupPolicyBackupPolicyPtrOutput) ToBackupPolicyBackupPolicyPtrOutput() BackupPolicyBackupPolicyPtrOutput {
-	return o
-}
-
-func (o BackupPolicyBackupPolicyPtrOutput) ToBackupPolicyBackupPolicyPtrOutputWithContext(ctx context.Context) BackupPolicyBackupPolicyPtrOutput {
-	return o
-}
-
-func (o BackupPolicyBackupPolicyPtrOutput) Elem() BackupPolicyBackupPolicyOutput {
-	return o.ApplyT(func(v *BackupPolicyBackupPolicy) BackupPolicyBackupPolicy {
-		if v != nil {
-			return *v
-		}
-		var ret BackupPolicyBackupPolicy
-		return ret
-	}).(BackupPolicyBackupPolicyOutput)
-}
-
-// A status of the backup policy. Valid values: `ENABLED`, `DISABLED`.
-func (o BackupPolicyBackupPolicyPtrOutput) Status() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *BackupPolicyBackupPolicy) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Status
-	}).(pulumi.StringPtrOutput)
 }
 
 type FileSystemLifecyclePolicy struct {
@@ -818,63 +733,6 @@ type FileSystemSizeInByte struct {
 	ValueInStandard *int `pulumi:"valueInStandard"`
 }
 
-// FileSystemSizeInByteInput is an input type that accepts FileSystemSizeInByteArgs and FileSystemSizeInByteOutput values.
-// You can construct a concrete instance of `FileSystemSizeInByteInput` via:
-//
-//          FileSystemSizeInByteArgs{...}
-type FileSystemSizeInByteInput interface {
-	pulumi.Input
-
-	ToFileSystemSizeInByteOutput() FileSystemSizeInByteOutput
-	ToFileSystemSizeInByteOutputWithContext(context.Context) FileSystemSizeInByteOutput
-}
-
-type FileSystemSizeInByteArgs struct {
-	// The latest known metered size (in bytes) of data stored in the file system.
-	Value pulumi.IntPtrInput `pulumi:"value"`
-	// The latest known metered size (in bytes) of data stored in the Infrequent Access storage class.
-	ValueInIa pulumi.IntPtrInput `pulumi:"valueInIa"`
-	// The latest known metered size (in bytes) of data stored in the Standard storage class.
-	ValueInStandard pulumi.IntPtrInput `pulumi:"valueInStandard"`
-}
-
-func (FileSystemSizeInByteArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*FileSystemSizeInByte)(nil)).Elem()
-}
-
-func (i FileSystemSizeInByteArgs) ToFileSystemSizeInByteOutput() FileSystemSizeInByteOutput {
-	return i.ToFileSystemSizeInByteOutputWithContext(context.Background())
-}
-
-func (i FileSystemSizeInByteArgs) ToFileSystemSizeInByteOutputWithContext(ctx context.Context) FileSystemSizeInByteOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FileSystemSizeInByteOutput)
-}
-
-// FileSystemSizeInByteArrayInput is an input type that accepts FileSystemSizeInByteArray and FileSystemSizeInByteArrayOutput values.
-// You can construct a concrete instance of `FileSystemSizeInByteArrayInput` via:
-//
-//          FileSystemSizeInByteArray{ FileSystemSizeInByteArgs{...} }
-type FileSystemSizeInByteArrayInput interface {
-	pulumi.Input
-
-	ToFileSystemSizeInByteArrayOutput() FileSystemSizeInByteArrayOutput
-	ToFileSystemSizeInByteArrayOutputWithContext(context.Context) FileSystemSizeInByteArrayOutput
-}
-
-type FileSystemSizeInByteArray []FileSystemSizeInByteInput
-
-func (FileSystemSizeInByteArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]FileSystemSizeInByte)(nil)).Elem()
-}
-
-func (i FileSystemSizeInByteArray) ToFileSystemSizeInByteArrayOutput() FileSystemSizeInByteArrayOutput {
-	return i.ToFileSystemSizeInByteArrayOutputWithContext(context.Background())
-}
-
-func (i FileSystemSizeInByteArray) ToFileSystemSizeInByteArrayOutputWithContext(ctx context.Context) FileSystemSizeInByteArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(FileSystemSizeInByteArrayOutput)
-}
-
 type FileSystemSizeInByteOutput struct{ *pulumi.OutputState }
 
 func (FileSystemSizeInByteOutput) ElementType() reflect.Type {
@@ -934,64 +792,6 @@ type GetAccessPointPosixUser struct {
 	Uid int `pulumi:"uid"`
 }
 
-// GetAccessPointPosixUserInput is an input type that accepts GetAccessPointPosixUserArgs and GetAccessPointPosixUserOutput values.
-// You can construct a concrete instance of `GetAccessPointPosixUserInput` via:
-//
-//          GetAccessPointPosixUserArgs{...}
-type GetAccessPointPosixUserInput interface {
-	pulumi.Input
-
-	ToGetAccessPointPosixUserOutput() GetAccessPointPosixUserOutput
-	ToGetAccessPointPosixUserOutputWithContext(context.Context) GetAccessPointPosixUserOutput
-}
-
-type GetAccessPointPosixUserArgs struct {
-	// Group ID
-	Gid pulumi.IntInput `pulumi:"gid"`
-	// Secondary group IDs
-	SecondaryGids pulumi.IntArrayInput `pulumi:"secondaryGids"`
-	// User Id
-	// * `rootDirectory`- Single element list containing information on the directory on the Amazon EFS file system that the access point provides access to.
-	Uid pulumi.IntInput `pulumi:"uid"`
-}
-
-func (GetAccessPointPosixUserArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetAccessPointPosixUser)(nil)).Elem()
-}
-
-func (i GetAccessPointPosixUserArgs) ToGetAccessPointPosixUserOutput() GetAccessPointPosixUserOutput {
-	return i.ToGetAccessPointPosixUserOutputWithContext(context.Background())
-}
-
-func (i GetAccessPointPosixUserArgs) ToGetAccessPointPosixUserOutputWithContext(ctx context.Context) GetAccessPointPosixUserOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetAccessPointPosixUserOutput)
-}
-
-// GetAccessPointPosixUserArrayInput is an input type that accepts GetAccessPointPosixUserArray and GetAccessPointPosixUserArrayOutput values.
-// You can construct a concrete instance of `GetAccessPointPosixUserArrayInput` via:
-//
-//          GetAccessPointPosixUserArray{ GetAccessPointPosixUserArgs{...} }
-type GetAccessPointPosixUserArrayInput interface {
-	pulumi.Input
-
-	ToGetAccessPointPosixUserArrayOutput() GetAccessPointPosixUserArrayOutput
-	ToGetAccessPointPosixUserArrayOutputWithContext(context.Context) GetAccessPointPosixUserArrayOutput
-}
-
-type GetAccessPointPosixUserArray []GetAccessPointPosixUserInput
-
-func (GetAccessPointPosixUserArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetAccessPointPosixUser)(nil)).Elem()
-}
-
-func (i GetAccessPointPosixUserArray) ToGetAccessPointPosixUserArrayOutput() GetAccessPointPosixUserArrayOutput {
-	return i.ToGetAccessPointPosixUserArrayOutputWithContext(context.Background())
-}
-
-func (i GetAccessPointPosixUserArray) ToGetAccessPointPosixUserArrayOutputWithContext(ctx context.Context) GetAccessPointPosixUserArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetAccessPointPosixUserArrayOutput)
-}
-
 type GetAccessPointPosixUserOutput struct{ *pulumi.OutputState }
 
 func (GetAccessPointPosixUserOutput) ElementType() reflect.Type {
@@ -1049,61 +849,6 @@ type GetAccessPointRootDirectory struct {
 	Path string `pulumi:"path"`
 }
 
-// GetAccessPointRootDirectoryInput is an input type that accepts GetAccessPointRootDirectoryArgs and GetAccessPointRootDirectoryOutput values.
-// You can construct a concrete instance of `GetAccessPointRootDirectoryInput` via:
-//
-//          GetAccessPointRootDirectoryArgs{...}
-type GetAccessPointRootDirectoryInput interface {
-	pulumi.Input
-
-	ToGetAccessPointRootDirectoryOutput() GetAccessPointRootDirectoryOutput
-	ToGetAccessPointRootDirectoryOutputWithContext(context.Context) GetAccessPointRootDirectoryOutput
-}
-
-type GetAccessPointRootDirectoryArgs struct {
-	// Single element list containing information on the creation permissions of the directory
-	CreationInfos GetAccessPointRootDirectoryCreationInfoArrayInput `pulumi:"creationInfos"`
-	// Path exposed as the root directory
-	Path pulumi.StringInput `pulumi:"path"`
-}
-
-func (GetAccessPointRootDirectoryArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetAccessPointRootDirectory)(nil)).Elem()
-}
-
-func (i GetAccessPointRootDirectoryArgs) ToGetAccessPointRootDirectoryOutput() GetAccessPointRootDirectoryOutput {
-	return i.ToGetAccessPointRootDirectoryOutputWithContext(context.Background())
-}
-
-func (i GetAccessPointRootDirectoryArgs) ToGetAccessPointRootDirectoryOutputWithContext(ctx context.Context) GetAccessPointRootDirectoryOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetAccessPointRootDirectoryOutput)
-}
-
-// GetAccessPointRootDirectoryArrayInput is an input type that accepts GetAccessPointRootDirectoryArray and GetAccessPointRootDirectoryArrayOutput values.
-// You can construct a concrete instance of `GetAccessPointRootDirectoryArrayInput` via:
-//
-//          GetAccessPointRootDirectoryArray{ GetAccessPointRootDirectoryArgs{...} }
-type GetAccessPointRootDirectoryArrayInput interface {
-	pulumi.Input
-
-	ToGetAccessPointRootDirectoryArrayOutput() GetAccessPointRootDirectoryArrayOutput
-	ToGetAccessPointRootDirectoryArrayOutputWithContext(context.Context) GetAccessPointRootDirectoryArrayOutput
-}
-
-type GetAccessPointRootDirectoryArray []GetAccessPointRootDirectoryInput
-
-func (GetAccessPointRootDirectoryArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetAccessPointRootDirectory)(nil)).Elem()
-}
-
-func (i GetAccessPointRootDirectoryArray) ToGetAccessPointRootDirectoryArrayOutput() GetAccessPointRootDirectoryArrayOutput {
-	return i.ToGetAccessPointRootDirectoryArrayOutputWithContext(context.Background())
-}
-
-func (i GetAccessPointRootDirectoryArray) ToGetAccessPointRootDirectoryArrayOutputWithContext(ctx context.Context) GetAccessPointRootDirectoryArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetAccessPointRootDirectoryArrayOutput)
-}
-
 type GetAccessPointRootDirectoryOutput struct{ *pulumi.OutputState }
 
 func (GetAccessPointRootDirectoryOutput) ElementType() reflect.Type {
@@ -1155,63 +900,6 @@ type GetAccessPointRootDirectoryCreationInfo struct {
 	OwnerUid int `pulumi:"ownerUid"`
 	// POSIX permissions mode
 	Permissions string `pulumi:"permissions"`
-}
-
-// GetAccessPointRootDirectoryCreationInfoInput is an input type that accepts GetAccessPointRootDirectoryCreationInfoArgs and GetAccessPointRootDirectoryCreationInfoOutput values.
-// You can construct a concrete instance of `GetAccessPointRootDirectoryCreationInfoInput` via:
-//
-//          GetAccessPointRootDirectoryCreationInfoArgs{...}
-type GetAccessPointRootDirectoryCreationInfoInput interface {
-	pulumi.Input
-
-	ToGetAccessPointRootDirectoryCreationInfoOutput() GetAccessPointRootDirectoryCreationInfoOutput
-	ToGetAccessPointRootDirectoryCreationInfoOutputWithContext(context.Context) GetAccessPointRootDirectoryCreationInfoOutput
-}
-
-type GetAccessPointRootDirectoryCreationInfoArgs struct {
-	// POSIX owner group ID
-	OwnerGid pulumi.IntInput `pulumi:"ownerGid"`
-	// POSIX owner user ID
-	OwnerUid pulumi.IntInput `pulumi:"ownerUid"`
-	// POSIX permissions mode
-	Permissions pulumi.StringInput `pulumi:"permissions"`
-}
-
-func (GetAccessPointRootDirectoryCreationInfoArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetAccessPointRootDirectoryCreationInfo)(nil)).Elem()
-}
-
-func (i GetAccessPointRootDirectoryCreationInfoArgs) ToGetAccessPointRootDirectoryCreationInfoOutput() GetAccessPointRootDirectoryCreationInfoOutput {
-	return i.ToGetAccessPointRootDirectoryCreationInfoOutputWithContext(context.Background())
-}
-
-func (i GetAccessPointRootDirectoryCreationInfoArgs) ToGetAccessPointRootDirectoryCreationInfoOutputWithContext(ctx context.Context) GetAccessPointRootDirectoryCreationInfoOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetAccessPointRootDirectoryCreationInfoOutput)
-}
-
-// GetAccessPointRootDirectoryCreationInfoArrayInput is an input type that accepts GetAccessPointRootDirectoryCreationInfoArray and GetAccessPointRootDirectoryCreationInfoArrayOutput values.
-// You can construct a concrete instance of `GetAccessPointRootDirectoryCreationInfoArrayInput` via:
-//
-//          GetAccessPointRootDirectoryCreationInfoArray{ GetAccessPointRootDirectoryCreationInfoArgs{...} }
-type GetAccessPointRootDirectoryCreationInfoArrayInput interface {
-	pulumi.Input
-
-	ToGetAccessPointRootDirectoryCreationInfoArrayOutput() GetAccessPointRootDirectoryCreationInfoArrayOutput
-	ToGetAccessPointRootDirectoryCreationInfoArrayOutputWithContext(context.Context) GetAccessPointRootDirectoryCreationInfoArrayOutput
-}
-
-type GetAccessPointRootDirectoryCreationInfoArray []GetAccessPointRootDirectoryCreationInfoInput
-
-func (GetAccessPointRootDirectoryCreationInfoArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetAccessPointRootDirectoryCreationInfo)(nil)).Elem()
-}
-
-func (i GetAccessPointRootDirectoryCreationInfoArray) ToGetAccessPointRootDirectoryCreationInfoArrayOutput() GetAccessPointRootDirectoryCreationInfoArrayOutput {
-	return i.ToGetAccessPointRootDirectoryCreationInfoArrayOutputWithContext(context.Background())
-}
-
-func (i GetAccessPointRootDirectoryCreationInfoArray) ToGetAccessPointRootDirectoryCreationInfoArrayOutputWithContext(ctx context.Context) GetAccessPointRootDirectoryCreationInfoArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetAccessPointRootDirectoryCreationInfoArrayOutput)
 }
 
 type GetAccessPointRootDirectoryCreationInfoOutput struct{ *pulumi.OutputState }
@@ -1268,34 +956,6 @@ type GetFileSystemLifecyclePolicy struct {
 	TransitionToPrimaryStorageClass string `pulumi:"transitionToPrimaryStorageClass"`
 }
 
-// GetFileSystemLifecyclePolicyInput is an input type that accepts GetFileSystemLifecyclePolicyArgs and GetFileSystemLifecyclePolicyOutput values.
-// You can construct a concrete instance of `GetFileSystemLifecyclePolicyInput` via:
-//
-//          GetFileSystemLifecyclePolicyArgs{...}
-type GetFileSystemLifecyclePolicyInput interface {
-	pulumi.Input
-
-	ToGetFileSystemLifecyclePolicyOutput() GetFileSystemLifecyclePolicyOutput
-	ToGetFileSystemLifecyclePolicyOutputWithContext(context.Context) GetFileSystemLifecyclePolicyOutput
-}
-
-type GetFileSystemLifecyclePolicyArgs struct {
-	TransitionToIa                  pulumi.StringInput `pulumi:"transitionToIa"`
-	TransitionToPrimaryStorageClass pulumi.StringInput `pulumi:"transitionToPrimaryStorageClass"`
-}
-
-func (GetFileSystemLifecyclePolicyArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetFileSystemLifecyclePolicy)(nil)).Elem()
-}
-
-func (i GetFileSystemLifecyclePolicyArgs) ToGetFileSystemLifecyclePolicyOutput() GetFileSystemLifecyclePolicyOutput {
-	return i.ToGetFileSystemLifecyclePolicyOutputWithContext(context.Background())
-}
-
-func (i GetFileSystemLifecyclePolicyArgs) ToGetFileSystemLifecyclePolicyOutputWithContext(ctx context.Context) GetFileSystemLifecyclePolicyOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetFileSystemLifecyclePolicyOutput)
-}
-
 type GetFileSystemLifecyclePolicyOutput struct{ *pulumi.OutputState }
 
 func (GetFileSystemLifecyclePolicyOutput) ElementType() reflect.Type {
@@ -1326,18 +986,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessPointRootDirectoryCreationInfoInput)(nil)).Elem(), AccessPointRootDirectoryCreationInfoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessPointRootDirectoryCreationInfoPtrInput)(nil)).Elem(), AccessPointRootDirectoryCreationInfoArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyBackupPolicyInput)(nil)).Elem(), BackupPolicyBackupPolicyArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyBackupPolicyPtrInput)(nil)).Elem(), BackupPolicyBackupPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemLifecyclePolicyInput)(nil)).Elem(), FileSystemLifecyclePolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemLifecyclePolicyPtrInput)(nil)).Elem(), FileSystemLifecyclePolicyArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemSizeInByteInput)(nil)).Elem(), FileSystemSizeInByteArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*FileSystemSizeInByteArrayInput)(nil)).Elem(), FileSystemSizeInByteArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetAccessPointPosixUserInput)(nil)).Elem(), GetAccessPointPosixUserArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetAccessPointPosixUserArrayInput)(nil)).Elem(), GetAccessPointPosixUserArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetAccessPointRootDirectoryInput)(nil)).Elem(), GetAccessPointRootDirectoryArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetAccessPointRootDirectoryArrayInput)(nil)).Elem(), GetAccessPointRootDirectoryArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetAccessPointRootDirectoryCreationInfoInput)(nil)).Elem(), GetAccessPointRootDirectoryCreationInfoArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetAccessPointRootDirectoryCreationInfoArrayInput)(nil)).Elem(), GetAccessPointRootDirectoryCreationInfoArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetFileSystemLifecyclePolicyInput)(nil)).Elem(), GetFileSystemLifecyclePolicyArgs{})
 	pulumi.RegisterOutputType(AccessPointPosixUserOutput{})
 	pulumi.RegisterOutputType(AccessPointPosixUserPtrOutput{})
 	pulumi.RegisterOutputType(AccessPointRootDirectoryOutput{})
@@ -1345,7 +995,6 @@ func init() {
 	pulumi.RegisterOutputType(AccessPointRootDirectoryCreationInfoOutput{})
 	pulumi.RegisterOutputType(AccessPointRootDirectoryCreationInfoPtrOutput{})
 	pulumi.RegisterOutputType(BackupPolicyBackupPolicyOutput{})
-	pulumi.RegisterOutputType(BackupPolicyBackupPolicyPtrOutput{})
 	pulumi.RegisterOutputType(FileSystemLifecyclePolicyOutput{})
 	pulumi.RegisterOutputType(FileSystemLifecyclePolicyPtrOutput{})
 	pulumi.RegisterOutputType(FileSystemSizeInByteOutput{})

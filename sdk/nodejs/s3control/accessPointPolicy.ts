@@ -63,13 +63,13 @@ export class AccessPointPolicy extends pulumi.CustomResource {
      */
     constructor(name: string, args: AccessPointPolicyArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AccessPointPolicyArgs | AccessPointPolicyState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AccessPointPolicyState | undefined;
-            inputs["accessPointArn"] = state ? state.accessPointArn : undefined;
-            inputs["hasPublicAccessPolicy"] = state ? state.hasPublicAccessPolicy : undefined;
-            inputs["policy"] = state ? state.policy : undefined;
+            resourceInputs["accessPointArn"] = state ? state.accessPointArn : undefined;
+            resourceInputs["hasPublicAccessPolicy"] = state ? state.hasPublicAccessPolicy : undefined;
+            resourceInputs["policy"] = state ? state.policy : undefined;
         } else {
             const args = argsOrState as AccessPointPolicyArgs | undefined;
             if ((!args || args.accessPointArn === undefined) && !opts.urn) {
@@ -78,14 +78,14 @@ export class AccessPointPolicy extends pulumi.CustomResource {
             if ((!args || args.policy === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policy'");
             }
-            inputs["accessPointArn"] = args ? args.accessPointArn : undefined;
-            inputs["policy"] = args ? args.policy : undefined;
-            inputs["hasPublicAccessPolicy"] = undefined /*out*/;
+            resourceInputs["accessPointArn"] = args ? args.accessPointArn : undefined;
+            resourceInputs["policy"] = args ? args.policy : undefined;
+            resourceInputs["hasPublicAccessPolicy"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(AccessPointPolicy.__pulumiType, name, inputs, opts);
+        super(AccessPointPolicy.__pulumiType, name, resourceInputs, opts);
     }
 }
 

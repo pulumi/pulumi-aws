@@ -113,7 +113,7 @@ type OrganizationsAccessInput interface {
 }
 
 func (*OrganizationsAccess) ElementType() reflect.Type {
-	return reflect.TypeOf((*OrganizationsAccess)(nil))
+	return reflect.TypeOf((**OrganizationsAccess)(nil)).Elem()
 }
 
 func (i *OrganizationsAccess) ToOrganizationsAccessOutput() OrganizationsAccessOutput {
@@ -122,35 +122,6 @@ func (i *OrganizationsAccess) ToOrganizationsAccessOutput() OrganizationsAccessO
 
 func (i *OrganizationsAccess) ToOrganizationsAccessOutputWithContext(ctx context.Context) OrganizationsAccessOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(OrganizationsAccessOutput)
-}
-
-func (i *OrganizationsAccess) ToOrganizationsAccessPtrOutput() OrganizationsAccessPtrOutput {
-	return i.ToOrganizationsAccessPtrOutputWithContext(context.Background())
-}
-
-func (i *OrganizationsAccess) ToOrganizationsAccessPtrOutputWithContext(ctx context.Context) OrganizationsAccessPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OrganizationsAccessPtrOutput)
-}
-
-type OrganizationsAccessPtrInput interface {
-	pulumi.Input
-
-	ToOrganizationsAccessPtrOutput() OrganizationsAccessPtrOutput
-	ToOrganizationsAccessPtrOutputWithContext(ctx context.Context) OrganizationsAccessPtrOutput
-}
-
-type organizationsAccessPtrType OrganizationsAccessArgs
-
-func (*organizationsAccessPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**OrganizationsAccess)(nil))
-}
-
-func (i *organizationsAccessPtrType) ToOrganizationsAccessPtrOutput() OrganizationsAccessPtrOutput {
-	return i.ToOrganizationsAccessPtrOutputWithContext(context.Background())
-}
-
-func (i *organizationsAccessPtrType) ToOrganizationsAccessPtrOutputWithContext(ctx context.Context) OrganizationsAccessPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OrganizationsAccessPtrOutput)
 }
 
 // OrganizationsAccessArrayInput is an input type that accepts OrganizationsAccessArray and OrganizationsAccessArrayOutput values.
@@ -206,7 +177,7 @@ func (i OrganizationsAccessMap) ToOrganizationsAccessMapOutputWithContext(ctx co
 type OrganizationsAccessOutput struct{ *pulumi.OutputState }
 
 func (OrganizationsAccessOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OrganizationsAccess)(nil))
+	return reflect.TypeOf((**OrganizationsAccess)(nil)).Elem()
 }
 
 func (o OrganizationsAccessOutput) ToOrganizationsAccessOutput() OrganizationsAccessOutput {
@@ -217,44 +188,10 @@ func (o OrganizationsAccessOutput) ToOrganizationsAccessOutputWithContext(ctx co
 	return o
 }
 
-func (o OrganizationsAccessOutput) ToOrganizationsAccessPtrOutput() OrganizationsAccessPtrOutput {
-	return o.ToOrganizationsAccessPtrOutputWithContext(context.Background())
-}
-
-func (o OrganizationsAccessOutput) ToOrganizationsAccessPtrOutputWithContext(ctx context.Context) OrganizationsAccessPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrganizationsAccess) *OrganizationsAccess {
-		return &v
-	}).(OrganizationsAccessPtrOutput)
-}
-
-type OrganizationsAccessPtrOutput struct{ *pulumi.OutputState }
-
-func (OrganizationsAccessPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**OrganizationsAccess)(nil))
-}
-
-func (o OrganizationsAccessPtrOutput) ToOrganizationsAccessPtrOutput() OrganizationsAccessPtrOutput {
-	return o
-}
-
-func (o OrganizationsAccessPtrOutput) ToOrganizationsAccessPtrOutputWithContext(ctx context.Context) OrganizationsAccessPtrOutput {
-	return o
-}
-
-func (o OrganizationsAccessPtrOutput) Elem() OrganizationsAccessOutput {
-	return o.ApplyT(func(v *OrganizationsAccess) OrganizationsAccess {
-		if v != nil {
-			return *v
-		}
-		var ret OrganizationsAccess
-		return ret
-	}).(OrganizationsAccessOutput)
-}
-
 type OrganizationsAccessArrayOutput struct{ *pulumi.OutputState }
 
 func (OrganizationsAccessArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]OrganizationsAccess)(nil))
+	return reflect.TypeOf((*[]*OrganizationsAccess)(nil)).Elem()
 }
 
 func (o OrganizationsAccessArrayOutput) ToOrganizationsAccessArrayOutput() OrganizationsAccessArrayOutput {
@@ -266,15 +203,15 @@ func (o OrganizationsAccessArrayOutput) ToOrganizationsAccessArrayOutputWithCont
 }
 
 func (o OrganizationsAccessArrayOutput) Index(i pulumi.IntInput) OrganizationsAccessOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OrganizationsAccess {
-		return vs[0].([]OrganizationsAccess)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *OrganizationsAccess {
+		return vs[0].([]*OrganizationsAccess)[vs[1].(int)]
 	}).(OrganizationsAccessOutput)
 }
 
 type OrganizationsAccessMapOutput struct{ *pulumi.OutputState }
 
 func (OrganizationsAccessMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]OrganizationsAccess)(nil))
+	return reflect.TypeOf((*map[string]*OrganizationsAccess)(nil)).Elem()
 }
 
 func (o OrganizationsAccessMapOutput) ToOrganizationsAccessMapOutput() OrganizationsAccessMapOutput {
@@ -286,18 +223,16 @@ func (o OrganizationsAccessMapOutput) ToOrganizationsAccessMapOutputWithContext(
 }
 
 func (o OrganizationsAccessMapOutput) MapIndex(k pulumi.StringInput) OrganizationsAccessOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) OrganizationsAccess {
-		return vs[0].(map[string]OrganizationsAccess)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *OrganizationsAccess {
+		return vs[0].(map[string]*OrganizationsAccess)[vs[1].(string)]
 	}).(OrganizationsAccessOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationsAccessInput)(nil)).Elem(), &OrganizationsAccess{})
-	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationsAccessPtrInput)(nil)).Elem(), &OrganizationsAccess{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationsAccessArrayInput)(nil)).Elem(), OrganizationsAccessArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationsAccessMapInput)(nil)).Elem(), OrganizationsAccessMap{})
 	pulumi.RegisterOutputType(OrganizationsAccessOutput{})
-	pulumi.RegisterOutputType(OrganizationsAccessPtrOutput{})
 	pulumi.RegisterOutputType(OrganizationsAccessArrayOutput{})
 	pulumi.RegisterOutputType(OrganizationsAccessMapOutput{})
 }

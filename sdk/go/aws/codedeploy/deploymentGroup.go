@@ -23,7 +23,6 @@ import (
 // import (
 // 	"fmt"
 //
-// 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws"
 // 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/codedeploy"
 // 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/iam"
 // 	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws/sns"
@@ -489,7 +488,7 @@ type DeploymentGroupInput interface {
 }
 
 func (*DeploymentGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeploymentGroup)(nil))
+	return reflect.TypeOf((**DeploymentGroup)(nil)).Elem()
 }
 
 func (i *DeploymentGroup) ToDeploymentGroupOutput() DeploymentGroupOutput {
@@ -498,35 +497,6 @@ func (i *DeploymentGroup) ToDeploymentGroupOutput() DeploymentGroupOutput {
 
 func (i *DeploymentGroup) ToDeploymentGroupOutputWithContext(ctx context.Context) DeploymentGroupOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupOutput)
-}
-
-func (i *DeploymentGroup) ToDeploymentGroupPtrOutput() DeploymentGroupPtrOutput {
-	return i.ToDeploymentGroupPtrOutputWithContext(context.Background())
-}
-
-func (i *DeploymentGroup) ToDeploymentGroupPtrOutputWithContext(ctx context.Context) DeploymentGroupPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupPtrOutput)
-}
-
-type DeploymentGroupPtrInput interface {
-	pulumi.Input
-
-	ToDeploymentGroupPtrOutput() DeploymentGroupPtrOutput
-	ToDeploymentGroupPtrOutputWithContext(ctx context.Context) DeploymentGroupPtrOutput
-}
-
-type deploymentGroupPtrType DeploymentGroupArgs
-
-func (*deploymentGroupPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DeploymentGroup)(nil))
-}
-
-func (i *deploymentGroupPtrType) ToDeploymentGroupPtrOutput() DeploymentGroupPtrOutput {
-	return i.ToDeploymentGroupPtrOutputWithContext(context.Background())
-}
-
-func (i *deploymentGroupPtrType) ToDeploymentGroupPtrOutputWithContext(ctx context.Context) DeploymentGroupPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DeploymentGroupPtrOutput)
 }
 
 // DeploymentGroupArrayInput is an input type that accepts DeploymentGroupArray and DeploymentGroupArrayOutput values.
@@ -582,7 +552,7 @@ func (i DeploymentGroupMap) ToDeploymentGroupMapOutputWithContext(ctx context.Co
 type DeploymentGroupOutput struct{ *pulumi.OutputState }
 
 func (DeploymentGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DeploymentGroup)(nil))
+	return reflect.TypeOf((**DeploymentGroup)(nil)).Elem()
 }
 
 func (o DeploymentGroupOutput) ToDeploymentGroupOutput() DeploymentGroupOutput {
@@ -593,44 +563,10 @@ func (o DeploymentGroupOutput) ToDeploymentGroupOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o DeploymentGroupOutput) ToDeploymentGroupPtrOutput() DeploymentGroupPtrOutput {
-	return o.ToDeploymentGroupPtrOutputWithContext(context.Background())
-}
-
-func (o DeploymentGroupOutput) ToDeploymentGroupPtrOutputWithContext(ctx context.Context) DeploymentGroupPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DeploymentGroup) *DeploymentGroup {
-		return &v
-	}).(DeploymentGroupPtrOutput)
-}
-
-type DeploymentGroupPtrOutput struct{ *pulumi.OutputState }
-
-func (DeploymentGroupPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DeploymentGroup)(nil))
-}
-
-func (o DeploymentGroupPtrOutput) ToDeploymentGroupPtrOutput() DeploymentGroupPtrOutput {
-	return o
-}
-
-func (o DeploymentGroupPtrOutput) ToDeploymentGroupPtrOutputWithContext(ctx context.Context) DeploymentGroupPtrOutput {
-	return o
-}
-
-func (o DeploymentGroupPtrOutput) Elem() DeploymentGroupOutput {
-	return o.ApplyT(func(v *DeploymentGroup) DeploymentGroup {
-		if v != nil {
-			return *v
-		}
-		var ret DeploymentGroup
-		return ret
-	}).(DeploymentGroupOutput)
-}
-
 type DeploymentGroupArrayOutput struct{ *pulumi.OutputState }
 
 func (DeploymentGroupArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DeploymentGroup)(nil))
+	return reflect.TypeOf((*[]*DeploymentGroup)(nil)).Elem()
 }
 
 func (o DeploymentGroupArrayOutput) ToDeploymentGroupArrayOutput() DeploymentGroupArrayOutput {
@@ -642,15 +578,15 @@ func (o DeploymentGroupArrayOutput) ToDeploymentGroupArrayOutputWithContext(ctx 
 }
 
 func (o DeploymentGroupArrayOutput) Index(i pulumi.IntInput) DeploymentGroupOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DeploymentGroup {
-		return vs[0].([]DeploymentGroup)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DeploymentGroup {
+		return vs[0].([]*DeploymentGroup)[vs[1].(int)]
 	}).(DeploymentGroupOutput)
 }
 
 type DeploymentGroupMapOutput struct{ *pulumi.OutputState }
 
 func (DeploymentGroupMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]DeploymentGroup)(nil))
+	return reflect.TypeOf((*map[string]*DeploymentGroup)(nil)).Elem()
 }
 
 func (o DeploymentGroupMapOutput) ToDeploymentGroupMapOutput() DeploymentGroupMapOutput {
@@ -662,18 +598,16 @@ func (o DeploymentGroupMapOutput) ToDeploymentGroupMapOutputWithContext(ctx cont
 }
 
 func (o DeploymentGroupMapOutput) MapIndex(k pulumi.StringInput) DeploymentGroupOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DeploymentGroup {
-		return vs[0].(map[string]DeploymentGroup)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *DeploymentGroup {
+		return vs[0].(map[string]*DeploymentGroup)[vs[1].(string)]
 	}).(DeploymentGroupOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupInput)(nil)).Elem(), &DeploymentGroup{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupPtrInput)(nil)).Elem(), &DeploymentGroup{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupArrayInput)(nil)).Elem(), DeploymentGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentGroupMapInput)(nil)).Elem(), DeploymentGroupMap{})
 	pulumi.RegisterOutputType(DeploymentGroupOutput{})
-	pulumi.RegisterOutputType(DeploymentGroupPtrOutput{})
 	pulumi.RegisterOutputType(DeploymentGroupArrayOutput{})
 	pulumi.RegisterOutputType(DeploymentGroupMapOutput{})
 }

@@ -88,32 +88,32 @@ export class Cell extends pulumi.CustomResource {
      */
     constructor(name: string, args: CellArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: CellArgs | CellState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CellState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["cellName"] = state ? state.cellName : undefined;
-            inputs["cells"] = state ? state.cells : undefined;
-            inputs["parentReadinessScopes"] = state ? state.parentReadinessScopes : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["cellName"] = state ? state.cellName : undefined;
+            resourceInputs["cells"] = state ? state.cells : undefined;
+            resourceInputs["parentReadinessScopes"] = state ? state.parentReadinessScopes : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as CellArgs | undefined;
             if ((!args || args.cellName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'cellName'");
             }
-            inputs["cellName"] = args ? args.cellName : undefined;
-            inputs["cells"] = args ? args.cells : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["parentReadinessScopes"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["cellName"] = args ? args.cellName : undefined;
+            resourceInputs["cells"] = args ? args.cells : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["parentReadinessScopes"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Cell.__pulumiType, name, inputs, opts);
+        super(Cell.__pulumiType, name, resourceInputs, opts);
     }
 }
 

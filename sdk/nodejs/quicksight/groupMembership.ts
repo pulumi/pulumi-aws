@@ -82,15 +82,15 @@ export class GroupMembership extends pulumi.CustomResource {
      */
     constructor(name: string, args: GroupMembershipArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: GroupMembershipArgs | GroupMembershipState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GroupMembershipState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["awsAccountId"] = state ? state.awsAccountId : undefined;
-            inputs["groupName"] = state ? state.groupName : undefined;
-            inputs["memberName"] = state ? state.memberName : undefined;
-            inputs["namespace"] = state ? state.namespace : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["awsAccountId"] = state ? state.awsAccountId : undefined;
+            resourceInputs["groupName"] = state ? state.groupName : undefined;
+            resourceInputs["memberName"] = state ? state.memberName : undefined;
+            resourceInputs["namespace"] = state ? state.namespace : undefined;
         } else {
             const args = argsOrState as GroupMembershipArgs | undefined;
             if ((!args || args.groupName === undefined) && !opts.urn) {
@@ -99,16 +99,16 @@ export class GroupMembership extends pulumi.CustomResource {
             if ((!args || args.memberName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'memberName'");
             }
-            inputs["awsAccountId"] = args ? args.awsAccountId : undefined;
-            inputs["groupName"] = args ? args.groupName : undefined;
-            inputs["memberName"] = args ? args.memberName : undefined;
-            inputs["namespace"] = args ? args.namespace : undefined;
-            inputs["arn"] = undefined /*out*/;
+            resourceInputs["awsAccountId"] = args ? args.awsAccountId : undefined;
+            resourceInputs["groupName"] = args ? args.groupName : undefined;
+            resourceInputs["memberName"] = args ? args.memberName : undefined;
+            resourceInputs["namespace"] = args ? args.namespace : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(GroupMembership.__pulumiType, name, inputs, opts);
+        super(GroupMembership.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -162,31 +162,31 @@ export class Fleet extends pulumi.CustomResource {
      */
     constructor(name: string, args: FleetArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: FleetArgs | FleetState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as FleetState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["computeCapacity"] = state ? state.computeCapacity : undefined;
-            inputs["createdTime"] = state ? state.createdTime : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["disconnectTimeoutInSeconds"] = state ? state.disconnectTimeoutInSeconds : undefined;
-            inputs["displayName"] = state ? state.displayName : undefined;
-            inputs["domainJoinInfo"] = state ? state.domainJoinInfo : undefined;
-            inputs["enableDefaultInternetAccess"] = state ? state.enableDefaultInternetAccess : undefined;
-            inputs["fleetType"] = state ? state.fleetType : undefined;
-            inputs["iamRoleArn"] = state ? state.iamRoleArn : undefined;
-            inputs["idleDisconnectTimeoutInSeconds"] = state ? state.idleDisconnectTimeoutInSeconds : undefined;
-            inputs["imageArn"] = state ? state.imageArn : undefined;
-            inputs["imageName"] = state ? state.imageName : undefined;
-            inputs["instanceType"] = state ? state.instanceType : undefined;
-            inputs["maxUserDurationInSeconds"] = state ? state.maxUserDurationInSeconds : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["state"] = state ? state.state : undefined;
-            inputs["streamView"] = state ? state.streamView : undefined;
-            inputs["tags"] = state ? state.tags : undefined;
-            inputs["tagsAll"] = state ? state.tagsAll : undefined;
-            inputs["vpcConfig"] = state ? state.vpcConfig : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["computeCapacity"] = state ? state.computeCapacity : undefined;
+            resourceInputs["createdTime"] = state ? state.createdTime : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["disconnectTimeoutInSeconds"] = state ? state.disconnectTimeoutInSeconds : undefined;
+            resourceInputs["displayName"] = state ? state.displayName : undefined;
+            resourceInputs["domainJoinInfo"] = state ? state.domainJoinInfo : undefined;
+            resourceInputs["enableDefaultInternetAccess"] = state ? state.enableDefaultInternetAccess : undefined;
+            resourceInputs["fleetType"] = state ? state.fleetType : undefined;
+            resourceInputs["iamRoleArn"] = state ? state.iamRoleArn : undefined;
+            resourceInputs["idleDisconnectTimeoutInSeconds"] = state ? state.idleDisconnectTimeoutInSeconds : undefined;
+            resourceInputs["imageArn"] = state ? state.imageArn : undefined;
+            resourceInputs["imageName"] = state ? state.imageName : undefined;
+            resourceInputs["instanceType"] = state ? state.instanceType : undefined;
+            resourceInputs["maxUserDurationInSeconds"] = state ? state.maxUserDurationInSeconds : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["state"] = state ? state.state : undefined;
+            resourceInputs["streamView"] = state ? state.streamView : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
+            resourceInputs["vpcConfig"] = state ? state.vpcConfig : undefined;
         } else {
             const args = argsOrState as FleetArgs | undefined;
             if ((!args || args.computeCapacity === undefined) && !opts.urn) {
@@ -195,32 +195,32 @@ export class Fleet extends pulumi.CustomResource {
             if ((!args || args.instanceType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'instanceType'");
             }
-            inputs["computeCapacity"] = args ? args.computeCapacity : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["disconnectTimeoutInSeconds"] = args ? args.disconnectTimeoutInSeconds : undefined;
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["domainJoinInfo"] = args ? args.domainJoinInfo : undefined;
-            inputs["enableDefaultInternetAccess"] = args ? args.enableDefaultInternetAccess : undefined;
-            inputs["fleetType"] = args ? args.fleetType : undefined;
-            inputs["iamRoleArn"] = args ? args.iamRoleArn : undefined;
-            inputs["idleDisconnectTimeoutInSeconds"] = args ? args.idleDisconnectTimeoutInSeconds : undefined;
-            inputs["imageArn"] = args ? args.imageArn : undefined;
-            inputs["imageName"] = args ? args.imageName : undefined;
-            inputs["instanceType"] = args ? args.instanceType : undefined;
-            inputs["maxUserDurationInSeconds"] = args ? args.maxUserDurationInSeconds : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["streamView"] = args ? args.streamView : undefined;
-            inputs["tags"] = args ? args.tags : undefined;
-            inputs["vpcConfig"] = args ? args.vpcConfig : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["createdTime"] = undefined /*out*/;
-            inputs["state"] = undefined /*out*/;
-            inputs["tagsAll"] = undefined /*out*/;
+            resourceInputs["computeCapacity"] = args ? args.computeCapacity : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["disconnectTimeoutInSeconds"] = args ? args.disconnectTimeoutInSeconds : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["domainJoinInfo"] = args ? args.domainJoinInfo : undefined;
+            resourceInputs["enableDefaultInternetAccess"] = args ? args.enableDefaultInternetAccess : undefined;
+            resourceInputs["fleetType"] = args ? args.fleetType : undefined;
+            resourceInputs["iamRoleArn"] = args ? args.iamRoleArn : undefined;
+            resourceInputs["idleDisconnectTimeoutInSeconds"] = args ? args.idleDisconnectTimeoutInSeconds : undefined;
+            resourceInputs["imageArn"] = args ? args.imageArn : undefined;
+            resourceInputs["imageName"] = args ? args.imageName : undefined;
+            resourceInputs["instanceType"] = args ? args.instanceType : undefined;
+            resourceInputs["maxUserDurationInSeconds"] = args ? args.maxUserDurationInSeconds : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["streamView"] = args ? args.streamView : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["vpcConfig"] = args ? args.vpcConfig : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["createdTime"] = undefined /*out*/;
+            resourceInputs["state"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Fleet.__pulumiType, name, inputs, opts);
+        super(Fleet.__pulumiType, name, resourceInputs, opts);
     }
 }
 

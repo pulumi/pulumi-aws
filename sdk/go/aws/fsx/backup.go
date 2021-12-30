@@ -242,7 +242,7 @@ type BackupInput interface {
 }
 
 func (*Backup) ElementType() reflect.Type {
-	return reflect.TypeOf((*Backup)(nil))
+	return reflect.TypeOf((**Backup)(nil)).Elem()
 }
 
 func (i *Backup) ToBackupOutput() BackupOutput {
@@ -251,35 +251,6 @@ func (i *Backup) ToBackupOutput() BackupOutput {
 
 func (i *Backup) ToBackupOutputWithContext(ctx context.Context) BackupOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BackupOutput)
-}
-
-func (i *Backup) ToBackupPtrOutput() BackupPtrOutput {
-	return i.ToBackupPtrOutputWithContext(context.Background())
-}
-
-func (i *Backup) ToBackupPtrOutputWithContext(ctx context.Context) BackupPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BackupPtrOutput)
-}
-
-type BackupPtrInput interface {
-	pulumi.Input
-
-	ToBackupPtrOutput() BackupPtrOutput
-	ToBackupPtrOutputWithContext(ctx context.Context) BackupPtrOutput
-}
-
-type backupPtrType BackupArgs
-
-func (*backupPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Backup)(nil))
-}
-
-func (i *backupPtrType) ToBackupPtrOutput() BackupPtrOutput {
-	return i.ToBackupPtrOutputWithContext(context.Background())
-}
-
-func (i *backupPtrType) ToBackupPtrOutputWithContext(ctx context.Context) BackupPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BackupPtrOutput)
 }
 
 // BackupArrayInput is an input type that accepts BackupArray and BackupArrayOutput values.
@@ -335,7 +306,7 @@ func (i BackupMap) ToBackupMapOutputWithContext(ctx context.Context) BackupMapOu
 type BackupOutput struct{ *pulumi.OutputState }
 
 func (BackupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Backup)(nil))
+	return reflect.TypeOf((**Backup)(nil)).Elem()
 }
 
 func (o BackupOutput) ToBackupOutput() BackupOutput {
@@ -346,44 +317,10 @@ func (o BackupOutput) ToBackupOutputWithContext(ctx context.Context) BackupOutpu
 	return o
 }
 
-func (o BackupOutput) ToBackupPtrOutput() BackupPtrOutput {
-	return o.ToBackupPtrOutputWithContext(context.Background())
-}
-
-func (o BackupOutput) ToBackupPtrOutputWithContext(ctx context.Context) BackupPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Backup) *Backup {
-		return &v
-	}).(BackupPtrOutput)
-}
-
-type BackupPtrOutput struct{ *pulumi.OutputState }
-
-func (BackupPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Backup)(nil))
-}
-
-func (o BackupPtrOutput) ToBackupPtrOutput() BackupPtrOutput {
-	return o
-}
-
-func (o BackupPtrOutput) ToBackupPtrOutputWithContext(ctx context.Context) BackupPtrOutput {
-	return o
-}
-
-func (o BackupPtrOutput) Elem() BackupOutput {
-	return o.ApplyT(func(v *Backup) Backup {
-		if v != nil {
-			return *v
-		}
-		var ret Backup
-		return ret
-	}).(BackupOutput)
-}
-
 type BackupArrayOutput struct{ *pulumi.OutputState }
 
 func (BackupArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Backup)(nil))
+	return reflect.TypeOf((*[]*Backup)(nil)).Elem()
 }
 
 func (o BackupArrayOutput) ToBackupArrayOutput() BackupArrayOutput {
@@ -395,15 +332,15 @@ func (o BackupArrayOutput) ToBackupArrayOutputWithContext(ctx context.Context) B
 }
 
 func (o BackupArrayOutput) Index(i pulumi.IntInput) BackupOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Backup {
-		return vs[0].([]Backup)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Backup {
+		return vs[0].([]*Backup)[vs[1].(int)]
 	}).(BackupOutput)
 }
 
 type BackupMapOutput struct{ *pulumi.OutputState }
 
 func (BackupMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Backup)(nil))
+	return reflect.TypeOf((*map[string]*Backup)(nil)).Elem()
 }
 
 func (o BackupMapOutput) ToBackupMapOutput() BackupMapOutput {
@@ -415,18 +352,16 @@ func (o BackupMapOutput) ToBackupMapOutputWithContext(ctx context.Context) Backu
 }
 
 func (o BackupMapOutput) MapIndex(k pulumi.StringInput) BackupOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Backup {
-		return vs[0].(map[string]Backup)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Backup {
+		return vs[0].(map[string]*Backup)[vs[1].(string)]
 	}).(BackupOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BackupInput)(nil)).Elem(), &Backup{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BackupPtrInput)(nil)).Elem(), &Backup{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BackupArrayInput)(nil)).Elem(), BackupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BackupMapInput)(nil)).Elem(), BackupMap{})
 	pulumi.RegisterOutputType(BackupOutput{})
-	pulumi.RegisterOutputType(BackupPtrOutput{})
 	pulumi.RegisterOutputType(BackupArrayOutput{})
 	pulumi.RegisterOutputType(BackupMapOutput{})
 }

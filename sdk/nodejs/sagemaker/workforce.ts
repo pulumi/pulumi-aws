@@ -123,32 +123,32 @@ export class Workforce extends pulumi.CustomResource {
      */
     constructor(name: string, args: WorkforceArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: WorkforceArgs | WorkforceState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WorkforceState | undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["cognitoConfig"] = state ? state.cognitoConfig : undefined;
-            inputs["oidcConfig"] = state ? state.oidcConfig : undefined;
-            inputs["sourceIpConfig"] = state ? state.sourceIpConfig : undefined;
-            inputs["subdomain"] = state ? state.subdomain : undefined;
-            inputs["workforceName"] = state ? state.workforceName : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["cognitoConfig"] = state ? state.cognitoConfig : undefined;
+            resourceInputs["oidcConfig"] = state ? state.oidcConfig : undefined;
+            resourceInputs["sourceIpConfig"] = state ? state.sourceIpConfig : undefined;
+            resourceInputs["subdomain"] = state ? state.subdomain : undefined;
+            resourceInputs["workforceName"] = state ? state.workforceName : undefined;
         } else {
             const args = argsOrState as WorkforceArgs | undefined;
             if ((!args || args.workforceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workforceName'");
             }
-            inputs["cognitoConfig"] = args ? args.cognitoConfig : undefined;
-            inputs["oidcConfig"] = args ? args.oidcConfig : undefined;
-            inputs["sourceIpConfig"] = args ? args.sourceIpConfig : undefined;
-            inputs["workforceName"] = args ? args.workforceName : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["subdomain"] = undefined /*out*/;
+            resourceInputs["cognitoConfig"] = args ? args.cognitoConfig : undefined;
+            resourceInputs["oidcConfig"] = args ? args.oidcConfig : undefined;
+            resourceInputs["sourceIpConfig"] = args ? args.sourceIpConfig : undefined;
+            resourceInputs["workforceName"] = args ? args.workforceName : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["subdomain"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(Workforce.__pulumiType, name, inputs, opts);
+        super(Workforce.__pulumiType, name, resourceInputs, opts);
     }
 }
 

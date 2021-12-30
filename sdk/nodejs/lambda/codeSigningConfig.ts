@@ -100,32 +100,32 @@ export class CodeSigningConfig extends pulumi.CustomResource {
      */
     constructor(name: string, args: CodeSigningConfigArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: CodeSigningConfigArgs | CodeSigningConfigState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CodeSigningConfigState | undefined;
-            inputs["allowedPublishers"] = state ? state.allowedPublishers : undefined;
-            inputs["arn"] = state ? state.arn : undefined;
-            inputs["configId"] = state ? state.configId : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["lastModified"] = state ? state.lastModified : undefined;
-            inputs["policies"] = state ? state.policies : undefined;
+            resourceInputs["allowedPublishers"] = state ? state.allowedPublishers : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
+            resourceInputs["configId"] = state ? state.configId : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["lastModified"] = state ? state.lastModified : undefined;
+            resourceInputs["policies"] = state ? state.policies : undefined;
         } else {
             const args = argsOrState as CodeSigningConfigArgs | undefined;
             if ((!args || args.allowedPublishers === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'allowedPublishers'");
             }
-            inputs["allowedPublishers"] = args ? args.allowedPublishers : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["policies"] = args ? args.policies : undefined;
-            inputs["arn"] = undefined /*out*/;
-            inputs["configId"] = undefined /*out*/;
-            inputs["lastModified"] = undefined /*out*/;
+            resourceInputs["allowedPublishers"] = args ? args.allowedPublishers : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["policies"] = args ? args.policies : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["configId"] = undefined /*out*/;
+            resourceInputs["lastModified"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(CodeSigningConfig.__pulumiType, name, inputs, opts);
+        super(CodeSigningConfig.__pulumiType, name, resourceInputs, opts);
     }
 }
 

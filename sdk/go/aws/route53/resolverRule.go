@@ -242,7 +242,7 @@ type ResolverRuleInput interface {
 }
 
 func (*ResolverRule) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResolverRule)(nil))
+	return reflect.TypeOf((**ResolverRule)(nil)).Elem()
 }
 
 func (i *ResolverRule) ToResolverRuleOutput() ResolverRuleOutput {
@@ -251,35 +251,6 @@ func (i *ResolverRule) ToResolverRuleOutput() ResolverRuleOutput {
 
 func (i *ResolverRule) ToResolverRuleOutputWithContext(ctx context.Context) ResolverRuleOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ResolverRuleOutput)
-}
-
-func (i *ResolverRule) ToResolverRulePtrOutput() ResolverRulePtrOutput {
-	return i.ToResolverRulePtrOutputWithContext(context.Background())
-}
-
-func (i *ResolverRule) ToResolverRulePtrOutputWithContext(ctx context.Context) ResolverRulePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResolverRulePtrOutput)
-}
-
-type ResolverRulePtrInput interface {
-	pulumi.Input
-
-	ToResolverRulePtrOutput() ResolverRulePtrOutput
-	ToResolverRulePtrOutputWithContext(ctx context.Context) ResolverRulePtrOutput
-}
-
-type resolverRulePtrType ResolverRuleArgs
-
-func (*resolverRulePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ResolverRule)(nil))
-}
-
-func (i *resolverRulePtrType) ToResolverRulePtrOutput() ResolverRulePtrOutput {
-	return i.ToResolverRulePtrOutputWithContext(context.Background())
-}
-
-func (i *resolverRulePtrType) ToResolverRulePtrOutputWithContext(ctx context.Context) ResolverRulePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResolverRulePtrOutput)
 }
 
 // ResolverRuleArrayInput is an input type that accepts ResolverRuleArray and ResolverRuleArrayOutput values.
@@ -335,7 +306,7 @@ func (i ResolverRuleMap) ToResolverRuleMapOutputWithContext(ctx context.Context)
 type ResolverRuleOutput struct{ *pulumi.OutputState }
 
 func (ResolverRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResolverRule)(nil))
+	return reflect.TypeOf((**ResolverRule)(nil)).Elem()
 }
 
 func (o ResolverRuleOutput) ToResolverRuleOutput() ResolverRuleOutput {
@@ -346,44 +317,10 @@ func (o ResolverRuleOutput) ToResolverRuleOutputWithContext(ctx context.Context)
 	return o
 }
 
-func (o ResolverRuleOutput) ToResolverRulePtrOutput() ResolverRulePtrOutput {
-	return o.ToResolverRulePtrOutputWithContext(context.Background())
-}
-
-func (o ResolverRuleOutput) ToResolverRulePtrOutputWithContext(ctx context.Context) ResolverRulePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResolverRule) *ResolverRule {
-		return &v
-	}).(ResolverRulePtrOutput)
-}
-
-type ResolverRulePtrOutput struct{ *pulumi.OutputState }
-
-func (ResolverRulePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ResolverRule)(nil))
-}
-
-func (o ResolverRulePtrOutput) ToResolverRulePtrOutput() ResolverRulePtrOutput {
-	return o
-}
-
-func (o ResolverRulePtrOutput) ToResolverRulePtrOutputWithContext(ctx context.Context) ResolverRulePtrOutput {
-	return o
-}
-
-func (o ResolverRulePtrOutput) Elem() ResolverRuleOutput {
-	return o.ApplyT(func(v *ResolverRule) ResolverRule {
-		if v != nil {
-			return *v
-		}
-		var ret ResolverRule
-		return ret
-	}).(ResolverRuleOutput)
-}
-
 type ResolverRuleArrayOutput struct{ *pulumi.OutputState }
 
 func (ResolverRuleArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ResolverRule)(nil))
+	return reflect.TypeOf((*[]*ResolverRule)(nil)).Elem()
 }
 
 func (o ResolverRuleArrayOutput) ToResolverRuleArrayOutput() ResolverRuleArrayOutput {
@@ -395,15 +332,15 @@ func (o ResolverRuleArrayOutput) ToResolverRuleArrayOutputWithContext(ctx contex
 }
 
 func (o ResolverRuleArrayOutput) Index(i pulumi.IntInput) ResolverRuleOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ResolverRule {
-		return vs[0].([]ResolverRule)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ResolverRule {
+		return vs[0].([]*ResolverRule)[vs[1].(int)]
 	}).(ResolverRuleOutput)
 }
 
 type ResolverRuleMapOutput struct{ *pulumi.OutputState }
 
 func (ResolverRuleMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ResolverRule)(nil))
+	return reflect.TypeOf((*map[string]*ResolverRule)(nil)).Elem()
 }
 
 func (o ResolverRuleMapOutput) ToResolverRuleMapOutput() ResolverRuleMapOutput {
@@ -415,18 +352,16 @@ func (o ResolverRuleMapOutput) ToResolverRuleMapOutputWithContext(ctx context.Co
 }
 
 func (o ResolverRuleMapOutput) MapIndex(k pulumi.StringInput) ResolverRuleOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ResolverRule {
-		return vs[0].(map[string]ResolverRule)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ResolverRule {
+		return vs[0].(map[string]*ResolverRule)[vs[1].(string)]
 	}).(ResolverRuleOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ResolverRuleInput)(nil)).Elem(), &ResolverRule{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ResolverRulePtrInput)(nil)).Elem(), &ResolverRule{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResolverRuleArrayInput)(nil)).Elem(), ResolverRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResolverRuleMapInput)(nil)).Elem(), ResolverRuleMap{})
 	pulumi.RegisterOutputType(ResolverRuleOutput{})
-	pulumi.RegisterOutputType(ResolverRulePtrOutput{})
 	pulumi.RegisterOutputType(ResolverRuleArrayOutput{})
 	pulumi.RegisterOutputType(ResolverRuleMapOutput{})
 }

@@ -151,7 +151,7 @@ type ModelPackageGroupInput interface {
 }
 
 func (*ModelPackageGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*ModelPackageGroup)(nil))
+	return reflect.TypeOf((**ModelPackageGroup)(nil)).Elem()
 }
 
 func (i *ModelPackageGroup) ToModelPackageGroupOutput() ModelPackageGroupOutput {
@@ -160,35 +160,6 @@ func (i *ModelPackageGroup) ToModelPackageGroupOutput() ModelPackageGroupOutput 
 
 func (i *ModelPackageGroup) ToModelPackageGroupOutputWithContext(ctx context.Context) ModelPackageGroupOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageGroupOutput)
-}
-
-func (i *ModelPackageGroup) ToModelPackageGroupPtrOutput() ModelPackageGroupPtrOutput {
-	return i.ToModelPackageGroupPtrOutputWithContext(context.Background())
-}
-
-func (i *ModelPackageGroup) ToModelPackageGroupPtrOutputWithContext(ctx context.Context) ModelPackageGroupPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageGroupPtrOutput)
-}
-
-type ModelPackageGroupPtrInput interface {
-	pulumi.Input
-
-	ToModelPackageGroupPtrOutput() ModelPackageGroupPtrOutput
-	ToModelPackageGroupPtrOutputWithContext(ctx context.Context) ModelPackageGroupPtrOutput
-}
-
-type modelPackageGroupPtrType ModelPackageGroupArgs
-
-func (*modelPackageGroupPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ModelPackageGroup)(nil))
-}
-
-func (i *modelPackageGroupPtrType) ToModelPackageGroupPtrOutput() ModelPackageGroupPtrOutput {
-	return i.ToModelPackageGroupPtrOutputWithContext(context.Background())
-}
-
-func (i *modelPackageGroupPtrType) ToModelPackageGroupPtrOutputWithContext(ctx context.Context) ModelPackageGroupPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ModelPackageGroupPtrOutput)
 }
 
 // ModelPackageGroupArrayInput is an input type that accepts ModelPackageGroupArray and ModelPackageGroupArrayOutput values.
@@ -244,7 +215,7 @@ func (i ModelPackageGroupMap) ToModelPackageGroupMapOutputWithContext(ctx contex
 type ModelPackageGroupOutput struct{ *pulumi.OutputState }
 
 func (ModelPackageGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ModelPackageGroup)(nil))
+	return reflect.TypeOf((**ModelPackageGroup)(nil)).Elem()
 }
 
 func (o ModelPackageGroupOutput) ToModelPackageGroupOutput() ModelPackageGroupOutput {
@@ -255,44 +226,10 @@ func (o ModelPackageGroupOutput) ToModelPackageGroupOutputWithContext(ctx contex
 	return o
 }
 
-func (o ModelPackageGroupOutput) ToModelPackageGroupPtrOutput() ModelPackageGroupPtrOutput {
-	return o.ToModelPackageGroupPtrOutputWithContext(context.Background())
-}
-
-func (o ModelPackageGroupOutput) ToModelPackageGroupPtrOutputWithContext(ctx context.Context) ModelPackageGroupPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelPackageGroup) *ModelPackageGroup {
-		return &v
-	}).(ModelPackageGroupPtrOutput)
-}
-
-type ModelPackageGroupPtrOutput struct{ *pulumi.OutputState }
-
-func (ModelPackageGroupPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ModelPackageGroup)(nil))
-}
-
-func (o ModelPackageGroupPtrOutput) ToModelPackageGroupPtrOutput() ModelPackageGroupPtrOutput {
-	return o
-}
-
-func (o ModelPackageGroupPtrOutput) ToModelPackageGroupPtrOutputWithContext(ctx context.Context) ModelPackageGroupPtrOutput {
-	return o
-}
-
-func (o ModelPackageGroupPtrOutput) Elem() ModelPackageGroupOutput {
-	return o.ApplyT(func(v *ModelPackageGroup) ModelPackageGroup {
-		if v != nil {
-			return *v
-		}
-		var ret ModelPackageGroup
-		return ret
-	}).(ModelPackageGroupOutput)
-}
-
 type ModelPackageGroupArrayOutput struct{ *pulumi.OutputState }
 
 func (ModelPackageGroupArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ModelPackageGroup)(nil))
+	return reflect.TypeOf((*[]*ModelPackageGroup)(nil)).Elem()
 }
 
 func (o ModelPackageGroupArrayOutput) ToModelPackageGroupArrayOutput() ModelPackageGroupArrayOutput {
@@ -304,15 +241,15 @@ func (o ModelPackageGroupArrayOutput) ToModelPackageGroupArrayOutputWithContext(
 }
 
 func (o ModelPackageGroupArrayOutput) Index(i pulumi.IntInput) ModelPackageGroupOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ModelPackageGroup {
-		return vs[0].([]ModelPackageGroup)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ModelPackageGroup {
+		return vs[0].([]*ModelPackageGroup)[vs[1].(int)]
 	}).(ModelPackageGroupOutput)
 }
 
 type ModelPackageGroupMapOutput struct{ *pulumi.OutputState }
 
 func (ModelPackageGroupMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ModelPackageGroup)(nil))
+	return reflect.TypeOf((*map[string]*ModelPackageGroup)(nil)).Elem()
 }
 
 func (o ModelPackageGroupMapOutput) ToModelPackageGroupMapOutput() ModelPackageGroupMapOutput {
@@ -324,18 +261,16 @@ func (o ModelPackageGroupMapOutput) ToModelPackageGroupMapOutputWithContext(ctx 
 }
 
 func (o ModelPackageGroupMapOutput) MapIndex(k pulumi.StringInput) ModelPackageGroupOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ModelPackageGroup {
-		return vs[0].(map[string]ModelPackageGroup)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ModelPackageGroup {
+		return vs[0].(map[string]*ModelPackageGroup)[vs[1].(string)]
 	}).(ModelPackageGroupOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageGroupInput)(nil)).Elem(), &ModelPackageGroup{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageGroupPtrInput)(nil)).Elem(), &ModelPackageGroup{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageGroupArrayInput)(nil)).Elem(), ModelPackageGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelPackageGroupMapInput)(nil)).Elem(), ModelPackageGroupMap{})
 	pulumi.RegisterOutputType(ModelPackageGroupOutput{})
-	pulumi.RegisterOutputType(ModelPackageGroupPtrOutput{})
 	pulumi.RegisterOutputType(ModelPackageGroupArrayOutput{})
 	pulumi.RegisterOutputType(ModelPackageGroupMapOutput{})
 }

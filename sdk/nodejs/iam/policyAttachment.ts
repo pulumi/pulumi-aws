@@ -120,30 +120,30 @@ export class PolicyAttachment extends pulumi.CustomResource {
      */
     constructor(name: string, args: PolicyAttachmentArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PolicyAttachmentArgs | PolicyAttachmentState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PolicyAttachmentState | undefined;
-            inputs["groups"] = state ? state.groups : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["policyArn"] = state ? state.policyArn : undefined;
-            inputs["roles"] = state ? state.roles : undefined;
-            inputs["users"] = state ? state.users : undefined;
+            resourceInputs["groups"] = state ? state.groups : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["policyArn"] = state ? state.policyArn : undefined;
+            resourceInputs["roles"] = state ? state.roles : undefined;
+            resourceInputs["users"] = state ? state.users : undefined;
         } else {
             const args = argsOrState as PolicyAttachmentArgs | undefined;
             if ((!args || args.policyArn === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'policyArn'");
             }
-            inputs["groups"] = args ? args.groups : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["policyArn"] = args ? args.policyArn : undefined;
-            inputs["roles"] = args ? args.roles : undefined;
-            inputs["users"] = args ? args.users : undefined;
+            resourceInputs["groups"] = args ? args.groups : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["policyArn"] = args ? args.policyArn : undefined;
+            resourceInputs["roles"] = args ? args.roles : undefined;
+            resourceInputs["users"] = args ? args.users : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(PolicyAttachment.__pulumiType, name, inputs, opts);
+        super(PolicyAttachment.__pulumiType, name, resourceInputs, opts);
     }
 }
 

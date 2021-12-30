@@ -87,30 +87,30 @@ export class VaultLockConfiguration extends pulumi.CustomResource {
      */
     constructor(name: string, args: VaultLockConfigurationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VaultLockConfigurationArgs | VaultLockConfigurationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VaultLockConfigurationState | undefined;
-            inputs["backupVaultArn"] = state ? state.backupVaultArn : undefined;
-            inputs["backupVaultName"] = state ? state.backupVaultName : undefined;
-            inputs["changeableForDays"] = state ? state.changeableForDays : undefined;
-            inputs["maxRetentionDays"] = state ? state.maxRetentionDays : undefined;
-            inputs["minRetentionDays"] = state ? state.minRetentionDays : undefined;
+            resourceInputs["backupVaultArn"] = state ? state.backupVaultArn : undefined;
+            resourceInputs["backupVaultName"] = state ? state.backupVaultName : undefined;
+            resourceInputs["changeableForDays"] = state ? state.changeableForDays : undefined;
+            resourceInputs["maxRetentionDays"] = state ? state.maxRetentionDays : undefined;
+            resourceInputs["minRetentionDays"] = state ? state.minRetentionDays : undefined;
         } else {
             const args = argsOrState as VaultLockConfigurationArgs | undefined;
             if ((!args || args.backupVaultName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'backupVaultName'");
             }
-            inputs["backupVaultName"] = args ? args.backupVaultName : undefined;
-            inputs["changeableForDays"] = args ? args.changeableForDays : undefined;
-            inputs["maxRetentionDays"] = args ? args.maxRetentionDays : undefined;
-            inputs["minRetentionDays"] = args ? args.minRetentionDays : undefined;
-            inputs["backupVaultArn"] = undefined /*out*/;
+            resourceInputs["backupVaultName"] = args ? args.backupVaultName : undefined;
+            resourceInputs["changeableForDays"] = args ? args.changeableForDays : undefined;
+            resourceInputs["maxRetentionDays"] = args ? args.maxRetentionDays : undefined;
+            resourceInputs["minRetentionDays"] = args ? args.minRetentionDays : undefined;
+            resourceInputs["backupVaultArn"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
-        super(VaultLockConfiguration.__pulumiType, name, inputs, opts);
+        super(VaultLockConfiguration.__pulumiType, name, resourceInputs, opts);
     }
 }
 
