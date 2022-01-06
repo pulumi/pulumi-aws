@@ -2,10 +2,13 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Add support for db.t4g, db.m6g and db.r6g RDS instances
-* Fix an issue with importing an acm certificate and changing privateKey
+_(none)_
 
 ---
+
+## 4.33.1 (2022-01-06)
+* Add support for db.t4g, db.m6g and db.r6g RDS instances
+* Fix an issue with importing an acm certificate and changing privateKey
 
 ## 4.33.0 (2021-12-17)
 * Upgrade to v3.70.0 of the AWS Terraform Provider
